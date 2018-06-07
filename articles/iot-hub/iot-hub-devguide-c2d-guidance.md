@@ -1,24 +1,19 @@
 ---
 title: Opções de nuvem para o dispositivo IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - orientações sobre quando utilizar métodos diretos, dispositivo duplo propriedades pretendidas ou mensagens da nuvem para o dispositivo para comunicações de nuvem para o dispositivo.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634442"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da nuvem para o dispositivo
 IoT Hub fornece três opções para aplicações de dispositivos para expor a funcionalidade para uma aplicação de back-end:
@@ -37,7 +32,7 @@ Eis uma comparação detalhada das várias opções de comunicação de nuvem pa
 | Fluxo de dados | Bidirecional. A aplicação de dispositivo pode responder para o método de imediato. O solução de back-end recebe o resultado reconhecimento do contexto para o pedido. | Unidirecional. A aplicação de dispositivo recebe uma notificação com a alteração de propriedade. | Unidirecional. A aplicação de dispositivo recebe a mensagem
 | Durabilidade | Não são contactados dispositivos desligados. O solução de back-end é notificado de que o dispositivo não está ligado. | Os valores de propriedade são mantidos no dispositivo duplo. Dispositivo irão lê-lo no seguinte restabelecimento de ligação. Valores de propriedade são recuperável com o [idioma de consulta do IoT Hub][lnk-query]. | As mensagens podem ser mantidas pelo IoT Hub para até 48 horas. |
 | Destinos | Utilização de único dispositivo **deviceId**, ou em vários dispositivos com [tarefas][lnk-jobs]. | Utilização de único dispositivo **deviceId**, ou em vários dispositivos com [tarefas][lnk-jobs]. | Único dispositivo por **deviceId**. |
-| Tamanho | Até 8 KB pedidos e respostas de 8 KB. | Máximo pretendido tamanho de propriedades é de 8 KB. | Até 64 KB mensagens. |
+| Tamanho | Tamanho do payload de método direto máximo é 128 KB. | Máximo pretendido tamanho de propriedades é de 8 KB. | Até 64 KB mensagens. |
 | Frequência | Elevada. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Média. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. | Baixo. Para obter mais informações, consulte [limita do IoT Hub][lnk-quotas]. |
 | Protocolo | Disponível através de MQTT ou AMQP. | Disponível através de MQTT ou AMQP. | Disponível em todos os protocolos. Dispositivo tem de inquirir quando através de HTTPS. |
 

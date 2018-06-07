@@ -1,21 +1,21 @@
 ---
-title: "Como adicionar um conjunto de dados de referência para o seu ambiente de informações de séries de tempo do Azure"
-description: "Este artigo descreve como adicionar um conjunto de dados de referência para aumentar os dados no seu ambiente de informações de séries de tempo do Azure."
-services: time-series-insights
+title: Como adicionar um conjunto de dados de referência para o seu ambiente de informações de séries de tempo do Azure
+description: Este artigo descreve como adicionar um conjunto de dados de referência para aumentar os dados no seu ambiente de informações de séries de tempo do Azure.
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653642"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente de informações de séries de tempo no portal do Azure
 
@@ -63,7 +63,7 @@ Dados de referência não estão associados retroactively. Isto significa que ap
 
    ![Adicionar dados de referência](media/add-reference-data-set/parse_data.png)
 
-9. Reveja cada coluna para o tipo de dados, pressupõe-se de ver e alterar o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no cabeçalho da coluna:  **#**  para duplo (dados numéricos), **T | F** para boolean, ou **Abc** cadeia.
+9. Reveja cada coluna para o tipo de dados, pressupõe-se de ver e alterar o tipo de dados, se necessário.  Selecione o símbolo de tipo de dados no cabeçalho da coluna: **#** para duplo (dados numéricos), **T | F** para boolean, ou **Abc** cadeia.
 
    ![Escolha tipos de dados no cabeçalho da coluna.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -81,7 +81,7 @@ Dados de referência não estão associados retroactively. Isto significa que ap
 
    ![Selecione as colunas chaves.](media/add-reference-data-set/set_primary_key.png)
 
-   Opcionalmente, selecione o  **+**  botão para adicionar uma coluna chave secundária, como uma chave primária composta. Se precisar de anular a seleção, escolha o valor vazio na lista pendente para remover a chave secundária.
+   Opcionalmente, selecione o **+** botão para adicionar uma coluna chave secundária, como uma chave primária composta. Se precisar de anular a seleção, escolha o valor vazio na lista pendente para remover a chave secundária.
 
 15.  Para carregar os dados, selecione o **carregar linhas** botão.
 

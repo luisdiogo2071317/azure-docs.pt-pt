@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642629"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que motivo um micro-serviços abordagem de criação de aplicações?
 Como os programadores de software, não há nada de novo na forma como acreditamos sobre factoring uma aplicação em partes de componente. É o paradigma central de orientação de objeto, abstrações de software e componentization. Hoje em dia, este factorization tende a ter a forma de classes e interfaces entre camadas de tecnologia e bibliotecas partilhadas. Normalmente, é necessária uma abordagem em camadas com um arquivo de back-end, lógica de negócio de camada média e uma interface de front-end de utilizador (IU). O que *tem* alterados ao longo dos últimos anos alguns é que podemos, como os programadores, está a criar aplicações que são para a nuvem distribuídas e condicionadas pela empresa.
@@ -162,7 +163,7 @@ Uma abordagem de chave para o Service Fabric está a reutilizar o código existe
 - Redução de custo ou devido a consolidação e a remoção de aplicações existentes de hardware ou com a densidade superior. 
 - Contrato de implementação consistente entre desenvolvimento e operações.
 
-Custos reductions são compreensíveis e na Microsoft, grande número de aplicações existentes está a ser de simplesmente para guardar milhões de utilizados no compromisso. Implementação consistente é mais difícil avaliar, mas como igualmente importante. Diz que os programadores podem ainda ser livres escolher a tecnologia que conjuntos-las, no entanto, as operações aceitar apenas uma única forma de implementar e gerir estas aplicações. Reduz os quando as operações de ter de lidar com a complexidade de muitas tecnologias diferentes ou forçar os programadores de escolher apenas determinados aqueles. Essencialmente, cada aplicação é de imagens de implementação autónomo.
+Custos reductions são compreensíveis e na Microsoft, grande número de aplicações existentes está a ser de simplesmente para guardar milhões de utilizados no compromisso. Implementação consistente é mais difícil avaliar, mas como igualmente importante. Diz que os programadores podem ainda ser livres escolher a tecnologia que se adapta às mesmas, no entanto, as operações aceitar apenas uma única forma de implementar e gerir estas aplicações. Reduz os quando as operações de ter de lidar com a complexidade de muitas tecnologias diferentes ou forçar os programadores de escolher apenas determinados aqueles. Essencialmente, cada aplicação é de imagens de implementação autónomo.
 
 Muitas organizações parar aqui. Que já têm as vantagens de contentores e o Service Fabric fornece a experiência de gestão completa da implementação, atualizações, controlo de versões, reverte, etc de monitorização de estado de funcionamento.
 

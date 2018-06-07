@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4f57924bf2197c472d408edc67baf35b18ae45c2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652931"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta formas para criar uma imagem VM personalizada para instâncias na escala definido ou executam automaticamente os scripts de instalação em instâncias de VM existentes. Também irá aprender a gerir aplicações ou atualizações do SO através de um conjunto de dimensionamento.
@@ -39,6 +40,7 @@ A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure.
 
 - [CLI 2.0 do Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Modelo do Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalar uma aplicação para uma VM com o PowerShell DSC do Windows
@@ -112,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Instalar aplicações com as atualizações do SO
 Quando estiverem disponíveis novas versões de SO, pode utilizar ou criar uma nova imagem personalizada e [implementar atualizações do SO](virtual-machine-scale-sets-upgrade-scale-set.md) para uma escala definido. Cada instância VM é atualizada para a imagem mais recente que especificar. Pode utilizar uma imagem personalizada com a aplicação previamente instalada, a extensão de Script personalizado ou PowerShell DSC ter a sua aplicação automaticamente disponível como efetuar a atualização. Terá de planear para manutenção de aplicação, como efetuar este processo para se certificar de que não existem nenhuma versão de problemas de compatibilidade.
 
-Se utilizar uma imagem VM personalizada com a aplicação previamente instalada, pode integrar as atualizações de aplicação com um pipeline de implementação para as novas imagens de criar e implementar atualizações do SO entre o conjunto de dimensionamento. Esta abordagem permite que o pipeline recolher as compilações de aplicação mais recentes, criar e validar uma imagem de VM, em seguida, atualizar as instâncias de VM no conjunto de dimensionamento. Para executar um pipeline de implementação que cria e implementa atualizações de aplicações nas imagens VM personalizadas, pode utilizar [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/), ou [Jenkins](https://jenkins.io/) .
+Se utilizar uma imagem VM personalizada com a aplicação previamente instalada, pode integrar as atualizações de aplicação com um pipeline de implementação para as novas imagens de criar e implementar atualizações do SO entre o conjunto de dimensionamento. Esta abordagem permite que o pipeline recolher as compilações de aplicação mais recentes, criar e validar uma imagem de VM, em seguida, atualizar as instâncias de VM no conjunto de dimensionamento. Para executar um pipeline de implementação que cria e implementa atualizações de aplicações nas imagens VM personalizadas, foi [criar uma imagem de Packer e implementar com o Visual Studio Team Services) [/ vsts/pipelines/aplicações/cd/azure/implementar-azure-scaleset], ou utilizar outra plataforma tal como [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

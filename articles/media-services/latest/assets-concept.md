@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 76ed74f2df62d478b83e109a492977ec2d580198
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 791871fc3da98b380da9dbe32333a55f670c22e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638284"
 ---
 # <a name="assets"></a>Elementos
 
@@ -36,7 +37,7 @@ A tabela seguinte apresenta as propriedades do elemento e fornece as respetivas 
 |Nome|Tipo|Descrição|
 |---|---|---|
 |Id|cadeia|ID de recurso completamente qualificado para o recurso.|
-|nome|cadeia|O nome do recurso.|
+|name|cadeia|O nome do recurso.|
 |properties.alternateId |cadeia|O ID alternativo do elemento.|
 |properties.assetId |cadeia|O ID de recurso.|
 |Properties.Container |cadeia|O nome do contentor do blob de recurso.|
@@ -49,7 +50,7 @@ A tabela seguinte apresenta as propriedades do elemento e fornece as respetivas 
 
 Para a definição completa, consulte [ativos](https://docs.microsoft.com/rest/api/media/assets).
 
-## <a name="filtering-ordering-and-paging-support"></a>Filtragem, ordenação e paginação suporte
+## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
 
 Os Media Services suportam as seguintes opções de consulta de OData para ativos: 
 
@@ -64,12 +65,12 @@ A tabela seguinte mostra como estas opções podem ser aplicadas para as proprie
 
 |Nome|Filtro|Ordem|
 |---|---|---|
-|Id|Suporta:<br/>É igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
-|nome|||
-|properties.alternateId |Suporta:<br/>É igual a||
-|properties.assetId |Suporta:<br/>É igual a||
+|Id|Suporta:<br/>Igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
+|name|||
+|properties.alternateId |Suporta:<br/>Igual a||
+|properties.assetId |Suporta:<br/>Igual a||
 |Properties.Container |||
-|Properties.created|Suporta:<br/>É igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
+|Properties.created|Suporta:<br/>Igual a<br/>Mais do que<br/>Inferior a|Suporta:<br/>Ascendente<br/>Descendente|
 |Properties.Description |||
 |properties.lastModified |||
 |properties.storageAccountName |||

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652877"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual com Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -74,7 +75,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Demora alguns minutos para criar a VM e os recursos de suporte.
+São necessários alguns minutos para criar a VM e os recursos de suporte.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar o início de sessão do Azure AD extensão da VM
 
@@ -111,6 +112,9 @@ az role assignment create \
     --assignee $username \
     --scope $vm
 ```
+
+> [!NOTE]
+> Se o domínio do AAD e o domínio de nome de utilizador de início de sessão não corresponderem, tem de especificar o ID de objeto da sua conta de utilizador com o *– id de objeto assignee*, não apenas o nome de utilizador *– assignee*. Pode obter o ID de objeto para a sua conta de utilizador com [lista de utilizadores do ad az](/cli/azure/ad/user#az-ad-user-list).
 
 Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos recursos da sua subscrição do Azure, consulte utilizar o [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [portal do Azure](../../role-based-access-control/role-assignments-portal.md), ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

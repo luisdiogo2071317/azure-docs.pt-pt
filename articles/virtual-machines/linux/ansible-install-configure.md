@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652996"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalar e configurar Ansible para gerir máquinas virtuais no Azure
 
@@ -149,7 +150,7 @@ Mover para [credenciais do Azure crie](#create-azure-credentials).
 
 Ansible comunica com o Azure com um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização como Ansible. Controlar e definir as permissões para as operações que pode efetuar o principal de serviço no Azure. Para melhorar a segurança ao longo de apenas a fornecer um nome de utilizador e palavra-passe, este exemplo cria um serviço básico principal.
 
-No computador anfitrião ou na Shell de nuvem do Azure, criar um principal de serviço através de [az ad sp criar-para-rbac](/cli/azure/ad/sp#create-for-rbac). As credenciais que necessita de Ansible são enviadas para o ecrã:
+No computador anfitrião ou na Shell de nuvem do Azure, criar um principal de serviço através de [az ad sp criar-para-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). As credenciais que necessita de Ansible são enviadas para o ecrã:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -165,7 +166,7 @@ Segue-se um exemplo de saída a partir dos comandos do anteriores:
 }
 ```
 
-Para autenticar para o Azure, também terá de obter o seu ID de subscrição do Azure utilizando [mostrar de conta az](/cli/azure/account#az_account_show):
+Para autenticar para o Azure, também terá de obter o seu ID de subscrição do Azure utilizando [mostrar de conta az](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

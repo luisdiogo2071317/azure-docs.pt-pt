@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: a4a7c59e93b860245d67695de90fbae2becac3e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639780"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>Acesso Media Services do Azure API com a CLI 2.0
  
@@ -35,7 +36,7 @@ Criar uma nova conta de Media Services do Azure, conforme descrito em [este guia
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](http://portal.azure.com) e iniciar **CloudShell** para executar comandos da CLI, conforme mostrado nos passos.
+Inicie sessão no [portal do Azure](http://portal.azure.com) e inicie o **CloudShell** para executar os comandos da CLI, conforme mostrado nos passos seguintes.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -46,4 +47,8 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Um ficheiro de fluxo](stream-files-dotnet-quickstart.md)
+> [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>Consulte também
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

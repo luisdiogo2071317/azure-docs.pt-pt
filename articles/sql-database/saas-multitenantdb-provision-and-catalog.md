@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: cb0229731d8fd1495173915b3bc95b48538f1e85
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 42f4aff50a5e3b89ee58f59c0db87f6a174e9be2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645968"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionar e catálogo novos inquilinos numa aplicação SaaS utilizando uma base de dados de SQL do Azure em partição horizontal do multi-inquilino
 
@@ -159,7 +160,7 @@ Para compreender a forma como a aplicação de Wingtip implementa novo inquilino
    - **$VenueType** = **blues**, um dos tipos venue predefinidos: blues classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (em minúsculas, sem espaços).
    - **$DemoScenario** = **1**, para aprovisionar um inquilino na base de dados partilhada com outros inquilinos.
 
-2. Adicionar um ponto de interrupção, colocando o cursor em qualquer lugar na linha 38, a linha que diz: *inquilino novo '*e, em seguida, prima **F9**.
+2. Adicionar um ponto de interrupção, colocando o cursor em qualquer lugar na linha 38, a linha que diz: *inquilino novo '* e, em seguida, prima **F9**.
 
    ![ponto de interrupção](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -199,7 +200,7 @@ Agora guiá-lo durante o processo de script ao criar um inquilino na sua própri
    - **$VenueType** = **soccer**, um dos tipos venue predefinidos: blues classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (minúsculas, sem espaços).
    - **$DemoScenario** = **2**, para aprovisionar um inquilino na sua própria base de dados.
 
-2. Adicionar um novo ponto de interrupção, colocando o cursor em qualquer lugar na linha 57, a linha que diz:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*e prima **F9**.
+2. Adicionar um novo ponto de interrupção, colocando o cursor em qualquer lugar na linha 57, a linha que diz:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '* e prima **F9**.
 
    ![ponto de interrupção](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 

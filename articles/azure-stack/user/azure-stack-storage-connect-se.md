@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714906"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Ligar o Explorador de armazenamento para uma subscrição do Azure pilha ou uma conta de armazenamento
 
@@ -25,8 +26,8 @@ ms.lasthandoff: 05/16/2018
 
 Neste artigo, irá aprender como ligar às suas contas de armazenamento utilizando o Explorador de armazenamento e subscrições de pilha do Azure. Explorador de armazenamento do Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento de pilha do Azure no Windows, macOS e Linux.
 
->[!NOTE]
->Existem várias ferramentas disponíveis para mover dados para e do armazenamento de pilha do Azure. Para obter mais informações, consulte [ferramentas para armazenamento de Azure pilha de transferência de dados](azure-stack-storage-transfer.md).
+> [!NOTE]  
+> Existem várias ferramentas disponíveis para mover dados para e do armazenamento de pilha do Azure. Para obter mais informações, consulte [ferramentas para armazenamento de Azure pilha de transferência de dados](azure-stack-storage-transfer.md).
 
 Se ainda não instalou o Explorador de armazenamento ainda, [transferir Explorador de armazenamento](http://www.storageexplorer.com/) e instalá-la.
 
@@ -60,7 +61,7 @@ Para o Kit de desenvolvimento de pilha do Azure, terá de exportar o certificado
 
     ![Importar o certificado para o Explorador de armazenamento](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Depois de reiniciar o Explorador de armazenamento, selecione o **editar** menu e verifique se **pilha do Azure de destino** está selecionada. Se não estiver, selecione **pilha do Azure de destino**e, em seguida, reinicie o Explorador de armazenamento para que a alteração surta efeito. Esta configuração é necessária para ser compatível com o seu ambiente do Azure Stack.
+7. Depois de reinicia o Explorador de armazenamento, selecione o **editar** menu e verifique se **pilha do Azure de destino** está selecionada. Se não estiver, selecione **pilha do Azure de destino**e, em seguida, reinicie o Explorador de armazenamento para que a alteração surta efeito. Esta configuração é necessária para ser compatível com o seu ambiente do Azure Stack.
 
     ![Certifique-se de que o Azure Stack de destino está selecionado](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -75,7 +76,7 @@ Utilize os seguintes passos para ligar o Explorador de armazenamento para uma su
 
     ![Adicionar uma conta do Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Na ligar à caixa de diálogo de armazenamento do Azure, em **ambiente do Azure**, selecione **Azure** ou **Azure China**, consoante a conta de pilha do Azure que estiver a utilizar. Selecione **sessão** para iniciar sessão na conta de pilha do Azure que está associada a pelo menos uma subscrição de pilha do Azure Active Directory.
+3. Na ligar à caixa de diálogo de armazenamento do Azure, em **ambiente do Azure**, selecione **Azure** ou **Azure China**, que depende da conta de pilha do Azure que está a ser utilizada, selecione **Sessão** para iniciar sessão com a conta de pilha do Azure associada a pelo menos uma subscrição de pilha do Azure Active Directory.
 
     ![Ligar ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -115,5 +116,5 @@ Também pode ligar a uma conta de armazenamento de pilha do Azure utilizando o n
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Explorador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Armazenamento do Azure da pilha: diferenças e as considerações](azure-stack-acs-differences.md)
-* Para saber mais sobre o Storage do Azure, consulte [introdução ao Storage do Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Armazenamento do Azure de pilha: diferenças e considerações](azure-stack-acs-differences.md)
+* Para saber mais sobre o storage do Azure, consulte [introdução ao storage do Microsoft Azure](../../storage/common/storage-introduction.md)

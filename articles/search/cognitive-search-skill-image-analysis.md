@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 271f3231078b8842b040509ccf0406ed2415e5ec
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640511"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Imagem skill cognitivos Analysis Services
 
@@ -248,4 +249,4 @@ Nos seguintes casos de erro, não existem elementos são extraídos.
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar indexador (REST)](ref-create-indexer.md)
++ [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

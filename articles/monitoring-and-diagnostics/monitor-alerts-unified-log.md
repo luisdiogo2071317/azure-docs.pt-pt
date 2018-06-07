@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638726"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Registo de alertas no Monitor do Azure - alertas 
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas suportados no novo [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem plataforma de análise do Azure como base para alertas... Para obter detalhes de alertas de métrica utilizando os registos, consulte [quase em Tempo Real métrica alertas](monitoring-near-real-time-metric-alerts.md)
@@ -35,7 +36,7 @@ Procurar regras de registo são definidas pelos seguintes detalhes:
 - **Inicie sessão consulta**.  A consulta que é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se é criado um alerta. *Azure Application Insights* consulta também pode incluir [chamadas entre aplicações](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), desde que o utilizador tem direitos de acesso as aplicações externas. 
 
     > [!IMPORTANT]
-    > Suppport de [cruzada consulta de aplicação para o Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está em pré-visualize - a funcionalidade e a experiência de utilizador está sujeita a alterações. Utilização de [cruzada área de trabalho consulta](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [entre recursos consulta de análise de registos](../log-analytics/log-analytics-cross-workspace-search.md) está atualmente **não suportado** nos alertas do Azure.
+    > Suppport de [cruzada consulta de aplicação para o Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) está em pré-visualização - a funcionalidade limitada para utilizar com 2 ou mais aplicações e experiência de utilizador está sujeita a alterações. Utilização de [cruzada área de trabalho consulta](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [entre recursos consulta de análise de registos](../log-analytics/log-analytics-cross-workspace-search.md) está atualmente **não suportado** nos alertas do Azure.
 
 - **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo da hora atual. Período de tempo restringe os dados alcançados para a consulta de registo impedir que abuso e evita a qualquer comando de tempo (como há) utilizado numa consulta do registo. <br>*Por exemplo, se o período de tempo é definido como 60 minutos e a consulta é executada em 1:15 PM, apenas os registos criados entre 12:15 PM e 1:15 PM é devolvido para executar a consulta de registo. Agora, se a consulta de registo utiliza a hora de comando como há (7d), a registo seria possível executar a consulta apenas para dados entre 12:15 PM e 1:15 PM - como se existem dados para apenas os últimos 60 minutos. E não para dados conforme especificado na consulta de registo de sete dias.*
 - **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor do que o período de tempo.  Se o valor é maior do que o período de tempo, em seguida, o risco de registos que está a ser omitidos.<br>*Por exemplo, considere um período de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta é executada em 1:00, devolve registos entre 12:30 e 1:00 PM.  Da próxima vez que executar a consulta é 2:00 quando devolvam registos entre 1:30 e 2:00.  Nunca deverá ser avaliados de quaisquer registos criados entre 1:00 e 1:30.*
@@ -125,7 +126,7 @@ APIs fornecido para o registo de alertas são RESTful e podem ser acedidos atrav
 
 Para obter detalhes, bem como exemplos sobre como utilizar a REST API, consulte:
 - [API de REST de alerta de análise de registo](../log-analytics/log-analytics-api-alerts.md) - para criar e gerir regras de alerta de pesquisa de registo para análise de registos do Azure
-- [Azure Monitor agendada consulta regras de API REST](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - para criar e gerir regras de alerta de pesquisa de registo para o Azure Application Insights
+- [Azure Monitor agendada consulta regras de API REST](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - para criar e gerir regras de alerta de pesquisa de registo para o Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 Os utilizadores também podem utilizar a flexibilidade fornecida pelo [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para criar e atualizar recursos - para criar ou atualizar os alertas de registo.

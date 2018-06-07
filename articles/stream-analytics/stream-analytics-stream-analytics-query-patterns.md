@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652251"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de padrões de utilização comuns do Stream Analytics de consulta
 
@@ -117,7 +118,7 @@ Por exemplo, forneça uma descrição de cadeia para tornar o número de carros 
         Make,
         TumblingWindow(second, 10)
 
-**EXPLICAÇÃO**: O **caso** cláusula permite-nos fornecer um cálculo diferentes, com base em algumas critérios (no nosso caso, o número de carros na janela do agregado).
+**EXPLICAÇÃO**: O **caso** expressão compara uma expressão a um conjunto de expressões simples para determinar o resultado. Neste exemplo, vehicle torna-se com uma contagem de 1 devolveu uma descrição de cadeia diferente vehicle torna-se com um número diferente de 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Exemplo de consulta: enviar dados para várias saídas
 **Descrição**: enviar dados para a vários destinos de saída de uma única tarefa.
@@ -173,7 +174,7 @@ Por exemplo, analisar os dados para um alerta baseadas em limiares e arquivar to
         [Count] >= 3
 
 **EXPLICAÇÃO**: O **INTO** cláusula informa o Stream Analytics que as saídas ao escrever os dados a partir esta instrução.
-A primeira consulta é um pass-through dos dados recebemos para uma saída que são denominados **ArchiveOutput**.
+A primeira consulta é um pass-through dos dados recebidos com o nome de uma saída **ArchiveOutput**.
 A consulta segundo efetua algumas agregação simple e filtragem e -envia os resultados para um sistema de alerta a jusante.
 
 Tenha em atenção que também pode reutilizar os resultados das expressões de tabela comuns (ctes recursivos) (tal como **WITH** instruções) em várias instruções de saída. Esta opção tem o benefício adicional de abertura menos leitores para a origem de entrada.
@@ -396,7 +397,7 @@ Por exemplo, 2 carros consecutivos de disponibilizar a mesma introduzido viagem 
 | Utilizador | Funcionalidade | Evento | Hora |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Fim |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Terminar |2015-01-01T00:00:08.0000000Z |
 
 **Saída**:  
 
@@ -418,7 +419,7 @@ Por exemplo, 2 carros consecutivos de disponibilizar a mesma introduzido viagem 
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Exemplo de consulta: detetar a duração de uma condição
 **Descrição**: localizar fora quanto Ocorreu uma condição.
-Por exemplo, suponha que um erro resultou em todos os carros ter uma ponderação incorreta (acima pounds 20.000). Queremos de computação durante o erros.
+Por exemplo, suponha que um erro resultou em todos os carros ter uma ponderação incorreta (acima pounds 20.000) e a duração desse erros tem de ser calculada.
 
 **Entrada**:
 
@@ -506,8 +507,8 @@ Por exemplo, gere um evento a cada cinco segundos que o ponto de dados mais rece
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemplo de consulta: correlacionar dois tipos de evento dentro da mesma transmissão em fluxo
-**Descrição**:, por vezes, é necessário para gerar alertas com base em vários tipos de eventos que ocorreram num determinado intervalo de tempo.
-Por exemplo, num cenário de IoT para ovens inicial, queremos de emitir um alerta quando a temperatura ventoinha é inferior a 40 e energética máxima durante os últimos 3 minutos era inferior a 10.
+**Descrição**:, por vezes, alertas têm de ser gerada com base em vários tipos de eventos que ocorreram num determinado intervalo de tempo.
+Por exemplo, num cenário de IoT para ovens inicial, deve ser gerado um alerta quando a temperatura ventoinha é inferior a 40 e a capacidade máxima durante os últimos 3 minutos é inferior a 10.
 
 **Entrada**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **EXPLICAÇÃO**: A primeira consulta `max_power_during_last_3_mins`, utiliza o [deslizantes janela](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para determinar o valor máximo do sensor de energia para cada dispositivo, durante os últimos 3 minutos. A consulta segundo é associada à primeira consulta para encontrar o valor de energia na janela da mais recente relevantes para o evento atual. E, em seguida, desde que as condições são cumpridas, é gerado um alerta para o dispositivo.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemplo de consulta: a processar eventos independentemente do dispositivo desfasamento de relógio (substreams)
+**Descrição**: podem chegam novos eventos tarde ou fora de ordem devido a relógio skews entre produtores de evento, relógio skews entre partições ou de latência de rede. No exemplo seguinte, o relógio do dispositivo para TollID 2 é dez segundos protegido por TollID 1 e o relógio do dispositivo para TollID 3 está cinco segundos protegido por TollID 1. 
+
+
+**Entrada**:
+| LicensePlate | Certifique- | Hora | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Saída**:
+| TollID | Contagem |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Solução**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**EXPLICAÇÃO**: O [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) cláusula observa cada dispositivo a linha cronológica separadamente utilizando substreams. Os eventos de saída para cada TollID são gerados como que são calculados, que significa que os eventos estão na ordem relativamente a cada TollID em vez de ser reordenados como se todos os dispositivos foram no relógio do mesmo.
 
 
 ## <a name="get-help"></a>Obter ajuda

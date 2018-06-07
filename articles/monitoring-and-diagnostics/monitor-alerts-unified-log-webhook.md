@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638675"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -32,7 +33,7 @@ As ações de Webhook requerem as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| URL do Webhook |O URL do webhook. |
+| URL de webhook |O URL do webhook. |
 | Payload JSON personalizado |Payload personalizado para enviar com o webhook, quando esta opção é escolhida durante a criação do alerta. Detalhes disponíveis em [gerir alertas através de alertas do Azure ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
@@ -47,11 +48,11 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | Gravidade |#severity |Gravidade definida para o alerta de registo desencadeou. |
 | AlertThresholdOperator |#thresholdoperator |Operador de limiar para a regra de alerta.  *Maior* ou *menor*. |
 | AlertThresholdValue |#thresholdvalue |Valor de limiar para a regra de alerta. |
-| LinkToSearchResults |#linktosearchresults |Ligar a pesquisa de registo de análise de registos que devolve os registos da consulta que criou o alerta. |
+| LinkToSearchResults |#linktosearchresults |Ligue ao portal da análise que devolve os registos da consulta que criou o alerta. |
 | O parâmetro ResultCount |#searchresultcount |Número de registos nos resultados da pesquisa. |
-| Hora de fim do intervalo de pesquisa |#searchintervalendtimeutc |Hora de fim para a consulta em formato UTC. |
-| Intervalo de pesquisa |#searchinterval |Janela de tempo para a regra de alerta. |
-| StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em formato UTC. 
+| Hora de fim do intervalo de pesquisa |#searchintervalendtimeutc |Hora de fim da consulta em UTC, formatar - mm/dd/aaaa hh: mm: ss AM/PM. |
+| Intervalo de pesquisa |#searchinterval |Regra de janela de tempo para o alerta, formato - hh: mm:. |
+| StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, formatar - mm/dd/aaaa hh: mm: ss AM/PM.. 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": VERDADEIRO|Registos devolvidos pela consulta como uma tabela de JSON, limitado para os primeiro 1000 registos; Se "IncludeSearchResults": true foi adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
 | WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
@@ -74,6 +75,7 @@ Este payload de exemplo seria resolver algo semelhante ao seguinte quando enviad
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Dado que tem todas as variáveis num webhook personalizado especificado no bastidor JSON como "#searchinterval", o webhook resultante também terão os dados da variável no interior de inclusão, como "00: 05:00".
 
 Para incluir os resultados da pesquisa no payload personalizado, certifique-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no json payload. 
 

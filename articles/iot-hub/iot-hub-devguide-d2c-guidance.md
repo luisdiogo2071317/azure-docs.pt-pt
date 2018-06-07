@@ -1,24 +1,19 @@
 ---
 title: Opções de dispositivo para a nuvem do IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - orientações sobre quando utilizar mensagens do dispositivo para nuvem, propriedades comunicadas ou carregamento do ficheiro para comunicações de nuvem para o dispositivo.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a1881b74ba3f4f66e9e47b24d2ee8c8c17c5f05d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634221"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientações de comunicações do dispositivo-nuvem
 Quando o envio de informações da aplicação de dispositivo para a solução de back-end, o IoT Hub expõe três opções:

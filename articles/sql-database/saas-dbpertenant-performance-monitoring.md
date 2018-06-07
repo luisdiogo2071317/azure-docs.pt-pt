@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644611"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e agrupamentos numa aplicação SaaS multi-inquilino
 
@@ -128,7 +129,7 @@ Definir um alerta no conjunto que aciona no \>75% de utilização da seguinte fo
 1. Defina os seguintes valores:
    * **Métrica = percentagem de eDTU**
    * **Condição = superior a**
-   * **Threshold = 75**
+   * **Limiar = 75**
    * **Período = nos últimos 30 minutos**
 1. Adicione um endereço de e-mail para o *administrador adicionais email(s)* caixa e clique em **OK**.
 

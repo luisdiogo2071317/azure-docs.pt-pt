@@ -10,11 +10,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9f0cc6ee06042948442aace05d56fcffa3742a8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b4fed559b6364149170dc8b1da421c9c3ee1203c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635768"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Cofre de chaves para a sua aplicação web utilizando o Visual Studio ligado Services
 
@@ -25,7 +26,7 @@ Para obter detalhes sobre as alterações que serviços ligados torna no seu pro
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versão 15.7** com o **desenvolvimento de Web** instalada da carga de trabalho. [Transferi-la agora](https://aka.ms/vsdownload).
+- **Visual Studio 2017 versão 15.7** com o **desenvolvimento de Web** instalada da carga de trabalho. [Transferi-la agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - Para o ASP.NET (e não núcleo), terá das ferramentas de desenvolvimento do .NET Framework 4.7.1, que não estão instaladas por predefinição. Para instalá-los, inicie o instalador do Studio Visual, escolha **modificar**e, em seguida, escolha **componentes individuais**, em seguida, no lado direito, expanda **ASP.NET e web desenvolvimento**e escolha **ferramentas de desenvolvimento do .NET Framework 4.7.1**.
 - Um projeto web de ASP.NET Core 2.0 aberto ou ASP.NET 4.7.1.
 

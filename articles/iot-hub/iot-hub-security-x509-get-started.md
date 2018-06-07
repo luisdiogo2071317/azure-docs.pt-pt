@@ -1,23 +1,19 @@
 ---
-title: "Tutorial de segurança de x. 509 no IoT Hub do Azure | Microsoft Docs"
-description: "Introdução da segurança de x. 509 com base no seu hub IoT do Azure num ambiente simulado."
-services: iot-hub
-documentationcenter: 
+title: Tutorial de segurança de x. 509 no IoT Hub do Azure | Microsoft Docs
+description: Introdução da segurança de x. 509 com base no seu hub IoT do Azure num ambiente simulado.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635581"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Como configurar a segurança de x. 509 do seu hub IoT do Azure
 
@@ -67,7 +63,7 @@ Estes passos mostram como adicionar uma nova autoridade de certificação ao seu
  
 9. Carregue a assinatura resultante do passo 8 acima ao seu IoT hub no portal. No **detalhes do certificado** painel no portal do Azure, navegue para o **ficheiro. pem ou. cer de certificado de verificação**e selecione a assinatura, por exemplo, *VerifyCert4.cer*criados utilizando o exemplo do PowerShell comando o _Explorador de ficheiros_ ícone para além do mesmo.
 
-10. Depois do certificado é carregado com êxito, clique em **verifique**. O **estado** das alterações de certificado para  **_Verified_**  no **certificados** painel. Clique em **atualizar** se não atualizar automaticamente.
+10. Depois do certificado é carregado com êxito, clique em **verifique**. O **estado** das alterações de certificado para **_Verified_** no **certificados** painel. Clique em **atualizar** se não atualizar automaticamente.
 
    ![Carregar a verificação de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
@@ -80,7 +76,7 @@ Estes passos mostram como adicionar uma nova autoridade de certificação ao seu
 
 2. Clique em **adicionar** para adicionar um novo dispositivo. 
 
-3. Dê um nome a apresentar amigável para o **ID de dispositivo**e selecione  **_x. 509 AC assinado_**  como o **tipo de autenticação**. Clique em **Guardar**.
+3. Dê um nome a apresentar amigável para o **ID de dispositivo**e selecione **_x. 509 AC assinado_** como o **tipo de autenticação**. Clique em **Guardar**.
 
    ![Criar dispositivo x. 509 no portal](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -170,7 +166,7 @@ Em seguida, vamos mostrar como criar uma aplicação c# para simular o dispositi
 7. Uma vez que acede a esta aplicação uma *. pfx* ficheiros, terá de executar este no *Admin* modo. Compilar a solução do Visual Studio. Abra uma nova janela de comandos como um **administrador**e navegue para a pasta que contém esta solução. Navegue para o *bin/depuração* caminho dentro da pasta de solução. Executar a aplicação **SimulateX509Device.exe** do _Admin_ janela de comandos. Deverá ver o seu dispositivo com êxito a ligação ao hub e o envio de eventos. 
    ![Executar a aplicação de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para obter mais informações sobre como proteger a sua solução de IoT, consulte:
 
 * [Práticas recomendadas de segurança de IoT][lnk-security-best-practices]
@@ -179,7 +175,7 @@ Para obter mais informações sobre como proteger a sua solução de IoT, consul
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

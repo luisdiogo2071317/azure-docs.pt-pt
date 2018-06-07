@@ -5,16 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34677364"
 ---
-**Documente última atualização**: 3 de Abril, 3:00 PM PST.
+**Documente última atualização**: 21 de Maio de 2018 3:00 PM PST.
 
 A divulgação recente de um [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecido como ataques de canal de lado de execução speculative resultou no questões a partir de clientes de pesquisa mais efeitos de clareza.  
 
@@ -23,6 +24,8 @@ Microsoft implementou mitigações em todos os nossos serviços de nuvem. A infr
 Além disso, está a expandir a utilização do Azure [memória preservam manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) sempre que possível, colocar em pausa a VM para até 30 segundos enquanto o anfitrião é atualizado ou a VM é movido para um anfitrião já atualizado.  Memória preservam manutenção mais minimiza o impacto de cliente e elimina a necessidade de reinícios.  Azure irá utilizar estes métodos quando efetuar atualizações em todo o sistema para o anfitrião.
 
 > [!NOTE] 
+No dia 21 de Maio de 2018, Zero de projeto Google e a Microsoft anunciou uma nova subclasse de vulnerabilidade de canal do lado de execução speculative conhecida como Speculative omissão de arquivo. Defesa adicional em mitigações de profundidade que foram implementadas em toda a infraestrutura de nuvem da Microsoft que diretamente abordar vulnerabilidades de execução speculative. Estão disponíveis mais informações: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
+>
 > No enlace tardio de Fevereiro de 2018 Intel Corporation publicados atualizado [orientações de revisão Microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) no estado dos respetivos versões microcode, que melhorar estabilidade e mitigar contra as vulnerabilidades recentes das divulgados por [Projeto Google Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações colocar no local pelo Azure em [3 de Janeiro de 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetados pela atualização de microcode da Intel. Microsoft colocar já mitigações seguras no local para proteger os clientes do Azure a partir de outras máquinas virtuais do Azure.  
 >
 > Microcode da Intel endereços variante 2 Spectre ([Exposures-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) ou injeção de destino da sucursal) para proteger contra ataques que apenas seriam aplicável onde executar cargas de trabalho partilhadas ou não fidedignas dentro as suas VMs no Azure. A nossa engenheiros estiver a testar a estabilidade para minimizar os impactos no desempenho de microcode, antes de efetuar disponível para clientes do Azure.  Como os clientes muito poucos executam cargas de trabalho não fidedignas nas respetivas VMs, maioria dos clientes não terá de ativar esta capacidade, uma vez lançada. 
@@ -48,7 +51,7 @@ Nas ofertas de seguintes, eis nosso ações recomendadas para atualizar o sistem
 <td>Cloud Services do Azure </td>  <td>Permitir atualização automática ou certifique-se de que está a executar o SO convidado mais recentes.</td>
 </tr>
 <tr>
-<td>Máquinas virtuais do Linux do Azure</td> <td>Instale atualizações através do seu fornecedor de sistema operativo, quando disponível. </td>
+<td>Máquinas Virtuais do Azure para Linux</td> <td>Instale atualizações através do seu fornecedor de sistema operativo, quando disponível. </td>
 </tr>
 <tr>
 <td>Máquinas virtuais do Azure Windows </td> <td>Certifique-se de que está a executar uma aplicação antivírus suportada antes de instalar atualizações do SO. Contacte o fabricante de software antivírus de informações de compatibilidade.<p> Instalar o [agregação de segurança de Janeiro](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>

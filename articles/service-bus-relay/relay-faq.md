@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641497"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas mais frequentes do reencaminhamento do Azure
 
-Este artigo responde a algumas perguntas mais frequentes (FAQ) sobre [Azure reencaminhamento](https://azure.microsoft.com/services/service-bus/). Para o Azure preços e suporte informações gerais, consulte [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/en-in/support/faq/).
+Este artigo responde a algumas perguntas mais frequentes (FAQ) sobre [Azure reencaminhamento](https://azure.microsoft.com/services/service-bus/). Para o Azure preços e suporte informações gerais, consulte o [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
@@ -35,7 +36,7 @@ A [espaço de nomes](relay-create-namespace-portal.md) é um contentor de âmbit
 O serviço de reencaminhamento de barramento de serviço anteriormente denominado chama-se agora [reencaminhamento WCF](relay-wcf-dotnet-get-started.md). Pode continuar a utilizar este serviço como habitualmente. A funcionalidade de ligações híbridas é uma versão atualizada de um serviço que é foi transplanted dos BizTalk Services do Azure. Reencaminhamento de WCF e as ligações híbridas continuam a ser suportada.
 
 ## <a name="pricing"></a>Preços
-Esta secção responde a algumas perguntas mais frequentes sobre o reencaminhamento do preço de estrutura. Também pode ver [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para o Azure geral obter informações sobre preços. Para obter informações completas sobre os preços de reencaminhamento, consulte [detalhes de preços do Service Bus][Pricing overview].
+Esta secção responde a algumas perguntas mais frequentes sobre o reencaminhamento do preço de estrutura. Também pode ver o [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/) para o Azure geral obter informações sobre preços. Para obter informações completas sobre os preços de reencaminhamento, consulte [detalhes de preços do Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como é cobram para as ligações híbridas e reencaminhamento de WCF
 Para obter informações completas sobre os preços de reencaminhamento, consulte o [ligações híbridas e WCF reencaminhamentos] [ Pricing overview] tabela no barramento de serviço a página de detalhes de preços. Para além de que os anotou nessa página preços, são-lhe cobrados para transferências de dados associados de saída fora do datacenter no qual a aplicação está aprovisionada.
@@ -81,8 +82,8 @@ Reencaminhamentos abertos utilizando o **netTCPRelay** enlace WCF tratar mensage
 | Serviços de escuta em simultâneo num reencaminhamento |Entidade |Os pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código da chamada. |25 |
 | Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de Nomes |- |5.000 |
 | Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de Nomes |- |10,000 |
-| Tamanho da mensagem [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) reencaminha |Espaço de Nomes |Mensagens a receber que excedem destas quotas são rejeitadas e uma exceção é recebida pelo código da chamada. |64 KB |
-| Tamanho da mensagem [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) reencaminha |Espaço de Nomes |Sem limite no tamanho da mensagem. |Ilimitado |
+| Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) reencaminha |Espaço de Nomes |Mensagens a receber que excedem destas quotas são rejeitadas e uma exceção é recebida pelo código da chamada. |64 KB |
+| Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) reencaminha |Espaço de Nomes |Sem limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>A reencaminhamento tem quaisquer quotas de utilização?
 Por predefinição, a qualquer serviço de nuvem, o Microsoft define uma quota de utilização mensal agregado que é calculado em todas as subscrições de um cliente. Compreendemos que por vezes às suas necessidades poderão exceder estes limites. Pode contactar o serviço de cliente em qualquer altura, para que possa compreender as suas necessidades e ajustar estes limites adequadamente. As quotas de utilização de agregação para o Service Bus, são os seguintes:
@@ -108,7 +109,7 @@ Para utilizar o portal do Azure para migrar espaços de nomes de reencaminhament
 
 Para utilizar o PowerShell para mover um espaço de nomes de uma subscrição do Azure para outra subscrição, utilize a seguinte sequência de comandos. Para executar esta operação, o espaço de nomes já deve estar Active Directory e o utilizador a executar os comandos do PowerShell tem de ser um utilizador de administrador em subscrições de origem e de destino.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Sim. O cliente de reencaminhamento efetua as ligações ao serviço de reencamin
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

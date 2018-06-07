@@ -1,18 +1,19 @@
 ---
 title: Criar e gerir regras de telemetria na sua aplicação do Azure IoT Central | Microsoft Docs
 description: As regras de telemetria de centro de IoT do Azure permitem-lhe para monitorizar os seus dispositivos em tempo real e invocar automaticamente as ações, como enviar uma mensagem de e-mail, quando a regra é acionado.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 47497fbda90ecb6ebe5b5a8675069a7fb262a3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: caca4e9db898b3766995fde8c5eebd4767abd85b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629818"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar as notificações na sua aplicação do Azure IoT Central
 

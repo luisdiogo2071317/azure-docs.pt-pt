@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647423"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 Se for um Software como um programador de serviço e subitamente a sua aplicação sofre a pedido imenso, terá de acomodar o crescimento. Para adicionar mais bases de dados (shards). Como redistribuir os dados para as novas bases de dados sem perturbar a integridade dos dados? Utilize o **ferramenta de intercalação de divisão** para mover dados de bases de dados restrita para as bases de dados de novo.  
@@ -74,7 +75,7 @@ Limitar a ligação o cancelamento de lote atual de shardlets conforme mencionad
 
 O serviço de divisão de intercalação utiliza uma base de dados para manter o respetivo estado e manter registos durante o processamento do pedido. O utilizador cria esta base de dados na sua subscrição e fornece a cadeia de ligação para o mesmo no ficheiro de configuração para a implementação de serviço. Os administradores da organização do utilizador também podem ligar a esta base de dados para rever o progresso de pedido e para obter informações detalhadas sobre potenciais falhas de investigar.
 
-**Sharding-awareness**
+**Deteção de fragmentação**
 
 O serviço de divisão de intercalação distingue entre (1) a tabelas, as tabelas de referência (2) e (3) normais tabelas. A semântica de uma operação de intercalação/divisão/movimentação dependem do tipo de tabela utilizado e é definida do seguinte modo: 
 

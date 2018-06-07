@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 010d4f6d9f33b8fb6f1622321a3b566f68f28f5f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647549"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de base de dados elástico
 Os termos seguintes são definidos para o [ferramentas de base de dados elástica](sql-database-elastic-scale-introduction.md), uma funcionalidade da SQL Database do Azure. As ferramentas são utilizadas para gerir [mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md)e incluir o [biblioteca de clientes](sql-database-elastic-database-client-library.md), a [ferramenta de intercalação de divisão](sql-database-elastic-scale-overview-split-and-merge.md), [conjuntos elásticos](sql-database-elastic-pool.md), e [consultas](sql-database-elastic-query-overview.md). 

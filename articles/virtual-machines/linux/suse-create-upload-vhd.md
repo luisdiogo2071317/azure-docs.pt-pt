@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653438"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual SLES ou openSUSE para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -39,7 +40,7 @@ Este artigo pressupõe que já tiver instalado um SUSE ou openSUSE sistema opera
 
 Como alternativa para criar o seu próprio VHD, SUSE publica também imagens BYOS (traga a sua subscrição própria) para o SLES em [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Prepare SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparar SP4 do SUSE Linux Enterprise Server 11
 1. No painel central do Gestor de Hyper-V, selecione a máquina virtual.
 2. Clique em **Connect** para abrir a janela para a máquina virtual.
 3. Registe o seu sistema SUSE Linux Enterprise para permitir que as atualizações de transferir e instalar pacotes.
@@ -93,9 +94,9 @@ Como alternativa para criar o seu próprio VHD, SUSE publica também imagens BYO
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 # # Nota: defina esta opção como tudo o que precisar que seja.
 15. Execute os seguintes comandos para retirar o aprovisionamento da máquina virtual e prepará-la para o aprovisionamento no Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - desaprovisionamento
-    # <a name="export-histsize0"></a>Exportar HISTSIZE = 0
-    # <a name="logout"></a>terminar sessão
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD de Linux está agora pronto para ser carregado para o Azure.
 
 - - -
@@ -128,14 +129,14 @@ Como alternativa para criar o seu próprio VHD, SUSE publica também imagens BYO
         # sudo zypper update
 5. Instale o agente Linux do Azure.
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper instalação WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Modifique a linha de arranque de kernel na configuração grub para incluir parâmetros de kernel adicionais para o Azure. Para tal, abra "/ boot/grub/menu.lst" num editor de texto e certifique-se de que o kernel predefinida inclui os seguintes parâmetros:
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
    Isto irá garantir a todas as mensagens de consola são enviadas para a primeira porta série, que pode ajudar a Azure suporte com problemas de depuração. Além disso, remova os seguintes parâmetros da linha de arranque de kernel caso existam:
    
-     libata.atapi_enabled=0 reserve=0x1f0,0x8
+     reserva de libata.atapi_enabled=0 = 0x1f0, 0x8
 7. É recomendado editar o ficheiro "/ etc/sysconfig/rede/dhcp" e altere o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
    
      DHCLIENT_SET_HOSTNAME="no"
@@ -150,9 +151,9 @@ Como alternativa para criar o seu próprio VHD, SUSE publica também imagens BYO
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 # # Nota: defina esta opção como tudo o que precisar que seja.
 11. Execute os seguintes comandos para retirar o aprovisionamento da máquina virtual e prepará-la para o aprovisionamento no Azure:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - desaprovisionamento
-    # <a name="export-histsize0"></a>Exportar HISTSIZE = 0
-    # <a name="logout"></a>terminar sessão
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Certifique-se de que o agente Linux do Azure é executado no arranque:
     
         # sudo systemctl enable waagent.service

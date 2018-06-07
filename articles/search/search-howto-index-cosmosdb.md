@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640341"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar a BD do Cosmos Azure Search utilizando indexadores
 
@@ -96,7 +97,7 @@ O corpo do pedido contém a definição de origem de dados, o que deve incluir o
 * **tipo**: tem de ser `documentdb`.
 * **credenciais**:
   
-  * **connectionString**: necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` MongoDB para coleções, adicionar **ApiKind = MongoDB** à cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` MongoDB para coleções, adicionar **ApiKind = MongoDb** à cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **contentor**:
   
   * **nome**: necessário. Especifique o id da coleção da base de dados ser indexados.
@@ -177,7 +178,7 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatível |
 | --- | --- |
-| Booleano |Boolean, EDM |
+| bool |Boolean, EDM |
 | Números de aspeto de números inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números esse aspeto pontos de vírgula flutuante |Edm.Double, EDM |
 | Cadeia |Edm.String |

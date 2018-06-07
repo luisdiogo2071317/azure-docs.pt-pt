@@ -13,25 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652309"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral de dimensionamento automático com uma escala de máquina virtual do Azure
-Um conjunto de dimensionamento da máquina virtual do Azure automaticamente pode aumentar ou reduzir o número de instâncias VM que executar a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho minimamente aceitável para uma experiência de cliente positivo. Quando os limiares definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo vezes. Este artigo fornece uma descrição geral do que desempenho métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
+Um conjunto de dimensionamento da máquina virtual do Azure automaticamente pode aumentar ou reduzir o número de instâncias VM que executar a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho aceitável para uma experiência de cliente positivo. Quando os limiares definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo vezes. Este artigo fornece uma descrição geral do que desempenho métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
 
 
 ## <a name="benefits-of-autoscale"></a>Vantagens de dimensionamento automático
-Se aumentar o seu pedido de aplicação, a carga sobre as instâncias de VM no seu dimensionamento definir aumenta. Se este aumento de carga é consistente, em vez de apenas um breve pedido, pode configurar regras de dimensionamento automático para aumentar o número de instâncias VM no conjunto de dimensionamento.
+Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no conjunto de dimensionamento também aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento.
 
-Quando estas instâncias VM são criadas e as suas aplicações são implementadas, inicia o conjunto de dimensionamento distribuir o tráfego aos mesmos através do Balanceador de carga. Controlar as métricas para monitorizar, tais como CPU ou memória, quanto a carga da aplicação têm de cumprir um determinado limiar, e definir quantas instâncias VM para adicionar à escala.
+Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Controlar as métricas para monitorizar, tais como CPU ou memória, quanto a carga da aplicação têm de cumprir um determinado limiar, e definir quantas instâncias VM para adicionar à escala.
 
-Num evening ou fim de semana, pode diminuir o seu pedido de aplicação. Se este carregamento menor consistente durante um período de tempo, pode configurar regras de dimensionamento automático para reduzir o número de instâncias VM no conjunto de dimensionamento. Esta ação de dimensionamento reduz o custo para executar a escala definida como executar apenas o número de instâncias necessário para satisfazer a procura atual.
+À noite ou ao fim de semana, a exigência da aplicação pode diminuir. Se esta diminuição de carga for consistente durante um certo período de tempo, pode configurar regras de dimensionamento automático para diminuir o número de instâncias de VM no conjunto de dimensionamento. Esta ação de dimensionamento para reduzir horizontalmente reduz o custo de execução do conjunto de dimensionamento, uma vez que apenas executa o número de instâncias necessário para satisfazer a exigência atual.
 
 
 ## <a name="use-host-based-metrics"></a>Utilizar métricas baseada no anfitrião
@@ -115,7 +116,7 @@ A extensão de diagnóstico do Azure é um agente que é executado dentro de uma
 
 Para utilizar a extensão de diagnóstico do Azure, deve criar contas de armazenamento do Azure para as instâncias de VM, instale o agente de diagnóstico do Azure e configurar as VMs para contadores de desempenho específicos de fluxo para a conta de armazenamento.
 
-Para obter mais informações, veja os artigos para saber como ativar a extensão de diagnóstico do Azure numa [VM do Linux](../virtual-machines/linux/diagnostic-extension.md) ou numa [VM do Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+Para obter mais informações, veja os artigos para saber como ativar a extensão de diagnóstico do Azure numa [VM do Linux](../virtual-machines/extensions/diagnostics-linux.md) ou numa [VM do Windows](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Métricas de nível de aplicação com o App Insights

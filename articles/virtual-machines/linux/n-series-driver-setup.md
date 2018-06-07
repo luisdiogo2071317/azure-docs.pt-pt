@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654288"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores de NVIDIA GPU em VMs de série N executar Linux
 
@@ -30,7 +31,7 @@ Para a série N VM especificações, as capacidades de armazenamento e detalhes 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Instalar controladores CUDA para NC, NCv2, NCv3 e série ND VMs
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Instalar controladores CUDA em série N VMs
 
 Seguem-se passos para instalar controladores CUDA a partir do Toolkit de CUDA NVIDIA em série N VMs. 
 
@@ -155,7 +156,7 @@ Se o controlador estiver instalado, verá um resultado semelhante ao seguinte. T
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implementadas no mesmo conjunto de disponibilidade ou conjunto de dimensionamento VM. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
+Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implementados no mesmo conjunto de disponibilidade ou num grupo de posicionamento única num conjunto de dimensionamento VM. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
 
 ### <a name="distributions"></a>Distribuições
 
@@ -167,7 +168,7 @@ Implemente com capacidade RDMA série N VMs de uma das imagens no Azure Marketpl
 
 * **Com base em centOS 7.4 HPC** -controladores RDMA e Intel MPI 5.1 são instaladas na VM.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>Instalar controladores de grelha para VMs NV série
+## <a name="install-grid-drivers-on-nv-series-vms"></a>Instalar controladores de grelha em série NV VMs
 
 Para instalar controladores de grelha NVIDIA em série NV VMs, efetuar uma ligação SSH para cada VM e siga os passos para a distribuição de Linux. 
 
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Em seguida, crie uma entrada para o seu script upate no `/etc/rc.d/rc3.d` para o script é invocado como raiz no arranque.
+Em seguida, crie uma entrada para o script de atualização no `/etc/rc.d/rc3.d` para o script é invocado como raiz no arranque.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

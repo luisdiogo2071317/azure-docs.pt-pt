@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643129"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Linux no seu cluster do Service Fabric
 
@@ -61,9 +62,9 @@ A aplicação de orquestração de patch é composta pelos subcomponentes seguin
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Certifique-se de que as suas VMs do Azure estão em execução Ubuntu 16.04
 No momento da escrita deste documento, Ubuntu 16.04 (`Xenial Xerus`) é a única versão suportada.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Certifique-se de que o cluster do service fabric linux versão 6.1.x e acima
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Certifique-se de que o cluster do service fabric linux versão 6.2.x e acima
 
-Patch orchestration aplicação linux utiliza determinadas funcionalidades do tempo de execução que só estão disponíveis na versão de tempo de execução do service fabric 6.1.x e superior.
+Patch orchestration aplicação linux utiliza determinadas funcionalidades do tempo de execução que só estão disponíveis na versão de tempo de execução do service fabric 6.2.x e superior.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Ativar o serviço do Gestor de reparação (se este não está em execução já)
 
@@ -118,7 +119,9 @@ Para Ubuntu [autónoma atualizações](https://help.ubuntu.com/community/Automat
 
 ## <a name="download-the-app-package"></a>Transferir o pacote de aplicação
 
-Transferir a aplicação a [transferir ligação](https://go.microsoft.com/fwlink/?linkid=867984).
+Aplicação juntamente com os scripts de instalação pode ser transferida do [hiperligação do arquivo](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Aplicação em formato sfpkg pode ser transferida do [sfpkg ligação](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Esta informação ser proveniente útil para [do Azure Resource Manager com implementação de aplicação base](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar a aplicação
 
@@ -319,6 +322,10 @@ Q. **Post atualização aplicar o patch efetue de aplicação de orquestração 
 
 A. Sim, a limpeza ocorre como parte dos passos de pós-instalação. 
 
+Q. **Aplicação de Patch Orchestration pode ser utilizada para aplicar o patch meu cluster de desenvolvimento (um nó de cluster)?**
+
+A. Não, Patch orchestration aplicação não pode ser utilizado para o cluster de um nó de patch. Esta limitação é por predefinição, como [serviços do sistema de recursos de infraestrutura de serviço](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente irão sentir alguns períodos de indisponibilidade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca iria obter aprovada pelo Gestor de reparação.
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Um nó é não regressam ao estado de segurança
@@ -360,5 +367,8 @@ A aplicação de orquestração de patch recolhe telemetria para controlar a uti
 ### <a name="version-010"></a>Versão 0.1.0
 - Versão de pré-visualização privada
 
-### <a name="version-200-latest"></a>Versão 2.0.0 (mais recentes)
+### <a name="version-200"></a>Versão 2.0.0
 - Versão pública
+
+### <a name="version-201-latest"></a>Versão 2.0.1 (mais recentes)
+- Recompilar a aplicação utilizando o SDK mais recente de Service Fabric

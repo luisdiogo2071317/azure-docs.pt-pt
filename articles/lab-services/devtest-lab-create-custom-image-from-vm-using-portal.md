@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635921"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Criar uma imagem personalizada a partir de uma VM
 
@@ -42,7 +43,7 @@ Pode criar uma imagem personalizada a partir de uma VM aprovisionada e, posterio
 
     ![Criar item de menu de imagem personalizada](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. No **imagem personalizada** painel, introduza um nome e descrição para a sua imagem personalizada. Estas informações são apresentadas na lista de bases de quando criar uma VM.
+1. No **imagem personalizada** painel, introduza um nome e descrição para a sua imagem personalizada. Estas informações são apresentadas na lista de bases de quando criar uma VM. A imagem personalizada incluirá o disco de SO e todos os discos de dados ligados à máquina virtual.
 
     ![Criar painel imagem personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

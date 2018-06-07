@@ -6,19 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724263"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introdução ao iDNS para pilha do Azure
 
@@ -30,9 +31,9 @@ iDNS é uma funcionalidade de rede de pilha do Azure que permite-lhe resolver no
 
 Com iDNS na pilha do Azure, obtenha as seguintes capacidades, sem ter de especificar as entradas de servidor DNS personalizadas:
 
-* Partilhado serviços de resolução de nome DNS para cargas de trabalho inquilinas.
-* Serviço DNS autoritativo para a resolução do nome e o registo DNS na rede virtual de inquilino.
-* Serviço DNS recursivo para a resolução de nomes de Internet de VMs inquilinas. Os inquilinos já não é necessário especificar as entradas de DNS personalizadas para resolver nomes de Internet (por exemplo, www.bing.com.)
+- Partilhado serviços de resolução de nome DNS para cargas de trabalho inquilinas.
+- Serviço DNS autoritativo para a resolução do nome e o registo DNS na rede virtual de inquilino.
+- Serviço DNS recursivo para a resolução de nomes de Internet de VMs inquilinas. Os inquilinos já não é necessário especificar as entradas de DNS personalizadas para resolver nomes de Internet (por exemplo, www.bing.com.)
 
 Pode ainda traga a sua própria DNS e utilizar servidores DNS personalizados. No entanto, ao utilizar iDNS, pode resolver nomes de DNS da Internet e estabelecer ligação com as outras VMs na mesma rede virtual, não precisa de criação de entradas DNS personalizadas.
 
@@ -48,10 +49,10 @@ Como mostra a imagem anterior, Azure irá criar um registo "A" no DNS para a eti
 
 Pilha do Azure só suporta iDNS para o registo do nome interno, pelo que não é possível efetuar o seguinte:
 
-* Criar um registo DNS sob uma zona DNS alojada existente (por exemplo, local.azurestack.external.)
-* Criar uma zona DNS (por exemplo, Contoso.com).
-* Crie um registo na sua própria zona DNS personalizado.
-* Suporta a compra de nomes de domínio.
+- Criar um registo DNS sob uma zona DNS alojada existente (por exemplo, local.azurestack.external.)
+- Criar uma zona DNS (por exemplo, Contoso.com).
+- Crie um registo na sua própria zona DNS personalizado.
+- Suporta a compra de nomes de domínio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,11 +1,11 @@
 ---
 title: Como utilizar filas do Service Bus no Node.js | Microsoft Docs
-description: "Saiba como utilizar filas do Service Bus no Azure a partir de uma aplicação Node.js."
+description: Saiba como utilizar filas do Service Bus no Azure a partir de uma aplicação Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5b309534f7aef602610cfdb6aa784d180551e1ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc291c3a453b4dec5e6c47ab4a7f2e2ac2b9967
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641446"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como utilizar filas do Service Bus com o Node.js
 
@@ -64,8 +65,6 @@ var azure = require('azure');
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma ligação do Service Bus do Azure
 O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para ligar ao Service Bus. Se esta variável de ambiente não for definida, tem de especificar as informações de conta ao chamar `createServiceBusService`.
-
-Para obter um exemplo de definir as variáveis de ambiente num ficheiro de configuração para um serviço em nuvem do Azure, consulte [Node.js o serviço em nuvem com o armazenamento][Node.js Cloud Service with Storage].
 
 Para obter um exemplo de definir as variáveis de ambiente no [portal do Azure] [ Azure portal] para um Web site do Azure, consulte [aplicação Web do Node.js com armazenamento][Node.js Web Application with Storage].
 
@@ -177,12 +176,12 @@ Existe também um tempo limite associado à mensagem bloqueada na fila, e se a a
 
 No caso de falha da aplicação após o processamento da mensagem, mas antes o `deleteMessage` método é denominado, em seguida, a mensagem será reenviada para a aplicação quando esta reiniciar. Isto é frequentemente designado *, pelo menos, uma vez processamento*, ou seja, cada mensagem será processada, pelo menos, uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é, frequentemente, conseguido utilizando o **MessageId** propriedade da mensagem, que permanecerá constante nas tentativas de entrega.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as filas, consulte os seguintes recursos.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
 * [Azure SDK para o nó] [ Azure SDK for Node] repositório no GitHub
-* [Centro para Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
+* [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com
@@ -190,6 +189,5 @@ Para saber mais sobre as filas, consulte os seguintes recursos.
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

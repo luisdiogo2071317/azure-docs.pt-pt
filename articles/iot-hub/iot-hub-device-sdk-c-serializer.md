@@ -1,24 +1,20 @@
 ---
 title: Dispositivos de IoT do Azure SDK para C - serializador | Microsoft Docs
 description: Como utilizar a biblioteca de serializador do dispositivo IoT do Azure SDK para C para criar aplicações de dispositivos que comunicam com um IoT hub.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a724fa5acc930475bdbe4ffcc74141470a92326c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634149"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Do Azure IoT device SDK para C – mais informações sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) nesta série introduzida o **dispositivos de IoT do Azure SDK para C**. O seguinte artigo fornecida uma descrição mais detalhada do [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclusão da cobertura do SDK ao fornecer uma descrição mais detalhada do componente restantes: o **serializador** biblioteca.
@@ -68,17 +64,17 @@ Os seguintes tipos de dados são suportados em modelos criados com o **serializa
 
 | Tipo | Descrição |
 | --- | --- |
-| duplo |dupla precisão flutuante ponto número |
+| double |dupla precisão flutuante ponto número |
 | Int |número inteiro de 32 bits |
-| float |número de ponto flutuante de precisão única |
-| longa |número inteiro longo |
+| flutuante |número de ponto flutuante de precisão única |
+| longitude |número inteiro longo |
 | int8\_t |número inteiro de 8 bits |
 | int16\_t |número inteiro de 16 bits |
 | int32\_t |número inteiro de 32 bits |
 | int64\_t |número inteiro de 64 bits |
 | bool |boolean |
 | ascii\_char\_ptr |Cadeia de ASCII |
-| EDM\_DATE\_TIME\_OFFSET |compensação de tempo data |
+| EDM\_DATA\_TEMPO\_DESLOCAMENTO |compensação de tempo data |
 | EDM\_GUID |GUID |
 | EDM\_BINÁRIO |Binário |
 | DECLARAR\_STRUCT |tipo de dados complexo |
@@ -368,7 +364,7 @@ Pode adivinhar que o resultado deste código é que os dados de dois eventos sã
 
 [
 
-{"Temperature":75},
+{"Temperatura": 75},
 
 {"Humidity":45}
 
@@ -618,7 +614,7 @@ Conforme descrito num [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), h
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_Destroy
+* IoTHubClient\_destruir
 
 Estas APIs são demonstrados **simplesample\_amqp**.
 
@@ -627,7 +623,7 @@ Há também um semelhante conjunto de APIs de nível inferior.
 * IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_odas\_destruir
 
 Tenha em atenção que as APIs de nível inferior funcionam exatamente da mesma forma, conforme descrito nos artigos anteriores. Pode utilizar o primeiro conjunto de APIs, se pretender que o thread de segundo plano para processar eventos de envio e receção de mensagens. Utilizar o segundo conjunto de APIs se quiser explícito controlo sobre quando enviar e receber dados a partir do IoT Hub. O conjunto de trabalho APIs igualmente bem com o **serializador** biblioteca.
 

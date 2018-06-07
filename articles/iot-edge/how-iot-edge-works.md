@@ -1,26 +1,20 @@
 ---
 title: O que é o Azure IoT Edge | Microsoft Docs
 description: Descrição geral do serviço Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068743"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630702"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>O que é o Azure IoT Edge - pré-visualização
 
@@ -70,7 +64,7 @@ O runtime do Azure IoT Edge é executado num vasto conjunto de dispositivos IoT,
 
 Gerir o ciclo de vida do software dos dispositivos da empresa é complicado. E gerir o ciclo de vida de milhões de dispositivos IoT heterogéneos é ainda mais difícil. As cargas de trabalho têm de ser criadas e configuradas para um determinado tipo de dispositivos, implementadas em escala em milhões de dispositivos na sua solução e monitorizadas para detetar dispositivos que possam estar a funcionar mal. Estas atividades não podem ser feitas individualmente por dispositivo; têm de o ser em escala.
 
-O Azure IoT Edge integra-se facilmente com o Azure IoT Suite para proporcionar um plano de controlo para as necessidades da sua solução. Os serviços cloud permitem que os utilizadores:
+Limite de IoT do Azure integra-se de forma totalmente integrada com aceleradores de solução IoT do Azure para fornecer um plane de controlo para as necessidades da sua solução. Os serviços cloud permitem que os utilizadores:
 
 * Criem e configurem cargas de trabalho para serem executadas num tipo de dispositivo específico.
 * Enviem cargas de trabalho para um conjunto de dispositivos.
@@ -78,7 +72,7 @@ O Azure IoT Edge integra-se facilmente com o Azure IoT Suite para proporcionar u
 
 ![A telemetria, as informações e as ações dos dispositivos são coordenadas com a cloud][2]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja [Deploying IoT Edge on a simulated device][lnk-quickstart] (Implementar o IoT Edge num dispositivo simulado) para experimentar estes conceitos.
 

@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver a instalação de elevada disponibilidade numa partilha de ficheiros e de cluster de ativação pós-falha de Windows para SAP ASCS/SCS as instâncias no Azure | Microsoft Docs"
-description: "SAP NetWeaver a instalação de elevada disponibilidade numa partilha de ficheiros e de cluster de ativação pós-falha de Windows para instâncias de SAP ASCS/SCS"
+title: SAP NetWeaver a instalação de elevada disponibilidade numa partilha de ficheiros e de cluster de ativação pós-falha de Windows para SAP ASCS/SCS as instâncias no Azure | Microsoft Docs
+description: SAP NetWeaver a instalação de elevada disponibilidade numa partilha de ficheiros e de cluster de ativação pós-falha de Windows para instâncias de SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658660"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar o SAP NetWeaver elevada disponibilidade numa partilha de ficheiros e de cluster de ativação pós-falha de Windows para SAP ASCS/SCS as instâncias no Azure
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 11/17/2017
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de elevada disponibilidade do SAP várias SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -236,12 +237,12 @@ Instalar uma instância do SAP ASCS/SCS *ambos* nós do cluster ASCS/SCS. Instal
 
 Para instalar a instância, na ferramenta de instalação do SAP SWPM, aceda a:
 
-**\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP**(ou **Java**) > **sistema distribuído** > **instância ASCS/SCS**
+**\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema distribuído** > **instância ASCS/SCS**
 
 > [!IMPORTANT]
 > Atualmente, o cenário de partilha de ficheiros não é suportado pela ferramenta de instalação do SAP SWPM. *Não é possível utilizar* o seguinte caminho de instalação:
 >
-> **\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP**(ou **Java**) > **sistema de elevada disponibilidade** >...
+> **\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema de elevada disponibilidade** >...
 >
 
 ### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>Remova SAPMNT e crie uma partilha de ficheiros SAPLOC
@@ -578,7 +579,7 @@ Finalize a instalação de sistema SAP através da instalação:
 * Um servidor primário para a aplicação SAP.
 * Um servidor de aplicações SAP adicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar uma instância ASCS/SCS num cluster de ativação pós-falha com sem discos partilhados - SAP oficial as diretrizes para partilha de ficheiros de elevada disponibilidade][sap-official-ha-file-share-document]
 

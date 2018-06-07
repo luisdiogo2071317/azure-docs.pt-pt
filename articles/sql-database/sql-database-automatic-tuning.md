@@ -6,14 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646648"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na SQL Database do Azure
 
@@ -61,13 +62,15 @@ Para uma descrição geral de automática como funciona a Otimização e para ce
 ## <a name="automatic-tuning-options"></a>Opções de otimização automáticas
 
 Opções de otimização automáticas disponíveis no SQL Database do Azure são:
- 1. **CREATE INDEX** -identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e automaticamente verifica que o desempenho de consultas foi melhorado. Predefinição a definição do Azure para esta opção está ativada.
- 2. **DROP INDEX** -identifica índices redundantes e duplicados e índices que não foram utilizados durante um período de tempo muito longo. Tenha em atenção que, neste momento, a opção é incompatível com aplicações utilizar sugestões de índice e de mudança de partição. Predefinição a definição do Azure para esta opção está desativada.
- 3. **FORCE último bom plano** -identifica as consultas SQL com o plano de execução que é mais lenta do que o plano de boa anterior e consultas utilizando o último conhecido bom plano em vez do plano regressed. Predefinição a definição do Azure para esta opção está ativada.
+ 1. **CREATE INDEX** -identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e automaticamente verifica que o desempenho de consultas foi melhorado.
+ 2. **DROP INDEX** -identifica índices redundantes e duplicados e índices que não foram utilizados durante um período de tempo muito longo. Tenha em atenção que esta opção não é compatível com aplicações utilizar sugestões de índice e de mudança de partição.
+ 3. **FORCE último bom plano** -identifica as consultas SQL com o plano de execução que é mais lenta do que o plano de boa anterior e consultas utilizando o último conhecido bom plano em vez do plano regressed.
 
-Base de dados SQL do Azure identifica **CREATE INDEX**, **DROP INDEX**, e **FORCE último boa planear** recomendações que podem otimizar a base de dados e mostra-las no portal do Azure. Encontrar mais informações sobre a identificação dos índices que devem ser alteradas em [encontrar recomendações do índice no portal do Azure](sql-database-advisor-portal.md). Ou pode aplicar manualmente recomendações utilizando o portal ou pode deixar a base de dados do SQL Azure automaticamente aplicar recomendações, monitorizar a carga de trabalho após a alteração e certifique-se de que a recomendação melhorada o desempenho da sua carga de trabalho.
+Base de dados SQL do Azure identifica **CREATE INDEX**, **DROP INDEX**, e **FORCE último boa planear** recomendações que podem otimizar a base de dados e mostra-las no portal do Azure. Encontrar mais informações sobre a identificação dos índices que devem ser alteradas em [encontrar recomendações do índice no portal do Azure](sql-database-advisor-portal.md). Ou pode aplicar manualmente recomendações utilizando o portal ou pode deixar a base de dados do SQL Azure automaticamente aplicar recomendações, monitorizar a carga de trabalho após a alteração e certifique-se de que a recomendação melhorada o desempenho da sua carga de trabalho. 
 
-Automático opções de otimização pode ser independentemente ativado ou desativado por base de dados, ou podem ser configuradas no servidor lógico e aplicadas em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para as definições de otimização automáticas. Configurar opções no servidor de otimização automática e herdar as definições nas bases de dados no servidor, é recomendado um método para configurar a otimização automática porque simplifica a gestão das opções de otimização automáticas num grande número de bases de dados.
+Opções de otimização automáticas podem ser independentemente ativadas ou desativadas por base de dados, ou podem ser configurados em servidores de lógicos e aplicadas em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para as definições de otimização automáticas. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
+
+Configurar opções num servidor de otimização automática e herdar as definições para as bases de dados que pertencem ao servidor principal é um método recomendado para configurar a otimização automática como simplifica a gestão das opções de otimização automáticas para um grande número de bases de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

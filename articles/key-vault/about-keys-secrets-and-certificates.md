@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636611"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre certificados, chaves e segredos
 O Cofre de chaves do Azure permite aos utilizadores armazenar e utilizar as chaves criptográficas dentro do ambiente do Microsoft Azure. O Cofre de chaves suporta vários tipos de chave e algoritmos e permite a utilização de módulos de segurança de Hardware (HSM) para chaves de valor superior. Além disso, o Cofre de chaves permite aos utilizadores armazenar segredos com segurança. Segredos são objetos de octeto tamanho limitado com nenhuma semântica específico. O Cofre de chaves também suporta certificados, que são criados sobre chaves e segredos e adicione uma funcionalidade de renovação automática.
@@ -327,7 +328,7 @@ Os atributos de certificado são espelhados nos atributos de chave endereçável
 
 Um certificado do Cofre de chaves tem os seguintes atributos:  
 
--   *ativado*: predefinição booleana, opcional, é **verdadeiro**. Este atributo pode ser especificado para indicar se os dados de certificados podem ser obtidos como operável como uma chave ou segredo. Isto é utilizado em conjunto com *nbf* e*exp*quando uma operação ocorre entre *nbf* e exp, será apenas possível permitida se estiver ativada está definido como true. Operações fora de *nbf* e*exp*não janela são automaticamente permitidos.  
+-   *ativado*: predefinição booleana, opcional, é **verdadeiro**. Este atributo pode ser especificado para indicar se os dados de certificados podem ser obtidos como operável como uma chave ou segredo. Isto é utilizado em conjunto com *nbf* e *exp* quando uma operação ocorre entre *nbf* e *exp*, só será possível permitida se estiver ativada está definido como true. Operações fora de *nbf* e *exp* não janela são automaticamente permitidos.  
 
 Existem só de leitura os atributos adicionais que estão incluídos na resposta:
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657476"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-la para criar novas VMs no Azure
 
@@ -36,7 +37,7 @@ Se pretender utilizar um script de exemplo, consulte [script para carregar um VH
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>Generalize a VM de origem com o Sysprep
 
-Sysprep remove todas as informações pessoais da conta, entre outras coisas e prepara a máquina para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [como Sysprep de utilização: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, consulte o [descrição geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Certifique-se as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -46,13 +47,13 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 > 
 
 1. Iniciar sessão para a máquina virtual do Windows.
-2. Abra a janela de linha de comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
+2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
 4. No **as opções de encerramento**, selecione **encerramento**.
 5. Clique em **OK**.
    
     ![Iniciar o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Quando tiver concluído o Sysprep, encerrar a máquina virtual. Não reinicie a VM.
+6. Quando o Sysprep estiver concluído, encerra a máquina virtual. Não reinicie a VM.
 
 
 ## <a name="get-the-storage-account"></a>Obter a conta de armazenamento
@@ -145,7 +146,7 @@ New-AzureRmImage `
 
 ## <a name="create-the-vm"></a>Crie a VM
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas partir da imagem. Este exemplo cria uma VM chamada *myVM* do *myImage*, no *myResourceGroup*.
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Este exemplo cria uma VM chamada *myVM* do *myImage*, no *myResourceGroup*.
 
 
 ```powershell

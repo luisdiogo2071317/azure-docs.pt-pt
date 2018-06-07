@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/25/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636737"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)
 Este artigo mostra como utilizar a API de Recoletor de dados de HTTP para enviar dados para análise de registos de um cliente de REST API.  Descreve como formatou os dados recolhidos pelo seu script ou aplicação, inclua-o num pedido e tem esse pedido autorizado através da análise de registos.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -51,7 +52,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 |:--- |:--- |
 | CustomerID |O identificador exclusivo para a área de trabalho de análise de registos. |
 | Recurso |O nome de recurso de API: / api/logs. |
-| Versão de API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
+| Versão da API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 | Cabeçalho | Descrição |
@@ -59,7 +60,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | Autorização |A assinatura de autorização. O artigo, pode ler sobre como criar um cabeçalho de HMAC SHA256. |
 | Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Atualmente, o tipo de registo suporta apenas carateres alfanuméricos. Não suporta números ou carateres especiais. O limite de tamanho para este parâmetro é 100 carateres. |
 | x-ms-date |A data em que o pedido foi processado, no formato RFC 1123. |
-| campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
+| campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Não pode ser nulo e tem de conter um período de datas válido. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
 
 ## <a name="authorization"></a>Autorização
 Qualquer pedido de API de Recoletor de dados de HTTP de análise de registo tem de incluir um cabeçalho de autorização. Para autenticar um pedido, tem de iniciar o pedido com o site primário ou a chave secundária para a área de trabalho que está a efetuar o pedido. Em seguida, passe esse assinatura como parte do pedido.   
@@ -136,7 +137,7 @@ Para identificar o tipo de dados de uma propriedade, análise de registos adicio
 |:--- |:--- |
 | Cadeia |_s |
 | Booleano |_b |
-| Duplo |_d |
+| duplo |_d |
 | Data/hora |_t |
 | GUID |_g |
 
@@ -187,9 +188,9 @@ Esta tabela lista o conjunto completo de códigos de estado que poderá devolver
 | 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido para **application/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço não conseguiu autenticar o pedido. Certifique-se de que a chave de ID e a ligação de área de trabalho são válidas. |
 | 404 |Não Encontrado | | O URL fornecido está incorreto, ou o pedido é demasiado grande. |
-| 429 |Demasiados pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
-| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita o pedido. |
-| 503 |Serviço Indisponível |ServiceUnavailable |O serviço está atualmente disponível para receber pedidos. Repita o pedido. |
+| 429 |Demasiados Pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
+| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço obteve um erro interno. Repita o pedido. |
+| 503 |Serviço Não Disponível |ServiceUnavailable |O serviço está atualmente disponível para receber pedidos. Repita o pedido. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar dados submetidos pela API em Recoletor de dados no HTTP de análise do registo, pesquisa de registos com **tipo** que é igual do **LogType** valor que especificou, acrescentar **_CL**. Por exemplo, se tiver utilizado **MyCustomLog**, em seguida, iria devolver todos os registos com **tipo = MyCustomLog_CL**.

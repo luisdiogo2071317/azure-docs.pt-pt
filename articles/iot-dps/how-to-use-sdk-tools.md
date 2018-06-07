@@ -1,22 +1,19 @@
 ---
 title: Utilizar ferramentas fornecidas no Azure dispositivo aprovisionamento serviço SDKs do IoT Hub para simplificar o desenvolvimento
 description: Este documento revê as ferramentas fornecidas no SDKs de serviço aprovisionamento a dispositivo do Azure IoT Hub para o desenvolvimento
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/09/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631127"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para o aprovisionamento
 O serviço de aprovisionamento de dispositivos do IoT Hub simplifica o processo de aprovisionamento com zero-touch, just-in-time [aprovisionamento automático](concepts-auto-provisioning.md) de forma segura e escalável.  É necessário o atestado de segurança no formato de certificado x. 509 ou Trusted Platform Module (TPM).  Microsoft também é partnering com [restantes parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para melhorar a confiança na proteger a implementação de IoT. Noções sobre o requisito de segurança de hardware pode ser bastante difícil para os programadores. Um conjunto de SDKs Service de aprovisionamento do IoT do Azure são fornecidos para que os programadores podem utilizar uma camada de conveniência para clientes de escrita que comuniquem com o serviço de aprovisionamento. Os SDKs também fornecem exemplos para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança de desenvolvimento.

@@ -5,17 +5,18 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647838"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a aplicação à base de dados geridos instância do SQL do Azure
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
 Hoje em dia tem várias opções quando decidir como e onde alojar a aplicação. 
  
@@ -39,10 +40,10 @@ Existem duas opções para ligar VNets:
 - [Peering de rede Virtual do Azure](../virtual-network/virtual-network-peering-overview.md) 
 - Gateway de VPN de VNet a VNet ([portal do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-A opção de peering é o preferível porque peering utiliza da rede principal do Microsoft por isso, a perspetiva de conectividade, não existe nenhuma diferença percetível de latência entre máquinas virtuais na VNet em modo de peering e na mesma VNet. O VNet peering é limitado para as redes na mesma região, embora por várias regiões peering está ativado em algumas regiões como uma pré-visualização.  
+A opção de peering é o preferível porque peering utiliza da rede principal do Microsoft por isso, a perspetiva de conectividade, não existe nenhuma diferença percetível de latência entre máquinas virtuais na VNet em modo de peering e na mesma VNet. O VNet peering é limitado para as redes na mesma região.  
  
 > [!IMPORTANT]
-> Peerings de VNet criada por várias regiões poderá não ter o mesmo nível de disponibilidade e fiabilidade como peerings uma versão de disponibilidade geral. Peerings de VNet pode ter restrita capacidades e poderão não estar disponíveis em todas as regiões do Azure. Para as notificações mais atualizadas à sua disponibilidade e o estado desta funcionalidade, consulte o [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) página atualizações. 
+> Cenário de peering de VNet para a instância gerida está limitado a redes na mesma região devido a [restrições do peering de rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Ligar uma aplicação no local 
 

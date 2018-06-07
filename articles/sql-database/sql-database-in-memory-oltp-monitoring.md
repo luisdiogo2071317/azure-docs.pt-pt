@@ -6,14 +6,15 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647345"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Armazenamento de monitor de memória OLTP
 Quando utilizar [OLTP na memória](sql-database-in-memory.md), dados em tabelas com otimização de memória e variáveis de tabela residem no armazenamento do OLTP dentro da memória. Cada escalão de serviço Premium e críticos de negócio tem um tamanho de armazenamento de OLTP na memória máximo, o que é descrito da [limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md). Depois deste limite for excedido, insira e atualizar operações poderão começam a falhar com o erro 41823 para bases de dados autónomo e o erro 41840 para conjuntos elásticos. Nesse momento é necessário para eliminar dados para reclamar memória, ou Atualize o escalão de desempenho da base de dados.

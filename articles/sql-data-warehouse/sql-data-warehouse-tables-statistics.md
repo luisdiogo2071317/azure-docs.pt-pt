@@ -10,17 +10,18 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643435"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criar, atualizar as estatísticas em tabelas no armazém de dados SQL do Azure
 As recomendações e os exemplos para criar e atualizar as estatísticas de Otimização da consulta em tabelas no armazém de dados SQL do Azure.
 
 ## <a name="why-use-statistics"></a>Estatísticas de utilização por que motivo?
-Mais Azure SQL Data Warehouse conhece os dados, quanto mais depressa pode executar consultas nele. Recolher estatísticas nos seus dados e, em seguida, carregá-lo para o SQL Data Warehouse são uma das ações que mais importante, pode fazê-lo a otimizar as suas consultas. Isto acontece porque o otimizador de consultas do SQL Data Warehouse é um otimizador baseada no custo. Compara o custo de vários planos de consulta e, em seguida, escolhe o plano com o menor custo, que é, na maioria dos casos, o plano que executa o mais rápido. Por exemplo, se o otimizador estimativas de que a data que está a filtrar na sua consulta irá devolver uma linha, este pode escolher um plano diferente que o se que calcula a data selecionada devolverá 1 milhões de linhas.
+Mais Azure SQL Data Warehouse conhece os dados, quanto mais depressa pode executar consultas nele. Recolher estatísticas nos seus dados e, em seguida, carregá-lo para o SQL Data Warehouse são uma das ações que mais importante, pode fazê-lo a otimizar as suas consultas. Isto acontece porque o otimizador de consultas do SQL Data Warehouse é um otimizador baseada no custo. Compara o custo de vários planos de consulta e, em seguida, escolhe o plano com o menor custo, o qual, na maioria dos casos, é o plano passível de ser executado de forma mais rápida. Por exemplo, se o otimizador estimativas de que a data que está a filtrar na sua consulta irá devolver uma linha, este pode escolher um plano diferente que o se que calcula a data selecionada devolverá 1 milhões de linhas.
 
 ## <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 Quando criar o automático opção estatísticas no AUTO_CREATE_STATISTICS, o SQL Data Warehouse analisa entrada consultas de utilizador onde as estatísticas de coluna única são criadas em colunas que estão em falta estatísticas. O otimizador de consultas cria estatísticas em colunas individuais na condição de predicado ou uma associação de consulta para melhorar a cardinalidade estimativas para o plano de consulta. Criação automática de estatísticas está atualmente ativada por predefinição.
@@ -49,11 +50,14 @@ Criação automática de estatísticas é gerada de forma síncrona pelo que pod
 > A criação de estatísticas também será registada no [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) num contexto de utilizador diferente.
 > 
 
-Quando são criadas estatísticas automáticas, irão assumir a forma: _WA_Sys_< id de coluna dígito 8 em Hex > _ < id de tabela 8 dígito em Hex >. Pode ver estatísticas que já foram criadas, executando o seguinte comando:
+Quando são criadas estatísticas automáticas, irão assumir a forma: _WA_Sys_< id de coluna dígito 8 em Hex > _ < id de tabela 8 dígito em Hex >. Pode ver estatísticas que já foram criadas, executando o [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) comando:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+O primeiro argumento é uma tabela que contém as estatísticas para apresentar. Não pode ser uma tabela externa. O segundo argumento é o nome do índice de destino, as estatísticas ou coluna para o qual apresentar informações de estatísticas.
+
+
 
 ## <a name="updating-statistics"></a>A atualizar as estatísticas
 

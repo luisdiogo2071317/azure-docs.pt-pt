@@ -3,7 +3,7 @@ title: Os tamanhos de VM do Windows no Azure | Microsoft Docs
 description: Lista os tamanhos diferentes disponíveis para máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 05/22/2018
 ms.author: jonbeck
-ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d4e1b56ba695f3305d1be023c4352a3c4bcfe27d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658354"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
@@ -28,12 +29,13 @@ Este artigo descreve os tamanhos disponíveis e as opções para as máquinas vi
 
 | Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7 | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
+| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, série DSv2, Dv2, Av2 | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
 | [Com otimização de computação](sizes-compute.md)        | Fsv2, Fs, F             | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Rácio de memória a CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)         | Esv3 Ev3, M, GS, G, série DSv2, Dv2  | Rácio de memória a CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)        | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Máquinas de virtuais especializadas visada para a composição de gráfico pesada e edição de vídeo, bem como modelo de formação e inferencing (ND) com learning profunda. Disponível com GPUs único ou vários.       |
-| [Computação de elevado desempenho](sizes-hpc.md) | H, A8-11          | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. 
+| [Computação de elevado desempenho](sizes-hpc.md) | H       | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. 
+
 
 <br> 
 
@@ -43,21 +45,19 @@ Este artigo descreve os tamanhos disponíveis e as opções para as máquinas vi
 - Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
 
 
-
 ## <a name="rest-api"></a>API REST
 
 Para obter informações sobre como utilizar a API REST para a consulta para tamanhos de VM, consulte o seguinte:
 
-- [Listar tamanhos de máquina virtual disponíveis para redimensionar](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)
-- [Listar tamanhos de máquina virtual disponíveis para uma subscrição](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)
-- [Listar tamanhos de máquina virtual disponíveis num conjunto de disponibilidade](
-https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)
+- [Listar tamanhos de máquina virtual disponíveis para redimensionar](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [Listar tamanhos de máquina virtual disponíveis para uma subscrição](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [Listar tamanhos de máquina virtual disponíveis num conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
 Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
 
-## <a name="benchmark-scores"></a>Benchmark pontuações
+## <a name="benchmark-scores"></a>Pontuações de referência
 
 Saiba mais sobre computação desempenho para as VMs do Windows utilizando o [pontuações de benchmark CoreMark](compute-benchmark-scores.md).
 
@@ -70,6 +70,7 @@ Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 - [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)
 - [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
+- Verifique o [anterior geração](sizes-previous-gen.md) página para um padrão, Dv1 (D1 4 e D11 14 v1) e a série de A8-A11
 
 
 

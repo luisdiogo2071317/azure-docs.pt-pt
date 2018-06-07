@@ -1,19 +1,19 @@
 ---
-title: "Desenvolver módulos para limite de IoT do Azure | Microsoft Docs"
-description: "Saiba como criar módulos personalizados para o limite de IoT do Azure"
-services: iot-edge
-keywords: 
+title: Desenvolver módulos para limite de IoT do Azure | Microsoft Docs
+description: Saiba como criar módulos personalizados para o limite de IoT do Azure
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 95b1d5d4e5e11f96b6abb17f0aeba935cc65512d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: bf6a14020f26691195963a210d668912705f3b8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631722"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules---preview"></a>Compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT – pré-visualização
 
@@ -72,7 +72,7 @@ O tutorial [desenvolver e implementar um módulo de IoT Edge para um dispositivo
 Módulos de limite de IoT são reunidos as imagens de Docker.
 Pode utilizar diretamente toolchain de Docker ou Visual Studio Code, conforme mostrado no tutorial [desenvolver e implementar um módulo de IoT Edge para um dispositivo simulado][lnk-tutorial2].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de desenvolver um módulo, saiba como [implementar e monitorizar os módulos de limite de IoT à escala][lnk-howto-deploy].
 

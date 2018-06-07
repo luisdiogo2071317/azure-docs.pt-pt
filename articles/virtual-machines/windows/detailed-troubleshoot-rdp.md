@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657830"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece os passos detalhados de resolução de problemas para diagnosticar e corrigir os erros de ambiente de trabalho remoto complexos baseados em Windows máquinas virtuais do Azure.
@@ -112,7 +113,7 @@ Para verificar se o ponto final é a origem do problema, remova o ponto final at
 ## <a name="source-4-network-security-groups"></a>Origem 4: Grupos de segurança de rede
 Grupos de segurança de rede permite um controlo mais granular do tráfego de entrada e saída permitido. Pode criar regras de sub-redes de expansão e serviços em nuvem na uma rede virtual do Azure.
 
-Utilize a [verificação do fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num Grupo de Segurança de Rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar regras do grupo de segurança eficaz para garantir que a entrada "Permitir" NSG regra existe e está definida para a porta RDP (predefinição 3389). Para obter mais informações, consulte [utilizando regras de segurança eficaz para resolver problemas de VM de fluxo de tráfego](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Utilize a [verificação do fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num Grupo de Segurança de Rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar regras do grupo de segurança eficaz para garantir que a entrada "Permitir" NSG regra existe e está definida para a porta RDP (predefinição 3389). Para obter mais informações, consulte [utilizando regras de segurança eficaz para resolver problemas de VM de fluxo de tráfego](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Origem 5: Baseados em Windows VM do Azure
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

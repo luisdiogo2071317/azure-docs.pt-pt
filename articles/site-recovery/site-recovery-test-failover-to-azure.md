@@ -1,6 +1,6 @@
 ---
-title: "Testar a ativação pós-falha para o Azure no Azure Site Recovery | Microsoft Docs"
-description: "Saiba mais sobre como executar uma ativação pós-falha de teste no local para o Azure, utilizando o serviço do Azure Site Recovery."
+title: Testar a ativação pós-falha para o Azure no Azure Site Recovery | Microsoft Docs
+description: Saiba mais sobre como executar uma ativação pós-falha de teste no local para o Azure, utilizando o serviço do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643656"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testar a ativação pós-falha para o Azure Site Recovery
 
@@ -25,7 +26,7 @@ Execute uma ativação pós-falha de teste para validar a replicação e a estra
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 Este procedimento descreve como executar uma ativação pós-falha de teste para um plano de recuperação. 
 
-![Ativação pós-falha de teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. No Site Recovery no portal do Azure, clique em **planos de recuperação** > *recoveryplan_name* > **ativação pós-falha de teste**.
@@ -40,7 +41,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 
     - Tentativas de recuperação de site para criar teste VMs numa sub-rede com o mesmo nome e o mesmo endereço IP que foi fornecido no **computação e rede** definições da VM.
     - Se uma sub-rede com o mesmo nome não está disponível na rede virtual do Azure utilizada para a ativação pós-falha de teste, em seguida, o teste de VM é criada na primeira sub-rede por ordem alfabética.
-    - Se o mesmo endereço IP não está disponível na sub-rede, VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#creating-a-network-for-test-failover).
+    - Se o mesmo endereço IP não está disponível na sub-rede, VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
 4. Se estiver a efetuar a ativação pós-falha para o Azure e a encriptação de dados estiver ativada, no **chave de encriptação**, selecione o certificado que foi emitido quando ativada, encriptação durante a instalação do fornecedor. Pode ignorar este passo de encriptação não está ativada.
 5. Controlar o progresso de ativação pós-falha no **tarefas** separador. Deve conseguir ver a máquina de réplica de teste no portal do Azure.
 6. Para iniciar uma ligação de RDP para a VM do Azure, terá de [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede de ativação pós-falha VM. 
@@ -48,7 +49,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 8. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste. 
 
 
-![Ativação pós-falha de teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Quando é acionada uma ativação pós-falha de teste, ocorre o seguinte:
 
@@ -63,7 +64,7 @@ Nos seguintes cenários, ativação pós-falha requer um passo intermédio extra
 
 * Executar uma versão do serviço de mobilidade anterior 9.8 de VMs de VMware
 * Servidores físicos
-* VMware Linux VMs
+* VMs de VMware Linux
 * VM do Hyper-V protegida como servidores físicos
 * VM de VMware, onde os seguintes controladores não são controladores de arranque:
     * storvsc

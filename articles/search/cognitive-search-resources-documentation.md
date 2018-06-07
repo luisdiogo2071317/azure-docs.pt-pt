@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: a96b66f61b19d218c5708a0ce967e0033ba26627
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cee479b81cb5d8b6cd3306e3735d72c9e64e6045
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640358"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentação para cargas de trabalho de pesquisa cognitivos
 
@@ -25,7 +26,7 @@ Os artigos seguintes estão a documentação completa para pesquisa cognitivos.
 + [O que é pesquisa cognitivos?](cognitive-search-concept-intro.md)
 + [Início rápido: Tente cognitivos pesquisa no portal do](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saber a APIs de pesquisa cognitivos](cognitive-search-tutorial-blob.md)
-+ [Exemplo: criar um skill personalizado](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: criar uma competência personalizada](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Orientações de procedimentos
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
@@ -50,8 +51,8 @@ Os artigos seguintes estão a documentação completa para pesquisa cognitivos.
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [API de REST de pré-visualização](search-api-2017-11-11-preview.md)
-  + [Criar Skillset (api-version = 2017-11-11-pré-visualização)](ref-create-skillset.md)
-  + [Criar indexador (api-version = 2017-11-11-pré-visualização)](ref-create-indexer.md)
+  + [Criar Skillset (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Criar indexador (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Consulte também
 

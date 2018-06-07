@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d1ab75146c9899bf2699309cd5dd4ed523096ef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638811"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -54,7 +55,7 @@ Registos de diagnóstico de recursos de não-computação recursos estão config
 * Quanto cada categoria de registo deve ser mantida na conta de armazenamento
     - Uma retenção de zero dias significa que os registos são mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
     - Se as políticas de retenção estão definidas, mas armazenar os registos numa conta do Storage está desativada (por exemplo, se apenas as opções de Event Hubs ou análise de registos são selecionadas), as políticas de retenção não tem qualquer efeito.
-    - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados.
+    - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento.
 
 Estas definições são facilmente configuradas através de definições de diagnóstico para um recurso no portal do Azure, através do Azure PowerShell e comandos da CLI ou através de [API REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 

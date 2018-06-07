@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653506"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitas funcionalidades incrível, é essencial para planear a saída da sua viagem de migração para fazer coisas sure correm. A dedicar muito tempo sobre o planeamento irá garantir que não ocorrerem problemas ao executar atividades de migração. 
 
 > [!NOTE] 
-> As seguintes orientações descontos elevados foi contribuíram para pela equipa de Consultadora de cliente do Azure e os arquitetos de soluções de nuvem a trabalhar com os clientes migrar enviornments grandes. Como esse este documento irá continuar a obter atualizada como novos padrões de sucesso surgir, por isso, verifique novamente a partir do momento tempo para ver se existem quaisquer novas recomendações.
+> As seguintes orientações descontos elevados foi contribuíram para pela equipa de Consultadora de cliente do Azure e os arquitetos de soluções de nuvem trabalhar com os clientes em ambientes de grandes dimensões de migração. Como esse este documento irá continuar a obter atualizada como novos padrões de sucesso surgir, por isso, verifique novamente a partir do momento tempo para ver se existem quaisquer novas recomendações.
 
 Existem quatro fases geral do journey a migração:
 
@@ -51,10 +52,10 @@ Consoante o tamanho de requisitos técnicos, localizações geográficas e prát
 
 ### <a name="patterns-of-success"></a>Padrões de sucesso
 
-Os clientes com êxito tem detalhadas planos onde as questões acima são abordadas, documentadas e a regida.  Certifique-se de que os planos de migração amplamente são comunicados ao sponsors e intervenientes.  Equipar por si com conhecimentos sobre as opções de migração; é altamente recomendável ler através deste documento migração definido abaixo.
+Os clientes com êxito tem detalhadas planos onde as questões anteriores são abordadas, documentadas e a regida.  Certifique-se de que os planos de migração amplamente são comunicados ao sponsors e intervenientes.  Equipar por si com conhecimentos sobre as opções de migração; é altamente recomendável ler através deste documento migração definido abaixo.
 
 * [Descrição geral da migração de plataforma suportada dos recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Utilizar o PowerShell para migrar os recursos IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Utilizar a CLI para migrar os recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -79,7 +80,7 @@ Os clientes com êxito tem detalhadas planos onde as questões acima são aborda
   Realizar um laboratório de teste do seu cenário exato (computação, redes e armazenamento) é a melhor forma de garantir uma migração uniforme. Isto irá ajudar a garantir:
 
   - Um laboratório detida separado ou num ambiente de não produção existente para testar. Recomendamos um laboratório detida separado que pode ser migrado repetidamente e pode ser modificado destructively.  A recolher/hydrate metadados a partir de subscrições reais de scripts são listados abaixo.
-  - É uma boa ideia criar o laboratório numa subscrição separada. O motivo é que o laboratório será desligado repetidamente e ter um separado, subscrição isolada irá reduzir as hipóteses algo reais que irá obter forma acidental eliminado.
+  - É uma boa ideia criar o laboratório numa subscrição separada. O motivo é que o laboratório será desligado repetidamente e ter um separado, subscrição isolada irá reduzir as hipóteses que algo real irá obter sejam eliminado acidentalmente.
 
   Isto pode ser conseguido utilizando a ferramenta de AsmMetadataParser. [Leia mais sobre esta ferramenta aqui](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -205,7 +206,7 @@ Lembre-se de que o motivo pelo qual iniciou esta clássico para journey de migra
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral da migração de plataforma suportada dos recursos IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Técnica descrição profunda sobre a migração de plataforma suportada do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Utilizar o PowerShell para migrar os recursos IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Ferramentas de Comunidade para prestar assistência com a migração de recursos IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

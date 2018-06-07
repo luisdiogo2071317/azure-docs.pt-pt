@@ -1,21 +1,21 @@
 ---
-title: "Como adicionar uma origem de evento do Hub de eventos para informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como adicionar uma origem de evento que está ligada a um Hub de eventos para o seu ambiente de informações de séries de tempo."
-services: time-series-insights
+title: Como adicionar uma origem de evento do Hub de eventos para informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como adicionar uma origem de evento que está ligada a um Hub de eventos para o seu ambiente de informações de séries de tempo.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656022"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem de evento do Hub de eventos para o ambiente de informações de séries de tempo
 
@@ -23,12 +23,12 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Crie um ambiente de informações de séries de tempo. Para obter mais informações, consulte [criar um ambiente de informações de séries de tempo do Azure](time-series-insights-get-started.md) 
-- Crie um Hub de eventos. Para obter mais informações sobre os Event Hubs, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md)
+- Criar um Hub de Eventos. Para obter mais informações sobre os Event Hubs, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md)
 - O Hub de eventos tem de ter os eventos de mensagem Active Directory que está a ser enviados. Para obter mais informações, consulte [enviar eventos para utilizar o .NET Framework de Event Hubs do Azure](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Crie um grupo de consumidores dedicado no Hub de eventos para o ambiente de conhecimentos aprofundados de séries de tempo para consumir do. Cada origem de evento Insights de séries de tempo tem de ter o seu próprio grupo de consumidores dedicado que não seja partilhado com quaisquer outros consumidores. Se vários leitores consumam eventos a partir do mesmo grupo de consumidores, todos os leitores serão provável que consulte falhas. Tenha em atenção o que há também um limite de 20 grupos de consumidores do Hub de eventos. Para obter mais informações, consulte o [guia de programação de Hubs de eventos](../event-hubs/event-hubs-programming-guide.md).
 
 ## <a name="add-a-new-event-source"></a>Adicionar uma nova origem de evento
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Localize o seu ambiente existente do Insights de séries de tempo. Clique em **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
@@ -36,7 +36,7 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
 
    ![Evento origens + adicionar](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-4. Clique em **+ adicionar**.
+4. Clique em **+ Adicionar**.
 
 5. Forneça um **nome da origem de evento** exclusivo para este ambiente Insights de séries de tempo, tais como **fluxo de eventos**.
 
@@ -55,13 +55,13 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
    | Propriedade | Descrição |
    | --- | --- |
    | ID da subscrição | Selecione a subscrição na qual este hub de eventos foi criado.
-   | Espaço de nomes de barramento de serviço | Selecione o espaço de nomes de barramento de serviço que contém o Hub de eventos.
+   | Espaço de nomes do Service Bus | Selecione o espaço de nomes de barramento de serviço que contém o Hub de eventos.
    | Nome do hub de eventos | Selecione o nome do Hub de eventos.
    | Nome de política do hub de eventos | Selecione a política de acesso partilhado, que pode ser criada no separador Configurar do Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. A política de acesso partilhado para a origem de evento *tem* ter **ler** permissões.
    | Chave de política de hub de eventos | O valor da chave pode ser pré-preenchida.
    | Grupo de consumidores do hub de eventos | O grupo de consumidores para ler eventos do Hub de eventos. Recomenda-se vivamente a utilizar um grupo de consumidores dedicado para a origem de evento. |
    | Formato de serialização de eventos | JSON é a serialização apenas disponível neste momento. As mensagens de eventos tem de estar no formato ou não existem dados podem ser lidos. |
-   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o Hub de eventos. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o Hub de eventos. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
 
 
 9. Se tiver selecionado o **definições de Hub de eventos de fornecer manualmente** opção, a tabela seguinte explica cada propriedade necessária:
@@ -70,13 +70,13 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
    | --- | --- |
    | ID da subscrição | A subscrição na qual este hub de eventos foi criado.
    | Grupo de recursos | O grupo de recursos no qual este hub de eventos foi criado.
-   | Espaço de nomes de barramento de serviço | Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Service Bus.
+   | Espaço de nomes do Service Bus | Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Service Bus.
    | Nome do hub de eventos | O nome do seu Hub de eventos. Quando criou o seu hub de eventos, também lhe atribuiu um nome específico.
    | Nome de política do hub de eventos | A política de acesso partilhado, que pode ser criada no separador Configurar do Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. A política de acesso partilhado para a origem de evento *tem* ter **ler** permissões.
    | Chave de política de hub de eventos | A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes do Service Bus. Escreva a chave primária ou secundária aqui.
    | Grupo de consumidores do hub de eventos | O grupo de consumidores para ler eventos do Hub de eventos. Recomenda-se vivamente a utilizar um grupo de consumidores dedicado para a origem de evento.
    | Formato de serialização de eventos | JSON é a serialização apenas disponível neste momento. As mensagens de eventos tem de estar no formato ou não existem dados podem ser lidos. |
-   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o Hub de eventos. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o Hub de eventos. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
 
 
 10. Selecione **criar** para adicionar a nova origem de evento.
@@ -102,7 +102,7 @@ Para adicionar um novo grupo de consumidores do seu Hub de eventos, siga estes p
 
 5. Selecione **criar** para criar o novo grupo de consumidores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Definir políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
 - [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 - Aceder ao seu ambiente no [Explorador Insights de séries de tempo](https://insights.timeseries.azure.com).

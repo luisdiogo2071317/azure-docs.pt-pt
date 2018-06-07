@@ -1,24 +1,20 @@
 ---
-title: "Criar um IoT Hub do Azure através de um modelo (.NET) | Microsoft Docs"
+title: Criar um IoT Hub do Azure através de um modelo (.NET) | Microsoft Docs
 description: Como utilizar um modelo Azure Resource Manager para criar um IoT Hub com um programa c#.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a447b40c-c728-487e-875d-db554db5adc3
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 3f84ab26c43f33827479faed46db1de246920ae5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635547"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um hub IoT utilizando o modelo Azure Resource Manager (.NET)
 
@@ -202,7 +198,7 @@ Agora pode concluir a aplicação ao chamar o **CreateIoTHub** método antes de 
 > [!NOTE]
 > Esta aplicação de exemplo adiciona uma S1 Standard IoT Hub para o qual é-lhe faturado. Pode eliminar o hub IoT através de [portal do Azure] [ lnk-azure-portal] ou utilizando o **remover AzureRmResource** cmdlet do PowerShell quando tiver terminado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que implementou um IoT hub utilizando um modelo Azure Resource Manager com um programa c#, pretende explorar ainda mais:
 
 * Leia sobre as capacidades do [fornecedor de recursos do IoT Hub REST API][lnk-rest-api].
@@ -215,7 +211,7 @@ Para obter mais informações sobre como desenvolver para o IoT Hub, consulte os
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640477"
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Saiba as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure.
@@ -82,7 +83,7 @@ As perguntas mais frequentes nesta secção incluem monitorização e resoluçã
 * [Que oferta de Cache do Azure é mais adequada para mim?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-redis-cache"></a>O que é a Cache de Redis do Azure?
-Cache de Redis do Azure baseia-se de open source popular [a cache de Redis](http://redis.io). Proporciona acesso para uma segura, dedicada cache de Redis e gerida pela Microsoft e acessível a partir de qualquer aplicação no Azure. Para obter uma descrição mais detalhada, consulte o [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/) página de produto no Azure.com.
+A Cache de Redis do Azure é baseada na popular [Cache de Redis](http://redis.io) de código aberto. Proporciona acesso para uma segura, dedicada cache de Redis e gerida pela Microsoft e acessível a partir de qualquer aplicação no Azure. Para obter uma descrição mais detalhada, consulte o [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/) página de produto no Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a>Como pode começar a utilizar a Cache de Redis do Azure?
 Existem várias formas, que pode começar a utilizar a cache de Redis do Azure.
@@ -385,7 +386,7 @@ Tendo em conta estas informações, recomendamos vivamente que os clientes defin
 
 Como configurar esta definição:
 
-* No ASP.NET, utilize o [definição de configuração "minIoThreads"] [ "minIoThreads" configuration setting] sob o `<processModel>` elemento de configuração em Web. config. Se estiver a executar no interior de Web sites do Azure, esta definição não está exposta através de opções de configuração. No entanto, deve ainda poderá configurar esta definição através de programação (ver abaixo) do seu método de Application_Start asax.
+* No ASP.NET, utilize o ["minIoThreads" ou "minWorkerThreads" definição de configuração] [ "minIoThreads" configuration setting] sob o `<processModel>` elemento de configuração em Web. config. Se estiver a executar no interior de Web sites do Azure, esta definição não está exposta através de opções de configuração. No entanto, deve ainda poderá configurar esta definição através de programação (ver abaixo) do seu método de Application_Start asax.
 
   > [!NOTE] 
   > O valor especificado neste elemento de configuração é um *por núcleo* definição. Por exemplo, se tiver uma máquina 4 core e pretende que a definição de minIOThreads ser 200 no tempo de execução, teria de utilizar `<processModel minIoThreads="50"/>`.

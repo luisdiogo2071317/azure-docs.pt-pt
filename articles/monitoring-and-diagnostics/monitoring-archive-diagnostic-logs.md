@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: bf776ba8aaeca361250f39fb2c62233ee1dfbd5b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638770"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar os registos de diagnóstico do Azure
 
@@ -30,12 +31,12 @@ Antes de começar, terá de [criar uma conta de armazenamento](../storage/storag
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Para arquivar os registos de diagnóstico utilizando qualquer um dos métodos abaixo, definir uma **definição de diagnóstico** para um recurso específico. Uma definição de diagnóstico para um recurso define as categorias dos registos e os dados métricos enviados para um destino (conta de armazenamento, os Event Hubs espaço de nomes ou Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e a métricos dados armazenados numa conta do storage. Se uma política de retenção é definida para zero, eventos dessa categoria de registo são armazenados indefinidamente (que é dizer indefinidamente). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre definições de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados
+Para arquivar os registos de diagnóstico utilizando qualquer um dos métodos abaixo, definir uma **definição de diagnóstico** para um recurso específico. Uma definição de diagnóstico para um recurso define as categorias dos registos e os dados métricos enviados para um destino (conta de armazenamento, os Event Hubs espaço de nomes ou Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e a métricos dados armazenados numa conta do storage. Se uma política de retenção é definida para zero, eventos dessa categoria de registo são armazenados indefinidamente (que é dizer indefinidamente). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre definições de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento. 
 
 > [!NOTE]
-> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+> Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
@@ -118,7 +119,7 @@ Por exemplo, poderá ser um nome de blob:
 
 > insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 
-Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h = 12). Durante a hora presente, os eventos são acrescentados para o ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de diagnóstico são divididos em blobs individuais por hora.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de diagnóstico são divididos em blobs individuais por hora.
 
 No ficheiro PT1H.json cada evento está armazenado na matriz "registos", segue este formato:
 

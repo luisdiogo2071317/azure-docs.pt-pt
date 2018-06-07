@@ -2,23 +2,18 @@
 title: Utilizar a partilhado assinaturas de acesso (SAS) no Storage do Azure | Microsoft Docs
 description: Saiba como utilizar assinaturas de acesso partilhado (SAS) para delegar o acesso a recursos de armazenamento do Azure, incluindo ficheiros, tabelas, filas e blobs.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
 manager: jeconnoc
-editor: tysonn
-ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4f20e79ea6cb2d9d403f4451f595516d5c2e9373
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650745"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -86,7 +81,7 @@ A conta SAS tokens SAS de serviço incluem alguns parâmetros comuns em também 
 * **Hora de expiração.** Este é o tempo após o qual a SAS já não é válida. Melhores práticas recomendado especifique uma hora de expiração para um SAS ou que associá-la a uma política de acesso armazenada. A hora de expiração tem de ser expresso em UTC (Hora Universal Coordenada), com um designador de UTC especial ("Z"), por exemplo `1994-11-05T13:15:30Z` (consulte mais abaixo).
 * **Permissões.** As permissões especificadas na SAS indicam as operações que pode executar o cliente contra o recurso de armazenamento através da SAS. Diferirem permissões disponíveis para uma conta SAS e um serviço SAS.
 * **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (consulte a secção [estado de configuração de sessão de encaminhamento](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) para Express Route) partir do qual aceitar pedidos.
-* **Protocol.** Um parâmetro opcional que especifica o protocolo permitido para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido ou HTTPS (`https`). Tenha em atenção que HTTP só não é um valor permitido.
+* **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para um pedido. Os valores possíveis são HTTPS e HTTP (`https,http`), que é apenas o valor predefinido ou HTTPS (`https`). Tenha em atenção que HTTP só não é um valor permitido.
 * **Assinatura.** A assinatura é construída a partir de outros parâmetros especificados como parte de token e, em seguida, são encriptadas. É utilizado para autenticar a SAS.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parâmetros para um token SAS de serviço
@@ -115,7 +110,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 
 | Nome | Parte da SAS | Descrição |
 | --- | --- | --- |
-| Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é vivamente recomendável. |
+| URI de blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é vivamente recomendável. |
 | Versão de serviços de armazenamento |`sv=2015-04-05` |Para serviços de armazenamento versão 2012-02-12 e posterior, este parâmetro indica a versão a utilizar. |
 | Hora de início |`st=2015-04-29T22%3A18%3A26Z` |Especificado na hora UTC. Se pretender que a SAS para ser válida imediatamente, omita a hora de início. |
 | Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado na hora UTC. |

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637179"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 Estas FAQ Microsoft é uma lista de perguntas mais comuns sobre a análise de registos no Microsoft Azure. Se tiver alguma questão adicional sobre a análise de registos, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que possam ser localizada forma rápida e fácil.
@@ -96,7 +97,7 @@ A. Não, não é atualmente possível ler a partir de tabelas arbitrários ou co
 
 A. O serviço de análise de registos é desenvolvido do Azure. Endereços de IP de análise do registo estão a ser o [intervalos de IP do Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Como implementações de serviços são efetuadas, alterar os endereços IP reais do serviço de análise de registos. Os nomes DNS para permitir a sua firewall estão documentados na [requisitos de sistema](log-analytics-concept-hybrid.md#prerequisites).
+Como implementações de serviços são efetuadas, alterar os endereços IP reais do serviço de análise de registos. Os nomes DNS para permitir a sua firewall estão documentados na [requisitos de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. Utilizar o ExpressRoute para ligar ao Azure. A minha tráfego de análise de registos utiliza a ligação do ExpressRoute?
 

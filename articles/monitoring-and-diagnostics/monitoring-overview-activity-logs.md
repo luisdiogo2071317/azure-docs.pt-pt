@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638991"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 
@@ -50,7 +51,7 @@ O registo de atividade contém várias categorias de dados. Para obter detalhes 
 * **Estado de funcionamento do serviço** -esta categoria contém o registo de qualquer incidentes de estado de funcionamento do serviço ocorridas no Azure. Um exemplo do tipo de evento que vir esta categoria é de "Azure SQL Server nos EUA Leste estão a ocorrer um período de indisponibilidade." Eventos do serviço do Estado de funcionamento são fornecidos em cinco varieties: ação necessária, recuperação assistido, incidentes, manutenção, informações ou segurança e surgem apenas se tiver um recurso na subscrição que seria afetada pelo evento.
 * **Alerta** -esta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que vir esta categoria é "% de CPU no myVM foi superior a 80 para os últimos 5 minutos." Um conceito de alerta de ter uma variedade de sistemas do Azure – pode definir uma regra de algumas ordenação e receber uma notificação quando as condições corresponderem dessa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é enviado para esta categoria do registo de atividade.
 * **Dimensionamento automático** -esta categoria contém o registo de quaisquer eventos relacionados com a operação do motor de dimensionamento automático com base em quaisquer definições de dimensionamento automático que definiu na sua subscrição. Um exemplo do tipo de evento que vir esta categoria é "Escala de dimensionamento automático ação falhou". Utilizar o dimensionamento automático, pode automaticamente aumentar ou reduzir horizontalmente em número de instâncias de um tipo de recurso suportados com base na hora do dia e/ou carga dados (métricos) através de uma definição de dimensionamento automático. Quando as condições são cumpridas para escala ou reduzir verticalmente, o início e de eventos com êxito ou falha são gravadas nesta categoria.
-* **Recomendação** -esta categoria contém eventos de recomendação de determinados tipos de recursos, tais como web sites e servidores SQL. Estes eventos oferecem recomendações sobre como utilizar melhor os recursos. Eventos deste tipo receber apenas se tiver recursos que emitir recomendações.
+* **Recomendação** -esta categoria contém eventos de recomendação do Azure Advisor.
 * **Segurança** -esta categoria contém o registo de quaisquer alertas gerados pelo centro de segurança do Azure. Um exemplo do tipo de evento que vir esta categoria é "ficheiro de extensão duplo suspeita executado".
 * **Política e o estado de funcionamento do recurso** -destas categorias não contêm quaisquer eventos; estão reservados para utilização futura.
 
@@ -60,7 +61,7 @@ O registo de atividade contém várias categorias de dados. Para obter detalhes 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que pode fazer com o registo de atividade
 Seguem-se algumas das ações que pode fazer com o registo de atividade:
 
-![Registo de atividade do Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Registo de atividades do Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Consultar e vê-la no **portal do Azure**.
@@ -103,7 +104,7 @@ A **registo perfil** controla a forma como o registo de atividade é exportado. 
 * Quanto o registo de atividade deve ser mantido na conta de armazenamento.
     - Uma retenção de zero dias significa que os registos são mantidos indefinidamente. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
     - Se as políticas de retenção estão definidas, mas armazenar os registos numa conta do Storage está desativada (por exemplo, se apenas as opções de Event Hubs ou análise de registos são selecionadas), as políticas de retenção não tem qualquer efeito.
-    - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados.
+    - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento.
 
 Pode utilizar um armazenamento conta ou event hub espaço de nomes que não se encontra na mesma subscrição que aquele emitir os registos. O utilizador que configura a definição tem de ter o acesso adequado do RBAC para ambas as subscrições.
 

@@ -1,12 +1,12 @@
 ---
-title: "Metadados de informações de dispositivos na solução de monitorização remota | Microsoft Docs"
-description: "Uma descrição sobre a solução pré-configurada de monitorização remota e respetiva arquitetura do Azure IoT."
-services: 
+title: Metadados de informações de dispositivos na solução de monitorização remota | Microsoft Docs
+description: Uma descrição sobre a solução pré-configurada de monitorização remota e respetiva arquitetura do Azure IoT.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 5ada9413b1bb0923df96cfd93c3a0a875e80dd28
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636101"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Metadados de informações de dispositivos na solução pré-configurada de monitorização remota
 
@@ -36,7 +37,7 @@ Monitorização remota pré-configurada solução utiliza [IoT Hub do Azure] [ l
 | -------- | ------------------ | -------------- |
 | Registo de identidade | Id de dispositivo, chaves de autenticação, estado ativado | Incorporada no IoT Hub |
 | Dispositivos duplos | Metadados: propriedades comunicadas propriedades pretendidas, etiquetas | Incorporada no IoT Hub |
-| Cosmos DB | Histórico de comando e o método | Personalizada para soluções |
+| BD do Cosmos | Histórico de comando e o método | Personalizada para soluções |
 
 O IoT Hub inclui um [registo de identidade de dispositivo] [ lnk-identity-registry] para gerir o acesso a um IoT hub e utiliza [dispositivos duplos] [ lnk-device-twin] para gerir os metadados do dispositivo. Há também um remoto monitorização específicos *registo do dispositivo* que armazena o histórico de comando e o método. A solução de monitorização remota utiliza um [Cosmos DB] [ lnk-docdb] base de dados para implementar um arquivo personalizado para o histórico de comando e o método.
 
@@ -109,7 +110,7 @@ As mensagens de informações de dispositivo enviadas por um dispositivo são di
 > [!NOTE]
 > Uma mensagem de informações do dispositivo é uma mensagem de dispositivo para nuvem padrão. A solução distingue entre mensagens de telemetria e mensagens de informações do dispositivo utilizando ASA consultas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que concluiu a aprender como pode personalizar as soluções pré-configuradas, pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
 
@@ -129,6 +130,6 @@ Agora que concluiu a aprender como pode personalizar as soluções pré-configur
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dynamic-telemetry]: iot-suite-v1-dynamic-telemetry.md
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md

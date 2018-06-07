@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642816"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Windows no seu cluster do Service Fabric
 
@@ -316,6 +317,10 @@ A. O tempo necessário para a aplicação de orquestração de patch principalme
 Q. **Por que razão vejo algumas atualizações nos resultados do Windows Update obtidos através da REST API, mas não sob o histórico do Windows Update no computador?**
 
 A. Algumas atualizações do produto só deverá aparecer no respetivo histórico de atualização/patch respetivo. Por exemplo, atualizações do Windows Defender não aparecer no histórico do Windows Update no Windows Server 2016.
+
+Q. **Aplicação de Patch Orchestration pode ser utilizada para aplicar o patch meu cluster de desenvolvimento (um nó de cluster)?**
+
+A. Não, Patch orchestration aplicação não pode ser utilizado para o cluster de um nó de patch. Esta limitação é por predefinição, como [serviços do sistema de recursos de infraestrutura de serviço](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente irão sentir alguns períodos de indisponibilidade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca iria obter aprovada pelo Gestor de reparação.
 
 ## <a name="disclaimers"></a>Exclusão de Responsabilidade
 

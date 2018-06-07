@@ -1,26 +1,20 @@
 ---
 title: Introdução à identidade de módulo e ao módulo duplo do Hub IoT do Azure (portal e .NET)| Microsoft Docs
 description: Saiba como criar a identidade de módulo e atualizar o módulo duplo com o portal e o .NET.
-services: iot-hub
-documentationcenter: .net
-author: chrissie926
+author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30a53620a640b0122286a6ac69c0f98cd0bbde40
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361693"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634595"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
@@ -74,7 +68,7 @@ Criou a identidade de módulo com êxito no seu Hub IoT. Vamos tentar comunicar 
 
     ![Criar um projeto do Visual Studio][13]
 
-2. **Instale o SDK de dispositivo .NET do Hub IoT do Azure V1.16.0-preview-005** - O módulo de identidade e o módulo duplo encontram-se em modo de pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão V1.16.0-preview-005 e instale. Agora, tem acesso a todas as funcionalidades de módulo. 
+2. **Instalar o dispositivo mais recente do Azure IoT Hub .NET SDK** -duplo de identidade e de módulos do módulo está em pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão mais recente e instalar. Agora, tem acesso a todas as funcionalidades de módulo. 
 
     ![Instalar o SDK de serviço .NET do Hub IoT do Azure V1.16.0-preview-005][14]
 

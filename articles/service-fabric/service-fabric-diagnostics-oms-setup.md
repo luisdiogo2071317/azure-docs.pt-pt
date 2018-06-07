@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642670"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar a análise de registos para um cluster
 
@@ -50,7 +51,7 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ligar a área de trabalho de análise do registo ao cluster 
 
-1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições de solução, as definições de área de trabalho e aceder ao portal do OMS.
+1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições da solução, as definições da área de trabalho e acesso a área de trabalho do OMS.
 
 2. No menu de navegação esquerdo, em **origens de dados da área de trabalho**, selecione **registos de contas de armazenamento**.
 

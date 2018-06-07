@@ -6,14 +6,15 @@ manager: craigg
 author: anumjs
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: anjangsh
-ms.openlocfilehash: fa6899b285bcd1d3f2d4c1e17e3fbab7a6e0f839
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf180149ceb0b6c88fab8a0a7bb58a84d25b1b9c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647236"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar a utilizar as ferramentas de base de dados elástica
 Este documento apresenta-lhe a experiência de programação para o [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) por ajudar a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação em partição horizontal simples e explicar capacidades principais da funcionalidade ferramentas de base de dados elástica do SQL Database do Azure. Concentra-se em casos de utilização [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento de dados dependentes](sql-database-elastic-scale-data-dependent-routing.md), e [consultar várias partições horizontais](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como de Java. 

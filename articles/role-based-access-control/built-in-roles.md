@@ -11,23 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640545"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
-[O controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de função são a forma de controlar o acesso a recursos no Azure. Não é possível modificar as funções incorporadas, mas pode criar os seus próprios [funções personalizadas](custom-roles.md) para satisfazer as necessidades específicas da sua organização.
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas do controlo de acesso baseado em funções do Azure
+[O controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de função são a forma de controlar o acesso a recursos no Azure. Se as funções incorporadas não satisfazem as necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas](custom-roles.md).
 
 As funções incorporadas são sempre evolução. Para obter as definições de função mais recentes, utilize [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definição de função az](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descrições de função incorporada
-A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `actions` e `notActions` para cada função.
+A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `actions`, `notActions`, `dataActions`, e `notDataActions` para cada função.
 
 
 | Função incorporada | Descrição |
@@ -83,6 +84,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Novo contribuinte de conta APM Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
 | [Leitor e acesso a dados](#reader-and-data-access) | Permite ver tudo mas não permitirá eliminar ou criar uma conta de armazenamento ou recurso contido. Também permitirá o acesso de leitura/escrita para todos os dados contidos numa conta do storage através de acesso às chaves de conta de armazenamento. |
 | [Contribuinte de Cache de redis](#redis-cache-contributor) | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
+| [Política de recurso Contribuidor (pré-visualização)](#resource-policy-contributor-preview) | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
 | [Contribuinte de coleções de tarefa do agendador](#scheduler-job-collections-contributor) | Permite-lhe gerir coleções de tarefas do Scheduler, mas não aceder-lhes. |
 | [Contribuinte de serviço de pesquisa](#search-service-contributor) | Permite-lhe gerir serviços de Pesquisa, mas não aceder-lhes. |
 | [Administrador de segurança](#security-admin) | No Centro de segurança apenas: pode ver as políticas de segurança, ver Estados de segurança, editar as políticas de segurança, ver alertas e as recomendações, dispensar alertas e recomendações |
@@ -94,13 +96,17 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte da BD SQL](#sql-db-contributor) | Permite-lhe gerir bases de dados SQL, mas não aceder aos mesmos. Além disso, não é possível gerir as respetivas políticas relacionadas com segurança ou os servidores do SQL Server principal. |
 | [Gestor de segurança do SQL Server](#sql-security-manager) | Permite gerir as políticas de servidores e bases de dados SQL relacionadas com a segurança, mas não aceder às mesmas. |
 | [SQL Server contribuinte](#sql-server-contributor) | Permite gerir servidores e bases de dados SQL, mas não aceder aos mesmos nem às respetivas políticas relacionadas com a segurança. |
-| [Contribuinte de conta de armazenamento](#storage-account-contributor) | Permite-lhe gerir contas de armazenamento, mas não aceder às mesmas. |
+| [Contribuidor de Conta de Armazenamento](#storage-account-contributor) | Permite-lhe gerir contas de armazenamento, mas não aceder às mesmas. |
 | [Função de serviço de operador de chave de conta de armazenamento](#storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento têm permissão para listar e regenerar chaves em Contas de Armazenamento |
+| [Contribuinte de dados de BLOBs de armazenamento (pré-visualização)](#storage-blob-data-contributor-preview) | Permite acesso de leitura, escrita e eliminação a dados e contentores de blobs de Armazenamento do Azure |
+| [Leitor de dados de BLOBs de armazenamento (pré-visualização)](#storage-blob-data-reader-preview) | Permite o acesso de leitura de dados e contentores de blobs de Armazenamento do Azure. |
+| [Contribuinte de dados de fila de armazenamento (pré-visualização)](#storage-queue-data-contributor-preview) | Permite acesso de leitura, escrita e eliminação a filas e mensagens de filas de Armazenamento do Azure |
+| [Leitor de dados de fila de armazenamento (pré-visualização)](#storage-queue-data-reader-preview) | Permite acesso de leitura às filas e mensagens de fila de Armazenamento do Azure |
 | [Contribuinte de pedido de suporte](#support-request-contributor) | Permite-lhe criar e gerir os pedidos de Suporte |
 | [Gestor de tráfego contribuinte](#traffic-manager-contributor) | Permite-lhe gerir perfis do Gestor de Tráfego, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Administrador de acesso de utilizador](#user-access-administrator) | Permite-lhe gerir o acesso de utilizador aos recursos do Azure. |
 | [Início de sessão de administrador de máquinas virtuais](#virtual-machine-administrator-login) | -  Os utilizadores com esta função têm a capacidade de iniciar sessão numa máquina virtual com privilégios de administrador do Windows ou utilizador de raiz do Linux. |
-| [Contribuinte de máquina virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder aos mesmos e não a rede virtual ou ligados a conta do storage. |
+| [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder aos mesmos e não a rede virtual ou ligados a conta do storage. |
 | [Início de sessão de utilizador de máquina virtual](#virtual-machine-user-login) | Os utilizadores com esta função têm a capacidade de iniciar sessão numa máquina virtual como utilizador normal. |
 | [Plano de contribuinte da Web](#web-plan-contributor) | Permite-lhe gerir planos Web para sites, mas não aceder-lhes. |
 | [Contribuinte de Web site](#website-contributor) | Permite-lhe gerir sites (não planos Web), mas não aceder-lhes. |
@@ -1035,6 +1041,20 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="resource-policy-contributor-preview"></a>Contribuinte da Política de Recursos (pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Ações** |  |
+> | * / leitura | Ler os recursos de todos os tipos, exceto os segredos. |
+> | Microsoft.Authorization/policyassignments/* | Criar e gerir atribuições de políticas |
+> | Microsoft.Authorization/policydefinitions/* | Criar e gerir definições de política |
+> | Microsoft.Authorization/policysetdefinitions/* | Criar e gerir conjuntos de política |
+> | Microsoft.PolicyInsights/* |  |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
 ## <a name="scheduler-job-collections-contributor"></a>Contribuinte de Coleções de Tarefas do Agendador
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1388,6 +1408,58 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera as chaves de acesso da conta de armazenamento especificada. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite acesso de leitura, escrita e eliminação a dados e contentores de blobs de Armazenamento do Azure |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Ações** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devolve o resultado da eliminação de um contentor |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve um contentor ou uma lista de contentores |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Devolve o resultado do contentor de blobs colocados ou de concessão |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Devolve o resultado da eliminação de um blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devolve o resultado de escrever um blob |
+
+## <a name="storage-blob-data-reader-preview"></a>Leitor de Dados do Armazenamento de Blobs (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite o acesso de leitura de dados e contentores de blobs de Armazenamento do Azure. |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Ações** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve um contentor ou uma lista de contentores |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
+
+## <a name="storage-queue-data-contributor-preview"></a>Contribuinte de Dados do Armazenamento de Filas (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite acesso de leitura, escrita e eliminação a filas e mensagens de filas de Armazenamento do Azure |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Ações** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Devolve o resultado da eliminação de uma fila |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolve uma fila ou uma lista de filas. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Devolve o resultado da escrita de uma fila |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Devolve o resultado da eliminação de uma mensagem |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devolve uma mensagem |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Devolve o resultado de escrever uma mensagem |
+
+## <a name="storage-queue-data-reader-preview"></a>Leitor de Dados do Armazenamento de Filas (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite acesso de leitura às filas e mensagens de fila de Armazenamento do Azure |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Ações** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolve uma fila ou uma lista de filas. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devolve uma mensagem |
+
 ## <a name="support-request-contributor"></a>Contribuidor de Pedido de Suporte
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1437,6 +1509,9 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Network/loadBalancers/read | Obtém uma definição de Balanceador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtém uma definição de interface de rede.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Iniciar sessão numa máquina virtual como um utilizador normal |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Inicie sessão para uma máquina virtual com o administrador do Windows ou privilégios de utilizador de raiz do Linux |
 
 ## <a name="virtual-machine-contributor"></a>Contribuinte de Máquina Virtual
 > [!div class="mx-tableFixed"]
@@ -1495,6 +1570,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Network/loadBalancers/read | Obtém uma definição de Balanceador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtém uma definição de interface de rede.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Iniciar sessão numa máquina virtual como um utilizador normal |
 
 ## <a name="web-plan-contributor"></a>Contribuinte de Plano Web
 > [!div class="mx-tableFixed"]

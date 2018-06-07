@@ -1,21 +1,21 @@
 ---
-title: "Como adicionar uma origem de evento do IoT Hub às informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como adicionar uma origem de evento que está ligada a um IoT Hub para o seu ambiente de informações de séries de tempo"
-services: time-series-insights
+title: Como adicionar uma origem de evento do IoT Hub às informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como adicionar uma origem de evento que está ligada a um IoT Hub para o seu ambiente de informações de séries de tempo
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652530"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem de evento do IoT Hub para o ambiente de informações de séries de tempo
 Este artigo descreve como utilizar o portal do Azure para adicionar uma origem de evento que lê dados a partir de um IoT Hub para o seu ambiente de informações de séries de tempo.
@@ -27,14 +27,14 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
 - Crie um grupo de consumidores dedicado no IoT Hub para o ambiente de conhecimentos aprofundados de séries de tempo para consumir do. Cada origem de evento Insights de séries de tempo tem de ter o seu próprio grupo de consumidores dedicado que não seja partilhado com quaisquer outros consumidores. Se vários leitores consumam eventos a partir do mesmo grupo de consumidores, todos os leitores serão provável que consulte falhas. Para obter mais informações, consulte o [guia para programadores do IoT Hub](../iot-hub/iot-hub-devguide.md).
 
 ## <a name="add-a-new-event-source"></a>Adicionar uma nova origem de evento
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Localize o seu ambiente existente do Insights de séries de tempo. Clique em **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
 3. Sob o **topologia do ambiente** , clique em **origens de eventos**.
    ![Evento origens + adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
-4. Clique em **+ adicionar**.
+4. Clique em **+ Adicionar**.
 
 5. Forneça um **nome da origem de evento** exclusivo para este ambiente Insights de séries de tempo, tais como **fluxo de eventos**.
 
@@ -58,7 +58,7 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
    | Chave de política do IoT Hub | A chave é pré-preenchida.
    | Grupo de consumidores do IoT Hub | O grupo de consumidores para ler eventos do IoT Hub. Recomenda-se vivamente a utilizar um grupo de consumidores dedicado para a origem de evento.
    | Formato de serialização de eventos | JSON é a serialização apenas disponível neste momento. As mensagens de eventos tem de estar no formato ou não existem dados podem ser lidos. |
-   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
 
 9. Se tiver selecionado o **definições de fornecer o IoT Hub manualmente** opção, a tabela seguinte explica cada propriedade necessária:
 
@@ -71,7 +71,7 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
    | Chave de política do IoT Hub | A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes do Service Bus. Escreva a chave primária ou secundária aqui.
    | Grupo de consumidores do IoT Hub | O grupo de consumidores para ler eventos do IoT Hub. Recomenda-se vivamente a utilizar um grupo de consumidores dedicado para a origem de evento.
    | Formato de serialização de eventos | JSON é a serialização apenas disponível neste momento. As mensagens de eventos tem de estar no formato ou não existem dados podem ser lidos. |
-   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, tem de compreender o formato da mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de eventos. O valor é maiúsculas e minúsculas. Deixado em branco, o **tempo de colocar em fila de eventos** dentro o evento de origem é utilizada como o carimbo de eventos. |
 
 10. Selecione **criar** para adicionar a nova origem de evento.
 
@@ -95,7 +95,7 @@ Para adicionar um novo grupo de consumidores ao seu IoT Hub, siga estes passos:
 
 5. Selecione **guardar** para guardar o novo grupo de consumidores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Definir políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
 - [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
 - Aceder ao seu ambiente no [Explorador Insights de séries de tempo](https://insights.timeseries.azure.com).

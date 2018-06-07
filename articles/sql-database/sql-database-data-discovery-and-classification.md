@@ -7,19 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646784"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Base de dados SQL do Azure deteção e a classificação
 Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporadas no Azure SQL Database para **detetar**, **classificar**, **etiquetas**  &  **proteger** os dados confidenciais nas suas bases de dados.
 Detetar e classificar os dados mais confidenciais (empresas, financeiras, cuidados de saúde, PII, etc.) pode desempenham um papel no seu stature de proteção de informações organizacionais. Que possa servir como a infraestrutura para:
-* Ajudar a satisfazer as normas de privacidade de dados e requisitos de conformidade de regulamentação, tais como GDPR.
+* Ajudar a cumprir os requisitos de conformidade de regulamentação e normas de privacidade de dados.
 * Vários cenários de segurança, tais como (auditoria) de monitorização e alertas anómalos acesso a dados confidenciais.
 * Controlar o acesso ao e proteger a segurança das bases de dados que contém dados altamente confidenciais.
 

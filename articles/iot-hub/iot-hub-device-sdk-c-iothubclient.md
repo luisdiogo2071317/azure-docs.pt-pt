@@ -1,24 +1,20 @@
 ---
 title: Dispositivos de IoT do Azure SDK para C - IoTHubClient | Microsoft Docs
 description: Como utilizar a biblioteca de IoTHubClient do dispositivo IoT do Azure SDK para C para criar aplicações de dispositivos que comunicam com um IoT hub.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15541c8719e89080ba7685781cedf36fb4335e70
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633099"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Dispositivos de IoT do Azure SDK para C – mais informações sobre IoTHubClient
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) nesta série introduzida o **dispositivos de IoT do Azure SDK para C**. Esse artigo explicado que existem duas camadas de arquitetura no SDK. A base é a **IoTHubClient** biblioteca que gere diretamente a comunicação com o IoT Hub. Há também o **serializador** biblioteca baseia-se em cima de ou para fornecer serviços de serialização. Neste artigo fornecemos detalhes adicionais sobre o **IoTHubClient** biblioteca.
@@ -65,7 +61,7 @@ No entanto, existem funções complementar a cada um destas APIs:
 * IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_odas\_destruir
 
 Estas funções de todos os incluem "Odas" no nome da API. Além disso, os parâmetros de cada uma destas funções são idênticos para os seus homólogos não odas. No entanto, o comportamento destas funções é diferente de uma forma importante.
 
@@ -131,7 +127,7 @@ Lembre-se ao modelo que escolher estar consistente em que as APIs que utiliza. S
 
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_LL\_Destroy
+* IoTHubClient\_odas\_destruir
 * IoTHubClient\_LL\_DoWork
 
 O oposto também se aplica. Se iniciar com **IoTHubClient\_CreateFromConnectionString**, em seguida, utilize as APIs não odas para qualquer processamento adicional.
@@ -266,7 +262,7 @@ Existem duas opções são frequentemente utilizadas:
 
 A opção de lotes é importante. Por predefinição, os eventos de ingresses biblioteca individualmente (um único evento é que passa ao **IoTHubClient\_odas\_SendEventAsync**). Se a opção de lotes **verdadeiro**, a biblioteca recolhe os eventos tantos possível da memória intermédia (até o tamanho máximo de mensagem que irá aceitar o IoT Hub).  O lote de evento é enviado ao IoT Hub numa única chamada de HTTPS (os eventos individuais são incluídos para uma matriz JSON). Ativar a criação de batches normalmente resulta em ganhos de desempenho grande, uma vez que está a reduzir ida e volta de rede. Reduz significativamente largura de banda, uma vez que está a enviar um conjunto de cabeçalhos HTTPS com um lote de evento, em vez de um conjunto de cabeçalhos para cada evento individual. A menos que tenha um motivo específico para o fazer, caso contrário, normalmente, deverá ativar a criação de batches.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo descreve em detalhe o comportamento de **IoTHubClient** biblioteca encontrada no **dispositivos de IoT do Azure SDK para C**. Com esta informação, deve ter uma boa compreensão das funcionalidades do **IoTHubClient** biblioteca. O [artigo seguinte](iot-hub-device-sdk-c-serializer.md) fornece semelhante detalhes sobre o **serializador** biblioteca.
 
 Para saber mais sobre como desenvolver para o IoT Hub, veja o [SDKs IoT do Azure][lnk-sdks].

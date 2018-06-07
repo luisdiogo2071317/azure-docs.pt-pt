@@ -11,19 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637366"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funcionalidades de dados de cliente de Cofre de chaves do Azure
 
 O Cofre de chaves do Azure recebe dados de cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerido. Estes dados de cliente são diretamente visíveis no portal do Azure e através da API REST. Dados de cliente podem ser editados ou eliminados por atualizar ou eliminar o objeto que contém os dados.
 
 Os registos de acesso do sistema são gerados quando um utilizador ou aplicação acede ao Cofre de chaves. Acesso de detalhado estão disponíveis registos para clientes que utilizam as informações do Azure.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>Identificar dados de cliente
 

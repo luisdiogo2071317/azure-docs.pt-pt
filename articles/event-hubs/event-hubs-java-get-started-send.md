@@ -2,23 +2,19 @@
 title: Enviar eventos para os Hubs de eventos do Azure utilizando Java | Microsoft Docs
 description: Começar a enviar para os Event Hubs utilizando Java
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626416"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Enviar eventos para utilizando Java de Event Hubs do Azure
 
@@ -28,12 +24,14 @@ Para obter mais informações, consulte o [descrição geral dos Event Hubs][Eve
 
 Este tutorial mostra como enviar eventos para um hub de eventos utilizando uma aplicação de consola em Java. Para receber eventos utilizando a biblioteca de anfitrião do processador de eventos de Java, consulte [neste artigo](event-hubs-java-get-started-receive-eph.md), ou ao clicar no idioma adequado de receção na tabela da esquerda do conteúdo.
 
-Para concluir este tutorial, irá precisar do seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Ambiente de desenvolvimento Java. Para este tutorial, partimos do pressuposto [Eclipse](https://www.eclipse.org/).
+Para concluir este tutorial, terá dos seguintes pré-requisitos:
+
+* Ambiente de desenvolvimento Java. Este tutorial utiliza [Eclipse](https://www.eclipse.org/).
 * Uma conta ativa do Azure. Se não tiver uma subscrição do Azure, crie um [conta gratuita][] antes de começar.
 
-O código neste tutorial baseia-se no [enviar GitHub exemplo](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), que pode examinar para ver o completo aplicação de trabalho.
+O código neste tutorial baseia-se no [SimpleSend GitHub exemplo](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), que pode examinar para ver o completo aplicação de trabalho.
 
 ## <a name="send-events-to-event-hubs"></a>Enviar eventos para os Event Hubs
 
@@ -94,7 +92,7 @@ Utilize a classe de ConnectionStringBuilder para construir um valor de cadeia de
 
 ### <a name="send-events"></a>Enviar eventos
 
-Em seguida, crie um evento único, transformar uma cadeia na respectiva codificação de bytes UTF-8. Em seguida, crie uma nova instância de cliente de Event Hubs da cadeia de ligação e envie a mensagem.   
+Crie um evento único, transformar uma cadeia na respectiva codificação de bytes UTF-8. Em seguida, crie uma nova instância de cliente de Event Hubs da cadeia de ligação e envie a mensagem:   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");

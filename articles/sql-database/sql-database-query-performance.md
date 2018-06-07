@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648739"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>SQL do Azure da base de dados desempenho das consultas
 Gerir e otimizar o desempenho das bases de dados relacionais são uma tarefa um desafio que requer conhecimentos significativos e o investimento de tempo. Desempenho das consultas permite-lhe gaste menos tempo a resolução de problemas de desempenho de base de dados ao fornecer o seguinte:

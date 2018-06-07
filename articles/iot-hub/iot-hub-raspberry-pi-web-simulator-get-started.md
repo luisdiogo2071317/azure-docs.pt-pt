@@ -1,24 +1,21 @@
 ---
 title: Simulated Raspberry Pi nuvem (Node.js) - simulador de web Raspberry Pi estabelecer ligação ao IoT Hub do Azure | Microsoft Docs
 description: Ligar o simulador de web Raspberry Pi ao IoT Hub do Azure para Raspberry Pi enviar dados para a nuvem do Azure.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timtl
-tags: ''
+manager: ''
 keywords: simulador raspberry pi, do azure iot raspberry pi, iothub raspberry pi, dados de envio de raspberry pi na nuvem, raspberry pi na nuvem
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: fe953b56e0a4dbbf7aaaa81d5b8ac6e31bb6bc4d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc8216f6b0a610b556b94637970bfd3e721f38d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636227"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligar o simulador online Raspberry Pi ao IoT Hub do Azure (Node.js)
 

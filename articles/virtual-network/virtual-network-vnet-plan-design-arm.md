@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656912"
 ---
 # <a name="plan-virtual-networks"></a>Planear a redes virtuais
 
@@ -26,7 +27,7 @@ Criar uma rede virtual para experimentar fácil suficiente, mas possibilidades s
 
 ## <a name="naming"></a>Atribuição de nomes
 
-Todos os recursos do Azure tem um nome. O nome tem de ser exclusivo dentro de um âmbito, que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual tem de ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas podem ser duplicadas dentro de um [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou do Azure [região](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que pode utilizar consistentemente quando os recursos de atribuição de nomes é útil quando gerir vários recursos de rede ao longo do tempo. Para sugestões, consulte [convenções de nomenclatura](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Todos os recursos do Azure tem um nome. O nome tem de ser exclusivo dentro de um âmbito, que pode variar para cada tipo de recurso. Por exemplo, o nome de uma rede virtual tem de ser exclusivo dentro de um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mas podem ser duplicadas dentro de um [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou do Azure [região](https://azure.microsoft.com/regions/#services). Definir uma convenção de nomenclatura que pode utilizar consistentemente quando os recursos de atribuição de nomes é útil quando gerir vários recursos de rede ao longo do tempo. Para sugestões, consulte [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
 ## <a name="regions"></a>Regiões
 
@@ -38,7 +39,7 @@ Todos os recursos do Azure são criados numa região do Azure e a subscrição. 
 
 ## <a name="subscriptions"></a>Subscrições
 
-Pode implementar redes virtuais tantos conforme necessário dentro de cada subscrição, até o [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm subscrições diferentes para diversos departamentos, por exemplo. Para obter mais informações e considerações em torno de subscrições, consulte [governação de subscrição](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
+Pode implementar redes virtuais tantos conforme necessário dentro de cada subscrição, até o [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm subscrições diferentes para diversos departamentos, por exemplo. Para obter mais informações e considerações em torno de subscrições, consulte [governação de subscrição](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentação
 
@@ -81,7 +82,7 @@ Pode ver as estruturas de exemplo para implementar uma rede de Perímetro entre 
 ### <a name="traffic-routing"></a>o encaminhamento de tráfego
 
 O Azure cria várias rotas predefinidas para o tráfego de saída de sub-rede. Pode substituir predefinição do Azure encaminhamento através da criação de uma tabela de rota e associá-la a uma sub-rede. Os motivos mais comuns para substituir a predefinição do Azure encaminhamento são:
-- Porque pretende que o tráfego entre sub-redes através de uma NVA. Para obter mais informações sobre como [configurar tabelas de rota para forçar o tráfego através de uma NVA](tutorial-create-route-table-portal.md)
+- Porque pretende que o tráfego entre sub-redes através de uma NVA. Para obter mais informações sobre como [configurar tabelas de rota para forçar o tráfego através de uma NVA](tutorial-create-route-table-portal.md).
 - Porque pretender forçar todo o tráfego vinculado à internet através de uma NVA, ou no local, através de um gateway de VPN do Azure. Forçar internet tráfego no local para inspecção e o registo é frequentemente referido como imposição do túnel. Saiba mais sobre como configurar [imposição do túnel](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 Se precisar de implementar o encaminhamento personalizado, recomenda-se que a familiarizar-se com [encaminhamento no Azure](virtual-networks-udr-overview.md).
@@ -92,24 +93,28 @@ Pode ligar uma rede virtual a outras redes virtuais através de peering de rede 
 
 ### <a name="peering"></a>Peering
 
-Quando utilizar [peering de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo ou outro, suportada regiões do Azure. As redes virtuais podem estar nas subscrições do Azure idêntica ou diferentes, desde que ambas as subscrições são atribuídas ao mesmo inquilino do Azure Active Directory. Antes de criar um peering, recomenda-se que a familiarizar-se com tudo do peering [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Largura de banda entre os recursos na redes virtuais em modo de peering é o mesmo como se os recursos foram na mesma rede virtual.
+Quando utilizar [peering de rede virtual](virtual-network-peering-overview.md), as redes virtuais podem estar no mesmo ou outro, suportada regiões do Azure. As redes virtuais podem estar nas subscrições do Azure idêntica ou diferentes, desde que ambas as subscrições são atribuídas ao mesmo inquilino do Azure Active Directory. Antes de criar um peering, recomenda-se que a familiarizar-se com tudo do peering [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Largura de banda entre os recursos na redes virtuais em modo de peering na mesma região é a mesma, como se os recursos foram na mesma rede virtual.
 
 ### <a name="vpn-gateway"></a>Gateway de VPN
 
 Pode utilizar um Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar uma rede virtual à sua rede no local ao utilizar um [VPN site a site](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou uma ligação dedicada com o Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Pode combinar peering e um gateway VPN para criar [redes hub- and -spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), onde redes virtuais spoke ligarem a uma rede virtual do hub e o hub liga-se a uma rede no local, por exemplo.
+Pode combinar peering e um gateway VPN para criar [redes hub- and -spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), onde redes virtuais spoke ligarem a uma rede virtual do hub, e o hub estabelece ligação a uma rede no local, por exemplo.
 
 ### <a name="name-resolution"></a>Resolução de nomes
 
-Recursos numa rede virtual não é possível resolver os nomes de recursos na rede virtual em modo de peering através do Azure [DNS incorporada](virtual-networks-name-resolution-for-vms-and-role-instances.md). Para resolver nomes numa rede virtual em modo de peering, [implementar o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), ou utilizar o DNS do Azure [domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolver nomes entre os recursos numa rede virtual e redes no local também necessita de implementar o próprio servidor DNS.
+Recursos numa rede virtual não é possível resolver os nomes de recursos numa rede virtual em modo de peering através do Azure [DNS incorporada](virtual-networks-name-resolution-for-vms-and-role-instances.md). Para resolver nomes numa rede virtual em modo de peering, [implementar o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), ou utilizar o DNS do Azure [domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolver nomes entre os recursos numa rede virtual e redes no local também necessita de implementar o próprio servidor DNS.
 
 ## <a name="permissions"></a>Permissões
 
-Utiliza o Azure [controlo de acesso baseado em funções](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) aos recursos. As permissões são atribuídas a um [âmbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) na hierarquia do seguinte: subscrição, o grupo de gestão, o grupo de recursos e o recurso individuais. Para saber mais sobre a hierarquia, consulte [organizar os recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todas as respetivas capacidades relacionadas, tais como o peering, grupos de segurança de rede, pontos finais de serviço e tabelas de rota, pode atribuir membros da sua organização para o incorporado [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), ou [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) funções e, em seguida, atribua a função para o âmbito adequado. Se pretender atribuir permissões específicas para um subconjunto das funcionalidades de rede virtual, crie um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribuir as permissões específicas necessárias para [redes virtuais](manage-virtual-network.md#permissions), [ pontos finais de serviço e as sub-redes](virtual-network-manage-subnet.md#permissions), [interfaces de rede](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md#permissions), [grupos de segurança de rede e de aplicação](manage-network-security-group.md#permissions), ou [tabelas de rotas](manage-route-table.md#permissions) à função.
+Utiliza o Azure [controlo de acesso baseado em funções](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) aos recursos. As permissões são atribuídas a um [âmbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na hierarquia do seguinte: subscrição, o grupo de gestão, o grupo de recursos e o recurso individuais. Para saber mais sobre a hierarquia, consulte [organizar os recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todas as respetivas capacidades relacionadas, tais como o peering, grupos de segurança de rede, pontos finais de serviço e tabelas de rota, pode atribuir membros da sua organização para o incorporado [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), ou [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) funções e, em seguida, atribua a função para o âmbito adequado. Se pretender atribuir permissões específicas para um subconjunto das funcionalidades de rede virtual, crie um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribuir as permissões específicas necessárias para [redes virtuais](manage-virtual-network.md#permissions), [ pontos finais de serviço e as sub-redes](virtual-network-manage-subnet.md#permissions), [interfaces de rede](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [grupos de segurança de rede e de aplicação](manage-network-security-group.md#permissions), ou [tabelas de rotas](manage-route-table.md#permissions) à função.
 
 ## <a name="policy"></a>Política
 
-Política do Azure permite-lhe criar, atribuir e gerir definições de política. Definições de política impor regras diferentes e efeitos sobre os recursos, pelo que os recursos se manter em conformidade com as normas organizacionais e contratos de nível de serviço. Política do Azure executa uma edição de avaliação dos seus recursos, análise de recursos que não são compatíveis com as definições de política que tem. Por exemplo, pode ter uma política que permite a criação de redes virtuais num grupo de recursos específico. Outra política pode requerer que todas as sub-redes tem um grupo de segurança de rede associado. As políticas são então avaliadas quando criar e atualizar recursos.
+Política do Azure permite-lhe criar, atribuir e gerir definições de política. Definições de política impor regras diferentes sobre os recursos, pelo que os recursos se manter em conformidade com as normas organizacionais e contratos de nível de serviço. Política do Azure executa uma edição de avaliação dos seus recursos, análise de recursos que não são compatíveis com as definições de política que tem. Por exemplo, pode definir e aplicar uma política que permite a criação de redes virtuais apenas um grupo de recursos específico ou a região. Outra política pode exigir que todas as sub-redes tem um grupo de segurança de rede associado. As políticas são então avaliadas quando criar e atualizar recursos.
 
 As políticas são aplicadas para a hierarquia seguinte: subscrição, o grupo de gestão e o grupo de recursos. Saiba mais sobre [política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implementar algumas rede virtual [modelo de política](policy-samples.md) amostras.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Saiba mais sobre todas as tarefas, definições e as opções para um [rede virtual](manage-virtual-network.md), [ponto final de serviço e sub-rede](virtual-network-manage-subnet.md), [interface de rede](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md), [grupo de segurança de rede e de aplicação](manage-network-security-group.md), ou [tabela de rotas](manage-route-table.md).

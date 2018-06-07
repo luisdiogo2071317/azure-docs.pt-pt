@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640375"
 ---
 # <a name="ocr-cognitive-skill"></a>Skill cognitivos OCR
 
@@ -60,7 +61,7 @@ Os parâmetros são maiúsculas e minúsculas.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -131,7 +132,7 @@ Um caso de utilização comuns para texto fusão é a capacidade para intercalar
 
 Skillset de exemplo seguinte cria um *merged_text* campo para conter o conteúdo textual do seu documento, bem como o texto de OCRed de cada uma das imagens incorporado esse documento. 
 
-#### <a name="request-body-syntax"></a>Sintaxe de corpo do pedido
+#### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -200,4 +201,4 @@ O exemplo de skillset acima assume que existe um campo de imagens normalizado. P
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar indexador (REST)](ref-create-indexer.md)
++ [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

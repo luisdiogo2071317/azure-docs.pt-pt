@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649786"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 Criação de batches de operações para a SQL Database do Azure significativamente melhora o desempenho e a escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo abrange alguns resultados do teste de exemplo que comparam sequenciais e batches pedidos para uma base de dados do SQL Server. O resto do artigo mostra as técnicas, cenários e as considerações para ajudar a utilizar a criação de batches com êxito nas suas aplicações do Azure.

@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657286"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver e modificar os nomes de anfitrião
 Para permitir que as instâncias da função ser referenciado por nome de anfitrião, tem de definir o valor para o nome de anfitrião no ficheiro de configuração do serviço para cada função. Fazê-lo ao adicionar o nome de anfitrião pretendido para o **vmName** atributo o **função** elemento. O valor da **vmName** atributo é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e existem três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*. Não tem de especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Ver os nomes de anfitrião
 Pode ver os nomes de anfitrião de máquinas virtuais e instâncias de função no serviço em nuvem, utilizando qualquer uma das ferramentas abaixo.
-
-### <a name="azure-portal"></a>Portal do Azure
-Pode utilizar o [portal do Azure](http://portal.azure.com) para ver os nomes de anfitrião para máquinas virtuais no painel de descrição geral de uma máquina virtual. Tenha em atenção que o painel mostra um valor para **nome** e **nome de anfitrião**. Apesar de estarem inicialmente o mesmo, a alteração do nome de anfitrião não irá alterar o nome da máquina virtual ou instância de função.
-
-Instâncias de função também podem ser visualizadas no portal do Azure, mas quando listar as instâncias de um serviço em nuvem, o nome do anfitrião não é apresentado. Verá um nome para cada instância, mas esse nome não representa o nome do anfitrião.
 
 ### <a name="service-configuration-file"></a>Ficheiro de configuração de serviço
 Pode transferir o ficheiro de configuração de serviço para um serviço implementado o **configurar** painel do serviço no portal do Azure. Em seguida, pode procurar o **vmName** atributo para o **nome da função** elemento para ver o nome de anfitrião. Tenha em atenção que este nome de anfitrião é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e existem três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*.
@@ -46,7 +42,7 @@ De um cliente REST, siga estas instruções:
 
 1. Certifique-se de que tem um certificado de cliente para ligar ao portal do Azure. Para obter um certificado de cliente, siga os passos apresentados na [como: transferir e importar definições de publicação e informações de subscrição](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Defina uma entrada de cabeçalho x-ms-version com um valor de 2013-11-01 com o nome.
-3. Enviar um pedido no seguinte formato: https://management.core.windows.net/ \<subscrition id\>/services/hostedservices/\<nome do serviço\>? detalhes incorporar = true
+3. Envie um pedido no seguinte formato: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Procure o **HostName** elemento para cada **RoleInstance** elemento.
 
 > [!WARNING]

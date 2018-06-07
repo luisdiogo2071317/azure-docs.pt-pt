@@ -2,12 +2,12 @@
 title: Teste de SAP NetWeaver em VMs do Microsoft Azure SUSE Linux | Microsoft Docs
 description: Testar o SAP NetWeaver em VMs do Linux do Microsoft Azure SUSE
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657660"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executar o SAP NetWeaver em VMs SUSE Linux do Microsoft Azure
 Este artigo descreve vários aspetos a considerar quando estiver a executar o SAP NetWeaver em máquinas virtuais do Microsoft Azure SUSE Linux (VMs). A partir de 19 de Maio de 2016 SAP NetWeaver é oficialmente suportado no SUSE Linux VMs no Azure. Todos os detalhes sobre as versões de Linux, as versões do SAP kernel e outros pré-requisitos podem ser encontrados na 1928533 de nota SAP "aplicações SAP no Azure: suportada produtos e os tipos VM do Azure".
@@ -69,7 +70,7 @@ Embora seja possível utilizar as imagens SLES padrão para instalações de SAP
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Instalar WALinuxAgent numa SUSE VM
 O agente chamado WALinuxAgent faz parte das imagens SLES no Azure Marketplace. Para obter informações sobre a instalação-lo manualmente (por exemplo, quando carregar um disco de rígido virtual SO SLES (VHD) no local), consulte:
 
-* [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
+* [openSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -105,7 +106,7 @@ Se pretender carregar uma VM sem o passo de desaprovisionamento no fim (por exem
 
 Para além das que está descrito no artigo, recomendamos que remova este ficheiro:
 
-   /lib/udev/rules.d/75-persistent-net-generator.rules
+   /lib/udev/Rules.d/75-persistent-NET-Generator.Rules
 
 Também pode instalar o agente Linux do Azure (waagent) para o ajudar a evitar potenciais problemas, desde que não existem vários NICs.
 

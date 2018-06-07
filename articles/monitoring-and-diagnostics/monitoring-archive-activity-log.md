@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7fc8209028b8d84be31a068f7aa7a83a1ca152a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638794"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividade do Azure
 Neste artigo, mostramos como pode utilizar o portal do Azure, o Cmdlets do PowerShell ou a CLI de várias plataformas para arquivar a [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) numa conta do storage. Esta opção é útil se gostaria de manter o registo de atividade mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estático. Se pretender manter os eventos durante 90 dias ou menos não terá de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de atividade são retidos na plataforma do Azure para 90 dias sem ativar o arquivo.
@@ -27,7 +28,7 @@ Neste artigo, mostramos como pode utilizar o portal do Azure, o Cmdlets do Power
 Antes de começar, terá de [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) ao qual pode arquivar o registo de atividade. Recomendamos vivamente que utilize uma conta de armazenamento existente que tenha outros não monitorização dados armazenados na mesma forma que melhor pode controlar o acesso a dados de monitorização. No entanto, se também são arquivar os registos de diagnóstico e de métricas para uma conta de armazenamento, poderá fazer sentido utilizar essa conta do storage para o registo de atividade, bem como para manter os dados de monitorização de todos os numa localização central. A conta de armazenamento que utiliza tem de ser uma conta de armazenamento de objetivo geral, não uma conta do blob storage. A conta de armazenamento não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 ## <a name="log-profile"></a>Perfil de registo
-Para arquivar o registo de atividade, utilizando qualquer um dos métodos abaixo, definir o **registo perfil** para uma subscrição. O perfil de registo define o tipo de eventos que são armazenados ou transmissão em fluxo e as saídas — hub de conta e/ou evento de armazenamento. Também define a política de retenção (número de dias a manter) para os eventos armazenados numa conta do storage. Se a política de retenção é definida para zero, eventos são armazenados indefinidamente. Caso contrário, isto pode ser definido como qualquer valor entre 1 e 2147483647. As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. [Pode ler mais sobre o registo perfis aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Para arquivar o registo de atividade, utilizando qualquer um dos métodos abaixo, definir o **registo perfil** para uma subscrição. O perfil de registo define o tipo de eventos que são armazenados ou transmissão em fluxo e as saídas — hub de conta e/ou evento de armazenamento. Também define a política de retenção (número de dias a manter) para os eventos armazenados numa conta do storage. Se a política de retenção é definida para zero, eventos são armazenados indefinidamente. Caso contrário, isto pode ser definido como qualquer valor entre 1 e 2147483647. As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento. [Pode ler mais sobre o registo perfis aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>O registo de atividade com o portal de arquivo
 1. No portal, clique o **registo de atividade** ligação no painel de navegação esquerda. Se não vir uma ligação para o registo de atividade, clique em de **todos os serviços** ligar pela primeira vez.
@@ -74,7 +75,7 @@ Para arquivar o registo de atividade, utilizando qualquer um dos métodos abaixo
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| nome |Sim |Nome do perfil do registo. |
+| name |Sim |Nome do perfil do registo. |
 | storage-account-id |Sim |ID de recurso da conta do Storage para o qual os registos de atividade deve ser guardados. |
 | localizações |Sim |Lista de valores separados por espaço das regiões para as quais pretende recolher eventos de registo de atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name`. |
 | dias |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero irá armazenar os registos indefinidamente (indefinidamente).  Se zero, em seguida, o parâmetro ativado deve ser definido como true. |
@@ -84,7 +85,7 @@ Para arquivar o registo de atividade, utilizando qualquer um dos métodos abaixo
 ## <a name="storage-schema-of-the-activity-log"></a>Esquema de armazenamento do registo de atividade
 Assim que tiver configurado a arquivo, um contentor de armazenamento será criado na conta de armazenamento, assim que ocorre um evento de registo de atividade. Os blobs no contentor siga o mesmo formato entre o registo de atividade e os registos de diagnóstico. A estrutura destas blobs é:
 
-> informações operacionais-registos/nome = predefinido/resourceId = / subscrições / {ID de subscrição} / y = {com quatro dígitos numérico year} / m = {dois dígitos numérico month} / d = {dois dígitos numérico day} / h = {relógio de 24 horas dois dígitos hour}/m=00/PT1H.json
+> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 > 
 > 
 
@@ -94,7 +95,7 @@ Por exemplo, poderá ser um nome de blob:
 > 
 > 
 
-Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h = 12). Durante a hora presente, os eventos são acrescentados para o ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de atividade são divididos em blobs individuais por hora.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h = 12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de atividade são divididos em blobs individuais por hora.
 
 No ficheiro PT1H.json cada evento está armazenado na matriz "registos", segue este formato:
 

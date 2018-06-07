@@ -8,14 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640018"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Base de Dados Azure para servidores PostgreSQL
+# <a name="azure-database-for-postgresql-servers"></a>Base de Dados do Azure para servidores PostgreSQL
 Este artigo fornece considerações e diretrizes para trabalhar com a base de dados do Azure para servidores de PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>O que é uma base de dados do Azure para o servidor de PostgreSQL?
@@ -45,13 +46,22 @@ Os seguintes elementos ajudam a garantir o acesso seguro à sua base de dados:
 | **TCP/IP** | O protocolo é suportado o TCP/IP e através de sockets de domínio do Unix. |
 | **Firewall** | Para ajudar a proteger os seus dados, uma regra de firewall impede a todos os acessos ao seu servidor e respetivas bases de dados, até que especifique os computadores que têm permissão. Consulte [base de dados do Azure para as regras de firewall do servidor de PostgreSQL](concepts-firewall-rules.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Como gerir a um servidor?
+## <a name="managing-your-server"></a>Gerir o seu servidor
 Pode gerir a base de dados do Azure para PostgreSQL servidores utilizando o [portal do Azure](https://portal.azure.com) ou [CLI do Azure](/cli/azure/postgres).
+
+Durante a criação de um servidor, configurou as credenciais para o utilizador de admin. O utilizador de admin é o utilizador com privilégios mais elevado que tiver no servidor. Pertence a azure_pg_admin a função. Esta função não tem permissões de Superutilizador completa. 
+
+O atributo de Superutilizador PostgreSQL é atribuído a azure_superuser, que pertence ao serviço gerido. Não tem acesso a esta função.
+
+Uma base de dados do Azure para o servidor de PostgreSQL tem duas bases de dados predefinida: 
+- **postgres** -é criada uma base de dados predefinido pode ligar a vez no seu servidor.
+- **azure_maintenance** -esta base de dados é utilizada para separar os processos que fornecem o serviço gerido das ações de utilizador. Não tem acesso a esta base de dados.
+
 
 ## <a name="server-parameters"></a>Parâmetros do servidor
 Os parâmetros de servidor PostgreSQL determinam a configuração do servidor. Na base de dados do Azure para PostgreSQL, a lista de parâmetros pode ser visualizada e editá-lo utilizando o portal do Azure ou a CLI do Azure. 
 
-Como um serviço gerido para Postgres, os parâmetros configuráveis na base de dados do Azure para PostgreSQL são um subconjunto dos parâmetros numa instância Postgres local (para obter mais informações sobre parâmetros Postgres, consulte o [PostgreSQL documentação](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). A base de dados do Azure para o servidor de PostgreSQL está ativado com valores predefinidos para cada parâmetro na criação. Reinicie os parâmetros que necessitem de um servidor ou não é possível configurar o acesso de Superutilizador para que as alterações serem aplicadas pelo utilizador.
+Como um serviço gerido para Postgres, os parâmetros configuráveis na base de dados do Azure para PostgreSQL são um subconjunto dos parâmetros numa instância Postgres local (para obter mais informações sobre parâmetros Postgres, consulte o [PostgreSQL documentação](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). A base de dados do Azure para o servidor de PostgreSQL está ativado com valores predefinidos para cada parâmetro na criação. Alguns parâmetros que necessitem de um servidor reiniciar ou não é possível configurar o acesso de Superutilizador para que as alterações serem aplicadas pelo utilizador.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

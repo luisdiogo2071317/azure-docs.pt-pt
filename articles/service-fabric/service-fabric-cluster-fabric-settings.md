@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642653"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
 Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -75,6 +76,15 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|  |
+
+## <a name="backuprestoreservice"></a>BackupRestoreService
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|Int, a predefinição é 0|Estático|MinReplicaSetSize para BackupRestoreService |
+|PlacementConstraints|wstring, a predefinição é L""|Estático| PlacementConstraints BackupRestore serviço |
+|SecretEncryptionCertThumbprint|wstring, a predefinição é L""|Dinâmica|Thumbprint do certificado de encriptação secreta X509 |
+|SecretEncryptionCertX509StoreName|wstring, a predefinição é L "Os meus"|  Dinâmica|    Isto indica que o certificado a utilizar para encriptação e desencriptação do arquivo de certificados de nome de x. 509 de credenciais é utilizado para encriptar as credenciais do arquivo desencriptar utilizadas pelo serviço de restaurar a cópia de segurança |
+|TargetReplicaSetSize|int, a predefinição é 0|Estático| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
@@ -299,6 +309,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ActivationTimeout| TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(180)|Dinâmica| Especifique timespan em segundos. O tempo limite para ativação da aplicação; desativação e a atualização. |
 |ApplicationHostCloseTimeout| TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique timespan em segundos. Quando a saída de recursos de infraestrutura é detetada num self ativado processos; FabricRuntime fechar todas as réplicas no processo de anfitrião (applicationhost) do utilizador. Este é o tempo limite para a operação de fecho. |
 |ApplicationUpgradeTimeout| TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(360)|Dinâmica| Especifique timespan em segundos. O tempo limite para a atualização da aplicação. Se o tempo limite é inferior ao implementador "ActivationTimeout" irá falhar. |
+|ContainerServiceArguments|wstring, a predefinição é L "-H localhost: 2375 -H npipe: / /"|Estático|Serviço de recursos de infraestrutura (SF) gere o daemon de docker (exceto em computadores de cliente do windows, como o Win10). Esta configuração permite ao utilizador especificar argumentos personalizados que devem ser transmitidos para o daemon de docker quando iniciá-lo. Quando são especificados argumentos personalizados, Service Fabric não são transmitidas quaisquer outro argumento ao motor de Docker, exceto ' – pidfile' argumento. Por conseguinte, os utilizadores não devem especificar ' – pidfile' argumento como parte dos respetivos argumentos de cliente. Além disso, os argumentos personalizados devem certificar-se que docker daemon escuta no pipe de nome de predefinição no Windows (ou socket de domínio de Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
 |CreateFabricRuntimeTimeout|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique timespan em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
 |DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para DeploymentMaxFailureCount vezes antes de efetuar a implementação dessa aplicação no nó.| 
 |DeploymentMaxRetryInterval| TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique timespan em segundos. Intervalo de repetição de máx. para a implementação. Em cada caso de falha contínuo no intervalo entre tentativas é calculado como mín. (DeploymentMaxRetryInterval; Número de falhas de contínua * DeploymentRetryBackoffInterval) |
@@ -311,6 +322,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |FirewallPolicyEnabled|booleana, a predefinição é FALSE|Estático| Permite a abertura de portas de firewall para recursos de ponto final com portas explícitas especificadas na ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique timespan em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não é aplicável aos serviços do ad-hoc. |
 |IPProviderEnabled|booleana, a predefinição é FALSE|Estático|Ativa a gestão de endereços IP. |
+|LinuxExternalExecutablePath|wstring, a predefinição é L "/ usr/bin /" |Estático|O diretório principal de comandos executável externos no nó.|
 |NTLMAuthenticationEnabled|booleana, a predefinição é FALSE|Estático| Ativa o suporte para a utilização de NTLM, os pacotes de código que estão em execução com outros utilizadores para que os processos em máquinas podem comunicar de forma segura. |
 |NTLMAuthenticationPasswordSecret|SecureString, a predefinição é Common::SecureString(L"")|Estático|É que tem um encriptada que é utilizado para gerar a palavra-passe para os utilizadores NTLM. Tem de ser definida se NTLMAuthenticationEnabled for VERDADEIRO. Validadas pelo implementador. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, a predefinição é Common::TimeSpan::FromMinutes(3)|Dinâmica|Especifique timespan em segundos. Definições de específico do ambiente, o intervalo periódico que alojamento verifica a existência de novos certificados a utilizar para a configuração de FileStoreService NTLM. |
@@ -322,6 +334,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ServiceTypeDisableFailureThreshold |Número inteiro, predefinido é 1 |Dinâmica|Este é o limiar para o número de falhas de após o qual FailoverManager (FM) é notificado para desativar o tipo de serviço nesse nó e tente um nó diferente para colocação. |
 |ServiceTypeDisableGraceInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(30)|Dinâmica|Especifique timespan em segundos. Intervalo de tempo após o qual o tipo de serviço pode ser desativado |
 |ServiceTypeRegistrationTimeout |Tempo em segundos, a predefinição é 300 |Dinâmica|Tempo máximo permitido para o ServiceType registado com recursos de infraestrutura |
+|UseContainerServiceArguments|booleana, a predefinição é verdadeiro|Estático|Esta configuração indica que aloja a ignorar os argumentos de transmissão (especificados na configuração ContainerServiceArguments) para o daemon de docker.|
 
 ## <a name="httpgateway"></a>HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
@@ -368,6 +381,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |AzureStorageMaxConnections | Int, a predefinição é 5000 |Dinâmica|O número máximo de ligações simultâneas do armazenamento do azure. |
 |AzureStorageMaxWorkerThreads | Int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, a predefinição é 6000 |Dinâmica|Especifique timespan em segundos. Tempo limite xstore conclusão da operação. |
+|CleanupApplicationPackageOnProvisionSuccess|booleana, a predefinição é FALSE |Dinâmica|Esta configuração ativa ou desativa a limpeza automática do pacote de aplicação no aprovisionamento com êxito. |
 |DisableChecksumValidation | Booleana, a predefinição é false |Estático| Esta configuração permite-nos ativar ou desativar a validação de soma de verificação durante o aprovisionamento de aplicações. |
 |DisableServerSideCopy | Booleana, a predefinição é false |Estático|Esta configuração ativa ou desativa o lado do servidor de cópia do pacote de aplicação em ImageStore durante o aprovisionamento de aplicações. |
 |ImageCachingEnabled | Booleana, a predefinição é verdadeiro |Estático|Esta configuração permite-nos ativar ou desativar a colocação em cache. |
@@ -526,6 +540,11 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ReplicatorPublishAddress|cadeia, a predefinição é L "localhost:0"|Estático|O ponto final na forma de uma cadeia, 'IP:Port', que é utilizada pelo replicador de recursos de infraestrutura do Windows para enviar operações para outras réplicas.|
 |RetryInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique timespan em segundos. Quando uma operação é perdida ou rejeitado este temporizador determina com que frequência o replicador tentará enviar novamente a operação.|
 
+## <a name="resourcemonitorservice"></a>ResourceMonitorService
+| **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou breve descrição** |
+| --- | --- | --- | --- |
+|IsEnabled|booleana, a predefinição é FALSE |Estático|Controla se o serviço está ativado no cluster ou não. |
+
 ## <a name="runas"></a>RunAs
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
@@ -586,6 +605,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ServerAuthCredentialType|cadeia, a predefinição é L "None"|Estático|Indica o tipo de credenciais de segurança a utilizar para proteger a comunicação entre FabricClient e o Cluster. Os valores válidos são "Nenhum/X509/Windows" |
 |ServerCertThumbprints|cadeia, a predefinição é L""|Dinâmica|Thumbprints de certificados de servidor utilizados pelo cluster para comunicar com os clientes; os clientes utilizam isto para autenticar o cluster. É uma lista de nomes de valores separados por vírgulas. |
 |SettingsX509StoreName| cadeia, a predefinição é L "MY"| Dinâmica|Utilizado por recursos de infraestrutura para proteção da configuração do arquivo de certificados X509 |
+|UseClusterCertForIpcServerTlsSecurity|booleana, a predefinição é FALSE|Estático|Se pretende utilizar o certificado de cluster para proteger IPC TLS de servidor de transporte de unidade |
 |X509Folder|cadeia, a predefinição é /var/lib/waagent|Estático|Pasta onde X509 certificados e chaves privadas estão localizadas |
 
 ## <a name="securityadminclientx509names"></a>Segurança/AdminClientX509Names
@@ -632,6 +652,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |GetUpgradesPendingApproval |cadeia, a predefinição é "Admin" |Dinâmica| Induces GetUpgradesPendingApproval numa partição. |
 |GetUpgradeStatus |cadeia, a predefinição é "Admin\|\|utilizador" |Dinâmica| Configuração de segurança para a consulta o estado de atualização da aplicação. |
 |InternalList |cadeia, a predefinição é "Admin" | Dinâmica|Operação de lista de ficheiros de cliente (interna) do arquivo de configuração de segurança para a imagem. |
+|InvokeContainerApi|wstring, a predefinição é L "Admin"|Dinâmica|Invocar a API de contentor |
 |InvokeInfrastructureCommand |cadeia, a predefinição é "Admin" |Dinâmica| Configuração de segurança para comandos de gestão de tarefas de infraestrutura. |
 |InvokeInfrastructureQuery |cadeia, a predefinição é "Admin\|\|utilizador" | Dinâmica|Configuração de segurança para consultar as tarefas de infraestrutura. |
 |Lista |cadeia, a predefinição é "Admin\|\|utilizador" | Dinâmica|A operação de lista de ficheiros de cliente do arquivo de configuração de segurança para a imagem. |
@@ -741,25 +762,13 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Tempo em segundos, a predefinição é 0.015 | Estático | Especifique timespan em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de devolver uma confirmação. Outras operações recebidas durante este período de tempo terão as respetivas confirmações enviadas novamente numa única mensagem -> reduzir o tráfego de rede, mas reduzindo potencialmente o débito do replicador. |
-|CheckpointThresholdInMB |Int, predefinido é 50 |Estático|Um ponto de verificação será iniciado quando a utilização do registo excede este valor. |
-|InitialPrimaryReplicationQueueSize |Uint, a predefinição é 64 | Estático |Este valor define o tamanho inicial para a fila que mantém as operações de replicação principal. Tenha em atenção que tem de ser uma potência de 2.|
-|InitialSecondaryReplicationQueueSize |Uint, a predefinição é 64 | Estático |Este valor define o tamanho inicial para a fila que mantém as operações de replicação no secundário. Tenha em atenção que tem de ser uma potência de 2. |
-|MaxAccumulatedBackupLogSizeInMB |Int, a predefinição é 800 |Estático|Máx. acumulados tamanho (em MB) de cópia de segurança registos numa cadeia de cópia de segurança de registo especificado. Um pedidos de cópia de segurança incremental falharão se a cópia de segurança incremental irá gerar um registo de cópia de segurança que faria com que os registos de cópia de segurança acumulados desde a relevante cópia de segurança completa ser maior do que este tamanho. Nestes casos, é pedido ao utilizador para efetuar uma cópia de segurança completa. |
 |MaxCopyQueueSize |Uint, a predefinição é 16384 | Estático |Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se o crescimentos durante o tempo de execução para esta operação de tamanho de fila serão limitadas entre os de replicadores primários e secundários. |
-|MaxMetadataSizeInKB |Int, a predefinição é 4 |Não Permitido|Tamanho máximo dos metadados de sequência do registo. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, a predefinição é 0 | Estático |Este é o valor máximo da fila de replicação primária em bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, a predefinição é 8192 | Estático |Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2. |
-|MaxRecordSizeInKB |Uint, a predefinição é 1024 |Não Permitido| Tamanho máximo de um registo de fluxo. |
 |MaxReplicationMessageSize |Uint, a predefinição é 52428800 | Estático | Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, a predefinição é 0 | Estático |Este é o valor máximo da fila de replicação secundária em bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, a predefinição é 16384 | Estático |Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2. |
-|MaxWriteQueueDepthInKB |Int, a predefinição é 0 |Não Permitido| Int para máximo escrever profundidade de fila do registador de núcleos pode utilizar conforme especificado em quilobytes para o registo que está associado esta réplica. Este valor é o número máximo de bytes que podem ser pendentes durante as atualizações de registo principal. Pode ser 0 para o registo de núcleos para um valor adequado de computação ou um múltiplo de 4. |
-|MinLogSizeInMB |Int, a predefinição é 0 |Estático|Tamanho mínimo do registo transacional. O registo não será permitido para truncar para um tamanho inferior esta definição. 0 indica que o replicador determinará o tamanho do registo mínimo, de acordo com as outras definições. Aumento deste valor aumenta a possibilidade de fazer cópias parciais e cópias de segurança incrementais desde possibilidades de registos de registo relevantes fossem truncados é lowered. |
 |ReplicatorAddress |cadeia, a predefinição é "localhost:0" | Estático | O ponto final na forma de uma cadeia, 'IP:Port', que é utilizado pelo Windows Fabric replicador para estabelecer ligações com outras réplicas para operações de envio/receção. |
-|SecondaryClearAcknowledgedOperations |Booleana, a predefinição é false | Estático |Booleano que controla se as operações nos replicador secundária estão desmarcadas uma vez são confirmadas principal (libertado no disco). Definições de esta opção para verdadeiro pode resultar em leituras de disco adicional no principal novo, durante a deteção de segurança de réplicas após uma ativação pós-falha. |
-|SharedLogId |Cadeia |Não Permitido|Identificador de registo partilhado. Este é um guid e deve ser exclusivo para cada registo partilhado. |
-|SharedLogPath |Cadeia |Não Permitido|Caminho para o registo partilhado. Se este valor está vazio, em seguida, é utilizado o registo partilhado predefinido. |
-|SlowApiMonitoringDuration |Tempo em segundos, a predefinição é 300 |Estático| Especificar a duração para api antes de que desencadeou o evento de estado de funcionamento de aviso.|
 
 ## <a name="transport"></a>Transporte
 | **Parâmetro** | **Valores permitidos** |**Política de atualização** |**Documentação de orientação ou breve descrição** |

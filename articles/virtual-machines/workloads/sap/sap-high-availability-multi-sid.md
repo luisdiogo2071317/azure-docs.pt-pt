@@ -1,13 +1,13 @@
 ---
-title: "Criar uma configuração de várias SID SAP no Azure | Microsoft Docs"
-description: "Guia para configuração de várias SID do SAP NetWeaver elevada disponibilidade no Windows máquinas virtuais"
+title: Criar uma configuração de várias SID SAP no Azure | Microsoft Docs
+description: Guia para configuração de várias SID do SAP NetWeaver elevada disponibilidade no Windows máquinas virtuais
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b48df78df9f53ac7bf0804f55a8d36a2fe2f86b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656827"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de várias SID do SAP NetWeaver
 
@@ -105,8 +106,8 @@ Pode instalar instâncias adicionais de SAP ASCS/SCS do cluster de WSFC existent
 
 | Função de máquina virtual | Nome de anfitrião de máquina virtual | Endereço IP estático |
 | --- | --- | --- |
-| nó de cluster 1 para a instância ASCS/SCS |PR1-ascs-0 |10.0.0.10 |
-| nó de cluster 2nd para a instância ASCS/SCS |PR1-ascs-1 |10.0.0.9 |
+| nó de cluster 1 para a instância ASCS/SCS |pr1-ascs-0 |10.0.0.10 |
+| nó de cluster 2nd para a instância ASCS/SCS |pr1-ascs-1 |10.0.0.9 |
 
 ### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Criar um nome de anfitrião virtual para a instância em cluster do SAP ASCS/SCS no servidor DNS
 
@@ -266,7 +267,7 @@ O procedimento de alto nível é o seguinte:
 
 10. [Testar a ativação pós-falha de instância do SAP ASCS/SCS e replicação SIOS][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Limites de rede: o Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Balanceador de carga de vários VIPs do Azure][load-balancer-multivip-overview]

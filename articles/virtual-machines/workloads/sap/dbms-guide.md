@@ -4,7 +4,7 @@ description: Implementação de DBMS de máquinas virtuais do Azure para SAP Net
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656198"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -539,9 +540,10 @@ Estamos a encontrar bastante alguns cenários onde pretende que como cliente par
 Se utilizar discos geridos, pode migrar para o Premium Storage por:
 
 1. Desalocar máquina virtual
-2. Se necessário, redimensione a máquina virtual para um tamanho que suporte o Premium Storage (por exemplo DS ou GS)
-3. Alterar o tipo de conta de disco gerida para Premium (SSD)
-4. Iniciar a máquina virtual
+1. Se necessário, redimensione a máquina virtual para um tamanho que suporte o Premium Storage (por exemplo DS ou GS)
+1. Alterar o tipo de conta de disco gerida para Premium (SSD)
+1. Alterar a colocação em cache dos discos de dados conforme recomendado nas capítulo [a colocação em cache para discos de dados e VMs][dbms-guide-2.1]
+1. Iniciar a máquina virtual
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Implementação de VMs para SAP no Azure
 Microsoft Azure oferece várias formas de implementar as VMs e discos associados. Deste modo, é importante compreender as diferenças, uma vez que os preparativos das VMs podem divergir depende da forma de implementação. Em geral, vamos ver para os cenários descritos nos capítulos seguintes.

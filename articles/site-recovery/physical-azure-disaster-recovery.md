@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643316"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configure a recuperação de desastre para o Azure para servidores físicos no local
 
@@ -27,18 +28,25 @@ Este tutorial mostra como configurar a recuperação após desastre de servidore
 > * Criar uma política de replicação
 > * Ativar a replicação para um servidor
 
+[Reveja a arquitetura](concepts-hyper-v-to-azure-architecture.md) para este cenário de recuperação após desastre.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-- Certifique-se de que compreende a [arquitetura e os componentes do cenário](physical-azure-architecture.md).
+- Certifique-se de que compreende o [arquitetura e componentes](physical-azure-architecture.md) para este cenário.
 - Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
 - Certifique-se de que estão em conformidade com os servidores que pretende replicar [requisitos de VM do Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare o Azure. Precisa de uma subscrição do Azure, uma rede virtual do Azure e uma conta de armazenamento.
 - Prepare uma conta de instalação automática do serviço de mobilidade em cada servidor que pretende replicar.
 
-> [!NOTE]
-> Antes de começar, tenha em atenção que, após a ativação pós-falha para o Azure, não é possível ser falhou servidores físicos para máquinas físicas no local. Apenas pode proceder novamente para as VMs de VMware. 
+Antes de começar, tenha em atenção que:
+
+- Após a ativação pós-falha para o Azure, não é possível ser falha servidores físicos para máquinas físicas no local. Apenas pode proceder novamente para as VMs de VMware. 
+- Este tutorial configura-se a recuperação de desastres do servidor físico para o Azure com as definições mais simples. Se pretender obter informações sobre outras opções, leia os nossos guias de procedimentos:
+    - Configurar o [origem de replicação](physical-azure-set-up-source.md), incluindo o servidor de configuração da recuperação de sites.
+    - Configurar o [destino de replicação](physical-azure-set-up-target.md).
+    - Configurar um [política de replicação](vmware-azure-set-up-replication.md), e [ativar a replicação](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Configurar uma conta do Azure

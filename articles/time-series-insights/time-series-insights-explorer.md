@@ -1,22 +1,22 @@
 ---
-title: "Explore os dados utilizando o Explorador de informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como utilizar o Explorador de informações de séries de tempo do Azure no seu browser para ver rapidamente uma vista global dos seus dados de grandes e validar o seu ambiente de IoT."
-services: time-series-insights
+title: Explore os dados utilizando o Explorador de informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como utilizar o Explorador de informações de séries de tempo do Azure no seu browser para ver rapidamente uma vista global dos seus dados de grandes e validar o seu ambiente de IoT.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651782"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador do Azure Insights de séries de tempo
 Este artigo explicar as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. Utilize o Explorador de informações de séries de tempo no seu browser para criar as visualizações de dados.
@@ -41,7 +41,7 @@ Minutos de ligar a sua origem de evento para o seu ambiente de informações de 
 
 4. Tenha em atenção de que o ícone de nuvem do Azure leva-o para o seu ambiente no portal do Azure.
 
-   ![Ambiente de Time Series Insights](media/time-series-insights-explorer/explorer1.png)
+   ![Ambiente de Informações de Série de Tempo](media/time-series-insights-explorer/explorer1.png)
 
 5. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui, tem um número de controlos:
 

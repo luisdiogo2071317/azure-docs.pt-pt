@@ -1,18 +1,19 @@
 ---
 title: Conectividade do dispositivo no Azure IoT Central | Microsoft Docs
 description: Este artigo apresenta os conceitos chave relacionadas com a conectividade do dispositivo no Azure IoT Central
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: conceptual
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 00b621a4635ef1ceda26772ac5876fa2599b56f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dc9fe144c2258f33ce59c61ce63c15835cc3fa53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628339"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -49,7 +50,7 @@ A tabela seguinte resume como funcionalidades de dispositivos do Azure IoT Centr
 
 Para obter mais informações sobre como utilizar os SDKs do dispositivo, consulte um dos seguintes artigos, por exemplo de código:
 
-- [Ligar um cliente de Node.js genérico a sua aplicação do Azure IoT Central](howto-connect-nodejs.md)
+- [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md)
 - [Ligar um dispositivo de Raspberry Pi à sua aplicação do Azure IoT Central](howto-connect-raspberry-pi-python.md)
 - [Ligar um dispositivo de kit de DevDiv à sua aplicação do Azure IoT Central](howto-connect-devkit.md).
 
@@ -82,4 +83,4 @@ Agora que aprendeu acerca da conetividade do dispositivo no Azure IoT Central, E
 
 - [Preparar e ligar um dispositivo DevKit](howto-connect-devkit.md)
 - [Preparar e ligar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Ligar um cliente de Node.js genérico a sua aplicação do Azure IoT Central](howto-connect-nodejs.md)
+- [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md)

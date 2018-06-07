@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637774"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Recolher alertas da Nagios e da Zabbix na análise de registos do agente do OMS para Linux 
 [Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de fonte aberta ferramentas de monitorização. Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
@@ -56,7 +57,7 @@ Recolher alertas, execute os seguintes passos no servidor da Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurar a recolha de alertas da Zabbix
-Recolher alertas de um servidor da Zabbix, tem de especificar um utilizador e palavra-passe no *apague texto*.  Apesar de não ideais, recomendamos que crie o utilizador e conceder permissões para monitorizar onlu.
+Recolher alertas de um servidor da Zabbix, tem de especificar um utilizador e palavra-passe no *apague texto*.  Apesar de não ideais, recomendamos que crie um utilizador da Zabbix com permissões só de leitura para detetar alarmes relevantes.
 
 Recolher alertas no servidor da Nagios, execute os seguintes passos.
 
@@ -73,7 +74,7 @@ Recolher alertas no servidor da Nagios, execute os seguintes passos.
 
 2. Reinicie o daemon de omsagent
 
-    sudo ostrar /opt/microsoft/omsagent/bin/service_control reiniciar
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Registos de alerta

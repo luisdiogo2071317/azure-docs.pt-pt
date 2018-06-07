@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640970"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Sugestões de resolução de problemas para pesquisa cognitivos
 
@@ -53,15 +54,15 @@ Nesse caso, poderá querer saber o indexador para ignorar erros. Fazê-lo defini
 ## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugestão 4: Observar documentos avançados os bastidores 
 Documentos avançados são estruturas temporárias criados durante sem causa e, em seguida, eliminados quando o processamento estar concluído.
 
-Para capturar um instantâneo do documento avançado criado durante a indexação, adicione um campo chamado ```enriched``` ao seu índice. O indexador automaticamente informações de estado para o campo de uma representação de cadeia de todos os enrichments para esse documento.
+Para capturar um instantâneo do documento melhorado criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador captura automaticamente para o campo uma representação da cadeia de todos os melhoramentos desse documento.
 
-O ```enriched``` campo irá conter uma cadeia que é uma representação lógica do documento em memória avançada no JSON.  O valor do campo é um documento JSON válido, no entanto. As aspas são escape, pelo que terá de substituir `\"` com `"` para ver o documento como formatadas JSON. 
+O campo ```enriched``` vai conter uma cadeia que é uma representação lógica do documento melhorado na memória no JSON.  Contudo, o valor do campo é um documento JSON válido. As aspas são carateres de escape, por isso, terá de substituir `\"` por `"` para ver o documento como JSON formatado. 
 
 O campo avançado destina-se para fins de depuração só, para ajudar a compreender de forma lógica do conteúdo que estão a ser avaliadas expressões. Não deve depender este campo para fins de indexação.
 
 Adicionar um ```enriched``` campo como parte da sua definição de índice para fins de depuração:
 
-#### <a name="request-body-syntax"></a>Sintaxe de corpo do pedido
+#### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json
 {
   "fields": [
@@ -98,7 +99,7 @@ Para baseado no portal de indexação (conforme descrito no início rápido), es
 
 ## <a name="tip-7-increase-indexing-throughput"></a>Sugestão 7: Aumentar o débito de indexação
 
-Para [indexação paralelas](search-howto-reindex.md#parallel-indexing), coloque os dados no vários contentores ou várias pastas virtuais no interior do contentor do mesmo. Em seguida, crie vários pares de origem de dados e o indexador. Todos os indexadores podem utilizar o mesmo skillset e de escrita para o mesmo índice de pesquisa de destino, pelo que a aplicação de pesquisa não têm de ter em consideração a criação de partições.
+Para [indexação paralelas](search-howto-large-index.md), coloque os dados no vários contentores ou várias pastas virtuais no interior do contentor do mesmo. Em seguida, crie vários pares de origem de dados e o indexador. Todos os indexadores podem utilizar o mesmo skillset e de escrita para o mesmo índice de pesquisa de destino, pelo que a aplicação de pesquisa não têm de ter em consideração a criação de partições.
 Para obter mais informações, consulte [indexação grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Consulte também

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658677"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -65,7 +66,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *grupos de seguranç
 ### <a name="view-details-of-a-network-security-group"></a>Ver detalhes de um grupo de segurança de rede
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *grupos de segurança de rede*. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione-o.
-2. Selecione o grupo de segurança de rede na lista que pretende ver detalhes. Em **definições** pode ver o **regras de segurança de entrada** e **regras de segurança de saída**, a **interfaces de rede** e  **Sub-redes** o grupo de segurança de rede se encontra associado a. Também pode ativar ou desativar **registos de diagnóstico** e vista **regras de segurança eficaz**. Para obter mais informações, consulte [registos de diagnóstico](virtual-network-nsg-manage-log.md) e [ver regras de segurança eficaz](virtual-network-nsg-troubleshoot-portal.md).
+2. Selecione o grupo de segurança de rede na lista que pretende ver detalhes. Em **definições** pode ver o **regras de segurança de entrada** e **regras de segurança de saída**, a **interfaces de rede** e  **Sub-redes** o grupo de segurança de rede se encontra associado a. Também pode ativar ou desativar **registos de diagnóstico** e vista **regras de segurança eficaz**. Para obter mais informações, consulte [registos de diagnóstico](virtual-network-nsg-manage-log.md) e [ver regras de segurança eficaz](diagnose-network-traffic-filter-problem.md).
 3. Para saber mais sobre as definições do Azure comuns listadas, consulte os artigos seguintes:
     *   [Registo de atividades](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5e71714f94cf148895585e8de88eaf995f0791fb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638335"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
 Este documento contém uma lista de importação mais comuns e formatos de ficheiro de exportação que pode utilizar com o codificador de multimédia Standard.
@@ -75,6 +76,7 @@ Suporte para o mapeamento de canal explícita/fornecido pelo utilizador irá ser
 | Apple ProRes Proxy |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
+| HEVC/H.265| Perfil de principal|
 
 ## <a name="input-audio-codecs"></a>Codecs entrada de áudio
 | Codecs entrada de áudio | Suportadas |

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: 430d8f78a4c00c37479bc083cd565e49ccd6cbae
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652649"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilizar a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -82,7 +83,7 @@ sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" porta
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token)
-my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 9999-12-31T23:59Z --permissions wlacu --resource-types co --services bt -o tsv)
+my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finallly tell Azure to install and enable the extension
@@ -169,7 +170,7 @@ Esta secção opcional define destinos adicionais para que a extensão envia as 
 
 Elemento | Valor
 ------- | -----
-nome | Uma cadeia utilizada para fazer referência a este sink noutro local na configuração da extensão.
+name | Uma cadeia utilizada para fazer referência a este sink noutro local na configuração da extensão.
 tipo | O tipo de sink que está a ser definido. Determina os outros valores (se aplicável) em instâncias deste tipo.
 
 Versão 3.0 da extensão de diagnóstico Linux suporta dois tipos de receptores: EventHub e JsonBlob.

@@ -1,22 +1,21 @@
 ---
-title: "Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos do Azure com Java | Microsoft Docs"
-description: "Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço Java"
-services: iot-dps
-keywords: 
+title: Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos do Azure com Java | Microsoft Docs
+description: Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço Java
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstatrt
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 79b12c276dae3cf1e480ec8d3f12d2d4b3d8fea7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: HT
+ms.openlocfilehash: 5e40f8c72d3e95d13405190d8aec9fa52a9ed951
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630685"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço Java
 
@@ -148,7 +147,7 @@ Se quiser explorar o exemplo de serviço Java, não limpe os recursos criados ne
 1. Feche a janela do simulador TPM que pode ter criado para simular o seu dispositivo TPM.
 1. Navegue até ao seu serviço de Aprovisionamento de Dispositivos no portal do Azure, clique em **Gerir inscrições** e, em seguida, selecione o separador **Inscrições Individuais**. Selecione o *ID de Registo* do dispositivo que inscreveu com este Manual de Início Rápido e clique no botão **Eliminar** na parte superior do painel. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste Manual de Início Rápido, inscreveu um dispositivo TPM simulado no seu serviço de Aprovisionamento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]

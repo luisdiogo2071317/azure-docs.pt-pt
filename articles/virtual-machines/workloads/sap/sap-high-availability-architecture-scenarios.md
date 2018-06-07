@@ -1,13 +1,13 @@
 ---
-title: "Arquitetura de elevada disponibilidade de máquinas virtuais do Azure e cenários para SAP NetWeaver | Microsoft Docs"
-description: "Arquitetura de elevada disponibilidade e cenários para SAP NetWeaver em Azure Virtual Machines"
+title: Arquitetura de elevada disponibilidade de máquinas virtuais do Azure e cenários para SAP NetWeaver | Microsoft Docs
+description: Arquitetura de elevada disponibilidade e cenários para SAP NetWeaver em Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656929"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de elevada disponibilidade e cenários para SAP NetWeaver
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 11/15/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de elevada disponibilidade do SAP várias SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -318,7 +319,7 @@ Se optar por não utilizar funcionalidades como WSFC ou Pacemaker no Linux (atua
 
 Para obter mais informações sobre esta abordagem, consulte [infraestrutura do Azure utilizam VM reiniciar para alcançar a elevada disponibilidade do sistema SAP][sap-higher-availability].
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Elevada disponibilidade de aplicações de SAP em IaaS do Azure
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Elevada disponibilidade de aplicações de SAP em IaaS do Azure
 
 Para alcançar completa SAP sistema elevada disponibilidade, terá de proteger todos os componentes de sistema críticos de SAP. Por exemplo:
   * Servidores de aplicações SAP redundantes.

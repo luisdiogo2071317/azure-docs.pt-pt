@@ -1,11 +1,11 @@
 ---
 title: Tutorial de WCF reencaminhamento do Service Bus do Azure | Microsoft Docs
-description: "Crie uma aplicação de cliente e o serviço utilizando o reencaminhamento de WCF."
+description: Crie uma aplicação de cliente e o serviço utilizando o reencaminhamento de WCF.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642313"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de reencaminhamento de WCF do Azure
 
-Este tutorial descreve como criar um cliente de reencaminhamento de WCF simple, aplicações e serviço utilizando o reencaminhamento do Azure. Para um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Este tutorial descreve como criar um cliente de reencaminhamento de WCF simple, aplicações e serviço utilizando o reencaminhamento do Azure. Para um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Trabalhar com este tutorial, ficará a saber os passos necessários para criar uma aplicação de cliente e o serviço de reencaminhamento de WCF. Como os seus homólogos WCF originais, um serviço é uma construção que expõe um ou mais pontos finais, cada um dos quais expõe uma ou mais operações de serviço. O ponto final de um serviço especifica um endereço onde pode ser encontrado o serviço, um enlace que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço aos seus clientes. A principal diferença entre WCF e do reencaminhamento de WCF é que o ponto final é exposto na nuvem em vez de localmente no seu computador.
 
@@ -35,7 +36,7 @@ Os últimos três passos descrevem como criar uma aplicação cliente, configur�
 Para concluir este tutorial, irá precisar do seguinte:
 
 * [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). Este tutorial utiliza o Visual Studio 2017.
-* Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Criar um espaço de nomes de serviço
 
@@ -712,9 +713,9 @@ namespace Microsoft.ServiceBus.Samples
     `Server echoed: My sample text`
 12. Pode continuar a enviar mensagens de texto do cliente para o serviço desta forma. Quando tiver terminado, prima Enter nas janelas de consola do cliente e do serviço para terminar as duas aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Este tutorial mostrou como criar um cliente de reencaminhamento do Azure, aplicação e do serviço utilizando as capacidades de WCF reencaminhamento do Service Bus. Para um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Este tutorial mostrou como criar um cliente de reencaminhamento do Azure, aplicação e do serviço utilizando as capacidades de WCF reencaminhamento do Service Bus. Para um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Para saber mais sobre o reencaminhamento do Azure, consulte os tópicos seguintes.
 

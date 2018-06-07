@@ -1,19 +1,19 @@
 ---
 title: Utilizar dispositivos de limite de IoT do Azure como gateways | Microsoft Docs
-description: "Utilize o limite de IoT do Azure para criar um transparente opaco ou dispositivo de gateway de proxy que envia dados de vários dispositivos a jusante para a nuvem ou os processos que localmente."
-services: iot-edge
-keywords: 
+description: Utilize o limite de IoT do Azure para criar um transparente opaco ou dispositivo de gateway de proxy que envia dados de vários dispositivos a jusante para a nuvem ou os processos que localmente.
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+services: iot-edge
+ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631603"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Como um dispositivo de limite de IoT que pode ser utilizado como um gateway de - de pré-visualização
 
@@ -39,7 +39,7 @@ Uma tradução de protocolos de does de gateway também pode efetuar análise de
 
 Um gateway que suporta a conversão de identidade fornecer as vantagens de tradução de protocolos e adicionalmente permitem uma gestão completa de dispositivos a jusante da nuvem. Todos os dispositivos no seu IoT solução são apresentados no IoT Hub independentemente do protocolo de com estes enunciar.
 
-## <a name="cheat-sheet"></a>Nota
+## <a name="cheat-sheet"></a>Truques e dicas
 Eis uma referência rápida folha que compara primitivos do IoT Hub quando utilizar transparente, opaco e gateways de proxy.
 
 | &nbsp; | Gateway transparente | Tradução de protocolos | Tradução de identidade |

@@ -1,29 +1,23 @@
 ---
 title: Ligado funcionalidades de solução de fábrica - Azure | Microsoft Docs
 description: Uma descrição geral das funcionalidades do Factory ligado a solução pré-configurada.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626501"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>O que é o Azure IoT Suite ligado Factory?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução IoT ligados de fábrica?
 
-Fábrica ligada é uma implementação Azure industriais referência do Microsoft arquitetura do IoT, empacotada como na solução de open source. Pode utilizá-lo como um ponto de partida para um produto comercial. Pode implementar uma versão pré-criadas da solução fábrica ligado na sua subscrição do Azure de [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF).
+Fábrica ligada é uma implementação Azure industriais referência do Microsoft arquitetura do IoT, empacotada como na solução de open source. Pode utilizá-lo como um ponto de partida para um produto comercial. Pode implementar uma versão pré-criadas da solução fábrica ligado na sua subscrição do Azure de [Aceleradores de solução IoT do Azure](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Dashboard de solução de fábrica ligado](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ Fábrica ligada inclui as seguintes funcionalidades:
 
 ## <a name="customizability"></a>Customizability
 
-- [Personalizar](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) a solução para satisfazer as necessidades comerciais específicas.
+- Personalize a solução para satisfazer as necessidades comerciais específicas.
 - A solução completa-código fonte está disponível no GitHub. Consulte o [ligado fábrica solução pré-configurada](https://github.com/Azure/azure-iot-connected-factory) repositório.
 
 ## <a name="next-steps"></a>Passos Seguintes

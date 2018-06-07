@@ -1,24 +1,19 @@
 ---
-title: "Introdução à gestão de dispositivos do IoT Hub do Azure (nó/.NET) | Microsoft Docs"
-description: "Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o dispositivo IoT do Azure SDK para Node.js para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que invoca o método direto."
-services: iot-hub
-documentationcenter: .net
+title: Introdução à gestão de dispositivos do IoT Hub do Azure (nó/.NET) | Microsoft Docs
+description: Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o dispositivo IoT do Azure SDK para Node.js para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que invoca o método direto.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/05/2017
 ms.author: juanpere
-ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: df41d8b88cf630183afc314dafdc1e898f4e02d9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632242"
 ---
 # <a name="get-started-with-device-management-netnode"></a>Introdução à gestão de dispositivos (.NET/nó)
 
@@ -70,7 +65,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
         static JobClient jobClient;
         static string targetDevice = "myDeviceId";
         
-6. Adicione o seguinte método para o **programa** classe.  Este código obtém o dispositivo duplo para o dispositivo rebooting e produz as propriedades que relatados.
+6. Adicione o seguinte método à classe **Programa**.  Este código obtém o dispositivo duplo para o dispositivo rebooting e produz as propriedades que relatados.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -78,7 +73,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Adicione o seguinte método para o **programa** classe.  Este código inicia o reinício do dispositivo utilizando um método direto.
+7. Adicione o seguinte método à classe **Programa**.  Este código inicia o reinício do dispositivo utilizando um método direto.
 
         public static async Task StartReboot()
         {

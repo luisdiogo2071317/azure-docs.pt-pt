@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643343"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão consumo de recursos e a carga no Service Fabric com a métrica
 *Métricas* são os recursos que o cuidado de serviços sobre e que são fornecidos por nós do cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, poderá ver o consumo de memória para saber se o serviço está sobrecarregado. Utilize outro consiste em descobrir se o serviço foi possível mover a noutro local onde a memória é que inferior restrita para obter um melhor desempenho.
@@ -32,11 +33,12 @@ Digamos que pretende começar a escrever e implementar o seu serviço. Neste mom
   - ReplicaCount - contagem de totais réplicas com monitorização de estado no nó
   - Contagem - contagem de todos os objetos do serviço (sem monitorização de estado e com monitorização de estado) no nó
 
-| Métrica | Carga de instância sem monitorização de estado | Carga secundária com monitorização de estado | Com monitorização de estado carga primária |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Contagem |1 |1 |1 |
+| Métrica | Carga de instância sem monitorização de estado | Carga secundária com monitorização de estado | Com monitorização de estado carga primária | Peso |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| Contagem |1 |1 |1 |0 |
+
 
 Para cargas de trabalho básicas, nas métricas predefinidas de fornecem uma distribuição decent de trabalho no cluster. No exemplo seguinte, vamos ver o que acontece quando iremos criar dois serviços e baseiam-se nas métricas predefinidas para o balanceamento de. O primeiro serviço é um serviço com monitorização de estado com partições de três e definir o tamanho de três uma réplica de destino. O serviço do segundo é um serviço sem monitorização de estado com uma partição e uma contagem de instâncias de três.
 

@@ -1,11 +1,11 @@
 ---
-title: "Resolução de problemas e a monitorização de SAP HANA no Azure (instâncias de grande) | Microsoft Docs"
-description: "Resolver problemas e monitorizar SAP HANA num (instâncias de grande) do Azure."
+title: Resolução de problemas e a monitorização de SAP HANA no Azure (instâncias de grande) | Microsoft Docs
+description: Resolver problemas e monitorizar SAP HANA num (instâncias de grande) do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 41fbeb848d7d97e5ee41a2221b69cc88380dc1e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657201"
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Como resolver problemas e monitorizar SAP HANA (instâncias de grande) no Azure
 
@@ -38,7 +39,7 @@ Com máquinas virtuais do Azure que precisar descobrir se as classes de recurso 
 
 **Consumo de memória:** é importante para a monitorização a partir de dentro de HANA, bem como fora HANA na unidade. Dentro do HANA, monitorize a forma como os dados está a consumir HANA atribuída memória para permanecer nas diretrizes de dimensionamento necessárias do SAP. Também querer monitorizar o consumo de memória no nível da instância grande para se certificar de que software adicional instalado não-HANA não consumir demasiada memória e, por conseguinte, com HANA competem para ter memória.
 
-**Largura de banda de rede:** gateway a VNet do Azure é limitado em largura de banda de dados mover para a VNet do Azure, pelo que é útil monitorizar os dados recebidos por todas as VMs do Azure numa VNet para descobrir como fechar são os limites do gateway do Azure SKU que selecionou. Na unidade instância grande HANA,-fazer sentido para monitorizar a entrada e saída tráfego de rede bem e para controlar os volumes que são processados ao longo do tempo.
+**Largura de banda de rede:** gateway a VNet do Azure é limitado em largura de banda de dados mover para a VNet do Azure, pelo que é útil monitorizar os dados recebidos por todas as VMs do Azure numa VNet para descobrir como fechar é os limites do SKU de gateway do Azure sel ected. Na unidade instância grande HANA,-fazer sentido para monitorizar a entrada e saída tráfego de rede bem e para controlar os volumes que são processados ao longo do tempo.
 
 **Espaço em disco:** consumo de espaço em disco é normalmente aumenta ao longo do tempo. Existem muitos motivos para tal, mas a maioria de todos os são: o volume de dados aumenta, execução de transação registo cópias de segurança, armazenar os ficheiros de rastreio e efetuar instantâneos de armazenamento. Por conseguinte, é importante monitorizar a utilização de espaço em disco e gerir o espaço em disco associado à unidade de instância grande HANA.
 

@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a3196f1cdbebd131d6880bab6fc1468f4c1b849
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649079"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças Transact-SQL durante a migração para a base de dados SQL   
 Quando [migrar a base de dados](sql-database-cloud-migrate.md) do SQL Server para o Azure SQL Server, poderá descobrir que a base de dados requer alguns novamente engenharia antes do SQL Server podem ser migrado. Este artigo fornece orientação para o ajudar a efetuar esta engenharia novamente e compreender os motivos pelos quais subjacentes por que motivo é necessário o engenharia novamente. Para detetar incompatibilidades, utilize o [através do Assistente de dados de migração (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).

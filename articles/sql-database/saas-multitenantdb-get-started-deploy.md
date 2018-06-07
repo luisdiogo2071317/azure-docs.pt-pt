@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646461"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma a aplicação multi-inquilino que utiliza a SQL Database do Azure
 
@@ -123,7 +124,7 @@ Cada venue obtém uma aplicação web personalizado para listar os respetivos ev
 Um centro **Hub de eventos** página Web fornece uma lista de ligações para os inquilinos na sua implementação específica. Utilize os seguintes passos para experimentar o **Hub de eventos** página Web e uma aplicação web individuais:
 
 1. Abra o **Hub de eventos** no seu browser:
-    - http://events.wingtip-mt. &lt;utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
+    - http://events.wingtip-mt.&lt; utilizador&gt;. trafficmanager.net &nbsp; *(substituir &lt;utilizador&gt; com o valor de utilizador da sua implementação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +136,7 @@ Um centro **Hub de eventos** página Web fornece uma lista de ligações para os
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação de Wingtip [Traffic Manager do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no respetivo URL. Cada URL também inclui o valor de utilizador específico. Cada URL obeys o formato mostrado utilizando os seguintes passos:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt; utilizador&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome de inquilino a partir do URL. O nome do inquilino é *fabrikamjazzclub* no URL do exemplo anterior.
 2. A aplicação, em seguida, codifica o nome do inquilino para criar uma chave para aceder a um catálogo utilizando [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md).

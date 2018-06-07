@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT Hub elevada disponibilidade e recuperação após desastre | Microsoft Docs"
-description: "Descreve as funcionalidades do Azure e o IoT Hub que ajudam a criar soluções de IoT do Azure elevadas com desastre funcionalidades de recuperação."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT Hub elevada disponibilidade e recuperação após desastre | Microsoft Docs
+description: Descreve as funcionalidades do Azure e o IoT Hub que ajudam a criar soluções de IoT do Azure elevadas com desastre funcionalidades de recuperação.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633711"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub elevada disponibilidade e recuperação após desastre
 Como um serviço do Azure, o IoT Hub fornece elevada disponibilidade (HA) utilizando redundancies ao nível da região do Azure, sem qualquer trabalho adicional necessário para a solução. A plataforma Microsoft Azure também inclui as funcionalidades para o ajudar a criar soluções com as capacidades do após desastre (DR) de recuperação ou a disponibilidade de por várias regiões. Se pretender fornecer global, por várias regiões elevada disponibilidade para os dispositivos ou utilizadores, tirar partido destas funcionalidades de DR do Azure. O artigo [Azure continuidade de negócio orientações técnica](../resiliency/resiliency-technical-guidance.md) descreve as funcionalidades integradas no Azure para a continuidade do negócio e DR. O [recuperação após desastre e elevada disponibilidade para aplicações do Azure] [ Disaster recovery and high availability for Azure applications] documento fornece orientações de arquitetura no estratégias para aplicações do Azure alcançar HA e DR.

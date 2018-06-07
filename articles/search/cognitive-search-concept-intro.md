@@ -8,11 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641116"
 ---
 # <a name="what-is-cognitive-search"></a>O que é pesquisa cognitivos?
 
@@ -61,7 +62,7 @@ Quando o processamento é concluído, tem um corpus pesquisa consiste em documen
 
 O índice é como a quaisquer outros poderá criar para a pesquisa do Azure: pode complementar com analisadores personalizados, invocar consultas de pesquisa difusa, adicionar pesquisa filtrada ou testar com a classificação de perfis para reshape os resultados da pesquisa.
 
-Os índices são gerados a partir de um esquema de índice que define os campos, atributos, e outras construções ligado a um índice específico, tais como perfis de classificação e sinónimo mapas. Depois de um índice é definido e preenchido, pode indexar incrementalmente para recolher os documentos de origem novos e atualizados. Determinados modificações requerem uma reconstrução completa. Deve utilizar um pequeno conjunto de dados até que a estrutura de esquema está estável. Para obter mais informações, consulte [como reconstruir um índice](search-howto-reindex.md).
+Os índices são gerados a partir de um esquema de índice que define os campos, atributos, e outras construções ligado a um índice específico, tais como perfis de classificação e sinónimo mapas. Depois de um índice é definido e preenchido, pode indexar incrementalmente para recolher os documentos de origem novos e atualizados. Determinados modificações requerem uma reconstrução completa. Deve utilizar um pequeno conjunto de dados até que a estrutura de esquema está estável. Para obter mais informações, veja [Como reconstruir um índice](search-howto-reindex.md).
 
 <a name="feature-concepts"></a>
 
@@ -102,9 +103,9 @@ Atualmente, são fornecidas apenas as APIs REST. Utilize `api-version=2017-11-11
 | API REST | Descrição |
 |-----|-------------|
 | [Criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificar uma origem de dados externos a fornecer os dados de origem utilizados para criar documentos avançados.  |
-| [Criar Skillset (api-version = 2017-11-11-pré-visualização)](ref-create-skillset.md)  | Um recurso em coordenação a utilização de [predefinidas competências](cognitive-search-predefined-skills.md) e [personalizadas competências cognitivos](cognitive-search-custom-skill-interface.md) utilizado um pipeline sem causa durante a indexação. |
+| [Criar Skillset (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso em coordenação a utilização de [predefinidas competências](cognitive-search-predefined-skills.md) e [personalizadas competências cognitivos](cognitive-search-custom-skill-interface.md) utilizado um pipeline sem causa durante a indexação. |
 | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema expressa um índice da Azure Search. Os campos no índice mapeiam os campos na origem de dados ou aos campos fabricados durante a fase de sem causa (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidade). |
-| [Criar indexador (api-version = 2017-11-11-pré-visualização)](ref-create-skillset.md)  | Um recurso que define os componentes utilizados durante a indexação: incluindo uma origem de dados, uma skillset, associações de campo de origem e de estruturas de dados intermédios ao índice de destino e o índice de si próprio. Executar o indexador é o acionador para ingestão de dados e sem causa. O resultado é um corpus de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de skillsets.  |
+| [Criar indexador (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes utilizados durante a indexação: incluindo uma origem de dados, uma skillset, associações de campo de origem e de estruturas de dados intermédios ao índice de destino e o índice de si próprio. Executar o indexador é o acionador para ingestão de dados e sem causa. O resultado é um corpus de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de skillsets.  |
 
 **Lista de verificação: Um fluxo de trabalho normal**
 
@@ -112,11 +113,11 @@ Atualmente, são fornecidas apenas as APIs REST. Utilize `api-version=2017-11-11
 
 1. Criar um [objeto de origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) na pesquisa do Azure para fornecer uma cadeia de ligação para obtenção de dados.
 
-1. Criar um [skillset](ref-create-skillset.md) com passos de sem causa.
+1. Criar um [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com passos de sem causa.
 
 1. Definir o [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). O *campos* coleção inclui campos de dados de origem. Também deve stub os campos adicionais para conter valores gerados para o conteúdo criado durante sem causa.
 
-1. Definir o [indexador](ref-create-skillset.md) referenciar a origem de dados, skillset e índice.
+1. Definir o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referenciar a origem de dados, skillset e índice.
 
 1. Dentro do indexador, adicionar *outputFieldMappings*. Esta secção mapeia o resultado da skillset (no passo 3) para os campos de entradas do esquema de índice (no passo 4).
 

@@ -1,22 +1,22 @@
 ---
 title: Como gerir o seu ambiente de informações de séries de tempo do Azure utilizando modelos Azure Resource Manager | Microsoft Docs
 description: Este artigo descreve como gerir o ambiente de informações de séries de tempo do Azure através de programação com o Azure Resource Manager.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 99aabc01132da60a1b09fcf65f439b8e084bbffa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651969"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos de informações de séries de tempo utilizando os modelos Azure Resource Manager
 
@@ -26,7 +26,7 @@ Informações de séries de tempo suporta os seguintes recursos:
    | Recurso | Descrição |
    | --- | --- |
    | Ambiente | Num ambiente de informações de séries de tempo é um agrupamento lógico de eventos que são ler a partir de mediadores de evento, armazenados e disponibilizados para consulta. Para obter mais informações consulte [planear o ambiente de informações de séries de tempo do Azure](time-series-insights-environment-planning.md) |
-   | Origem de evento | Uma origem de evento é uma ligação a um mediador de eventos a partir da qual Insights de séries de tempo lê e ingere eventos para o ambiente. Origens de eventos atualmente suportados são IoT Hub e o Hub de eventos. |
+   | Origem do Evento | Uma origem de evento é uma ligação a um mediador de eventos a partir da qual Insights de séries de tempo lê e ingere eventos para o ambiente. Origens de eventos atualmente suportados são IoT Hub e o Hub de eventos. |
    | Conjunto de dados de referência | Conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Metadados de conjuntos de dados de referência serão associado de eventos de entrada. Conjuntos de dados de referência são definidos como recursos pelas respetivas propriedades chave do evento. Os metadados real que constitui o conjunto de dados de referência é carregado ou modificado através de dados plane APIs. |
    | Política de Acesso | Políticas de acesso de conceder permissões para emitir consultas de dados, manipular dados de referência no ambiente e partilhar consultas guardadas e perspetivas associadas ao ambiente. Para obter mais informações consulte [conceder acesso a dados para um ambiente de informações de séries de tempo utilizando o portal do Azure](time-series-insights-data-access.md) |
 

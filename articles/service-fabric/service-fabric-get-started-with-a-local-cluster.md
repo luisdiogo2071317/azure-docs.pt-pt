@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205251"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643248"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introdução à implementação e atualização de aplicações no seu cluster local
 O SDK de Service Fabric de Azure inclui um ambiente de desenvolvimento local completo que pode utilizar para rapidamente começar a implementar e gerir aplicações num cluster local. Neste artigo, cria um cluster local, implementa nele uma aplicação existente e atualiza essa aplicação para uma nova versão, tudo a partir do Windows PowerShell.
@@ -217,7 +217,7 @@ Em alternativa, altere o modo de cluster através do PowerShell:
    
     ![Saída do programa de configuração do cluster][cluster-setup-success-1-node]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Agora que implementou e atualizou algumas aplicações pré-criadas, pode [tentar criar a sua no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 * Todas as ações executadas no cluster local neste artigo também podem ser realizadas num [cluster do Azure](service-fabric-cluster-creation-via-portal.md).
 * A atualização que efetuámos neste artigo foi básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a capacidade e a flexibilidade das atualizações do Service Fabric.

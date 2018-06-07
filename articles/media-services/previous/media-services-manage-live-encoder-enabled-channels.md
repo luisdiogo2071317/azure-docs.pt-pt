@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639440"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -332,7 +333,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * É faturado apenas quando o canal está a ser o **executar** estado. Para obter mais informações, consulte [isto](media-services-manage-live-encoder-enabled-channels.md#states) secção.
 * Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que tem o partir do qual pretende transmitir o conteúdo no ponto final de transmissão em fluxo a **executar** estado.
-* A predefinição de codificação utiliza a noção de "taxa de intervalo máximo" da 30 fps. Por isso, caso a entrada é 60fps 59.97i, as frames Jumbo entradas são ignoradas/de-interlaced para 30/29.97 fps. Se a entrada é 50fps/50i, as frames Jumbo entradas são ignorados/de-interlaced para 25 fps. Se a entrada é 25 fps, saída permanece no 25 fps.
+* A predefinição de codificação utiliza a noção de "taxa de intervalo máximo" da 30 fps. Por isso, caso a entrada é 60fps 59.94i, as frames Jumbo entradas são ignoradas/de-interlaced para 30/29.97 fps. Se a entrada é 50fps/50i, as frames Jumbo entradas são ignorados/de-interlaced para 25 fps. Se a entrada é 25 fps, saída permanece no 25 fps.
 * Não se esqueça de parar sua canais quando terminar. Se não o fizer, irá continuar a faturação.
 
 ## <a name="known-issues"></a>Problemas conhecidos

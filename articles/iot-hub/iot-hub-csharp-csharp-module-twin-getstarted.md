@@ -1,28 +1,22 @@
 ---
 title: Introdução à identidade de módulo e ao módulo duplo do Hub IoT do Azure (.NET) | Microsoft Docs
 description: Saiba como criar a identidade de módulo e atualizar o módulo duplo com os SDKs do IoT para .NET.
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f71ac333aeb73df00856dde279b56f94464127b5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361125"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633483"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com a cópia de segurança e o dispositivo .NET
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo a utilizar back-end do .NET e o dispositivo de .NET
 
 > [!NOTE]
 > As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo e o dispositivo duplo do Hub IoT do Azure permitem que a aplicação de back-end configure um dispositivo e conferem visibilidade às condições do dispositivo, uma identidade de módulo e o módulo duplo fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
@@ -57,7 +51,7 @@ Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo sim
 
     ![Criar um projeto do Visual Studio][13]
 
-2. **Instale o SDK de dispositivo .NET do Hub IoT do Azure V1.16.0-preview-005** - O módulo de identidade e o módulo duplo encontram-se em modo de pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão V1.16.0-preview-005 e instale. Agora, tem acesso a todas as funcionalidades de módulo. 
+2. **Instalar o dispositivo mais recente do Azure IoT Hub .NET SDK** -duplo de identidade e de módulos do módulo está em pré-visualização pública. Esta só está disponível nos SDKs de dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra tools > Nuget package manager > manage Nuget packages for solution. Procure Microsoft.Azure.Devices.Client. Certifique-se de que selecionou a caixa de verificação Include prerelease. Selecione a versão mais recente e instalar. Agora, tem acesso a todas as funcionalidades de módulo. 
 
     ![Instalar o SDK de serviço .NET do Hub IoT do Azure V1.16.0-preview-005][14]
 
@@ -119,7 +113,7 @@ Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo sim
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();
@@ -140,7 +134,7 @@ Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo sim
 
     Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
 
-5. Além do método **Main** acima, pode adicionar o bloco de código abaixo para enviar o evento para o Hub IoT a partir do seu módulo:
+5. Para além dos acima **Main** método, pode adicionar abaixo bloco de código para enviar o evento do seu módulo ao IoT Hub:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;
@@ -154,7 +148,7 @@ Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo sim
 
 Já está pronto para executar as aplicações. No Visual Studio, no Explorador de Soluções, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir projetos de Arranque**. Selecione **Vários projetos de arranque** e, em seguida, selecione **Iniciar** como ação para a aplicação de consola. Prima F5 para iniciar a aplicação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

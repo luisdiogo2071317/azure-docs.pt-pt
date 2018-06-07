@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a6d347b707f9b58c5667c5d03d6374288e74267
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645128"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de modelo de recursos com base em DTU de base de dados SQL do Azure
 
@@ -70,11 +71,10 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 
 
 > [!IMPORTANT]
-> - Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> - No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-> 
-
+> - Mais de 1 TB de armazenamento no escalão Premium está disponível em todas as regiões, exceto o seguinte: norte do RU Central EUA oeste, RU South2, leste da China, USDoDCentral, Datacenters Central, USDoDEast, GOV us Southwest, nos us Sul Central, Nordeste da Alemanha, Norte da China, US-nos Leste. Está prevista uma disponibilidade mais ampla. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>
 
 ## <a name="single-database-change-storage-size"></a>Base de dados individual: Altere o tamanho de armazenamento
 
@@ -203,9 +203,9 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 ||||||||
 
 > [!IMPORTANT]
-> -  Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
+> - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> -  No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - Mais de 1 TB de armazenamento no escalão Premium está disponível em todas as regiões, exceto o seguinte: norte do RU Central EUA oeste, RU South2, leste da China, USDoDCentral, Datacenters Central, USDoDEast, GOV us Southwest, nos us Sul Central, Nordeste da Alemanha, Norte da China, US-nos Leste. Está prevista uma disponibilidade mais ampla. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.

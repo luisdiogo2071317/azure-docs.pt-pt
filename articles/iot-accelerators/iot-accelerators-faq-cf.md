@@ -1,25 +1,19 @@
 ---
 title: Ligado a solução de fábrica FAQ – Azure | Microsoft Docs
 description: Perguntas mais frequentes sobre o acelerador da solução de fábrica ligado
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627506"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador da solução de fábrica ligado
 
@@ -67,7 +61,7 @@ Tem duas opções para remover o endereço IP:
 
 O início de sessão na simulação VM só é suportado se tiver implementado a sua solução utilizando o script do PowerShell `build.ps1` no [repositório](https://github.com/Azure/azure-iot-connected-factory).
 
-Se implementou a solução de www.azureiotsuite.com, não pode iniciar sessão para a VM. Não é possível iniciar sessão, porque a palavra-passe for gerada aleatoriamente e não pode redefini-lo.
+Se implementou a solução de www.azureiotsolutions.com, não pode iniciar sessão para a VM. Não é possível iniciar sessão, porque a palavra-passe for gerada aleatoriamente e não pode redefini-lo.
 
 1. Adicione um endereço IP público à VM. Consulte [como adicionar um endereço IP público para a simulação VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Crie uma sessão SSH para a VM utilizando o endereço IP da VM.
@@ -148,11 +142,11 @@ Se vir sem dados enviados ao IoT Hub, não há um problema com a simulação. Co
 
 Para ativar um mapa interativo na sua solução de fábrica ligado, tem de ter um existente API para Bing Maps plano empresarial.
 
-Ao implementar a partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implementação verifica que a sua subscrição tem um ativado API para Bing Maps plano empresarial e implementa automaticamente um mapa interativo na fábrica ligado. Se não for este o caso, pode ainda ativar um mapa interativo na sua implementação da seguinte forma:
+Ao implementar a partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), o processo de implementação verifica que a sua subscrição tem um ativado API para Bing Maps plano empresarial e implementa automaticamente um mapa interativo na fábrica ligado. Se não for este o caso, pode ainda ativar um mapa interativo na sua implementação da seguinte forma:
 
 Ao implementar utilizando o `build.ps1` script no GitHub de fábrica ligado repositório e ter um API para Bing Maps para o plano de Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é ativado automaticamente.
 
-Se não tiver uma API para Bing Maps para o plano de Enterprise, implementar a solução de fábrica ligados de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou utilizando o `build.ps1` script. Em seguida, adicione um API para Bing Maps para plano empresarial à sua subscrição, conforme explicado no [como criar uma API para Bing Maps para conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Procurar a chave de consulta desta conta, conforme explicado no [como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e guarde esta chave. Navegue para o portal do Azure e aceder ao recurso de serviço de aplicações na sua implementação de fábrica ligado. Navegue para **definições da aplicação**, onde encontrar uma secção **as definições de aplicação**. Definir o **MapApiQueryKey** para a chave de consulta que obteve. Guardar as definições e, em seguida, navegue para **descrição geral** e reinicie o serviço de aplicações.
+Se não tiver uma API para Bing Maps para o plano de Enterprise, implementar a solução de fábrica ligados de [www.azureiotsolutions.com](http://www.azureiotsolutions.com) ou utilizando o `build.ps1` script. Em seguida, adicione um API para Bing Maps para plano empresarial à sua subscrição, conforme explicado no [como criar uma API para Bing Maps para conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Procurar a chave de consulta desta conta, conforme explicado no [como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e guarde esta chave. Navegue para o portal do Azure e aceder ao recurso de serviço de aplicações na sua implementação de fábrica ligado. Navegue para **definições da aplicação**, onde encontrar uma secção **as definições de aplicação**. Definir o **MapApiQueryKey** para a chave de consulta que obteve. Guardar as definições e, em seguida, navegue para **descrição geral** e reinicie o serviço de aplicações.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como posso criar uma API para Bing Maps para conta Enterprise
 
@@ -212,6 +206,6 @@ Para enviar os dados telemétricos do não OPC UA dispositivos à fábrica ligad
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
-* [Descrição geral do acelerador de soluções de Manutenção Preditiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Descrição geral do acelerador de soluções de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
 * [Descrição geral da ligados da acelerador solução do Factory](iot-accelerators-connected-factory-overview.md)
-* [Segurança de IoT a partir do zero](../iot-suite/securing-iot-ground-up.md)
+* [Segurança de IoT a partir do zero](securing-iot-ground-up.md)

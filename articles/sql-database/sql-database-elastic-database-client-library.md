@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a29af7d92dbf83672907af42d2222d9c7b1ef39
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645043"
 ---
 # <a name="building-scalable-cloud-databases"></a>Criar bases de dados de nuvem escaláveis
 Aumentar horizontalmente bases de dados pode ser facilmente conseguido utilizando ferramentas dimensionáveis e funcionalidades para a SQL Database do Azure. Em particular, pode utilizar o **biblioteca de clientes de base de dados elástica** para criar e gerir bases de dados de escalamento horizontal. Esta funcionalidade permite-lhe desenvolver facilmente aplicações em partição horizontal com centenas — ou mesmo milhares — das bases de dados SQL do Azure. [As tarefas elásticas](sql-database-elastic-jobs-powershell.md) , em seguida, podem ser utilizados para ajudar a facilitar a gestão destas bases de dados.

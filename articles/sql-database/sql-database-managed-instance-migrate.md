@@ -8,14 +8,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647667"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância geridos base de dados SQL do Azure
 
@@ -79,7 +80,7 @@ Instância gerida suporta as seguintes opções de migração de base de dados (
 - Nativo RESTAURO a partir do URL - utiliza cópias de segurança nativas do SQL Server e requer algum período de indisponibilidade
 - Migrar através do ficheiro BACPAC - utiliza BACPAC de ficheiro do SQL Server ou base de dados SQL e requer algum período de indisponibilidade
 
-### <a name="azure-database-migration-service"></a>Serviço de Migração de Bases de Dados do Azure
+### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 O [Azure serviço de migração da base de dados (DMS)](../dms/dms-overview.md) é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação em pré-visualização pública incluem a SQL Database do Azure, geridos instância e do SQL Server uma Máquina Virtual no Azure. O DMS é o método recomendado para migração para as cargas de trabalho da empresa. 
 

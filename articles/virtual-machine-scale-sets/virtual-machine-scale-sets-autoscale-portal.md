@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c9386f7dd0ba390a5f089be058c7f3edd6e33cf9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652377"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionar automaticamente um conjunto no portal do Azure de dimensionamento de máquina virtual
-Quando cria um conjunto de dimensionamento, é possível definir o número de instâncias VM que pretende executar. Como muda o seu pedido de aplicação, pode automaticamente aumentar ou reduzir o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a pedido do cliente ou responder a alterações de desempenho da aplicação durante todo o ciclo de vida da sua aplicação.
+Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
 
-Este artigo mostra como criar regras de dimensionamento automático no portal do Azure que monitorizar o desempenho das instâncias da VM no seu conjunto de dimensionamento. Estas regras de dimensionamento automático aumentam ou reduzir o número de instâncias de VM em resposta a estas métricas de desempenho. Também pode executar estes passos com [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) ou [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md).
+Este artigo mostra como criar regras de dimensionamento automático no portal do Azure que monitorizar o desempenho das instâncias da VM no seu conjunto de dimensionamento. Estas regras de dimensionamento automático aumentam ou reduzir o número de instâncias de VM em resposta a estas métricas de desempenho. Também pode executar estes passos com [Azure PowerShell](tutorial-autoscale-powershell.md) ou [Azure CLI 2.0](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +33,7 @@ Para criar regras de dimensionamento automático, terá de uma máquina virtual 
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Criar uma regra para ampliar automaticamente
-Se aumentar o seu pedido de aplicação, a carga sobre as instâncias de VM no seu dimensionamento definir aumenta. Se este aumento de carga é consistente, em vez de apenas um breve pedido, pode configurar regras de dimensionamento automático para aumentar o número de instâncias VM no conjunto de dimensionamento. Quando estas instâncias VM são criadas e as suas aplicações são implementadas, inicia o conjunto de dimensionamento distribuir o tráfego aos mesmos através do Balanceador de carga. Controlar as métricas para monitorizar, tais como CPU ou disco, quanto a carga da aplicação têm de cumprir um determinado limiar, e quantas instâncias VM para adicionar à escala definido.
+Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no conjunto de dimensionamento também aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Controla as métricas a monitorizar, como a CPU ou o disco, quando a carga da aplicação tem de cumprir um determinado limiar, e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
 1. Abra o Azure portal e selecione **grupos de recursos** no menu no lado esquerdo do dashboard.
 2. Selecione o grupo de recursos que contém o conjunto de dimensionamento, em seguida, escolha o conjunto de dimensionamento da lista de recursos.
@@ -49,16 +50,16 @@ Se aumentar o seu pedido de aplicação, a carga sobre as instâncias de VM no s
     | Parâmetro              | Explicação                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregação de tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
-    | *Nome da métrica*          | A métrica de desempenho para monitorizar e aplicar escala definir ações.                                                   | Percentagem da CPU |
+    | *Nome da métrica*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
     | *Estatística de grão de tempo* | Define a forma como as métricas recolhidas em cada intervalo de tempo devem ser agregadas para análise.                             | Média        |
-    | *operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                     | Mais do que   |
-    | *Threshold*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 70             |
-    | *Duração*             | A quantidade de tempo monitorizado antes em comparação com os valores da métrica e de limiar.                                   | 10 minutos     |
+    | *operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Mais do que   |
+    | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 70             |
+    | *Duração*             | A quantidade de tempo monitorizado antes de os valores de métrica e limiar serem comparados.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve Dimensionar cópias de segurança ou para baixo quando se aplica a regra e que incremento                        | Aumentar percentagem em |
-    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra é acionado.                                            | 20             |
-    | *Esporádico para baixo (minutos)*  | A quantidade de tempo de espera antes da regra é aplicada novamente para que as ações de dimensionamento automático de ter a hora entre em vigor. | 5 minutos      |
+    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 20             |
+    | *Esporádico para baixo (minutos)*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente, para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
-    Os exemplos seguintes mostram uma regra que criar no portal do Azure que corresponda a estas definições:    
+    Os exemplos seguintes mostram uma regra que criar no portal do Azure que corresponda a estas definições:
 
     ![Criar uma regra de dimensionamento automático para aumentar o número de instâncias de VM](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
 
@@ -66,7 +67,7 @@ Se aumentar o seu pedido de aplicação, a carga sobre as instâncias de VM no s
 
 
 ## <a name="create-a-rule-to-automatically-scale-in"></a>Criar uma regra para dimensionar automaticamente de
-Num evening ou fim de semana, pode diminuir o seu pedido de aplicação. Se este carregamento menor consistente durante um período de tempo, pode configurar regras de dimensionamento automático para reduzir o número de instâncias VM no conjunto de dimensionamento. Esta ação de dimensionamento reduz o custo para executar a escala definida como executar apenas o número de instâncias necessário para satisfazer a procura atual.
+À noite ou ao fim de semana, a exigência da aplicação pode diminuir. Se esta diminuição de carga for consistente durante um certo período de tempo, pode configurar regras de dimensionamento automático para diminuir o número de instâncias de VM no conjunto de dimensionamento. Esta ação de dimensionamento para reduzir horizontalmente reduz o custo de execução do conjunto de dimensionamento, uma vez que apenas executa o número de instâncias necessário para satisfazer a exigência atual.
 
 1. Optar por **adicionar uma regra** novamente.
 2. Crie uma regra que reduz o número de instâncias VM na escala definido quando a carga de CPU média, em seguida, descerem abaixo de 30% durante um período de 10 minutos. Quando a regra é acionado, o número de instâncias VM é diminuído por 20%.
@@ -75,10 +76,10 @@ Num evening ou fim de semana, pode diminuir o seu pedido de aplicação. Se este
     
     | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *operador*             | Operador utilizado para comparar os dados métricos contra o limiar.                                                      | Menos do que   |
-    | *Threshold*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |
+    | *operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menos do que   |
+    | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de dimensionamento deve Dimensionar cópias de segurança ou para baixo quando se aplica a regra e que incremento                         | Diminuir percentagem em |
-    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra é acionado.                                             | 20             |
+    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
 
 3. Para criar a regra, selecione **adicionar**
 

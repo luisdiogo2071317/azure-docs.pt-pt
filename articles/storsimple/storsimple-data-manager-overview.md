@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652013"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Descrição geral da solução do Gestor de dados do StorSimple
 
@@ -81,10 +82,9 @@ Se a sua região do Gestor de dados é diferente da sua região de definição d
 
 ![Definição de serviço e a tarefa em regiões diferentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>Conformidade GDPR
+## <a name="managing-personal-information"></a>Gerir informações pessoais
 
-[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU. O Gestor de dados do StorSimple é GDPR em conformidade. O serviço do Gestor de dados não recolhe dados pessoais.
-Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
+O Gestor de dados do StorSimple não recolher ou apresentar quaisquer informações pessoais. Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

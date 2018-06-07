@@ -6,14 +6,15 @@ manager: craigg
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: aamalvea
-ms.openlocfilehash: 0c543ccf1d2104a83f7610bc870334b460ec40fb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648028"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utilize o portal do Azure para criar alertas para a SQL Database do Azure e do armazém de dados
 
@@ -80,7 +81,7 @@ Assim que tiver criado um alerta, pode selecionar e:
 | Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Média | 5 minutos |
 | Base de dados SQL | armazenamento | Tamanho total da base de dados | Máximo | 30 minutos |
 | Base de dados SQL | connection_successful | Ligações com êxito | Total | 10 minutos |
-| Base de dados SQL | connection_failed | Falha de ligações | Total | 10 minutos |
+| Base de dados SQL | connection_failed | Ligações Falhadas | Total | 10 minutos |
 | Base de dados SQL | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
 | Base de dados SQL | impasse | Impasses | Total | 10 minutos |
 | Base de dados SQL | storage_percent | Percentagem de tamanho da Base de Dados | Máximo | 30 minutos |
@@ -105,7 +106,7 @@ Assim que tiver criado um alerta, pode selecionar e:
 | SQL data warehouse | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
 | SQL data warehouse | armazenamento | Tamanho total da base de dados | Máximo | 10 minutos |
 | SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
-| SQL data warehouse | connection_failed | Falha de ligações | Total | 10 minutos |
+| SQL data warehouse | connection_failed | Ligações Falhadas | Total | 10 minutos |
 | SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
 | SQL data warehouse | service_level_objective | Objetivo de nível de serviço da base de dados | Total | 10 minutos |
 | SQL data warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |

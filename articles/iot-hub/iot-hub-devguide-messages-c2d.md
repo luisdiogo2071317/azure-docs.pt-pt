@@ -1,23 +1,19 @@
 ---
 title: Compreender as mensagens da nuvem para o dispositivo IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - como utilizar mensagens na nuvem para o dispositivo com o IoT Hub. Inclui informações sobre o ciclo de vida de mensagem e opções de configuração.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632480"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo a partir do IoT Hub
 
@@ -88,7 +84,7 @@ Conforme explicado no [pontos finais][lnk-endpoints], o IoT Hub fornece comentá
 | Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | Timestamp que indicam quando a mensagem de comentários foi recebida pelo hub. |
-| ID de utilizador       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 O corpo é uma JSON serializado matriz de registos, cada um com as seguintes propriedades:
@@ -97,7 +93,7 @@ O corpo é uma JSON serializado matriz de registos, cada um com as seguintes pro
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Timestamp que indica quando ocorreu o resultado da mensagem. Por exemplo, o hub recebeu a mensagem de comentários ou expirado da mensagem original. |
 | OriginalMessageId  | **MessageId** da mensagem de nuvem para o dispositivo para que estas informações de feedback relacionada com. |
-| StatusCode         | Cadeia necessária. Utilizado em mensagens de comentários geradas pelo IoT Hub. <br/> 'Êxito' <br/> 'Expirou' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Removidos' |
+| statusCode         | Cadeia necessária. Utilizado em mensagens de comentários geradas pelo IoT Hub. <br/> 'Êxito' <br/> 'Expirou' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Removidos' |
 | Descrição        | A cadeia de valores para **StatusCode**. |
 | DeviceId           | **DeviceId** do dispositivo de destino da mensagem de nuvem para o dispositivo para o qual relacionado com esta peça de comentários. |
 | DeviceGenerationId | **DeviceGenerationId** do dispositivo de destino da mensagem de nuvem para o dispositivo para o qual relacionado com esta peça de comentários. |
@@ -136,7 +132,7 @@ Cada IoT hub expõe as seguintes opções de configuração para as mensagens da
 
 Para obter mais informações sobre como definir estas opções de configuração, consulte [os hubs IoT criar][lnk-portal].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para informações sobre os SDKs que pode utilizar para receber mensagens da nuvem para o dispositivo, consulte [SDKs IoT do Azure][lnk-sdks].
 

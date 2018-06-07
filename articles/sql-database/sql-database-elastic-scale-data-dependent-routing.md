@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 8a9b0b2c0541504954c4a1352180552cc650a31f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 715b6e55b053b3f999f3bd938c14d72a8e20ad1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646886"
 ---
 # <a name="data-dependent-routing"></a>Encaminhamento dependente de dados
 **Dados dependentes encaminhamento** é a capacidade de utilizar os dados numa consulta para encaminhar o pedido para uma base de dados adequada. Este é um padrão fundamental ao trabalhar com a bases de dados. O contexto do pedido também pode ser utilizado para encaminhar o pedido, especialmente se a chave de fragmentação não faz parte da consulta. Cada consulta específicas ou a transação de uma aplicação utilizar dados dependentes encaminhamento está restrita a aceder a uma base de dados individual por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, este encaminhamento é efetuado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) classe.

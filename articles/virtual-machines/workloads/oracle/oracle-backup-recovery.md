@@ -4,7 +4,7 @@ description: Saiba como criar cópias de segurança e recuperar uma base de dado
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e01a347607b2c2ff82d15172756f32c9c6a474a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656177"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Cópia de segurança e recuperar uma base de dados de 12c de base de dados Oracle numa máquina virtual com Linux do Azure
 
@@ -553,7 +554,7 @@ Após o restauro de VM, configure o endereço IP público.
 
 A cópia de segurança e recuperação da base de dados de 12c da base de dados Oracle no VM Linux do Azure está agora concluída.
 
-## <a name="delete-the-vm"></a>Eliminar a VM
+## <a name="delete-the-vm"></a>Elimine a VM
 
 Quando já não precisar de VM, pode utilizar o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados:
 

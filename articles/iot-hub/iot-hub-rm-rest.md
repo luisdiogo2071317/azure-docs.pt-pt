@@ -1,24 +1,20 @@
 ---
 title: Criar um hub IoT do Azure utilizando o fornecedor de recursos REST API | Microsoft Docs
 description: Como utilizar o fornecedor de recursos REST API para criar um IoT Hub.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 52814ee5-bc10-4abe-9eb2-f8973096c2d8
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: d9372f8345257c45ae6b3b915383788f698a0e35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 06f05da839ebca2ae53e255acce7f07d1989673c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635224"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT utilizando o fornecedor de recursos REST API (.NET)
 
@@ -173,7 +169,7 @@ Agora pode concluir a aplicação ao chamar o **CreateIoTHub** método antes de 
 > [!NOTE]
 > Esta aplicação de exemplo adiciona uma S1 Standard IoT Hub para o qual é-lhe faturado. Quando tiver terminado, pode eliminar o hub IoT através de [portal do Azure] [ lnk-azure-portal] ou utilizando o **remover AzureRmResource** cmdlet do PowerShell quando tiver terminado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que implementou um IoT hub com o REST API do fornecedor de recursos, poderá querer explorar ainda mais:
 
 * Leia sobre as capacidades do [fornecedor de recursos do IoT Hub REST API][lnk-rest-api].
@@ -186,7 +182,7 @@ Para obter mais informações sobre como desenvolver para o IoT Hub, consulte os
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

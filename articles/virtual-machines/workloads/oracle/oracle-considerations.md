@@ -1,9 +1,9 @@
 ---
-title: "Soluções de Oracle no Microsoft Azure | Microsoft Docs"
-description: "Saiba mais sobre as configurações suportadas e limitações das soluções de Oracle no Microsoft Azure."
+title: Soluções de Oracle no Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre as configurações suportadas e limitações das soluções de Oracle no Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
+documentationcenter: ''
+manager: jeconnoc
 author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656351"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluções de Oracle e a respetiva implementação no Microsoft Azure
 Este artigo aborda as informações necessárias para implementar com sucesso várias soluções de Oracle no Microsoft Azure. Estas soluções são baseadas em imagens da Máquina Virtual publicadas pela Oracle no Azure Marketplace. Para obter uma lista de imagens atualmente disponíveis, execute o seguinte comando:
@@ -102,6 +103,6 @@ Para informações relacionadas, consulte o artigo BDC **860340.1** em <http://s
    O JDK disponível neste JDK 6 e 7 imagens e as máquinas virtuais e imagens derivadas deles, só pode ser utilizado no Azure.
 * **JDK de 64 bits.** As imagens de máquina virtual Oracle WebLogic Server e as imagens de máquina virtual de Oracle JDK fornecidas pelo Azure contêm as versões de 64 bits do Windows Server e o JDK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Tem agora uma descrição geral das soluções de Oracle atual no Microsoft Azure. O próximo passo é implementar a sua primeira base de dados Oracle no Azure.
 - Repita o [criar uma base de dados Oracle no Azure](oracle-database-quick-create.md) tutorial para começar.

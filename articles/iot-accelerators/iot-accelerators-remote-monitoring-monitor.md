@@ -1,26 +1,23 @@
 ---
 title: Avançadas de monitorização na solução de monitorização remota - Azure | Microsoft Docs
 description: Este tutorial mostra como monitorizar dispositivos com o dashboard de solução de monitorização remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627404"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Efetuar a monitorização avançada, utilizando a solução de monitorização remota
+# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Efetuar a monitorização avançada com a solução de monitorização remota
 
-Este tutorial mostra as funcionalidades do dashboard de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
+Este tutorial mostra as capacidades do dashboard de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
 
 Neste tutorial, utilize dois dispositivos de camião Contoso simulados para saber como monitorizar os seus dispositivos a partir do dashboard de acelerador solução. Como um operador de Contoso, terá de monitorizar a localização e o comportamento dos seus trucks no campo.
 
@@ -35,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
 
 Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 

@@ -1,25 +1,21 @@
 ---
 title: Guardar as mensagens do hub IoT para o armazenamento de dados do Azure | Microsoft Docs
 description: Utilize o encaminhamento de mensagens do IoT Hub para guardar as mensagens do hub IoT para o armazenamento de Blobs do Azure. As mensagens do hub IoT contêm informações, tais como os dados de sensor, que são enviados a partir do dispositivo IoT.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: armazenamento de dados do IOT, armazenamento de dados de sensor iot
-ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 678c538a5d672826f74235d4ac415fccf5de13fe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635683"
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Guardar IoT hub mensagens que contêm dados de sensor para o armazenamento de Blobs do Azure
 

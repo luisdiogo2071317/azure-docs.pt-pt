@@ -1,25 +1,20 @@
 ---
 title: IoT Hub do Azure - introdução ao ligar a dispositivos de IoT à nuvem | Microsoft Docs
 description: Saiba como ligar o seu IoT quadros e kits de arranque ao IoT Hub do Azure. Os seus dispositivos podem enviar telemetria ao IoT Hub e do IoT Hub pode monitorizar e gerir os seus dispositivos.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
 keywords: tutorial de hub iot do Azure
-ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dafb8aca34a5a41f45f76d526aa3b8f3b1b792c4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 76f427204f0ad31196ce8b995b9e4ed9676209ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634707"
 ---
 # <a name="azure-iot-hub-get-started-with-real-devices"></a>Introdução ao IoT Hub do Azure dispositivos reais
 

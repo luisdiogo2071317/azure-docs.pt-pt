@@ -1,21 +1,21 @@
 ---
 title: O que é informações de séries de tempo do Azure? | Microsoft Docs
 description: Introdução às informações de séries de tempo do Azure, um novo serviço de análise de dados de séries de tempo e soluções de IoT.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
-ms.author: anshan, jasonh
+ms.author: anshan
 manager: jhubbard
-editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 647cce6ec907863474b70f2642932b11df666d1f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651867"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é informações de séries de tempo do Azure?
 

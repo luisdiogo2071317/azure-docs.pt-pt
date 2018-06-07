@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651210"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução à matriz Virtual StorSimple
 
@@ -206,10 +207,9 @@ StorSimple utiliza compressão de dados e a eliminação de duplicados para redu
 
 Funcionalidades de proteção de dados do StorSimple permitem-lhe criar cópias de segurança a pedido. Além disso, uma agenda de cópia de segurança predefinida assegura que dados é uma cópia de segurança diária. São efetuadas cópias de segurança sob a forma de instantâneos incrementais, que são armazenados na nuvem. Instantâneos, o qual gravar apenas as alterações desde a última cópia de segurança, podem ser criados e restaurados rapidamente. Estes instantâneos podem ser extremamente importantes em cenários de recuperação após desastre, pois substituir sistemas de armazenamento secundário (por exemplo, a cópia de segurança de banda) e, permitem-lhe restaurar dados para o seu centro de dados ou para sites alternativos, se necessário.
 
-## <a name="gdpr-compliance"></a>Conformidade GDPR
-[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU.
+## <a name="managing-personal-information"></a>Gerir informações pessoais
 
-O Gestor de dispositivos do StorSimple para série virtual é GDPR em conformidade. Existem duas instâncias de chaves em que as informações pessoais são recolhidas e apresentadas no serviço:
+O Gestor de dispositivos do StorSimple para série virtual recolhe as informações pessoais no duas instâncias de chaves:
  - As definições de utilizador em que estão configurados endereços de correio eletrónico de utilizadores de alertas. Estas informações podem ser eliminadas pelo administrador. 
  - Utilizadores que podem aceder aos dados que reside nas partilhas. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser exportada. Esta lista também é eliminada quando é eliminado as partilhas.
 

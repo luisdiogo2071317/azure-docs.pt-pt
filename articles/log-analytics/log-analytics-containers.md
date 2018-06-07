@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638352"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -528,7 +529,7 @@ Pode verificar que a solução de monitorização do contentor está corretament
 
 ## <a name="solution-components"></a>Componentes da solução
 
-Se estiver a utilizar o agentes do Windows, o seguinte pacote de gestão é instalado em cada computador com um agente quando adicionar esta solução. Nenhuma configuração ou a manutenção é necessária para o pacote de gestão.
+O portal do OMS, navegue para o *soluções galeria* e adicione o **solução de monitorização do contentor**. Se estiver a utilizar o agentes do Windows, o seguinte pacote de gestão é instalado em cada computador com um agente quando adicionar esta solução. Nenhuma configuração ou a manutenção é necessária para o pacote de gestão.
 
 - *ContainerManagement.xxx* instalado em C:\Program Files\Microsoft monitorização Agent\Agent\Health serviço State\Management pacotes
 
@@ -563,6 +564,7 @@ As etiquetas acrescentado ao *PodLabel* tipos de dados são as suas próprias et
 
 ## <a name="monitor-containers"></a>Contentores de monitor
 Depois de ter a solução ativada no portal do Log Analytics, o **contentores** mosaico mostra informações de resumo sobre os anfitriões de contentor e os contentores em execução em anfitriões.
+
 
 ![Mosaico de contentores](./media/log-analytics-containers/containers-title.png)
 

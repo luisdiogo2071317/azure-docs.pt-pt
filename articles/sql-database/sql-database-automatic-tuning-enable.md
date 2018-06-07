@@ -6,14 +6,15 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646036"
 ---
 # <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
@@ -23,36 +24,40 @@ Base de dados SQL do Azure é um serviço de dados geridos automaticamente que c
 No nível do servidor pode escolher para herdar a configuração automática de otimização de "Predefinições do Azure" ou não para herdar a configuração. Predefinições do Azure são FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 
 ### <a name="azure-portal"></a>Portal do Azure
-Para ativar a otimização automática na SQL Database do Azure **servidor**, navegue para o servidor no portal do Azure e, em seguida, selecione **otimização automática** no menu. Selecione as opções de otimização automáticas que pretende ativar e selecione **aplicar**.
+Para ativar a otimização automática no Azure SQL da base de dados lógico **servidor**, navegue para o servidor no portal do Azure e, em seguida, selecione **otimização automática** no menu.
 
 ![Servidor](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Tenha em atenção que **DROP_INDEX** opção neste momento, não é compatível com aplicações utilizar sugestões de índice e de mudança de partição e não deverá ser ativada nestes casos.
+> Tenha em atenção que **DROP_INDEX** opção neste momento, não é compatível com aplicações utilizar sugestões de índice e de mudança de partição e não deve estar ativada nestes casos.
 >
 
-Opções de otimização automáticas no servidor são aplicadas a todas as bases de dados no servidor. Por predefinição, todas as bases de dados de herdar a configuração do respetivo elemento principal do servidor, mas isto pode ser substituído e especificado individualmente para cada base de dados.
+Selecione as opções de otimização automáticas que pretende ativar e selecione **aplicar**.
+
+Opções de otimização automáticas num servidor são aplicadas a todas as bases de dados neste servidor. Por predefinição, todas as bases de dados herdam a configuração do respetivo elemento principal do servidor, mas isto pode ser substituído e especificado individualmente para cada base de dados.
 
 ### <a name="rest-api"></a>API REST
 [Clique aqui para mais informações sobre como ativar a otimização automática ao nível do servidor através da REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Ativar a otimização automática numa base de dados individuais
 
-A base de dados do SQL do Azure permite-lhe especificar individualmente a configuração de otimização automática em cada base de dados. O nível de base de dados pode escolher para herdar a configuração automática de otimização do servidor de principal, "Azure predefinições" ou não para herdar a configuração. Predefinições do Azure são FORCE_LAST_GOOD_PLAN ativada, CREATE_INDEX ativada e DROP_INDEX desativada.
+A base de dados do SQL do Azure permite-lhe especificar individualmente a configuração de otimização automática para cada base de dados. O nível de base de dados pode optar herdar a configuração de otimização automática do servidor principal, "Azure predefinições" ou não para herdar a configuração. Predefinições do Azure estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 
 > [!NOTE]
-> A recomendação geral é para gerir a configuração de otimização automática ao nível do servidor para que as mesmas definições de configuração podem ser aplicadas automaticamente em cada base de dados. Configure a otimização automática numa base de dados individuais se a base de dados é diferente que outras pessoas no mesmo servidor.
+> A recomendação geral é para gerir a configuração de otimização automática em **ao nível do servidor** para as mesmas definições de configuração podem ser aplicadas automaticamente em cada base de dados. Configurar a otimização automática numa base de dados individual apenas se tiver a base de dados ter definições diferentes das outras pessoas herdar as definições do mesmo servidor.
 >
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para ativar a otimização automática num **base de dados individual**, navegue para a base de dados no portal do Azure e, em seguida e selecione **otimização automática**. Pode configurar uma base de dados individual para herdar as definições do servidor, selecionando a opção ou pode especificar a configuração para uma base de dados individualmente.
+Para ativar a otimização automática num **base de dados individual**, navegue para a base de dados no portal do Azure e selecione **otimização automática**.
+
+Definições de otimização automáticas individuais podem ser configuradas em separado para cada base de dados. Manualmente pode configurar uma opção de otimização automática individuais, ou especificar que uma opção herda as definições do servidor.
 
 ![Base de Dados](./media/sql-database-automatic-tuning-enable/database.png)
 
-Assim que tiver selecionado a configuração adequada, clique em **aplicar**.
+Tenha em atenção que a opção de DROP_INDEX neste momento, não é compatível com aplicações utilizar sugestões de índice e de mudança de partição e não deve estar ativada nestes casos.
 
-Tenha em atenção que a opção DROP_INDEX neste momento, é incompatível com aplicações utilizar sugestões de índice e de mudança de partição e não deverá ser ativada nestes casos.
+Assim que tiver selecionado a configuração pretendida, clique em **aplicar**.
 
 ### <a name="rest-api"></a>API REST
 [Clique aqui para mais informações sobre como ativar a otimização automática numa única base de dados através da REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)

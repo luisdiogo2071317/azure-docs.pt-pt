@@ -1,13 +1,13 @@
 ---
-title: "Utilizando o SAP em máquinas virtuais do Linux | Microsoft Docs"
-description: "Aprenda a utilizar o SAP nas máquinas virtuais do Linux (VMs) | Microsoft Azure"
+title: Utilizando o SAP em máquinas virtuais do Linux | Microsoft Docs
+description: Aprenda a utilizar o SAP nas máquinas virtuais do Linux (VMs) | Microsoft Azure
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
-keywords: 
+keywords: ''
 ms.assetid: f9cd93dc-71ad-48a4-8778-4e48aec484a6
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 66eb53f99ce4b30ec283243deb3649c9ca897a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0802816ba45a3d0fb390b64d4308ab2e966d86ce
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657184"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Utilizando o SAP em máquinas virtuais do Linux no Azure
 A Informática em Nuvem é um termo utilizado em grande escala que está a ganhar cada vez mais importância no setor de TI, desde as pequenas às grandes empresas e até multinacionais. O Microsoft Azure é a Plataforma de Serviços Cloud da Microsoft que oferece um amplo espetro de novas possibilidades. Agora os clientes podem aprovisionar rapidamente e anular o aprovisionamento de aplicações como Serviços Cloud, para que não estejam limitados a restrições técnicas ou orçamentais. Em vez de investirem tempo e dinheiro na infraestrutura de hardware, as empresas podem concentrar-se na aplicação, nos processos empresariais e nas vantagens para os clientes e utilizadores.

@@ -6,15 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 39c61fd3b2f03c99d74fded22927f319cc7f4cdd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0c27aec90dad6eb3aeb46871d20202870eba886d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647650"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Descrição geral: Grupos de ativação pós-falha e a georreplicação ativa
 Replicação geográfica activa permite-lhe configurar até quatro legíveis secundários bases de dados em localizações de centro de dados idêntica ou diferente (regiões). Bases de dados secundárias estão disponíveis para consulta e de ativação pós-falha se existir uma falha do Centro de dados ou a impossibilidade de estabelecer ligação à base de dados primária. A ativação pós-falha tem de ser iniciada manualmente a aplicação do utilizador. Após a ativação pós-falha, a nova principal tem um ponto de ligação diferente de fim. 

@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212675"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642228"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar a sua primeira aplicação Reliable Services com monitorização de estado do Service Fabric em C#
 
@@ -68,12 +68,15 @@ Para obter uma descrição geral do conteúdo do projeto de serviço, consulte o
 
 Agora que tem uma aplicação, execute-a, implemente-a e depure-a ao realizar os seguintes passos.
 
-1. No Visual Studio, selecione F5 para implementar a aplicação com o fim de a depurar.
+1. No Visual Studio, selecione **F5** para implementar a aplicação de depuração.  Clique em **Sim** se-ão apresentadas uma caixa de mensagem a perguntar conceder permissões para o diretório de projeto do Visual Studio de execução e leitura de grupo de 'ServiceFabricAllowedUsers'.
 
     >[!NOTE]
     >Da primeira vez que executar e implementar a aplicação localmente, o Visual Studio cria um cluster local para depuração. Esta operação pode demorar algum tempo. O estado da criação do cluster aparece na janela de saída do Visual Studio.
-
-    Quando o cluster estiver pronto, recebe uma notificação da aplicação do gestor de tabuleiro de sistema do cluster local incluída no SDK.
+    
+     Quando o cluster estiver pronto, recebe uma notificação da aplicação do gestor de tabuleiro de sistema do cluster local incluída no SDK.
+     
+    >[!NOTE]
+    >Requer este exercício um 5 nó (vs. 1 nó) cluster. Pode verificar isto da seguinte forma: iniciar a ferramenta de Service Fabric Explorer clicando com o **Gestor de clusters locais do serviço de recursos de infraestrutura** aplicação de tabuleiro de sistema e, em seguida, clique em **comutador Cluster modo**. Clique em **5 nó** se 1 nó atualmente selecionado.
     
     ![Notificação do tabuleiro de sistema do cluster local][4]
 
@@ -107,7 +110,7 @@ Agora que tem uma aplicação, execute-a, implemente-a e depure-a ao realizar os
 
     ![Método RunAsync com ponto de interrupção do serviço com estado ][7]
 
-7. Inicie a ferramenta Service Fabric Explorer, ao clicar com o botão direito do rato na aplicação de tabuleiro de sistema do **Gestor de Clusters Locais** e depois selecionar **Gerir Cluster Local**.
+7. Iniciar a ferramenta de Service Fabric Explorer clicando com o **Gestor de clusters locais do serviço de recursos de infraestrutura** aplicação de tabuleiro de sistema e, em seguida, selecionar **gerir Cluster Local**.
 
     ![Iniciar o Service Fabric Explorer a partir do gestor de clusters locais][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Agora que tem uma aplicação, execute-a, implemente-a e depure-a ao realizar os
 
     ![Parar um nó no Service Fabric Explorer][sfx-stop-node]
 
-    Momentaneamente, deverá ver o ponto de interrupção atingido no Visual Studio, dado que a computação que estava a fazer diretamente num nó falha no outro.
+    Momentaneamente, deverá ver o ponto de interrupção atingido no Visual Studio, dado que a computação que estava a fazer diretamente num nó falha no outro. Prima **F5** para continuar.
 
 9. Em seguida, regresse ao Visualizador de Eventos de Diagnóstico e observe as mensagens. O contador não deixa de aumentar, apesar de os eventos, na verdade, estarem a vir por um nó diferente.
 
@@ -137,7 +140,7 @@ Remova o cluster, ao clicar com o botão direito do rato na aplicação de tabul
 
 Se escolher esta opção, o Visual Studio reimplementa o cluster da próxima vez que a aplicação for executada. Escolha esta opção se não pretender utilizar o cluster local durante algum tempo ou se precisar de recuperar recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Leia mais sobre o [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8173a5abbbeea38bc831b7cc76898714cd4dd4d4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670212"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem conduzir a máquina virtual no Azure a ser afetado: manutenção de hardware não planeada, tempo de inatividade inesperado e a manutenção planeada.
@@ -20,7 +21,7 @@ Existem três cenários que podem conduzir a máquina virtual no Azure a ser afe
 * Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure utiliza a tecnologia de Migração em Direto para migrar as Máquinas Virtuais do hardware com falhas para uma máquina física em bom estado de funcionamento. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
 
 
-* É muito raro ocorrer um **Período de Indisponibilidade Inesperado** quando o hardware ou a infraestrutura física subjacente à máquina virtual sofre algum tipo de falha. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas estruturais. Quando é detetada uma falha de tal, migra automaticamente a plataforma do Azure (heals) a máquina virtual para uma bom estado de funcionamento máquina física no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados. 
+* **Um período de inatividade inesperado** é quando o hardware ou a infraestrutura física para a máquina virtual está a falhar inesperadamente. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas de nível de bastidor. Quando detetado, migra automaticamente a plataforma do Azure (heals) a máquina virtual para uma bom estado de funcionamento máquina física no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados. 
 
   Máquinas virtuais pode também tempo de inatividade na improvável eventualidade de uma falha ou desastre que afeta a todo o datacenter ou mesmo uma região de toda. Nestes cenários, o Azure oferece opções de proteção, incluindo [zonas de disponibilidade](../articles/availability-zones/az-overview.md) e [emparelhado regiões](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

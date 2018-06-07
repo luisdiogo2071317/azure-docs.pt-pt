@@ -6,14 +6,15 @@ author: bonova
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 4722399525b376e232f2bc7802a570836da79e29
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92e4180f1efe62d2dae9778f70e25f1bb0273b7f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649888"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Utilizar o arquivo de consultas na base de dados SQL do Azure
 O arquivo de consultas no Azure é uma funcionalidade de base de dados completamente gerido que continuamente recolhe e apresenta informações detalhadas de históricos sobre todas as consultas. Pode pensar sobre o arquivo de consultas como semelhante a dados gravador um avião que significativamente simplifica o desempenho das consultas de resolução de problemas para a nuvem e os clientes no local. Este artigo explica os aspetos específicos de operativo arquivo de consultas no Azure. Com esta consulta previamente recolhidos dados, pode rapidamente diagnosticar e resolver problemas de desempenho e, por conseguinte, demora mais tempo a concentrar-se na sua empresa. 

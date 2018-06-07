@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637621"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -98,7 +99,7 @@ Depois de ter prepped as ferramentas ITSM, siga os passos abaixo para criar uma 
 
     > [!NOTE]
 
-    > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados da ligação de forma instantânea para qualquer modelo ou as edições de atualizações que efetuar, clique no botão de "Atualizar" apresentado junto a ligação.
+    > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados da ligação instantly para qualquer modelo ou as edições das atualizações que efetuar, clique em de **sincronização** botão no painel da ligação.
 
     ![Atualização de ligação](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +138,6 @@ Quando a criação/edição de uma regra de alerta do Azure, utilize um grupo de
 >[!NOTE]
 
 > Para obter informações sobre os preços de ITSM ação, consulte o [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para grupos de ação.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Criar itens de trabalho ITSM a partir dos alertas de análise de registos
-
-Pode configurar regras de alertas no portal do Log Analytics do Azure para criar itens de trabalho na ferramenta ITSM, utilizando o procedimento seguinte.
-
-1. De **pesquisa registo** janela, executar uma consulta de pesquisa de registo para ver os dados. Os resultados da consulta são a origem para itens de trabalho.
-2. No **pesquisa registo**, clique em **alerta** para abrir o **Adicionar regra de alerta** página.
-
-    ![Ecrã de análise do registo](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. No **Adicionar regra de alerta** janela, forneça os detalhes necessários para **nome**, **gravidade**, **consulta de pesquisa**, e **alerta critérios** (medida janela/métrica de tempo).
-4. Selecione **Sim** para **ITSM ações**.
-5. Selecione a ligação ITSM a partir de **selecione ligação** lista.
-6. Forneça os detalhes conforme necessário.
-7. Para criar um item de trabalho separada para cada entrada de registo deste alerta, selecione o **criar itens de trabalho individuais para cada entrada de registo** caixa de verificação.
-
-    Ou
-
-    Deixe esta caixa de verificação desmarcada para criar apenas um item de trabalho para qualquer número de entradas de registo neste alerta.
-
-7. Clique em **Guardar**.
-
-Pode ver o alerta de análise de registos que criou em **definições > alertas**. Itens de trabalho a ligação ITSM correspondentes são criados quando condição o alerta especificado for satisfeita.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>Criar itens de trabalho ITSM a partir de registos de análise de registos
-
-Também pode criar itens de trabalho nas origens ITSM ligadas diretamente a partir de um registo. Isto pode ser utilizado para testar se a ligação está a funcionar corretamente.
-
-
-1. De **pesquisa registo**, procure os dados necessários, selecione os detalhes e clique em **Criar item de trabalho**.
-
-    O **Criar Item de trabalho ITSM** surge a janela:
-
-    ![Ecrã de análise do registo](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Adicione os seguintes detalhes:
-
-  - **Título do item de trabalho**: título para o item de trabalho.
-  - **Descrição do item de trabalho**: uma descrição para o novo item de trabalho.
-  - **Afetados computador**: nome do computador em que estes dados de registo foi encontrados.
-  - **Selecione a ligação**: ligação ITSM no qual pretende criar este item de trabalho.
-  - **Item de trabalho**: tipo de item de trabalho.
-
-3. Para utilizar um modelo de item de trabalho existente para um incidente, clique em **Sim** em **item de trabalho gerar baseado num modelo** opção e, em seguida, clique em **criar**.
-
-    Ou,
-
-    Clique em **não** se pretender fornecer os valores personalizados.
-
-4. Forneça os valores adequados no **contacte tipo**, **impacto**, **urgência**, **categoria**, e **Sub categoria** caixas de texto e, em seguida, clique em **criar**.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e dados de pedido de alteração

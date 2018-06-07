@@ -1,11 +1,11 @@
 ---
-title: "Cópia de segurança de SAP HANA Azure com base nos instantâneos de armazenamento | Microsoft Docs"
-description: "Existem duas principais cópia de segurança as possibilidades de SAP HANA em máquinas virtuais do Azure, este artigo abrange a cópia de segurança de SAP HANA com base nos instantâneos de armazenamento"
+title: Cópia de segurança de SAP HANA Azure com base nos instantâneos de armazenamento | Microsoft Docs
+description: Existem duas principais cópia de segurança as possibilidades de SAP HANA em máquinas virtuais do Azure, este artigo abrange a cópia de segurança de SAP HANA com base nos instantâneos de armazenamento
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -13,11 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819888800b9663f9b920fbaf11b30ad28287a0b5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658728"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Cópia de segurança SAP HANA baseada em instantâneos de armazenamento
 
@@ -164,7 +165,7 @@ Fornece uma maior flexibilidade mas não resolver os problemas explicados anteri
 
 Se foi possível encerrar SAP HANA antes dos instantâneos do blob, o procedimento será menos complexo. Nesse caso, um foi ignorar o instantâneo HANA e, se mais nada se passa no sistema, também ignorar o congelar de sistema de ficheiros. Foram adicionada complexidade entra imagem quando é necessário fazer instantâneos enquanto tudo está online. Consulte _consistência de dados SAP HANA quando tirar instantâneos de armazenamento_ no artigo relacionado [guia de cópia de segurança para SAP HANA em Azure Virtual Machines](sap-hana-backup-guide.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Cópia de segurança manual para SAP HANA em Azure Virtual Machines](sap-hana-backup-guide.md) fornece uma descrição geral e informações sobre começar a utilizar.
 * [Cópia de segurança de SAP HANA com base no nível de ficheiro](sap-hana-backup-file-level.md) abrange a opção de cópia de segurança baseada em ficheiros.
 * Para saber como estabelecer elevada disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias de grande), consulte o artigo [SAP HANA (instâncias de grande) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md).

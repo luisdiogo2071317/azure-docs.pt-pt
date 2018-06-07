@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: bbf69bdcc92316642f6b37d267cdea2aad920316
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: acc92662aa5b727656a8eda368ba6d78a87d9ecd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640894"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI exemplos de Media Services do Azure
 
@@ -32,7 +33,10 @@ A tabela seguinte inclui ligações para exemplos da CLI do Azure para Media Ser
 | [Carregar um ficheiro](./scripts/cli-upload-file-asset.md)|Carrega um ficheiro local para um contentor de armazenamento.|
 | [Publicar um elemento](./scripts/cli-publish-asset.md)| Cria um localizador de transmissão em fluxo e recebe de volta URLs de transmissão em fluxo. |
 | **Transforma** e **tarefas**||
-| [Criar as transformações](./scripts/cli-create-transform.md)|Mostra como criar as transformações. Transformações descrevem um fluxo de trabalho simple de tarefas para processar os ficheiros de vídeos ou áudio (normalmente designados como "receitas").<br/> Deve sempre verificar se uma transformação com o nome pretendido e "receitas" já existem. Se, reutilizá-lo. |
+| [Criar as transformações](./scripts/cli-create-transform.md)|Mostra como criar as transformações. As transformações descrevem um fluxo de trabalho de tarefas simples para processar os ficheiros de vídeo ou áudio (normalmente designados como "receita").<br/> Deve sempre verificar se já existe uma Transformação com o nome e a "receita" pretendidos. Se, reutilizá-lo. |
 | [Criar tarefas](./scripts/cli-create-jobs.md)|Submete uma tarefa para uma transformação de codificação simple utilizando o HTTPs URL.|
 | [Criar EventGrid](./scripts/cli-create-event-grid.md)|Cria uma subscrição de conta de nível grelha de eventos para alterações de estado de tarefa.|
 
+## <a name="see-also"></a>Consulte também
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

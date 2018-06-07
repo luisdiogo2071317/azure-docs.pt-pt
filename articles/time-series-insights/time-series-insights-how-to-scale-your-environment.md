@@ -1,22 +1,22 @@
 ---
-title: "Como dimensionar o ambiente de informações de séries de tempo do Azure | Microsoft Docs"
-description: "Este artigo descreve como dimensionar o ambiente de informações de séries de tempo do Azure. Utilize o portal do Azure para adicionar ou subtrair capacidade dentro de um SKU de preço."
-services: time-series-insights
+title: Como dimensionar o ambiente de informações de séries de tempo do Azure | Microsoft Docs
+description: Este artigo descreve como dimensionar o ambiente de informações de séries de tempo do Azure. Utilize o portal do Azure para adicionar ou subtrair capacidade dentro de um SKU de preço.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7e603cc9c130de6b65ae1935ac974557f5e74737
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651996"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente de informações de séries de tempo
 
@@ -58,6 +58,6 @@ As capacidades dimensionadas de forma linear, pelo que um SKU S1 com capacidade 
 
 4. Selecione **guardar** dimensionar o ambiente. O indicador de progresso é apresentado até que a alteração é consolidada, momentaneamente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Certifique-se de que a nova capacidade suficiente para impedir a limitação](time-series-insights-diagnose-and-solve-problems.md).

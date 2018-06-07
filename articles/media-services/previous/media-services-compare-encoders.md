@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13e8b3bcb7de4093116b3e2198b210950ac16d78
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cf420c6b5f72b2109016bdb8b86d6cfcc506f4e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639525"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure em codificadores de suporte de dados a pedido
 
@@ -83,6 +84,7 @@ A tabela seguinte compara as funcionalidades entre o suporte de dados codificado
 | Apple ProRes Proxy |Sim |Não |
 | Apple ProRes 4444 |Sim |Não |
 | Apple ProRes 4444 XQ |Sim |Não |
+| HEVC/H.265|Perfil de principal|Perfil de Main 10 e principal|
 
 ## <a name="input-audio-codecs"></a>Codecs entrada de áudio
 | Codecs entrada de áudio | Media Encoder Standard | Fluxo de Trabalho Premium de Codificador de Multimédia |

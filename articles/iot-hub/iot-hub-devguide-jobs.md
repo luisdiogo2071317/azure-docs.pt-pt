@@ -1,24 +1,19 @@
 ---
 title: Compreender as tarefas do IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - agendamento de trabalhos para executar em vários dispositivos ligados ao seu IoT hub. As tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633949"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -108,7 +103,7 @@ A lista seguinte mostra as propriedades e descrições correspondentes, que pode
 | **jobId** |Aplicação fornecido ID da tarefa. |
 | **startTime** |Aplicação fornecido a hora de início (ISO-8601) para a tarefa. |
 | **endTime** |IoT Hub fornecido data (ISO-8601) para quando a tarefa foi concluída. Válido apenas depois da tarefa de atinge o estado 'Concluído'. |
-| **type** |Tipos de tarefas: |
+| **tipo** |Tipos de tarefas: |
 | | **scheduledUpdateTwin**: uma tarefa utilizada para atualizar um conjunto de propriedades pretendidas ou etiquetas. |
 | | **scheduledDeviceMethod**: uma tarefa utilizada para invocar um método de dispositivo num conjunto de dispositivos duplos. |
 | **status** |Estado atual da tarefa. Valores possíveis para o estado: |
@@ -135,7 +130,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens] [ lnk-query] descreve o idioma de consulta do IoT Hub. Utilize a linguagem de consulta para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do IoT Hub seguinte:
 
 * [Tarefas de agenda e difusão][lnk-jobs-tutorial]

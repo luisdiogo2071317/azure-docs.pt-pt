@@ -11,36 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 737f8d49d8254806891d3177cde59187cd8e1f2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640188"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>Ver registos de atividade para alterações de controlo de acesso baseado em funções
 
-Sempre que alguém fizer alterações a definições de funções ou atribuições de funções na suas subscrições, as alterações são registadas [registo de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) na categoria administrativa. Pode ver os registos de atividade para ver todas as alterações de controlo (RBAC) de acesso baseado em funções nos últimos 90 dias.
+Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, tal como para auditoria ou a resolução de problemas. Sempre que alguém fizer alterações a atribuições de funções ou as definições de função na suas subscrições, as alterações são registadas [registo de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações que são registadas
 
 Seguem-se as operações relacionadas com o RBAC que são registadas no registo de atividade:
 
-- Criar ou atualizar uma definição de função personalizada
-- Eliminar definição de função personalizada
 - Criar atribuição de função
 - Eliminar atribuição de função
+- Criar ou atualizar uma definição de função personalizada
+- Eliminar definição de função personalizada
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-É a forma mais fácil começar a utilizar para ver os registos de atividade com o portal do Azure. A seguinte captura de ecrã mostra um exemplo de um registo de atividade que foi filtrado para apresentar o **administração** categoria juntamente com a definição de função e as operações de atribuição de função. Também inclui uma hiperligação para transferir os registos como um ficheiro CSV.
+É a forma mais fácil começar a utilizar para ver os registos de atividade com o portal do Azure. A seguinte captura de ecrã mostra um exemplo de um registo de atividade que foi filtrado para apresentar a atribuição de função e as operações de definição de função. Também inclui uma hiperligação para transferir os registos como um ficheiro CSV.
 
 ![Registos de atividade com o portal - captura de ecrã](./media/change-history-report/activity-log-portal.png)
 
-Para obter mais informações, consulte [ver eventos no registo de atividade](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+O registo de atividade no portal tiver vários filtros. Seguem-se os filtros de RBAC:
+
+|Filtro  |Valor  |
+|---------|---------|
+|Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
+|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar uma definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
+
+
+Para obter mais informações sobre os registos de atividade, consulte [ver eventos no registo de atividade](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -99,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Análise de registos do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta, pode utilizar para recolher e analisar as alterações de controlo de acesso baseado em funções para todos os seus recursos do Azure. Análise de registos tem as seguintes vantagens:
+[Análise de registos do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta, pode utilizar para recolher e analisar as alterações do RBAC para todos os seus recursos do Azure. Análise de registos tem as seguintes vantagens:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, o Power BI e outras ferramentas

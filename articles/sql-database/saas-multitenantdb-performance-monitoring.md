@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644686"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino
 
@@ -152,7 +153,7 @@ O modelo de multi-inquilino em partição horizontal permite-lhe escolher se pre
 Se já aprovisionado um novo inquilino na sua própria base de dados, ignore os próximos passos.
 
 1. No **ISE do PowerShell**, abra... \\Learning módulos\\ProvisionTenants\\*demonstração ProvisionTenants.ps1*. 
-1. Modify **$TenantName = "Salix Salsa"** and **$VenueType  = "dance"**
+1. Modificar **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**
 1. Definir **$Scenario** = **2**, _aprovisionar um inquilino na nova base de dados do inquilino único_
 1. Prima **F5** para executar o script.
 
@@ -166,7 +167,7 @@ Neste exercício simula o efeito da Salix Salsa experienciar uma elevada carga q
 
 1. Abra a... \\ *Demonstração PerformanceMonitoringAndManagement.ps1* script.
 1. Definir **$DemoScenario = 5**, _gerar uma carga normal plus uma elevada carga num único inquilino (aprox 90 DTU)._
-1. Set **$SingleTenantName = Salix Salsa**
+1. Definir **$SingleTenantName = Salix Salsa**
 1. Execute o script com **F5**.
 
 Aceda ao portal e navegue para **salixsalsa** > **descrição geral** para ver os gráficos de monitorização. 

@@ -1,25 +1,19 @@
 ---
 title: Implementar o Modbus no Azure IoT Edge | Microsoft Docs
-description: "Permitir que os dispositivos que utilizam o Modbus TCP para comunicar com o Azure IoT Hub mediante a criação de um dispositivo de gateway do IoT Edge"
-services: iot-Edge
-documentationcenter: 
+description: Permitir que os dispositivos que utilizam o Modbus TCP para comunicar com o Azure IoT Hub mediante a criação de um dispositivo de gateway do IoT Edge
 author: kgremban
 manager: timlt
-editor: chrisgmsft
-ms.assetid: 
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: e239bde48c3da0d899e3c78bdd39f520c4128b95
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: HT
+ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631473"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>Ligar dispositivos Modbus TCP através de um gateway de dispositivo do IoT Edge – pré-visualização
 
@@ -104,7 +98,7 @@ docker logs -f modbus
 
 Também pode ver a telemetria que o dispositivo está a enviar com a [ferramenta do explorador do Hub IoT](https://github.com/azure/iothub-explorer). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre como os dispositivos IoT Edge podem atuar como gateways, veja [Create an IoT Edge device that acts as a transparent gateway](how-to-create-transparent-gateway.md) (Criar um dispositivo IoT Edge que atue como gateway transparente)
 - Para obter mais informações sobre como funcionam os módulos do IoT Edge, veja [Understand Azure IoT Edge modules](iot-edge-modules.md) (Compreender os módulos do Azure IoT Edge)

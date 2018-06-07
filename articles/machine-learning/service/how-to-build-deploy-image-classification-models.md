@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637740"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de imagem com o Azure Machine Learning
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>Definir modelos de DNN
 
 São suportados os seguintes modelos de rede neuronal profunda pretrained com este pacote: 
-+ AlexNet
 + Resnet 18
 + Resnet 34
 + Resnet 50
@@ -444,13 +444,9 @@ Utilizar um [Azure](https://azure.microsoft.com/) conta com uma subscrição vá
 + Para ver a conta de gestão do modelo atual, utilize o comando:
   <br>`az ml account modelmanagement show`
 
-**Criar e definir o seu ambiente de implementação**
+**Criar e definir o seu ambiente de implementação de cluster**
 
 Só tem de definir o seu ambiente de implementação de uma vez. Se ainda não tem um, configure o ambiente de implementação utiliza agora [estas instruções](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Seguir os passos de configuração de implementação de cluster corretamente com base na sua necessidade ou local.
-+ Implementações locais são suportadas em máquinas Linux e Windows 10, mas não para a VM de ciência de dados do Windows ou a VM de aprendizagem profunda. 
-+ São suportadas implementações de ambiente de cluster para Linux e Windows. 
 
 Para ver o seu ambiente de implementação do Active Directory, utilize o seguinte comando da CLI:
 <br>`az ml env show`

@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb2090aba61f32e79fe3a9fd950e6e3688193d7d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647090"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão de intercalação
 Para utilizar o serviço de divisão/intercalação, tem de configurar corretamente a segurança. O serviço é parte da funcionalidade do dimensionamento elástico da base de dados do Microsoft Azure SQL. Para obter mais informações, consulte [divisão de dimensionamento elástico e o Tutorial do serviço de intercalação](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -392,7 +393,7 @@ Siga estes passos.
 10. Expanda o nó subordinado do certificado.
 11. Selecione um certificado na lista.
 
-## <a name="export-certificate"></a>Exportar certificado
+## <a name="export-certificate"></a>Exportar o certificado
 No **Assistente de exportação de certificado**:
 
 1. Clique em **Seguinte**.

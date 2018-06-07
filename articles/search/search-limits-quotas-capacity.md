@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641174"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço da Azure Search
 Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índices, documentos, e outros objetos dependem se [aprovisionar da Azure Search](search-create-service-portal.md) em **livres**, **básico**, ou **Padrão** escalões de preço.
@@ -30,7 +31,7 @@ Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índi
 > Um serviço é aprovisionado em nenhum escalão específico. Jumping camadas para obterem capacidade envolve o aprovisionamento de um novo serviço (não há nenhuma atualização no local). Para obter mais informações, consulte [escolha um SKU ou camada](search-sku-tier.md). Para obter mais informações sobre como ajustar capacidade dentro de um serviço que já tenha sido já aprovisionada, consulte [Dimensionar níveis de recursos de consulta e cargas de trabalho de indexação](search-capacity-planning.md).
 >
 
-## <a name="subscription-limits"></a>Limites de subscrição
+## <a name="subscription-limits"></a>Limites da subscrição
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
 ## <a name="storage-limits"></a>Limites de armazenamento
@@ -92,13 +93,16 @@ Para manter o tamanho do documento para baixo, lembre-se excluir os dados não c
 
 Serviços básicos criados depois de enlace tardio 2017 tem um limite de aumento de 15 índices, origens de dados, skillsets e indexadores.
 
+Operações de intensivas em recursos, tais como análise de imagem de indexação de Blobs do Azure ou processamento de linguagem natural na pesquisa cognitivos, tem tempos de execução máximos mais curtos para que podem ser satisfeitas outras tarefas de indexação. Se não é possível concluir uma tarefa de indexação no período de tempo máximo permitido, tente executá-lo com base numa agenda. O programador mantém um registo dos Estado indexação. Se uma tarefa agendada de indexação for interrompida por qualquer motivo, o indexador pode escolher em que esta última parou na próxima execução agendada.
+
 | Recurso | Livre&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |
 | Skillsets máximo <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |
 | Carga máxima de indexação por invocação |10 000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/A |
-| Tempo de execução máximo | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |
+| Máximo de tempo de execução <sup>5</sup> | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |
+| Máximo de tempo de pesquisa cognitivos skillsets ou blob indexação com a análise de imagem execução <sup>5</sup> | 3 a 10 minutos |2 horas |2 horas |2 horas |2 horas |N/A  |
 | Indexador de blob: o tamanho máximo de blob, MB |16 |16 |128 |256 |256 |N/A  |
 | Indexador de blob: número máximo de conteúdo extraídos de um blob caracteres |32,000 |64,000 |milhões de 4 |milhões de 4 |milhões de 4 |N/A |
 
@@ -109,6 +113,8 @@ Serviços básicos criados depois de enlace tardio 2017 tem um limite de aumento
 <sup>3</sup> serviços S3 HD não incluem o suporte.
 
 <sup>4</sup> máximo de 30 competências por skillset.
+
+<sup>5</sup> cargas de trabalho de pesquisa cognitivos e análise de imagem no indexação de Blobs do Azure têm mais curtos tempos de execução de indexação de texto normal. Análise de imagem e processamento de linguagem natural são viáveis intensivas e consumam quantidades desproporcionadas de potência de processamento disponíveis. Tempo de execução foi reduzido para dar uma oportunidade de execução de outras tarefas na fila.  
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 
@@ -123,7 +129,7 @@ Calcula é mais previsível quando calculado nos serviços em execução em recu
 * Campos máximos de 32 na cláusula $orderby
 * Tamanho do termo de pesquisa máximo é 32,766 bytes (32 KB menos de 2 bytes) de texto codificado UTF-8
 
-<sup>1</sup> na Azure Search, o corpo de um pedido está sujeita a um limite superior de 16 MB, impor um limite prático no conteúdo do campos individuais ou de coleções que caso contrário, não estão restritos pelo teórico limites (consulte [suportado dados tipos de](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obter mais informações sobre restrições de composição de campo e).
+<sup>1</sup> na Azure Search, o corpo de um pedido está sujeita a um limite superior de 16 MB, impor um limite prático no conteúdo do campos individuais ou de coleções que caso contrário, não estão restritos pelo teórico limites (consulte [suportado dados tipos de](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter mais informações sobre restrições de composição de campo e).
 
 ## <a name="api-response-limits"></a>Limites de resposta de API
 * Máximos 1000 documentos devolvidos por página de resultados de pesquisa

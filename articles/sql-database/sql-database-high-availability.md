@@ -5,15 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650065"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).

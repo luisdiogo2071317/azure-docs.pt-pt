@@ -8,18 +8,19 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666015"
 ---
 > [!div class="op_single_selector"]
-> * [C em Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [C em Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (genérico)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Node.js no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [C no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C em Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (genérico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [C no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
 Neste tutorial, implementa um **Chiller** dispositivo que envia a telemetria seguinte para a monitorização remota [acelerador solução](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
@@ -43,9 +44,9 @@ Antes de escrever qualquer código para o seu dispositivo, implemente o acelerad
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementar o acelerador de solução de monitorização remota
 
-O **Chiller** dispositivo que criou neste tutorial envia dados para uma instância do [monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) acelerador de solução. Se já que ainda não aprovisionou o acelerador de solução de monitorização remota na sua conta do Azure, consulte o artigo [implementar o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+O **Chiller** dispositivo que criou neste tutorial envia dados para uma instância do [monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) acelerador de solução. Se já que ainda não aprovisionou o acelerador de solução de monitorização remota na sua conta do Azure, consulte o artigo [implementar o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
-Quando o processo de implementação para a conclusão da solução de monitorização remota, clique em **iniciar** para abrir o dashboard de solução no seu browser.
+Depois de concluído o processo de implementação para a solução de monitorização remota, clique em **iniciar** para abrir o dashboard de solução no seu browser.
 
 ![O dashboard de solução](media/iot-suite-selector-connecting/dashboard.png)
 

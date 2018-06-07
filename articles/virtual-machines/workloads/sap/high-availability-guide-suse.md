@@ -4,7 +4,7 @@ description: Guia de elevada disponibilidade para SAP NetWeaver no SUSE Linux En
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658762"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações SAP
 
@@ -87,7 +88,7 @@ Para alcançar a elevada disponibilidade, SAP NetWeaver requer um servidor NFS. 
 
 O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA utilizam o nome de anfitrião virtual e endereços IP virtuais. No Azure, é necessário um balanceador de carga a utilizar um endereço IP virtual. A lista seguinte mostra a configuração de (A) SCS e ERS o Balanceador de carga.
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>(A) SCS
 
 * Configuração de front-end
   * Endereço IP 10.0.0.7
@@ -100,9 +101,9 @@ O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a bas
   * 36**&lt;nr&gt;** TCP
   * 39**&lt;nr&gt;** TCP
   * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -114,9 +115,9 @@ O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a bas
   * Porta 621**&lt;nr&gt;**
 * Regras de carga
   * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 5**&lt;nr&gt;** 13 TCP
+  * 5**&lt;nr&gt;** 14 TCP
+  * 5**&lt;nr&gt;** 16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configurar um servidor NFS elevada
 
@@ -264,9 +265,9 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -349,7 +350,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
@@ -379,7 +380,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
 
 1. **[1]**  Instalar SAP NetWeaver ASCS  
 
-   Instalar o SAP NetWeaver ASCS como raiz no primeiro nó utilizando um nome de anfitrião virtual que está mapeado para o endereço IP da configuração de front-end de Balanceador de carga para ASCS, por exemplo <b>nw1 ascs</b>, <b>10.0.0.11</b> e o instância número que utilizou para a sonda do Balanceador de carga, por exemplo <b>00</b>.
+   Instalar o SAP NetWeaver ASCS como raiz no primeiro nó utilizando um nome de anfitrião virtual que está mapeado para o endereço IP da configuração de front-end de Balanceador de carga para ASCS, por exemplo <b>nw1 ascs</b>, <b>10.0.0.7</b> e o instância número que utilizou para a sonda do Balanceador de carga, por exemplo <b>00</b>.
 
    Pode utilizar o parâmetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador não raiz ao ligar ao sapinst.
 
@@ -401,7 +402,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo crm node standby <b>nw1-cl-0</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
@@ -436,7 +437,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
 
 1. **[2]**  Instalar SAP NetWeaver ERS  
 
-   Instalar o SAP NetWeaver ERS como raiz no nó segundo utilizando um nome de anfitrião virtual que está mapeado para o endereço IP da configuração de front-end de Balanceador de carga para ERS, por exemplo <b>nw1 aers</b>, <b>10.0.0.12</b> e o instância número que utilizou para a sonda do Balanceador de carga, por exemplo <b>02</b>.
+   Instalar o SAP NetWeaver ERS como raiz no nó segundo utilizando um nome de anfitrião virtual que está mapeado para o endereço IP da configuração de front-end de Balanceador de carga para ERS, por exemplo <b>nw1 aers</b>, <b>10.0.0.8</b> e o instância número que utilizou para a sonda do Balanceador de carga, por exemplo <b>02</b>.
 
    Pode utilizar o parâmetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador não raiz ao ligar ao sapinst.
 
@@ -581,14 +582,14 @@ O passos abaixo partem do princípio de que instala o servidor de aplicações n
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
+   <b>10.0.0.20 nw1-di-0</b>
+   <b>10.0.0.21 nw1-di-1</b>
    </code></pre>
 
 1. Criar o diretório de sapmnt

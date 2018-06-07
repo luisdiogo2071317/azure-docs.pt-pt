@@ -1,19 +1,19 @@
 ---
 title: Depurar módulos c# com o Azure IoT Edge | Microsoft Docs
 description: Utilize o Visual Studio Code para depurar um módulo de c# com o limite de IoT do Azure no Visual Studio Code.
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 5d521a4e5b22222f0b0a5505f14684598d7d5b0a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631399"
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge
 Este artigo fornece instruções detalhadas para utilizar [código Visual Studio (VS)](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para os módulos do Azure IoT contorno de depuração.

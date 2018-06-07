@@ -1,35 +1,35 @@
 ---
-title: "Integração de registo do Azure com os registos de auditoria do Azure Active Directory | Microsoft Docs"
-description: "Saiba como instalar o serviço de integração de registo do Azure e integrar os registos de registos de auditoria do Azure"
+title: Integração de registo do Azure com os registos de auditoria do Azure Active Directory | Microsoft Docs
+description: Saiba como instalar o serviço de integração de registo do Azure e integrar os registos de registos de auditoria do Azure
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/16/2018
+ms.date: 05/25/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 201e34cf9e9c917f1f79964facce136e7c0c2fd3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642466"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar os registos de auditoria do Azure Active Directory
 
 Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar ações privilegiadas ocorridas no Azure Active Directory. Pode ver os tipos de eventos que pode controlar revendo [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar o Azure Active Directory de registos de auditoria
 
 > [!NOTE]
-> Antes de tentar os passos neste artigo, tem de consultar o [começar](security-azure-log-integration-get-started.md) artigo e conclua os passos não existe.
-
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar o Azure Active Directory de registos de auditoria
+> Antes de tentar os passos neste artigo, tem de consultar o [começar](security-azure-log-integration-get-started.md) artigo e conclua os passos relevantes não existe.
 
 1. Abra a linha de comandos e execute este comando:
 

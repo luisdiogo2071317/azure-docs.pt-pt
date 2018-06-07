@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652506"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
 
@@ -28,7 +29,7 @@ Este artigo procedimentos abrange operações comuns utilizando os cmdlets de pl
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Create a storage account 
+> * Criar uma conta de armazenamento 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 
@@ -78,7 +79,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 Tem agora $storageAccount, que aponta para uma conta de armazenamento existente.
 
-### <a name="create-a-storage-account"></a>Create a storage account 
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
 O script seguinte mostra como criar uma conta do storage para fins gerais utilizando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Depois de criar a conta, obter o contexto, que pode ser utilizado nos comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
@@ -214,7 +215,7 @@ Agora que sabe como gerir a sua conta de armazenamento com o PowerShell, pode ut
 * [Como gerir os blobs com o PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Como gerir ficheiros com o PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Como gerir filas com o PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Efetuar operações de armazenamento de tabelas do Azure com o PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Efetuar operações de armazenamento de tabelas do Azure com o PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 API de tabela de base de dados do Azure Cosmos fornece as funcionalidades premium para armazenamento de tabelas como chave na mão distribuição global, leituras de latência baixa e escritas, indexação secundário automática e débito dedicado. 
 
@@ -245,7 +246,7 @@ Este artigo procedimentos abrange operações comuns utilizando os cmdlets de pl
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Create a storage account 
+> * Criar uma conta de armazenamento 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 

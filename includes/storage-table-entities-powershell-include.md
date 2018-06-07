@@ -56,7 +56,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 Este comando gera resultados semelhantes para a tabela seguinte:
 
-| ID de utilizador | o nome de utilizador | Partição | rowkey |
+| ID de utilizador | o nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partition1 | AC |
 | 3 | Christine | Partition1 | WA |
@@ -72,7 +72,7 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 Os resultados semelhante a tabela seguinte:
 
-| ID de utilizador | o nome de utilizador | Partição | rowkey |
+| ID de utilizador | o nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Partition1 | AC |
 | 3 | Christine | Partition1 | WA |
@@ -168,7 +168,7 @@ Para eliminar uma entidade única, obtenha uma referência para essa entidade e 
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
 $userToDelete = Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter 
+    -customFilter $filter
 $userToDelete | Remove-AzureStorageTableRow -table $storageTable 
 
 # Retrieve entities from table and see that Jessie2 has been deleted.

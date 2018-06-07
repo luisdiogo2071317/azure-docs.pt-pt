@@ -1,24 +1,19 @@
 ---
 title: Utilizar o portal do Azure para configurar o carregamento de ficheiros | Microsoft Docs
-description: "Como utilizar o portal do Azure para configurar o seu IoT hub para ativar os carregamentos de ficheiros de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino."
-services: iot-hub
-documentationcenter: 
+description: Como utilizar o portal do Azure para configurar o seu IoT hub para ativar os carregamentos de ficheiros de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 2d875947297be5d47362369b96bc6ab0d90b3c93
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0100cbe4bbc66d0c4ef940cc40f4fa3441176a1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633211"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar o IoT Hub carregamentos de ficheiros no portal do Azure
 
@@ -44,7 +39,7 @@ Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub][lnk-upl
 
 ![Configurar o carregamento de ficheiros do IoT Hub no portal][15]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as capacidades de carregamento do ficheiro do IoT Hub, consulte [carregar ficheiros a partir de um dispositivo] [ lnk-upload] no guia de programadores do IoT Hub.
 
@@ -57,7 +52,7 @@ Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 * [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

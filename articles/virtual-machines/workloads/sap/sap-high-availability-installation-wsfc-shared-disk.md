@@ -1,13 +1,13 @@
 ---
-title: "Instalar o SAP NetWeaver HA num cluster de ativação pós-falha do Windows e disco partilhado para uma instância do SAP ASCS/SCS no Azure | Microsoft Docs"
-description: "Saiba como instalar o SAP NetWeaver HA num cluster de ativação pós-falha do Windows e disco partilhado para uma instância do SAP ASCS/SCS."
+title: Instalar o SAP NetWeaver HA num cluster de ativação pós-falha do Windows e disco partilhado para uma instância do SAP ASCS/SCS no Azure | Microsoft Docs
+description: Saiba como instalar o SAP NetWeaver HA num cluster de ativação pós-falha do Windows e disco partilhado para uma instância do SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 419bbdd57a391dbbf01c2110a1609cb3d0ded003
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d5d52653d68c6ebfca7e35a134da263eee99fd3e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657082"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalar o SAP NetWeaver HA num cluster de ativação pós-falha do Windows e disco partilhado para uma instância do SAP ASCS/SCS no Azure
 
@@ -201,7 +202,7 @@ Instalação do SAP com uma instância ASCS/SCS de elevada disponibilidade envol
 
   _**Figura 2:** para configuração de cluster do SAP ASCS/SCS de endereços novo nome virtual e TCP/IP_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Instalar o SAP primeiro nó de cluster
+### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalar o SAP primeiro nó de cluster
 
 1.  Executar a primeira opção de nó de cluster no nó de cluster A. Por exemplo, num pr1-ascs-0 * anfitrião.
 2.  Para manter as predefinições de portas para o Balanceador de carga interno do Azure, selecione:
@@ -219,7 +220,7 @@ As seguintes algumas tarefas não são descritas na documentação de instalaç�
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modificar o perfil SAP da instância ASCS/SCS
+### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificar o perfil SAP da instância ASCS/SCS
 
 Primeiro, adicione um novo parâmetro de perfil. O parâmetro de perfil impede que as ligações entre os processos de trabalho do SAP e o servidor de colocar em fila fechar quando estão inativos há demasiado tempo. Iremos mencionar o cenário de problema de [adicionar entradas de registo em ambos os nós de cluster da instância do SAP ASCS/SCS][sap-ha-guide-8.11]. Na secção, iremos também apresenta duas alterações alguns parâmetros de ligação de TCP/IP básicos. Um segundo passo, terá de configurar o servidor de colocar em fila para enviar um `keep_alive` assinalar para que as ligações não atingiu o limiar de inatividade do Balanceador de carga interno do Azure.
 
@@ -240,7 +241,7 @@ Para modificar o perfil SAP da instância ASCS/SCS:
 
 2.  Para aplicar as alterações, reinicie a instância do SAP ASCS/SCS.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Adicionar uma porta de pesquisa
+### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Adicionar uma porta de pesquisa
 
 Utilize a funcionalidade de sonda do Balanceador de carga interno para efetuar a configuração do cluster completo funcionar com o Balanceador de carga do Azure. O Balanceador de carga interno do Azure, normalmente, distribui a carga de trabalho de entrada equitativamente entre participantes máquinas virtuais.
 
@@ -340,7 +341,7 @@ Para adicionar uma porta de pesquisa:
 
   _**Figura 4:** sonda a porta de cluster depois de definir o novo valor_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Abra a porta de sonda de firewall do Windows
+### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Abra a porta de sonda de firewall do Windows
 
 Abra uma porta de sonda de firewall do Windows em ambos os nós de cluster. Utilize o seguinte script para abrir uma porta de sonda de firewall do Windows. Atualize as variáveis de PowerShell para o seu ambiente.
 
@@ -352,15 +353,15 @@ Abra uma porta de sonda de firewall do Windows em ambos os nós de cluster. Util
 
 **ProbePort** está definido como **62000**. Agora, pode aceder à partilha de ficheiros \\\ascsha-clsap\sapmnt dos outros anfitriões, tais como ascsha dbas.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instalar a instância de base de dados
+## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instalar a instância de base de dados
 
 Para instalar a instância de base de dados, siga o processo que é descrito na documentação de instalação do SAP.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Instalar o segundo nó de cluster
+## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Instalar o segundo nó de cluster
 
 Para instalar o segundo cluster, siga os passos descritos no guia de instalação do SAP.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Alterar o tipo de início da instância de serviço do Windows de ERS SAP
+## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Alterar o tipo de início da instância de serviço do Windows de ERS SAP
 
 Alterar o tipo de início do serviço Windows do SAP ERS de **automático (início atrasado)** em ambos os nós de cluster.
 
@@ -368,11 +369,11 @@ Alterar o tipo de início do serviço Windows do SAP ERS de **automático (iníc
 
 _**Figura 5:** alterar o tipo de serviço para a instância do SAP ERS a atrasada automática_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Instalar o servidor de principal da aplicação do SAP
+## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Instalar o servidor de principal da aplicação do SAP
 
 Instalar a instância de servidor de aplicação principal (PAS) \<SID\>-di-0 na máquina virtual que tiver designado para alojar PAS. Não existem nenhumas dependências no Azure. Não existem não existem definições de DataKeeper específicas.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalar o servidor de aplicação adicional SAP
+## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalar o servidor de aplicação adicional SAP
 
 Instale um servidor SAP aplicação adicionais (AAS) em todas as máquinas virtuais que tiver designado para alojar uma instância de servidor de aplicações SAP. Por exemplo, num \<SID\>-di-1 para \<SID\>- di -&lt;n&gt;.
 
@@ -381,10 +382,10 @@ Instale um servidor SAP aplicação adicionais (AAS) em todas as máquinas virtu
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testar a ativação pós-falha de instância do SAP ASCS/SCS e replicação SIOS
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Testar a ativação pós-falha de instância do SAP ASCS/SCS e replicação SIOS
 É fácil testar e monitorizar uma ativação pós-falha de instância do SAP ASCS/SCS e a replicação de discos SIOS utilizando a ferramenta Gestor de clusters de ativação pós-falha e a gestão de DataKeeper SIOS e a configuração.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>Instância do SAP ASCS/SCS está em execução no nó de cluster A
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> Instância do SAP ASCS/SCS está em execução no nó de cluster A
 
 O grupo de cluster do SAP PR1 está em execução no nó de cluster A. Por exemplo, num pr1-ascs-0. Atribuir a unidade de disco S, partilhada que faz parte do grupo de cluster SAP PR1, para o nó de cluster A. A instância ASCS/SCS também utiliza a unidade de disco S. 
 
@@ -398,7 +399,7 @@ A ferramenta de gestão de DataKeeper SIOS e configuração, pode ver que os dad
 
 _**A figura 7:** no SIOS DataKeeper, replicar o volume local a partir do nó de cluster A para o nó de cluster B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>A ativação pós-falha do nó de um nó B
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> A ativação pós-falha do nó de um nó B
 
 1.  Escolher uma destas opções para iniciar uma ativação pós-falha do SAP \<SID\> grupo de cluster do nó do cluster A para o nó de cluster b:
   - Gestor de clusters de ativação pós-falha  

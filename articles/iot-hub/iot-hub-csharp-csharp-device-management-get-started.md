@@ -1,24 +1,20 @@
 ---
 title: Introdução à gestão de dispositivos do IoT Hub do Azure (.NET/.NET) | Microsoft Docs
 description: Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que invoca o método direto.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: c1cee32e3ee60ce229308055cca7f0e9832ddc49
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633830"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução à gestão de dispositivos (.NET/.NET)
 
@@ -30,7 +26,7 @@ Este tutorial mostrar-lhe como:
 * Crie uma aplicação de dispositivo simulado que contém um método direto que reinicia nesse dispositivo. Métodos diretos são invocados a partir da nuvem.
 * Crie uma aplicação de consola .NET que chama o método direto reinício na aplicação do dispositivo simulado através do seu IoT hub.
 
-No final deste tutorial, tem duas aplicações de consola .NET:
+No final deste tutorial, terá duas aplicações de consola .NET:
 
 * **SimulateManagedDevice**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direta de reinício, simula reiniciar o computador físico, relatórios e a hora para o último reinício.
 * **TriggerReboot**, que chama um método direto na aplicação do dispositivo simulado, mostra a resposta e apresenta a atualização comunicado propriedades.
@@ -181,7 +177,7 @@ Nesta secção, irá
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. No Visual Studio Explorador de soluções, faça duplo clique sua solução e, em seguida, clique em **definir projetos de arranque...** . Selecione **projeto de arranque único**e, em seguida, selecione o **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
+8. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir Projetos de Arranque...**. Selecione **projeto de arranque único**e, em seguida, selecione o **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
 
 > [!NOTE]
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como um término exponencial), como sugerido no artigo [Transient Fault Handling (Processamento de Erros Transitórios)][lnk-transient-faults] da MSDN.

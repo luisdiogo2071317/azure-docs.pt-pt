@@ -1,20 +1,21 @@
 ---
 title: Tutorial de SaaS multi-inquilino - SQL Database do Azure | Microsoft Docs
-description: "Aprovisionar e novos inquilinos através do padrão de aplicação autónoma do catálogo"
+description: Aprovisionar e novos inquilinos através do padrão de aplicação autónoma do catálogo
 keywords: tutorial de base de dados sql
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: SaaS
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646158"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar e catálogo novos inquilinos utilizando a aplicação por inquilino padrão de SaaS
 
@@ -70,7 +71,7 @@ Nesta tarefa, saiba como aprovisionar o catálogo utilizado para registar todas 
 * **Aprovisionar a base de dados do catálogo** através de um modelo de gestão de recursos do Azure. A base de dados é inicializado ao importar um ficheiro de bacpac.  
 * **Registe as aplicações de inquilino de exemplo** que implementou anteriormente.  Cada inquilino está registado com uma chave construída a partir de um hash do nome do inquilino.  O nome de inquilino também é armazenado numa tabela de extensão no catálogo.
 
-1. No ISE do PowerShell, abra *...\Learning Modules\UserConfig.psm* e atualizar o  **\<utilizador\>**  valor para o valor utilizado durante a implementação de três aplicações de exemplo.  **Guarde o ficheiro**.  
+1. No ISE do PowerShell, abra *...\Learning Modules\UserConfig.psm* e atualizar o **\<utilizador\>** valor para o valor utilizado durante a implementação de três aplicações de exemplo.  **Guarde o ficheiro**.  
 1. No ISE do PowerShell, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 1**. Implementar o catálogo de inquilino e registe os inquilinos predefinidos.
 
 1. Adicionar um ponto de interrupção, colocando o cursor em qualquer lugar na linha que indica, `& $PSScriptRoot\New-Catalog.ps1`e, em seguida, prima **F9**.
@@ -87,7 +88,7 @@ Após a conclusão do script, o catálogo existirá e todos os inquilinos de exe
 Ver agora os recursos que criou.
 
 1. Abra o [portal do Azure](https://portal.azure.com/) e procure os grupos de recursos.  Abra o **wingtip-sa-catálogo -\<utilizador\>**  recursos de grupo e anote o servidor de catálogo e a base de dados.
-1. Abrir a base de dados no portal e selecione *Explorador de dados* no menu esquerdo.  Clique no comando de início de sessão e, em seguida, introduza a palavra-passe =  **P@ssword1** .
+1. Abrir a base de dados no portal e selecione *Explorador de dados* no menu esquerdo.  Clique no comando de início de sessão e, em seguida, introduza a palavra-passe = **P@ssword1**.
 
 
 1. Explorar o esquema do *tenantcatalog* base de dados.  

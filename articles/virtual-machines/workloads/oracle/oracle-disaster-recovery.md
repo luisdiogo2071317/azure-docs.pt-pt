@@ -1,13 +1,13 @@
 ---
-title: "Descrição geral de um cenário de recuperação de desastre Oracle no seu ambiente do Azure | Microsoft Docs"
-description: "Um cenário de recuperação de desastres para uma base de dados de 12c de base de dados Oracle no seu ambiente do Azure"
+title: Descrição geral de um cenário de recuperação de desastre Oracle no seu ambiente do Azure | Microsoft Docs
+description: Um cenário de recuperação de desastres para uma base de dados de 12c de base de dados Oracle no seu ambiente do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.openlocfilehash: aede44d964994bd2ef9b46a133b1f1ee303ef309
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb319c4ba9bbfba584803b35a0db0763fcf97b86
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657866"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação após desastre para uma base de dados de 12c de base de dados Oracle num ambiente do Azure
 
@@ -103,7 +104,7 @@ Segue-se um resumo da configuração do Azure:
 - [Cópia de segurança do Oracle e recuperação](oracle-backup-recovery.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Criar as VMs de elevada disponibilidade](../../linux/create-cli-complete.md)
 - [Explorar amostras de CLI do Azure de implementação de VM](../../linux/cli-samples.md)

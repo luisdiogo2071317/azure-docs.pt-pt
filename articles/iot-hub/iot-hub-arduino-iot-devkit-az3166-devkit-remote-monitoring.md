@@ -1,24 +1,20 @@
 ---
-title: 'IoT DevKit na nuvem: ligar o IoT MXChip DevKit ao IoT Hub do Azure | Microsoft Docs'
+title: IoT DevKit para a nuvem – ligar IoT MXChip DevKit ao IoT Hub do Azure | Microsoft Docs
 description: Neste tutorial, saiba como enviar estado de sensores em IoT DevKit AZ3166 para o acelerador de solução de monitorização remota do Azure IoT.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631501"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligar MXChip IoT DevKit acelerador de solução de monitorização remota do Azure IoT
 
@@ -40,7 +36,7 @@ Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Criar um acelerador de solução de monitorização remota do Azure IoT
 
-1. Aceda a [site do Azure IoT solução acclerators](https://www.azureiotsuite.com/) e clique em **criar uma nova solução**.
+1. Aceda a [site de Aceleradores de solução IoT do Azure](https://www.azureiotsolutions.com/) e clique em **criar uma nova solução**.
   ![Selecione o tipo de acelerador de solução IoT do Azure](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > Por predefinição, este exemplo cria um S2 IoT Hub depois de criar um acelerador de solução de monitorização remota do IoT. Se este hub IoT não está a ser utilizado com grande número de dispositivos, recomendamos vivamente que mudá-lo a partir de S2 para S1 e eliminará o acelerador de solução de monitorização remota do IoT IoT Hub relacionados também podem ser eliminado, quando já não precisar dele. 

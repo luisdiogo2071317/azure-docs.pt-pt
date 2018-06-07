@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 2de7c06f2e03432021eaf6d81d166aadd392a4bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637995"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador Wirecast para enviar uma transmissão em fluxo em direto
 > [!div class="op_single_selector"]
@@ -69,7 +70,7 @@ Enquanto está a iniciar o canal, pode [configurar codificador](media-services-c
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>Configurar o codificador Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a>< um id = "configure_wirecast_rtmp" /a > Configure o codificador Telestream Wirecast
 Neste tutorial, são utilizadas as seguintes definições de saída. As restantes desta secção descreve os passos de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -115,7 +116,7 @@ Neste tutorial, são utilizadas as seguintes definições de saída. As restante
    * Frequência de amostragem: kHz 44.100
 
      ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
-6. Prima **guardar**.
+6. Prima **Guardar**.
 
     O campo de codificação tem agora o perfil recentemente criado disponível para seleção.
 

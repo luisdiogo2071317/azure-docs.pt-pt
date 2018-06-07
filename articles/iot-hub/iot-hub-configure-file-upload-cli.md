@@ -1,24 +1,19 @@
 ---
 title: Configurar o carregamento de ficheiros ao IoT Hub com a CLI do Azure (az.py) | Microsoft Docs
-description: "Como configurar fileuploads ao Azure IoT Hub com a 2.0 de CLI do Azure de várias plataformas (az.py)."
-services: iot-hub
-documentationcenter: 
+description: Como configurar fileuploads ao Azure IoT Hub com a 2.0 de CLI do Azure de várias plataformas (az.py).
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633857"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar o IoT Hub carregamentos de ficheiros utilizando a CLI do Azure
 
@@ -31,27 +26,27 @@ Para concluir este tutorial, precisa do seguinte:
 * Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 * [CLI do Azure 2.0][lnk-CLI-install].
 * Um hub IoT do Azure. Se não tiver um IoT hub, pode utilizar o `az iot hub create` [comando] [ lnk-cli-create-iothub] para criar um ou utilize o portal para [criar um hub IoT] [Ink-portal-hub].
-* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [2.0 do CLI do Azure - gerir contas de armazenamento] [ lnk-manage-storage] para criar um ou utilizar o portal para [criar uma conta de armazenamento] [ lnk-portal-storage].
+* Uma conta do Armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [2.0 do CLI do Azure - gerir contas de armazenamento] [ lnk-manage-storage] para criar um ou utilizar o portal para [criar uma conta de armazenamento] [ lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>A iniciar sessão e definir a sua conta do Azure
 
-Inicie sessão na sua conta do Azure e selecionar a sua subscrição.
+Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
-1. Na linha de comandos, execute o [comando de início de sessão][lnk-login-command]:
+1. Na linha de comandos, execute o [comando login][lnk-login-command]:
 
     ```azurecli
     az login
     ```
 
-    Siga as instruções para efetuar a autenticação com o código e inicie sessão na sua conta do Azure através de um browser.
+    Siga as instruções para se autenticar com o código e inicie sessão na sua conta do Azure através de um browser.
 
-1. Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as contas do Azure associada com as suas credenciais. Utilize o seguinte [comando para listar as contas do Azure] [ lnk-az-account-command] disponíveis para que possa utilizar:
+1. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as contas do Azure associadas às suas credenciais. Utilize o comando [ para listar as contas do Azure][lnk-az-account-command] disponíveis e que pode utilizar:
 
     ```azurecli
     az account list
     ```
 
-    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para criar o seu IoT hub. Pode utilizar o nome da subscrição ou o ID da saída do comando anterior:
+    Utilize o comando seguinte para selecionar a subscrição que pretende utilizar para executar os comandos para criar o seu hub IoT. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -131,7 +126,7 @@ Pode rever a configuração de carregamento de ficheiros no seu IoT hub, utiliza
 az iot hub show --name {your iot hub name}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as capacidades de carregamento do ficheiro do IoT Hub, consulte [carregar ficheiros a partir de um dispositivo][lnk-upload].
 
@@ -144,7 +139,7 @@ Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 * [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

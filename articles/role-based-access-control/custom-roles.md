@@ -15,15 +15,18 @@ ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e75f2cceed83d577730cd29490f80011bdb0a508
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640987"
 ---
 # <a name="create-custom-roles-in-azure"></a>Criar funções personalizadas no Azure
 
-Se o [funções incorporadas](built-in-roles.md) não satisfazer as suas necessidades de acesso específicas, pode criar as suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas para os utilizadores, grupos e principais de serviço na subscrição, o grupo de recursos e âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure Active Directory (Azure AD) e podem ser partilhadas entre subscrições. Funções personalizadas podem ser criadas utilizando o Azure PowerShell, a CLI do Azure ou a API REST. Este artigo descreve um exemplo de como começar a criar funções personalizadas com o PowerShell e da CLI do Azure.
+Se o [funções incorporadas](built-in-roles.md) não satisfazer as suas necessidades de acesso específicas, pode criar as suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas para os utilizadores, grupos e principais de serviço na subscrição, o grupo de recursos e âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure Active Directory (Azure AD) e podem ser partilhadas entre subscrições. Cada inquilino pode ter até 2000 de funções personalizadas. Funções personalizadas podem ser criadas utilizando o Azure PowerShell, a CLI do Azure ou a API REST.
+
+Este artigo descreve um exemplo de como começar a criar funções personalizadas com o PowerShell e da CLI do Azure.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Criar uma função personalizada para abrir os pedidos de suporte utilizando o PowerShell
 

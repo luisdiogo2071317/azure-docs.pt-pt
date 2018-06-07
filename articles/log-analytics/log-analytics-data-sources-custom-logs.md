@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637077"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados na análise de registos
 A origem de dados de registos personalizados na análise de registos permite-lhe recolher eventos de ficheiros de texto em computadores Windows e Linux. Muitas aplicações regista informações nos ficheiros de texto em vez dos serviços de registo padrão, tais como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo de início de sessão para os campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
@@ -41,7 +42,13 @@ Os ficheiros de registo a recolher têm de corresponder aos seguintes critérios
 ## <a name="defining-a-custom-log"></a>Definir um registo personalizado
 Utilize o procedimento seguinte para definir um ficheiro de registo personalizado.  Desloque-se ao fim deste artigo para obter instruções de uma amostra de adição de um registo personalizado.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>Passo 1. Abrir o Assistente de registo personalizado
+### <a name="step-1-enable-custom-logs-preview"></a>Passo 1. Ativar a pré-visualização de registos personalizados
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+2. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, selecione o **Portal do OMS** mosaico.<br><br> ![Botão Pesquisa de Registos](media/log-analytics-data-sources-custom-logs/azure-portal-01.png)<br><br> 
+3. Depois de são redirecionados para o portal do OMS, clique no mosaico de definições no lado superior direito da página.<br><br> ![Opção de definições do portal do OMS](media/log-analytics-data-sources-custom-logs/oms-portal-settings-option.png)<br><br> 
+4. Do **definições** página, selecione **funcionalidades de pré-visualização** e na página, selecione **ativar** registos personalizados.    
+
+### <a name="step-2-open-the-custom-log-wizard"></a>Passo 2. Abrir o Assistente de registo personalizado
 O Assistente de registo personalizado é executado no portal do Azure e permite-lhe definir um novo registo personalizado para recolher.
 
 1. No portal do Azure, selecione **Log Analytics** > sua área de trabalho > **definições avançadas**.
@@ -49,7 +56,7 @@ O Assistente de registo personalizado é executado no portal do Azure e permite-
 3. Por predefinição, todas as alterações de configuração são automaticamente enviadas por push para todos os agentes.  Para agentes Linux, é enviado um ficheiro de configuração para o recoletor de dados Fluentd.  Se pretender modificar este ficheiro manualmente em cada agente do Linux, em seguida, desmarque a caixa *aplicar configuração abaixo aos meus computadores Linux*.
 4. Clique em **adicionar +** para abrir o Assistente de registo personalizado.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um registo de exemplo
+### <a name="step-3-upload-and-parse-a-sample-log"></a>Passo 3. Carregar e analisar um registo de exemplo
 Começar através do carregamento de uma amostra de registo personalizado.  O assistente irá analisar e apresentar as entradas neste ficheiro para que possa validar.  Análise de registos utilizará o delimitador que especificar para identificar cada registo.
 
 **Nova linha** delimitador predefinido e é utilizada para os ficheiros de registo que tenham uma única entrada por linha.  Se a linha começa com uma data e hora dos formatos disponíveis, em seguida, pode especificar um **Timestamp** delimitador que suporta as entradas que abrangem mais do que uma linha.
@@ -63,7 +70,7 @@ Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGene
 4. Altere o delimitador utilizado para identificar um novo registo e selecione o delimitador melhor identifica os registos no ficheiro de registo.
 5. Clique em **Seguinte**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos da coleção de registos
+### <a name="step-4-add-log-collection-paths"></a>Passo 4. Adicionar caminhos da coleção de registos
 Tem de definir um ou mais caminhos no agente onde o mesmo possa localizar o registo personalizado.  Pode optar por fornecer um caminho específico e um nome para o ficheiro de registo ou pode especificar um caminho com um caráter universal para o nome.  Isto suporta aplicações que criar um novo ficheiro de cada dia ou quando um ficheiro atinge um determinado tamanho.  Também pode fornecer vários caminhos para um único ficheiro de registo.
 
 Por exemplo, uma aplicação poderá criar um ficheiro de registo por dia com a data incluída no nome que aparece log20100316.txt. Poderá ser um padrão para um registo de tal *registo\*. txt* que seria aplicada a qualquer ficheiro de registo após a aplicação da nomenclatura do esquema.
@@ -81,14 +88,14 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os dife
 2. Escreva o caminho e clique em de **+** botão.
 3. Repita o processo para qualquer caminhos adicionais.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e descrição para o registo
+### <a name="step-5-provide-a-name-and-description-for-the-log"></a>Passo 5. Forneça um nome e descrição para o registo
 O nome que especificar será utilizado para o tipo de registo, conforme descrito acima.  Sempre terminará com _CL distinguir como um registo personalizado.
 
 1. Escreva um nome para o registo.  O  **\_CL** sufixo é fornecido automaticamente.
 2. Adicionar opcional **Descrição**.
 3. Clique em **seguinte** para guardar a definição de registo personalizado.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5. Validar que estão a ser recolhidos os registos personalizados
+### <a name="step-6-validate-that-the-custom-logs-are-being-collected"></a>Passo 6. Validar que estão a ser recolhidos os registos personalizados
 -Pode demorar uma hora para os dados iniciais de um novo registo de personalizada a aparecer na análise de registos.  Começará a recolher entradas de registos encontrados no caminho especificado do ponto de que definiu o registo personalizado.  Não manterá as entradas que carregou durante a criação de registo personalizado, mas irá recolher entradas já existentes nos ficheiros de registo que localiza.
 
 Assim que for iniciada a análise de registos, recolher o registo personalizado, os respetivos registos estará disponíveis com uma pesquisa de registo.  Utilize o nome que deu o registo personalizado, como o **tipo** na sua consulta.
@@ -98,7 +105,7 @@ Assim que for iniciada a análise de registos, recolher o registo personalizado,
 >
 >
 
-### <a name="step-6-parse-the-custom-log-entries"></a>Passo 6. Analisar as entradas de registo personalizado
+### <a name="step-7-parse-the-custom-log-entries"></a>Passo 7. Analisar as entradas de registo personalizado
 A entrada de registo inteira será armazenada numa única propriedade chamada **RawData**.  Irá provavelmente querer separar os diferentes tipos de informações em cada entrada para as propriedades individuais armazenadas no registo.  Fazê-lo utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
 
 Os passos detalhados para analisar a entrada de registo personalizados não são fornecidos aqui.  Consulte o [campos personalizados](log-analytics-custom-fields.md) documentação para obter estas informações.

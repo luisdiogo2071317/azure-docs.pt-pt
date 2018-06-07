@@ -1,13 +1,13 @@
 ---
-title: "SAP ASCS/SCS instância elevada disponibilidade de várias SID com partilha de ficheiros e de Clustering de ativação pós-falha do Windows Server no Azure | Microsoft Docs"
-description: "Elevada disponibilidade de SID de várias instâncias de SAP ASCS/SCS com Clustering de ativação pós-falha do Windows Server e o ficheiro de partilha no Azure"
+title: SAP ASCS/SCS instância elevada disponibilidade de várias SID com partilha de ficheiros e de Clustering de ativação pós-falha do Windows Server no Azure | Microsoft Docs
+description: Elevada disponibilidade de SID de várias instâncias de SAP ASCS/SCS com Clustering de ativação pós-falha do Windows Server e o ficheiro de partilha no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657218"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -447,7 +448,7 @@ Siga os mesmos passos de instalação e configuração, tal como descrito anteri
 ### <a name="install-dbms-and-sap-application-servers"></a>Instalar o DBMS e SAP servidores de aplicações
 Instale o DBMS e servidores de aplicações do SAP, tal como descrito anteriormente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar uma instância ASCS/SCS num cluster de ativação pós-falha com sem discos partilhados][sap-official-ha-file-share-document]: SAP oficial as diretrizes para uma partilha de ficheiros HA
 

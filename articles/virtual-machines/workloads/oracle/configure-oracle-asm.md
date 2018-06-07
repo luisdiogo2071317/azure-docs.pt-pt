@@ -1,13 +1,13 @@
 ---
-title: "Configurar Oracle ASM numa máquina virtual com Linux do Azure | Microsoft Docs"
-description: "Obter rapidamente Oracle ASM cópias de segurança e em execução no seu ambiente do Azure."
+title: Configurar Oracle ASM numa máquina virtual com Linux do Azure | Microsoft Docs
+description: Obter rapidamente Oracle ASM cópias de segurança e em execução no seu ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656114"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar Oracle ASM numa máquina virtual com Linux do Azure  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configure o Oracle ASM numa máquina virtual do Linux para o Azure  
 
-Máquinas virtuais do Azure fornecem um ambiente informático totalmente configurável e flexível. Este tutorial abrange uma implementação de máquinas virtuais do Azure básica combinada com a instalação e configuração de Oracle automatizada armazenamento gestão (ASM).  Saiba como:
+As máquinas virtuais do Azure proporcionam um ambiente informático totalmente configurável e flexível. Este tutorial abrange uma implementação de máquinas virtuais do Azure básica combinada com a instalação e configuração de Oracle automatizada armazenamento gestão (ASM).  Saiba como:
 
 > [!div class="checklist"]
 > * Crie e ligue a uma VM de base de dados Oracle
@@ -35,7 +36,7 @@ Máquinas virtuais do Azure fornecem um ambiente informático totalmente configu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
@@ -200,7 +201,7 @@ Para este tutorial, o utilizador predefinido é *grelha* e o grupo predefinido e
    ```
 
 3. Disco de formato */dev/sdc* , executando o seguinte comando e responder a pedidos com:
-   - *n*para a nova partição
+   - *n* para a nova partição
    - *p* para a partição primária
    - *1* para selecionar a primeira partição
    - Prima `enter` para o cilindro primeiro predefinido
@@ -572,7 +573,7 @@ O software de base de dados Oracle já está instalado na imagem do Azure Market
 
 5. A base de dados foi criado. No **concluir** página, tem a opção para desbloquear contas adicionais para utilizar esta base de dados e alterar as palavras-passe. Se pretender fazê-lo, selecione **gestão de palavra-passe** -caso contrário, clique em `close`.
 
-## <a name="delete-the-vm"></a>Eliminar a VM
+## <a name="delete-the-vm"></a>Elimine a VM
 
 A configuração Oracle automatizada com gestão de armazenamento com êxito na imagem Oracle DB do Azure Marketplace.  Quando já não precisar desta VM, pode utilizar o seguinte comando para remover o grupo de recursos, VM e todos os recursos relacionados:
 

@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4a1a8a332628e79972e7c03dbc2ac839f244a002
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650048"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -193,7 +194,7 @@ O **ficheiro eventos** destino pode ocorrer a latência de rede ou falhas ao dad
 - [Com o Azure PowerShell com o Storage do Azure](../storage/common/storage-powershell-guide-full.md) -fornece informações abrangentes sobre o PowerShell e o serviço de armazenamento do Azure.
 - [Como utilizar o Blob storage a partir do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CRIAR a sessão do evento (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Mensagens do blogue de Jonathan Kehayias sobre eventos expandidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 

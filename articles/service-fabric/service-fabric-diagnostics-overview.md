@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643180"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
@@ -46,9 +47,6 @@ O Service Fabric fornece um conjunto abrangente de eventos a box. Estes [eventos
 É recomendável utilizar o EventStore para análise rápida e para obter uma ideia de instantâneo de funcionamento do seu cluster e se estão a ocorrer coisas como esperado. Para recolher os registos e eventos gerados pelo seu cluster, em geral, recomendamos que utilize o [extensão de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md). Integra-se corretamente com o serviço de recursos de infraestrutura, a análise Service Fabric solução específica dos OMS Log Analytics, que fornece um dashboard personalizado para monitorização de clusters de Service Fabric e permite-lhe consultar eventos do cluster e configurar alertas. Saiba mais sobre no [análise de eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Pode ler mais sobre como monitorizar o seu cluster em [geração de registo e evento nível no plataforma](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Monitorização de desempenho
 Monitorizar a infraestrutura subjacente é uma parte de chave de compreender o estado do seu cluster e a utilização de recursos. Medir o desempenho do sistema depende de vários fatores, cada um dos quais é medida através de um indicadores de desempenho (KPIs) de chave. KPIs relevantes do Service Fabric podem ser mapeadas para as métricas que podem ser recolhidas a partir de nós do cluster, como os contadores de desempenho.

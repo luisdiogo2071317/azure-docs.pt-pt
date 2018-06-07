@@ -1,11 +1,11 @@
 ---
 title: Executar um cluster de Cassandra em Linux no Azure do Node.js
-description: "Como executar um cluster de Cassandra em Linux no Azure as máquinas virtuais a partir de uma aplicação Node.js"
+description: Como executar um cluster de Cassandra em Linux no Azure as máquinas virtuais a partir de uma aplicação Node.js
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652843"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster de Cassandra em Linux no Azure com o Node.js
 
@@ -60,7 +61,7 @@ Tenha em atenção que o do momento desta redação, Azure não permite o mapeam
 
 **Cluster Seeds:** é importante selecionar a maioria de nós elevada para seeds como os novos nós comunicam connosco seed para detetar a topologia do cluster. Um nó de cada conjunto de disponibilidade está designado como nós seed para evitar ponto único de falha.
 
-**Fator de replicação e o nível de consistência:** compilação na elevada disponibilidade e dados durabilidade do Cassandra é caracterizada pelo fator de replicação (RF - número de cópias de cada linha armazenadas no cluster) e o nível de consistência (número de réplicas para ser de leitura/escrita antes da devolução do resultado para o autor da chamada). Fator de replicação é especificado durante a criação de KEYSPACE (semelhante a uma base de dados relacional), enquanto que o nível de consistência é especificado ao emitir a consulta CRUD. Consulte a documentação de Cassandra em [configurar para consistência](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para detalhes de consistência e a fórmula para o cálculo de quórum.
+**Fator de replicação e o nível de consistência:** compilação na elevada disponibilidade e dados durabilidade do Cassandra é caracterizada pelo fator de replicação (RF - número de cópias de cada linha armazenadas no cluster) e o nível de consistência (número de réplicas ser leitura/escrita antes da devolução do resultado para o autor da chamada). Fator de replicação é especificado durante a criação de KEYSPACE (semelhante a uma base de dados relacional), enquanto que o nível de consistência é especificado ao emitir a consulta CRUD. Consulte a documentação de Cassandra em [configurar para consistência](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para detalhes de consistência e a fórmula para o cálculo de quórum.
 
 Cassandra suporta dois tipos de modelos de integridade de dados – consistência e a consistência Eventual; o fator de replicação e o nível de consistência em conjunto determinam se os dados são consistentes, assim que uma operação de escrita é concluída ou eventualmente consistente. Por exemplo, a especificação de QUÓRUM que o nível de consistência sempre garante a consistência de dados ao qualquer nível de consistência, abaixo o número de réplicas para serem escritos conforme necessário para obter um QUÓRUM (por exemplo um) resulta em dados que está a ser eventualmente consistente.
 
@@ -146,7 +147,7 @@ Introduza as seguintes informações no ecrã "configuração de Máquina Virtua
 <tr><td>TAMANHO                     </td><td> A1                              </td><td>Selecione a VM com base nas necessidades de e/s; para este fim, deixe a predefinição </td><tr>
 <tr><td> NOVO NOME DE UTILIZADOR             </td><td> localadmin                       </td><td> "admin" é um nome de utilizador reservado no Ubuntu 12. xx e depois</td><tr>
 <tr><td> AUTENTICAÇÃO         </td><td> Clique em caixa de verificação                 </td><td>Verifique se pretende proteger com uma chave SSH </td><tr>
-<tr><td> CERTIFICATE             </td><td> nome de ficheiro do certificado de chave pública </td><td> Utilize a chave pública gerada anteriormente</td><tr>
+<tr><td> CERTIFICADO             </td><td> nome de ficheiro do certificado de chave pública </td><td> Utilize a chave pública gerada anteriormente</td><tr>
 <tr><td> Nova Palavra-passe    </td><td> palavra-passe segura </td><td> </td><tr>
 <tr><td> Confirmar Palavra-passe    </td><td> palavra-passe segura </td><td></td><tr>
 </table>
@@ -159,7 +160,7 @@ Introduza as seguintes informações no ecrã "configuração de Máquina Virtua
 <tr><td> NOME DE DNS DO SERVIÇO DE NUVEM    </td><td>ubuntu-template.cloudapp.net    </td><td>Dê um nome de Balanceador de carga com máquina</td></tr>
 <tr><td> REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL </td><td>    EUA Oeste    </td><td> Selecione uma região a partir da qual as suas aplicações web, aceder ao Cassandra cluster</td></tr>
 <tr><td>CONTA DE ARMAZENAMENTO </td><td>    Utilizar predefinição    </td><td>Utilizar a conta do storage predefinida ou uma conta de armazenamento previamente criada numa região específica</td></tr>
-<tr><td>CONJUNTO DE DISPONIBILIDADE </td><td>    Nenhum </td><td>    Pode deixar em branco</td></tr>
+<tr><td>CONJUNTO DE DISPONIBILIDADE </td><td>    Nenhuma </td><td>    Pode deixar em branco</td></tr>
 <tr><td>PONTOS FINAIS    </td><td>Utilizar predefinição </td><td>    Utilize a configuração predefinida do SSH </td></tr>
 </table>
 
@@ -278,7 +279,7 @@ Crie ligações simbólicas no diretório CASS_HOME/lib $ para que o script de a
 Edite cassandra.yaml em cada VM para refletir a configuração necessária por todas as máquinas virtuais [, otimizar esta configuração durante o aprovisionamento real]:
 
 <table>
-<tr><th>Nome do campo   </th><th> Valor  </th><th>    Observações </th></tr>
+<tr><th>Nome do Campo   </th><th> Valor  </th><th>    Observações </th></tr>
 <tr><td>cluster_name </td><td>    "CustomerService"    </td><td> Utilize o nome que reflete a implementação</td></tr>
 <tr><td>listen_address    </td><td>[pode deixar em branco]    </td><td> Eliminar "localhost" </td></tr>
 <tr><td>rpc_addres   </td><td>[pode deixar em branco]    </td><td> Eliminar "localhost" </td></tr>
@@ -329,10 +330,10 @@ Dados e sub-redes Web podem ser protegidas através de grupos de segurança de r
 
 <table>
 <tr><th>Nome do Computador    </th><th>Subrede    </th><th>Endereço IP    </th><th>Conjunto de disponibilidade</th><th>DC/Rack</th><th>Seed?</th></tr>
-<tr><td>hk-c1-west-us    </td><td>dados    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack1 </td><td>Sim</td></tr>
+<tr><td>HK-c1--EUA oeste    </td><td>dados    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack1 </td><td>Sim</td></tr>
 <tr><td>HK-c2--EUA oeste    </td><td>dados    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack1    </td><td>Não </td></tr>
 <tr><td>HK-c3--EUA oeste    </td><td>dados    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Sim</td></tr>
-<tr><td>hk-c4-west-us    </td><td>dados    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Não </td></tr>
+<tr><td>HK-c4--EUA oeste    </td><td>dados    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Não </td></tr>
 <tr><td>HK-c5--EUA oeste    </td><td>dados    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Sim</td></tr>
 <tr><td>HK-c6--EUA oeste    </td><td>dados    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Não </td></tr>
 <tr><td>HK-c7--EUA oeste    </td><td>dados    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Sim</td></tr>
@@ -355,7 +356,7 @@ O processo de acima pode ser executado através do portal do Azure; utilizar uma
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -458,7 +459,7 @@ Deverá ver algo semelhante os seguintes resultados:
 
 Keyspace criado no passo 4 utiliza SimpleStrategy com um replication_factor de 3. SimpleStrategy é recomendada para os dados únicos center implementações enquanto NetworkTopologyStrategy para dados multi center implementações. Um replication_factor de 3 fornece tolerância a falhas de nó.
 
-## <a id="tworegion"></a>Processo de implementação de Multirregião
+## <a id="tworegion"> </a>Processo de implementação de Multirregião
 Tirar partido de implementação única região concluída e repita o mesmo processo para instalar a segunda região. A principal diferença entre a implementação única e várias a região é a configuração de túnel VPN para a comunicação entre região; iniciar a instalação de rede, aprovisionar as VMs e configurar Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Passo 1: Criar a rede Virtual a região 2nd
@@ -492,16 +493,16 @@ Crie duas redes locais pelos seguintes detalhes:
 
 | Nome de Rede | Endereço de Gateway VPN | Espaço de Endereços | Observações |
 | --- | --- | --- | --- |
-| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA Leste. |
-| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA oeste. |
+| HK-lnet-Map-to-East-US |23.1.1.1 |10.2.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA Leste. |
+| HK-lnet-Map-to-West-US |23.2.2.2 |10.1.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA oeste. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Passo 3: Mapa "Local" rede as respetivas VNETs
 No portal do Azure, selecione cada vnet, clique em "Configurar", consulte "Ligar à rede local" e selecione as redes locais pelos seguintes detalhes:
 
 | Rede Virtual | Rede local |
 | --- | --- |
-| hk-vnet-west-us |hk-lnet-map-to-east-us |
-| hk-vnet-east-us |hk-lnet-map-to-west-us |
+| HK-vnet--EUA oeste |HK-lnet-Map-to-East-US |
+| hk-vnet-east-us |HK-lnet-Map-to-West-US |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Passo 4: Criar Gateways no VNET1 e VNET2
 A partir do dashboard das redes virtuais, clique em criar GATEWAY para acionar o processo de aprovisionamento do gateway de VPN. Após alguns minutos, o dashboard de cada rede virtual deve apresentar o endereço de gateway real.
@@ -511,8 +512,8 @@ Edite as redes locais para substituir o endereço IP do gateway de marcador de p
 
 <table>
 <tr><th>Rede local    </th><th>Gateway de Rede Virtual</th></tr>
-<tr><td>hk-lnet-map-to-east-us </td><td>Gateway de hk-vnet--EUA oeste</td></tr>
-<tr><td>hk-lnet-map-to-west-us </td><td>Gateway de hk-vnet-Leste-nos</td></tr>
+<tr><td>HK-lnet-Map-to-East-US </td><td>Gateway de hk-vnet--EUA oeste</td></tr>
+<tr><td>HK-lnet-Map-to-West-US </td><td>Gateway de hk-vnet-Leste-nos</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Passo 6: Atualizar a chave partilhada
@@ -528,13 +529,13 @@ Criar a imagem do Ubuntu conforme descrito na implementação de região #1 ao s
 | --- | --- | --- | --- | --- | --- |
 | hk-c1-east-us |dados |10.2.2.4 |hk-c-aset-1 |DC = EASTUS bastidor = rack1 |Sim |
 | hk-c2-east-us |dados |10.2.2.5 |hk-c-aset-1 |DC = EASTUS bastidor = rack1 |Não |
-| hk-c3-east-us |dados |10.2.2.6 |hk-c-aset-1 |DC = EASTUS bastidor = rack2 |Sim |
-| hk-c5-east-us |dados |10.2.2.8 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Sim |
-| hk-c6-east-us |dados |10.2.2.9 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Não |
-| hk-c7-east-us |dados |10.2.2.10 |hk-c-aset-2 |DC = EASTUS bastidor = rack4 |Sim |
+| HK-c3-Leste-nos |dados |10.2.2.6 |hk-c-aset-1 |DC = EASTUS bastidor = rack2 |Sim |
+| HK-c5-Leste-nos |dados |10.2.2.8 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Sim |
+| HK-c6-Leste-nos |dados |10.2.2.9 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Não |
+| HK-c7-Leste-nos |dados |10.2.2.10 |hk-c-aset-2 |DC = EASTUS bastidor = rack4 |Sim |
 | hk-c8-east-us |dados |10.2.2.11 |hk-c-aset-2 |DC = EASTUS bastidor = rack4 |Não |
-| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
-| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
+| HK-w1-Leste-nos |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
+| HK-w2-Leste-nos |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
 Siga as mesmas instruções como região #1, mas utilize 10.2.xxx.xxx espaço de endereço.
 
@@ -585,7 +586,7 @@ Deverá ver a apresentação mesma visto para a região Oeste:
 Executar alguns inserções mais e ver que os obterem replicados oeste-na parte do cluster.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Cluster de Cassandra de teste do Node.js
-Utilizar uma das VMs Linux criados na camada de "web" anteriormente, executar um script de Node.js simple para ler os dados anteriormente inseridos
+Utilizar uma das VMs Linux criado anteriormente na camada de "web", executar um script de Node.js simple para ler os dados anteriormente inseridos
 
 **Passo 1: Instalar o Node.js e Cassandra cliente**
 
