@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619529"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados de Redshift de Amazon utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,9 +63,9 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **type** |Esta propriedade tem de ser definida **AmazonRedshift**. |Sim |
-| **server** |O endereço IP ou anfitrião nome do servidor Amazon Redshift. |Sim |
-| **port** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
+| **tipo** |Esta propriedade tem de ser definida **AmazonRedshift**. |Sim |
+| **Servidor** |O endereço IP ou anfitrião nome do servidor Amazon Redshift. |Sim |
+| **porta** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
 | **database** |O nome da base de dados Amazon Redshift. |Sim |
 | **username** |O nome do utilizador que tem acesso à base de dados. |Sim |
 | **password** |A palavra-passe da conta de utilizador. |Sim |
@@ -331,11 +332,11 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Tipo de Amazon Redshift | Tipo .NET |
 | --- | --- |
 | SMALLINT |Int16 |
-| INTEGER |Int32 |
+| NÚMERO INTEIRO |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Solteiro |
-| PRECISÃO DUPLA |Duplo |
+| REAL |Único |
+| PRECISÃO DUPLA |duplo |
 | VALOR BOOLEANO |Cadeia |
 | CHAR |Cadeia |
 | VARCHAR |Cadeia |

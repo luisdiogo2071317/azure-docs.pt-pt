@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 110297fd60b4a25f959b451f2952f32d66cb8c3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620253"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>O Azure Data Factory - registo de alterações de .NET API
 > [!NOTE]
@@ -70,7 +71,7 @@ Funcionalidade adições:
 ## <a name="version-480"></a>Versão 4.8.0
 ### <a name="feature-additions"></a>Adições de funcionalidade
 * Foram adicionadas as seguintes propriedades opcionais para o tipo de atividade de cópia para ativar a otimização do desempenho de cópia:
-  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+  * [parallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
   * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>Versão 4.7.0
@@ -80,7 +81,7 @@ Funcionalidade adições:
   * Permite a utilização do PolyBase para copiar dados para o SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versão 4.6.1
-### <a name="bug-fixes"></a>Correção de Erros
+### <a name="bug-fixes"></a>Correções de erros
 * Correções de pedido HTTP para listar windows de atividade.
   * Remove o payload de pedido o nome do grupo de recursos e o nome de factory de dados.
 
@@ -137,7 +138,7 @@ Funcionalidade adições:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versão 4.0.1
-### <a name="breaking-changes"></a>As alterações de última hora
+### <a name="breaking-changes"></a>Alterações interruptivas
 As seguintes classes de mudança de nome. Os nomes dos novos foram os nomes das classes originais antes da versão 4.0.0.
 
 | Nome no 4.0.0 | Nome no 4.0.1 |
@@ -150,7 +151,7 @@ As seguintes classes de mudança de nome. Os nomes dos novos foram os nomes das 
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versão 4.0.0
-### <a name="breaking-changes"></a>As alterações de última hora
+### <a name="breaking-changes"></a>Alterações interruptivas
 * As seguintes classes/interfaces de mudança de nome.
 
 | Nome antigo | Novo nome |

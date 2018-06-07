@@ -1,24 +1,21 @@
 ---
-title: Implementar o Java solução - Azure de monitorização remota | Microsoft Docs
-description: Este tutorial mostra como aprovisionar o acelerador de solução de monitorização remota, utilizando a CLI.
-services: iot-suite
-suite: iot-suite
+title: Implementar a solução de monitorização remota do Java - Azure | Microsoft Docs
+description: Este tutorial mostra como aprovisionar o acelerador de solução de monitorização remota utilizando a CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628128"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota, utilizando a CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota utilizando a CLI
 
 Este tutorial mostra como aprovisionar o acelerador de solução de monitorização remota. Implementar a solução utilizando a CLI. Também pode implementar a solução utilizando a IU baseada na web em azureiotsuite.com, para saber mais sobre esta opção, consulte [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md).
 
@@ -96,7 +93,7 @@ Criar uma solução padrão resultará nos seguintes serviços do Azure que est�
 
 ### <a name="example-deploy-net-version"></a>Exemplo: implementar a versão do .NET
 
-O exemplo seguinte mostra como implementar o basic, versão de .NET do acelerador de solução de monitorização remota:
+O exemplo seguinte mostra como implementar a versão do .NET básica, do acelerador de solução de monitorização remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Exemplo: implementar a versão de Java
 
-O exemplo seguinte mostra como implementar a norma, a versão de Java do acelerador de solução de monitorização remota:
+O exemplo seguinte mostra como implementar a versão de Java padrão, do acelerador de solução de monitorização remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java

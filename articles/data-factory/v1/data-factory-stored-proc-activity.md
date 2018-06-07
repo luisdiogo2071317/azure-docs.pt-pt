@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622504"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento de armazenados do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -310,10 +311,10 @@ A tabela seguinte descreve estas propriedades JSON:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome | Nome da atividade |Sim |
+| name | Nome da atividade |Sim |
 | descrição |Texto que descreve o que é utilizada a atividade para |Não |
 | tipo | Tem de ser definido como: **SqlServerStoredProcedure** | Sim |
-| Entradas | Opcional. Se especificar um conjunto de dados de entrada, tem de estar disponível (no estado "Pronto") para a atividade de procedimento armazenado ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Só é utilizada para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
+| entradas | Opcional. Se especificar um conjunto de dados de entrada, tem de estar disponível (no estado "Pronto") para a atividade de procedimento armazenado ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Só é utilizada para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
 | saídas | Tem de especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. Especifica o conjunto de dados de saída a **agenda** para a atividade de procedimento armazenado (hora a hora, semanais, mensais, etc.). <br/><br/>O conjunto de dados de saída tem de utilizar um **serviço ligado** que se refere a uma base de dados do SQL do Azure ou um Azure SQL Data Warehouse ou uma base de dados SQL Server na qual pretende que o procedimento armazenado para ser executada. <br/><br/>O conjunto de dados de saída pode servir como uma forma de passar o resultado do procedimento armazenado para processamento por outra atividade subsequentes ([encadeamento atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a fábrica de dados não automaticamente escrever a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve a uma tabela SQL que o conjunto de dados de saída aponta para. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **dataset fictício**, que é utilizada apenas para especificar a agenda de execução da atividade de procedimento armazenado. |Sim |
 | storedProcedureName |Especifique o nome do procedimento armazenado na base de dados SQL do Azure ou do armazém de dados do SQL do Azure ou SQL Server da base de dados que é representada pelo serviço ligado que utilize a tabela de saída. |Sim |
 | storedProcedureParameters |Especifique os valores dos parâmetros de procedimento armazenado. Se tiver de passar nulo para um parâmetro, utilize a sintaxe: "param1": um valor nulo (todas as minúsculas). Consulte o exemplo seguinte para saber mais sobre como utilizar esta propriedade. |Não |

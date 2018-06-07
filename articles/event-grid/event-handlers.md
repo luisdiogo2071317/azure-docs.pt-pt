@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627720"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Processadores de eventos na grelha de eventos do Azure
 
-Um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento. Vários serviços do Azure são automaticamente configurados para processar eventos. Também pode utilizar quaisquer webhook para processar eventos. O webhook não precisa de ser alojado no Azure para processar eventos.
+Um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento. Vários serviços do Azure são automaticamente configurados para processar eventos. Também pode utilizar quaisquer webhook para processar eventos. O webhook não precisa de ser alojado no Azure para processar eventos. Grelha de evento só suporta pontos finais de webhook HTTPS.
 
 Este artigo fornece ligações para conteúdo para o processador de eventos.
 
@@ -31,6 +32,8 @@ Utilize a automatização do Azure para processar eventos com runbooks automatiz
 ## <a name="azure-functions"></a>Funções do Azure
 
 Utilize as funções do Azure para resposta sem servidor eventos.
+
+Se utilizar as Funções do Azure como o processador, utilize o acionador do Event Grid em vez dos acionadores HTTP genéricos. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
 
 |Cargo  |Descrição  |
 |---------|---------|
@@ -75,5 +78,5 @@ Utilize webhooks para pontos finais personalizáveis que respondem a eventos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
+* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
 * Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).

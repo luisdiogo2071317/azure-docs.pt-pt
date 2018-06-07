@@ -1,24 +1,19 @@
 ---
 title: Compreender as mensagens do IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - dispositivo-nuvem e nuvem para o dispositivo de mensagens com o IoT Hub. Inclui informações sobre os formatos de mensagem e os protocolos de comunicações suportados.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 50f95dc1af334468db25bce68f2ca00e0965a28b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 451a8226bbc52727dad562a4be352e352925bd0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632711"
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Dispositivo para nuvem e da nuvem para o dispositivo de mensagens com o IoT Hub
 

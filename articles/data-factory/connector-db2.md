@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7713e1b6a74fd099206804133d2dc8140fe83a8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616401"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -181,20 +182,20 @@ Quando copiar dados de DB2, os seguintes mapeamentos são utilizados DB2 tipos d
 | Blobs |Byte[] |
 | char |Cadeia |
 | CLOB |Cadeia |
-| Data |Datetime |
+| Date |Datetime |
 | DB2DynArray |Cadeia |
 | DbClob |Cadeia |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Duplo |Duplo |
-| Número de vírgula flutuante |Duplo |
+| duplo |duplo |
+| Flutuante |duplo |
 | Gráfico |Cadeia |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |Cadeia |
 | LongVarGraphic |Cadeia |
 | Numérico |Decimal |
-| Real |Solteiro |
+| Real |Único |
 | SmallInt |Int16 |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |

@@ -1,18 +1,19 @@
 ---
 title: Carregar imagens para a aplicação do Azure IoT Central | Microsoft Docs
 description: Como um construtor, saiba como preparar e carregar imagens para a aplicação do Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a43f2dd780604235ada1d8e3ae8a20563042fbaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 7fd9c8ed5559b00bc755e3f04c768dceeb487562
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628026"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a aplicação do Azure IoT Central
 
@@ -75,7 +76,7 @@ Para carregar uma imagem a utilizar o **Gestor de aplicações**, navegue para o
 
 Clique na imagem de carregamento e, em seguida, escolha o ficheiro para carregar a partir do seu computador local.
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Página de boas-vindas
 
 Para carregar uma imagem a utilizar na home page, navegue para o **home page** da sua aplicação e o modo de estrutura de comutador no. Tem de ser um construtor para concluir esta tarefa:
 
@@ -93,7 +94,7 @@ Para carregar uma imagem a utilizar num modelo de dispositivo, navegue até à *
 
 Clique na imagem de carregamento e, em seguida, escolha o ficheiro para carregar a partir do seu computador local.
 
-### <a name="device-dashboard"></a>Dashboard de dispositivo
+### <a name="device-dashboard"></a>Dashboard do dispositivo
 
 Para carregar uma imagem a utilizar um dashboard de dispositivo, navegue até à **Explorador de dispositivo**, escolha o modelo de dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** modo de estrutura de página e o comutador no. Tem de ser um construtor para concluir esta tarefa:
 

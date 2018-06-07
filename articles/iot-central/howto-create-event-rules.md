@@ -1,18 +1,19 @@
 ---
 title: Criar e gerir regras de eventos na sua aplicação do Azure IoT Central | Microsoft Docs
 description: As regras de eventos de centro de IoT do Azure permitem-lhe para monitorizar os seus dispositivos em tempo real e invocar automaticamente as ações, como enviar uma mensagem de e-mail, quando a regra é acionado.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628373"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configurar as notificações na sua aplicação do Azure IoT Central
 
@@ -20,7 +21,7 @@ Pode utilizar o Microsoft Azure IoT Central para monitorizar remotamente os disp
 
 Centro de IoT do Azure utiliza [medida de evento](howto-set-up-template.md) para capturar os dados de dispositivo. Cada tipo de medida tem atributos de chave que definem a medição. Pode criar regras para monitorizar cada tipo de medição do dispositivo e gerar alertas quando a regra é acionado. Uma regra de evento é acionado quando o evento de dispositivo selecionado é comunicado pelo dispositivo.
 
-## <a name="create-an-event-rule"></a>Criar uma regra de evento
+## <a name="create-an-event-rule"></a>Criar uma regra de eventos
 
 Esta secção mostra como criar uma regra de evento. Este exemplo utiliza um dispositivo de máquina de distribuidores automáticos refrigerated esse evento de erro do motor de ventoinha de relatórios. A regra monitoriza o evento comunicado pelo dispositivo e envia uma mensagem de e-mail sempre que o evento é comunicado.
 

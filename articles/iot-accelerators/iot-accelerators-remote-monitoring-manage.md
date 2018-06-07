@@ -1,26 +1,23 @@
 ---
 title: Gestão de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
 description: Este tutorial mostra como gerir dispositivos ligados à solução de monitorização remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627284"
 ---
 # <a name="manage-and-configure-your-devices"></a>Gerir e configurar os seus dispositivos
 
-Este tutorial mostra o dispositivo capacidades de gestão de solução de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
+Este tutorial mostra o dispositivo capacidades de gestão da solução de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
 
 Contoso tem ordenadas fábrica, a nova para expandir um dos respetivos instalações para aumentar a saída. Enquanto a aguardar ser entregue fábrica, a nova, que pretende executar uma simulação para verificar o comportamento da sua solução. Como um operador, que pretende gerir e configurar os dispositivos na solução de monitorização remota.
 
@@ -36,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
 
 Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 

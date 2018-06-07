@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a0f4a823d9a484dcae35a2741bf7904eb17a1502
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622858"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +49,7 @@ A tabela seguinte fornece descrições para as propriedades genéricas utilizada
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **type** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| **tipo** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | **accountName** |Nome de conta do Azure Data Lake Analytics. |Sim |
 | **dataLakeAnalyticsUri** |URI do Azure Data Lake Analytics. |Não |
 | **subscriptionId** |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |
@@ -114,7 +115,7 @@ Em alternativa, pode utilizar a autenticação de credencial de utilizador para 
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização que gerou utilizando o **autorizar** botão expira após algum tempo. Consulte a tabela seguinte para os tempos de expiração para diferentes tipos de contas de utilizador. Poderá ver o seguinte erro mensagem quando a autenticação **token expira**: erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+O código de autorização que gerou utilizando o **autorizar** botão expira após algum tempo. Consulte a tabela seguinte para os tempos de expiração para diferentes tipos de contas de utilizador. Poderá ver o seguinte erro mensagem quando a autenticação **token expira**: erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 | Tipo de utilizador | Expira após |
 |:--- |:--- |

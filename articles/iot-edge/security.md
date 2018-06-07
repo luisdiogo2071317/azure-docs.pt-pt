@@ -1,19 +1,19 @@
 ---
-title: "Segurança no Azure IoT Edge | Microsoft Docs"
-description: "Segurança, a autenticação e autorização de dispositivos de IoT Edge"
-services: iot-edge
-keywords: 
+title: Segurança no Azure IoT Edge | Microsoft Docs
+description: Segurança, a autenticação e autorização de dispositivos de IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631433"
 ---
 # <a name="securing-azure-iot-edge---preview"></a>Proteger o limite de IoT do Azure - preview
 
@@ -83,7 +83,7 @@ Estes são alguns exemplos de dimensões extensibilidade e framework de seguran�
 
 No final, o êxito proteger inteligente limite mais alto resulta da colaboração contribuições de uma Comunidade abra condicionadas pelo interesse comuns proteger IoT.  Estes contribuições poderão estar sob a forma de tecnologias seguras ou serviços.  O framework de segurança do Azure IoT Edge oferece uma base sólida para segurança extensível para a cobertura máxima oferecer o mesmo nível de confiança e integridade no limite inteligente como com a nuvem do Azure.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como é o Azure IoT Edge [proteger o contorno inteligente][lnk-edge-blog].
 

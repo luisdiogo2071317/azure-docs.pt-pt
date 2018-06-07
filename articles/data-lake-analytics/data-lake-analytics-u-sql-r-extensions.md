@@ -1,26 +1,23 @@
 ---
-title: Expandir scripts U-SQL com R no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como executar o código do R no Scripts U-SQL"
+title: Expandir scripts U-SQL com R no Azure Data Lake Analytics
+description: Saiba como executar o código do R no scripts U-SQL com o Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624929"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutorial: Introdução ao expandir o U-SQL com R
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Expandir scripts U-SQL com o código do R no Azure Data Lake Analytics
 
 O exemplo a seguir ilustra os passos básicos para implementar o código do R:
 * Utilize o `REFERENCE ASSEMBLY` instrução para ativar extensões de R para o Script U-SQL.
@@ -97,7 +94,7 @@ Utilize um script U-SQL para implementar este script do R com a instrução de i
 ### <a name="datatypes"></a>Tipos de dados
 * Colunas de cadeia e numérica U-SQL são convertidas como-entre R DataFrame e U-SQL [tipos suportados: `double`, `string`, `bool`, `integer`, `byte`].
 * O `Factor` datatype não é suportado em U-SQL.
-* `byte[]`tem de ser serializada como um com codificação base64 `string`.
+* `byte[]` tem de ser serializada como um com codificação base64 `string`.
 * Cadeias de U-SQL podem ser convertidas para fatores no código do R, depois de U-SQL criar dataframe entrada R ou definindo o parâmetro reducer `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Esquemas
@@ -166,7 +163,7 @@ Apenas R 3.2.2 é suportada.
 ### <a name="input-and-output-size-limitations"></a>Entrada e saída limitações de tamanho
 Cada vértice tem uma quantidade limitada de memória atribuída ao mesmo. Porque o DataFrames de entrada e de saída tem de existir na memória com o código do R, o tamanho total de entrada e de saída não pode exceder os 500 MB.
 
-### <a name="sample-code"></a>Código de exemplo
+### <a name="sample-code"></a>Código de Exemplo
 Mais de código de exemplo está disponível na sua conta do Data Lake Store depois de instalar as extensões de análise avançadas do U-SQL. O caminho de código de exemplo mais: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>Implementar módulos R personalizados com o U-SQL
@@ -210,7 +207,7 @@ Em primeiro lugar, crie um módulo personalizado de R zip-lo e, em seguida, carr
 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilizar as funções de janela U-SQL para tarefas do Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)

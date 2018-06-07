@@ -1,24 +1,19 @@
 ---
 title: Descrição geral da distribuição de dispositivos com o Hub IoT do Azure | Microsoft Docs
 description: 'Descrição geral da gestão de dispositivos no Hub IoT do Azure: ciclo de vida de dispositivos da empresa e padrões de gestão do dispositivo como reinício, reposição de fábrica, atualização de firmware, configuração, twins de dispositivo, consultas, tarefas.'
-services: iot-hub
-documentationcenter: ''
 author: bzurcher
-manager: timlt
-editor: ''
-ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632752"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Descrição geral da gestão de dispositivos com o Hub IoT
 
@@ -89,7 +84,7 @@ O Hub IoT permite o conjunto de padrões de gestão de dispositivos seguinte.  O
   
     ![Gráfico do padrão de estado e progresso dos relatórios de gestão de dispositivos][img-report_progress_pattern]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 As capacidades, padrões e bibliotecas de código que o Hub IoT fornece para gestão de dispositivos permitem criar aplicações IoT que satisfazem os requisitos do operador de IoT empresarial em cada fase do ciclo de vida do dispositivo.
 
 Para continuar a saber mais sobre as funcionalidades de gestão de dispositivos no Hub IoT, veja o tutorial [Get started with device management (Introdução à gestão de dispositivos)][lnk-get-started].

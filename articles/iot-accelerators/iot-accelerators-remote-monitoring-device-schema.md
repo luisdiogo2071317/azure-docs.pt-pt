@@ -1,22 +1,19 @@
 ---
 title: Esquema de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
 description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitorização remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627438"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
@@ -26,7 +23,7 @@ Este artigo descreve o esquema do modelo de dispositivo Especifica as capacidade
 
 Os artigos seguintes estão relacionadas com o artigo atual:
 
-* [Implementar o comportamento de modelo do dispositivo](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) descreve os ficheiros de JavaScript que utilizar para implementar o comportamento de um dispositivo simulado.
+* [Implementar o comportamento de modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os ficheiros de JavaScript que utilizar para implementar o comportamento de um dispositivo simulado.
 * [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-test.md) coloca-o em todos os conjunto e mostra-lhe como implementar um novo tipo de dispositivo simulado à sua solução.
 
 Neste artigo, vai aprender a:
@@ -39,7 +36,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="the-parts-of-the-device-model-schema"></a>As partes do esquema do modelo de dispositivo
 
-Cada modelo de dispositivo, tal como um chiller ou camião, define um tipo de dispositivo simulado para ligar a solução de monitorização remota. O modelo de cada dispositivo é armazenado num ficheiro JSON com o esquema de nível superior seguinte:
+Cada modelo de dispositivo, tal como um chiller ou camião, define um tipo de dispositivo simulado para ligar à solução de monitorização remota. O modelo de cada dispositivo é armazenado num ficheiro JSON com o esquema de nível superior seguinte:
 
 ```json
 {
@@ -203,7 +200,7 @@ Para enviar mensagens de telemetria intervalos diferentes, adicionar vários tip
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-Um dispositivo simulado pode responder a métodos de nuvem para o dispositivo chamados de solução de monitorização remota. O `CloudToDeviceMethods` secção no ficheiro de esquema do modelo de dispositivo:
+Um dispositivo simulado pode responder a chamada a partir da solução de monitorização remota de métodos de nuvem para o dispositivo. O `CloudToDeviceMethods` secção no ficheiro de esquema do modelo de dispositivo:
 
 * Define os métodos do que dispositivo simulado pode responder.
 * Identifica o ficheiro de JavaScript que contém a lógica de execução.

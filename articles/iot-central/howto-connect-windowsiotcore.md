@@ -1,18 +1,19 @@
 ---
 title: Ligar um dispositivo de Windows Core de IoT a sua aplicação do Azure IoT Central | Microsoft Docs
 description: Como um programador de dispositivo, saiba como ligar um dispositivo MXChip IoT DevKit à sua aplicação do Azure IoT Central.
-services: iot-central
 author: miriamb
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 55c0d9c26cd4e7f8ae9f6ff2359e0f2d2a9970c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629148"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de Windows Core de IoT a sua aplicação do Azure IoT Central
 

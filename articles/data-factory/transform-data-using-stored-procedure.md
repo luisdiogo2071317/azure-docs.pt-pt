@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 729974d37351c12f551e165567bb11467a0dd963
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25329d65861dc31e67bba146e15a6446a6449e83
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620593"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de procedimento de armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +72,7 @@ A tabela seguinte descreve estas propriedades JSON:
 
 | Propriedade                  | Descrição                              | Necessário |
 | ------------------------- | ---------------------------------------- | -------- |
-| nome                      | Nome da atividade                     | Sim      |
+| name                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve o que é utilizada a atividade para | Não       |
 | tipo                      | Para a atividade de procedimento armazenados, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
 | linkedServiceName         | Referência para o **SQL Database do Azure** ou **Azure SQL Data Warehouse** ou **do SQL Server** registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |

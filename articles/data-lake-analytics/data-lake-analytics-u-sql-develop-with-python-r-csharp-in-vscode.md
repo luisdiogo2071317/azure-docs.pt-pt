@@ -1,23 +1,20 @@
 ---
-title: Desenvolver U-SQL com o Python, R e c# para o Azure Data Lake Analytics no Visual Studio Code | Microsoft Docs
+title: Desenvolver U-SQL com o Python, R e c# para o Azure Data Lake Analytics no Visual Studio Code
 description: Saiba como utilizar o code-behind com o Python, R e c# ao submeter a tarefa no Azure Data Lake.
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
-manager: 
-editor: 
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/22/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/22/2017
+ms.openlocfilehash: 171aef186fd681adf9b3d92deb8691c852ea1038
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624912"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com o Python, R e c# para o Azure Data Lake Analytics no Visual Studio Code
 Saiba como utilizar o Visual Studio Code (VSCode) ao escrever o Python, R c# código atrás com U-SQL e submeter tarefas ao serviço de Azure Data Lake. Para obter mais informações sobre as ferramentas do Azure Data Lake VSCode, consulte [utilizar as ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -28,7 +25,7 @@ Antes de escrever código personalizado por detrás do código, terá de abrir u
 ## <a name="prerequisites-for-python-and-r"></a>Pré-requisitos para o Python e R
 Registe o Python e R assemblagens de extensões para a sua conta ADL. 
 1. Abra a sua conta no portal.
-   - Selecione **descrição geral**. 
+   - Selecione **Descrição geral**. 
    - Clique em **Script de exemplo**.
 2. Clique em **mais**.
 3. Selecione **instalar extensões U-SQL**. 
@@ -182,10 +179,9 @@ Um ficheiro code-behind é um ficheiro c# associado um script único do U-SQL. P
     ```
 5. Clique com o botão direito no **USQL** ficheiro, pode clicar **compilar o Script** ou **submeter tarefa** para executar a tarefa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Utilizar as Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Execução local do U-SQL e de depuração local com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
-* [Desenvolver assemblagens de U-SQL para tarefas do Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
 * [Introdução ao Data Lake Analytics com o PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Utilizar as ferramentas do Data Lake para Visual Studio para desenvolver aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

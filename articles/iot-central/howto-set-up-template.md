@@ -1,18 +1,19 @@
 ---
 title: Configurar um modelo de dispositivo numa aplicação do Azure IoT Central | Microsoft Docs
 description: Saiba como configurar um modelo de dispositivo com medidas, definições, propriedades, regras e dashboard.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629240"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -53,7 +54,7 @@ Apenas construtores e os administradores podem criar, editar e eliminar modelos 
 
 Agora observa cada um dos separadores **detalhes do dispositivo** página.
 
-## <a name="measurements"></a>Medidas
+## <a name="measurements"></a>Medições
 
 Medidas são dos dados provenientes do seu dispositivo. Pode adicionar várias medidas para o modelo de dispositivo para corresponder as capacidades do seu dispositivo. Atualmente, telemetria e eventos são os tipos de valores suportados.
 
@@ -106,7 +107,7 @@ Após escolher **guardar**, a **ventoinha modo** medição do estado é apresent
 
 ![Gráfico de medidas de estado](./media/howto-set-up-template/statemeasurementschart.png)
 
-Caso, existem demasiados pontos de dados enviados pelo dispositivo dentro de um período pequeno, a medição de estado é apresentada com um visual diferentes, conforme mostrado abaixo. Se clicar no gráfico, em seguida, todos os pontos de dados dentro desse período de tempo são apresentados por uma ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição desenhada no gráfico.
+No caso, existem demasiados pontos de dados enviados pelo dispositivo num curto período, a medição de estado é apresentada com um visual diferente, conforme mostrado abaixo. Se clicar no gráfico, então todos os pontos de dados nesse período de tempo são apresentados por ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição desenhada no gráfico.
 
 ![Detalhe de estado medidas](./media/howto-set-up-template/statemeasurementsdetail.png)
 

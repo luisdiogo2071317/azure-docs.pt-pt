@@ -1,26 +1,23 @@
 ---
-title: Expandir scripts U-SQL com o Python no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como executar código Python no Scripts U-SQL"
+title: Expandir scripts U-SQL com o Python no Azure Data Lake Analytics
+description: Saiba como executar código Python no scripts U-SQL com o Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625085"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Tutorial: Introdução ao expandir o U-SQL com o Python
+# <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Expandir scripts U-SQL com o código de Python no Azure Data Lake Analytics
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +101,7 @@ Atualmente, uma exceção no código Python aparece como falha de vértice gené
 ### <a name="input-and-output-size-limitations"></a>Entrada e saída limitações de tamanho
 Cada vértice tem uma quantidade limitada de memória atribuída ao mesmo. Atualmente, esse limite é de 6 GB para uma AU. Porque o DataFrames de entrada e de saída tem de existir na memória no código Python, o tamanho total de entrada e de saída não pode exceder os 6 GB.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilizar as funções de janela U-SQL para tarefas do Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)

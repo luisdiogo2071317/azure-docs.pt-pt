@@ -1,26 +1,23 @@
 ---
 title: Introdução à solução de monitorização remota - Azure | Microsoft Docs
 description: Este tutorial utiliza cenários simulados para apresentar o acelerador de solução de monitorização remota. Estes cenários são criados quando implementar o acelerador de solução de monitorização remota pela primeira vez.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627812"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explore as capacidades do acelerador de solução de monitorização remota
 
-Este tutorial mostra as principais capacidades de solução de monitorização remota. Para apresentar estas capacidades, o tutorial showcases cenários comuns do cliente, utilizando uma aplicação de IoT simulada para uma empresa denominada Contoso.
+Este tutorial mostra as principais capacidades a solução de monitorização remota. Para apresentar estas capacidades, o tutorial showcases cenários comuns do cliente, utilizando uma aplicação de IoT simulada para uma empresa denominada Contoso.
 
 O tutorial ajuda-o a compreende os cenários típicos de IoT a solução de monitorização remota fornece out of box.
 
@@ -39,13 +36,13 @@ O vídeo seguinte mostra as obter instruções sobre a solução de monitorizaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
+Para concluir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
 
 Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>A implementação de IoT de exemplo do Contoso
 
-Pode utilizar a implementação de IoT de exemplo de Contoso para compreender os cenários básicos remoto solução de monitorização fornece out of box. Estes cenários são baseados em implementações de IoT reais. Provavelmente, irá escolher Personalizar a solução de monitorização remota para satisfazer os seus requisitos específicos, mas o exemplo de Contoso ajuda-o a aprender as noções básicas.
+Pode utilizar a implementação de IoT de exemplo de Contoso para compreender os cenários básicos de monitorização remota solução fornece out of box. Estes cenários são baseados em implementações de IoT reais. Provavelmente, irá escolher Personalizar a solução de monitorização remota para satisfazer os seus requisitos específicos, mas o exemplo de Contoso ajuda-o a aprender as noções básicas.
 
 > [!NOTE]
 > Se utilizou a CLI para implementar o acelerador de solução, o ficheiro `deployment-{your deployment name}-output.json` contém informações sobre a implementação, tais como o URL para aceder a amostra implementada.
@@ -253,7 +250,7 @@ Neste tutorial, aprendeu a:
 > * Organizar os elementos
 > * Parar e iniciar dispositivos simulados
 
-Agora que tem explorou a solução de monitorização remota, se os passos sugeridos saber mais sobre as funcionalidades avançadas de solução de monitorização remota:
+Agora que tem explorou a solução de monitorização remota, se os passos sugeridos saber mais sobre as funcionalidades avançadas da solução de monitorização remota:
 
 * [Monitorizar os seus dispositivos](./iot-accelerators-remote-monitoring-monitor.md).
 * [Gerir os seus dispositivos](./iot-accelerators-remote-monitoring-manage.md).

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c37ab34b241e59f70b6417036506dd132ce9aa43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6826d87e5613ce4892e9fd839c66ec26282ad188
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622130"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade do ramo de registo no Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -75,10 +76,10 @@ A atividade do ramo de registo do HDInsight numa fábrica de dados [pipeline](da
 ## <a name="syntax-details"></a>Detalhes de sintaxe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome da atividade |Sim |
+| name |Nome da atividade |Sim |
 | descrição |Texto que descreve o que é utilizada a atividade para |Não |
 | tipo |HDinsightHive |Sim |
-| Entradas |Entradas consumidas pela atividade do ramo de registo |Não |
+| entradas |Entradas consumidas pela atividade do ramo de registo |Não |
 | saídas |Saídas produzidas pela atividade do ramo de registo |Sim |
 | linkedServiceName |Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados |Sim |
 | Script |Especifique o inline de script de ramo de registo |Não |

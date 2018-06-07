@@ -1,19 +1,19 @@
 ---
 title: Documentação dos aceleradores de soluções do Azure IoT - Tutoriais, Referência da API | Microsoft Docs
 description: A documentação dos aceleradores de soluções do Azure IoT inclui Guias de introdução, Artigos de procedimentos, Tutoriais e Referência da API.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626977"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentação dos aceleradores de soluções de IoT
 
@@ -30,10 +30,10 @@ Comece a trabalhar rapidamente com os aceleradores de soluções de IoT para cri
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Descrição geral dos aceleradores de soluções</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Implementar um acelerador de soluções</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Capacidades de solução prontas a utilizar</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Capacidades de monitorização</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Capacidades de solução prontas a utilizar</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Capacidades de monitorização</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Capacidades de gestão de regras</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Capacidades de gestão de dispositivos</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Capacidades de gestão de dispositivos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ Comece a trabalhar rapidamente com os aceleradores de soluções de IoT para cri
                     <div class="cardText">
                         <p>Saiba como ligar os seus dispositivos a um acelerador de soluções</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Descrição geral do modelo de dispositivo</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Personalizar os seus dispositivos simulados</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Ligar dispositivos físicos</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Descrição geral do modelo de dispositivo</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Personalizar os seus dispositivos simulados</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Ligar dispositivos físicos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ Comece a trabalhar rapidamente com os aceleradores de soluções de IoT para cri
                 <div class="card">
                     <div class="cardText">
                         <h3>Recursos</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Arquitetura de segurança</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">Melhores práticas de segurança</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">Proteger a sua implementação de IoT</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Segurança desde o início</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Arquitetura de segurança</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">Melhores práticas de segurança</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">Proteger a sua implementação de IoT</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Segurança desde o início</a></p>
                    </div>
                 </div>
             </div>

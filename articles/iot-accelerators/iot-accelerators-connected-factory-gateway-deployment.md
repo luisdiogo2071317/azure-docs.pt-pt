@@ -1,24 +1,19 @@
 ---
 title: Implementar o gateway de fábrica ligado - Azure | Microsoft Docs
 description: Como implementar um gateway no Windows ou Linux para ativar a conetividade para o acelerador da solução de fábrica ligado.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626909"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementar um gateway do limite para o acelerador da solução de fábrica ligado no Windows ou Linux
 
@@ -170,6 +165,6 @@ Para adicionar os seus próprios servidores OPC UA para o acelerador da soluçã
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a arquitetura o acelerador da solução de fábrica ligado, consulte [ligado fábrica solução acelerador instruções](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Para saber mais sobre a arquitetura o acelerador da solução de fábrica ligado, consulte [ligado fábrica solução acelerador instruções](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Saiba mais sobre o [implementação de referência do publicador OPC](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

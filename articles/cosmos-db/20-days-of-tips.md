@@ -4,20 +4,18 @@ description: Localize todas as sugestões dos dias de 20 do Simona Cotin de sér
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 43fd8b23be029511933f3a238f42b440f81aa121
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610621"
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de base de dados do Azure Cosmos sugestões
 
@@ -33,7 +31,7 @@ O que é #cosmosdb? A base de dados melhor NoSQL que não está a utilizar! [htt
 
 > [!VIDEO https://www.youtube.com/embed/cGxO995iakM] 
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905083120487022593)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6310849010374631425/)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905083120487022593)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6310849010374631425/)
 
 ## <a name="tip-2-seeing-is-believing"></a>Sugestão 2: Ver é acreditar
 
@@ -41,7 +39,7 @@ Ver é acreditar. Utilize a interface de visual #cosmosDB no portal do Azure par
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
 
 ## <a name="tip-3-replicate-data-globally"></a>Sugestão 3: Replicar dados globalmente
 
@@ -49,7 +47,7 @@ Sugestão 3: Tem de ser incrivelmente rápida em qualquer local no mundo à apli
 
 > [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
 
 ## <a name="tip-4-gremlin-graph-support"></a>Sugestão 4: Suporte de gráfico de Gremlin
 
@@ -57,7 +55,7 @@ Sugestão 4: São gremlins o encravamento? #cosmosdb loves Gremlin demasiado! Ve
 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>Sugestão 5: Tente Azure Cosmos DB livre
 
@@ -65,7 +63,7 @@ Sugestão 5: Pretender #CosmosDB do Azure gratuitamente? Sem inscrição ou cart
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907258302576431107)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313024454544932864)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907258302576431107)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313024454544932864)
 
 ## <a name="tip-6-migrate-your-mean-app"></a>Sugestão 6: Migrar a sua aplicação média
 
@@ -73,7 +71,7 @@ Sugestão 6: É significam que o coisa? Saiba como migre facilmente a sua aplica
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
 
 ## <a name="tip-8-build-a-nodejs-app-by-using-sql-api"></a>Sugestão 8: Criar uma aplicação Node.js utilizando a API do SQL Server
 
@@ -81,7 +79,7 @@ Sugestão 8: Criar um @nodejs aplicação utilizando a API do SQL Server e #Cosm
 
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
 
 ## <a name="tip-9-query-using-mongodb-in-nodejs"></a>Sugestão 9: Consultar utilizando MongoDB no Node.js
 
@@ -89,7 +87,7 @@ Sugestão 9: Consultar #CosmosDB do Azure utilizando a API do MongoDB no Node.js
 
 ![Consulta com MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Sugestão 10: Dados de MongoDB de cópia utilizar Studio 3T
 
@@ -97,7 +95,7 @@ Sugestão 10: Saiba como copiar os dados de MongoDB a BD do Cosmos do Azure util
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
 
 ## <a name="tip-11-use-react-nodejs-and-azure-cosmosdb"></a>Sugestão 11: Utilizar reagir, Node.js e #CosmosDB do Azure
 
@@ -105,7 +103,7 @@ Sugestão 11: Crie uma heroína utilizando reagir, Node.js e base de dados do Az
 
 Artigo: [criar uma aplicação do MongoDB com DB reagir e Cosmos do Azure](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
 ## <a name="tip-12-go-serverless"></a>Sugestão 12: Aceda sem servidor
 
@@ -113,7 +111,7 @@ Sugestão 12: Aceda sem servidor com o Azure #CosmosDB e @AzureFunctions! Docs c
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
 
 ## <a name="tip-13-mean-app-from-scratch"></a>Sugestão 13: A média aplicação a partir do zero
 
@@ -121,7 +119,7 @@ Sugestão 13: entre zero e heroína com @John_Papa e base de dados do Azure Cosm
 
 Artigo: [criar uma aplicação do MongoDB com Cosmos angular para e do Azure, base de dados](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
 ## <a name="tip-14-use-cases"></a>Sugestão 14: Casos de utilização
 
@@ -129,7 +127,7 @@ Sugestão 14: Curiosidade sobre casos de utilização do Azure #CosmosDB comuns?
 
 Artigo: [casos de utilização de base de dados de Cosmos comuns do Azure](https://aka.ms/Ihpf00)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
 
 ## <a name="tip-15-vs-code-integration"></a>Sugestão 15: Integração de VS Code
 
@@ -137,7 +135,7 @@ Sugestão 15: Criar nova conta do Azure #CosmosDB sem sair alguma vez @code. Ins
 
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
 
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>Sugestão 16: Demonstração de funções e Twilio
@@ -146,7 +144,7 @@ Sugestão 16: Demonstração extraordinário! Integrar #cosmosDB do Azure, as fu
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
 
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>Sugestão 17: Discriminators de utilizando o Mongoose
@@ -155,7 +153,7 @@ Sugestão 17: Otimizar os custos utilizando Mongoose discriminators para armazen
 
 Blogue: [utilizando o Mongoose Discriminators para armazenar várias entidades numa coleção Cosmos único DB por António Chu](https://aka.ms/M488jm)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="tip-18-request-units"></a>Sugestão 18: Unidades de pedido
 
@@ -163,7 +161,7 @@ Sugestão 18: Saber quais são as unidades de pedido (RU) e como configurá-las 
 
 Artigo: [unidades no Azure Cosmos DB de pedido](https://aka.ms/Kt2nbn)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
 
 ## <a name="tip-19-partition-partition-partition"></a>Sugestão 19: partição! Partição! Partição! 
 
@@ -171,7 +169,7 @@ Sugestão 19: partição! Partição! Partição! O porquê e como na #CosmosDB 
 
 > [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
 
 ## <a name="tip-20-cheatsheet"></a>Sugestão 20: Cábula
 
@@ -179,7 +177,7 @@ Sugestão 20: Todas as pessoas loves uma boa cábula antiga. #CosmosDB do Azure 
 
 Cábula: [BD do Azure do Cosmos: SQL consulta cábula PDF](https://aka.ms/Nt01nl)
 
-[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![partilha LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+[![Retweet no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![partilha LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

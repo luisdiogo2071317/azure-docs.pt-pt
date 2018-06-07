@@ -1,22 +1,19 @@
 ---
 title: Implementar a solução de monitorização remota - Azure | Microsoft Docs
-description: Este tutorial mostra como aprovisionar o acelerador solução monitorização remota do azureiotsuite.com.
-services: iot-suite
-suite: iot-suite
+description: Este tutorial mostra como aprovisionar o acelerador de solução de monitorização remota do azureiotsuite.com.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626858"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Implementar o acelerador de solução de monitorização remota
 
@@ -69,7 +66,7 @@ Quando o processo de aprovisionamento estiver concluído, pode iniciar sessão s
 
     ![Escolha a nova solução](./media/iot-accelerators-remote-monitoring-deploy/choosenew.png)
 
-1. Pode ver informações sobre a sua solução de monitorização remota, no painel que aparece. Escolha **dashboard da solução** para ligar à sua solução de monitorização remota.
+1. Pode ver informações sobre a sua solução de monitorização remota no painel que aparece. Escolha **dashboard da solução** para ligar à sua solução de monitorização remota.
 
     > [!NOTE]
     > Pode eliminar a solução de monitorização remota neste painel quando tiver terminado com o mesmo.

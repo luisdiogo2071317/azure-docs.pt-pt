@@ -1,24 +1,20 @@
 ---
 title: Conversor de IoT DevKit utilizando a função do Azure e serviços cognitivos | Microsoft Docs
-description: Utilize microfone no IoT DevKit para receber a mensagem de voz e serviços cognitivos do Azure para o processamento de texto traduzidas em inglês.
-services: iot-hub
-documentationcenter: ''
+description: Utilizar microfone IoT DevKit para receber a mensagem de voz e serviços cognitivos do Azure para o processamento de texto traduzidas em inglês
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-ms.service: iot-hube
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeffya
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631783"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Utilize o IoT DevKit AZ3166 com a função do Azure e serviços cognitivos para tornar um conversor de idioma
 

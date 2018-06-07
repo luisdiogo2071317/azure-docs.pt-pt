@@ -1,22 +1,19 @@
 ---
 title: Começar a utilizar a solução de simulação de dispositivo - Azure | Microsoft Docs
 description: A solução de simulação de Aceleradores de solução de IoT é uma ferramenta que pode ser utilizada para ajudar o desenvolvimento e teste de uma solução de IoT. O serviço de simulação é autónomo oferta que pode ser utilizado em conjunto com outros Aceleradores solução ou utilizado com as suas próprias soluções personalizadas.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/15/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 742998dce07f6ceef0ad906831c60f11a7d08bd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: c427f2640e605533324eb349579c6a40a2a6a47f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627130"
 ---
 # <a name="device-simulation-walkthrough"></a>Instruções de simulação de dispositivo
 
@@ -39,7 +36,7 @@ Se ainda não implementado simulação de dispositivo ainda, deve efetuar o [imp
 
 ## <a name="configuring-device-simulation"></a>Configuração de dispositivo de simulação
 
-Pode configurar e executar o dispositivo simulação completamente no dashboard. Abra o dashboard de Aceleradores de solução IoT [aprovisionado soluções](https://www.azureiotsuite.com/) página. Clique em **iniciar** na sua nova implementação de simulação de dispositivo.
+Pode configurar e executar o dispositivo simulação completamente no dashboard. Abra o dashboard de Aceleradores de solução IoT [aprovisionado soluções](https://www.azureiotsolutions.com/) página. Clique em **iniciar** na sua nova implementação de simulação de dispositivo.
 
 ### <a name="target-iot-hub"></a>IoT Hub de destino
 
@@ -77,7 +74,7 @@ A tabela seguinte mostra uma lista de configurações para cada modelo de dispos
 | -------------| ------ | -----| 
 | Chiller | humidade | % |
 | | pressure | psig | 
-| | Temperatura | F | 
+| | temperatura | F | 
 | Abordagem | piso | 
 | | vibration | mm | 
 | | Temperatura | F | 

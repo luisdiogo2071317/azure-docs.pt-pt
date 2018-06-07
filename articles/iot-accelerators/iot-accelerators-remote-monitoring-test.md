@@ -1,22 +1,19 @@
 ---
 title: Simulação de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
 description: Este tutorial mostra como utilizar o simulador de dispositivo com o acelerador de solução de monitorização remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628264"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -90,7 +87,7 @@ O vídeo seguinte mostra uma explicação passo a passo de ligar os dispositivos
 
 Para seguir este tutorial, tem de:
 
-* Uma instância implementada da solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
+* Uma instância implementada a solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 * O Visual Studio 2017. Se não tiver o Visual Studio 2017, instalado, pode transferir o livre [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edição.
 
@@ -106,17 +103,17 @@ Conclua as seguintes tarefas para preparar o ambiente de desenvolvimento para ad
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Configurar o acesso SSH para a máquina virtual de solução no Azure
 
-Quando criou a sua solução de monitorização remota em [www.azureiotsuite.com](https://www.azureiotsuite.com), escolha um nome de solução. O nome de solução torna-se o nome do grupo de recursos do Azure que contém os recursos implementados vários que a solução utiliza. Os comandos seguintes utilizam um grupo de recursos denominado **Contoso-01**, deve substituir **Contoso-01** com o nome do grupo de recursos.
+Quando criou a sua solução de monitorização remota em [www.azureiotsolutions.com](https://www.azureiotsolutions.com), escolha um nome de solução. O nome de solução torna-se o nome do grupo de recursos do Azure que contém os recursos implementados vários que a solução utiliza. Os comandos seguintes utilizam um grupo de recursos denominado **Contoso-01**, deve substituir **Contoso-01** com o nome do grupo de recursos.
 
 Os seguintes comandos a utilizar o `az` comando de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Pode instalar o 2.0 CLI do Azure no seu computador de desenvolvimento ou utilizar o [nuvem Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no [portal do Azure](http://portal.azure.com). O 2.0 CLI do Azure é pré-instaladas na Shell de nuvem.
 
-1. Para verificar o nome do grupo de recursos que contém os recursos de monitorização remotos, execute o seguinte comando:
+1. Para verificar o nome do grupo de recursos que contém os recursos de monitorização remota, execute o seguinte comando:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Este comando apresenta uma lista de todos os grupos de recursos na sua subscrição. A lista deve incluir um grupo de recursos com o mesmo nome que a sua solução de monitorização remota.
+    Este comando apresenta uma lista de todos os grupos de recursos na sua subscrição. A lista deve incluir um grupo de recursos com o mesmo nome como solução de monitorização remota.
 
 1. Para tornar o recurso do grupo o grupo predefinido para comandos subsequentes, execute o seguinte comando com o nome do grupo de recursos em vez de **Contoso-01**:
 
@@ -488,7 +485,7 @@ Agora está pronto para testar o novo tipo de lightbulb simulada, executando o p
 
     ![Telemetria de temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Tem agora a simulação de dispositivo lightbulb executar localmente. O passo seguinte é implementar o código do simulador atualizado para a máquina virtual que executa os micro-serviços de monitorização remotos no Azure.
+Tem agora a simulação de dispositivo lightbulb executar localmente. O passo seguinte é implementar o código do simulador atualizado para a máquina virtual que executa os micro-serviços de monitorização remota no Azure.
 
 Antes de continuar, pode parar a depuração de simulação de dispositivo e projetos de adaptador de armazenamento no Visual Studio.
 

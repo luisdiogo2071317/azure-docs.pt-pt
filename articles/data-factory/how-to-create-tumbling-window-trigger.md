@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 312072a5de21ff1c6b602fed93b77c564b15a9f1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619716"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um acionador que é executado um pipeline numa janela em cascata
 Este artigo fornece os passos para criar, iniciar e monitorizar um acionador de janela em cascata. Para obter informações gerais sobre acionadores e os tipos suportados, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
@@ -74,7 +75,7 @@ A tabela seguinte fornece uma descrição dos elementos principais de JSON que e
 
 | Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | O tipo do acionador. O tipo é o valor fixo "TumblingWindowTrigger." | Cadeia | "TumblingWindowTrigger" | Sim |
+| **tipo** | O tipo do acionador. O tipo é o valor fixo "TumblingWindowTrigger." | Cadeia | "TumblingWindowTrigger" | Sim |
 | **runtimeState** | O estado atual do acionador tempo de execução.<br/>**Tenha em atenção**: este elemento está \<readOnly >. | Cadeia | "Iniciado", "parado," "Desativado" | Sim |
 | **frequency** | Uma cadeia que representa a unidade de frequência (minutos ou horas) em que o acionador voltar a ocorrer. Se o **startTime** valores de data são mais granulares do que o **frequência** valor, o **startTime** datas são consideradas quando são calculados os limites de janela. Por exemplo, se o **frequência** valor é de hora a hora e a **startTime** valor é 2016-04-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Cadeia | "minutos", "horas"  | Sim |
 | **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** é 3 e o **frequência** é "horas", o acionador voltar a ocorrer a cada 3 horas. | Número inteiro | Um número inteiro positivo. | Sim |

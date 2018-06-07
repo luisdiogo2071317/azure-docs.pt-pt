@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626994"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorizar a entrega de mensagens de evento grelha 
 
@@ -41,9 +42,15 @@ Para as subscrições, as métricas são:
 
 ## <a name="event-subscription-status"></a>Estado de subscrição de evento
 
-Para ver as métricas para uma subscrição de evento, procure **eventos grelha subscrições** nos serviços disponíveis e selecione-o.
+Para ver as métricas para uma subscrição de evento, pode optar por procurar por tipo de subscrição ou subscrições para um recurso específico.
 
-![Pesquisa para subscrições de eventos](./media/monitor-event-delivery/select-event-subscriptions.png)
+Para procurar por tipo de subscrição de evento, selecione **todos os serviços**.
+
+![Selecione todos os serviços](./media/monitor-event-delivery/all-services.png)
+
+Procurar **grelha de evento** e selecione **eventos grelha subscrições** entre as opções disponíveis.
+
+![Pesquisa para subscrições de eventos](./media/monitor-event-delivery/search-and-select.png)
 
 Filtrar por tipo de evento, a subscrição e localização. Selecione **métricas** para a subscrição ver.
 
@@ -53,9 +60,15 @@ Ver as métricas para o tópico de eventos e uma subscrição.
 
 ![Veja as métricas de eventos](./media/monitor-event-delivery/subscription-metrics.png)
 
+Para localizar as métricas de um recurso específico, selecione esse recurso. Em seguida, selecione **eventos**.
+
+![Selecione os eventos para um recurso](./media/monitor-event-delivery/select-events.png)
+
+Pode ver as métricas para subscrições para esse recurso.
+
 ## <a name="custom-event-status"></a>Estado do evento personalizado
 
-Se tiver publicado um tópico personalizado, pode ver as métricas para o mesmo. Selecione o grupo de recursos que contém o tópico e selecione o tópico.
+Se tiver publicado um tópico personalizado, pode ver as métricas para o mesmo. Selecione o grupo de recursos para o tópico e selecione o tópico.
 
 ![Selecione o tópico personalizado](./media/monitor-event-delivery/select-custom-topic.png)
 
@@ -66,5 +79,5 @@ Ver as métricas para o tópico de evento personalizado.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações sobre a entrega de eventos e de tentativas, [entrega de mensagens de evento grelha e volte a tentar](delivery-and-retry.md).
-* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
+* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
 * Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).

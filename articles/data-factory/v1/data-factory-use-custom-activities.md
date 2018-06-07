@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 88095c7b3c31c5111f1e1d1e5b157403359053bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622818"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +95,7 @@ public IDictionary<string, string> Execute(
 O método utiliza quatro parâmetros:
 
 - **linkedServices**. Esta propriedade é uma lista enumeráveis de serviços de ligado do arquivo de dados referenciada por conjuntos de dados de entrada/saída da atividade.   
-- **datasets**. Esta propriedade é uma lista enumeráveis de conjuntos de dados de entrada/saída da atividade. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
+- **conjuntos de dados**. Esta propriedade é uma lista enumeráveis de conjuntos de dados de entrada/saída da atividade. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
 - **atividade**. Esta propriedade representa a atividade atual. Pode ser utilizado para aceder às propriedades expandidas associadas com a atividade personalizada. Consulte [acesso propriedades expandidas](#access-extended-properties) para obter mais detalhes.
 - **logger**. Este objeto permite-lhe escrever comentários de depuração esse superfície no registo de utilizador para o pipeline.
 

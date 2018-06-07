@@ -1,19 +1,19 @@
 ---
 title: Referência do Azure IoT EdgeAgent e EdgeHub | Microsoft Docs
 description: Reveja as propriedades específicas e os respetivos valores duplos de módulo edgeAgent e edgeHub
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632912"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades do agente de limite e duplos de módulo de hub de limite
 
@@ -28,7 +28,7 @@ O duplo de módulo para o agente de limite é chamado `$edgeAgent` e coordena as
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem de ser "1.0" | Sim |
-| runtime.type | Tem de ser "docker" | Sim |
+| Runtime.Type | Tem de ser "docker" | Sim |
 | runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implementação | Sim |
 | runtime.settings.loggingOptions | Um stringified JSON que contém as opções de registo para o contentor de agente de limite. [Opções de registo do docker][lnk-docker-logging-options] | Não |
 | systemModules.edgeAgent.type | Tem de ser "docker" | Sim |
@@ -41,8 +41,8 @@ O duplo de módulo para o agente de limite é chamado `$edgeAgent` e coordena as
 | systemModules.edgeHub.settings.image | O URI da imagem do Edge hub. | Sim |
 | systemModules.edgeHub.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor de hub de limite. [Docker criar opções][lnk-docker-create-options] | Não |
 | systemModules.edgeHub.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
-| modules.{moduleId}.version | Uma cadeia definida pelo utilizador, que representa a versão deste módulo. | Sim |
-| modules.{moduleId}.type | Tem de ser "docker" | Sim |
+| módulos. .version {moduleId} | Uma cadeia definida pelo utilizador, que representa a versão deste módulo. | Sim |
+| módulos. .type {moduleId} | Tem de ser "docker" | Sim |
 | modules.{moduleId}.restartPolicy | {"nunca" \| "no-falhou" \| "no-mau estado de funcionamento" \| "sempre"} | Sim |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
 | modules.{moduleId}.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor do módulo. [Docker criar opções][lnk-docker-create-options] | Não |
@@ -68,7 +68,7 @@ A tabela seguinte não inclui as informações que são copiadas a partir das pr
 | lastDesiredVersion | Este número inteiro refere-se para a última versão das propriedades pretendidas processados pelo agente de limite. |
 | lastDesiredStatus.code | Este é o código de estado que faça referência a última propriedades pretendidas vistas pelo agente de limite. Valores permitidos: `200` com êxito, `400` configuração inválida, `412` versão de esquema inválida, `417` as propriedades pretendidas estão vazios, `500` falhou |
 | lastDesiredStatus.description | Descrição de texto do Estado |
-| deviceHealth | `healthy` Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
+| DeviceHealth | `healthy` Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
 | configurationHealth.{deploymentId}.health | `healthy` Se o estado do tempo de execução de todos os módulos definido pela implementação {deploymentId} `running` ou `stopped`, `unhealthy` caso contrário |
 | runtime.platform.OS | Relatórios de SO em execução no dispositivo |
 | runtime.platform.architecture | A arquitetura da CPU de relatórios no dispositivo |

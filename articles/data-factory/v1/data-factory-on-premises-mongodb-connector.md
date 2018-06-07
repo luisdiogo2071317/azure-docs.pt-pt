@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621450"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +71,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos **
 | servidor |Nome anfitrião ou endereço IP do servidor MongoDB. |Sim |
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor predefinido: 27017 |
 | authenticationType |Basic ou Anonymous. |Sim |
-| nome do utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
+| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
@@ -297,14 +298,14 @@ Ao mover dados para o MongoDB os seguintes mapeamentos são utilizados dos tipos
 | --- | --- |
 | Binário |Byte[] |
 | Booleano |Booleano |
-| Data |DateTime |
-| NumberDouble |Duplo |
+| Date |DateTime |
+| NumberDouble |duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
 | Cadeia |Cadeia |
 | UUID |GUID |
-| Objeto |Renormalized para aplanar colunas com "_" como separador aninhada |
+| Object |Renormalized para aplanar colunas com "_" como separador aninhada |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para as matrizes de tabelas virtuais a utilizar, consulte [suporte para tipos complexos utilizando tabelas virtuais](#support-for-complex-types-using-virtual-tables) secção abaixo.
@@ -326,14 +327,14 @@ Por exemplo, "ExampleTable" abaixo é uma tabela de MongoDB que tem uma coluna c
 
 | ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
+| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prateado |[5,6] |
 | 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable", abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
 | ID | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Prata |
+| 1111 |ABC |Prateado |
 | 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam matrizes originais no exemplo. Estas tabelas contenham o seguinte:

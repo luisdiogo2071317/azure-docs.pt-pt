@@ -1,23 +1,19 @@
 ---
-title: "Pontos finais de segurança no serviço de aprovisionamento de dispositivos de IoT | Microsoft Docs"
-description: "Conceitos - como controlar o acesso ao serviço de aprovisionamento de dispositivos de IoT para aplicações de back-end. Inclui informações sobre os tokens de segurança."
-services: iot-dps
-documentationcenter: .net
+title: Pontos finais de segurança no serviço de aprovisionamento de dispositivos de IoT | Microsoft Docs
+description: Conceitos - como controlar o acesso ao serviço de aprovisionamento de dispositivos de IoT para aplicações de back-end. Inclui informações sobre os tokens de segurança.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: dkshir
+ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629393"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -77,9 +73,9 @@ Seguem-se os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {assinatura} |Uma cadeia de assinatura de HMAC SHA256 com o formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave de descodificar a partir de base64 e utilizada como chave para realizar a computação HMAC SHA256.|
+| {signature} |Uma cadeia de assinatura de HMAC SHA256 com o formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave de descodificar a partir de base64 e utilizada como chave para realizar a computação HMAC SHA256.|
 | {expiração} |UTF8 cadeias para o número de segundos desde a UTC de 00:00:00 época no 1 de Janeiro de 1970. |
-| {ResourceURI de codificados de URL} | Caso inferiores a codificação URL do recurso minúsculas URI. Prefixos de URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando com o nome de anfitrião do serviço de aprovisionamento de dispositivos de IoT (nenhum protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Caso inferiores a codificação URL do recurso minúsculas URI. Prefixos de URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando com o nome de anfitrião do serviço de aprovisionamento de dispositivos de IoT (nenhum protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |O nome da política de acesso partilhado ao qual este token refere-se. |
 
 **Tenha em atenção, no prefixo**: prefixo o URI é calculado pelo segmento e não pelo caráter. Por exemplo `/a/b` for um prefixo para `/a/b/c` , mas não para `/a/bc`.

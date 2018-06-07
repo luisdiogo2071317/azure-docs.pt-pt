@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 38c1611c0404202be2e100d3059b4ba1ed1a9236
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6debc77bf7232f5ee5d7e638ee25b5eccdbdeeef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622082"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +65,13 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
+servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número de decimal dois dígitos representado como uma cadeia. | Sim
 clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia. | Sim
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | string | Sim
-palavra-passe | Palavra-passe para o utilizador. | string | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | string | Sim
-encryptedCredential | A cadeia de credencial encriptada. | string | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
+palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
+encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções, tais como a estrutura, a disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, Azure blob, tabela do Azure, etc.).
@@ -297,7 +298,7 @@ CLNT | Cadeia
 CURR | Decimal
 CUKY | Cadeia
 DEC | Decimal
-FLTP | Duplo
+FLTP | duplo
 INT1 | Bytes
 INT2 | Int16
 INT4 | Int
@@ -306,7 +307,7 @@ LCHR | Cadeia
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-RAW | Byte[]
+NÃO PROCESSADO | Byte[]
 RAWSTRING | Byte[]
 CADEIA | Cadeia
 UNIDADE | Cadeia

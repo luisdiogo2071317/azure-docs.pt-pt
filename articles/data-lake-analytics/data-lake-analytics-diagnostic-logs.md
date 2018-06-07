@@ -1,23 +1,20 @@
 ---
-title: Ver registos de diagnóstico para o Azure Data Lake Analytics | Microsoft Docs
-description: 'Compreender como o programa de configuração e aceder a registos de diagnóstico para o Azure Data Lake analytics '
+title: Ativar e ver os registos de diagnóstico do Azure Data Lake Analytics
+description: Compreender como configurar e aceder a registos de diagnóstico para o Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: ''
+ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623490"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Aceder a registos de diagnóstico para o Azure Data Lake Analytics
 
@@ -27,7 +24,7 @@ Registo de diagnóstico permite-lhe recolher registos de auditoria de acesso de 
 * Frequência os dados são acedidos.
 * Quantidade de dados é armazenado na conta.
 
-## <a name="enable-logging"></a>Ativar o registo
+## <a name="enable-logging"></a>Ativar registo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -131,14 +128,14 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| tempo |Cadeia |O carimbo (em UTC) do registo |
+| hora |Cadeia |O carimbo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **pedidos**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, GetAggregatedJobHistory. |
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
 | callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
 | correlationId |Cadeia |O identificador do registo. Este valor pode ser utilizado para agrupar um conjunto de entradas de registo relacionados. |
-| identidade |Objeto |A identidade que gerou o registo |
+| identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Consulte a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
@@ -183,7 +180,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| tempo |Cadeia |O carimbo (em UTC) do registo |
+| hora |Cadeia |O carimbo (em UTC) do registo |
 | resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
 | categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, JobSubmitted. |

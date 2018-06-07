@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625343"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Melhores práticas para utilizar o Azure Data Lake Store
 Neste artigo, pode saber mais sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações em torno da segurança, desempenho, resiliência e monitorização para o Data Lake Store. Antes de Data Lake Store, como trabalhar com macrodados verdadeiramente nos serviços como o Azure HDInsight era demasiado complexo. Era necessário dividir os dados em várias contas do Blob storage para que podem ser alcançados petabyte armazenamento e um desempenho ideal que escala. Com o Data Lake Store, a maioria dos limites de tamanho e o desempenho do disco rígidos é removida. No entanto, ainda existem algumas considerações que este artigo abrange, de modo a que possa obter o melhor desempenho com o Data Lake Store. 
@@ -65,9 +66,9 @@ Permissões de POSIX e auditoria no Data Lake Store é fornecido com uma sobreca
 * Copiar mais rápida/replicação.
 * Menos ficheiros para processar ao atualizar as permissões de POSIX do Data Lake Store 
 
-Dependendo de que os serviços e as cargas de trabalho utilizar os dados, um intervalo de boa a considerar para tamanhos de ficheiro é de 256 MB para 1 GB, idealmente não vai abaixo de 100 MB ou superior a 2 GB. Se os tamanhos de ficheiro não não possível criar batch quando o destino no Data Lake Store, poderá ter uma tarefa de compactação separado que combine estes ficheiros aqueles maior. Para obter mais informações e recomendação em tamanhos de ficheiro e organizar os dados no Data Lake Store, consulte [estrutura do conjunto de dados](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Dependendo de que os serviços e as cargas de trabalho utilizar os dados, um tamanho de boa a considerar para os ficheiros é de 256 MB ou superior. Se os tamanhos de ficheiro não não possível criar batch quando o destino no Data Lake Store, poderá ter uma tarefa de compactação separado que combine estes ficheiros aqueles maior. Para obter mais informações e recomendação em tamanhos de ficheiro e organizar os dados no Data Lake Store, consulte [estrutura do conjunto de dados](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamanhos de ficheiros grandes e o potencial impacto do desempenho 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Tamanhos de ficheiros grandes e o potencial impacto do desempenho
 
 Embora o Data Lake Store suporta ficheiros grandes até petabytes de tamanho, para um desempenho ideal e consoante o processo de leitura de dados, poderá não ser ideal ir acima 2 GB em média. Por exemplo, quando utilizar **Distcp** para copiar dados entre localizações ou contas de armazenamento diferentes, os ficheiros são o finest nível de granularidade utilizado para determinar as tarefas de mapa. Por isso, se estiver a copiar 10 ficheiros que estão a 1 TB, no máximo 10 mappers são alocados. Além disso, se tiver muitos ficheiros com mappers atribuídos, inicialmente os mappers funcionam em paralelo para mover ficheiros grandes. No entanto, como a tarefa começa a vento apenas alguns mappers permanecem alocados e pode estar bloqueada com um único mapeador atribuído a um ficheiro grande. Microsoft apresentou melhoramentos ao Distcp para resolver este problema em versões futuras do Hadoop.  
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 40b409964d139641a06186114fb5e06c19971a36
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0ec6aa9d226231802cd753c7216e9988b85ae5bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617465"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtro de atividade no Azure Data Factory
 Pode utilizar uma atividade de filtro num pipeline para aplicar uma expressão de filtro a uma matriz de entrada. 
@@ -42,7 +43,7 @@ Pode utilizar uma atividade de filtro num pipeline para aplicar uma expressão d
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Filter` atividade. | Cadeia | Sim
+name | Nome do `Filter` atividade. | Cadeia | Sim
 tipo | Tem de ser definido como **filtro**. | Cadeia | Sim
 condição | Condição a utilizar para a entrada de filtragem. | Expressão | Sim
 itens | Matriz de entrada em que o filtro deve ser aplicado. | Expressão | Sim

@@ -1,24 +1,21 @@
 ---
 title: Implementar a solução de monitorização remota localmente - Azure | Microsoft Docs
 description: Este tutorial mostra como implementar o acelerador de solução de monitorização remota no seu computador local para desenvolvimento e teste.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627236"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementar o remoto monitorização solução acelerador localmente
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementar o monitorização remota solução acelerador localmente
 
 Este artigo mostra como implementar o acelerador de solução de monitorização remota no seu computador local para desenvolvimento e teste. Esta abordagem implementa os micro-serviços para um contentor de Docker local e utiliza o IoT Hub, base de dados do Cosmos e serviços de armazenamento do Azure na nuvem. Utilize os Aceleradores de solução (PCS) CLI para implementar os serviços em nuvem do Azure.
 
@@ -52,7 +49,7 @@ Para obter mais informações sobre a CLI, consulte [como utilizar a CLI](https:
 
 ### <a name="download-the-source-code"></a>Transferir o código de origem
 
- O repositório de código de origem monitorização remoto inclui os ficheiros de configuração de Docker que terá de transferir, configurar e executar as imagens de Docker que contêm os micro-serviços. Para clonar e criar uma versão local do repositório, navegue para uma pasta adequada no seu computador local através da sua linha de comandos favorita ou de terminal e execute um dos seguintes comandos:
+ O repositório de código de origem monitorização remota inclui os ficheiros de configuração de Docker que terá de transferir, configurar e executar as imagens de Docker que contêm os micro-serviços. Para clonar e criar uma versão local do repositório, navegue para uma pasta adequada no seu computador local através da sua linha de comandos favorita ou de terminal e execute um dos seguintes comandos:
 
 Para instalar as implementações de Java dos micro-serviços, execute:
 
@@ -119,7 +116,7 @@ Na primeira vez que executar este comando, Docker transfere as imagens de micros
 
 Pode utilizar um shell separada para ver os registos do contentor. Primeiro localizar o ID de contentor utilizando o `docker ps -a` comando. Em seguida, utilize `docker logs {container-id} --tail 1000` para ver as últimas entradas de registo de 1000 para o contentor especificado.
 
-Para aceder ao dashboard da solução de monitorização remota, navegue para [ http://localhost:8080 ](http://localhost:8080) no seu browser.
+Para aceder ao dashboard de solução de monitorização remota, navegue até à [ http://localhost:8080 ](http://localhost:8080) no seu browser.
 
 ## <a name="clean-up"></a>Limpeza
 

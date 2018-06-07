@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622283"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas de Spark do Azure Data Factory pipelines
 
@@ -329,7 +330,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| nome | Nome da atividade no pipeline. | Sim |
+| name | Nome da atividade no pipeline. | Sim |
 | descrição | Texto que descreve o que faz a atividade. | Não |
 | tipo | Esta propriedade tem de ser definida para HDInsightSpark. | Sim |
 | linkedServiceName | Nome do serviço ligado do HDInsight em que executa o programa de Spark. | Sim |

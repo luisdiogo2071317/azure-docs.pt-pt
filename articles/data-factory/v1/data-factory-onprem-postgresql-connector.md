@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622769"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados de PostgreSQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +78,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | tipo |A propriedade de tipo tem de ser definida: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
-| schema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| Esquema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
@@ -309,43 +310,43 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo
 | abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String | &nbsp;
-| bit variando [(n)] |varbit |Byte[], String |
+| bit [(n)] | |Byte [], cadeia | &nbsp;
+| bit variando [(n)] |varbit |Byte [], cadeia |
 | boolean |bool |Booleano |
-| Caixa | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
+| Caixa | |Byte [], cadeia |&nbsp;
+| bytea | |Byte [], cadeia |&nbsp;
 | caráter [(n)] |char [(n)] |Cadeia |
 | caráter vários [(n)] |varchar [(n)] |Cadeia |
 | CID | |Cadeia |&nbsp;
-| cidr | |Cadeia |&nbsp;
-| Círculo | |Byte[], String |&nbsp;
+| CIDR | |Cadeia |&nbsp;
+| Círculo | |Byte [], cadeia |&nbsp;
 | data | |Datetime |&nbsp;
 | daterange | |Cadeia |&nbsp;
-| precisão dupla |float8 |Duplo |
-| inet | |Byte[], String |&nbsp;
+| precisão dupla |FLOAT8 |duplo |
+| inet | |Byte [], cadeia |&nbsp;
 | intarry | |Cadeia |&nbsp;
 | int4range | |Cadeia |&nbsp;
 | int8range | |Cadeia |&nbsp;
-| integer |int, int4 |Int32 |
+| inteiro |int, int4 |Int32 |
 | intervalo [campos] [(p)] | |Timespan |&nbsp;
 | json | |Cadeia |&nbsp;
 | jsonb | |Byte[] |&nbsp;
-| linha | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
+| linha | |Byte [], cadeia |&nbsp;
+| lseg | |Byte [], cadeia |&nbsp;
+| macaddr | |Byte [], cadeia |&nbsp;
 | dinheiro | |Decimal |&nbsp;
 | numérica [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Cadeia |&nbsp;
 | OID | |Int32 |&nbsp;
-| caminho | |Byte[], String |&nbsp;
+| caminho | |Byte [], cadeia |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| ponto de | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
-| real |float4 |Solteiro |
+| ponto de | |Byte [], cadeia |&nbsp;
+| polígono | |Byte [], cadeia |&nbsp;
+| real |FLOAT4 |Único |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | série |serial4 |Int32 |
-| Texto | |Cadeia |&nbsp;
+| texto | |Cadeia |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

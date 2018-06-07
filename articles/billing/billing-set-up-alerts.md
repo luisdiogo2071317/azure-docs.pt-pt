@@ -2,13 +2,12 @@
 title: Configurar alertas de crédito ou de faturação para as subscrições do Azure | Microsoft Docs
 description: Descreve como pode configurar alertas na fatura do Azure, para evitar a faturação surpresas.
 keywords: alerta de crédito, alerta de faturação
-services: ''
+services: billing
 documentationcenter: ''
 author: adpick
 manager: adpick
 editor: ''
 tags: billing
-ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 981cb1153e0268e6572207f8d2401edb23485863
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607808"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de crédito ou de faturação para as subscrições do Microsoft Azure
 Se tiver o administrador de conta para uma subscrição do Azure, pode utilizar o serviço do Azure de faturação alerta criar personalizado faturação alertas que o ajudam a monitorizar e gerir atividade faturação para as contas do Azure.
 
 Este serviço está em pré-visualização, por isso terá de ativar primeiro na página de funcionalidades de pré-visualização.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os destinatários de e-mail e de limiar de alerta
 1. Visite [a página de funcionalidades de pré-visualização](https://account.windowsazure.com/PreviewFeatures) e ativar **faturação alerta serviço**.
@@ -50,6 +49,11 @@ Azure suporta qualquer endereço de e-mail, mas não Certifique-se de que funcio
 ## <a name="check-on-your-alerts"></a>Verificar os alertas
 Depois de configurar alertas, o Centro de contas do apresenta-os e mostra quantos mais que pode configurar. Para cada alerta, ver a data e hora que foi enviada, se se trata de um alerta de faturação Total ou crédito monetário e o limite que configura. O formato de data e hora é de 24 horas Hora Universal Coordenada (UTC) e a data é o formato aaaa-mm-dd. Clique no sinal de um alerta na lista para editar ou clique em lixo-pode eliminá-la.
 
+## <a name="delete-alerts-or-email-addresses-from-the-azure-billing-alert-service"></a>Eliminar alertas ou endereços de e-mail do serviço do Azure de faturação alerta
+Se alguma vez precisar de remover quaisquer informações do serviço, o endereço de e-mail no ficheiro de atualização ou eliminar completamente o alerta.
+
+   ![Captura de ecrã da vista de alerta de eliminação, onde pode remover as informações pessoais][Image4]
+
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de faturação para clientes do Enterprise Agreement (EA)
 Subscrições de EA não são suportadas por este serviço, em vez disso, os clientes EA podem obter alertas para cada departamento em de inscrição ao definir quotas de gastos. Consulte [departamento gastos Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA para começar a utilizar.
 
@@ -63,3 +67,4 @@ Para obter mais informações, consulte [obter orientações sobre a gestão de 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
+[Image4]: ./media/azure-billing-set-up-alerts/AlertsDeleteScreen1.PNG

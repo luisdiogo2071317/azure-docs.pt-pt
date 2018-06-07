@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a572824225c0d83af698c4ff18d6b297b1ebb729
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620484"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +82,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| nome |Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
+| name |Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
 | tipo |tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para obter mais informações, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
@@ -194,7 +195,7 @@ Cada coluna na estrutura de contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome da coluna. |Sim |
+| name |Nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
 | Cultura |. Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
 | formato |Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
@@ -241,7 +242,7 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina com que frequência o setor é produzido. Por exemplo, se precisar do conjunto de dados segmentados numa base horária, defina <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo para não inferior a 15. |Sim |ND |
 | Estilo |Especifica se deve ser produzido do setor no início ou fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definido como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definido como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definido como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definido como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de PM 1 PM - 2, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/>Tenha em atenção que, se este propoerty tem partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **hora a hora** (frequência: horas e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes minutos e segundos, da **anchorDateTime** são ignorados. |Não |01/01/0001 |
-| offset |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/>Tenha em atenção que se ambos os **anchorDateTime** e **desvio** especificado, o resultado é o shift combinada. |Não |ND |
+| deslocamento |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/>Tenha em atenção que se ambos os **anchorDateTime** e **desvio** especificado, o resultado é o shift combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por predefinição, diariamente (`"frequency": "Day", "interval": 1`) setores iniciar às 12 AM (meia-noite) Hora Universal Coordenada (UTC). Se pretender que a hora de início, a hora UTC de 6: 00 em vez disso, defina o deslocamento conforme mostrado no seguinte fragmento: 

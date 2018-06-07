@@ -1,24 +1,21 @@
 ---
-title: Exportar uma base de dados do U-SQL com o Azure Data Lake Tools para Visual Studio | Microsoft Docs
+title: Exportar uma base de dados do U-SQL com o Azure Data Lake Tools para Visual Studio
 description: Saiba como utilizar o Azure Data Lake Tools para Visual Studio para exportar uma base de dados do U-SQL e importe-o automaticamente para uma conta local.
 services: data-lake-analytics
-documentationcenter: 
 author: yanancai
-manager: 
-editor: 
+ms.author: yanacai
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: yanacai
-ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623415"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar uma base de dados do U-SQL
 
@@ -86,7 +83,7 @@ Para importar a base de dados para outra conta de Data Lake Analytics:
 
 Atualmente, se selecionar a **esquema e dados** opção no passo 3, a ferramenta executa uma tarefa de U-SQL para exportar os dados armazenados nas tabelas. Por este motivo, os processo de exportação de dados podem ser lentos e pode implicar custos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre bases de dados do U-SQL](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
 * [Testar e depurar tarefas U-SQL utilizando a execução local e o SDK U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)

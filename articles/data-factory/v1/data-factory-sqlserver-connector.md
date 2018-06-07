@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f1a2ec3bdf77e6f4f433c88b470e108b734fc4c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 67a91f8b61c1a0783d2075a13cc8cf2701496c88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622385"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados para e do SQL Server no local ou no IaaS (VM do Azure) utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -656,34 +657,34 @@ O mapeamento está mesmo que o mapeamento de tipos de dados do SQL Server para A
 | bigint |Int64 |
 | Binário |Byte[] |
 | bits |Booleano |
-| char |String, Char[] |
+| char |Cadeia, Char [] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Número de vírgula flutuante |Duplo |
+| Flutuante |duplo |
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
+| nchar |Cadeia, Char [] |
+| ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
-| nvarchar |String, Char[] |
-| real |Solteiro |
+| nvarchar |Cadeia, Char [] |
+| real |Único |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |String, Char[] |
+| texto |Cadeia, Char [] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Cadeia, Char [] |
 | xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Origem de mapeamento para colunas de sink

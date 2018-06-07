@@ -2,30 +2,27 @@
 title: Expirar os dados na base de dados do Azure Cosmos com TTL | Microsoft Docs
 description: Com o TTL, base de dados do Microsoft Azure Cosmos fornece a capacidade de ter documentos automaticamente removidos do sistema após um período de tempo.
 services: cosmos-db
-documentationcenter: ''
 keywords: TTL
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615126"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções de base de dados do Azure Cosmos automaticamente com TTL
-As aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, incluindo machine gerado dados, os registos e utilizador a sessão do evento informações apenas são útil para um período de tempo finito. Depois dos dados ficam surplus às necessidades da aplicação é seguro remover estes dados e reduzir as necessidades de armazenamento de uma aplicação.
+As aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, incluindo machine gerado dados, os registos e utilizador a sessão do evento informações apenas são útil para um período de tempo finito. Depois dos dados ficam surplus às necessidades da aplicação, é seguro remover estes dados e reduzir as necessidades de armazenamento de uma aplicação.
 
 Com "tempo TTL" ou TTL, base de dados do Microsoft Azure Cosmos fornece a capacidade de ter documentos automaticamente removidos da base de dados após um período de tempo. O tempo predefinido em direto pode ser definido ao nível da coleção e substituí-lo numa base por documento. Depois do TTL é definido como uma predefinição de coleção ou a um nível de documento, base de dados do Cosmos removerá automaticamente documentos que existem depois desse período de tempo, em segundos, desde que foram modificado pela última vez.
 
-TTL na base de dados do Cosmos utiliza um desvio contra quando o documento foi modificado pela última vez. Para fazê-lo utiliza o `_ts` campo de que existe em todos os documentos. O campo de _ts é um carimbo de época de estilo unix que representa a data e hora. O `_ts` campo é atualizado sempre que um documento é modificado. 
+TTL do BD Azure Cosmos utiliza um desvio contra quando o documento foi modificado pela última vez. Para fazê-lo utiliza o `_ts` campo, o que existe em todos os documentos. O campo de _ts é um carimbo de época de estilo unix que representa a data e hora. O `_ts` campo é atualizado sempre que um documento é modificado. 
 
 ## <a name="ttl-behavior"></a>Comportamento TTL
 A funcionalidade TTL é controlada pelas propriedades TTL em dois níveis - nível da coleção e o nível de documento. Os valores estão definidos em segundos e são tratados como um delta do `_ts` que o documento foi efetuada a último modificação em.
@@ -33,14 +30,14 @@ A funcionalidade TTL é controlada pelas propriedades TTL em dois níveis - nív
 1. DefaultTTL para a coleção
    
    * Se estiverem em falta (ou definido como nulo), documentos não são eliminados automaticamente.
-   * Se presente e o valor for "-1" = infinita – documentos não expirarem por predefinição
-   * Se presente e o valor é algumas número ("n") – documentos expirarem "n" segundos após a última modificação
+   * Se presente e o valor estiver definido como "-1" = infinita – documentos não expirarem por predefinição
+   * Se presente e o valor está definido como algumas número ("n") – documentos expirarem "n" segundos após a última modificação
 2. Valor de TTL para os documentos: 
    
    * Propriedade só é aplicável se DefaultTTL está presente para a coleção principal.
    * Substitui o valor de DefaultTTL para a coleção principal.
 
-Assim que o documento expirou (`ttl`  +  `_ts` < = hora atual do servidor), o documento está marcado como "expirado". Nenhuma operação será permitida nestes documentos após esta hora e irá ser excluídas dos resultados de consultas de efetuar. Os documentos são eliminados fisicamente no sistema e são eliminados em segundo plano opportunistically numa altura posterior. Isto não consome qualquer [unidades de pedido (RUs)](request-units.md) da atribuição de coleção.
+Assim que o documento expirou (`ttl`  +  `_ts` < = hora atual do servidor), o documento está marcado como "expirou." Nenhuma operação será permitida nestes documentos após esta hora e irá ser excluídas dos resultados de consultas de efetuar. Os documentos são eliminados fisicamente no sistema e são eliminados em segundo plano opportunistically numa altura posterior. Isto não consome qualquer [unidades de pedido (RUs)](request-units.md) da atribuição de coleção.
 
 A lógica acima pode ser apresentada na matriz seguinte:
 
@@ -81,7 +78,7 @@ Para ativar o TTL uma coleção ou os documentos numa coleção, tem de definir 
 
 
 ## <a name="setting-ttl-on-a-document"></a>Definição TTL de um documento
-Além de definir um TTL predefinido de uma coleção pode definir o TTL específico a um nível de documento. Fazer isto irá substituir a predefinição da coleção.
+Além de definir um TTL predefinido de uma coleção, pode definir o TTL específico a um nível de documento. Fazer isto irá substituir a predefinição da coleção.
 
 * Para definir o valor de TTL num documento, tem de fornecer um número positivo diferente de zero, que indica o período de, em segundos, para expirar o documento após a última modificação timestamp do documento (`_ts`).
 * Se um documento não tiver nenhum campo de valor de TTL, a predefinição da coleção serão aplicadas.
@@ -150,7 +147,7 @@ Para desativar o TTL inteiramente numa coleção e parar o processo em segundo p
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interação de TTL e índice
-Adicionar ou alterar a definição do valor de TTL numa coleção altera o índice subjacente. Quando o valor de TTL é alterado de desativar no, a coleção é reindexed. Quando efetuar alterações à política de indexação quando o modo de indexação é consistente, os utilizadores não vai notar uma alteração para o índice. Quando o modo de indexação é está definido para lento, o índice é sempre obtendo cópias de segurança e se o valor TTL é alterado, o índice é recriado a partir do zero. Quando o valor TTL é alterado e o modo de índice está definido como lento, consultas efetuadas durante a reconstrução do índice não devolveu resultados completos ou corretos.
+Adicionar ou alterar a definição do valor de TTL numa coleção altera o índice subjacente. Quando o valor de TTL é alterado de desativar no, a coleção é reindexed. Quando efetuar alterações à política de indexação quando o modo de indexação é consistente, os utilizadores não vai notar uma alteração para o índice. Quando o modo de indexação está definido como lento, o índice é sempre obtendo cópias de segurança e se o valor TTL é alterado, o índice é recriado a partir do zero. Quando o valor TTL é alterado e o modo de índice está definido como lento, consultas efetuadas durante a reconstrução do índice não devolveu resultados completos ou corretos.
 
 Se precisar de exatos dados devolvidos, não altere o valor de TTL quando o modo de indexação está definido como lento. Idealmente, deve ser selecionado índice consistente para garantir que os resultados da consulta consistente. 
 
@@ -169,7 +166,7 @@ Não, existirá nenhum impacto em custos de RU para eliminações de expirada do
 
 **É a funcionalidade TTL apenas aplicável a documentos todos ou posso expirar os valores de propriedade de documento individuais?**
 
-TTL aplica-se a todo o documento. Se gostaria de expirar apenas uma parte de um documento, em seguida, recomenda-se que extrair a parte do documento no principal para um documento de "ligado" separado e, em seguida, utilize o TTL nesse documento extraídos.
+TTL aplica-se a todo o documento. Se gostaria de expirar apenas uma parte de um documento, em seguida, recomenda-se que extrair a parte do documento principal para um documento de "ligado" separado e, em seguida, utilize o TTL nesse documento extraídos.
 
 **A funcionalidade TTL tem quaisquer requisitos específicos de indexação?**
 

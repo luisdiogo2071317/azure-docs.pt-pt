@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d81b6fc89c90b769650505e845d6d6c6cd70049f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616931"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -475,7 +476,7 @@ Pode criar **serviço ligado do Azure Databricks** registar Databricks área de 
 
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| nome                 | Nome do serviço ligado               | Sim   |
+| name                 | Nome do serviço ligado               | Sim   |
 | tipo                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
 | domínio               | Especifique a região do Azure em conformidade com base na região da área de trabalho Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
 | accessToken          | Token de acesso é necessário para a fábrica de dados para se autenticar Databricks do Azure. Token de acesso tem de ser gerado a partir da área de trabalho databricks. Mais passos para localizar o token de acesso pode ser encontrado [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |

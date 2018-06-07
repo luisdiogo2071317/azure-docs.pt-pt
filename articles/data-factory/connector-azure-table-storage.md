@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617183"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o Table storage do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -271,8 +272,8 @@ Ao mover dados para e da tabela do Azure, o seguinte [mapeamentos definidos pelo
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
 | Edm.Boolean |bool |Valor booleano. |
-| Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo de DateTime suportado começa, 1 de Janeiro de 1601 a.d. (C.E.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
-| Edm.Double |duplo |Um valor de ponto flutuante de 64 bits. |
+| Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo de DateTime suportado começa, 1 de Janeiro de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
+| Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |GUID |Um identificador exclusivo global de 128 bits. |
 | Edm.Int32 |Int32 |Um número inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um número inteiro de 64 bits. |
