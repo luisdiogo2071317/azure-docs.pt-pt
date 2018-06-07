@@ -1,24 +1,21 @@
 ---
-title: "Aplicação .NET multicamadas com o Azure Service Bus | Microsoft Docs"
-description: "Um tutorial de .NET que ajuda a desenvolver uma aplicação multicamadas no Azure que utiliza as filas do Service Bus para comunicar entre camadas."
+title: Aplicação .NET multicamadas com o Azure Service Bus | Microsoft Docs
+description: Um tutorial de .NET que ajuda a desenvolver uma aplicação multicamadas no Azure que utiliza as filas do Service Bus para comunicar entre camadas.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809459"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -58,25 +55,19 @@ Este mecanismo de comunicação tem várias vantagens em relação às mensagens
 
 As secções seguintes abordam o código que implementa esta arquitetura.
 
-## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
-Antes de poder começar a desenvolver aplicações do Azure, obtenha as ferramentas e configure o ambiente de desenvolvimento.
-
-1. Instale o Azure SDK para o .NET a partir da [página de transferências](https://azure.microsoft.com/downloads/) do SDK.
-2. Na coluna **.NET**, clique na versão do [Visual Studio](http://www.visualstudio.com) que está a utilizar. Os passos neste tutorial utilizam o Visual Studio 2015, mas também funcionam com o Visual Studio 2017.
-3. Quando lhe for pedido para executar ou guardar o instalador, clique em **Executar**.
-4. No **Instalador de Plataforma Web**, clique em **Instalar** e continue com a instalação.
-5. Após a conclusão da instalação, terá tudo o que é necessário para começar a desenvolver a aplicação. O SDK inclui ferramentas que permitem desenvolver facilmente aplicações do Azure no Visual Studio.
-
 ## <a name="create-a-namespace"></a>Criar um espaço de nomes
-O passo seguinte consiste em criar um *espaço de nomes* e obter uma [chave de Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) para esse espaço de nomes. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
+
+O primeiro passo é criar um *espaço de nomes*e obter um [assinatura de acesso partilhado (SAS)](service-bus-sas.md) chave para esse espaço de nomes. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Criar uma função da Web
+
 Nesta secção, compile o front-end da sua aplicação. Em primeiro ligar, crie as páginas a serem apresentadas pela aplicação.
 Em seguida, adicione o código que submete itens para a fila do Service Bus e mostra as informações de estado sobre a fila.
 
 ### <a name="create-the-project"></a>Criar o projeto
+
 1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, abordado posteriormente neste artigo, necessita que o Visual Studio seja iniciado com privilégios de administrador.
    
    No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.

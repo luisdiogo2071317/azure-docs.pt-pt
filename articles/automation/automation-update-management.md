@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83204132a7494dc766420520eeaf2362c98d878f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801818"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824953"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -56,7 +56,7 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |Sistema Operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Só suporta as avaliações de atualização         |
-|Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou superior ([transferir o WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> 5.1 do Windows PowerShell ([transferir o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendada para uma maior fiabilidade.         |
+|Windows Server 2008 R2 SP1 e posterior     |É necessário o .NET framework 4.5 ou superior ([transferir o .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> É necessário o Windows PowerShell 4.0 ou superior ([transferir o WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> 5.1 do Windows PowerShell ([transferir o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendada para uma maior fiabilidade.         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |

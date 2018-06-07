@@ -1,23 +1,19 @@
 ---
 title: Compreender os pontos finais personalizados IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - utilizando regras de encaminhamento para encaminhar mensagens do dispositivo para nuvem para os pontos finais personalizados.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b035c7ef6dfe56c4b4534e081e70d95ea7c14847
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808031"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilizar rotas de mensagem e os pontos finais personalizados para mensagens do dispositivo-nuvem
 
@@ -71,7 +67,7 @@ O [mensagens de dispositivo para a nuvem do IoT Hub do processo utilizar rotas] 
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-query-language]: iot-hub-devguide-query-language.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md

@@ -1,5 +1,5 @@
 ---
-title: Alertas de métricas mais recentes no Monitor do Azure suportada recursos | Microsoft Docs
+title: Suportado recursos para alertas de métricas de Monitor do Azure mais recentes | Microsoft Docs
 description: Referência nos registos do Azure mais recente quase em tempo real alertas métricas e métricas de suporte.
 author: snehithm
 manager: kmadnani1
@@ -15,24 +15,15 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809833"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Alertas de métricas mais recentes para serviços do Azure no portal do Azure
-Monitor do Azure suporta agora um novo tipo de alerta métrico. Os alertas mais recentes é diferente do [clássicas alertas métricas](insights-alerts-portal.md) de algumas formas:
-
-- **Melhorado latência**: alertas métricas mais recentes podem ser executado com uma frequência de cada um minuto. Alertas de métricas mais antigas sempre executam com uma frequência de 5 minutos. Alertas de registo ainda têm um tempo de 1 minuto atraso devido ao tempo é necessário para os registos de inserção. 
-- **Suporte para as métricas multidimensionais**: podem alertá nas métricas dimensional, permitindo-lhe monitorizar uma apenas um segmento interessante da métrica. 
-- **Mais controlo sobre condições métricas**: pode definir regras de alerta rica. Os alertas mais recentes suportam os valores máximo, mínimos, médios e totais de métricas de monitorização. 
-- **Combinar a monitorização de várias métricas**: pode monitorizar várias métricas (atualmente, até duas métricas) com uma única regra. Um alerta é acionado se ambas as métricas infringir os respetivos limiares para o período de tempo especificado. 
-- **Melhor sistema notificação**: utilizam todos os alertas mais recentes [grupos ação](monitoring-action-groups.md), que são denominados grupos de ações que podem ser reutilizadas em vários alertas e notificações. Alertas de métricas clássicas e alertas de análise de registos mais antigas não utilizam grupos de ação. 
-- **Métricas de registos** (limitado pré-visualização pública): registo entrem em análise de registos de dados podem agora ser extraído e convertido métricas de Monitor do Azure e, em seguida, alertado em tal como outras métricas. 
-
-Para saber como criar um alerta de métrico mais recente no portal do Azure, consulte [criar uma regra de alerta no portal do Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Após a criação, pode gerir o alerta, utilizando os passos descritos no [gerir os alertas no portal do Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Métodos suportados de métricas e criação de novos alertas métricas
+Azure suporta agora a monitorizar um [novo tipo de alerta métrico](monitoring-overview-unified-alerts.md) que tem vantagens significativas através de mais antigo [clássicas alertas métricas](insights-alerts-portal.md). Os alertas mais antigos suportam um [lista grande de métricas](monitoring-supported-metrics.md). Os alertas mais recentes suportam um subconjunto (crescente) de que lista maior. Este artigo apresenta uma lista esse subconjunto. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST suporte
 Atualmente, pode criar alertas métricas mais recentes apenas no portal do Azure, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes com o PowerShell e a interface de linha de comandos do Azure (Azure CLI 2.0) está disponível em breve.

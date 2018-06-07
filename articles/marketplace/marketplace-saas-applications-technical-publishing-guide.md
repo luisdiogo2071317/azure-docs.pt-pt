@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809476"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guia publicação technical aplicações SaaS
 
@@ -50,7 +51,7 @@ Aplicações SaaS estão disponíveis em ambos os Storefronts Azure a tabela seg
 | **PowerBI / Dynamics** | Sim | Sim (integração com o Azure AD) |  
 | **Aplicações SaaS**| Sim | Sim (integração com o Azure AD) |     
 
-Para obter mais informações sobre os storefronts Marketplace e um descripiton de cada opção de publicação, consulte o [Marketplace publicador guia](https://aka.ms/sellerguide) e [opções de publicação](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Para obter mais informações sobre os storefronts Marketplace e um descripiton de cada opção de publicação, consulte o [Marketplace publicador guia](https://aka.ms/sellerguide) e [opções de publicação](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Requisitos comerciais
 Os SaaS oferecem requisitos empresariais podem ser concluídos em paralelo com os requisitos técnicos. A maioria dos requisitos de negócio e as informações são recolhidas quando criar a oferta de SaaS no Portal de parceiros de nuvem. Os requisitos comerciais são as seguintes: 
@@ -61,7 +62,7 @@ Os SaaS oferecem requisitos empresariais podem ser concluídos em paralelo com o
 * Configurar a política de privacidade e termos de utilização
 * Definir os contactos de suporte  
 
-Para obter mais informações, pode ser encontrado no tópico [pré-requisitos para a publicação do marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Para obter mais informações, pode ser encontrado no tópico [pré-requisitos para a publicação do marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -71,11 +72,11 @@ Para começar, é recomendável que tiver uma subscrição dedicada para a publi
 
 A documentação do Azure Active Directory, exemplos e orientação melhor estão localizados em sites seguintes: 
 
-* [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integração com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integração com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Plano do Azure - segurança e identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -124,7 +125,7 @@ A tabela seguinte descreve cada um dos passos principais publicação:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilizar o Azure Active Directory para ativar avaliações  
 
-Microsoft autentica todos os utilizadores de Marketplace com o Azure AD, por conseguinte, quando um utilizador autenticado clica através da sua lista de avaliação no Marketplace e é redirecionado para o seu ambiente de avaliação, pode aprovisionar o utilizador diretamente para uma versão de avaliação sem necessidade de um início de sessão no passo adicional. O token que recebe a aplicação do Azure AD durante a autenticação inclui informações de utilizador importantes que pode utilizar para criar uma conta de utilizador na sua aplicação, permitindo-lhe automatizar a experiência de aprovisionamento e aumentar a probabilidade de conversão. Para mais informações sobre o token, consulte [Tokens de exemplo](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft autentica todos os utilizadores de Marketplace com o Azure AD, por conseguinte, quando um utilizador autenticado clica através da sua lista de avaliação no Marketplace e é redirecionado para o seu ambiente de avaliação, pode aprovisionar o utilizador diretamente para uma versão de avaliação sem necessidade de um início de sessão no passo adicional. O token que recebe a aplicação do Azure AD durante a autenticação inclui informações de utilizador importantes que pode utilizar para criar uma conta de utilizador na sua aplicação, permitindo-lhe automatizar a experiência de aprovisionamento e aumentar a probabilidade de conversão. Para mais informações sobre o token, consulte [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Utilizar o Azure AD para ativar a autenticação de 1-Clique para a sua aplicação ou a versão de avaliação faz o seguinte:  
 * Simplifica a experiência do cliente do Marketplace para avaliação.  
@@ -140,15 +141,15 @@ Pode certificar a integração do Azure AD de algumas formas diferentes, depende
 
 Se já suportam o Azure AD, efetue o seguinte:
 1.  Registar a sua aplicação no portal do Azure
-2.  Ative a funcionalidade de suporte de vários inquilinos no Azure AD para obter uma experiência de avaliação 'num só clique'. Pode encontrar informações mais específicas [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Ative a funcionalidade de suporte de vários inquilinos no Azure AD para obter uma experiência de avaliação 'num só clique'. Pode encontrar informações mais específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Se estiver familiarizado com o Azure AD federado SSO, efetue o seguinte: 
 1.  Registar a sua aplicação no portal do Azure
-2.  Desenvolver SSO com o Azure AD com [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Ativar o suporte de vários inquilinos funcionalidade do AAD para obter informações mais específicas de experiência de avaliação gratuita 'num só clique' pode ser encontrada [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Desenvolver SSO com o Azure AD com [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Ativar o suporte de vários inquilinos funcionalidade do AAD para obter informações mais específicas de experiência de avaliação gratuita 'num só clique' pode ser encontrada [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Para a aplicação de inquilino único, utilize qualquer uma das seguintes opções:**  
-* Adicionar utilizadores ao seu diretório, como os utilizadores convidados utilizando [B2B do Azure](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Adicionar utilizadores ao seu diretório, como os utilizadores convidados utilizando [B2B do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Aprovisionar manualmente avaliações para clientes através da utilização de 'Contactar-Me'
 * Desenvolver por-cliente por unidade de teste
 * Criar uma aplicação de demonstração de exemplo do multi-inquilino com o SSO

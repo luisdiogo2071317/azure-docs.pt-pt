@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dbe6f5f6f3aa128b3180c1b7aecb17853aa6a0aa
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801403"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808609"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas mais frequentes sobre Azure Active Directory Connect
 
@@ -28,7 +28,7 @@ ms.locfileid: "34801403"
 Com as compilações de Fevereiro de 2016, este cenário é suportado.
 
 **P: existe uma forma de instalar o Azure AD Connect automático?**  
-Só é suportada para instalar o Azure AD Connect, utilizando o Assistente de instalação. Não é suportada uma instalação automática e silenciosa.
+Só é suportada para instalar o Azure AD Connect, utilizando o Assistente de instalação. Uma instalação automática e silenciosa não são suportadas.
 
 **P: Tenho uma floresta em que um domínio não pode ser contactado. Como instalar o Azure AD Connect?**  
 Com as compilações de Fevereiro de 2016, este cenário é suportado.
@@ -41,7 +41,17 @@ Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando
 **P: AADConnect suporta a sincronizar a partir de dois domínios no Azure AD?**</br>
 Sim, este cenário é suportado. Consulte [vários domínios](active-directory-aadconnect-multiple-domains.md)
  
-**P: pode ter vários conectores para o mesmo domínio do Active Directory no Azure AD connect?**</br> Não, vários conectores para o mesmo domínio do AD não é suportada. 
+**P: pode ter vários conectores para o mesmo domínio do Active Directory no Azure AD connect?**</br> Não, vários conectores para o mesmo domínio do AD não são suportados. 
+
+**P: posso mover a base de dados do Azure AD Connect da base de dados local para um SQL Server remoto?**</br> Sim, os passos seguintes irão fornecer orientações gerais sobre como fazê-lo.  Estamos atualmente a trabalhar num documento mais detalhado que estará disponível brevemente.
+
+
+   1. Cópia de segurança da base de dados de "ADSync" LocalDB a forma mais simples para o fazer consiste em utilizar o SQL Server Management Studio instalado no mesmo computador como o Azure AD Connect. Ligar a "(localdb)\.\ADSync" –, em seguida, efetuar cópias de segurança da base de dados ADSync
+   2. Restaurar a base de dados "ADSync" para a instância do SQL Server remoto
+   3. Instalar o Azure AD Connect contra existente [base de dados remota do SQL Server](active-directory-aadconnect-existing-database.md) ligação mostra os passos necessários após a migração para utilizar uma base de dados Local do SQL Server. Se estiver a migrar para a utilização de uma base de dados do SQL Server remoto, em seguida, no passo 5 deste processo também terá de introduzir uma conta de serviço existente que o serviço de sincronização do Windows será executado como. Esta conta de serviço de motor de sincronização é descrita aqui:</br></br>
+   **Utilizar uma conta de serviço existente**- por predefinição, o Azure AD Connect utiliza uma conta de serviço virtuais para os serviços de sincronização para utilizar. Se utilizar um SQL server remoto ou utilizar um proxy que requeira autenticação, tem de utilizar uma conta de serviço gerida ou utilizar uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que o utilizador que está a executar a instalação é um SA no SQL Server, para possa ser criado um início sessão para a conta de serviço. Veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account).</br></br> Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados. Para obter mais informações, veja [Instalar o Azure AD Connect com permissões de administrador do SQL delegado](active-directory-aadconnect-sql-delegation.md).
+
+Recomenda-se que o utilizador que instalar o Azure AD Connect é um SA no SQL Server para manter as coisas simples. (No entanto com compilações recentes pode agora utilizar delegado administrador do SQL Server, tal como descrito [aqui](active-directory-aadconnect-sql-delegation.md).
 
 ## <a name="network"></a>Rede
 **P: Posso tem uma firewall, o dispositivo de rede ou outra coisa que limita as ligações de tempo máximo pode permanecer aberta na minha rede. Quanto tempo os meus limiar do tempo limite do lado do cliente estará ao utilizar o Azure AD Connect?**  

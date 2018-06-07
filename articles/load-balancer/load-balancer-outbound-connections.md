@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825004"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -140,7 +141,7 @@ O mesmo número de portas de realizar o SNAT é preallocated respetivamente para
 >[!IMPORTANT]
 >Standard realizar o SNAT SKU de programação é por protocolo de transporte IP e derivados a regra de balanceamento de carga.  Se só existe uma regra de balanceamento de carga TCP, realizar o SNAT só está disponível para TCP. Se tiver apenas um TCP balanceamento de carga regra e precisar de realizar o SNAT saído para UDP, crie uma regra da mesma front-end para o mesmo conjunto de back-end de balanceamento de carga do UDP.  Esta será acionada a realizar o SNAT de programação para UDP.  Não é necessária uma sonda de regra ou o estado de funcionamento de trabalho.  Realizar o SNAT SKU básico programas sempre realizar o SNAT para ambos os protocolo de transporte IP, independentemente do protocolo de transporte especificado na regra de balanceamento de carga.
 
-Azure preallocates realizar o SNAT portas para a configuração de IP da NIC de cada VM. Quando uma configuração de IP é adicionada ao conjunto, as portas de realizar o SNAT são preallocated para esta configuração de IP com base no tamanho de conjunto back-end. Quando são criados os fluxos de saída, [PAT](#pat) dinamicamente consome (até ao limite preallocated) e liberta estas portas quando fecha o fluxo ou [tempos limite de inatividade](#ideltimeout) acontecer.
+Azure preallocates realizar o SNAT portas para a configuração de IP da NIC de cada VM. Quando uma configuração de IP é adicionada ao conjunto, as portas de realizar o SNAT são preallocated para esta configuração de IP com base no tamanho de conjunto back-end. Quando são criados os fluxos de saída, [PAT](#pat) dinamicamente consome (até ao limite preallocated) e liberta estas portas quando fecha o fluxo ou [tempos limite de inatividade](#idletimeout) acontecer.
 
 A tabela seguinte mostra os preallocations de porta de realizar o SNAT para as camadas de tamanhos de conjunto de back-end:
 

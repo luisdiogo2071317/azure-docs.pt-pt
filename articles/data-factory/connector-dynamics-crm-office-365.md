@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 848b571dd2664d4910d669faa4dce1aad16cd528
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808432"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar os dados de origem e de Dynamics 365 (serviço de dados comum) ou Dynamics CRM através da utilização do Azure Data Factory
 
@@ -329,7 +330,7 @@ Configure o tipo de dados do Data Factory correspondente numa estrutura de conju
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Duplo | ✓ | ✓ |
+| AttributeType.Double | duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ |

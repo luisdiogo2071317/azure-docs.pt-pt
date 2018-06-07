@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8ee71a5c37357e0a92f794d7b808948f4e5b4ff0
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823933"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v 2.0 e fluxo de OAuth 2.0 On-Behalf-Of
 On-Behalf-Of de 2.0 OAuth fluxo funciona o caso de utilização onde uma aplicação invoca uma serviço/API web, que por sua vez tem de chamar outro serviço/API web. A ideia é para propagar a identidade do delegado de utilizador e as permissões através da cadeia de pedidos. Para o serviço de camada média fazer pedidos autenticados para o serviço a jusante, tem de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
@@ -29,13 +30,13 @@ On-Behalf-Of de 2.0 OAuth fluxo funciona o caso de utilização onde uma aplica�
 > [!NOTE]
 > O ponto final v 2.0 não suporta todos os cenários do Azure Active Directory e funcionalidades. Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
 >
->
+
+
+> [!IMPORTANT]
+> O [concessão implícita](active-directory-v2-protocols-implicit.md) não pode ser utilizado para o fluxo em-nome-de - SPAs tem de passar respetivo token de acesso (fluxo implícito) para um cliente confidencial camada média para efetuar OBO fluxos.  Consulte [limitações](#client-limitations) para obter mais detalhes no qual os clientes podem executar em-nome-de chamadas.  
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 Partem do princípio de que o utilizador ser autenticado utilizando uma aplicação a [fluxo de concessão do código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md). Neste momento, a aplicação tem um token de acesso *para API A* (token A) com afirmações do utilizador e do consentimento para aceder a camada média web API (API A). Agora, API A necessita fazer um pedido autenticado ao web a jusante API (API B).
-
-> [!IMPORTANT]
-> Tokens adquiridos utilizando o [concessão implícita](active-directory-v2-protocols-implicit.md) não pode ser utilizado para o fluxo em-nome-de. O cliente no implcit fluxos não é autenticado (através por exemplo, um segredo do cliente) e, por conseguinte, não deve ser permitido arranque para outro, possivelmente mais poderoso token.
 
 Os passos que se seguem constituem o fluxo em-nome-de e são explicados com a ajuda do diagrama a seguir.
 
@@ -178,6 +179,9 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
+
+## <a name="client-limitations"></a>Limitações de cliente
+Se um cliente utiliza o fluxo implícito para obter uma id_token e que o cliente também tem carateres universais num URL de resposta, a id_token não pode ser utilizado para um fluxo OBO.  No entanto, ainda podem ser resgatados tokens de acesso que adquiriu através do fluxo de concessão implícita por um cliente confidencial, mesmo que o cliente iniciar tem um URL de resposta de caráter universal registado. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de efetuar a autenticação de serviço a serviço utilizando credenciais do cliente.

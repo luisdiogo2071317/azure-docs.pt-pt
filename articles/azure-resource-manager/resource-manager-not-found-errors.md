@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823440"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Resolva os erros não encontrados para recursos do Azure
 
-Este artigo descreve os erros que poderão surgir quando não é possível encontrar um recurso durante a implementação.
+Este artigo descreve os erros que poderá ver quando não é possível encontrar um recurso durante a implementação.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se tentar utilizar o [referência](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) funciona com um recurso que não pode ser resolvido, receberá o seguinte erro:
+Se utilizar o [referência](resource-group-template-functions-resource.md#reference) ou [listKeys](resource-group-template-functions-resource.md#listkeys) funciona com um recurso que não pode ser resolvido, receberá o seguinte erro:
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Se estiver a tentar implementar o recurso em falta no modelo, verifique se tem d
 }
 ```
 
-No entanto, pretende evite definir dependências que não são necessários. Quando tiver dependências desnecessárias, prolongar a duração da implementação ao impedir que os recursos que não são dependentes entre si de que está a ser implementado em paralelo. Além disso, pode criar dependências circulares que bloquear a implementação. O [referência](resource-group-template-functions-resource.md#reference) função cria uma dependência implícita no recurso referenciado, quando esse recurso é implementado no mesmo modelo. Por conseguinte, pode ter mais de dependências que as dependências especificados no **dependsOn** propriedade. O [resourceId](resource-group-template-functions-resource.md#resourceid) função não criar uma dependência implícita ou a validar que o recurso existe.
+No entanto, pretende evite definir dependências que não são necessários. Quando tiver dependências desnecessárias, prolongar a duração da implementação ao impedir que os recursos que não são dependentes entre si de que está a ser implementado em paralelo. Além disso, pode criar dependências circulares que bloquear a implementação. O [referência](resource-group-template-functions-resource.md#reference) função e [lista *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) funções cria uma dependência implícita no recurso referenciado, quando esse recurso é implementado no mesmo modelo e é referenciado pelo respetivo nome (não o ID do recurso ). Por conseguinte, pode ter mais de dependências que as dependências especificados no **dependsOn** propriedade. O [resourceId](resource-group-template-functions-resource.md#resourceid) função não criar uma dependência implícita ou validar que o recurso existe. O [referência](resource-group-template-functions-resource.md#reference) função e [lista *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) funções não criar uma dependência implícita quando o recurso é referido pelo respetivo ID de recurso. Para criar uma dependência implícita, transmita o nome do recurso que é implementado no mesmo modelo.
 
-Quando tiver problemas de dependência, terá de obter conhecimentos aprofundados sobre a ordem de implementação de recursos. Para ver a ordem das operações de implementação:
+Quando vir a problemas de dependência, terá de obter conhecimentos aprofundados sobre a ordem de implementação de recursos. Para ver a ordem das operações de implementação:
 
 1. Selecione o histórico de implementação para o grupo de recursos.
 
@@ -92,7 +93,7 @@ Quando o recurso existe num grupo de recursos diferente daquela que está a ser 
 
 ## <a name="solution-3---check-reference-function"></a>Solução 3 - a função de referência de verificação
 
-Procure uma expressão que inclui o [referência](resource-group-template-functions-resource.md#reference) função. Os valores que fornece variam com base em se o recurso está no mesmo modelo, grupo de recursos e subscrição. Volte a verificar que está a fornecer os valores de parâmetros necessários para o seu cenário. Se o recurso está num grupo de recursos diferente, forneça o ID de recurso completo. Por exemplo, para fazer referência a uma conta de armazenamento noutro grupo de recursos, utilize:
+Procure uma expressão que inclui o [referência](resource-group-template-functions-resource.md#reference) função. Os valores que fornece variam com base em se o recurso está no mesmo modelo, grupo de recursos e subscrição. Volte a verificar se está a fornecer os valores de parâmetros necessários para o seu cenário. Se o recurso está num grupo de recursos diferente, forneça o ID de recurso completo. Por exemplo, para fazer referência a uma conta de armazenamento noutro grupo de recursos, utilize:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

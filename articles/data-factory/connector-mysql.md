@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808728"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados de MySQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +41,7 @@ Especificamente, este conector MySQL suporta MySQL **versão 5.1 e acima**.
 Para utilizar este conector MySQL, tem de:
 
 - Defina um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instalar o [MySQL conector/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versão 6.6.5 ou acima na máquina de tempo de execução de integração. Este controlador de 32 bits é compatível com IR. de 64 bits
+- Instalar o [MySQL conector/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) versão entre 6.6.5 e 6.10.7 na máquina de tempo de execução de integração. Este controlador de 32 bits é compatível com IR. de 64 bits
 
 > [!TIP]
 > Se clicar em erro "a autenticação falhou porque a parte remota fechou a sequência de transporte.", considere atualizar o conector/Net MySQL para a versão superior.
@@ -60,7 +61,7 @@ As seguintes propriedades são suportadas para o serviço de MySQL ligada:
 | tipo | A propriedade de tipo tem de ser definida: **MySql** | Sim |
 | servidor | Nome do servidor MySQL. | Sim |
 | base de dados | Nome da base de dados MySQL. | Sim |
-| schema | Nome do esquema na base de dados. | Não |
+| Esquema | Nome do esquema na base de dados. | Não |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados MySQL. | Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |

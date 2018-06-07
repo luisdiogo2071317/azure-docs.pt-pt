@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: danis
-ms.openlocfilehash: 34c16b686a50994862bef14cefec1a4799a343c4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80f9ecd40c5b9504a6554b95bf374046d8253933
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809782"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para o Windows
 
@@ -44,7 +45,7 @@ Pode utilizar a extensão para utilizar as suas credenciais do armazenamento de 
 
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
-Se precisar de transferir um script externamente, como o GitHub ou o armazenamento do Azure, em seguida, firewall/rede adicionais segurança grupo de portas tem de ser aberta. Por exemplo, se o script está localizado no armazenamento do Azure, pode permitir acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Se precisar de transferir um script externamente, como o GitHub ou o armazenamento do Azure, em seguida, firewall/rede adicionais segurança grupo de portas tem de ser aberta. Por exemplo, se o script está localizado no armazenamento do Azure, pode permitir acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Se o script está num servidor local, em seguida, ainda pode precisar de firewall/rede adicionais segurança portas de grupo tem de ser aberta.
 

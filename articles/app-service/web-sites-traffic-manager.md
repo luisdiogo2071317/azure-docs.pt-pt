@@ -1,8 +1,8 @@
 ---
-title: "Controlar o tráfego do App Service do Azure com o Gestor de tráfego do Azure"
-description: "Este artigo fornece informações de resumo para o Gestor de tráfego do Azure como se relaciona com o App Service do Azure."
+title: Controlar o tráfego do App Service do Azure com o Gestor de tráfego do Azure
+description: Este artigo fornece informações de resumo para o Gestor de tráfego do Azure como se relaciona com o App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824045"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controlar o tráfego do App Service do Azure com o Gestor de tráfego do Azure
 > [!NOTE]
@@ -33,10 +34,10 @@ Pode utilizar o Gestor de tráfego do Azure para controlar a forma como pedidos 
 ## <a name="routing-methods"></a>Métodos de encaminhamento
 Traffic Manager do Azure utiliza quatro métodos de encaminhamento diferentes. Estes métodos são descritos na seguinte lista como que dizem respeito ao App Service do Azure.
 
-* **[Prioridade](#priority):** utilizar uma aplicação principal para todo o tráfego e fornecer cópias de segurança no caso de principal ou as aplicações de cópia de segurança não estão disponíveis.
-* **[Ponderado](#weighted):** distribuir o tráfego através de um conjunto de aplicações, uniformemente ou, de acordo com ponderações, o que definir.
-* **[Desempenho](#performance):** quando tiver aplicações em diferentes localizações geográficas, utilizar a aplicação "mais próxima" em termos da menor latência de rede.
-* **[Geográfica](#geographic):** diretos utilizadores para aplicações específicas com base no que localização geográfica as respetivas consultas DNS tem origem. 
+* **[Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority):** utilizar uma aplicação principal para todo o tráfego e fornecer cópias de segurança no caso de principal ou as aplicações de cópia de segurança não estão disponíveis.
+* **[Ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribuir o tráfego através de um conjunto de aplicações, uniformemente ou, de acordo com ponderações, o que definir.
+* **[Desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando tiver aplicações em diferentes localizações geográficas, utilizar a aplicação "mais próxima" em termos da menor latência de rede.
+* **[Geográfica](../traffic-manager/traffic-manager-routing-methods.md#geographic):** diretos utilizadores para aplicações específicas com base no que localização geográfica as respetivas consultas DNS tem origem. 
 
 Para obter mais informações, consulte [métodos de encaminhamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
@@ -53,7 +54,7 @@ Ao utilizar o Gestor de tráfego do Azure com o Azure, tenha em consideração o
 * Os nomes de domínio personalizado funcionam conforme esperado, mas, além de adicioná-las às suas aplicações, também tem de configurar o mapeamento DNS para apontar para o URL do Gestor de tráfego. Para obter informações sobre como configurar um domínio personalizado para uma aplicação de serviço de aplicações, consulte [mapear um nome DNS personalizado existente para Web Apps do Azure](app-service-web-tutorial-custom-domain.md).
 * Só é possível adicionar as aplicações que estejam no modo padrão ou premium para um perfil do Traffic Manager do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para uma conceptual e técnica descrição geral do Gestor de tráfego do Azure, consulte [descrição geral do Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).
 
 Para obter mais informações sobre como utilizar o Gestor de tráfego com o App Service, consulte as mensagens de blogue [utilizando o Gestor de tráfego do Azure com o Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [Traffic Manager do Azure agora pode integrar com o Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

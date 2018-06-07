@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24d641247ad9bb0b5e6199952cbde9cb56fcaea7
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809299"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +61,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
 | databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados MongoDB.<br/>Valores permitidos são: **básico**, e **anónimo**. |Sim |
-| nome do utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
+| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é falso.  | Não |
@@ -167,7 +168,7 @@ Para copiar dados de MongoDB, defina o tipo de origem na atividade de cópia par
 ```
 
 > [!TIP]
-> Especifique quando a consulta SQL, preste atenção, no formato DateTime. Por exemplo: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
+> Especifique quando a consulta SQL, preste atenção, no formato DateTime. Por exemplo: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou para utilizar o parâmetro `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## <a name="schema-by-data-factory"></a>Esquema pela fábrica de dados
 
@@ -181,14 +182,14 @@ Quando copiar dados de MongoDB, os seguintes mapeamentos são utilizados MongoDB
 |:--- |:--- |
 | Binário |Byte[] |
 | Booleano |Booleano |
-| Data |DateTime |
-| NumberDouble |Duplo |
+| Date |DateTime |
+| NumberDouble |duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
 | Cadeia |Cadeia |
 | UUID |GUID |
-| Objeto |Renormalized para aplanar colunas com "_" como separador aninhada |
+| Object |Renormalized para aplanar colunas com "_" como separador aninhada |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para as matrizes de tabelas virtuais a utilizar, consulte [suporte para tipos complexos utilizando tabelas virtuais](#support-for-complex-types-using-virtual-tables) secção.
@@ -210,14 +211,14 @@ Por exemplo, aqui ExampleTable é uma tabela de MongoDB que tenha uma coluna com
 
 | ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
+| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prateado |[5,6] |
 | 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable" mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
 | ID | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Prata |
+| 1111 |ABC |Prateado |
 | 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam matrizes originais no exemplo. Estas tabelas contenham o seguinte:

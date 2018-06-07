@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 160055e4fdc6a5dfa401eaa3dc44427d13af22a8
-ms.sourcegitcommit: 0a7c9629dea6f5eb52cc45a1e31112def210dfc2
+ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730907"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808507"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Criar cópias de segurança da base de dados do SQL Server no Azure
 
@@ -47,6 +47,34 @@ Os itens seguintes são as limitações conhecidas para a pré-visualização p�
 - [Cópia de segurança de grupos de disponibilidade distribuída tem limitações](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
 - Instâncias de Cluster de ativação pós-falha (FCI) do SQL não são suportadas.
 - Utilize o portal do Azure para configurar a cópia de segurança do Azure para proteger as bases de dados do SQL Server. Suporte para o Azure PowerShell, CLI e REST APIs não está atualmente disponível.
+
+## <a name="supported-azure-geos"></a>Suportado GEOs do Azure
+
+- Sudeste da Austrália (ASE) 
+- Sul do Brasil (BRS)
+- Canadá Central (CNC)
+- Leste do Canadá (CE)
+- EUA Central (CUS)
+- Ásia Oriental (EA)
+- Leste da Austrália (AE) 
+- EUA Leste (EUS)
+- EUA Leste 2 (EUS2)
+- Leste do Japão (JPE)
+- Oeste do Japão (JPW)
+- Índia Central (INC) 
+- Índia do Sul (INS)
+- Coreia Central (KRC)
+- Sul da Coreia (KRS)
+- EUA Centro-Norte (NCUS) 
+- Europa do Norte (NE) 
+- EUA Centro-Sul (SCUS) 
+- Sudeste Asiático (SEA)
+- Sul do Reino Unido (UKS) 
+- Oeste do Reino Unido (UKW) 
+- Europa Ocidental (WE) 
+- EUA Oeste (WUS)
+- EUA Centro-Oeste (WCUS)
+- EUA Oeste 2 (WUS 2) 
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Sistemas operativos suportados e versões do SQL server
 

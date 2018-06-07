@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: b406a0cd3e5176649b33d6ad8f41facb7043952d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c851a9a5c20c3f658e8681a4178ebe67294fd773
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808082"
 ---
 # <a name="business-understanding"></a>Noções sobre empresas
 
@@ -80,7 +81,7 @@ Por exemplo, poderá achar que os sistemas existentes tem de recolher e registar
 Seguem-se a concentrarem nesta fase:
 
    * [Documento charter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): é fornecido um modelo padrão na definição de estrutura de projeto do TDSP. O documento de charter é um documento de maior duração. Atualizar o modelo em todo o projeto como novas deteções e os como empresariais os requisitos se alteram. A chave é iterar após neste documento, a adição de mais detalhadamente, à medida que o processo de deteção. Manter o cliente e outros intervenientes envolvido na efetuar as alterações e claramente comunicam as razões para que as alterações aos mesmos.  
-   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção o **definições de dados** relatório que está presente no projeto TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Em fases posteriores, preencha detalhes adicionais, como os scripts para mover os dados para o seu ambiente de análise.  
+   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção o **definições de dados** relatório que está presente no projeto TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Em fases posteriores, preencha detalhes adicionais, como os scripts para mover os dados para o seu ambiente de análise.  
    * [Dicionários dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (os tipos de dados e obter informações sobre as regras de validação, se aplicável) e os diagramas de relação da entidade, se disponível.
 
 ## <a name="next-steps"></a>Passos Seguintes

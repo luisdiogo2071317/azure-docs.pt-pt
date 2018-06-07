@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716079"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809578"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitorização com a análise de registos de desempenho
 
@@ -94,7 +94,7 @@ Agora que adicionou o agente do OMS, head no ativação pós-falha para o portal
 
 10. Clique num gráfico de métrica de contentor para ver detalhes adicionais. Pode também consultar dados de contador de desempenho da mesma forma para eventos de cluster e filtrar em nós, nome do contador de desempenho e valores utilizando a linguagem de consulta Kusto.
 
-![Consulta de contador de desempenho do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
+![Consulta de contador de desempenho do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809731"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões de máquina virtual e funcionalidades para o Windows
 
@@ -67,7 +68,7 @@ Pacotes de extensão são transferidos do repositório de extensões de armazena
 > [!IMPORTANT]
 > Se tiver bloqueou o acesso à *168.63.129.1* utilizando a firewall do convidado, em seguida, extensões falharem independentemente acima.
 
-Agentes só podem ser utilizados para transferir os pacotes de extensão e comunicar o estado. Por exemplo, se uma instalação da extensão tem de transferir um script a partir do GitHub (de Script personalizado) ou necessita de acesso ao Storage do Azure (cópia de segurança do Azure), em seguida, adicionais firewall/rede segurança portas de grupo tem de ser aberta. As diferentes extensões têm requisitos diferentes, uma vez que estes são aplicações na sua própria direito. Para as extensões que necessitam de acesso ao Storage do Azure, pode permitir o acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agentes só podem ser utilizados para transferir os pacotes de extensão e comunicar o estado. Por exemplo, se uma instalação da extensão tem de transferir um script a partir do GitHub (de Script personalizado) ou necessita de acesso ao Storage do Azure (cópia de segurança do Azure), em seguida, adicionais firewall/rede segurança portas de grupo tem de ser aberta. As diferentes extensões têm requisitos diferentes, uma vez que estes são aplicações na sua própria direito. Para as extensões que necessitam de acesso ao Storage do Azure, pode permitir o acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 O agente convidado do Windows não tem suporte para lhe redirecionar pedidos de tráfego através do agente de servidor de proxy.
 
@@ -134,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O `Set-AzureRmVMExtension` comando pode ser utilizado para iniciar de qualquer extensão VM. Para obter mais informações, consulte o [referência de conjunto AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+O `Set-AzureRmVMExtension` comando pode ser utilizado para iniciar de qualquer extensão VM. Para obter mais informações, consulte o [referência de conjunto AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -419,7 +420,7 @@ Pode também remover uma extensão no portal do Azure da seguinte forma:
 | Extensão de Script personalizado para o Windows |Executar scripts em relação a uma máquina virtual do Azure |[Extensão de Script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para Windows |Extensão do PowerShell DSC (configuração do estado pretendido) |[Extensão de DSC para Windows](dsc-overview.md) |
 | Extensão do Diagnóstico do Azure |Gerir o diagnóstico do Azure |[Extensão do Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensão de acesso VM do Azure |Gerir utilizadores e as credenciais |[Extensão de acesso VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensão de acesso VM do Azure |Gerir utilizadores e as credenciais |[Extensão de acesso VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

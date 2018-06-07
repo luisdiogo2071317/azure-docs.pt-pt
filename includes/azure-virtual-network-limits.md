@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição.
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f4071f2555607b6035352a2aec38c986941c41a9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826536"
+---
+<a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | Listas de Controlo de Acesso de Ponto Final (ACLs) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede - Azure Resource Manager
-Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição.
+Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |

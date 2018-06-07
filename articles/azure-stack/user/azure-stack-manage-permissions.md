@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808150"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerir o acesso a recursos com controlo de acesso de Azure Stack Role-Based
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Pilha do Azure suporta o controlo de acesso baseado em funções (RBAC), o mesmo [modelo de segurança para gestão de acesso](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) que utiliza o Microsoft Azure. Pode utilizar o RBAC para gerir o acesso de aplicação para as subscrições, recursos e serviços, utilizador ou grupo.
+Pilha do Azure suporta o controlo de acesso baseado em funções (RBAC), o mesmo [modelo de segurança para gestão de acesso](https://docs.microsoft.com/azure/role-based-access-control/overview) que utiliza o Microsoft Azure. Pode utilizar o RBAC para gerir o acesso de aplicação para as subscrições, recursos e serviços, utilizador ou grupo.
 
 ## <a name="basics-of-access-management"></a>Noções básicas de gestão de acesso
 
-Controlo de acesso baseado em funções fornece controlo de acesso detalhado que pode utilizar para proteger o seu ambiente. Dar aos utilizadores as permissões exatas que necessitam, ao atribuir uma função RBAC num determinado âmbito. O âmbito de atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso. Leia o [controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) artigo para obter informações mais detalhadas sobre a gestão de acesso.
+Controlo de acesso baseado em funções fornece controlo de acesso detalhado que pode utilizar para proteger o seu ambiente. Dar aos utilizadores as permissões exatas que necessitam, ao atribuir uma função RBAC num determinado âmbito. O âmbito de atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso. Leia o [controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) artigo para obter informações mais detalhadas sobre a gestão de acesso.
 
 ### <a name="built-in-roles"></a>Funções incorporadas
 
@@ -59,7 +60,7 @@ Pode atribuir mais de uma função a um utilizador e cada função pode ser asso
 * Atribuir função leitor a TestUser-A à subscrição 1.
 * Atribuir função de proprietário o TestUser-A para TestVM-1.
 
-O Azure [atribuições de funções](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a visualização, atribuir e eliminar funções.
+O Azure [atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a visualização, atribuir e eliminar funções.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hierarquia de recursos e herança
 
@@ -81,14 +82,14 @@ Pode atribuir mais de uma função a um utilizador e cada função pode ser asso
 * Atribuir função leitor a TestUser-A à subscrição 1.
 * Atribuir função de proprietário o TestUser-A para TestVM-1.
 
-O Azure [atribuições de funções](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a visualização, atribuir e eliminar funções.
+O Azure [atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a visualização, atribuir e eliminar funções.
 
 ## <a name="set-access-permissions-for-a-user"></a>Definir permissões de acesso para um utilizador
 
 Os passos seguintes descrevem como configurar permissões para um utilizador.
 
 1. Inicie sessão com uma conta que tenha permissões de proprietário para o recurso que pretende gerir.
-2. No painel de navegação esquerdo, escolha **grupos de recursos**.
+2. Na navegação à esquerda, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos que pretende definir permissões na.
 4. No painel de navegação do grupo de recursos, escolha **(IAM) do controlo de acesso**. O **controlo de acesso** vista de lista os itens que têm acesso ao grupo de recursos. Pode filtrar estes resultados e utilize uma barra de menu para adicionar ou remover permissões.
 5. No **controlo de acesso** menu barra, escolha **+ adicionar**.

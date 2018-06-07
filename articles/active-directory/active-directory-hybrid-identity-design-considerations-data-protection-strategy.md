@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 71a49b3d1ce22906a534a71f745685981b93f594
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801903"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824173"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócio que definiu no:
@@ -117,22 +117,21 @@ Depois do utilizador é autenticado com o Azure AD, é importante avaliar o nív
 
 Cada interação no diagrama mostrado na figura X representa um cenário de controlo de acesso que pode ser abrangido pelo Azure AD. Abaixo, pode encontrar uma descrição de cada cenário:
 
-1. O acesso condicional para aplicações que estão alojados no local: pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com Windows Server 2012 R2. Para mais informações sobre como configurar o acesso condicional no local, consulte [Configurar o Acesso Condicional no local com o Registo de Dispositivos do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+  1. O acesso condicional para aplicações que estão alojados no local: pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com Windows Server 2012 R2. Para mais informações sobre como configurar o acesso condicional no local, consulte [Configurar o Acesso Condicional no local com o Registo de Dispositivos do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-2. Controlo de acesso ao portal do Azure: Azure também lhe permite controlar o acesso ao portal através da utilização de controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, administradores de TI pode delegar o acesso utilizando as seguintes abordagens de gestão de acesso:
+  2. Controlo de acesso ao portal do Azure: Azure também lhe permite controlar o acesso ao portal através da utilização de controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, administradores de TI pode delegar o acesso utilizando as seguintes abordagens de gestão de acesso:
 
-    * Atribuição de função com base no grupo: pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isto permite-lhe tirar partido de investimentos existentes que sua organização tem efetuadas nas ferramentas e processos para gerir grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
-    * Utilize funções incorporadas no Azure: pode utilizar três funções — proprietário, Contribuidor, leitor e, para garantir que os utilizadores e grupos têm permissão para efetuar apenas as tarefas que precisam para as respetivas tarefas.
-    * Granular acesso a recursos: pode atribuir funções de utilizadores e grupos para uma determinada subscrição, grupo de recursos ou um recurso do Azure individuais como um Web site ou a base de dados. Desta forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e sem acesso a recursos que não precisa de gerir.
+   - Atribuição de função com base no grupo: pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isto permite-lhe tirar partido de investimentos existentes que sua organização tem efetuadas nas ferramentas e processos para gerir grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
+   - Utilize funções incorporadas no Azure: pode utilizar três funções — proprietário, Contribuidor, leitor e, para garantir que os utilizadores e grupos têm permissão para efetuar apenas as tarefas que precisam para as respetivas tarefas.
+   -  Granular acesso a recursos: pode atribuir funções de utilizadores e grupos para uma determinada subscrição, grupo de recursos ou um recurso do Azure individuais como um Web site ou a base de dados. Desta forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e sem acesso a recursos que não precisa de gerir.
 
-> [!NOTE]
-> Se está a criar aplicações e pretender personalizar o controlo de acesso para os mesmos, também é possível utilizar funções de aplicação do Azure AD para autorização. Reveja esta [WebApp-RoleClaims-DotNet exemplo](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sobre como criar a sua aplicação para utilizar esta capacidade.
->
->
+   > [!NOTE]
+   > Se está a criar aplicações e pretender personalizar o controlo de acesso para os mesmos, também é possível utilizar funções de aplicação do Azure AD para autorização. Reveja esta [WebApp-RoleClaims-DotNet exemplo](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sobre como criar a sua aplicação para utilizar esta capacidade.
 
-3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune: administradores de TI podem aprovisionar políticas de dispositivos de acesso condicional para proteger os recursos empresariais, enquanto ao mesmo tempo, permitindo técnicos de informação em dispositivos compatíveis aos serviços. Para obter mais informações, veja [Conditional Access Device Policies for Office 365 services (Políticas de Dispositivos de Acesso Condicional para os serviços do Office 365)](active-directory-conditional-access-device-policies.md).
 
-4. Acesso condicional para aplicações Saas: [esta funcionalidade](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator em todos os utilizadores que estão atribuídos à aplicação ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
+  3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune: administradores de TI podem aprovisionar políticas de dispositivos de acesso condicional para proteger os recursos empresariais, enquanto ao mesmo tempo, permitindo técnicos de informação em dispositivos compatíveis aos serviços. Para obter mais informações, veja [Conditional Access Device Policies for Office 365 services (Políticas de Dispositivos de Acesso Condicional para os serviços do Office 365)](active-directory-conditional-access-device-policies.md).
+
+  4. Acesso condicional para aplicações Saas: [esta funcionalidade](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator em todos os utilizadores que estão atribuídos à aplicação ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
 
 Uma vez que as opções de controlo de acesso de utilizam uma abordagem multicamada, comparação entre essas opções não são aplicáveis para esta tarefa. Certifique-se de que está a tirar partido todas as opções disponíveis para cada cenário que requer que controlam o acesso aos seus recursos.
 

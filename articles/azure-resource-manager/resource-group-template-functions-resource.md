@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824341"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para os modelos Azure Resource Manager
 
@@ -95,7 +96,7 @@ Para determinar que tipos de recursos tem uma operação de lista, tem as seguin
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Especifique o recurso utilizando o [resourceId função](#resourceid), ou o formato `{providerNamespace}/{resourceType}/{resourceName}`.
+Especifique o recurso com o nome de recurso ou [resourceId função](#resourceid). Quando utilizar esta função no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
 
 ### <a name="example"></a>Exemplo
 
@@ -257,7 +258,7 @@ Cada tipo de recurso devolve propriedades diferentes para a função de referên
 
 A função de referência deriva o respetivo valor a partir de um Estado de runtime e, por conseguinte, não pode ser utilizada na secção de variáveis. Podem ser utilizado na secção de saídas de um modelo ou [modelo ligado](resource-group-linked-templates.md#link-or-nest-a-template). Não pode ser utilizado na secção saídas um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado. 
 
-Ao utilizar a função de referência, implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado é aprovisionado dentro do mesmo modelo. Não é necessário utilizar também a propriedade de dependsOn. A função não é avaliada até que o recurso referenciado foi concluída a implementação.
+Ao utilizar a função de referência, implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado é aprovisionado dentro do mesmo modelo e fazer referência ao recurso pelo respetivo nome (ID de recurso não). Não é necessário utilizar também a propriedade de dependsOn. A função não é avaliada até que o recurso referenciado foi concluída a implementação.
 
 Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que devolve o objeto na secção saídas. Se tiver um recurso existente desse tipo, o seu modelo devolve o objeto sem a implementar quaisquer novos recursos. 
 

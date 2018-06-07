@@ -1,8 +1,8 @@
 ---
 title: Automatizar processos de Azure Application Insights com o Microsoft Flow
-description: "Saiba como pode utilizar o Microsoft Flow rapidamente automatizar processos repetíveis, utilizando o conector do Application Insights."
+description: Saiba como pode utilizar o Microsoft Flow rapidamente automatizar processos repetíveis, utilizando o conector do Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -13,10 +13,11 @@ ms.topic: article
 ms.date: 06/25/2017
 ms.author: mbullwin
 ms.openlocfilehash: a1d2787626ed8fa71e3e4e9921ffb8a4680014cb
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807786"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector Microsoft Flow
 
@@ -122,7 +123,7 @@ Quando o fluxo é executado, os destinatários que especificou na lista de corre
 ![E-mail de exemplo](./media/app-insights-automate-with-flow/flow9.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre como criar [as consultas de análises](app-insights-analytics-using.md).
 - Saiba mais sobre [Microsoft Flow](https://ms.flow.microsoft.com).

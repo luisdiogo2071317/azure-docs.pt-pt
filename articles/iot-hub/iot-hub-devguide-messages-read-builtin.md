@@ -1,23 +1,19 @@
 ---
 title: Compreender o ponto de final incorporado do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - descreve como utilizar as mensagens de dispositivo para nuvem toread de ponto final do incorporada, compatível com o Event Hub."
-services: iot-hub
-documentationcenter: .net
+description: Guia para programadores - descreve como utilizar as mensagens de dispositivo para nuvem toread de ponto final do incorporada, compatível com o Event Hub.
 author: dominicbetts
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808541"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens do dispositivo para nuvem a partir do ponto de final incorporado
 
@@ -81,7 +77,7 @@ Se pretender encaminhar as mensagens do dispositivo para a nuvem para os pontos 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx

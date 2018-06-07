@@ -1,11 +1,11 @@
 ---
 title: Encriptar discos numa VM com Linux no Azure | Microsoft Docs
-description: "Como encriptar discos virtuais numa VM com Linux para segurança melhorada utilizando o 2.0 CLI do Azure"
+description: Como encriptar discos virtuais numa VM com Linux para segurança melhorada utilizando o 2.0 CLI do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c35cd220eab26300404a039467e1a0b35592f23d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824783"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Como encriptar discos virtuais de uma VM com Linux
 Para segurança avançada máquina virtual (VM) e conformidade, podem ser encriptadas discos virtuais e a própria VM. As VMs estão encriptadas com as chaves criptográficas que são protegidas um cofre de chaves do Azure. Pode controla estas chaves criptográficas e pode auditar a sua utilização. Este artigo fornece detalhes sobre como encriptar discos virtuais numa VM com Linux utilizando o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+> [!NOTE]
+> Certifique-se de que o controlador de vfat ativado na sua VM com Linux. Alguma segurança práticas, tais como os testes de desempenho do IC pedir para desativar o controlador de vfat. Esse controlador é necessário para a encriptação funcionar depois do processo estiver concluído.
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Se precisar de realizar rapidamente a tarefa, os seguintes detalhes de secção na base de comandos para encriptar os discos virtuais na VM. Mais informações e o contexto para cada passo é possível encontrar o resto do documento [Iniciar aqui](#overview-of-disk-encryption).
@@ -146,6 +150,7 @@ Cenários suportados e os requisitos para encriptação de disco de:
 * Todos os recursos (por exemplo, o Cofre de chaves, a conta de armazenamento e a VM) tem de ser na mesma região do Azure e subscrição.
 * Um padrão, D, DS, G, GS, etc., série VMs.
 * A atualizar as chaves criptográficas numa VM com Linux já encriptados.
+* Controlador VFAT está ativada a VM com Linux.
 
 Encriptação de disco não é atualmente suportada nos seguintes cenários:
 

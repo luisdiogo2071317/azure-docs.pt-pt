@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807463"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -196,13 +197,24 @@ Clique em **recodificar** botão para iniciar o processo. Este processo pode dem
 
 Rekeying o seu certificado faz o certificado com um novo certificado emitido a partir da autoridade de certificação.
 
+## <a name="renew-the-certificate"></a>Renovar o certificado
+
+Para ativar a renovação automática do certificado em qualquer altura, clique em **as definições de renovação automática** na página de gestão de certificados. Selecione **no** e clique em **guardar**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Para renovar manualmente o certificado em vez disso, clique em **Manual renovar** em vez disso.
+
+> [!NOTE]
+> O certificado renovado não está vinculado automaticamente para a sua aplicação, quer renovar manualmente ou -renovadas automaticamente. A vinculá-lo à sua aplicação, consulte [renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Por que motivo o meu certificado SSL não for automaticamente-renovado?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Por que motivo o meu certificado não for automática-renovado?
 
-Se o certificado SSL está configurado para renovação automática, mas não for renovado automaticamente, pode ter uma verificação de domínio pendente. Tenha em atenção o seguinte: 
+Se o certificado SSL está configurado para renovação automática, mas não for renovado automaticamente, pode ter uma verificação de domínio pendente. Tenha em atenção que: 
 
-- GoDaddy, gerando certificados de serviço de aplicações, necessita de uma vez a cada três anos de verificação de domínio. O administrador de domínio recebe uma mensagem de e-mail uma vez a cada três anos para verificar o domínio. Falha ao verificar o e-mail ou verifique o seu domínio impede que o certificado de serviço de aplicações que está a ser renovado automaticamente. 
-- Todos os serviço de aplicações certificados emitidos antes 31 de Março de 2017 requerem reverification do domínio no momento da renovação seguinte (mesmo se a renovação automática está ativada para o certificado). Este é um resultado de alterações na política da GoDaddy. Verifique o seu correio eletrónico e concluir esta verificação de domínio única para continuar a renovação automática do certificado do serviço de aplicações. 
+- GoDaddy, gerando certificados de serviço de aplicações, necessita de verificação de domínio em dois anos. O administrador de domínio recebe uma mensagem de e-mail uma vez a cada três anos para verificar o domínio. Falha ao verificar o e-mail ou verifique o seu domínio impede que o certificado de serviço de aplicações que está a ser renovado automaticamente. 
+- Devido a uma alteração na política de GoDaddy, todos os serviço de aplicações certificados emitidos antes de 1 de Março de 2018 requerem reverification do domínio no momento da renovação seguinte (mesmo se a renovação automática está ativada para o certificado). Verifique o seu correio eletrónico e concluir esta verificação de domínio única para continuar a renovação automática do certificado do serviço de aplicações. 
 
 ## <a name="more-resources"></a>Mais recursos
 

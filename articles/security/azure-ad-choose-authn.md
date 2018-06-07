@@ -9,15 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809265"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação adequado para a sua solução de identidade híbrida do Azure Active Directory 
 
-Este artigo começa uma série de artigos que ajudar as organizações a implementar uma solução de identidade híbrida de Azure Active Directory (Azure AD) completa. Esta solução foi descrita como o Framework transformação da digitais de identidade híbrida. Aborda os resultados de empresas e organizações de objetivos podem concentrar-se em para implementar uma solução de identidade híbrida robusto e seguro. 
+Este artigo começa uma série de artigos que ajudar as organizações a implementar uma solução de identidade híbrida de Azure Active Directory (Azure AD) completa. Esta solução foi descrita como o [Framework de transformação Digital identidade híbrida](https://aka.ms/aadframework). Aborda os resultados de empresas e organizações de objetivos podem concentrar-se em para implementar uma solução de identidade híbrida robusto e seguro. 
 
 O resultado de negócio primeiro do framework spells enviados os requisitos para as organizações a proteger o processo de autenticação quando os utilizadores acedem a aplicações na nuvem. O objetivo de negócio primeiro no resultado de negócio protegidos a autenticação é a capacidade dos próprios utilizadores para iniciar sessão em aplicações em nuvem, utilizando os respetivos nomes de utilizador no local e palavras-passe. Este processo de início de sessão para e a forma como os utilizadores autenticam fazer tudo na nuvem possíveis.
 
@@ -166,7 +167,7 @@ Os diagramas seguintes descrevem os componentes de arquitetura de alto nível ne
 |Quais são as opções de autenticação multifator?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de terceiros](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Os Estados de conta de utilizador são suportados?|Contas desativadas<br>(até o atraso de 30 minutos)|Contas desativadas<br><br>Conta bloqueada<br><br>Palavra-passe expirada<br><br>Horas de início de sessão|Contas desativadas<br><br>Conta bloqueada<br><br>Palavra-passe expirada<br><br>Horas de início de sessão|
 |Quais são as opções de acesso condicional?|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Regras de afirmações do AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Está a bloquear protocolos legados suportados?|Não|Não|[Sim](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Está a bloquear protocolos legados suportados?|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sim](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Pode personalizar o logótipo, a imagem e a descrição das páginas de início de sessão?|[Sim, com o Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sim, com o Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Os cenários avançados são suportados?|[Bloqueio de palavra-passe inteligente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Fuga relatórios de credenciais](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Bloqueio de palavra-passe inteligente](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Sistema de autenticação de latência baixa multilocal<br><br>[Bloqueio de extranet do AD FS](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integração com sistemas de identidade de terceiros](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

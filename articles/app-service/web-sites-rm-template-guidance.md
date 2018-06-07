@@ -1,6 +1,6 @@
 ---
-title: "Orientações sobre a implementação de aplicações web do Azure, utilizando modelos | Microsoft Docs"
-description: "Recomendações para criação de modelos Azure Resource Manager para implementar as aplicações web."
+title: Orientações sobre a implementação de aplicações web do Azure, utilizando modelos | Microsoft Docs
+description: Recomendações para criação de modelos Azure Resource Manager para implementar as aplicações web.
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc816bb6e95d2800d79124dfac60b55e88eaa500
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807327"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientações sobre a implementação de aplicações web utilizando os modelos Azure Resource Manager
 
@@ -58,19 +59,20 @@ Implementar recursos pela seguinte ordem:
 
 Normalmente, a solução inclui apenas algumas destas recursos e as camadas. Para as camadas em falta, mapear inferiores recursos para a camada seguinte superior.
 
-O exemplo seguinte mostra faz parte de um modelo. O valor da cadeia de configuração de ligação depende a extensão de MSDeploy. A extensão de MSDeploy depende a aplicação web e a base de dados.
+O exemplo seguinte mostra faz parte de um modelo. O valor da cadeia de configuração de ligação depende a extensão de MSDeploy. A extensão de MSDeploy depende a aplicação web e a base de dados. 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -78,13 +80,15 @@ O exemplo seguinte mostra faz parte de um modelo. O valor da cadeia de configura
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
     ]
 }
 ```
+
+Para um exemplo de prontos para execução que utiliza o código acima, consulte [modelo: criar uma simples aplicação de Web de Umbraco](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Localizar informações sobre os erros de MSDeploy
 

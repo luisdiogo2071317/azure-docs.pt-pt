@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824851"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway de VPN
 
@@ -137,6 +138,10 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 ## <a name="gwsub"></a>Sub-rede de gateway
 
 Antes de criar um gateway de VPN, terá de criar uma sub-rede de gateway. A sub-rede do gateway contém os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas para a sub-rede do gateway e configuradas com as definições do gateway VPN necessárias. Nunca deve implementar mais nada (por exemplo, VMs adicionais) para a sub-rede do gateway. A sub-rede do gateway tem de ser o nome "GatewaySubnet" para funcionar corretamente. A sub-rede do gateway de nomenclatura "GatewaySubnet" permite saber que se trata de sub-rede para implementar as VMs de gateway de rede virtual e os serviços do Azure.
+
+>[!NOTE]
+>[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
+>
 
 Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway são atribuídos às VMs de gateway e os serviços de gateway. Algumas configurações requerem mais endereços IP do que outras. Observe as instruções para a configuração que pretende criar e certifique-se de que a sub-rede do gateway que pretende criar cumpre os requisitos. Além disso, pode querer Certifique-se que à sub-rede do gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede do gateway tão pequena como/29, recomendamos que crie uma sub-rede de gateway de/28 ou superior (/ 28, / 27, /26 etc.). Dessa forma, se adicionar a funcionalidade no futuro, não terá de fechar as suas gateway, em seguida, elimine e recrie a sub-rede do gateway para permitir mais endereços IP.
 

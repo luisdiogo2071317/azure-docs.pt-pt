@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 27346d8e2133ea61056817fb48050a4e5c8c3c97
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726487"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809170"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Segurança do Azure e conformidade Blueprint: aplicação Web de IaaS para FedRAMP
 
@@ -106,12 +106,12 @@ A arquitetura protege os dados Inativos utilizando várias medidas de encriptaç
 **SQL Server**: SQL Server está configurado para utilizar [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), que efetua a encriptação em tempo real e a desencriptação de dados e registo de ficheiros para proteger informações inativos. TDE fornece assurance que armazenados os dados não foi sujeito acesso não autorizado.
 
 Os clientes também podem configurar as seguintes medidas de segurança do SQL Server:
--   [Autorização e autenticação AD](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) permite a gestão de identidades de utilizadores de base de dados e outros serviços Microsoft numa localização central.
--   [Auditoria de base de dados SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started) controla da base de dados eventos e escreve-los para uma auditoria iniciem sessão uma conta de armazenamento do Azure.
--   [Regras de firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) impedir o acesso de todos os servidores de base de dados até que são concedidas permissões adequadas. A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
--   [A deteção de ameaças do SQL Server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started) permite a deteção e a resposta a potenciais ameaças à medida que ocorrem fornecendo alertas de segurança para acesso de base de dados anómalas, ataques de injeção de SQL, potenciais vulnerabilidades e atividades suspeitas da base de dados padrões.
--   [Sempre encriptado colunas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) Certifique-se de que os dados confidenciais nunca é apresentada como texto não encriptado no interior do sistema de base de dados. Depois de ativar a encriptação de dados, apenas as aplicações de cliente ou servidores de aplicações com o acesso às chaves podem aceder aos dados de texto simples.
--   [Máscara de dados dinâmicos da base de dados SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) podem ser efetuados após implementa a arquitetura de referência. Os clientes terão de ajustar as definições de aderir ao respetiva esquema de base de dados de máscara de dados dinâmicos.
+-   [Autorização e autenticação AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permite a gestão de identidades de utilizadores de base de dados e outros serviços Microsoft numa localização central.
+-   [Auditoria de base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) controla da base de dados eventos e escreve-los para uma auditoria iniciem sessão uma conta de armazenamento do Azure.
+-   [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedir o acesso de todos os servidores de base de dados até que são concedidas permissões adequadas. A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
+-   [A deteção de ameaças do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permite a deteção e a resposta a potenciais ameaças à medida que ocorrem fornecendo alertas de segurança para acesso de base de dados anómalas, ataques de injeção de SQL, potenciais vulnerabilidades e atividades suspeitas da base de dados padrões.
+-   [Sempre encriptado colunas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) Certifique-se de que os dados confidenciais nunca é apresentada como texto não encriptado no interior do sistema de base de dados. Depois de ativar a encriptação de dados, apenas as aplicações de cliente ou servidores de aplicações com o acesso às chaves podem aceder aos dados de texto simples.
+-   [Máscara de dados dinâmicos da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) podem ser efetuados após implementa a arquitetura de referência. Os clientes terão de ajustar as definições de aderir ao respetiva esquema de base de dados de máscara de dados dinâmicos.
 
 **Azure Disk Encryption**: Azure Disk Encryption é utilizado para encriptados discos da máquina virtual IaaS do Windows. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aproveita a funcionalidade de BitLocker do Windows para fornecer a encriptação de volume para o SO e discos de dados. A solução é integrada com o Cofre de chaves do Azure para ajudar a controlar e gerir as chaves de encriptação de disco.
 
@@ -144,7 +144,7 @@ As seguintes tecnologias de fornecem a identidade de capacidades de gestão no a
 
 **O Cofre de serviços de recuperação**: O [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja dados de cópia de segurança e protege todas as configurações de máquinas virtuais do Azure nesta arquitetura. Com um cofre de serviços de recuperação, os clientes restaurar ficheiros e pastas a partir de uma VM do IaaS sem restaurar toda a VM, permitindo tempos de restauro mais rápidos.
 
-**Nuvem testemunho**: [nuvem testemunho](https://docs.microsoft.com/en-us/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do Cluster de ativação pós-falha no Windows Server 2016, que tira partido do Azure como o ponto de arbitragem. O testemunho de nuvem, tal como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum, mas utiliza o padrão publicamente disponíveis Blob Storage do Azure. Isto elimina os custos de manutenção extra VMs alojada numa nuvem pública.
+**Nuvem testemunho**: [nuvem testemunho](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do Cluster de ativação pós-falha no Windows Server 2016, que tira partido do Azure como o ponto de arbitragem. O testemunho de nuvem, tal como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum, mas utiliza o padrão publicamente disponíveis Blob Storage do Azure. Isto elimina os custos de manutenção extra VMs alojada numa nuvem pública.
 
 ### <a name="logging-and-auditing"></a>Registo e auditoria
 
@@ -166,7 +166,7 @@ Além disso, as seguintes soluções OMS são instaladas como parte desta arquit
 -   [Registo de alterações](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): controlo de alterações a solução permite aos clientes identificar facilmente as alterações no ambiente.
 
 **Monitor do Azure**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) ajuda os utilizadores a monitorizar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo chamadas da API de controlo nos recursos do Azure dos clientes.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os utilizadores a monitorizar o desempenho, manter a segurança e identificar tendências, permitindo que as organizações de auditoria, criar alertas e arquivar dados, incluindo chamadas da API de controlo nos recursos do Azure dos clientes.
 
 ## <a name="threat-model"></a>Modelo de ameaça
 O diagrama de fluxo de dados para esta arquitetura de referência está disponível para [transferir](https://aka.ms/fedrampWAdfd) ou podem ser encontrados abaixo. Este modelo pode ajudar os clientes os pontos de risco potencial na infraestrutura do sistema quando efetuar alterações.
@@ -198,11 +198,11 @@ Esta segurança do Azure e a conformidade Blueprint automatização é composta 
 ### <a name="vpn-and-expressroute"></a>ExpressRoute e de VPN
 Um túnel VPN seguro ou [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tem de ser configurado com segurança estabelecer uma ligação para os recursos implementados como parte da arquitetura de referência aplicação Web de IaaS. Adequadamente a configurar uma VPN ou ExpressRoute, os clientes podem adicionar uma camada de proteção de dados em trânsito.
 
-Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Esta ligação ocorre através da Internet e permite aos clientes de forma segura as informações de "túnel" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN de Site a site é uma tecnologia de segura, madura que tenha sido implementada por empresas de todos os tamanhos de decades. O [modo de túnel IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de encriptação.
+Ao implementar um túnel VPN seguro com o Azure, é possível criar uma ligação privada virtual entre uma rede no local e uma rede Virtual do Azure. Esta ligação ocorre através da Internet e permite aos clientes de forma segura as informações de "túnel" dentro de uma ligação encriptada entre a rede do cliente e o Azure. VPN de Site a site é uma tecnologia de segura, madura que tenha sido implementada por empresas de todos os tamanhos de decades. O [modo de túnel IPsec](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) é utilizada nesta opção como um mecanismo de encriptação.
 
 Porque o tráfego de túnel VPN atravessam a Internet e uma VPN de site a site, a Microsoft oferece a opção de ligação de outro, ainda mais seguros. O ExpressRoute do Azure é uma WAN dedicada ligação entre o Azure e uma localização no local ou um fornecedor de alojamento do Exchange. Como as ligações do ExpressRoute não passam para a Internet, estas ligações oferecem mais fiabilidade, velocidades mais rápidas, latências inferiores e uma maior segurança ligações típicas através da Internet. Além disso, porque se trata de uma ligação direta do fornecedor de telecommunication do cliente, os dados não viajam através da Internet e, por conseguinte, não estão expostos ao mesmo.
 
-Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponíveis](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Melhores práticas para implementar uma rede híbrida segura que expande uma rede no local para o Azure são [disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 

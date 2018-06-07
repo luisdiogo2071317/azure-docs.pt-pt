@@ -1,6 +1,6 @@
 ---
-title: "Versão anotações para o Application Insights | Microsoft Docs"
-description: "Adicionar implementação ou criar marcadores para os gráficos do Explorador de métricas no Application Insights."
+title: Versão anotações para o Application Insights | Microsoft Docs
+description: Adicionar implementação ou criar marcadores para os gráficos do Explorador de métricas no Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
 ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807803"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos de métricas no Application Insights
 Anotações no [Explorador de métricas](app-insights-metrics-explorer.md) gráficos mostram onde uma nova compilação ou outro evento significativo que implementou. Estes tornam mais fácil ver se as suas alterações tinham qualquer efeito no desempenho da aplicação. Podem ser criados automaticamente pelo [sistema de compilação do Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Também pode criar anotações para sinalizador qualquer evento como pelo [criá-los a partir do PowerShell](#create-annotations-from-powershell).
@@ -102,7 +103,7 @@ Também pode criar anotações a partir de qualquer processo como (sem utilizar 
 
 É fácil modificar o script, por exemplo, para criar anotações para passado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar itens de trabalho](app-insights-diagnostic-search.md#create-work-item)
 * [Automatização com o PowerShell](app-insights-powershell.md)

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808099"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados de MySQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +43,7 @@ O serviço de fábrica de dados suporta a ligar a origens de MySQL no local util
 > Consulte [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para dicas sobre/gateway de ligação de resolução de problemas relacionados com problemas.
 
 ## <a name="supported-versions-and-installation"></a>Versões suportadas e instalação
-Para o Data Management Gateway ligar à base de dados MySQL, tem de instalar o [MySQL conector/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão 6.6.5 ou superior) no mesmo sistema que o Data Management Gateway. Este controlador de 32 bits é compatível com o Gateway de gestão de dados de 64 bits. O MySQL versão 5.1 e posterior é suportado.
+Para o Data Management Gateway ligar à base de dados MySQL, tem de instalar o [MySQL conector/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão entre 6.6.5 e 6.10.7) no mesmo sistema que o Data Management Gateway. Este controlador de 32 bits é compatível com o Gateway de gestão de dados de 64 bits. O MySQL versão 5.1 e posterior é suportado.
 
 > [!TIP]
 > Se clicar em erro "a autenticação falhou porque a parte remota fechou a sequência de transporte.", considere atualizar o conector/Net MySQL para a versão superior.
@@ -71,7 +72,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | tipo |A propriedade de tipo tem de ser definida: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome da base de dados MySQL. |Sim |
-| schema |Nome do esquema na base de dados. |Não |
+| Esquema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
@@ -309,15 +310,15 @@ Ao mover dados para MySQL, os seguintes mapeamentos são utilizados de tipos de 
 | char |Cadeia |
 | data |Datetime |
 | datetime |Datetime |
-| decimal |Decimal |
-| precisão dupla |Duplo |
-| duplo |Duplo |
+| Decimal |Decimal |
+| precisão dupla |duplo |
+| double |duplo |
 | Enum |Cadeia |
-| float |Solteiro |
+| flutuante |Único |
 | Int não assinado |Int64 |
 | Int |Int32 |
 | número inteiro sem sinal |Int64 |
-| integer |Int32 |
+| inteiro |Int32 |
 | varbinary longo |Byte[] |
 | varchar longo |Cadeia |
 | longblob |Byte[] |
@@ -327,11 +328,11 @@ Ao mover dados para MySQL, os seguintes mapeamentos são utilizados de tipos de 
 | mediumint |Int32 |
 | mediumtext |Cadeia |
 | um valor numérico |Decimal |
-| real |Duplo |
+| real |duplo |
 | definir |Cadeia |
 | smallint não assinado |Int32 |
 | smallint |Int16 |
-| Texto |Cadeia |
+| texto |Cadeia |
 | hora |TimeSpan |
 | carimbo de data/hora |Datetime |
 | tinyblob |Byte[] |

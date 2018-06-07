@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5a9bde85e894f2f4283348771dc5cacc7a08f23
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824660"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implementação de recursos em modelos do Azure Resource Manager
 Para um determinado recurso, podem existir outros recursos que tem de existir antes do recurso é implementado. Por exemplo, um servidor SQL tem de existir antes de tentar implementar uma base de dados do SQL Server. Define esta relação assinalando um recurso como depende de outros recursos. Definir uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
@@ -59,10 +60,10 @@ Quando definir as dependências, pode incluir o espaço de nomes de fornecedor d
 ]
 ``` 
 
-Enquanto que pode ser inclined utilizar dependsOn para mapear as relações entre os recursos, é importante compreender por que motivo está a fazer. Por exemplo, documentar a forma como os recursos estão interligados, dependsOn não é a abordagem à direita. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implementação. Utilizando dependsOn, poderá afeta o tempo de implementação porque o Gestor de recursos não implementa em paralelos dois recursos que tenham uma dependência. Para documentar as relações entre os recursos, em vez disso, utilize [associação de recursos](/rest/api/resources/resourcelinks).
+Enquanto que pode ser inclined utilizar dependsOn para mapear as relações entre os recursos, é importante compreender por que motivo está a fazer. Por exemplo, documentar a forma como os recursos estão interligados, dependsOn não é a abordagem à direita. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implementação. Utilizando dependsOn, poderá afeta o tempo de implementação porque o Gestor de recursos não implementar em paralelos dois recursos que tenham uma dependência. Para documentar as relações entre os recursos, em vez disso, utilize [associação de recursos](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Recursos subordinados
-A propriedade de recursos permite-lhe especificar os recursos subordinados que estão relacionados com o recurso que está a ser definido. Recursos subordinados só podem ser definido cinco níveis. É importante ter em atenção que uma dependência implícita não foi criada entre um recurso subordinado e o recurso principal. Se precisar do recurso de subordinados para ser implementada após o recurso principal, tem de estado explicitamente que dependência com a propriedade dependsOn. 
+A propriedade de recursos permite-lhe especificar os recursos subordinados que estão relacionados com o recurso que está a ser definido. Recursos subordinados só podem ser definido cinco níveis. É importante ter em atenção que uma dependência implícita não se encontra criada entre um recurso subordinado e o recurso principal. Se precisar do recurso de subordinados para ser implementada após o recurso principal, tem de estado explicitamente que dependência com a propriedade dependsOn. 
 
 Cada recurso principal aceita apenas determinados tipos de recursos como recursos subordinados. Os tipos de recursos aceites são especificados no [esquema de modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal. O nome do tipo de recurso subordinado inclui o nome do tipo de recurso principal, tal como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são os dois recursos subordinados do **Microsoft.Web/sites**.
 
@@ -106,11 +107,19 @@ O exemplo seguinte mostra um SQL server e base de dados SQL. Tenha em atenção 
 ]
 ```
 
-## <a name="reference-function"></a>função de referência
-O [referenciar a função](resource-group-template-functions-resource.md#reference) permite uma expressão de valor de derivar de JSON pares nome / valor ou outros recursos de tempo de execução. As expressões de referência implicitamente declara que um recurso depende de outro. O formato geral é:
+## <a name="reference-and-list-functions"></a>funções de referência e de lista
+O [referenciar a função](resource-group-template-functions-resource.md#reference) permite uma expressão de valor de derivar de JSON pares nome / valor ou outros recursos de tempo de execução. O [lista * funções](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) devolver valores para um recurso de uma operação de lista.  As expressões de referência e lista implicitamente declara que um recurso depende de outra, quando o recurso referenciado é implementado no mesmo modelo e referido pelo respetivo nome (ID de recurso não). Se o ID de recurso são transmitidas para as funções de referência ou de lista, não é criada uma referência implícita.
+
+O formato geral da função de referência é:
 
 ```json
 reference('resourceName').propertyPath
+```
+
+O formato geral da função listKeys é:
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 No exemplo seguinte, um ponto final de CDN explicitamente depende o perfil da CDN e implicitamente depende de uma aplicação web.
@@ -130,7 +139,7 @@ No exemplo seguinte, um ponto final de CDN explicitamente depende o perfil da CD
     }
 ```
 
-Pode utilizar este elemento ou o elemento de dependsOn para especificar dependências, mas não terá de utilizar ambas para o mesmo recurso dependente. Sempre que possível, utilize uma referência implícita para evitar a adição de uma dependência desnecessária.
+Pode utilizar este elemento ou o elemento de dependsOn para especificar dependências, mas não precisa de utilizar ambas para o mesmo recurso dependente. Sempre que possível, utilize uma referência implícita para evitar a adição de uma dependência desnecessária.
 
 Para obter mais informações, consulte [referenciar a função](resource-group-template-functions-resource.md#reference).
 
@@ -140,10 +149,10 @@ Ao decidir as dependências para definir, utilize as seguintes diretrizes:
 
 * Defina como alguns dependências quanto possível.
 * Defina um recurso subordinado como depende o recurso principal.
-* Utilize o **referência** função para definir as dependências implícitas entre os recursos que precisam de partilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando que já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias. 
+* Utilize o **referência** funcionar e atribua o nome do recurso para definir as dependências implícitas entre os recursos que precisam de partilhar uma propriedade. Não adicione uma dependência explícita (**dependsOn**) quando que já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias. 
 * Definir uma dependência quando um recurso não pode ser **criado** sem as funcionalidades da outro recurso. Não defina uma dependência se os recursos de apenas interagem após a implementação.
 * Permitir que as dependências cascade sem definição-los explicitamente. Por exemplo, a máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e endereços IP públicos. Por conseguinte, a máquina virtual está implementados recursos após todos os três, mas não definir explicitamente a máquina virtual como dependentes em todos os recursos de três. Esta abordagem esclarece a ordem da dependência e torna mais fácil alterar o modelo mais tarde.
-* Se um valor pode ser determinado antes da implementação, experimente implementar os recursos sem uma dependência. Por exemplo, se um valor de configuração tem o nome do recurso outro, poderá não ter uma dependência. Esta orientação não funciona sempre porque alguns dos recursos verificar a existência da outros recursos. Se receber um erro, adicione uma dependência. 
+* Se um valor pode ser determinado antes da implementação, experimente implementar os recursos sem uma dependência. Por exemplo, se um valor de configuração tem o nome do recurso outro, poderá não ter uma dependência. Esta orientação sempre não funciona porque alguns dos recursos verificar a existência da outros recursos. Se receber um erro, adicione uma dependência. 
 
 O Resource Manager identifica dependências circulares durante a validação do modelo. Se receber um erro a indicar que existe uma dependência circular, avalie o modelo para ver se as dependências não são necessários e podem ser removidas. Se remover dependências não funcionar, pode evitar dependências circulares por mover algumas operações de implementação para os recursos subordinados que são implementados depois dos recursos que tenham uma dependência circular. Por exemplo, suponha que está a implementar duas máquinas virtuais, mas tem de definir propriedades em cada um que fazem referência a si. Pode implementá-las pela seguinte ordem:
 

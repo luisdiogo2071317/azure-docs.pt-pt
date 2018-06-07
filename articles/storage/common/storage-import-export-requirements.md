@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/06/2018
 ms.author: alkohli
-ms.openlocfilehash: eb50846bd838597a6f1e9a0b6550595866e05edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661015"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825072"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -79,7 +79,7 @@ Para tarefas de importação, apenas o primeiro volume de dados na unidade foi p
 
 ### <a name="supported-external-usb-adaptors"></a>Suportado adaptors USB externos
 
-Segue-se uma lista de adaptors USB externos utilizados para copiar dados em HDDs internos. 
+Quando preparar unidades de disco rígido e copiar os dados utilizando a ferramenta de WAImportExport, pode utilizar os seguintes adaptors USB externos (desative-a-shelp): 
 - 68UPSATAA de Anker - 02BU
 - Anker 68UPSHHDS-BU
 - Startech SATADOCK22UE

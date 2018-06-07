@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822960"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Dados de cópia de segurança e recuperação para a pilha do Azure com o serviço de cópia de segurança da infraestrutura
 
@@ -53,7 +54,7 @@ Os serviços contém as seguintes funcionalidades.
 - **Credenciais**  
   Precisará de uma conta de utilizador de domínio e credenciais, por exemplo, pode utilizar as credenciais de administrador de pilha do Azure.
 - **Chave de encriptação**  
-  Ficheiros de cópia de segurança estão encriptados com esta chave. Certifique-se armazenar esta chave numa localização segura. Depois de definir esta chave pela primeira vez ou rodar a chave no futuro, não é possível ver esta chave desta interface. Para obter mais instruções gerar uma chave pré-partilhada, siga os scripts em [ativar a cópia de segurança de pilha do Azure com o PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Ficheiros de cópia de segurança estão encriptados com esta chave. Certifique-se armazenar esta chave numa localização segura. Depois de definir esta chave pela primeira vez ou rodar a chave no futuro, não é possível ver esta chave desta interface. Para obter mais instruções gerar uma chave pré-partilhada, siga os scripts em [ativar a cópia de segurança de pilha do Azure com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

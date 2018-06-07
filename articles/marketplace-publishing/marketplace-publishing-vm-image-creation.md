@@ -14,11 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808745"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -452,7 +453,7 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
     Segue-se o código de exemplo depois de atualizar os parâmetros corretos
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 

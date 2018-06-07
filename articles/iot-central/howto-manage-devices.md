@@ -1,18 +1,19 @@
 ---
 title: Gerir os dispositivos na sua aplicação do Azure IoT Central | Microsoft Docs
 description: Como um operador, saiba como gerir dispositivos na sua aplicação do Azure IoT Central.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807480"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -76,8 +77,33 @@ Para registar de em massa dispositivos na sua aplicação:
 
     [![Sucesso de importação em volume](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Se o dispositivo importar operação falhar, será um erro apresentado na grelha de dispositivo. Um ficheiro de registo capturar todos os erros for gerado, podendo ser transferido clicando a mensagem de erro.
+Se o dispositivo importar falha da operação, verá uma mensagem de erro na grelha de dispositivo. Um ficheiro de registo capturar todos os erros for gerado, podendo ser transferido clicando a mensagem de erro.
 
+## <a name="export-devices"></a>Dispositivos de exportação
+
+Para aprovisionar dispositivos liguem à IoT Central, terá da cadeia de ligação do dispositivo que é gerado pelo centro de IoT. Pode utilizar a funcionalidade de exportação para obter as cadeias de ligação e outras propriedades dos dispositivos em massa a partir da sua aplicação. Exportar cria um ficheiro CSV com a identidade de dispositivo, o nome do dispositivo e a cadeia de ligação principal para todos os dispositivos selecionados.
+
+Para efetuar em massa de dispositivos de exportação da sua aplicação:
+1. Escolha **Explorer** no menu de navegação esquerdo.
+
+1. Um painel esquerdo, escolha o modelo de dispositivo para o qual pretende exportar os dispositivos.
+
+1. Selecione os dispositivos que pretende exportar e, em seguida, clique em de **exportar** ação.
+
+    [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Processo de exportação será iniciado e pode controlar o estado na parte superior da grelha. 
+
+1. Uma vez concluída a exportação, é apresentada uma mensagem de êxito, juntamente com uma hiperligação para transferir o ficheiro gerado.
+
+1. Clique em de **mensagem de êxito** para transferir o ficheiro para uma pasta no disco local.
+
+    [![Sucesso de exportação](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. O ficheiro CSV exportado terá as seguintes informações:
+    1. Nome
+    1. ID do dispositivo
+    1. Cadeia de ligação principal
 
 
 ## <a name="delete-a-device"></a>Eliminar um dispositivo

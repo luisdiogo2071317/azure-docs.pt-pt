@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 3492f73b4e376bfd6cc069a97e935442da99dcfb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807623"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados de Google BigQuery através da utilização do Azure Data Factory
 
@@ -58,7 +59,7 @@ Definir a propriedade "authenticationType" para **UserAuthentication**e especifi
 |:--- |:--- |:--- |
 | clientId | ID da aplicação utilizada para gerar o token de atualização. | Não |
 | clientSecret | Segredo da aplicação utilizada para gerar o token de atualização. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
-| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery. Saber como obter um [tokens de acesso de OAuth 2.0 obter](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
+| refreshToken | O token de atualização obtido a partir do Google utilizado para autorizar o acesso ao BigQuery. Saber como obter um [tokens de acesso de OAuth 2.0 obter](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) e [este blogue de Comunidade](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
 
 **Exemplo:**
 

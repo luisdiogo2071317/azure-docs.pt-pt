@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824766"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a utilizar o Azure Stream Analytics: deteção de fraudes em tempo real
 
@@ -75,7 +76,7 @@ Neste procedimento, tem primeiro de criar um espaço de nome de hub de eventos e
     
  
 7. Clique em **Criar**.
-### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Conceda acesso para o hub de eventos e obter uma cadeia de ligação
+### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Conceder acesso ao hub de eventos e obter uma cadeia de ligação
 
 Antes de um processo pode enviar dados para um hub de eventos, o hub de eventos tem de ter uma política que permite o acesso adequado. A política de acesso produz uma cadeia de ligação que inclui as informações de autorização.
 
@@ -98,7 +99,7 @@ Antes de um processo pode enviar dados para um hub de eventos, o hub de eventos 
     
     ![Copiar a chave de cadeia de ligação principal da política de acesso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
  
-7.  Cole a cadeia de ligação no editor de texto. Precisa desta cadeia de ligação para a secção seguinte, depois de efetuar algumas edições pequenas ao mesmo.
+7.  Cole a cadeia de ligação num editor de texto. Precisa desta cadeia de ligação para a secção seguinte, depois de efetuar algumas edições pequenas ao mesmo.
 
     A cadeia de ligação tem o seguinte aspeto:
 
@@ -131,26 +132,26 @@ Antes de iniciar a aplicação de TelcoGenerator, configurá-lo de modo a que ir
 1.  Abra uma janela de comandos e altere para a pasta onde a aplicação de TelcoGenerator está deszipada.
 2.  Introduza o seguinte comando:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     Os parâmetros são: 
 
     * Número de CDRs por hora. 
-    * Probabilidade de fraude de cartões SIM: Frequência, como uma percentagem de todas as chamadas, que a aplicação deve simular uma chamada fraudulenta. O valor.2 significa que cerca de 20% dos registos chamada terá um aspeto fraudulentas.
+    * Probabilidade de fraude de cartões SIM: Frequência, como uma percentagem de todas as chamadas, que a aplicação deve simular uma chamada fraudulenta. O valor 0,2 significa que cerca de 20% dos registos chamada terá um aspeto fraudulentas.
     * Duração em horas. O número de horas que deve executar a aplicação. Também pode parar a aplicação qualquer momento, premindo Ctrl + C na linha de comandos.
 
-    Após alguns segundos, a aplicação for iniciada apresentar registos de chamada telefónica no ecrã de como envia-os para o hub de eventos.
+    Após alguns segundos, a aplicação começa a apresentar registos de chamadas telefónicas no ecrã, à medida que os envia para o hub de eventos.
 
 Alguns dos campos chaves que irá utilizar nesta aplicação de deteção de fraudes em tempo real são os seguintes:
 
-|**Record**|**Definição**|
+|**Registo**|**Definição**|
 |----------|--------------|
-|`CallrecTime`|O carimbo de hora de início de chamada. |
-|`SwitchNum`|O comutador de telefone utilizado para ligar a chamada. Neste exemplo, os comutadores são cadeias que representam o país/região de origem (E.U.A., China, RU, Datacenters ou Austrália). |
+|`CallrecTime`|O carimbo de data/hora da hora de início da chamada. |
+|`SwitchNum`|O comutador de telefone utilizado para estabelecer a chamada. Neste exemplo, os comutadores são cadeias que representam o país de origem (E.U.A., China, Reino Unido, Alemanha ou Austrália). |
 |`CallingNum`|O número de telefone do chamador. |
-|`CallingIMSI`|A identidade do subscritor móveis internacional (IMSI). Este é o identificador exclusivo do chamador. |
+|`CallingIMSI`|A Identidade Internacional de Assinante Móvel (IMSI). Este é o identificador exclusivo do chamador. |
 |`CalledNum`|O número de telefone do destinatário da chamada. |
-|`CalledIMSI`|Identidade do subscritor móveis internacional (IMSI). Este é o identificador exclusivo do destinatário da chamada. |
+|`CalledIMSI`|Identidade Internacional de Assinante Móvel (IMSI). Este é o identificador exclusivo do destinatário da chamada. |
 
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>Criar uma tarefa de Stream Analytics para gerir os dados de transmissão em fluxo
@@ -221,7 +222,7 @@ A aplicação de TelcoGenerator está a enviar registos de chamada para o hub de
 
     Azure amostras de visão de 3 minutos de dados a partir do fluxo de entrada e notifica-o quando os dados de exemplo estão prontos. (Esta ação demora algum.) 
 
-Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto tiver de abrir a janela de consulta. Se fechar a janela de consulta, os dados de exemplo são rejeitados e terá de criar um novo conjunto de dados de exemplo. 
+Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são eliminados e terá de criar um novo conjunto de dados de exemplo. 
 
 Como alternativa, pode obter um ficheiro. JSON que tenha dados de exemplo na mesma [a partir do GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)e, em seguida, carregue esse ficheiro. JSON para utilizar como dados de exemplo para o `CallStream` entrada. 
 
@@ -289,7 +290,7 @@ Para esta transformação, pretende uma sequência de temporais windows que não
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Detetar fraude SIM através de uma associação automática
 
-Neste exemplo, vamos pode considerar a utilização fraudulenta ser chamadas provir do mesmo utilizador, mas em diferentes localizações dentro de 5 segundos um do outro. Por exemplo, o mesmo utilizador legitimamente não é possível efetuar uma chamada do E.U.A. e da Austrália ao mesmo tempo. 
+Neste exemplo, vamos pode considerar a utilização fraudulenta ser chamadas provir do mesmo utilizador, mas em diferentes localizações dentro de 5 segundos um do outro. Por exemplo, o mesmo utilizador não pode legitimamente fazer uma chamada do E.U.A. e da Austrália ao mesmo tempo. 
 
 Para verificar nestes casos, pode utilizar uma associação automática dos dados de transmissão em fluxo para associar o fluxo da com base no `CallRecTime` valor. Em seguida, pode procurar chamada regista onde o `CallingIMSI` valor (o número de origem) é o mesmo, mas o `SwitchNum` valor (país de origem) não é o mesmo.
 

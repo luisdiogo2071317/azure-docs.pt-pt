@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bde8e68eeb63e76a0dde40a09eededde8a545a83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595092"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824273"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Do Azure AD Connect: Contas e permissões
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -187,9 +187,9 @@ A conta também tem permissões para os ficheiros, chaves de registo e outros ob
 ### <a name="azure-ad-service-account"></a>Conta de serviço do AD FS
 É criada uma conta no Azure AD para utilizar o serviço de sincronização. Esta conta pode ser identificada pelo respetivo nome de apresentação.
 
-![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![Conta do AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-O nome do servidor que é utilizada a conta no pode ser identificado na segunda parte do nome de utilizador. Na imagem, o nome do servidor é FABRIKAMCON. Se tiver servidores de teste, cada servidor tem a sua própria conta.
+O nome do servidor que é utilizada a conta no pode ser identificado na segunda parte do nome de utilizador. Na imagem, o nome do servidor é DC1. Se tiver servidores de teste, cada servidor tem a sua própria conta.
 
 A conta de serviço é criada com uma palavra-passe complexa desde que não expire. É concedido uma função especial **contas de sincronização de diretórios** que tenha apenas as permissões para executar tarefas de sincronização de diretórios. Não é possível conceder esta função incorporada especial fora do Assistente do Azure AD Connect. O portal do Azure mostra esta conta com a função **utilizador**.
 

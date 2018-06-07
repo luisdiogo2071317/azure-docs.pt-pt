@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 6f23324c697aa181179fd0ba4d81d1502bc5ac83
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724895"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808558"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>O que são os aceleradores de soluções IoT?
 
@@ -78,13 +78,13 @@ Quando implementa um acelerador de soluções, o processo de aprovisionamento co
 | Event Hubs           |                    | Sim                    |                   |
 | Time Series Insights |                    |                        | Sim               |
 | Serviços de Contentores   | Sim                |                        |                   |
-| Stream Analytics     |                    | Sim                    |                   |
+| Stream Analytics     | Sim                | Sim                    |                   |
 | Aplicações Web             | Sim                | Sim                    | Sim               |
 | BD do Cosmos            | Sim                | Sim                    |                    |
 | Storage do Azure         |                    | Sim                    | Sim               |
 
 > [!NOTE]
-> Para obter mais informações sobre recursos implementados no acelerador de solução de monitorização remota, consulte este [artigo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) no GitHub.
+> Para obter mais informações sobre recursos implementados no acelerador de solução de monitorização remota, consulte [opções da arquitetura de monitorização remota](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Hub IoT do Azure](../iot-hub/index.yml). Este serviço fornece funcionalidades de mensagens do dispositivo para cloud e da cloud para dispositivo e funciona como o gateway para a cloud e outros serviços essenciais do acelerador de soluções. O serviço permite-lhe receber mensagens dos seus dispositivos de escala e enviar comandos aos seus dispositivos. O serviço também lhe permite [gerir os seus dispositivos](../iot-hub/iot-hub-device-management-overview.md). Por exemplo, pode configurar, reiniciar ou efetuar uma reposição de fábrica num ou mais dispositivos ligados ao hub.
 * [Hubs de Eventos do Azure](../active-directory-domain-services/index.yml). Este serviço disponibiliza ingestão de elevados volumes de eventos na cloud. Veja [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure](../iot-hub/iot-hub-compare-event-hubs.md).

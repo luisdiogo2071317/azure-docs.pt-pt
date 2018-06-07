@@ -1,8 +1,8 @@
 ---
-title: "Desempenho da aplicação de Web monitorização - Azure Application Insights | Microsoft Docs"
+title: Desempenho da aplicação de Web monitorização - Azure Application Insights | Microsoft Docs
 description: Como o Application Insights ajusta o ciclo de devOps
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808483"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que motivo precisa de Application Insights?
@@ -104,7 +105,7 @@ Em ambos os casos, o alerta não só indica os sintomas é detetado, mas também
 
 Samtec cliente consiga aceder tal: "durante uma funcionalidade recente cutover, encontrámos uma base de dados em ampliada atingir os limites de recursos e fazendo com que os tempos limite. Alertas de deteção proativa veio literalmente como anunciados iremos foram a triagem o problema, muito quase em tempo real. Este alerta conjugada com os alertas de plataforma do Azure ajudou-na quase instantaneamente corrigir o problema. Total de tempo de inatividade < 10 minutos."
 
-## <a name="live-metrics-stream"></a>Transmissão de métricas em direto
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 Implementação de compilação mais recente pode ser uma experiência anxious. Se existirem quaisquer problemas, pretender saber sobre os mesmos imediato, para que pode criar uma, se necessário. Transmissão de métricas em direto dá-lhe as métricas-chave com uma latência de cerca de um segundo.
 
 ![Métricas em direto](./media/app-insights-devops/040.png)
@@ -168,7 +169,7 @@ Quando for gerado um alerta, o Application Insights pode criar automaticamente u
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Introdução ao Application Insights é fácil. As opções principais são:
 
 * Instrumente uma aplicação de web já em execução. Isto dá-lhe a toda a telemetria desempenho incorporados. Está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md)e também para [aplicações web do Azure](app-insights-azure.md).

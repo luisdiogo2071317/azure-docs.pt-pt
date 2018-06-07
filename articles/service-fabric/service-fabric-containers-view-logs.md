@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824616"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentor do Service Fabric
 Azure Service Fabric é orchestrator um contentor e suporta [contentores de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como ver registos do contentor de um serviço de contentor em execução ou de um contentor Inativos para que possam diagnosticar e resolver problemas.
@@ -34,6 +35,14 @@ Na vista de árvore, localize o pacote do código no *_lnxvm_0* nó expandindo *
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Aceder a registos de um contentor Inativos ou falhado
 A partir de v6.2, pode também obter os registos para utilizar um contentor Inativos ou falhado [REST APIs](/rest/api/servicefabric/sfclient-index) ou [CLI de recursos de infraestrutura de serviço (SFCTL)](service-fabric-cli.md) comandos.
+
+### <a name="set-container-retention-policy"></a>Definir a política de retenção de contentores
+Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (versão 6.1 ou superior) suporta a retenção de contentores que terminaram ou cujo arranque falhou. Esta política pode ser definida no ficheiro **ApplicationManifest.xml**, conforme mostrado no fragmento seguinte:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se não for especificado um valor negativo, todos os contentores com falhas serão mantidos. Quando o **ContainersRetentionCount** atributo não for especificado, não existem contentores serão mantidos. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Utilize restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar esta funcionalidade para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
 
 ### <a name="rest"></a>REST
 Utilize o [obter contentor registos implementado no nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operação para obter os registos para um contentor falhado. Especifique o nome do nó que estava a executar no contentor, nome da aplicação, nome do manifesto do serviço e o nome de pacote do código.  Especifique `&Previous=true`. A resposta irá conter os registos do contentor para o contentor inactivo da instância de pacote do código.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 41a62c0c77b177179907d8e4a7631af889cd8bd6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798819"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824592"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Estruturar dimensionável e tabelas Performant
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -523,7 +523,7 @@ Ative o comportamento eventualmente consistente em limites de partição ou limi
 #### <a name="context-and-problem"></a>Contexto e problema
 EGTs ativar transações atómicas entre várias entidades que partilham a mesma chave de partição. Para o desempenho e as razões de escalabilidade, pode optar por armazenar as entidades que têm requisitos de consistência em partições separadas ou num sistema de armazenamento separada: neste cenário, não é possível utilizar EGTs para manter a consistência. Por exemplo, pode ter um requisito para manter a consistência eventual entre:  
 
-* Entidades armazenadas em duas partições diferentes na mesma tabela, nas tabelas diferentes, em contas de armazenamento diferente.  
+* Entidades armazenadas no duas partições diferentes na mesma tabela, nas tabelas diferentes ou em contas de armazenamento diferente.  
 * Uma entidade armazenados no serviço tabela e um blob armazenada no serviço Blob.  
 * Uma entidade armazenada no serviço tabela e um ficheiro num sistema de ficheiros.  
 * Um arquivo de entidade no serviço tabela indexado ainda utilizando o serviço de pesquisa do Azure.  
@@ -718,7 +718,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 Obter o *n* entidades recentemente adicionadas a uma partição utilizando um **RowKey** valor ordena na data inversa e ordem de tempo.  
 
 #### <a name="context-and-problem"></a>Contexto e problema
-Um requisito comuns está a conseguir obter as entidades criadas recentemente, por exemplo o mais recente dez despesa afirmações submetidas por um funcionário. Suporte de consulta de tabela um **$top** operação para devolver o primeiro de consulta *n* entidades de um conjunto: não há nenhuma operação de consulta equivalente para devolver as último entidades n num conjunto.  
+É um requisito comuns para conseguir obter as entidades criadas recentemente, por exemplo o mais recente dez despesa afirmações submetidas por um funcionário. Suporte de consulta de tabela um **$top** operação para devolver o primeiro de consulta *n* entidades de um conjunto: não há nenhuma operação de consulta equivalente para devolver as último entidades n num conjunto.  
 
 #### <a name="solution"></a>Solução
 Armazenar as entidades com um **RowKey** que naturalmente Ordena por ordem inversa de data/hora através da utilização de entrada, por isso, o mais recente é sempre o primeiro na tabela.  
@@ -1059,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Projecção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Quando a tabela de consulta e obter entidades, que pode não necessitar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo seguinte é obtém apenas o **E-Mail** propriedade (juntamente com **PartitionKey**, **RowKey**, **Timestamp**, e **ETag**) de entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Quando a tabela de consulta e obter entidades, que pode não necessitar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades que precisa. O exemplo seguinte obtém apenas o **E-Mail** propriedade (juntamente com **PartitionKey**, **RowKey**, **Timestamp**e **ETag**) de entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(
