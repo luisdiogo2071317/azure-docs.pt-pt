@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Computação de elevado desempenho
           href: sizes-hpc.md
+        - name: Gerações anteriores
+          href: sizes-previous-gen.md
         - name: Unidades de computação do Azure (ACU)
           href: acu.md
         - name: Pontuações de referência
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Utilizar um modelo
           href: create-ssh-secured-vm-from-template.md
+        - name: Utilizar a API REST
+          href: create-vm-rest-api.md
         - name: Copiar ou clonar uma VM
           href: copy-vm.md
     - name: Proteger VMs
@@ -188,7 +192,12 @@
         - name: Etiquetar uma VM
           href: tag.md
         - name: Executar scripts numa VM
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Extensão de Script Personalizado
+              href: ../extensions/custom-script-linux.md
+            - name: Executar o Comando
+              href: run-command.md
         - name: Utilizar o Ambiente de Trabalho Remoto
           href: use-remote-desktop.md
         - name: Associar uma VM ao Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Utilizar o DNS interno
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: Utilizar extensões de VM
-      items:
-        - name: Descrição geral da Extensão de VM
-          href: extensions-features.md
-        - name: Extensão de Script Personalizado
-          href: extensions-customscript.md
-        - name: Extensão do Agente OMS
-          href: extensions-oms.md
-        - name: Extensão de Diagnóstico do Linux
-          href: diagnostic-extension.md
-        - name: Agente do Observador de Rede
-          href: extensions-nwa.md
-        - name: Extensão VMAccess
-          href: using-vmaccess-extension.md
-        - name: Restringir a instalação de extensões
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Migrar VMs
       items:
         - name: Migrar VMs AWS e VMs no local

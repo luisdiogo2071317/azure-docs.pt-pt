@@ -1,50 +1,52 @@
 # [Documentação do Analysis Services](index.md)
 
 # Descrição geral
-## [O que é o Azure Analysis Services?](analysis-services-overview.md)
 
+## [O que é o Analysis Services?](analysis-services-overview.md)
 
-# Introdução
-## [Criar um servidor no portal do Azure](analysis-services-create-server.md)
-## [Criar um servidor com o Azure PowerShell](analysis-services-create-powershell.md)
-## [Implementar um modelo do Visual Studio](analysis-services-deploy.md)
-## [Criar um modelo no portal do Azure (pré-visualização)](analysis-services-create-model-portal.md)
+# Inícios rápidos
+
+## [Criar um servidor - Portal](analysis-services-create-server.md)
+## [Criar um servidor - PowerShell](analysis-services-create-powershell.md)
+## [Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)
+
+# Tutoriais
+
+## [1 - Adicionar um modelo de exemplo a partir do portal](analysis-services-create-sample-model.md) 
+## [2 - Configurar funções de utilizador e de administrador de servidor](tutorials/analysis-services-tutorial-roles.md)
+## [3 - Ligar com o Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Conceitos
+
+## [Autenticação e permissões de utilizador](analysis-services-manage-users.md)
 ## [Automatização com principais de serviço](analysis-services-service-principal.md)
-## [Origens de dados suportadas](analysis-services-datasource.md)
+## [Bibliotecas de cliente](analysis-services-data-providers.md)
+## [Nível de compatibilidade](analysis-services-compat-level.md)
 ## [Ligar a origens de dados no local](analysis-services-gateway.md)
 ## [Ligar aos servidores](analysis-services-connect.md)
-## [Autenticação e permissões de utilizador](analysis-services-manage-users.md)
-## [Nível de compatibilidade](analysis-services-compat-level.md)
 ## [Elevada disponibilidade](analysis-services-bcdr.md)
+## [Origens de dados suportadas](analysis-services-datasource.md)
 
 # Procedimentos 
-## [Instalar e configurar um gateway de dados no local](analysis-services-gateway-install.md)
-## [Importar um ficheiro do Power BI Desktop](analysis-services-import-pbix.md)
-## [Backup e restauro](analysis-services-backup.md)
-## [Atualizar com API REST](analysis-services-async-refresh.md)
-## [Configurar o escalamento horizontal](analysis-services-scale-out.md)
-## Automatizar tarefas administrativas
-### [Criar o principal de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)
-## Gestão de servidores
+
+## Servidor
+### [Backup e restauro](analysis-services-backup.md)
 ### [Configurar um alias de nome de servidor](analysis-services-server-alias.md)
+### [Configurar o escalamento horizontal](analysis-services-scale-out.md)
+### [Instalar e configurar um gateway de dados no local](analysis-services-gateway-install.md)
 ### [Gerir um servidor](analysis-services-manage.md)
-### [Gerir utilizadores da base de dados](analysis-services-database-users.md)
-### [Gerir administradores de servidor](analysis-services-server-admins.md)
 ### [Monitorizar as métricas do servidor](analysis-services-monitor.md)
 ### [Configurar registo de diagnósticos](analysis-services-logging.md)
-### [Utilizar o gateway para origens de dados na VNet](analysis-services-vnet-gateway.md)
-## Ligar
-### [Obter bibliotecas de cliente](analysis-services-data-providers.md)
-### [Ligar com o Excel](analysis-services-connect-excel.md)
-### [Ligar com o Power BI](analysis-services-connect-pbi.md)
-### [Criar um ficheiro .odc](analysis-services-odc.md)
-## Tutoriais
-### [1 - Adicionar um modelo de exemplo](analysis-services-create-sample-model.md)
-### [Modelação de Dados - Tutorial do Adventure Works](tutorials/aas-adventure-works-tutorial.md)
+### [Criar o principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)
+
+## Modelo
+### [Importar um ficheiro do Power BI Desktop](analysis-services-import-pbix.md)
+### [Criar um modelo no portal do Azure (pré-visualização)](analysis-services-create-model-portal.md)
+### [Implementar a partir do Visual Studio (SSDT)](analysis-services-deploy.md)
+### [Atualizar com API REST](analysis-services-async-refresh.md)
+### [Modelação de dados no Visual Studio – tutorial do Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Criar um projeto de modelo em tabela](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Obter dados](tutorials/aas-lesson-2-get-data.md)
 #### [3 - Marcar como Tabela de Datas](tutorials/aas-lesson-3-mark-as-date-table.md) 
@@ -62,14 +64,25 @@
 #### [Lição suplementar - Segurança dinâmica](tutorials/aas-supplemental-lesson-dynamic-security.md)
 #### [Lição suplementar - Hierarquias desalinhadas](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
+## Segurança
+### [Gerir utilizadores da base de dados](analysis-services-database-users.md)
+### [Gerir administradores de servidor](analysis-services-server-admins.md)
+
+## Ligar
+### [Ligar com o Excel](analysis-services-connect-excel.md)
+### [Ligar com o Power BI](analysis-services-connect-pbi.md)
+### [Criar um ficheiro .odc](analysis-services-odc.md)
+
 # Referência
-## [Azure PowerShell](analysis-services-powershell.md)
+
+## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Linguagem de Script de Modelo em Tabela (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Recursos
+
 ## [Amostras](analysis-services-samples.md)
 ## [Blogue da equipa do Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Fórum do Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
@@ -80,4 +93,13 @@
 ## [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+
+
+
+
+
+
+
+
+
 

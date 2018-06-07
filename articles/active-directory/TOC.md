@@ -204,11 +204,17 @@
 ##### [Instalação silenciosa](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Página inicial personalizada](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Converter ligações inline](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [Carateres universais](active-directory-application-proxy-wildcard.md)
+##### [Remover dados pessoais](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### Instruções de publicação
 ##### [Ambiente de Trabalho Remoto](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Equipas da Microsoft](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [Resolução de problemas](active-directory-application-proxy-troubleshoot.md)
 
@@ -291,7 +297,7 @@
 #### [Condições](active-directory-conditional-access-conditions.md)
 #### [Condições de localização](active-directory-conditional-access-locations.md)
 #### [Controlos](active-directory-conditional-access-controls.md)
-#### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Melhores práticas](active-directory-conditional-access-best-practices.md)
 #### [Compreender as políticas de dispositivo para serviços do Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrar políticas clássicas](active-directory-conditional-access-migration.md)
@@ -303,7 +309,7 @@
 ##### [Configurar o acesso condicional baseado no dispositivo](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurar o acesso condicional baseado na aplicação](active-directory-conditional-access-mam.md)
 ##### [Fornecer termos de utilização para utilizadores e aplicações](active-directory-tou.md)
-##### [Configurar ligação VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [Configurar ligação VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Configurar o SharePoint e Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediação](active-directory-conditional-access-device-remediation.md)
 #### [Referência técnica](active-directory-conditional-access-technical-reference.md)

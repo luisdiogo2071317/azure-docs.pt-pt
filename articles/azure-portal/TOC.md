@@ -15,6 +15,7 @@
 ### [Criar programaticamente Dashboards do Azure](azure-portal-dashboards-create-programmatically.md)
 ## Gerir
 ### [Ativar o alto contraste ou a alteração de tema](azure-portal-change-theme-high-contrast.md)
+### [Exportar ou elimine as definições de utilizador](azure-portal-export-delete-settings.md)
 ### [Utilizar o portal para gerir recursos](../azure-resource-manager/resource-group-portal.md)
 ### [Gerir o acesso com o Controlo de Acesso Baseado em Funções](../role-based-access-control/role-assignments-portal.md)
 ### [Partilhar dashboards com o Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md)

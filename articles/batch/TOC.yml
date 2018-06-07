@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Criar um conjunto numa rede virtual
           href: batch-virtual-network.md
+        - name: Montar uma partilha de ficheiros do Azure
+          href: pool-file-shares.md
         - name: Utilizar VMs de computação intensiva
           href: batch-pool-compute-intensive-sizes.md
         - name: Utilizar nós de computação do Linux

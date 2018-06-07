@@ -19,7 +19,8 @@
 #### [Configurar a Integração do Cofre de Chaves do Azure](virtual-machines-windows-ps-sql-keyvault.md)
 ## Cópia de segurança e restauro
 ### [Backup e restauro](virtual-machines-windows-sql-backup-recovery.md)
-### [Cópia de segurança automatizada](virtual-machines-windows-sql-automated-backup.md)
+### [Cópia de segurança automatizada para SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Cópia de segurança automatizada para SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Utilizar o Armazenamento do Azure para o restauro e a cópia de segurança](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Guias de procedimentos
