@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
 ms.openlocfilehash: 187171d75a6bcc54a48c891aa2eafd8408b06ddb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "32778279"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipa em ação - um Cluster de Hadoop do Azure HDInsight a utilizar um conjunto de dados de 1 TB
 

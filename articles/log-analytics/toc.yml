@@ -137,24 +137,20 @@
           href: log-analytics-powerbi.md
     - name: Criar alertas
       items:
-        - name: Compreender os alertas
-          href: log-analytics-alerts.md
-        - name: Ações de alerta
-          href: log-analytics-alerts-actions.md
-        - name: Criar regras de alertas
-          items:
-            - name: Portal do OMS
-              href: log-analytics-alerts-creating.md
-            - name: API REST
-              href: log-analytics-api-alerts.md
-            - name: Modelo do Resource Manager
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Exemplo de ação do webhook
-          href: log-analytics-alerts-webhooks.md
-        - name: Solução de Gestão de Alertas
-          href: log-analytics-solution-alert-management.md
+        - name: Compreender os alertas de registo
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Criar o alerta de registo
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Ações de webhook para alertas de registo
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Criar um alerta de registo com um modelo do Resource Manager
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Copiar os alertas do Log Analytics para os Alertas do Azure
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: Gerir
       items:
+        - name: Processamento de dados pessoais
+          href: log-analytics-personal-data-mgmt.md
         - name: Gestão de agente
           href: log-analytics-agent-manage.md
         - name: Gerir o custo de área de trabalho
@@ -218,8 +214,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: Esquema de controlo personalizado B2B das Aplicações Lógicas
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Avaliação de Software Maligno
-          href: log-analytics-malware.md
         - name: Análise de Redes
           href: log-analytics-azure-networking-analytics.md
         - name: Monitor de Desempenho da Rede
@@ -239,7 +233,7 @@
         - name: Verificação do Estado de Funcionamento do SCOM
           href: log-analytics-scom-assessment.md
         - name: Auditoria de Segurança
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Service Fabric com o Azure PowerShell
           href: log-analytics-service-fabric.md
           items:

@@ -23,13 +23,12 @@
 ### [Descrição geral do Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Proteger
-### [Monitorizar recursos](oms-security-monitoring-resources.md)
-### [Responder a alertas de segurança](oms-security-responding-alerts.md)
-### [Avaliação da linha de base](oms-security-baseline.md)
-### [Avaliação de software maligno](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Avaliação de atualizações do sistema](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Ligar produtos de segurança](oms-security-connect-products.md)
-### [Avaliação da linha de base da Web](oms-security-web-baseline-assessment.md)
+### [Monitorizar recursos](../security-center/security-center-monitoring.md)
+### [Responder a alertas de segurança](../security-center/security-center-managing-and-responding-alerts.md)
+### [Avaliação da linha de base](../security-center/security-center-customize-os-security-config.md)
+### [Avaliação de software maligno](../security-center/security-center-install-endpoint-protection.md)
+### [Ligar produtos de segurança](../security-center/quick-security-solutions.md)
+### [Avaliação da linha de base da Web](../security-center/security-center-customize-os-security-config.md)
 
 ## Utilizar soluções
 ### [Soluções de gestão](../monitoring/monitoring-solutions.md)

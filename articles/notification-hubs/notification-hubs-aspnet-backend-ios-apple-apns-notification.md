@@ -1,6 +1,6 @@
 ---
 title: Notificações push a utilizadores específicos com Notification Hubs do Azure | Microsoft Docs
-description: Saiba como enviar notificações push a utilizadores específicos através da utilização de Notification Hubs do Azure.
+description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
 documentationcenter: ios
 author: dimazaid
 manager: kpiteira
@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33777540"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Notificações Push a utilizadores específicos com Notification Hubs do Azure
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial mostra-lhe como pode utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador da aplicação específico num dispositivo específico. Um back-end de ASP.NET WebAPI end é utilizado para autenticar clientes e gerar notificações, conforme mostrado no tópico de documentação de orientação [registar de back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end de ASP.NET WebAPI end é utilizado para autenticar clientes e gerar notificações, conforme mostrado no tópico de documentação de orientação [registar de back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
 Neste tutorial, siga os passos seguintes:
 
 > [!div class="checklist"]
-> * Criar o projeto de end WebAPI
-> * Autentique clientes para o back-end WebAPI
-> * Registar para notificações utilizando o back-end WebAPI
-> * Enviar notificações a partir do back-end WebAPI
-> * Publicar o novo back-end WebAPI end
+> * Criar o Projeto WebAPI
+> * Autenticar clientes no back-end de WebAPI
+> * Utilizar o back-end de WebAPI para registar notificações
+> * Enviar notificações a partir do back-end de WebAPI
+> * Publicar o back-end de WebAPI novo
 > * Modificar a sua aplicação iOS
 > * Testar a aplicação
 
@@ -478,10 +479,10 @@ Se pretender utilizar Mobile Apps como o serviço de back-end, consulte o [Mobil
     ![][4]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, aprendeu a notificações push a utilizadores específicos que tenham etiquetas associadas aos respetivos registos. Para saber como enviar notificações com base na localização, avançar para o tutorial seguinte: 
+Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial: 
 
 > [!div class="nextstepaction"]
->[Com base na localização de notificações Push](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Enviar notificações push com base na localização](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png

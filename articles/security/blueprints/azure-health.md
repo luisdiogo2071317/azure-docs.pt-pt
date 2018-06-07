@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33894318"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI
 
@@ -382,7 +383,7 @@ A solução suporta grelha de eventos do Azure, um único serviço para gerir o 
 
     -   Identidade e Acesso
 
-    -   Auditoria e segurança
+    -   Segurança e Auditoria
 
     -   Azure SQL DB Analytics
 
