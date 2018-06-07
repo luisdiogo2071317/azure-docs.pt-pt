@@ -1,24 +1,20 @@
 ---
 title: Mensagens da nuvem para o dispositivo com o Azure IoT Hub (.NET) | Microsoft Docs
 description: Como enviar mensagens da nuvem para o dispositivo a um dispositivo de um hub IoT do Azure com os SDKs IoT do Azure para .NET. Modificar uma aplicação de dispositivo para receber mensagens da nuvem para o dispositivo e modificar uma aplicação de back-end para enviar as mensagens da nuvem para o dispositivo.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631892"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens da nuvem para o seu dispositivo com o IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -42,7 +38,7 @@ No final deste tutorial, executa duas aplicações de consola .NET:
 * **SendCloudToDevice**, que envia uma mensagem da nuvem para o dispositivo para a aplicação de dispositivos através do IoT Hub e, em seguida, receber a confirmação de entrega.
 
 > [!NOTE]
-> IoT Hub tem suporte SDK para várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de [SDKs do Azure IoT device]. Para obter instruções passo a passo sobre como ligar o seu dispositivo para código neste tutorial e, geralmente, IoT Hub do Azure, consulte o [guia para programadores do IoT Hub].
+> IoT Hub tem suporte SDK para várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de [SDKs do Azure do dispositivo IoT]. Para obter instruções passo a passo sobre como ligar o seu dispositivo para código neste tutorial e, geralmente, IoT Hub do Azure, consulte o [guia para programadores do IoT Hub].
 > 
 > 
 
@@ -85,7 +81,7 @@ Nesta secção, irá modificar a aplicação de dispositivo que criou no [introd
         ReceiveC2dAsync();
 
 > [!NOTE]
-> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [processamento de erros transitórios].
+> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [Processamento de falhas transitórias].
 > 
 > 
 
@@ -100,7 +96,7 @@ Nesta secção, escreve uma aplicação de consola .NET que envia mensagens da n
     Esta ação abre o **gerir pacotes NuGet** janela.
 3. Procurar **Microsoft.Azure.Devices**, clique em **instalar**e aceite os termos de utilização. 
    
-    Isto transfere, instala e adiciona uma referência para o [pacote NuGet do SDK do Azure IoT serviço].
+    Isto transfere, instala e adiciona uma referência para o [Pacote do SDK NuGet serviço IoT do Azure].
 
 4. Adicione a seguinte declaração `using` na parte superior do ficheiro **Program.cs**:
    
@@ -169,14 +165,14 @@ Nesta secção, modifique o **SendCloudToDevice** aplicação para solicitar os 
    ![Mensagem de receção de aplicação][22]
 
 > [!NOTE]
-> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [processamento de erros transitórios].
+> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [Processamento de falhas transitórias].
 > 
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a enviar e receber mensagens da nuvem para o dispositivo. 
 
-Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [acelerador de solução de monitorização remota do Azure IoT].
+Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [Acelerador solução de monitorização remota do IoT do Azure].
 
 Para obter mais informações sobre como desenvolver soluções de IoT hub, consulte o [guia para programadores do IoT Hub].
 
@@ -187,13 +183,13 @@ Para obter mais informações sobre como desenvolver soluções de IoT hub, cons
 
 <!-- Links -->
 
-[pacote NuGet do SDK do Azure IoT serviço]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[processamento de erros transitórios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Pacote do SDK NuGet serviço IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Processamento de falhas transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [guia para programadores do IoT Hub]: iot-hub-devguide.md
-[introdução ao IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Introdução ao IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[acelerador de solução de monitorização remota do Azure IoT]: https://docs.microsoft.com/azure/iot-suite/
-[SDKs do Azure IoT device]: iot-hub-devguide-sdks.md
+[Acelerador solução de monitorização remota do IoT do Azure]: https://docs.microsoft.com/azure/iot-suite/
+[SDKs do Azure do dispositivo IoT]: iot-hub-devguide-sdks.md

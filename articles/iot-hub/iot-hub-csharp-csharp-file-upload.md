@@ -1,24 +1,20 @@
 ---
 title: Carregar ficheiros de dispositivos para o IoT Hub do Azure com o .NET | Microsoft Docs
 description: Como carregar ficheiros a partir de um dispositivo para a nuvem através de dispositivos IoT do Azure SDK para .NET. Ficheiros carregados são armazenados num contentor do blob storage do Azure.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807497"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub através do .NET
 
@@ -29,7 +25,7 @@ Este tutorial baseia-se o código de [enviar mensagens da nuvem para o dispositi
 - Fornecer em segurança um dispositivo com um Azure blob URI para carregar um ficheiro.
 - Utilize as notificações de carregamento de ficheiros do IoT Hub para acionar a processar o ficheiro na sua aplicação de back-end.
 
-O [introdução ao IoT Hub](iot-hub-csharp-csharp-getstarted.md) e [enviar mensagens da nuvem para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) os tutoriais mostram a dispositivo para nuvem e da nuvem para o dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens do dispositivo-nuvem de processo](iot-hub-csharp-csharp-process-d2c.md) tutorial descreve uma forma de forma fiável armazenar mensagens do dispositivo para nuvem no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
+O [introdução ao IoT Hub](iot-hub-csharp-csharp-getstarted.md) e [enviar mensagens da nuvem para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) os tutoriais mostram a dispositivo para nuvem e da nuvem para o dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens do dispositivo-nuvem de processo](tutorial-routing.md) tutorial descreve uma forma de forma fiável armazenar mensagens do dispositivo para nuvem no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contenham imagens
 * Vídeos
@@ -44,7 +40,7 @@ No final deste tutorial, executar duas aplicações de consola .NET:
 * **ReadFileUploadNotification**, que recebe notificações de carregamento de ficheiros do seu IoT hub.
 
 > [!NOTE]
-> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de programadores do IoT do Azure] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
+> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de Programadores do Azure IoT] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -97,7 +93,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mens
     ```
 
 > [!NOTE]
-> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [processamento de erros transitórios].
+> Para sake do simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como término exponencial), como sugerido no artigo do MSDN [Processamento de falhas transitórias].
 
 ## <a name="receive-a-file-upload-notification"></a>Receber uma notificação de carregamento de ficheiros
 
@@ -111,7 +107,7 @@ Nesta secção, escreve uma aplicação de consola .NET que recebe mensagens de 
 
 1. No **Gestor de pacotes NuGet** janela, procure **Microsoft.Azure.Devices**, clique em **instalar**e aceite os termos de utilização.
 
-    Esta ação transfere, instala e adiciona uma referência para o [pacote NuGet do SDK do Azure IoT serviço] no **ReadFileUploadNotification** projeto.
+    Esta ação transfere, instala e adiciona uma referência para o [Pacote do SDK NuGet serviço IoT do Azure] no **ReadFileUploadNotification** projeto.
 
 1. No **Program.cs** ficheiro, adicione as seguintes declarações na parte superior do ficheiro:
 
@@ -190,12 +186,12 @@ Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 <!-- Links -->
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 
-[Centro de programadores do IoT do Azure]: http://azure.microsoft.com/develop/iot
+[Centro de Programadores do Azure IoT]: http://azure.microsoft.com/develop/iot
 
-[processamento de erros transitórios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[pacote NuGet do SDK do Azure IoT serviço]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Processamento de falhas transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Pacote do SDK NuGet serviço IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

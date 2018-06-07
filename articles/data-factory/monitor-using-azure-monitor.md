@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620345"
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
@@ -106,7 +107,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | storageAccountId |Cadeia | O ID de recurso da conta do storage para o qual pretende enviar registos de diagnóstico |
-| serviceBusRuleId |Cadeia | O service bus ID da regra de espaço de nomes de barramento serviço, na qual gostaria de ter criado para os registos de diagnóstico de transmissão em fluxo do Event Hubs. A regra ID é o formato: "{ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}".|
+| serviceBusRuleId |Cadeia | O service bus ID da regra de espaço de nomes de barramento serviço, na qual gostaria de ter criado para os registos de diagnóstico de transmissão em fluxo do Event Hubs. A regra ID é o formato: {ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}.|
 | workspaceId | Tipo complexo | Matriz de grains de métrica de tempo e as respetivas políticas de retenção. Atualmente, esta propriedade está vazia. |
 |métricas| Os valores dos parâmetros do pipeline de executam a ser transmitido para o pipeline invocado| Um objeto JSON mapear os nomes de parâmetros para valores de argumento | 
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute primeiro uma operação de definições de diagnóstico de GET. |
@@ -412,7 +413,7 @@ Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; aler
 
 ![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
-### <a name="create-alerts"></a>Criar alertas
+### <a name="create-alerts"></a>Criar Alertas
 
 1.  Clique em **+ nova regra de alerta** para criar um novo alerta.
 

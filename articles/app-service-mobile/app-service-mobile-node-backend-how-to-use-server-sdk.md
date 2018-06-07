@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598084"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK do Mobile Apps Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -80,17 +81,17 @@ Cada back-end do Node.js de aplicações móveis é iniciada como uma aplicaçã
 Esta aplicação cria uma API Web do mobile-otimizada com um único ponto final (`/tables/TodoItem`) que fornece acesso não autenticado para um arquivo de dados do SQL Server subjacente utilizando um esquema dinâmico. É adequado para os biblioteca de cliente inícios rápidos a seguir:
 
 * [Guia de introdução do cliente do Android]
-* [Início rápido de cliente do Apache Cordova]
+* [Guia de introdução do cliente do Apache Cordova]
 * [Guia de introdução do cliente do iOS]
-* [Início rápido do cliente de loja Windows]
-* [Início rápido de cliente do xamarin. IOS]
-* [Início rápido de cliente do xamarin. Android]
-* [Início rápido de cliente do xamarin. Forms]
+* [Guia de introdução do cliente de loja do Windows]
+* [Guia de introdução do cliente do xamarin. IOS]
+* [Guia de introdução do cliente do xamarin. Android]
+* [Guia de introdução do cliente do xamarin. Forms]
 
-Pode encontrar o código para esta aplicação básica no [basicapp exemplo no GitHub].
+Pode encontrar o código para esta aplicação básica no [exemplo de basicapp no GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Criar um back-end de Node.js utilizando o Visual Studio 2015
-Visual Studio 2015 requer uma extensão para desenvolver aplicações Node.js no IDE. Para começar, instale o [Node.js ferramentas 1.1 para o Visual Studio]. Quando concluir a instalação, crie uma aplicação de 4. x rápida:
+Visual Studio 2015 requer uma extensão para desenvolver aplicações Node.js no IDE. Para começar, instale o [Ferramentas de node.js 1.1 para o Visual Studio]. Quando concluir a instalação, crie uma aplicação de 4. x rápida:
 
 1. Abra o **novo projeto** caixa de diálogo (de **ficheiro** > **novo** > **projeto**).
 2. Expanda **modelos** > **JavaScript** > **Node.js**.
@@ -130,7 +131,7 @@ Volta a **começar** painel, em **criar uma API de tabela**, escolha **Node.js**
 Selecione a caixa de **reconheço que esta ação substituirá todo o conteúdo do site**e, em seguida, selecione **criar tabela TodoItem**.
 
 ### <a name="download-quickstart"></a>Transferir o projeto de código de início rápido de back-end do Node.js utilizando o Git
-Quando cria um back-end de aplicações móveis do Node.js utilizando o portal **início rápido** painel, um projeto de Node.js é criada por si e implementada para o seu site. No portal, pode adicionar tabelas e das APIs e editar ficheiros de código de back-end Node.js. Também pode utilizar várias ferramentas de implementação para transferir o projeto de back-end, para que possam adicionar ou modificar as tabelas e das APIs e, em seguida, voltar a publicar o projeto. Para obter mais informações, consulte o [guia de implementação do App Service do Azure]. 
+Quando cria um back-end de aplicações móveis do Node.js utilizando o portal **início rápido** painel, um projeto de Node.js é criada por si e implementada para o seu site. No portal, pode adicionar tabelas e das APIs e editar ficheiros de código de back-end Node.js. Também pode utilizar várias ferramentas de implementação para transferir o projeto de back-end, para que possam adicionar ou modificar as tabelas e das APIs e, em seguida, voltar a publicar o projeto. Para obter mais informações, consulte o [Guia de implementação do serviço de aplicações do Azure]. 
 
 O procedimento seguinte utiliza um repositório de Git para transferir o código de projeto de início rápido:
 
@@ -151,7 +152,7 @@ O procedimento seguinte utiliza um repositório de Git para transferir o código
 O site sejam publicados novamente sempre que um novo conjunto de consolidações é enviado para o site.
 
 ### <a name="howto-publish-to-azure"></a>Publicar o seu back-end do Node.js no Azure
-O Microsoft Azure oferece vários mecanismos para publicar o Node.js de aplicações móveis back-end para o serviço do Azure. Estes mecanismos incluem as ferramentas de implementação integradas no Visual Studio, as ferramentas de linha de comandos e opções de implementação contínua, com base no controlo de origem. Para obter mais informações, consulte o [guia de implementação do App Service do Azure].
+O Microsoft Azure oferece vários mecanismos para publicar o Node.js de aplicações móveis back-end para o serviço do Azure. Estes mecanismos incluem as ferramentas de implementação integradas no Visual Studio, as ferramentas de linha de comandos e opções de implementação contínua, com base no controlo de origem. Para obter mais informações, consulte o [Guia de implementação do serviço de aplicações do Azure].
 
 App Service do Azure tem conselhos específico para aplicações de Node.js que deve consultar antes de publicar o back-end:
 
@@ -213,7 +214,7 @@ Definir a tabela. / tables/TodoItem.js:
 
 As tabelas utilizam um esquema dinâmico por predefinição. Para desativar o esquema dinâmico globalmente, defina o `MS_DynamicSchema` definição de aplicação para false no portal do Azure.
 
-Pode encontrar um exemplo completo no [todo de exemplo no GitHub].
+Pode encontrar um exemplo completo no [exemplo de tarefas no GitHub].
 
 ### <a name="howto-staticschema"></a>Definir tabelas utilizando um esquema estático
 Pode definir explicitamente as colunas a expor o através da API Web. O SDK de Node.js-mobile apps do azure adiciona automaticamente quaisquer colunas adicionais necessárias para a sincronização de dados offline para a lista que fornecer. Por exemplo, as aplicações de cliente de início rápido necessitam de uma tabela com duas colunas: `text` (uma cadeia) e `complete` (um valor boleano).  
@@ -243,14 +244,14 @@ O SDK do Mobile Apps Node.js fornece três opções para servir os dados a Box:
 * Utilize o **mssql** controladores para fornecer um arquivo de dados do SQL Server Express para o desenvolvimento.
 * Utilize o **mssql** controladores para fornecer um arquivo de dados SQL Database do Azure de produção.
 
-O SDK do Mobile Apps Node.js utiliza o [mssql Node.js pacote] estabelecer e utilizar uma ligação ao SQL Server Express e a base de dados do SQL Server. Este pacote requer que ative as ligações de TCP a instância do SQL Server Express.
+O SDK do Mobile Apps Node.js utiliza o [pacote de Node.js MSSQL] estabelecer e utilizar uma ligação ao SQL Server Express e a base de dados do SQL Server. Este pacote requer que ative as ligações de TCP a instância do SQL Server Express.
 
 > [!TIP]
 > O controlador de memória não fornece um conjunto completo de instalações para fins de teste. Se pretender testar a sua back-end localmente, recomendamos a utilização de um arquivo de dados do SQL Server Express e o controlador de mssql.
 >
 >
 
-1. Transfira e instale [Microsoft SQL Server 2014 Express]. Certifique-se de que instala o SQL Server 2014 Express com a edição de ferramentas. A menos que explicitamente necessitar de suporte de 64 bits, a versão de 32 bits consome menos memória quando em execução.
+1. Transfira e instale [Microsoft SQL Server 2014 rápida]. Certifique-se de que instala o SQL Server 2014 Express com a edição de ferramentas. A menos que explicitamente necessitar de suporte de 64 bits, a versão de 32 bits consome menos memória quando em execução.
 2. Execute o Gestor de configuração do SQL Server 2014:
 
    a. Expanda o **configuração de rede do SQL Server** nó no menu de árvore.
@@ -307,7 +308,7 @@ As Mobile Apps lê um ficheiro de JavaScript chamado *azureMobile.js* do sistema
 
 O ficheiro azureMobile.js deve exportar de um objeto de configuração. As definições mais comuns são:
 
-* Definições de base de dados
+* Definições da base de dados
 * Definições de registo de diagnóstico
 * Definições CORS da alternativas
 
@@ -336,7 +337,7 @@ A maioria das definições no ficheiro azureMobile.js têm uma definição de ap
 
 | Definição de aplicação | definição de azureMobile.js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |nome |Nome da aplicação |string |
+| **MS_MobileAppName** |name |Nome da aplicação |cadeia |
 | **MS_MobileLoggingLevel** |Logging.level |Nível de registo mínimo de mensagens em fila para iniciar sessão |erro, aviso, informações, verbosa, depuração, silly |
 | **MS_DebugMode** |depurar |Ativa ou desativa o modo de depuração |TRUE, false |
 | **MS_TableSchema** |data.schema |Nome de esquema predefinido para tabelas SQL |cadeia (predefinição: dbo) |
@@ -346,7 +347,7 @@ A maioria das definições no ficheiro azureMobile.js têm uma definição de ap
 
 Para definir uma definição de aplicação:
 
-1. Inicie sessão no [portal do Azure].
+1. Inicie sessão no [Portal do Azure].
 2. Selecione **todos os recursos** ou **serviços aplicacionais**e, em seguida, selecione o nome da sua aplicação móvel.
 3. O **definições** painel abre-se por predefinição. Se não, selecionar **definições**.
 4. No **geral** menu, selecione **definições da aplicação**.
@@ -362,7 +363,7 @@ Alterar a maioria das definições de aplicação requer um reinício do serviç
 
 Utilizar a SQL Database do Azure como um arquivo de dados é idêntico em todos os tipos de aplicações do App Service do Azure. Se não o fez, já, siga estes passos para criar um back-end de Mobile Apps:
 
-1. Inicie sessão no [portal do Azure].
+1. Inicie sessão no [Portal do Azure].
 2. No canto superior esquerdo da janela, selecione o **+ novo** botão > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para o seu Mobile Apps back-end.
 3. No **grupo de recursos** box, introduza o mesmo nome que a sua aplicação.
 4. A predefinição é selecionado o plano de serviço de aplicações. Se pretender alterar o seu plano de serviço de aplicações:
@@ -881,27 +882,27 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end do
 [Configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Configurar a autenticação da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[guia de implementação do App Service do Azure]: ../app-service/app-service-deploy-local-git.md
+[Guia de implementação do serviço de aplicações do Azure]: ../app-service/app-service-deploy-local-git.md
 [Monitorização do serviço de aplicações do Azure]: ../app-service/web-sites-monitor.md
 [Ativar o registo de diagnóstico no App Service do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
 [Resolver problemas do App Service do Azure no Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[especifique a versão de nó]: ../nodejs-specify-node-version-azure-apps.md
+[Especifique a versão de nó]: ../nodejs-specify-node-version-azure-apps.md
 [utilizar módulos do nó]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promessa]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[basicapp exemplo no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[todo de exemplo no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[exemplo de basicapp no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[exemplo de tarefas no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [diretório de exemplos em GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Node.js ferramentas 1.1 para o Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[mssql Node.js pacote]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Ferramentas de node.js 1.1 para o Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[pacote de Node.js MSSQL]: https://www.npmjs.com/package/mssql
+[Microsoft SQL Server 2014 rápida]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621188"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -45,7 +46,7 @@ O Data management gateway fornece as seguintes capacidades:
 * Gerir o acesso a origens de dados no local em segurança.
   * Não existem alterações necessárias para a firewall da empresa. Gateway só faz baseado em HTTP de ligações de saída para abrir a internet.
   * Encripta as credenciais para os arquivos de dados no local com o certificado.
-* Mover dados de forma eficiente – os dados são transferidos em paralelo, problemas de rede resiliente para intermitente com automática repetir lógica.
+* Mover dados de forma eficiente os dados são transferidos em paralelo, problemas de rede resiliente para intermitente com automática repetir lógica.
 
 ### <a name="command-flow-and-data-flow"></a>Fluxo de comando e o fluxo de dados
 Quando utiliza uma atividade de cópia para copiar dados no local e na nuvem, a atividade utiliza um gateway para transferir dados de origem de dados no local para se nuvem e vice-versa.
@@ -183,7 +184,7 @@ Existem três opções de configuração:
 
 * **Não utilizar o proxy**: Gateway não explicitamente utilizar qualquer proxy para ligar a serviços em nuvem.
 * **Utilizar o proxy de sistema**: Gateway utiliza a definição que está configurado no diahost.exe.config e diawp.exe.config de proxy.  Se não existe nenhum proxy está configurado no diahost.exe.config e diawp.exe.config, gateway se ligar ao serviço em nuvem diretamente, sem passar através do proxy.
-* **Utilizar proxy personalizado**: configurar a definição a utilizar para o gateway, em vez de utilizar configurações de diahost.exe.config e diawp.exe.config de proxy HTTP.  Endereço e a porta são necessários.  Nome de utilizador e palavra-passe são opcionais, dependendo da definição de autenticação do proxy.  Todas as definições são encriptadas com o certificado da credencial do gateway e armazenadas localmente no computador do anfitrião de gateway.
+* **Utilizar proxy personalizado**: configurar a definição a utilizar para o gateway, em vez de utilizar configurações de diahost.exe.config e diawp.exe.config de proxy HTTP.  Endereço e a porta são necessários.  Nome de utilizador e palavra-passe são opcionais, dependendo da definição de autenticação de proxy s.  Todas as definições são encriptadas com o certificado da credencial do gateway e armazenadas localmente no computador do anfitrião de gateway.
 
 O serviço de anfitrião do data management gateway reiniciará automaticamente depois de guardar as definições de proxy atualizadas.
 
@@ -207,7 +208,7 @@ Pode ver e atualizar o proxy HTTP utilizando a ferramenta Gestor de configuraç�
 Se selecionar **utilizar o proxy de sistema** definir para o proxy HTTP, o gateway utiliza a definição no diahost.exe.config e diawp.exe.config de proxy.  Se não for especificado nenhum proxy diahost.exe.config e diawp.exe.config, gateway se ligar ao serviço em nuvem diretamente, sem passar através do proxy. O procedimento seguinte fornece instruções para atualizar o ficheiro diahost.exe.config.  
 
 1. No Explorador de ficheiros, efetue uma cópia de segurança de C:\Program Files\Microsoft Data gestão Gateway\2.0\Shared\diahost.exe.config para fazer uma cópia de segurança do ficheiro original.
-2. Inicie o Notepad.exe executar como administrador e abrir o ficheiro de texto "C:\Program Files\Microsoft Data gestão Gateway\2.0\Shared\diahost.exe.config. Localize a etiqueta predefinida para system.net conforme mostrado no seguinte código:
+2. Inicie o Notepad.exe executar como administrador e abrir o ficheiro de texto C:\Program Files\Microsoft Data gestão Gateway\2.0\Shared\diahost.exe.config. Localize a etiqueta predefinida para system.net conforme mostrado no seguinte código:
 
          <system.net>
              <defaultProxy useDefaultCredentials="true" />
@@ -230,13 +231,13 @@ Se selecionar **utilizar o proxy de sistema** definir para o proxy HTTP, o gatew
 > Não se esqueça de atualizar **ambos** diahost.exe.config e diawp.exe.config.  
 
 
-Para além destes pontos, terá também de certificar-se de que o Microsoft Azure está na lista de permissões da sua empresa. A lista de endereços IP do Microsoft Azure válidos pode ser transferida do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Para além destes pontos, terá também de certificar-se de que o Microsoft Azure está na sua lista de permissões de s da empresa. A lista de endereços IP do Microsoft Azure válidos pode ser transferida do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Sintomas possíveis para problemas relacionados com o servidor de proxy e firewall
 Se encontrar erros semelhantes dos seguintes, trata-se provavelmente devido a configuração incorreta do servidor proxy ou uma firewall, que bloqueia o gateway se liguem à fábrica de dados para se autenticar. Consulte a secção anterior para garantir que a firewall e servidor proxy estão configuradas corretamente.
 
 1. Ao tentar registar o gateway, receberá o seguinte erro: "não conseguiu registar a chave do gateway. Antes de tentar registar novamente a chave do gateway, confirme que o data management gateway está num estado ligado e o serviço de anfitrião do Data Management Gateway foi iniciado."
-2. Quando abrir o Gestor de configuração, consulte o estado como "Desligado" ou "Ligar". Quando visualiza registos de eventos do Windows, sob "Visualizador de eventos" > "Aplicação e registos de serviços" > "Data Management Gateway", vê mensagens de erro, tais como o seguinte erro: `Unable to connect to the remote server`
+2. Quando abrir o Gestor de configuração, consulte o estado como desligado ou ligar. Quando visualiza registos de eventos do Windows, no Visualizador de eventos > registos de serviços e aplicações > Data Management Gateway, vê mensagens de erro, tais como o seguinte erro: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Abra a porta 8050 para encriptação de credenciais
@@ -308,7 +309,7 @@ Depois de instalar o gateway, pode iniciar o Gestor de configuração do Data Ma
 1. No **pesquisa** janela, escreva **Data Management Gateway** para aceder a este utilitário.
 2. Executar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data gestão Gateway\2.0\Shared**
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Página de boas-vindas
 A Home page permite-lhe executar as seguintes ações:
 
 * Ver o estado do gateway (ligado ao serviço de nuvem, etc.).
@@ -368,7 +369,7 @@ Memória disponível | Memória disponível no nó de gateway. Este valor é um 
 Utilização da CPU | Utilização da CPU de um nó de gateway. Este valor é um instantâneo em tempo real near. 
 Funcionamento em rede (na/saída) | Utilização de um nó de gateway de rede. Este valor é um instantâneo em tempo real near. 
 Tarefas simultâneas (em execução / limitar) | Número de tarefas ou tarefas em execução em cada nó. Este valor é um instantâneo em tempo real near. Limite representa as máximas tarefas simultâneas para cada nó. Este valor é definido com base no tamanho da máquina. Pode aumentar o limite de aumentar verticalmente a execução da tarefa em simultâneo em cenários avançados, onde CPU/memória/rede é em utilizados, mas as atividades são exceder o tempo limite. Esta capacidade também está disponível com um gateway de nó único (mesmo quando a funcionalidade de escalabilidade e disponibilidade não está ativada).  
-Função | Existem dois tipos de funções no gateway de vários nós – emissor e de trabalho. Todos os nós são trabalhadores, o que significa que podem todos ser utilizados para executar tarefas. Não há apenas um nó de emissor, o que é utilizado para extrair as tarefas/tarefas dos serviços cloud e emiti-los a nós de trabalho diferente (incluindo o próprio).
+Função | Existem dois tipos de funções de um gateway de vários nós emissor e de trabalho. Todos os nós são trabalhadores, o que significa que podem todos ser utilizados para executar tarefas. Não há apenas um nó de emissor, o que é utilizado para extrair as tarefas/tarefas dos serviços cloud e emiti-los a nós de trabalho diferente (incluindo o próprio).
 
 Nesta página, verá algumas definições que tornam mais sentido quando existem dois ou mais nós (cenário de escalamento horizontal) no gateway. Consulte [Data Management Gateway - elevada disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md) para obter detalhes sobre como configurar um gateway de vários nós.
 
@@ -489,12 +490,12 @@ Esta secção descreve como criar e registar um gateway utilizando cmdlets do Po
 3. Utilize o **New-AzureRmDataFactoryGateway** cmdlet para criar um gateway lógico da seguinte forma:
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
     ```
     **Comando de exemplo e de saída**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
 
     Name              : MyGateway
     Description       : gateway for walkthrough

@@ -4,7 +4,7 @@ description: Descreve Docker e as extensões de máquinas virtuais do Azure e co
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 674bc870bbbf4e076fbd1d88fcc3bf299eccde84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 76497f58678e5ecfbab7d263b3adb4c475763cd8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653591"
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Utilizando a extensão de VM de Docker com o portal do Azure
 > [!IMPORTANT] 
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/10/2018
 [Docker](https://www.docker.com/) é uma das abordagens de Virtualização mais populares, que utiliza [Linux contentores](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como uma forma de isolando os dados e computação em recursos partilhados. Pode utilizar a extensão de VM de Docker gerida pelo [agente Linux do Azure] para criar uma VM de Docker que aloja qualquer número de contentores para as suas aplicações no Azure.
 
 > [!NOTE]
-> Este tópico descreve como criar uma VM de Docker do portal do Azure. Para ver como criar uma VM de Docker na linha de comandos, consulte [como utilizar a extensão da VM de linha de comandos Interface do Azure (Azure CLI) Docker]. Para ver um debate de alto nível de contentores e as vantagens, consulte o [Whiteboard de nível elevado de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Este tópico descreve como criar uma VM de Docker do portal do Azure. Para ver como criar uma VM de Docker na linha de comandos, consulte [Como utilizar a extensão de VM de Docker da linha de comandos Interface o Azure (CLI do Azure)]. Para ver um debate de alto nível de contentores e as vantagens, consulte o [Whiteboard de nível elevado de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
@@ -46,7 +47,7 @@ O primeiro passo necessita de uma VM do Azure a partir de uma imagem de Linux qu
 ## <a name="create-docker-certificates"></a>Criar certificados de Docker
 Depois de criada a VM, certifique-se de que o Docker está instalado no computador cliente. (Para obter mais informações, consulte [instruções de instalação do Docker](https://docs.docker.com/installation/#installation).)
 
-Criar os ficheiros de certificado e chave para a comunicação de Docker em conformidade com [Docker em execução com https] e colocá-los no **`~/.docker`** diretório no computador cliente.
+Criar os ficheiros de certificado e chave para a comunicação de Docker em conformidade com [Com o Docker https] e colocá-los no **`~/.docker`** diretório no computador cliente.
 
 > [!NOTE]
 > A extensão da VM no portal do Docker atualmente exige credenciais que são codificados em base64.
@@ -130,7 +131,7 @@ Depois de concluir os passos acima, tem agora um anfitrião de Docker totalmente
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
-Está pronto para ir para o [Guia do utilizador Docker] e utilizar a VM de Docker. Se pretender automatizar criação anfitriões de Docker em VMs do Azure através da interface de linha de comandos, consulte [como utilizar a extensão da VM de linha de comandos Interface do Azure (Azure CLI) Docker]
+Está pronto para ir para o [Guia de utilizador do docker] e utilizar a VM de Docker. Se pretender automatizar criação anfitriões de Docker em VMs do Azure através da interface de linha de comandos, consulte [como utilizar a extensão de VM de Docker da linha de comandos Interface o Azure (CLI do Azure)]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]:#createvm
@@ -153,9 +154,9 @@ Está pronto para ir para o [Guia do utilizador Docker] e utilizar a VM de Docke
 
 
 <!--Link references-->
-[como utilizar a extensão da VM de linha de comandos Interface do Azure (Azure CLI) Docker]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[agente Linux do Azure]:../../extensions/agent-linux.md
+[Como utilizar a extensão de VM de Docker da linha de comandos Interface o Azure (CLI do Azure)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Agente Linux do Azure]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
-[Docker em execução com https]:http://docs.docker.com/articles/https/
-[Guia do utilizador Docker]:https://docs.docker.com/userguide/
+[Com o Docker https]:http://docs.docker.com/articles/https/
+[Guia de utilizador do docker]:https://docs.docker.com/userguide/

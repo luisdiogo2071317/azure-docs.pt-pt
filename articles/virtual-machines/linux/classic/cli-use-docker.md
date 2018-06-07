@@ -4,7 +4,7 @@ description: Descreve as extensões de máquinas virtuais do Azure e Docker e mo
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: eaff75e3-d929-4931-a4a1-8c377a8e7302
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 91f7ea54afce0e94953d4bb01bbb1b33f167fe22
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a8672ab6a37eb383d35ad71384bb47cc3767a6d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653149"
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Utilizar a Extensão VM do Docker a partir da Interface de Linha de Comandos do Azure (CLI do Azure)
 > [!IMPORTANT] 
@@ -157,8 +158,8 @@ O daemon de Docker no anfitrião está configurado para escutar e autenticar lig
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Está pronto para ir para o [Guia do utilizador Docker] e utilizar a VM de Docker. Para criar uma VM preparados para Docker no novo portal, consulte [como utilizar a extensão de VM de Docker com o Portal].
-* A extensão da VM do Azure Docker também suporta o Docker Compose, que utiliza um ficheiro YAML declarativo para colocar uma aplicação modelada do programador em qualquer ambiente e gerar uma implementação consistente. Consulte [começar com o Docker e Compose para definir e executar uma aplicação de contentor multi numa máquina virtual do Azure].  
+* Está pronto para ir para o [Guia de utilizador do docker] e utilizar a VM de Docker. Para criar uma VM preparados para Docker no novo portal, consulte [como utilizar a extensão de VM de Docker com o Portal].
+* A extensão da VM do Azure Docker também suporta o Docker Compose, que utiliza um ficheiro YAML declarativo para colocar uma aplicação modelada do programador em qualquer ambiente e gerar uma implementação consistente. Consulte [Introdução ao Docker e Compose para definir e executar uma aplicação de contentor multi numa máquina virtual do Azure].  
 
 <!--Anchors-->
 [Subheading 1]:#subheading-1
@@ -176,8 +177,8 @@ O daemon de Docker no anfitrião está configurado para escutar e autenticar lig
 [Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
-[como utilizar a extensão de VM de Docker com o Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Como utilizar a extensão de VM de Docker com o Portal]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Guia do utilizador Docker]:https://docs.docker.com/userguide/
+[Guia de utilizador do docker]:https://docs.docker.com/userguide/
 
-[começar com o Docker e Compose para definir e executar uma aplicação de contentor multi numa máquina virtual do Azure]:../docker-compose-quickstart.md
+[Introdução ao Docker e Compose para definir e executar uma aplicação de contentor multi numa máquina virtual do Azure]:../docker-compose-quickstart.md

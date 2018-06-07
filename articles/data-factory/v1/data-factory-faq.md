@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621351"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -40,7 +41,7 @@ Consulte [página de detalhes de preços de fábrica de dados] [ adf-pricing-det
 * Para um tutorial sobre como **copiar/mover dados** utilizando a atividade de cópia, consulte [copiar dados do Blob Storage do Azure para a SQL Database do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para um tutorial sobre como **transformar dados** utilizando a atividade do ramo de registo do HDInsight. Consulte [processar dados executando o script de ramo de registo num cluster de Hadoop](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>O que é a disponibilidade de região de fábrica de dados?
+### <a name="what-is-the-data-factorys-region-availability"></a>O que é a disponibilidade de região do Data Factory s?
 Fábrica de dados está disponível no **dos EUA oeste** e **Europa do Norte**. Os serviços de computação e armazenamento utilizados pelo fábricas de dados podem ser noutras regiões. Consulte [regiões suportadas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quais são os limites no número de data factories/pipelines/atividades/conjuntos de dados?
@@ -73,7 +74,7 @@ A tabela seguinte fornece uma lista de ambientes de computação suportada pela 
 | [O Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análise do Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
+| [SQL do Azure](data-factory-compute-linked-services.md#azure-sql-linked-service), [do armazém de dados SQL do Azure](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [do SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como é que o Azure Data Factory comparar com o SQL Server Integration Services (SSIS)? 
 Consulte o [vs do Azure Data Factory. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) apresentação de um dos nossos Most (mais valores profissionais): Reza Rad. Algumas das alterações recentes na fábrica de dados não podem ser apresentadas no deck gradualmente. Que estamos continuamente a adicionar mais capacidades ao Azure Data Factory. Que estamos continuamente a adicionar mais capacidades ao Azure Data Factory. Iremos irá incorporar estas atualizações a comparação de tecnologias de integração de dados da Microsoft algum tempo ainda este ano.   

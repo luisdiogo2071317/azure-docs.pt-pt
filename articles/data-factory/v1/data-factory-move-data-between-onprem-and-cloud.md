@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 958b495b2328a981c573447c44585bc7430c1095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621171"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -409,7 +410,7 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 8. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF**e explorar as tabelas de entrada (**consumido**) ou conjuntos de dados de saída (**produzido**).
 9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](http://storageexplorer.com/) para verificar se o ficheiro/blob é criado para cada hora.
 
-   ![Explorador do Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.
