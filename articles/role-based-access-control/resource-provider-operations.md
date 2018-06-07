@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 08059da95baa9e70b8dba2dd847d0b28669778b7
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a381d428f1ecf07836151e6c7d9c88c6fc99736e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643197"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -1041,6 +1042,8 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Compute/virtualMachines/extensions/write | Cria uma nova extensão da máquina virtual ou atualiza uma já existente |
 > | Ação | Microsoft.Compute/virtualMachines/generalize/action | Define o estado da máquina virtual como Generalizado e prepara-a para a captura |
 > | Ação | Microsoft.Compute/virtualMachines/instanceView/read | Obtém o estado de runtime detalhado da máquina virtual e dos respetivos recursos |
+> | DataAction | Microsoft.Compute/virtualMachines/login/action | Iniciar sessão numa máquina virtual como um utilizador normal |
+> | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Inicie sessão para uma máquina virtual com o administrador do Windows ou privilégios de utilizador de raiz do Linux |
 > | Ação | Microsoft.Compute/virtualMachines/performMaintenance/action | Realiza a Operação de Manutenção na VM. |
 > | Ação | Microsoft.Compute/virtualMachines/powerOff/action | Desliga a máquina virtual. Tenha em atenção que a máquina virtual irá continuar a ser faturada. |
 > | Ação | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Lê as Definições de Métricas da Máquina Virtual |
@@ -1715,6 +1718,8 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.DocumentDB/databaseAccounts/listKeys/action | Lista de chaves de uma conta de base de dados |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/metricDefinitions/read | Lê a base de dados definições de métrica de conta. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/metrics/read | Lê as métricas de conta de base de dados. |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/offlineRegion/action | Offline uma região de uma conta de base de dados.  |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/onlineRegion/action | Online uma região de uma conta de base de dados. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/operationResults/read | Ler o estado da operação assíncrona |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/percentile/metrics/read | Métricas de latência de leitura |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/percentile/read | Ler percentiles de latências de replicação |
@@ -2097,6 +2102,43 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Preterido: Utilize /providers/Microsoft.Maps) Gerar a nova localização com base em serviços primário ou secundário chave da conta |
 > | Ação | Microsoft.LocationBasedServices/accounts/write | (Preterido: Utilize /providers/Microsoft.Maps) Criar ou atualizar uma conta de serviços com base da localização. |
 > | Ação | Microsoft.LocationBasedServices/register/action | (Preterido: Utilize /providers/Microsoft.Maps) Registar o fornecedor |
+
+## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo de Acção | Operação | Descrição |
+> | --- | --- | --- |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Ler os dados da tabela de alerta |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Ler dados a partir da tabela AzureActivity |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Ler dados a partir da tabela AzureMetrics |
+> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Ler dados a partir da tabela CommonSecurityLog |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Ler dados a partir da tabela do grupo de computador |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Ler dados a partir de qualquer * tabela _CL |
+> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Ler dados a partir da tabela ETWEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Ler dados a partir da tabela de eventos |
+> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Ler dados a partir da tabela de Heartbeat |
+> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Ler dados a partir da tabela LinuxAuditLog |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Ler dados a partir da tabela de operação |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Ler dados a partir da tabela de desempenho |
+> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Ler dados a partir da tabela ProtectionStatus |
+> | DataAction | Microsoft.LogAnalytics/logs/read | Ler dados a partir de registos |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Ler dados a partir da tabela ReservedAzureCommonFields |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Ler dados a partir da tabela ReservedCommonFields |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Ler dados a partir da tabela SecurityAlert |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Ler dados a partir da tabela SecurityBaseline |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Ler dados a partir da tabela SecurityBaselineSummary |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Ler dados a partir da tabela SecurityDetection |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Ler dados a partir da tabela SecurityEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Ler dados a partir da tabela ServiceFabricOperationalEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Ler dados a partir da tabela ServiceFabricReliableActorEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Ler dados a partir da tabela ServiceFabricReliableServiceEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Ler dados a partir da tabela Syslog |
+> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Ler dados a partir da tabela SysmonEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Ler dados a partir da tabela de atualização |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Ler dados a partir da tabela UpdateSummary |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Ler dados a partir da tabela de utilização |
+> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Ler dados a partir da tabela W3CIISLog |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Ler dados a partir da tabela WindowsFirewall |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -3655,6 +3697,10 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Storage/operations/read | Consulta o estado de uma operação assíncrona. |
 > | Ação | Microsoft.Storage/register/action | Regista a subscrição do fornecedor de recursos de armazenamento e ativa a criação de contas de armazenamento. |
 > | Ação | Microsoft.Storage/skus/read | Lista os Skus suportados pelo Microsoft.Storage. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Devolve o resultado da adição de conteúdo de blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Devolve o resultado da eliminação de um blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devolve o resultado de escrever um blob |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Limpar o arquivo legal do contentor de blobs |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devolve o resultado da eliminação de um contentor |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/delete | Eliminar a política de imutabilidade do contentor de blobs |
@@ -3683,6 +3729,11 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso. |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Obter a lista de definições das Métricas de Armazenamento Microsoft. |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Devolve o resultado da eliminação de uma fila |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Devolve o resultado da adição de uma mensagem |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Devolve o resultado da eliminação de uma mensagem |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Devolve o resultado do processamento de uma mensagem |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devolve uma mensagem |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Devolve o resultado de escrever uma mensagem |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolve uma fila ou uma lista de filas. |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/queues/write | Devolve o resultado da escrita de uma fila |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/read | Propriedades ou estatistas do serviço Fila de devolução. |
@@ -3994,7 +4045,6 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Web/classicmobileservices/Read | Obter clássicos Mobile Services. |
 > | Ação | Microsoft.Web/connectionGateways/Delete | Elimina um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Join/Action | Associa um Gateway de ligação. |
-> | Ação | Microsoft.Web/connectiongateways/liststatus/Action | Gateways de ligação de estado de lista. |
 > | Ação | Microsoft.Web/connectionGateways/ListStatus/Action | Apresenta uma lista de estado de um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Move/Action | Move um Gateway de ligação. |
 > | Ação | Microsoft.Web/connectionGateways/Read | Obter a lista de Gateways de ligação. |
@@ -4017,6 +4067,7 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Web/geoRegions/Read | Obter a lista de regiões de Georreplicação. |
 > | Ação | Microsoft.Web/hostingenvironments/capacities/Read | Obter as capacidades de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingEnvironments/Delete | Eliminar um ambiente de serviço de aplicações |
+> | Ação | Microsoft.Web/hostingenvironments/detectors/Read | Obter detetores de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingenvironments/Diagnostics/Read | Obter o diagnóstico de ambientes de alojamento. |
 > | Ação | Microsoft.Web/hostingenvironments/inboundnetworkdependenciesendpoints/Read | Obter os pontos finais de rede de todas as dependências de entrada. |
 > | Ação | Microsoft.Web/hostingenvironments/metricdefinitions/Read | Obter as definições de métrica de ambientes de alojamento. |
@@ -4096,14 +4147,17 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Web/sites/backup/Action | Criar uma nova cópia de segurança de aplicação de web |
 > | Ação | Microsoft.Web/sites/backup/Read | Obter a cópia de segurança do Web Apps. |
 > | Ação | Microsoft.Web/sites/backup/Write | Atualize a cópia de segurança do Web Apps. |
+> | Ação | Microsoft.Web/sites/backups/Action | Deteta uma cópia de segurança de aplicação existente que pode ser restaurada a partir de um blob no storage do Azure. |
 > | Ação | Microsoft.Web/sites/backups/DELETE | Elimine as cópias de segurança do Web Apps. |
 > | Ação | Microsoft.Web/sites/backups/List/Action | Lista Web Apps as cópias de segurança. |
 > | Ação | Microsoft.Web/sites/backups/Read | Obter as propriedades de cópia de segurança de uma aplicação web |
 > | Ação | Microsoft.Web/sites/backups/Restore/Action | Restaure cópias de segurança do Web Apps. |
+> | Ação | Microsoft.Web/sites/backups/Write | Atualize a cópias de segurança de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/DELETE | Elimine a configuração de aplicações Web. |
 > | Ação | Microsoft.Web/sites/config/list/Action | Lista confidenciais definições de segurança da aplicação Web, tais como publicar as credenciais, as definições de aplicação e as cadeias de ligação |
 > | Ação | Microsoft.Web/sites/config/Read | Obter definições de configuração de aplicação Web |
 > | Ação | Microsoft.Web/sites/config/Write | Atualizar as definições de configuração da aplicação Web |
+> | Ação | Microsoft.Web/sites/containerlogs/Action | Obter zipado registos do contentor para a aplicação Web. |
 > | Ação | Microsoft.Web/sites/continuouswebjobs/DELETE | Elimine tarefas de Web contínua de aplicações Web. |
 > | Ação | Microsoft.Web/sites/continuouswebjobs/Read | Obter as tarefas de Web contínua de aplicações Web. |
 > | Ação | Microsoft.Web/sites/continuouswebjobs/Start/Action | Inicie tarefas de Web contínua de aplicações Web. |
@@ -4113,6 +4167,7 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | Microsoft.Web/sites/Deployments/log/Read | Obter o registo de implementações de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Deployments/Read | Obter implementações de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Deployments/Write | Atualize as implementações de aplicações Web. |
+> | Ação | Microsoft.Web/sites/detectors/Read | Obter detetores de aplicações Web. |
 > | Ação | microsoft.web/sites/diagnostics/analyses/execute/Action | Execute a análise de diagnóstico de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Diagnostics/analyses/Read | Obter a análise de diagnóstico de aplicações Web. |
 > | Ação | Microsoft.Web/sites/Diagnostics/aspnetcore/Read | Obter o diagnóstico de aplicações Web da aplicação ASP.NET Core. |
@@ -4276,6 +4331,7 @@ As operações de fornecedor de recursos são sempre evolução. Para obter as o
 > | Ação | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico do recurso |
 > | Ação | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição do diagnóstico para o recurso |
 > | Ação | Microsoft.Web/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read | Obtem as métricas disponíveis para a ranhura de aplicação Web |
+> | Ação | Microsoft.Web/sites/slots/publiccertificates/DELETE | Elimine certificados público de ranhuras de aplicações Web. |
 > | Ação | Microsoft.Web/sites/slots/publiccertificates/Read | Obter certificados de Web Apps ranhuras públicos. |
 > | Ação | Microsoft.Web/sites/slots/publiccertificates/Write | Criar ou atualizar certificados de Web Apps ranhuras públicos. |
 > | Ação | Microsoft.Web/sites/slots/publish/Action | Publicar uma ranhura de aplicação Web |

@@ -1,24 +1,20 @@
 ---
 title: Carregar ficheiros de dispositivos para o Azure IoT Hub com nó | Microsoft Docs
 description: Como carregar ficheiros a partir de um dispositivo para a nuvem com dispositivos IoT do Azure SDK para Node.js. Ficheiros carregados são armazenados num contentor do blob storage do Azure.
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: dobett
+ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634629"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub
 
@@ -44,7 +40,7 @@ No final deste tutorial, executar duas aplicações de consola do Node.js:
 * **ReadFileUploadNotification.js**, que recebe notificações de carregamento de ficheiros do seu IoT hub.
 
 > [!NOTE]
-> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, .NET, Javascript, Python e Java) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de programadores do IoT do Azure] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
+> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, .NET, Javascript, Python e Java) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de Programadores do Azure IoT] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -222,7 +218,7 @@ Neste tutorial, aprendeu a utilizar as capacidades de carregamento de ficheiros 
 * [SDKs IoT do Azure][lnk-sdks]
 
 <!-- Links -->
-[Centro de programadores do IoT do Azure]: http://azure.microsoft.com/develop/iot
+[Centro de Programadores do Azure IoT]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

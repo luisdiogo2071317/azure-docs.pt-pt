@@ -1,24 +1,20 @@
 ---
 title: Carregar ficheiros de dispositivos para o IoT Hub do Azure com o Java | Microsoft Docs
 description: Como carregar ficheiros a partir de um dispositivo para a nuvem através de dispositivos IoT do Azure SDK para Java. Ficheiros carregados são armazenados num contentor do blob storage do Azure.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807582"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub
 
@@ -29,7 +25,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da nuvem para o dis
 - Fornecer em segurança um dispositivo com um Azure blob URI para carregar um ficheiro.
 - Utilize as notificações de carregamento de ficheiros do IoT Hub para acionar a processar o ficheiro na sua aplicação de back-end.
 
-O [introdução ao IoT Hub](iot-hub-java-java-getstarted.md) e [enviar mensagens da nuvem para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) os tutoriais mostram a dispositivo para nuvem e da nuvem para o dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens do dispositivo-nuvem de processo](iot-hub-java-java-process-d2c.md) tutorial descreve uma forma de forma fiável armazenar mensagens do dispositivo para nuvem no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
+O [introdução ao IoT Hub](iot-hub-java-java-getstarted.md) e [enviar mensagens da nuvem para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) os tutoriais mostram a dispositivo para nuvem e da nuvem para o dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens do dispositivo-nuvem de processo](tutorial-routing.md) tutorial descreve uma forma de forma fiável armazenar mensagens do dispositivo para nuvem no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados que os dispositivos as enviam para as mensagens dispositivo-nuvem relativamente pequenas, que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contenham imagens
 * Vídeos
@@ -44,7 +40,7 @@ No final deste tutorial, executar duas aplicações de consola Java:
 * **carregamento-notificação de leitura-ficheiro**, que recebe notificações de carregamento de ficheiros do seu IoT hub.
 
 > [!NOTE]
-> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, .NET e Javascript) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de programadores do IoT do Azure] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
+> IoT Hub suporta várias plataformas de dispositivos e idiomas (incluindo C, .NET e Javascript) através de SDKs do dispositivo IoT do Azure. Consulte o [Centro de Programadores do Azure IoT] para obter instruções passo a passo sobre como ligar o seu dispositivo ao IoT Hub do Azure.
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -283,7 +279,7 @@ Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 
 
-[Centro de programadores do IoT do Azure]: http://azure.microsoft.com/develop/iot
+[Centro de Programadores do Azure IoT]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account

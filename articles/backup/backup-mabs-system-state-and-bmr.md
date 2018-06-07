@@ -1,24 +1,20 @@
 ---
-title: "Servidor de cópia de segurança do Azure protege o estado do sistema e restaura bare-metal | Microsoft Docs"
-description: "Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança do Estado do sistema e fornecer proteção de recuperação bare-metal (BMR)."
+title: Servidor de cópia de segurança do Azure protege o estado do sistema e restaura bare-metal
+description: Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança do Estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607213"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Cópia de segurança do Estado do sistema e restaurar para bare-metal com o servidor de cópia de segurança do Azure
 
@@ -220,9 +216,9 @@ Execute cópia de segurança do Windows Server:
 
 5.  No **confirmação** página, selecione **recuperar**. Após o restauro, reinicie o servidor.
 
-6.  Também pode executar o restauro do Estado do sistema numa linha de comandos. Para fazê-lo, inicie a cópia de segurança do Windows Server no computador que pretende recuperar. Para obter o identificador de versão, numa linha de comandos, introduza:```wbadmin get versions -backuptarget \<servername\sharename\>```
+6.  Também pode executar o restauro do Estado do sistema numa linha de comandos. Para fazê-lo, inicie a cópia de segurança do Windows Server no computador que pretende recuperar. Para obter o identificador de versão, numa linha de comandos, introduza: ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-    Utilize o identificador da versão para iniciar o restauro do Estado do sistema. Na linha de comandos, introduza:```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+    Utilize o identificador da versão para iniciar o restauro do Estado do sistema. Na linha de comandos, introduza: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     Certifique-se de que pretende iniciar a recuperação. Pode ver o processo na janela da linha de comandos. É criado um registo do restauro. Após o restauro, reinicie o servidor.
 

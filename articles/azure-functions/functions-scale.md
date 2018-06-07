@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807538"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
@@ -43,12 +44,12 @@ Um plano de serviço de aplicações pode dimensionar entre camadas alocar difer
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
-Quando estiver a utilizar um plano de consumo, instâncias de anfitrião das funções do Azure são adicionadas dinamicamente e removidas com base no número de eventos recebidos. Este plano dimensiona automaticamente e são-lhe cobrados os recursos de computação apenas quando as suas funções estão em execução. Um plano de consumo, pode executar uma função para um máximo de 10 minutos. 
+Quando estiver a utilizar um plano de consumo, instâncias de anfitrião das funções do Azure são adicionadas dinamicamente e removidas com base no número de eventos recebidos. Este plano dimensiona automaticamente e são-lhe cobrados os recursos de computação apenas quando as suas funções estão em execução. Um plano de consumo, uma execução de função exceder o tempo limite após um período de tempo configurável. 
 
 > [!NOTE]
-> O tempo limite predefinido para funções de um plano de consumo é de 5 minutos. O valor pode ser aumentado para 10 minutos para a aplicação de função alterando a propriedade `functionTimeout` no [host.json](functions-host-json.md#functiontimeout) ficheiro de projeto.
+> O tempo limite predefinido para funções de um plano de consumo é de 5 minutos. O valor pode ser aumentado para a aplicação de função até um máximo de 10 minutos alterando a propriedade `functionTimeout` no [host.json](functions-host-json.md#functiontimeout) ficheiro de projeto.
 
-Faturação é baseada no número de execuções, tempo de execução e a memória utilizada. Faturação é agregada em todas as funções dentro de uma aplicação de função. Para obter mais informações, consulte o [das funções do Azure a página de preços].
+Faturação é baseada no número de execuções, tempo de execução e a memória utilizada. Faturação é agregada em todas as funções dentro de uma aplicação de função. Para obter mais informações, consulte o [Página de preços de funções do Azure].
 
 O plano de consumo a predefinição é o plano de alojamento e oferece as seguintes vantagens:
 - Paga apenas quando as suas funções estão em execução.
@@ -90,7 +91,7 @@ Para saber mais sobre os tipos de conta de armazenamento, consulte o artigo [int
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 
-O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.  Uma instância do anfitrião é a aplicação de função, que significa que todas as funções dentro de uma função de recursos de partilha de aplicações dentro de uma instância e o dimensionamento ao mesmo tempo.
+O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.  Uma instância do anfitrião é a aplicação de função, que significa que todas as funções dentro de uma função de recursos de partilha de aplicações dentro de uma instância e o dimensionamento ao mesmo tempo. Aplicações de função que partilham o mesmo plano de consumo são ampliadas independentemente.  
 
 Quando utiliza o consumo de plano de alojamento, ficheiros de código de função são armazenados em partilhas de ficheiros do Azure numa conta de armazenamento principal da função. Ao eliminar a conta de armazenamento principal da aplicação de função, os ficheiros de código de função são eliminados e não podem ser recuperados.
 
@@ -121,8 +122,8 @@ Há vários aspetos de uma aplicação de função que vai afetar a forma sejam 
 
 ### <a name="billing-model"></a>Modelo de faturação
 
-Faturação para o plano de consumo é descrito detalhadamente no [das funções do Azure a página de preços]. Utilização é agregada ao nível da aplicação de função e contagens apenas o tempo que o código de função é executado. Seguem-se as unidades de faturação: 
+Faturação para o plano de consumo é descrito detalhadamente no [Página de preços de funções do Azure]. Utilização é agregada ao nível da aplicação de função e contagens apenas o tempo que o código de função é executado. Seguem-se as unidades de faturação: 
 * **Consumo de recursos em segundos de gigabyte (GB-s)**. Calculada como uma combinação de tamanho de memória e tempo de execução para todas as funções dentro de uma aplicação de função. 
 * **Execuções**. Contados sempre que uma função é executada em resposta a um acionador de eventos.
 
-[das funções do Azure a página de preços]: https://azure.microsoft.com/pricing/details/functions
+[Página de preços de funções do Azure]: https://azure.microsoft.com/pricing/details/functions
