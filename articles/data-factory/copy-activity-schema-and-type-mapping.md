@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 22dbaa3d10d09456a972a7991583dc29b7941db1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618628"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia de Azure Data Factory funciona o mapeamento de esquema e o mapeamento do tipo de dados a partir dos dados de origem para sink de dados ao efetuar a cópia de dados.
@@ -155,12 +156,12 @@ Fábrica de dados suporta os seguintes tipos de dados intermédio: pode especifi
 * Datetime
 * Datetimeoffset
 * Decimal
-* Duplo
+* duplo
 * GUID
 * Int16
 * Int32
 * Int64
-* Solteiro
+* Único
 * Cadeia
 * Timespan
 

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604153"
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de pilha 1712 do Azure
 
@@ -116,7 +117,25 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 
 #### <a name="health-and-monitoring"></a>Estado de funcionamento e a monitorização
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta #1:
+   - NOME: Mau estado de funcionamento da função de infraestrutura
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O controlador de estado de funcionamento de Heartbeat Scanner não está disponível. Isto pode afetar métricas e relatórios de estado de funcionamento.  
+
+  Alerta #2:
+   - NOME: Mau estado de funcionamento da função de infraestrutura
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O controlador de estado de funcionamento Scanner de falhas não está disponível. Isto pode afetar métricas e relatórios de estado de funcionamento.
+
+  Ambos os alertas podem ser ignoradas. Irá fechar automaticamente ao longo do tempo.  
+
 - Se reiniciar o computador de uma instância de função de infraestrutura, poderá receber uma mensagem a indicar que o reinício falhou. No entanto, o reinício, na verdade, com êxito.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Alguns itens do marketplace estão a ser removidos nesta versão devido a problemas de compatibilidade. Estes serão novamente ativados após a validação adicional.

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605574"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Descrição geral do Azure pilha Marketplace
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 O Marketplace é uma coleção de serviços, aplicações e recursos personalizados para a pilha do Azure. Recursos incluem redes, máquinas virtuais, armazenamento e assim sucessivamente. Os utilizadores são fornecidos aqui para criar novos recursos e implementar aplicações de novo. Considerá-lo como um catálogo de compras em que os utilizadores podem procurar e seleccione os itens que pretendem utilizar. Para utilizar um item do Marketplace, os utilizadores tem de subscrever uma oferta que lhe concede acesso ao item.
 
 Como um operador de pilha do Azure, decidir quais os itens a adicionar (publicar) no Marketplace. Pode publicar coisas como bases de dados, serviços aplicacionais e assim sucessivamente. Publicação torna-las visíveis para todos os seus utilizadores. Pode publicar itens personalizados que criar. Também pode publicar itens a partir de a crescer [lista de itens do Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando publicar um item no Marketplace, os utilizadores podem vê-lo dentro de cinco minutos.
+
+> [!Caution]  
+> Todos os artefactos de item de galeria conhecidos como imagens e os ficheiros json estão acessíveis sem autenticação após disponibilizando-as no marketplace pilha do Azure. Para mais considerações ao publicar itens do marketplace personalizada, consulte [criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
 Para abrir o Marketplace, na consola de administração selecione **novo**.
 

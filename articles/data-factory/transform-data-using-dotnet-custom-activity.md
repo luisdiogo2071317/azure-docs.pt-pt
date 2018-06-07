@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: a9e70ad5296a832e711ebac97302d56429ab5bff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 345ea6f91593e14ff19616f5512916ee77f38486
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619954"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,10 +62,6 @@ O JSON seguinte define uma amostra de serviço ligado do Azure Batch. Para obter
                 "type": "LinkedServiceReference"
             }
         }
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
     }
 }
 ```
@@ -106,7 +103,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 
 | Propriedade              | Descrição                              | Necessário |
 | :-------------------- | :--------------------------------------- | :------- |
-| nome                  | Nome da atividade no pipeline     | Sim      |
+| name                  | Nome da atividade no pipeline     | Sim      |
 | descrição           | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                  | Para a atividade personalizada, o tipo de atividade é **personalizada**. | Sim      |
 | linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo.  | Sim      |
@@ -218,7 +215,7 @@ namespace SampleApp
 
             // From LinkedServices
             dynamic linkedServices = JsonConvert.DeserializeObject(File.ReadAllText("linkedServices.json"));
-            Console.WriteLine(linkedServices[0].properties.typeProperties.connectionString.value);
+            Console.WriteLine(linkedServices[0].properties.typeProperties.accountName);
         }
     }
 }

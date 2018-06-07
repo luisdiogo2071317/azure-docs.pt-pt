@@ -1,30 +1,32 @@
 ---
-title: "Perguntas mais frequentes - serviços de domínio do Active Directory do Azure | Microsoft Docs"
-description: "Perguntas mais frequentes sobre serviços de domínio do Active Directory do Azure"
+title: Perguntas mais frequentes - serviços de domínio do Active Directory do Azure | Microsoft Docs
+description: Perguntas mais frequentes sobre serviços de domínio do Active Directory do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587788"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Serviços de domínio do Azure Active Directory: Perguntas mais frequentes (FAQ)
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory Domain Services. Manter a verificação de volta para atualizações.
 
 ## <a name="troubleshooting-guide"></a>Guia de resolução de problemas
-Consulte o [guia de resolução de problemas](active-directory-ds-troubleshooting.md) para soluções para problemas comuns encontrados quando configurar ou administração dos serviços de domínio do Azure AD.
+Consulte o [guia de resolução de problemas](active-directory-ds-troubleshooting.md) para soluções para problemas comuns com a configuração ou administração dos serviços de domínio do Azure AD.
 
 ## <a name="configuration"></a>Configuração
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios geridos para um único diretório do Azure AD?
@@ -55,7 +57,7 @@ Sim. Consulte [como ativar o domínio do Azure AD para serviços com o PowerShel
 Não. O domínio fornecido pelos serviços de domínio do Azure AD é um domínio gerido. Não é necessário aprovisionar, configurar ou gerir os controladores de domínio para este domínio - estas atividades de gestão são fornecidas como um serviço pela Microsoft. Por conseguinte, não é possível adicionar controladores de domínio adicional (leitura / escrita ou só de leitura) para o domínio gerido.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Os utilizadores convidados convidados para o meu diretório podem utilizar os serviços de domínio do Azure AD?
-Não. Os utilizadores convidados convidados ao seu diretório do Azure AD com o [do Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) convite processo são sycned no seu domínio gerido dos serviços de domínio do Azure AD. No entanto, as palavras-passe para estes utilizadores não são armazenadas no diretório do Azure AD. Por conseguinte, os serviços de domínio do Azure AD não tem nenhuma forma para sincronizar NTLM e Kerberos codifica para estes utilizadores no seu domínio gerido. Como resultado, esses utilizadores não é possível iniciar sessão no domínio gerido ou computadores de associação ao domínio gerido.
+Não. Os utilizadores convidados convidados ao seu diretório do Azure AD com o [do Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) convite processo são sincronizados para o seu domínio gerido dos serviços de domínio do Azure AD. No entanto, as palavras-passe para estes utilizadores não são armazenadas no diretório do Azure AD. Por conseguinte, os serviços de domínio do Azure AD não tem nenhuma forma para sincronizar NTLM e Kerberos codifica para estes utilizadores no seu domínio gerido. Como resultado, esses utilizadores não é possível iniciar sessão no domínio gerido ou associar computadores ao domínio gerido.
 
 ## <a name="administration-and-operations"></a>Administração e operações
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Posso ligar ao controlador de domínio para o meu domínio gerido utilizando o ambiente de trabalho remoto?
@@ -65,13 +67,13 @@ Não. Não tem permissões para ligar aos controladores de domínio para o domí
 Os membros do grupo administrativo 'AAD DC administradores' podem máquinas de associação de domínio. Além disso, os membros deste grupo recebem acesso de ambiente de trabalho remoto a máquinas que foi associado ao domínio.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Alguns têm privilégios de administrador de domínio para o domínio gerido fornecida pelos serviços de domínio do Azure AD?
-Não. Não são concedidos privilégios administrativos no domínio gerido. Privilégios de administrador de domínio e o administrador de empresa não estão disponíveis para utilização dentro do domínio. Administrador de domínio existente ou grupos de administrador de empresa no seu diretório do Azure AD são também não concedidos privilégios de administrador empresarial/domínio no domínio.
+Não. Não são concedidos privilégios administrativos no domínio gerido. Privilégios de administrador de domínio e o administrador de empresa não estão disponíveis para utilização dentro do domínio. Os membros do administrador do domínio ou grupos de administrador de empresa no Active Directory no local são também não concedidos privilégios de administrador empresarial/domínio no domínio gerido.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Pode modificar as associações de grupo utilizando outras ferramentas de administração do AD ou LDAP em domínios geridos?
 Não. As associações de grupo não podem ser modificadas em domínios de manutenção pelos serviços de domínio do Azure AD. O mesmo se aplica a atributos de utilizador. No entanto pode alterar as associações de grupo ou os atributos de utilizador no Azure AD ou no seu domínio no local. Essas alterações são automaticamente sincronizadas nos serviços de domínio do Azure AD.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo demora para que as alterações posso efetuar ao meu diretório do Azure AD para estar visível no meu domínio gerido?
-Serão sincronizadas as alterações efetuadas no diretório do Azure AD utilizando a IU do Azure AD ou o PowerShell para o seu domínio gerido. Este processo de sincronização é executado em segundo plano. Depois de concluída a sincronização inicial uso do seu diretório, normalmente demora cerca de 20 minutos para as alterações efetuadas no Azure AD para serem refletidas no seu domínio gerido.
+Serão sincronizadas as alterações efetuadas no diretório do Azure AD utilizando a IU do Azure AD ou o PowerShell para o seu domínio gerido. Este processo de sincronização é executado em segundo plano. Assim que a sincronização inicial estiver concluída, normalmente demora cerca de 20 minutos para as alterações efetuadas no Azure AD para serem refletidas no seu domínio gerido.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Pode expandir o esquema do domínio gerido fornecido pelos serviços de domínio do Azure AD?
 Não. O esquema é administrado pela Microsoft para o domínio gerido. Extensões de esquema não são suportadas pelos serviços de domínio do Azure AD.
@@ -81,6 +83,9 @@ Sim. Os membros do grupo 'AAD DC administradores' são concedidos privilégios d
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>O que é a política de duração de palavra-passe num domínio gerido?
 A predefinição de duração de palavra-passe num domínio do Azure AD domínio gerido dos serviços é de 90 dias. Esta duração de palavra-passe não está sincronizada com a duração de palavra-passe configurada no Azure AD. Por conseguinte, pode ter uma situação em que as de palavras-passe dos utilizadores expirarem no seu domínio gerido, mas ainda são válidas no Azure AD. Tais cenários, os utilizadores precisam alterar a palavra-passe no Azure AD e a nova palavra-passe serão sincronizados para o seu domínio gerido. Além disso, a 'palavra-passe-does-não-expire' e 'user-must-change-password-at-next-logon' atributos para contas de utilizador não estão sincronizados para o seu domínio gerido.
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Serviços de domínio do Azure AD fornece proteção de bloqueio de conta do AD?
+Sim. Cinco tentativas de palavra-passe inválida em dois minutos no domínio gerido fazer com que uma conta de utilizador a ser bloqueadas durante 30 minutos. Após 30 minutos, a conta de utilizador está desbloqueada automaticamente. Tentativas de palavra-passe inválida no domínio gerido não bloquear a conta de utilizador no Azure AD. A conta de utilizador está bloqueada apenas dentro do seu domínio de serviços de domínio do Azure AD geridos.
 
 ## <a name="billing-and-availability"></a>Disponibilidade e de faturação
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>É que um serviço pago dos serviços de domínio do Azure AD?

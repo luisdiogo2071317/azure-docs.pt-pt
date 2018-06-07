@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe9bb36080027ba1873dc6fd3938972044a5d1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f259d8505fab74ea3925eea41ce3861fb239cf46
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Azure Active Directory com Replicon
 
@@ -58,14 +59,14 @@ Para configurar a integração de Replicon com o Azure AD, terá de adicionar Re
 
 **Para adicionar Replicon a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![O painel de aplicações da empresa][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![O novo botão de aplicação][3]
@@ -101,7 +102,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_samlbase.png)
 
 3. No **Replicon domínio e os URLs** secção, execute os seguintes passos:
@@ -114,7 +115,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Replicon](https://www.replicon.com/customerzone/contact-support) para obter estes valores. 
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
@@ -128,23 +129,18 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 6. Numa janela do browser web diferente, inicie sessão no site da sua empresa Replicon como administrador.
 
 7. Para configurar SAML 2.0, execute os seguintes passos:
-   
+
     ![Ativar a autenticação SAML](./media/active-directory-saas-replicon-tutorial/ic777805.png "autenticação ativar SAML")
-    
+
     a. Para apresentar o **EnableSAML Authentication2** caixa de diálogo, acrescentar o seguinte para o URL, após a sua chave de empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-    
-    * O seguinte mostra o esquema do URL concluído:  
-   `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-   
+
+    * O seguinte mostra o esquema do URL concluído: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+
    b. Clique em de **+** para expandir o **v20Configuration** secção.
 
    c. Clique em de **+** para expandir o **metaDataConfiguration** secção.
 
    d. Clique em **Escolher ficheiro**, para selecionar o ficheiro XML de metadados de fornecedor de identidade e clique em **submeter**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -177,31 +173,31 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-replicon-test-user"></a>Criar um utilizador de teste Replicon
 
-Para permitir que os utilizadores do Azure AD sessão Replicon, têm de ser aprovisionados para Replicon. No caso de Replicon, o aprovisionamento é uma tarefa manual.
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Replicon. Replicon suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-replicon-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
-**Para configurar o aprovisionamento de utilizadores, execute os seguintes passos:**
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 1. Numa janela do browser web, inicie sessão no site da sua empresa Replicon como administrador.
 
 2. Aceda a **administração \> utilizadores**.
-   
+
     ![Os utilizadores](./media/active-directory-saas-replicon-tutorial/ic777806.png "utilizadores")
 
 3. Clique em **+ adicionar utilizador**.
-   
+
     ![Adicionar utilizador](./media/active-directory-saas-replicon-tutorial/ic777807.png "adicionar utilizador")
 
 4. No **perfil de utilizador** secção, execute os seguintes passos:
-   
+
     ![Perfil de utilizador](./media/active-directory-saas-replicon-tutorial/ic777808.png "perfil de utilizador")
-    
+
     a. No **nome de início de sessão** caixa de texto, o Azure AD de tipo endereço de correio eletrónico do utilizador do Azure AD que pretende aprovisionar como **BrittaSimon@contoso.com**.
-    
+
     b. Como **tipo de autenticação**, selecione **SSO**.
-    
+
     c. No **departamento** caixa de texto, escreva o departamento do utilizador.
 
     d. Como **empregado tipo**, selecione **administrador**.
@@ -215,17 +211,17 @@ Para permitir que os utilizadores do Azure AD sessão Replicon, têm de ser apro
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Replicon.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Replicon, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Replicon**.
 
-    ![A ligação de Replicon na lista de aplicações](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)  
+    ![A ligação de Replicon na lista de aplicações](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -240,18 +236,19 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico Replicon no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Replicon.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -266,4 +263,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_203.png
-

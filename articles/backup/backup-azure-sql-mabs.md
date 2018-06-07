@@ -1,24 +1,19 @@
 ---
-title: "O Backup do Azure para cargas de trabalho do SQL Server utilizando o servidor de cópia de segurança do Azure | Microsoft Docs"
-description: "Uma introdução à cópia de segurança de bases de dados do SQL Server utilizando o servidor de cópia de segurança do Azure"
+title: Backup do Azure para cargas de trabalho do SQL Server utilizando o servidor de cópia de segurança do Azure
+description: Uma introdução à cópia de segurança de bases de dados do SQL Server utilizando o servidor de cópia de segurança do Azure
 services: backup
-documentationcenter: 
 author: pvrk
 manager: Shivamg
-editor: 
-ms.assetid: c8b1f7ec-26b1-4ef0-a3f2-91aec959daea
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606397"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Cópia de segurança do SQL Server para o servidor de cópia de segurança do Azure com o Azure
 Este artigo orienta-o através dos passos de configuração para cópia de segurança das bases de dados do SQL Server utilizando o servidor de cópia de segurança do Azure do Microsoft (MABS).
@@ -97,7 +92,7 @@ Antes de começar, certifique-se de que tem [instalado e preparar o servidor de 
 
 13. Escolha o agendamento de política de retenção. Os detalhes sobre como funciona a política de retenção são fornecidos ao [utilize Azure Backup para substituir o seu artigo de infraestrutura da banda](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 

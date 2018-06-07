@@ -1,28 +1,25 @@
 ---
 title: Idiomas suportados no Azure Maps | Microsoft Docs
 description: Saiba mais sobre os idiomas suportados para os serviços do Azure Maps
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600243"
 ---
 # <a name="azure-maps-supported-languages"></a>Idiomas suportados do Maps do Azure
 Foram localizados em várias linguagens de mapas do Azure em serviços.  A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
   
 
-| ID         | Nome                   |  Mapas | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapa JS | Fuso horário |
+| ID         | Nome                   |  Maps | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapa JS | Fuso horário |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -56,7 +53,7 @@ Foram localizados em várias linguagens de mapas do Azure em serviços.  A tabel
 | lv-LV      | Letão                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Os meus MS      | Malaio (Latim)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Norueguês (Bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nb-NO      | Norueguês Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Português (Brasil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Português (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

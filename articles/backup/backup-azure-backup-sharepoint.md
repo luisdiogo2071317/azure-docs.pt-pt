@@ -1,24 +1,19 @@
 ---
-title: "A proteção do DPM/Azure cópia de segurança de um farm do SharePoint para o Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da proteção do servidor de cópia de segurança do DPM/Azure de um farm do SharePoint para o Azure"
+title: Proteção do DPM/Azure cópia de segurança de um farm do SharePoint para o Azure
+description: Este artigo fornece uma descrição geral da proteção do servidor de cópia de segurança do DPM/Azure de um farm do SharePoint para o Azure
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606658"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 A cópia de segurança um farm do SharePoint para o Microsoft Azure utilizando o System Center Data Protection Manager (DPM) muito da mesma forma que a cópia de segurança de outras origens de dados. Cópia de segurança do Azure oferece flexibilidade na agenda de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. O DPM fornece a capacidade para armazenar cópias de disco local para rápido objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para a retenção de longo prazo, económica.
@@ -233,7 +228,7 @@ No exemplo seguinte, o *SharePoint recuperar item* foi eliminado acidentalmente 
     ![O DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste momento, siga o [passos de recuperação anteriores no artigo](#restore-a-sharepoint-item-from-disk-using-dpm) para recuperar uma base de dados de conteúdo SharePoint a partir do disco.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 P: quais as versões do DPM suportam o SQL Server 2014 e SQL Server 2012 (SP2)?<br>
 R: O DPM 2012 R2 com Update Rollup 4 suporta.
 
@@ -243,7 +238,7 @@ R: Sim, o item pode ser recuperado para o site do SharePoint original.
 P: posso recuperar uma base de dados do SharePoint para a localização original se SharePoint estiver configurado utilizando o SQL Server AlwaysOn?<br>
 R: porque as bases de dados do SharePoint são configuradas no SQL Server AlwaysOn, não pode ser modificados a menos que o grupo de disponibilidade é removido. Como resultado, o DPM não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o DPM proteção do SharePoint - consulte [vídeo série - DPM proteção do SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Reveja [notas de versão do System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Reveja [notas de versão para o Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

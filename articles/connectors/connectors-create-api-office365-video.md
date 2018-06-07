@@ -1,25 +1,22 @@
 ---
-title: "Utilizar o conector do Office 365 vídeo nas suas Logic apps | Microsoft Docs"
-description: "Começar a utilizar o conector do Office 365 vídeo nas suas Logic apps do Microsoft Azure App service"
-services: 
-documentationcenter: 
+title: Ligar ao Office 365 vídeo - as do Azure Logic Apps | Microsoft Docs
+description: Gerir vídeos com APIs de REST de vídeo do Office 365 e o Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 738e5aa7-2523-4116-8b65-211b9063852d
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 30ec8c7aa55013668d2ec0897278d435b9e864c7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: ef56159735654cd5cefbba99ee9cead42c81086b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610338"
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Começar a utilizar o conector de vídeo do Office 365
 Ligar ao Office 365 vídeo para obter informações sobre um Office 365 vídeo, obter uma lista de vídeos e muito mais. Com as vídeo do Office 365, pode:

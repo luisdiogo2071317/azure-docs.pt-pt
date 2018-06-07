@@ -1,23 +1,20 @@
 ---
-title: Ativar a cópia de segurança de VM do Azure durante a criação | Microsoft Docs
+title: Ativar a cópia de segurança de VM do Azure durante a criação
 description: Consulte os passos para ativar a cópia de segurança da máquina virtual do Azure durante o processo de criação.
 services: backup, virtual-machines
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606125"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Ativar a cópia de segurança durante a criação da máquina virtual do Azure 
 
@@ -73,7 +70,7 @@ São suportadas na seguinte lista de imagens de núcleos publicadas pela Microso
 - **VM de Redhat** -RHEL 6.7, 6.8 6.9, 7.2, 7.3, 7.4 
 - **SUSE** -SP4 do SUSE Linux Enterprise Server 11, 12 SP2, 12 SP3 
 - **Debian** -Debian 8, Debian 9 
-- **CentOS** - CentOS 6.9, CentOS 7.3 
+- **CentOS** -CentOS 6.9, CentOS 7.3 
 - **Oracle Linux** -Oracle Linux 6.7, 6.8, 6.9, 7.2, 7.3 
  
 ### <a name="is-backup-cost-included-in-the-vm-cost"></a>Está incluído no custo VM de custo de cópia de segurança? 

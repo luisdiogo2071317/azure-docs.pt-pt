@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: e3b6ccd1e7066ed86b3d6d2d85228688b06931c4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cdf305e3607d7483186185a014883cff5458b89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619087"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Como de leitura ou escrita particionada dados no Azure Data Factory versão 2
 Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão 2, pode conseguir este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. 
@@ -26,7 +27,7 @@ Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados
 Na versão 1, pode utilizar a propriedade partitionedBy e a variável de sistema do SliceStart conforme mostrado no exemplo seguinte: 
 
 ```json
-"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/yearno={Year}/monthno={Month}/dayno={Day}/",
+"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
 "partitionedBy": [
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
@@ -38,25 +39,31 @@ Para obter mais informações sobre a propriedade partitonedBy, consulte [conect
 
 Na versão 2, uma forma de alcançar este comportamento é para executar as seguintes ações: 
 
-1. Definir um **pipeline parâmetro** do tipo cadeia. No exemplo seguinte, o nome do parâmetro de pipeline está **scheduledRunTime**. 
-2. Definir **folderPath** na definição do conjunto de dados para o valor do parâmetro do pipeline. 
-3. Transmita um valor de codificado para o parâmetro antes de executar o pipeline. Ou, transmita de início um acionador tempo ou hora agendada dinamicamente durante a execução. 
+1. Definir um **pipeline parâmetro** do tipo cadeia. No exemplo seguinte, o nome do parâmetro de pipeline está **windowStartTime**. 
+2. Definir **folderPath** na definição do conjunto de dados para referenciar o valor do parâmetro do pipeline. 
+3. Passar o valor real para o parâmetro ao invocar a pipeline a pedido ou transmita agendada/hora a hora de início um acionador dinamicamente durante a execução. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Passar no valor de um acionador
-Na definição do acionador seguinte, a hora agendada do acionador é transmitida como um valor para o **scheduledRunTime** de pipeline de parâmetro: 
+Na definição do seguinte em cascata janela acionador, hora de início da janela do acionador é transmitida como um valor para o parâmetro de pipeline **windowStartTime**: 
 
 ```json
 {
     "name": "MyTrigger",
     "properties": {
-       ...
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+            "frequency": "Hour",
+            "interval": "1",
+            "startTime": "2018-05-15T00:00:00Z",
+            "delay": "00:10:00",
+            "maxConcurrency": 10
         },
         "pipeline": {
             "pipelineReference": {
@@ -64,7 +71,7 @@ Na definição do acionador seguinte, a hora agendada do acionador é transmitid
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "scheduledRunTime": "@trigger().scheduledTime"
+                "windowStartTime": "@trigger().outputs.windowStartTime"
             }
         }
     }
@@ -73,14 +80,15 @@ Na definição do acionador seguinte, a hora agendada do acionador é transmitid
 
 ## <a name="example"></a>Exemplo
 
-Segue-se uma definição de conjunto de dados de exemplo (que utiliza um parâmetro com o nome: `date`):
+Segue-se uma definição de conjunto de dados de exemplo:
 
 ```json
 {
+  "name": "SampleBlobDataset",
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
     },
     "format": {
@@ -129,20 +137,16 @@ Definição de pipeline:
                         "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
                         "type": "Expression"
                     },
-                    "PARTITIONEDOUTPUT": {
-                        "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
-                        "type": "Expression"
-                    },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'MM')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'dd')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +158,7 @@ Definição de pipeline:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "scheduledRunTime": {
+            "windowStartTime": {
                 "type": "String"
             },
             "blobStorageAccount": {
@@ -164,9 +168,6 @@ Definição de pipeline:
                 "type": "String"
             },
             "inputRawLogsFolder": {
-                "type": "String"
-            },
-            "partitionHiveScriptFile": {
                 "type": "String"
             }
         }

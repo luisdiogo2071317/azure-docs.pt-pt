@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3181ee143ac655606b5e9c98d743e30aef28b8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 81da88c019ff46e98e0f8811c846ab7488fa1910
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618149"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Copiar dados de parênteses utilizando o Azure Data Factory (Beta)
 
@@ -48,10 +49,10 @@ As seguintes propriedades são suportadas para o serviço ligado quadrado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **parênteses** | Sim |
-| anfitrião | O URL da instância quadrado. (i.e. mystore.mysquare.com)  | Sim |
+| anfitrião | O URL da instância quadrado. (ou seja, mystore.mysquare.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação quadrada.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação quadrada. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| redirectUri | O URL de redirecionamento atribuído no dashboard de aplicações quadrado. (i.e. http://localhost:2500)  | Sim |
+| redirectUri | O URL de redirecionamento atribuído no dashboard de aplicações quadrado. (ou seja http://localhost:2500)  | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se o nome de anfitrião no certificado do servidor para fazer corresponder o nome de anfitrião do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |

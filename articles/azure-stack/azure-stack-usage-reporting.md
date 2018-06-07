@@ -3,7 +3,7 @@ title: Reportar dados de utilização de pilha do Azure para o Azure | Microsoft
 description: Saiba como configurar dados de utilização de relatórios na pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603707"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização de pilha do Azure para o Azure 
 
@@ -42,7 +43,7 @@ Para configurar relatórios de dados de utilização, terá [registar a instânc
 - **Quantidade** – quantidade de utilização de recursos.
 - **Localização** – localização em que é implementado o recurso de pilha do Azure atual.
 - **URI do recurso** – totalmente qualificado URI do recurso para o qual está a ser reportada utilização.
-- **ID de subscrição** – ID de subscrição de utilizador a pilha do Azure. Esta é a subscrição (pilha do Azure) local.
+- **ID de subscrição** – ID de subscrição de utilizador a pilha do Azure, o que é a subscrição (pilha do Azure) local.
 - **Tempo** – hora de início e de fim dos dados de utilização. Não há algum atraso entre a hora quando a estes recursos estejam consumidos na pilha do Azure e os dados de utilização são considerados comércio. Azure dados de utilização de agregados de pilha para a cada 24 horas e os dados de utilização de relatórios para o pipeline de comércio no Azure demora algumas horas outro. Por isso, utilização que ocorre pouco tempo antes de à meia-noite pode aparecer no Azure ao dia seguinte.
 
 ## <a name="generate-usage-data-reporting"></a>Gerar relatórios de dados de utilização
@@ -68,7 +69,7 @@ Se registou a pilha do Azure através de qualquer outro tipo de subscrição, po
 
    ![fluxo de faturação](media/azure-stack-usage-reporting/pricing-details.png)
 
-Para o Kit de desenvolvimento de pilha do Azure, não serem cobrados os recursos de pilha do Azure, pelo que, o preço é mostrado como $0.00. Quando vários nós de pilha do Azure torna-se geralmente disponível, pode ver o custo real para cada um destes recursos.
+Para o Kit de desenvolvimento de pilha do Azure, não serem cobrados os recursos de pilha do Azure, pelo que, o preço é mostrado como $0.00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>As implementações de pilha do Azure são-lhe cobradas?
 
@@ -82,7 +83,7 @@ Os utilizadores são-lhe cobrados apenas para as VMs que são executados com sub
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tenho uma licença do Windows Server que pretendo utilizar na pilha do Azure, como fazê-lo?
 
-Utilização de licenças existentes evita a gerar medidores de utilização. Licenças existentes do Windows Server podem ser utilizadas na pilha do Azure, conforme descrito na secção «Utilizar software existente com a pilha do Azure» [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes tem de implementar as suas máquinas virtuais do Windows Server, conforme descrito no [benefício híbrida licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tópico para poder utilizar as respetivas licenças existentes.
+Utilização de licenças existentes evita a gerar medidores de utilização. Licenças existentes do Windows Server podem ser utilizadas na pilha do Azure, conforme descrito na secção «Utilizar software existente com a pilha do Azure» [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes tem de implementar as suas máquinas virtuais do Windows Server, conforme descrito no [benefício híbrida licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artigo para poder utilizar as respetivas licenças existentes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>A subscrição é-lhe cobrada os recursos consumidos?
 A subscrição que é fornecida quando [registar pilha do Azure com o Azure](azure-stack-register.md) é cobrada.
@@ -101,7 +102,7 @@ Os utilizadores podem ver os dados de utilização de pilha do Azure no ficheiro
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por que razão a utilização comunicada na pilha do Azure não coincide com o relatório gerado a partir do Centro de contas do Azure?
 
-É sempre um delaybetween os dados de utilização comunicados pela utilização de pilha do Azure APIs e os dados de utilização comunicados pelo centro de contas do Azure... Este atraso é o tempo necessário para carregar dados de utilização de pilha do Azure para comércio do Azure. Devido a este atraso, utilização que ocorre pouco tempo antes de à meia-noite pode aparecer no Azure ao dia seguinte. Se utilizar o [APIs de utilização do Azure pilha](azure-stack-provider-resource-api.md)e comparar os resultados para a utilização comunicados no portal de faturação do Azure, pode ver uma diferença.
+É sempre um atraso entre os dados de utilização comunicados pela utilização da pilha de Azure APIs e os dados de utilização comunicados pelo centro de contas do Azure. Este atraso é o tempo necessário para carregar dados de utilização de pilha do Azure para comércio do Azure. Devido a este atraso, utilização que ocorre pouco tempo antes de à meia-noite pode aparecer no Azure ao dia seguinte. Se utilizar o [APIs de utilização do Azure pilha](azure-stack-provider-resource-api.md)e comparar os resultados para a utilização comunicados no portal de faturação do Azure, pode ver uma diferença.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,9 +1,9 @@
 ---
-title: "Autenticação de pass-through do Azure AD – introdução | Microsoft Docs"
-description: "Este artigo descreve como começar com a autenticação pass-through do Azure Active Directory (Azure AD)."
+title: Autenticação de pass-through do Azure AD – introdução | Microsoft Docs
+description: Este artigo descreve como começar com a autenticação pass-through do Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591335"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure autenticação do Active Directory pass-through: Início rápido
 
@@ -52,7 +54,7 @@ Certifique-se de que os seguintes pré-requisitos estão assegurados.
 4. Se existir uma firewall entre os servidores e do Azure AD, configure os seguintes itens:
    - Certifique-se de que pode efetuar a autenticação agentes *saída* pedidos para o Azure AD através das seguintes portas:
    
-    | Número de porta | Como é utilizado |
+    | Número da porta | Como é utilizado |
     | --- | --- |
     | **80** | Transfere as listas de revogação de certificados (CRL) ao validar o certificado SSL |
     | **443** | Processa todas as comunicações de saída com o serviço |
@@ -139,7 +141,7 @@ Em primeiro lugar, pode fazê-la interativamente ao apenas que executa o agente 
 Segundo, pode criar e executar um script de implementação automática. Isto é útil quando pretender implementar múltiplos agentes de autenticação de uma só vez, ou instale agentes de autenticação nos servidores do Windows que não tem interface de utilizador ativado ou que não é possível aceder com o ambiente de trabalho remoto. Seguem-se as instruções sobre como utilizar esta abordagem:
 
 1. Execute o seguinte comando para instalar um agente de autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Pode registar o agente de autenticação no nosso serviço com o Windows PowerShell. Criar um objeto de credenciais do PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo  *\<username\>*  e  *\<palavra-passe\>*:
+2. Pode registar o agente de autenticação no nosso serviço com o Windows PowerShell. Criar um objeto de credenciais do PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo *\<username\>* e  *\<palavra-passe\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

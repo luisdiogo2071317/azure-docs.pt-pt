@@ -6,20 +6,17 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611743"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte de firewall do Cosmos BD do Azure
 Para proteger os dados armazenados numa conta de base de dados do Azure Cosmos DB, base de dados do Azure Cosmos tem suporte fornecido para um segredo com base [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) que utiliza um código de autenticação de mensagem com base em Hash seguro (HMAC). Agora, para além do modelo de autorização baseada em segredo BD do Cosmos do Azure suporta a política orientadas por controlos de acesso baseado em IP para o suporte de firewall de entrada. Este modelo é semelhante para as regras de firewall de um sistema de bases de dados tradicionais e fornece um nível adicional de segurança para a conta de base de dados de base de dados do Azure Cosmos. Com este modelo, pode agora configurar uma conta de base de dados de base de dados do Azure Cosmos para ser acessível apenas a partir de um conjunto de máquinas aprovado e/ou serviços em nuvem. Acesso a recursos de base de dados do Azure Cosmos destes conjuntos de serviços e máquinas aprovados ainda requerem o autor da chamada apresentar um token de autorização válida.

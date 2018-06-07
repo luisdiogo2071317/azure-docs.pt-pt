@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621625"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Mover dados a partir de uma origem HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +53,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos HT
 | tipo | A propriedade de tipo tem de ser definida: `Http`. | Sim |
 | url | URL de base ao servidor Web | Sim |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básico**, **resumida**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
-| enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor, se a origem é o servidor de Web de HTTPS | Não, a predefinição é verdadeiro |
+| enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor, se a origem é o servidor de Web de HTTPS. Quando o servidor HTTPS está a utilizar um certificado autoassinado, defina esta opção para FALSO. | Não, a predefinição é verdadeiro |
 | gatewayName | Nome do Data Management Gateway para ligar a uma origem HTTP no local. | Sim, se copiar dados a partir de uma origem HTTP no local. |
 | encryptedCredential | Credencial encriptada para aceder ao ponto final HTTP. Gerado automaticamente quando configura as informações de autenticação no Assistente para copiar ou a caixa de diálogo de pop-up de ClickOnce. | Não. Aplicam-se apenas ao copiar dados a partir de um servidor HTTP no local. |
 

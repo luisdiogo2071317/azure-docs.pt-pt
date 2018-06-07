@@ -11,11 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 0a6e355d8f16fed9022cc2cf55dc09781364f0b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608652"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utilizar os Modelos da CLI do Batch e a Transferência de Ficheiros (Pré-visualização)
 
@@ -119,7 +120,7 @@ Segue-se um exemplo de um modelo que cria um agrupamento de VMs com Linux com ff
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04.0-LTS",
+                    "sku": "16.04-LTS",
                     "version": "latest"
                 },
                 "nodeAgentSKUId": "batch.node.ubuntu 16.04"

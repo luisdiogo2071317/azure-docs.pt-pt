@@ -1,25 +1,26 @@
 ---
-title: "Copiar facilmente os dados com o Assistente de cópia - Azure | Microsoft Docs"
-description: "Saiba mais sobre como utilizar o Assistente de cópia do Data Factory para copiar dados de origens de dados suportadas para sinks."
+title: Copiar facilmente os dados com o Assistente de cópia - Azure | Microsoft Docs
+description: Saiba mais sobre como utilizar o Assistente de cópia do Data Factory para copiar dados de origens de dados suportadas para sinks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621297"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de cópia do Azure Data Factory
 > [!NOTE]
@@ -63,7 +64,7 @@ No exemplo, a consulta de SQL Server utiliza o `Text.Format` função e `WindowS
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta BLOBs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados a partir de uma pasta que é determinada em runtime com base no [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hora}**, **{minuto}**e  **{personalizado}** . Exemplo: inputfolder / {year} / {month} / {day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados a partir de uma pasta que é determinada em runtime com base no [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hora}**, **{minuto}** e **{personalizado}**. Exemplo: inputfolder / {year} / {month} / {day}.
 
 Suponha que tem de entrada pastas no seguinte formato:
 

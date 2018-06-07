@@ -1,29 +1,23 @@
 ---
 title: Aceleradores de solução IoT do Azure FAQ | Microsoft Docs
 description: Perguntas mais frequentes sobre Aceleradores de solução IoT
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627164"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre Aceleradores de solução IoT
 
-Consulte também o [específicos de fábrica ligado FAQ](iot-accelerators-faq-cf.md) e [FAQ de específicos de monitorização remota](iot-accelerators-faq-rm-v2.md) .
+Consulte também o [ligado específicos de fábrica FAQ](iot-accelerators-faq-cf.md) e o [FAQ de específicos de monitorização remota](iot-accelerators-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Onde posso encontrar o código de origem para os Aceleradores de solução?
 
@@ -54,7 +48,7 @@ Sim, nova monitorização remota está disponível as mesmas regiões geográfic
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>O que é a diferença entre a eliminação de um grupo de recursos no portal do Azure e clicar eliminar num acelerador de solução em azureiotsuite.com?
 
-* Se eliminar o acelerador de solução em [azureiotsuite.com](https://www.azureiotsuite.com/), estará a eliminar todos os recursos que aprovisionou quando criou o acelerador de solução. Se adicionou recursos adicionais ao grupo de recursos, estes recursos também serão eliminados.
+* Se eliminar o acelerador de solução em [azureiotsuite.com](https://www.azureiotsolutions.com/), estará a eliminar todos os recursos que aprovisionou quando criou o acelerador de solução. Se adicionou recursos adicionais ao grupo de recursos, estes recursos também serão eliminados.
 * Se eliminar o grupo de recursos no [portal do Azure](https://portal.azure.com), apenas estará a eliminar os recursos nesse grupo de recursos. Também terá de eliminar a aplicação do Azure Active Directory associada com o acelerador de solução.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Pode continuar a tirar partido do meu investimentos existentes no Aceleradores de solução IoT do Azure?
@@ -71,7 +65,7 @@ Cinquenta. Pode criar um [pedido de suporte do Azure](https://portal.azure.com/#
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs para o Free Bing Maps é possível aprovisionar numa subscrição?
 
-Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para planos Enterprise numa subscrição do Azure. Por predefinição, a solução de monitorização remota é aprovisionada com o plano de Transações Internas de Nível 1. Como resultado, apenas pode aprovisionar até duas soluções de monitorização remota numa subscrição sem qualquer modificação.
+Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para planos Enterprise numa subscrição do Azure. A solução de monitorização remota é aprovisionada por predefinição com o plano de transações nível 1 interno. Como resultado, apenas pode aprovisionar até duas monitorização remota soluções numa subscrição sem qualquer modificação.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar um acelerador solução se tiver o Microsoft Azure para DreamSpark?
 
@@ -93,6 +87,6 @@ Consulte a mensagem de blogue de Eric Golpe [instruções de eliminação de um 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
 * [Explore as capacidades do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-explore.md)
-* [Descrição geral do acelerador de soluções de Manutenção Preditiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Descrição geral do acelerador de soluções de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
 * [Descrição geral da ligados da acelerador solução do Factory](iot-accelerators-connected-factory-overview.md)
-* [Segurança de IoT a partir do zero](../iot-suite/securing-iot-ground-up.md)
+* [Segurança de IoT a partir do zero](securing-iot-ground-up.md)

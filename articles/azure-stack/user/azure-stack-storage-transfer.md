@@ -1,26 +1,26 @@
 ---
-title: Ferramentas para armazenamento de pilha do Azure
+title: Ferramentas para armazenamento de pilha do Azure | Microsoft Docs
 description: Saiba mais sobre os dados de armazenamento do Azure pilha ferramentas de transferência
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604731"
 ---
-# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizar ferramentas de transferência de dados para o armazenamento de pilha do Azure
+# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizar ferramentas de transferência de dados para armazenamento de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
@@ -44,7 +44,7 @@ Os requisitos de determinam quais as ferramentas seguintes funciona melhor para 
 
     Uma aplicação autónoma fáceis de utilizar com uma interface de utilizador.
 
-Devido às diferenças de serviços de armazenamento entre o Azure e Azure pilha, poderão existir alguns requisitos específicos para cada ferramenta descritos nas secções seguintes. Para ver uma comparação entre o armazenamento de pilha do Azure e o armazenamento do Azure, consulte [Azure pilha de armazenamento: diferenças e as considerações](azure-stack-acs-differences.md).
+Devido às diferenças de serviços de armazenamento entre o Azure e Azure pilha, poderão existir alguns requisitos específicos para cada ferramenta descritos nas secções seguintes. Para ver uma comparação entre o armazenamento de pilha do Azure e o armazenamento do Azure, consulte [armazenamento de pilha do Azure: diferenças e as considerações](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -102,9 +102,9 @@ azcopy \
     --dest-key <key>
 ````
 
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Mover dados entre o Azure e Azure pilha de armazenamento
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Mover dados entre o armazenamento do Azure e pilha do Azure
 
-Transferência de dados assíncrona entre o armazenamento do Azure e Azure pilha não é suportada. Tem de especificar a transferência com o **/SyncCopy** ou **-sync-cópia** opção.
+Transferência de dados assíncronos entre o armazenamento do Azure e Azure pilha não é suportada. Tem de especificar a transferência com o **/SyncCopy** ou **-sync-cópia** opção.
 
 **Windows**
 
@@ -127,7 +127,7 @@ azcopy \
 ### <a name="azcopy-known-issues"></a>Problemas conhecidos do Azcopy
 
  - Qualquer operação AzCopy um arquivo de ficheiros não está disponível porque o armazenamento de ficheiros ainda não está disponível na pilha do Azure.
- - Transferência de dados assíncrona entre o armazenamento do Azure e Azure pilha não é suportada. Pode especificar a transferência com o **/SyncCopy** opção para copiar os dados.
+ - Transferência de dados assíncronos entre o armazenamento do Azure e Azure pilha não é suportada. Pode especificar a transferência com o **/SyncCopy** opção para copiar os dados.
  - A versão do Linux do Azcopy só suporta 1802 atualização ou versões posteriores. E não suporta o serviço tabela.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -150,7 +150,7 @@ Este exemplo partem do princípio de que tem com êxito [instalado o PowerShell 
    > [!NOTE]
    > Este script tem de ser executado no diretório de raiz para **AzureStack_Tools**.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -213,7 +213,7 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>Problemas conhecidos do PowerShell
 
@@ -222,12 +222,12 @@ A versão atual do compatível Azure PowerShell módulo para a pilha do Azure é
 * O formato do valor de retorno de `Get-AzureRmStorageAccountKey` versão 1.3.0 tem duas propriedades: `Key1` e `Key2`, enquanto a versão atual do Azure devolve uma matriz que contém todas as chaves de conta.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -242,7 +242,7 @@ A CLI do Azure é a experiência de linha de comandos do Azure para gerir recurs
 
 CLI do Azure está otimizada para gerir e administrar recursos do Azure a partir da linha de comandos e para a criação de scripts de automatização que funcionam com o Azure Resource Manager. Fornece muitas das mesmas funções encontradas no portal do Azure pilha, incluindo acesso a dados avançado.
 
-Pilha do Azure requer a CLI do Azure versão 2.0. Para obter mais informações sobre como instalar e configurar a CLI do Azure com a pilha do Azure, consulte [instalar e configurar a CLI do Azure pilha](azure-stack-version-profiles-azurecli2.md). Para obter mais informações sobre como utilizar o 2.0 CLI do Azure para efetuar várias tarefas de trabalhar com recursos na sua conta de armazenamento de pilha do Azure, consulte [utilizando o CLI2.0 do Azure com o Storage do Azure](../../storage/storage-azure-cli.md)
+Pilha do Azure requer a CLI do Azure versão 2.0. Para obter mais informações sobre como instalar e configurar a CLI do Azure com a pilha do Azure, consulte [instalar e configurar a CLI do Azure pilha](azure-stack-version-profiles-azurecli2.md). Para obter mais informações sobre como utilizar o 2.0 CLI do Azure para efetuar várias tarefas de trabalhar com recursos na sua conta de armazenamento de pilha do Azure, consulte [utilizar CLI2.0 o Azure com o storage do Azure](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script de exemplo do CLI do Azure para a pilha do Azure
 
@@ -263,7 +263,7 @@ Antes de executar este script, certifique-se de que com êxito pode ligar a e in
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -292,17 +292,18 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
-## <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
+## <a name="microsoft-azure-storage-explorer"></a>Explorador de armazenamento do Microsoft Azure
 
-Explorador de armazenamento do Microsoft Azure é uma aplicação autónoma da Microsoft. Permite-lhe trabalhar facilmente com o Storage do Azure e dados de armazenamento de pilha do Azure no Windows, macOS e computadores com Linux. Se pretender uma forma fácil de gerir os seus dados de armazenamento de pilha do Azure, em seguida, considere utilizar o Explorador de armazenamento do Microsoft Azure.
+Explorador de armazenamento do Microsoft Azure é uma aplicação autónoma da Microsoft. Permite-lhe trabalhar facilmente com o storage do Azure e o armazenamento de Azure pilha dados no Windows, macOS e computadores com Linux. Se pretender uma forma fácil de gerir os seus dados de armazenamento de pilha do Azure, em seguida, considere utilizar o Explorador de armazenamento do Microsoft Azure.
 
 * Para obter mais informações sobre como configurar o Explorador de armazenamento do Azure para trabalhar com a pilha do Azure, consulte [Explorador de armazenamento de ligar a uma subscrição do Azure pilha](azure-stack-storage-connect-se.md).
 * Para saber mais sobre o Explorador de armazenamento do Microsoft Azure, consulte o artigo [introdução ao Explorador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Ligar o Explorador de armazenamento a uma subscrição de pilha do Azure](azure-stack-storage-connect-se.md)
 * [Introdução ao Explorador de armazenamento](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Armazenamento do Azure consistente: diferenças e considerações](azure-stack-acs-differences.md)
-* [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introdução ao storage do Microsoft Azure](../../storage/common/storage-introduction.md)

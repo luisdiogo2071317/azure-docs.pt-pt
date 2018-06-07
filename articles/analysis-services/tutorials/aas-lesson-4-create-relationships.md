@@ -3,16 +3,17 @@ title: 'Lição 4 do tutorial do Azure Analysis Services: Criar relações | Mic
 description: Descreve como criar relações no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8ee78ecb253e0b29fd0c2fee2388195c8aa6918
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596843"
 ---
 # <a name="create-relationships"></a>Criar relações
 
@@ -51,7 +52,7 @@ Antes de continuar a criar o seu modelo, deve confirmar se as relações entre a
   
 3.  Verifique se foram criadas as relações seguintes quando cada uma das tabelas foi importada da base de dados AdventureWorksDW:  
   
-    |Activo|Tabelas|Tabela de Pesquisa Relacionada|  
+    |Ativa|Tabela|Tabela de Pesquisa Relacionada|  
     |----------|---------|------------------------|  
     |Sim|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
     |Sim|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
@@ -93,7 +94,7 @@ Em alguns casos, poderá ter de criar relações adicionais entre tabelas do seu
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-## <a name="whats-next"></a>O que se segue?
+## <a name="whats-next"></a>Passos seguintes?
 [Lição 5: Criar colunas calculadas (Lesson 5: Create calculated columns)](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   

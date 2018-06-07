@@ -1,25 +1,19 @@
 ---
-title: Cópia de segurança do Azure pilha ficheiros e aplicações | Microsoft Docs
+title: Fazer uma cópia de segurança de ficheiros de pilha do Azure e das aplicações
 description: Utilize a cópia de segurança do Azure para criar cópias de segurança e recuperar ficheiros de pilha do Azure e aplicações para o seu ambiente de pilha do Azure.
 services: backup
-documentationcenter: ''
 author: adiganmsft
 manager: shivamg
-editor: ''
-keyword: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/11/2018
-ms.author: adigan,markgal
-ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.date: 5/18/2018
+ms.author: adigan
+ms.openlocfilehash: 6c7fcc0182add05b68a7b41ab6fe50e18427f6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607308"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer cópias de segurança de ficheiros e aplicações na pilha do Azure
 Pode utilizar o Backup do Azure para proteger (ou cópia de segurança) ficheiros e aplicações na pilha do Azure. Para fazer uma cópia de segurança de ficheiros e aplicações, instale o servidor de cópia de segurança do Microsoft Azure como uma máquina virtual em execução na pilha do Azure. Pode proteger quaisquer aplicações, em execução em qualquer servidor de pilha do Azure na mesma rede virtual. Uma vez que instalou o servidor de cópia de segurança do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de cópia de segurança de curta duração. Servidor de cópia de segurança do Azure utiliza o armazenamento do Azure para a retenção de longo prazo.
@@ -47,7 +41,7 @@ Servidor de cópia de segurança do Azure protege as seguintes cargas de trabalh
 
 
 ## <a name="install-azure-backup-server"></a>Instalar o servidor de cópia de segurança do Azure
-Para instalar o servidor de cópia de segurança do Azure numa máquina virtual pilha do Azure, consulte o artigo [a preparar a cópia de segurança de cargas de trabalho utilizando o servidor de cópia de segurança do Azure](backup-azure-microsoft-azure-backup.md). Antes de instalar e configurar o servidor de cópia de segurança do Azure, tenha em atenção o seguinte:
+Para instalar o servidor de cópia de segurança do Azure numa máquina virtual pilha do Azure, consulte o artigo [a preparar a cópia de segurança de cargas de trabalho utilizando o servidor de cópia de segurança do Azure](backup-mabs-install-azure-stack.md). Antes de instalar e configurar o servidor de cópia de segurança do Azure, tenha em atenção o seguinte:
 
 ### <a name="determining-size-of-virtual-machine"></a>Determinar o tamanho da máquina virtual
 Para executar o servidor de cópia de segurança do Azure numa máquina virtual do Azure pilha, utilize tamanho A2 ou superior. Para obter ajuda na escolha de um tamanho de máquina virtual, transfira o [Calculadora do tamanho da VM do Azure pilha](https://www.microsoft.com/download/details.aspx?id=56832).

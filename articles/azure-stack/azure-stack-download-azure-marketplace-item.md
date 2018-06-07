@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604537"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir os itens do marketplace a partir do Azure com a pilha do Azure
 
@@ -85,7 +86,7 @@ Existem duas partes para este cenário:
 
 - Para ativar a importação de um item do marketplace transferidos, o [ambiente de PowerShell para o operador de pilha do Azure](azure-stack-powershell-configure-admin.md) tem de ser configurado.  
 
-- Tem de ter uma conta do storage na pilha do Azure que tem um contentor acessível publicamente (que é um blob de armazenamento). Utilizar o contentor como armazenamento temporário para os ficheiros de Galeria de itens do marketplace. Se não estiver familiarizado com as contas de armazenamento e de contentores, consulte [trabalhar com blobs - portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) na documentação do Azure.
+- Tem de ter um [conta de armazenamento](azure-stack-manage-storage-accounts.md) na pilha do Azure que tem um contentor acessível publicamente (que é um blob de armazenamento). Utilizar o contentor como armazenamento temporário para os ficheiros de Galeria de itens do marketplace. Se não estiver familiarizado com as contas de armazenamento e de contentores, consulte [trabalhar com blobs - portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) na documentação do Azure.
 
 - A ferramenta de sindicação do marketplace é transferida durante o primeiro procedimento. 
 

@@ -1,25 +1,22 @@
 ---
-title: Adicione o conector Informix nas suas Logic Apps | Microsoft Docs
-description: "Descrição geral do conector de Informix com parâmetros de REST API"
-services: 
-documentationcenter: 
+title: Ligar à base de dados IBM Informix - Azure Logic Apps | Microsoft Docs
+description: Gerir os recursos com as APIs REST do IBM Informix e Azure Logic Apps
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609393"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Começar a utilizar o conector Informix
 Conector do Microsoft para Informix liga as Logic Apps aos recursos armazenados numa base de dados IBM Informix. O conector Informix inclui o cliente Microsoft para comunicar com computadores remotos de servidor Informix através de uma rede TCP/IP. Isto inclui as bases de dados de nuvem, tais como IBM Informix para o Windows em execução no Azure Virtualização e no local utilizando o gateway de dados no local de bases de dados. Consulte o [suportado lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) do IBM Informix plataformas e versões (deste tópico).
@@ -47,13 +44,13 @@ Este conector suporta as seguintes ações de aplicação lógica:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lista de tabelas
+## <a name="list-tables"></a>Listar as tabelas
 Criar uma aplicação lógica em nenhuma operação é composta por vários passos realizados através do portal do Microsoft Azure.
 
 Na sua aplicação lógica, pode adicionar uma ação para listar tabelas numa base de dados Informix. Esta ação instrui o conector para processar uma instrução de esquema Informix, tais como `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `InformixgetTables`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -123,7 +120,7 @@ Este conector pode aceder a uma nuvem de base de dados Informix.
 Pode criar uma ação de aplicação lógica para obter todas as linhas na tabela Informix. Esta ação instrui o conector para processar uma instrução Informix SELECIONE, tais como `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome** (por exemplo, "**InformixgetRows**"), **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -160,7 +157,7 @@ Pode criar uma ação de aplicação lógica para obter todas as linhas na tabel
 Pode criar uma ação de aplicação lógica para adicionar uma linha numa tabela Informix. Esta ação instrui o conector para processar uma instrução Informix INSERT, tais como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `InformixinsertRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -187,7 +184,7 @@ Pode criar uma ação de aplicação lógica para adicionar uma linha numa tabel
 Pode criar uma ação de aplicação lógica para obter uma linha numa tabela Informix. Esta ação instrui o conector para processar uma instrução Informix SELECIONE onde, tais como `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `InformixgetRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -215,7 +212,7 @@ Pode criar uma ação de aplicação lógica para obter uma linha numa tabela In
 Pode criar uma ação de aplicação lógica para alterar uma linha numa tabela Informix. Esta ação instrui o conector para processar uma instrução de ATUALIZAÇÃO de Informix, tais como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `InformixupdateRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -242,7 +239,7 @@ Pode criar uma ação de aplicação lógica para alterar uma linha numa tabela 
 Pode criar uma ação de aplicação lógica para remover uma linha numa tabela Informix. Esta ação instrui o conector para processar uma instrução Informix eliminar, tais como `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `InformixdeleteRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação

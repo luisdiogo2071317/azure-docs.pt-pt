@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: alterar a configuração predefinida | Microsoft Docs"
-description: "Fornece as melhores práticas para alterar a configuração predefinida de sincronização do Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: alterar a configuração predefinida | Microsoft Docs'
+description: Fornece as melhores práticas para alterar a configuração predefinida de sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 384794849eb0bf2cb2f4dd056b0c95ab84d77b6e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595143"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: melhores práticas para alterar a configuração predefinida
 O objetivo deste tópico é descrever alterações suportadas e não suportadas para sincronização do Azure AD Connect.
@@ -65,7 +67,7 @@ Selecione **Sim** para criar uma cópia da regra. A regra clonada, em seguida, �
 
 Esta regra clonado, efetue as alterações necessárias ao âmbito, associação e transformações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
 * [Sincronização do Azure AD Connect: Noções e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)

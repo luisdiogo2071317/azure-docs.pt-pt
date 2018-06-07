@@ -1,40 +1,41 @@
 ---
-title: 'Armazenamento do Azure da pilha: Diferenças e as considerações'
-description: Compreenda as diferenças entre o armazenamento de pilha do Azure e Storage do Azure, juntamente com considerações de implementação de pilha do Azure.
+title: Diferenças de armazenamento de pilha do Azure e as considerações | Microsoft Docs
+description: Compreenda as diferenças entre o armazenamento de pilha do Azure e o armazenamento do Azure, juntamente com considerações de implementação de pilha do Azure.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604465"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure da pilha: Diferenças e as considerações
+# <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento de pilha do Azure: diferenças e considerações
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 Armazenamento de pilha do Azure é um conjunto de serviços de cloud de armazenamento na pilha do Microsoft Azure. Armazenamento de pilha do Azure fornece blob, tabela, fila e funcionalidade de gestão de conta com semântica consistentes com o Azure.
 
-Este artigo resume as diferenças de armazenamento do Azure pilha conhecidas dos serviços de armazenamento do Azure. Também apresenta uma lista aspetos a considerar quando implementa a pilha do Azure. Para saber mais sobre das principais diferenças entre a pilha do Azure e do Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
+Este artigo resume as diferenças de armazenamento do Azure pilha conhecidas dos serviços de armazenamento do Azure. Também apresenta uma lista aspetos a considerar quando implementa a pilha do Azure. Para saber mais sobre as diferenças de alto nível entre global do Azure e pilha do Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat folha: diferenças de armazenamento
 
 | Funcionalidade | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Armazenamento de ficheiros|Baseado na nuvem partilhas de ficheiros SMB suportadas|Ainda não suportado
-|Encriptação do Serviço de Armazenamento do Azure para Dados Inativos|encriptação AES de 256 bits|Encriptação AES de 128 bits BitLocker
-|Tipo de conta de armazenamento|Contas do Blob storage do Azure e para fins gerais|Para fins gerais apenas.
+|Encriptação do serviço de armazenamento do Azure para dados Inativos|encriptação AES de 256 bits|Encriptação AES de 128 bits BitLocker
+|Tipo de conta de armazenamento|Contas de armazenamento de Blobs do Azure e para fins gerais|Para fins gerais apenas.
 |Opções de replicação|Armazenamento localmente redundante, o armazenamento georredundante, o armazenamento georredundante com acesso de leitura e o armazenamento com redundância de zona|Armazenamento localmente redundante.
 |Armazenamento Premium|Totalmente suportado|Pode ser aprovisionado, mas sem limite de desempenho ou garantir.
 |Managed disks|Premium e padrão suportados|Ainda não suportado.

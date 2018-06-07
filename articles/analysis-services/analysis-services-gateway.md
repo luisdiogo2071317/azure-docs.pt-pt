@@ -3,16 +3,17 @@ title: Gateway de dados no local | Microsoft Docs
 description: Um gateway no local é necessário se o servidor de Analysis Services no Azure irá ligar a origens de dados no local.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 60a04d492798da8292e2c9d4107e21e9039f7d40
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596860"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>A ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecer transferência de proteger os dados entre origens de dados no local e os servidores de serviços de análise do Azure na nuvem. Para além de trabalhar com múltiplos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway é também funciona com Azure Logic Apps, Power BI, aplicações de energia e Flow Microsoft. Pode associar vários serviços na mesma região com um único gateway. 

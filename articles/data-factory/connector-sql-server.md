@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617686"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -484,34 +485,34 @@ Quando copiar dados de/para SQL Server, os seguintes mapeamentos são utilizados
 | bigint |Int64 |
 | Binário |Byte[] |
 | bits |Booleano |
-| char |String, Char[] |
+| char |Cadeia, Char [] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Número de vírgula flutuante |Duplo |
+| Flutuante |duplo |
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
+| nchar |Cadeia, Char [] |
+| ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
-| nvarchar |String, Char[] |
-| real |Solteiro |
+| nvarchar |Cadeia, Char [] |
+| real |Único |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |String, Char[] |
+| texto |Cadeia, Char [] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Cadeia, Char [] |
 | xml |Xml |
 
 ## <a name="troubleshooting-connection-issues"></a>Resolução de problemas de ligação

@@ -9,15 +9,16 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621756"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
@@ -33,7 +34,7 @@ A tabela seguinte fornece uma lista de ambientes de computação que são suport
 | [O Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análise do Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
+| [SQL do Azure](#azure-sql-linked-service), [do armazém de dados SQL do Azure](#azure-sql-data-warehouse-linked-service), [do SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Versões do HDInsight suportadas na fábrica de dados
 O Azure HDInsight suporta várias versões de cluster de Hadoop que pode implementar em qualquer altura. Cada versão suportada cria uma versão específica da distribuição Hortonworks Data Platform (HDP) e um conjunto de componentes da distribuição. 
@@ -131,7 +132,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 | osType                       | O tipo de sistema operativo. Valores permitidos são **Linux** e **Windows**. Se este valor não está especificado, **Linux** é utilizado.  <br /><br />Recomendamos vivamente a utilização de clusters do HDInsight baseado em Linux. A data de retirada para o HDInsight no Windows é de 31 de Julho de 2018. | Não       |
 | hcatalogLinkedServiceName    | O nome do serviço ligado SQL do Azure que aponta para a base de dados do HCatalog. O cluster do HDInsight a pedido é criado utilizando a base de dados do SQL Server do metastore. | Não       |
 
-#### <a name="example-linkedservicenames-json"></a>Example: LinkedServiceNames JSON
+#### <a name="example-linkedservicenames-json"></a>Exemplo: LinkedServiceNames JSON
 
 ```json
 "additionalLinkedServiceNames": [
@@ -214,7 +215,7 @@ Se pretender criar nós principais D4 tamanho e nós de trabalho, especifique **
 
 Se definir um valor incorreto para estas propriedades, poderá ver a mensagem seguinte:
 
-  Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Message: 'PreClusterCreationValidationFailure'. 
+  Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Mensagem: 'PreClusterCreationValidationFailure'. 
   
 Se vir esta mensagem, certifique-se de que está a utilizar o cmdlet e os nomes de API da tabela no [tamanhos de Máquina Virtual](../../virtual-machines/linux/sizes.md).  
 
@@ -417,7 +418,7 @@ O código de autorização que gerou selecionando o **autorizar** botão expira 
 
 Poderá ver a seguinte mensagem de erro quando expira o token de autenticação: 
 
-  Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+  Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
 
 A tabela seguinte mostra expirações por tipo de conta de utilizador: 
 

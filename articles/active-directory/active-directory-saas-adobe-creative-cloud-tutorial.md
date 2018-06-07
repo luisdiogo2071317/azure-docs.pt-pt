@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 05/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 808debcee11eb83f7e6afa1f3443a35c9f6767c4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 53513b2d07f75e917845ad307a2833a5149ab677
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem criativos Adobe
 
@@ -80,8 +81,6 @@ Nesta secção, configure e teste do Azure AD-início de sessão único com o Ad
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo na nuvem criativos Adobe é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na nuvem criativos Adobe tem de ser estabelecida.
 
-No Adobe criativos na nuvem, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD-início de sessão único com nuvem criativos Adobe, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
@@ -101,7 +100,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
 
 3. No **Adobe criativos nuvem domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no modo de IDP iniciado:
@@ -112,8 +111,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de cliente de Cloud criativos Adobe](https://helpx.adobe.com/in/contact/support.html) para obter estes valores. 
+    > [!NOTE]
+    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de cliente de Cloud criativos Adobe](https://helpx.adobe.com/in/contact/support.html) para obter estes valores.
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
@@ -138,41 +137,44 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | Email |User.Mail |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
-    
+
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
-    
+
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
-    
+
     b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
-    
+
     c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
-    
+
     d. Clique em **OK**.
-    
+
+    > [!NOTE]
+    > Os utilizadores têm de ter uma licença de Office 365 ExO válida para e-mail valor para ser preenchidos na resposta SAML de afirmação.
+
 8. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_400.png)
-    
+
 9. No **configuração da nuvem criativos Adobe** secção, clique em **configurar Adobe criativos na nuvem** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML e único início de sessão no URL do serviço SAML** do **secção de referência rápida**.
 
     ![Configuração da nuvem criativos Adobe](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
-    
+
 10. Numa janela do browser web diferente, inicie sessão no [consola de administração do Adobe](https://adminconsole.adobe.com) como administrador.
 
 11. Aceda a **definições** na parte superior da navegação barra e, em seguida, escolha **identidade**. Abre a lista de domínios. Clique em **configurar** ligação contra o seu domínio. Em seguida, execute os seguintes passos no **início de sessão único na configuração necessária** secção. Para obter mais informações, consulte [configurar um domínio](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
     ![Definições](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "definições")
-    
+
     a. Clique em **procurar** para carregar o certificado transferido do Azure AD para **IDP certificado**.
-    
+
     b. No **emissor IDP** caixa de texto, colocar o valor de **Id de entidade de SAML** que copiou do **configurar início de sessão** secção no portal do Azure.
-    
+
     c. No **URL de início de sessão do IDP** caixa de texto, colocar o valor de **URL do serviço SAML SSO** que copiou do **configurar início de sessão** secção no portal do Azure.
-    
+
     d. Selecione **HTTP - redirecionamento** como **IDP enlace**.
-    
+
     e. Selecione **endereço de correio eletrónico** como **definição de início de sessão do utilizador**.
-    
+
     f. Clique em **guardar** botão.
 
 12. O dashboard agora apresentará o XML **"Transferir metadados"** ficheiro. Contém EntityDescriptor URL e o URL de AssertionConsumerService do Adobe. Volte a abrir o ficheiro e configurá-las na aplicação do Azure AD.
@@ -182,9 +184,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     a. Utilize o valor de EntityDescriptor Adobe fornecido lhe **identificador** no **configurar definições de aplicação** caixa de diálogo.
 
     b. Utilize o valor de AssertionConsumerService Adobe fornecido lhe **URL de resposta** no **configurar definições de aplicação** caixa de diálogo.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -290,4 +289,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_general_203.png
-

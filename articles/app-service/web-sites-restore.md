@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598305"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
-Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/app-service-web-overview.md) que criou anteriormente ter cópias de segurança (consulte [cópia de segurança sua aplicação no Azure](web-sites-backup.md)). Pode restaurar a aplicação com o respetiva ligado bases de dados a pedido para um estado anterior ou criar uma nova aplicação com base dos cópias de segurança da sua aplicação original. App Service do Azure suporta as seguintes bases de dados de cópia de segurança e restauro:
+Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/app-service-web-overview.md) que criou anteriormente ter cópias de segurança (consulte [cópia de segurança sua aplicação no Azure](web-sites-backup.md)). Pode restaurar a sua aplicação com as respetivas bases de dados ligadas no local para um estado anterior, ou criar novas aplicações com base numa das suas cópias de segurança originais da aplicação. App Service do Azure suporta as seguintes bases de dados de cópia de segurança e restauro:
 - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-- [Base de dados do Azure para MySQL)](https://azure.microsoft.com/services/mysql)
+- [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
 - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL na aplicação](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -51,7 +52,7 @@ O restauro de cópias de segurança está disponível para aplicações em execu
    > 
    > 
    
-    Pode selecionar **aplicação existente** para restaurar a cópia de segurança de aplicação para outra aplicação no mesmo grupo de resoure. Antes de utilizar esta opção, deve já criou outra aplicação no seu grupo de recursos com o espelhamento de configuração de base de dados para um definido na cópia de segurança de aplicação. Também pode criar um **novo** aplicação para restaurar o seu conteúdo.
+    Pode selecionar **aplicação existente** para restaurar a cópia de segurança de aplicação para outra aplicação no mesmo grupo de recursos. Antes de utilizar esta opção, deve já criou outra aplicação no seu grupo de recursos com o espelhamento de configuração de base de dados para um definido na cópia de segurança de aplicação. Também pode criar um **novo** aplicação para restaurar o seu conteúdo.
 
 4. Clique em **OK**.
 

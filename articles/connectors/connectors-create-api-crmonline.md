@@ -1,25 +1,22 @@
 ---
-title: Ligar ao Dynamics 365 (online) do Azure Logic Apps | Microsoft Docs
-description: "Criar lógica fluxos de trabalho de aplicações que gerem Dynamics 365 entidades (online) através da API fornecida pelo conector do Dynamics 365"
-services: logic-apps
-cloud: Azure Stack
+title: Ligar ao Dynamics 365 - as do Azure Logic Apps | Microsoft Docs
+description: Criar e gerir registos com APIs REST (online) do Dynamics 365 e o Azure Logic Apps
 author: Mattp123
-manager: anneta
-documentationcenter: 
-tags: connectors
-ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+manager: cfowler
+ms.author: matp
 ms.date: 02/10/2017
-ms.author: matp; LADocs
-ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 015f587257603330eab9840edf661ba9675f4ba8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609900"
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Ligar ao Dynamics 365 a partir de fluxos de trabalho de aplicação de lógica
 
@@ -116,7 +113,7 @@ Quando adiciona um valor para um campo, têm de corresponder o tipo de campo se 
 Tipo de campo  |Como utilizar  |Onde encontrar  |Nome  |Tipo de dados  
 ---------|---------|---------|---------|---------
 Campos de texto|Campos de texto necessitam de uma única linha de texto ou de conteúdo dinâmico, que é um campo de tipo de texto. Os exemplos incluem os campos de categoria e subcategoria.|Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |categoria |Linha única de texto        
-Campos de número inteiro | Alguns campos requerem um número inteiro ou conteúdo dinâmico, que é um campo de tipo número inteiro. Os exemplos incluem a percentagem de conclusão e duração. |Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |percentcomplete |Número inteiro         
+Campos de número inteiro | Alguns campos requerem um número inteiro ou conteúdo dinâmico, que é um campo de tipo número inteiro. Os exemplos incluem a percentagem de conclusão e duração. |Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |PercentComplete |Número inteiro         
 Campos de data | Alguns campos necessitam de uma data introduzida no formato dd/mm/aaaa ou conteúdo dinâmico, que é um campo de tipo de data. Os exemplos incluem criado, data de início, iniciar real, pela última vez em tempo de espera, fim real e data devida. | Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |createdon |Data e hora
 Tipo de campos que necessitam de um ID de registo e o pesquisa |Alguns campos que façam referência a outro registo entidade requerem o ID do registo e o tipo de pesquisa. |Definições > personalizações > Personalizar o sistema > entidades > conta > campos  | accountid  | Chave Primária
 

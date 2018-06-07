@@ -1,23 +1,19 @@
 ---
-title: "Cópia de segurança servidores do VMware com o servidor de cópia de segurança do Azure | Microsoft Docs"
-description: "Utilize o servidor de cópia de segurança do Azure para cópia de segurança de um VMware vCenter/ESXi os servidores para o Azure ou o disco. Este artigo fornece passo = instruções passo a passo para a cópia de segurança (ou da proteção) as cargas de trabalho do VMware."
+title: Cópia de segurança de servidores do VMware com o servidor de cópia de segurança do Azure
+description: Utilize o servidor de cópia de segurança do Azure para cópia de segurança de um VMware vCenter/ESXi os servidores para o Azure ou o disco. Este artigo fornece passo = instruções passo a passo para a cópia de segurança (ou da proteção) as cargas de trabalho do VMware.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605428"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Cópia de segurança de um servidor VMware para Azure
 
@@ -380,7 +376,7 @@ Se não tiver utilizado o System Center Data Protection Manager ou o servidor de
 
     ![Membro do grupo de proteção e o resumo da definição](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se utilizar o servidor de cópia de segurança do Azure para proteger cargas de trabalho de VMware, poderá estar interessado no servidor de cópia de segurança do Azure a utilizar para ajudar a proteger um [do Microsoft Exchange server](./backup-azure-exchange-mabs.md), um [farm do SharePoint do Microsoft](./backup-azure-backup-sharepoint-mabs.md), ou um [Base de dados do SQL Server](./backup-azure-sql-mabs.md).
 
 Para obter informações sobre problemas com a registar o agente, consulte Configurar o grupo de proteção ou cópia de segurança de trabalhos, [resolver problemas do servidor de cópia de segurança do Azure](./backup-azure-mabs-troubleshoot.md).

@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: referência de funções | Microsoft Docs"
-description: "Referência de expressões de aprovisionamento declarativas na sincronização do Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: referência de funções | Microsoft Docs'
+description: Referência de expressões de aprovisionamento declarativas na sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595160"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: referência de funções
 No Azure AD Connect, as funções são utilizadas para manipular um valor de atributo durante a sincronização.  
@@ -56,7 +58,7 @@ As funções com os tipos de **mvbin**, **mvstr**, e **mvref** só pode ser util
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversão** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -64,7 +66,7 @@ As funções com os tipos de **mvbin**, **mvstr**, e **mvref** só pode ser util
 | **Data / hora** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Agora](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
-| **Diretório** | | | | |
+| **diretório** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
 | **Avaliação** | | | | |
 | [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
@@ -73,11 +75,11 @@ As funções com os tipos de **mvbin**, **mvstr**, e **mvref** só pode ser util
 | **Bibliotecas** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Com múltiplos valores** | | | | |
-| [Contém](#contains) |[Contagem](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
+| [contém](#contains) |[Contagem](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Associar](#join) |[RemoveDuplicates](#removeduplicates) |[Divisão](#split) | | |
 | **Fluxo de programa** | | | | |
-| [Erro](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
-| [Onde](#where) |[Com o](#with) | | | |
+| [Erro](#error) |[IIF](#iif) |[Selecionar](#select) |[comutador](#switch) | |
+| [onde](#where) |[com o](#with) | | | |
 | **Text** (Texto) | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [À esquerda](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
@@ -364,9 +366,9 @@ A função de CGuid converte a representação de cadeia de um GUID respetiva re
 A função de contém localiza uma cadeia dentro de um atributo com múltiplos valor
 
 **Sintaxe:**  
-`num Contains (mvstring attribute, str search)`-maiúsculas e minúsculas  
+`num Contains (mvstring attribute, str search)` -maiúsculas e minúsculas  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`-maiúsculas e minúsculas
+`num Contains (mvref attribute, str search)` -maiúsculas e minúsculas
 
 * atributo: o atributo com múltiplos valor para procurar.
 * pesquisa: cadeia encontrar no atributo.
@@ -388,7 +390,7 @@ Se o atributo de proxyAddresses tem um endereço de correio eletrónico principa
 A função de ConvertFromBase64 converte o valor de codificado em base64 especificado para uma cadeia regular.
 
 **Sintaxe:**  
-`str ConvertFromBase64(str source)`-parte do princípio de Unicode para codificar  
+`str ConvertFromBase64(str source)` -parte do princípio de Unicode para codificar  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * origem: cadeia de codificada em Base64  
@@ -1180,7 +1182,7 @@ Processo de todos os valores de um atributo com múltiplos valores (ou saída de
 Devolva todos os valores otherPhone o atributo com múltiplos valores depois de ter sido removido hífenes (-).
 
 - - -
-### <a name="split"></a>Dividir
+### <a name="split"></a>Divisão
 **Descrição:**  
 A função de divisão demora uma cadeia separada por com um delimitador e torna uma cadeia com múltiplos valor.
 

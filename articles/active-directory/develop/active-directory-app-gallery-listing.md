@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594093"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -33,20 +35,19 @@ Azure Active Directory (Azure AD) é um serviço de identidade baseada na nuvem.
 
 *  Os clientes localizar possíveis único início de sessão uma experiência otimizada.
 
-*  A configuração da aplicação é simples e mínimo. 
+*  A configuração da aplicação é simples e mínimo.
 
 *  Uma procura rápida localiza a aplicação na galeria.
 
-*  Libertar, básico, e todos os clientes de Premium do Azure AD podem utilizar esta integração. 
+*  Libertar, básico, e todos os clientes de Premium do Azure AD podem utilizar esta integração.
 
-*  Os clientes mútua obter um tutorial passo a passo de configuração. 
+*  Os clientes mútua obter um tutorial passo a passo de configuração.
 
 *  Os clientes que utilizam o SCIM podem utilizar o aprovisionamento para a mesma aplicação.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Pré-requisitos: Protocolo de Federação de implementar
 
-Para listar uma aplicação na Galeria de aplicações do Azure AD, primeiro terá de implementar um dos seguintes protocolos de Federação suportados pelo Azure AD. Leia os termos e condições da Galeria de aplicações do Azure AD a partir daqui. 
+Para listar uma aplicação na Galeria de aplicações do Azure AD, primeiro terá de implementar um dos seguintes protocolos de Federação suportados pelo Azure AD e concordo com os termos de Galeria de aplicações do Azure AD e condições. Leia os termos e condições da Galeria de aplicações do Azure AD de [aqui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **OpenID Connect**: criar a aplicação multi-inquilino no Azure AD e implementar o [framework de consentimento do Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) para a sua aplicação. Envie o pedido de início de sessão para um ponto final comum, para que qualquer cliente pode fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e de UPN do utilizador foi recebido no token. Para integrar a aplicação com o Azure AD, siga o [instruções de programadores](active-directory-authentication-scenarios.md).
 

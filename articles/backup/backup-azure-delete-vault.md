@@ -1,24 +1,19 @@
 ---
-title: " Eliminar um cofre dos serviços de recuperação no Azure | Microsoft Docs "
-description: "Este artigo explica como eliminar um cofre dos serviços de recuperação. O artigo inclui os passos de resolução de problemas quando tentar eliminar um cofre, mas não é possível."
+title: Eliminar um cofre dos serviços de recuperação no Azure '
+description: Este artigo explica como eliminar um cofre dos serviços de recuperação. O artigo inclui os passos de resolução de problemas quando tentar eliminar um cofre, mas não é possível.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605345"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 Este artigo explica como eliminar um cofre dos serviços de recuperação no portal do Azure. Se tiver cofres de cópia de segurança, ter foi convertidos para cofres dos serviços de recuperação.   
@@ -34,7 +29,7 @@ Se já tiver o Cofre dos serviços de recuperação, abrir, avance para o segund
 
 1. Abra o portal do Azure e a partir do Dashboard abrir o cofre que pretende eliminar.
 
-   Se não tiver o Cofre de serviços de recuperação afixado ao Dashboard, no Hub menu, clique em **mais serviços** e, na lista de recursos, escreva **dos serviços de recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **cofres dos serviços de recuperação**.
+   Se não tiver o Cofre de serviços de recuperação afixado ao Dashboard, no Hub menu, clique em **mais serviços** e, na lista de recursos, escreva **dos serviços de recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Cofres dos Serviços de Recuperação**.
 
    ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
@@ -165,4 +160,4 @@ Se tiver vários servidores registados para um cofre, pode ser difícil de recor
     ![lista de servidores de gestão de cópia de segurança](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 5. Para eliminar um servidor na lista, clique no nome do servidor e, em seguida, clique em **eliminar**.
     O **eliminar** é aberto o menu.
-6. No **eliminar** menu, forneça o nome do servidor. Se se tratar de um nome por extenso, pode copiar e colá-lo da lista de servidores de gestão de cópia de segurança. Em seguida, clique em **eliminar**.  
+6. No **eliminar** menu, forneça o nome do servidor. Se se tratar de um nome por extenso, pode copiar e colá-lo da lista de servidores de gestão de cópia de segurança. Em seguida, clique em **Eliminar**.  

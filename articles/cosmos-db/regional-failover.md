@@ -2,23 +2,20 @@
 title: Ativação pós-falha na base de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre como manual e automático funciona de ativação pós-falha com o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977027de0627a6eca5f9eb5d1ab83dea5347c6d4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 947ecb2e6cd122ad98429db93e43b2b5c57744b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614004"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Ativação pós-falha regional automática para a continuidade do negócio do BD Azure Cosmos
 BD do Azure do Cosmos simplifica a distribuição dos dados global por de oferta totalmente gerido, [contas de base de dados de multirregião](distribute-data-globally.md) que fornecem limpar responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. Contas do cosmos DB oferecem elevada disponibilidade, latências de ms único dígito, [níveis de consistência bem definidos](consistency-levels.md), ativação pós-falha regional transparente com APIs multi homing e a capacidade e dimensionar débito e armazenamento no globo. 

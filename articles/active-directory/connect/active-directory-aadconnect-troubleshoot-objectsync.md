@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592318"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de objetos com a sincronização do Azure AD Connect
-Este documento fornece os passos sobre como resolver problemas com a sincronização de objeto através da tarefa resolução de problemas.
+Este artigo fornece os passos de resolução de problemas de sincronização de objetos utilizando a tarefa de resolução de problemas. Para ver a resolução de problemas como funciona no Azure Active Directory (Azure AD) Connect, veja [neste breve vídeo](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Tarefas de resolução de problemas
-Para o Azure Active Directory (AAD) ligar implementação com a versão 1.1.749.0 ou superior, utilize a tarefa de resolução de problemas no Assistente para resolver problemas de sincronização do objeto. Para versões anteriores,. resolver manualmente, conforme descrito [aqui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Para o Azure AD Connect implementação com a versão 1.1.749.0 ou superior, utilize a tarefa de resolução de problemas no Assistente para resolver problemas de sincronização do objeto. Para versões anteriores,. resolver manualmente, conforme descrito [aqui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Executar a tarefa de resolução de problemas no Assistente
 Para executar a tarefa de resolução de problemas do assistente, execute os seguintes passos:

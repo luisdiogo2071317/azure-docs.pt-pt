@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57e1226a263a045784f0278c68246c0e953f6e22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602691"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Recursos de bloqueio para impedir que as alterações inesperadas 
 
-Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Pode definir o bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são denominados **eliminar** e **só de leitura** respetivamente.
+Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são denominados **eliminar** e **só de leitura** respetivamente.
 
 * **CanNotDelete** significa que os utilizadores autorizados, podem ainda ler e modificar um recurso, mas não é possível eliminar o recurso. 
 * **Só de leitura** significa que os utilizadores autorizados podem ler um recurso, mas não é possível eliminar ou atualizar o recurso. Aplicar esta bloqueio é semelhante ao restringir todos os utilizadores autorizados para as permissões concedidas à **leitor** função. 
@@ -38,7 +39,7 @@ Bloqueios de Gestor de recursos são aplicadas apenas a operações acontecer na
 Aplicar **ReadOnly** pode originar resultados inesperados porque algumas operações que parecem como leitura operações, na verdade, necessitam de ações adicionais. Por exemplo, colocar uma **ReadOnly** bloqueio numa conta de armazenamento impede que todos os utilizadores listar as chaves. A lista de operação de chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita. Para obter outro exemplo, colocar uma **ReadOnly** bloqueio de um recurso de serviço de aplicações impede o Explorador de servidores do Visual Studio a apresentação de ficheiros para o recurso porque esse interação requer acesso de escrita.
 
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Quem pode criar ou eliminar as bloqueios na sua organização
-Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **proprietário** e **administrador de acesso de utilizador** concedidas essas ações.
+Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -218,5 +219,5 @@ O pedido de incluir um objeto JSON que especifica as propriedades para o bloquei
 * Para saber mais sobre como organizar logicamente os recursos, consulte [utilizando etiquetas para organizar os recursos](resource-group-using-tags.md)
 * Para alterar o grupo de recursos, um recurso reside no, consulte [mover recursos para o novo grupo de recursos](resource-group-move-resources.md)
 * Pode aplicar restrições e convenções a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

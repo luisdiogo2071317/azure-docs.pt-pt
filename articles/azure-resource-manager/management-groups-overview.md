@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604748"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure 
 
@@ -69,7 +70,7 @@ Cada diretório é atribuído um grupo de gestão de nível superior única deno
 
 Grupos de gestão do Azure suporta [controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md) para todos os acessos de recursos e definições de funções. Estas permissões são herdadas para recursos subordinados que existam na hierarquia.   
 
-Enquanto qualquer [função incorporada do RBAC](../role-based-access-control/overview.md#built-in-roles) podem ser atribuídos a um grupo de gestão, existem quatro funções que são frequentemente utilizadas: 
+Enquanto qualquer [função incorporada do RBAC](../role-based-access-control/built-in-roles.md) podem ser atribuídos a um grupo de gestão, existem quatro funções que são frequentemente utilizadas: 
 - **Proprietário** tem acesso total a todos os recursos, incluindo o direito para delegar o acesso a outras pessoas. 
 - **Contribuidor** pode criar e gerir todos os tipos de recursos do Azure, mas não é possível conceder acesso a outras pessoas.
 - **Contribuinte de política de recurso** pode criar e gerir políticas no diretório de recursos.     

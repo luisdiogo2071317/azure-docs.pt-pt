@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4111d1d990f3e9efb78fae0476b027d5bae013af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603251"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utilizar a CLI do Azure para gerir recursos do Azure e os grupos de recursos
 
@@ -215,7 +216,7 @@ Pode remover um recurso ou grupo de recursos. Quando remove um grupo de recursos
   az storage account delete -n myuniquestorage -g TestRG1
   ```
 
-* Para eliminar um grupo de recursos e todos os respetivos recursos, utilize o **eliminação do grupo de az** comando.
+* Para eliminar um grupo de recursos e todos os respetivos recursos, utilize o comando **az group delete**.
 
   ```azurecli-interactive
   az group delete -n TestRG1
@@ -227,4 +228,4 @@ Para ambos os comandos, é-lhe pedido para confirmar que pretende remover o recu
 * Para saber mais sobre como criar modelos do Resource Manager, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre a implementação de modelos, consulte [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy-cli.md).
 * Pode mover recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para o novo grupo de recursos ou subscrição](resource-group-move-resources.md).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

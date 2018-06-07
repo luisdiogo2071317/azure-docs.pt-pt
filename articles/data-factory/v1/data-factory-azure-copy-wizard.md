@@ -1,25 +1,26 @@
 ---
-title: "Assistente de cópia do Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre como utilizar o Assistente de cópia de Azure do Data Factory para copiar dados de origens de dados suportadas para sinks."
+title: Assistente de cópia do Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre como utilizar o Assistente de cópia de Azure do Data Factory para copiar dados de origens de dados suportadas para sinks.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621137"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia de Factory de dados do Azure
 > [!NOTE]
@@ -66,7 +67,7 @@ A seguinte captura de ecrã mostra uma consulta do SQL Server utilizando o `Text
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta BLOBs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados a partir de uma pasta que é determinada em runtime com base no [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hora}**, **{minuto}**e  **{personalizado}** . Por exemplo: inputfolder / {year} / {month} / {day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados a partir de uma pasta que é determinada em runtime com base no [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hora}**, **{minuto}** e **{personalizado}**. Por exemplo: inputfolder / {year} / {month} / {day}.
 
 Suponha que tem de entrada pastas no seguinte formato:
 
@@ -75,11 +76,11 @@ Suponha que tem de entrada pastas no seguinte formato:
     2016/03/01/03
     ...
 
-Clique em de **procurar** botão para **ficheiro ou pasta**, navegue para uma destas pastas (por exemplo, 2016->-03 -> 01 -> 02) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}**, **03** com **{month}**, **01** com **{day}** , e **02** com **{hora}**e prima a **separador** chave. Deverá ver na lista pendente para selecionar o formato para estas quatro variáveis:
+Clique em de **procurar** botão para **ficheiro ou pasta**, navegue para uma destas pastas (por exemplo, 2016->-03 -> 01 -> 02) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}**, **03** com **{month}**, **01** com **{day}** , e **02** com **{hora}** e prima a **separador** chave. Deverá ver na lista pendente para selecionar o formato para estas quatro variáveis:
 
 ![Utilizar variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Conforme mostrado na captura de ecrã seguinte, também pode utilizar um **personalizado** variável e quaisquer [suportado cadeias de formato](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, utilize o **procurar** botão primeiro. Em seguida, substituir um valor com **{personalizado}**e prima a **separador** chave para ver a caixa de texto, onde pode introduzir a cadeia de formato.     
+Conforme mostrado na captura de ecrã seguinte, também pode utilizar um **personalizado** variável e quaisquer [suportado cadeias de formato](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, utilize o **procurar** botão primeiro. Em seguida, substituir um valor com **{personalizado}** e prima a **separador** chave para ver a caixa de texto, onde pode introduzir a cadeia de formato.     
 
 ![Utilizar a variável personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

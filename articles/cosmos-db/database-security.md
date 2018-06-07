@@ -5,20 +5,17 @@ keywords: nosql da base de dados segurança, segurança de informações, segura
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611624"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Cosmos BD do Azure
 
@@ -73,10 +70,10 @@ Vamos aprofundar para cada um em detalhe.
 |Replicação local|Mesmo dentro de um único centro de dados, base de dados do Azure Cosmos automaticamente replica os dados para elevada disponibilidade que lhe confere a escolha de [níveis de consistência](consistency-levels.md). Esta ação garante uma 99,99% [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de única região e todas as contas de multirregião com consistência de flexíveis e 99.999% de disponibilidade em todas as contas de multirregião base de dados de leitura.|
 |Cópias de segurança online automatizadas|Bases de dados de base de dados do Cosmos do Azure são uma cópia de segurança regularmente e armazenados num arquivo georedundant. <br><br>Saiba mais em [automática cópia de segurança online e de restauro com base de dados do Azure Cosmos](online-backup-and-restore.md).|
 |Restaurar eliminado os dados|As cópias de segurança online automáticas podem ser utilizadas para recuperar dados, poderá ter acidentalmente eliminado até ~ 30 dias após o evento. <br><br>Saiba mais em [automática cópia de segurança online e de restauro com base de dados do Azure Cosmos](online-backup-and-restore.md)|
-|Proteger e a isolar os dados confidenciais|Todos os dados nas regiões listados no [Novidades?](#whats-new) agora são encriptados em pausa.<br><br>PII e outros dados confidenciais podem ser isolados para coleções específicas e de leitura e escrita ou acesso só de leitura pode ser limitado a utilizadores específicos.|
+|Proteger e a isolar os dados confidenciais|Todos os dados nas regiões listados no [Novidades?](#whats-new) agora são encriptados em pausa.<br><br>Dados pessoais e outros dados confidenciais podem ser isolados para coleções específicas e de leitura e escrita ou acesso só de leitura pode ser limitado a utilizadores específicos.|
 |Monitor de ataques|Ao utilizar [registos de atividade e o registo de auditoria](logging.md), pode monitorizar a sua conta para a atividade normal e anormal. Pode ver as operações que foram efetuadas nos seus recursos, o que iniciou a operação quando ocorreu a operação, o estado da operação e muito mais como mostrado na captura de ecrã após esta tabela.|
 |Responder a ataques|Depois de contactar o suporte do Azure para reportar um ataque potencial, um processo de resposta a incidentes passo 5 é arrancou. O objetivo do processo de passo 5 é restaurar mais rapidamente possível operações de segurança normal do serviço e depois é detetado um problema e é iniciada uma investigação.<br><br>Saiba mais em [na nuvem do Microsoft Azure Security Response](https://aka.ms/securityresponsepaper).|
-|Barreiras geográficas|BD do Azure do Cosmos garante a governação de dados e conformidade para regiões sovereign (por exemplo, na Alemanha, China, nos US).|
+|Barreiras geográficas|BD do Azure do Cosmos garante a governação de dados para regiões sovereign (por exemplo, na Alemanha, China, nos US).|
 |Instalações protegidas|Dados na base de dados do Azure Cosmos são armazenados em SSDs nos centros de dados protegidos do Azure.<br><br>Saiba mais em [os datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Encriptação HTTPS/SSL/TLS|Todas as interações de base de dados do Azure Cosmos do serviço de cliente são compatíveis com o SSL/TLS 1.2. Além disso, todos os intra datacenter e em vários centros de dados a replicação está SSL/TLS 1.2 imposta.|
 |Encriptação inativa|Todos os dados armazenados na base de dados do Azure Cosmos são encriptados em pausa. Saiba mais em [encriptação de base de dados do Azure Cosmos Inativos](.\database-encryption-at-rest.md)|

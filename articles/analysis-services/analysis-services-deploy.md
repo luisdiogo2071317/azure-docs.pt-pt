@@ -3,16 +3,17 @@ title: Implementar Azure Analysis Services com o SSDT | Microsoft Docs
 description: Saiba como implementar um modelo de tabela num servidor Azure Analysis Services com o SSDT.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595663"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Implementar um modelo a partir de SSDT
 Depois de criar um servidor na sua subscrição do Azure, está pronto para implementar uma base de dados de modelo de tabela no mesmo. Pode usar as SQL Server Data Tools (SSDT) para criar e implementar um projeto de modelo de tabela em que está a trabalhar. 
@@ -29,15 +30,18 @@ Para começar, precisa do seguinte:
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Para implantar um modelo de tabela do SSDT
+## <a name="get-the-server-name"></a>Obter o nome do servidor
 
-1. Antes de implementar, é necessário obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**, copie o nome do servidor.
+No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**, copie o nome do servidor.
    
-    ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSDT > **Explorador de Soluções**, clique com o botão direito do rato no projeto > **Propriedades**. Em seguida, em **Implementação** > **Servidor** cole o nome do servidor.   
+![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>Para implementar a partir do SSDT
+
+1. No SSDT > **Explorador de Soluções**, clique com o botão direito do rato no projeto > **Propriedades**. Em seguida, em **Implementação** > **Servidor** cole o nome do servidor.   
    
     ![Colar o nome do servidor na propriedade de implementação do servidor](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. Em **Explorador de Soluções**, clique com o botão direito do rato em **Propriedades** e, em seguida, clique em **Implementar**. Ser-lhe-á pedido que inicie sessão no Azure.
+2. Em **Explorador de Soluções**, clique com o botão direito do rato em **Propriedades** e, em seguida, clique em **Implementar**. Ser-lhe-á pedido que inicie sessão no Azure.
    
     ![Implementar no servidor](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

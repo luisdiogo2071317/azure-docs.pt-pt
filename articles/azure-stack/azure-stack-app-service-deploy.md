@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604272"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações a pilha do Azure
 
@@ -66,6 +67,12 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
         * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou a pilha do Azure. Clique em **sessão**.
         * Se estiver a utilizar serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e clique em **sessão**.
     2. No **subscrições de pilha do Azure** caixa, selecione o **subscrição do fornecedor predefinido**.
+    
+    > [!NOTE]
+    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido** neste momento.  Numa atualização futura do serviço de aplicações irá implementar para a nova subscrição de medição introduzida no Azure pilha 1804 e todas as implementações existentes serão migradas para esta nova subscrição também.
+    >
+    >
+    
     3. No **localizações de pilha do Azure** caixa, selecione a localização que corresponde à região estiver a implementar. Por exemplo, seleccione **local** se a implementar o Kit de desenvolvimento de pilha do Azure.
 
     ![Instalador do serviço de aplicações][3]

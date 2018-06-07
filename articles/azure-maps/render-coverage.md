@@ -1,22 +1,19 @@
 ---
 title: Cobertura do Azure Maps de composição | Microsoft Docs
 description: Saiba mais sobre a cobertura de composição Maps do Azure
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600583"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de composição de mapas do Azure
 
@@ -60,7 +57,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Gâmbia                           |   | Ø |
 | Gana                            | ✓ | ✓ |
 | Guiné                           |   | Ø |
-| Guiné-Bissau                    |   | Ø |
+| Guiné Bissau                    |   | Ø |
 | Quénia                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
 | Libéria                          |   | Ø |
@@ -70,7 +67,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Mali                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurícia                        | ✓ | ✓ |
-| Maiote                          | ✓ | ✓ |
+| Mayotte                          | ✓ | ✓ |
 | Marrocos                          | ✓ | ✓ |
 | Moçambique                       | ✓ | ✓ |
 | Namíbia                          | ✓ | ✓ |
@@ -87,7 +84,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Sudão do Sul                      |   | Ø |
 | Sudão                            |   | Ø |
 | Suazilândia                        | ✓ | ✓ |
-| Unidas República Tanzania      | ✓ | ✓ |
+| República Unida da Tanzânia      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunísia                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -188,7 +185,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Malásia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongólia                  |   | Ø |
-| Mianmar                   |   | Ø |
+| Myanmar                   |   | Ø |
 | Napal                     |   | Ø |
 | Omã                      | ✓ | ✓ |
 | Paquistão                  |   | Ø |
@@ -211,7 +208,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Vietname                   | ✓ | ✓ |
 | Iémen                     | ✓ | ✓ |
 
-## <a name="oceania"></a>Oceânia
+## <a name="oceania"></a>Oceania
 
 | Região | Mosaicos de quadrícula unificados | Mosaicos de vetor unificados |
 | ------ | :------------------: | :------------------: |
@@ -220,7 +217,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Ilhas Cook              |   | Ø |
 | Fiji                      |   | Ø |
 | Polinésia Francesa          |   | Ø |
-| Guame                      | ✓ | ✓ |
+| Guam                      | ✓ | ✓ |
 | Quiribati                  |   | Ø |
 | Ilhas Marshall          |   | Ø |
 | Micronésia                |   | Ø |

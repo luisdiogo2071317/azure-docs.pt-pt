@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1ad7b9d16e00319320f638593c9f24ccb75c2bb9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616156"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -176,7 +177,7 @@ Quando copiar dados de Cassandra, os seguintes mapeamentos são utilizados Cassa
 | BLOB |Byte[] |
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |Duplo |
+| VALOR DE DUPLO |duplo |
 | NÚMERO DE VÍRGULA FLUTUANTE |Único |
 | INET |Cadeia |
 | INT |Int32 |
@@ -254,7 +255,7 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |E |
+| 3 |I |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

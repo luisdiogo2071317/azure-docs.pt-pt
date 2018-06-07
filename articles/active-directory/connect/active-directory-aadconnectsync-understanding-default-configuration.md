@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: entender a configuração predefinida | Microsoft Docs"
-description: "Este artigo descreve a configuração predefinida na sincronização do Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: entender a configuração predefinida | Microsoft Docs'
+description: Este artigo descreve a configuração predefinida na sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595313"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. -Documentos as regras e como estas regras afetam a configuração. É também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende a forma como o modelo de configuração com o nome de aprovisionamento declarativo, está a funcionar num exemplo do mundo real. Este artigo pressupõe que já tenha instalado e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.

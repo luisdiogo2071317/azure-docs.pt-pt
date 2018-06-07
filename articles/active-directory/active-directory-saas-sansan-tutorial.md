@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8af15e4751b696a6f30d3dc70556ab856020bedb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f0739c821f1521eb761912e5092661c7b5c0fd78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Azure Active Directory com Sansan
 
@@ -110,7 +111,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL utilizando os seguintes padrões: 
+    No **URL de início de sessão** caixa de texto, escreva um URL utilizando os seguintes padrões: 
     
     | Ambiente | do IdP |
     |:--- |:--- |
@@ -118,16 +119,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | Aplicação móvel nativa |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Definições do browser móveis |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-    b. No **identificador** caixa de texto, escreva um URL utilizando os seguintes padrões:
-    | Ambiente             | do IdP |
-    | :-- | :-- |
-    | Web de PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Aplicação móvel nativa       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Definições do browser móveis | `https://ap.sansan.com/s/saml2/<company name>` |
-
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Sansan](https://www.sansan.com/form/contact) para obter estes valores. 
-
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real. Contacte [equipa de suporte de cliente Sansan](https://www.sansan.com/form/contact) para obter estes valores. 
+     
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
@@ -136,19 +130,77 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. No **Sansan configuração** secção, clique em **configurar Sansan** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Aplicação de Sansan espera vários **identificadores** e **URLs de resposta** para suportar vários ambientes (PC web, aplicação móvel nativo, as definições do browser móvel), que podem ser configurados através do PowerShell script. Os passos detalhados são explicados abaixo.
+
+7. Para configurar várias **identificadores** e **URLs de resposta** Sansan aplicação utilizando o script do PowerShell, execute os seguintes passos:
+
+    ![Configurar o parâmetro obj Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)    
+
+    a. Vá para o **propriedades** página do **Sansan** aplicação e copie o **ID de objeto** utilizando **cópia** botão e cole-o bloco de notas.
+
+    b. O **ID de objeto**, que copiou do portal do Azure será utilizado como **ServicePrincipalObjectId** no script de PowerShell utilizado mais tarde no tutorial. 
+
+    c. Agora, abra uma linha de comandos elevada do Windows PowerShell.
+    
+    >[!NOTE] 
+    > Tem de instalar o módulo de AzureAD (utilize o comando `Install-Module -Name AzureAD`). Se lhe for pedido para instalar um módulo NuGet ou do novo módulo do Azure Active Directory V2 PowerShell, escreva Y e prima ENTER.
+
+    d. Executar `Connect-AzureAD` e inicie sessão com uma conta de utilizador de Administrador Global.
+
+    e. Utilize o seguinte script para atualizar vários URLs para uma aplicação:
+
+    ```poweshell
+     Param(
+    [Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+    [Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+    [Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+    )
+
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+    if($ReplyUrls.Length)
+    {
+    echo "Updating Reply urls"
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+    echo "updated"
+    }
+    if($IdentifierUrls.Length)
+    {
+    echo "Updating Identifier urls"
+    $applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+    echo "Found Applications =" $applications.Length
+    $i = 0;
+    do
+    {  
+    $application = $applications[$i];
+    if($application.AppId -eq $servicePrincipal.AppId){
+    Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+    echo "Updated"
+    return;
+    }
+    $i++;
+    }while($i -lt $applications.Length);
+    echo "Not able to find the matched application with this service principal"
+    }
+    ```
+
+8. Após a conclusão com êxito de script do PowerShell, o resultado do script será como esta, conforme mostrado abaixo e os valores do URL for atualizados, mas não irá obter refletidas no portal do Azure. 
+
+    ![Configurar o script de Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. No **Sansan configuração** secção, clique em **configurar Sansan** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-7. Para configurar o início de sessão único em **Sansan** lado, terá de enviar o transferido **certificado**, **Sign-Out URL**, **ID de entidade de SAML**, e **Único início de sessão no URL do serviço SAML** para [equipa de suporte de Sansan](https://www.sansan.com/form/contact). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+10. Para configurar o início de sessão único em **Sansan** lado, terá de enviar o transferido **certificado**, **Sign-Out URL**, **ID de entidade de SAML**, e **Único início de sessão no URL do serviço SAML** para [equipa de suporte de Sansan](https://www.sansan.com/form/contact). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 >[!NOTE]
->Definição de browser de computador também funciona para aplicação móvel e móvel browser juntamente com PC web.  
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+>Definição de browser de computador também funciona para aplicação móvel e móvel browser juntamente com PC web. 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
 ![Criar utilizador do Azure AD][100]
@@ -181,7 +233,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
 ### <a name="creating-a-sansan-test-user"></a>Criar um utilizador de teste Sansan
 
-Nesta secção, vai criar um utilizador chamado Britta Simon SanSan. Aplicação de SanSan tem do utilizador a ser aprovisionados na aplicação antes de efetuar o SSO. 
+Nesta secção, vai criar um utilizador chamado Britta Simon Sansan. Aplicação de Sansan tem do utilizador a ser aprovisionados na aplicação antes de efetuar o SSO. 
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador ou do lote de utilizadores, terá de contactar o [equipa de suporte de Sansan](https://www.sansan.com/form/contact). 

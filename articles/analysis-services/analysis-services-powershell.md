@@ -3,42 +3,54 @@ title: Gerir serviços de análise do Azure com o PowerShell | Microsoft Docs
 description: Gestão de Analysis Services do Azure com o PowerShell.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 04/12/2018
+ms.date: 05/22/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7315835bca446c4cae592f4bdd58a733b203655
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b4e819bdce971e92e4b2d99e68f51ddbf8a22182
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597472"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir serviços de análise do Azure com o PowerShell
 
 Este artigo descreve os cmdlets do PowerShell utilizados para executar o servidor de Analysis Services do Azure e tarefas de gestão de base de dados. 
 
-Tarefas de gestão de servidor, tais como criar ou eliminar um servidor, suspender ou retomar as operações do servidor ou alterar o nível de serviço (camada) utilizam cmdlets do Azure Resource Manager (AzureRM). Outras tarefas para gerir bases de dados, tais como adicionar ou remover membros da função, processamento, ou criação de partições utilizar cmdlets incluídos no mesmo módulo SqlServer como SQL Server Analysis Services.
+Tarefas de gestão de servidor, tais como criar ou eliminar um servidor, suspender ou retomar as operações do servidor ou alterar o nível de serviço (camada) utilizam cmdlets do Azure Resource Manager (recurso) e os cmdlets do Analysis Services (servidor). Outras tarefas para gerir bases de dados, tais como adicionar ou remover membros da função, processamento, ou criação de partições utilizar cmdlets incluídos no mesmo módulo SqlServer como SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Permissões
-A maioria das tarefas de PowerShell necessitam de que ter privilégios de administrador no servidor do Analysis Services que está a gerir. Tarefas agendadas do PowerShell são operações autónomas. A conta que executa o programador tem de ter privilégios de administrador no servidor do Analysis Services. 
+A maioria das tarefas de PowerShell necessitam de que ter privilégios de administrador no servidor do Analysis Services que está a gerir. Tarefas agendadas do PowerShell são operações autónomas. O princípio de conta ou a um serviço com o programador tem de ter privilégios de administrador no servidor do Analysis Services. 
 
 Para operações de servidores utilizando AzureRm cmdlets, a conta ou a conta que executa o programador tem também de pertencer à função de proprietário para o recurso no [controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="server-operations"></a>Operações do servidor 
-Cmdlets de Analysis Services do Azure estão incluídos no [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) módulo de componente. Para instalar os módulos do cmdlet AzureRM, consulte [cmdlets do Azure Resource Manager](/powershell/azure/overview) na galeria do PowerShell.
+## <a name="resource-management-operations"></a>Operações de gestão de recursos 
+Módulo - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Adiciona uma conta a utilizar para pedidos de cmdlet do Azure Analysis Services server autenticada.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtém os detalhes de uma instância de servidor.|  
 |[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Cria uma instância de servidor.|   
+|[Novo AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Cria uma nova configuração de firewall de Analysis Services.|   
+|[Novo AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Cria uma nova regra de firewall de Analysis Services.|   
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Remove uma instância de servidor.|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente atualmente com sessão iniciado; especificados no comando Adicionar AzureAnalysisServicesAccount.|  
 |[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Retoma uma instância de servidor.|  
 |[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspende uma instância de servidor.| 
 |[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifica uma instância de servidor.|   
 |[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testa a existência de uma instância de servidor.| 
+
+## <a name="server-management-operations"></a>Operações de gestão de servidor
+
+Módulo - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
+
+|Cmdlet|Descrição| 
+|------------|-----------------| 
+|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Adiciona uma conta a utilizar para pedidos de cmdlet do Azure Analysis Services server autenticada.| 
+|[Exportação AzureAnalysisServicesInstance]()|Exporta um registo a partir de uma instância do servidor de Analysis Services no atualmente com sessão iniciada ambiente conforme especificado no comando Adicionar AzureAnalysisServicesAccount|  
+|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente atualmente com sessão iniciado; especificados no comando Adicionar AzureAnalysisServicesAccount.|  
+|[Sincronização AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Sincroniza a base de dados especificada na instância especificada do servidor do Analysis Services para todas as consultas scaleout instâncias a atualmente com sessão iniciada ambiente conforme especificado no comando Adicionar AzureAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Operações de base de dados
 

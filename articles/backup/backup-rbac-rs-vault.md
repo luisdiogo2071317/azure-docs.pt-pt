@@ -1,24 +1,19 @@
 ---
-title: Gerir cópias de segurança com controlo de acesso baseado em funções do Azure | Microsoft Docs
+title: Gerir cópias de segurança com controlo de acesso baseado em funções do Azure'
 description: Utilize o controlo de acesso baseado em funções para gerir o acesso às operações de gestão de cópia de segurança no Cofre de serviços de recuperação.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: trinadhk
+ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607451"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso aos utilizadores que precisam para desempenhar as suas funções.

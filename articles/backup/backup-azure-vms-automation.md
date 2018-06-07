@@ -1,25 +1,20 @@
 ---
-title: Implementar e gerir cópias de segurança para VMs implementadas no Resource Manager com o PowerShell | Microsoft Docs
+title: Implementar e gerir cópias de segurança de VMs implementadas com o Resource Manager através do PowerShell
 description: Utilizar o PowerShell para implementar e gerir cópias de segurança no Azure para as VMs implementadas no Resource Manager
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pullabhk
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4d3c0d08b2a34313c10ab89f2972894ffabe19d2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606244"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilizar cmdlets de AzureRM.RecoveryServices.Backup para fazer uma cópia de segurança de máquinas virtuais
 
@@ -92,19 +87,17 @@ Para começar:
 
     ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. Pode verificar que os fornecedores registados com êxito, utilizando os seguintes comandos:
     ```PS
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 No resultado do comando, o **RegistrationState** deve definido como **registada**. Se não estiver, basta executar novamente o **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet apresentado acima.
 
 As seguintes tarefas podem ser automatizadas com o PowerShell:
 
-* [Criar um cofre dos serviços de recuperação](backup-azure-vms-automation.md#create-a-recovery-services-vault)
+* [Criar um cofre dos Serviços de Recuperação](backup-azure-vms-automation.md#create-a-recovery-services-vault)
 * [Fazer cópia de segurança de VMs do Azure](backup-azure-vms-automation.md#back-up-azure-vms)
 * [Acionar uma tarefa de cópia de segurança](backup-azure-vms-automation.md#trigger-a-backup-job)
 * [Monitorizar uma tarefa de cópia de segurança](backup-azure-vms-automation.md#monitoring-a-backup-job)

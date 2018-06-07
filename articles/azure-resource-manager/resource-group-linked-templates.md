@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602820"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligado e aninhada modelos quando implementar recursos do Azure
 
 Para implementar a sua solução, pode utilizar um único modelo ou um modelo de principal com vários modelos relacionados. O modelo relacionado pode ser o ficheiro separado que está ligado a partir do modelo de principal ou um modelo que está aninhado no modelo principal.
 
-Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Conseguir ver todos os recursos e os valores num único ficheiro. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para componentes de destino e reutilizar modelos.
+Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único ficheiro. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para componentes de destino e reutilizar modelos.
 
 Ao utilizar o modelo ligado, criar um modelo de principal que recebe os valores de parâmetros durante a implementação. O modelo de principal contém todos os modelos ligados e transmite os valores para esses modelos conforme necessário.
 
@@ -85,6 +86,8 @@ Para aninhar o modelo no modelo principal, utilize o **modelo** propriedade e es
 >
 > Não é possível utilizar o `reference` função na secção saídas de um modelo de aninhada. Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado.
 
+O modelo aninhado requer o [propriedades mesmas](resource-group-authoring-templates.md) como um modelo padrão.
+
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
 Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLink** e **parametersLink**. Quando ligar a um modelo, o serviço do Gestor de recursos tem de ser capaz de aceder ao mesmo. Não é possível especificar um ficheiro local ou um ficheiro que só está disponível na sua rede local. Apenas pode fornecer um valor URI que inclui um **http** ou **https**. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e utilizar o URI para que o item.
@@ -109,6 +112,8 @@ Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLi
   }
 ]
 ```
+
+Não tem de fornecer o `contentVersion` propriedade do modelo ou parâmetros. Se não fornecer um valor de versão do conteúdo, a versão atual do modelo de implementação. Se fornecer um valor para a versão do conteúdo, tem de corresponder a versão do modelo de ligado; caso contrário, a implementação falha com um erro.
 
 ### <a name="external-template-and-inline-parameters"></a>Parâmetros de modelo e inline externos
 
@@ -148,7 +153,7 @@ O exemplo seguinte mostra como utilizar um URL de base para criar dois URLs para
 }
 ```
 
-Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e utilize-a para obter o URL para outros modelos na mesma localização. Esta abordagem é útil se a localização do modelo é alterado (talvez devido ao controlo de versões) ou se quiser evitar rígido codificação URLs no ficheiro de modelo. A propriedade templateLink só é devolvida quando ligar a um modelo remoto com um URL. Se estiver a utilizar um modelo local, essa propriedade não está disponível.
+Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e utilize-a para obter o URL para outros modelos na mesma localização. Esta abordagem é útil se pretender que as alterações de localização do modelo ou evitar a codificação rígido URLs no ficheiro de modelo. A propriedade templateLink só é devolvida quando ligar a um modelo remoto com um URL. Se estiver a utilizar um modelo local, essa propriedade não está disponível.
 
 ```json
 "variables": {
@@ -414,7 +419,7 @@ done
 
 ## <a name="securing-an-external-template"></a>Proteger um modelo externo
 
-Embora o modelo ligado tem de estar disponível externamente, não é necessário ser geralmente disponível para o público. Pode adicionar o seu modelo para uma conta de armazenamento privada que seja acessível para apenas o proprietário da conta de armazenamento. Em seguida, crie um token de assinatura (SAS) de acesso partilhado para ativar o acesso durante a implementação. Adicionar esse token SAS para o URI para o modelo ligado. Apesar do token é transmitido como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implementação. Para limitar a exposição, defina uma expiração para o token.
+Embora o modelo ligado tem de estar disponível externamente, não precisa de ser geralmente disponível para o público. Pode adicionar o seu modelo para uma conta de armazenamento privada que seja acessível para apenas o proprietário da conta de armazenamento. Em seguida, crie um token de assinatura (SAS) de acesso partilhado para ativar o acesso durante a implementação. Adicionar esse token SAS para o URI para o modelo ligado. Apesar do token é transmitido como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implementação. Para limitar a exposição, defina uma expiração para o token.
 
 O ficheiro de parâmetros também pode ser limitado para acesso através de um token SAS.
 
@@ -446,7 +451,7 @@ O exemplo seguinte mostra como transmitir um token SAS aquando da associação a
 }
 ```
 
-No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro está definido no modelo. Não é um parâmetro no **New-AzureRmResourceGroupDeployment** comando.
+No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro está definido no modelo. Não tem um parâmetro no **New-AzureRmResourceGroupDeployment** comando.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

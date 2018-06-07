@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607400"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar encargos inesperados com o custo de gestão e de faturação do Azure
 
@@ -149,7 +150,7 @@ Comunicar com o Gestor de conta ou o parceiro do Azure para começar a utilizar.
 | Fornecedor de Soluções Cloud (CSP) | Comunicar com o fornecedor |
 | Azure Sponsorship | [Portal de patrocínio](https://www.microsoftazuresponsorships.com/) |
 
-Se estiver a gerir IT uma organização de grandes dimensões, recomenda-se leitura [andaime Azure enterprise](../azure-resource-manager/resource-manager-subscription-governance.md) e [enterprise documento técnico de TI](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (. pdf transferência, apenas em inglês).
+Se estiver a gerir IT uma organização de grandes dimensões, recomenda-se leitura [andaime Azure enterprise](/azure/architecture/cloud-adoption-guide/subscription-governance) e [enterprise documento técnico de TI](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (. pdf transferência, apenas em inglês).
 
 #### <a name="EA"></a> Pré-visualização Enterprise Agreement custo vistas dentro do Portal do Azure 
 

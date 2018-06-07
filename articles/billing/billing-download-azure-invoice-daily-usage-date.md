@@ -2,13 +2,12 @@
 title: Transferir uma fatura e diariamente dados de utilização de faturação do Azure | Microsoft Docs
 description: Descreve como transferir ou visualizar o seu Azure faturação uma fatura e diariamente dados de utilização.
 keywords: faturação da fatura, transferência fatura, fatura do azure, a utilização do azure
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607417"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou visualizar a fatura de faturação do Azure e a utilização de dados diária
 Pode transferir a fatura do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou tiver enviado por correio eletrónico. Para transferir a sua utilização diária, vá para o [Centro de contas do Azure](https://account.azure.com/Subscriptions). Apenas determinadas funções tem permissão para obter a fatura de faturação e informações de utilização, como o administrador da conta. Para obter mais informações sobre como obter acesso a informações de faturação, consulte [gerir o acesso ao Azure através de funções de faturação](billing-manage-access.md).
 
 Este artigo não se aplica aos clientes do Enterprise Agreement (EA). Se tiver um cliente EA, sua faturas são enviadas diretamente para os administradores de inscrição.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obter a sua fatura por correio eletrónico (. pdf)
 Pode optar ativamente por participar no e configurar os destinatários adicionais para receber o seu Azure fatura num e-mail. Esta funcionalidade pode não estar disponível para determinados subscrições, tais como ofertas de suporte, contratos Enterprise ou do Azure no Open.
@@ -39,13 +38,18 @@ Pode optar ativamente por participar no e configurar os destinatários adicionai
     
 2. Clique em **optar ativamente por participar no** e aceite os termos.
 
-    ![Captura de ecrã que mostra o fluxo de recusa](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Captura de ecrã que mostra o passo de recusa no fluxo 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Assim que tiver aceite o contrato, pode configurar os destinatários adicionais.
+3. Assim que tiver aceite o contrato, pode configurar os destinatários adicionais. Quando um destinatário for removido, o endereço de correio eletrónico já não é armazenado. Se mudar de ideias, terá de voltar a adicioná-los.
 
-    ![Captura de ecrã que mostra o fluxo de recusa](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Captura de ecrã que mostra o passo de recusa no fluxo 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Se não obtiver uma mensagem de e-mail depois de seguir os passos, certifique-se de que o seu endereço de correio eletrónico está correto no [preferências de comunicação no seu perfil](https://account.windowsazure.com/profile).
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>Optar ativamente por participar obtenham da sua fatura por correio eletrónico
+Se não quiser obter a sua fatura de e-mail, clique em recusa saída de faturas enviado por e-mail. Esta ação remove quaisquer endereços de correio eletrónico definidos como receber faturas no e-mail. Se optar por back no seu terá de reconfigurar os destinatários.
+
+ ![Captura de ecrã que mostra o fluxo de recusa](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Transferir a fatura do portal do Azure (. pdf)
 

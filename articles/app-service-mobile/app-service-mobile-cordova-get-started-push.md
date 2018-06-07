@@ -1,10 +1,10 @@
 ---
-title: "Adicionar notificações push para uma aplicação Apache Cordova com a funcionalidade Mobile Apps do App Service do Azure | Microsoft Docs"
-description: "Saiba como utilizar as Mobile Apps para enviar notificações push à aplicação Apache Cordova."
+title: Adicionar notificações push para uma aplicação Apache Cordova com a funcionalidade Mobile Apps do App Service do Azure | Microsoft Docs
+description: Saiba como utilizar as Mobile Apps para enviar notificações push à aplicação Apache Cordova.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597999"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Adicionar notificações push à aplicação Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Este tutorial parte do princípio de que tem uma aplicação Apache Cordova que 
 
 Para concluir este tutorial, precisa de:
 
-* Um PC com [Visual Studio Community 2015] [ 2] ou posterior 
+* Um PC com [Visual Studio Community 2015] [ 2] ou posterior
 * [Visual Studio Tools para Apache Cordova][4]
 * Um [conta ativa do Azure][3]
 * Uma conclusão [início rápido do Apache Cordova] [ 5] projeto
 * (Android) A [conta Google] [ 6] com um endereço de correio eletrónico verificado
 * (iOS) Um [filiação do programa de programador Apple] [ 7] e um dispositivo iOS (iOS simulador não suporta notificações push)
-* (Windows) A [conta de programador da loja Windows] [ 8] e um dispositivo Windows 10
+* (Windows) A [conta de programador do Microsoft Store] [ 8] e um dispositivo Windows 10
 
 ## <a name="configure-hub"></a>Configurar um hub de notificação
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]

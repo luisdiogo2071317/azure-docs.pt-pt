@@ -3,16 +3,17 @@ title: Cópia de segurança de base de dados de Analysis Services do Azure e de 
 description: Descreve como criar cópias de segurança e restaurar uma base de dados do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec213d5c223180825ea0eabe95881002432b92e9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b2cebde40983955c5244ac2b7f0b759dcdbd14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597302"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -44,13 +45,13 @@ Antes de criar cópias de segurança, terá de configurar as definições de arm
 
 4. Selecione um contentor ou crie um novo.
 
-    ![Selecione o contentor](./media/analysis-services-backup/aas-backup-container.png)
+    ![Selecionar o contentor](./media/analysis-services-backup/aas-backup-container.png)
 
 5. Guarde as definições de cópia de segurança.
 
     ![Guardar as definições de cópia de segurança](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="to-backup-by-using-ssms"></a>A cópia de segurança com o SSMS
 

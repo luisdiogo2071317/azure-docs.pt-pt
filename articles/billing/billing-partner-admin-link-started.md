@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a5b6bb683538bd5359ebcbbe2640216e574b3e00
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608717"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>ID de parceiro de ligação às suas contas do Azure
 
@@ -32,7 +33,7 @@ Antes de ligar o seu ID de parceiro, o cliente deve conceder-lhe acesso aos resp
 
 - **Principal de serviço:** seu cliente pode adicionar uma aplicação ou um script da sua organização no seu diretório e atribuir qualquer função RBAC. A identidade da aplicação ou script é conhecida como principal de serviço.
 
-## <a name="link-partner-id"></a>ID de parceiro de ligação
+## <a name="link-partner-id"></a>ID do parceiro de ligação
 
 Quando tiver acesso a recursos do cliente, utilize o portal do Azure, o PowerShell ou o CLI para ligar o seu ID de rede de parceiros Microsoft (MPN ID) para o ID de utilizador ou o principal de serviço. Tem de associar o ID de parceiro cada inquilino de cliente.
 
@@ -52,7 +53,7 @@ Quando tiver acesso a recursos do cliente, utilize o portal do Azure, o PowerShe
 
 ### <a name="use-powershell-to-link-new-partner-id"></a>Utilize o PowerShell para ligar o novo ID de parceiro
 
-1. Instalar o [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) módulo do PowerShell.
+1. Instalar o [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) módulo do PowerShell.
 
 2. Inicie sessão no inquilino do cliente com a conta de utilizador ou principal de serviço, para obter mais informações, consulte [início de sessão com o Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d790b067630f15b96eba5e46ea12e1997a47c86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622106"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados no local Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -264,8 +265,8 @@ Consulte [propriedades do tipo RelationalSource](#copy-activity-properties) para
 | BLOB |Byte[] |
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |Duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Solteiro |
+| VALOR DE DUPLO |duplo |
+| NÚMERO DE VÍRGULA FLUTUANTE |Único |
 | INET |Cadeia |
 | INT |Int32 |
 | TEXTO |Cadeia |
@@ -313,7 +314,7 @@ A primeira tabela virtual é a tabela base com o nome "ExampleTable" é apresent
 
 As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a partir das lista, mapa e StringSet colunas. As colunas com nomes que terminem com "_index" ou "c_have" indicam a posição de dados dentro da lista original ou do mapa. As colunas com nomes que terminem com "_value" contêm os dados expandidos da coleção.
 
-#### <a name="table-exampletablevtlist"></a>Table “ExampleTable_vt_List”:
+#### <a name="table-exampletablevtlist"></a>Tabela "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -329,16 +330,16 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |t |
+| 3 |S1 |T |
 
-#### <a name="table-exampletablevtstringset"></a>Table “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletablevtstringset"></a>Tabela "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |E |
+| 3 |I |
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

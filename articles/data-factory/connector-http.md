@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616948"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto final de HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HTTP:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **HttpServer**. | Sim |
 | url | URL de base ao servidor Web | Sim |
-| enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor ao ligar ao ponto final de HTTP. | Não, a predefinição é verdadeiro |
+| enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor ao ligar ao ponto final de HTTP. Quando o servidor HTTPS está a utilizar um certificado autoassinado, defina esta opção para FALSO. | Não, a predefinição é verdadeiro |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básico**, **resumida**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 

@@ -1,25 +1,27 @@
 ---
-title: "Instalar o Azure AD Connect através da utilização de uma base de dados ADSync | Microsoft Docs"
-description: "Este tópico descreve como utilizar uma base de dados ADSync existente."
+title: Instalar o Azure AD Connect através da utilização de uma base de dados ADSync | Microsoft Docs
+description: Este tópico descreve como utilizar uma base de dados ADSync existente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b28d4cc6b10b0fd47a67cfefa7cf1022921a5d96
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591774"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect, utilizando uma base de dados ADSync
 O Azure AD Connect requer uma base de dados do SQL Server para armazenar dados. Pode utilizar o predefinido do que SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou utilizar a sua própria versão completa do SQL Server. Anteriormente, quando tiver instalado o Azure AD Connect, uma nova base de dados com o nome ADSync sempre foi criado. Com o Azure AD Connect versão 1.1.613.0 (ou após), tem a opção para instalar o Azure AD Connect-lo a apontar para uma base de dados ADSync existente.
@@ -84,7 +86,7 @@ Notas importantes a efetuar tenha em atenção de antes de continuar:
  
 11. Uma vez concluída a instalação, o servidor do Azure AD Connect é ativado automaticamente para o modo de teste. É recomendado que reveja a configuração do servidor e pendente exportações inesperado alterações antes de desativar o modo de teste. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
 - Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Impedir eliminações acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).

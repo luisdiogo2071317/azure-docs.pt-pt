@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593440"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -59,7 +61,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | Co |X |X | | |
 | Empresa |X |X | | |
 | countryCode |X |X | | |
-| Departamento |X |X | | |
+| departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -83,13 +85,13 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | informações |X |X |X |Atualmente, este atributo é consumido não para grupos. |
-| iniciais |X |X | | |
+| Iniciais |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| Gestor |X |X | | |
-| Membro | | |X | |
+| gestor |X |X | | |
+| membro | | |X | |
 | Mobile |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
@@ -181,7 +183,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | Co |X |X | | |
 | Empresa |X |X | | |
 | countryCode |X |X | | |
-| Departamento |X |X | | |
+| departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -209,11 +211,11 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | iniciais |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
-| capacidade de correio |X |X |X | |
+| mail |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| Gestor |X |X | | |
-| Membro | | |X | |
+| gestor |X |X | | |
+| membro | | |X | |
 | middleName |X |X | | |
 | Mobile |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
@@ -261,7 +263,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | CN |X | |X | |
 | Co |X |X | | |
 | Empresa |X |X | | |
-| Departamento |X |X | | |
+| departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
@@ -269,11 +271,11 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | homephone |X |X | | |
 | ipPhone |X |X | | |
 | l |X |X | | |
-| capacidade de correio |X |X |X | |
+| mail |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| Gestor |X |X | | |
-| Membro | | |X | |
+| gestor |X |X | | |
+| membro | | |X | |
 | Mobile |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
 | msRTCSIP-ApplicationOptions |X | | | |
@@ -308,8 +310,8 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
 | CN |X | |X |Nome ou alias comum. Mais frequentemente o prefixo do valor de [correio]. |
 | displayName |X |X |X |Uma cadeia que representa o nome, muitas vezes, é apresentado como o nome amigável (Apelido Nome próprio). |
-| capacidade de correio |X |X |X |endereço de e-mail completo. |
-| Membro | | |X | |
+| mail |X |X |X |endereço de e-mail completo. |
+| membro | | |X | |
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X |propriedade mechanical. Utilizada pelo Azure AD. Contém todos os endereços de e-mail secundário para o utilizador. |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. |
@@ -326,9 +328,9 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | CN |X | |X | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
-| capacidade de correio |X |X |X | |
+| mail |X |X |X | |
 | mailNickname |X |X |X | |
-| Membro | | |X | |
+| membro | | |X | |
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
@@ -352,8 +354,8 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | givenName |X |X | | |
 | l |X |X | | |
 | managedBy | | |X | |
-| Gestor |X |X | | |
-| Membro | | |X | |
+| gestor |X |X | | |
+| membro | | |X | |
 | Mobile |X |X | | |
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | physicalDeliveryOfficeName |X |X | | |
@@ -384,10 +386,10 @@ Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do
 | CN |X | |X | |
 | displayName |X |X |X | |
 | givenName |X |X | | |
-| capacidade de correio |X | |X | |
+| mail |X | |X | |
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
-| Membro | | |X | |
+| membro | | |X | |
 | Sidobjeto |X | | |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
@@ -439,7 +441,7 @@ Estes atributos são sincronizados a partir do Active Directory no local ao Azur
 | Nome do Atributo | PublicFolder | Comentário |
 | --- | :---:| --- |
 | displayName | X |  |
-| capacidade de correio | X |  |
+| mail | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
 | proxyAddresses | X |  |

@@ -1,18 +1,19 @@
 ---
 title: Como gerir a sua conta de mapas do Azure e as chaves | Microsoft Docs
 description: Pode utilizar o portal do Azure para gerir a sua conta Azure Maps e gerir as chaves de acesso.
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
-ms.openlocfilehash: 091b91b51f7c880a1edbf65a0e2c83560d4bc38b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 153fb87b0e2b576fd67a24bb833165f2a1c93c56
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599665"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Como gerir a sua conta de mapas do Azure e as chaves
 

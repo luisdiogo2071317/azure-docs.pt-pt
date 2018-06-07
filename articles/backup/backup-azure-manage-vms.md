@@ -1,24 +1,19 @@
 ---
-title: "Gerir cópias de segurança de máquinas de virtuais implementadas no Resource Manager | Microsoft Docs"
-description: "Saiba como gerir e monitorizar as cópias de segurança de máquinas de virtuais implementadas no Resource Manager"
+title: Gerir cópias de segurança de máquinas de virtuais implementadas no Resource Manager
+description: Saiba como gerir e monitorizar as cópias de segurança de máquinas de virtuais implementadas no Resource Manager
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606346"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
 
@@ -137,7 +132,7 @@ Para acionar uma cópia de segurança a pedido de uma máquina virtual:
 
     ![Cópia de segurança agora botão](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    A tarefa de cópia de segurança cria um ponto de recuperação. O período de retenção dos pontos de recuperação é igual ao período de retenção especificado na política de associado à máquina virtual. Para acompanhar o progresso da tarefa, no dashboard do cofre, clique em de **tarefas de cópia de segurança** mosaico.  
+    O trabalho de cópia de segurança cria um ponto de recuperação. O período de retenção dos pontos de recuperação é igual ao período de retenção especificado na política de associado à máquina virtual. Para acompanhar o progresso da tarefa, no dashboard do cofre, clique em de **tarefas de cópia de segurança** mosaico.  
 
 ## <a name="stop-protecting-virtual-machines"></a>Parar a proteção de máquinas virtuais
 Se optar por deixar de proteger uma máquina virtual, é-lhe perguntado se pretende manter os pontos de recuperação. Existem duas formas de parar a proteção de máquinas virtuais:
@@ -192,8 +187,8 @@ Para retomar a proteção da máquina virtual
 
     ![VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Eliminar dados de cópia de segurança
-Pode eliminar os dados de cópia de segurança associados uma máquina virtual durante o **cópia de segurança de paragem** tarefa, ou em qualquer altura após a cópia de segurança tarefa foi concluída. Mesmo pode ser vantajoso a aguardar dias ou semanas antes de eliminar os pontos de recuperação. Ao contrário de restaurar os pontos de recuperação, aquando da eliminação de dados de cópia de segurança, não é possível escolher pontos de recuperação específico para eliminar. Se optar por eliminar os dados de cópia de segurança, tem de eliminar todos os pontos de recuperação associados ao item.
+## <a name="delete-backup-data"></a>Eliminar Dados de cópia de segurança
+Pode eliminar os dados de cópia de segurança associados uma máquina virtual durante o **cópia de segurança de paragem** tarefa, ou em qualquer altura após a cópia de segurança tarefa foi concluída. Até pode ser vantajoso aguardar dias ou semanas antes de eliminar os pontos de recuperação. Ao contrário de restaurar pontos de recuperação, ao eliminar dados de cópia de segurança, não pode escolher pontos de recuperação específicos para eliminar. Se optar por eliminar os dados de cópia de segurança, tem de eliminar todos os pontos de recuperação associados ao item.
 
 O procedimento seguinte assume que a tarefa de cópia de segurança para a máquina virtual foi parada ou desativada. Depois da tarefa de cópia de segurança estiver desativada, o **retomar cópias de segurança** e **Eliminar cópia de segurança** opções estão disponíveis no dashboard do item do cofre.
 
@@ -203,11 +198,11 @@ Para eliminar dados de cópia de segurança numa máquina virtual com o *desativ
 
 1. No [dashboard do cofre item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Eliminar cópia de segurança**.
 
-    ![Tipo VM](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
     O **eliminar dados de cópia de segurança** abre o painel.
 
-    ![Tipo VM](./media/backup-azure-manage-vms/delete-backup-blade.png)
+    ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-blade.png)
 2. Escreva o nome do item para confirmar que pretende eliminar os pontos de recuperação.
 
     ![Parar de verificação](./media/backup-azure-manage-vms/item-verification-box.png)

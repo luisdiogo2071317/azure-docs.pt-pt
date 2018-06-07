@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608598"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar uma aplicação de chat Node.js com Socket.IO num serviço em nuvem do Azure
 
@@ -151,16 +152,16 @@ A aplicação está agora em execução no Azure e pode reencaminhar mensagens d
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu como criar uma aplicação de chat básico alojada num serviço em nuvem do Azure. Para saber como alojar esta aplicação num Web site do Azure, consulte [compilar uma aplicação de Chat Node.js com Socket.IO no Web Site um Azure][chatwebsite].
 
-Para obter mais informações, consulte também o [Centro para programadores do Node.js](/develop/nodejs/).
+Para obter mais informações, consulte também o [Centro para programadores do Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[repositório do Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+[Repositório do Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
 [Azure Considerations]: #windowsazureconsiderations
 [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
 [Summary and Next Steps]: #summary

@@ -6,19 +6,20 @@ services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611165"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizar a biblioteca BulkExecutor .NET para efetuar operações em massa na base de dados do Azure Cosmos
 
-Este tutorial fornece instruções sobre como utilizar a biblioteca de BulkExecutor .NET do Cosmos BD do Azure para importar e atualizar os documentos para coleções de base de dados do Azure Cosmos. Para saber mais sobre a biblioteca de BulkExecutor e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de BulkExecutor](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo através de uma aplicação .NET de exemplo que em massa importa documentos gerados aleatoriamente para uma coleção de base de dados do Azure Cosmos. Depois de importar, mostra como pode em massa atualizar os dados importados especificando patches como efetuar nos campos de documentos específico das operações.
+Este tutorial fornece instruções sobre como utilizar a biblioteca de BulkExecutor .NET do Cosmos BD do Azure para importar e atualizar os documentos para coleções de base de dados do Azure Cosmos. Para saber mais sobre a biblioteca de BulkExecutor e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de BulkExecutor](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo através de uma aplicação de .NET de exemplo em massa documentos de importações gerados aleatoriamente para uma coleção de BD do Cosmos do Azure. Depois de importar, mostra como pode em massa atualizar os dados importados especificando patches como efetuar nos campos de documentos específico das operações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +39,7 @@ Agora vamos mudar para trabalhar com o código transferindo algumas aplicações
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample". Pode abrir uma das aplicações de exemplo, Atualize as cadeias de ligação no ficheiro App. config com cadeias de ligação da sua conta de base de dados do Azure Cosmos, compilar a solução e executá-la. 
+O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample." Pode abrir uma das aplicações de exemplo, Atualize as cadeias de ligação no ficheiro App. config com cadeias de ligação da sua conta de base de dados do Azure Cosmos, compilar a solução e executá-la. 
 
 A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-los à base de dados do Azure Cosmos. O volume de aplicação "BulkUpdateSample" atualiza os documentos importados especificando patches como efetuar nos campos de documentos específico das operações. Nas secções seguintes, irá rever o código em cada uma destas aplicações de exemplo.
 
@@ -171,7 +172,7 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 
 * Recomenda-se ao instanciar um objeto de BulkExecutor único para toda a aplicação numa única máquina virtual correspondente a uma coleção específica da base de dados do Cosmos.  
 
-* Uma vez que uma execução de API de operação em massa única consome um segmento grande de CPU e da rede e/s a máquina cliente. Isto acontece por gerar várias tarefas internamente, evite gerar várias tarefas simultâneas dentro do seu processo de aplicação que chama de cada API de operação em massa em execução. Se uma chamada de API de operação em massa única em execução numa única máquina virtual não é possível consumir o débito da sua coleção completa (se débito > 1 a coleção milhões RU/s), preferível criar máquinas virtuais separadas para executar em simultâneo em massa chamadas de operação de API.  
+* Uma vez que uma execução de API de operação em massa única consome um segmento grande de CPU e da rede e/s a máquina cliente. Isto acontece por gerar várias tarefas internamente, evite gerar várias tarefas simultâneas dentro do seu processo de aplicação que chama de cada API de operação em massa em execução. Se uma chamada de API de operação em massa única em execução numa única máquina virtual não é possível consumir o débito da sua coleção completa (se débito > 1 a coleção milhões RU/s), é preferível para criar máquinas virtuais separadas para executar em simultâneo em massa chamadas de operação de API.  
 
 * Certifique-se de que é invocada InitializeAsync() após instanciar um objeto de BulkExecutor ao obter o mapa de partição de coleção de Cosmos BD de destino.  
 

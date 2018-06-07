@@ -5,21 +5,18 @@ keywords: consistência eventual, azure cosmos db, do azure, do Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611828"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados na base de dados do Azure Cosmos
 BD do Azure do Cosmos foi concebido partir do zero cópias de segurança com distribuição global em mente para cada modelo de dados. Foi concebido para oferecer vários modelos de simples de consistência bem definidos e de garantias de latência baixa previsível. Atualmente, a base de dados do Azure Cosmos fornece cinco níveis de consistência: forte, consistência vinculada, sessão, prefixo consistente e eventual. Consistência vinculada, sessão, prefixo consistente e eventual são designados "modelos de consistência simples" que fornecem o menor consistência que segura, que é o modelo a maioria das consistente altamente disponível. 

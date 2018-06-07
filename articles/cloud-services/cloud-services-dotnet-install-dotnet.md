@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: adegeo
-ms.openlocfilehash: 125aae1820a43da3b74533bcb382eab27b9cb5da
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 02e778154662c28b78b284fccb3bd9b9420a8bec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608445"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instale o .NET em funções de Cloud Services do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidos com o SO convidado do Azure. Pode utilizar .NET no SO convidado para configurar o serviço de nuvem funções para web e de trabalho.
@@ -152,7 +153,7 @@ Pode utilizar tarefas de arranque para executar operações antes de começa a u
     goto logtimestamp
     
     :NDP472
-    set "netfxinstallfile=NDP472-NDP472-KB4054531-Web.exe"
+    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
     set netfxregkey="0x70BF6"
     goto logtimestamp
     

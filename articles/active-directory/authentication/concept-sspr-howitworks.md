@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593596"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self-service reposição palavra-passe na descrição profunda do Azure AD
 
@@ -152,6 +153,8 @@ Todas as perguntas predefinidas que se seguem estão localizadas para o conjunto
 Perguntas de segurança personalizado não estão localizadas para diferentes regiões. Todas as perguntas personalizadas são apresentadas no mesmo idioma que estes são introduzidos na interface do utilizador administrativo, mesmo se a região de browser do utilizador é diferente. Se tiver perguntas localizadas, deve utilizar as perguntas predefinidas.
 
 O comprimento máximo de uma pergunta de segurança personalizada é de 200 carateres.
+
+Para ver o portal de reposição de palavra-passe e perguntas noutra localizado idioma acrescentar "? mkt =<Locale>" ao fim da palavra-passe URL de reposição com o exemplo que se segue localizing para espanhol [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### <a name="security-question-requirements"></a>Requisitos de pergunta de segurança
 

@@ -1,22 +1,19 @@
 ---
-title: "Instalação automática do servidor de cópia de segurança do Azure v2 | Microsoft Docs"
-description: "Utilize um script do PowerShell para instalar automaticamente o servidor de cópia de segurança do Azure v2. Este tipo de instalação também é denominado uma instalação autónoma."
+title: Instalação automática do servidor de cópia de segurança do Azure v2
+description: Utilize um script do PowerShell para instalar automaticamente o servidor de cópia de segurança do Azure v2. Este tipo de instalação também é denominado uma instalação autónoma.
 services: backup
-documentationcenter: " "
 author: markgalioto
 manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 05/30/2017
-ms.author: markgal;masaran
-ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606414"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Execute uma instalação autónoma do servidor de cópia de segurança do Azure v2
 
@@ -63,7 +60,7 @@ Pode utilizar estes sinalizadores para a instalação:</br>
 **i**: caminho de instalação</br>
 **/x**: desinstalar caminho</br>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de instalar o servidor de cópia de segurança, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
 - [Preparar as cargas de trabalho do servidor de cópia de segurança](backup-azure-microsoft-azure-backup.md)

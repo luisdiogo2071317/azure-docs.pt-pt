@@ -1,24 +1,19 @@
 ---
-title: "Monitorizar alertas de cópias de segurança para máquinas virtuais do Azure | Microsoft Docs"
-description: "Monitorizar eventos e alertas das tarefas de cópia de segurança de máquina virtual do Azure. Envie correio eletrónico com base em alertas."
+title: Monitorizar alertas de cópias de segurança para máquinas virtuais do Azure
+description: Monitorizar eventos e alertas das tarefas de cópia de segurança de máquina virtual do Azure. Envie correio eletrónico com base em alertas.
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: markgal
+ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606312"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 Os alertas são as respostas do serviço do que um limiar de evento foi alcançado ou ultrapassado. Saber quando o início de problemas pode ser fundamental para manter os custos de negócio para baixo. Normalmente, não ocorrerem os alertas com base numa agenda e por isso, é útil logo que possível saber depois de ocorrerem os alertas. Por exemplo, quando uma tarefa de cópia de segurança ou restauro falhar, um alerta ocorre dentro de cinco minutos da falha. No dashboard do cofre, o mosaico alertas de cópia de segurança apresenta os eventos críticos e de nível de aviso. Nas definições de alertas de cópia de segurança, pode ver todos os eventos. Mas, o que pode fazer se um alerta ocorre quando estiver a trabalhar num problema separado? Se não souber quando o alerta acontece, pode ser uma inconveniência secundária ou comprometer dados. Para garantir que as pessoas corretas sabem de um alerta - quando ocorrer, configure o serviço para enviar notificações de alerta por e-mail. Para obter mais informações sobre como configurar notificações por e-mail, consulte [configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,7 +65,7 @@ Para configurar notificações por e-mail para alertas
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Que tipos de alertas estão disponíveis para cópia de segurança de VM do IaaS do Azure?
    | Nível de alerta | Alertas enviados |
    | --- | --- |
-   | Crítico | Falha de cópia de segurança, falha de recuperação |
+   | Crítica | Falha de cópia de segurança, falha de recuperação |
    | Aviso | para as tarefas de cópia de segurança efetuada com êxito com avisos (por exemplo: alguns escritores falharam ao criar um instantâneo) |
    | Informativo | Atualmente, não existem alertas informativos estão disponíveis para cópia de segurança de VM do Azure |
 

@@ -17,11 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 892cf2cfc93c86b9196000d94f976407156ec248
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594283"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 Pode utilizar o [conceder credenciais de cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) especificado no RFC 6749, por vezes denominado *legged de dois OAuth*, para aceder a recursos alojados em web utilizando a identidade de uma aplicação. Este tipo de conceder normalmente é utilizado para o servidor para servidor interações que devem ser executada em segundo plano, sem interação imediata com um utilizador. Estes tipos de aplicações, muitas vezes, são denominados *daemons* ou *às contas de serviço*.
@@ -62,7 +63,7 @@ Para utilizar permissões de aplicação na sua aplicação, efetue os passos, q
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Pedir as permissões no portal de registo de aplicação
 1. Aceda à sua aplicação no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou [criar uma aplicação](active-directory-v2-app-registration.md), se ainda não o fez. Terá de utilizar pelo menos um segredo da aplicação ao criar a sua aplicação.
-2. Localize o **Mcrosoft gráfico permissões** secção e, em seguida, adicione o **permissões de aplicação** que requer a sua aplicação.
+2. Localize o **Microsoft Graph permissões** secção e, em seguida, adicione o **permissões de aplicação** que requer a sua aplicação.
 3. **Guardar** o registo de aplicação.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendado: Sessão do utilizador para a sua aplicação

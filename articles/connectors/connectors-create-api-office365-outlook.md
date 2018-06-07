@@ -1,25 +1,22 @@
 ---
-title: Adicione o conector do Outlook do Office 365 nas suas Logic Apps | Microsoft Docs
-description: "Crie aplicações lógicas com o conector do Office 365 para permitir a interação com o Office 365. Por exemplo: criar, editar e atualizar itens de calendário e os contactos."
-services: 
-documentationcenter: 
+title: Ligar ao Outlook do Office 365 - as do Azure Logic Apps | Microsoft Docs
+description: Gerir o e-mail, contactos e calendários com as APIs REST do Office 365 e o Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d455f4d9081c1fd448a0d0524c209be305e203be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609975"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Começar a utilizar o conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite a interação com o Outlook no Office 365. Utilize este conector para criar, editar, contactos e itens de calendário, atualização e também obter, enviar e responder ao e-mail.

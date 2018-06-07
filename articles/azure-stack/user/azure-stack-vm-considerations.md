@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605393"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre a utilização de máquinas virtuais na pilha do Azure
 
@@ -102,7 +103,7 @@ A lista de tipos de recurso suportados e versões de API pode variar devido às 
 Produtos do Windows tem de ser utilizados em conformidade com os termos de licenciamento da Microsoft e os direitos de utilização do produto. Pilha do Azure utiliza [ativação automática de VM](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) para ativar as máquinas de virtuais (VMs) do Windows Server.
 
 - Anfitrião de pilha do Azure ativa Windows com chaves AVMA para o Windows Server 2016. Todas as VMs que executam o Windows Server 2012 ou posterior são automaticamente ativadas.
-- As VMs que execute Windows Server 2008 R2 não são automaticamente ativados e tem de ser ativado utilizando [ativação MAK](https://technet.microsoft.com/library/ff793438.aspx).
+- As VMs que execute Windows Server 2008 R2 não são automaticamente ativados e tem de ser ativado utilizando [ativação MAK](https://technet.microsoft.com/library/ff793438.aspx). Para utilizar a ativação MAK, tem de fornecer a sua própria chave de produto.
 
 Microsoft Azure utiliza a ativação do KMS para ativar VMs do Windows. Se mover de uma VM a partir do Azure pilha do Azure e encontrar ativar problemas, consulte [problemas de ativação de máquina virtual do Azure Windows resolver](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informações adicionais que podem ser encontradas no [falhas de ativação do Windows de resolução de problemas em VMs do Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) mensagem de blogue de equipa de suporte do Azure.
 

@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599573"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das funções do Azure
 
@@ -116,7 +117,8 @@ As definições no ficheiro de anfitriões aplicam a todas as funções dentro d
 Podem encontrar outras opções de configuração de anfitrião [no documento de configuração de anfitrião](functions-host-json.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para obter mais informações, consulte os seguintes recursos:
 
-Uma vez que as funções do Azure utiliza o App Service do Azure, deve também estar ciente de diretrizes de serviço de aplicações.
-* [Padrões e práticas otimizações de desempenho de HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [Como gerir ligações nas funções do Azure](manage-connections.md)
+* [Serviço de aplicações do Azure melhores práticas](../app-service/app-service-best-practices.md)

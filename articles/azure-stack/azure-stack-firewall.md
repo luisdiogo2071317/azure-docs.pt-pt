@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604221"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração de firewall de pilha do Azure
 É recomendado que utilize um dispositivo de firewall para o ajudar a proteger pilha do Azure. Embora as firewalls podem ajudar com coisas como distribuídas denial of service (DDoS distribuídos), deteção de intrusão e e ataques inspeção de conteúdo, pode também ficarem um estrangulamento do débito para serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -48,7 +49,7 @@ Uma implementação de limite, pilha do Azure é implementada diretamente atrás
 
 Normalmente, os endereços IP encaminháveis públicos especificados para o conjunto VIP público da rede externa no momento da implementação. Num cenário de limite, não se recomenda utilizar IPs encaminháveis públicos em qualquer outra rede por motivos de segurança. Este cenário permite que um utilizador experimentar a experiência de nuvem automática controlada completa como uma nuvem pública, como o Azure.  
 
-![Exemplo de firewall de limite de pilha do Azure](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Exemplo de firewall de limite de pilha do Azure](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet ou perímetro rede firewall cenário empresarial
 Implementação empresarial da intranet ou de perímetro, pilha do Azure é implementada uma firewall a zona várias ou entre firewall de limite e a firewall da rede empresarial interna. Em seguida, o respetivo tráfego é distribuído entre a rede de perímetro segura, (ou DMZ) e zonas não seguros, como descrito abaixo:

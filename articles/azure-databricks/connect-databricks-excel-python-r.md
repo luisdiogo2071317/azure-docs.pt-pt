@@ -2,7 +2,7 @@
 title: Ligar ao Azure Databricks do Excel, Python ou R | Microsoft Docs
 description: Saiba como utilizar o controlador de Simba ligar Databricks do Azure para o Excel, Python ou R.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598883"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ligar ao Azure Databricks do Excel, Python ou R
 
@@ -60,7 +61,7 @@ Um nome de origem de dados (DSN) contém as informações sobre uma origem de da
     |Campo  | Valor  |
     |---------|---------|
     |**Nome da origem de dados**     | Forneça um nome para a origem de dados.        |
-    |**Host(s)**     | Forneça o valor que copiou do espaço de trabalho Databricks para *nome de anfitrião do servidor*.        |
+    |**Ou mais anfitriões**     | Forneça o valor que copiou do espaço de trabalho Databricks para *nome de anfitrião do servidor*.        |
     |**Porta**     | Introduza *443*.        |
     |**Autenticação** > **mecanismo**     | Selecione *nome de utilizador e palavra-passe*.        |
     |**Nome de utilizador**     | Introduza *token*.        |
@@ -102,7 +103,7 @@ Depois de ter os dados no seu livro do Excel, pode efetuar operações analític
 Nesta secção, é utilizar uma linguagem de R IDE para dados de referência disponível no Azure Databricks. Antes de começar, tem de ter o seguinte instalado no computador.
 
 * Um IDE para o idioma de R. Este artigo utiliza RStudio para ambiente de trabalho. Pode instalar a [transferências de R Studio](https://www.rstudio.com/products/rstudio/download/).
-* Se utilizar RStudio para ambiente de trabalho como o IDE, também instalar o Microsoft R Client [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* Se utilizar RStudio para ambiente de trabalho como o IDE, também instalar o Microsoft R Client [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
 
 Abrir RStudio e efetue os seguintes passos:
 

@@ -1,29 +1,24 @@
 ---
-title: O Backup do Azure para cargas de trabalho do SQL Server utilizando o DPM | Microsoft Docs
-description: "Uma introdução à cópia de segurança de bases de dados do SQL Server utilizando o serviço de cópia de segurança do Azure"
+title: Azure Backup para cargas de trabalho do SQL com o DPM
+description: Uma introdução à cópia de segurança de bases de dados do SQL Server utilizando o serviço de cópia de segurança do Azure
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli
-editor: 
-ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604969"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Criar cópias de segurança do SQL Server para o Azure como uma carga de trabalho do DPM
 Este artigo orienta-o através dos passos de configuração para cópia de segurança das bases de dados do SQL Server utilizando a cópia de segurança do Azure.
 
-Para fazer uma cópia de segurança de bases de dados do SQL Server para o Azure, terá de uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para fazer uma cópia de segurança de bases de dados do SQL Server para o Azure, terá de uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 A gestão da cópia de segurança do SQL Server da base de dados para recuperação a partir do Azure e Azure envolve três passos:
 
@@ -99,7 +94,7 @@ Antes de começar, certifique-se de que todos os o [pré-requisitos](backup-azur
 
 13. Escolha o agendamento de política de retenção. Os detalhes sobre como funciona a política de retenção são fornecidos ao [utilize Azure Backup para substituir o seu artigo de infraestrutura da banda](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 

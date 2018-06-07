@@ -1,23 +1,20 @@
 ---
-title: Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure | Microsoft Docs
+title: Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure
 description: Atualizar o processo e perguntas mais frequentes para a pilha de cópia de segurança de VM, modelo de implementação do Resource Manager
 services: backup, virtual-machines
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 03/08/2018
-ms.author: trinadhk, sogup
-ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: trinadhk
+ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606907"
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure
 O modelo de implementação Resource Manager para a atualização para a pilha de cópia de segurança de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
