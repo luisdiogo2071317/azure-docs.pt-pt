@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: d04bfe601760dcbf832aeec0cc66d8e1eda51178
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595381"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: Utilize um MSI de VM do Windows para aceder à base de dados do Azure Cosmos
 
@@ -209,4 +210,9 @@ Este comando da CLI devolve detalhes sobre a coleção:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](overview.md).
+Neste tutorial, aprendeu a criar uma identidade de serviço do Windows geridos para aceder à base de dados do Cosmos.  Para saber mais sobre Cosmos DB, consulte:
+
+> [!div class="nextstepaction"]
+>[Descrição geral do Cosmos BD do Azure](/azure/cosmos-db/introduction)
+
+

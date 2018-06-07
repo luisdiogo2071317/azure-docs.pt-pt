@@ -3,16 +3,17 @@ title: Gerir funções de base de dados e os utilizadores no Azure Analysis Serv
 description: Saiba como gerir funções de base de dados e os utilizadores num servidor do Analysis Services no Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598356"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir utilizadores e funções de base de dados
 
@@ -129,7 +130,7 @@ Filtros de linha podem ser definidos apenas para leitura e de leitura e permiss�
   
 Aplicam filtros de linha para as linhas especificadas e as linhas relacionadas. Quando uma tabela tem várias relações, filtros aplicam-se em segurança para a relação está ativa. Filtros de linha são intersected com outros filers da linha definidas para tabelas relacionadas, por exemplo:  
   
-|Tabelas|Expressão DAX|  
+|Tabela|Expressão DAX|  
 |-----------|--------------------|  
 |Região|= Região [País] = "EUA"|  
 |ProductCategory|= ProductCategory [nome] = "Bicycles"|  

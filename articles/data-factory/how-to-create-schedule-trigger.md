@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618927"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
 Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
@@ -328,10 +329,10 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Cadeia | Sim | Nenhuma | Datas-Horas ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | Sim | Nenhum | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Número | Não | 1 | 1 a 1000 | `"interval":10` |
+| **recurrence** | Object | Sim | Nenhuma | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | Number | Não | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | Cadeia | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Objeto | Não | Nenhum | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | Não | Nenhuma | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:

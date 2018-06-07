@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 2042c1525849696efaf5fda5f35c1abc72839737
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1c4245dbb34fc7e4b3b2722e4a94bffaf4d7f66d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Azure Active Directory com Asana
 
@@ -48,7 +49,8 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
 1. Adicionar Asana a partir da Galeria
 2. Configurar e testar o Azure AD de sessão único-
@@ -65,7 +67,7 @@ Para configurar a integração de Asana com o Azure AD, terá de adicionar Asana
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![O painel de aplicações da empresa][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![O novo botão de aplicação][3]
@@ -101,7 +103,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-asana-tutorial/tutorial_asana_samlbase.png)
 
 3. No **Asana domínio e os URLs** secção, execute os seguintes passos:
@@ -111,25 +113,25 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     a. No **URL de início de sessão** caixa de texto, o URL de tipo: `https://app.asana.com/`
 
     b. No **identificador** caixa de texto, o valor de tipo: `https://app.asana.com/`
- 
+
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
-    
+
 5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-asana-tutorial/tutorial_general_400.png)
 
 6. No **Asana configuração** secção, clique em **configurar Asana** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configuração de Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png) 
+    ![Configuração de Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png)
 
-7. Numa janela do browser diferente, início de sessão na aplicação Asana. Para configurar o SSO no Asana, aceda as definições de área de trabalho ao clicar no nome da área de trabalho no canto superior direito do ecrã. Em seguida, clique em  **\<o nome da sua área de trabalho\> definições**. 
-   
+7. Numa janela do browser diferente, início de sessão na aplicação Asana. Para configurar o SSO no Asana, aceda as definições de área de trabalho ao clicar no nome da área de trabalho no canto superior direito do ecrã. Em seguida, clique em  **\<o nome da sua área de trabalho\> definições**.
+
     ![Definições de sso Asana](./media/active-directory-saas-asana-tutorial/tutorial_asana_09.png)
 
 8. No **definições de organização** janela, clique em **administração**. Em seguida, clique em **membros tem de iniciar sessão através de SAML** para ativar a configuração de SSO. A executar os seguintes passos:
-   
+
     ![Configurar definições de organização de início de sessão único](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)  
 
      a. No **URL de página de início de sessão** caixa de texto, cole o **único início de sessão no URL do serviço SAML**.
@@ -137,9 +139,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
      b. Clique com o botão direito do rato no certificado transferido a partir do portal do Azure, em seguida, abra o ficheiro de certificado utilizando o bloco de notas ou no seu editor de texto preferido. Copie o conteúdo entre o início e o título de certificado do fim e cole-na **certificado x. 509** caixa de texto.
 
 9. Clique em **Guardar**. Aceda a [Asana guia para configurar o SSO](https://asana.com/guide/help/premium/authentication#gl-saml) se necessitar de mais assistência.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -154,16 +153,16 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     ![O botão do Azure Active Directory](./media/active-directory-saas-asana-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png) 
+
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png)
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png)
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![O botão de adição](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
+
+    ![O botão de adição](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png)
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
 
@@ -172,14 +171,18 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-an-asana-test-user"></a>Criar um utilizador de teste Asana
+
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Asana. Asana suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-asana-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 Nesta secção, vai criar um utilizador chamado Britta Simon Asana.
 
-1. No **Asana**, vá para o **equipas** secção no painel esquerdo. Clique no botão de sinal de adição. 
-   
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
+1. No **Asana**, vá para o **equipas** secção no painel esquerdo. Clique no botão de sinal de adição.
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png)
 
 2. Escreva a mensagem de e-mail britta.simon@contoso.com na caixa de texto e, em seguida, selecione **convidar**.
 
@@ -195,11 +198,11 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Asana**.
 
-    ![A ligação de Asana na lista de aplicações](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png) 
+    ![A ligação de Asana na lista de aplicações](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -214,7 +217,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 O objetivo desta secção consiste em testar o Azure AD-início de sessão único.
@@ -225,7 +228,7 @@ Aceda à página de início de sessão Asana. Na caixa de texto do endereço de 
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-asana-provisioning-tutorial.md)
 
 <!--Image references-->
 

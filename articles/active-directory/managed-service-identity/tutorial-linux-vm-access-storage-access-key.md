@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: be350ad153bfcc51eb1198a97eeba01593ccb34e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594249"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade de serviço geridas do Linux VM para aceder ao armazenamento do Azure através de chave de acesso
 
@@ -226,10 +227,7 @@ Resposta:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](overview.md).
-- Para saber como fazê-lo este mesmo tutorial, utilizando um credencial SAS do armazenamento, consulte [utilizar uma identidade de serviço geridas do Linux VM para aceder ao armazenamento do Azure através de uma credencial SAS](tutorial-linux-vm-access-storage-sas.md)
-- Para obter mais informações sobre a funcionalidade SAS de conta do Storage do Azure, consulte:
-  - [Utilizar assinaturas de acesso partilhado (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construir um serviço SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Neste tutorial, aprendeu a utilizar uma identidade de serviço gerida para uma máquina virtual Linux para aceder ao armazenamento do Azure com uma chave de acesso.  Para obter mais informações sobre chaves de acesso de armazenamento do Azure, consulte:
 
-Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Gerir as chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

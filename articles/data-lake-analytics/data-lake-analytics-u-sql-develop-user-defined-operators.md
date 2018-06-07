@@ -1,29 +1,24 @@
 ---
-title: Desenvolver operadores definido pelo utilizador U-SQL (UDOs) | Microsoft Docs
-description: 'Saiba como desenvolver operadores definido pelo utilizador a ser utilizada e reutilizada em tarefas de Data Lake Analytics. '
+title: Desenvolver U-SQL definidos pelo utilizador operadores (UDOs) no Azure Data Lake Analytics
+description: Saiba como desenvolver operadores definido pelo utilizador a ser utilizada e reutilizada nas tarefas do Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+manager: kfile
+editor: jasonwhowell
+ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623860"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definido pelo utilizador U-SQL (UDOs)
-Saiba como desenvolver operadores definido pelo utilizador para processar os dados numa tarefa U-SQL.
-
-Para obter instruções sobre como desenvolver para fins gerais assemblagens U-SQL, consulte [assemblagens de desenvolver U-SQL para tarefas do Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
+Este artigo descreve como desenvolver operadores definido pelo utilizador para processar os dados numa tarefa U-SQL.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definir e utilizar um operador definido pelo utilizador em U-SQL
 **Para criar e submeter uma tarefa de U-SQL**

@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Ativar a delegação restringida de kerberos | Microsoft Docs"
-description: "Ativar a delegação restringida de kerberos em domínios geridos de serviços de domínio do Active Directory do Azure"
+title: 'Azure Active Directory dos serviços de domínio: Ativar a delegação restringida de kerberos | Microsoft Docs'
+description: Ativar a delegação restringida de kerberos em domínios geridos de serviços de domínio do Active Directory do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: maheshu
-ms.openlocfilehash: 6ed797ca25161919ccf5e69be0073a67bfcef6d6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 504fc4cabdb7a2d24cba749f4ba2d2bd8f078212
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587488"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurar a delegação restringida de Kerberos (KCD) um domínio gerido
 Muitas aplicações devem ter acesso a recursos no contexto do utilizador. Active Directory suporta um mecanismo de delegação de Kerberos, que permite que este caso de utilização de chamada. Além disso, pode restringir a delegação para que podem ser acedidos apenas os recursos específicos no contexto do utilizador. Domínios geridos de serviços de domínio do AD do Azure são diferentes das tradicionais domínios do Active Directory, uma vez que seja mais segura estejam bloqueados para baixo.

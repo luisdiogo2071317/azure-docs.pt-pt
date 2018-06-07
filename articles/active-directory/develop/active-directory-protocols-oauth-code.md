@@ -16,11 +16,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595330"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão do código de OAuth 2.0
 Azure Active Directory (Azure AD) utiliza OAuth 2.0 para que possa autorizar o acesso a aplicações web e APIs web no inquilino do Azure AD. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer um dos nossos [bibliotecas de open source](active-directory-authentication-libraries.md).
@@ -59,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
 | Recurso | recomendado |O URI de ID de aplicação de API (recursos protegidos) da web de destino. Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário dos autorização ou pedidos de token. Para garantir autenticação menos avisos colocá-lo no pedido de autorização para garantir que é recebido consentimento do utilizador. |
 | scope | **ignorado** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicações **definições**, **permissões obrigatórias**. |
-| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
+| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *select_account*: é pedido ao utilizador para selecionar uma conta, interromper o início de sessão único em. O utilizador pode selecionar uma conta com sessão iniciada existente, introduza as suas credenciais de uma conta memorizada ou optar por utilizar uma conta diferente completamente. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
 | login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
 | domain_hint |opcional |Fornece uma sugestão sobre o domínio que o utilizador deve utilizar para iniciar sessão ou inquilino. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, AAD redireciona para o servidor de Federação do inquilino especificado. |
 | code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`. Se excluído, `code_challenge` é prestada texto simples se `code_challenge` está incluído. V 1.0 do AAD do Azure suporta `plain` e `S256`. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |

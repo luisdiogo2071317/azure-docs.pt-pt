@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18a3f3080c58e01117e0fc73adad76d28c298536
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599437"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento em funções durável (funções do Azure)
 
@@ -161,7 +162,7 @@ Quando planear utilizar funções durável para uma aplicação de produção, �
 > [!TIP]
 > Ao contrário fan-out, operações fan-in estão limitadas a uma única VM. Se a aplicação utiliza o padrão de fan-in, fan-out e está preocupados sobre o desempenho de fan-in, considere subplano dividindo a fan-out de função da atividade em múltiplas [orchestrations secundárias](durable-functions-sub-orchestrations.md).
 
-A tabela seguinte mostra a esperada *máximo* números de débito para os cenários descritos anteriormente. "Instâncias" refere-se a uma única instância de uma função do orchestrator em execução num único breve ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM no App Service do Azure. Em todos os casos, presume-se que [expandido sessões](#orchestrator-function-replay) estão ativadas. Resultados reais poderão variar consoante o trabalho de CPU ou e/s efetuado pelo código da função.
+A tabela seguinte mostra a esperada *máximo* números de débito para os cenários descritos anteriormente. "Instâncias" refere-se a uma única instância de uma função do orchestrator em execução num único breve ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM no App Service do Azure. Em todos os casos, presume-se que [expandido sessões](#orchestrator-function-replay) estão ativadas. Resultados reais poderão variar consoante o trabalho de CPU ou e/s efetuado pelo código da função.
 
 | Cenário | Débito máximo |
 |-|-|

@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 317c94abdf14d3d88e07e32ab16769bd1f641438
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591301"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
 O documento seguinte é uma referência técnica sobre as portas e protocolos necessários para implementar uma solução de identidade híbrida. Utilize a seguinte ilustração e consultar a tabela correspondente.
@@ -55,7 +57,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Utilizado para transferir o CRL (certificado de listas de revogação) para verificar os certificados SSL. |
 | HTTPS |443(TCP/UDP) |Utilizado para sincronizar com o Azure AD. |
-| WinRM |5985 |WinRM Listener |
+| WinRM |5985 |O serviço de escuta do WinRM |
 
 ## <a name="table-4---wap-and-federation-servers"></a>Tabela 4 - WAP e servidores de Federação
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre os servidores de Federação e os servidores do WAP.

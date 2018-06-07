@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0660bdb3592e36cb25f68243f16e32d7e51fb85c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4ccb3fd457f9541354281e3dc11dce273f75d9a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com o Salesforce Sandbox
 
@@ -153,51 +154,48 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure
 
-    c. No **Id de entidade** caixa de texto, tipo `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` se for a primeira instância do Salesforce Sandbox que estiver a adicionar ao seu diretório. Se já adicionou uma instância do Salesforce Sandbox, em seguida, para o **ID de entidade** escreva a **URL de início de sessão**, que deve ter este formato: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
- 
-    d. Para carregar o **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado, o que transferiu a partir do portal do Azure.  
+    c. No **Id de entidade** caixa de texto, tipo `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` se for a primeira instância do Salesforce Sandbox que estiver a adicionar ao seu diretório. Se já adicionou uma instância do Salesforce Sandbox, em seguida, para o **ID de entidade** escreva a **URL de início de sessão**, que deve ter este formato: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    d. Para carregar o **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado, o que transferiu a partir do portal do Azure.
 
     e. Como **tipo de identidade de SAML**, escolha uma das seguintes opções:
-    
+
       * Selecione **asserção contém o nome de utilizador do utilizador Salesforce**, se está a ser transferida Salesforce Username do utilizador na asserção SAML
 
       * Selecione **asserção contém o ID de Federação do objeto User**, se o ID de Federação do objeto de utilizador está a ser transmitido asserção SAML
 
       * Selecione **asserção contém o ID de utilização do objeto User**, se o ID de utilizador do objeto de utilizador está a ser transmitido na asserção SAML
- 
+
     f. Como **SAML identidade localização**, selecione **é de identidade no elemento NameIdentifier da declaração de assunto**.
 
-    g. Como **fornecedor iniciada pedido vínculo de serviço**, selecione **HTTP POST**. 
+    g. Como **fornecedor iniciada pedido vínculo de serviço**, selecione **HTTP POST**.
 
-    h. No **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL Single Sign-On serviço**, que copiou do portal do Azure. 
+    h. No **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL Single Sign-On serviço**, que copiou do portal do Azure.
 
     i. SFDC não suporta a fim de sessão SAML.  Como solução, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` para o **URL de fim de sessão do fornecedor de identidade** caixa de texto.
 
     j. Clique em **Guardar**.
 
 ### <a name="enable-your-domain"></a>Ativar o seu domínio
+
 Esta secção assume que já criou um domínio.  Para obter mais informações, consulte [definir o nome de domínio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Para ativar o seu domínio, execute os seguintes passos:**
 
 1. No painel de navegação esquerdo do Salesforce, clique em **definições da empresa** para expandir a secção relacionada e, em seguida, clique em **meu domínio**.
-   
-     ![Configurar o início de sessão único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
-   
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
+
    >[!NOTE]
-   >Certifique-se que o seu domínio foi configurado corretamente. 
+   >Certifique-se que o seu domínio foi configurado corretamente.
 
 2. No **configuração da autenticação** secção, clique em **editar**, em seguida, como **serviço de autenticação**, selecione o nome de SAML único início de sessão na definição do anterior secção e, finalmente, clique em **guardar**.
-   
+
    ![Configurar o início de sessão único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-Assim que tiver um domínio configurado, os utilizadores devem utilizar o URL do domínio para início de sessão para a sandbox do Salesforce.  
+Assim que tiver um domínio configurado, os utilizadores devem utilizar o URL do domínio para início de sessão para a sandbox do Salesforce.
 
 Para obter o valor do URL, clique no perfil SSO que criou na secção anterior.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -230,17 +228,16 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-salesforce-sandbox-test-user"></a>Criar um utilizador de teste de Salesforce Sandbox
 
-Nesta secção, um utilizador chamado Britta Simon é criado no Sandbox do Salesforce. Salesforce Sandbox suportam o aprovisionamento de just-in-time, que está ativada por predefinição.
-Não há nenhum item de ação para si nesta secção. Se um utilizador já não existe no Salesforce Sandbox, uma nova é criada quando tenta aceder a Salesforce Sandbox.
+Nesta secção, um utilizador chamado Britta Simon é criado no Sandbox do Salesforce. Salesforce Sandbox suportam o aprovisionamento de just-in-time, que está ativada por predefinição. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existe no Salesforce Sandbox, uma nova é criada quando tenta aceder a Salesforce Sandbox. Salesforce Sandbox também suporta o aprovisionamento de utilizadores automática, pode encontrar mais detalhes [aqui](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão único, conceder acesso ao Sandbox do Salesforce.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Salesforce Sandbox, execute os seguintes passos:**
 
@@ -277,6 +274,8 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -291,4 +290,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
-

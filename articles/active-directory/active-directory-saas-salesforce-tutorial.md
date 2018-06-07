@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e5b9fb0e1696e83ca4dfc8936613631f4c84ca47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -205,10 +206,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE]
     > Se mais do que um serviço de autenticação está selecionado, os utilizadores recebem um pedido para selecionar o serviço de autenticação, como para iniciar sessão ao iniciar início de sessão único para o seu ambiente do Salesforce. Se não quiser que acontecer, em seguida, deve **deixe desmarcada a todos os outros serviços de autenticação**.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -240,27 +237,26 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-salesforce-test-user"></a>Criar um utilizador de teste do Salesforce
 
-Nesta secção, é criado um utilizador chamado Britta Simon no Salesforce. Salesforce suporta o aprovisionamento de just-in-time, que está ativada por predefinição.
-Não há nenhum item de ação para si nesta secção. Se um utilizador já não existe no Salesforce, uma nova é criada quando tentar aceder à Salesforce.
+Nesta secção, é criado um utilizador chamado Britta Simon no Salesforce. Salesforce suporta o aprovisionamento de just-in-time, que está ativada por predefinição. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existe no Salesforce, uma nova é criada quando tentar aceder à Salesforce. Salesforce também suporta o aprovisionamento de utilizadores automática, pode encontrar mais detalhes [aqui](active-directory-saas-salesforce-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso Salesforce.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon Salesforce, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Salesforce**.
 
-    ![A ligação do Salesforce na lista de aplicações](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png)  
+    ![A ligação do Salesforce na lista de aplicações](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -275,7 +271,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -287,8 +283,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-salesforce-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -303,4 +298,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_203.png
-

@@ -1,18 +1,19 @@
 ---
 title: Administrar uma aplicação do Azure IoT Central | Microsoft Docs
 description: Como um administrador, como administrar a sua aplicação do Azure IoT Central
-services: iot-central
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: b60b9e851a3b6612964e67e7764ad8d43d606b4e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628560"
 ---
 # <a name="how-to-administer-your-application"></a>Como administrar a sua aplicação
 
@@ -74,7 +75,7 @@ Os utilizadores a **administrador** função tem acesso a todas as funcionalidad
 
 O utilizador criar uma aplicação é atribuído automaticamente para o **administrador** função. Deve sempre ser, pelo menos, um utilizador a **administrador** função.
 
-### <a name="application-builder"></a>Construtor de aplicação
+### <a name="application-builder"></a>Application Builder
 
 Os utilizadores a **aplicação Builder** função pode fazer tudo numa aplicação do Azure IoT Central exceto administrar a aplicação.
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2c560bf9eeac5f9aed1024bd87d450f7aee7ce05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 996b1e5cbc477bf8a67a8cbb118961aaedf151fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621511"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados para e da tabela do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +82,7 @@ Propriedades disponíveis na secção typeProperties da atividade por outro lado
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta de tabela do Azure. Veja exemplos na secção seguinte: |Não. Quando um tableName for especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se um azureTableSourceQuery também está especificado, os registos da tabela que satisfaça a consulta são copiados para o destino. |
-| azureTableSourceIgnoreTableNotFound |Indica se swallow a exceção da tabela não existe. |VERDADEIRO<br/>FALSE |Não |
+| azureTableSourceIgnoreTableNotFound |Indica se swallow a exceção da tabela não existe. |VERDADEIRO<br/>FALSO |Não |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemplos de azureTableSourceQuery
 Se a coluna de tabelas do Azure é do tipo de cadeia:
@@ -477,8 +478,8 @@ Quando mover dados para & tabela do Azure, o seguinte [mapeamentos definidos pel
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
 | Edm.Boolean |bool |Valor booleano. |
-| Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). Início do intervalo suportado de DateTime de 12:00, 1 de Janeiro de 1601 a.d. (C.E.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
-| Edm.Double |duplo |Um valor de ponto flutuante de 64 bits. |
+| Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). Início do intervalo suportado de DateTime de 12:00, 1 de Janeiro de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
+| Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |GUID |Um identificador exclusivo global de 128 bits. |
 | Edm.Int32 |Int32 |Um número inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um número inteiro de 64 bits. |
@@ -536,7 +537,7 @@ Tendo em conta o mapeamento do tipo do tipo de OData de tabela do Azure para o t
 | Nome da coluna | Tipo |
 | --- | --- |
 | ID de utilizador |Edm.Int64 |
-| nome |Edm.String |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Em seguida, defina o conjunto de dados de tabelas do Azure da seguinte forma. Não é necessário especificar a secção "estrutura" com as informações de tipo uma vez que as informações de tipo já foi especificadas no arquivo de dados subjacente.

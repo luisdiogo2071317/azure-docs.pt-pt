@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619053"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controlo de repetidos no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
@@ -74,7 +75,7 @@ As propriedades são descritas neste artigo. A propriedade de itens é uma cole�
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade para cada. | Cadeia | Sim
+name | Nome da atividade para cada. | Cadeia | Sim
 tipo | Tem de ser definido como **ForEach** | Cadeia | Sim
 isSequential | Especifica se o ciclo deve ser executado sequencialmente ou em paralelo.  Máximo de 20 iterações de ciclo pode ser executado em simultâneo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterating através de uma atividade de cópia com 10 diferentes origem e dependente conjuntos de dados com **isSequential** definido como FALSO, todas as cópias são executadas em simultâneo. Predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que não existe uma configuração correta para executar executáveis vários. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar incorrer em conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Booleano | Não. Predefinição é False.
 Itens | Uma expressão que devolve uma matriz JSON para iterated através de mensagens em fila. | Expressão (que devolve uma matriz JSON) | Sim

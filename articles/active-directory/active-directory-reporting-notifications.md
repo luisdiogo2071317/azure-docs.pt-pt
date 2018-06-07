@@ -3,7 +3,7 @@ title: Notificações de relatórios do Azure Active Directory
 description: Como utilizar o Azure Active Directory reporting notificações para início de sessão suspeitos ins.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 01/03/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8f4beece9d1d351c91f2bb055eedc0ae9851f532
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588193"
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notificações de relatórios do Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Os relatórios geram notificações por e-mail

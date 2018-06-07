@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622028"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 utilizando a atividade de cópia de fábrica de dados do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,8 +82,8 @@ A tabela seguinte lista as propriedades JSON que são específicas para um servi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **type** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
-| **server** |O nome do servidor DB2. |Sim |
+| **tipo** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
+| **Servidor** |O nome do servidor DB2. |Sim |
 | **database** |O nome da base de dados DB2. |Sim |
 | **schema** |O nome do esquema na base de dados DB2. Esta propriedade é maiúsculas e minúsculas. |Não |
 | **authenticationType** |O tipo de autenticação que é utilizada para ligar à base de dados DB2. Os valores possíveis são: anónimo, básico e Windows. |Sim |
@@ -311,13 +312,13 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Solteiro |
-| Duplo |Duplo |
-| Número de vírgula flutuante |Duplo |
+| Real |Único |
+| duplo |duplo |
+| Flutuante |duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
+| Date |DateTime |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |
@@ -337,13 +338,13 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Solteiro |
-| Duplo |Duplo |
-| Número de vírgula flutuante |Duplo |
+| Real |Único |
+| duplo |duplo |
+| Flutuante |duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
+| Date |DateTime |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |

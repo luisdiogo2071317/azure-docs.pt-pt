@@ -3,16 +3,17 @@ title: 'Lição 1 do tutorial do Azure Analysis Services: Criar um projeto de mo
 description: Descreve como criar um projeto de tutorial novo do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 12e090996df4b8b1ee364e5dae9349cedd045c4a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596071"
 ---
 # <a name="create-a-tabular-model-project"></a>Criar um projeto de modelo em tabela
 
@@ -72,7 +73,7 @@ No momento em que instalou o SSDT, foram adicionados vários itens de menu novos
 Explore algumas das caixas de diálogo e localizações de várias funcionalidades específicas para a criação de modelos em tabela. Embora alguns itens ainda não estejam ativos, pode ficar com uma ideia clara do ambiente de criação de modelos em tabela.  
   
 
-## <a name="whats-next"></a>O que se segue?
+## <a name="whats-next"></a>Passos seguintes?
 [Lição 2: Obter dados (Lesson 2: Get data)](../tutorials/aas-lesson-2-get-data.md).
 
   

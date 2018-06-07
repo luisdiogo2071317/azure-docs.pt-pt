@@ -14,14 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fa299603a14ef94ab4cf3eac2b1123def1a0b6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594888"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerido como administrador no Azure Active Directory
-Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?]()
+Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida como pretende assumir um diretório de não gerido
 Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:

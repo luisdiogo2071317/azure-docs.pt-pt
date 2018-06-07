@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596502"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
 
@@ -72,7 +73,7 @@ Para executar os contentores do Windows Server, tem de executar nós baseado no 
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS?
 
-Cada implementação AKS abrange dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O fornecedor de recursos AKS cria automaticamente um segundo durante a implementação com o nome como *MC_myResourceGRoup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. É criado para simplificar a limpeza de recursos.
+Cada implementação AKS abrange dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O fornecedor de recursos AKS cria automaticamente um segundo durante a implementação com o nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. É criado para simplificar a limpeza de recursos.
 
 Se estiver a criar recursos que serão utilizados com o cluster AKS, tais como contas de armazenamento ou endereço IP público reservado, deve colocá-los no grupo de recursos geradas automaticamente.
 

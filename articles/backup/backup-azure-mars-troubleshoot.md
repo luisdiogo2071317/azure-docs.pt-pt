@@ -1,24 +1,19 @@
 ---
-title: "Resolver problemas do agente de cópia de segurança do Azure | Microsoft Docs"
-description: "Resolver problemas de instalação e o registo do agente de cópia de segurança do Azure"
+title: Resolução de problemas do Azure Backup Agent
+description: Resolver problemas de instalação e o registo do agente de cópia de segurança do Azure
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shreeshd
-editor: 
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: saurse
+ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605761"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Resolver problemas de registo e de configuração do agente de cópia de segurança do Azure
 ## <a name="recommended-steps"></a>Passos recomendados

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 13e5836aea0e307cdce5bcdcd5cf3c50969dfbf8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603418"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerir os recursos com o Azure PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/20/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, veja [ Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
@@ -49,13 +50,13 @@ Atualmente, o grupo de recursos está vazio.
 
 ### <a name="assign-a-role"></a>Atribuir uma função
 
-Neste artigo, implementar uma máquina virtual e a rede virtual relacionadas. Para gerir soluções de máquina virtual, existem três funções específicas do recurso que fornecem acesso normalmente necessário:
+Neste artigo, implementar uma máquina virtual e a rede virtual relacionadas. Para gerir soluções de máquina virtual, existem três funções de recursos específicos que fornecem o acesso normalmente necessário:
 
-* [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contribuidor de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor)
-* [Contribuinte de conta de armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Contribuidor de Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções para utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que necessitam para efetuar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função para um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
 
 O exemplo seguinte cria um grupo e atribui-o para a função de contribuinte de Máquina Virtual para o grupo de recursos. Para executar o `New-AzureAdGroup` comando, tem de utilizar o [Shell de nuvem do Azure](/azure/cloud-shell/overview) ou [transferir o módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -69,7 +70,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Normalmente, pode repete o processo para **contribuinte de rede** e **contribuinte de conta de armazenamento** para se certificar de que os utilizadores são atribuídos a gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
+Normalmente, pode repetir o processo para o **Contribuidor de Rede** e o **Contribuidor de Conta de Armazenamento** para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
 ## <a name="azure-policies"></a>Políticas do Azure
 
@@ -83,7 +84,7 @@ A subscrição já tem várias definições de política. Para ver as definiçõ
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Consulte as definições de política existente. O tipo de política está **BuiltIn** ou **personalizada**. Examine as definições para aqueles que descrevem uma condição que pretende atribuir. Neste artigo, pode atribuir políticas que:
+Poderá ver as definições de política existentes. O tipo de política é **BuiltIn** ou **Personalizado**. Examine as definições para encontrar aquelas que descrevem uma condição que pretenda atribuir. Neste artigo, pode atribuir políticas para:
 
 * limitar as localizações para todos os recursos
 * limitar os SKUs de máquinas virtuais
@@ -114,7 +115,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>Implementar a máquina virtual
 
-Atribuiu funções e as políticas de, pelo que está pronto para implementar a sua solução. O tamanho predefinido é Standard_DS1_v2, que é um dos seus SKUs permitidos. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
+Atribuiu funções e políticas, pelo que está pronto para implementar a sua solução. O tamanho predefinido é Standard_DS1_v2, que é um dos seus SKUs permitidos. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -127,7 +128,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -OpenPorts 80,3389
 ```
 
-Após a conclusão da sua implementação, pode aplicar as definições de gestão mais para a solução.
+Após a conclusão da implementação, pode aplicar mais definições de gestão à solução.
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
@@ -150,13 +151,13 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
   -ResourceGroupName myResourceGroup
 ```
 
-A máquina virtual só pode ser eliminada se especificamente a remover o bloqueio. Este passo é apresentado na [limpar recursos](#clean-up-resources).
+A máquina virtual só pode ser eliminada se especificamente a remover o bloqueio. Este passo é apresentado em [Limpar recursos](#clean-up-resources).
 
-## <a name="tag-resources"></a>Etiqueta de recursos
+## <a name="tag-resources"></a>Etiquetar recursos
 
 [!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
-### <a name="tag-resources"></a>Etiqueta de recursos
+### <a name="tag-resources"></a>Etiquetar recursos
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -177,13 +178,13 @@ Para localizar recursos com um nome de tag e um valor, utilize:
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Pode utilizar os valores devolvidos para tarefas de gestão, como parar todas as máquinas virtuais com um valor de etiqueta.
+Pode utilizar os valores devolvidos das tarefas de gestão, como parar todas as máquinas virtuais com um valor de etiqueta.
 
 ```azurepowershell-interactive
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-### <a name="view-costs-by-tag-values"></a>Custos de vista pelos valores de etiqueta
+### <a name="view-costs-by-tag-values"></a>Ver custos por valores de etiqueta
 
 Depois de aplicar etiquetas a recursos, pode ver os custos para recursos com dessas etiquetas. Demora tempo para análise de custos ver a utilização mais recente, pelo que não poderá ver os custos ainda. Quando estiverem disponíveis os custos, pode ver os custos de recursos entre grupos de recursos na sua subscrição. Os utilizadores devem ter [acesso de nível de subscrição para as informações de faturação](../billing/billing-manage-access.md) para ver os custos.
 
@@ -199,7 +200,7 @@ Também pode utilizar o [APIs de faturação do Azure](../billing/billing-usage-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não é possível eliminar o grupo de segurança de rede bloqueado até que o bloqueio é removido. Para remover o bloqueio, utilize:
+O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, utilize:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
@@ -222,4 +223,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * Para saber mais sobre como monitorizar as máquinas virtuais, consulte [monitorizar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Para saber mais sobre como utilizar o Centro de segurança do Azure para implementar as práticas de segurança recomendado, [monitorizar a segurança da máquina virtual utilizando o Centro de segurança do Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * Pode mover recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para o novo grupo de recursos ou subscrição](resource-group-move-resources.md).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: bdb52039879c23c418af002fa8525e669a715022
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8e42bd6e9d8994079de84cd018b45607f7238c5e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Integração do Azure Active Directory com Zendesk
 
@@ -113,8 +114,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte: `<subdomain>.zendesk.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) para obter estes valores. 
- 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) para obter estes valores.
+
 4. No **certificado de assinatura de SAML** secção, copie o **THUMBPRINT** valor do certificado.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png)
@@ -134,9 +135,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
     
     d. Clique em **OK**.
- 
-    > [!NOTE] 
-    > Utilize os atributos de extensão para adicionar atributos que não estão no Azure AD por predefinição. Clique em [atributos de utilizador que podem ser definidos no SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) para obter a lista completa de SAML atributos que **Zendesk** aceita.  
+
+    > [!NOTE]
+    > Utilize os atributos de extensão para adicionar atributos que não estão no Azure AD por predefinição. Clique em [atributos de utilizador que podem ser definidos no SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) para obter a lista completa de SAML atributos que **Zendesk** aceita.
 
 6. Clique em **guardar** botão.
 
@@ -153,7 +154,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 10. No painel de navegação esquerdo, clique em **definições**e, em seguida, clique em **segurança**.
 
 11. No **segurança** página, execute os seguintes passos: 
-   
+
      ![Segurança](./media/active-directory-saas-zendesk-tutorial/ic773089.png "segurança")
 
     ![De sessão único-](./media/active-directory-saas-zendesk-tutorial/ic773090.png "de sessão único-")
@@ -165,14 +166,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
      c. No **SAML SSO URL** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML** que copiou do portal do Azure. 
 
      d. No **URL de fim de sessão remoto** caixa de texto, cole o valor de **Sign-Out URL** que copiou do portal do Azure.
-        
-     e. No **impressão digital do certificado** caixa de texto, cole o **Thumbprint** valor do certificado que copiou do portal do Azure.
-     
-     f. Clique em **Guardar**.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+     e. No **impressão digital do certificado** caixa de texto, cole o **Thumbprint** valor do certificado que copiou do portal do Azure.
+
+     f. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -205,26 +202,25 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-zendesk-test-user"></a>Criar um utilizador de teste do Zendesk
 
-Para permitir que os utilizadores do Azure AD sessão **Zendesk**, têm de ser aprovisionados para **Zendesk**.  
-Consoante a função atribuída a aplicações, é o comportamento esperado:
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Zendesk. Zendesk suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-zendesk-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
- 1. **Utilizador final** contas são aprovisionadas automaticamente quando iniciar sessão.
- 2. **Agente** e **Admin** as contas têm de ser aprovisionada manualmente no **Zendesk** antes de iniciar sessão.
- 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
+
+> [!NOTE]
+> **Utilizador final** contas são aprovisionadas automaticamente quando iniciar sessão. **Agente** e **Admin** as contas têm de ser aprovisionada manualmente no **Zendesk** antes de iniciar sessão.
 
 1. Inicie sessão no seu **Zendesk** inquilino.
 
 2. Selecione o **cliente lista** separador.
 
 3. Selecione o **utilizador** separador e clique em **adicionar**.
-   
+
     ![Adicionar utilizador](./media/active-directory-saas-zendesk-tutorial/ic773632.png "adicionar utilizador")
 4. Tipo de **nome** e **E-Mail** de uma conta do Azure AD existente que pretende aprovisionar e, em seguida, clique em **guardar**.
-   
+
     ![Novo utilizador](./media/active-directory-saas-zendesk-tutorial/ic773633.png "novo utilizador")
 
 > [!NOTE]
@@ -234,17 +230,17 @@ Consoante a função atribuída a aplicações, é o comportamento esperado:
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Zendesk.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Zendesk, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Zendesk**.
 
-    ![A ligação do Zendesk na lista de aplicações](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)  
+    ![A ligação do Zendesk na lista de aplicações](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -259,20 +255,19 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico do Zendesk no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação do Zendesk.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-zendesk-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -287,4 +282,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_203.png
-

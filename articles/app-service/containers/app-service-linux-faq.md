@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: c1dbcf83927da23ceab652f8bc4dbe8d6343c1a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598407"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>App Service do Azure no Linux FAQ
 
@@ -47,8 +48,8 @@ Esta ação é o mesmo que um reinício de Docker.
 
 Sim, pode fazê-lo através do site de gestão (SCM) do controlo de origem.
 
-> [!NOTE] 
-> Também pode ligar para o contentor de aplicações diretamente a partir do seu computador de desenvolvimento local através de SSH, SFTP ou Visual Studio Code (para aplicações Node.js depuração em direto). Para obter mais informações, consulte [depuração remota e SSH no App Service no Linux](https://aka.ms/linux-debug).
+> [!NOTE]
+> Também pode ligar ao contentor de aplicações diretamente a partir do seu computador de desenvolvimento local através de SSH, SFTP ou do Visual Studio Code (para aplicações Node.js de depuração em direto). Para obter mais informações, veja [Depuração remota e SSH no Serviço de Aplicações no Linux](https://aka.ms/linux-debug).
 >
 
 **Como posso criar um plano de serviço de aplicações do Linux através de um SDK ou um modelo Azure Resource Manager?**
@@ -113,7 +114,7 @@ Pode fazê-lo definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição de a
 
 **A minha contentor personalizado demora muito tempo a iniciar e, a plataforma reinicia o contentor antes de concluir a iniciar.**
 
-Pode configurar a quantidade de tempo que a plataforma aguardará antes de que reinicia o contentor. Para tal, defina o `WEBSITES_CONTAINER_START_TIME_LIMIT` definição de aplicação para o valor que pretende. O valor predefinido é 230 segundos e o valor máximo é 600 segundos.
+Pode configurar a quantidade de tempo que a plataforma aguardará antes de que reinicia o contentor. Para tal, defina o `WEBSITES_CONTAINER_START_TIME_LIMIT` definição de aplicação para o valor que pretende. O valor predefinido é 230 segundos e o valor máximo é 1800 segundos.
 
 **O que é o formato para o URL do servidor de registo privada?**
 

@@ -1,24 +1,19 @@
 ---
-title: Cópia de segurança do Azure - cópia de segurança Offline ou propagação inicial através do serviço de importação/exportação do Azure | Microsoft Docs
+title: Cópia de segurança do Azure - cópia de segurança Offline ou propagação inicial através do serviço do Azure para importar/exportar
 description: Saiba como a cópia de segurança do Azure permite-lhe enviar dados fora da rede utilizando o serviço importar/exportar do Azure. Este artigo explica a propagação offline dos dados de cópia de segurança iniciais, ao utilizar o serviço de exportação de importação do Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606142"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 Cópia de segurança do Azure tem vários resulta numa eficiência incorporada que reduzir os custos de armazenamento e de rede durante as cópias de segurança completas iniciais dos dados no Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e necessitam de mais largura de banda quando comparado com as cópias de segurança subsequentes transferir apenas as diferenças/incrementais. Durante o processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -67,7 +62,7 @@ Antes de iniciar o fluxo de trabalho de cópia de segurança Offline, conclua os
     4. Na lista de fornecedores de deslocamento para baixo para Microsoft.ImportExport. Se o estado é NotRegistered, clique em **registar**.
     ![registar o fornecedor de recursos](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Uma localização de transição, que pode ser uma partilha de rede ou de qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para conter a cópia inicial, é criada. Por exemplo, se estiver a tentar fazer uma cópia de segurança de um servidor de ficheiros de 500 GB, certifique-se de que a área de transição é pelo menos de 500 GB. (Uma quantidade menor é utilizada devido a compressão.)
-* Quando enviar discos para o Azure, utilize apenas polegada 2,5 SSD ou 2.5 polegadas ou 3.5 polegadas SATA II/III interno unidades de disco rígido. Pode utilizar unidades de disco rígido até 10 TB. Verifique o [documentação do serviço do Azure para importar/exportar](../storage/common/storage-import-export-service.md#hard-disk-drives) para o conjunto de discos com o serviço suporta mais recente.
+* Quando enviar discos para o Azure, utilize apenas polegada 2,5 SSD ou 2.5 polegadas ou 3.5 polegadas SATA II/III interno unidades de disco rígido. Pode utilizar unidades de disco rígido até 10 TB. Verifique o [documentação do serviço do Azure para importar/exportar](../storage/common/storage-import-export-requirements.md#supported-hardware) para o conjunto de discos com o serviço suporta mais recente.
 * As unidades SATA tem de estar ligadas a um computador (referido como um *computador cópia*) a partir de onde a cópia dos dados de cópia de segurança do *localização de transição* para o SATA unidades é efetuada. Certifique-se de que o Bitlocker está ativado no *computador cópia*.
 
 ## <a name="workflow"></a>Fluxo de trabalho

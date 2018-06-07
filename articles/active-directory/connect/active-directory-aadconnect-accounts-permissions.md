@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bde8e68eeb63e76a0dde40a09eededde8a545a83
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595092"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Do Azure AD Connect: Contas e permissões
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -146,7 +148,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL Server remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
+| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

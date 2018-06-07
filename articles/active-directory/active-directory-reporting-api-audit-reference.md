@@ -3,7 +3,7 @@ title: Auditoria de Active Directory do Azure referência da API | Microsoft Doc
 description: Como começar com a API de auditoria do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/08/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e620a7f488e51a60bff6943135831eea0d12816d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 44bad584bec6f9dc39ea2f7ed982396819aea90c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588452"
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Auditoria de Active Directory referência da API do Azure
 

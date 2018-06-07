@@ -16,11 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588867"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir token durações para todas as aplicações na sua organização, para uma aplicação de (multi organização) de multi-inquilino ou para um principal de serviço específicos na sua organização.
@@ -278,7 +279,7 @@ Neste exemplo, criar uma política que requer que os utilizadores autentiquem co
 
 2.  Atribua a política para o principal de serviço. Também tem de obter o **ObjectId** do seu principal de serviço. 
 
-    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar o resultado no [Explorador do Azure AD Graph](https://graphexplorer.cloudapp.net/)e o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) utilizando a sua conta do Azure AD.
+    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar o resultado no [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/)e o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) utilizando a sua conta do Azure AD.
 
     2.  Se tiver o **ObjectId** do seu principal de serviço, execute o seguinte comando:
 

@@ -1,24 +1,26 @@
 ---
-title: "Serviços de domínio do Azure AD - Verifique o estado de funcionamento do seu domínio gerido | Microsoft Docs"
-description: "Verifique o estado de funcionamento do seu domínio gerido utilizando a página de estado de funcionamento no portal do Azure."
+title: Serviços de domínio do Azure AD - Verifique o estado de funcionamento do seu domínio gerido | Microsoft Docs
+description: Verifique o estado de funcionamento do seu domínio gerido utilizando a página de estado de funcionamento no portal do Azure.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9421ace7abf1f3d45b1f8cd810067d79faa92ec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5be6a2c36dfec8c8543f6dcfe252ce01b4c28e50
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587243"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido dos serviços de domínio do Azure AD
 
@@ -41,7 +43,7 @@ O estado na parte superior direita do Estado de funcionamento da sua página ind
 
 | Estado | Ícone | Explicação |
 | --- | :----: | --- |
-| Em Execução | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticas ou de aviso. Este domínio poderão ter alertas informativos. |
+| A executar | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticas ou de aviso. Este domínio poderão ter alertas informativos. |
 | Necessita de atenção (aviso) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Existem não existem alertas críticos no seu domínio gerido, mas existem um ou mais alertas de aviso que precisam de ser corrigidos. |
 | Necessita de atenção (crítico) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Existem um ou mais alertas críticos no seu domínio gerido. Também poderá ter alertas de aviso e/ou informativas. |
 | A implementar | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | O domínio está a ser implementado. |

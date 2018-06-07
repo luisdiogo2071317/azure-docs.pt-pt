@@ -4,7 +4,7 @@ description: Orientações passo a passo sobre como implementar o loggregator nu
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609006"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle de análise de registos do Azure para a monitorização de sistema de nuvem Foundry
 
@@ -55,9 +56,9 @@ Antes de configurar o cliente de linha de comandos UAA, certifique-se de que o R
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar uma área de trabalho de análise de registos no Azure
 
-Pode criar a área de trabalho de análise de registos manualmente ou utilizando um modelo. Carregar a alertas e vistas OMS previamente configuradas depois de concluir a implementação de Nozzle.
+Pode criar a área de trabalho de análise de registos manualmente ou utilizando um modelo. O modelo irá implementar uma configuração de pré-configuradas vistas de OMS KPI e alertas para a consola do OMS. 
 
-Para criar manualmente a área de trabalho:
+#### <a name="to-create-the-workspace-manually"></a>Para criar manualmente a área de trabalho:
 
 1. No portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione de análise de registos.
 2. Selecione **criar**e, em seguida, selecione as opções para os seguintes itens:
@@ -70,7 +71,22 @@ Para criar manualmente a área de trabalho:
 
 Para obter mais informações, consulte [introdução à análise de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Em alternativa, pode criar uma área de trabalho de análise de registos através do modelo do OMS. Com este método, o modelo é carregado previamente configuradas vistas do OMS e alertas automaticamente. Para obter mais informações, consulte o [solução de análise de registos do Azure para a nuvem Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Para criar a área de trabalho do OMS através do modelo de monitorização do OMS do Azure Marketplace:
+
+1. Abra o portal do Azure.
+2. Clique em início de sessão "+" ou "Criar um recurso" no canto superior esquerdo.
+3. Escreva "Nuvem Foundry" na janela pesquisa, selecione "OMS nuvem Foundry solução de monitorização".
+4. O Foundry de nuvem do OMS monitorização solução modelo página estiver carregada, clique em "Criar" para iniciar o painel de modelo.
+5. Introduza os parâmetros necessários:
+    * **Subscrição**: selecione uma subscrição do Azure para a área de trabalho do OMS, normalmente, os mesmos com a implementação de nuvem Foundry.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para a área de trabalho do OMS.
+    * **Localização do grupo de recursos**: selecione a localização do grupo de recursos.
+    * **OMS_Workspace_Name**: introduza um nome de área de trabalho, se não existir uma área de trabalho, o modelo irá criar um novo.
+    * **OMS_Workspace_Region**: selecione a localização para a área de trabalho.
+    * **OMS_Workspace_Pricing_Tier**: selecione a área de trabalho do OMS SKU. Consulte o [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: termos legais clique, em seguida, clique em "Criar" para aceitar o termo legal.
+- Depois de todos os parâmetros são especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
+
 
 ## <a name="deploy-the-nozzle"></a>Implementar o Nozzle
 
@@ -78,9 +94,9 @@ Existem duas formas diferentes de implementar o Nozzle: como um mosaico PCF ou c
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Implementar o Nozzle como um mosaico PCF Ops Manager
 
-Se tiver implementado PCF utilizando o Gestor de operações, siga os passos para [instalar e configurar o Nozzle para PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). O Nozzle é instalado como um mosaico com o Gestor de operações.
+Siga os passos para [instalar e configurar o Nozzle de análise do registo do Azure para PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Esta é a abordagem simplificada, o mosaico do Gestor de PCF Ops irá configurar e push o nozzle automaticamente. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Implementar o Nozzle como uma aplicação de CF
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Implementar o Nozzle manualmente como uma aplicação de CF
 
 Se não estiver a utilizar o Gestor de Ops PCF, implemente o Nozzle como uma aplicação. As secções seguintes descrevem este processo.
 
@@ -163,6 +179,10 @@ Certifique-se que a aplicação da OMS Nozzle está em execução.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Ver os dados no portal do OMS
 
+Se tiver implementado o OMS solução através de monitorização o modelo de Marketplace, aceda ao portal do Azure e localizados a solução do OMS. Pode encontrar a solução no grupo de recursos que especificou no modelo. Clique na solução, procure "Console OMS", as vistas pré-configuradas estiver listadas, com os KPIs de sistema de nuvem Foundry superiores, os dados de aplicação, alertas e métricas de estado de funcionamento da VM. 
+
+Se tiver criado a área de trabalho do OMS manualmente, siga os passos abaixo para criar as vistas e alertas:
+
 ### <a name="1-import-the-oms-view"></a>1. Importar a vista do OMS
 
 No portal do OMS, navegue até à **estruturador de vistas** > **importação** > **procurar**e selecione um dos ficheiros omsview. Por exemplo, seleccione *nuvem Foundry.omsview*e guarde a vista. Agora é apresentado um mosaico no **descrição geral** página. Selecione para ver as métricas visualizadas.
@@ -181,7 +201,7 @@ Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analy
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para Diego células, 0 significa bom estado de funcionamento e 1 significa mau estado de funcionamento. Defina o alerta se forem detetadas várias células Diego mau estado de funcionamento na janela de tempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Número de resultados > 0 | 1 significa que o sistema está em bom estado, e 0 significa que o sistema não está em bom estado. |
 | Tipo = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Número de resultados > 0   | Consul emite periodicamente o estado de funcionamento. 0 significa que o sistema está em bom estado e 1 significa que o emitter rota Deteta que Consul está desativado. |
-| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | O número de diferenças de mensagens, ignorada intencionalmente pelo Doppler devido a pressão de back. |
+| Tipo = CF_CounterEvent_CL Origin_s = Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" ou Name_s="doppler.shedEnvelopes)" > 0 | Número de resultados > 0 | O número de diferenças de mensagens, ignorada intencionalmente pelo Doppler devido a pressão de back. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite **LGR** para indicar problemas com o processo de registo. Um exemplo deste tipo um problema é quando o resultado de mensagem do registo é demasiado elevado. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumidor lenta de loggregator, envia o **slowConsumerAlert** ValueMetric à análise de registos. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número de diferenças de perder eventos atingir um limiar, significa que o Nozzle pode ter um problema ao executar. |
@@ -226,6 +246,6 @@ Azure Nozzle de análise do registo é abrir sourced. Envie as perguntas e comen
 
 ## <a name="next-step"></a>Passo seguinte
 
-Além das métricas de nuvem Foundry abrangidas o Nozzle, pode utilizar o agente do OMS para obter informações acerca de dados operacionais ao nível da VM (por exemplo, Syslog, desempenho, alertas, inventário). O agente do OMS é instalado como um suplemento de Bosh para as suas VMs CF.
+A partir de PCF2.0, métricas de desempenho da VM são transferidas para nozzle de análise de registos do Azure, o reencaminhador de métricas de sistema e integradas na área de trabalho OMS. Já não tem o agente do OMS para as métricas de desempenho de VM. No entanto pode continuar a utilizar o agente do OMS para recolher informações do Syslog. O agente do OMS é instalado como um suplemento de Bosh para as suas VMs CF. 
 
 Para obter mais informações, consulte [agente do OMS implementar para a implementação de nuvem Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

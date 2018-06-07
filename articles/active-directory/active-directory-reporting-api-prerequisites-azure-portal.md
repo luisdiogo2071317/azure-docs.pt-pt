@@ -3,7 +3,7 @@ title: Pré-requisitos para aceder ao Azure Active Directory reporting API | Mic
 description: Saiba mais sobre os pré-requisitos para o Azure AD API do relatório de acesso
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a38447150dd283ff21a852690cfd48477472f7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588765"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Azure Active Directory API do relatório
 
-O [do Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornecer-lhe acesso programático para os dados através de um conjunto de APIs baseado em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
+As [APIs de relatórios Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
 A Reporting Services utiliza API [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso a web APIs.
 
@@ -156,7 +158,7 @@ A secção seguinte apresenta os passos para ambas as APIs. Se não quiser acede
 Esta secção mostra como obter as seguintes definições do diretório:
 
 - Nome de domínio
-- ID do Cliente
+- ID de Cliente
 - Segredo do cliente
 
 Necessitar destes valores quando configurar chamadas à API do Reporting Services. 
@@ -230,7 +232,7 @@ Para obter o segredo do cliente da sua aplicação, terá de criar uma nova chav
 
 - [Obter dados com o Azure Active Directory API do relatório com certificados](active-directory-reporting-api-with-certificates.md).
 
-- [Obter uma primeira impressão das APIs Reporting Services](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+- [Obter uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 
-- [Crie a sua própria solução](active-directory-reporting-api-getting-started-azure-portal.md#customize)
+- [Criar a sua própria solução](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

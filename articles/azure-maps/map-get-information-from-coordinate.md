@@ -1,22 +1,20 @@
 ---
 title: Apresentam informações sobre uma coordenada com o Azure Maps | Microsoft Docs
 description: Como visualizar informações sobre um endereço no mapa quando um utilizador seleccionar uma coordenada
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: bb8644724cc872a0a8bc331e76251218492fd93d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3caae47f7f8f5f9c917e3a59513e6cd33cdcaeae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600498"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações a partir de uma coordenada
 
@@ -45,3 +43,7 @@ Saiba mais sobre as classes e os métodos utilizados neste artigo:
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [Abrir](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [Fechar](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+Para obter mais exemplos de código adicionar ao seu maps, consulte os artigos seguintes: 
+* [Mostrar as direções da para B](./map-route.md)
+* [Mostrar tráfego](./map-show-traffic.md)

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7003e68fcbceb4e45477f4f13dfa75b920405ace
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617659"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados de nuvem de SAP para o cliente (C4C) utilizando o Azure Data Factory
 
@@ -208,11 +209,11 @@ Ao copiar dados de nuvem do SAP para o cliente, são utilizados os seguintes map
 | Tipo de dados de OData do SAP C4C | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | Duplo |
+| Edm.Double | duplo |
 | Edm.Single | Único |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

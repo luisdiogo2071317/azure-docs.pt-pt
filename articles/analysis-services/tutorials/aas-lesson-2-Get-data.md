@@ -3,16 +3,17 @@ title: 'Lição 2 do tutorial do Azure Analysis Services: Obter dados | Microsof
 description: Descreve como obter e importar dados no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: be3368b5207669d7cc5b03e7eeb6953b757c786d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d66b3f303ab4e19ee645be8768512a451454769b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596979"
 ---
 # <a name="get-data"></a>Obter dados
 
@@ -81,7 +82,7 @@ AS tabelas na base de dados de exemplo AdventureWorksDW2014 possuem dados que é
     
     **DimDate**
     
-      |colunas|  
+      |Coluna|  
       |--------|  
       |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
@@ -91,7 +92,7 @@ AS tabelas na base de dados de exemplo AdventureWorksDW2014 possuem dados que é
   
     **DimGeography**
   
-      |colunas|  
+      |Coluna|  
       |-------------|  
       |**SpanishCountryRegionName**|  
       |**FrenchCountryRegionName**|  
@@ -99,7 +100,7 @@ AS tabelas na base de dados de exemplo AdventureWorksDW2014 possuem dados que é
   
     **DimProduct**
   
-      |colunas|  
+      |Coluna|  
       |-----------|  
       |**SpanishProductName**|  
       |**FrenchProductName**|  
@@ -114,14 +115,14 @@ AS tabelas na base de dados de exemplo AdventureWorksDW2014 possuem dados que é
   
     **DimProductCategory**
   
-      |colunas|  
+      |Coluna|  
       |--------------------|  
       |**SpanishProductCategoryName**|  
       |**FrenchProductCategoryName**|  
   
     **DimProductSubcategory**
   
-      |colunas|  
+      |Coluna|  
       |-----------------------|  
       |**SpanishProductSubcategoryName**|  
       |**FrenchProductSubcategoryName**|  
@@ -149,7 +150,7 @@ Agora que pré-visualizou e filtrou os dados desnecessários, pode importar os r
   
 -   Clique em **Ficheiro** > **Guardar tudo**.  
   
-## <a name="whats-next"></a>O que se segue?
+## <a name="whats-next"></a>Passos seguintes?
 [Lição 3: Marcar como tabela de datas](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   

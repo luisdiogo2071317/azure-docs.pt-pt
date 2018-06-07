@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603733"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
@@ -113,7 +114,7 @@ Se pretender executar uma implementação, mas não utilizar qualquer um dos mod
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Implementar recursos a partir de um modelo guardadas na sua conta
 
-O portal permite-lhe guardar um modelo para a sua conta do Azure e volte a implementá-la mais tarde. Para obter mais informações sobre como trabalhar com estes guardar modelos, [introdução ao modelos privados no portal do Azure](../marketplace-consumer/mytemplates-getstarted.md).
+O portal permite-lhe guardar um modelo para a sua conta do Azure e volte a implementá-la mais tarde. Para obter mais informações sobre modelos, consulte [criar e implementar o modelo Azure Resource Manager primeiro](resource-manager-create-first-template.md).
 
 1. Para localizar os modelos guardados, selecione **mais serviços**.
 
@@ -135,4 +136,4 @@ O portal permite-lhe guardar um modelo para a sua conta do Azure e volte a imple
 * Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
 * Para resolver erros de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para obter um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelo de exportar o Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

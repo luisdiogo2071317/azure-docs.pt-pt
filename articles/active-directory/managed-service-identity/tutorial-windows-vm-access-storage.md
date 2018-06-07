@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594786"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade de serviço geridas do Windows VM para aceder ao armazenamento do Azure através de chave de acesso
 
@@ -195,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="related-content"></a>Conteúdo relacionado
+Neste tutorial, aprendeu a criar uma identidade de serviço gerida para aceder ao armazenamento do Azure com uma chave de acesso.  Para obter mais informações sobre chaves de acesso de armazenamento do Azure, consulte:
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](overview.md).
-- Para saber como fazê-lo este mesmo tutorial, utilizando um credencial SAS do armazenamento, consulte [utilizar uma identidade de serviço geridas do Windows VM para aceder ao armazenamento do Azure através de uma credencial SAS](tutorial-windows-vm-access-storage-sas.md)
-- Para obter mais informações sobre a funcionalidade SAS de conta do Storage do Azure, consulte:
-  - [Utilizar assinaturas de acesso partilhado (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construir um serviço SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo
-
+> [!div class="nextstepaction"]
+>[Gerir as chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

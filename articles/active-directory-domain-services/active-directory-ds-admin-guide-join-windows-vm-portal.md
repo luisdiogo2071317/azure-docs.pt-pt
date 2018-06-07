@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Associar a VM do Windows Server a um domínio gerido | Microsoft Docs"
-description: "Associar uma máquina virtual do Windows para o Azure AD DS"
+title: 'Azure Active Directory dos serviços de domínio: Associar a VM do Windows Server a um domínio gerido | Microsoft Docs'
+description: Associar uma máquina virtual do Windows para o Azure AD DS
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586958"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows utilizando o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).
@@ -103,7 +105,7 @@ Para associar a máquina virtual do Windows Server ao domínio do Azure AD DS-ge
 
 7. Pode especificar credenciais em qualquer uma das seguintes formas:
 
-   * **Formato UPN**: Especifique (recomendado) sufixo de nome principal de utilizador (UPN) para a conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *Bernardo* é  *bob@domainservicespreview.onmicrosoft.com* .
+   * **Formato UPN**: Especifique (recomendado) sufixo de nome principal de utilizador (UPN) para a conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *Bernardo* é *bob@domainservicespreview.onmicrosoft.com*.
 
    * **Formato de SAMAccountName**: pode especificar o nome de conta no formato SAMAccountName. Neste exemplo, o utilizador *Bernardo* tem de introduzir *CONTOSO100\bob*.
 
@@ -142,7 +144,7 @@ Se tiver problemas com as credenciais e não conseguir aderir ao domínio, exper
 
 * Certifique-se de que tem [ativada a sincronização de palavra-passe](active-directory-ds-getting-started-password-sync.md) em conformidade com os passos descritos no guia de introdução ao obter.
 
-* Certifique-se de que utiliza o UPN do utilizador conforme configurado no Azure AD (por exemplo,  *bob@domainservicespreview.onmicrosoft.com* ) para iniciar sessão.
+* Certifique-se de que utiliza o UPN do utilizador conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sessão.
 
 * Certifique-se de que tem aguardaram suficientemente longa para a sincronização de palavra-passe ser concluída, conforme especificado no guia de introdução.
 

@@ -1,24 +1,21 @@
 ---
-title: Analisar os registos de Web site utilizando o Azure Data Lake Analytics | Microsoft Docs
-description: 'Saiba como analisar os registos de Web site com o Data Lake Analytics. '
+title: Analisar registos de sites com o Azure Data Lake Analytics
+description: Saiba como analisar os registos de Web site com o Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623371"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar os registos de Web site utilizando o Data Lake Analytics, especialmente em localizar saída que referrers Ocorreu erros quando tentou visitar o Web site.
@@ -172,7 +169,7 @@ Pode adicionar operadores definido pelo utilizador de adição para a aplicaçã
 3. Faça duplo clique em **UnsuccessfulResponsees.log**.
 4. Pode também fazer duplo clique no ficheiro de saída dentro da vista do gráfico da tarefa para navegar diretamente para a saída.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para iniciar o Data Lake Analytics com ferramentas diferentes, veja:
 
 * [Introdução ao Data Lake Analytics com o Portal do Azure](data-lake-analytics-get-started-portal.md)

@@ -1,25 +1,20 @@
 ---
-title: Utilizar o DPM para cópia de segurança de cargas de trabalho para o portal do Azure | Microsoft Docs
+title: Utilizar o DPM para cópia de segurança de cargas de trabalho para o portal do Azure
 description: Uma introdução à cópia de segurança de servidores do DPM utilizando o serviço de cópia de segurança do Azure
 services: backup
-documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: ''
 keywords: System Center Data Protection Manager, o data protection manager, a cópia de segurança do dpm
-ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/15/2017
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: adigan
+ms.openlocfilehash: ffb3a5a5729e97e1a9b00072624d7e51842f61f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605054"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparar a criação de cópias de segurança de cargas de trabalho para o Azure com o DPM
 > [!div class="op_single_selector"]

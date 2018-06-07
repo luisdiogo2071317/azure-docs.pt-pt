@@ -1,25 +1,20 @@
 ---
-title: "Configurar relatórios para cópia de segurança do Azure"
-description: "Este artigo aborda configurar relatórios do Power BI para a cópia de segurança do Azure com o Cofre de serviços de recuperação."
+title: Configurar relatórios para cópia de segurança do Azure
+description: Este artigo aborda configurar relatórios do Power BI para a cópia de segurança do Azure com o Cofre de serviços de recuperação.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605234"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo aborda os passos para configurar os relatórios para cópia de segurança do Azure com o Cofre de serviços de recuperação e para aceder a estes relatórios através do Power BI. Depois de efetuar estes passos, pode ir diretamente para o Power BI para ver todos os relatórios, personalizar e criar relatórios. 
@@ -147,7 +142,7 @@ Depois de configurar a conta de armazenamento para os relatórios com o Cofre de
 
    Sim, pode configurar a mesma conta de armazenamento entre vários cofres para ver relatórios de cofre cruzada. Além disso, pode configurar a mesma conta de armazenamento para cofres nas subscrições. Em seguida, pode utilizar esta conta de armazenamento ao ligar ao pacote de conteúdos de cópia de segurança do Azure no Power BI para ver os relatórios. No entanto, a conta de armazenamento selecionada deve ser na mesma região que o Cofre de serviços de recuperação.
    
-## <a name="troubleshooting-errors"></a>Resolução de problemas de erros
+## <a name="troubleshooting-errors"></a>Resolução de erros
 | Detalhes do erro | Resolução |
 | --- | --- |
 | Depois de configurar a conta de armazenamento para os relatórios de cópia de segurança, **conta de armazenamento** continua a mostrar **não configurado**. | Se tiver configurado a conta de armazenamento com êxito, os dados de relatórios irão fluir no, apesar deste problema. Para resolver este problema, aceda ao portal do Azure > todos os serviços > definições de diagnóstico > RS cofre > Editar definição. Elimine a definição configurada anteriormente e criar uma nova definição a partir do mesmo painel. Este tempo, defina o campo **nome** para **serviço**. Isto deve mostrar a conta de armazenamento configurados. |

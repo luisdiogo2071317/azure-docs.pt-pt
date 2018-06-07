@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b97fdea36eab914926ff91e1f27bdab0fb8a3930
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603201"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Implementar o modelo do Resource Manager privada com o SAS token e o CLI do Azure
 
@@ -88,4 +89,3 @@ Para obter um exemplo de utilização de um token SAS com modelos ligados, consu
 * Para uma introdução à implementação de modelos, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy-cli.md).
 * Para um script de exemplo completo que implementa um modelo, consulte [script de modelo de implementação Resource Manager](resource-manager-samples-cli-deploy.md)
 * Para definir os parâmetros de modelo, consulte o artigo [criação de modelos](resource-group-authoring-templates.md#parameters).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).

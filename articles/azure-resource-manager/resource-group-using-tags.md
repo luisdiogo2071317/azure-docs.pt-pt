@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602929"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -135,6 +136,10 @@ if ($group.Tags -ne $null) {
                 }
             }
             Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -271,4 +276,4 @@ Quando transferir a utilização de CSV para serviços que suportam etiquetas co
 * Para uma introdução ao utilizar o Azure PowerShell quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para uma introdução ao utilizar a CLI do Azure quando estiver a implementar recursos, consulte [utilizando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

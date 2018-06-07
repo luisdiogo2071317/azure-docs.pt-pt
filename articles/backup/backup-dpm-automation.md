@@ -1,24 +1,19 @@
 ---
-title: Cópia de segurança do Azure - utilize o PowerShell para efetuar cópias de segurança de cargas de trabalho do DPM | Microsoft Docs
+title: Cópia de segurança do Azure - utilize o PowerShell para efetuar cópias de segurança de cargas de trabalho do DPM
 description: Saiba como implementar e gerir a cópia de segurança do Azure para o Data Protection Manager (DPM) com o PowerShell
 services: backup
-documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: ''
-ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: adigan
+ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606924"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 Este artigo mostra como utilizar o PowerShell para a configuração de cópia de segurança do Azure num servidor DPM e para gerir a cópia de segurança e recuperação.
@@ -80,7 +75,7 @@ Os seguintes passos encaminharem através da criação de um cofre dos serviços
 4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [localmente redundante armazenamento (LRS)](../storage/common/storage-redundancy-lrs.md) ou [Georreplicação redundante armazenamento (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testVault está definida como GeoRedundant.
 
    > [!TIP]
-   > Cmdlets de cópia de segurança do Azure muitos requerem o objeto de cofre dos serviços de recuperação como entrada. Por este motivo, é conveniente armazenar o objeto de cofre dos serviços de recuperação de cópia de segurança numa variável.
+   > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
    >
    >
 
@@ -140,8 +135,8 @@ As opções disponíveis incluem:
 | /d |Desinstala o agente do Microsoft Azure Recovery Services |- |
 | / pH |Endereço do anfitrião proxy |- |
 | /po |Número de porta de anfitrião do proxy |- |
-| /pu |Proxy Host UserName |- |
-| /pw |Palavra-passe do proxy |- |
+| /Pu |O nome de utilizador do proxy anfitrião |- |
+| /PW |Palavra-passe do proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Ao registar o DPM para uma recuperação cofre dos serviços
 Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais recente e as credenciais do cofre e armazene-o numa localização conveniente como C:\Downloads.

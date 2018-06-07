@@ -3,16 +3,17 @@ title: Instalar o gateway de dados no local | Microsoft Docs
 description: Saiba como instalar e configurar um gateway de dados no local.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9681d4895de4b5c5c5488fffa85a3314532b41a3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598196"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 Um gateway de dados no local é necessário quando um ou mais servidores do Azure Analysis Services na mesma região ligarem a origens de dados no local. Para saber mais sobre o gateway, consulte [gateway de dados no local](analysis-services-gateway.md).
@@ -53,7 +54,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 
 3. Inicie sessão no Azure. A conta tem de ser do Azure Active Directory seu inquilino. Esta conta é utilizada para o administrador do gateway. Azure B2B contas (convidado) não são suportadas quando instalar e registar o gateway.
 
-   ![Inicie sessão no  Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Iniciar sessão no Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
    > Se iniciar sessão com uma conta de domínio, está mapeada para a sua conta organizacional no Azure AD. A conta institucional é utilizada como o administrador do gateway.

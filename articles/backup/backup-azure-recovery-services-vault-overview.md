@@ -1,23 +1,19 @@
 ---
-title: Descrição geral dos serviços de recuperação cofres dos | Microsoft Docs
+title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma descrição geral e uma comparação entre os cofres dos serviços de recuperação e cofres de cópia de segurança do Azure.
 services: backup
-documentationcenter: " "
 author: markgalioto
 manager: carmonm
-ms.assetid: 38d4078b-ebc8-41ff-9bc8-47acf256dc80
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 10/15/2017
-ms.author: markgal;arunak;sogup
-ms.openlocfilehash: 12ecc7ab33dba2f4f9842a4fbd6491400024a4e5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: markgal
+ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606176"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral de cofres de serviços de recuperação
 

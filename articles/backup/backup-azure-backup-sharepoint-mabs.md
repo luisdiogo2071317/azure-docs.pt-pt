@@ -1,24 +1,19 @@
 ---
-title: "Utilizar o servidor de cópia de segurança do Azure para cópia de segurança de um farm do SharePoint para o Azure | Microsoft Docs"
-description: "Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança e restaurar os dados do SharePoint. Este artigo fornece as informações para configurar o farm do SharePoint para que os dados pretendido podem ser armazenados no Azure. Pode restaurar dados de SharePoint protegidos do disco ou a partir do Azure."
+title: Utilizar o servidor de cópia de segurança do Azure para cópia de segurança de um farm do SharePoint para o Azure
+description: Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança e restaurar os dados do SharePoint. Este artigo fornece as informações para configurar o farm do SharePoint para que os dados pretendido podem ser armazenados no Azure. Pode restaurar dados de SharePoint protegidos do disco ou a partir do Azure.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: 34ba87a4-91f1-4054-a4a1-272af1e15496
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 3ed000affd326eb1bd7c99773ec021ad6e03cc3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606057"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 A cópia de segurança um farm do SharePoint para o Microsoft Azure utilizando o servidor de cópia de segurança do Azure (MABS) da Microsoft muito da mesma forma que a cópia de segurança de outras origens de dados. Cópia de segurança do Azure oferece flexibilidade na agenda de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Também fornece a capacidade para armazenar cópias de disco local para rápido objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para a retenção de longo prazo, económica.
@@ -229,12 +224,12 @@ No exemplo seguinte, o *SharePoint recuperar item* foi eliminado acidentalmente 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste momento, siga o [passos de recuperação anteriores no artigo](#restore-a-sharepoint-item-from-disk-using-dpm) para recuperar uma base de dados de conteúdo SharePoint a partir do disco.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 P: posso recuperar um item do SharePoint para a localização original se SharePoint estiver configurado utilizando o SQL Server AlwaysOn (com a proteção no disco)?<br>
 R: Sim, o item pode ser recuperado para o site do SharePoint original.
 
 P: posso recuperar uma base de dados do SharePoint para a localização original se SharePoint estiver configurado utilizando o SQL Server AlwaysOn?<br>
 R: porque as bases de dados do SharePoint são configuradas no SQL Server AlwaysOn, não pode ser modificados a menos que o grupo de disponibilidade é removido. Como resultado, MABS não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre MABS proteção do SharePoint - consulte [vídeo série - DPM proteção do SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

@@ -7,28 +7,29 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
-ms.openlocfilehash: b2f87c965a7c69614d476f0d931802587f0f1297
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 18276b5706caad854c0160044b7e0efff10bc280
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616173"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 - GA](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versão 2 - Pré-visualização](connector-amazon-simple-storage-service.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados para e do armazenamento de Blobs do Azure. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Amazon S3. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [Amazon S3 connnector no V1](v1/data-factory-amazon-simple-storage-service-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para o Azure Data Lake Store ou copiar dados do Azure Data Lake Store para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados Amazon S3 para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como-está ou analisar ficheiros com o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
 
@@ -162,7 +163,7 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dado
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pelo Azure Data Lake origem e dependente.
+Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Amazon S3.
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 como origem
 

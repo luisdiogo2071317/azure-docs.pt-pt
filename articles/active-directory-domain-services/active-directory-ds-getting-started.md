@@ -1,32 +1,44 @@
 ---
-title: "Serviços de domínio do Azure Active Directory: Introdução | Microsoft Docs"
+title: 'Serviços de domínio do Azure Active Directory: Introdução | Microsoft Docs'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ab2897eefd1c394ba0b10ba6fce3e11af4a0b2a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587965"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como ativar o Azure Active Directory Domain Services (Azure AD DS) no portal do Azure.
 
+## <a name="before-you-begin"></a>Antes de começar
+Para concluir as tarefas apresentadas neste artigo, tem de:
+
+* Um **subscrição do Azure**.
+* Um **diretório do Azure AD** -está sincronizada com um diretório no local ou um diretório apenas na nuvem.
+* O **subscrição do Azure tem de ser associada com o diretório do Azure AD**.
+* Terá de **administrador global** privilégios no diretório do Azure AD para ativar os serviços de domínio do Azure AD.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Ativar o Azure AD Domain Services
 Para iniciar o **serviços de domínio do AD de Azure ativar** assistente, execute os seguintes passos:
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
-2. No painel esquerdo, clique em **crie um recurso**.
+2. No painel esquerdo, clique em **Criar um recurso**.
 3. No **novo** , escreva **dos serviços de domínio** na barra de procura.
 
     ![Pesquisa para serviços de domínio](./media/getting-started/search-domain-services.png)
@@ -39,7 +51,7 @@ Para iniciar o **serviços de domínio do AD de Azure ativar** assistente, execu
 
 
 ## <a name="task-1-configure-basic-settings"></a>Tarefa 1: configurar as definições básicas
-No **Noções básicas** página do assistente, pode especificar o nome de domínio DNS para o domínio gerido. Também pode escolher o grupo de recursos e a localização do Azure para o qual deve ser implementado domínio gerido.
+No **Noções básicas** página do assistente, especifique o nome de domínio DNS para o domínio gerido. Também pode escolher o grupo de recursos e a localização do Azure para o qual deve ser implementado domínio gerido.
 
 ![Configurar as noções básicas](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +71,11 @@ No **Noções básicas** página do assistente, pode especificar o nome de domí
 
 2. Selecione o Azure **subscrição** na qual gostaria de criar o domínio gerido.
 
-3. Selecione o **grupo de recursos** que deve pertencer ao domínio gerido. Pode escolher uma o **criar nova** ou **utilizar existente** opções para selecionar o grupo de recursos.
+3. Selecione o **grupo de recursos** que deve pertencer ao domínio gerido. Escolha o o **criar nova** ou **utilizar existente** opções para selecionar o grupo de recursos.
 
 4. Escolha o Azure **localização** no qual deverá ser criado um domínio gerido. No **rede** página do assistente, pode ver redes apenas virtuais que pertencem a localização que selecionou.
 
-5. Quando tiver terminado, clique em **OK** mover para o **rede** página do assistente.
+5. Clique em **OK** mover para o **rede** página do assistente.
 
 
 ## <a name="next-step"></a>Passo seguinte

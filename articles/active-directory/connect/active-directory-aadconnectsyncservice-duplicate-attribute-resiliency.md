@@ -1,11 +1,11 @@
 ---
-title: "Resiliência de atributo de sincronização e duplicado identidade | Microsoft Docs"
-description: "Novo comportamento como lidar com objetos com conflitos UPN ou /proxyaddress durante a sincronização de diretórios através do Azure AD Connect."
+title: Resiliência de atributo de sincronização e duplicado identidade | Microsoft Docs
+description: Novo comportamento como lidar com objetos com conflitos UPN ou /proxyaddress durante a sincronização de diretórios através do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cfed9d32e919cc3c1b7b9c2a6ea5ddb31f2a8fb9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593213"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Resiliência de atributo duplicados é uma funcionalidade do Azure Active Directory irá eliminar friction causado por **UserPrincipalName** e **/proxyaddress** está em conflito ao executar uma das ferramentas de sincronização da Microsoft.
@@ -141,9 +143,9 @@ Nenhum destes problemas conhecidos faz com que degradação de serviço ou perda
 1. Objetos com configurações de atributo específico continuam a receber erros de exportação, por oposição os atributos duplicados que está a ser colocados em quarentena.  
    Por exemplo:
    
-    a. Novo utilizador é criado no AD com um UPN de  **Joe@contoso.com**  e /proxyaddress**smtp:Joe@contoso.com**
+    a. Novo utilizador é criado no AD com um UPN de **Joe@contoso.com** e /proxyaddress **smtp:Joe@contoso.com**
    
-    b. As propriedades deste objeto estão em conflito com um grupo existente, onde é /proxyaddress  **SMTP:Joe@contoso.com** .
+    b. As propriedades deste objeto estão em conflito com um grupo existente, onde é /proxyaddress **SMTP:Joe@contoso.com**.
    
     c. No momento da exportação, uma **/proxyaddress conflito** erro é apresentado em vez de ter os atributos de conflito colocados em quarentena. A operação é repetida após cada ciclo de sincronização, tal como faria foram antes da funcionalidade de resiliência foi ativada.
 2. Se dois grupos são criados no local com o mesmo endereço de SMTP, uma falha ao aprovisionar na primeira tentativa com um padrão duplicado **/proxyaddress** erro. No entanto, o valor duplicada corretamente foi colocado em quarentena após o próximo ciclo de sincronização.
@@ -157,16 +159,16 @@ Nenhum destes problemas conhecidos faz com que degradação de serviço ou perda
    
     b. **O utilizador B** tentou ser sincronizado a cópia de segurança seguinte com **UPN = User@contoso.com** .
    
-    c. **Utilizador do B** UPN é alterado para  **User1234@contoso.onmicrosoft.com**  e  **User@contoso.com**  é adicionado à **DirSyncProvisioningErrors**.
+    c. **Utilizador do B** UPN é alterado para **User1234@contoso.onmicrosoft.com** e **User@contoso.com** é adicionado à **DirSyncProvisioningErrors**.
    
-    d. A mensagem de erro para **User B** deve indicar que **utilizador A** já  **User@contoso.com**  como um UPN, mas mostra **User B** displayName próprio.
+    d. A mensagem de erro para **User B** deve indicar que **utilizador A** já **User@contoso.com** como um UPN, mas mostra **User B** displayName próprio.
 
 **Relatório de erros de sincronização de identidade**:
 
 A ligação para *passos sobre como resolver este problema* está incorreto:  
     ![Utilizadores ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "utilizadores ativos")  
 
-Este deve apontar para [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+Este deve apontar para [ https://aka.ms/duplicateattributeresiliency ](https://aka.ms/duplicateattributeresiliency).
 
 ## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)

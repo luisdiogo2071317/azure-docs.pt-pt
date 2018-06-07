@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ec932451d82e891b2c9b11d91f44d4dc5fce6828
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8f81e667ffd1e425527b383445f382d18233fef2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594521"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utilize um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos do Azure
 
@@ -124,11 +125,11 @@ Para concluir estes passos, terá de um cliente SSH. Se estiver a utilizar o Win
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
-     
-## <a name="related-content"></a>Conteúdo relacionado
+    ```     
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](overview.md). 
+## <a name="next-steps"></a>Passos Seguintes
 
-Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
+Neste tutorial, aprendeu a criar um utilizador atribuído a identidade e anexe-o a uma máquina de Virtual do Azure para aceder à API do Gestor de recursos do Azure.  Para obter mais informações sobre o Azure Resource Manager, consulte:
 
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

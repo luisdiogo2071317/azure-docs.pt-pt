@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594121"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure AD Node.js, introdução
 Aqui, utilizamos o Passport para:
@@ -61,6 +62,10 @@ A aplicação concluída é fornecida no final deste tutorial bem.
 
 6. Depois de registar, do Azure AD atribui a aplicação um ID de aplicação único. É necessário que este valor nas secções seguintes, por isso, copie-o partir da página da aplicação.
 7. Do **definições** -> **propriedades** página para a sua aplicação, atualize o URI de ID de aplicação. O **URI de ID de aplicação** é um identificador exclusivo para a sua aplicação. A Convenção de consiste em utilizar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+8. Para criar uma chave secreta, siga o passo 4 [adicionar credenciais de aplicação ou permissões para aceder a web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+   > [!IMPORTANT]
+   > Copie o valor de chave da aplicação. Este é o valor para o `clientSecret`, que irá precisar de **passo 3** abaixo. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>Passo 2: Adicionar pré-requisitos ao diretório
 1. Na linha de comandos, altere os diretórios para a pasta raiz se não estiver já existir, e, em seguida, execute os seguintes comandos:

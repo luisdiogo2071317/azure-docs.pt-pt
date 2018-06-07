@@ -1,24 +1,26 @@
 ---
-title: "Serviços de domínio do Azure Active Directory: Contacte-nos | Microsoft Docs"
-description: "Contacte a equipa de produto de serviços de domínio do Azure AD"
+title: 'Serviços de domínio do Azure Active Directory: Contacte-nos | Microsoft Docs'
+description: Contacte a equipa de produto de serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.openlocfilehash: c342d34c66af334bfb7cccffd2e1ee700dd46bef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec74ac2823532b6eef7bf88b4dbf21487d509217
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586992"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Serviços de domínio do Azure AD - contacte-nos
 ## <a name="contact-the-product-team"></a>Contacte a equipa de produto
@@ -31,7 +33,7 @@ Certifique-se de que inclui o seguinte, pelo que iremos pode investigar o proble
 * O **ID ou directório ID de inquilino** para o diretório do Azure AD. O ID do inquilino é o GUID que vê no campo de ID de diretório a [página de propriedades para o seu diretório](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 * O **nome de domínio DNS** que configurou para o seu domínio gerido dos serviços de domínio do AAD.
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Enviar Comentários
 Apreciamos os seus comentários sobre os serviços de domínio do Azure AD através do  **[canal do Azure Active Directory Uservoice](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Certifique-se de que a pré-pend sua pergunta ou comentários com as palavras **'AADDS'**, para o mesmo atingir-nos.

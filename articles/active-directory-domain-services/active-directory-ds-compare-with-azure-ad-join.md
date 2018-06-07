@@ -1,24 +1,26 @@
 ---
-title: "Comparar a associação do Azure AD e o Azure serviços de domínio do Active Directory | Microsoft Docs"
-description: "Decidir entre a associação do Azure AD e serviços de domínio do Azure AD"
+title: Comparar a associação do Azure AD e o Azure serviços de domínio do Active Directory | Microsoft Docs
+description: Decidir entre a associação do Azure AD e serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587867"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre a associação do Azure Active Directory e os serviços de domínio do Active Directory do Azure
 Este artigo descreve as diferenças entre a associação do Azure Active Directory (AD) e serviços de domínio do Azure AD e ajuda-o que escolher, com base nos seus casos de utilização.
@@ -57,12 +59,12 @@ Num computador associado a um domínio, a autenticação de utilizador ocorre at
 | Dispositivo controlado pelo | Azure AD | Do domínio gerido dos serviços de domínio do AD do Azure |
 | Representação no diretório | Objetos de dispositivo no diretório do Azure AD. | Objetos de computador no domínio gerido AAD DS. |
 | Autenticação | OAuth/OpenID Connect baseada em protocolos | Kerberos, protocolos NTLM |
-| Gestão | Software de gestão de dispositivos móveis (MDM) como o Intune | Política de grupo |
+| Gestão | Software de gestão de dispositivos móveis (MDM) como o Intune | Política de Grupo |
 | Redes | Funciona através da internet | Requer que as máquinas na mesma rede virtual que o domínio gerido.|
 | Ótimo para... | Dispositivos móveis ou de ambiente de trabalho de utilizador final | Máquinas virtuais de servidor implementadas no Azure |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Saiba mais sobre os serviços de domínio do Azure AD
 * [Descrição geral dos serviços de domínio do Azure AD](active-directory-ds-overview.md)
 * [Funcionalidades](active-directory-ds-features.md)

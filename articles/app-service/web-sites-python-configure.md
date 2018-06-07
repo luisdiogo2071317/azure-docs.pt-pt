@@ -1,12 +1,12 @@
 ---
 title: Configurar o Python com as Web Apps do App Service do Azure
-description: "Este tutorial descreve as opções de criação e configuração de um servidor Web básico aplicação Python compatível do Gateway Interface (WSGI) no Web Apps do Azure App Service."
+description: Este tutorial descreve as opções de criação e configuração de um servidor Web básico aplicação Python compatível do Gateway Interface (WSGI) no Web Apps do Azure App Service.
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598645"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurar o Python com as Web Apps do App Service do Azure
 Este tutorial descreve as opções de criação e configuração de uma aplicação básica para o Web Server Gateway Interface (WSGI) em conformidade Python no [Web Apps do Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,9 @@ Descreve as funcionalidades adicionais de implementação de Git, tais como o am
 ## <a name="bottle-django-or-flask"></a>Bottle, Django ou Flask?
 O Azure Marketplace contém modelos para as estruturas Bottle, Flask e Django. Se estiver a desenvolver sua primeira aplicação web no App Service do Azure, pode criar um rapidamente a partir do portal do Azure:
 
-* [Criar web apps com Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Criar web apps com o Django](https://portal.azure.com/#create/PTVS.Django)
-* [Criar web apps com Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Aplicação Web com Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Aplicação Web com o Django](https://portal.azure.com/#create/PTVS.Django)
+* [Aplicação Web com Flask no Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Criação da aplicação Web no portal do Azure
 Este tutorial assume uma subscrição do Azure existente e o acesso ao portal do Azure.
@@ -53,7 +54,7 @@ Nas secções seguintes, são criados os seguintes ficheiros. Estes devem ser co
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>WSGI Handler
+## <a name="wsgi-handler"></a>Processador WSGI
 WSGI é uma norma de Python descrita através de [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definir uma interface entre o servidor web e Python. Fornece uma interface padronizada para escrever várias aplicações web e estruturas com o Python. Estruturas de web do Python populares utilizam atualmente WSGI. Oferece de Web Apps do App Service do Azure que suporta para qualquer estruturas; Além disso, utilizadores avançados podem ainda criar os seus próprios, desde que o processador personalizado segue-se as diretrizes de especificação WSGI.
 
 Eis um exemplo de um `app.py` que define um processador personalizado:
@@ -90,7 +91,7 @@ Exemplo `requirements.txt`:
     azure==0.8.4
 
 
-## <a name="python-version"></a>Versão do Python
+## <a name="python-version"></a>Versão em Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Exemplo `runtime.txt`:

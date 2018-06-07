@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d40ab6d2587f5d842ac98479a6db7609d8a9ce4d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 80d13b0a42239466a1e13d065ed5f52bd84b8008
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591090"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com ThousandEyes
 
@@ -103,7 +104,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
 3. No **ThousandEyes domínio e os URLs** secção, execute os seguintes passos:
@@ -114,7 +115,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
 5. Clique em **guardar** botão.
 
@@ -127,35 +128,32 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 7. Numa janela do browser web diferente, inicie sessão no seu **ThousandEyes** site da empresa como administrador.
 
 8. No menu na parte superior, clique em **definições**.
-   
+
     ![Definições](./media/active-directory-saas-thousandeyes-tutorial/ic790066.png "definições")
 
 9. Clique em **conta**
-   
+
     ![Conta](./media/active-directory-saas-thousandeyes-tutorial/ic790067.png "conta")
 
 10. Clique em de **segurança & autenticação** separador.
-   
+
     ![Segurança & autenticação](./media/active-directory-saas-thousandeyes-tutorial/ic790068.png "segurança & autenticação")
 
 11. No **configuração Single Sign-On** secção, execute os seguintes passos:
-   
+
     ![Configurar o início de sessão único](./media/active-directory-saas-thousandeyes-tutorial/ic790069.png "configurar o início de sessão único")
-  
+
     a. Selecione **ativar o início de sessão único**.
-  
-    b. No **URL da página de início de sessão** caixa de texto, colar **único início de sessão no URL do serviço SAML** que copiou do portal do Azure.
-  
-    c. No **terminar o URL da página** caixa de texto, colar **Sign-Out URL** que copiou do portal do Azure.
-  
-    d. **Emissor do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** que copiou do portal do Azure.
-  
+
+    b. No **URL da página de início de sessão** caixa de texto, colar **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+
+    c. No **terminar o URL da página** caixa de texto, colar **Sign-Out URL**, que copiou do portal do Azure.
+
+    d. **Emissor do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML**, que copiou do portal do Azure.
+
     e. No **certificado de verificação**, clique em **Escolher ficheiro**e, em seguida, carregue o certificado que transferiu a partir do portal do Azure.
-  
+
     f. Clique em **Guardar**.
- 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -173,12 +171,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_02.png) 
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png)
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png)
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
 
@@ -187,43 +185,42 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-thousandeyes-test-user"></a>Criar um utilizador de teste ThousandEyes
 
-Para permitir que os utilizadores do Azure AD sessão ThousandEyes, têm de ser aprovisionados para ThousandEyes.  
-No caso de ThousandEyes, o aprovisionamento é uma tarefa manual.
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon ThousandEyes. ThousandEyes suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-thousandeyes-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
->[!NOTE]
->Pode utilizar quaisquer outras ThousandEyes utilizador conta criação ferramentas ou APIs fornecidas pelo ThousandEyes para aprovisionar o Azure Active Directory contas de utilizador.
-
-**Para Aprovisionar uma conta de utilizador para ThousandEyes, execute os seguintes passos:**
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no site da sua empresa ThousandEyes como administrador.
 
 2. Clique em **definições**.
-   
+
     ![Definições](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "definições")
 
 3. Clique em **conta**.
-   
+
     ![Conta](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "conta")
 
 4. Clique em de **contas & utilizadores** separador.
-   
+
     ![Contas e utilizadores](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "contas & utilizadores")
 
 5. No **adicionar utilizadores & contas** secção, execute os seguintes passos:
-   
-    ![Adicionar contas de utilizador](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "adicionar contas de utilizador")   
-  
+
+    ![Adicionar contas de utilizador](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "adicionar contas de utilizador")
+
     a. No **nome** caixa de texto, escreva o nome de utilizador como **Britta Simon**.
 
     b. No **E-Mail** caixa de texto, como o tipo de mensagem de correio eletrónico do utilizador **brittasimon@contoso.com**.
-   
+
     b. Clique em **adicionar novo utilizador à conta**.
-      
-     >[!NOTE]
-     >O marcador de posição de conta do Azure Active Directory irá receber uma mensagem de e-mail, incluindo uma ligação para confirmar e ativar a conta.
+
+    > [!NOTE]
+    > O marcador de posição de conta do Azure Active Directory irá receber uma mensagem de e-mail, incluindo uma ligação para confirmar e ativar a conta.
+
+> [!NOTE]
+> Pode utilizar quaisquer outras ThousandEyes utilizador conta criação ferramentas ou APIs fornecidas pelo ThousandEyes para aprovisionar o Azure Active Directory contas de utilizador.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
@@ -267,7 +264,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-thousandeyes-provisioning-tutorial.md)
 
 
 <!--Image references-->
@@ -283,4 +280,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_203.png
-

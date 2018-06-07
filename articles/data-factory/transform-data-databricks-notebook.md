@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: d4a57e45d5ddf55906fcf575df39135a227418ec
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbf713b2d52469ae12fc284e0a3d7e3bc369daeb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620508"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados através da execução de um bloco de notas Databricks
 
@@ -54,7 +55,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|nome|Nome da atividade no pipeline.|Sim|
+|name|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade de bloco de notas Databricks, o tipo de atividade é DatabricksNotebook.|Sim|
 |linkedServiceName|Nome do serviço ligado Databricks no qual o bloco de notas Databricks é executada. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|

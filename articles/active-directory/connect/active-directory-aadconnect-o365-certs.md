@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591502"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar os certificados de Federação para o Office 365 e o Azure Active Directory
 ## <a name="overview"></a>Descrição geral
@@ -149,10 +151,10 @@ Dois certificados deverá estar listados agora, um deles tem uma **NotAfter** da
 Atualize o Office 365 com o novo token certificados de assinatura para ser utilizada para a fidedignidade, da seguinte forma.
 
 1. Abra o módulo do Microsoft Azure Active Directory para o Windows PowerShell.
-2. Run $cred=Get-Credential. Quando este cmdlet irá pedir-lhe credenciais, escreva as credenciais de conta de administrador de serviço de nuvem.
+2. Executar $cred = Get-Credential. Quando este cmdlet irá pedir-lhe credenciais, escreva as credenciais de conta de administrador de serviço de nuvem.
 3. Executar Connect MsolService – $cred de credenciais. Este cmdlet liga ao serviço em nuvem. Criar um contexto que liga ao serviço em nuvem é necessário antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
 4. Se estiver a executar estes comandos num computador que não seja o servidor de Federação principal do AD FS, execute Set-MSOLAdfscontext-computador &lt;servidor primário do AD FS&gt;, onde &lt;servidor primário do AD FS&gt; é o FQDN interno nome do servidor do AD FS primário. Este cmdlet cria um contexto que liga-o para o AD FS.
-5. Run Update-MSOLFederatedDomain –DomainName &lt;domain&gt;. Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
+5. Executar atualização MSOLFederatedDomain – DomainName &lt;domínio&gt;. Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
 
 > [!NOTE]
 > Se tiver de suportar vários domínios de nível superior, por exemplo, contoso.com e fabrikam.com, tem de utilizar o **SupportMultipleDomain** mudar com quaisquer cmdlets. Para obter mais informações, consulte [suporte para múltiplos domínios de nível de topo](active-directory-aadconnect-multiple-domains.md).

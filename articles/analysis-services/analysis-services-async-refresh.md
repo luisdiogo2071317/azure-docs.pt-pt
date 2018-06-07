@@ -3,16 +3,17 @@ title: Atualização assíncrona de modelos do Azure Analysis Services | Microso
 description: Saiba como código de atualização assíncrona utilizando a REST API.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a20e8460e0243e2f6f2f258e26374a2cd716206c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601620"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 

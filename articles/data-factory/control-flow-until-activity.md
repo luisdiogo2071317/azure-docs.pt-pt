@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f3462bfda5437ed66f58025deb98e4dbb3860f1d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8ceecdefe644cb5dd1b6038636960cbb5dd9167e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618968"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até que a atividade no Azure Data Factory
 A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo estrutura fornece linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
@@ -57,7 +58,7 @@ A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo est
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Until` atividade. | Cadeia | Sim
+name | Nome do `Until` atividade. | Cadeia | Sim
 tipo | Tem de ser definido como **até**. | Cadeia | Sim
 expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão.  | Sim
 tempo limite | Ao não-até ciclo tempos limite após o período de tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não

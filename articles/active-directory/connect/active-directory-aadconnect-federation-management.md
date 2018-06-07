@@ -1,12 +1,12 @@
 ---
-title: "O Azure AD Connect - gestão do AD FS e personalização | Microsoft Docs"
-description: "Gestão do AD FS com o Azure AD Connect e personalização do AD FS início de sessão experiência de utilizador com o Azure AD Connect e PowerShell."
-keywords: "AD FS, ADFS, do AD FS gestão, AAD Connect, ligar, início de sessão, do AD FS personalização, repare a Federação de confiança, Office 365, da entidade confiadora"
+title: O Azure AD Connect - gestão do AD FS e personalização | Microsoft Docs
+description: Gestão do AD FS com o Azure AD Connect e personalização do AD FS início de sessão experiência de utilizador com o Azure AD Connect e PowerShell.
+keywords: AD FS, ADFS, do AD FS gestão, AAD Connect, ligar, início de sessão, do AD FS personalização, repare a Federação de confiança, Office 365, da entidade confiadora
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590859"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory utilizando o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS), utilizando o Azure Active Directory (Azure AD) Connect. Também inclui outras tarefas comuns do AD FS que poderá ter de fazer para toda a configuração de um farm do AD FS.
@@ -29,7 +31,7 @@ Este artigo descreve como gerir e personalizar os serviços de Federação do Ac
 |:--- |:--- |
 | **Gerir o AD FS** | |
 | [Reparar a confiança](#repairthetrust) |Como reparar a confiança de federação com o Office 365. |
-| [Federar com o Azure AD utilizando o ID de início de sessão alternativo](#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
+| [Federar com o Azure AD utilizando o ID de início de sessão alternativo ](#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
 | [Adicionar um servidor do AD FS](#addadfsserver) |Como expandir um farm do AD FS com um servidor do AD FS adicional. |
 | [Adicionar um servidor de Proxy de aplicações Web do AD FS](#addwapserver) |Como expandir um farm do AD FS com um servidor de Proxy de aplicações Web (WAP) adicional. |
 | [Adicionar um domínio federado](#addfeddomain) |Como adicionar um domínio federado. |
@@ -169,7 +171,7 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 
 4. Na página seguinte, o assistente fornece uma lista de domínios do Azure AD que podem federar o seu diretório no local com. Escolha o domínio a partir da lista.
 
-   ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Domínio do Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     Depois de escolher o domínio, o assistente fornece-lhe as informações adequadas sobre mais ações que o assistente executará e o impacto da configuração. Em alguns casos, se selecionar um domínio que ainda não está a ser verificado no Azure AD, o assistente fornece-lhe informações para ajudar a verificar o domínio. Consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
 
@@ -223,7 +225,7 @@ Além disso, ao utilizar **adicionar** e não **problema**, evitar a adição de
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Esta regra define um sinalizador temporário denominado **idflag** que está definido como **useguid** se não houver nenhuma **ms-ds-consistencyguid** preenchido para o utilizador. A lógica por trás este é o facto de que o AD FS não permite afirmações vazias. Para adicionar afirmações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid na regra 1, acaba por ficar com uma **msdsconsistencyguid** afirmação apenas se a valor é preenchido para o utilizador. Se não se encontra preenchida, o AD FS verá que terá um valor vazio e ignora-lo imediatamente. Todos os objetos terão **objectGuid**, por isso que afirmações serão sempre existe depois de executar a regra 1.
+Esta regra define um sinalizador temporário denominado **idflag** que está definido como **useguid** se não houver nenhuma **ms-ds-consistencyguid** preenchido para o utilizador. A lógica por trás este é o facto de que o AD FS não permite afirmações vazias. Assim, quando adicionar afirmações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid na regra 1, pode ficar com uma **msdsconsistencyguid** de afirmação apenas se o valor é preenchido para o utilizador. Se não se encontra preenchida, o AD FS verá que terá um valor vazio e ignora-lo imediatamente. Todos os objetos terão **objectGuid**, por isso que afirmações serão sempre existe depois de executar a regra 1.
 
 **A regra 3: Emitir ms-ds-consistencyguid como ID imutável se estiver presente**
 
@@ -262,7 +264,7 @@ A regra predefinida simplesmente demora o sufixo UPN e utiliza-o na afirmação 
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Valor de afirmação:** http://sub.contoso.com/adfs/services/trust/
+**Valor de afirmação:**  http://sub.contoso.com/adfs/services/trust/
 
 Para que apenas o domínio de raiz no valor de afirmação de emissor, altere a regra de afirmação para fazer corresponder o seguinte:
 

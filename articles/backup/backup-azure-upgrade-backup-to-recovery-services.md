@@ -1,23 +1,19 @@
 ---
-title: Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação | Microsoft Docs
+title: Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 description: As instruções e informações de suporte para atualizar o seu Cofre de cópia de segurança do Azure para um cofre dos serviços de recuperação.
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: sogup
+ms.openlocfilehash: 551bc2aa4ff80feb3f28b5698e25dfd1b03dc870
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607342"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 

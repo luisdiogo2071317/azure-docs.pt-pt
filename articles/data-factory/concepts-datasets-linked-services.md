@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616010"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +68,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do serviço ligado. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
+name | Nome do serviço ligado. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
 tipo | Tipo de serviço ligado. Por exemplo: AzureStorage (arquivo de dados) ou AzureBatch (computação). Consulte a descrição do typeProperties. | Sim |
 typeProperties | As propriedades de tipo são diferentes para cada arquivo de dados ou de computação. <br/><br/> Para os dados suportados armazenar tipos e as respetivas propriedades de tipo, consulte o [tipo do conjunto de dados](#dataset-type) tabela neste artigo. Navegue para o artigo de conector do arquivo de dados para saber mais sobre as propriedades de tipo específicas para um arquivo de dados. <br/><br/> Para os tipos de computação suportadas e as respetivas propriedades de tipo, consulte [serviços ligados de computação](compute-linked-services.md). | Sim |
 connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados está localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não
@@ -124,7 +125,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
+name | Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
 tipo | tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
 estrutura | Esquema do conjunto de dados. Para obter mais informações, consulte [estrutura do conjunto de dados](#dataset-structure). | Não |
 typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#dataset-type). | Sim |
@@ -190,7 +191,7 @@ Cada coluna na estrutura de contém as seguintes propriedades:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-nome | Nome da coluna. | Sim
+name | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Fábrica de dados suporta os seguintes tipos de dados provisória como valores permitidos: **Int16, Int32, Int64, único, Double, Decimal, Byte [], booleano, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
 Cultura | . Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
 formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não

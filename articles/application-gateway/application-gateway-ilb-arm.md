@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: a558a5f4f1e19be7b15721c8f99dc5a2d7b396bc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598492"
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Criar um gateway de aplicação com um balanceador de carga interno (ILB) com o Azure Resource Manager
-
-> [!div class="op_single_selector"]
-> * [Azure Classic PowerShell](application-gateway-ilb.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um gateway de aplicação com um balanceador de carga interno (ILB)
 
 Pode configurar o Application Gateway do Azure com um VIP de acesso à Internet ou com um ponto final interno não exposto à Internet, também conhecido como ponto final do balanceador de carga interno (ILB). Configurar o gateway com um ILB é útil para as aplicações de linha de negócio internas não expostas à Internet. Também é útil para serviços e camadas dentro de uma aplicação de várias camadas que assenta num limite de segurança que, não sendo exposto à Internet, requer a distribuição de carga round-robin, a persistência da sessão ou a terminação SSL (Secure Sockets Layer).
 

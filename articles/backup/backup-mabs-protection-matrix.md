@@ -1,22 +1,20 @@
 ---
-title: "Servidor de cópia de segurança do Azure que pode fazer cópias de segurança | Microsoft Docs"
-description: "Este artigo fornece uma matriz de suporte de listar todas as cargas de trabalho, os tipos de dados e instalações que protege v2 do servidor de cópia de segurança do Azure."
+title: O servidor de cópia de segurança do Azure criar cópias de segurança
+description: Este artigo fornece uma matriz de suporte de listar todas as cargas de trabalho, os tipos de dados e instalações que protege v2 do servidor de cópia de segurança do Azure.
 services: backup
-documentation center: 
 author: markgalioto
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-keywords: 
+keywords: ''
 ms.date: 11/28/2017
-ms.topic: article
-ms.author: markgal,masaran
+ms.topic: conceptual
+ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: eae17160d0e412b347d89d83d635602d840db0f8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 2edf6b4076dfafd775e723d44ed4d93b7493828b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607247"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
 

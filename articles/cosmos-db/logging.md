@@ -2,23 +2,20 @@
 title: Registo de diagnóstico Cosmos BD do Azure | Microsoft Docs
 description: Utilize este tutorial para ajudá-lo com a base de dados do Azure Cosmos registo.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612219"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -47,9 +44,9 @@ O registo de atividade do Azure é um registo de subscrição que fornece inform
 
 O registo de atividade difere dos registos de diagnóstico. O registo de atividade fornecem dados sobre as operações num recurso do exterior (o _plane controlo_). O contexto de base de dados do Azure Cosmos plane controlo operações incluem criar coleção, chaves de lista, eliminar chaves, base de dados de lista e assim sucessivamente. São emitidos por um recurso e fornecer informações sobre o funcionamento do recurso de registos de diagnóstico (o _plane dados_). Alguns exemplos das operações de plane dados no registo de diagnóstico são Delete, Insert e ReadFeed.
 
-Registos de atividade (controlo plane operações) podem ser mais rico natureza e podem incluir o endereço de e-mail completo do chamador, endereço IP do emissor, nome do recurso, nome da operação, TenantId e muito mais. O registo de atividade contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter detalhes completos na esquemas destas categorias, consulte [esquema de eventos de registo de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, os registos de diagnóstico pode ser restritivos natureza como dados PII, muitas vezes, são eliminados destes registos. Poderá ter o endereço IP do chamador, mas o último octant é removido.
+Registos de atividade (controlo plane operações) podem ser mais rico natureza e podem incluir o endereço de e-mail completo do chamador, endereço IP do emissor, nome do recurso, nome da operação, TenantId e muito mais. O registo de atividade contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter detalhes completos na esquemas destas categorias, consulte [esquema de eventos de registo de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, os registos de diagnóstico pode ser restritivos natureza como dados pessoais, muitas vezes, são eliminados destes registos. Poderá ter o endereço IP do chamador, mas o último octant é removido.
 
-### <a name="azure-metrics"></a>Métricas do Azure
+### <a name="azure-metrics"></a>Métrica do Azure
 
 [As métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) têm o tipo mais importante de dados de telemetria do Azure (também denominado _contadores de desempenho_) que é emitido pelo Azure mais recursos. Métricas permitem-lhe ver informações sobre débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos Azure Cosmos DB. Para obter mais informações, consulte [monitorização e a depuração com métricas do BD Azure Cosmos](use-metrics.md).
 

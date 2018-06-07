@@ -1,12 +1,12 @@
 ---
-title: "Sincronização do Azure AD Connect: Ativar Reciclagem AD | Microsoft Docs"
-description: "Este tópico recomenda a utilização da funcionalidade de reciclagem do AD com o Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: Ativar Reciclagem AD | Microsoft Docs'
+description: Este tópico recomenda a utilização da funcionalidade de reciclagem do AD com o Azure AD Connect.
 services: active-directory
-keywords: "Reciclagem do AD, a eliminação acidental, âncora de origem"
-documentationcenter: 
+keywords: Reciclagem do AD, a eliminação acidental, âncora de origem
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f80d16c36714a971e3878ad7dedffaac55103d92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593079"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: Ativar Reciclagem do AD
 Recomenda-se que ative a funcionalidade de reciclagem do AD para os diretórios de Active Directory no local, que são sincronizados com o Azure AD. 

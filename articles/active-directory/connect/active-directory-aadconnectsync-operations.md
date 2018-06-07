@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Docs"
-description: "Este tópico descreve as tarefas operacionais para a sincronização do Azure AD Connect e como preparar para o funcionamento deste componente."
+title: 'Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Docs'
+description: Este tópico descreve as tarefas operacionais para a sincronização do Azure AD Connect e como preparar para o funcionamento deste componente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6e35dc0ad8493d2f92b7e81fc66f444048482bd9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592947"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronização do Azure AD Connect: considerações e tarefas operacionais
 O objetivo deste tópico é descrever tarefas operacionais para a sincronização do Azure AD Connect.
@@ -71,7 +73,7 @@ Se efetuou alterações personalizadas para o servidor primário e pretende comp
 Pode agora ter testado exportação alterações para o Azure AD e AD no local (se estiver a utilizar a implementação híbrida do Exchange). Os passos seguintes permitem-lhe verificar que está prestes a alterar antes de começar, na verdade, a exportação para os diretórios.
 
 #### <a name="verify"></a>Verificar
-1. Inicie uma linha de comandos cmd e aceda a`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+1. Inicie uma linha de comandos cmd e aceda a `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` o nome do conector pode ser encontrado no serviço de sincronização. Tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
 3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` tiver um ficheiro no % temp % denominado export.csv que pode ser reduzida no Microsoft Excel. Este ficheiro contém todas as alterações que estão prestes a ser exportado.
 4. Efetue as alterações necessárias para os dados ou a configuração e executar estes passos novamente (importar e sincronizar e verifique) até que as alterações que estão prestes a ser exportados são esperadas.

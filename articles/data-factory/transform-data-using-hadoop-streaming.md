@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c0143b4f2d6858883ac11df18f7844802c667404
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea83701e834895b09faf8eb6602bd342b648ec37
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620209"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de transmissão em fluxo do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +74,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| nome              | Nome da atividade                     | Sim      |
+| name              | Nome da atividade                     | Sim      |
 | descrição       | Texto que descreve o que é utilizada a atividade para | Não       |
 | tipo              | Para a atividade de transmissão em fluxo do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
 | linkedServiceName | Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
@@ -82,7 +83,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 | combinação          | Especifica o nome da combinação executável | Não       |
 | fileLinkedService | Referência a um serviço ligado do Storage do Azure utilizados para armazenar os programas mapeador, combinação e Reducer para ser executada. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
 | filePath          | Forneça uma matriz de caminho para o mapeador, combinação, e programas Reducer armazenados no Storage do Azure referido pela fileLinkedService. O caminho é sensível a maiúsculas e minúsculas. | Sim      |
-| Entrada             | Especifica o caminho WASB para o ficheiro de entrada para o mapeador de pontos. | Sim      |
+| entrada             | Especifica o caminho WASB para o ficheiro de entrada para o mapeador de pontos. | Sim      |
 | saída            | Especifica o caminho WASB para o ficheiro de saída para o Reducer. | Sim      |
 | getDebugInfo      | Especifica se os ficheiros de registo são copiados para o armazenamento do Azure utilizados pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |
 | Argumentos         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |

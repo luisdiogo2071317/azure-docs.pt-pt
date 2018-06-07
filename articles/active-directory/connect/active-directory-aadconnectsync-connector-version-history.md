@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 11794739974a0efdd93a9c45cd18c6d959b1f7b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592678"
 ---
 # <a name="connector-version-release-history"></a>Histórico de Versões do Conector
 Os conectores do Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM) são atualizados com frequência.
@@ -32,11 +34,11 @@ Este tópico lista todas as versões dos conectores que tenham sido publicadas.
 Ligações relacionadas:
 
 * [Transferir conectores mais recentes](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Conector de LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md) documentação de referência
-* [Conector do SQL Server genérico](active-directory-aadconnectsync-connector-genericsql.md) documentação de referência
+* [Conector de LDAP genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) documentação de referência
+* [Conector do SQL Server genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) documentação de referência
 * [Conector de serviços de Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentação de referência
-* [Conector de PowerShell](active-directory-aadconnectsync-connector-powershell.md) documentação de referência
-* [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) documentação de referência
+* [Conector de PowerShell](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) documentação de referência
+* [Lotus Domino Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) documentação de referência
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +119,7 @@ Ligações relacionadas:
 
 * SQL genérico:
   * **Cenário: reestruturado implementado:** "*" funcionalidade
-  * **Descrição da solução:** alterado abordagem para [processamento de atributos de referência com múltiplos valor](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Descrição da solução:** alterado abordagem para [processamento de atributos de referência com múltiplos valor](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Fixos problemas:
@@ -194,7 +196,7 @@ LDAP MA. Estes mostrou apenas os objetos da partição de RootDSE.
 Data da versão: Março de 2016
 
 **Novo conector**  
-Inicial de versão do [genérico conector do SQL Server](active-directory-aadconnectsync-connector-genericsql.md).
+Inicial de versão do [genérico conector do SQL Server](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Novas funcionalidades:**
 

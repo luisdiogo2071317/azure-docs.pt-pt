@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bc8524793e43f15c66b3b881cd01d51d959e1421
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617438"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados de PostgreSQL através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço de PostgreSQL ligada:
 | tipo | A propriedade de tipo tem de ser definida: **PostgreSql** | Sim |
 | servidor | Nome do servidor PostgreSQL. |Sim |
 | base de dados | Nome da base de dados PostgreSQL. |Sim |
-| schema | Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| Esquema | Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados PostgreSQL. |Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -173,7 +174,7 @@ Quando copiar dados de PostgreSQL, os seguintes mapeamentos são utilizados Post
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte[], String` |
+| `bit varying [ (n) ]` | ' varbit |Byte [] e String' |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;

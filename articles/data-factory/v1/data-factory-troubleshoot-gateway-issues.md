@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624289"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre como resolver problemas com a utilização do Data Management Gateway.
@@ -120,7 +121,7 @@ Quando estiver a registar um gateway, poderá ter de introduzir o caminho e a pa
 #### <a name="cause"></a>Causa
 O gateway foi registado em outras máquinas antes. Durante o registo inicial de um gateway, um certificado de encriptação foi associado com o gateway. O certificado pode ser personalizada gerado pelo gateway ou fornecido pelo utilizador.  Este certificado é utilizado para encriptar as credenciais do arquivo de dados (serviço ligado).  
 
-![Exportar certificado](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+![Exportar o certificado](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
 Ao restaurar o gateway no outro computador anfitrião, o Assistente de registo pede-lhe para este certificado desencriptar credenciais anteriormente encriptadas com este certificado.  Sem este certificado não não possível desencriptar as credenciais, o novo gateway e execuções de atividade de cópia subsequentes associadas a este novo gateway falhará.  
 

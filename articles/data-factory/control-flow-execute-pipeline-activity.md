@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 9542f11830415a84af6857c9008ad26056a8af3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a858e3e901f300ce5f0dbc44437106905078375
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617720"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar a atividade de Pipeline no Azure Data Factory
 A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o pipeline de outro.
@@ -64,11 +65,11 @@ A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o
 ## <a name="type-properties"></a>Propriedades do tipo
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do pipeline de execução. | Cadeia | Sim
+name | Nome da atividade do pipeline de execução. | Cadeia | Sim
 tipo | Tem de ser definido como: **ExecutePipeline**. | Cadeia | Sim
 pipeline | Pipeline de referência para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se execução da atividade tem de aguardar durante a execução de pipeline dependentes concluir. | Predefinição é falsa. | Booleano | Não
+waitOnCompletion | Define se execução da atividade tem de aguardar durante a execução de pipeline dependentes concluir. | A predefinição é falso. | Booleano | Não
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois pipelines:

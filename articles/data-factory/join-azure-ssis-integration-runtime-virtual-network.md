@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619648"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure nos seguintes cenários: 
@@ -86,7 +87,7 @@ Se precisar de implementar um grupo de segurança de rede (NSG) numa rede virtua
 
 | Direção | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
-| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se a associação a IR para uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se a associação a IR para uma rede virtual clássica)| O serviço fábrica de dados utiliza estas portas para comunicar com os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual. |
+| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se a associação a IR para uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se a associação a IR para uma rede virtual clássica)| O serviço fábrica de dados utiliza estas portas para comunicar com os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual. <br/><br/> Se especificar um NSG ou não, o Data Factory sempre configura um NSG a nível de placas de interface de rede (NICs) anexados às máquinas virtuais que alojam o IR. SSIS do Azure Apenas o tráfego de entrada de endereços IP de fábrica de dados é permitido. Mesmo se abrir estas portas para o tráfego de Internet, o tráfego de endereços IP que não sejam endereços IP de fábrica de dados está bloqueado ao nível do NIC. |
 | Saída | TCP | VirtualNetwork | * | Internet | 443 | Os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual utilizam esta porta para aceder aos serviços do Azure, como o Storage do Azure e Event Hubs do Azure. |
 | Saída | TCP | VirtualNetwork | * | Internet ou SQL Server | 1433, 11000 11999, 14000 14999 | Os nós do seu tempo de execução de integração do Azure-SSIS na rede virtual utilizam estas portas para aceder a SSISDB alojada pelo servidor da SQL Database do Azure. (Esta finalidade não é aplicável a SSISDB alojada pela instância SQL Server da base de dados geridos (pré-visualização).) |
 ||||||||

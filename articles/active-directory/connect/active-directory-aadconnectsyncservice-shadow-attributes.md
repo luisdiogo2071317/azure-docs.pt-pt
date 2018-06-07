@@ -1,24 +1,26 @@
 ---
-title: "Atributos do sombra de volumes de serviço de sincronização do Azure AD Connect | Microsoft Docs"
-description: "Descreve como funcionam os atributos de sombra de volumes no serviço de sincronização do Azure AD Connect."
+title: Atributos do sombra de volumes de serviço de sincronização do Azure AD Connect | Microsoft Docs
+description: Descreve como funcionam os atributos de sombra de volumes no serviço de sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bd1ede2bf8ff642b7be0869e54a6f037b01dd262
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593417"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do sombra de volumes de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma forma no Azure AD, dado que estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente da que sincroniza o Azure AD Connect.
@@ -55,7 +57,7 @@ Para um utilizador de caixa de correio, no local ou no Exchange Online, são apr
 | no local proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Neste caso  **smtp:abbie.spencer@fabrikam.com**  foi removida porque não foi verificado nesse domínio. Mas Exchange também adicionada  **SIP:abbie.spencer@fabrikamonline.com** . Fabrikam não utilizado do Skype/Lync no local, mas o Azure AD e preparar o Exchange Online para o mesmo.
+Neste caso **smtp:abbie.spencer@fabrikam.com** foi removida porque não foi verificado nesse domínio. Mas Exchange também adicionada **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam não utilizado do Skype/Lync no local, mas o Azure AD e preparar o Exchange Online para o mesmo.
 
 Esta lógica para proxyAddresses é referida como **ProxyCalc**. ProxyCalc é invocado com todas as alterações num utilizador quando:
 

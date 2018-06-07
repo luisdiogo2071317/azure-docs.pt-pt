@@ -1,25 +1,20 @@
 ---
-title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado indisponível | Microsoft Docs'
+title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado indisponível'
 description: Sintomas, causas e soluções de falhas de cópia de segurança do Azure relacionados com o agente, a extensão e discos.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606363"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -63,7 +58,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Cópia de segurança falha porque o agente VM está a responder
 
-Mensagem de erro: "Não é possível efetuar a operação dado que o agente da VM não está a responder" <br>
+Mensagem de erro: "Não conseguiu comunicar com o agente da VM para o estado do instantâneo" <br>
 Código de erro: "GuestAgentSnapshotTaskStatusError"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
@@ -91,6 +86,16 @@ Pelo requisito de implementação, a VM não tem acesso à internet. Em alternat
 
 Para funcionar corretamente, a extensão de cópia de segurança necessita de conectividade para os endereços IP públicos do Azure. A extensão envia comandos para um ponto final de armazenamento do Azure (HTTP URL) de gerir os instantâneos da VM. Se a extensão não tiver acesso à internet pública, cópia de segurança eventualmente falha.
 
+Se possível implementar um servidor proxy para encaminhar o tráfego da VM.
+##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
+
+1. Se tiver de restrições de rede no local (por exemplo, um grupo de segurança de rede), implemente um servidor de proxy HTTP para encaminhar o tráfego.
+2. Para permitir o acesso à internet do servidor de proxy de HTTP, adicione regras para o grupo de segurança de rede, se tiver uma.
+
+Para saber como configurar um proxy HTTP para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+A cópia de segurança de VM ou o servidor de proxy através do qual o tráfego é encaminhado requer acesso aos endereços IP públicos do Azure
+
 ####  <a name="solution"></a>Solução
 Para resolver o problema, experimente um dos seguintes métodos:
 
@@ -104,13 +109,6 @@ Para compreender o procedimento passo a passo para configurar as etiquetas de se
 
 > [!WARNING]
 > As etiquetas de serviço de armazenamento estão na pré-visualização. Estão disponíveis apenas em regiões específicas. Para obter uma lista de regiões, consulte [etiquetas para armazenamento de serviço](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
-
-1. Se tiver de restrições de rede no local (por exemplo, um grupo de segurança de rede), implemente um servidor de proxy HTTP para encaminhar o tráfego.
-2. Para permitir o acesso à internet do servidor de proxy de HTTP, adicione regras para o grupo de segurança de rede, se tiver uma.
-
-Para saber como configurar um proxy HTTP para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Se utilizar discos gerida do Azure, poderá ser necessário uma abertura de portas adicionais (porta 8443) nas firewalls.
 
@@ -194,6 +192,19 @@ Este problema é específico para VMs gerido em que o utilizador bloqueia o grup
 
 #### <a name="solution"></a>Solução
 
-Para resolver o problema, remova o bloqueio do grupo de recursos e permita que o serviço de cópia de segurança do Azure, desmarque a coleção de ponto de recuperação e dos instantâneos subjacentes na cópia de segurança seguinte.
-Quando tiver terminado, pode novamente colocar novamente o bloqueio no grupo de recursos de VM. 
+Para resolver o problema, remova o bloqueio do grupo de recursos e conclua os seguintes passos para remover a recolha de ponto de restauro: 
+ 
+1. Remova o bloqueio no grupo de recursos em que a VM se encontra. 
+2. Instale ARMClient utilizando Chocolatey: <br>
+   https://github.com/projectkudu/ARMClient
+3. Inicie sessão no ARMClient: <br>
+    `.\armclient.exe login`
+4. Obter a coleção de ponto de restauro que corresponde à VM: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Elimine a coleção de ponto de restauro: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. A cópia de segurança agendada seguinte cria automaticamente uma coleção de ponto de restauro e novos pontos de restauro.
+
+Quando tiver terminado, pode novamente colocar novamente o bloqueio no grupo de recursos de VM. 

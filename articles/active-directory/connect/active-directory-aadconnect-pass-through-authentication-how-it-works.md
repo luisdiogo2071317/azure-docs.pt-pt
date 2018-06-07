@@ -1,9 +1,9 @@
 ---
-title: "Do Azure AD Connect: A autenticação pass-through - como funciona | Microsoft Docs"
-description: "Este artigo descreve como funciona a autenticação pass-through do Active Directory do Azure"
+title: 'Do Azure AD Connect: A autenticação pass-through - como funciona | Microsoft Docs'
+description: Este artigo descreve como funciona a autenticação pass-through do Active Directory do Azure
 services: active-directory
-keywords: "Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591400"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentication do Azure Active Directory pass-through: Descrição profunda técnica
 Este artigo é uma descrição geral sobre como funciona o Azure Active directory (Azure AD) autenticação pass-through. Para avançada técnica e informações de segurança, consulte o [detalhada da segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artigo.

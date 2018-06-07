@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df2bc27a5f17120b222e91007a47f85f0566b616
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c609c32e423625c479f3f169da4a31616d200e57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Tutorial: Integração do Azure Active Directory com pilares OnDemand
 
@@ -64,7 +65,7 @@ Para configurar a integração dos pilares OnDemand com o Azure AD, tem de adici
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![Aplicações][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![Aplicações][3]
@@ -103,7 +104,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
 
 3. No **pilares OnDemand domínio e os URLs** secção, executar o passo seguinte:
@@ -115,8 +116,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company>.csod.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de OnDemand pilares](mailTo:moreinfo@csod.com) para obter estes valores. 
- 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de OnDemand pilares](mailTo:moreinfo@csod.com) para obter estes valores.
+
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
@@ -131,9 +132,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 7. Para configurar o início de sessão único em **pilares OnDemand** lado, terá de enviar o transferido **certificado**, **Sign-Out URL** e **único início de sessão no URL do serviço SAML** para [OnDemand fundamental para a equipa de suporte](mailTo:moreinfo@csod.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
@@ -143,18 +141,18 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png) 
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png)
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_04.png) 
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
@@ -164,10 +162,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-cornerstone-ondemand-test-user"></a>Criar um utilizador de teste pilares OnDemand
 
-Para permitir que os utilizadores do Azure AD sessão pilares OnDemand, têm de ser aprovisionados para pilares OnDemand. No caso de pilares OnDemand, o aprovisionamento é uma tarefa manual.
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon pilares OnDemand. Pilares OnDemand suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 Para configurar o aprovisionamento de utilizadores, enviar as informações (por exemplo: nome, E-Mail) sobre o utilizador do Azure AD que pretende aprovisionar para o [OnDemand fundamental para a equipa de suporte](mailTo:moreinfo@csod.com).
 
@@ -215,8 +215,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -231,4 +230,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_general_203.png
-

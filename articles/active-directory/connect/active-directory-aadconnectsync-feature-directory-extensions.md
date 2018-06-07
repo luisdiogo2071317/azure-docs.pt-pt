@@ -1,11 +1,11 @@
 ---
-title: "Sincronização do Azure AD Connect: extensões de diretórios | Microsoft Docs"
-description: "Este tópico descreve a funcionalidade de extensões de diretório no Azure AD Connect."
+title: 'Sincronização do Azure AD Connect: extensões de diretórios | Microsoft Docs'
+description: Este tópico descreve a funcionalidade de extensões de diretório no Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593637"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretórios
 Pode utilizar extensões de diretórios para expandir o esquema no Azure Active Directory (Azure AD) com os seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações de LOB ao consumir atributos que continua a gerir no local. Estes atributos podem ser consumidos através de [extensões de diretórios do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Pode ver os atributos disponíveis utilizando [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), respetivamente.
@@ -56,7 +58,7 @@ Estes atributos estão agora disponíveis através da Azure AD Graph API. Pode c
 Ou pode consultar os atributos através do Microsoft Graph API, utilizando [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
 
 >[!NOTE]
-> Terá de voltar a pedir os atributos a ser devolvido. Selecionar explicitamente os atributos como esta: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Terá de voltar a pedir os atributos a ser devolvido. Selecionar explicitamente os atributos como esta: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Para obter mais informações, consulte [Microsoft Graph: utilizar os parâmetros de consulta](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 

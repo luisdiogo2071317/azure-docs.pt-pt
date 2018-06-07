@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598390"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 A *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado utilizando HTTP, ou uma base de dados ou um sistema de ficheiros. [Application Insights](app-insights-overview.md) mede o tempo durante o qual a aplicação aguarda dependências e frequência uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -48,7 +49,7 @@ Informações de dependência parcial são recolhidas automaticamente pelo [Appl
 | Serviço em nuvem do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Onde encontrar dados de dependência
-* [O mapeamento de aplicações](#application-map) visualiza dependências entre a aplicação e componentes neighbouring.
+* [O mapeamento de aplicações](#application-map) visualiza dependências entre a aplicação e componentes circundantes.
 * [Painéis de desempenho, browser e falha](#performance-and-blades) mostram os dados de dependência de servidor.
 * [Painel browsers](#ajax-calls) mostra as chamadas AJAX browsers dos seus utilizadores.
 * [Clique em através de pedidos lentos ou falhados](#diagnose-slow-requests) verificar a respetiva dependência chamadas.
@@ -200,12 +201,13 @@ Se pretender desactivar o módulo de registo de dependência padrão, remova a r
 
 *Consulta SQL não mostrada no completo.*
 
-* Atualizar para a última versão estável do Application Insights SDK.
+Consulte a tabela abaixo e assegurar que escolheu a configuração correta para ativar a monitorização de dependência para a sua aplicação.
 
- Se o .NET versão seja a 4.6 inferior a:
-
-* Anfitrião do IIS: instalar [Application Insights agente](app-insights-monitor-performance-live-website-now.md) nos servidores de anfitrião.
-* Aplicação web do Azure: abrir o Application Insights separador no painel de controlo de aplicação web em instale o Application Insights.
+| Plataforma | Instalar |
+| --- | --- |
+| Servidor IIS |O [instalar Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](http://go.microsoft.com/fwlink/?LinkId=528259) e instalar o [Application Insights SDK](app-insights-asp-net.md) na sua aplicação. |
+| Aplicação Web do Azure |No painel de controlo de aplicação da web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
+| Serviço em nuvem do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Vídeo
 

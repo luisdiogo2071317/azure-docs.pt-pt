@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ae79d081cc171fe904bf50b2341d7abd8f58e4f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594504"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para o início de sessão único às suas aplicações com o Proxy da aplicação
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount pode ser a conta da máquina SPS ou uma conta de servi�
 
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para aplicações não Windows
-O fluxo de delegação de Kerberos no Proxy de aplicações do Azure AD começa quando o Azure AD autentica o utilizador na nuvem. Depois do pedido chega no local, o conector do Proxy de aplicações do Azure AD emite uma permissão de Kerberos em nome do utilizador através da interação com o Active Directory local. Este processo é referido como o delegação de restrita de Kerberos (KCD). A fase seguinte, é enviado um pedido para a aplicação de back-end com esta permissão de Kerberos. Existem vários protocolos que definem como enviar esses pedidos. A maioria dos servidores de Windows não esperam negociar/SPNego é agora suportada no Proxy de aplicações do Azure AD.
+
+O fluxo de delegação de Kerberos no Proxy de aplicações do Azure AD começa quando o Azure AD autentica o utilizador na nuvem. Depois do pedido chega no local, o conector do Proxy de aplicações do Azure AD emite uma permissão de Kerberos em nome do utilizador através da interação com o Active Directory local. Este processo é referido como o delegação de restrita de Kerberos (KCD). A fase seguinte, é enviado um pedido para a aplicação de back-end com esta permissão de Kerberos. 
+
+Existem vários protocolos que definem como enviar esses pedidos. A maioria dos servidores de Windows não esperam negociar com SPNEGO. Este protocolo é suportado no Proxy de aplicações do Azure AD, mas está desativado por predefinição. Um servidor pode ser configurado para SPNEGO ou KCD padrão, mas não ambos.
+
+Se configurar uma máquina de conector para SPNEGO, certifique-se de que todos os outros conectores nesse grupo de conector também estão configurados com SPNEGO. Era esperado o KCD padrão de aplicações devem ser encaminhadas através de outros conectores que não estão configurados para SPNEGO.
+ 
+
+Para ativar SPNEGO:
+
+1. Abra uma linha de comandos que é executado como administrador.
+2. A linha de comandos, execute os seguintes comandos em servidores do conector que necessitam de SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Para mais informações sobre o Kerberos, consulte [todas quiser saber sobre o delegação de restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 

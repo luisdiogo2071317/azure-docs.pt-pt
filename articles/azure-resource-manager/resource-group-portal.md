@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603390"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gerir recursos do Azure através do portal
 
@@ -58,7 +59,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
    
     ![grupo de recursos de PIN](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## <a name="tag-resources"></a>Etiqueta de recursos
+## <a name="tag-resources"></a>Etiquetar recursos
 Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicamente os recursos. Para obter informações sobre como trabalhar com etiquetas, consulte [utilizar etiquetas para organizar os recursos do Azure](resource-group-using-tags.md).
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
@@ -130,5 +131,5 @@ Eliminar um grupo de recursos elimina todos os recursos contidos. Também pode e
 * Para ver detalhes sobre uma implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para implementar recursos através do portal, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](resource-group-template-deploy-portal.md).
 * Para gerir o acesso aos recursos, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](resource-manager-subscription-governance.md).
+* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

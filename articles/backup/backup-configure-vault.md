@@ -1,25 +1,20 @@
 ---
-title: Agente de cópia de segurança do Azure de utilização para fazer uma cópia de segurança de ficheiros e pastas | Microsoft Docs
+title: Utilize o agente do Backup do Azure para fazer uma cópia de segurança de ficheiros e pastas
 description: Utilize o Microsoft Azure Backup agent para fazer cópias de segurança de pastas e ficheiros do Windows Azure. Criar um cofre dos serviços de recuperação, instale o agente de cópia de segurança, definir a política de cópia de segurança e executar a cópia de segurança inicial em ficheiros e pastas.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: cofre da cópia de segurança; cópia de segurança de um servidor do Windows; cópias de segurança;
-ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/5/2018
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606263"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer cópias de segurança de um servidor ou cliente Windows para o Azure com o modelo de implementação Resource Manager
 Este artigo explica como fazer cópias de segurança do Windows Server (ou cliente Windows) ficheiros e pastas para o Azure com cópia de segurança do Azure utilizando o modelo de implementação Resource Manager.

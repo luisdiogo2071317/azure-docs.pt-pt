@@ -1,22 +1,20 @@
 ---
 title: Adicionar uma forma com o Azure Maps | Microsoft Docs
 description: Como adicionar uma forma para um mapa de Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599376"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma para um mapa
 
@@ -59,3 +57,10 @@ No código acima, o primeiro bloco de código constrói um objeto de mapa. Pode 
 No segundo bloco de código, é criado um polígono. É um polígono um [funcionalidade](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) de [polígono](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) com [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) como a respetiva propriedade de funcionalidade. Utilize `new atlas.data.Feature(new atlas.data.Polygon())` para criar um polígono e definir as respetivas propriedades. Fornece ordenadas coordenadas do caminho de polígono no construtor do polígono.
 
 Uma camada de polígono é uma matriz de polígonos. O última bloco de código utiliza [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) função da classe mapa para adicionar a camada de polígono ao mapa e definir as respetivas propriedades. Ver as propriedades de uma camada de polígono no [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
+
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais exemplos de código adicionar ao seu maps, consulte os artigos seguintes:
+* [Adicionar HTML personalizado](./map-add-custom-html.md)
+* [Mostrar os resultados da pesquisa](./map-search-location.md)
+
+

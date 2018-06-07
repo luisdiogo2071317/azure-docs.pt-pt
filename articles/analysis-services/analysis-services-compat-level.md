@@ -3,26 +3,27 @@ title: Modelo de dados de nível de compatibilidade no Azure Analysis Services |
 description: Compreender o nível de compatibilidade do modelo de dados de tabela.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 231a7ea42560aac3fba0ccf27e27123320f219a3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d68d544a66448fbbf193ff53fa43e179b1edb706
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602072"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nível de compatibilidade para modelos em tabela do Analysis Services
 
-*Nível de compatibilidade* refere-se a comportamentos de versão específico no motor do Analysis Services. Normalmente, operação alterações para o nível de compatibilidade com versões principais do SQL Server. Estas alterações também são implementadas no Azure Analysis Services para manter paridade entre ambas as plataformas. Alterações de nível de compatibilidade também afetam as funcionalidades disponíveis nos seus modelos em tabela. Por exemplo, DirectQuery e metadados de objeto em tabela tem implementações diferentes consoante o nível de compatibilidade. 
+*Nível de compatibilidade* refere-se a comportamentos de versão específico no motor do Analysis Services. Normalmente, operação alterações para o nível de compatibilidade com versões principais do SQL Server. Estas alterações também são implementadas no Azure Analysis Services para manter paridade entre ambas as plataformas. Nível de compatibilidade também altera as funcionalidades do efeito disponíveis nos seus modelos em tabela. Por exemplo, DirectQuery e metadados de objeto em tabela tem implementações diferentes consoante o nível de compatibilidade. Nível de compatibilidade é especificado no projeto de modelo em tabela no Visual Studio (SSDT). Modelos em tabela criada no e importados a partir do ambiente de trabalho do Power BI são apresentados apenas o nível de compatibilidade 1400.
 
-Serviços de análise do Azure suporta modelos em tabela nos níveis de compatibilidade 1200 e 1400.
+Serviços de análise do Azure suporta modelos em tabela nos níveis de compatibilidade 1200 e 1400. 
 
 O nível de compatibilidade mais recente é 1400. Este nível coincide com o SQL Server 2017 Analysis Services. O nível de compatibilidade 1400 principais funcionalidades incluem:
 
-*  Nova infraestrutura para conectividade de dados e importação para modelos em tabela com suporte para personalizada APIs e TMSL scripting. Esta nova funcionalidade permite suporte para origens de dados adicionais, como o armazenamento de Blobs do Azure.
+*  Novas funcionalidades para importar e conectividade de dados com suporte para personalizada APIs e TMSL scripting. 
 *  Transformação de dados e as capacidades de aplicação híbrida de dados através de expressões de obter dados e o M.
 *  Medidas suportam uma propriedade de linhas de detalhe com uma expressão DAX. Esta propriedade permite que as ferramentas de cliente, como o Microsoft Excel para desagregar para dados detalhados de um relatório agregado. Por exemplo, quando os utilizadores visualizar vendas totais para uma região e o mês, pode ver os detalhes da encomenda associado. 
 *  Segurança ao nível do objeto para nomes de tabelas e colunas, além dos dados nelas.

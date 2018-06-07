@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7b1a3ef9205f46f2f03b6201c72c21c8caafa405
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593321"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a palavra-passe da conta de serviço sincronização do Azure AD Connect
 Se alterar a palavra-passe da conta de serviço sincronização do Azure AD Connect, o serviço de sincronização não será possível iniciar corretamente até ter abandonado a chave de encriptação e a reinicialização da palavra-passe da conta de serviço sincronização do Azure AD Connect. 

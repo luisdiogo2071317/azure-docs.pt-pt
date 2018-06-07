@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fabb79a1449529cde97db7054eb954564b4dfa68
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b0db212b215d2d53b32437d703394148bcc4ac92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Azure Active Directory com LinkedIn Learning
 
@@ -135,7 +136,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |
     | e-mail| User.Mail |    
-    | Departamento| User.Department |
+    | departamento| User.Department |
     | nome próprio| User.givenName |
     | Apelido| User.Surname |
     
@@ -165,7 +166,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 11. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
 
 12. Clique em **Guardar**.
 
@@ -208,12 +209,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
-    d. Clique em **Criar**. 
+    d. Clique em **Criar**.
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Criar um utilizador de teste de aprendizagem do LinkedIn
 
-Suporta a aplicação de aprendizagem ligado. Apenas no aprovisionamento de utilizadores de tempo e após a autenticação os utilizadores são criados automaticamente na aplicação. No administrador de página de definições no LinkedIn Learning portal Inverte o comutador **automaticamente atribuir licenças** como ativa para permitir apenas no tempo de aprovisionamento e esta serão também atribuir uma licença ao utilizador.
-   
+Aplicação de aprendizagem do LinkedIn suporta apenas no tempo de aprovisionamento de utilizador e de utilizadores de autenticação são criados automaticamente na aplicação. No administrador de página de definições no LinkedIn Learning portal Inverte o comutador **automaticamente atribuir licenças** para Active Directory apenas no tempo de aprovisionamento e esta serão também atribuir uma licença ao utilizador. LinkedIn Learning também suporta o aprovisionamento de utilizadores automática, pode encontrar mais detalhes [aqui](active-directory-saas-linkedinlearning-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
@@ -226,15 +227,15 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **LinkedIn Learning**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribua o utilizador][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
@@ -245,7 +246,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -256,6 +257,7 @@ Quando clica no mosaico de aprendizagem do LinkedIn no painel de acesso, deve ob
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

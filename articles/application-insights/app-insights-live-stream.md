@@ -11,15 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599240"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Métricas em fluxo em direto: Monitor de & Diagnostique com uma latência de 1 segundo 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Métricas em fluxo em direto: Monitor de & Diagnostique com uma latência de 1 segundo
 
 Pesquisa o heart beating da aplicação web em direto, de produção, utilizando o fluxo de métricas em direto de [Application Insights](app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e métricas para ver em tempo real, sem qualquer disturbance ao seu serviço. Inspecione os rastreios de pilha do exemplo falhado pedidos e exceções. Em conjunto com [gerador de perfis](app-insights-profiler.md), [depurador de instantâneo](app-insights-snapshot-debugger.md), e [teste de desempenho](app-insights-monitor-web-app-availability.md#performance-tests), métricas em fluxo em direto fornece uma ferramenta de diagnóstico não é INVASIVO e poderosa para o web site em direto.
 
@@ -34,8 +35,6 @@ Com o fluxo de métricas em direto, pode:
 * Identifica facilmente um servidor que está a ter problemas e o filtro de todos os o KPI/live feed apenas nesse servidor.
 
 [![Vídeo de transmissão de métricas em direto](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-Transmissão de métricas em direto se encontra atualmente disponível nas aplicações do ASP.NET em execução no local ou na nuvem. 
 
 ## <a name="get-started"></a>Introdução
 

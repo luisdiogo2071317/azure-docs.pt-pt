@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory latências de relatórios | Microsoft Docs"
-description: "Saiba mais sobre a quantidade de tempo que demora para eventos de relatório apresentar no portal do Azure"
+title: Azure Active Directory latências de relatórios | Microsoft Docs
+description: Saiba mais sobre a quantidade de tempo que demora para eventos de relatório apresentar no portal do Azure
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589785"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory latências de relatórios
 
@@ -37,10 +39,10 @@ Existem duas áreas de criação de relatórios de atividade:
 
 A tabela seguinte lista as informações de latência para relatórios de atividade.
 
-| Relatório | Mínimo | Média | Observações |
-| :-- | --- | --- | :-- |
-| Registos de auditoria | 30 minutos  | 1 hora  |Em alguns casos, pode demorar até 2 horas para dados de atividade de auditoria apresentar.|
-| Inícios de sessão | 15 minutos  | 2 horas |Em alguns casos, pode demorar até 24 horas para dados de atividade de início de sessão apresentar. Isto inclui dados de atividade de inícios de sessão provenientes das aplicações do office legado. |
+| Relatório | Latência (P95) |Latência (P99)|
+| :-- | --- | --- | 
+| Registos de auditoria | minutos de 2  | 5 minutos  |
+| Inícios de sessão | minutos de 2  | 5 minutos |
 
 
 
@@ -70,8 +72,8 @@ A tabela seguinte lista as informações de latência para eventos de risco.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Inícios de sessão de endereços IP anónimos |5 minutos |15 minutos |2 horas |
-| Inícios de sessão de localizações desconhecidas |5 minutos |15 minutos |2 horas |
+| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |2 horas |
+| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |2 horas |
 | Utilizadores com fuga de credenciais |2 horas |4 horas |8 horas |
 | Deslocação impossível para localizações atípicas |5 minutos |1 hora |8 horas  |
 | Inícios de sessão de dispositivos infetados |2 horas |4 horas |8 horas  |

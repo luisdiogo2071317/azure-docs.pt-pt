@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e82cf4ccdc09cd6505994f9db952ac718342bf2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5b940ac896f95ec796179f44e0dd11dcf6184464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Azure Active Directory com LinkedIn elevar
 
@@ -47,7 +48,8 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
 1. A adição de elevar o LinkedIn da galeria do
 2. Configurar e testar o Azure AD de sessão único-
@@ -57,14 +59,14 @@ Para configurar a integração do LinkedIn elevar com o Azure AD, tem de adicion
 
 **Para adicionar a efetuar a elevação LinkedIn da galeria do, execute os seguintes passos:**
 
-1. No  **[Azure Management Portal](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. No  **[Azure Management Portal](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
 
     ![Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![Aplicações][2]
-    
+
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
@@ -99,7 +101,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, como **modo** selecione **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedin_01.png)
 
 3. Numa janela do browser web diferente, início de sessão no seu inquilino LinkedIn elevar como administrador.
@@ -123,18 +125,18 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 7. Se quiser configurar o SSO no **SP iniciada**, em seguida, clique em opção de definição de mostrar URL avançado na secção de configuração e configurar o início de sessão no URL com o padrão do seguinte:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
-    
+
     ![Configurar o início de sessão único](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_02.png) 
-    
-8. A aplicação efetue a elevação LinkedIn espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. A seguinte captura de ecrã mostra um exemplo para este. O valor predefinido de **identificador de utilizador** é **user.userprincipalname** mas LinkedIn elevar espera este deve ser mapeado com o endereço de correio eletrónico do utilizador. Para que pode utilizar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização. 
+
+8. A aplicação efetue a elevação LinkedIn espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. A seguinte captura de ecrã mostra um exemplo para este. O valor predefinido de **identificador de utilizador** é **user.userprincipalname** mas LinkedIn elevar espera este deve ser mapeado com o endereço de correio eletrónico do utilizador. Para que pode utilizar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
 
 9. No **atributos de utilizador** secção, clique em **ver e editar todos os outros atributos de utilizador** e definir os atributos. Tem de adicionar outra afirmação com o nome **departamento** e o valor tem de ser mapeados para **user.department**.
 
     | Nome do Atributo | Valor do Atributo |
-    | --- | --- |    
-    | Departamento| User.Department |
+    | --- | --- |
+    | departamento| User.Department |
 
       ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
@@ -145,7 +147,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
       b. Clique em **Ok** para guardar o atributo.
 
       c. Alterar o nome do atributo **emailaddress** para **e-mail**.
-
 
 10. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
 
@@ -175,15 +176,15 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal de 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_01.png) 
 
 2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
-    
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_02.png) 
 
 3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_03.png) 
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_04.png) 
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
@@ -192,11 +193,11 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal de 
 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
-    d. Clique em **Criar**. 
+    d. Clique em **Criar**.
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>Criar um utilizador de teste LinkedIn elevar
 
-Aplicação elevar ligado suporta apenas no tempo de aprovisionamento de utilizador e de utilizadores de autenticação serão criados na aplicação automaticamente. No administrador de página de definições no LinkedIn elevar portal Inverte o comutador **automaticamente atribuir licenças** como ativa para permitir apenas no tempo de aprovisionamento e esta serão também atribuir uma licença ao utilizador.
+A aplicação de efetuar a elevação LinkedIn suporta apenas no tempo de aprovisionamento de utilizador e de utilizadores de autenticação serão criados na aplicação automaticamente. No administrador de página de definições no LinkedIn elevar portal Inverte o comutador **automaticamente atribuir licenças** para Active Directory apenas no tempo de aprovisionamento e esta serão também atribuir uma licença ao utilizador. Efetuar a elevação LinkedIn também suporta o aprovisionamento de utilizadores automática, pode encontrar mais detalhes [aqui](active-directory-saas-linkedinelevate-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/LinkedinUserprovswitch.png)
 
@@ -210,7 +211,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 1. No portal de gestão do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **LinkedIn elevar**.
 
@@ -229,7 +230,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -241,7 +242,7 @@ Quando clica no mosaico LinkedIn elevar no painel de acesso, deve obter a págin
 * [Tutorial: Configurar LinkedIn elevar para o utilizador automáticas de aprovisionamento com o Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->
 

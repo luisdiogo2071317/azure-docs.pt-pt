@@ -1,18 +1,19 @@
 ---
-title: Connnect uma aplicação de cliente do Node.js genérica para o Azure IoT Central | Microsoft Docs
+title: Ligar uma aplicação de cliente do Node.js genérica para o Azure IoT Central | Microsoft Docs
 description: Como um programador de dispositivo, como ligar um dispositivo de Node.js genérico a sua aplicação do Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628543"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (Node.js)
 
@@ -23,7 +24,7 @@ Este artigo descreve como, como um programador de dispositivo, para ligar uma ap
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
 1. Uma aplicação do Azure IoT Central. Para obter mais informações, consulte [criar a sua aplicação Central do Azure IoT](howto-create-application.md).
-1. Uma máquina de desenvolvimento com [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior instalado. Pode executar `node --version` na linha de comandos para verificar a sua versão. NODE.js está disponível para uma grande variedade de sistemas operativos.
+1. Uma máquina de desenvolvimento com [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior instalado. Pode executar `node --version` na linha de comandos para verificar a sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos.
 
 Na aplicação do Azure IoT Central, é necessário um modelo de dispositivo com as seguintes medidas e as propriedades de dispositivo definidas:
 
@@ -31,9 +32,9 @@ Na aplicação do Azure IoT Central, é necessário um modelo de dispositivo com
 
 Adicionar a telemetria no seguinte o **medidas** página:
 
-| Nome a apresentar | Nome do Campo  | Unidades | Mín. | Máx | Casas decimais |
+| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatura  | Temperatura | F     | 60  | 110 | 0              |
+| Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -46,9 +47,9 @@ Introduza os nomes de campo exatamente como mostrado na tabela para o modelo de 
 
 Adicione o seguinte estado no **medidas** página:
 
-| Nome a apresentar | Nome do Campo  | Valor 1 | Nome a apresentar | Valor 2 | Nome a apresentar |
+| Nome a Apresentar | Nome do Campo  | Valor 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Ventoinha modo     | fanmode     | 1       | A executar      | 0       | Parada      |
+| Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
 > [!NOTE]
   O tipo de dados de medição do estado é cadeia.
@@ -59,7 +60,7 @@ Introduza os nomes de campo exatamente como mostrado na tabela para o modelo de 
 
 Adicione o seguinte evento no **medidas** página:
 
-| Nome a apresentar | Nome do Campo  | Gravidade |
+| Nome a Apresentar | Nome do Campo  | Gravidade |
 | ------------ | ----------- | -------- |
 | Sobreaquecimento  | overheat    | Erro    |
 
@@ -70,9 +71,9 @@ Adicione o seguinte evento no **medidas** página:
 
 Adicione as seguintes propriedades do dispositivo no **página de propriedades**:
 
-| Nome a apresentar        | Nome do Campo        | Tipo de dados |
+| Nome a Apresentar        | Nome do Campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
-| Número de série       | SerialNumber      | texto      |
+| Número de série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
 Introduza os nomes de campo exatamente como mostrado na tabela para o modelo de dispositivo. Se os nomes de campo não corresponderem, a aplicação não é possível mostrar o valor da propriedade.
@@ -81,10 +82,10 @@ Introduza os nomes de campo exatamente como mostrado na tabela para o modelo de 
 
 Adicione o seguinte **número** definições no **página de definições**:
 
-| Nome a apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx  | Inicial |
+| Nome a Apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Conjunto de temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
+| Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
 
 Introduza o nome do campo exatamente como mostrado na tabela para o modelo de dispositivo. Se os nomes de campo não corresponderem, o dispositivo não consegue receber o valor da definição.
 
@@ -96,7 +97,7 @@ Na aplicação do Azure IoT Central, adicione um dispositivo real do modelo de d
 
 Os passos seguintes mostram como criar uma aplicação cliente que implementa o dispositivo real adicionados à aplicação.
 
-1. Crie uma pasta denominada `connected-air-conditioner-adv` no seu computador. Navegue para essa pasta no seu ambiente de linha de comandos.
+1. Crie uma pasta denominada `connected-air-conditioner-adv` no computador. Navegue para essa pasta no seu ambiente de linha de comandos.
 
 1. Para inicializar o projeto de Node.js, execute os seguintes comandos:
 
@@ -118,7 +119,7 @@ Os passos seguintes mostram como criar uma aplicação cliente que implementa o 
     var ConnectionString = require('azure-iot-device').ConnectionString;
     ```
 
-1. Adicione as seguintes declarações de variável para o ficheiro:
+1. Adicione as seguintes declarações de variáveis ao ficheiro:
 
     ```javascript
     var connectionString = '{your device connection string}';

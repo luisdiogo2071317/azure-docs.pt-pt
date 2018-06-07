@@ -1,25 +1,22 @@
 ---
-title: Adicione o conector DB2 nas suas Logic Apps | Microsoft Docs
-description: "Descrição geral do conector DB2 com parâmetros de REST API"
-services: 
-documentationcenter: 
+title: Ligar ao DB2 - as do Azure Logic Apps | Microsoft Docs
+description: Gerir os recursos com as APIs REST do DB2 e Azure Logic Apps
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609754"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Começar a utilizar o conector DB2
 Conector do Microsoft para DB2 liga as Logic Apps aos recursos armazenados numa base de dados IBM DB2. Este conector inclui o cliente Microsoft para comunicar com computadores de servidor DB2 remotos através de uma rede TCP/IP. Isto inclui as bases de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para o Windows em execução no Azure Virtualização e no local utilizando o gateway de dados no local de bases de dados. Consulte o [suportado lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) do IBM DB2 plataformas e versões (deste tópico).
@@ -47,13 +44,13 @@ O conector DB2 suporta as seguintes ações de aplicação lógica:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Lista de tabelas
+## <a name="list-tables"></a>Listar as tabelas
 Criar uma aplicação lógica em nenhuma operação é composta por vários passos realizados através do portal do Microsoft Azure.
 
 Na sua aplicação lógica, pode adicionar uma ação para listar as tabelas na base de dados DB2. A ação instrui o conector para processar uma instrução de esquema DB2, tais como `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `Db2getTables`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -123,7 +120,7 @@ Este conector pode aceder a uma base de dados de nuvem DB2.
 Pode definir uma ação de aplicação lógica para obter todas as linhas numa tabela DB2. Isto indica que o conector para processar uma instrução DB2 SELECIONE, tais como `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `Db2getRows`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -160,7 +157,7 @@ Pode definir uma ação de aplicação lógica para obter todas as linhas numa t
 Pode definir uma ação de aplicação lógica para adicionar uma linha numa tabela DB2. Esta ação instrui o conector para processar uma instrução DB2 INSERT, tais como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `Db2insertRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -187,7 +184,7 @@ Pode definir uma ação de aplicação lógica para adicionar uma linha numa tab
 Pode definir uma ação de aplicação lógica para obter uma linha numa tabela DB2. Esta ação instrui o conector para processar uma instrução DB2 SELECIONE onde, tais como `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome** (por exemplo, "**Db2getRow**"), **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -215,7 +212,7 @@ Pode definir uma ação de aplicação lógica para obter uma linha numa tabela 
 Pode definir uma ação de aplicação lógica para alterar uma linha numa tabela DB2. Esta ação instrui o conector para processar uma instrução de ATUALIZAÇÃO de DB2, tais como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `Db2updateRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação
@@ -242,7 +239,7 @@ Pode definir uma ação de aplicação lógica para alterar uma linha numa tabel
 Pode definir uma ação de aplicação lógica para remover uma linha numa tabela DB2. Esta ação instrui o conector para processar uma instrução DB2 eliminar, tais como `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Criar uma aplicação lógica
-1. No **Azure Iniciar quadro**, selecione  **+**  (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
+1. No **Azure Iniciar quadro**, selecione **+** (sinal de adição), **Web + móvel**e, em seguida, **aplicação lógica**.
 2. Introduza o **nome**, tais como `Db2deleteRow`, **subscrição**, **grupo de recursos**, **localização**, e **plano do App Service**. Selecione **afixar ao dashboard**e, em seguida, selecione **criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um acionador e ação

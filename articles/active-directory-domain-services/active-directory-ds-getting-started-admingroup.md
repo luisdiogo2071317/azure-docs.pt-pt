@@ -1,24 +1,26 @@
 ---
-title: "Serviços de domínio do Azure Active Directory: Introdução | Microsoft Docs"
+title: 'Serviços de domínio do Azure Active Directory: Introdução | Microsoft Docs'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587907"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -40,16 +42,19 @@ O assistente cria automaticamente o grupo administrativo no diretório do Azure 
 
 3. Quando tiver terminado, clique em **OK** mover para o **resumo** página do assistente.
 
-4. No **resumo** página do assistente, reveja as definições de configuração para o domínio gerido. Pode voltar atrás para qualquer passo do Assistente para efetuar alterações, se necessário. Quando tiver terminado, clique em **OK** para criar o novo domínio gerido.
+
+## <a name="deploy-your-managed-domain"></a>Implementar o seu domínio gerido
+
+1. No **resumo** página do assistente, reveja as definições de configuração para o domínio gerido. Pode voltar atrás para qualquer passo do Assistente para efetuar alterações, se necessário. Quando tiver terminado, clique em **OK** para criar o novo domínio gerido.
 
     ![Resumo](./media/getting-started/domain-services-blade-summary.png)
 
-5. Verá uma notificação que mostra o progresso da implementação do serviços de domínio do Azure AD. Clique na notificação para ver o progresso de detalhado para a implementação.
+2. Verá uma notificação que mostra o progresso da implementação do serviços de domínio do Azure AD. Clique na notificação para ver o progresso de detalhado para a implementação.
 
     ![Notificação - implementação em curso](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Aprovisionar o seu domínio gerido
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verifique o estado de implementação do seu domínio gerido
 O processo de aprovisionamento do seu domínio gerido pode demorar até uma hora.
 
 1. Enquanto a implementação está em curso, pode pesquisar para serviços de domínio no **procurar recursos** caixa de pesquisa. Selecione **serviços de domínio do Azure AD** do resultado de pesquisa. O **serviços de domínio do Azure AD** painel lista o domínio gerido que está a ser aprovisionado.

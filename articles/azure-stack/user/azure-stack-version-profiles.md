@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604442"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API na pilha do Azure
 
@@ -36,7 +37,7 @@ Este tópico ajuda-o:
 ## <a name="summary-of-api-profiles"></a>Resumo dos perfis de API
 
 - Perfis de API são utilizados para representar um conjunto de fornecedores de recursos do Azure e as respetivas versões de API.
-- Perfis de API foram criados para programadores, para que podem criar modelos em várias nuvens do Azure. Perfis foram concebidos para satisfazer a necessidade de uma interface compatível e estável.
+- Perfis de API foram criadas para a criação de modelos em várias nuvens do Azure. Perfis foram concebidos para satisfazer a necessidade de uma interface compatível e estável.
 - Perfis são lançados quatro vezes um ano.
 - São utilizadas três convenções de nomenclatura de perfil:
     - **latest**  
@@ -66,17 +67,11 @@ Em vez de pesquisar cada fornecedor de recursos e a versão específica suportad
 
 Os perfis de API funcionar com as ferramentas que utilizar o Azure Resource Manager, tais como o PowerShell, o CLI do Azure, o código fornecido no SDK e o Microsoft Visual Studio. SDKs e ferramentas podem utilizar perfis para ler a versão de módulos e bibliotecas para incluir quando criar uma aplicação.
 
-**Cenário de desenvolvimento de utilização do perfil**  
-Partem do princípio de que está a utilizar o PowerShell para criar:
+Por exemplo, se utilizar o PowerShell para criar um armazenamento conta através do **Microsoft** fornecedor de recursos, que suporta a api-version 2016-03-30 e uma VM com o fornecedor de recursos Microsoft. Compute api-version 2015-12-01 , terá de procurar que suporte de módulo do PowerShell 2016-03-30 para armazenamento e o módulo suporta 2015-02-01 para computação e instalá-las. Em vez disso, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega as versões corretas dos módulos.
 
-* Uma conta de armazenamento que utiliza o **Microsoft** fornecedor de recursos, que suporta a api-version 2016-03-30.
-* Uma VM que utiliza o **Microsoft. Compute** fornecedor de recursos, que suporta a api-version 2015-12-01.
+Da mesma forma, ao utilizar o SDK Python para criar uma aplicação baseada no Python, pode especificar o perfil. O SDK carrega os módulos de direita para os fornecedores de recursos que especificou no script.
 
-Em vez de localizar e instalar os módulos do PowerShell que suportam as api-versions que precisa de armazenamento e computação, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega a versão correta dos módulos.
-
-Da mesma forma, se estiver a utilizar o SDK Python para criar uma aplicação baseada no Python, pode utilizar um perfil. O SDK carrega os módulos corretos para os fornecedores de recursos que especificou no script.
-
-Como um programador pode concentrar-se sobre como escrever a sua solução. Pode utilizar um perfil, sabendo que o seu código irá funcionar em todas as nuvens que suporta o perfil.
+Como um programador pode concentrar-se sobre como escrever a sua solução. Em vez de a pesquisar as versões de api, o fornecedor de recursos e que em nuvem funciona em conjunto, utilize um perfil e saber que o seu código irá funcionar em todas as nuvens que suportam esse perfil.
 
 ## <a name="api-profile-code-samples"></a>Exemplos de código do perfil de API
 
@@ -85,11 +80,13 @@ Pode encontrar exemplos de código para o ajudar a integrar a solução com o se
 - **PowerShell**  
 Pode utilizar o **AzureRM.Bootstrapper** módulo disponível através de galeria do PowerShell para obter os cmdlets do PowerShell necessários para trabalhar com perfis de versão de API. Para informações, consulte [perfis de versão de API de utilização para o PowerShell](azure-stack-version-profiles-powershell.md).
 - **CLI 2.0 do Azure**  
-Pode atualizar a configuração do ambiente para utilizar o perfil de versão de API específico da pilha do Azure. Para obter informações, consulte [perfis de versão de API de utilização para o Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+Pode atualizar a configuração do ambiente para utilizar o perfil de versão de API específico da pilha do Azure. Para informações, consulte [perfis de versão de API de utilização para o Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **ACEDA**  
 SDK ACEDA, um perfil é uma combinação de tipos de recursos diferente com diferentes versões de diferentes serviços. perfis estão disponíveis em perfis da / caminho, com a respetiva versão no **aaaa-MM-DD** formato. Para informações, consulte [perfis de versão de API de utilização para ir](azure-stack-version-profiles-go.md).
 - **Ruby**  
 O SDK de Ruby para o Gestor de recursos de pilha do Azure fornece ferramentas para ajudar a criar e gerir a sua infraestrutura. Fornecedores de recursos no SDK incluem computação, redes virtuais e armazenamento com o idioma Ruby. Para informações, consulte [perfis de versão de API de utilização com Ruby](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- O SDK Python suporta perfis de versão de API para plataformas de nuvem diferente, tais como a pilha do Azure e global do Azure de destino. Pode utilizar perfis de API na criação de soluções para uma nuvem híbrida. Para informações, consulte [perfis de versão de API de utilização com o Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

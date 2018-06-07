@@ -1,24 +1,19 @@
 ---
-title: "Utilizar o armazenamento de cópia de segurança moderno com o servidor de cópia de segurança do Azure v2 | Microsoft Docs"
-description: "Saiba mais sobre as novas funcionalidades no servidor de cópia de segurança do Azure v2. Este artigo descreve como atualizar a instalação do servidor de cópia de segurança."
+title: Utilizar o armazenamento de cópia de segurança moderno com o servidor de cópia de segurança do Azure v2
+description: Saiba mais sobre as novas funcionalidades no servidor de cópia de segurança do Azure v2. Este artigo descreve como atualizar a instalação do servidor de cópia de segurança.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606759"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>Adicionar armazenamento a v2 do servidor de cópia de segurança do Azure
 
@@ -96,7 +91,7 @@ As alterações efetuadas utilizando o PowerShell são refletidas na consola do 
 
 ![Discos e volumes na consola do administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de instalar o servidor de cópia de segurança, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
 - [Preparar as cargas de trabalho do servidor de cópia de segurança](backup-azure-microsoft-azure-backup.md)

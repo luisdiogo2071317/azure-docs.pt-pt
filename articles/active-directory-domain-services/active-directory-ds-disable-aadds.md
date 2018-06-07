@@ -1,24 +1,26 @@
 ---
-title: "Desativar os serviços de domínio do Active Directory do Azure | Microsoft Docs"
+title: Desativar os serviços de domínio do Active Directory do Azure | Microsoft Docs
 description: Desativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: maheshu
-ms.openlocfilehash: f61f6df85e47bec32e147990d956a4409429a60c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d2db86dbd65e64af2e8643dc02e27701bfe61717
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586429"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Desativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como utilizar o portal do Azure para desativar os serviços de domínio do Azure Active Directory (AD) para o diretório do Azure AD.

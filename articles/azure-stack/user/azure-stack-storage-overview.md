@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/29/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: b1ec7a9e74e9b460152c7d47c4b5b3b394a3367b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d97a5f8aff57f4bbfd7d5222a87d258fa5c92da8
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604391"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Introdução ao storage do Azure pilha
 
@@ -31,13 +32,15 @@ Armazenamento de pilha do Azure é um conjunto de serviços de armazenamento na 
 
 Armazenamento de pilha do Azure fornece os seguintes três serviços:
 
-* **Armazenamento de Blobs**
+- **Armazenamento de Blobs**
 
     O blob storage armazena dados de objetos não estruturados. Um blob pode ser qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro multimédia ou o instalador da aplicação.
-* **O Table Storage**
+
+- **O Table Storage**
 
     O Table storage armazena conjuntos de dados estruturados. O Table Storage é um arquivo de dados do atributo chave NoSQL, que permite um rápido desenvolvimento e um acesso rápido às grandes quantidades de dados.
-* **Armazenamento de filas**
+
+- **Armazenamento de filas**
 
     Armazenamento de filas fornece mensagens fiáveis para processamento de fluxo de trabalho e para a comunicação entre os componentes dos serviços em nuvem.
 
@@ -47,36 +50,38 @@ Uma conta de armazenamento de pilha do Azure é uma conta segura que dá-lhe ace
 
 ### <a name="blob-storage"></a>Armazenamento de blobs
 
-Para que os utilizadores com uma grande quantidade de dados de objetos não estruturados na nuvem, o Blob storage oferece uma solução eficaz e dimensionável. Pode utilizar o Blob Storage para armazenar conteúdos, tais como:
+Para que os utilizadores com uma grande quantidade de dados de objetos não estruturados na nuvem, o blob storage oferece uma solução eficaz e dimensionável. Pode utilizar o blob storage para armazenar o conteúdo, tal como:
 
-* Documentos
-* Dados de rede social, tais como fotografias, vídeos, música e blogues
-* Cópias de segurança de ficheiros, computadores, bases de dados e dispositivos
-* Imagens e texto para Web Apps
-* Dados de configuração para aplicações em nuvem
-* Macrodados, tais como registos e outros grandes conjuntos de dados
+- Documentos
+- Dados de rede social, tais como fotografias, vídeos, música e blogues
+- Cópias de segurança de ficheiros, computadores, bases de dados e dispositivos
+- Imagens e texto para Web Apps
+- Dados de configuração para aplicações em nuvem
+- Macrodados, tais como registos e outros grandes conjuntos de dados
 
 Cada blob está organizado num contentor. Os contentores também fornecem uma forma útil de atribuir políticas de segurança a grupos de objetos. Uma conta do storage pode conter qualquer número de contentores e um contentor pode conter qualquer número de blobs, até ao limite da conta de armazenamento.
 
 O blob storage oferece três tipos de blobs:
 
-* **Blobs de blocos**
+- **Blobs de blocos**
 
     Os blobs de blocos estão otimizados para transmissão em fluxo e armazenar os objetos da nuvem e são uma boa opção para armazenar documentos, ficheiros de multimédia, cópias de segurança e etc.
-* **Blobs de acréscimo**
+
+- **Blobs de acréscimo**
 
     Os blobs de acréscimo são semelhantes aos blobs de blocos, mas estão otimizados para as operações de acréscimo. Um blob de acréscimo apenas pode ser atualizado adicionando um novo bloco ao final. Os blobs de acréscimo são uma boa opção para cenários como o registo, onde novos dados têm de ser escritos apenas no final do blob.
-* **Blobs de páginas**
+
+- **Blobs de páginas**
 
     Os blobs de página estão otimizados para representar discos IaaS e suportar aleatório escreve que é até 1 TB de tamanho. Uma máquina virtual do Azure pilha ligado IaaS disco é um VHD armazenado como um blob de página.
 
 ### <a name="table-storage"></a>Table Storage
 
-As aplicações modernas exigem frequentemente arquivos de dados com maior escalabilidade e flexibilidade do que as gerações anteriores do software necessário. O Table Storage oferece um armazenamento de elevada disponibilidade e extremamente dimensionável para que a aplicação possa ser automaticamente dimensionada para satisfazer o pedido do utilizador. O Armazenamento de tabelas é um arquivo de chaves/atributos NoSQL da Microsoft – tem um design sem esquemas, o que o diferencia das tradicionais bases de dados relacionais. Com um arquivo de dados sem esquemas, é fácil adaptar os seus dados à medida que as necessidades da sua aplicação evoluem. O Table Storage é fácil de utilizar para que os programadores possam criar aplicações rapidamente.
+As aplicações modernas exigem frequentemente arquivos de dados com maior escalabilidade e flexibilidade do que as gerações anteriores do software necessário. O Table Storage oferece um armazenamento de elevada disponibilidade e extremamente dimensionável para que a aplicação possa ser automaticamente dimensionada para satisfazer o pedido do utilizador. O Table storage é o arquivo de chaves/atributos NoSQL da Microsoft – tem um design sem esquemas, que o diferencia das tradicionais bases de dados relacionais. Com um arquivo de dados sem esquemas, é fácil adaptar os seus dados à medida que as necessidades da sua aplicação evoluem. O Table Storage é fácil de utilizar para que os programadores possam criar aplicações rapidamente.
 
-O Table storage é um arquivo de atributos de chave, o que significa que cada valor numa tabela é armazenado com um nome de propriedade escrito. O nome da propriedade pode ser utilizado para filtrar e especificar critérios de seleção. Uma coleção de propriedades e os respetivos valores compõem uma entidade. Uma vez que o Table Storage não tem esquemas, duas entidades na mesma tabela podem conter diferentes coleções de propriedades e essas propriedades podem ser de diferentes tipos.
+O Table storage é um arquivo de atributos de chave, o que significa que cada valor numa tabela é armazenado com um nome de propriedade escrito. O nome da propriedade pode ser utilizado para filtrar e especificar critérios de seleção. Uma coleção de propriedades e os respetivos valores compõem uma entidade. Uma vez que o table storage não tem esquemas, duas entidades na mesma tabela podem conter diferentes coleções de propriedades e essas propriedades podem ser de diferentes tipos.
 
-Pode utilizar o Table Storage para armazenar conjuntos de dados flexíveis, tais como os dados do utilizador para Web Apps, livros de endereços, informações do dispositivo e qualquer outro tipo de metadados necessários para o seu serviço. Para as aplicações baseadas na Internet de hoje, as bases de dados NoSQL, tal como uma oferta do Table Storage, oferecem uma alternativa popular às bases de dados relacionais tradicionais.
+Pode utilizar o table storage para armazenar conjuntos de dados flexíveis, tais como os dados de utilizador para web Apps, livros de endereços, informações do dispositivo e qualquer outro tipo de metadados que necessita do seu serviço. Para aplicações baseados na Internet de hoje, bases de dados NoSQL, como o table storage oferecem uma alternativa popular às bases de dados relacionais tradicionais.
 
 Uma conta do storage pode conter qualquer número de tabelas e uma tabela pode conter qualquer número de entidades, até ao limite de capacidade da conta de armazenamento.
 
@@ -88,6 +93,6 @@ Uma conta do storage pode conter qualquer número de filas e uma fila pode conte
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Armazenamento do Azure consistente: diferenças e considerações](azure-stack-acs-differences.md)
+- [Armazenamento do Azure consistente: diferenças e considerações](azure-stack-acs-differences.md)
 
-* Para saber mais sobre o Storage do Azure, consulte [introdução ao Storage do Microsoft Azure](../../storage/common/storage-introduction.md)
+- Para saber mais sobre o Storage do Azure, consulte [introdução ao Storage do Microsoft Azure](../../storage/common/storage-introduction.md)

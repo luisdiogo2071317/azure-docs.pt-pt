@@ -1,24 +1,19 @@
 ---
-title: "Cópia de segurança num servidor do Exchange para cópia de segurança do Azure com o System Center 2012 R2 DPM | Microsoft Docs"
-description: "Saiba como fazer cópias de segurança um Exchange server Backup do Azure utilizando o System Center 2012 R2 DPM"
+title: Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
+description: Saiba como fazer cópias de segurança um Exchange server Backup do Azure utilizando o System Center 2012 R2 DPM
 services: backup
-documentationcenter: 
 author: MaanasSaran
 manager: NKolli1
-editor: 
-ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605105"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 Este artigo descreve como configurar um servidor do System Center 2012 R2 Data Protection Manager (DPM) para fazer cópias de segurança de um servidor do Microsoft Exchange a cópia de segurança do Azure.  
@@ -123,5 +118,5 @@ Para pontos de recuperação online, existem cinco tipos de recuperação:
 
     ![Escolha de replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [FAQ sobre a cópia de segurança do Azure](backup-azure-backup-faq.md)

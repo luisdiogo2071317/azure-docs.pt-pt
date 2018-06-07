@@ -17,11 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 62df56f76c410186e986564ce8e5a4673a413ebb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 17bf8a973c42b2940c8d09fa56627460743ed45f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594266"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação do Azure Active Directory
 
@@ -46,8 +47,8 @@ A v 1.0 do Azure Active Directory Authentication Library (ADAL) permite aos prog
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[aplicação iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](https://cocoadocs.org/docsets/ADAL/)|
 | Android |ADAL |[O repositório Central](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicação Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplicação Web Node.Js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)| |
-| Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplicação Web Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplicação web Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) | |
+| Java |ADAL4J |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplicação Web Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplicação web Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Referência](http://adal-python.readthedocs.io/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Microsoft suportados pelo serviço servidor bibliotecas
 

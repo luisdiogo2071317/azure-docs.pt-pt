@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bcf266813476c682d47bfd483db77f5d8b73837a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7cc86f56f7f68c70d66407bd44e6368f31f202d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593790"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este tópico fornece os passos para resolver problemas com a sincronização de hash de palavra-passe. Se as palavras-passe não estiver a sincronizar conforme esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.
@@ -333,7 +335,7 @@ A coluna de estado pode ter os seguintes valores:
 | TargetNotExportedToDirectory |O objeto no espaço de conector do Azure AD ainda não foram exportado. |
 | MigratedCheckDetailsForMoreInfo |Entrada de registo foi criada antes de compilação 1.0.9125.0 e é apresentada no respetivo estado de legado. |
 | Erro |Serviço devolveu um erro desconhecido. |
-| Desconhecido |Ocorreu um erro ao tentar processar um lote de hashes de palavra-passe.  |
+| Desconhecidos |Ocorreu um erro ao tentar processar um lote de hashes de palavra-passe.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) necessários para os serviços de domínio do Azure AD não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) necessários para os serviços de domínio do Azure AD anteriormente não estavam disponíveis. É efetuada uma tentativa para ressincronizar o hash de palavra-passe do utilizador. |
 

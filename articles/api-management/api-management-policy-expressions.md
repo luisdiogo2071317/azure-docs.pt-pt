@@ -1,11 +1,11 @@
 ---
-title: "Expressões de política de gestão de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as expressões de política na API Management do Azure."
+title: Expressões de política de gestão de API do Azure | Microsoft Docs
+description: Saiba mais sobre as expressões de política na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 0ecfade830b2123257b8039d5f0c26f19f3f3fc6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597523"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
 Este artigo aborda política sintaxe de expressões é c# 7. Cada expressão tem acesso ao implicitamente fornecido [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitido [subconjunto](api-management-policy-expressions.md#CLRTypes) dos tipos de .NET Framework.  
@@ -94,7 +95,7 @@ Para obter mais informações:
 |System.Collections.Generic.Stack<TKey, TValue>|Todos|  
 |System.Convert|Todos|  
 |System.DateTime|Todos|  
-|System.DateTimeKind|Utc|  
+|System.DateTimeKind|UTC|  
 |System.DateTimeOffset|Todos|  
 |System.Decimal|Todos|  
 |System.Double|Todos|  
@@ -169,33 +170,33 @@ Para obter mais informações:
   
 |Variável de contexto|Permitidos métodos, propriedades e valores de parâmetros|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Implementação<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de Timestamp e a hora atual<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Pedir<br /><br /> RequestId: Guid-Identificador exclusivo de pedido<br /><br /> Resposta<br /><br /> Subscrição<br /><br /> Timestamp: DateTime - ponto no tempo quando o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> Utilizador<br /><br /> Variáveis: IReadOnlyDictionary < cadeia, objecto ><br /><br /> void Trace(message: string)|  
-|context.Api|ID: cadeia<br /><br /> IsRevisionCurrent: bool<br /><br />  Nome: cadeia<br /><br /> Caminho: cadeia<br /><br /> Revisão: cadeia<br /><br /> ServiceUrl: IUrl<br /><br /> Versão: cadeia |  
-|context.Deployment|Região: cadeia<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
-|context.LastError|Origem: cadeia<br /><br /> Razão: cadeia<br /><br /> Mensagem: cadeia<br /><br /> Âmbito: cadeia<br /><br /> Secção: cadeia<br /><br /> Caminho: cadeia<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [processamento de erros](api-management-error-handling-policies.md).|  
-|context.Operation|ID: cadeia<br /><br /> Método: cadeia<br /><br /> Nome: cadeia<br /><br /> UrlTemplate: cadeia|  
+|Contexto|API: IApi<br /><br /> Implementação<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de Timestamp e a hora atual<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Pedir<br /><br /> RequestId: Guid-Identificador exclusivo de pedido<br /><br /> Resposta<br /><br /> Subscrição<br /><br /> Timestamp: DateTime - ponto no tempo quando o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> Utilizador<br /><br /> Variáveis: IReadOnlyDictionary < cadeia, objecto ><br /><br /> void Trace(message: string)|  
+|context.Api|ID: cadeia<br /><br /> IsCurrentRevision: bool<br /><br />  Nome: cadeia<br /><br /> Caminho: cadeia<br /><br /> Revisão: cadeia<br /><br /> ServiceUrl: IUrl<br /><br /> Versão: cadeia |  
+|context.Deployment|Região: cadeia<br /><br /> ServiceName: cadeia<br /><br /> Certificados: IReadOnlyDictionary < cadeia, X509Certificate2 >|  
+|context.LastError|Origem: cadeia<br /><br /> Razão: cadeia<br /><br /> Mensagem: cadeia<br /><br /> Âmbito: cadeia<br /><br /> Secção: cadeia<br /><br /> Caminho: cadeia<br /><br /> PolicyId: cadeia<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [processamento de erros](api-management-error-handling-policies.md).|  
+|contexto. Operação|ID: cadeia<br /><br /> Método: cadeia<br /><br /> Nome: cadeia<br /><br /> UrlTemplate: cadeia|  
 |context.Product|APIs: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Grupos: IEnumerable < IGroup\><br /><br /> ID: cadeia<br /><br /> Nome: cadeia<br /><br /> Estado: enumeração ProductState {NotPublished, publicada}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
-|context.Request|Corpo: IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: cadeia<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|  
-|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de pedido de valores separados por vírgulas ou `defaultValue` se não for encontrado o cabeçalho.|  
-|context.Response|Corpo: IMessageBody<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: cadeia|  
-|string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de resposta de valores separados por vírgulas ou `defaultValue` se não for encontrado o cabeçalho.|  
-|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: cadeia<br /><br /> Chave: cadeia<br /><br /> Nome: cadeia<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|  
-|context.User|E-mail: cadeia<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable < IGroup\><br /><br /> ID: cadeia<br /><br /> Identidades: IEnumerable < IUserIdentity\><br /><br /> LastName: string<br /><br /> Nota: cadeia<br /><br /> RegistrationDate: DateTime|  
+|context.Request|Corpo: IMessageBody<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Cabeçalhos: IReadOnlyDictionary < string, string [] ><br /><br /> IpAddress: cadeia<br /><br /> MatchedParameters: IReadOnlyDictionary < cadeia, cadeia ><br /><br /> Método: cadeia<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|  
+|contexto de cadeia. Request.Headers.GetValueOrDefault (headerName: cadeia, defaultValue: cadeia)|headerName: cadeia<br /><br /> defaultValue: cadeia<br /><br /> Devolve os valores de cabeçalho de pedido de valores separados por vírgulas ou `defaultValue` se não for encontrado o cabeçalho.|  
+|context.Response|Corpo: IMessageBody<br /><br /> Cabeçalhos: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: cadeia|  
+|contexto de cadeia. Response.Headers.GetValueOrDefault (headerName: cadeia, defaultValue: cadeia)|headerName: cadeia<br /><br /> defaultValue: cadeia<br /><br /> Devolve os valores de cabeçalho de resposta de valores separados por vírgulas ou `defaultValue` se não for encontrado o cabeçalho.|  
+|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: cadeia<br /><br /> Chave: cadeia<br /><br /> Nome: cadeia<br /><br /> PrimaryKey: cadeia<br /><br /> SecondaryKey: cadeia<br /><br /> StartDate: DateTime?|  
+|contexto. Utilizador|E-mail: cadeia<br /><br /> Nome próprio: cadeia<br /><br /> Grupos: IEnumerable < IGroup\><br /><br /> ID: cadeia<br /><br /> Identidades: IEnumerable < IUserIdentity\><br /><br /> Apelido: cadeia<br /><br /> Nota: cadeia<br /><br /> RegistrationDate: DateTime|  
 |IApi|ID: cadeia<br /><br /> Nome: cadeia<br /><br /> Caminho: cadeia<br /><br /> Protocolos: IEnumerable < cadeia\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|ID: cadeia<br /><br /> Nome: cadeia|  
 |IMessageBody|Como < T\>(preserveContent: bool = false): onde t: Temporary cadeia, JObject JToken, JArray, XNode, XElement, XDocument<br /><br /> O `context.Request.Body.As<T>` e `context.Response.Body.As<T>` métodos utilizados para ler um pedido e resposta corpos de mensagem num tipo especificado `T`. Por predefinição, o método utiliza o fluxo do corpo de mensagem original e composições indisponível depois devolve. Para evitar que fazendo com que o método funcionar numa cópia do fluxo do corpo, defina o `preserveContent` parâmetro `true`. Aceda [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|  
-|IUrl|Host: string<br /><br /> Caminho: cadeia<br /><br /> Porta: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: cadeia<br /><br /> Esquema: cadeia|  
+|IUrl|Anfitrião: cadeia<br /><br /> Caminho: cadeia<br /><br /> Porta: int<br /><br /> Consulta: IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: cadeia<br /><br /> Esquema: cadeia|  
 |IUserIdentity|ID: cadeia<br /><br /> Fornecedor: cadeia|  
 |ISubscriptionKeyParameterNames|Cabeçalho: cadeia<br /><br /> Consulta: cadeia|  
-|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de parâmetros de consulta de valores separados por vírgulas ou `defaultValue` se o parâmetro não for encontrado.|  
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Devolve o valor da variável convertido no tipo `T` ou `defaultValue` se a variável não for encontrada.<br /><br /> Este método emite uma exceção se o tipo especificado não corresponde ao tipo real da variável devolvido.|  
+|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: cadeia<br /><br /> Devolve os valores de parâmetros de consulta de valores separados por vírgulas ou `defaultValue` se o parâmetro não for encontrado.|  
+|Contexto de T. Variables.GetValueOrDefault < T\>(variableName: cadeia, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Devolve o valor da variável convertido no tipo `T` ou `defaultValue` se a variável não for encontrada.<br /><br /> Este método emite uma exceção se o tipo especificado não corresponde ao tipo real da variável devolvido.|  
 |BasicAuthCredentials AsBasic(input: this string)|entrada: cadeia<br /><br /> Se o parâmetro de entrada contém um valor de cabeçalho do pedido de autorização de autenticação básica de HTTP válido, o método devolve um objeto do tipo `BasicAuthCredentials`; caso contrário, o método devolve um valor nulo.|  
 |bool TryParseBasic (entrada: Esta cadeia, o resultado: saída BasicAuthCredentials)|entrada: cadeia<br /><br /> resultado: saída BasicAuthCredentials<br /><br /> Se o parâmetro de entrada contém um valor válido para a autorização de autenticação básica de HTTP no cabeçalho do pedido o método devolve `true` e o parâmetro de resultado contém um valor de tipo `BasicAuthCredentials`; caso contrário, devolve o método `false`.|  
 |BasicAuthCredentials|Palavra-passe: cadeia<br /><br /> UserId: cadeia|  
 |Jwt AsJwt(input: this string)|entrada: cadeia<br /><br /> Se o parâmetro de entrada contém um valor de token válido JWT, o método devolve um objeto do tipo `Jwt`; caso contrário, devolve o método `null`.|  
 |bool TryParseJwt (entrada: Esta cadeia, o resultado: saída Jwt)|entrada: cadeia<br /><br /> resultado: saída Jwt<br /><br /> Se o parâmetro de entrada contém um valor de token válido JWT, o método devolve `true` e o parâmetro de resultado contém um valor de tipo `Jwt`; caso contrário, devolve o método `false`.|  
-|Jwt|Algoritmo: cadeia<br /><br /> Audiência: IEnumerable < cadeia\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: cadeia<br /><br /> Emissor: cadeia<br /><br /> NotBefore: DateTime?<br /><br /> Requerente: cadeia<br /><br /> Tipo: cadeia|  
-|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Devolve separados por vírgulas de valores de afirmação ou `defaultValue` se não for encontrado o cabeçalho.|
+|Jwt|Algoritmo: cadeia<br /><br /> Audiência: IEnumerable < cadeia\><br /><br /> Afirmações: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: cadeia<br /><br /> Emissor: cadeia<br /><br /> NotBefore: DateTime?<br /><br /> Requerente: cadeia<br /><br /> Tipo: cadeia|  
+|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: cadeia<br /><br /> defaultValue: cadeia<br /><br /> Devolve separados por vírgulas de valores de afirmação ou `defaultValue` se não for encontrado o cabeçalho.|
 |byte [] encriptar (entrada: esta byte [], alg: cadeia, a chave: byte [], iv:byte[])|entrada - texto simples para ser encriptada<br /><br />alg - nome de um algoritmo de encriptação simétrica<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto não encriptado.|
 |byte [] encriptar (entrada: esta byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|entrada - texto simples para ser encriptada<br /><br />alg - algoritmo de encriptação<br /><br />Devolve texto não encriptado.|
 |byte [] encriptar (entrada: esta byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, chave: byte [], iv:byte[])|entrada - texto simples para ser encriptada<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto não encriptado.|

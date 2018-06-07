@@ -1,11 +1,11 @@
 ---
-title: "Operações de Gestor do serviço de sincronização do Azure AD Connect | Microsoft Docs"
-description: "Compreenda o separador de operações no Gestor de serviço de sincronização do Azure AD Connect."
+title: Operações de Gestor do serviço de sincronização do Azure AD Connect | Microsoft Docs
+description: Compreenda o separador de operações no Gestor de serviço de sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d6a8e10c5b78317ffda0963a13907c4552892e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593474"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Utilizando o separador de operações de Gestor do serviço de sincronização
 
@@ -35,7 +37,7 @@ O **estado** coluna são as informações mais importantes e mostra o problema m
 | Estado | Comentário |
 | --- | --- |
 | parado-\* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto não está disponível e não pode ser contactado. |
-| stopped-error-limit |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
+| parado-erro-limite |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5000) que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver de erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até ter resolvidas erros, não deve investigar avisos. |
 | exito |Não existem problemas. |

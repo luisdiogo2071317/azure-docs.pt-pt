@@ -1,8 +1,8 @@
 ---
 title: 'Do Azure AD Connect: Passos seguintes e como gerir o Azure AD Connect | Microsoft Docs'
-description: "Saber como expandir a configuração predefinida e as tarefas operacionais do Azure AD Connect."
+description: Saber como expandir a configuração predefinida e as tarefas operacionais do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8b73e70606adc2b1fa593745b3ac426c679f417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592090"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passos seguintes e como gerir o Azure AD Connect
 Utilize os procedimentos operacionais neste artigo para personalizar Connect do Azure Active Directory (Azure AD) para satisfazer as necessidades e requisitos da sua organização.  
@@ -70,5 +72,5 @@ A tabela seguinte fornece um resumo destas tarefas e uma descrição breve de ca
 | **Personalizar opções de sincronização** |Altere a configuração atual, como adicionar todas as florestas do Active Directory adicionais para a configuração ou ativar opções de sincronização, tais como o utilizador, grupo, dispositivo ou repetição de escrita de palavras-passe. |
 | **Ativar o modo de teste** |Informações de fase imediatamente não estão sincronizadas e não são exportadas para o Azure AD ou no local do Active Directory.  Com esta funcionalidade, pode pré-visualizar as sincronizações antes de ocorrem. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

@@ -1,12 +1,12 @@
 ---
-title: "Sincronização do Azure AD Connect: como gerir a conta de serviço do Azure AD | Microsoft Docs"
-description: "Este tópico documenta como restaurar a conta de serviço do Azure AD."
+title: 'Sincronização do Azure AD Connect: como gerir a conta de serviço do Azure AD | Microsoft Docs'
+description: Este tópico documenta como restaurar a conta de serviço do Azure AD.
 services: active-directory
-keywords: "AADSTS70002, AADSTS50054, como repor a palavra-passe para a conta de serviço do conector de sincronização do Azure AD Connect"
-documentationcenter: 
+keywords: AADSTS70002, AADSTS50054, como repor a palavra-passe para a conta de serviço do conector de sincronização do Azure AD Connect
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfd807706ebbf0bfa6ea699129cb197f1c79db8c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8f201f2478e2883289a6cc4b435e2c3218950b1d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594045"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerir a conta de serviço do Azure AD
 A conta de serviço utilizada pelo conector do Azure AD deveria para ser serviço gratuito. Se precisar de repor as respetivas credenciais, em seguida, este tópico é que o utilizador. Por exemplo, se um Administrador Global tiver por erro repor a palavra-passe da conta de serviço com o PowerShell.

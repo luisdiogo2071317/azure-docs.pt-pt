@@ -4,15 +4,16 @@ description: Descreve como definição de política de recurso é utilizada pela
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601263"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -63,7 +64,7 @@ Por exemplo, o seguinte JSON mostra uma política que limita a onde os recursos 
 }
 ```
 
-Todas as amostras de modelo de política do Azure estão em [modelos de política do Azure](json-samples.md).
+Todas as amostras de política do Azure estão em [amostras de política](json-samples.md).
 
 ## <a name="mode"></a>Modo
 
@@ -203,7 +204,7 @@ São suportados os seguintes campos:
 
 - `name`
 - `fullName`
-  - Devolve o nome completo do recurso, incluindo quaisquer elementos principais (por exemplo "myServer/myDatabase")
+  - Devolve o nome completo do recurso. O nome completo de um recurso é o nome de recurso prepended por quaisquer nomes de recursos do principal (por exemplo "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -250,6 +251,8 @@ O valor pode ser uma cadeia ou um objeto de formato JSON.
 
 Com **AuditIfNotExists** e **DeployIfNotExists** pode avaliar a existência de um recurso relacionado e aplicar uma regra e um efeito correspondente ao recurso de não existe. Por exemplo, pode exigir que um observador de rede é implementado para todas as redes virtuais.
 Para obter um exemplo de auditoria quando uma extensão da máquina virtual não está a ser implementada, consulte [auditoria se a extensão não existe](scripts/audit-ext-not-exist.md).
+
+Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, consulte [efeitos de política de compreender](policy-effects.md).
 
 ## <a name="aliases"></a>Aliases
 
@@ -391,4 +394,4 @@ O exemplo a seguir ilustra como criar uma iniciativa para processamento de duas 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja os exemplos de modelo de política do Azure em [modelos de política do Azure](json-samples.md).
+- Reveja mais exemplos em [amostras de política do Azure](json-samples.md).

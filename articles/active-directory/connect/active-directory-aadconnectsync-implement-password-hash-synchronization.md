@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593457"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que tem de sincronizar as palavras-passe de utilizador de uma instância do Active Directory no local sessão a uma instância do Azure Active Directory (Azure AD) baseado na nuvem.
@@ -81,9 +83,9 @@ O seguinte descreve aprofundada como funciona a sincronização de hash de palav
 2. Antes de enviar, o DC encripta o hash de palavra-passe MD4 utilizando uma chave que é um [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) hash de chave de sessão RPC e um salt. Em seguida, envia o resultado para o agente de sincronização de hash de palavra-passe através de RPC. O DC também transmite o salt para o agente de sincronização utilizando o protocolo de replicação do DC, pelo que o agente irá conseguir desencriptar o envelope.
 3.  Depois do agente de sincronização de hash de palavra-passe tiver o envelope encriptado, utiliza [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e salt para gerar uma chave para desencriptar os dados recebidos para o seu formato MD4 original. Em nenhum momento o agente de sincronização de hash de palavra-passe têm acesso para a palavra-passe de texto não encriptado. A palavra-passe hash sincronização do agente utilização de MD5 está estritamente para compatibilidade de protocolo de replicação com o DC e só é utilizada no local entre o DC e o agente de sincronização de hash de palavra-passe.
 4.  O agente de sincronização de hash de palavra-passe expande o hash de binários de 16 bytes palavra-passe para 64 bytes convertendo primeiro o hash para uma cadeia hexadecimal de 32-byte, em seguida, converter esta cadeia novamente para o binário com codificação UTF-16.
-5.  O agente de sincronização de hash de palavra-passe adiciona um salt, constituída por salt um comprimento de 10 bytes, para o binário de 64 bytes para proteger ainda mais o hash original.
-6.  O agente de sincronização de hash de palavra-passe, em seguida, combina o MD4 hash plus salt e entradas para a [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) função. 1000 iterações do [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é utilizado o algoritmo de hash. 
-7.  O agente de sincronização de hash de palavra-passe demora o hash de 32 bytes resultante, concatena o salt e o número de iterações SHA256 ao mesmo (para utilização pelo Azure AD), em seguida, transmite a cadeia do Azure AD Connect para o Azure AD através de SSL.</br> 
+5.  O agente de sincronização de hash de palavra-passe adiciona um por salt de utilizador, que consiste de salt um comprimento de 10 bytes, para o binário de 64 bytes para proteger ainda mais o hash original.
+6.  O agente de sincronização de hash de palavra-passe combina, em seguida, o hash MD4 e por salt de utilizador e entradas para a [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) função. 1000 iterações do [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) é utilizado o algoritmo de hash. 
+7.  O agente de sincronização de hash de palavra-passe demora o hash de 32 bytes resultante, concatena ambos os por salt de utilizador e o número de SHA256 iterações ao mesmo (para utilização pelo Azure AD), transmite, em seguida, a cadeia do Azure AD Connect para o Azure AD através de SSL.</br> 
 8.  Quando um utilizador tenta iniciar sessão Azure AD e introduz a palavra-passe, a palavra-passe é executada através do mesmo MD4 + salt + PBKDF2 + HMAC SHA256 processo. Se o hash resultante corresponda ao hash armazenado no Azure AD, o utilizador ter introduzido a palavra-passe correta e é autenticado. 
 
 >[!Note] 

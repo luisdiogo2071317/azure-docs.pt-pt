@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d766af40ab5d99f33605f5aef7f9c2e7140896e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2a3b4efb766b58faa63caa31caeaf8699d8c5c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integração do Azure Active Directory com Jive
 
@@ -47,7 +48,8 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
 1. Adicionar Jive a partir da Galeria
 2. Configurar e testar o Azure AD de sessão único-
@@ -64,7 +66,7 @@ Para configurar a integração de Jive com o Azure AD, terá de adicionar Jive a
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![Aplicações][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![Aplicações][3]
@@ -103,7 +105,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-jive-tutorial/tutorial_jive_samlbase.png)
 
 3. No **Jive domínio e os URLs** secção, execute os seguintes passos:
@@ -114,12 +116,12 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instance name>.jiveon.com`
 
-    > [!NOTE] 
-    > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente Jive](https://www.jivesoftware.com/services-support/) para obter estes valores. 
- 
+    > [!NOTE]
+    > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente Jive](https://www.jivesoftware.com/services-support/) para obter estes valores.
+
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png)
 
 5. Clique em **guardar** botão.
 
@@ -131,29 +133,25 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
 
-    a. Selecione **ativado** sob o **geral** separador.   
-    b. Clique em de "**guardar todas as definições de saml**" botão.
+    a. Selecione **ativada** sob o **geral** separador. b. Clique em de "**guardar todas as definições de saml**" botão.
 
 8. Navegue para o "**Idp metadados**" separador.
-   
+
     ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
-   
+
     a. Copie o conteúdo do ficheiro XML de metadados transferidos e, em seguida, cole-o para o **metadados do fornecedor de identidade (IDP)** caixa de texto.
-    
-    b. Clique em de "**guardar todas as definições de saml**" botão. 
+
+    b. Clique em de "**guardar todas as definições de saml**" botão.
 
 9. Vá para o "**mapeamento de atributos de utilizador**" separador.
-   
-    ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
-   
-    a. No **E-Mail** caixa de texto, copie e cole o nome de atributo do **correio** valor.
-   
-    b. No **nome próprio** caixa de texto, copie e cole o nome de atributo do **givenname** valor.
-   
-    c. No **Apelido** caixa de texto, copie e cole o nome de atributo do **Apelido** valor.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
+
+    a. No **E-Mail** caixa de texto, copie e cole o nome de atributo do **correio** valor.
+
+    b. No **nome próprio** caixa de texto, copie e cole o nome de atributo do **givenname** valor.
+
+    c. No **Apelido** caixa de texto, copie e cole o nome de atributo do **Apelido** valor.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -167,16 +165,16 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png)
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png) 
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
 
@@ -185,10 +183,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-jive-test-user"></a>Criar um utilizador de teste Jive
 
-Trabalhar com [equipa de suporte de cliente Jive](https://www.jivesoftware.com/services-support/) para adicionar os utilizadores na plataforma Jive.
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Jive. Jive suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-jive-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
+Se precisar de criar manualmente o utilizador, trabalhar com [equipa de suporte de cliente Jive](https://www.jivesoftware.com/services-support/) para adicionar os utilizadores na plataforma Jive.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
@@ -245,4 +245,3 @@ Quando clica no mosaico Jive no painel de acesso, deve obter automaticamente com
 [201]: ./media/active-directory-saas-jive-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jive-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jive-tutorial/tutorial_general_203.png
-

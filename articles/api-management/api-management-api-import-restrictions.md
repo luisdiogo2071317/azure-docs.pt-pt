@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598475"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
 Quando importar uma API, poderá ser apresentados algumas restrições ou identificar problemas que necessitam de ser retificado antes de importar com êxito. Documentos neste artigo estes, organizados pelo formato de importação da API.
 
-## <a name="open-api"> </a>Abra API/Swagger
-Se está a receber erros de importar o documento de API aberta, certifique-se de ter validado-la - o utilizando o estruturador no portal do Azure (estrutura - Front-End - abra API especificação Editor) ou com terceiros uma ferramenta como <a href="http://www.swagger.io">Swagger Editor</a>.
+## <a name="open-api"> </a>OpenAPI/Swagger
+Se estiver a receber erros de importar o documento OpenAPI, certifique-se de que tem de validá-la - o utilizando o estruturador no portal do Azure (estrutura - Front-End - OpenAPI especificação Editor), ou com terceiros uma ferramenta como <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * Apenas o formato JSON para OpenAPI é suportado.
+* Os parâmetros necessários em caminho e consulta tem de ter nomes exclusivos. (No OpenAPI um nome de parâmetro só deve ser exclusivo dentro de uma localização, por exemplo, caminho, consulta, cabeçalho.  No entanto, na API Management permitimos operações discriminated os parâmetros de caminho e consulta (que não suporta a OpenAPI). Por conseguinte, é necessário ser exclusivo no modelo de URL completo, os nomes de parâmetros.)
 * Esquemas referenciadas utilizando **$ref** propriedades não podem conter outros **$ref** propriedades.
 * **$ref** os apontadores não é possível fazer referência a ficheiros externos.
 * **x-ms-caminhos** e **x servidores** são as extensões suportadas apenas.

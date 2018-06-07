@@ -1,25 +1,20 @@
 ---
-title: Planeamento da sua infraestrutura de cópia de segurança de VM no Azure | Microsoft Docs
+title: Planeamento da sua infraestrutura de cópia de segurança de VM no Azure
 description: Considerações importantes sobre quando planear a cópia de segurança de máquinas virtuais no Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: vms de cópia de segurança, a cópia de segurança de máquinas virtuais
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606091"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a infraestrutura de cópia de segurança de VM. Também define aspetos fundamentais do serviço de cópia de segurança; Estes aspetos podem ser fundamental para determinar a arquitetura, planeamento de capacidade e agendamento. Se já [preparar o ambiente](backup-azure-arm-vms-prepare.md), planeamento é o passo seguinte antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte o [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -27,7 +22,7 @@ Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Como funciona o Azure cópia de segurança máquinas virtuais?
 Quando o serviço de cópia de segurança do Azure inicia uma tarefa de cópia de segurança na hora agendada, os acionadores de serviço a extensão de cópia de segurança para criar um instantâneo de ponto no tempo. As utilizações do serviço de cópia de segurança do Azure a _VMSnapshot_ extensão no Windows e o _VMSnapshotLinux_ extensão no Linux. A extensão é instalada durante a primeira cópia de segurança VM. Para instalar a extensão, tem de executar a VM. Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
 
-Quando um instantâneo de VMs do Windows, o serviço de cópia de segurança coordena com o serviço do Volume de cópia de sombra de volumes (VSS) para obter um instantâneo consistente dos discos da máquina virtual. Se estiver a cópia de segurança de VMs com Linux, pode escrever scripts personalizados para garantir consistência quando um instantâneo da VM. São fornecidos detalhes sobre como invocar estes scripts neste artigo.
+Quando criar um instantâneo de VMs do Windows, o serviço Backup é coordenado com o Serviço de Cópia Sombra de Volumes (VSS) para obter um instantâneo consistente dos discos da máquina virtual. Se estiver a cópia de segurança de VMs com Linux, pode escrever scripts personalizados para garantir consistência quando um instantâneo da VM. São fornecidos detalhes sobre como invocar estes scripts neste artigo.
 
 Assim que o serviço Azure Backup tira o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
 
@@ -119,7 +114,7 @@ Sugerimos seguindo estas práticas ao configurar cópias de segurança de máqui
 * Agende cópias de segurança da VM durante o horário de pico. Desta forma, o serviço de cópia de segurança utiliza o IOPS para a transferência de dados da conta de armazenamento do cliente para o cofre.
 * Certifique-se de que uma política é aplicada em VMs distribuídos por contas de armazenamento diferente. Sugerimos que mais do que 20 totais discos de uma única conta de armazenamento ser protegidos com a mesma agenda de cópia de segurança. Se tiver o maior do que 20 discos numa conta do storage, distribuídos dessas VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de cópia de segurança.
 * Não restaure uma VM em execução no armazenamento Premium, a mesma conta de armazenamento. Se o processo de operação de restauro coincida com a operação de cópia de segurança, reduz o IOPS disponível para cópia de segurança.
-* Para cópia de segurança de VM do Premium, certifique-se essa conta do storage que os discos premium anfitriões tem pelo menos 50% de espaço livre para instantâneos para uma cópia de segurança de teste. 
+* Para cópia de segurança de VM do Premium na pilha de cópia de segurança de VM V1, é recomendado que atribua apenas 50% de espaço de conta de armazenamento total para que o serviço de cópia de segurança do Azure pode copiar o instantâneo para conta e a transferência de dados de armazenamento nesta localização copiado na conta de armazenamento para o cofre.
 * Certifique-se de que a versão python em VMs do Linux ativada para a cópia de segurança é 2.7
 
 ## <a name="data-encryption"></a>Encriptação de dados
@@ -149,7 +144,7 @@ Deixa de faturação de uma máquina virtual especificada apenas se a proteção
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-arm-vms.md)
+* [Fazer uma cópia de segurança das máquinas virtuais](backup-azure-arm-vms.md)
 * [Gerir a cópia de segurança da máquina virtual](backup-azure-manage-vms.md)
 * [Monitorizar máquinas virtuais](backup-azure-arm-restore-vms.md)
 * [Resolver problemas de cópia de segurança de VM](backup-azure-vms-troubleshoot.md)

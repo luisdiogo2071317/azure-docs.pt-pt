@@ -13,23 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0a6386f9d0207ab71c490801ea995e504825e0c8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589319"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática
 
 O objetivo deste tutorial é mostrar os passos, que é necessário executar na caixa e do Azure AD automaticamente as contas de utilizador aprovisionar e aprovisionar desativação do Azure AD à caixa.
 
+> [!NOTE]
+> Este tutorial descreve um conector desenvolvido com o serviço de fornecimento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como funciona e perguntas mais frequentes, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial assume que já tem os seguintes itens:
+Para configurar a integração do Azure AD com caixa, terá dos seguintes itens:
 
-*   Um inquilino do Azure Active directory.
-*   Um caixa início de sessão único subscrição ativado.
-*   Uma conta de utilizador na caixa com permissões de administrador de equipa.
+- Um inquilino do Azure AD
+- Um plano de negócio de caixa ou superior
+
+> [!NOTE]
+> Quando o testar os passos neste tutorial, recomendamos que efetue *não* utilizar um ambiente de produção.
+
+Para testar os passos neste tutorial, siga estas recomendações:
+
+- Não utilize o seu ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Atribuir utilizadores a caixa 
 

@@ -4,20 +4,17 @@ description: Saiba mais sobre como compreender, especifique e estimar os requisi
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b8084008089225c11c8052c60be3afc152881040
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614837"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 
@@ -25,7 +22,7 @@ ms.lasthandoff: 05/10/2018
 
 A moeda de base de dados do Azure Cosmos é o **unidade de pedido (RU)**. Com RUs, não terá as capacidades de leitura/escrita ou o aprovisionar da CPU, memória e IOPS de reserva. BD do Azure do Cosmos suporta um número de APIs com operações diferentes de leituras simples e escreve consultas complexas de gráfico. Uma vez que nem todos os pedidos são iguais, são atribuídas uma quantidade normalizada de **unidades de pedido** com base na quantidade de computação necessária para servir o pedido. O número de unidades de pedido de uma operação é determinista e pode controlar o número de unidades de pedido utilizada por todas as operações do BD Azure Cosmos através de um cabeçalho de resposta. 
 
-Para fornecer um desempenho previsível, terá de reservar débito em unidades de 100 RU por segundo. Pode [estimar o débito tem](request-units.md#estimating-throughput-needs) utilizando a BD do Cosmos Azure [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
+Para fornecer um desempenho previsível, tem de reservar o débito em 100 unidades de 100 RU/segundo. Pode [estimar o débito tem](request-units.md#estimating-throughput-needs) utilizando a BD do Cosmos Azure [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
 
 ![Calculadora de débito][5]
 

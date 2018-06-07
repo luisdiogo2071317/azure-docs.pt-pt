@@ -1,24 +1,19 @@
 ---
-title: Resolver erros de cópia de segurança com a máquina virtual do Azure | Microsoft Docs
+title: Resolver erros de cópia de segurança com a máquina virtual do Azure
 description: Resolver problemas de cópia de segurança e restauro de máquinas virtuais do Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607264"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizar o Backup do Azure com as informações apresentadas na tabela abaixo.
@@ -30,7 +25,7 @@ Pode resolver erros encontrados ao utilizar o Backup do Azure com as informaçõ
 | Agente VM não é possível comunicar com o serviço de cópia de segurança do Azure. -Certifique-se a VM possui conectividade de rede e o agente VM é mais recente e em execução. Para obter mais informações, consulte  http://go.microsoft.com/fwlink/?LinkId=800034 |Este erro é apresentado se ocorrer um problema com o agente da VM ou acesso de rede para a infraestrutura do Azure é bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre a depuração de VM problemas de instantâneos.<br> Se o agente da VM não está a causar problemas de, em seguida, reinicie a VM. Por vezes um Estado VM incorreto pode causar problemas e reiniciar a VM repõe este "Estado incorreto". |
 | VM se encontra em estado de aprovisionamento falhou - reiniciar a VM e certifique-se de que a VM está no estado de execução ou encerrar pendente para cópia de segurança | Isto ocorre quando uma das falhas extensão servem como o estado VM para estar no estado de aprovisionamento com falhas. Aceda à lista de extensões e ver se existe uma extensão de falha, removê-la e tente reiniciar a máquina virtual. Se todas as extensões estão em estado de execução, verifique se o serviço de agente VM está em execução. Caso contrário, reinicie o serviço de agente VM. | 
 | A operação de extensão de VMSnapshot falhou para discos geridos -. Repita a operação de cópia de segurança. Se o problema repete-se, siga as instruções apresentadas em 'http://go.microsoft.com/fwlink/?LinkId=800034'. Se ainda mais falhar, contacte o suporte da Microsoft | Este erro quando ocorre uma falha do serviço de cópia de segurança do Azure acionar um instantâneo. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sobre depuração VM problemas de instantâneos. |
-| Foi possível copiar o instantâneo da máquina virtual, devido a insuficiente espaço livre na conta de armazenamento - Certifique-se de que a conta de armazenamento tiver espaço livre equivalente para os dados presentes nos discos de armazenamento premium ligados à máquina virtual | Em caso de VMs do premium, iremos copiar o instantâneo para a conta de armazenamento. Isto é certificar-se de que o tráfego de gestão de cópia de segurança, o que funciona instantâneo, não limita o número de IOPS disponíveis para a aplicação utilizar discos premium. A Microsoft recomenda que atribuir apenas 50% de espaço de conta de armazenamento total para que o serviço de cópia de segurança do Azure, pode copiar o instantâneo para a conta e a transferência de dados de armazenamento nesta localização copiado na conta de armazenamento para o cofre. | 
+| Foi possível copiar o instantâneo da máquina virtual, devido a insuficiente espaço livre na conta de armazenamento - Certifique-se de que a conta de armazenamento tiver espaço livre equivalente para os dados presentes nos discos de armazenamento premium ligados à máquina virtual | Em caso de VMs do premium na pilha de cópia de segurança de VM V1, iremos copiar o instantâneo para a conta de armazenamento. Isto é certificar-se de que o tráfego de gestão de cópia de segurança, o que funciona instantâneo, não limita o número de IOPS disponíveis para a aplicação utilizar discos premium. A Microsoft recomenda que atribuir apenas 50% (17.5 TB) de espaço de conta de armazenamento total para que o serviço de cópia de segurança do Azure, pode copiar o instantâneo para a conta e a transferência de dados de armazenamento nesta localização copiado na conta de armazenamento para o cofre. | 
 | Não é possível efetuar a operação dado que o agente da VM não está a responder |Este erro é apresentado se ocorrer um problema com o agente da VM ou acesso de rede para a infraestrutura do Azure é bloqueado de alguma forma. Para VMs do Windows, verifique o estado de serviço do agente VM nos serviços e se o agente é apresentado em programas no painel de controlo. Tente remover o programa do controlo painel e volte a instalar o agente, tal como mencionado [abaixo](#vm-agent). Depois de reinstalar o agente, acione uma cópia de segurança ad hoc para verificar. |
 | Falha na operação de extensão de serviços de recuperação. -Certifique-se de que o agente mais recente da máquina virtual está presente na máquina virtual e serviço de agente está em execução. Repita a operação de cópia de segurança e se falhar, contacte o suporte da Microsoft. |Este erro é apresentado quando o agente VM está desatualizada. Consulte a secção "Atualizar o agente da VM" abaixo para atualizar o agente da VM. |
 | Máquina virtual não existe. -Certifique-se de que a máquina virtual existe ou selecione outra máquina virtual. |Isto acontece quando a VM principal é eliminada, mas continua a política de cópia de segurança procurar uma VM efetuar a cópia de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem]<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem eliminar os dados de cópia de segurança. [obter mais detalhes](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

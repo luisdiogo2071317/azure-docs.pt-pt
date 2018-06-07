@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602725"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -91,6 +92,8 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
+
+5. Sempre que possível, quebra grande desloca para operações de movimentação separado. Gestor de recursos falha imediatamente as tentativas de mover os recursos de mais de 800 numa única operação. No entanto, o menor 800 recursos a mover também poderão falhar por exceder o tempo limite.
 
 ## <a name="when-to-call-support"></a>Quando contactar o suporte
 

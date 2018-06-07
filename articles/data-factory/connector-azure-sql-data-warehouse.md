@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/05/2018
+ms.topic: conceptual
+ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c862f269a8e32814dfb6d311706e65b57d52d1bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617081"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -348,7 +349,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlDWSink** | Sim |
-| allowPolyBase |Indica se deve utilizar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT. <br/><br/> **Utilizando o PolyBase é a forma recomendada para carregar dados para o SQL Data Warehouse.** Consulte [PolyBase de utilização para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) restrições e os detalhes na secção.<br/><br/>Valores permitidos são: **verdadeiro** (predefinição), e **falso**.  |Não |
+| allowPolyBase |Indica se deve utilizar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT. <br/><br/> **Utilizando o PolyBase é a forma recomendada para carregar dados para o SQL Data Warehouse.** Consulte [PolyBase de utilização para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) restrições e os detalhes na secção.<br/><br/>Valores permitidos são: **verdadeiro**, e **falso** (predefinição).  |Não |
 | polyBaseSettings |Um grupo de propriedades que podem ser especificados quando o **allowPolybase** propriedade está definida como **verdadeiro**. |Não |
 | rejectValue |Especifica o número ou a percentagem de linhas que pode ser rejeitada antes da consulta falha.<br/><br/>Saiba mais sobre as opções de rejeitar o PolyBase no **argumentos** secção [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tópico. <br/><br/>Valores permitidos são: 0 (predefinição), 1, 2,... |Não |
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem.<br/><br/>Valores permitidos são: **valor** (predefinição), e **percentagem**. |Não |
@@ -558,7 +559,7 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Número de vírgula flutuante |Duplo |
+| Flutuante |duplo |
 | Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
@@ -572,7 +573,7 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |Cadeia, Char [] |
+| texto |Cadeia, Char [] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |

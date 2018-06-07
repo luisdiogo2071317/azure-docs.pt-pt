@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory dos serviços de domínio: Resolução de problemas configuração de LDAP seguro | Microsoft Docs"
-description: "LDAP seguro de resolução de problemas para os serviços de domínio do Azure AD"
+title: 'Azure Active Directory dos serviços de domínio: Resolução de problemas configuração de LDAP seguro | Microsoft Docs'
+description: LDAP seguro de resolução de problemas para os serviços de domínio do Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 38885caacfb98f76627854a782aa56d8a609aad9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29554230adc9d30f357c4e8d0082c0fe7d8d9035
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588428"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Serviços de domínio do Azure AD - configuração de resolução de problemas LDAP seguro
 

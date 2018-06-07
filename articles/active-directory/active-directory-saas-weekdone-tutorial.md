@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2889e509d4ba0e055d86a67adaf4bd734f4f9e0c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f5e0cf0b45e4972cc1c318861025ae4b926a966
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integração do Azure Active Directory com Weekdone
 
@@ -44,7 +45,7 @@ Para configurar a integração do Azure AD com Weekdone, terá dos seguintes ite
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
@@ -82,8 +83,6 @@ Nesta secção, configure e teste do Azure AD-início de sessão único com Week
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Weekdone é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Weekdone tem de ser estabelecida.
 
-No Weekdone, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD-início de sessão único com Weekdone, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
@@ -110,7 +109,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://weekdone.com/a/<tenantname>`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://weekdone.com/a/<tenant>/metadata`
+
+    > [!NOTE]
+    > O ficheiro de metadados de weekdone pode ser obtido com o mesmo URL a utilizar.
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://weekdone.com/a/<tenantname>`
 
@@ -136,10 +138,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_configure.png) 
 
 8. Para configurar o início de sessão único em **Weekdone** lado, terá de enviar o transferido **XML de metadados, Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [Weekdone a equipa de suporte ](mailto:hello@weekdone.com).
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -235,4 +233,3 @@ Quando clica no mosaico Weekdone no painel de acesso, deve obter automaticamente
 [201]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_203.png
-

@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7fa8654e413ac337994d35afdce7bd3478127f64
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 88da943224ce9df22a3d3befcb8fae6113986862
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588578"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy de aplicações do Azure Active Directory e o Tableau 
 
@@ -43,7 +44,7 @@ No seu correio eletrónico:
 -   Utilizar ativar Proxy de aplicações para Tableau como requerente
 -   Incluir o ID de inquilino no corpo do    
 
-Receberá uma confirmação quando estiver pronto a utilizar a aplicação. Normalmente, isto demora uma semana. No entanto, pode concluir as configurações ao aguardar a confirmação.
+Receberá uma confirmação quando estiver pronto a utilizar a aplicação. Pode concluir as configurações ao aguardar a confirmação.
 
 
  

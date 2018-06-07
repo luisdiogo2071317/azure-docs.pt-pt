@@ -1,19 +1,20 @@
 ---
-title: Começar a utilizar as ferramentas de desenvolvimento do armazenamento de pilha do Azure
+title: Começar a utilizar as ferramentas de desenvolvimento de armazenamento do Azure pilha | Microsoft Docs
 description: Orientações para começar a utilizar as ferramentas de desenvolvimento do armazenamento de pilha do Azure
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604482"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Começar a utilizar as ferramentas de desenvolvimento do armazenamento de pilha do Azure
 
@@ -21,14 +22,14 @@ ms.lasthandoff: 05/16/2018
 
 Pilha do Microsoft Azure fornece um conjunto de serviços de armazenamento que inclua blob, tabela e armazenamento de filas.
 
-Utilize este artigo como guia para começar a utilizar as ferramentas de desenvolvimento do armazenamento de pilha do Azure. Pode encontrar informações mais detalhadas e código de exemplo no correspondentes tutoriais de armazenamento do Azure.
+Utilize este artigo como guia para começar a utilizar as ferramentas de desenvolvimento do armazenamento de pilha do Azure. Pode encontrar informações mais detalhadas e código de exemplo no correspondente tutoriais de armazenamento do Azure.
 
->[!NOTE]
->São conhecidos diferenças entre o armazenamento de pilha do Azure e Storage do Azure, incluindo requisitos específicos para cada plataforma. Por exemplo, existem requisitos de sufixo de ponto final específico para a pilha do Azure e bibliotecas de cliente específico. Para obter mais informações, consulte [Azure pilha de armazenamento: diferenças e as considerações](azure-stack-acs-differences.md).
+> [!NOTE]  
+> São conhecidos diferenças entre o armazenamento de pilha do Azure e o armazenamento do Azure, incluindo requisitos específicos para cada plataforma. Por exemplo, existem requisitos de sufixo de ponto final específico para a pilha do Azure e bibliotecas de cliente específico. Para obter mais informações, consulte [armazenamento de pilha do Azure: diferenças e as considerações](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de cliente do Azure
 
-As versões de REST API suportadas para o armazenamento de pilha do Azure são 2017-04-17, 2016-05-31, 2015-12-11, 07-2015-08, 2015-04-05 para a atualização de 1802 ou versões mais recentes e 2015-04-05 para versões anteriores. Os pontos finais Azure pilha não dispõe de paridade completa com a versão mais recente da API de REST do Storage do Azure. Para as bibliotecas de cliente de armazenamento, tem de ter em consideração a versão que é compatível com a API REST.
+As versões de REST API suportadas para o armazenamento de pilha do Azure são 2017-04-17, 2016-05-31, 2015-12-11, 07-2015-08, 2015-04-05 para a atualização de 1802 ou versões mais recentes e 2015-04-05 para versões anteriores. Os pontos finais Azure pilha não dispõe de paridade completa com a versão mais recente do storage do Azure REST API. Para as bibliotecas de cliente de armazenamento, tem de ter em consideração a versão que é compatível com a API REST.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 update ou versões mais recentes
 
@@ -209,4 +210,4 @@ Os tutoriais de armazenamento de Azure Table seguintes são aplicáveis a pilha 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introdução ao storage do Microsoft Azure](../../storage/common/storage-introduction.md)

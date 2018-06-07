@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594555"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de atribuição de nomes de grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -189,7 +190,7 @@ Sincronização de dados de profissional (SDS) | Grupos criados através de SDS 
 Gestor de cliente do Outlook (OCM) | Gestor de cliente do Outlook está em conformidade com a política de atribuição de nomes, que é aplicada automaticamente para o grupo criado no Gestor de cliente do Outlook. Se for detetada uma palavra bloqueada personalizada, criação de grupo no OCM está bloqueada e o utilizador está bloqueado de utilizar a aplicação OCM.
 Sala de aulas aplicação | Grupos criados na sala de aulas aplicação está em conformidade com a política de atribuição de nomes, mas não é aplicada automaticamente a política de atribuição de nomes e a pré-visualização de política de atribuição de nomes não é apresentada aos utilizadores ao introduzir um nome de grupo sala de aula. Os utilizadores tem de introduzir o nome do grupo de sala de aulas imposta com prefixos e sufixos. Caso contrário, o grupo de sala de aulas criar ou editar a operação falhar com erros.
 Power BI | Áreas de trabalho do Power BI são compatíveis com a política de atribuição de nomes.    
-Yammer | Yammer grupos ligados não impõem a política de atribuição de nomes configurada. Para organizações com atribuição de nome de política ativada, o Yammer cria grupos de Yammer legados que não estão ligados ao Office 365 para grupos que não está em conformidade com a política de atribuição de nomes.
+Yammer | Quando um utilizador tiver sessão iniciado no Yammer com a conta do Azure Active Directory cria um grupo ou edita um nome de grupo, o nome do grupo estão em conformidade com a política de atribuição de nomes. Isto aplica-se os grupos do Office 365 ligadas e todos os outros grupos de Yammer.<br>Se um grupo ligado do Office 365 foi criado antes da política de atribuição de nomes está no local, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um utilizador edita o nome do grupo, será pedido para adicionar o prefixo e o sufixo.
 StaffHub  | As equipas de StaffHub não siga a política de atribuição de nomes, mas não de grupo do Office 365 subjacente. Nome do agrupamento StaffHub não se aplica a prefixos e sufixos e procurar palavras bloqueadas personalizadas. Mas StaffHub aplicam-se os prefixos e sufixos e remove palavras bloqueadas do grupo do Office 365 subjacente.
 PowerShell do Exchange | Cmdlets do PowerShell do Exchange são compatíveis com a política de atribuição de nomes. Os utilizadores recebem mensagens de erro apropriada com prefixos sugeridos e sufixos de e para personalizado palavras bloqueadas se estes não siga a política de atribuição de nomes no nome do grupo e alias de grupo (mailNickname).
 Cmdlets do PowerShell do Active Directory do Azure | Cmdlets do PowerShell do Active Directory do Azure estão em conformidade com a política de atribuição de nomes. Os utilizadores recebem mensagens de erro apropriada com prefixos sugeridos e sufixos de e para personalizado palavras bloqueadas se estes não siga a Convenção de nomenclatura nos nomes de grupo e alias de grupo.

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7041bd19c464c0ce6fb0f3d695a87581fed290e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592028"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir os certificados federado início de sessão no Azure Active Directory
 Este artigo aborda informações relacionadas com os certificados que o Azure Active Directory (Azure AD) cria para estabelecer federado-início de sessão único (SSO) para as aplicações de SaaS e perguntas comuns. Adicione aplicações na Galeria de aplicações do Azure AD ou utilizando um modelo de aplicação não galeria. Configure a aplicação utilizando a opção de SSO federada.
@@ -57,6 +58,15 @@ As capturas de ecrã utilizam Salesforce com vista à, exemplo, mas estes passos
 6. O novo certificado está agora disponível para transferência. Clique em de **certificado** ligação para transferi-lo. Neste momento, o certificado não está ativo. Quando pretender rollover para este certificado, selecione o **tornar o novo certificado ativa** caixa de verificação e clique em **guardar**. A partir desse ponto, do Azure AD é iniciado com o novo certificado de assinatura de resposta.
 
 7.  Para saber como carregar o certificado para a aplicação SaaS específica, clique em de **tutorial de configuração de aplicação de vista** ligação.
+
+## <a name="certificate-expiration-notification-email"></a>E-mail de notificação de expiração do certificado
+
+Azure AD irá enviar um dias de notificação de 60, 30 e 7 e-mail antes de SAML certificado expirar. Para especificar o endereço de correio eletrónico para onde enviar a notificação:
+
+- No Azure Active Directory único início de sessão na página de aplicações do, vá para o campo de correio eletrónico de notificação.
+- Introduza o endereço de correio eletrónico que deve receber o e-mail de notificação de expiração do certificado. Por predefinição, este campo utiliza o endereço de e-mail do administrador que adicionou a aplicação.
+
+Irá receber o e-mail de notificação da aadnotification@microsoft.com. Para evitar o ir para a localização de spam de e-mail, lembre-se de que adicionar este e-mail aos seus contactos. 
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renovar um certificado que irá expirar em breve
 Os seguintes passos de renovação devem resultar em nenhum período de indisponibilidade significativo para os seus utilizadores. Podem aplicar as capturas de ecrã esta funcionalidade de secção Salesforce como exemplo, mas estes passos para qualquer aplicação federada de SaaS.

@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e7239ae88c6b4e56fa7c49f64c30fe602d8ec5fe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5e85a551181a3dd4618db2611a99675329cfabd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592018"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
 Azure Active Directory fornece o início de sessão único em e modulação de segurança de acesso de aplicação para Office 365 e outros serviços Online da Microsoft para implementações de apenas na nuvem e de híbrida sem necessidade de qualquer solução de terceiros. Office 365, como a maioria dos Serviços Online da Microsoft, está integrado com o Azure Active Directory para serviços de diretório, autenticação e autorização. Azure Active Directory também fornece início de sessão único a milhares de aplicações SaaS e no local as aplicações web. Consulte o Azure Active Directory [Galeria de aplicações](https://azuremarketplace.microsoft.com/marketplace/apps) suportam aplicações SaaS. 

@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25777001907f705700d1c90e238d19a20242b50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory com Pingboard
 
@@ -65,7 +66,7 @@ Para configurar a integração de Pingboard com o Azure AD, terá de adicionar P
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![As aplicações da empresa][2]
-    
+
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicação][3]
@@ -101,7 +102,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2.  No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. No **Pingboard domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
@@ -118,12 +119,12 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
      No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte: `https://<sub-domain>.pingboard.com/sign_in`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Tenha em atenção que estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente Pingboard](https://support.pingboard.com/) para obter estes valores.
 
 5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
 
-    ![Xml de metadados de Pingboard](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+    ![Xml de metadados de Pingboard](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Clique em **guardar** botão.
 
@@ -135,7 +136,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.  No **integrações** página, localizar o **"Do Azure Active Directory"** mosaico e clique no mesmo.
+9. No **integrações** página, localizar o **"Do Azure Active Directory"** mosaico e clique no mesmo.
 
     ![Integração de início de sessão único Pingboard](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -162,16 +163,16 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     ![O botão do Azure Active Directory](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png)
 
 3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
- 
+
     ![Botão Adicionar](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![A caixa de diálogo de utilizador](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+
+    ![A caixa de diálogo de utilizador](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png)
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
 
@@ -180,12 +181,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-pingboard-test-user"></a>Criar um utilizador de teste Pingboard
 
-Para permitir que os utilizadores do Azure AD sessão Pingboard, têm de ser aprovisionados para Pingboard. Pingboard, o aprovisionamento é uma tarefa manual.
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Pingboard. Pingboard suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-pingboard-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no site da sua empresa Pingboard como administrador.
 
@@ -204,13 +205,13 @@ Para permitir que os utilizadores do Azure AD sessão Pingboard, têm de ser apr
     c. No **cargo** caixa de texto, escreva o título de trabalho de Britta Simon.
 
     d. No **localização** lista pendente, selecionar a localização do Britta Simon.
-    
-    e. Clique em **Adicionar**.   
+
+    e. Clique em **Adicionar**.
 
 4. Um ecrã de confirmação é fornecido para confirmar a adição de utilizador.
-    
+
     ![Confirmar](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
-        
+
     > [!NOTE]
     > Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
 
@@ -255,8 +256,7 @@ Quando clica no mosaico Pingboard no painel de acesso, deve obter automaticament
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3a7a0eab4e7e3a6e030069c3562a501fc696060f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0440d4f5db9b8b08d1d143495b1d3118537c3823
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Azure Active Directory com Cerner Central
 
@@ -64,7 +65,7 @@ Para configurar a integração do Centro de Cerner com o Azure AD, tem de adicio
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![Aplicações][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão por cima da caixa de diálogo.
 
     ![Aplicações][3]
@@ -109,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
     a. No **identificador** caixa de texto, digite o valor utilizando os seguintes padrões:
-    
+
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
@@ -120,14 +121,14 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
-    
+
     > [!NOTE]
     > Estes valores não estiverem a real. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte do Centro de Cerner](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) para obter estes valores.
 
 4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
-    
+
     ![Configurar o início de sessão único](./media/active-directory-saas-cernercentral-tutorial/tutorial_metadataurl.png)
-     
+
 5. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
@@ -135,7 +136,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 6. Para configurar o início de sessão único em **Cerner Central** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [suporte Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Se configurarem o SSO no lado de aplicação para concluir a integração.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon. 
+O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
 ![Criar utilizador do Azure AD][100]
 
@@ -146,15 +147,15 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_02.png) 
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar**.
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_03.png) 
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
- 
+
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-cernercentral-tutorial/create_aaduser_04.png) 
 
     a. No **nome** caixa de texto, tipo **BrittaSimon**.
@@ -164,30 +165,30 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-cerner-central-test-user"></a>Criar um utilizador de teste Cerner Central
 
-**Centro de Cerner** aplicação permite a autenticação de qualquer fornecedor de identidade federada. Se um utilizador é capaz de início de sessão para a home page da aplicação, estes são federadas e não necessitam de aprovisionamento manual.
+**Centro de Cerner** aplicação permite a autenticação de qualquer fornecedor de identidade federada. Se um utilizador é capaz de início de sessão para a home page da aplicação, estes são federadas e não necessitam de aprovisionamento manual. Pode encontrar mais detalhes [aqui](active-directory-saas-cernercentral-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Cerner Central.
 
-![Atribua o utilizador][200] 
+![Atribua o utilizador][200]
 
 **Para atribuir Britta Simon a Cerner Central, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Cerner Central**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribua o utilizador][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
@@ -198,7 +199,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -209,8 +210,7 @@ Quando clica no mosaico Cerner Central no painel de acesso, deve obter automatic
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-cernercentral-provisioning-tutorial.md)
 
 <!--Image references-->
 

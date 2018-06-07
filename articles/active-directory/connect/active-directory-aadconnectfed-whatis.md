@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect e a Federação | Microsoft Docs"
-description: "Esta página é a localização central para toda a documentação relativas à operações do AD FS que utilizam o Azure AD Connect."
+title: Azure AD Connect e a Federação | Microsoft Docs
+description: Esta página é a localização central para toda a documentação relativas à operações do AD FS que utilizam o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593858"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 Azure Connect do Active Directory (Azure AD) permite ao configurar a Federação com o local Serviços de Federação do Active Directory (AD FS) e o Azure AD. Com Federação início de sessão, pode permitir aos utilizadores iniciar sessão para serviços do Azure baseada no AD com as palavras-passe no local – e, enquanto na rede empresarial, sem ter de introduzir as palavras-passe novamente. Ao utilizar a opção de federação com o AD FS, pode implementar uma nova instalação do AD FS ou pode especificar uma instalação existente num farm do Windows Server 2012 R2.
@@ -33,7 +35,7 @@ Este tópico é a base para obter informações sobre as funcionalidades relacio
 | **Instalar o AD FS utilizando o Azure AD Connect** | |
 | [Pré-requisitos](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Consulte os pré-requisitos para uma instalação do AD FS com êxito através do Azure AD Connect. |
 | [Configurar um farm do AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Instale um novo farm do AD FS utilizando o Azure AD Connect. |
-| [Federar com o Azure AD utilizando o ID de início de sessão alternativo](active-directory-aadconnect-federation-management.md#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
+| [Federar com o Azure AD utilizando o ID de início de sessão alternativo ](active-directory-aadconnect-federation-management.md#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
 | **Modificar a configuração do AD FS** | |
 | [Reparar a confiança](active-directory-aadconnect-federation-management.md#repairthetrust) |Reparar a confiança atual no local do AD FS e o Office 365/Azure. |
 | [Adicionar um novo servidor do AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Expanda um farm do AD FS com um servidor do AD FS adicional após a instalação inicial. |

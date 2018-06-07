@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594956"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Tutorial: Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure
 
@@ -269,11 +270,9 @@ Em alternativa, uma forma rápida para testar a configuração de ponto a ponto 
 
 Analise o valor de `$DataSet.Tables[0]` para ver os resultados da consulta.  Parabéns, tiver consultar a base de dados utilizando um MSI da VM e sem ser necessário fornecer credenciais!
 
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](overview.md).
-- Saiba mais sobre [suporte de SQL do Azure para a autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Saiba mais sobre [como configurar o suporte de SQL do Azure para a autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Saiba mais sobre [acesso no SQL server e autenticação](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+Neste tutorial, aprendeu a criar uma identidade de serviço gerida para aceder ao servidor de SQL do Azure.  Para obter mais informações sobre o Azure SQL Server, consulte:
 
-Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Serviço de base de dados SQL do Azure](/azure/sql-database/sql-database-technical-overview)

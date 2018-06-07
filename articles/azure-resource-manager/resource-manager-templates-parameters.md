@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604340"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Secção de parâmetros de modelos Azure Resource Manager
 Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
 
-Está limitado a 255 parâmetros de num modelo. Pode reduzir o número de parâmetros utilizando os objetos que contêm várias propriedades, como a mostrar neste artigo.
+Está limitado a 255 parâmetros de num modelo. Pode reduzir o número de parâmetros utilizando os objetos que contêm várias propriedades, como mostrado neste artigo.
 
 ## <a name="define-and-use-a-parameter"></a>Definir e utilizar um parâmetro
 

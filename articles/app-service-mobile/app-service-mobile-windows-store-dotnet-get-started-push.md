@@ -1,11 +1,11 @@
 ---
-title: "Adicionar notificações push à aplicação plataforma Universal do Windows (UWP) | Microsoft Docs"
-description: "Saiba como utilizar Mobile Apps do Azure App Service e Notification Hubs do Azure para enviar notificações push à aplicação plataforma Universal do Windows (UWP)."
+title: Adicionar notificações push à aplicação plataforma Universal do Windows (UWP) | Microsoft Docs
+description: Saiba como utilizar Mobile Apps do Azure App Service e Notification Hubs do Azure para enviar notificações push à aplicação plataforma Universal do Windows (UWP).
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597863"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Adicionar notificações push à aplicação do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -32,18 +33,18 @@ Se utilizar o projeto de servidor de início rápido transferido, terá do pacot
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Registar a aplicação para notificações push
-Tem de submeter a sua aplicação para a loja Windows, em seguida, configurar o seu projeto de servidor para integrar com serviços de notificação de Windows (WNS) para enviar push.
+Tem de submeter a sua aplicação para a Microsoft Store, em seguida, configurar o seu projeto de servidor para integrar com serviços de notificação de Windows (WNS) para enviar push.
 
 1. No Explorador de soluções do Visual Studio, clique com botão direito no projeto de aplicação UWP, clique em **arquivo** > **associar aplicação à loja...** .
 
-    ![Associar aplicação à loja Windows](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![Associar aplicação à loja Microsoft](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. No assistente, clique em **seguinte**, inicie sessão com a sua conta Microsoft, escreva um nome para a sua aplicação no **reservar um novo nome de aplicação**, em seguida, clique em **reserva**.
-3. Após o registo de aplicação é criado com êxito, selecione o novo nome de aplicação, clique em **seguinte**e, em seguida, clique em **associar**. Esta ação adiciona ao manifesto da aplicação as informações de registo da Loja Windows necessárias.  
+3. Após o registo de aplicação é criado com êxito, selecione o novo nome de aplicação, clique em **seguinte**e, em seguida, clique em **associar**. Esta ação adiciona as informações de registo de Microsoft Store necessárias para o manifesto da aplicação.
 4. Navegue para o [Windows Dev Center](https://dev.windows.com/en-us/overview), inicie sessão com a sua conta Microsoft, clique em novo registo de aplicação no **as minhas aplicações**, em seguida, expanda **serviços** > **notificações Push**.
 5. No **notificações Push** página, clique em **site dos Serviços Live** em **dos Mobile Services do Microsoft Azure**.
 6. Na página de registo, tome nota do valor em **segredos de aplicação** e **SID do pacote**, que irá utilizar seguinte para configurar o back-end da aplicação móvel.
 
-    ![Associar aplicação à loja Windows](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![Associar aplicação à loja Microsoft](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > O segredo de cliente e o SID do pacote são credenciais de segurança importantes. Não partilhe estes valores com ninguém e não os distribua com a aplicação. O **Id da aplicação** é utilizado com o segredo para configurar a autenticação de Account Microsoft.
@@ -185,17 +186,13 @@ Em seguida, a aplicação tem de se registar para notificações push no arranqu
 ## <a id="more"></a>Passos seguintes
 Saiba mais sobre as notificações push:
 
-* [Como utilizar o cliente gerido para Mobile Apps do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  Modelos dão-lhe a flexibilidade para enviar pushes de plataforma e pushes localizadas. Saiba como registar modelos.
-* [Diagnosticar problemas de notificação push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  Existem vários motivos por que razão as notificações podem obter removidas ou não terminar em dispositivos. Este tópico mostra como analisar e descobrir a causa de raiz de falhas de notificação push.
+* [Como utilizar o cliente gerido para Mobile Apps do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) modelos dão-lhe a flexibilidade para enviar pushes de plataforma e pushes localizadas. Saiba como registar modelos.
+* [Diagnosticar problemas de notificação push](../notification-hubs/notification-hubs-push-notification-fixer.md) existem vários motivos por que razão as notificações podem obter removidas ou não terminar em dispositivos. Este tópico mostra como analisar e descobrir a causa de raiz de falhas de notificação push.
 
 Considere continuar para um dos seguintes tutoriais:
 
-* [Adicionar autenticação à aplicação](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Saiba como autenticar os utilizadores da aplicação com um fornecedor de identidade.
-* [Permitir sincronização offline para a sua aplicação](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Saiba como adicionar suporte offline à aplicação utilizando um back-end de Aplicação Móvel. A sincronização offline permite que os utilizadores finais interajam com uma aplicação móvel &mdash; visualizar, adicionar ou modificar dados &mdash;, mesmo quando não existe qualquer ligação de rede.
+* [Adicionar autenticação à sua aplicação](app-service-mobile-windows-store-dotnet-get-started-users.md) Saiba como autenticar os utilizadores da sua aplicação com um fornecedor de identidade.
+* [Ativar a sincronização offline para a sua aplicação](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline à aplicação utilizando um back-end de aplicação móvel. A sincronização offline permite que os utilizadores finais interajam com uma aplicação móvel &mdash; visualizar, adicionar ou modificar dados &mdash;, mesmo quando não existe qualquer ligação de rede.
 
 <!-- Anchors. -->
 

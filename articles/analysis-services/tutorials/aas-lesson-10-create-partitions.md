@@ -3,16 +3,17 @@ title: 'Lição 10 do tutorial do Azure Analysis Services: Criar partições | M
 description: Descreve como criar partições no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743eff21154502fc4ff651177abb8df91edb7494
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 51ba9b80bd5572be451107dee13453e4d5037ff9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596054"
 ---
 # <a name="create-partitions"></a>Criar partições
 
@@ -107,5 +108,5 @@ No Gestor de partições, observe a coluna **Última processada** para cada uma 
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## <a name="whats-next"></a>O que se segue?
+ ## <a name="whats-next"></a>Passos seguintes?
 Avance para a próxima lição: [Lição 11: Criar funções](../tutorials/aas-lesson-11-create-roles.md). 

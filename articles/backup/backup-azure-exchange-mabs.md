@@ -1,24 +1,19 @@
 ---
-title: "Cópia de segurança um Exchange server, a cópia de segurança do Azure com o servidor de cópia de segurança do Azure | Microsoft Docs"
-description: "Saiba como fazer cópias de segurança um Exchange server Backup do Azure utilizando o servidor de cópia de segurança do Azure"
+title: Cópia de segurança um Exchange server para cópia de segurança do Azure com o servidor de cópia de segurança do Azure
+description: Saiba como fazer cópias de segurança um Exchange server Backup do Azure utilizando o servidor de cópia de segurança do Azure
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: e46557e8-2eaf-4ee0-99ea-00fbb8687dca
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605965"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Cópia de segurança um Exchange server para cópia de segurança do Azure com o servidor de cópia de segurança do Azure
 Este artigo descreve como configurar o Microsoft Azure cópia de segurança do servidor (MABS) para fazer cópias de segurança de um servidor do Exchange do Microsoft Azure.  
@@ -109,5 +104,5 @@ Para pontos de recuperação online, existem cinco tipos de recuperação:
 
     ![Escolha de replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [FAQ sobre a cópia de segurança do Azure](backup-azure-backup-faq.md)

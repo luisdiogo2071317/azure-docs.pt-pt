@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 931c6b2cc0230e4605089dfc1eb0764aa61ec7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620467"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar Modelos do Azure Machine Learning, utilizando a atividade do recurso de atualização
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler através deste artigo. 
@@ -62,7 +63,7 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 
 | Propriedade                      | Descrição                              | Necessário |
 | :---------------------------- | :--------------------------------------- | :------- |
-| nome                          | Nome da atividade no pipeline     | Sim      |
+| name                          | Nome da atividade no pipeline     | Sim      |
 | descrição                   | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                          | Para a atividade de recursos de atualização do Azure Machine Learning, é o tipo de atividade **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | Serviço ligado do Machine Learning do Azure que contém a propriedade updateResourceEndpoint. | Sim      |

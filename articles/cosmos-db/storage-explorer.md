@@ -3,25 +3,22 @@ title: Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
 description: Saiba como gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
 manager: omafnan
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 3b870ed638656ee3b1b0e46fe9bac44e4436f154
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612848"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
 
@@ -222,7 +219,7 @@ Antes de prosseguir, tente reiniciar a aplicação e verifique se os problemas p
 
 Existem algumas razões pelas quais pode estar a ver este erro, sendo as duas mais comuns:
 
-+ Está por trás de um "proxy transparente", o que significa que alguém (por exemplo, o departamento de TI) está a intercetar o tráfego HTTPS, a desencriptá-lo e a encriptá-lo através de um certificado autoassinado.
++ Estiver atrás de um *proxy transparente*, que significa que alguém (por exemplo, o departamento de TI) interceptar tráfego HTTPS, desencriptação-lo e, em seguida, encriptá-la através de um certificado autoassinado.
 
 + Está a executar software, como software antivírus, que está a injetar um certificado SSL autoassinado nas mensagens HTTPS recebidas.
 
@@ -311,7 +308,7 @@ Experimente as sugestões seguintes:
 
 Se nenhuma das soluções resolver o problema, envie um e-mail à equipa de Ferramentas de Programação do Azure Cosmos DB ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) com detalhes sobre o problema, para o corrigir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Veja o vídeo seguinte para ver como utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de Armazenamento e como ligar mais serviços em [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

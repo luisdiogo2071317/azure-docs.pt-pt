@@ -1,25 +1,20 @@
 ---
-title: Realize cópias de segurança de ficheiros e pastas do Windows para o Azure (Resource Manager) | Microsoft Docs
+title: Fazer cópias de segurança de pastas e ficheiros do Windows Azure (Resource Manager)
 description: Aprenda a realizar cópias de segurança de ficheiros do Windows e pastas para o Azure numa implementação do Gestor de Recursos.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: como realizar uma cópia de segurança; como realizar uma cópia de segurança; cópia de segurança de ficheiros e pastas
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606975"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Primeiras impressões: efetuar cópias de segurança de ficheiros e pastas na implementação do Resource Manager
 Este artigo explica como criar uma cópia de segurança dos ficheiros e pastas do Windows Server (ou computador Windows) para o Azure através de uma implementação do Resource Manager. É um tutorial que se destina a explicar as noções básicas. Se pretender começar a utilizar o Backup do Azure, está no sítio certo.
@@ -224,7 +219,7 @@ Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluíd
 ## <a name="questions"></a>Tem dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Obtenha mais detalhes sobre como [efetuar a cópia de segurança das máquinas Windows](backup-configure-vault.md).
 * Agora que criou uma segurança dos seus ficheiros e pastas, pode [gerir os cofres e os servidores](backup-azure-manage-windows-server.md).
 * Se precisar de restaurar uma cópia de segurança, utilize este artigo para [restaurar ficheiros para uma máquina Windows](backup-azure-restore-windows-server.md).

@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594127"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicações com o Proxy da Aplicação do Azure AD
 
@@ -29,6 +30,9 @@ Este artigo explica os passos para publicar uma aplicação no local com o Proxy
 
 Se estiver familiarizado com o Proxy de aplicações, saiba mais sobre esta funcionalidade com o artigo [como fornecer acesso remoto seguro a aplicações no local](application-proxy.md).
 
+## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo pressupõe que já ter instalado e registado um conector. Se ainda precisar de efetuar os passos, consulte [começar com o Proxy de aplicações e instalar o conector](application-proxy-enable.md).
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicar aplicações no local para acesso remoto
 

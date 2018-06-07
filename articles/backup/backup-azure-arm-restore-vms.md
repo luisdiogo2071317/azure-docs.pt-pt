@@ -1,25 +1,20 @@
 ---
-title: 'Cópia de segurança do Azure: Restaurar máquinas virtuais utilizando o portal do Azure | Microsoft Docs'
+title: 'Cópia de segurança do Azure: Restaurar máquinas virtuais utilizando o portal do Azure'
 description: Restaurar uma máquina virtual do Azure a partir de um ponto de recuperação utilizando o portal do Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: restaurar a cópia de segurança; como restaurar; ponto de recuperação;
-ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: markgal
+ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605598"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:

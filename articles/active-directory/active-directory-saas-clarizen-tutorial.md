@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a77ac397dfca1be948b6d0c05a50c23c0cd7879c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Azure Active Directory com Clarizen
 
@@ -185,6 +186,11 @@ No portal do Azure, crie um utilizador de teste chamado Britta Simon.
     d. Clique em **Criar**.
 
 ### <a name="create-a-clarizen-test-user"></a>Criar um utilizador de teste Clarizen
+
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Clarizen. Clarizen suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-clarizen-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
+**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
+
 Para ativar o Azure AD aos utilizadores iniciar sessão Clarizen, terá de aprovisionar contas de utilizador. No caso de Clarizen, o aprovisionamento é uma tarefa manual.
 
 1. Inicie sessão no site da sua empresa Clarizen como administrador.
@@ -244,6 +250,7 @@ Quando clica no mosaico Clarizen no painel de acesso, esta deve ser iniciada aut
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

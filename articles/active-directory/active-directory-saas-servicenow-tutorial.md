@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cf955c15b1dfe3ef0c46ab5023035986da5c5c99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c75ec11fc11febbd896c715ead9f347062facb44
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Azure Active Directory com o ServiceNow
 
@@ -271,10 +272,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE]
     > Pode configurar o Azure AD para emitir o ID de utilizador do Azure AD (nome principal de utilizador) ou o endereço de e-mail como o identificador exclusivo no SAML token acedendo ao **ServiceNow > atributos > Single Sign-On** secção do portal do Azure e o mapeamento do campo pretendido para o **nameidentifier** atributo. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome principal de utilizador) tem de corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name)
 
-     e. Em **x509 certificado**, apresenta o certificado que criou no passo anterior.
+    e. Em **x509 certificado**, apresenta o certificado que criou no passo anterior.
 
-     > [!NOTE]
-     > ServiceNow não permite a ativação do Idp sem clicar no botão de ligação de teste, para substituir o mesmo, siga os passos abaixo.
+    > [!NOTE]
+    > ServiceNow não permite a ativação do Idp sem clicar no botão de ligação de teste, para substituir o mesmo, siga os passos abaixo.
 
 22. Clique no ícone de menu através do seu novo fornecedor de identidade que criou como parte da configuração e a lista, selecione **copiar sys_id**
 
@@ -443,7 +444,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > Pode configurar o Azure AD para emitir o ID de utilizador do Azure AD (nome principal de utilizador) ou o endereço de e-mail como o identificador exclusivo no SAML token acedendo ao **ServiceNow > atributos > Single Sign-On** secção do portal do Azure e o mapeamento do campo pretendido para o **nameidentifier** atributo. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome principal de utilizador) tem de corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name)
 
     f. Clique em **Guardar**.
- 
+
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -475,10 +476,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-servicenow-test-user"></a>Criar um utilizador de teste do ServiceNow
 
-Nesta secção, vai criar um utilizador chamado Britta Simon ServiceNow. Se não souber como adicionar um utilizador na sua conta ServiceNow ou rápida do ServiceNow, contacte [equipa de suporte de cliente do ServiceNow](https://www.servicenow.com/support/contact-support.html)
+O objetivo desta secção consiste em criar um utilizador chamado Britta Simon ServiceNow. ServiceNow suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](active-directory-saas-servicenow-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de cliente do ServiceNow](https://www.servicenow.com/support/contact-support.html)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -521,6 +525,8 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento de utilizadores](active-directory-saas-servicenow-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -535,4 +541,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-

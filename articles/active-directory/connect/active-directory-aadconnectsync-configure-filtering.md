@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594232"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos são apresentados no Azure Active Directory (Azure AD) do seu diretório no local. A configuração predefinida demora todos os objetos em todos os domínios em florestas configurados. Em geral, esta é a configuração recomendada. Os utilizadores com cargas de trabalho do Office 365, como o Exchange Online e Skype para empresas, beneficiam de uma lista completa de endereços Global para que podem enviar correio eletrónico e chamar todas as pessoas. A configuração predefinida, seria têm a mesma experiência que têm com uma implementação no local do Exchange ou o Lync.
@@ -33,7 +35,7 @@ Em alguns casos, no entanto, está necessário efetuar algumas alterações para
 Este artigo explica como configurar os diferentes métodos de filtragem.
 
 > [!IMPORTANT]
-> Microsoft não suporta a modificação ou a funcionar de sincronização do Azure AD Connect fora as ações que estão documentados formally. Qualquer uma destas ações poderá resultar num estado inconsistente ou não suportado de sincronização do Azure AD Connect. Como resultado, a Microsoft não é possível fornecer o suporte técnico para implementações deste tipo.
+> A Microsoft não suporta a modificação ou operação de sincronizações do Azure AD Connect fora das ações anteriormente documentadas. Qualquer destas ações pode resultar num estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode possível fornecer o suporte técnico para implementações deste tipo.
 
 ## <a name="basics-and-important-notes"></a>Noções básicas e notas importantes
 Na sincronização do Azure AD Connect, pode ativar a filtragem em qualquer altura. Se começar com uma configuração predefinida de sincronização de diretórios e, em seguida, configurar a filtragem, os objetos que são filtrados já não estão sincronizados com o Azure AD. Devido a esta alteração, são eliminados quaisquer objetos no Azure AD que foram sincronizados anteriormente mas, em seguida, foram filtrados no Azure AD.

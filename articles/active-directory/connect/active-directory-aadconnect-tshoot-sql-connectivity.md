@@ -11,12 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8b105d7a374e281e46064f83a6e103c2a7cf84f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ad1e5d176caff6553159c5f35fe2b199ba50769f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592386"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade do SQL Server com o Azure AD Connect
 Este artigo explica como resolver problemas de conectividade entre o Azure AD Connect e o SQL Server. 
@@ -171,4 +173,4 @@ PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md)
--  [Azure AD conectividade com o Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+-  [Conectividade do Azure AD com o Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)

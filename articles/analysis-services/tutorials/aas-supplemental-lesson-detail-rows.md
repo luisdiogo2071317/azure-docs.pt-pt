@@ -3,16 +3,17 @@ title: 'Lição suplementar do tutorial do Azure Analysis Services: Linhas detal
 description: Descreve como criar uma expressão das linhas detalhadas no tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596105"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar - Linhas Detalhadas
 
@@ -72,7 +73,7 @@ O objetivo aqui é uma tabela que contém as colunas e linhas de dados que contr
 5. Volte a implementar o modelo.
 
   
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
 [Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Lesson suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   

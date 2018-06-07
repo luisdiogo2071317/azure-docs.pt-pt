@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cd917165804314f6ee4ee006e3f29263d8d4b4c5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605615"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar os certificados PKI de pilha do Azure
 
@@ -44,6 +45,8 @@ A ferramenta de preparação verificador efetua as seguintes validações de cer
     Verifica a ordem dos outros certificados validar que a ordem está correta.
 - **Outros certificados**  
     Certifique-se de que não existem outros certificados tem sido empacotados num PFX que não seja o certificado de folha relevantes e cadeia.
+- **Nenhum perfil**  
+    Verifica se um novo utilizador pode carregar os dados PFX sem um perfil de utilizador carregado, mimicking o comportamento de gMSA contas durante a manutenção do certificado.
 
 > [!IMPORTANT]  
 > O certificado PKI é um ficheiro PFX e a palavra-passe deve ser tratado como informações confidenciais.
@@ -57,43 +60,46 @@ O sistema deve cumprir os seguintes pré-requisitos antes de a validar os certif
 - DeploymentData.json
 - Windows 10 ou Windows Server 2016
 
-## <a name="perform-certificate-validation"></a>Efetuar a validação de certificado
+## <a name="perform-core-services-certificate-validation"></a>Efetuar a validação de certificados de serviços de núcleo
 
-Utilize estes passos para preparar e para validar os certificados PKI de pilha do Azure:
+Utilize estes passos para preparar e para validar os certificados PKI de pilha do Azure para implementação e a rotação secreta:
 
-1. Instale AzsReadinessChecker a partir de uma linha de comandos PowerShell (5.1 ou acima), executando o seguinte cmdlet:
+1. Instalar **AzsReadinessChecker** uma linha do PowerShell (5.1 ou acima), executando o seguinte cmdlet:
 
     ````PowerShell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
 2. Crie a estrutura de diretórios do certificado. No exemplo abaixo, pode alterar `<c:\certificates>` para um novo caminho de diretório da sua preferência.
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
-
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
-
-    $destination = 'c:\certificates' 
-
-    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    
+    $destination = 'c:\certificates'
+    
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ````
+    
+    > [!Note]  
+    > AD FS e do Graph são necessários se estiver a utilizar o AD FS como o sistema de identidade.
+    
+     - Coloque o emissor nos diretórios adequados criados no passo anterior. Por exemplo:  
+        - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
- - Coloque o emissor nos diretórios adequados criados no passo anterior. Por exemplo:  
-    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
-    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
-    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
-    - e assim sucessivamente... 
-
-3. Na janela do PowerShell a executar:
+3. Na janela do PowerShell, alterar os valores dos **RegionName** e **FQDN** apropriado para o ambiente de pilha do Azure e execute o seguinte:
 
     ````PowerShell  
-    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+
     ````
 
-4. Reveja o resultado para Certifique-se de que todos os certificados passaram os testes. Por exemplo:
+4. A saída e todos os certificados passaram todos os testes de verificação. Por exemplo:
 
     ````PowerShell
     AzsReadinessChecker v1.1803.405.3 started
@@ -125,7 +131,8 @@ Utilize estes passos para preparar e para validar os certificados PKI de pilha d
     Finished Certificate Validation
 
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Report location: 
+    C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
     ````
 
@@ -162,12 +169,87 @@ Utilize estes passos para preparar e para validar os certificados PKI de pilha d
 
 **Resolução**: Siga as orientações a ferramenta na secção detalhes em cada conjunto de testes de cada certificado.
 
+## <a name="perform-platform-as-a-service-certificate-validation"></a>Efetuar plataforma como uma validação de certificado de serviço
+
+Utilize estes passos para preparar e validar os certificados PKI de pilha do Azure para a plataforma como certificados de serviço (PaaS), se estão a ser planeadas implementações SQL/MySQL ou serviços de aplicações.
+
+1.  Instalar **AzsReadinessChecker** uma linha do PowerShell (5.1 ou acima), executando o seguinte cmdlet:
+
+    ````PowerShell  
+      Install-Module Microsoft.AzureStack.ReadinessChecker -force
+    ````
+
+2.  Crie uma hashtable aninhada que contenha os caminhos e a palavra-passe para cada certificado PaaS necessitar de validação. Na janela do PowerShell a executar:
+
+    ```PowerShell
+        $PaaSCertificates = @{
+        'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSAPICert' = @{'pfxPath' = '<Path to API PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        }
+    ```
+
+3.  Alterar os valores dos **RegionName** e **FQDN** para corresponder ao seu ambiente de pilha do Azure para iniciar a validação. Em seguida, execute:
+
+    ```PowerShell
+    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    ```
+4.  Certifique-se de que a saída e de que todos os certificados passaram todos os testes.
+
+    ```PowerShell
+    AzsReadinessChecker v1.1805.425.2 started
+    Starting PaaS Certificate Validation
+    
+    Starting Azure Stack Certificate Validation 1.0 
+    Testing: PaaSCerts\wildcard.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\api.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\wildcard.dbadapter.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\sso.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+    ```
+
 ## <a name="using-validated-certificates"></a>Utilização de certificados validados
 
 Depois dos certificados tem foram validados pelo AzsReadinessChecker, está pronto para utilizá-los na sua implementação de pilha do Azure ou para rotação secreta pilha do Azure. 
 
  - Para a implementação, transferir de forma segura os certificados para o seu engenheiro de implementação para que pode copiá-los para o anfitrião de implementação, conforme especificado no [documentação de requisitos do Azure pilha PKI](azure-stack-pki-certs.md).
  - Para rotação secreta, pode utilizar os certificados para atualizar certificados antigos para pontos finais de infraestrutura público do seu ambiente de pilha do Azure, seguindo o [documentação do Azure pilha segredo rotação](azure-stack-rotate-secrets.md).
+ - Para os serviços de PaaS, pode utilizar os certificados para instalar o SQL Server, MySQL e fornecedores de recursos de serviços de aplicação na pilha do Azure, seguindo o [descrição geral da oferta de serviços na documentação do Azure pilha](azure-stack-offer-services-overview.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

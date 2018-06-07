@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604289"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado de pilha do Azure protegido pelo AD FS
 
@@ -81,6 +82,12 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     1. Clique em de **Connect** junto ao **subscrições de pilha do Azure** caixa.
         - Forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e clique em **sessão**.
     2. No **subscrições de pilha do Azure** caixa, selecione o **subscrição do fornecedor predefinido**.
+    
+    > [!NOTE]
+    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido** neste momento.  Numa atualização futura do serviço de aplicações irá implementar para a nova subscrição de medição introduzida no Azure pilha 1804 e todas as implementações existentes serão migradas para esta nova subscrição também.
+    >
+    >
+    
     3. No **localizações de pilha do Azure** caixa, selecione a localização que corresponde à região estiver a implementar. Por exemplo, seleccione **local** se a implementar o Kit de desenvolvimento de pilha do Azure.
     4. Clique em **Seguinte**.
 
@@ -96,12 +103,12 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
     ![Instalador do serviço de aplicações][5]
 
-9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
 
-> [!NOTE]
-> O instalador tenta testar a conectividade à partilha de ficheiros antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar à partilha de ficheiros e apresenta um aviso, perguntar se pretende continuar.  Verifique as informações da partilha de ficheiros e continuar se estes estão corretos.
->
->
+    > [!NOTE]
+    > O instalador tenta testar a conectividade à partilha de ficheiros antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar à partilha de ficheiros e apresenta um aviso, perguntar se pretende continuar.  Verifique as informações da partilha de ficheiros e continuar se estes estão corretos.
+    >
+    >
 
    ![Instalador do serviço de aplicações][8]
 
@@ -128,10 +135,10 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
 12. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, clique em **seguinte**. O instalador valida as propriedades de ligação do SQL Server. **Tem** introduza o ip interno ou o nome de domínio completamente qualificado para o nome do SQL Server.
 
-> [!NOTE]
-> O instalador tenta testar a conectividade com o SQl Server antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar ao SQL Server e apresenta um aviso a perguntar se pretende continuar.  Verifique as informações do SQL Server e continuar se estes estão corretos.
->
->
+    > [!NOTE]
+    > O instalador tenta testar a conectividade com o SQl Server antes de continuar.  No entanto, se optar por implementar uma rede Virtual existente, o instalador poderá não conseguir ligar ao SQL Server e apresenta um aviso a perguntar se pretende continuar.  Verifique as informações do SQL Server e continuar se estes estão corretos.
+    >
+    >
    
    ![Instalador do serviço de aplicações][12]
 

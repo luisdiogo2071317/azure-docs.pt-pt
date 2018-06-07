@@ -3,16 +3,17 @@ title: 'Lição 6 do tutorial do Azure Analysis Services: Criar medidas | Micros
 description: Descreve como criar medidas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31531abb5c2d2309317f1b88a1a794392b914f90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 223567112a428818b49dab319bd7c507d71b1f78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596877"
 ---
 # <a name="create-measures"></a>Criar medidas
 
@@ -81,7 +82,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
 1.  Através da funcionalidade AutoSum, crie e atribua um nome às seguintes medidas:  
 
-    |colunas|Nome da medida|AutoSum (∑)|Fórmula|  
+    |Coluna|Nome da medida|AutoSum (∑)|Fórmula|  
     |----------------|----------|-----------------|-----------|  
     |SalesOrderLineNumber|InternetOrderLinesCount|Contagem|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Soma|=SUM([OrderQuantity])|  
@@ -120,7 +121,7 @@ Este tópico faz parte de um tutorial de modelação em tabela que deve ser conc
   
 As medidas criadas para a tabela FactInternetSales podem ser usadas para analisar dados financeiros essenciais, como vendas, custos e margem de lucro para itens definidos pelo filtro selecionado pelo utilizador.  
   
-## <a name="whats-next"></a>O que se segue?
+## <a name="whats-next"></a>Passos seguintes?
 [Lição 7: Criar indicadores-chave de desempenho](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

@@ -1,9 +1,9 @@
 ---
-title: "Os agentes de atualização auth do Azure AD Connect - autenticação-pass through – | Microsoft Docs"
-description: "Este artigo descreve como atualizar a configuração de autenticação de pass-through do Azure Active Directory (Azure AD)."
+title: Os agentes de atualização auth do Azure AD Connect - autenticação-pass through – | Microsoft Docs
+description: Este artigo descreve como atualizar a configuração de autenticação de pass-through do Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: Authentication do Azure AD Connect pass-through, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: c699df83c7032dc6e3d176753d8203fec6977c1b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591995"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Do Azure autenticação do Active Directory pass-through: Os agentes de autenticação de atualização pré-visualização
 
@@ -68,7 +70,7 @@ Tem de atualizar o Azure AD Connect antes de atualizar o agente de autenticaçã
 2. **Desinstale a versão de pré-visualização do agente de autenticação**: transferir [este script do PowerShell](https://aka.ms/rmpreviewagent) e executá-lo como um administrador no servidor.
 3. **Transferir a versão mais recente do agente de autenticação (versões 1.5.193.0 ou posterior)**: a iniciar sessão para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com credenciais de Administrador Global do inquilino. Selecione **do Azure Active Directory -> do Azure AD Connect -> autenticação pass-through -> agente de transferência**. Aceitar o [termos de serviço](https://aka.ms/authagenteula) e transferir a versão mais recente do agente de autenticação. Também pode transferir o agente de autenticação do [aqui](https://aka.ms/getauthagent).
 4. **Instale a versão mais recente do agente de autenticação**: executar o executável que transferiu no passo 3. Forneça as credenciais de Administrador Global do seu inquilino quando lhe for pedido.
-5. **Certifique-se de que a versão mais recente foi instalada**: conforme mostrado anteriormente, aceda a **painel de controlo -> programas -> programas e funcionalidades** e verifique se existe uma entrada para "**agente do Microsoft Azure AD Connect autenticação**".
+5. **Certifique-se de que a versão mais recente foi instalada**: conforme mostrado anteriormente, aceda a **painel de controlo -> programas -> programas e funcionalidades** e verifique se existe uma entrada para "**Microsoft Azure AD Connect Agente de autenticação**".
 
 >[!NOTE]
 >Se verifique o painel de autenticação pass-through no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir precedente passos, irá ver duas entradas de agente de autenticação por servidor - uma entrada que mostra o agente de autenticação como **Active Directory** e os outros como **inativo**. Este é _esperado_. O **inativo** entrada é automaticamente removida após alguns dias.
@@ -80,7 +82,7 @@ Siga estes passos para atualizar agentes de autenticação noutros servidores (o
 1. **Desinstale a versão de pré-visualização do agente de autenticação**: transferir [este script do PowerShell](https://aka.ms/rmpreviewagent) e executá-lo como um administrador no servidor.
 2. **Transferir a versão mais recente do agente de autenticação (versões 1.5.193.0 ou posterior)**: a iniciar sessão para o [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com credenciais de Administrador Global do inquilino. Selecione **do Azure Active Directory -> do Azure AD Connect -> autenticação pass-through -> agente de transferência**. Aceitar os termos de serviço e transferir a versão mais recente.
 3. **Instale a versão mais recente do agente de autenticação**: executar o executável que transferiu no passo 2. Forneça as credenciais de Administrador Global do seu inquilino quando lhe for pedido.
-4. **Certifique-se de que a versão mais recente foi instalada**: conforme mostrado anteriormente, aceda a **painel de controlo -> programas -> programas e funcionalidades** e verifique se existe uma entrada chamada **agente do Microsoft Azure AD Connect autenticação**.
+4. **Certifique-se de que a versão mais recente foi instalada**: conforme mostrado anteriormente, aceda a **painel de controlo -> programas -> programas e funcionalidades** e verifique se existe uma entrada chamada **Microsoft Azure AD Connect Agente de autenticação**.
 
 >[!NOTE]
 >Se verifique o painel de autenticação pass-through no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir precedente passos, irá ver duas entradas de agente de autenticação por servidor - uma entrada que mostra o agente de autenticação como **Active Directory** e os outros como **inativo**. Este é _esperado_. O **inativo** entrada é automaticamente removida após alguns dias.
