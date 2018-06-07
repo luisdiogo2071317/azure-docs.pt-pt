@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 354aadd4377e054bc9c10561bbda8fc8009a98a7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640103"
 ---
-# <a name="monitoring-azure-applications-and-resources"></a>Monitorização de aplicações do Azure e de recursos
+# <a name="monitoring-azure-applications-and-resources"></a>Monitorizar aplicações e recursos do Azure
 
 A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação de negócio e os recursos que depende. Uma estratégia de monitorização efetiva ajuda-o a compreender a operação de detalhado dos componentes da aplicação. Também o ajuda a aumentar a disponibilidade, proativamente notificam dos problemas críticos, de modo a que o possa resolvê-los antes que comprometam.
 
@@ -117,9 +118,9 @@ Existem várias ferramentas que trabalham em conjunto para monitorizar diferente
 
 [Observador de rede](../network-watcher/network-watcher-monitoring-overview.md) fornece baseada em cenários de monitorização e diagnóstico para cenários de rede diferente no Azure. Armazena dados no Azure métricas e diagnóstico para análise adicional. Funciona com as seguintes soluções para monitorização diferentes aspetos da sua rede.
 
-[Monitor de desempenho (NPM) de rede](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) é uma solução que monitoriza a conectividade entre nuvens públicas, centros de dados e ambientes no local de monitorização de rede baseado na nuvem.
+[Monitor de desempenho (NPM) de rede](../log-analytics/log-analytics-network-performance-monitor.md) é uma solução que monitoriza a conectividade entre nuvens públicas, centros de dados e ambientes no local de monitorização de rede baseado na nuvem.
 
-[Monitor de ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) é uma capacidade NPM que monitoriza a conetividade ponto a ponto e o desempenho através de circuitos ExpressRoute do Azure.
+[Monitor de ExpressRoute](../expressroute/how-to-npm.md) é uma capacidade NPM que monitoriza a conetividade ponto a ponto e o desempenho através de circuitos ExpressRoute do Azure.
 
 [Análise de DNS](../log-analytics/log-analytics-dns.md) é uma solução que fornece segurança, desempenho e operações relacionadas com as informações, com base nos seus servidores DNS.
 

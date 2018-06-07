@@ -8,12 +8,13 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
-ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646920"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um ficheiro BACPAC para uma nova SQL Database do Azure
 
@@ -101,6 +102,9 @@ $importStatus
 
 > [!TIP]
 Para obter outro exemplo de script, consulte [importar uma base de dados de um ficheiro BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="limitations"></a>Limitações
+- Importar uma base de dados no conjunto elástico não é suportada. Pode importar dados para uma base de dados de singleton e, em seguida, mover a base de dados para um conjunto.
 
 ## <a name="import-using-other-methods"></a>Importar através de outros métodos
 

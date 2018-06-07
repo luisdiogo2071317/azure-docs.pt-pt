@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644727"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a SQL Database do Azure
 
@@ -73,16 +74,16 @@ A aplicação showcases venues que alojam os eventos.  Os venues são os inquili
 
 1. Abra a página de eventos para cada um dos três inquilinos no separadores de browser separados:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt; utilizador&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt; utilizador&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt; utilizador&gt;. trafficmanager.net
 
     (No cada URL, substitua &lt;utilizador&gt; com o valor de utilizador da sua implementação.)
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar a distribuição de pedidos recebidos, as utilizações de aplicação [ *Traffic Manager do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância da aplicação do inquilino específico inclui o nome de inquilino como parte do nome de domínio no URL. Todos os inquilinos URLs incluem específicos da sua **utilizador** valor. Os URLs siga o seguinte formato:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt; venuename&gt;.&lt; utilizador&gt;. trafficmanager.net
 
 Base de dados de cada inquilino **localização** está incluído nas definições da aplicação da aplicação implementada correspondente.
 

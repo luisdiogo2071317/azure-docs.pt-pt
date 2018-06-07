@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: criar uma função personalizada num laboratório personalizado nos serviços de laboratório do Azure | Microsoft Docs'
-description: Este script do PowerShell adiciona um utilizador externo a um laboratório personalizado nos serviços de laboratório do Azure.
+title: 'Script do PowerShell: criar uma função personalizada num laboratório no Azure DevTest Labs | Microsoft Docs'
+description: Este script do PowerShell adiciona um utilizador externo a um laboratório no DevTest Labs do Azure.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: df91c9f842d338e1725fec2734129f2f1f3d3721
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636720"
 ---
-# <a name="use-powershell-to-create-a-custom-role-in-a-custom-lab-in-azure-lab-services"></a>Utilize o PowerShell para criar uma função personalizada num laboratório personalizado nos serviços de laboratório do Azure
+# <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para criar uma função personalizada num laboratório no Azure DevTest Labs
 
-Este script do PowerShell de exemplo cria uma função personalizada a utilizar num laboratório personalizado nos serviços de laboratório do Azure. 
+Este script do PowerShell de exemplo cria uma função personalizada a utilizar num laboratório no DevTest Labs do Azure. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Um laboratório personalizado**. O script requer que tenha um laboratório personalizado existente. 
+* **Um laboratório**. O script requer que tenha um laboratório existente. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
 
 ## <a name="script-explanation"></a>Explicação do script
 

@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650942"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e de segurança do StorSimple
 
@@ -204,6 +205,18 @@ StorSimple utiliza os algoritmos de encriptação seguintes para proteger os dad
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Gerir inforamation pessoal
+
+O Gestor de dispositivos do StorSimple para série física e virtual recolhe as informações pessoais nas instâncias de chave follwing:
+
+- Alerta de definições de utilizador onde o endereço de correio eletrónico de utilizadores estão configuradas. Estas informações podem ser visualizadas e limpo pelo administrador. Isto aplica-se aos dispositivos de série 8000 do StorSimple e matrizes Virtual StorSimple.
+ * Para ver e limpar as definições da série 8000 do StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Para ver e limpar as definições para a matriz Virtual StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Utilizadores que podem aceder aos dados que reside nas partilhas. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também é eliminada quando é eliminado as partilhas. Isto aplica-se apenas a matrizes Virtual StorSimple.
+ * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos no [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
+
+Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
@@ -268,19 +281,7 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 
 **R:** porque todos os dados são encriptados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental tem de pedir ao cliente para os dados.
 
-## <a name="gdpr-compliance"></a>Conformidade GDPR
 
-[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU. 
-
-O Gestor de dispositivos do StorSimple para série física e virtual é GDPR em conformidade. Existem duas instâncias de chaves em que as informações pessoais são recolhidas e apresentadas no serviço:
-
-- Alerta de definições de utilizador onde o endereço de correio eletrónico de utilizadores estão configuradas. Estas informações podem ser visualizadas e limpo pelo administrador. Isto aplica-se aos dispositivos de série 8000 do StorSimple e matrizes Virtual StorSimple.
- * Para ver e limpar as definições da série 8000 do StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Para ver e limpar as definições para a matriz Virtual StorSimple, siga os passos no [ver e gerir alertas do StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Utilizadores que podem aceder aos dados que reside nas partilhas. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também é eliminada quando é eliminado as partilhas. Isto aplica-se apenas a matrizes Virtual StorSimple.
- * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos no [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
-
-Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

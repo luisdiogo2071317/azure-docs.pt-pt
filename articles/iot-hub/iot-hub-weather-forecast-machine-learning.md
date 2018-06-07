@@ -1,25 +1,21 @@
 ---
 title: Meteorologia previsão a utilizar o Azure Machine Learning com dados a partir do IoT Hub | Microsoft Docs
 description: Utilização do Azure Machine Learning para prever a possibilidade de rain com base nos dados relativos à temperatura e humidade que recolhe o seu IoT hub a partir de um sensor.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: Meteorologia previsão de aprendizagem
-ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637672"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Meteorologia previsão a utilizar os dados de sensor do seu hub IoT no Azure Machine Learning
 
@@ -80,10 +76,10 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
 ### <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **crie um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Internet das Coisas** > **Tarefa do Stream Analytics**.
 1. Introduza as seguintes informações para a tarefa.
 
-   **Nome da tarefa**: O nome da tarefa. O nome tem de ser globalmente exclusivo.
+   **Nome da tarefa**: o nome da tarefa. O nome tem de ser globalmente exclusivo.
 
    **Grupo de recursos**: utilizar o mesmo grupo de recursos que utiliza o seu IoT hub.
 
@@ -95,10 +91,10 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
 1. Clique em **Criar**.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada para a tarefa de Stream Analytics
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
 1. Abra a tarefa de Stream Analytics.
-1. Em **tarefa topologia**, clique em **entradas**.
+1. Em **Topologia da Tarefa**, clique em **Entradas**.
 1. No **entradas** painel, clique em **adicionar**e, em seguida, introduza as seguintes informações:
 
    **Alias de entrada**: O alias exclusivo para a entrada.
@@ -113,10 +109,10 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
-1. Em **tarefa topologia**, clique em **saídas**.
+1. Em **Topologia de Tarefas**, clique em **Saídas**.
 1. No **saídas** painel, clique em **adicionar**e, em seguida, introduza as seguintes informações:
 
-   **O alias de saída**: O alias exclusivo para a saída.
+   **Alias de saída**: o alias exclusivo da saída.
 
    **Sink**: selecione **armazenamento de BLOBs**.
 
@@ -149,9 +145,9 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
 
 1. Clique em **Criar**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa de Stream Analytics
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa do Stream Analytics
 
-1. Em **tarefa topologia**, clique em **consulta**.
+1. Em **Topologia de Tarefas**, clique em **Consulta**.
 1. Substitua o código existente pelo código seguinte:
 
    ```sql
@@ -163,17 +159,17 @@ Saiba como utilizar o Azure Machine Learning para meteorologia previsão (possib
    From machinelearning
    ```
 
-   Substitua `[YourInputAlias]` com o alias de entrada da tarefa.
+   Substitua `[YourInputAlias]` pelo alias de entrada da tarefa.
 
-   Substitua `[YourOutputAlias]` com o alias de saída da tarefa.
+   Substitua `[YourOutputAlias]` pelo alias de saída da tarefa.
 
 1. Clique em **Guardar**.
 
-### <a name="run-the-stream-analytics-job"></a>Executar a tarefa de Stream Analytics
+### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
-A tarefa de Stream Analytics, clique em **iniciar** > **agora** > **iniciar**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **parado** para **executar**.
+Na tarefa do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
 
-![Executar a tarefa de Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Executar a tarefa do Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Utilize o Explorador de armazenamento do Microsoft Azure para ver a previsão de Meteorologia
 

@@ -5,25 +5,25 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650507"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com o PowerShell
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, utilizar o Azure PowerShell para subscrever eventos de armazenamento de BLOBs, acionador um evento e ver o resultado. 
 
-Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, os eventos são enviados para um URL que recolhe apenas as mensagens. Vai criar este URL através de uma ferramenta de terceiros a partir do [Hookbin](https://hookbin.com/).
+Normalmente, pode enviar eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, enviar eventos para uma aplicação web que recolhe e apresenta as mensagens.
 
-> [!NOTE]
-> **Hookbin** não se destina a utilização de débito elevado. A utilização desta ferramenta é meramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta. Além disso, tenha em atenção que **Hookbin** obtém [tratamento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) pela grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos existe sem necessidade de uma resposta a pedidos de validação de subscrição correta (que aconteceria [caso contrário](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
+Quando tiver terminado, verá que os dados do evento foi enviados para a aplicação web.
 
-Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para um ponto final.
+![Ver resultados](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Configurar
 
@@ -82,23 +82,41 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de evento. Em vez de escrever código para responder ao evento, vamos criar um ponto final que recolhe as mensagens, para que possa vê-las. O Hookbin é uma ferramenta de terceiros que permite criar um ponto final e ver os pedidos que são enviados para o mesmo. Aceda a [Hookbin](https://hookbin.com/) e clique em **Create New Endpoint** (Criar Novo Ponto Final). Copie o URL de bin e substitua `<bin URL>` no seguinte script.
+Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de evento. Normalmente, o ponto final executa ações com base nos dados de eventos. Para simplificar este guia de introdução, implementar um [aplicação web pré-criadas](https://github.com/dbarkol/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do App Service, uma aplicação web do app Service e o código de origem a partir do GitHub.
+
+Substitua `<your-site-name>` com um nome exclusivo para a sua aplicação web. O nome da aplicação web deve ser exclusivo, porque faz parte da entrada de DNS.
 
 ```powershell
-$binEndPoint = "<bin URL>"
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
 ```
+
+A implementação pode demorar alguns minutos a concluir. Após a implementação é concluída com êxito, ver a sua aplicação web para se certificar de está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
+
+Deverá ver o site com nenhuma mensagens atualmente apresentadas.
 
 ## <a name="subscribe-to-your-storage-account"></a>Subscrever à sua conta de armazenamento
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL de Hookbin como o ponto final da notificação de evento. 
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL da sua aplicação web, como o ponto final da notificação de evento. O ponto final para a sua aplicação web tem de incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
-  -Endpoint $binEndPoint `
+  -Endpoint $endpoint `
   -ResourceId $storageId
 ```
+
+Ver a sua aplicação web novamente e tenha em atenção que um evento de validação de subscrição foi enviado ao mesmo. Selecione o ícone de olho para expandir os dados do evento. Grelha de eventos envia o evento de validação para que o ponto final pode Certifique-se de que pretende receber dados de eventos. A aplicação web inclui código para validar a subscrição.
+
+![Ver evento de subscrição](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento a partir do armazenamento de Blobs
 
@@ -113,7 +131,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Navegue para o URL do ponto final que criou anteriormente. Em alternativa, clique em Atualizar no seu browser aberto. Vê o evento que acabou de enviar. 
+Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Ver a sua aplicação web para ver o evento que acabámos de enviar.
 
 ```json
 [{

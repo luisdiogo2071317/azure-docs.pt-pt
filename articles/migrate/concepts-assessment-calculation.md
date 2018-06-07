@@ -4,13 +4,14 @@ description: Fornece uma descrição geral de cálculos de avaliação no servi�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639151"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -68,12 +69,12 @@ sistemas operativos de 32 bits | O computador pode efetuar o arranque no Azure, 
 
 ## <a name="sizing"></a>Dimensionamento
 
-Depois de uma máquina está marcada como pronta para o Azure, Azure migrar tamanhos da VM e os respetivos discos do Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação é fazer com base no desempenho dimensionamento, o Azure migrar considera o histórico de desempenho da máquina para identificar um tamanho VM no Azure. Este método é útil em cenários em que alocou excessiva a VM no local, mas a utilização for baixa e pretende dimensionar as VMs do Azure para guardar o custo.
+Depois de uma máquina está marcada como pronta para o Azure, Azure migrar tamanhos da VM e os respetivos discos do Azure. Se o critério de dimensionamento especificado nas propriedades de avaliação é fazer com base no desempenho dimensionamento, o Azure migrar considera o histórico de desempenho da máquina para identificar o tipo de disco e de tamanho VM no Azure. Este método é útil em cenários em que alocou excessiva a VM no local, mas a utilização for baixa e pretende dimensionar as VMs do Azure para guardar o custo.
 
 > [!NOTE]
 > Migrar do Azure recolhe histórico do desempenho de VMs no local a partir do servidor vCenter. Para garantir a dimensionar exata, certifique-se de que a definição de estatísticas no vCenter Server está definida para o nível 3 e aguarde, pelo menos, um dia antes kicking desativar a deteção de VMs no local. Se a definição de estatísticas no vCenter Server for inferior ao nível 3, os dados de desempenho de disco e rede não são recolhidos.
 
-Se não pretender considerar o histórico de desempenho para o dimensionamento de VM e pretende colocar a VM como-é para o Azure, pode especificar o critério de dimensionamento como *como no local* e migrar do Azure, em seguida, irá tamanho as VMs com base no no local configuração sem considerar os dados de utilização. Dimensionamento do disco, neste caso, irá ainda ser baseado em dados de desempenho.
+Se não pretender considerar o histórico de desempenho para o dimensionamento de VM e pretende colocar a VM como-é para o Azure, pode especificar o critério de dimensionamento como *como no local* e migrar do Azure, em seguida, irá tamanho as VMs com base no no local configuração sem considerar os dados de utilização. Dimensionamento do disco, neste caso, será efetuado com base no tipo de armazenamento que especificar nas propriedades de avaliação (disco Standard ou disco Premium)
 
 ### <a name="performance-based-sizing"></a>Dimensionamento com base no desempenho
 
@@ -102,25 +103,13 @@ Para dimensionamento com base no desempenho, começa a migrar do Azure com os di
     - Se existirem vários tamanhos de VMs do Azure elegíveis, é recomendado aquele que tiver o custo mais baixo.
 
 ### <a name="as-on-premises-sizing"></a>Como no local de dimensionamento
-Se for o critério de dimensionamento *tal como no local dimensionamento*, não considere que o histórico de desempenho de VMs e migrar Azure aloca VMs com base no tamanho alocado no local. No entanto, para dimensionamento de disco,-considere histórico do desempenho dos discos para recomendar discos Standard ou Premium.  
-- **Armazenamento**: Migrar Azure mapeia cada disco ligado à máquina a um disco no Azure.
-
-    > [!NOTE]
-    > Suporta a migração do Azure geridos apenas discos para avaliação.
-
-    - Para obter a e/s de disco Efetivo por segundo (IOPS) e débito (MBps), a Azure migrar multiplica o disco IOPS e o débito com o fator de comfort. Com base no IOPS Efetivo e valores de débito, Azure migrar identifica se o disco deve ser mapeado para um disco standard ou premium no Azure.
-    - Se migrar do Azure não é possível localizar um disco com o IOPS & débito necessário, marca a máquina como unsuitable para o Azure. [Saiba mais](../azure-subscription-service-limits.md#storage-limits) sobre o Azure limita por disco e a VM.
-    - Se encontrar um conjunto de discos adequados, Azure migrar seleciona aqueles que suportam o método de redundância do armazenamento e a localização especificada nas definições de avaliação.
-    - Se existirem vários discos elegíveis, seleciona um com o menor custo.
-    - Se a discos de dados de desempenho no disponível, todos os discos estão mapeados para os discos padrão no Azure.
-- **Rede**: para cada adaptador de rede, recomenda-se um adaptador de rede no Azure.
-- **Computação**: Migrar do Azure analisa o número de núcleos e tamanho da memória da VM no local e recomenda uma VM do Azure com a mesma configuração. Se existirem vários tamanhos de VMs do Azure elegíveis, é recomendado aquele que tiver o custo mais baixo. Dados de utilização de CPU e memória não são considerados para como no local dimensionamento.
+Se for o critério de dimensionamento *tal como no local dimensionamento*, não considere que o histórico de desempenho de VMs e os discos e migrar Azure atribui um SKU de VM no Azure com base no tamanho alocado no local. Da mesma forma para dimensionamento de disco, analisa o tipo de armazenamento especificado nas propriedades de avaliação (padrão/Premium) e recomenda que o tipo de disco em conformidade. Tipo de armazenamento predefinido é discos Premium.
 
 ### <a name="confidence-rating"></a>Classificação de confiança
 
 Cada avaliação no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
 
-Para o dimensionamento com base no desempenho da VM, o Azure Migrate precisa dos dados de utilização relativos a CPU e memória. Além disso, para o dimensionamento de todos os discos ligados à VM, tem de leitura/escrita IOPS e débito. De forma semelhante, para cada adaptador de rede anexado à VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base em desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança para a avaliação é fornecida tal como indicado abaixo:
+A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como ' dimensionamento com base no desempenho. Para dimensionamento, com base no desempenho do Azure migrar precisa dos dados de utilização para a CPU, memória da VM. Além disso, para cada disco ligado à VM, é o disco de IOPS e dados de débito. Da mesma forma para cada adaptador de rede ligado a uma VM, migrar do Azure necessita de rede/out fazer com base no desempenho dimensionamento. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---
@@ -131,7 +120,7 @@ Para o dimensionamento com base no desempenho da VM, o Azure Migrate precisa dos
    81%-100% | 5 Estrelas
 
 Uma avaliação pode não ter todos os pontos de dados disponíveis por um dos seguintes motivos:
-- A definição de estatísticas no vCenter Server não está definido para o nível 3. Se a definição de estatística no vCenter Server for inferior ao nível 3, os dados de desempenho para o disco e rede não são recolhidos do vCenter Server. Neste caso, a recomendação dada pelo Azure Migrate para disco e rede não se baseia na utilização. Sem considerar o IOPS/débito do disco, migrar do Azure não consegue identificar se o disco será necessário um disco de premium no Azure, por conseguinte, neste caso, migrar Azure recomenda discos padrão para todos os discos.
+- A definição das estatísticas no vCenter Server não está definida para o nível 3. Se a definição de estatística no vCenter Server for inferior ao nível 3, os dados de desempenho para o disco e rede não são recolhidos do vCenter Server. Neste caso, a recomendação dada pelo Azure Migrate para disco e rede não se baseia na utilização. Sem considerar o IOPS/débito do disco, o Azure Migrate não pode identificar se o disco precisará de um disco premium no Azure. Neste caso, o Azure Migrate recomenda discos Standard para todos os discos.
 - A definição de estatística no vCenter Server foi definida como nível 3 para uma duração mais curta, antes de iniciar a deteção. Por exemplo, consideremos o cenário em que muda o nível de definição de estatística para 3 hoje e inicia a deteção com a aplicação recoletora amanhã (após 24 horas). Se estiver a criar uma avaliação para um dia, terá todos os pontos de dados e a classificação de confiança da avaliação será de 5 estrelas. No entanto, se estiver a mudar a duração do desempenho nas propriedades de avaliação para um mês, a classificação de confiança irá descer, uma vez que os dados de desempenho de rede e disco do último mês não estarão disponíveis. Se pretender considerar os dados de desempenho do último mês, é recomendado que mantenha a definição de estatística do vCenter Server no nível 3 durante um mês antes de iniciar a deteção.
 - Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se houver VMs desligadas durante algum tempo, o vCenter Server não terá os dados de desempenho correspondentes a esse período.
 - Poucas VMs foram criadas no período para o qual a avaliação é calculada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Em casos como este, o histórico de desempenho das novas VMs não estará lá para o período completo.

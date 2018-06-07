@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 36d4e897952e7ecb0297cc8c0ba159f728fd1213
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 68ba76ee18b3acc1c2825a217641c21a799132c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638593"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Formatos de fluxo de trabalho do suporte de dados codificador Premium e codecs
 > [!NOTE]
@@ -53,6 +54,7 @@ A secção seguinte apresenta uma lista de formatos de codecs e de ficheiros que
 * AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra
 * DNxHD avid (em MXF)
 * DVCPro/DVCProHD (em MXF)
+* HEVC/H.265, o principal e o perfil de Main 10
 * JPEG2000
 * MPEG-2 (até perfil 422 e de elevado nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1

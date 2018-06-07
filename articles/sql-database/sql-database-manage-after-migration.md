@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650116"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
@@ -38,7 +39,7 @@ Capacidades de recuperação de continuidade e desastre de negócio permitem-lhe
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Como criar e gerir cópias de segurança na base de dados SQL?
 Não criar cópias de segurança na BD SQL do Azure e que é porque não tem. Base de dados SQL automaticamente efetua cópias de segurança bases de dados para si, para que já não tem preocupar agendamento, a e gerir cópias de segurança. A plataforma demora uma cópia de segurança completa todas as semanas, cópia de segurança em poucas horas e um registo de cópia de segurança a cada 5 minutos para garantir a recuperação de desastre é eficiente e a mínimo de perda de dados diferencial. A primeira cópia de segurança completa ocorre assim que criar uma base de dados. Estas cópias de segurança estão disponíveis para si para um determinado período chamado "Período de retenção" e varia de acordo com a camada de desempenho que escolher.  Base de dados do SQL Server fornece-lhe a capacidade de restaurar para qualquer ponto no tempo nesta utilizando do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Configurar desempenho|Período de retenção em dias|
+|Camada de desempenho|Período de retenção em dias|
 |---|:---:|
 |Básica|7|
 |Standard|35|
@@ -97,7 +98,7 @@ Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir
 
 Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. As regras de firewall ao nível do servidor podem criados através do portal ou através do SSMS. Para obter mais informações sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [criar regras de firewall na base de dados do SQL Server](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
-#### <a name="service-endpoints"></a>pontos finais de serviço
+#### <a name="service-endpoints"></a>Pontos finais de serviço
 Por predefinição, a base de dados do SQL Server está configurado para "Permitir que todos os serviços do Azure" – o que significa que qualquer máquina Virtual no Azure pode tentar ligar à base de dados. Estes tentativas ainda tem de obter autenticado. No entanto, se não pretender que a base de dados para estar acessível a qualquer IPs do Azure, pode desativar "Permitir que todos os serviços do Azure". Além disso, pode configurar [pontos finais do serviço de VNET](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Pontos finais de serviço (SE) permitem-lhe para expor os recursos do Azure críticos apenas para sua própria rede privada virtual no Azure. Ao fazê-lo, eliminar, essencialmente, acesso público aos seus recursos. O tráfego entre a rede virtual para o Azure permanece na rede principal do Azure. Sem SE depara forçada do túnel encaminhamento de pacotes. A rede virtual força o tráfego de internet para a sua organização e o tráfego do serviço do Azure para abordar a rota do mesma. Com pontos finais de serviço, pode otimizar esta desde o fluxo de pacotes diretamente a partir da sua rede virtual para o serviço de rede principal do Azure.

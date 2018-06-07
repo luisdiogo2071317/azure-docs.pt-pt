@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 2780438e715b6f6cb04d820c02d09f14e14b480f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638505"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Eventos de Media Services do Azure de rota para um ponto final de web personalizado ao utilizar a CLI
 
@@ -27,7 +28,7 @@ Quando concluir os passos descritos neste artigo, pode ver que os dados do event
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](http://portal.azure.com) e iniciar **CloudShell** para executar comandos da CLI, conforme mostrado nos passos.
+Inicie sessão no [portal do Azure](http://portal.azure.com) e inicie o **CloudShell** para executar os comandos da CLI, conforme mostrado nos passos seguintes.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -184,4 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[A agir os eventos](reacting-to-media-services-events.md)
+[Reagir a eventos](reacting-to-media-services-events.md)# # Consulte também
+
+## <a name="see-also"></a>Consulte também
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

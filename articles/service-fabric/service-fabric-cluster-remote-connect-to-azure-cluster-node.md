@@ -14,49 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 3c7b3626db0e38d28513d4665a83dd7155663034
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642578"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Remoto ligar a uma instância de conjunto de dimensionamento de máquina virtual ou um nó de cluster
-Um recurso de infraestrutura do serviço de cluster em execução no Azure, cada tipo de nó de cluster que definir [configura um dimensionamento independente da máquina virtual](service-fabric-cluster-nodetypes.md).  Pode remoto ligar-se a escala específica conjunto instâncias (ou nós de cluster).  Ao contrário das VMs de instância única, as instâncias do conjunto de dimensionamento não tem os seus próprios endereços IP virtuais. Isto pode ser um desafio quando está a procurar um endereço IP e a porta que pode utilizar para ligar remotamente a uma instância específica.
+Um recurso de infraestrutura do serviço de cluster em execução no Azure, cada tipo de nó de cluster que definir [configura um dimensionamento independente da máquina virtual](service-fabric-cluster-nodetypes.md).  Remoto pode ligar a instâncias de conjunto de dimensionamento específico (nós de cluster).  Ao contrário das VMs de instância única, as instâncias do conjunto de dimensionamento não tem os seus próprios endereços IP virtuais. Isto pode ser um desafio quando está a procurar um endereço IP e a porta que pode utilizar para ligar remotamente a uma instância específica.
 
 Para localizar um endereço IP e a porta que pode utilizar para ligar remotamente a uma instância específica, conclua os passos seguintes.
 
-1. Localize o endereço IP virtual para o tipo de nó por obter regras NAT de entrada para o protocolo de ambiente de trabalho remoto (RDP).
+1. Obter as regras NAT de entrada para o protocolo de ambiente de trabalho remoto (RDP).
 
-    Em primeiro lugar, obter os valores de regras NAT entrados que foram definidos como parte da definição do recurso para `Microsoft.Network/loadBalancers`.
+    Normalmente, cada tipo de nó definido no seu cluster tem o seu próprio endereço IP virtual e um balanceador de carga dedicado. Por predefinição, o Balanceador de carga para um tipo de nó com o nome com o seguinte formato: *LB-{nome do cluster}-{tipo de nó}*; por exemplo, *LB-mycluster-front-end*. 
     
-    No portal do Azure, na página de Balanceador de carga, selecione **definições** > **regras NAT de entrada**. Isto fornece o endereço IP e definir a porta que pode utilizar para ligar remotamente à escala primeira instância. 
-    
-    ![Load balancer][LBBlade]
-    
-    Na figura seguinte, o endereço IP e a porta são **104.42.106.156** e **3389**.
-    
-    ![Regras de NAT][NATRules]
+    Na página do seu Balanceador de carga no portal do Azure, selecione **definições** > **regras NAT de entrada**: 
 
-2. Localize a porta que pode utilizar para ligar remotamente para a instância do conjunto de dimensionamento específico ou o nó.
+    ![As regras de NAT de entrada do Balanceador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
-    Conjunto de dimensionamento mapa de instâncias para nós. Utilize as informações de conjunto de dimensionamento para determinar a porta exata a utilizar.
-    
-    As portas são alocadas por uma ordem ascendente que corresponda a instância do conjunto de dimensionamento. Para obter o anterior exemplo o tipo de nó de front-end, a tabela seguinte lista as portas para cada uma das instâncias do cinco nó. Aplica o mesmo mapeamento à sua instância do conjunto de dimensionamento.
-    
-    | **Instância do conjunto de dimensionamento de máquina virtual** | **Porta** |
-    | --- | --- |
-    | FrontEnd_0 |3389 |
-    | FrontEnd_1 |3390 |
-    | FrontEnd_2 |3391 |
-    | FrontEnd_3 |3392 |
-    | FrontEnd_4 |3393 |
-    | FrontEnd_5 |3394 |
+    A seguinte captura de ecrã mostra as regras NAT de entrada para um tipo de nó com o nome de front-end: 
 
-3. Ligar de forma remota a instância do conjunto de dimensionamento específico.
+    ![As regras de NAT de entrada do Balanceador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    A figura seguinte demonstra utilizando a ligação ao ambiente de trabalho remoto para ligar à instância de conjunto de dimensionamento do FrontEnd_1:
+    Para cada nó, o endereço IP é apresentado no **destino** coluna, a **destino** coluna fornece a instância de conjunto de dimensionamento e o **serviço** coluna fornece o número de porta. Para uma ligação remota, portas são atribuídas a cada nó no início de ordem com a porta 3389 de ascendente.
+
+    Também pode encontrar as regras de NAT de entrada no `Microsoft.Network/loadBalancers` secção do modelo do Resource Manager para o cluster.
     
-    ![Ligação de ambiente de trabalho remota][RDP]
+2. Para confirmar a porta de entrada para mapeamento de portas de destino para um nó, pode clicar a regra e observe o **porta de destino** valor. A seguinte captura de ecrã mostra a regra NAT de entrada para o **front-end (1 instância)** nó no passo anterior. Tenha em atenção que, apesar do número da porta (entrada) 3390, a porta de destino está mapeada para a porta 3389, a porta para o serviço RDP no destino.  
+
+    ![Mapeamento de portas de destino](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+
+    Por predefinição, para os clusters do Windows, a porta de destino é a porta 3389, que mapeia para o serviço RDP no nó de destino. Para os clusters do Linux, a porta de destino é a porta 22, que mapeia para o serviço de Secure Shell (SSH).
+
+3. Ligar remotamente ao nó específico (instância de conjunto de dimensionamento). Pode utilizar o nome de utilizador e palavra-passe que definiu quando criou o cluster ou quaisquer outras credenciais que configurou. 
+
+    A seguinte captura de ecrã mostra utilizando a ligação ao ambiente de trabalho remoto para ligar ao **front-end (1 instância)** nós num cluster do Windows:
+    
+    ![Ligação de ambiente de trabalho remota](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+
+    Em nós do Linux, pode ligar com SSH (o exemplo seguinte reutiliza o mesmo endereço IP e a porta de uma forma abreviada):
+
+    ``` bash
+    ssh SomeUser@40.117.156.199 -p 3390
+    ```
 
 
 Para os passos seguintes, leia os artigos seguintes:
@@ -65,7 +67,3 @@ Para os passos seguintes, leia os artigos seguintes:
 * [Atualize os valores de intervalo de portas RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) no cluster VMs após a implementação
 * [Alterar o nome de utilizador de administrador e a palavra-passe](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) para as VMs do cluster
 
-<!--Image references-->
-[LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
-[NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
-[RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png

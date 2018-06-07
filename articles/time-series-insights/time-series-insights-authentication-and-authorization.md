@@ -1,22 +1,22 @@
 ---
-title: "Como autenticar e autorizar pela API em informações de séries de tempo do Azure"
-description: "Este artigo descreve como configurar a autenticação e autorização para uma aplicação personalizada que chama a API de informações de série de tempo do Azure."
-services: time-series-insights
+title: Como autenticar e autorizar pela API em informações de séries de tempo do Azure
+description: Este artigo descreve como configurar a autenticação e autorização para uma aplicação personalizada que chama a API de informações de série de tempo do Azure.
 ms.service: time-series-insights
+services: time-series-insights
 author: dmdenmsft
 ms.author: dmden
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a18caf03dbc5377f0adc540c8550129ef3bdb9e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652438"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API de Insights de série de tempo do Azure
 
@@ -101,7 +101,7 @@ Eis os passos detalhados:
 
 Utilize o ID da aplicação e a chave na sua aplicação para autenticar com conhecimentos aprofundados de séries de tempo do Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para o código de exemplo chama a API de informações de séries de tempo, consulte [consultar dados com c#](time-series-insights-query-data-csharp.md).
 - Para informações de referência de API, consulte [referência da API de consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 

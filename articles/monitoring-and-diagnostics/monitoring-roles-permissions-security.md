@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01a785eab1b31b2943184267a3c6496fefaf44cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639083"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução à segurança com a monitorização do Azure, funções e permissões
 Várias equipas necessário estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da equipa que trabalham exclusivamente no monitorização (engenheiros de suporte, os engenheiros de devops) ou se utilizar um fornecedor de serviço geridas, poderá querer conceder-lhes acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar ou eliminar recursos. Este artigo mostra como rapidamente aplicam-se uma função RBAC monitorização incorporada a um utilizador no Azure ou criar a sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas. Em seguida, explica como considerações de segurança para os recursos relacionados com o Monitor do Azure e como pode limitar o acesso a dados que contêm.
@@ -125,7 +126,7 @@ Todas as três dos seguintes tipos de dados podem ser armazenadas numa conta de 
 
 * Utilize uma conta de armazenamento dedicada único para os dados de monitorização. Se precisar de separar os dados de monitorização em várias contas do storage, nunca partilhar a utilização de uma conta de armazenamento entre monitorização e não-monitorização de dados, como esta inadvertidamente podem dar os utilizadores que apenas necessitam de aceder a dados (por exemplo, um SIEM de terceiros) de monitorização acesso a monitorização não dados.
 * Utilize um único, dedicado barramento de serviço ou o Hub de eventos espaço de nomes em todas as definições de diagnóstico para a mesma razão, conforme apresentado acima.
-* Limitar o acesso a contas de armazenamento relacionadas com a monitorização ou event hubs ao mantê-los num grupo de recursos separado, e [utilizar âmbito](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nas funções de monitorização para limitar o acesso a esse grupo de recursos.
+* Limitar o acesso a contas de armazenamento relacionadas com a monitorização ou event hubs ao mantê-los num grupo de recursos separado, e [utilizar âmbito](../role-based-access-control/overview.md#scope) nas funções de monitorização para limitar o acesso a esse grupo de recursos.
 * Nunca conceda a permissão de ListKeys para contas de armazenamento ou os hubs de eventos no âmbito da subscrição quando um utilizador necessita apenas de acesso a dados de monitorização. Em vez disso, atribuir estas permissões ao utilizador a um recurso ou grupo de recursos (se tiver um grupo de recursos dedicado monitorização) âmbito.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitar o acesso a contas de armazenamento relacionadas com a monitorização

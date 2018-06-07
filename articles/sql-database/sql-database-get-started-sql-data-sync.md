@@ -6,15 +6,16 @@ author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647855"
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a sincronização de dados do SQL Server (pré-visualização)
 Neste tutorial, irá aprender a configurar a sincronização de dados SQL do Azure através da criação de um grupo de sincronização de híbridos que contenha as instâncias de SQL Database do Azure e SQL Server. O novo grupo de sincronização está completamente configurado e sincroniza na agenda que definir.
@@ -284,7 +285,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
 -   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitor sincronização de dados SQL do Azure com a análise de registos](sql-database-sync-monitor-oms.md)
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

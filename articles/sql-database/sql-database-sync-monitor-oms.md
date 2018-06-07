@@ -3,17 +3,18 @@ title: Monitorizar a sincronização de dados SQL do Azure (pré-visualização)
 description: Saiba como monitorizar a sincronização de dados de SQL do Azure (pré-visualização) através da utilização de análise de registos
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650252"
 ---
 # <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) análise do registo 
 

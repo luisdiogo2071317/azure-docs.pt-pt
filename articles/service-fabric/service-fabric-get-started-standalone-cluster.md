@@ -1,24 +1,25 @@
 ---
 title: Configurar um cluster do Azure Service Fabric | Microsoft Docs
-description: "Crie um cluster autónomo de desenvolvimento com três nós em execução no mesmo computador. Depois de concluir esta configuração, estará pronto a criar um cluster de várias máquinas."
+description: Crie um cluster autónomo de desenvolvimento com três nós em execução no mesmo computador. Depois de concluir esta configuração, estará pronto a criar um cluster de várias máquinas.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643469"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Crie o primeiro cluster autónomo do Service Fabric
 Pode criar um cluster autónomo do Service Fabric em quaisquer máquinas virtuais ou computadores com o Windows Server 2012 R2 ou o Windows Server 2016, no local ou na cloud. Este guia de introdução ajuda-o a criar um cluster autónomo de desenvolvimento em apenas alguns minutos.  Quando tiver terminado, tem um cluster com três nós em execução num computador único onde pode implementar aplicações.
@@ -66,7 +67,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualize o cluster com o explorador do Service Fabric
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  O Service Fabric Explorer é um serviço que é executado no cluster, que poderá aceder através de um browser, ao navegar para [http://localhost:19080/Explorer](http://localhost:19080/Explorer). 
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma boa ferramenta para visualizar o seu cluster e gerir aplicações.  Explorador de recursos de infraestrutura de serviço é um serviço que é executado no cluster, o que poderá aceder utilizando um browser, navegando até [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). 
 
 O dashboard do cluster fornece uma descrição geral do cluster, incluindo um resumo de aplicações e do estado de funcionamento do nó. A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pode inspecionar as aplicações que têm um código implementado nesse nó.
 
@@ -87,7 +88,7 @@ Para remover o tempo de execução do Service Fabric do computador, execute o se
 .\CleanFabric.ps1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que configurou um cluster autónomo de desenvolvimento, experimente os artigos seguintes:
 * [Configure um cluster autónomo de várias máquinas](service-fabric-cluster-creation-for-windows-server.md) e ative a segurança.
 * [Implementar aplicações com o Powershell](service-fabric-deploy-remove-applications.md)

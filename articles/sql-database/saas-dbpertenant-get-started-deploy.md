@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645366"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -120,14 +121,14 @@ Um centro **Hub de eventos** página fornece uma lista de ligações para os inq
 
 A aplicação de Wingtip utiliza [ *Traffic Manager do Azure* ](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos recebidos. O URL para aceder à página Eventos para um inquilino específico utiliza o seguinte formato:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/fabrikamjazzclub
 
     As partes do formato anterior são explicados com a tabela seguinte.
 
     | Parte do URL        | Descrição       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue a *da base de dados por inquilino* implementação Wingtip permissões de outras implementações. São exemplos de *autónomo* aplicação por inquilino (*-sa*) ou *base de dados multi-inquilino* (*- mt*) implementações. |
-    | .*&lt;user&gt;* | *af1* no exemplo. |
+    | .  *&lt;utilizador&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gestor de tráfego, base de URL. |
     | fabrikamjazzclub | Identifica o inquilino com o nome Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -234,7 +235,7 @@ Agora que já iniciou a execução de carga na coleção de inquilinos, vamos ve
 
 Depois de *LoadGenerator.ps1* é executado durante vários minutos, existem dados suficientes devem estar disponíveis para começar a procurar algumas capacidades de monitorização. Estas capacidades incorporadas em conjuntos e as bases de dados.
 
-Navegue para o servidor **tenants1-dpt -&lt;utilizador&gt;**e selecione **Pool1** para ver a utilização de recursos para o conjunto. Os gráficos seguintes, o gerador de carga foi executada durante uma hora.
+Navegue para o servidor **tenants1-dpt -&lt;utilizador&gt;** e selecione **Pool1** para ver a utilização de recursos para o conjunto. Os gráficos seguintes, o gerador de carga foi executada durante uma hora.
 
    ![Conjunto de monitor](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
