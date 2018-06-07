@@ -1,8 +1,8 @@
 ---
- Título: incluem a descrição do ficheiro: incluem os serviços de ficheiros: autor de política do azure: eross msft
+ title: include file description: include file services: active-directory author: eross-msft
  
-MS. Service: MS. topic de política do azure: incluem MS. Date: 04/24/2018 Author: lizross ms.custom: ficheiro de inclusão
+ms.service: active-directory ms.topic: include ms.date: 04/24/2018 ms.author: lizross ms.custom: include file
 ---
 
 >[!Note] 
-> Este artigo fornece os passos sobre como eliminar os dados pessoais do dispositivo ou serviço e pode ser utilizado para suportar as obrigações sob o GDPR. Se estiver à procura de informações gerais sobre GDPR, consulte o [secção GDPR do portal do serviço de confiança](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> Este artigo mostra os passos para eliminar dados pessoais do dispositivo ou serviço e pode ser utilizado para dar apoio às suas obrigações ao abrigo do GDPR. Se estiver à procura de informações gerais sobre o GDPR, veja a [secção GDPR do Portal de Confiança do Serviço](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
