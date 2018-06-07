@@ -10,18 +10,26 @@
       href: quickstart-create-basic-load-balancer-portal.md
     - name: Criar um Balanceador de Carga Básico - CLI do Azure
       href: quickstart-create-basic-load-balancer-cli.md
+    - name: Criar um Balanceador de Carga Básico - Azure PowerShell
+      href: quickstart-create-basic-load-balancer-powershell.md
     - name: Criar um Balanceador de Carga Standard - Portal
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Criar um Balanceador de Carga Standard - CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
+    - name: Criar um Balanceador de Carga Standard - Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutoriais
   items:
+    - name: Criar e gerir o Balanceador de Carga
+      href: tutorial-load-balancer-standard-manage-portal.md
     - name: Balancear carga de tráfego interno para VMs
       href: tutorial-load-balancer-basic-internal-portal.md
     - name: Balancear carga de VMs por zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Configurar reencaminhamento de porta no Balanceador de Carga
+      href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure

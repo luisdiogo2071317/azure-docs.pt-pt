@@ -63,6 +63,8 @@
           items:
             - name: Preparar as cargas de trabalho do Azure Backup Server no Portal do Azure
               href: backup-azure-microsoft-azure-backup.md
+            - name: Instalar Azure Backup Server no Azure Stack
+              href: backup-mabs-install-azure-stack.md
             - name: Adicionar armazenamento ao Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Atualizar o Azure Backup Server para v.2
@@ -157,12 +159,10 @@
           href: backup-dpm-automation.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-    - name: Base de Dados SQL do Azure
+    - name: SQL em VMs do Azure
       items:
-        - name: Configure e restaure cópias de segurança da Base de Dados SQL – armazenamento SQL
-          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Configure e restaure cópias de segurança da Base de Dados SQL – cofre dos Serviços de Recuperação
-          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Fazer cópia de segurança da base de dados SQL no Azure
+          href: backup-azure-sql-database.md
     - name: Windows Server
       items:
         - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server
