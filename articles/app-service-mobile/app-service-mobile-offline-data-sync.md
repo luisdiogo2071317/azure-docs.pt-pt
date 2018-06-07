@@ -1,10 +1,10 @@
 ---
-title: "Sincronização de dados offline no Mobile Apps do Azure | Microsoft Docs"
-description: "Referência conceptual e descrição geral sobre a funcionalidade de sincronização de dados offline para Mobile Apps do Azure"
+title: Sincronização de dados offline no Mobile Apps do Azure | Microsoft Docs
+description: Referência conceptual e descrição geral sobre a funcionalidade de sincronização de dados offline para Mobile Apps do Azure
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597982"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de Dados Offline nas Aplicações Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é a sincronização de dados offline?
@@ -42,7 +43,7 @@ Os tutoriais seguintes mostram como adicionar sincronização offline para os se
 * [Xamarin iOS: Ativar a sincronização offline]
 * [Xamarin Android: Ativar a sincronização offline]
 * [Xamarin. Forms: Sincronização offline ativar](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [plataforma Universal do Windows: Ativar a sincronização offline]
+* [Plataforma universal do Windows: Ativar a sincronização offline]
 
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
 Para aceder ao ponto final "/ tabelas", o cliente do Azure Mobile SDKs fornecer interfaces como `IMobileServiceTable` (cliente SDK do .NET) ou `MSTable` (iOS cliente). Estas APIs ligam diretamente ao back-end da aplicação móvel do Azure e falharem se o dispositivo de cliente não tem uma ligação de rede.
@@ -52,14 +53,14 @@ Para suportar a utilização offline, a sua aplicação em vez disso, deve utili
 ## <a name="what-is-a-local-store"></a>O que é um arquivo local?
 Um arquivo local é a camada de persistência de dados no dispositivo cliente. Os SDKs do cliente de Mobile Apps do Azure fornecem uma implementação de arquivo local predefinido. No Windows, Xamarin e Android, se baseia no SQLite. No iOS, se baseia nos dados de núcleos.
 
-Para utilizar a implementação baseada no SQLite no Windows Phone ou loja Windows 8.1, tem de instalar uma extensão do SQLite. Para obter mais informações, consulte [plataforma Universal do Windows: Ativar a sincronização offline]. Android e iOS, são enviados juntamente com uma versão do SQLite no sistema operativo do dispositivo, pelo que não é necessário fazer referência a sua própria versão do SQLite.
+Para utilizar a implementação SQLite baseado no Windows Phone ou Microsoft Store, terá de instalar uma extensão do SQLite. Para obter mais informações, consulte [Plataforma universal do Windows: Ativar a sincronização offline]. Android e iOS, são enviados juntamente com uma versão do SQLite no sistema operativo do dispositivo, pelo que não é necessário fazer referência a sua própria versão do SQLite.
 
 Os programadores também podem implementar os seus próprios arquivo local. Por exemplo, se pretender armazenar dados num formato encriptado no cliente móvel, pode definir um arquivo local que utiliza SQLCipher para encriptação.
 
 ## <a name="what-is-a-sync-context"></a>O que é um contexto de sincronização?
 A *contexto de sincronização* está associado um objeto de cliente móvel (tais como `IMobileServiceClient` ou `MSClient`) e regista as alterações efetuadas com tabelas de sincronização. O contexto de sincronização mantém um *fila operação*, que mantém uma lista ordenada de operações de CUD (criação, atualização, eliminação) que seja posterior enviados para o servidor.
 
-Um arquivo local está associado com o contexto de sincronização através de um método de inicialização, como `IMobileServicesSyncContext.InitializeAsync(localstore)` no [SDK de cliente .NET].
+Um arquivo local está associado com o contexto de sincronização através de um método de inicialização, como `IMobileServicesSyncContext.InitializeAsync(localstore)` no [SDK do cliente de .NET].
 
 ## <a name="how-sync-works"></a>Funciona como offline de sincronização
 Quando utilizar tabelas de sincronização, o código de cliente controla quando alterações locais sejam sincronizadas com um back-end de aplicação móvel do Azure. Nada é enviado para o back-end até uma chamada para *push* alterações locais. Da mesma forma, o arquivo local é preenchido com novos dados apenas quando existe uma chamada para *solicitação* dados.
@@ -92,12 +93,12 @@ Quando utilizar tabelas de sincronização, o código de cliente controla quando
 * [iOS: Ativar a sincronização offline]
 * [Xamarin iOS: Ativar a sincronização offline]
 * [Xamarin Android: Ativar a sincronização offline]
-* [plataforma Universal do Windows: Ativar a sincronização offline]
+* [Plataforma universal do Windows: Ativar a sincronização offline]
 
 <!-- Links -->
-[SDK de cliente .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
+[SDK do cliente de .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
 [Android: Ativar a sincronização offline]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Ativar a sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Ativar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Ativar a sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[plataforma Universal do Windows: Ativar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Plataforma universal do Windows: Ativar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

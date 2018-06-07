@@ -1,24 +1,19 @@
 ---
 title: Mensagens da nuvem para dispositivo IoT hub do Azure (iOS) | Microsoft Docs
 description: Como enviar mensagens da nuvem para o dispositivo a um dispositivo de um hub IoT do Azure com os SDKs IoT do Azure para iOS.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634284"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens da nuvem para o dispositivo com o IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -40,7 +35,7 @@ No final deste artigo, executar Swift dois projetos de iOS:
 * **serviço de exemplo**, que envia uma mensagem da nuvem para o dispositivo para a aplicação de dispositivo simulado através do IoT Hub e, em seguida, receber a confirmação de entrega.
 
 > [!NOTE]
-> IoT Hub tem suporte SDK para várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como ligar o seu dispositivo para código neste tutorial e, geralmente, IoT Hub do Azure, consulte o [Centro de programadores do IoT do Azure].
+> IoT Hub tem suporte SDK para várias plataformas de dispositivos e idiomas (incluindo C, Java e Javascript) através de SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como ligar o seu dispositivo para código neste tutorial e, geralmente, IoT Hub do Azure, consulte o [Centro de Programadores do Azure IoT].
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -166,7 +161,7 @@ A saída deverá ter um aspeto semelhante ao seguinte exemplo:
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a enviar e receber mensagens da nuvem para o dispositivo. 
 
-Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [acelerador de solução de monitorização remota do Azure IoT].
+Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [Acelerador solução de monitorização remota do IoT do Azure].
 
 Para obter mais informações sobre como desenvolver soluções de IoT hub, consulte o [guia para programadores do IoT Hub].
 
@@ -176,13 +171,13 @@ Para obter mais informações sobre como desenvolver soluções de IoT hub, cons
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[enviar telemetria a partir de um dispositivo a um IoT hub]: quickstart-send-telemetry-ios.md
+[Enviar telemetria a partir de um dispositivo a um IoT hub]: quickstart-send-telemetry-ios.md
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [guia para programadores do IoT Hub]: iot-hub-devguide.md
-[Centro de programadores do IoT do Azure]: http://www.azure.com/develop/iot
+[Centro de Programadores do Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[acelerador de solução de monitorização remota do Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Acelerador solução de monitorização remota do IoT do Azure]: https://azure.microsoft.com/documentation/suites/iot-suite/
