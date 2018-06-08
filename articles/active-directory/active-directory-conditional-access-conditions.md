@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735146"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -148,7 +150,7 @@ A condição de aplicações de cliente permite-lhe aplicar uma política a dife
 - Web sites e serviços
 - As aplicações móveis e aplicações de ambiente de trabalho. 
 
-![Condições](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Uma aplicação é classificada como:
 
@@ -156,7 +158,7 @@ Uma aplicação é classificada como:
 
 - A uma aplicação de ambiente de trabalho se utiliza a aplicação móvel OpenID Connect para um cliente nativo ou aplicação móvel.
 
-Para obter uma lista completa das aplicações de cliente pode utilizar na sua política de acesso condicional, consulte o [referência técnica do Azure Active Directory condicional acesso](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Para obter uma lista completa das aplicações de cliente pode utilizar na sua política de acesso condicional, consulte [condição de aplicações de cliente](active-directory-conditional-access-technical-reference.md#client-apps-condition) de referência técnica do Azure Active Directory condicional acesso.
 
 Casos de utilização comum para esta condição são políticas que:
 
@@ -166,6 +168,20 @@ Casos de utilização comum para esta condição são políticas que:
 
 Além de utilizar protocolos de autenticação moderna e de web SSO, pode aplicar esta condição para aplicações de correio que utilizam o Exchange ActiveSync, como as aplicações de correio nativo na maioria dos smartphones. Atualmente, as aplicações de cliente através de protocolos legados tem de ser protegida por AD FS.
 
+Pode selecionar apenas a esta condição se **Exchange Online do Office 365** é apenas aplicação na nuvem que selecionou.
+
+![Aplicações na cloud](./media/active-directory-conditional-access-conditions/32.png)
+
+Selecionar **do Exchange ActiveSync** como aplicações de cliente condição só é suportada se não tiver outras condições numa política configurada. No entanto, pode restringir o âmbito desta condição só se aplicam a plataformas suportadas.
+
+ 
+![Plataformas suportadas](./media/active-directory-conditional-access-conditions/33.png)
+
+Aplicar esta condição apenas para as plataformas suportadas é o equivalente a todas as plataformas de dispositivos num [condição de plataforma de dispositivo](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Plataformas suportadas](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Para obter mais informações, consulte:
 
 - [Configurar o SharePoint Online e Exchange Online para o acesso condicional do Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -173,9 +189,53 @@ Além de utilizar protocolos de autenticação moderna e de web SSO, pode aplica
 - [Azure Active Directory com base na aplicação acesso condicional](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Autenticação legada  
+
+Acesso condicional aplica-se agora a clientes mais antigos do Office que não suportam a autenticação moderna, bem como os clientes que utilizam os protocolos de correio eletrónico POP, IMAP, SMTP, etc. Isto permite-lhe configurar políticas como **bloquear o acesso a partir de outros clientes**.
+
+
+![Autenticação legada](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Problemas conhecidos
+
+- Configurar uma política para **outros clientes** bloqueia toda a organização de determinados clientes, como SPConnect. Isto acontece porque destes clientes mais antigos autenticar formas inesperado. Este problema não se aplica para o principal de aplicações do Office, como os clientes mais antigos do Office. 
+
+- Pode demorar até 24 horas para a política entre em vigor. 
+
+
+#### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+
+**Isto irá bloquear serviços o Exchange Web (EWS)?**
+
+Depende do protocolo de autenticação que EWS está a utilizar. Se a aplicação de EWS utilizem a autenticação moderna, vai ser abordada pela aplicação de cliente "as aplicações móveis e os clientes de ambiente de trabalho". Se a aplicação de EWS estiver a utilizar autenticação básica, vai ser abordada pela aplicação de cliente "Outros clientes".
+
+
+**Os controlos podem utilizar para outros clientes**
+
+Qualquer controlo pode ser configurado para "Outros clientes de". No entanto, a experiência de utilizador final será bloquear o acesso para todos os casos. "Outros clientes" não suportam controlos, como a MFA, os dispositivos em conformidade, associação a um domínio, etc. 
+ 
+**As condições pode utilizar para outros clientes?**
+
+Quaisquer condições podem ser configuradas para "Outros clientes de".
+
+**Exchange ActiveSync suporta todas as condições e controlos?**
+
+Não. Eis o resumo de suporte Exchange ActiveSync (EAS):
+
+- EAS só suporta filtragem de grupo e utilizador. Não suporta o convidado, funções. Se a condição de convidado/função estiver configurada, todos os utilizadores serão bloqueados, uma vez que vamos não é possível determinar se deve aplicar a política para o utilizador, ou não.
+
+- EAS só funciona com o Exchange que a aplicação de nuvem. 
+
+- EAS não suporta qualquer condição, exceto a aplicação de cliente em si.
+
+- EAS pode ser configurado com qualquer controlo (tudo, exceto a conformidade do dispositivo irá causar blocos).
+
+**As políticas se aplicam a todas as aplicações de cliente por predefinição, passa?**
+
+Não. Não há nenhuma alteração no comportamento de política predefinido. As políticas de continuam a aplicar ao browser e clientes de aplicações móveis/ambiente de trabalho por predefinição.
 
 
 

@@ -5,20 +5,17 @@ keywords: Perguntas de base de dados, perguntas mais frequentes perguntas, docum
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735169"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -61,6 +58,9 @@ Não há nenhum limite para a quantidade total de dados que um contentor pode ar
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Quais são os limites de débito de base de dados do Azure Cosmos?
 Não há nenhum limite para a quantidade total de débito que pode suportar um contentor do BD Azure Cosmos. A chave ideia é para distribuir a carga de trabalho aproximadamente uniformemente entre um suficientemente grande número de chaves de partição.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Modos de conectividade direta e Gateway são encriptados? 
+Sim ambos os modos são sempre totalmente encriptados. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Quanto custo base de dados do Azure Cosmos?
 Para obter detalhes, consulte o [Azure Cosmos DB detalhes de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) página. Custos de utilização do Cosmos BD do Azure são determinados pelo número de contentores com aprovisionamento, o número de horas os contentores estiveram online e o débito aprovisionado para cada contentor. O termo *contentores* aqui refere-se a coleção de API do SQL Server, o gráfico da Graph API, a recolha de API do MongoDB e a tabelas de API de tabela. 
@@ -164,6 +164,10 @@ A API do SQL Server suporta transações de linguagem integrada através de acio
 * A ferramenta de migração de dados, conforme descrito em [ferramenta de migração de base de dados para a base de dados do Azure Cosmos](import-data.md).
 * Procedimentos armazenados, conforme descrito em [programação JavaScript do lado do servidor de base de dados do Azure Cosmos](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Tenho configuração minha coleção a utilizar a indexação lento, posso ver se as minhas consultas não devolver resultados esperados. 
+Conforme explicado na secção de indexação, a indexação lento pode resultar neste comportamento. Deve sempre utilizar indexação consistente para todas as aplicações. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>É a API do SQL Server suporte recurso ligação colocação em cache?
 Sim, porque a BD do Cosmos do Azure é um serviço RESTful, ligações de recursos são imutáveis e podem ser colocadas em cache. Os clientes de API do SQL Server podem especificar um cabeçalho de "If-None-Match" para leituras em relação a quaisquer recursos como o documento ou coleção e, em seguida, Atualize as respetivas cópias locais depois da versão do servidor foi alterado.
 
@@ -171,7 +175,12 @@ Sim, porque a BD do Cosmos do Azure é um serviço RESTful, ligações de recurs
 Sim. O [emulador de BD do Azure Cosmos](local-emulator.md) fornece uma emulação de alta-fidelidade do serviço base de dados do Cosmos. Suporta a funcionalidade que é idêntica ao Cosmos BD do Azure, incluindo suporte para criar e consultar documentos JSON, aprovisionamento e dimensionamento coleções e a execução de acionadores e procedimentos armazenados. Pode desenvolver e testar aplicações utilizando o emulador de BD do Cosmos do Azure e implementá-las para o Azure uma escala global, fazendo uma configuração única alterar para o ponto final de ligação de base de dados do Azure Cosmos.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que razão são valores longa vírgula flutuante num documento arredondado quando são visualizados a partir do Explorador de dados no portal. 
-Esta é a limitação do JavaScript. JavaScript utiliza números de formato de vírgula flutuante de dupla precisão conforme especificado no IEEE 754 e em segurança pode representar números entre-(253 - 1) e 253 – 1 (ou seja, 9007199254740991) apenas.
+Esta é a limitação do JavaScript. JavaScript utiliza números de formato de vírgula flutuante de dupla precisão conforme especificado no IEEE 754 e em segurança pode representar números entre-(253 - 1) e 253-1 (ou seja, 9007199254740991) apenas.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde são permitidas permissões na hierarquia de objetos?
+
+É permitido criar permissões utilizando ResourceTokens ao nível da coleção e respetivos descendentes (por exemplo, documentos, anexos). Isto implica que tentar criar uma permissão a base de dados ou nível de uma conta não é atualmente permitido.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Desenvolver com a API para MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>O que é a API de BD do Cosmos do Azure para o MongoDB?
@@ -213,7 +222,7 @@ Existem algumas diferenças de comportamento utilizadores provenientes da Table 
 * Não é atualmente suportado CORS
 * Os nomes de tabela no armazenamento de Azure Table não são maiúsculas e minúsculas, mas estão na API de tabela de base de dados do Azure Cosmos
 * Alguns dos formatos de internos da BD do Cosmos do Azure para obter informações de codificação, como binários campos, atualmente não estão como eficientes como um poderá gostar. Por conseguinte, isto pode provocar limitações inesperadas no tamanho dos dados. Por exemplo, atualmente um não foi possível utilizar a completa 1 Meg de uma entidade de tabela para armazenar dados binários porque a codificação aumenta o tamanho dos dados.
-* Nome de propriedade de entidade "Id" atualmente não suportado
+* Nome de propriedade de entidade 'Id' atualmente não suportado
 * TableQuery TakeCount não está limitado a 1000
 
 Em termos da API REST, existem várias opções de pontos finais/consulta que não são suportadas pelo Azure Cosmos DB tabela API de:
@@ -414,7 +423,7 @@ Ao utilizar a especificação de débito, aprovisionadas que pode alterá-lo par
 
 BD do Azure do Cosmos foi concebido para ser um sistema global distribuído, com base no SLA com garantias de disponibilidade, débito e latência. Quando reservar débito do BD Azure Cosmos, é garantido, ao contrário do débito de outros sistemas. BD do Cosmos do Azure fornece funcionalidades adicionais que os clientes pedidas, como índices secundários e distribuição global.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca é apresentada uma notificação de "quota completo" (indica que uma partição é completa) quando posso ingerir dados no Table storage do Azure. Com a API de tabela, é apresentada esta mensagem. É esta a oferta limitando-me e forçar-me para alterar a minha aplicação existente?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca é apresentada uma quota completa"notificação (indica que uma partição é completa) quando posso ingerir dados no Table storage do Azure. Com a API de tabela, é apresentada esta mensagem. É esta a oferta limitando-me e forçar-me para alterar a minha aplicação existente?
 
 BD do Cosmos do Azure é um sistema com base no SLA que fornece o dimensionamento ilimitado, com garantias de latência, débito, disponibilidade e consistência. Para garantir o desempenho premium garantido, certifique-se de que o tamanho dos dados e índice são geríveis e dimensionável. O limite de 10 GB no número de entidades ou os itens por chave de partição é garantir que fornecemos um excelente desempenho de consulta e de pesquisa. Para se certificar de que a aplicação dimensiona bem, mesmo para o Storage do Azure, recomendamos que lhe *não* criar uma partição quente ao armazenar todas as informações na partição de um e -lo a consultar. 
 
@@ -475,7 +484,7 @@ Os registos de diagnóstico serão explicados de forma a [registo de diagnóstic
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>É o mapa de chave primário para o conceito de chave de partição da base de dados do Azure Cosmos?
 Sim, a chave de partição é utilizada para colocar a entidade na localização correta. Do BD Azure Cosmos é utilizado para localizar a partição direito lógica que está armazenada numa partição física. O conceito de criação de partições também é explicado no [partição e o dimensionamento do BD Azure Cosmos](partition-data.md) artigo. O essencial tirar ausente aqui é que uma partição lógica não deve exceder o limite de 10 GB hoje. 
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>O que acontece quando é apresentada uma notificação de "quota completa", que indica que uma partição está cheia?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>O que acontece quando é apresentada uma quota completa"notificação que indica que uma partição está cheia?
 BD do Cosmos do Azure é um sistema com base no SLA ilimitada escala, fornece garantias de latência, débito, disponibilidade e consistência. API do Cassandra demasiado permite que o armazenamento ilimitado de dados. Este armazenamento ilimitado baseia-se na horizontal scaleout de dados utilizando a criação de partições, como o conceito de chave. O conceito de criação de partições também é explicado no [partição e o dimensionamento do BD Azure Cosmos](partition-data.md) artigo.
 
 O limite de 10 GB no número de entidades ou itens por partição lógica deve cumprir. Para garantir que a aplicação dimensiona bem, é recomendável que lhe *não* criar uma partição quente ao armazenar todas as informações na partição de um e -lo a consultar. Este erro pode apenas provenientes se que dados é skewed - que está a ter muitos dados para a chave de uma partição - ou seja, mais de 10 GB. Pode encontrar a distribuição de dados utilizando o portal de armazenamento. Forma para corrigir este erro é recrete a tabela e escolha um primário granular (chave de partição), que permite uma melhor distribuição dos dados.

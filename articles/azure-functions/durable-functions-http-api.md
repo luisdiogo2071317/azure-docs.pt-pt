@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32309985"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -129,12 +130,12 @@ O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON
 
 | Campo           | Tipo de dados | Descrição |
 |-----------------|-----------|-------------|
-| runtimeStatus   | string    | O estado do tempo de execução da instância. Os valores incluem *executar*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
-| Entrada           | JSON      | Os dados JSON utilizados para inicializar a instância. |
+| runtimeStatus   | cadeia    | O estado do tempo de execução da instância. Os valores incluem *executar*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
+| entrada           | JSON      | Os dados JSON utilizados para inicializar a instância. |
 | customStatus    | JSON      | Os dados JSON utilizados para o estado de orquestração personalizado. Este campo é `null` se não for definido. |
 | saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
-| createdTime     | string    | A hora em que foi criada a instância. Utiliza ISO 8601 expandido notação. |
-| lastUpdatedTime | string    | A hora em que a instância persistente pela última vez. Utiliza ISO 8601 expandido notação. |
+| createdTime     | cadeia    | A hora em que foi criada a instância. Utiliza ISO 8601 expandido notação. |
+| lastUpdatedTime | cadeia    | A hora em que a instância persistente pela última vez. Utiliza ISO 8601 expandido notação. |
 | historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução de orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de consulta está definido como `true`.  | 
 
 Eis um payload de resposta de exemplo, incluindo os orchestration execução histórico e a atividade saídas (formatadas para legibilidade):
@@ -216,7 +217,7 @@ Pedir os parâmetros para esta API incluem o conjunto predefinido mencionado ant
 
 | Campo       | Tipo de parâmetro  | TType de dados | Descrição |
 |-------------|-----------------|-----------|-------------|
-| eventName   | do IdP             | string    | O nome do evento que a instância de orquestração de destino está a aguardar no. |
+| eventName   | do IdP             | cadeia    | O nome do evento que a instância de orquestração de destino está a aguardar no. |
 | {content}   | Conteúdo do pedido | JSON      | O payload de evento formatada em JSON. |
 
 #### <a name="response"></a>Resposta
@@ -262,7 +263,7 @@ O pedido parâmetros para esta API incluem o conjunto predefinido mencionado ant
 
 | Campo       | Tipo de parâmetro  | Tipo de Dados | Descrição |
 |-------------|-----------------|-----------|-------------|
-| reason      | Cadeia de consulta    | string    | Opcional. O motivo para terminar a instância de orquestração. |
+| reason      | Cadeia de consulta    | cadeia    | Opcional. O motivo para terminar a instância de orquestração. |
 
 #### <a name="response"></a>Resposta
 

@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 6edcf9ae8135de8bf82d819e50d3d336b641166e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34068578"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes de utilitário carregar ficheiro de pedido de suporte de novo do Microsoft Azure
 Quando lhe [criar um pedido de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário de carregar o ficheiro pode ajudá-lo facilmente ficheiros de diagnóstico de carregamento ou outros ficheiros que pensa que são relevantes para o incidente.  

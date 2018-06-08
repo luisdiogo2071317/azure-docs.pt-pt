@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32151948"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar a subscrição de produto e registo de utilizador
 Delegação permite-lhe utilizar o seu Web site existente para processar programador sessão-na/sessão-up e subscrição produtos, por oposição a utilizar a funcionalidade incorporada no portal do programador. Isto permite que o seu Web site para proprietários de dados de utilizador e efetuar a validação destes passos de uma forma personalizada.
@@ -124,7 +125,7 @@ Certifique-se que o ponto final de delegação efetua as seguintes ações:
      > 
    * Comparar o acima-hash calculado para o valor da **sig** parâmetro de consulta. Se os dois hashes coincidirem, avançar para o passo seguinte, caso contrário negar o pedido.
 3. Efetuar qualquer processamento de subscrição de produto com base no tipo de operação pedida no **operação** - por exemplo, de faturação, mais perguntas, etc.
-4. Na subscrição com êxito o utilizador para o produto no seu lado, subscrever o utilizador para o produto de API Management por [chamada da API REST para a subscrição de produto].
+4. Na subscrição com êxito o utilizador para o produto no seu lado, subscrever o utilizador para o produto de API Management por [chamada da API REST para a subscrição do produto].
 
 ## <a name="delegate-example-code"> </a> Código de exemplo
 Estes exemplos de código mostram como tirar o *chave de validação de delegação*, que está definido no ecrã de delegação do portal do publicador, para criar um HMAC, que, em seguida, é utilizado para validar a assinatura, comprovar a validade do transmitido returnUrl. O mesmo código funciona para os productId e userId com ligeiras modificação.
@@ -174,7 +175,7 @@ Para obter mais informações sobre delegação, veja o vídeo seguinte:
 [Delegating product subscription]: #delegate-product-subscription
 [pedir um token de sessão único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Criar um utilizador]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[chamada da API REST para a subscrição de produto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[chamada da API REST para a subscrição do produto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [código de exemplo fornecido abaixo]: #delegate-example-code
 

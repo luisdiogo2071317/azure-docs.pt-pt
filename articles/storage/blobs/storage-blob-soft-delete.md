@@ -6,20 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057864"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34701688"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure (pré-visualização)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Eliminar soft para blobs de armazenamento do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Storage do Azure oferece agora a eliminação de forma recuperável (pré-visualização) para objetos de blob, para que mais facilmente pode recuperar dados quando está indica modificada ou eliminada por uma aplicação ou outro utilizador de conta de armazenamento.
+Storage do Azure oferece agora a eliminação de forma recuperável para objetos de blob, para que mais facilmente pode recuperar dados quando está indica modificada ou eliminada por uma aplicação ou outro utilizador de conta de armazenamento.
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
@@ -30,10 +30,6 @@ Pode configurar a quantidade de tempo, são possível recuperar dados eliminados
 
 Eliminação de forma recuperável é retrocompatível; não tem de efetuar quaisquer alterações às suas aplicações para tirar partido das proteções que affords esta funcionalidade. No entanto, [recuperação de dados](#recovery) introduz um novo **anular eliminação Blob** API.
 
-> [!NOTE]
-> Durante a pré-visualização pública, a chamada de camada de Blob definido num blob com instantâneos não é permitida.
-Eliminação de forma recuperável gera instantâneos para proteger os seus dados quando são substituída. Estamos ativamente uma solução para permitir a criação de camadas de blobs com instantâneos.
-
 ### <a name="configuration-settings"></a>Definições de configuração
 
 Quando cria uma nova conta, eliminação de forma recuperável está desativada por predefinição. Eliminação de forma recuperável também está desativada por predefinição para contas do storage existentes. Pode ativar/desativar a funcionalidade e desativar em qualquer altura durante a vigência de uma conta de armazenamento.
@@ -42,7 +38,7 @@ Ainda poderá aceder e recuperar dados eliminados de forma recuperável quando a
 
 O período de retenção indica a quantidade de tempo que os dados eliminados de forma recuperável são armazenada e disponíveis para recuperação. Para os blobs e instantâneos do blob que são eliminados de forma explícita, o relógio do período de retenção é iniciado quando os dados são eliminados. Recuperável instantâneos eliminado gerados pela funcionalidade de eliminação de forma recuperável quando dados são substituídos, o relógio inicia quando o instantâneo é gerado. Atualmente, pode manter os dados eliminados recuperável, para entre 1 e 365 dias.
 
-Pode alterar o período de retenção de eliminação de forma recuperável em qualquer altura. Um período de retenção atualizado apenas se aplica aos dados eliminados recentemente. Anteriormente dados eliminados irão expirar com base no período de retenção que foi configurado quando esses dados foi eliminados.
+Pode alterar o período de retenção de eliminação de forma recuperável em qualquer altura. Um período de retenção atualizado apenas se aplica aos dados eliminados recentemente. Anteriormente dados eliminados irão expirar com base no período de retenção que foi configurado quando esses dados foi eliminados. A tentar eliminar um objeto eliminado de forma recuperável não irá afetar a respetiva hora de expiração.
 
 ### <a name="saving-deleted-data"></a>A guardar dados eliminadas
 
@@ -64,13 +60,13 @@ Quando **eliminar BLOBs** denomina-se num instantâneo, esse instantâneo está 
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Quando **instantâneo Blob** é chamado, B0 se tornar um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é eliminado, está marcado como recuperável eliminado.\*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Quando **instantâneo Blob** é chamado, B0 se tornar um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é eliminado, está marcado como recuperável eliminado.*
 
 Quando **eliminar BLOBs** é chamado um blob base (qualquer blob que é não-se de um instantâneo), esse blob está marcado como recuperável eliminado. Consistente com o comportamento anterior, chamar **eliminar BLOBs** num blob que tenha instantâneos de Active Directory devolve um erro. Chamar **eliminar BLOBs** num blob com instantâneos eliminados de forma recuperável não devolveu um erro. Ainda pode eliminar um blob e todos os respetivos instantâneos numa única operação quando a eliminação de forma recuperável está ativada. Se o fizer, marca o blob base e instantâneos de forma recuperável como eliminado.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, um **eliminar BLOBs** é efetuada uma chamada para eliminar B2 e instantâneos todos os associados. O blob Active Directory, B2 e associados todos os instantâneos são marcados como recuperável eliminado.\*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, um **eliminar BLOBs** é efetuada uma chamada para eliminar B2 e instantâneos todos os associados. O blob Active Directory, B2 e associados todos os instantâneos são marcados como recuperável eliminado.*
 
 > [!NOTE]
 > Quando um blob de eliminados de forma recuperável é substituído, é automaticamente gerado um instantâneo de eliminados recuperável do Estado do blob antes da operação de escrita. O novo blob herda a camada do blob substituída.
@@ -103,7 +99,7 @@ Para restaurar um blob para um instantâneo eliminado recuperável específico p
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, **anular eliminação Blob** denomina-se no blob B, deste modo, restaurar o base blob, B1 e instantâneos todos os associados, aqui apenas B0, como o Active Directory. No segundo passo, B0 é copiada através do blob base. Esta operação de cópia gera um instantâneo eliminado recuperável B1.\*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, **anular eliminação Blob** denomina-se no blob B, deste modo, restaurar o base blob, B1 e instantâneos todos os associados, aqui apenas B0, como o Active Directory. No segundo passo, B0 é copiada através do blob base. Esta operação de cópia gera um instantâneo eliminado recuperável B1.*
 
 Para ver os blobs eliminados de forma recuperável e instantâneos do blob, pode optar por incluir dados eliminados no **lista Blobs**. Pode escolher para visualizar apenas recuperável eliminados base blobs, ou para incluir também instantâneos do blob eliminado de forma recuperável. Para todos os dados eliminados recuperável, pode ver a hora quando os dados foram eliminados, bem como o número de dias antes dos dados serão permanentemente expirou.
 
@@ -141,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Consulte o [passos](#Next steps) na secção um ponteiro para a aplicação que provocou este resultado.
+Consulte o [passos](#next-steps) na secção um ponteiro para a aplicação que provocou este resultado.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -205,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>CLI do Azure 
+Para ativar a eliminação de forma recuperável, Atualize as propriedades do serviço do cliente do blob:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Para verificar soft delete está ativada, utilize o seguinte comando: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Biblioteca de clientes do Python
 
 Para ativar a eliminação de forma recuperável, Atualize as propriedades do serviço do cliente do blob:
@@ -277,11 +286,15 @@ Atualmente, a eliminação de forma recuperável só está disponível para arma
 
 **Eliminação de forma recuperável está disponível para todos os tipos de conta de armazenamento?**
 
-Sim, a eliminação de forma recuperável está disponível para contas do blob storage, bem como para os blobs em contas do storage para fins gerais. Isto aplica-se às contas standard e premium. Eliminação de forma recuperável não está disponível para discos geridos.
+Sim, a eliminação de forma recuperável está disponível para contas do blob storage, bem como para os blobs para fins gerais contas de armazenamento (GPv1 e GPv2). Isto aplica-se às contas standard e premium. Eliminação de forma recuperável não está disponível para discos geridos.
 
 **Eliminação de forma recuperável está disponível para todas as camadas de armazenamento?**
 
 Sim, a eliminação de forma recuperável está disponível para todas as camadas de armazenamento, incluindo frequente, útil e de arquivo. No entanto, a eliminação de forma recuperável não suportar substituir a proteção para os blobs na camada de arquivo.
+
+**Pode utilizar a API de camada do Blob de definir a camada blobs com instantâneos eliminados de forma recuperável?**
+
+Sim. Os instantâneos de eliminado de forma recuperável irão permanecer na camada de original, mas o blob base irá mudar para o novo escalão. 
 
 **As contas de armazenamento Premium têm um por limite de instantâneos do blob de 100. Instantâneos eliminados de forma recuperável contam para este limite?**
 
@@ -319,7 +332,7 @@ Eliminação de forma recuperável está disponível para os discos premium e pa
 
 É possível tirar partido da eliminação de forma recuperável independentemente da versão de API que está a utilizar. No entanto, para listar e recuperar blobs eliminados de forma recuperável e instantâneos do blob, terá de utilizar a versão de 2017-07-29 do [API de REST dos serviços de armazenamento](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. Em geral, recomendamos sempre a utilizar a versão mais recente, independentemente se estão a utilizar esta funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 
