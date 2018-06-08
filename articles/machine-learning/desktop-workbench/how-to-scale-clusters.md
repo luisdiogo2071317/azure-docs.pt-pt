@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1f8dbe5ccae34ab185cbe5105ac793a0d401b48e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831671"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionar o cluster para gerir o débito de serviço web
 
@@ -86,10 +88,10 @@ Por exemplo, definir `autoscale-min-replicas` 5 criará cinco réplicas. Para ch
 | Nome do parâmetro | Tipo | Descrição |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | boolean | Especifica se o dimensionamento automático está ativado. Predefinição: VERDADEIRO |
-| `autoscale-min-replicas` | número inteiro | Especifica o número mínimo de pods. Tem de ser maior ou igual a 0. Predefinição: 1 |
-| `autoscale-max-replicas` | número inteiro | Especifica o número máximo de pods. Tem de ser 1 ou superior. Se réplicas de máx. de dimensionamento automático é inferior ao mínimo-réplicas de dimensionamento automático, serão ignoradas réplicas de máx. de dimensionamento automático. Predefinição: 10 |
-| `autoscale-refresh-period-seconds` | número inteiro | Especifica a duração em segundos, entre as atualizações de dimensionamento automático. Predefinição: 1 |
-| `autoscale-target-utilization` | número inteiro | Especifica a percentagem de utilização que destinos de dimensionamento automático, entre 1 e 100. Predefinição: 70 |
+| `autoscale-min-replicas` | inteiro | Especifica o número mínimo de pods. Tem de ser maior ou igual a 0. Predefinição: 1 |
+| `autoscale-max-replicas` | inteiro | Especifica o número máximo de pods. Tem de ser 1 ou superior. Se réplicas de máx. de dimensionamento automático é inferior ao mínimo-réplicas de dimensionamento automático, serão ignoradas réplicas de máx. de dimensionamento automático. Predefinição: 10 |
+| `autoscale-refresh-period-seconds` | inteiro | Especifica a duração em segundos, entre as atualizações de dimensionamento automático. Predefinição: 1 |
+| `autoscale-target-utilization` | inteiro | Especifica a percentagem de utilização que destinos de dimensionamento automático, entre 1 e 100. Predefinição: 70 |
 
 Dimensionamento automático funciona para garantir que as duas condições seguintes:
 

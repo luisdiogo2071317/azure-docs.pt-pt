@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 540f97d1383b8a992a12426b03249ef82af0e7a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834792"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e detetar recursos na Galeria de AI do Azure
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -83,8 +85,8 @@ Pode iniciar sessão com uma ferramenta de debate como Disqus e receber notifica
 Pode contribuir os seguintes itens para a Galeria - siga estas ligações para obter mais informações:
 
 * **[Coleções](gallery-collections.md#contribute)**
-* **[Experiments](gallery-experiments.md#contribute)**
-* **[Tutorials](gallery-tutorials.md#contribute)**
+* **[Experimentações](gallery-experiments.md#contribute)**
+* **[Tutoriais](gallery-tutorials.md#contribute)**
 
 ## <a name="we-want-to-hear-from-you"></a>Queremos ouvi da!
 Queremos Galeria para conduzido pelos nossos utilizadores e para os nossos utilizadores. Utilize o smiley à direita para nos dizer o que lhe adoram ou hate sobre a galeria.  

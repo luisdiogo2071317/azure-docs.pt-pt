@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833768"
 ---
 # <a name="derive-column-by-example-transformation"></a>Derivar coluna, transformação de exemplo
 
@@ -190,11 +192,11 @@ Número de exemplos que são necessários para este cenário: 3
 |:-----|:-----:|
 |Masculino|**0**|
 |Feminino|**1**|
-|Desconhecido|**2**|
+|Desconhecidos|**2**|
 |Feminino|1|
 |Feminino|1|
 |Masculino|0|
-|Desconhecido|2|
+|Desconhecidos|2|
 |Masculino|0|
 |Feminino|1|
 
@@ -290,7 +292,7 @@ Número de exemplos que são necessários para este cenário: 1
 
 Estas partes da data foram extraídos utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
 
-|DateTime|dia da semana|Data|Mês|Ano|Hora|Minuto|Segundo|
+|DateTime|dia da semana|Date|Mês|Ano|Hora|Minuto|Segundo|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |2031 de Janeiro de 31 05:54 em: 18|**Sab**|**31**|**Janeiro**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Qua.|17|Jan.|1990|13|32|01|
@@ -307,7 +309,7 @@ Estas partes da data foram extraídos utilizando transformações por exemplo di
 |2006 de Novembro de 28 14:19:15|Ter.|28|Nov.|2006|14|19|15|
 |29-Apr-2031 04:59:45.|Ter.|29|Abr.|2031|4|59|45|
 |29-Jan-2032 02:38:36|Qui.|29|Jan.|2032|2|38|36|
-|2028 de Maio de 11 15:31:52|Qui.|11|Mai|2028|15|31|52|
+|2028 de Maio de 11 15:31:52|Qui.|11|Maio|2028|15|31|52|
 |15-Jul-1977 12:45:39|Sex.|15|Jul.|1977|12|45|39|
 |27-Jan-2029 05:55:41|Sáb.|27|Jan.|2029|5|55|41|
 |Mar-03-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|

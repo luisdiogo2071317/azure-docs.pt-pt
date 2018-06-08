@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830275"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Combinar as colunas por transformação de exemplo
 Esta transformação permite ao utilizador adicionar uma nova coluna através da combinação de valores de várias colunas. Utilizador pode especificar um separador ou fornecem exemplos de valores combinados para efetuar esta transformação. Quando o utilizador fornece exemplos de combinação, a transformação é processada pelo mesmo **por exemplo** motor que é utilizado no **derivar coluna, por exemplo** transformação.
@@ -66,7 +68,7 @@ Uma vírgula seguida por um espaço é utilizada como um separador neste exemplo
 
 O valor no **negrito** foi fornecido como um exemplo.
 
-|Data|Mês|Ano|Hora|Minuto|Segundo|Coluna combinada|
+|Date|Mês|Ano|Hora|Minuto|Segundo|Coluna combinada|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|Out.|2016|15|01|23|**13-FPO-2016 15:01:23 PDT**|
 |16|Out.|2016|16|22|33|16-FPO-2016 15:01:33 PDT|

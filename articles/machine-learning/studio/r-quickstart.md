@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836380"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
 
@@ -1229,7 +1231,7 @@ RStudio está bastante bem documento, pelo que este anexo consigo fornecerá alg
 Este tutorial de programação de R abrange as noções básicas do que necessita para utilizar a linguagem de R com o Azure Machine Learning Studio. Se não estiver familiarizado com R, dois introduções estão disponíveis na CRAN:
 
 * R para principiantes por Emmanuel Paradis é um bom local para iniciar o http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
-* Uma introdução ao R por W. e Venables ter. al. entrar em profundidade um pouco mais, em http://cran.r-project.org/doc/manuals/R-intro.html.
+* Uma introdução ao R por W. e Venables ter. usados. entrar em profundidade um pouco mais, em http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existem muitos books no R que pode ajudar a começar a utilizar. Seguem-se algumas que posso úteis:
 

@@ -7,16 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832606"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Learning avançada para cenários no mundo real de manutenção preditiva
 
@@ -27,7 +29,7 @@ Learning profunda é um das tendências mais populares no machine learning e tem
 
 Também conhecido como as redes neurais profundo (DNN), estes métodos são inspired pelos neurons individuais que estejam dentro de (biological as redes neurais) "-brain".
 
-O impacto dos períodos de indisponibilidade do equipamento agendada pode ser detrimental para as empresas. É essencial manter a executar para maximizar o desempenho e de utilização e minimizar o período de indisponibilidade dispendioso, período de equipamento de campo. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
+O impacto do período de indisponibilidade não agendado do equipamento pode ser prejudicial para qualquer negócio. É essencial manter a executar para maximizar o desempenho e de utilização e minimizar o período de indisponibilidade dispendioso, período de equipamento de campo. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
 
 Uma estratégia de manutenção preditiva (horas) utiliza métodos do machine learning para determinar a condição do equipamento preventivamente efetuem a manutenção para evitar o desempenho da máquina adversos. No PM, os dados são recolhidos ao longo do tempo para monitorizar o estado da máquina e, em seguida, analisado de modo a encontrar padrões para prever falhas. [Muito pequeno termo memória (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) redes são apelativo para esta definição, uma vez que foram concebidos para saber de sequências de dados.
 

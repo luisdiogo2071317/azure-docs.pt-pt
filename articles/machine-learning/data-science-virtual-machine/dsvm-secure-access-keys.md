@@ -8,21 +8,23 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 4eb1d657adc37ef0d1e4055573b174d58baf2e0e
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ec734cf456050250396b00aa09b61bace7e9aa0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830280"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>Acesso de armazenar credenciais na máquina de Virtual de ciência de dados de forma segura
 
-Um desafio comum quando a criação de aplicações em nuvem como gerir as credenciais que têm de ser no seu código para autenticar a serviços em nuvem. Manter estas credenciais segura é uma tarefa importante. Idealmente, que nunca são apresentados em estações de trabalho de programador ou obterem marcadas para o controlo de origem. 
+Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que têm de estar no código para autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. 
 
 [Gerido identidade de serviço (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) torna resolver este problema mais simples, concedendo Azure serviços uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter as credenciais no seu código. Um padrão comum para proteger credenciais consiste em utilizar MSI em combinação com o [Azure Keyvault](https://docs.microsoft.com/azure/key-vault/), um geridos de serviço do Azure para armazenar segredos e as chaves criptográficas de forma segura. Pode aceder ao Cofre de chaves utilizando a identidade de serviço gerida e obter o chaves criptográficas e segredos autorizados do Cofre de chaves. 
 

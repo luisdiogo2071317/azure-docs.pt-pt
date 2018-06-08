@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d336b0a4c1de069fccce21a370ca64dc9e9359c9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824953"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831698"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -166,6 +166,8 @@ Esta vista fornece informações sobre as máquinas, em falta atualizações, im
 
 Pode executar uma pesquisa de registo que devolve informações do computador, a atualização ou a implementação, selecionando o item na lista. Esta ação abre o **pesquisa registo** página com uma consulta para o item selecionado.
 
+![Atualizar a vista de gestão predefinido](media/automation-update-management/update-management-view.png)
+
 ## <a name="installing-updates"></a>Instalar as atualizações
 
 Depois de terem sido avaliadas as atualizações para todos os computadores Linux e Windows na sua área de trabalho, pode instar as atualizações obrigatórias ao criar uma *Implementação de Atualização*. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e a hora da implementação, bem como um computador ou grupo de computadores que devem ser incluídos no âmbito da mesma. Para saber mais sobre grupos de computadores, veja [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Grupos de computadores no Log Analytics). Ao incluir grupos de computadores na sua implementação de atualização, a associação ao grupo é avaliada apenas uma vez no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar este problema, elimine a implementação da atualização agendada e recrie-a.
@@ -197,9 +199,8 @@ Criar uma nova implementação de atualização clicando a **implementação de 
 |Sistema Operativo| Linux ou do Windows|
 | Máquinas de atualização |Selecionar uma pesquisa guardada ou escolher máquina a partir da lista pendente e selecione máquinas individuais |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Atualizações a excluir|Introduza todos os KBs para excluir sem o prefixo 'KB'|
-|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
-| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
+|Atualizações a excluir|Introduza as atualizações para excluir. Para Windows, introduza o KB sem o prefixo 'KB'. Para Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
+|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|| Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 

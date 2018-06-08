@@ -6,14 +6,16 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831606"
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Novidades do Azure Machine Learning
 
@@ -222,7 +224,7 @@ Para obter mais informações sobre a criação de destinos de computação, con
 ### <a name="sample-projects"></a>Projetos de exemplo
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) e [MMLSpark](https://github.com/Azure/mmlspark) amostras atualizadas com a nova versão do SDK do Azure ML
 
-### <a name="breaking-changes"></a>As alterações de última hora
+### <a name="breaking-changes"></a>Alterações interruptivas
 - Promovido a `--type` no comutador `az ml computetarget attach` para um subcomando. 
 
     - `az ml computetarget attach --type remotedocker` é agora `az ml computetarget attach remotedocker`

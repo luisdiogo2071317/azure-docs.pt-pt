@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836879"
 ---
 # <a name="retrain-a-classic-web-service"></a>Voltar a preparar um Serviço Web Clássico
 O serviço Web preditiva implementou é a predefinição da classificação de ponto final. Pontos finais predefinidos são mantidos sincronizados com a formação original e a classificação de experimentações, e, por conseguinte, não é possível substituir o modelo treinado para o ponto final predefinido. Para a reparametrização do serviço web, tem de adicionar um novo ponto final para o serviço web. 

@@ -7,14 +7,16 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832106"
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -146,7 +148,7 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 >Para criar um ponto final de HTTPS, especifique um certificado SSL ao criar um cluster utilizando o – nome do certificado e – cert pem as opções do programa de configuração do az ml env. Esta ação configura o cluster para servir pedidos em https, protegida com o certificado fornecido. Após a conclusão da configuração, crie um registo de CNAME DNS que aponta para o FQDN do cluster.
 
-### <a name="create-an-account"></a>Criar uma conta
+### <a name="create-an-account"></a>Criar uma Conta
 Uma conta é necessária para a implementação de modelos. Precisa de fazer uma vez por conta e pode reutilizar a mesma conta de múltiplas implementações.
 
 Para criar uma nova conta, utilize o seguinte comando:

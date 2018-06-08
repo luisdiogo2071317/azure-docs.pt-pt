@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a194061bf443f50bed673a518ab62746f67b4a78
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838164"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários de análises avançadas no Azure Machine Learning
 Este artigo descreve a variedade de origens de dados de exemplo e cenários de destino que podem ser processados pelo [processo de ciência de dados de equipa (TDSP)](overview.md). O TDSP fornece uma abordagem systematic para as equipas de colaborar em compilar aplicações inteligentes. Os cenários aqui apresentados mostram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem as características dos dados, as localizações de origem e repositórios de destino no Azure.

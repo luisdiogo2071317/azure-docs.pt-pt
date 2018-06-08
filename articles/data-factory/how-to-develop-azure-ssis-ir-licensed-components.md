@@ -1,6 +1,6 @@
 ---
-title: Desenvolver pagos ou licenciados componentes para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
-description: Este artigo descreve como pode desenvolver um ISV e instalar paga ou está licenciado componentes personalizados para o tempo de execução de integração do Azure-SSIS
+title: Instalação paga ou está licenciado componentes para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+description: Saiba como pode desenvolver um ISV e instalar paga ou está licenciado componentes personalizados para o tempo de execução de integração do Azure-SSIS
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 42f1bb247533fafbc6947e77cc1a1f07a482fd45
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700507"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830848"
 ---
 # <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Desenvolver pagos ou licenciados componentes personalizados para o tempo de execução de integração do Azure-SSIS
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Problema - a resposta a incidentes SSIS do Azure requer uma abordagem diferente
+Este artigo descreve como um ISV e estiver pode desenvolver e instalar pagos ou licenciados componentes personalizados para pacotes de SQL Server Integration Services (SSIS) que são executados no Azure em tempo de execução de integração SSIS do Azure.
 
-A natureza do tempo de execução de integração do Azure-SSIS apresenta várias desafios, que tornam os métodos de licenciamento típicos utilizados para a instalação local dos componentes personalizados inadequados.
+## <a name="the-problem"></a>O problema
+
+A natureza do tempo de execução de integração do Azure-SSIS apresenta várias desafios, que tornam os métodos de licenciamento típicos utilizados para a instalação local dos componentes personalizados inadequados. Como resultado, a resposta a incidentes SSIS do Azure requer uma abordagem diferente.
 
 -   Os nós da resposta a incidentes SSIS do Azure são volátil e pode ser atribuído ou lançadas em qualquer altura. Por exemplo, pode iniciar ou parar nós para gerir o custo, ou aumentar vertical ou através de vários tamanhos de nó. Como resultado, vincula uma licença de componente de terceiros a um determinado nó através da utilização de informações específicas do computador, tais como o endereço MAC ou o ID de CPU já não é viável.
 
 -   Também pode dimensionar a resposta a incidentes Azure SSIS entrada ou saída, para que o número de nós pode diminuir ou expanda em qualquer altura.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Solução - variáveis de ambiente do Windows e variáveis do sistema SSIS para enlace da licença e validação
+## <a name="the-solution"></a>A solução
 
-Como resultado as limitações dos métodos de licenciamento tradicionais, descritos na secção anterior, a resposta a incidentes SSIS do Azure fornece as variáveis de ambiente do Windows e as variáveis do sistema SSIS para o enlace de licenciamento e a validação de componentes de terceiros. Os ISVs podem utilizar estas variáveis para obter as informações exclusivas e persistente para uma resposta a incidentes SSIS do Azure, como o ID de Cluster e o número de nós de Cluster. Com esta informação, ISVs podem vincular a licença para os respetivos componentes para uma resposta a incidentes Azure SSIS *como um cluster*, com um ID não altera quando os clientes, iniciar ou parar, aumentar verticalmente ou para baixo, aumentar ou reduzir ou reconfigurar a resposta a incidentes SSIS do Azure de qualquer forma.
+Como resultado as limitações dos métodos de licenciamento tradicionais, descritos na secção anterior, a resposta a incidentes SSIS do Azure fornece uma nova solução. Esta solução utiliza variáveis de ambiente do Windows e variáveis de SSIS do sistema para o enlace de licenciamento e a validação de componentes de terceiros. Os ISVs podem utilizar estas variáveis para obter as informações exclusivas e persistente para uma resposta a incidentes SSIS do Azure, como o ID de Cluster e o número de nós de Cluster. Com esta informação, ISVs podem então vinculá a licença para os respetivos componentes para uma resposta a incidentes Azure SSIS *como um cluster*. Este enlace utiliza um ID que não alteram quando os clientes iniciar ou param, aumentar ou reduzir verticalmente a escala de entrada ou saída ou reconfigurar a resposta a incidentes SSIS do Azure de qualquer forma.
 
 O diagrama seguinte mostra a instalação típica, a ativação e o enlace da licença e fluxos de validação de componentes de terceiros que utilizam estas novas variáveis:
 
@@ -71,6 +73,7 @@ O diagrama seguinte mostra a instalação típica, a ativação e o enlace da li
                                                                                                                                
     }
     ```
+
 ## <a name="isv-partners"></a>Parceiros ISV
 
 Pode encontrar uma lista de parceiros ISV que tem adaptadas os seus componentes e as extensões para a resposta a incidentes SSIS do Azure no fim desta mensagem de blogue - [Enterprise Edition, a configuração personalizada e 3rd extensibilidade de terceiros para SSIS no ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).

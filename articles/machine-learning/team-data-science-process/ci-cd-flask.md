@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: d79453e72bf26ce5d14fac71e35a146381b951fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655615"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836271"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicações de Artificial Intelligence (AI): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes
 Para uma aplicação de AI, há frequentemente dois fluxos de trabalho, criação de modelos de machine learning e os programadores de aplicações criar a aplicação e a sua exposição para os utilizadores finais consumam de cientistas de dados. Neste artigo, vamos demonstrar como implementar uma integração contínua (CI) / pipeline de entrega contínua (CD) para uma aplicação de AI. Aplicação de AI é uma combinação de código da aplicação incorporado com um modelo de máquina pretrained learning (ML). Para este artigo, vamos estão a obter um modelo pretrained de uma conta de armazenamento de Blobs do Azure privado, poderia ser uma conta AWS S3, bem como. Utilizaremos uma aplicação de web simples python flask para o artigo.

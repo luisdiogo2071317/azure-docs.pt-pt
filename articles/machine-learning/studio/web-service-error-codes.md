@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836094"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Os códigos de erro de API de REST do Machine Learning
  
@@ -39,7 +41,7 @@ Esta classe de erros significa um argumento algures fornecido era inválido. Ist
 | BatchJobInputsNotSpecified | Os seguintes necessários input(s) não foram especificadas com o pedido: {0}. Certifique-se de todos os dados de entrada é especificado e tente novamente. |
 | BatchJobInputsTooManySpecified | O pedido especificado mais de entradas que definido no serviço. Lista de input(s) aceites: {0}. Certifique-se de todos os dados de entrada foi especificado corretamente e tente novamente. |
 | BlobNameTooLong | Caminho de armazenamento de Blobs do Azure fornecido para resultados de diagnóstico é demasiado longo: {0}. Encurte o caminho e tente novamente. |
-| BlobNotFound | Não é possível aceder a fornecido BLOBs do Azure - {0}.  Mensagem de erro do Azure: {1}. |
+| BlobNotFound | Não é possível aceder ao blob do Azure fornecido - {0}.  Mensagem de erro do Azure: {1}. |
 | ContainerIsEmpty | Não foi fornecido nenhum nome de contentor de armazenamento do Azure. Forneça um nome de contentor válido e tente novamente. |
 | ContainerSegmentInvalid | Nome do contentor inválido. Forneça um nome de contentor válido e tente novamente. |
 | ContainerValidationFailed | Falhou com o erro de validação de contentor do blob: {0}. |
@@ -58,10 +60,10 @@ Esta classe de erros significa um argumento algures fornecido era inválido. Ist
 | MissingJobId | Não existem tarefas Id fornecido. Uma tarefa de Id é devolvido quando foi submetida uma tarefa pela primeira vez. Certifique-se de que o Id da tarefa está correto e tente novamente. |
 | MissingKeys | Não existem chaves fornecido ou do site primário ou de chave secundária não for fornecido. |
 | MissingModelPackage | Nenhum Id do pacote de modelo ou o pacote de modelo fornecidos. Forneça um Id de pacote do modelo válido ou pacote do modelo e tente novamente. |
-| MissingOutputOverrideSpecification | O pedido está em falta a especificação de BLOBs para substituição de saída 0}. Especifique uma localização de blob válido com o pedido ou remova a especificação de saída, não se pretender nenhuma substituição da localização. |
+| MissingOutputOverrideSpecification | O pedido está a faltar a especificação de BLOBs para substituição de saída {0}. Especifique uma localização de blob válido com o pedido ou remova a especificação de saída, não se pretender nenhuma substituição da localização. |
 | MissingRequestInput | O serviço web espera uma entrada, mas não foi fornecida nenhuma entrada. Certifique-se entradas válidas são fornecidas com base nas portas de entrada publicadas no modelo e tente novamente. |
 | MissingRequiredGlobalParameters | Nem todos os parâmetros de serviço de web fornecidos necessários. Verifique se o parâmetro esperado para os módulos está corretos e tente novamente. |
-| MissingRequiredOutputOverrides | Ao chamar um ponto final de serviço encriptada é obrigatório para passar na saída substituições para saídas do serviço. Falta substituições neste momento para estes saídas: {0} |
+| MissingRequiredOutputOverrides | Ao chamar um ponto final de serviço encriptada é obrigatório para passar na saída substituições para saídas do serviço. Substituições em falta neste momento para estes saídas: {0} |
 | MissingWebServiceGroupId | Nenhum grupo de serviço web Id fornecido. Forneça um Id de grupo serviço web válido e tente novamente. |
 | MissingWebServiceId | Nenhum serviço web Id fornecido. Forneça um Id de serviço web válido e tente novamente. |
 | MissingWebServicePackage | Nenhum pacote de serviço web fornecido. Forneça um pacote de serviço web válido e tente novamente. |
@@ -73,9 +75,9 @@ Esta classe de erros significa um argumento algures fornecido era inválido. Ist
 | UnexpectedParameter | Inesperado parâmetros fornecidos. Certifique-se de que todos os nomes de parâmetro estão escritos corretamente, apenas esperados parâmetros são transmitidos e tente novamente. |
 | UnknownError | Erro desconhecido. |
 | UserParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | Não é possível alterar os requisitos de pedidos simultâneos de {0} do serviço web. |
+| WebServiceConcurrentRequestRequirementInvalid | Não é possível alterar os requisitos de pedidos simultâneos para {0} serviço web. |
 | WebServiceIdInvalid | Id do serviço web inválido fornecido. Id do serviço Web deve ser um guid válido. |
-| WebServiceTooManyConcurrentRequestRequirement | Não é possível definir o requisito de pedido simultâneo em mais do que {0}. |
+| WebServiceTooManyConcurrentRequestRequirement | Não é possível definir o requisito de pedido simultâneo mais do que {0}. |
 | WebServiceTypeInvalid | Tipo de serviço web inválido fornecido. Certifique-se de que o tipo de serviço web válido está correto e tente novamente. Tipos de serviço web válido: {0}. |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (código de estado HTTP 400)
@@ -96,7 +98,7 @@ O pedido é inválido no contexto atual.
  
 | Código de erro | Mensagem de utilizador |
 | ---------- |--------------|
-| CannotStartJob | Não é possível iniciar a tarefa porque se encontra no estado {0}. |
+| CannotStartJob | Não é possível iniciar a tarefa porque está a ser {0} estado. |
 | IncompatibleModel | O modelo é incompatível com a versão do pedido. A versão de pedido só suporta modelos de saída do datatable único. |
 | MultipleInputsNotAllowed | O modelo não permite várias entradas. |
  
@@ -193,7 +195,7 @@ A execução encontrou um erro interno.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | Id da porta = {0} tem um tipo de dados não suportado: {1}. |
+| PortDataTypeNotSupported | Id da porta ={0} tem um tipo de dados não suportado: {1}. |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
@@ -239,7 +241,7 @@ Serviço está temporariamente indisponível.
 | Código de erro | Mensagem de utilizador |
 | ---------- |--------------|
 | NoMoreResources | Não existem recursos disponíveis para o pedido. |
-| RequestThrottled | Pedido foi limitado para o ponto final de {0}. A simultaneidade máxima para o ponto final é {1}. |
+| RequestThrottled | Pedido foi limitado para {0} ponto final. A simultaneidade máxima para o ponto final é {1}. |
 | TooManyConcurrentRequests | Demasiados pedidos simultâneos enviados. |
 | TooManyHostsBeingInitialized | Demasiados anfitriões que está a ser inicializados em simultâneo. Considere limitação / repetir a operação. |
 | TooManyHostsBeingInitializedPerModel | Demasiados anfitriões que está a ser inicializados em simultâneo. Considere limitação / repetir a operação. |

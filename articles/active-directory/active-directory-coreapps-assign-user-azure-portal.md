@@ -12,19 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 1609942269a0c737239cf4198289fdc44ade2b32
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d7e237e1e9daae3830f9a9943d54bc6bfa90a34c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830831"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory
 Para atribuir um utilizador ou grupo a uma aplicação da empresa, tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
+
+> [!NOTE]
+> As funcionalidades abordadas neste artigo exigem uma licença do Azure Active Directory Premium P1 ou Premium P2. Para obter mais informações, consulte o [Azure Active Directory página de preços](https://azure.microsoft.com/pricing/details/active-directory).
+
 > [!NOTE]
 > Para Applications da Microsoft (tais como aplicações do Office 365), utilize o PowerShell para atribuir utilizadores a uma aplicação da empresa.
+
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como atribuir acesso de utilizador para uma aplicação da empresa no portal do Azure?
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -76,7 +82,7 @@ Para atribuir um grupo a uma aplicação da empresa, é necessário substituir `
 
 ### <a name="example"></a>Exemplo
 
-Neste exemplo atribui o utilizador Britta Simon para o [Microsoft à área de trabalho Analytics](https://products.office.com/en-us/business/workplace-analytics) aplicação através do PowerShell.
+Neste exemplo atribui o utilizador Britta Simon para o [Microsoft à área de trabalho Analytics](https://products.office.com/business/workplace-analytics) aplicação através do PowerShell.
 
 1. No PowerShell, atribua os valores correspondentes para as variáveis $username, $APP_NAME>.azurewebsites.NET e $app_role_name. 
 

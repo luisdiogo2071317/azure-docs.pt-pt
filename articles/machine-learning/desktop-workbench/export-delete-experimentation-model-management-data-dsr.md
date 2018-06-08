@@ -7,14 +7,15 @@ ms.author: cgronlun
 manager: haining
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 234c6c535e8a56d894f9e0f7a2f83602b613f5a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7db37865c99908e0fd44be3ec04a8493d190e941
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655608"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833517"
 ---
 # <a name="export-or-delete-your-experimentation-or-model-management-data-in-machine-learning"></a>Exportar ou elimine a sua experimentação ou dados de gestão de modelo no Machine Learning
 

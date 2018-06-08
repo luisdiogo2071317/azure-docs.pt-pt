@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: f9465eadfea97ffb721a2bac2c9845460d566fd1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655620"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837162"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Código de ciência de dados de teste com o conjunto de dados de predição de receitas para adultos UCI
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciências de dados. Esses testes dá-cientistas de dados de forma systematic e eficiente para verificar a qualidade e o resultado esperado do seu código. Utilizamos o processo de ciência de dados (TDSP) uma equipa [projeto que utiliza o conjunto de dados de receitas para adultos UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que iremos publicadas anteriormente para mostrar como testar código pode ser efetuada. 

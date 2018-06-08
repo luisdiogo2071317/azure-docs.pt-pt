@@ -4,36 +4,37 @@ description: Saiba como para carregar uma Azure Virtual máquina com soluções 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830566"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário de uma Máquina Virtual do Azure
 
-A automatização do Azure fornece soluções para gerir atualizações de segurança do sistema operativo, controlar as alterações e de inventário que está instalado nos seus computadores. Existem várias formas de carregar máquinas, pode carregar a solução de uma máquina virtual, [da sua conta de automatização](automation-onboard-solutions-from-automation-account.md), ou por [runbook](automation-onboard-solutions.md). Este artigo abrange integração estas soluções de uma Máquina Virtual do Azure.
+A automatização do Azure fornece soluções para gerir atualizações de segurança do sistema operativo, controlar as alterações e de inventário que está instalado nos seus computadores. Existem várias formas de carregar máquinas, pode carregar a solução de uma máquina virtual, [da sua conta de automatização](automation-onboard-solutions-from-automation-account.md), [da navegação várias máquinas](automation-onboard-solutions-from-browse.md), ou por [runbook](automation-onboard-solutions.md). Este artigo abrange integração estas soluções de uma Máquina Virtual do Azure.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure https://portal.azure.com
+Inicie a sessão no Azure em https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>Ativar as soluções
 
 Navegue para uma máquina virtual existente e selecione **gestão de atualizações**, **inventário**, ou **alterações** em **operações**.
+
+Para ativar a solução para a VM apenas Certifique-se a **ativar para esta VM** botão de opção estiver selecionado, para carregar várias máquinas com a solução selecione **ativar para VMs nesta subscrição** e clique em **Clique para selecionar máquinas para ativar**. Ver, [soluções de integrar a gestão de atualizações, controlo de alterações e inventário](automation-onboard-solutions-from-automation-account.md) para ver os passos sobre como carregar várias máquinas em simultâneo.
 
 Escolha a área de trabalho e a conta de automatização do Log Analytics e clique em **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 ![Carregar a solução de Atualização](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navegue para as outras soluções e clique em **ativar**, a análise de registos e a conta de automatização caixas de lista pendente estão desativadas por utilizarem a mesma conta de área de trabalho e automatização como solução de anteriormente ativada.
-
-![Carregar a solução de Atualização](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Registo de alterações** e **inventário** utilizar a mesma solução, quando um está ativado o outro está ativado, bem como.
