@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Âmbitos
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Criar variáveis para guardar valores
+          href: logic-apps-create-variables-store-values.md
         - name: Adicionar código personalizado com as Funções do Azure
           href: logic-apps-azure-functions.md
         - name: Chamar aplicações lógicas com Funções do Azure

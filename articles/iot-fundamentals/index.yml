@@ -4,20 +4,19 @@ title: Noções básicas do IoT do Azure
 metadata:
   title: Noções básicas do IoT do Azure
   description: O IoT do Azure é um conjunto de serviços cloud geridos pela Microsoft que ligam, monitorizam e controlam milhares de milhões de recursos de Internet das Coisas.
-  services: iot
   author: BryanLa
   manager: timlt
-  ms.service: iot
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.service: iot-fundamentals
+  services: iot-fundamentals
   ms.topic: landing-page
-  ms.date: 04/20/2018
+  ms.date: 05/18/2018
   ms.author: bryanla
-  ms.openlocfilehash: 0a5f1d482b0298ddd65746783e3744728b1a5da5
-  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.openlocfilehash: 32db74234f05fcf76c8ccfe18ce295fd30a15b58
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/16/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34631161"
 abstract:
   description: Bem-vindo ao Microsoft Azure e à Internet das Coisas (IoT). O IoT do Azure é uma coleção abrangente de serviços e soluções concebidos para ajudá-lo a criar aplicações IoT de ponta a ponta no Azure. Desde soluções de Software como Serviço (SaaS) completamente alojadas e geridas a diferentes e especializadas ofertas de Plataforma como Serviço (PaaS), bem como tecnologias para criar vantagens inteligentes, o Azure IoT entrega um sólido conjunto de opções e ferramentas adaptadas às necessidades da sua indústria e às capacidades e recursos da sua empresa.
 sections:
@@ -29,7 +28,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Saiba como criar uma nova aplicação do Azure IoT Central.</a>
-    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Aprenda a implementar o acelerador de soluções de monitorização remota</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Aprenda a implementar o acelerador de soluções de Monitorização Remota</a>
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Saiba como criar um hub IoT e ligar ao seu primeiro dispositivo simulado para o Azure (Node.js).</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Implemente o seu primeiro módulo do IoT Edge e processe dados num dispositivo simulado em Windows, Linux ou Mac.</a>
     - html: <a href="/azure/azure-maps/quick-demo-map-app">Iniciar uma aplicação de pesquisa em mapa com o Azure Maps.</a>

@@ -10,32 +10,33 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f77a036d41ce551d9eab0250eaf4dc16444b24da
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 484567dd9d9c3d050e7be25bd685a5b8d3de0687
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825523"
 ---
-## <a name="build-and-run-code-in-kubernetes"></a>Compilar e executar código no Kubernetes
-Vamos executar nosso código! Na janela de terminal, execute este comando a partir de **pasta raiz de código**, webfrontend:
+## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
+Vamos executar o nosso código! Na janela do terminal, execute este comando a partir da **pasta de código raiz**, webfrontend:
 
 ```cmd
 azds up
 ```
 
-Manter a par no resultado do comando, verá vários aspetos como se avança:
-- Código de origem está sincronizado com o ambiente de desenvolvimento no Azure.
-- Uma imagem de contentor baseia-se no Azure, tal como especificado pelos ativos de Docker na sua pasta de código.
-- Objetos de Kubernetes são criados que utilizam a imagem de contentor especificado, o gráfico de Helm na sua pasta de código.
-- São apresentadas informações sobre pontos finais do contentor. No nosso caso, iremos está à espera de um URL público de HTTP.
-- Pressupondo que as fases acima concluída com êxito, deve começar a ver `stdout` (e `stderr`) de saída como o contentor é iniciado.
+Fique de olho no resultado do comando, vai reparar em várias coisas à medida que progride:
+- O código fonte é sincronizado com o espaço de programação no Azure.
+- É criada uma imagem de contentor no Azure, conforme especificado pelos ativos do Docker na sua pasta de códigos.
+- São criados objetos do Kubernetes que utilizam a imagem do contentor, conforme especificado pelo gráfico Helm na sua pasta de códigos.
+- São apresentadas as informações sobre o(s) ponto(s) final(ais) do contentor. No nosso caso, contamos com um URL HTTP público.
+- Assumindo que os estágios acima sejam concluídos com sucesso, deve começar a ver o resultado `stdout` (e `stderr`), à medida que o contentor é iniciado.
 
 > [!Note]
-> Estes passos irão demorar mais tempo a primeira vez o `up` comando é executado, mas as execuções subsequentes devem ser mais rápidas.
+> Estes passos vão demorar mais tempo quando o comando `up` é executado pela primeira vez, mas as execuções seguintes deverão ser mais rápidas.
 
-## <a name="test-the-web-app"></a>Testar a aplicação Web
-Analisar o resultado da consola para obter informações sobre o URL público que foi criada com o `up` comando. Será sob a forma: 
+### <a name="test-the-web-app"></a>Testar a aplicação Web
+Analise o resultado da consola para obter informações sobre o URL público que foi criado pelo comando `up`. Estará na forma: 
 
-`Running at public URL: http://<servicename>-<environmentname>.<guid>.<region>.aksapp.io` 
+`Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
 
-Abra este URL numa janela do browser e deverá ver a aplicação web de carga. Como o contentor executa, `stdout` e `stderr` saída é transmitida em fluxo para a janela de terminal.
+Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. À medida que o contentor é executado, os resultados `stdout` e `stderr` são transmitidos para a janela do terminal.

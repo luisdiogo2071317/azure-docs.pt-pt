@@ -147,6 +147,8 @@
           href: security-center-threat-intel.md
         - name: Investigação
           href: security-center-investigation.md
+        - name: Gerir dados de utilizadores de investigação
+          href: security-center-investigation-user-data.md
     - name: Automatizar os fluxos de trabalho de segurança
       items:
         - name: Playbooks de Logic Apps
@@ -171,6 +173,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: Recursos
   items:
+    - name: Gerir dados de utilizadores
+      href: security-center-privacy.md
     - name: FAQ
       href: security-center-faq.md
     - name: Plataformas suportadas

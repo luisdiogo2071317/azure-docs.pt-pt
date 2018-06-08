@@ -4,20 +4,22 @@
   items:
     - name: Sobre a Identidade de Serviço Gerida
       href: overview.md
-    - name: Inícios rápidos
+- name: Inícios rápidos
+  items:
+    - name: Utilizar um MSI de VM para aceder ao Azure Resource Manager
       items:
-        - name: Utilizar um MSI de VM para aceder ao Azure Resource Manager
-          items:
-            - name: VM do Windows
-              href: tutorial-windows-vm-access-arm.md
-            - name: VM do Linux
-              href: tutorial-linux-vm-access-arm.md
+        - name: VM do Windows
+          href: tutorial-windows-vm-access-arm.md
+        - name: VM do Linux
+          href: tutorial-linux-vm-access-arm.md
 - name: Tutoriais
   items:
     - name: VM/VMSS do Windows
       items:
         - name: Aceder ao Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
+        - name: Aceder ao Armazenamento do Azure
+          href: tutorial-vm-windows-access-storage.md
         - name: Aceder ao Armazenamento do Azure com uma chave de acesso
           href: tutorial-windows-vm-access-storage.md
         - name: Aceder ao Armazenamento do Azure com SAS
@@ -34,6 +36,8 @@
       items:
         - name: Aceder ao Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
+        - name: Aceder ao Armazenamento do Azure
+          href: tutorial-linux-vm-access-storage.md
         - name: Aceder ao Armazenamento do Azure com uma chave de acesso
           href: tutorial-linux-vm-access-storage-access-key.md
         - name: Aceder ao Armazenamento do Azure com SAS
@@ -116,3 +120,7 @@
       href: known-issues.md
     - name: Serviços do Azure que suportem a Identidade Gerida
       href: services-support-msi.md
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-msi'
+    - name: Fórum de Programadores do AAD
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences'

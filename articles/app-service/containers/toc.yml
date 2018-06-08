@@ -37,6 +37,8 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Contentor personalizado do Python com PostgreSQL
           href: tutorial-docker-python-postgresql-app.md
+    - name: Aplicação com vários contentores
+      href: tutorial-multi-container-app.md
     - name: Imagem Personalizada do Docker
       href: tutorial-custom-docker-image.md
     - name: Mapear um Domínio Personalizado
@@ -44,7 +46,7 @@
     - name: Vincular o Certificado SSL
       href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Adicionar a CDN
-      href: ../../cdn/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Autenticar utilizadores
       href: tutorial-auth-aad.md
 - name: Amostras
@@ -129,6 +131,8 @@
           href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Monitorizar aplicação
       items:
+        - name: Ligar à aplicação por SSH
+          href: app-service-linux-ssh-support.md
         - name: Quotas e alertas
           href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Ativar registos
