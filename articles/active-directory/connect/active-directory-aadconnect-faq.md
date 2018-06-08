@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2e5a7cab5c9db0c13ca0c0986c18c86adf675562
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808609"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850291"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas mais frequentes sobre Azure Active Directory Connect
 
@@ -121,7 +121,11 @@ O processo de atualização automática irá estabelecer sempre primeiro se uma 
 Dependendo do tamanho do ambiente, o processo pode demorar algumas horas e, enquanto a atualização acontece, acontecerá sem sincronização entre o Windows Server AD e AD do Azure.
 
 **P: Posso recebeu uma mensagem de e-mail a informar-me que já não funciona a minha atualização automática e preciso de instalar a nova versão. Por que motivo é necessário fazê-lo?**</br>
-Último ano, uma versão do Azure AD Connect que, em determinadas circunstâncias, poderá ter desativada a funcionalidade de atualização automática no seu servidor, foi lançada. No Azure AD Connect versão 1.1.750.0 corrigir este problema. Os clientes que foram afetados por este problema tem de atualizar manualmente para a versão mais recente do Azure AD Connect para mitigar o problema. Para atualizar manualmente, tem de transferir e executar a versão mais recente do ficheiro AADConnect.msi.
+Último ano, uma versão do Azure AD Connect que, em determinadas circunstâncias, poderá ter desativada a funcionalidade de atualização automática no seu servidor, foi lançada. No Azure AD Connect versão 1.1.750.0 corrigir este problema. Os clientes que foram afetados por este problema tem de executar um script do PowerShell para reparar este ou atualize manualmente para a versão mais recente do Azure AD Connect para mitigar o problema. 
+
+Para executar o script do PowerShell, transferir o script de [aqui](https://aka.ms/repairaadconnect) e execute o script no seu servidor do AADConnect numa janela do PowerShell administrativa. [Este é um breve vídeo](https://aka.ms/repairaadcau) que explica em detalhe como fazê-lo.
+
+Para atualizar manualmente, tem de transferir e executar a versão mais recente do ficheiro AADConnect.msi.
  
 -  Se a versão atual é anterior ao 1.1.750.0, tem de atualizar para a versão mais recente, [que pode ser transferida aqui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 - Se a sua versão do Azure AD Connect é 1.1.750.0 ou mais recente, não terá de efetuar qualquer ação para mitigar o problema de atualização automática, tal como já está na versão que tenha uma correção para este. 
@@ -165,7 +169,7 @@ Atualização automática é o primeiro passo no processo de lançamento de uma 
 **P: atualização automática atualização AAD Connect Health?**</br>   Sim, a atualização automática também atualiza AAD Connect Health
 
 **P: são também servidores de atualização automática AAD Connect no modo de teste?**</br>   
-Não, a não atualização automática um servidor do Azure AD Connect que está no modo de teste.
+Sim, é possível atualização automática um servidor do Azure AD Connect que está no modo de teste.
 
 **P: se Auto-atualização falhará e o meu servidor AAD Connect não iniciar, o que devo fazer?**</br>   
 Em casos raros, o serviço do Azure AD Connect não é iniciado depois de efetuar a atualização. Nestes casos, reinicie o servidor, o que normalmente corrige o problema. Se o serviço do Azure AD Connect ainda não iniciar, abra um pedido de suporte. Eis um [ligação](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) que explica como fazê-lo. 

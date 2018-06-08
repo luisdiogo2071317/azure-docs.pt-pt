@@ -8,17 +8,19 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836471"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning a deteção de anomalias API
 ## <a name="overview"></a>Descrição geral
@@ -120,13 +122,13 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 
 | Parâmetros de entrada | Descrição | Definição predefinida | Tipo | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
+| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |inteiro |10-2000 |Dependente de séries de tempo |
 | detectors.spikesdips | Se pretende detetar apenas os picos de apenas dips ou ambos |Ambos |enumerar |Ambos, os picos de Dips |Ambos |
-| bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| trenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |número inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
+| bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |double |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| trenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |double |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
 
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
@@ -156,20 +158,20 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 
 | Parâmetros de entrada | Descrição | Definição predefinida | Tipo | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |O intervalo de agregação em segundos para agregar séries de tempo de entrada |0 (nenhum agregação é efetuada) |número inteiro |0: Ignorar caso contrário, a agregação ', ' > 0 |5 minutos para 1 dia, dependentes de séries de tempo |
+| preprocess.aggregationInterval |O intervalo de agregação em segundos para agregar séries de tempo de entrada |0 (nenhum agregação é efetuada) |inteiro |0: Ignorar caso contrário, a agregação ', ' > 0 |5 minutos para 1 dia, dependentes de séries de tempo |
 | preprocess.aggregationFunc |Função utilizada para agregar dados para o AggregationInterval especificado |média |enumerar |soma, média, comprimento |N/A |
 | preprocess.replaceMissing |Valores utilizados para impute dados em falta |lkv (última conhecido valor) |enumerar |zero, lkv, média |N/A |
-| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
+| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |inteiro |10-2000 |Dependente de séries de tempo |
 | detectors.spikesdips | Se pretende detetar apenas os picos de apenas dips ou ambos |Ambos |enumerar |Ambos, os picos de Dips |Ambos |
-| bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| postrenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| negtrenddetector.sensitivity |Sensibilidade para detector tendência negativo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |double |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| postrenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |double |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| negtrenddetector.sensitivity |Sensibilidade para detector tendência negativo. |3.25 |double |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
 | seasonality.Enable |Se a análise de sazonalidade é para ser executada |true |boolean |TRUE, false |Dependente de séries de tempo |
-| seasonality.numSeasonality |Número máximo de ciclos periódicos para ser detetada |1 |número inteiro |1, 2 |1-2 |
+| seasonality.numSeasonality |Número máximo de ciclos periódicos para ser detetada |1 |inteiro |1, 2 |1-2 |
 | seasonality.Transform |Se sazonais (e) componentes de tendência deverá ser removidos antes de aplicar a deteção de anomalias |deseason |enumerar |Nenhum, deseason, deseasontrend |N/A |
-| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |número inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
+| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
 
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 

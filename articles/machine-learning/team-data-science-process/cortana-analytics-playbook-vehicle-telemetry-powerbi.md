@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 2689e87dd41aa4494cf63c9ead1d1ca011b0b720
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 462f5d15e7a39d282bca59f96166cc809447ee14
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837128"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de configuração de dashboard do vehicle telemetria análise solução modelo Power BI
 Liga menu-capítulos neste manual de comunicação social: 
@@ -393,7 +395,7 @@ Agora que configurou os relatórios que correspondem para o caminho na solução
 ## <a name="upload-to-powerbicom"></a>Carregar para o powerbi.com
 1. Vá para o [portal web do Power BI](http://powerbi.com)e iniciar sessão.
 
-2. Selecione **obter dados**.
+2. Selecione **Obter Dados**.
 
 3. Carregue o ficheiro do Power BI Desktop. Selecione **obter dados** > **obter ficheiros** > **ficheiro Local**.
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849935"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute e domínios de encaminhamento
  Deve ordenar um *circuito ExpressRoute* para ligar a sua infraestrutura no local para a Microsoft através de um fornecedor de conectividade. A figura seguinte mostra uma representação lógica da conetividade entre a sua WAN e a Microsoft.
@@ -86,6 +87,11 @@ A tabela seguinte compara os três domínios de encaminhamento:
 Pode optar por ativar uma ou mais domínios de encaminhamento como parte do seu circuito do ExpressRoute. Pode optar por todos os domínios de encaminhamento colocados o mesmo VPN se pretender combiná-las num único domínio de encaminhamento. Também pode colocá-los com domínios de encaminhamento diferentes, semelhantes ao diagrama. A configuração recomendada é que o peering privado está ligado diretamente à rede principal e o público e ligações de peering da Microsoft estão ligadas à sua rede de Perímetro.
 
 Se optar por ter todas as sessões de peering três, tem de ter pares de três das sessões de BGP (um par de cada tipo de peering). Os pares de sessão BGP fornecem uma ligação de elevada disponibilidade. Se estiver a ligar através de fornecedores de conectividade 2 camada, é responsável por configurar e gerir o encaminhamento. Pode saber mais, revendo o [fluxos de trabalho](expressroute-workflows.md) para configurar o ExpressRoute.
+
+## <a name="expressroute-health"></a>Estado de funcionamento do ExpressRoute
+Circuitos ExpressRoute que podem ser monitorizados para disponibilidade, conectividade a VNets e a utilização de utilização de largura de banda [Monitor de desempenho de rede](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+
+NPM monitoriza o estado de funcionamento do peering privado do Azure e peering da Microsoft.  Consulte a nossa [publique](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Encontre um fornecedor de serviços. Consulte [fornecedores e localizações do ExpressRoute service](expressroute-locations.md).

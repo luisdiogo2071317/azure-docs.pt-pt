@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850451"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guia de resolução de problemas para o Azure Stream Analytics
 
@@ -41,6 +42,7 @@ Para obter os melhores resultados na sua tarefa do Stream Analytics de resoluç�
 
 5.  Eliminar pitfalls comuns, tais como:
     - A [ **onde** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) cláusula FROM na consulta filtrados por todos os eventos, impedir que quaisquer dados que está a ser gerado.
+    - A [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) funcionar falhar, fazendo com que a tarefa falhar. Para evitar falhas de conversão de tipo, utilize [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) em vez disso.
     - Quando utiliza as funções de janela, aguarde que a duração de janela completo ver um resultado da consulta.
     - Timestamp eventos precede a hora de início da tarefa e, por conseguinte, os eventos estão a ser ignorados.
 

@@ -9,17 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 424af2ffd1b7931701036aeb819cbb8879cb7a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832667"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -104,17 +106,17 @@ Número de colunas | Nome do campo| Tipo | Descrição |
 1  | `SessionStart` | Datetime |    Hora de início de sessão
 2  |`SessionEnd`    | Datetime | Hora de fim de sessão
 3 |`ConcurrentConnectionCounts` | Número inteiro | Número de ligações simultâneas
-4 | `MbytesTransferred` | Duplo | Normalizado dados transferidos em megabytes
+4 | `MbytesTransferred` | duplo | Normalizado dados transferidos em megabytes
 5 | `ServiceGrade` | Número inteiro |  Nível de serviço para a sessão
 6 | `HTTP1` | Número inteiro|  Sessão utiliza HTTP1 ou HTTP2
 7 |`ServerType` | Número inteiro   |Tipo de servidor
-8 |`SubService_1_Load` | Duplo |   Carga subservice 1
-9 | `SubService_2_Load` | Duplo |  Carga subservice 2
-10 | `SubService_3_Load` | Duplo |     Carga subservice 3
-11 |`SubService_4_Load` | Duplo |  Carga subservice 4
-12 | `SubService_5_Load`| Duplo |      Carga subservice 5
-13 |`SecureBytes_Load`  | Duplo | Carga de bytes segura
-14 |`TotalLoad` | Duplo | Carga total no servidor
+8 |`SubService_1_Load` | duplo |   Carga subservice 1
+9 | `SubService_2_Load` | duplo |  Carga subservice 2
+10 | `SubService_3_Load` | duplo |     Carga subservice 3
+11 |`SubService_4_Load` | duplo |  Carga subservice 4
+12 | `SubService_5_Load`| duplo |      Carga subservice 5
+13 |`SecureBytes_Load`  | duplo | Carga de bytes segura
+14 |`TotalLoad` | duplo | Carga total no servidor
 15 |`ClientIP` | Cadeia|    Endereço IP do cliente
 16 |`ServerIP` | Cadeia|    Endereço IP do servidor
 
@@ -190,7 +192,7 @@ O primeiro argumento `configFilename`, é um ficheiro de configuração local on
 | storageContainer | Cadeia | Contentor na conta de armazenamento do Azure para armazenar os resultados intermédios |
 | storageKey | Cadeia |Chave de acesso da conta de armazenamento do Azure |
 | DataFile|Cadeia | Ficheiros de origem de dados  |
-| Duração| Cadeia | Duração de dados nos ficheiros de origem de dados|
+| duração| Cadeia | Duração de dados nos ficheiros de origem de dados|
 
 Modificar ambos `Config/storageconfig.json` e `Config/fulldata_storageconfig.json` para configurar a conta de armazenamento, a chave de armazenamento e o contentor do blob para armazenar os resultados intermédios. Por predefinição, é o contentor de BLOBs para os dados de um mês execute `onemonthmodel`, e é o contentor do blob para o conjunto de dados completo executar `fullmodel`. Certifique-se a que criar estes dois contentores na sua conta de armazenamento. O `dataFile` campo no [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configura os dados que serão carregados no [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). O `duration` campo configura o intervalo incluem os dados. Se a duração está definida como ONE_MONTH, os dados carregados devem ser apenas um ficheiro. csv entre os ficheiros de sete dos dados para Junho de 2016. Se a duração está completo, o conjunto completo de dados (1 TB) foi carregado. Não precisa de alterar `dataFile` e `duration` destes ficheiros de configuração de dois.
 

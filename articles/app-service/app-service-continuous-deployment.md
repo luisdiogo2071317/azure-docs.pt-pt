@@ -1,95 +1,152 @@
 ---
-title: "Implementação contínua do serviço de aplicações do Azure | Microsoft Docs"
-description: "Saiba como ativar a implementação contínua para o Serviço de Aplicações do Azure."
+title: A implementação contínua App Service do Azure | Microsoft Docs
+description: Saiba como ativar a implementação contínua para o Serviço de Aplicações do Azure.
 services: app-service
-documentationcenter: 
-author: dariagrigoriu
-manager: erikre
-editor: mollybos
+documentationcenter: ''
+author: cephalin
+manager: cfowler
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 06/05/2018
+ms.author: cephalin;dariagrigoriu
+ms.openlocfilehash: e587edeef1cfa080a81f523f63678a645b514c57
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849496"
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>Implementação Contínua para o Serviço de Aplicações do Azure
-Este tutorial mostra como configurar um fluxo de trabalho de implementação contínua para sua [Web Apps do Azure](app-service-web-overview.md). Integração de serviço de aplicações com BitBucket, GitHub e [serviços de equipa do Visual Studio (VSTS)](https://www.visualstudio.com/team-services/) permite que um fluxo de trabalho de implementação contínua onde Azure obtém nas atualizações mais recentes do seu projeto publicado destes serviços. A implementação contínua é uma excelente opção para projetos em que várias e frequentes contribuições estão a ser integradas.
+# <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua App Service do Azure
+Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](app-service-web-overview.md). Serviço de aplicações permite que a implementação contínua provém de BitBucket, GitHub e [serviços de equipa do Visual Studio (VSTS)](https://www.visualstudio.com/team-services/) ao extrair nas atualizações mais recentes do seu repositório existente de um destes serviços.
 
-Para saber como configurar a implementação contínua manualmente a partir de um repositório de nuvem não são listado pelo Portal do Azure (tais como [GitLab](https://gitlab.com/)), consulte [como configurar a implementação contínua utilizando os passos manuais](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+Para saber como configurar a implementação contínua manualmente a partir de um repositório de nuvem não são listado pelo portal do Azure (tais como [GitLab](https://gitlab.com/)), consulte [como configurar a implementação contínua utilizando os passos manuais](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
-## <a name="overview"></a>Ativar a implementação contínua
-Para ativar a implementação contínua,
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-1. Publique o conteúdo da aplicação no repositório que será utilizado para a implementação contínua.  
-    Para mais informações sobre como publicar o seu projeto nestes serviços, veja [Criar um repositório (GitHub)], [Criar um repositório (BitBucket)], e [Introdução ao VSTS].
-2. No painel de menu da aplicação no [Portal do Azure], clique em **IMPLEMENTAÇÃO DA APLICAÇÃO > Opções de implementação**. Clique em **Escolher Origem** e, em seguida, clique na origem da implementação.  
-   
-    ![](./media/app-service-continuous-deployment/cd_options.png)
-   
-   > [!NOTE]
-   > Para configurar uma conta VSTS para implementação do Serviço de Aplicações, veja este [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-   > 
-   > 
-3. Conclua o fluxo de trabalho de autorização.
-4. No painel **Origem da implementação**, escolha o projeto e ramo a partir dos quais implementar. Quando tiver terminado, clique em **OK**.
-   
-    ![](./media/app-service-continuous-deployment/github_option.png)
-   
-   > [!NOTE]
-   > Ao ativar a implementação contínua com o GitHub ou o BitBucket, serão apresentados projetos públicos e privados.
-   > 
-   > 
-   
-    O Serviço de Aplicações cria uma associação ao repositório selecionado, obtém os ficheiros do ramo especificado e mantém um clone do repositório da sua aplicação Serviço de Aplicações. Ao configurar a implementação contínua no VSTS a partir do portal do Azure, a integração utiliza o Serviço de Aplicações [Motor de implementação Kudu](https://github.com/projectkudu/kudu/wiki), que já automatiza tarefas de compilação e implementação com cada `git push`. Não é necessário configurar separadamente a implementação contínua no VSTS. Após a conclusão deste processo, o painel **Opções de implementação** da aplicação mostrará uma implementação ativa, indicando que a implementação foi bem sucedida.
-5. Para verificar se a aplicação for implementada com êxito, clique no **URL** na parte superior do painel da aplicação no portal do Azure.
-6. Para verificar se a implementação contínua está a ocorrer a partir do repositório de sua escolha, emita uma alteração para o repositório. A aplicação deve atualizar para refletir as alterações, pouco tempo depois de a emissão via push para o repositório estar concluída. Pode verificar se obteve a atualização no painel **Opções de implementação** da sua aplicação.
+Publica o seu repositório preparado para um dos serviços de suportados. Para mais informações sobre como publicar o seu projeto nestes serviços, veja [Criar um repositório (GitHub)], [Criar um repositório (BitBucket)], e [Introdução ao VSTS].
 
-## <a name="VSsolution"></a>Implementação contínua de uma solução Visual Studio
-Emitir uma solução Visual Studio para o Serviço de Aplicações do Azure é tão fácil como emitir um ficheiro index.html simples. O processo de implementação do Serviço de Aplicações simplifica todos os detalhes, incluindo o restauro de dependências NuGet e a criação dos binários da aplicação. Pode seguir as melhores práticas de controlo da origem do código de manutenção apenas no repositório Git, e deixar que a implementação do Serviço de Aplicações faça o resto.
+## <a name="deploy-continuously-from-github"></a>Implementar continuamente a partir do GitHub
 
-Os passos para emitir a sua solução Visual Studio para o Serviço de Aplicações são iguais aos da [secção anterior](#overview), desde que configure a solução e o repositório da seguinte forma:
+Para ativar a implementação contínua com o GitHub, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
 
-* Utilize a opção de controlo de origem do Visual Studio para gerar um ficheiro `.gitignore`, como na imagem abaixo, ou adicione manualmente um ficheiro `.gitignore` à raiz do repositório, com conteúdo semelhante a este [exemplo .gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
-  
-  ![](./media/app-service-continuous-deployment/VS_source_control.png)
-* Adicione a árvore completa de diretórios da solução ao repositório, com o ficheiro .sln na raiz do repositório.
+No menu à esquerda, clique em **Centro de implementação** > **GitHub** > **autorizar**. Siga as instruções de autorização. 
 
-Depois de configurar o seu repositório conforme descrito e de ter configurado a aplicação no Azure para publicação contínua a partir de um dos repositórios Git online, pode desenvolver a sua aplicação ASP.NET localmente no Visual Studio e implementar continuamente o seu código de forma simples, ao emitir as suas alterações para o repositório Git online.
+![](media/app-service-continuous-deployment/github-choose-source.png)
 
-## <a name="disableCD"></a>Desativar a implementação contínua
-Para desativar a implementação contínua,
+Basta autorizar com o GitHub, uma vez. Se já estiver autorizado, basta clicar **continuar**. Pode alterar a conta GitHub autorizada clicando **alterar conta**.
 
-1. No painel de menu da aplicação no [Portal do Azure], clique em **IMPLEMENTAÇÃO DA APLICAÇÃO > Opções de implementação**. Em seguida, clique em **Desligar** no painel **Opções de implementação**.
-   
-    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
-2. Depois de responder **Sim** à mensagem de confirmação, pode voltar ao painel da aplicação e clicar em **IMPLEMENTAÇÃO DA APLICAÇÃO > Opções de implementação**, se quiser configurar a publicação a partir de outra origem.
+![](media/app-service-continuous-deployment/github-continue.png)
+
+No **fornecedor de compilações** página, escolha o fornecedor de compilação e clique em > **continuar**.
+
+### <a name="option-1-use-app-service-kudu-build-server"></a>Opção 1: utilizar o servidor de compilação do Kudu do serviço de aplicações
+
+No **configurar** página, selecione a organização, o repositório e o ramo partir do qual pretende implementar continuamente. Quando terminar, clique em **continuar**.
+
+### <a name="option-2-use-vsts-continuous-delivery"></a>Opção 2: utilizar a distribuição contínua a VSTS
+
+> [!NOTE]
+> Para o App Service criar a compilação necessária e as definições na sua conta VSTS de versão, a conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
+>
+
+No **configurar** na página de **código** secção, selecione a organização, o repositório e o ramo partir do qual pretende implementar continuamente. Quando terminar, clique em **continuar**.
+
+No **configurar** na página de **criar** secção, configurar uma nova conta VSTS ou especificar uma conta existente. Quando terminar, clique em **continuar**.
+
+> [!NOTE]
+> Se pretender utilizar uma conta VSTS existente que não esteja listada, é necessário [associar a conta VSTS à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+No **teste** página, escolha se pretende ativar os testes de carga, em seguida, clique em **continuar**.
+
+Consoante o [escalão de preço](/pricing/details/app-service/plans/) do seu plano de serviço de aplicações, também poderá ver um **implementar para transição** página. Escolha se pretende [ativar as ranhuras de implementação](web-sites-staged-publishing.md), em seguida, clique em **continuar**.
+
+### <a name="finish-configuration"></a>Concluir configuração
+
+No **resumo** página, verifique as suas opções e clique em **concluir**.
+
+Quando tiver concluído a configuração, consolidações novo no repositório de selecionados são continuamente implementadas na sua aplicação de serviço de aplicações.
+
+![](media/app-service-continuous-deployment/github-finished.png)
+
+## <a name="deploy-continuously-from-bitbucket"></a>Implementar continuamente a partir de BitBucket
+
+Para ativar a implementação contínua com BitBucket, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
+
+No menu à esquerda, clique em **Centro de implementação** > **BitBucket** > **autorizar**. Siga as instruções de autorização. 
+
+![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
+
+Basta autorizar com BitBucket uma vez. Se já estiver autorizado, basta clicar **continuar**. Pode alterar a conta de BitBucket autorizada clicando **alterar conta**.
+
+![](media/app-service-continuous-deployment/bitbucket-continue.png)
+
+No **configurar** página, selecione o repositório e ramo a partir do qual pretende implementar continuamente. Quando terminar, clique em **continuar**.
+
+No **resumo** página, verifique as suas opções e clique em **concluir**.
+
+Quando tiver concluído a configuração, consolidações novo no repositório de selecionados são continuamente implementadas na sua aplicação de serviço de aplicações.
+
+## <a name="deploy-continuously-from-vsts"></a>Implementar continuamente a partir de VSTS
+
+Para ativar a implementação contínua com VSTS, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
+
+No menu à esquerda, clique em **Centro de implementação** > **VSTS** > **continuar**. 
+
+![](media/app-service-continuous-deployment/vsts-choose-source.png)
+
+No **fornecedor de compilações** página, escolha o fornecedor de compilação e clique em > **continuar**.
+
+### <a name="option-1-use-app-service-kudu-build-server"></a>Opção 1: utilizar o servidor de compilação do Kudu do serviço de aplicações
+
+No **configurar** página, selecione a conta VSTS, projeto, repositório e ramo a partir do qual pretende implementar continuamente. Quando terminar, clique em **continuar**.
+
+### <a name="option-2-use-vsts-continuous-delivery"></a>Opção 2: utilizar a distribuição contínua a VSTS
+
+> [!NOTE]
+> Para o App Service criar a compilação necessária e as definições na sua conta VSTS de versão, a conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
+>
+
+No **configurar** na página de **código** secção, selecione a conta VSTS, projeto, repositório e ramo a partir do qual pretende implementar continuamente. Quando terminar, clique em **continuar**.
+
+> [!NOTE]
+> Se pretender utilizar uma conta VSTS existente que não esteja listada, é necessário [associar a conta VSTS à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+
+No **configurar** na página de **criar** secção, especifique a estrutura de idioma que VSTS deve utilizar para executar as tarefas de compilação para o seu repositório selecionado. Quando terminar, clique em **continuar**.
+
+No **teste** página, escolha se pretende ativar os testes de carga, em seguida, clique em **continuar**.
+
+Consoante o [escalão de preço](/pricing/details/app-service/plans/) do seu plano de serviço de aplicações, também poderá ver um **implementar para transição** página. Escolha se pretende [ativar as ranhuras de implementação](web-sites-staged-publishing.md), em seguida, clique em **continuar**. 
+
+### <a name="finish-configuration"></a>Concluir configuração
+
+No **resumo** página, verifique as suas opções e clique em **concluir**.
+
+Quando tiver concluído a configuração, consolidações novo no repositório de selecionados são continuamente implementadas na sua aplicação de serviço de aplicações.
+
+## <a name="disable-continuous-deployment"></a>Desativar a implementação contínua
+
+Para desativar a implementação contínua, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
+
+No menu à esquerda, clique em **Centro de implementação** > **GitHub** ou **VSTS** ou **BitBucket**  >  **Desligar**.
+
+![](media/app-service-continuous-deployment/disable.png)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
+
 * [Como investigar problemas comuns da implementação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Como utilizar o PowerShell para o Azure]
-* [Como utilizar as Ferramentas de Linha de Comandos do Azure para Mac e Linux]
 * [Documentação do Git]
 * [Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
 * [Utilizar o Azure para gerar automaticamente um pipeline de CI/CD para implementar uma aplicação ASP.NET 4](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
-> [!NOTE]
-> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
-> 
-> 
-
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Como utilizar o PowerShell para o Azure]: /powershell/azureps-cmdlets-docs
-[Como utilizar as Ferramentas de Linha de Comandos do Azure para Mac e Linux]:../cli-install-nodejs.md
 [Documentação do Git]: http://git-scm.com/documentation
 
 [Criar um repositório (GitHub)]: https://help.github.com/articles/create-a-repo

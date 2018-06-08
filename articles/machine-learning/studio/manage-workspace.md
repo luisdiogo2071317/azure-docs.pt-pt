@@ -9,18 +9,20 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835071"
 ---
-# <a name="manage-an-azure-machine-learning-workspace"></a>Gerir um espaço de trabalho do Azure Machine Learning
+# <a name="manage-an-azure-machine-learning-workspace"></a>Gerir uma área de trabalho do Azure Machine Learning
 
 > [!NOTE]
 > Para obter informações sobre a gestão de serviços Web no portal de serviços Web Machine Learning, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md).
@@ -31,7 +33,7 @@ Pode gerir áreas de trabalho do Machine Learning no portal do Azure.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
 Para gerir uma área de trabalho no portal do Azure:
 

@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db8718b60cdd934e3301479489f21fe45f5578cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832011"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referência da API de recolha de dados do Machine Learning modelo do Azure
 
@@ -62,13 +64,13 @@ Consulte os detalhes da classe e o parâmetro:
 
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
-| model_name | string | o nome do modelo de dados de que estão a ser recolhidos para |
-| Identificador | string | a localização no código que identifica a estes dados, ou seja 'RawInput' ou 'Predição' |
+| model_name | cadeia | o nome do modelo de dados de que estão a ser recolhidos para |
+| Identificador | cadeia | a localização no código que identifica a estes dados, ou seja 'RawInput' ou 'Predição' |
 | feature_names | lista de cadeias de | uma lista de nomes de funcionalidades que tornam-se o cabeçalho de csv quando fornecido |
-| model_management_account_id | string | o identificador para a conta de gestão de modelo onde este modelo é armazenado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| webservice_name | string | o nome do webservice ao qual este modelo está atualmente implementado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_id | string | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
-| model_version | string | o número de versão deste modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_management_account_id | cadeia | o identificador para a conta de gestão de modelo onde este modelo é armazenado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| webservice_name | cadeia | o nome do webservice ao qual este modelo está atualmente implementado. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_id | cadeia | O identificador exclusivo para este modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
+| model_version | cadeia | o número de versão deste modelo no contexto de uma conta de gestão de modelo. Este é preenchido automaticamente quando modelos são operacionalizados através de AML |
 
 
 
@@ -93,5 +95,5 @@ Consulte os detalhes de método e o parâmetro:
 | Nome | Tipo | Descrição |
 |-------------|------------|-------------------------|
 | input_data | vários tipos | os dados a serem recolhidos (atualmente aceita a lista de tipos, numpy.array, pandas. DataFrame, pyspark.sql.DataFrame). Para tipos de dataframe, se existe um cabeçalho com nomes de funcionalidade, estas informações estão incluídas de destino de dados (sem necessidade de transmita explicitamente os nomes das funcionalidades no construtor ModelDataCollector) |
-| user_correlation_id | string | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar este predição |
+| user_correlation_id | cadeia | um id de correlação opcional, que pode ser fornecido pelo utilizador para correlacionar este predição |
 

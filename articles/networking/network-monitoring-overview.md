@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850142"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -40,11 +41,11 @@ Monitor de desempenho, o Monitor de ExpressRoute e o Monitor de ponto final de s
 
 Monitor de desempenho faz parte de NPM e é a monitorização de rede para nuvens, híbridas e ambientes no local. Pode monitorizar a conectividade de rede através de sucursais remotas e escritórios de campo, localizações de arquivo, os centros de dados e nuvens. Pode detetar problemas de rede antes dos utilizadores queixarem. As vantagens de chaves são:
 
-* Monitorizar a perda e latência em várias sub-redes e conjunto de alertas
+* Monitorizar a perda e latência em várias sub-redes e definir alertas
 * Monitorizar todos os caminhos (incluindo caminhos redundantes) na rede
 * Resolver problemas de rede transitórios e ponto no tempo, que são difíceis de replicar
 * Determinar o segmento específico na rede, que é responsável por degradação do desempenho
-* Monitorizar o estado de funcionamento da rede, sem a necessidade de SNMP
+* Monitorizar o estado de funcionamento da rede, sem precisar do SNMP
 
 ![Mapa de topologia NPM](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -54,14 +55,15 @@ Para obter mais informações, veja os artigos seguintes:
 * [Casos de utilização](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Atualizações do produto: [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [de 2017 de Agosto](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>ExpressRoute Monitor
+## <a name="expressroute-monitor"></a>Monitor do ExpressRoute
 
-NPM para o ExpressRoute oferece monitorização ExpressRoute completa para ligações de peering privadas. Pode monitorizar o desempenho entre as filiais e o Azure e conectividade de E2E através do ExpressRoute. Principais capacidades são:
+NPM para o ExpressRoute oferece ExpressRoute abrangente de monitorização para o peering privado do Azure e ligações de peering da Microsoft. Pode monitorizar o desempenho entre as filiais e o Azure e conectividade de E2E através do ExpressRoute. Principais capacidades são:
 
 * Deteção automática de circuitos ER associados à subscrição
 * Deteção de topologia de rede no local para as suas aplicações na nuvem
-* O planeamento de capacidade, análise da utilização de utilização de largura de banda por rede Virtual
+* Análise da utilização de largura de banda, o planeamento de capacidade
 * Monitorização e alertas sobre os caminhos principais e secundários
+* Monitorização de conectividade para o Azure para serviços como o Office 365, Dynamics 365,... através do ExpressRoute
 * Detetar degradação de conectividade para VNets
 
 ![Tráfego de apresentação do mapa Georreplicação em regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -71,7 +73,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
 * [mensagem de blogue](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitor de ponto final de serviço
+## <a name="service-endpoint-monitor"></a>Monitor do Ponto Final de Serviço
 
 Com a monitorização do ponto final de serviço, pode agora testar reachability das aplicações e detetar congestionamentos de desempenho no local, redes de carrier e centros de dados de nuvem/privadas.
 

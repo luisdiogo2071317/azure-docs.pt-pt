@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 05/25/2018
+ms.date: 06/06/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 9f270daec40d4b395588c491a7ff88ef6ca45649
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 31524f24eea97082c8b148ba0a65bbeb24717039
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802447"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839325"
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
 
 Este artigo responde a perguntas mais frequentes (FAQ) sobre a integração de registo do Azure.
+
+>[!IMPORTANT]
+> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure.  Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
 
 Integração de registo do Azure é um serviço do sistema operativo Windows que pode utilizar para integrar os registos não processados a partir dos seus recursos do Azure no seu sistemas no local segurança informações e eventos management (SIEM). Esta integração proporciona um dashboard unificado para todos os seus recursos, no local ou na nuvem. Pode, em seguida, Agregar, correlacionar, analisar e alerta para eventos de segurança associados com as suas aplicações.
 

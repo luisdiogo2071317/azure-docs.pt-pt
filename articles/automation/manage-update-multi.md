@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833724"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -34,31 +35,16 @@ Para utilizar a gestão de atualizações, precisa de:
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-A gestão de atualizações é suportada nos sistemas operativos seguintes.
+Gestão de atualizações é suportada nos seguintes sistemas operativos:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 e versões posteriores e implementações de atualizações no Windows Server 2008 R2 SP1 e versões posteriores. O Servidor de Nano não é suportado.
-
-  O suporte para implementar atualizações no Windows Server 2008 R2 SP1 requer o .NET Framework 4.5 e o Windows Management Framework 5.0 ou posterior.
-
-- Não são suportados os sistemas operativos cliente.
-
-Os agentes do Windows têm de ser configurados para comunicar com um Windows Server Update Services (WSUS) ou de ter acesso ao Microsoft Update.
-
-> [!NOTE]
-> O System Center Configuration Manager não consegue gerir o agente do Windows ao mesmo tempo.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) e 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) e 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
-
-- Ubuntu 12.04 LTS e mais recente (x86/x64)
+|Sistema Operativo  |Notas  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Só suporta as avaliações de atualização         |
+|Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou superior ([transferir o WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> 5.1 do Windows PowerShell ([transferir o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendada para uma maior fiabilidade.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
+|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desativar as atualizações automáticas. Para obter informações, veja [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) (Tópico de Atualizações Automáticas no Guia do Ubuntu Server).
@@ -142,7 +128,7 @@ No painel **Nova implementação de atualização**, especifique o seguinte:
 
   ![Painel “Nova implementação de atualizações”](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificação da atualização**: selecione os tipos de software que a implementação de atualizações vai incluir. Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-update-management.md#update-classifications). Os tipos de classificação são:
+- **Classificação da atualização**: selecione os tipos de software que a implementação de atualizações vai incluir. Para obter uma descrição dos tipos de classificação, veja [Classificações de atualizações](automation-update-management.md#update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Update rollups
@@ -151,6 +137,9 @@ No painel **Nova implementação de atualização**, especifique o seguinte:
   - Atualizações de definições
   - Ferramentas
   - Atualizações
+
+- **Atualizações para excluir** -esta ação abre o **excluir** página. Introduza o KBs ou nomes de pacote para excluir.
+
 - **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Em alternativa, pode especificar uma hora diferente.
    Também pode especificar se a implementação ocorre uma vez ou de acordo com um agendamento periódico. Para configurar um agendamento periódico, selecione a opção **Periódico**, em **Periodicidade**.
 

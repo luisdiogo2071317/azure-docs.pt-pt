@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835105"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>As perguntas e respostas uma correspondência com o workbench do Azure Machine Learning
 As respostas a questões terminadas abrir é difícil e requer frequentemente um esforço manual de especialistas (SMEs). Para ajudar a reduzir a necessidade de SMEs internos, as empresas criar frequentemente apresenta uma lista de perguntas mais frequentes (FAQ) como um meio de utilizadores a prestar assistência. Neste exemplo showcases vários métodos de aprendizagem máquina eficaz para que corresponda ao abrir consultas terminadas para pré-existente FAQ/respostas a perguntas pares. Este exemplo demonstra um processo de desenvolvimento simples para construir uma solução de utilizar o Workbench do Azure Machine Learning. 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606142"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831465"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 Cópia de segurança do Azure tem vários resulta numa eficiência incorporada que reduzir os custos de armazenamento e de rede durante as cópias de segurança completas iniciais dos dados no Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e necessitam de mais largura de banda quando comparado com as cópias de segurança subsequentes transferir apenas as diferenças/incrementais. Durante o processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -51,7 +51,7 @@ As seguintes funcionalidades de cópia de segurança do Azure ou cargas de traba
 Antes de iniciar o fluxo de trabalho de cópia de segurança Offline, conclua os seguintes pré-requisitos: 
 * Criar um [cofre dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md). Para criar um cofre, consulte os passos descritos para [neste artigo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Certifique-se de que apenas o [versão mais recente do agente do Backup do Azure](https://aka.ms/azurebackup_agent) foi instalado no cliente Windows Server/Windows, conforme aplicável e o computador está registado com o Cofre de serviços de recuperação.
-* O Azure PowerShell 3.7.0 ou superior é necessário no computador com o agente do Backup do Azure. É recomendado [instalar a versão mais recente do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* O Azure PowerShell 3.7.0 é necessária no computador com o agente do Backup do Azure. É recomendado que transfira e [versão de instalar o 3.7.0 do Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * No computador que executa o agente do Backup do Azure, certifique-se está instalado o Microsoft Edge ou o Internet Explorer 11 e é o JavaScript ativado. 
 * Crie uma conta de armazenamento do Azure na mesma subscrição que o Cofre dos serviços de recuperação. 
 * Certifique-se de que tem o [as permissões necessárias](../azure-resource-manager/resource-group-create-service-principal-portal.md) ao criar a aplicação do Azure Active Directory. O fluxo de trabalho de cópia de segurança Offline cria uma aplicação do Azure Active Directory na subscrição associada à conta de armazenamento do Azure. O objetivo da aplicação é fornecer cópia de segurança do Azure com o acesso seguro e âmbito para o serviço de importação do Azure, necessário para o fluxo de trabalho de cópia de segurança Offline. 
@@ -108,7 +108,7 @@ O *AzureOfflineBackupDiskPrep* utilitário prepara as utilizem unidades SATA que
 
     * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho offline seeding utilizando o mesmo caminho de rede que foi fornecido o **iniciar cópia de segurança offline** fluxo de trabalho.
     * O BitLocker está ativado no computador de cópia.
-    * O Azure PowerShell 3.7.0, ou superior, é instalado.
+    * O Azure PowerShell 3.7.0 está instalado.
     * Browsers mais recentes compatíveis (Edge ou o Internet Explorer 11) estão instalados e é o JavaScript ativado. 
     * O computador de cópia pode aceder ao portal do Azure. Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
     

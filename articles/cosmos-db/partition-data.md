@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe2dbab876d1ef55ff05315cf7c823d0444663a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808677"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850530"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -64,15 +64,16 @@ BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quand
 
 A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Escolha um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. É uma melhor prática de ter uma chave de partição com um grande número de valores distintos (por exemplo, centenas ou milhares). Permite-lhe distribuir a carga de trabalho uniformemente em todos estes valores. Uma chave de partição ideal é aquele que aparece frequentemente como um filtro em consultas e tem cardinalidade suficiente para garantir a sua solução escalável.
 
-Se uma partição física atinge o limite de armazenamento e os dados na partição com a mesma chave de partição, base de dados do Azure Cosmos devolve o *"chave de partição atingido o tamanho máximo de 10 GB"* mensagem e a partição não é dividida. Escolher uma chave de partição é uma decisão muito importante. As partições são um conceito interno da base de dados do Azure Cosmos e são transitórias. Não é bastante correto pressuposto de partições quantos são alocadas um débito de determinadas. BD do Azure do Cosmos será automaticamente dimensionado partições com base na sua carga de trabalho. Para que não deve corelate a estrutura de base de dados com base no número de partições em vez disso, deve certificar-se escolher a chave de partição adequado. 
+Se uma partição física atinge o limite de armazenamento e os dados na partição com a mesma chave de partição, base de dados do Azure Cosmos devolve o *"chave de partição atingido o tamanho máximo de 10 GB"* mensagem e a partição não é dividida. Escolher uma chave de partição é uma decisão muito importante. Físicas partições são um conceito interno da base de dados do Azure Cosmos e são transitórias. BD do Azure do Cosmos dimensionar o número de partições físicos com base na sua carga de trabalho. Para que não deve corelate a estrutura de base de dados com base no número de partições físicos em vez disso, deve certificar-se escolher a chave de partição adequado (partições lógicas). 
 
 Escolha uma chave de partição que:
 
-* A distribuição de dados é mesmo em todas as chaves.
-* A carga de trabalho é mesmo em todas as chaves.
-* É preferencial para ter um conjunto de chaves como chaves de partição que uma chave única.  Número mais elevado de chaves de fazer uma distribuição de carga de trabalho mesmo.
+* A distribuição de armazenamento é mesmo em todas as chaves.
+* A distribuição de volume de pedidos num determinado ponto no tempo é mesmo em todas as chaves.
+* Consultas que são invocadas com a simultaneidade elevada podem ser encaminhadas de forma eficiente, incluindo a chave de partição no predicado de filtro.  
+* Escolher uma chave de partição com cardinalidade superior é geralmente preferencial – becaue normalmente gera uma melhor escalabilidade e de distribuição. Por exemplo, pode ser formada uma chave composta por concatenar valores de várias propriedades para aumentar a cardinalidade. 
 
-Ao escolher uma chave de partição com acima considerações, não terá de se preocupar com o número de partições ou que débito atribuído por partição física, à medida que dimensionamos cada partição de forma independente e de forma linear conforme necessário.
+Quando escolher uma chave de partição com acima considerações, não precisa de preocupar com o número de partições ou que débito atribuído por partição física, como a base de dados do Azure Cosmos dimensiona limite o número de partições físicos e também pode dimensionar o partições individuais conforme necessário.
 
 Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados* no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor como ilimitado, tem de especificar uma chave de partição e um débito mínimo de 1.000 RU/s. Contentores do Cosmos BD do Azure também podem ser configurados para partilhar débito entre um conjunto de contentores, em que cada contentor deve specificy uma partição de chave e pode crescer ilimitado.
 

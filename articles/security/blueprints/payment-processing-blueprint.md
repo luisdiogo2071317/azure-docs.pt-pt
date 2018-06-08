@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839431"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
@@ -43,7 +44,7 @@ A arquitetura dos inclui os seguintes componentes:
 - **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura no Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
 - **Scripts de implementação de automatizada**. Estes scripts ajudam a implementar a solução ponto-a-ponto. Os scripts consistem em:
     - Uma instalação do módulo e [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) script de configuração é utilizada para instalar e certifique-se de que funções de administrador global e de módulos do PowerShell necessários estão configuradas corretamente.
-    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código de origem para esta solução está disponível para revisão [repositório de código Blueprint] [repositório de código]. 
+    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample) conteúdo. O código de origem para esta solução está disponível para revisão no [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## <a name="architectural-diagram"></a>Diagrama da arquitetura
 
@@ -74,7 +75,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|NomeDeUtilizador: |`adminXX@contosowebstore.com`|
+|Nome de Utilizador: |`adminXX@contosowebstore.com`|
 | Nome: |`Global Admin Azure PCI Samples`|
 |Tipo de utilizador:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
@@ -86,7 +87,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|NomeDeUtilizador: |`sqlAdmin@contosowebstore.com`|
+|Nome de Utilizador: |`sqlAdmin@contosowebstore.com`|
 | Nome: |`SQLADAdministrator PCI Samples`|
 | Nome próprio: |`SQL AD Administrator`|
 |Apelido: |`PCI Samples`|
@@ -99,7 +100,7 @@ Funções de utilizador utilizadas para ilustrar o caso de utilização e obter 
 
 |Item      |Exemplo|
 |----------|------|
-|NomeDeUtilizador:| `receptionist_EdnaB@contosowebstore.com`|
+|Nome de Utilizador:| `receptionist_EdnaB@contosowebstore.com`|
 | Nome: |`Edna Benson`|
 | Nome próprio:| `Edna`|
 |Apelido:| `Benson`|

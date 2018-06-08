@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: 5c617c60ff51d0b1e7717b28b0372efe63c1ee18
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838386"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e a implementação
 
@@ -92,14 +94,17 @@ Existem várias abordagens e plataformas para colocar os modelos em produção. 
 - [Implementação de um modelo no SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Antes da implementação, um tem de assegurar que a latência da classificação do modelo é baixa o suficiente para utilizar na produção.
 >
->
->Nota: Antes da implementação, um tem a assegurar que a latência da classificação do modelo é baixa o suficiente para utilizar na produção.
 >
 
 Mais exemplos estão disponíveis nas instruções que demonstram todos os passos no processo de **cenários específicos**. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) artigo. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente.
 
-Nota: Para implementação utilizando o Azure Machine Learning Studio, consulte [implementar um serviço web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> Para implementação utilizando o Azure Machine Learning Studio, consulte [implementar um serviço web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### <a name="ab-testing"></a>Um teste a / B
 Quando vários modelos na produção, poderá ser útil efetuar [um teste a / B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
@@ -108,6 +113,7 @@ Quando vários modelos na produção, poderá ser útil efetuar [um teste a / B]
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Controlar o progresso de projetos de ciência de dados](track-progress.md) mostra como um scientist dados acompanhar o progresso de um projeto de ciência de dados.
- 
+
+[O modelo operação e CI/CD](ci-cd-flask.md) mostra como CI/CD podem ser efetuada com os modelos desenvolvidos.
 
 

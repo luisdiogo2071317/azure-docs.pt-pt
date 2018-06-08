@@ -1,6 +1,6 @@
 ---
 title: Volte a implementar o Kit de desenvolvimento de pilha do Azure (ASDK) | Microsoft Docs
-description: Neste tutorial, irá aprender a reinstalar o ASDK.
+description: Neste artigo, irá aprender a reinstalar o ASDK.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850325"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Tutorial: Reimplementar a ASDK
-Neste tutorial, irá aprender a voltar a implementar o Azure pilha Development Kit (ASDK) num ambiente de não produção. Como atualizar o ASDK não é suportada, tem de completamente Reimplementar a mover para uma versão mais recente. Também pode implementar novamente o ASDK em qualquer altura em que pretende começar do zero.
+# <a name="redeploy-the-asdk"></a>Volte a implementar o ASDK
+Neste artigo, irá aprender a voltar a implementar o Azure pilha Development Kit (ASDK) num ambiente de não produção. Como atualizar o ASDK não é suportada, tem de completamente Reimplementar a mover para uma versão mais recente. Também pode implementar novamente o ASDK em qualquer altura em que pretende começar do zero.
 
 > [!IMPORTANT]
 > Atualizar o ASDK para uma nova versão não é suportada. Terá de voltar a implementar o ASDK no computador de anfitrião do kit de desenvolvimento sempre que pretende avaliar uma versão mais recente da pilha do Azure.
-
-Neste tutorial, ficará a saber como:
-
-> [!div class="checklist"]
-> * Remover o registo do Azure 
-> * Volte a implementar o ASDK
 
 ## <a name="remove-azure-registration"></a>Remover o registo do Azure 
 Se tiver registado anteriormente a instalação de ASDK com o Azure, deve remover o recurso de registo antes de implementar novamente o ASDK. Volte a registar o ASDK para ativar sindicação marketplace quando implementar novamente o ASDK. Se não tiver registado anteriormente o ASDK com a sua subscrição do Azure, pode ignorar esta secção.
@@ -55,7 +50,7 @@ Para remover o recurso de registo, utilize o **remover AzsRegistration** cmdlet 
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Para remover o recurso de registo, utilize o **remover AzsRegistration** cmdlet 
 
 Pilha do Azure agora deve ser anulada a sua subscrição do Azure com êxito. Além disso, o grupo de recursos azurestack, criado quando se registou a ASDK com o Azure, também deve ser eliminado.
 
-## <a name="redeploy-the-asdk"></a>Volte a implementar o ASDK
+## <a name="deploy-the-asdk"></a>Implementar o ASDK
 Para voltar a pilha do Azure, tem de iniciar através do zero conforme descrito abaixo. Os passos são diferentes consoante esteja ou não utilizou o script de instalador (asdk installer.ps1) de pilha do Azure para instalar o ASDK.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Reimplementar ASDK utilizando o script de instalador
@@ -85,7 +80,7 @@ Para voltar a pilha do Azure, tem de iniciar através do zero conforme descrito 
 
 3. Depois de reiniciado o anfitrião do kit de desenvolvimento para o sistema operativo base, inicie sessão como um administrador local. Localize e eliminar o **C:\CloudBuilder.vhdx** ficheiro que foi utilizado como parte da implementação anterior. 
 
-4. Repita os mesmos passos, demorou a primeira [implementar o ASDK](asdk-deploy.md).
+4. Repita os mesmos passos, demorou a primeira [implementar o ASDK](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Volte a implementar o ASDK sem utilizar o instalador
 Se não utilizou o script de asdk installer.ps1 para instalar o ASDK, tem de reconfigurar manualmente o computador de anfitrião do kit de desenvolvimento antes de implementar novamente o ASDK.
@@ -100,16 +95,7 @@ Se não utilizou o script de asdk installer.ps1 para instalar o ASDK, tem de rec
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Remover o registo do Azure 
-> * Volte a implementar o ASDK
-
-Avançar para o próximo tutorial para saber como adicionar um item do marketplace pilha do Azure.
-
-> [!div class="nextstepaction"]
-> [Adicionar um item do marketplace pilha do Azure](asdk-marketplace-item.md)
+[Após a instalação de ASDK tarefas de configuração](asdk-post-deploy.md)
 
 
 

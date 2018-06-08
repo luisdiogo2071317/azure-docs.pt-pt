@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831790"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs do Reporting Services permitem que os clientes empresariais Azure programaticamente extraia consumo e dados de faturação para ferramentas de análise de dados preferencial. 
@@ -30,7 +31,7 @@ As APIs do Reporting Services permitem que os clientes empresariais Azure progra
 
 |Chave do cabeçalho de pedido | Valor|
 |-|-|
-|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: eyr de portador... 09|
+|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: eyr de portador... 09| 
 
 ## <a name="consumption-apis"></a>APIs de consumo
 Um ponto final de Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descrito abaixo, que deverá ativar introspection fácil da API e a capacidade de gerar SDKs do cliente utilizando [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](http://swagger.io/swagger-codegen/). Dados a partir de 1 de Maio de 2014 estão disponíveis através desta API. 
@@ -50,10 +51,10 @@ Os etags são serão devolvidos na resposta da API acima. Uma alteração na Eta
  **Lista de períodos de faturação** - [API de períodos de faturação](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos que tenham dados de consumo para a inscrição especificada por ordem cronológica inversa de faturação. Cada período contém uma propriedade de apontar para a rota de API para os quatro conjuntos de dados - BalanceSummary, UsageDetails, os encargos de Marketplace e folha de preços.
 
 
-## <a name="api-response-codes"></a>Códigos de resposta de API  
+## <a name="api-response-codes"></a>Códigos de resposta de API   
 |Código de estado de resposta|Mensagem|Descrição|
 |-|-|-|
-|200| OK|Nenhum erro|
+|200| OK|Sem erros|
 |401| Não autorizado| Chave de API não foi encontrada, inválido, etc expirou.|
 |404| Indisponível| Ponto final de relatório não foi encontrado|
 |400| Pedido Incorreto| Parâmetros inválidos – intervalos de datas, números EA etc.|

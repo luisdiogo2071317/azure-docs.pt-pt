@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650065"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839814"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).
@@ -79,7 +79,7 @@ Por predefinição, as réplicas de conjunto de quórum para configurações de 
 Uma vez o redundante quórum-conjunto de zona tem réplicas em datacenters diferentes, com algumas distância entre eles, a latência de rede de maior pode aumentar o tempo de consolidação e assim afeta o desempenho de algumas cargas de trabalho OLTP. Pode sempre regressar para a configuração de zona único, desativando a definição de redundância de zona. Este processo tem um tamanho de operação de dados e é semelhante para a atualização do serviço regular objetivo de nível (SLO). No final do processo, a base de dados ou o conjunto é migrado de uma zona redundante em anel para um anel de zona único ou vice-versa.
 
 > [!IMPORTANT]
-> Conjuntos elásticos e bases de dados redundantes do zona só são suportados em críticos de negócio (pré-visualização) e de Premium escalões de serviço. Durante a pré-visualização pública, as cópias de segurança, auditoria e registos são armazenados no armazenamento RA-GRS e, por conseguinte, não podem ser automaticamente disponíveis em caso de uma falha de toda a zona. 
+> Conjuntos elásticos e bases de dados redundantes do zona são atualmente suportados apenas da camada de serviço Premium. Durante a pré-visualização pública, as cópias de segurança, auditoria e registos são armazenados no armazenamento RA-GRS e, por conseguinte, não podem ser automaticamente disponíveis em caso de uma falha de toda a zona. 
 
 A versão de redundante da zona da arquitetura de elevada disponibilidade é ilustrada o diagrama a seguir:
  

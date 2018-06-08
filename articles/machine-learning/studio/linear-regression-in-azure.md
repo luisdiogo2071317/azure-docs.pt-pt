@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836230"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Utilizar a regressão linear no Azure Machine Learning
 > *Kate Baroni* e *Bernardo Boatman* é enterprise os arquitetos de soluções dados Insights Centro de Excellence da Microsoft. Neste artigo, descrevem sua experiência de um conjunto de análise de regressão existente a migrar para uma solução baseada na nuvem utilizando o Azure Machine Learning. 
@@ -30,7 +32,7 @@ ms.lasthandoff: 03/23/2018
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="goal"></a>Alvo
+## <a name="goal"></a>Objetivo
 Nosso projeto começar a utilizar dois objetivos em mente: 
 
 1. Utilize a Análise Preditiva para melhorar a precisão dos projeções de receitas mensal nossa organização 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 681a29776914263c62b9887e4d8dafb715cd14e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849852"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e a coleção com Linux do diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -51,5 +52,5 @@ Esta ação configura o agente LAD para monitorizar os ficheiros de registo espe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-1. Para saber mais detalhadamente que eventos deve examinar durante a resolução de problemas, consulte [LTTng documentação](http://lttng.org/docs) e [utilizando LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+1. Para saber mais detalhadamente que eventos deve examinar durante a resolução de problemas, consulte [LTTng documentação](http://lttng.org/docs) e [utilizando LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Configurar o agente de análise de registos](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementadas no seu cluster e visualizar os seus registos 

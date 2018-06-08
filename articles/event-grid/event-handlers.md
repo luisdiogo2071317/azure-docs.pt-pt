@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627720"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849547"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Processadores de eventos na grelha de eventos do Azure
 
@@ -42,6 +42,14 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 | [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Event Hubs cria um ficheiro de captura, o evento grelha enviará um evento para uma aplicação de função. A aplicação obtém o ficheiro de captura e migra dados para um armazém de dados. |
 | [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
 
+## <a name="event-hubs"></a>Event Hubs
+
+Utilize os Hubs de eventos quando a sua solução obtém os eventos mais rapidamente do que pode processar os eventos. A aplicação processa os eventos provenientes dos Hubs de eventos-la própria agenda. Pode dimensionar o seu processamento para processar os eventos de entrada de eventos.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e a grelha de eventos](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por uma aplicação. |
+
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
 Utilize as ligações de híbridas de reencaminhamento do Azure para enviar eventos para aplicações que estão dentro de uma rede empresarial e não tem um ponto final acessível publicamente.
@@ -62,7 +70,7 @@ Utilize as Logic Apps para automatizar os processos de negócio para responder a
 
 ## <a name="queue-storage"></a>Armazenamento de filas
 
-Utilize o armazenamento de filas para receber eventos que têm de ser solicitados.
+Utilize o armazenamento de filas para receber eventos que têm de ser solicitados. Poderá utilizar o armazenamento de filas quando tiver um processo de execução longa que demora demasiado tempo a responder. Através do envio de eventos para o armazenamento de filas, a aplicação pode solicitar e processar os eventos na sua própria agenda.
 
 |Cargo  |Descrição  |
 |---------|---------|

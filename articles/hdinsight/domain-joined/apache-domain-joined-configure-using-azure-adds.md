@@ -9,21 +9,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: 7bde1c834038bdc2a010987b4e32fa49222101ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8064940e0d0f035010a2521752d6f32f3f9ccd9f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715280"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849837"
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
 Os clusters de associados a um domínio fornecem acesso a vários utilizador nos clusters do HDInsight. Associado a um domínio clusters do HDInsight estão ligados a um domínio, para que os utilizadores de domínio podem utilizar as respetivas credenciais de domínio para autenticar com os clusters e executar tarefas de macrodados. 
 
 Neste artigo, irá aprender a configurar um cluster do HDInsight associados a um domínio utilizando o Azure Active Directory Domain Services.
-
-> [!NOTE]
-> A criação de um cluster do HDInsight associados a um domínio requer o Azure Active Directory Domain Services. Criar um cluster com o Active Directory alojadas em máquinas virtuais do IaaS do Azure já não é suportada de HDInsight associados a um domínio.
 
 ## <a name="create-azure-adds"></a>Criar ADDS do Azure
 

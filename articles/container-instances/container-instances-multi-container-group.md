@@ -6,31 +6,39 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850574"
 ---
 # <a name="deploy-a-container-group"></a>Implementar um grupo contentor
 
 Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um [grupo contentor](container-instances-container-groups.md). Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço.
 
-Este documento explica como executar uma configuração simples contentor multi sidecar ao implementar um modelo Azure Resource Manager.
+Existem dois métodos para implementar grupos de contentor multi utilizando a CLI do Azure:
+
+* Implementação de modelo do Resource Manager (Este artigo)
+* [Implementação de ficheiros YAML](container-instances-multi-container-yaml.md)
+
+Implementação com um modelo do Resource Manager é recomendada quando precisar de implementar recursos adicionais do serviço do Azure (por exemplo, uma partilha de ficheiros do Azure) no momento da implementação de instância do contentor. Devido à natureza mais concisa o formato YAML implementação com um ficheiro YAML recomenda-se quando a implementação inclui *apenas* instâncias de contentor.
 
 > [!NOTE]
 > Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 
-Crie um ficheiro denominado `azuredeploy.json` e copie o seguinte JSON para a mesma.
+As secções neste artigo explica como executar uma configuração simples contentor multi sidecar ao implementar um modelo Azure Resource Manager.
 
-Neste exemplo, um grupo contentor com dois contentores, é definido um endereço IP público e duas portas expostas. O primeiro contentor no grupo executa uma aplicação da Internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo.
+Comece por criar um ficheiro denominado `azuredeploy.json`, em seguida, copie o seguinte JSON para a mesma.
 
-```json
+Este modelo do Resource Manager define um grupo contentor com dois contentores, um endereço IP público e duas portas expostas. O primeiro contentor no grupo executa uma aplicação da Internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ Neste exemplo, um grupo contentor com dois contentores, é definido um endereço
 
 Para utilizar um registo de imagem do contentor privada, adicione um objeto para o documento JSON com o seguinte formato. Para uma implementação de exemplo desta configuração, consulte o [referência de modelo de Gestor de recursos de ACI] [ template-reference] documentação.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Dentro de alguns segundos, deverá receber uma resposta inicial do Azure.
 
 ## <a name="view-deployment-state"></a>Ver o estado de implementação
 
-Para ver o estado da implementação, utilize o [mostrar de contentor az] [ az-container-show] comando. Esta ação devolve o endereço IP público aprovisionado, pelo que a aplicação pode ser acedida.
+Para ver o estado da implementação, utilize o seguinte [mostrar de contentor az] [ az-container-show] comando:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Saída:
+Se gostaria de ver a aplicação em execução, navegue para o endereço IP no seu browser. Por exemplo, o IP está `52.168.26.124` neste resultado de exemplo:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

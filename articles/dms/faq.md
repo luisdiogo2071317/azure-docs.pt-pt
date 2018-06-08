@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850077"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas mais comuns sobre como utilizar o serviço de migração de base de dados do Azure, juntamente com respostas relacionadas.
@@ -34,6 +35,9 @@ O serviço de migração de base de dados do Azure é o método preferencial de 
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>Q. Como comparar o serviço de migração de base de dados do Azure para a oferta Azure migrar?
 O serviço de migração do Azure ajuda com a migração de máquinas virtuais no local IaaS do Azure. O serviço avalia a adequabilidade de migração e dimensionamento com base no desempenho e fornece estimativas de custos para executar máquinas virtuais no local no Azure. Migrar do Azure é útil para migrações de comparação de precisão e shift de cargas de trabalho baseados em VM para VMs IaaS do Azure no local. No entanto, ao contrário do serviço de migração da base de dados do Azure, Azure migrar não é um serviço de migração de base de dados especializadas oferta para plataformas de base de dados relacional de Azure PaaS, tais como SQL Database do Azure ou SQL Azure ou a base de dados geridas por instância de SQL do Azure.
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>Q. Quais as versões do SQL Server suporta o serviço de migração de base de dados do Azure como uma origem?
+Quando migrar do SQL Server, o serviço de migração de base de dados do Azure suporta SQL Server 2005 através do SQL Server de 2017.
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>Q. O que é um resumo dos passos necessários para utilizar o serviço de migração de base de dados do Azure para efetuar uma migração de base de dados?
 Durante uma migração típica, simples da base de dados, pode:

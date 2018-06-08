@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835088"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Saiba como gerir os serviços Web do Azure ML com a Gestão de API
 ## <a name="overview"></a>Descrição geral
@@ -43,7 +45,7 @@ Para concluir este guia, tem de:
 Pode gerir o seu serviço web do Azure Machine Learning com uma instância de API Management.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **+ criar um recurso**.
+2. Selecione **+ Criar um recurso**.
 3. Na caixa de pesquisa, escreva "Gestão de API", em seguida, selecione o recurso de "Gestão de API".
 4. Clique em **Criar**.
 5. O **nome** valor será utilizado para criar um URL único (Este exemplo utiliza "demoazureml").
@@ -54,7 +56,7 @@ Pode gerir o seu serviço web do Azure Machine Learning com uma instância de AP
 
 Pode demorar até 30 minutos para um novo serviço a ser criado.
 
-![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
+![criação de serviços](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
 
 ## <a name="create-the-api"></a>Criar a API
@@ -80,7 +82,7 @@ Para criar a API:
 
 As operações são adicionadas e configuradas a uma API no portal do publicador. Para aceder ao portal do publicador, clique em **portal do publicador** no portal do Azure para o seu serviço de API Management, selecione **APIs**, **operações**, em seguida, clique em **Adicionar operação**.
 
-![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
+![operação adicionar](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 O **nova operação** janela será apresentada e o **assinatura** separador será selecionado por predefinição.
 
@@ -169,7 +171,7 @@ Operações podem ser chamadas diretamente a partir do portal do programador, qu
 
 Após uma operação ser invocada, o portal do programador apresenta o **URL solicitado** do serviço de back-end, o **estado de resposta**, a **cabeçalhos de resposta**e quaisquer  **Conteúdo da resposta**.
 
-![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![Estado de resposta](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apêndice A – criar e testar um AzureML simple serviço web
 ### <a name="creating-the-experiment"></a>Criar a experimentação
@@ -181,7 +183,7 @@ Seguem-se os passos para criar uma experimentação do AzureML simples e impleme
 
 Em primeiro lugar, utilizando um browser à sua escolha, navegue para: [ https://studio.azureml.net/ ](https://studio.azureml.net/) e introduza as suas credenciais para iniciar sessão. Em seguida, crie uma nova experimentação em branco.
 
-![search-experiment-templates](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![modelos de experiência de pesquisa](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
 Mude o nome para **SimpleFeatureHashingExperiment**. Expanda **conjuntos de dados guardado** e arraste **livro revisões da Amazon** na sua experimentação.
 
@@ -210,7 +212,7 @@ Neste momento, pode querer clique **executar** para testar a experimentação.
 ### <a name="create-a-web-service"></a>Criar um serviço Web
 Crie um serviço web. Expanda **serviço Web** e arraste **entrada** na sua experimentação. Ligar **entrada** para **funcionalidade hash**. Arraste também **saída** na sua experimentação. Ligar **saída** para **funcionalidade hash**.
 
-![output-to-feature-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![saída-para-funcionalidade-hash](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Clique em **publicar o serviço web**.
 
@@ -243,7 +245,7 @@ Tipo **esta é um boa dia** para **col2**. Clique na marca de verificação.
 
 Verá algo semelhante ao seguinte
 
-![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![saída de exemplo](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Código de Exemplo
 Outra forma de testar a sua RRS é a partir do seu código de cliente. Se clicar em **pedido/resposta** no dashboard e desloque-se na parte inferior, irá ver o código de exemplo para c#, Python e R. Também poderá ver a sintaxe do pedido RRS, incluindo o pedido de URI, cabeçalhos e corpo.

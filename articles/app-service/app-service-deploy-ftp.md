@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e05e06a5abd02dd67f58a8e01bb246e318f51de
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850241"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure através de FTP/S
 
@@ -26,29 +27,23 @@ Este artigo mostra como utilizar o FTP ou FTPS para implementar a sua aplicaçã
 
 O ponto final FTP/S para a sua aplicação já está ativo. É necessária ativar a implementação de FTP/S nenhuma configuração.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>Passo 1: Definir credenciais de implementação
+## <a name="open-ftp-dashboard"></a>Abra dashboard FTP
 
-Para aceder ao servidor FTP para a sua aplicação, primeiro precisa de credenciais de implementação. 
+No [portal do Azure](https://portal.azure.com), abra a aplicação [página recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-Para definir ou repor as credenciais de implementação, consulte o artigo [credenciais de implementação de serviço de aplicações do Azure](app-service-deployment-credentials.md). Este tutorial demonstra a utilização de credenciais de nível de utilizador.
+Para abrir o dashboard FTP, clique em **entrega contínua (pré-visualização)** > **FTP** > **Dashboard**.
 
-## <a name="step-2-get-ftp-connection-information"></a>Passo 2: Obter informações de ligação de FTP
+![Abra dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. No [portal do Azure](https://portal.azure.com), abra a aplicação [página recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Selecione **descrição geral** no painel de navegação esquerdo, em seguida, anote os valores para **utilizador FTP/implementação**, **nome de anfitrião do FTP**, e **nome de anfitrião FTPS**. 
+## <a name="get-ftp-connection-information"></a>Obter informações de ligação de FTP
 
-    ![Informações de ligação de FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+No dashboard do FTP, clique em **cópia** para copiar as credenciais de ponto final e aplicação FTPS.
 
-    > [!NOTE]
-    > Para fornecer contexto adequado para o servidor FTP, a **utilizador FTP/implementação** valor apresentado pelo portal do Azure inclui o nome da aplicação.
-    > Pode encontrar as informações do mesmas quando selecionar **propriedades** no painel de navegação esquerdo. 
-    >
-    > Além disso, a palavra-passe de implementação nunca é apresentada. Se se esquecer da sua palavra-passe de implementação, volte atrás para [passo 1](#step1) e repor a palavra-passe de implementação.
-    >
-    >
+![Copiar as informações de FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>Passo 3: Implementação de ficheiros para o Azure
+É recomendado que utilize **aplicação credenciais** para implementar na sua aplicação, porque é exclusivo para cada aplicação. No entanto, se clicar em **credenciais de utilizador**, pode definir as credenciais de nível de utilizador que pode utilizar para início de sessão FTP/S para todas as aplicações de serviço de aplicações na sua subscrição.
+
+## <a name="deploy-files-to-azure"></a>Implementar ficheiros para o Azure
 
 1. A partir do seu cliente FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/) ou [FileZilla](https://filezilla-project.org/download.php?type=client)), utilize as informações de ligação que recolheu para ligar à sua aplicação.
 3. Copiar os ficheiros e a respetiva estrutura de diretórios correspondentes para o [ **/site/wwwroot** diretório](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o **/site/wwwroot/App_Data/tarefas/** diretório para WebJobs).
@@ -75,6 +70,12 @@ Para desativar o FTP não encriptada, selecione **FTPS apenas**. Para desativar 
 
 ![Desativar FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Automatizar com scripts
+
+Para a implementação de FTP utilizando [CLI do Azure](/cli/azure), consulte [criar uma aplicação web e implementar os ficheiros com FTP (CLI do Azure)](./scripts/app-service-cli-deploy-ftp.md).
+
+Para a implementação de FTP utilizando [Azure PowerShell](/cli/azure), consulte [carregar ficheiros para uma aplicação web utilizando o FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
 ## <a name="troubleshoot-ftp-deployment"></a>Resolver problemas de implementação de FTP
 
 - [Como posso resolver problemas de implementação de FTP?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +86,12 @@ Para desativar o FTP não encriptada, selecione **FTPS apenas**. Para desativar 
 
 O primeiro passo para resolução de problemas de implementação de FTP é isolar um problema de implementação de um problema de aplicação de tempo de execução.
 
-Um problema de implementação normalmente resulta em nenhum ficheiros ou ficheiros errados implementados para a sua aplicação. Podem ser resolvido por investigar a implementação de FTP ou selecionar um caminho de implementação alternativos (por exemplo, o controlo de origem).
+Um problema de implementação normalmente resulta em nenhum ficheiros ou ficheiros errados implementados para a sua aplicação. Pode resolver por investigar a implementação de FTP ou selecionar um caminho de implementação alternativos (por exemplo, o controlo de origem).
 
-Um problema de aplicação de tempo de execução normalmente resulta no conjunto correto de ficheiros implementado a sua aplicação mas o comportamento da aplicação incorreto. Pode ser resolvido ao concentrar-se no comportamento de código em tempo de execução e investigar caminhos falha específica.
+Um problema de aplicação de tempo de execução normalmente resulta no conjunto correto de ficheiros implementado a sua aplicação mas o comportamento da aplicação incorreto. Pode resolver concentrar-se no comportamento de código em tempo de execução e investigar caminhos falha específica.
 
 Para determinar um problema de implementação ou o tempo de execução, consulte [implementação vs. problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Posso não estou capaz de FTP e publicar o meu código. Como posso resolver o problema?
 Verifique se introduziu o nome de anfitrião correto e [credenciais](#step-1--set-deployment-credentials). Verifique também se as seguintes portas FTP no seu computador não são bloqueadas por uma firewall:
 

@@ -1,8 +1,8 @@
 ---
 title: Funcionalidade do sistema operativo no App Service do Azure
-description: "Saiba mais sobre a funcionalidade de SO disponível para aplicações web, o back-ends de aplicações móveis e API apps no App Service do Azure"
+description: Saiba mais sobre a funcionalidade de SO disponível para aplicações web, o back-ends de aplicações móveis e API apps no App Service do Azure
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850159"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve as funcionalidades de sistema operativo comuns de linha de base que está disponível para todas as aplicações em execução no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui ficheiros, rede, o acesso ao registo e os registos de diagnóstico e eventos. 
@@ -37,7 +38,7 @@ Porque o serviço de aplicações suporta uma experiência totalmente integrada 
 ## <a name="development-frameworks"></a>Estruturas de programação
 Escalões de preço do serviço de aplicações controlar a quantidade de recursos de computação (CPU, armazenamento de disco, memória e saída de rede) disponíveis para aplicações. No entanto, o leque de funcionalidades do framework disponíveis para aplicações permanece igual independentemente das camadas de dimensionamento.
 
-Serviço de aplicações suporta uma variedade de estruturas de programação, incluindo ASP.NET, ASP clássico, node.js, PHP e Python - todas que executadas como extensões no IIS. Para simplificar e normalizar a configuração de segurança, aplicações de serviço de aplicações são geralmente executam as várias estruturas de programação com as respetivas predefinições. Pode ter sido uma abordagem para configurar aplicações personalizar a área de superfície de API e a funcionalidade para cada estrutura de desenvolvimento individuais. Serviço de aplicações assume em vez disso, uma abordagem mais genérica, permitindo uma linha de base comum de funcionalidades de sistema operativo, independentemente da estrutura de desenvolvimento de uma aplicação.
+Serviço de aplicações suporta uma variedade de arquiteturas de desenvolvimento, incluindo ASP.NET, ASP clássico, node.js, PHP e Python - todas que executadas como extensões no IIS. Para simplificar e normalizar a configuração de segurança, aplicações de serviço de aplicações são geralmente executam as várias estruturas de programação com as respetivas predefinições. Pode ter sido uma abordagem para configurar aplicações personalizar a área de superfície de API e a funcionalidade para cada estrutura de desenvolvimento individuais. Serviço de aplicações assume em vez disso, uma abordagem mais genérica, permitindo uma linha de base comum de funcionalidades de sistema operativo, independentemente da estrutura de desenvolvimento de uma aplicação.
 
 As secções seguintes resumem os tipos gerais das funcionalidades de sistema operativo disponível para aplicações do App Service.
 
@@ -49,16 +50,22 @@ Existem várias unidades no App Service, incluindo unidades locais e unidades de
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unidades locais
-O núcleo, o serviço de aplicações é um serviço em execução em cima da infraestrutura do Azure PaaS (plataforma como serviço). Como resultado, as unidades locais "anexados" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui uma unidade de sistema operativo (a unidade D:\), uma unidade de aplicação que contém os ficheiros de cspkg do pacote do Azure utilizados exclusivamente pelo App Service (e acessível aos clientes) e uma unidade de "utilizador" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM . É importante monitorizar a utilização do disco, à medida que aumenta a sua aplicação. Se for atingida a quota de disco, pode ter efeitos adversos à sua aplicação.
+O núcleo, o serviço de aplicações é um serviço em execução em cima da infraestrutura do Azure PaaS (plataforma como serviço). Como resultado, as unidades locais "anexados" a uma máquina virtual são os mesmos tipos de unidade disponíveis para qualquer função de trabalho em execução no Azure. Isto inclui:
+
+- Unidade do sistema operativo (a unidade D:\)
+- Uma unidade de aplicação que contém os ficheiros do pacote do Azure cspkg utilizados exclusivamente pelo App Service (e acessível aos clientes)
+- Uma unidade de "utilizador" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM. 
+
+É importante monitorizar a utilização do disco, à medida que aumenta a sua aplicação. Se for atingida a quota de disco, pode ter efeitos adversos à sua aplicação.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Unidades de rede (também conhecido como partilhas UNC)
-É um dos aspetos exclusivos do App Service, que faz com que a implementação de aplicação e da manutenção simples que todo o conteúdo de utilizador é armazenado num conjunto de partilhas UNC. Este modelo será muito mapeia o padrão comuns do armazenamento de conteúdo utilizado pelo ambientes que tenham vários servidores com balanceamento de carga de alojamento na web no local. 
+É um dos aspetos exclusivos do App Service, que faz com que a implementação de aplicação e da manutenção simples que todo o conteúdo de utilizador é armazenado num conjunto de partilhas UNC. Este modelo mapeia bem para o padrão comuns do armazenamento de conteúdo utilizado pelo ambientes que tenham vários servidores com balanceamento de carga de alojamento na web no local. 
 
-No App Service, existem número de partilhas UNC criadas em cada centro de dados. Uma percentagem do conteúdo de utilizador para todos os clientes em cada centro de dados é atribuída a cada partilha UNC. Além disso, todos os o ficheiro de conteúdo para a subscrição de um único cliente é sempre colocada em UNC a mesmo partilham. 
+No App Service, há um número de partilhas UNC criados em cada centro de dados. Uma percentagem do conteúdo de utilizador para todos os clientes em cada centro de dados é atribuída a cada partilha UNC. Além disso, todos os o ficheiro de conteúdo para a subscrição de um único cliente é sempre colocada em UNC a mesmo partilham. 
 
-Tenha em atenção que devido a como o trabalho de serviços de nuvem, a máquina virtual específica responsável para alojar uma partilha UNC será alterado ao longo do tempo. É garantido que partilhas UNC serão montadas por diferentes máquinas virtuais que são colocados cima e para baixo no decorrer normal de operações. Por este motivo, as aplicações nunca devem certificar-pressupostos hard-coded que as informações da máquina num caminho de ficheiro UNC permanecerá estáveis ao longo do tempo. Em vez disso, deve utilizar o conveniente *faux* caminho absoluto **D:\home\site** que fornece o serviço de aplicações. Este caminho absoluto faux fornece um método portátil, agnóstico de aplicação e utilizador para que faça referência a um própria aplicação. Ao utilizar **D:\home\site**, um pode transferir os ficheiros partilhados da aplicação para aplicações sem ter de configurar um novo caminho absoluto para cada transferência.
+Devido a trabalho de serviços do Azure como, a máquina virtual específica responsável para alojar uma partilha UNC será alterado ao longo do tempo. É garantido que as partilhas UNC serão montadas por diferentes máquinas virtuais que são colocados cima e para baixo no decorrer normal de operações do Azure. Por este motivo, as aplicações nunca devem certificar-pressupostos hard-coded que as informações da máquina num caminho de ficheiro UNC permanecerá estáveis ao longo do tempo. Em vez disso, deve utilizar o conveniente *faux* caminho absoluto **D:\home\site** que fornece o serviço de aplicações. Este caminho absoluto faux fornece um método portátil, agnóstico de aplicação e utilizador para que faça referência a um própria aplicação. Ao utilizar **D:\home\site**, um pode transferir os ficheiros partilhados da aplicação para aplicações sem ter de configurar um novo caminho absoluto para cada transferência.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -69,7 +76,7 @@ Nas unidades locais anexadas à máquina virtual que executa uma aplicação, se
 
 Dois exemplos de como o App Service utiliza o armazenamento temporário local são o diretório para ficheiros temporários do ASP.NET e o diretório para o IIS ficheiros comprimidos. O sistema de compilação do ASP.NET utiliza o diretório de "Ficheiros temporários do ASP.NET" como uma localização da cache de compilação temporário. Para armazenar o resultado da resposta comprimido, o IIS utiliza o diretório de "IIS comprimido os ficheiros temporários". Ambos os tipos de ficheiro utilização (bem como outros) remapeados no App Service para o armazenamento local temporário por aplicação. Este processo de remapeamento assegura que funcionalidades continua conforme esperado.
 
-Cada aplicação no App Service for executada como uma identidade do processo de trabalho aleatórias de baixo privilégio exclusivo chamada "identidade do conjunto aplicacional", mais descrita aqui: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Código da aplicação utiliza esta identidade para acesso só de leitura básico para a unidade de sistema operativo (a unidade D:\). Isto significa que o código da aplicação pode listar as estruturas de diretório comum e ler ficheiros comuns na unidade de sistema operativo. Apesar de isto poderá parecem estar num nível abrangente um pouco de acesso, o mesmo diretórios e ficheiros são acessíveis quando Aprovisiona uma função de trabalho num Azure serviço alojado e ler o conteúdo de unidade. 
+Cada aplicação no App Service for executada como uma identidade do processo de trabalho aleatórias de baixo privilégio exclusivo chamada "identidade do conjunto aplicacional", mais descrita aqui: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Código da aplicação utiliza esta identidade para acesso só de leitura básico para a unidade de sistema operativo (a unidade D:\). Isto significa que o código da aplicação pode listar as estruturas de diretório comum e ler ficheiros comuns na unidade de sistema operativo. Apesar de isto poderá parecem estar num nível abrangente um pouco de acesso, o mesmo diretórios e ficheiros são acessíveis quando Aprovisiona uma função de trabalho num Azure serviço alojado e ler o conteúdo de unidade. 
 
 <a name="multipleinstances"></a>
 
@@ -79,9 +86,9 @@ O diretório de raiz contém conteúdo de uma aplicação e pode escrever códig
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Acesso à rede
-Código da aplicação pode utilizar TCP/IP e ligações para Internet acessíveis os pontos finais que expõem serviços externos de rede de protocolos UDP com base para se certificar de saída. As aplicações podem utilizar estes mesmos protocolos para se ligam aos serviços no Azure&#151;por exemplo, através do estabelecimento de ligações de HTTPS para a base de dados SQL.
+Código da aplicação pode utilizar TCP/IP e protocolos baseados em UDP para efetuar ligações de rede de saída para Internet acessíveis os pontos finais que expõem serviços externos. As aplicações podem utilizar estes mesmos protocolos para se ligam aos serviços no Azure&#151;por exemplo, através do estabelecimento de ligações de HTTPS para a base de dados SQL.
 
-Também é uma funcionalidade limitada para aplicações estabelecer uma ligação de local loopback e tiverem uma aplicação escutar num socket que local loopback. Esta funcionalidade não existe principalmente para permitir que as aplicações que escutar sockets de local loopback como parte da respetiva funcionalidade. Tenha em atenção que cada aplicação vê uma ligação de loopback "privado"; Não é possível escutar App "A" para um socket de local loopback estabelecido pela aplicação "B".
+Também é uma funcionalidade limitada para aplicações estabelecer uma ligação de local loopback e tiverem uma aplicação escutar num socket que local loopback. Esta funcionalidade não existe principalmente para permitir que as aplicações que escutar sockets de local loopback como parte da respetiva funcionalidade. Cada aplicação vê uma ligação de loopback "privado". Não é possível escutar App "A" para um socket de local loopback estabelecido pela aplicação "B".
 
 Os pipes nomeados também são suportados como um mecanismo de comunicação entre processos (IPC) entre diferentes processos coletivamente executarem uma aplicação. Por exemplo, o módulo FastCGI do IIS depende de pipes nomeados para coordenar processos individuais que executam as páginas do PHP.
 

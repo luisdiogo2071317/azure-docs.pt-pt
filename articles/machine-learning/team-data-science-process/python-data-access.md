@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: f97fbb76ddf48fb3c7ec79b6b2ed8cee3e0ceabb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838355"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes do Microsoft Azure Machine Learning Python pode permitir um acesso seguro para os conjuntos de dados do Azure Machine Learning a partir de um ambiente Python local e permite a criação e gestão de conjuntos de dados numa área de trabalho.
@@ -132,7 +134,7 @@ Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o 
 6. Clique no nó de saída no [converter para CSV] [ convert-to-csv] módulo.
 7. Quando for apresentado o menu de contexto, selecione **gerar código de acesso de dados**.
    
-    ![Menu de contexto][experiment]
+    ![Menu de Contexto][experiment]
 8. Selecione o fragmento de código e copie-o à sua área de transferência da janela apresentada.
    
     ![Código de acesso][intermediate-dataset-access-code]

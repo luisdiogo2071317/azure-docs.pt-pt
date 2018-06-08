@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6572adb0d8d629910492603a17988b89acce2f17
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852063"
 ---
 | Recurso | Limite Predefinido |
 | --- | --- |
-| Número de contas do storage por região | 200<sup>1</sup> |
+| Número de contas do storage por região por subscrição | 200<sup>1</sup> |
 | Capacidade de conta de armazenamento máximo | 500 TiB<sup>2</sup> |
 | Número máx. de contentores de BLOBs, blobs, partilhas de ficheiros, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
 | Taxa de pedidos máximo por conta de armazenamento | 20.000 pedidos por segundo<sup>2</sup> |
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/05/2018
 | Entrada máximo<sup>3</sup> por conta de armazenamento (regiões de não-US) | 5 Gbps se RA-GRS/GRS ativada, 10 Gbps para LRS/ZRS<sup>4</sup> |
 | Saída máximo<sup>3</sup> por conta de armazenamento (regiões de não-US) | 10 Gbps, se estiver ativada RA-GRS/GRS, 15 Gbps para LRS/ZRS<sup>4</sup> |
 
-<sup>1</sup>inclui as contas do storage Standard e Premium. Se necessitar de mais de 200 contas de armazenamento, efetue um pedido através do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa do Armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento. 
+<sup>1</sup>inclui as contas do storage Standard e Premium. Se necessitar de mais de 200 contas de armazenamento na uma determinada região, efetue um pedido através de [suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa de armazenamento do Azure irá consultar o seu cenário de negócio e pode aprovar até 250 contas de armazenamento para uma determinada região. 
 
 <sup>2</sup> se precisar de limites expandidos para a sua conta de armazenamento, contacte o [suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa de armazenamento do Azure irá examinar o pedido e pode aprovar os limites superiores numa base de maiúsculas e minúsculas, maiúsculas e minúsculas. Ambos para fins gerais e de contas do Blob storage suportam maior capacidade, a entrada/saída e a taxa de pedidos por pedido. Para os novos valores máximos para contas do Blob storage, consulte [anunciar as contas de armazenamento de escala maiores, superior](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 

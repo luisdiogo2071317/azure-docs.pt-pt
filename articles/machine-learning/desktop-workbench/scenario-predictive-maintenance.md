@@ -7,19 +7,21 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 791c34785fa817fd68d0bec8111bf23e606c9b64
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832701"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários no mundo real
 
-O impacto dos períodos de indisponibilidade do equipamento agendada pode ser detrimental para as empresas. É essencial manter em execução para maximizar a utilização e desempenho e para minimizar o período de indisponibilidade dispendioso, período de equipamento de campo. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
+O impacto do período de indisponibilidade não agendado do equipamento pode ser prejudicial para qualquer negócio. É essencial manter em execução para maximizar a utilização e desempenho e para minimizar o período de indisponibilidade dispendioso, período de equipamento de campo. Antecipado identificação de problemas pode ajudar a alocar recursos de manutenção limitado de forma económica e melhorar a qualidade e fornecer os processos de cadeia. 
 
 Este cenário explicar um relativamente [conjunto de dados em grande escala simulado](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) a guiá-lo através de um projeto de ciência de dados de manutenção preditiva da ingestão de dados, funcionalidade operationalization de modelo, de criação de modelo e de engenharia e implementação. O código para todo o processo é escrito no bloco de notas do Jupyter utilizando PySpark no Azure Machine Learning Workbench. O modelo final é implementado utilizando a gestão de modelo do Azure Machine Learning para fazer predições de falha de equipamento em tempo real.   
 

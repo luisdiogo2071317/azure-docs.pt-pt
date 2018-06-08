@@ -1,30 +1,32 @@
 ---
-title: "Soluções de específicos da indústria AI galeria do Azure | Microsoft Docs"
-description: "Detete soluções da indústria na Galeria de AI do Azure."
+title: Soluções de específicos da indústria AI galeria do Azure | Microsoft Docs
+description: Detete soluções da indústria na Galeria de AI do Azure.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: 0113742cd0b51470559f4e7b03edbfddf2d7e0de
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834571"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Detetar específicos da indústria soluções na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Soluções de Cortana Intelligence específicos da indústria
-O  **[indústrias](https://gallery.cortanaintelligence.com/industries)**  secção da galeria do reúne vários recursos que são específicos para essas indústrias como
+O **[indústrias](https://gallery.cortanaintelligence.com/industries)** secção da galeria do reúne vários recursos que são específicos para essas indústrias como
 
 * [Revenda](https://gallery.cortanaintelligence-int.com/industries/retail) -localizar soluções de revenda, como vendas previsão, prever o volume de alterações do cliente e desenvolver modelos de preços.
 * [Fabrico](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - localizar soluções como prevendo a manutenção de equipamento e prever preços de energia de fabrico.
@@ -46,7 +48,7 @@ Nesta página, pode procurar todos os recursos na galeria. Também pode pesquisa
 
  Clique em qualquer item de galeria para abrir a página de detalhes do item para obter mais informações.
 
-**[COLOCAR-ME PARA THE GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

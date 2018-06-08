@@ -8,21 +8,25 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 06/06/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9065d237057bf47d469b6f6fbf5b588c7e348232
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839362"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registo do Azure: eventos de Cofre de chaves do Azure de processo ao utilizar os Hubs de eventos
 
-Pode utilizar a integração de registo do Azure para obter eventos registados e disponibilizá-los ao sistema de gestão (SIEM) de segurança as informações e eventos. Este tutorial mostra um exemplo de como a integração de registo do Azure podem ser utilizada para processar registos que são adquiridos através do Event Hubs do Azure.
 
 >[!IMPORTANT]
->O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
+> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure.  Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+
+Pode utilizar a integração de registo do Azure para obter eventos registados e disponibilizá-los ao sistema de gestão (SIEM) de segurança as informações e eventos. Este tutorial mostra um exemplo de como a integração de registo do Azure podem ser utilizada para processar registos que são adquiridos através do Event Hubs do Azure.
+
+O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
 
  
 Utilize este tutorial para obter acquainted com como o registo a integração do Azure e do Event Hubs funcionam em conjunto, seguindo os passos de exemplo e compreender a forma como cada passo suporta a solução. Em seguida, pode tirar o que aprendeu aqui criar os seus próprios passos para suportar necessidades exclusivas da sua empresa.

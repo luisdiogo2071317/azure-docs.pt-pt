@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 8242f2bb16b52e8c319027788d5b937d7f79ad3d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665067"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852046"
 ---
-| Recurso | Limite Máximo |
-| --- | --- |
-| Número máx. de novas tarefas que podem ser submetidos a cada 30 segundos por conta de automatização (tarefas agendadas não) |100 |
-| Número máximo de tarefas em execução em simultâneo na mesma instância do tempo por conta de automatização (tarefas agendadas não) |200 |
-| Número máx. de módulos que podem ser importados a cada 30 segundos por conta de automatização |5 |
-| Tamanho máx. de um módulo |100 MB |
-| Tempo de execução de tarefa - escalão gratuito |500 minutos por subscrição por mês de calendário |
-| Quantidade máxima de memória especificada para uma tarefa  **<sup>1</sup>** |400 MB |
-| Número máx. de sockets rede permitido por tarefa  **<sup>1</sup>** |1000 |
-| Número máx. de contas de automatização numa subscrição |Sem Limite |
+| Recurso | Limite Máximo |Notas|
+| --- | --- |---|
+| Número máx. de novas tarefas que podem ser submetidos a cada 30 segundos por conta de automatização (tarefas agendadas não) |100 |Quando este limite-atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
+| Número máximo de tarefas em execução em simultâneo na mesma instância do tempo por conta de automatização (tarefas agendadas não) |200 |Quando este limite-atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
+| Número máx. de módulos que podem ser importados a cada 30 segundos por conta de automatização |5 ||
+| Tamanho máx. de um módulo |100 MB ||
+| Tempo de execução de tarefa - escalão gratuito |500 minutos por subscrição por mês de calendário ||
+| Quantidade máxima de espaço em disco permitido por sandbox**<sup>1</sup>** |1 GB |Aplica-se a apenas sandboxes do Azure|
+| Quantidade máxima de memória especificada para um sandbox**<sup>1</sup>** |400 MB |Aplica-se a apenas sandboxes do Azure|
+| Número máx. de sockets rede permitido por sandbox**<sup>1</sup>** |1000 |Aplica-se a apenas sandboxes do Azure|
+| Número máx. de contas de automatização numa subscrição |Sem Limite ||
+|Número máx. de em simultâneo no cancelamento das tarefas que ser executadas num único Runbook Worker híbrido|50 ||
 
-**<sup>1</sup>**  estes limites aplicam apenas aos sandboxes no Azure, para híbridos estas são só de estar limitadas pelas capacidades da máquina onde está localizado o worker híbrido.
+**<sup>1</sup>**  uma sandbox é um ambiente partilhado que pode ser utilizado por várias tarefas, as tarefas que utilizam a mesma sandbox estão vinculadas pelas limitações de recursos de sandbox.

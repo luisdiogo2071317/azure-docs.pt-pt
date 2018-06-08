@@ -5,23 +5,24 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833389"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário
 
-A automatização do Azure fornece soluções para gerir atualizações de segurança do sistema operativo, controlar as alterações e de inventário que está instalado nos seus computadores. Existem várias formas de carregar máquinas, pode carregar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), da sua conta de automatização ou por [runbook](automation-onboard-solutions.md). Este artigo abrange integração estas soluções da sua conta de automatização.
+A automatização do Azure fornece soluções para gerir atualizações de segurança do sistema operativo, controlar as alterações e de inventário que está instalado nos seus computadores. Existem várias formas de carregar máquinas, pode carregar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [da navegação várias máquinas](automation-onboard-solutions-from-browse.md), da sua conta de automatização ou por [runbook](automation-onboard-solutions.md). Este artigo abrange integração estas soluções da sua conta de automatização.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Azure https://portal.azure.com
+Inicie a sessão no Azure em https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Ativar soluções
 
@@ -68,29 +69,27 @@ Selecione a pesquisa guardada para ver a consulta utilizada para preencher o gru
 
 ![Pesquisas guardadas](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>Carregar um computador do Azure
+## <a name="onboard-azure-vms"></a>Carregar VMs do Azure
 
 Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
 
-Clique em **+ adicionar a VM do Azure**, selecione uma VM a partir da lista. No **gestão de atualizações** página, clique em **ativar**. Esta ação adiciona a VM atual para o grupo de computadores guardado pesquisa para a solução.
+Clique em **+ adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máquinas virtuais que não pode ser ativadas são greyed fora e não é possível que seja selecionada. No **ativar a gestão de atualização** página, clique em **ativar**. Esta ação adiciona as VMs selecionadas para o grupo de computadores guardado pesquisa para a solução.
+
+![Ativar as VMs do Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>Carregar uma máquina não Azure
 
-Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
+Computadores não no Azure tem de ser adicionados manualmente. Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
 
-Clique em **máquina não do Azure de adicionar**. Esta ação abre uma nova janela do browser com as instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador para a máquina pode começar a Reporting Services para a solução de cópia de segurança. Se estiver a integração numa máquina que atualmente gerido pelo System Center Operations Manager, um novo agente não é necessário, as informações de área de trabalho são introduzidas para o agente existente.
+Clique em **máquina não do Azure de adicionar**. Isto abre uma nova janela do browser com o [obter instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../log-analytics/log-analytics-concept-hybrid.md) para a máquina pode começar a solução de relatórios. Se estiver a integração numa máquina que atualmente gerido pelo System Center Operations Manager, um novo agente não é necessário, as informações de área de trabalho são introduzidas para o agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Carregar máquinas na área de trabalho
 
-Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
+Instalado manualmente máquinas ou computadores que relatam já a sua necessidade de área de trabalho para ser adicionado a automatização do Azure para a solução seja ativada. Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
 
 Selecione **gerir máquinas**. Isto abre-se a **gerir máquinas** página. Esta página permite-lhe ativar a solução num conjunto de máquinas, todas as máquinas disponíveis, selecione ou ativar a solução para todas as máquinas atuais e ativá-lo em todas as máquinas futuras.
 
 ![Pesquisas guardadas](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>Máquinas selecionadas
-
-Para ativar a solução para uma ou mais máquinas, selecione **ativar em máquinas selecionadas** e clique em **adicionar** junto a cada máquina que pretende adicionar à solução. Esta tarefa adiciona os nomes de computador selecionado para o grupo de computadores guardado consulta de pesquisa para a solução.
 
 ### <a name="all-available-machines"></a>Todas as máquinas disponíveis
 
@@ -99,6 +98,10 @@ Para ativar a solução para todas as máquinas disponíveis, selecione **ativar
 ### <a name="all-available-and-future-machines"></a>Todas as máquinas disponíveis e do futuras
 
 Para ativar a solução para todas as máquinas disponíveis e todas as máquinas de futuras, selecione **ativar em todas as máquinas disponíveis e do futuras**. Esta opção elimina as pesquisas guardadas e configurações de âmbito da área de trabalho. Esta ação abre a solução para todas as máquinas de não do Azure que estiverem a relatar a área de trabalho e do Azure.
+
+### <a name="selected-machines"></a>Máquinas selecionadas
+
+Para ativar a solução para uma ou mais máquinas, selecione **ativar em máquinas selecionadas** e clique em **adicionar** junto a cada máquina que pretende adicionar à solução. Esta tarefa adiciona os nomes de computador selecionado para o grupo de computadores guardado consulta de pesquisa para a solução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

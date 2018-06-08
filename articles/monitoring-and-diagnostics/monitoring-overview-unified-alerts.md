@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 06/07/2018
 ms.author: mamit,bwren
 ms.custom: ''
-ms.openlocfilehash: dac8052a96c98130891a9ea31994198e331e314d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 699dff42846ee1f9d42980feca55d8a79e2514e3
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726470"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839848"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Unificada alertas no Monitor do Azure
 
@@ -104,6 +104,8 @@ Alertas estão disponíveis no Azure vários serviços de monitorização. Para 
 | Application Insights | Testes de disponibilidade da Web | Não é suportada nos alertas unificadas.  Consulte [alertas de teste Web](../application-insights/app-insights-monitor-web-app-availability.md). Está disponível para qualquer Web site instrumentada para enviar dados para o Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um Web site é inferior a expetativas. |
 
 ## <a name="enhanced-unified-alerts-public-preview"></a>Alertas unificadas avançadas (pré-visualização pública)
+> [!NOTE]
+>  A funcionalidade nesta secção estará disponível brevemente. -Pode não aparecer na sua versão do portal ainda. 
 
 Uma experiência melhorada alertas unificada foi libertada em pré-visualização pública para o Monitor de Azure 1 de Junho de 2018. Esta experiência baseia-se as vantagens de [unified alertas](#overview) lançadas Março de 2018 e fornece a capacidade de gerir e agregar alertas individuais para além de modificar o estado de alerta. Esta secção descreve as novas funcionalidades e como navegar nas páginas novas alertas no portal do Azure.
 

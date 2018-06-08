@@ -11,14 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b53c2b717d41cc202b20805e6513cac0ce0c2758
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850047"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de versão 2 do Azure Active Directory para gestão de grupo
 > [!div class="op_single_selector"]
@@ -33,8 +34,9 @@ Este artigo contém exemplos de como utilizar o PowerShell para gerir os grupos 
 Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-Para verificar se o módulo foi instalado, utilize o seguinte comando:
+Para verificar se o módulo está pronto a utilizar, utilize o seguinte comando:
 
     PS C:\Windows\system32> get-module azuread
 
@@ -250,7 +252,7 @@ Se pretender remover um proprietário de um grupo, utilize o cmdlet Remove-Azure
 Quando é criado um grupo, determinado pontos finais de permitir que o utilizador final especificar uma mailNickname ou alias para ser utilizado como parte do endereço de e-mail do grupo. Só é possível criar grupos com os seguintes aliases de e-mail com privilégios elevados por um administrador global do Azure AD. 
   
 * abuso 
-* admin 
+* Admin 
 * Administrador 
 * hostmaster 
 * majordomo 

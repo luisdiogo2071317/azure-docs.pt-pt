@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714141"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850013"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
@@ -70,12 +70,16 @@ O objetivo de dispositivos do Azure AD associado é simplificar:
 
 - Implementações de Windows de dispositivos pertencentes à empresa trabalho 
 - Acesso para aplicações organizacionais e de recursos a partir de qualquer dispositivo de Windows
+- Baseado na nuvem de gestão de dispositivos pertencentes à empresa trabalho
 
 ![Dispositivos do Azure AD registado](./media/device-management-introduction/02.png)
 
+A associação do Azure AD pode ser implementada utilizando qualquer um dos seguintes métodos: 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implementação em massa](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Experiência self-service](device-management-azuread-joined-devices-frx.md) 
 
-Estes objetivos são conseguidos fornecendo os seus utilizadores com uma experiência self-service para inscrever os dispositivos pertencentes à empresa trabalho sob o controlo do Azure AD.  
-**A associação do Azure AD** foi concebida para organizações que pretendidos ao nível ser primeiro de nuvem ou apenas na nuvem. Não há nenhuma restrição para o tamanho ou o tipo de organizações que pode implementar a associação do Azure AD. Azure AD associação funciona bem mesmo num ambiente híbrido e pode ativar o acesso no local as aplicações e recursos.
+**A associação do Azure AD** destina-se para as organizações que pretendem ser nuvem-primeiro (ou seja, principalmente utilizar serviços em nuvem, com o objetivo de reduzir a utilização de uma infraestrutura no local) ou apenas na nuvem (nenhuma infraestrutura no local). Não existem sem restrições no tamanho ou tipo de organizações que pode implementar a associação do Azure AD. Azure funciona de associação AD bem mesmo num ambiente híbrido, ativar o acesso aos recursos e aplicações em nuvem e no local.
 
 Implementar dispositivos do Azure AD associado disponibiliza as seguintes vantagens:
 
@@ -89,10 +93,12 @@ Implementar dispositivos do Azure AD associado disponibiliza as seguintes vantag
 
 - **Restrição de acesso** para a apenas os dispositivos que cumprem a política de conformidade de aplicações.
 
-- **Acesso totalmente integrado aos recursos no local** quando o dispositivo tem de linha de visão para o controlador de domínio no local.
+- **Acesso totalmente integrado aos recursos no local** quando o dispositivo tem de linha de visão para o controlador de domínio no local. 
 
 
-Enquanto a associação do Azure AD destina-se principalmente nas organizações que não tenham uma infraestrutura do Windows Server Active Directory no local, pode certamente também utilizá-lo em cenários em que:
+Enquanto a associação do Azure AD destina-se principalmente nas organizações que não tenham uma infraestrutura do Windows Server Active Directory no local, pode certamente utilizá-lo em cenários em que:
+
+- Pretende efetuar a transição para a infraestrutura baseada na nuvem com o Azure AD e o MDM como o Intune.
 
 - Não é possível utilizar uma associação de domínio no local, por exemplo, se necessitar de dispositivos móveis, como telemóveis e tablets sob o controlo.
 
@@ -122,7 +128,7 @@ Se no local para o seu ambiente tem requisitos de espaço do AD e também queira
 
 Deverá utilizar o Azure AD híbrido associado dispositivos se:
 
-- Tiver aplicações de Win32 implementadas nesses dispositivos que utilizam o NTLM / Kerberos.
+- Tiver aplicações de Win32 implementadas nesses dispositivos que se baseiam na autenticação de computador do Active Directory.
 
 - Precisa de GP gerir dispositivos.
 

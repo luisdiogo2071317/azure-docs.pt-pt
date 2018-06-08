@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 57747e21cf4b5b32fc5b0ddeaf151a538337afba
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852080"
 ---
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
@@ -30,5 +31,5 @@ ms.lasthandoff: 05/20/2018
 
 <sup>1</sup>extra pequena contagem de instâncias como um núcleo para o limite de núcleos, apesar de utilizar um núcleo parcial.
 
-<sup>2</sup>o limite de conta de armazenamento inclui as contas do storage Standard e Premium. Se necessitar de mais de 200 contas do storage numa única região, efetue um pedido através de [suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa do Armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento. 
+<sup>2</sup>o limite de conta de armazenamento inclui as contas do storage Standard e Premium. Se necessitar de mais de 200 contas de armazenamento na uma determinada região, efetue um pedido através de [suporte do Azure](https://azure.microsoft.com/support/faq/). A equipa de armazenamento do Azure irá consultar o seu cenário de negócio e pode aprovar até 250 contas de armazenamento para uma determinada região. 
 

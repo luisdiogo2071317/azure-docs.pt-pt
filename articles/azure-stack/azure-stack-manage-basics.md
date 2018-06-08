@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850308"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração de pilha do Azure
 Existem várias coisas que precisa de saber se estiver familiarizado com a administração de pilha do Azure. Esta orientação fornece uma descrição geral da sua função como um operador de pilha do Azure e o que precisa dizer aos utilizadores para que estes fiquem produtivos rapidamente.
@@ -31,7 +32,7 @@ Se estiver a utilizar um sistema de pilha do Azure integrado, versões atualizad
  
 ### <a name="development-kit"></a>Kit de desenvolvimento
 
-Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, reveja o [Novidades pilha do Azure?](.\asdk\asdk-what-is.md) artigo para se certificar de que compreende o objetivo do kit de desenvolvimento e o respetivas limitações. Deve utilizar o kit de desenvolvimento como uma "sandbox," onde pode avaliar pilha do Azure e desenvolver e testar as suas aplicações num ambiente de não produção. (Para obter informações de implementação, consulte o [implementação Kit de desenvolvimento de pilha do Azure](.\asdk\asdk-deploy.md) tutorial.)
+Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, reveja o [Novidades pilha do Azure?](.\asdk\asdk-what-is.md) artigo para se certificar de que compreende o objetivo do kit de desenvolvimento e o respetivas limitações. Deve utilizar o kit de desenvolvimento como uma "sandbox," onde pode avaliar pilha do Azure e desenvolver e testar as suas aplicações num ambiente de não produção. (Para obter informações de implementação, consulte o [implementação Kit de desenvolvimento de pilha do Azure](.\asdk\asdk-install.md) artigo.)
 
 Como o Azure, podemos inovar rapidamente. Lançamos irá regularmente novas compilações. Se estiver a executar o kit de desenvolvimento e de que pretende mover para a compilação mais recente, tem de [Reimplementar a pilha de Azure](.\asdk\asdk-redeploy.md). Não é possível aplicar os pacotes de atualização. Este processo demora tempo, mas a vantagem é que pode experimentar funcionalidades mais recentes. A documentação do kit de desenvolvimento no nosso site reflete a compilação da versão mais recente.
 

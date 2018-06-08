@@ -8,16 +8,18 @@ ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
+ms.component: studio
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 5a3d2c976ca4deef093f2640e56634acf911f4c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e4cf34582e28e00108e280d928eea8a8134699a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834530"
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço de lote do Azure para as tarefas de Machine Learning
 
@@ -46,7 +48,7 @@ Para obter mais informações sobre a criação de serviços web, consulte [impl
 
 Assim que tiver criado um conjunto, submeter a tarefa de BES utilizando o URL de pedidos de Batch para o serviço web. Pode optar por submetê-las a um conjunto de ou para o processamento em lote clássico. Para submeter uma tarefa para processar o conjunto do Batch, adicione o seguinte parâmetro para o corpo de pedido de submissão da tarefa:
 
-"AzureBatchPoolId":"&lt;pool ID&gt;"
+"AzureBatchPoolId": "&lt;agrupamento ID&gt;"
 
 Se não adicionar o parâmetro, a tarefa é executada no ambiente de processo do batch clássico. Se o agrupamento tiver recursos disponíveis, a tarefa começa imediatamente a executar. Se o agrupamento de não ter recursos gratuitos, a tarefa é colocado em fila até está disponível um recurso.
 

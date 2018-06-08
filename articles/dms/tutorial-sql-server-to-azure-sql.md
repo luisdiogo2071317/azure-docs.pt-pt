@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/06/2018
-ms.openlocfilehash: 823f785bf33fd4d227fbdbb0f3c6b5eec914e08c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 06/08/2018
+ms.openlocfilehash: f64b2922818eddcab02f7d1c7b8f97671d92589e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808014"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850258"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-using-dms"></a>Migrar o servidor de SQL para a base de dados do SQL do Azure utilizando o DMS
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para [SQL Database do Azure](https://docs.microsoft.com/en-us/azure/sql-database/). Neste tutorial, migra a **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2016 (ou posterior) para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
@@ -217,7 +217,7 @@ Depois de criar o serviço, localizá-la no portal do Azure, abra-o e, em seguid
 
 4. Selecione **guardar**, no **selecionar tabelas** ecrã, expanda a tabela que lista e, em seguida, reveja a lista de campos afetados.
 
-    Tenha em atenção que o automático do serviço de migração de base de dados do Azure seleciona todas as tabelas de origem vazia que existem na instância de SQL Database do Azure de destino. Se pretender migrar novamente as tabelas que já incluem dados, terá de selecionar as tabelas neste painel explicitamente.
+    Tenha em atenção que o automático do serviço de migração de base de dados do Azure seleciona todas as tabelas de origem vazia que existem na instância de SQL Database do Azure de destino. Se pretender remigrate tabelas que já incluem dados, terá de selecionar as tabelas neste painel explicitamente.
 
     ![Selecionar tabelas](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity1.png)
 

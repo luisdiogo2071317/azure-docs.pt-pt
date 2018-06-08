@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: cba2255cc38c9d5b40628f30c5500f8078e31355
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 82819ab59d9bab6f256cd01a376f62ac8dac26b3
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837145"
 ---
 # <a name="customer-acceptance"></a>Aceitação do cliente
 
@@ -35,7 +37,7 @@ Eis uma representação visual do ciclo de vida TDSP:
 ![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Alvo
+## <a name="goal"></a>Objetivo
 **Finalizar a concentrarem projeto**: Confirme que o pipeline, o modelo e os respetivos implementação num ambiente de produção satisfazem objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
