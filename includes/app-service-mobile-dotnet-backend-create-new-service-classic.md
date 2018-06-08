@@ -18,4 +18,4 @@
    Aguarde alguns minutos para que a base de dados ser implementada com êxito antes de continuar.
 
 <!-- URLs. -->
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
