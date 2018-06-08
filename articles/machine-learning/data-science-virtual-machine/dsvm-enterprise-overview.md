@@ -8,17 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830542"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Máquina de Virtual de ciência de dados com base em equipa de análise e ambiente de AI 
 O [máquinas de virtuais de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na nuvem do Azure com o software previamente concebido para análise AI e os dados. Tradicionalmente foi utilizado o DSVM como ambiente de trabalho de análise individual e cientistas de dados individuais obterem produtividade com este partilhado noção do respetivo ambiente de análise pré-criadas. Como as equipas de análise de grande planear respetivos ambientes de análise para os cientistas de dados e programadores de AI, um de temas periódicos é uma infraestrutura de desenvolvimento e experimentação de análise partilhados que é gerida de acordo com a TI empresariais políticas que também facilita a colaboração e consistência em toda a ciência de dados completo / equipas de análise. Uma infraestrutura partilhada também permite que as TI melhor utilizar o ambiente de análise. A ciência de dados baseada em equipa / infraestrutura análise também é referida por algumas organizações como "Sandbox de análise" que permite as cientistas de dados rapidamente compreender dados, executar experimentações, validar hipótese, criar modelos preditivos de forma segura sem afetar o ambiente de produção ao ter acesso a vários recursos de dados. 

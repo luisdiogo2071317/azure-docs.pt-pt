@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: 667f385e4f157a5e1b9fcaf47b25619eafa8e9e3
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738249"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839574"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Partilhas de ficheiros do Azure podem ser montadas nas distribuições do Linux utilizando o [cliente de kernel do SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros do Azure: a pedido com o `mount` comando e de arranque através da criação de uma entrada no `/etc/fstab`.
@@ -134,7 +134,7 @@ ms.locfileid: "34738249"
 5. **Utilize o seguinte comando para acrescentar a linha seguinte ao `/etc/fstab`** : não se esqueça de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>`, e `<mount-point>` com as informações adequadas para o seu ambiente. Se a distribuição de Linux suportar SMB 3.0 com encriptação (consulte [requisitos do cliente SMB compreender](#smb-client-reqs) para obter mais informações), utilize `3.0` para `<smb-version>`. Para as distribuições do Linux que não suportem SMB 3.0 com encriptação, utilize `2.1` para `<smb-version>`. Tenha em atenção que uma partilha de ficheiros do Azure só pode ser montada fora de uma região do Azure (incluindo no local ou numa região diferente do Azure) com SMB 3.0. 
 
     ```bash
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-key>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

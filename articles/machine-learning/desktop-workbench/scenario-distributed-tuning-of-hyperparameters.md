@@ -4,17 +4,19 @@ description: Este cenário mostra como efetuar a otimização de distribuídas d
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 70baa1160e9f521ac5533eaa15d4a9ab57433a49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832752"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -107,7 +109,7 @@ Em duas secções seguintes, vamos mostram como concluir a configuração do doc
 
 com o IP endereço, nome de utilizador e palavra-passe no DSVM. Endereço IP do DSVM pode ser encontrado na secção Descrição geral da sua página DSVM no portal do Azure:
 
-![IP DA VM](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
+![IP da VM](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
 
 #### <a name="configuration-of-spark-cluster"></a>Configuração de cluster do Spark
 

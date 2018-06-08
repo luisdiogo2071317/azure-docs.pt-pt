@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849754"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN do Azure pilha
 
@@ -157,7 +158,10 @@ Ao contrário do Azure, o que suporta vários ofertas como um iniciador e um dis
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|
 |Encriptação e hash algoritmos (autenticação) | GCMAES256|
-|Duração de SA (Tempo)  | 27,000 segundos |
-|Duração de SA (Bytes) | 819,200       |
+|Duração de SA (Tempo)  | segundos 27,000<sup>ver nota 1</sup> |
+|Duração de SA (Bytes) | 33,553,408<sup>ver nota 2</sup>     |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Deteção de Elemento Inutilizado | Suportadas|  
+
+*Nota 1:* anteriores à versão 1803, pilha do Azure utiliza um valor de 14,400 para a duração de SA (hora). 
+*Nota 2:* anteriores à versão 1803, pilha do Azure utiliza um valor de 819,200 para a duração de SA (Bytes).

@@ -1,26 +1,27 @@
 ---
-title: "Uma introdução ao Azure pilha Development Kit (ASDK) | Microsoft Docs"
-description: "Descreve as novidades do ASDK e casos de utilização comuns para avaliar a pilha do Microsoft Azure."
+title: Uma introdução ao Azure pilha Development Kit (ASDK) | Microsoft Docs
+description: Descreve as novidades do ASDK e casos de utilização comuns para avaliar a pilha do Microsoft Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850632"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>O que é o Kit de desenvolvimento de pilha do Azure?
 [Microsoft Azure pilha integrado sistemas](.\.\azure-stack-poc.md) no intervalo de tamanho de nós de 4-12 e jointly são suportados por um parceiro de hardware e a Microsoft. Utilize sistemas de pilha do Azure integrado para ativar novos cenários para as cargas de trabalho de produção. Se tiver um operador de pilha do Azure que gere a infraestrutura de sistemas integrada e que oferece serviços, consulte a nossa [documentação de operador](https://docs.microsoft.com/azure/azure-stack).
@@ -79,4 +80,4 @@ Pilha do Azure irá continuar a adicionar suporte para serviços do Azure adicio
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para começar a avaliar a pilha do Azure, terá de preparar o anfitrião do kit de desenvolvimento de computador do servidor e, em seguida, [instalar o ASDK](asdk-deploy.md). Depois disso, pode inscrever-para os portais de administrador e utilizador para começar a utilizar a pilha do Azure.
+Para começar a avaliar a pilha do Azure, terá de preparar o anfitrião do kit de desenvolvimento de computador do servidor e, em seguida, [instalar o ASDK](asdk-install.md). Depois disso, pode inscrever-para os portais de administrador e utilizador para começar a utilizar a pilha do Azure.

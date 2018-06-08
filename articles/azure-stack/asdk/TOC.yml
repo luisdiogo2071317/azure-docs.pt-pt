@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Tutoriais
   items:
-    - name: 1. Implementar o ASDK
-      items:
-        - name: Implementar o ASDK - instalador
-          href: asdk-deploy.md
-        - name: Implementar o ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Volte a implementar o ASDK
-          href: asdk-redeploy.md
-    - name: 2. Adicionar um item do marketplace
-      items:
-        - name: Transferir a partir do Azure
-          href: asdk-marketplace-item.md
-        - name: Adicionar a partir de uma origem local
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Oferta IaaS serviços
-      href: asdk-offer-services.md
-    - name: 4. Subscrever uma oferta
+    - name: Subscrever uma oferta
       href: asdk-subscribe-services.md
-    - name: 5. Ofertas de atualização e planos
+    - name: Ofertas de atualização e planos
       href: asdk-update-offers.md
-    - name: 6. Criar uma VM a partir de um modelo
+    - name: Criar uma VM a partir de um modelo
       href: asdk-create-vm-template.md
 - name: Conceitos
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: Preparar o computador de anfitrião ASDK
           href: asdk-prepare-host.md
-        - name: Instalar o ASDK
+        - name: Implementar o ASDK - instalador
           href: asdk-install.md
+        - name: Implementar o ASDK - PowerShell
+          href: asdk-deploy-powershell.md
         - name: Configuração pós-implementação
           href: asdk-post-deploy.md
+        - name: Volte a implementar o ASDK
+          href: asdk-redeploy.md
     - name: Registar o ASDK
       href: asdk-register.md
     - name: Configurar definições de telemetria de pilha do Azure

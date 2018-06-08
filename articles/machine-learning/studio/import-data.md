@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ecc2262aee34cd3bcc70785915918414eab3ccd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837468"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os seus dados de preparação para o Azure Machine Learning Studio a partir de várias origens de dados
 Para utilizar os seus próprios dados no Machine Learning Studio para desenvolver e dar formação sobre uma solução de Análise Preditiva, pode: 
@@ -79,7 +81,7 @@ O seguinte **tipos de dados** são reconhecidos pelo Machine Learning Studio:
 
 * Cadeia
 * Número inteiro
-* Duplo
+* duplo
 * Booleano
 * DateTime
 * TimeSpan
