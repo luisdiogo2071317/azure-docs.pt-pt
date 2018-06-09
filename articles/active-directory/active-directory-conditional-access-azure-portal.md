@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfa3d70e2ce901a59476c5c0784d35999731ed6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724365"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248725"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -32,6 +32,7 @@ A segurança é uma preocupação superior para organizações com a nuvem. Um a
 ![Controlo](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Este artigo fornece uma descrição geral conceptual do acesso condicional no Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -60,7 +61,7 @@ Estas perguntas e as respostas relacionadas representam cenários comuns de aces
 
 ## <a name="conditional-access-policies"></a>Políticas de acesso condicional
 
-Uma política de acesso condicional é a definição de um cenário de acesso através do padrão de seguinte:
+Uma política de acesso condicional é uma definição de um cenário de acesso através do padrão de seguinte:
 
 ![Controlo](./media/active-directory-conditional-access-azure-portal/10.png)
 

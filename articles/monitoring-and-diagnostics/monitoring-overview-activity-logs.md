@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 060f91e4bdd1dd2690a3e1f148f7c5e5e13d13ef
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638991"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235669"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 
@@ -107,6 +107,9 @@ A **registo perfil** controla a forma como o registo de atividade é exportado. 
     - As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política são eliminadas. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento.
 
 Pode utilizar um armazenamento conta ou event hub espaço de nomes que não se encontra na mesma subscrição que aquele emitir os registos. O utilizador que configura a definição tem de ter o acesso adequado do RBAC para ambas as subscrições.
+
+> [!NOTE]
+>  Atualmente não pode arquivar dados para o armazenamento de um conta que atrás de uma rede virtual protegida.
 
 Estas definições podem ser configuradas através da opção "Export" no painel do registo de atividade no portal. Estes também podem ser configuradas através de programação [utilizando a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), cmdlets do PowerShell, ou a CLI. Uma subscrição só pode ter um perfil de registo.
 

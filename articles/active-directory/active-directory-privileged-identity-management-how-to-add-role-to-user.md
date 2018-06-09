@@ -9,15 +9,15 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 01/03/2018
 ms.author: rolyon
-ms.openlocfilehash: 809ee0593c1d7947c9f2faa7dfaff800866b1cee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 856fdc69bd5ce582ca772c01f8af615fbc455887
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698361"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233225"
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management do Azure AD: como adicionar ou remover uma função de utilizador
 Com o Azure Active Directory (AD), um administrador global (ou o administrador da empresa) pode atualizar que os utilizadores são **permanentemente** atribuídos a funções no Azure AD. Isto é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou, podem utilizar o portal do Azure conforme descrito em [atribuir funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).

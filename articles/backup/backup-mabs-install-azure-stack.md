@@ -14,24 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: c79ca93138961e294f03e283466dd66250472dae
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801743"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248899"
 ---
-# <a name="install-azure-backup-server-on-azure-stack"></a>Instalar o servidor de cópia de segurança do Azure na pilha do Azure
+# <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
-Este artigo explica como instalar o servidor de cópia de segurança do Azure na pilha do Azure. Com o servidor de cópia de segurança do Azure, pode proteger cargas de trabalho de aplicações em execução na pilha do Azure a partir de uma única consola.
+Este artigo explica como instalar o servidor de cópia de segurança do Azure na pilha do Azure. Com o servidor de cópia de segurança do Azure, pode proteger a infraestrutura como um cargas de trabalho do serviço (IaaS) como máquinas virtuais em execução na pilha do Azure. Uma vantagem de utilizar o servidor de cópia de segurança do Azure para proteger as cargas de trabalho é que pode gerir todos os proteção de carga de trabalho a partir de uma única consola.
 
 > [!NOTE]
 > Para saber mais sobre as capacidades de segurança, consulte [documentação de funcionalidades de segurança da cópia de segurança do Azure](backup-azure-security-feature.md).
 >
 
-Também pode proteger a infraestrutura como um cargas de trabalho do serviço (IaaS) como VMs no Azure.
+## <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
+Servidor de cópia de segurança do Azure protege as seguintes cargas de trabalho de máquina virtual de pilha do Azure.
 
-Para obter o servidor de cópia de segurança do Azure, cópias de segurança e em execução, o primeiro passo é configurar uma máquina virtual na pilha do Azure.
+| Origem de dados protegida | Proteção e recuperação |
+| --------------------- | ----------------------- |
+| Canal de anual do Windows Server Semiestruturados - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
+| Windows Server 2016 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
+| Windows Server 2012 R2 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
+| Windows Server 2012 – Datacenter/Entprise/Standard | Volumes, ficheiros, pastas |
+| Windows Server 2008 R2 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
+| SQL Server 2016 | Base de Dados |
+| SQL Server 2014 | Base de Dados |
+| SQL Server 2012 SP1 | Base de Dados |
+| SharePoint 2013 | Farm, base de dados, front-end, servidor web |
+| O SharePoint 2010 | Farm, base de dados, front-end, servidor web |
+
+
+### <a name="host-vs-guest-backup"></a>Vs convidado cópia de segurança do anfitrião
+
+Servidor de cópia de segurança do Azure efetua anfitrião ou ao nível do convidado cópias de segurança de máquinas virtuais. Ao nível do anfitrião, o agente do Backup do Azure está instalado na máquina virtual ou cluster e protege a toda a máquina virtual e ficheiros de dados em execução no anfitrião. Ao nível do convidado, o agente do Backup do Azure está instalado em cada máquina virtual e protege a carga de trabalho presente nessa máquina.
+
+Ambos os métodos de ter os respetivos os profissionais de TI e contras:
+
+   * Cópias de segurança ao nível do anfitrião de trabalho, independentemente do SO em execução em máquinas de convidados e não necessitam do agente do Backup do Azure ser instalado em cada VM. Se implementar cópias de segurança ao nível do anfitrião, recuperar uma máquina virtual inteira, ou ficheiros e pastas (recuperação ao nível do item).
+   * Cópia de segurança ao nível do convidado é vantajoso para proteger cargas de trabalho específicas em execução numa máquina virtual. Ao nível do anfitrião, pode recuperar toda a VM ou ficheiros específicos, mas não recuperar os dados no contexto de uma aplicação específica. Por exemplo, para recuperar ficheiros específicos de SharePoint a partir de uma máquina virtual protegida, terá de proteger a VM ao nível do convidado. Se pretender proteger os dados armazenados em discos pass-through, tem de utilizar cópias de segurança ao nível do convidado. Pass-through permite que a máquina virtual para aceder diretamente ao armazenamento e não armazena dados de volumes virtuais num ficheiro VHD.
+
+## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Pré-requisitos para o ambiente de servidor de cópia de segurança do Azure
+
+Quando instalar o servidor de cópia de segurança do Azure no seu ambiente de pilha do Azure, considere as recomendações nesta secção. O instalador do servidor de cópia de segurança do Azure verifica que o seu ambiente tem os pré-requisitos necessários, mas irá poupar tempo ao preparar antes de instalar.
+
+### <a name="determining-size-of-virtual-machine"></a>Determinar o tamanho da máquina virtual
+Para executar o servidor de cópia de segurança do Azure numa máquina virtual do Azure pilha, utilize tamanho A2 ou superior. Para obter ajuda na escolha de um tamanho de máquina virtual, transfira o [Calculadora do tamanho da VM do Azure pilha](https://www.microsoft.com/download/details.aspx?id=56832).
+
+### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Redes virtuais em máquinas virtuais de pilha do Azure
+Todas as máquinas virtuais utilizadas numa carga de trabalho de pilha do Azure têm de pertencer à mesma rede virtual do Azure e subscrição do Azure.
+
+### <a name="azure-backup-server-vm-performance"></a>Desempenho de VM do servidor de cópia de segurança do Azure
+Se partilhado com outras máquinas virtuais, o armazenamento e de contas tamanho impacto de limites IOPS desempenho de VM de servidor de cópia de segurança do Azure. Por este motivo, deve utilizar uma conta de armazenamento separada para a máquina virtual do servidor de cópia de segurança do Azure. O agente de cópia de segurança do Azure em execução no servidor de cópia de segurança do Azure necessita de armazenamento temporário para:
+- uso próprio (uma localização da cache),
+- dados restaurados a partir da nuvem (área de transição local)
+
+### <a name="configuring-azure-backup-temporary-disk-storage"></a>Configurar o armazenamento de disco temporário de cópia de segurança do Azure
+Cada máquina virtual de pilha do Azure é fornecido com o armazenamento em disco temporário, que está disponível para o utilizador como volume `D:\`. A área de transição local necessária para a cópia de segurança do Azure pode ser configurada para estar situada em `D:\`, e a localização da cache pode ser colocada em `C:\`. Desta forma, nenhum armazenamento tem de ser carved na direção oposta aos discos de dados ligados à máquina virtual do servidor de cópia de segurança do Azure.
+
+### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenar dados de cópia de segurança no disco local e no Azure
+Servidor do Backup do Azure armazena os dados de cópia de segurança nos discos Azure ligados à máquina virtual, para recuperação operacional. Assim que o espaço de armazenamento e discos estão anexados à máquina virtual, o servidor de cópia de segurança do Azure gere o armazenamento para si. A quantidade de armazenamento de dados de cópia de segurança depende do número e tamanho dos discos anexados a cada [máquina virtual de pilha do Azure](../azure-stack/user/azure-stack-storage-overview.md). Cada tamanho da VM de pilha do Azure tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é quatro discos. A3 é oito discos. A4 é 16 discos. Novamente, o tamanho e número de discos determina o agrupamento de armazenamento de cópia de segurança total.
+
+> [!IMPORTANT]
+> Deve **não** manter os dados de recuperação operacional (cópia de segurança) nos discos ligados por servidor de cópia de segurança do Azure mais de cinco dias.
+>
+
+Armazenar dados de cópia de segurança no Azure reduz a infraestrutura de cópia de segurança na pilha do Azure. Se os dados são mais de cinco dias, devem ser armazenado no Azure.
+
+Para armazenar dados de cópia de segurança no Azure, criar ou utilizar um cofre dos serviços de recuperação. Quando preparar a cópia de segurança a carga de trabalho do servidor de cópia de segurança do Azure, [configurar o Cofre dos serviços de recuperação](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Depois de configurar, sempre que é executada uma tarefa de cópia de segurança, é criado um ponto de recuperação no cofre. Cada cofre dos serviços de recuperação contém até 9999 pontos de recuperação. Dependendo do número de pontos de recuperação criados e quanto são mantidos, pode manter os dados de cópia de segurança para muitos anos. Por exemplo, pode criar pontos de recuperação mensal e manter os mesmos cinco anos.
+ 
+### <a name="using-sql-server"></a>Utilizar o SQL Server
+Se pretender utilizar um SQL Server remoto para a base de dados do servidor de cópia de segurança do Azure, selecione apenas uma VM de pilha do Azure com o SQL Server.
+
+### <a name="scaling-deployment"></a>Implementação de dimensionamento
+Se pretender dimensionar a sua implantação, tem as seguintes opções:
+  - Aumentar verticalmente - aumentar o tamanho da máquina virtual do servidor de cópia de segurança do Azure, de uma série a série de D e aumentar o armazenamento local [pelas instruções de máquina virtual do Azure pilha](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Descarregar dados - envia os dados antigos para servidor de cópia de segurança do Azure e mantém apenas os dados mais recentes no armazenamento ligado ao servidor de cópia de segurança do Azure.
+  - Ampliar - adicionar mais servidores de cópia de segurança do Azure para proteger as cargas de trabalho.
+
+### <a name="net-framework"></a>.NET framework
+
+.NET framework 3.5 SP1 ou superior tem de estar instalado na máquina virtual.
+
+### <a name="joining-a-domain"></a>Associação a um domínio
+
+A máquina virtual do servidor de cópia de segurança do Azure tem de ser associada a um domínio. Um utilizador de domínio com privilégios de administrador tem de instalar servidor de cópia de segurança do Azure na máquina virtual.
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Utilizar uma VM do IaaS na pilha do Azure
 
@@ -63,7 +131,7 @@ Para editar a definição de replicação de armazenamento:
 
 ## <a name="download-azure-backup-server-installer"></a>Transferir o instalador do servidor de cópia de segurança do Azure
 
-Depois de criar um cofre dos serviços de recuperação, utilize o menu de introdução no cofre dos serviços de recuperação para transferir o instalador do servidor de cópia de segurança do Azure para a máquina virtual de pilha do Azure. Os seguintes passos ocorrer na sua subscrição do Azure.
+Existem duas formas para transferir o instalador do servidor de cópia de segurança do Azure. Pode transferir o instalador do servidor de cópia de segurança do Azure do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55269). Também pode transferir o instalador do servidor de cópia de segurança do Azure como a configuração de um cofre dos serviços de recuperação. Os seguintes passos guiá-lo a transferir o instalador do portal do Azure ao configurar um cofre dos serviços de recuperação.
 
 1. A sua máquina virtual de pilha do Azure, [iniciar sessão na sua subscrição do Azure no portal do Azure](https://portal.azure.com/).
 2. No menu da esquerda, selecione **todos os serviços**.
@@ -108,11 +176,11 @@ Depois de criar um cofre dos serviços de recuperação, utilize o menu de intro
 
     ![1 do Centro de transferências](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    Uma vez que o tamanho de transferência dos ficheiros > 3G, 10-Mbps transferi-ligação pode demorar até 60 minutos para a transferência concluir. Irão transferir os ficheiros para a localização de transferência especificada.
+    O tamanho de transferência de todos os ficheiros de instalação é superior a 3 GB. Durante a uma transferência de 10 Mbps ligação, transferir todos os ficheiros de instalação pode demorar até 60 minutos. Transfiram os ficheiros para a localização de transferência especificada.
 
 ## <a name="extract-azure-backup-server-install-files"></a>Extraia os ficheiros de instalação do servidor de cópia de segurança do Azure
 
-Depois de transferir todos os ficheiros para a máquina virtual, vá para a localização de transferência.
+Depois de transferir todos os ficheiros para a máquina virtual de pilha do Azure, aceda à localização de transferência. É a primeira fase de instalação do servidor de cópia de segurança do Azure para extrair os ficheiros.
 
 ![1 do Centro de transferências](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
@@ -122,23 +190,23 @@ Depois de transferir todos os ficheiros para a máquina virtual, vá para a loca
     > É necessário, pelo menos, 4GB de espaço livre para extrair os ficheiros de configuração.
     >
 
-2. No instalador do servidor de cópia de segurança do Azure, clique em **seguinte** para iniciar o assistente.
+2. No Assistente do servidor de cópia de segurança do Azure, clique em **seguinte** para continuar.
 
     ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wiz-1.png)
 
-3. Selecione onde instalar o servidor de cópia de segurança do Azure e clique em **seguinte**.
+3. Escolha o caminho para os ficheiros do servidor de cópia de segurança do Azure e clique em **seguinte**.
 
    ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-select-destination-1.png)
 
-4. Verifique a localização de instalação e clique em **extrair**.
+4. Verifique a localização de extração e clique em **extrair**.
 
    ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-extract-2.png)
 
-5. O instalador extrai os ficheiros e readies o processo de instalação.
+5. O assistente extrai os ficheiros e readies o processo de instalação.
 
    ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. Depois de ter concluído o processo de extração, clique em **concluir** iniciar *setup.exe*. Setup.exe instala o servidor de cópia de segurança do Microsoft Azure.
+6. Depois de ter concluído o processo de extração, clique em **concluir**. Por predefinição, **executar setup.exe** está selecionada. Ao clicar em **concluir**, Setup.exe instala o servidor de cópia de segurança do Microsoft Azure para a localização especificada.
 
    ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 
@@ -148,25 +216,29 @@ No passo anterior, em que clicou **concluir** para a fase de extração de sair 
 
 ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Servidor de cópia de segurança do Azure partilha código com o Data Protection Manager. Verá referências a Data Protection Manager e o DPM no instalador do servidor de cópia de segurança do Azure. Apesar do servidor de cópia de segurança do Azure e do Data Protection Manager são separados produtos, as referências, ou ferramentas com o Data Protection Manager ou do DPM, aplicam-se ao servidor de cópia de segurança do Azure.
+Servidor de cópia de segurança do Azure partilha código com o Data Protection Manager. Verá referências a Data Protection Manager e o DPM no instalador do servidor de cópia de segurança do Azure. Apesar do servidor de cópia de segurança do Azure e do Data Protection Manager são separados produtos, estes produtos estão estreitamente relacionadas com. Na documentação do servidor de cópia de segurança do Azure, todas as referências ao Data Protection Manager e o DPM se aplicam ao servidor de cópia de segurança do Azure.
 
-1. Para iniciar o Assistente de configuração, clique em **cópia de segurança do Microsoft Azure**.
+1. Para iniciar o Assistente de configuração, clique em **servidor de cópia de segurança do Microsoft Azure**.
 
    ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
 
-2. No ecrã de boas-vindas, clique em **seguinte**.
+2. No **boas-vindas** ecrã, clique em **seguinte**.
 
     ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
 
-3. No *verificações de pré-requisitos* ecrã, clique em **verifique** para determinar se tiverem sido cumpridos os pré-requisitos de hardware e software para o servidor de cópia de segurança do Azure.
+3. No **verificações de pré-requisitos** ecrã, clique em **verifique** para determinar se tiverem sido cumpridos os pré-requisitos de hardware e software para o servidor de cópia de segurança do Azure.
 
     ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Se o seu ambiente tem os pré-requisitos necessários, verá uma mensagem a indicar que o computador cumpre os requisitos. Clique em **Seguinte**.
+    Se o seu ambiente tem os pré-requisitos necessários, verá uma mensagem a indicar que o computador cumpre os requisitos. Clique em **Seguinte**.  
 
     ![Servidor de cópia de segurança do Azure - passada na verificação de pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
-4. Servidor de cópia de segurança do Microsoft Azure necessita do SQL Server. O pacote de instalação do servidor de cópia de segurança do Azure inclui os binários do SQL Server adequados necessários se não pretender utilizar o seu próprio SQL agrupado. A opção recomendada é permitir que o instalador adicionar uma nova instância do SQL Server. Para garantir a utilização de ambiente do SQL Server, clique em **verificar e instalar**.
+    Se o ambiente não cumprir os pré-requisitos necessários, os problemas serão especificados. Os pré-requisitos não foram cumpridos também constam de DpmSetup.log. Resolva os erros de pré-requisitos e, em seguida, execute **verifique novamente**. Não é possível continuar a instalação até que todos os pré-requisitos são cumpridos.
+
+    ![Servidor de cópia de segurança do Azure - os pré-requisitos da instalação não foram cumpridos](./media/backup-mabs-install-azure-stack/installation-errors.png)
+
+4. Servidor de cópia de segurança do Microsoft Azure necessita do SQL Server. O pacote de instalação do servidor de cópia de segurança do Azure vem agrupado com os binários adequados do SQL Server. Se pretender utilizar a seus próprios instalação do SQL Server, pode. No entanto, a opção recomendada é permitir que o instalador adicionar uma nova instância do SQL Server. Certifique-se à sua escolha funciona com o seu ambiente, clique em **verificar e instalar**.
 
    > [!NOTE]
    > Servidor de cópia de segurança do Azure não irá funcionar com uma instância remota do SQL Server. A instância utilizada pelo servidor de cópia de segurança do Azure tem de ser local.
@@ -174,11 +246,11 @@ Servidor de cópia de segurança do Azure partilha código com o Data Protection
 
     ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
 
-    Após verificar, se o computador tem os pré-requisitos necessários para instalar o servidor de cópia de segurança do Azure, clique em **seguinte**.
+    Após verificar, se a máquina virtual tem os pré-requisitos necessários para instalar o servidor de cópia de segurança do Azure, clique em **seguinte**.
 
     ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-ready-10.png)
 
-    Se ocorrer uma falha com uma recomendação para reiniciar a máquina, fazê-lo, reinicie o programa de instalação, neste ecrã, clique em **verifique novamente**.
+    Se ocorrer uma falha com uma recomendação para reiniciar a máquina, em seguida, reinicie a máquina. Depois de reiniciar o computador, reinicie o programa de instalação, e quando chegar ao **as definições de SQL** ecrã, clique em **verifique novamente**.
 
 5. No **definições de instalação**, forneça uma localização para a instalação de ficheiros do servidor de cópia de segurança do Microsoft Azure e clique em **seguinte**.
 
@@ -248,12 +320,12 @@ Servidor de cópia de segurança do Azure partilha código com o Data Protection
 
     Quando concluir a instalação, a consola do servidor de cópia de segurança do Azure e os ícones do PowerShell do servidor de cópia de segurança do Azure são criados no ambiente de trabalho do servidor.
 
-### <a name="add-backup-storage"></a>Adicionar armazenamento de cópia de segurança
+## <a name="add-backup-storage"></a>Adicionar armazenamento de cópia de segurança
 
 A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre a adição de discos, consulte [configurar agrupamentos de armazenamento e armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
 
 > [!NOTE]
-> Terá de adicionar o armazenamento de cópia de segurança mesmo que se pretende enviar dados para o Azure. A arquitetura atual do servidor de cópia de segurança do Azure, o Cofre de cópia de segurança do Azure mantém o *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança primeiro (e obrigatória).
+> Terá de adicionar o armazenamento de cópia de segurança mesmo que se pretende enviar dados para o Azure. A arquitetura de servidor de cópia de segurança do Azure, os serviços de recuperação cofre detém o *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança primeiro (e obrigatória).
 >
 >
 

@@ -13,17 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b9528aba0be8fd46087d97bc294552db608f1c1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2ae16d76dce01488403e9f13684e719f92eb80c5
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235836"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Criar e instalar VPN configurações ponto a Site da autenticação de certificados de ficheiros de configuração de cliente para o Azure nativo
 
 Ficheiros de configuração de cliente VPN estão contidos num ficheiro zip. Ficheiros de configuração fornecem as definições necessárias para um cliente Windows, VPN IKEv2 de Mac ou Linux nativo ligar a uma VNet através de ligações de ponto a Site que utilizem a autenticação do certificado Azure nativo.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 ### <a name="workflow"></a>Fluxo de trabalho P2S
 
@@ -166,7 +171,7 @@ As instruções seguintes foram criadas através de strongSwan 5.5.1 no Ubuntu 1
   ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Clique em de **Gestor de rede** ícone (cópia de segurança-seta/seta para baixo) e paire sobre **ligações VPN**. Consulte a ligação de VPN que criou. Clique para iniciar a ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Devolver o artigo para [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

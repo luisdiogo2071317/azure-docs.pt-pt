@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: f7e456c76dcf67a40777e32b100b900b859e210e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736801"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236404"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -30,14 +30,14 @@ ms.locfileid: "34736801"
     - Registos de fluxo NSG ativados para os NSGs que pretende monitorizar
     - Uma conta de armazenamento do Azure, para armazenar em bruto flog registos
     - Uma área de trabalho de análise de registos (OMS), com acesso de escrita e leitura
-    - Tem de ser atribuída à conta com uma das seguintes permissões ao nível da subscrição:
+    - Tem de ser atribuída utilizador com uma das seguintes funções ao nível da subscrição:
     
             All permissions *
             All Read permissions */read
             All network permissions Microsoft.Network/*
             All network read permissions Microsoft.Network/*/read
 
-    Em alternativa, tem de ser atribuída à conta com seguintes todas as ações ao nível da subscrição: 
+    Em alternativa, devem ser atribuídos a utilizadores com todas as funções ao nível da subscrição os seguintes: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -49,6 +49,19 @@ ms.locfileid: "34736801"
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Para verificar funções atribuídas a um utilizador para uma subscrição, siga os passos abaixo:
+
+Iniciar sessão no Azure utilizando Login-AzureRmAccount 
+
+Selecione a subscrição necessária utilizando Select-AzureRmSubscription 
+
+Agora para listar todas as funções que estão atribuídas a um utilizador especificado, utilize Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+
+Se não vir quaisquer dados depois de executar commends, em seguida, volte entrar ao respetivo administrador de subscrição, para obter acesso para executar os comandos.  
+
+Para mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Em que regiões do Azure estão disponíveis na análise de tráfego?
 
@@ -114,11 +127,11 @@ ms.locfileid: "34736801"
 
 14. Pode configurar a análise de tráfego utilizando o PowerShell ou um modelo Azure Resource Manager?
 
-    Não, análise de tráfego só pode ser configurada através do portal do Azure.
+Sim, a configuração de análise de tráfego utilizando o windows powershell é suportado a partir da versão 6.2.1 em diante, no entanto não está disponível no suporte de modelo do Azure Resource Manager está presente. Para obter mais informações, como o PowerShell pode ser utilizado para configurar o tráfego de análise Consulte seguintes [documentação](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Como a análise de tráfego tem um preço?
 
-        Análise de tráfego é limitado otimização registos reduzidos e armazenar os registos avançados na área de trabalho de análise de registos. Enquanto na pré-visualização, análise de tráfego não é faturada otimização registos reduzidos, no entanto, retenção de dados numa área de trabalho está sujeito a faturação às taxas de publicada. Esta resposta será atualizada depois de preços para análise de tráfego estão disponível.
+Análise de tráfego é limitado para dados de registo de fluxo, processados pelo serviço e armazenar os registos de avançada resultou numa área de trabalho de análise de registos. Para saber mais sobre os preços plano volte [clique aqui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Como navegar através de teclado na vista de mapa Georreplicação?
 

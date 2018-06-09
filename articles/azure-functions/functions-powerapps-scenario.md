@@ -1,26 +1,28 @@
 ---
-title: "Chamar uma função a partir do PowerApps | Microsoft Docs"
-description: "Criar um conetor personalizado e chamar uma função utilizando esse conector."
+title: Chamar uma função a partir do PowerApps | Microsoft Docs
+description: Criar um conetor personalizado e chamar uma função utilizando esse conector.
 services: functions
-keywords: "aplicações em nuvem, na nuvem processos de negócio de serviços, PowerApps, aplicação empresarial"
-documentationcenter: 
-author: mgblythe
+keywords: aplicações em nuvem, na nuvem processos de negócio de serviços, PowerApps, aplicação empresarial
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234959"
 ---
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função a partir do PowerApps
 O [PowerApps](https://powerapps.microsoft.com) plataforma foi concebida para os especialistas em negócio criar aplicações sem o código de aplicação tradicionais. Programadores profissionais podem utilizar as funções do Azure para aumentar as capacidades do PowerApps, enquanto efetua a blindagem PowerApps construtores de aplicação dos detalhes técnicos.
@@ -63,7 +65,7 @@ A API personalizada (também conhecido como um conetor personalizado) está disp
 
 1. Introduza a chave de API e clique em **criar**.
 
-    ![Criar a ligação](media/functions-powerapps-scenario/create-connection.png)
+    ![Criar ligação](media/functions-powerapps-scenario/create-connection.png)
 
 > [!NOTE]
 > Se partilhar a aplicação com outras pessoas, cada pessoa que funciona na ou utiliza a aplicação também tem de introduzir a chave de API para ligar à API. Este comportamento pode ser alterado no futuro e, neste tópico para refletir que iremos atualizar.
@@ -71,7 +73,7 @@ A API personalizada (também conhecido como um conetor personalizado) está disp
 ## <a name="create-an-app-and-add-data-sources"></a>Criar uma aplicação e adicione as origens de dados
 Agora está pronto para criar a aplicação no PowerApps e adicionar os dados do Excel e a API personalizada como origens de dados para a aplicação.
 
-1. No [web.powerapps.com](https://web.powerapps.com), escolha **início de em branco** > ![ícone da aplicação de telefone](media/functions-powerapps-scenario/icon-phone-app.png) (telemóvel) > **tornar esta aplicação**.
+1. Em [web.powerapps.com](https://web.powerapps.com), escolha **Começar com aplicação em branco** > ![Phone app icon](media/functions-powerapps-scenario/icon-phone-app.png) (telemóvel) > **Tornar esta aplicação**.
 
     ![Inicie a partir em branco - a aplicação de telefone](media/functions-powerapps-scenario/create-phone-app.png)
 
@@ -97,7 +99,7 @@ Agora está pronto para criar a aplicação no PowerApps e adicionar os dados do
 
     ![Para importar dados do Excel](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Na tela aplicação, escolha **ligar aos dados**.
+    1. Na tela da aplicação, escolha **ligar aos dados**.
 
     1. No **dados** painel, clique em **adicionar dados estáticos para a sua aplicação**.
 
@@ -137,7 +139,7 @@ Agora que as origens de dados estão disponíveis na aplicação, adicionar um e
 
 1. No **dados** painel, selecione **Turbines** da lista.
 
-    ![Selecione a origem de dados](media/functions-powerapps-scenario/select-data-source.png)
+    ![Selecionar origem de dados](media/functions-powerapps-scenario/select-data-source.png)
 
     O conjunto de dados não contém uma imagem, por isso, em seguida, alterar o esquema para caber melhor os dados. 
 

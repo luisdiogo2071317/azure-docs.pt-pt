@@ -1,24 +1,25 @@
 ---
 title: Manutenção preditiva no aeroespacial com o Azure - guia técnico do Cortana Intelligence solução | Microsoft Docs
 description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preventiva aeroespacial, utilitários e transportes.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248389"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preventiva aeroespacial e outras empresas
 
@@ -57,7 +58,7 @@ Para localizar as instruções para transferir e instalar esta aplicação, sele
 
 A aplicação de geração de eventos preenche o Hub de eventos do Azure apenas enquanto está a executar no seu computador.
 
-### <a name="azure-event-hub"></a>Hub de eventos do Azure
+### <a name="azure-event-hub"></a>Hub de Eventos do Azure
 O [Hub de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) serviço é o destinatário da entrada fornecida pela origem de dados sintético.
 
 ## <a name="data-preparation-and-analysis"></a>Preparação de dados e análise
@@ -85,7 +86,7 @@ Não é provável que o conjunto de dados corresponde ao conjunto de dados utili
 
 As secções seguintes abordam as partes do modelo que requerem modificações quando é apresentado um novo conjunto de dados.
 
-### <a name="azure-event-hub"></a>Hub de eventos do Azure
+### <a name="azure-event-hub"></a>Hub de Eventos do Azure
 Hub de eventos do Azure é genérico; dados podem ser publicados para o hub no formato CSV ou JSON. Nenhum processamento especial ocorre no Hub de eventos do Azure, mas é importante que compreenda os dados que sejam fornecidos para a mesma.
 
 Este documento descreve como para a ingestão de dados, mas pode facilmente enviar eventos ou dados para um Hub de eventos do Azure com as APIs de Hub de eventos.

@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d1d912b61993b74f0524b4fc4d0beadae0b018fe
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 150f994aedfc8d2847a0741792c32114e1b520fe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698252"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233551"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Conceder acesso para gerir o Azure AD Privileged Identity Management
 Administrador global que permite o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter as atribuições de funções e acesso a PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura para o Azure AD PIM. Para conceder acesso a PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função. Esta atribuição tem de ser efetuada a partir da PIM em si e não pode ser alterada através do PowerShell ou outros portais.

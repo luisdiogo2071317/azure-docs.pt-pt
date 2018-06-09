@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6d0109b9043b48fbbbeeaccea6c798eaa547a056
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839883"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233942"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -63,7 +63,7 @@ Quando a integração várias máquinas, poderão existir máquinas que mostram 
 
 **Causa**: Este erro mostra que a VM que está a tentar carregar relatórios para outra área de trabalho.
 
-**Solução**: Altere a área de trabalho de destino clicando na ligação inline ou clique em **alterar**. Também pode utilizar os scripts seguintes para alterar a área de trabalho ao pretendido para cada máquina.
+**Solução**: clique em **utilização como configuração** para alterar a área de trabalho alvo de conta de automatização e análise de registos.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para uma área de trabalho que não está disponível nesta subscrição
 

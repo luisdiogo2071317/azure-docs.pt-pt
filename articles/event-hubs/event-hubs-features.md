@@ -1,28 +1,27 @@
 ---
-title: "Descrição geral de funcionalidades de Event Hubs do Azure | Microsoft Docs"
-description: "Descrição geral e detalhes sobre as funcionalidades de Event Hubs do Azure"
+title: Descrição geral de funcionalidades de Event Hubs do Azure | Microsoft Docs
+description: Descrição geral e detalhes sobre as funcionalidades de Event Hubs do Azure
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 06/08/2018
 ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248746"
 ---
 # <a name="event-hubs-features-overview"></a>Descrição geral dos Event Hubs funcionalidades
 
-Os Hubs de eventos do Azure é um evento dimensionável serviço que ingere e processa grandes volumes de eventos e os dados, com baixa latência e alta fiabilidade de processamento. Consulte [novidades dos Event Hubs?](event-hubs-what-is-event-hubs.md) para uma descrição geral de alto nível do serviço.
+Os Hubs de eventos do Azure é um evento dimensionável serviço que ingere e processa grandes volumes de eventos e os dados, com baixa latência e alta fiabilidade de processamento. Consulte [novidades dos Event Hubs?](event-hubs-what-is-event-hubs.md) para uma descrição geral de alto nível.
 
 Este artigo baseia-se as informações de [artigo de descrição geral](event-hubs-what-is-event-hubs.md)e fornece detalhes técnicos e implementação sobre as funcionalidades e componentes de Event Hubs.
 
@@ -44,7 +43,7 @@ Os Hubs de Eventos garantem que todos os eventos que partilham o valor de chave 
 
 Os Event Hubs permitem um controlo granular sobre os publicadores de eventos através de *políticas do publicador*. As políticas do publicador são funcionalidades de tempo de execução concebidas para facilitar um elevado número de publicadores de eventos independentes. Com as políticas do publicador, cada publicador utiliza o seu próprio identificador exclusivo quando publica eventos num hub de eventos, utilizando o mecanismo seguinte:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -123,7 +122,7 @@ Todos os consumidores de Event Hubs ligam através de uma sessão AMQP 1.0, um c
 
 #### <a name="connect-to-a-partition"></a>Ligar a uma partição
 
-Quando ligar a partições, é prática comum utilizar um mecanismo de locação para coordenar as ligações do leitor com partições específicas. Desta forma, é possível para cada partição num grupo de consumidores ter apenas um leitor ativo. O ponto de verificação, a locação e a gestão de leitores são simplificados através da classe [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) para clientes .NET. O Anfitrião do Processador de Eventos é um agente de consumidor inteligente.
+Quando ligar a partições, é prática comum utilizar um mecanismo de locação para coordenar as ligações do leitor com partições específicas. Desta forma, é possível para cada partição num grupo de consumidores ter apenas um leitor ativo. O ponto de verificação, a locação e a gestão de leitores são simplificados através da classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) para clientes .NET. O Anfitrião do Processador de Eventos é um agente de consumidor inteligente.
 
 #### <a name="read-events"></a>Ler eventos
 
@@ -149,11 +148,11 @@ A capacidade de débito do Event Hubs é controlada por *unidades de débito*. A
 * Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro)
 * Saída: até 2 MB por segundo
 
-Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir unidades de débito no **escala** painel dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de débito através de programação utilizando o [APIs de Hubs de eventos](event-hubs-api-overview.md).
+Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir unidades de débito no **escala** painel dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de débito através de programação utilizando o [APIs de Hubs de eventos](event-hubs-api-overview.md).
 
-As unidades de débito são faturadas por hora e são previamente adquiridas. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. É possível adquirir até 20 unidades de débito para um espaço de nomes dos Hubs de Eventos e partilhá-las entre todos os Hubs de Eventos no espaço de nomes.
+Unidades de débito são previamente adquiridas e são faturadas por hora. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. Débito até 20 unidades podem ser adquiridas para um espaço de nomes de Event Hubs e são partilhadas entre todos os event hubs, esse espaço de nomes.
 
-É possível adquirir mais unidades de débito em blocos de 20, até 100 unidades de débito, ao contactar o suporte do Azure. Para além disso, também pode comprar blocos de 100 unidades de débito.
+É possível adquirir mais unidades de débito em blocos de 20, até 100 unidades de débito, ao contactar o suporte do Azure. Para além disso, pode comprar blocos de 100 unidades de débito.
 
 Recomendamos que equilibrar as unidades de débito e partições para alcançar a escala ideal. Uma única partição tem um dimensionamento máximo de uma unidade de débito. O número de unidades de débito deve ser inferior ou igual ao número de partições num hub de eventos.
 

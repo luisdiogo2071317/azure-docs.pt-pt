@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809799"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236125"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Cópia de segurança periódica e de restauro no Service Fabric do Azure (pré-visualização)
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Vamos guiá-lo pelos passos para ativar a cópia de segurança periódica para s
 
 Primeiro passo consiste em criar política de cópia de segurança que descreve a agenda de cópia de segurança, armazenamento de destino para dados de cópia de segurança, nome da política e cópias de segurança incrementais máximas permitida antes de acionar a cópia de segurança completa. 
 
-Para armazenamento de cópia de segurança, utilize o armazenamento de Azure conta criada acima. Este exemplo assume que a conta de armazenamento do Azure com o nome `sfbackupstore`. Contentor `backup-container` está configurado para armazenar as cópias de segurança, contentor com este nome é criado, se ainda não existir, durante o carregamento de cópia de segurança. Preencher `ConnectionString` com a cadeia de ligação válida para a conta de armazenamento do Azure.
+Para armazenamento de cópia de segurança, utilize o armazenamento de Azure conta criada acima. Contentor `backup-container` está configurado para armazenar cópias de segurança. Um contentor com este nome é criado, se já existir, durante o carregamento de cópia de segurança. Preencher `ConnectionString` com uma cadeia de ligação válida para a conta de armazenamento do Azure, substituindo `account-name` com o nome de conta de armazenamento, e `account-key` com a sua chave de conta de armazenamento.
 
 Execute o seguinte script do PowerShell para invocar a API de REST necessários para criar nova política. Substitua `account-name` com o nome de conta de armazenamento, e `account-key` com a sua chave de conta de armazenamento.
 

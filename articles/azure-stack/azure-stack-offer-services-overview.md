@@ -1,25 +1,26 @@
 ---
-title: "Oferta de serviços na pilha do Azure | Microsoft Docs"
-description: "Como um operador da nuvem, pode oferecer serviços aos seus utilizadores."
+title: Oferta de serviços na pilha do Azure | Microsoft Docs
+description: Como um operador da nuvem, pode oferecer serviços aos seus utilizadores.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/07/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 042e65cfe350cb61124ed8920ae3616502e6553d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248848"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Descrição geral da oferta de serviços na pilha do Azure
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/08/2018
 
 [Microsoft Azure pilha](azure-stack-poc.md) é uma plataforma de nuvem híbrida que lhe permite fornecer serviços a partir do seu centro de dados. Como fornecedor de serviço, pode oferecer serviços aos seus inquilinos. Dentro de uma empresa ou agência government, pode oferecer serviços no local para os seus empregados. Os serviços que possa fornecer incluem, mas não estão limitados a:
 
-- Plataforma como dos serviços de serviço (PaaS), como os serviços de aplicações, as API Apps, funções de API, SQL Server, MySQL.
+- Plataforma como dos serviços de serviço (PaaS), como os serviços de aplicações, as API Apps, funções de API, SQL e MySQL.
 
 Pode, inclusive, combinar services para integrar e criar soluções complexas para diferentes utilizadores.
 
@@ -44,5 +45,5 @@ Quando estiver a planear as ofertas, tenha em consideração os seguintes pontos
 **Delegado fornecedores**: conceder a outros utilizadores a capacidade de criar ofertas no seu ambiente. Por exemplo, se for um fornecedor de serviços, pode [delegar](azure-stack-delegated-provider.md) esta capacidade dos revendedores. Em alternativa, se a uma organização, pode delegar a outras divisões/subsidiárias.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar uma oferta na pilha do Azure](azure-stack-create-offer.md)
 
+[Criar uma oferta na pilha do Azure](azure-stack-create-offer.md)

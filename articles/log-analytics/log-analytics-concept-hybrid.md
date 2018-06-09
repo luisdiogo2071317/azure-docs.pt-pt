@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235945"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -40,12 +41,9 @@ O agente para Linux e Windows comunica saído com o serviço de análise de regi
 
 Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com a análise de registos não receber a configuração para origens de dados e os dados recolhidos reencaminhar através do grupo de gestão. O agente do Windows pode reportar até quatro áreas de trabalho, enquanto o agente Linux só suporta relatórios para uma única área de trabalho.  
 
-O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-hybrid-runbook-worker.md).
+O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-hybrid-runbook-worker.md).  
 
-## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, reveja os detalhes seguintes para verificar que cumpre os requisitos mínimos do sistema.
-
-### <a name="windows-operating-system"></a>Sistema operativo Windows
+## <a name="supported-windows-operating-systems"></a>Sistemas de operativos Windows suportados
 As seguintes versões do sistema operativo Windows oficialmente são suportadas para o agente do Windows:
 
 * Windows Server 2008 Service Pack 1 (SP1) ou posterior
@@ -54,17 +52,7 @@ As seguintes versões do sistema operativo Windows oficialmente são suportadas 
 > [!NOTE]
 > O agente para o Windows só suporta Transport Layer Security (TLS) 1.0 e 1.1.  
 
-#### <a name="network-configuration"></a>Configuração da rede
-As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Windows comunicar com a análise de registos. O tráfego é de saída da sua rede para o serviço de análise de registos. 
-
-| Recursos do Agente | Portas | Inspeção de HTTPS direto|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Sim |
-|*.oms.opinsights.azure.com | 443 | Sim | 
-|*.blob.core.windows.net | 443 | Sim | 
-|*.azure-automation.net | 443 | Sim | 
-
-### <a name="linux-operating-systems"></a>Sistemas operativos Linux
+## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 As distribuições de Linux seguintes são suportadas oficialmente.  No entanto, o agente Linux pode também executar nos outras distribuições não listadas.  Exceto indicação em contrário, todas as versões de secundárias são suportadas para cada versão principais listado.  
 
 * Linux Amazon 2012.09 para 2015.09 (x86/x64)
@@ -75,19 +63,22 @@ As distribuições de Linux seguintes são suportadas oficialmente.  No entanto,
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
-#### <a name="network-configuration"></a>Configuração da rede
-As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Linux comunicar com a análise de registos.  
+## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
+As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente Linux e Windows comunicar com a análise de registos.  
 
-|Recursos do Agente| Portas | Direção |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | Porta 443 | Entrada e saída|  
-|*.oms.opinsights.azure.com | Porta 443 | Entrada e saída|  
-|*.blob.core.windows.net | Porta 443 | Entrada e saída|  
-|*.azure-automation.net | Porta 443 | Entrada e saída|  
+|Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |Porta 443 |Entrada e saída|Sim |  
+|*.oms.opinsights.azure.com |Porta 443 |Entrada e saída|Sim |  
+|*.blob.core.windows.net |Porta 443 |Entrada e saída|Sim |  
+|*.azure-automation.net |Porta 443 |Entrada e saída|Sim |  
 
-O agente Linux suporta comunicar através de um servidor proxy ou Gateway do OMS para o serviço de análise de registos utilizando o protocolo HTTPS.  Autenticação básica e anónima (nome de utilizador/palavra-passe) são suportados.  O servidor proxy pode ser especificado durante a instalação ou ao modificar o ficheiro de configuração proxy.conf após a instalação.  
 
-O valor de configuração de proxy tem a seguinte sintaxe:
+Se planeia utilizar o Runbook Worker híbrido de automatização do Azure para ligar a e registar com o serviço de automatização utilizar runbooks no seu ambiente, tem de ter acesso para o número de porta e os URLs descritos em [configurar a sua rede para o Runbook Worker híbrido](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+O agente do Windows e Linux suporta comunicar através de um servidor proxy ou Gateway do OMS para o serviço de análise de registos utilizando o protocolo HTTPS.  Autenticação básica e anónima (nome de utilizador/palavra-passe) são suportados.  Para o agente de Windows ligado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implementação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controlo ou com o PowerShell.  
+
+Para o agente do Linux, o servidor proxy é especificado durante a instalação ou [após a instalação](/log-analytics-agent-manage.md#update-proxy-settings) ao modificar o ficheiro de configuração proxy.conf.  O valor de configuração de proxy de agente do Linux tem a seguinte sintaxe:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

@@ -1,25 +1,26 @@
 ---
-title: "Acerca das ligações VPN do Azure ponto a Site | Microsoft Docs"
-description: "Este artigo ajuda-o a compreender as ligações ponto a Site e ajuda-o a decidir o tipo de autenticação de gateway de P2S VPN a utilizar."
+title: Acerca das ligações VPN do Azure ponto a Site | Microsoft Docs
+description: Este artigo ajuda-o a compreender as ligações ponto a Site e ajuda-o a decidir o tipo de autenticação de gateway de P2S VPN a utilizar.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236438"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN ponto a Site
 
@@ -47,19 +48,23 @@ Antes de Azure aceita uma ligação P2S VPN, o utilizador tem de ser autenticada
 
 Quando utilizar a autenticação do certificado Azure nativo, um certificado de cliente que está presente no dispositivo é utilizado para autenticar o utilizador ao ligar. Certificados de cliente são gerados a partir de um certificado de raiz fidedigna e, em seguida, instalados em cada computador cliente. Pode utilizar um certificado de raiz que foi gerado utilizando uma solução de empresa, ou pode gerar um certificado autoassinado.
 
-A validação do certificado de cliente é efetuada pelo gateway VPN e ocorre durante o estabelecimento da ligação P2S VPN. O certificado de raiz é necessário para a validação e tem de ser carregado para o Azure. 
+A validação do certificado de cliente é efetuada pelo gateway VPN e ocorre durante o estabelecimento da ligação P2S VPN. O certificado de raiz é necessário para a validação e tem de ser carregado para o Azure.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticar com o servidor de domínio do Active Directory (AD)
 
 Autenticação de domínio do AD permite aos utilizadores ligar ao Azure através das respetivas credenciais de domínio de organização. Requer um servidor RADIUS que se integra com o servidor do AD. As organizações também podem tirar partido as suas implementações de RADIUS existente.   
- O servidor RADIUS pode ser implementado no local ou na sua VNET do Azure. Durante a autenticação, o Gateway de VPN do Azure funciona como um pass-through e reencaminha as mensagens de autenticação entre o servidor RADIUS e o dispositivo de ligação. Por isso, reachability de Gateway para o servidor RADIUS é importante. Se o servidor RADIUS está presente no local, é necessária para reachability uma ligação VPN S2S do Azure para o site no local.  
- O servidor RADIUS também pode integrar com serviços de certificados do AD. Isto permite-lhe utilizar o servidor RADIUS e a implementação de certificados de empresa para autenticação de certificados P2S como alternativa para a autenticação de certificado do Azure. A vantagem é que não é necessário carregar certificados de raiz e certificados revogados para o Azure.
+  O servidor RADIUS pode ser implementado no local ou na sua VNET do Azure. Durante a autenticação, o Gateway de VPN do Azure funciona como um pass-through e reencaminha as mensagens de autenticação entre o servidor RADIUS e o dispositivo de ligação. Por isso, reachability de Gateway para o servidor RADIUS é importante. Se o servidor RADIUS está presente no local, é necessária para reachability uma ligação VPN S2S do Azure para o site no local.  
+  O servidor RADIUS também pode integrar com serviços de certificados do AD. Isto permite-lhe utilizar o servidor RADIUS e a implementação de certificados de empresa para autenticação de certificados P2S como alternativa para a autenticação de certificado do Azure. A vantagem é que não é necessário carregar certificados de raiz e certificados revogados para o Azure.
 
 Um servidor RADIUS também pode integrar com outros sistemas de identidade externas. Esta ação abre a cópia de segurança muitos de opções de autenticação para P2S VPN, incluindo as opções de multifator.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+! [ponto a site]] (./media/point-to-site-about/p2s.png "Ponto a Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>Requisitos de configuração para dispositivos cliente
+## <a name="what-are-the-client-configuration-requirements"></a>Quais são os requisitos de configuração do cliente?
+
+>[!NOTE]
+>Para clientes do Windows, tem de ter direitos de administrador no dispositivo cliente para iniciar a ligação de VPN do dispositivo cliente para o Azure.
+>
 
 Os utilizadores utilizam os clientes VPN nativos em dispositivos Windows e Mac para P2S. O Azure oferece um cliente VPN zip configuração ficheiro que contém as definições necessárias por estes clientes nativos para ligar ao Azure.
 
@@ -69,10 +74,10 @@ Os utilizadores utilizam os clientes VPN nativos em dispositivos Windows e Mac p
 O ficheiro zip também fornece os valores de algumas das definições importantes no lado do Azure que pode utilizar para criar o seu próprio perfil para estes dispositivos. Alguns dos valores incluem o endereço de gateway de VPN, tipos de túnel configurado, as rotas e o certificado de raiz para validação do gateway.
 
 >[!NOTE]
->Para clientes do Windows, tem de ter direitos de administrador no dispositivo cliente para iniciar a ligação de VPN do dispositivo cliente para o Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Que P2S de suporte de SKUs de Gateway VPN?
+## <a name="gwsku"></a>Que P2S de suporte de SKUs de Gateway VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
@@ -81,7 +86,7 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 * Pode encontrar informações de SLA (contrato de nível de serviço) na página de SLA.
 
 >[!NOTE]
->O SKU básico não suporta a autenticação IKEv2 ou RADIUS.
+>A SKU Básica não suporta a autenticação IKEv2 ou RADIUS.
 >
 
 ## <a name="configure"></a>Como configurar a uma ligação de P2S?

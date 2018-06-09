@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ad7b9d16e00319320f638593c9f24ccb75c2bb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616156"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235282"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,8 +37,11 @@ Pode copiar dados da base de dados Cassandra para qualquer arquivo de dados supo
 
 Especificamente, este conector Cassandra suporta:
 
-- Cassandra **versões 2**.
+- Cassandra **versões 2 e 3**.
 - Copiar dados utilizando **básico** ou **anónimo** autenticação.
+
+>[!NOTE]
+>Para a atividade em execução no Self-hosted integração Runtime, Cassandra 3 é suportada porque a resposta a incidentes versão 3.7 e posteriores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,6 +66,9 @@ As seguintes propriedades são suportadas para o serviço de Cassandra ligada:
 | o nome de utilizador |Especifique o nome de utilizador da conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim, se authenticationType está definido para básico. |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+
+>[!NOTE]
+>Atualmente a ligação ao Cassandra através de SSL não é suportada.
 
 **Exemplo:**
 
@@ -255,7 +261,7 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |I |
+| 3 |E |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

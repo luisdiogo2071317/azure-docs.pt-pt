@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee628f137761445be8871cf4df44e48231342f50
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598390"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234601"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 A *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado utilizando HTTP, ou uma base de dados ou um sistema de ficheiros. [Application Insights](app-insights-overview.md) mede o tempo durante o qual a aplicação aguarda dependências e frequência uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -191,6 +191,8 @@ Por exemplo, se criar o seu código com uma assemblagem que não tenha de escrev
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 

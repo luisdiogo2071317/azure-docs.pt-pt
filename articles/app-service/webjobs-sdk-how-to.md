@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o SDK de WebJobs para processamento de eventos em segundo plano - Azure
+title: Como utilizar o SDK de WebJobs do Azure
 description: Saiba mais sobre como escrever código para o SDK de WebJobs. Crie condicionada por eventos em segundo plano as tarefas de processamento que acedem aos dados nos serviços de terceiros e serviços do Azure.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725535"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234655"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs para processamento em segundo plano condicionada por eventos
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para o processamento em segundo plano condicionada por eventos
 
-Este artigo fornece orientação sobre como escrever código para [o SDK de WebJobs](webjobs-sdk-get-started.md). A documentação se aplica a versões 2 e 3, exceto se encontra onde indicado em contrário. A alteração principal que foi introduzida pela 3 é a utilização do .NET Core em vez do .NET Framework.
+Este artigo fornece orientação sobre como escrever código para [o SDK de WebJobs do Azure](webjobs-sdk-get-started.md). A documentação se aplica a versões 2 e 3, exceto se encontra onde indicado em contrário. A alteração principal que foi introduzida pela 3 é a utilização do .NET Core em vez do .NET Framework.
 
 >[!NOTE]
-> [As funções do Azure](../azure-functions/functions-overview.md) está incorporada no SDK de WebJobs e este artigo ligações para documentação de funções do Azure para alguns tópicos. Tenha em atenção as seguintes diferenças entre as funções e o SDK de WebJobs:
+> [As funções do Azure](../azure-functions/functions-overview.md) está incorporada no SDK de WebJobs e ligações neste artigo para documentação de funções do Azure para alguns tópicos. Tenha em atenção as seguintes diferenças entre as funções e o SDK de WebJobs:
 > * Versão de funções do Azure, 1. x corresponde à versão do SDK de WebJobs 2. x e as funções do Azure 2 corresponde ao SDK de WebJobs 3. Repositórios de código de origem siga o SDK de WebJobs numeração e tem muitas ramificações v2.x, com o ramo principal atualmente com o código de 3.
 > * Código de exemplo para bibliotecas de classes do Azure funções c# é como o SDK de WebJobs code exceto não precisa de um `FunctionName` atributo num projeto do SDK de WebJobs.
 > * Alguns tipos de enlace só são suportados nas funções, como HTTP, webhook e grelha de evento (o que é baseado em HTTP). 

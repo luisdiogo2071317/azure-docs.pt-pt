@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622106"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235469"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados no local Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Este artigo explica como utilizar a atividade de cópia no Azure Data Factory pa
 Pode copiar dados de um arquivo de dados de Cassandra no local para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como sinks pela atividade de cópia, consulte o [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. Fábrica de dados atualmente suporta apenas mover dados a partir de um arquivo de dados Cassandra para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados Cassandra. 
 
 ## <a name="supported-versions"></a>Versões suportadas
-O conector de Cassandra suporta as seguintes versões do Cassandra: 2. x.
+O conector de Cassandra suporta as seguintes versões do Cassandra: 2 e 3. Para a atividade em execução no Self-hosted integração Runtime, Cassandra 3 é suportada porque a resposta a incidentes versão 3.7 e posteriores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço do Azure Data Factory conseguir ligar à base de dados no local Cassandra, tem de instalar um Gateway de gestão de dados no mesmo computador que aloja a base de dados ou num computador separado para evitar a competir pela recursos com a base de dados. O Data Management Gateway é um componente que liga as origens de dados no local a serviços em nuvem de forma segura e gerida. Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes sobre o Data Management Gateway. Consulte [mover os dados no local para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados mover os dados.
@@ -75,6 +75,9 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | palavra-passe |Especifique a palavra-passe da conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | gatewayName |O nome do gateway que é utilizado para ligar à base de dados de Cassandra no local. |Sim |
 | encryptedCredential |Credencial encriptada pelo gateway. |Não |
+
+>[!NOTE]
+>Atualmente a ligação ao Cassandra através de SSL não é suportada.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções, tais como a estrutura, a disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, Azure blob, tabela do Azure, etc.).
@@ -339,7 +342,7 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |I |
+| 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

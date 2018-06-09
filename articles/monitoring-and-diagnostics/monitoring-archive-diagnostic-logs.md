@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638770"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235979"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar os registos de diagnóstico do Azure
 
@@ -28,6 +28,9 @@ Neste artigo, mostramos como pode utilizar o portal do Azure, os Cmdlets do Powe
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, terá de [criar uma conta de armazenamento](../storage/storage-create-storage-account.md) ao qual pode arquivar os registos de diagnóstico. Recomendamos vivamente que utilize uma conta de armazenamento existente que tenha outros não monitorização dados armazenados na mesma forma que melhor pode controlar o acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividade e métricas de diagnóstico para uma conta de armazenamento, poderá fazer sentido para utilizar essa conta de armazenamento para os registos de diagnóstico para manter os dados de monitorização de todos os numa localização central. A conta de armazenamento que utiliza tem de ser uma conta de armazenamento de objetivo geral, não uma conta do blob storage.
+
+> [!NOTE]
+>  Atualmente não pode arquivar dados para o armazenamento de um conta que atrás de uma rede virtual protegida.
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 

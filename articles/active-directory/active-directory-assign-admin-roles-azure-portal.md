@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 94062c69a1de32d061b97bbaae0d7028b0424feb
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757677"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234618"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -42,15 +42,15 @@ Estão disponíveis as seguintes funções de administrador:
   > [!NOTE]
   > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser Administrador Global.
   
-* **Administrador de Dynamics 365**: os utilizadores com esta função têm permissões global dentro do Microsoft Dynamics 365, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar estado de funcionamento do serviço. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Administradores de dispositivos**: os utilizadores com esta função tornar-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory.
+* **Administradores de dispositivos**: esta função está disponível para atribuição apenas como um administrador local adicional no [definições do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se administradores de computadores locais em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory.
 
 * **Leitores de diretório**: Esta é uma função de legado que está a ser atribuída a aplicações que não suportam o [consentimento Framework](active-directory-integrating-applications.md). Não deve ser atribuído a qualquer utilizador.
 
 * **Contas de sincronização de diretórios**: não utilize. Esta função é atribuída automaticamente ao serviço do Azure AD Connect e não se destina ou não está suportada para quaisquer outras utilizações.
 
 * **Diretório escritores**: Esta é uma função de legado que está a ser atribuída a aplicações que não suportam o [consentimento Framework](active-directory-integrating-applications.md). Não deve ser atribuído a qualquer utilizador.
+
+* **Administrador de Dynamics 365**: os utilizadores com esta função têm permissões global dentro do Microsoft Dynamics 365, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar estado de funcionamento do serviço. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Administrador de serviço do Exchange**: os utilizadores com esta função permissões global dentro do Microsoft Exchange Online, quando o serviço está presente. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

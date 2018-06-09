@@ -2,7 +2,6 @@
 title: Dashboard do Power BI para o estado de funcionamento vehicle e ocasionar hábitos - Azure | Microsoft Docs
 description: Utilizar as capacidades do Cortana Intelligence para obter informações acerca de preditiva e em tempo real em estado de funcionamento vehicle e ocasionar hábitos.
 services: machine-learning
-documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
@@ -15,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 462f5d15e7a39d282bca59f96166cc809447ee14
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8544c400fdb7d4f00a4946aba321fec3568d024a
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837128"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248457"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de configuração de dashboard do vehicle telemetria análise solução modelo Power BI
 Liga menu-capítulos neste manual de comunicação social: 

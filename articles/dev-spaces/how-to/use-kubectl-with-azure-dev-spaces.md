@@ -8,20 +8,21 @@ author: ghogen
 ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
-description: Desenvolvimento rápido Kubernetes com contentores e micro-serviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes serviço, contentores
+description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 38a433a14ab977fb56a8331a057d27241f1d9783
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248663"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Utilizar kubectl com um espaço do programador do Azure
 
 Pode aceder ao cluster Kubernetes dentro de um espaço do programador do Azure e como utilizar ferramentas de Kubernetes existentes `kubectl`.
 
-Executar `azds resource create` ou `azds resource select` irá adicionar automaticamente um `kubectl` contexto de configuração para que, pelo que kubectl já deve estar ligada ao cluster do Azure Dev espaços Kubernetes. Exemplos:
+Executar `az aks use-dev-spaces` comando irá adicionar automaticamente um `kubectl` contexto de configuração para que, pelo que kubectl já deve estar ligada ao cluster do Azure Dev espaços Kubernetes. Exemplos:
 - Confirme o contexto atual: `kubectl config current-context`
 - Listar todos os contextos disponíveis: `kubectl config get-contexts`. 
 - Contexto de alteração: `kubectl config use-context <context-name>`

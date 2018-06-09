@@ -12,20 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: a7fc8209028b8d84be31a068f7aa7a83a1ca152a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e401d22dbcf5074f4652fb60ee5eeec1d31ef164
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638794"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235605"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividade do Azure
 Neste artigo, mostramos como pode utilizar o portal do Azure, o Cmdlets do PowerShell ou a CLI de várias plataformas para arquivar a [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) numa conta do storage. Esta opção é útil se gostaria de manter o registo de atividade mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estático. Se pretender manter os eventos durante 90 dias ou menos não terá de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de atividade são retidos na plataforma do Azure para 90 dias sem ativar o arquivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, terá de [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) ao qual pode arquivar o registo de atividade. Recomendamos vivamente que utilize uma conta de armazenamento existente que tenha outros não monitorização dados armazenados na mesma forma que melhor pode controlar o acesso a dados de monitorização. No entanto, se também são arquivar os registos de diagnóstico e de métricas para uma conta de armazenamento, poderá fazer sentido utilizar essa conta do storage para o registo de atividade, bem como para manter os dados de monitorização de todos os numa localização central. A conta de armazenamento que utiliza tem de ser uma conta de armazenamento de objetivo geral, não uma conta do blob storage. A conta de armazenamento não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+
+> [!NOTE]
+>  Atualmente não pode arquivar dados para o armazenamento de um conta que atrás de uma rede virtual protegida.
 
 ## <a name="log-profile"></a>Perfil de registo
 Para arquivar o registo de atividade, utilizando qualquer um dos métodos abaixo, definir o **registo perfil** para uma subscrição. O perfil de registo define o tipo de eventos que são armazenados ou transmissão em fluxo e as saídas — hub de conta e/ou evento de armazenamento. Também define a política de retenção (número de dias a manter) para os eventos armazenados numa conta do storage. Se a política de retenção é definida para zero, eventos são armazenados indefinidamente. Caso contrário, isto pode ser definido como qualquer valor entre 1 e 2147483647. As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento. [Pode ler mais sobre o registo perfis aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 

@@ -1,5 +1,5 @@
 ---
-title: Começar com o SDK de WebJobs - Azure
+title: Introdução ao Azure WebJobs SDK
 description: Introdução ao SDK de WebJobs para processamento em segundo plano condicionada por eventos. Saiba como aceder a dados nos serviços de terceiros e serviços do Azure.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234528"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Começar com o SDK de WebJobs
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para o processamento em segundo plano condicionada por eventos
 
-Este artigo mostra como criar um projeto do SDK de WebJobs, executá-la localmente e implementá-la para o Azure.
+Este artigo mostra como criar um projeto do SDK de WebJobs do Azure, executá-la localmente e implementá-la para o App Service do Azure.
 
 As instruções são para [Visual Studio 2017](https://www.visualstudio.com/vs/), mas as mesmas tarefas podem ser realizadas com outras ferramentas, tal como [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>O que é o SDK de WebJobs
+## <a name="what-is-the-azure-webjobs-sdk"></a>O que é o Azure WebJobs SDK
 
 O SDK de WebJobs do Azure é uma arquitetura que simplifica a tarefa de escrever o código de processamento em segundo plano que acede aos dados nos serviços do Azure. O SDK inclui uma sintaxe declarativa para especificar os eventos devem acionar uma função, como uma nova mensagem adicionada a uma fila. Sintaxe declarativa semelhante controla ler e escrever dados depois de uma função foi acionada. Este sistema de acionadores e enlaces encarrega-se da maioria das tarefas de codificação nível baixo associadas ao aceder ao Azure e os serviços de terceiros.
 
@@ -68,7 +69,7 @@ Este artigo pressupõe que tem [uma conta do Azure](https://azure.microsoft.com/
 
 3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **OK**.
 
-   ![Caixa de diálogo Nova projeto](./media/webjobs-sdk-get-started/new-project.png)
+   ![Caixa de diálogo Novo Projeto](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>Adicionar o pacote WebJobs NuGet
 

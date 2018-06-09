@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d0cfce1dfe6482397e421d85d59494e6d75cc441
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 198ecdbf81c2b8efeec23da2c5d5d087128b20e9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591162"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233568"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect utilizando as permissões de administrador delegado de SQL
 Antes de compilação mais recente do Azure AD Connect, administrativa delegação, ao implementar as configurações necessárias do SQL Server, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) no SQL server.
@@ -48,7 +48,7 @@ Para aprovisionar a base de dados fora de banda e instalar o Azure AD Connect co
 2.  Conceda ao administrador do Azure AD Connect e a conta de serviço de domínio as seguintes permissões:
     - Início de sessão do SQL 
     - **base de dados owner(dbo)** direitos.  </br>
-![Permissões](media/active-directory-aadconnect-sql-delegation/sql3.png)
+![Permissões](media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3.  Envie um e-mail para o administrador do Azure AD Connect que indica o nome de servidor e instância SQL que deve ser utilizado ao instalar o Azure AD Connect.
 
 ## <a name="additional-information"></a>Informações adicionais

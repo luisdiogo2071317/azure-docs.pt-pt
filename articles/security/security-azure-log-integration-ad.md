@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: d7ec3a3fe26600e69a7e4f511c01006a97cbe12c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839486"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235996"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar os registos de auditoria do Azure Active Directory
 
@@ -28,7 +28,7 @@ Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar a
 
 
 >[!IMPORTANT]
-> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure. Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure. Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar o Azure Active Directory de registos de auditoria
 

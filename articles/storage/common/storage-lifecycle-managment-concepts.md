@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: b141adc9025f2f40acdfbd1f2d7f378173463956
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34805161"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248474"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure (pré-visualização)
 
@@ -70,7 +70,7 @@ Se a funcionalidade de aprovação e registada corretamente, deverá receber o e
 
 ## <a name="add-or-remove-policies"></a>Adicionar ou remover políticas 
 
-Pode adicionar, editar ou remover uma política com as ferramentas de cliente, REST APIs, PowerShell ou portal do Azure nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Pode adicionar, editar ou remover uma política através do portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), REST APIs ou ferramentas de cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [ NODE.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -121,7 +121,7 @@ Dentro de uma política, são necessários dois parâmetros:
 | Nome do parâmetro | Tipo de parâmetro | Notas |
 |----------------|----------------|-------|
 | versão        | Uma cadeia expressada como `x.x` | O número de versão de pré-visualização é 0,5 |
-| regras          | Uma matriz de objetos de regra | É necessário pelo menos uma regra em cada política. Durante a pré-visualização, pode especificar até 10 regras de acordo com a política. |
+| regras          | Uma matriz de objetos de regra | É necessário pelo menos uma regra em cada política. Durante a pré-visualização, pode especificar até 4 regras de acordo com a política. |
 
 Parâmetros necessários dentro de uma regra são:
 
@@ -169,7 +169,7 @@ Cada definição da regra inclui um conjunto de filtro e um conjunto de ação. 
 
 ```
 
-## <a name="rule-filters"></a>Filtros de regra
+### <a name="rule-filters"></a>Filtros de regra
 
 Filtros de limitam as ações de regra a um subconjunto de blobs numa conta de armazenamento. Se for definidos um vários filtros, uma lógica `AND` é efetuada em todos os filtros.
 
@@ -191,6 +191,9 @@ Pré-visualização, gestão de ciclo de vida suporta a criação de camadas e e
 | tierToCool    | Suporta blobs atualmente na camada de acesso frequente         | Não suportado |
 | tierToArchive | Suporta blobs atualmente em frequente ou esporádica camada | Não suportado |
 | eliminar        | Suportadas                                   | Suportadas     |
+
+>[!NOTE] 
+Se está definida mais do que uma ação no mesmo blob, gestão de ciclo de vida aplica-se a ação menos dispendiosa para o blob. (por exemplo, a ação `delete` é mais barata que ação `tierToArchive`. Ação `tierToArchive` é mais barata que ação `tierToCool`.)
 
 Pré-visualização, as condições de execução da ação baseiam-se na idade. Base blob utiliza hora da última modificação para controlar a idade e tempo de criação de instantâneos utiliza instantâneo para controlar a idade do blob.
 

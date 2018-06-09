@@ -1,26 +1,28 @@
 ---
-title: "Chamar uma função do Azure a partir de Microsoft Flow | Microsoft Docs"
-description: "Criar um conetor personalizado e chamar uma função utilizando esse conector."
+title: Chamar uma função do Azure a partir de Microsoft Flow | Microsoft Docs
+description: Criar um conetor personalizado e chamar uma função utilizando esse conector.
 services: functions
-keywords: "aplicações em nuvem, na nuvem processos de negócio de serviços, Microsoft Flow, aplicação empresarial"
-documentationcenter: 
-author: mgblythe
+keywords: aplicações em nuvem, na nuvem processos de negócio de serviços, Microsoft Flow, aplicação empresarial
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234806"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função a partir do Microsoft Flow
 
@@ -50,19 +52,19 @@ Começar através da criação de uma lista para utilizar como origem de dados p
 
 | Coluna de lista     | Tipo de Dados           | Notas                                    |
 |-----------------|---------------------|------------------------------------------|
-| **Título**           | Linha única de texto | Nome do turbine                      |
-| **LastServiceDate** | Data                |                                          |
-| **MaxOutput**       | Número              | Saída de turbine, em KwH            |
+| **Title** (Título)           | Linha única de texto | Nome do turbine                      |
+| **LastServiceDate** | Date                |                                          |
+| **MaxOutput**       | Number              | Saída de turbine, em KwH            |
 | **ServiceRequired** | Sim/Não              |                                          |
-| **EstimatedEffort** | Número              | Tempo estimado para a reparação, em horas |
+| **EstimatedEffort** | Number              | Tempo estimado para a reparação, em horas |
 
 1. No seu site do SharePoint, clique ou toque em **novo**, em seguida, **lista**.
 
-    ![Criar nova lista do SharePoint](./media/functions-flow-scenario/new-list.png)
+    ![Criar lista do SharePoint nova](./media/functions-flow-scenario/new-list.png)
 
 2. Introduza o nome `Turbines`, em seguida, clique ou toque em **criar**.
 
-    ![Especifique o nome para a nova lista](./media/functions-flow-scenario/create-list.png)
+    ![Especificar o nome da lista nova](./media/functions-flow-scenario/create-list.png)
 
     O **Turbines** lista é criada, com a predefinição **título** campo.
 
@@ -70,7 +72,7 @@ Começar através da criação de uma lista para utilizar como origem de dados p
 
 3. Clique ou toque em ![novo ícone do item](./media/functions-flow-scenario/icon-new.png) , em seguida, **data**.
 
-    ![Adicione uma linha única de campo de texto](./media/functions-flow-scenario/add-column.png)
+    ![Adicionar campo de uma linha de texto](./media/functions-flow-scenario/add-column.png)
 
 4. Introduza o nome `LastServiceDate`, em seguida, clique ou toque em **criar**.
 
@@ -99,7 +101,7 @@ A API personalizada (também conhecido como um conetor personalizado) está disp
 
 1. Clique em **criar ligação**, desloque para baixo até o **Turbine reparação** conector e clique no mesmo.
 
-    ![Criar a ligação](media/functions-flow-scenario/create-connection.png)
+    ![Criar ligação](media/functions-flow-scenario/create-connection.png)
 
 1. Introduza a chave de API e clique em **criar ligação**.
 
@@ -153,7 +155,7 @@ Primeiro criar um fluxo de em branco (sem um modelo) e adicione um *acionador* q
 
 Para quaisquer itens de criar na lista, o fluxo verifica se o **ServiceRequired** campo está definido como `Yes`, em seguida, vai para a **se Sim** ramo ou o **se não** sucursal como conforme apropriado. Para poupar tempo, neste tópico apenas especificar ações para o **em caso afirmativo** ramo.
 
-### <a name="add-the-custom-connector"></a>Adicionar o conetor personalizado
+### <a name="add-the-custom-connector"></a>Adicionar o conector personalizado
 
 Agora adicione o conector personalizado que chama a função no Azure. Adicione o conector personalizado para o fluxo, tal como um conector padrão. 
 
@@ -229,7 +231,7 @@ Agora que o fluxo está concluído, pode adicionar uma linha à lista do SharePo
 
     | Coluna de lista     | Valor           |
     |-----------------|---------------------|
-    | **Título**           | Turbine 60 |
+    | **Title** (Título)           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
     | **ServiceRequired** | Sim |
@@ -247,7 +249,7 @@ Agora que o fluxo está concluído, pode adicionar uma linha à lista do SharePo
 
 5. Em **histórico de EXECUÇÕES**, clique em fluxo executar.
 
-    ![histórico de execução](media/functions-flow-scenario/run-history.png)
+    ![Histórico de execuções](media/functions-flow-scenario/run-history.png)
 
     Se a execução foi bem sucedida, pode rever as operações de fluxo, na página seguinte. Se a execução falhou por qualquer motivo, a página seguinte fornece informações de resolução de problemas.
 

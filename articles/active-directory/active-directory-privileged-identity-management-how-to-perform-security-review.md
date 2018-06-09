@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 651e179773ca225e8c05d2a17711e3eebbe6f706
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 885c7a144a2ac588e1f1b32fb03b7ed72d058e94
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698038"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233457"
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Como executar uma revisão de acesso no Azure AD Privileged Identity Management
 O Azure Active Directory (AD) Privileged Identity Management simplifica como às empresas gerem o acesso privilegiado para recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  

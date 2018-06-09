@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823854"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234846"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 
@@ -30,7 +30,7 @@ Pilha do Azure tem uma rede de infraestrutura público com externamente acessív
 - O processo de obtenção de certificados correspondentes essas especificações
 - Como preparar, validar e utilizar os certificados em questão durante a implementação
 
-> [!NOTE]
+> [!Note]  
 > Durante a implementação tem de copiar certificados para a pasta de implementação que corresponda ao fornecedor de identidade que está a implementar contra (Azure AD ou AD FS). Se utilizar um certificado único para todos os pontos finais, tem de copiar esse ficheiro de certificado para cada pasta de implementação, conforme descrito nas tabelas abaixo. A estrutura da pasta é criada previamente na máquina virtual implementação e podem ser encontrada em: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
@@ -47,12 +47,12 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - O certificado "emitido para:" campo não tem de ser igual ao respetivo "emitido por:" campo.
 - As palavras-passe para todos os ficheiros pfx de certificado devem ser o mesmo no momento da implementação
 - Palavra-passe para o pfx de certificado tem de ser uma palavra-passe complexa.
-- Certifique-se de que o se os nomes de requerente e do requerente alternativo nomes de todos os certificados coincidem com as especificações descritas neste artigo para evitar a implementação falhou.
+- Certifique-se de que os nomes de requerente e os nomes alternativos do requerente na correspondência de extensão (x509v3_config) de nome alternativo do requerente. O campo de nome alternativo do requerente permite-lhe especificar os nomes de anfitrião adicionais (sites, endereços IP, nomes comuns) para ser protegido por um único certificado de SSL.
 
-> [!NOTE]
+> [!NOTE]  
 > Self-Signed certificados não são suportados.
 
-> [!NOTE]
+> [!NOTE]  
 > A presença de autoridades de certificação intermediário no está da cadeia de fidedignidades de um certificado suportado. 
 
 ## <a name="mandatory-certificates"></a>Certificados obrigatórios

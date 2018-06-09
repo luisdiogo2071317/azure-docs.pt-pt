@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/07/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 61ff91709b52f7378bbc320524781dca7faf2204
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248882"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -49,6 +50,8 @@ Numa implementação RDS, a função da Web de RD e a função de Gateway de RD 
 - Já deverá ter [implementado RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), e [ativado a Proxy da aplicação](application-proxy-enable.md).
 
 - Este cenário pressupõe que os utilizadores finais aceda através do Internet Explorer em ambientes de trabalho Windows 7 ou Windows 10 que se ligam através da página Web de RD. Se precisar de suportar outros sistemas operativos, consulte [suporte para outras configurações de cliente](#support-for-other-client-configurations).
+
+- Quando a publicação da Web de RD, é melhor utilizar o mesmo FQDN interno e externo. Se os FQDNs internos e externos forem diferentes, em seguida, deve desativar o pedido de conversão de cabeçalho para evitar a receção de ligações inválidas. 
 
 - No Internet Explorer, ative o suplemento do RDS ActiveX.
 

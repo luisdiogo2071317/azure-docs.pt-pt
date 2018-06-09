@@ -8,21 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 9065d237057bf47d469b6f6fbf5b588c7e348232
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de876a8d06a52412bbbfd3ad922c2c4c6d8ec37
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839362"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235962"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registo do Azure: eventos de Cofre de chaves do Azure de processo ao utilizar os Hubs de eventos
 
-
 >[!IMPORTANT]
-> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure.  Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure. Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Pode utilizar a integração de registo do Azure para obter eventos registados e disponibilizá-los ao sistema de gestão (SIEM) de segurança as informações e eventos. Este tutorial mostra um exemplo de como a integração de registo do Azure podem ser utilizada para processar registos que são adquiridos através do Event Hubs do Azure.
 

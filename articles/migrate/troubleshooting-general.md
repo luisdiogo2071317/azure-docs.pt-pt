@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 05/31/2018
+ms.date: 06/08/2018
 ms.author: raynew
-ms.openlocfilehash: d53dec3794a414f61b9bfca3e9715607de448bbf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c717cfdac83ec8d85b1fa0a874e5573a40dd4611
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716208"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235632"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -19,13 +19,29 @@ ms.locfileid: "34716208"
 
 [Migrar do Azure](migrate-overview.md) avalia cargas de trabalho no local para a migração para o Azure. Utilize este artigo para resolver problemas quando implementar e utilizar a migração do Azure.
 
-**Falha na criação do projeto de migração com erro *pedidos tem de conter os cabeçalhos de identidade do utilizador***
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação do projeto de migração com erro *pedidos tem de conter os cabeçalhos de identidade do utilizador*
 
 Este problema pode ocorrer para os utilizadores que não têm acesso ao inquilino do Azure Active Directory (Azure AD) da organização. Quando um utilizador é adicionado a um inquilino do Azure AD pela primeira vez, he/she recebe um convite de correio eletrónico para associar o inquilino. Os utilizadores precisam de aceder ao e-mail e aceitar o convite para obter adicionada com êxito para o inquilino. Se não for possível ver a mensagem de e-mail, aceder a um utilizador que já tem acesso ao inquilino e peça-lhes para reenviar o convite para si através dos passos especificados [aqui](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
 
 Assim que recebeu o e-mail de convite, terá de abrir mensagem de correio eletrónico e clique na hiperligação no e-mail para aceitar o convite. Quando isto é feito, tem de terminar sessão no portal do Azure e início de sessão novamente, atualizar o browser não funcionará. Em seguida, pode tentar criar o projeto de migração.
 
-**Recoletor não é possível estabelecer ligação à internet**
+### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Dados de desempenho para os adaptadores de discos e redes mostram como zeros
+
+Isto pode ocorrer se o nível de definição de estatísticas no vCenter server estiver definido como inferior a três. Em três nível ou superior, o vCenter armazena histórico do desempenho da VM de computação, armazenamento e rede. Para três de nível inferior, vCenter não armazena o armazenamento e dados de rede, mas apenas para dados da CPU e memória. Neste cenário, dados de desempenho mostra como zero no Azure migrar e migrar do Azure fornece a recomendação de tamanho para discos e redes com base nos metadados recolhidos das máquinas no local.
+
+Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível de definições de estatísticas a três. Em seguida, aguarde pelo menos um dia para detetar o seu ambiente e avaliá-lo.
+
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Posso agentes instalados e utilizados a visualização de dependência para criar grupos. Agora publique ativação pós-falha, as máquinas mostram ação "Instalar o agente", em vez de "Dependências de vista"
+* Post planeada ou ativação pós-falha não planeada, no local as máquinas estão desativadas e do Azure são aceleradas máquinas equivalentes. Estas máquinas adquiram um endereço MAC diferente. Estes podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços IP e MAC, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
+* Após a ativação pós-falha de teste, as máquinas no local se mantêm ativadas conforme esperado. Máquinas equivalentes aceleradas no Azure adquiram outro endereço de MAC e poderão adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída de análise de registos dessas máquinas, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
+
+## <a name="collector-errors"></a>Erros de recoletor
+
+### <a name="deployment-of-collector-ova-failed"></a>Implementação do recoletor OVA falhou
+
+Isto pode acontecer se o OVA parcialmente é transferido ou devido ao browser se estiver a utilizar o cliente de web vSphere para implementar o OVA. Certifique-se de que a transferência estiver concluída e tente implementar OVA com um browser diferente.
+
+### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Recoletor não é possível estabelecer ligação à internet
 
 Isto pode acontecer quando a máquina que está a utilizar se encontrar atrás de um proxy. Certifique-se de que fornecer as credenciais de autorização se o proxy precise.
 Se estiver a utilizar qualquer proxy firewall baseada no URL para controlar a conectividade de saída, certifique-se a lista branca que estes necessários URLs:
@@ -48,7 +64,7 @@ Certifique-se ter copiados e colados as informações corretas. Para resolver pr
 7. Certifique-se de que o agente pode ligar ao projeto. Se não pode ser, verifique as definições. Se o agente pode ligar, mas o recoletor não é possível, contacte o suporte.
 
 
-**Erro 802: posso obter um erro de sincronização de data e hora.**
+### <a name="error-802-date-and-time-synchronization-error"></a>Erro 802: Data e hora erro de sincronização
 
 O relógio do servidor pode ser fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora do relógio de recoletor de VM para corresponder à hora atual, da seguinte forma:
 
@@ -56,20 +72,32 @@ O relógio do servidor pode ser fora de sincronização com a hora atual em mais
 2. Para verificar o fuso horário, execute w32tm /tz.
 3. Sincronizar o tempo, execute w32tm /resync.
 
-**A minha chave de projeto tem símbolos "= =" para o fim. Estes são codificadas para outros carateres alfanuméricos pelo recoletor. É esta esperada?**
+### <a name="vmware-powercli-installation-failed"></a>Falha na instalação do VMware PowerCLI
 
-Sim, cada chave de projeto termina com "= =". O recoletor encripta a chave de projeto antes do processamento-lo.
+Azure migrar recoletor PowerCLI de transfere e instala-o no dispositivo de. Falha na instalação PowerCLI dever-se inacessível pontos finais para o repositório de PowerCLI. Para resolver problemas, tente instalar manualmente PowerCLI no recoletor VM utilizando o passo seguinte:
 
-**Dados de desempenho para os adaptadores de discos e redes mostram como zeros**
+1. Abra o Windows PowerShell no modo de administrador
+2. Vá para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
+3. Execute o script InstallPowerCLI.ps1
 
-Isto pode ocorrer se o nível de definição de estatísticas no vCenter server estiver definido como inferior a três. Em três nível ou superior, o vCenter armazena histórico do desempenho da VM de computação, armazenamento e rede. Para três de nível inferior, vCenter não armazena o armazenamento e dados de rede, mas apenas para dados da CPU e memória. Neste cenário, dados de desempenho mostra como zero no Azure migrar e migrar do Azure fornece a recomendação de tamanho para discos e redes com base nos metadados recolhidos das máquinas no local.
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro interno de UnhandledException erro: System.IO.FileNotFoundException
 
-Para ativar a recolha de dados de desempenho de disco e da rede, altere o nível de definições de estatísticas a três. Em seguida, aguarde pelo menos um dia para detetar o seu ambiente e avaliá-lo.
+Este é um problema visto no Recoletor com versões anteriores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá deparar-se com este problema. Siga a ligação [aqui apresentada para os fóruns para obter uma resposta detalhada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
 
-**Posso agentes instalados e utilizados a visualização de dependência para criar grupos. Agora publique ativação pós-falha, as máquinas mostram ação "Instalar o agente", em vez de "Dependências de vista"**
-* Post planeada ou ativação pós-falha não planeada, no local as máquinas estão desativadas e do Azure são aceleradas máquinas equivalentes. Estas máquinas adquiram um endereço MAC diferente. Estes podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços IP e MAC, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
-* Após a ativação pós-falha de teste, as máquinas no local se mantêm ativadas conforme esperado. Máquinas equivalentes aceleradas no Azure adquiram outro endereço de MAC e poderão adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída de análise de registos dessas máquinas, Azure migrar associa as máquinas no local quaisquer dados de dependência de mapa de serviço e pede-lhe utilizador para instalar agentes em vez de visualização de dependências.
+[Atualize o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
 
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: não ocorreu nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
+
+Verifique se que estejam a executar a versão mais recente do dispositivo de recoletor, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+
+Se o problema ocorre ainda a versão mais recente, isto pode dever-se ao porque a máquina de recoletor está não é possível resolver o nome do servidor vCenter especificado ou a porta especificada está incorreta. Por predefinição, se a porta não for especificada, recoletor irá tentar estabelecer ligação com o número da porta 443.
+
+1. Tente enviar um ping Servername.com da máquina do recoletor.
+2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
+3. Identifique o número de porta correto para ligar ao vCenter.
+4. Por fim, verifique se o servidor do vCenter está em execução.
 
 ## <a name="troubleshoot-readiness-issues"></a>Resolver problemas de preparação
 
@@ -130,26 +158,6 @@ Para recolher o rastreio de eventos para o Windows, efetue o seguinte:
  - No Chrome, clique com botão direito em qualquer local no registo de consola. Selecione **guardar como**, para exportar e zip o registo.
  - No Edge/IE, clique com botão direito sobre os erros e selecione **copie todos os**.
 7. Feche as ferramentas de programador.
-
-
-## <a name="vcenter-errors"></a>vCenter erros
-
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro interno de UnhandledException erro: System.IO.FileNotFoundException
-
-Este é um problema visto no Recoletor com versões anteriores à 1.0.9.5. Se tiver uma versão de Recoletor 1.0.9.2 ou versões de pré-GA como 1.0.8.59, irá deparar-se com este problema. Siga a ligação [aqui apresentada para os fóruns para obter uma resposta detalhada](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
-
-[Atualize o Recoletor para corrigir o problema](https://aka.ms/migrate/col/checkforupdates).
-
-### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
-
-Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: não ocorreu nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
-
-Isto acontece quando a máquina do Recoletor não consegue resolver o nome do servidor do vCenter especificado ou a porta especificada está errada. Por predefinição, se a porta não for especificada, o Recoletor irá tentar ligar à porta número 443.
-
-1. Tente enviar um ping ao Servername.com a partir da máquina do Recoletor.
-2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
-3. Identifique o número de porta correto para ligar ao vCenter.
-4. Por fim, verifique se o servidor do vCenter está em execução.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro do recoletor e ações recomendadas
 

@@ -2,23 +2,24 @@
 title: Ativar o CLI do Azure para utilizadores de pilha do Azure | Microsoft Docs
 description: Saiba como utilizar a interface de linha de comandos (CLI) de plataforma para gerir e implementar os recursos na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: e2483bda5a0c6a6b270759946f146c37c5dad5b1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247861"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Ativar o CLI do Azure para utilizadores de pilha do Azure
 
@@ -58,19 +59,17 @@ certutil -encode root.cer root.pem
 Os operadores do Azure da pilha devem configurar um ponto final acessível publicamente que aloja um ficheiro de alias de máquina virtual. O ficheiro de alias de máquina virtual é um ficheiro JSON que fornece um nome comum para uma imagem. Esse nome é especificado, subsequentemente, quando uma VM é implementada como um parâmetro da CLI do Azure.  
 
 Antes de adicionar uma entrada para um ficheiro de alias, certifique-se de que a [transferir imagens do Azure Marketplace](azure-stack-download-azure-marketplace-item.md), ou ter [publicado a sua imagem personalizada](azure-stack-add-vm-image.md). Se publicar uma imagem personalizada, anote as informações do publicador, oferta, SKU e versão que especificou durante a publicação. Se se tratar de uma imagem do marketplace, pode ver as informações utilizando a ```Get-AzureVMImage``` cmdlet.  
-   
+
 A [um ficheiro de exemplo alias](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) com muitos imagem comuns aliases está disponível. Pode utilizar isso como um ponto de partida. Este ficheiro num espaço de onde os clientes CLI podem contactar o anfitrião. É uma forma alojar o ficheiro na conta do blob storage e partilhar o URL com os seus utilizadores:
 
 1. Transferir o [ficheiro de exemplo](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a partir do GitHub.
-2. Crie uma nova conta de armazenamento na pilha do Azure. Quando que estiver concluída, crie um novo contentor de blob. Definir a política de acesso para "público".  
-3. Carregue o ficheiro JSON para o novo contentor. Quando que estiver concluída, pode ver o URL do blob ao clicar no nome de blob e, em seguida, selecionar o URL das propriedades de blob.
+2. Crie uma nova conta de armazenamento na pilha do Azure. Quando terminar, crie um novo contentor de blob. Definir a política de acesso para "público".  
+3. Carregue o ficheiro JSON para o novo contentor. Quando terminar, pode ver o URL do blob, selecionar o nome de blob e, em seguida, selecionar o URL das propriedades de blob.
 
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="next-steps"></a>Passos seguintes
+- [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
+- [Ligar com o PowerShell](azure-stack-connect-powershell.md)
 
-[Ligar com o PowerShell](azure-stack-connect-powershell.md)
-
-[Gerir permissões de utilizador](azure-stack-manage-permissions.md)
-
+- [Gerir permissões de utilizador](azure-stack-manage-permissions.md)

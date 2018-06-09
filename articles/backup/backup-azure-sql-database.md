@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808507"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235418"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Criar cópias de segurança da base de dados do SQL Server no Azure
 
@@ -103,6 +103,10 @@ Antes de fazer uma cópia de segurança da base de dados do SQL Server, verifiqu
 - Identificar ou [criar um cofre dos serviços de recuperação](backup-azure-sql-database.md#create-a-recovery-services-vault) na mesma região ou região, que a máquina virtual alojar o SQL Server.
 - [Verifique as permissões na máquina virtual](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) necessários para efetuar cópias de segurança de bases de dados SQL.
 - [Máquina virtual do SQL tem conectividade de rede](backup-azure-sql-database.md#establish-network-connectivity).
+
+> [!NOTE]
+> Pode ter apenas uma solução de cópia de segurança em simultâneo para cópia de segurança bases de dados do SQL Server. Desative outra cópia de segurança de SQL Server antes de utilizar esta funcionalidade, as cópias de segurança mais irão interferir e falhar. Pode ativar a cópia de segurança do Azure para a VM do IaaS, juntamente com a cópia de segurança SQL sem quaisquer conflitos 
+>
 
 Se estas condições existem no seu ambiente, avance para a secção [configurar o seu Cofre para proteger uma base de dados do SQL Server](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). Se algum dos pré-requisitos não existirem, não continue a ler esta secção.
 
@@ -253,7 +257,13 @@ Quando utiliza o **detetar DBs** ferramenta de cópia de segurança do Azure exe
 
 ## <a name="configure-backup-for-sql-server-database"></a>Configurar cópia de segurança da base de dados do SQL Server
 
-Cópia de segurança do Azure fornece serviços de gestão para proteger as bases de dados do SQL Server e gerir tarefas de cópia de segurança. As capacidades de monitorização e gestão dependem do seu Cofre de serviços de recuperação. Para configurar a proteção para a base de dados do SQL Server:
+Cópia de segurança do Azure fornece serviços de gestão para proteger as bases de dados do SQL Server e gerir tarefas de cópia de segurança. As capacidades de monitorização e gestão dependem do seu Cofre de serviços de recuperação. 
+
+> [!NOTE]
+> Pode ter apenas uma solução de cópia de segurança em simultâneo para cópia de segurança bases de dados do SQL Server. Desative outra cópia de segurança de SQL Server antes de utilizar esta funcionalidade, as cópias de segurança mais irão interferir e falhar. Pode ativar a cópia de segurança do Azure para a VM do IaaS, juntamente com a cópia de segurança SQL sem quaisquer conflitos 
+>
+
+Para configurar a proteção para a base de dados do SQL Server:
 
 1. Abra o Cofre dos serviços de recuperação registado com a máquina virtual do SQL Server.
 

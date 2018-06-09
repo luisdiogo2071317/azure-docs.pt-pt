@@ -6,14 +6,14 @@ author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606057"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247970"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 A cópia de segurança um farm do SharePoint para o Microsoft Azure utilizando o servidor de cópia de segurança do Azure (MABS) da Microsoft muito da mesma forma que a cópia de segurança de outras origens de dados. Cópia de segurança do Azure oferece flexibilidade na agenda de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Também fornece a capacidade para armazenar cópias de disco local para rápido objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para a retenção de longo prazo, económica.
@@ -32,13 +32,13 @@ Existem algumas coisas que necessita de confirmar antes de efetuar cópias de se
 Antes de continuar, certifique-se de que tem [instalado e preparar o servidor de cópia de segurança do Azure](backup-azure-microsoft-azure-backup.md) proteger cargas de trabalho.
 
 ### <a name="protection-agent"></a>Agente de proteção
-O agente de proteção tem de estar instalado no servidor que está a executar o SharePoint, os servidores que estejam a executar o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para mais informações sobre como configurar o agente de proteção, consulte [a configuração do agente de proteção](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  A única exceção é que instalar o agente apenas no servidor web único front-end (WFE). O DPM precisa do agente num único servidor WFE apenas para servir o ponto de entrada para proteção.
+O agente do Backup do Azure tem de estar instalado no servidor que está a executar o SharePoint, os servidores que estejam a executar o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para mais informações sobre como configurar o agente de proteção, consulte [a configuração do agente de proteção](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  A única exceção é que instalar o agente apenas no servidor web único front-end (WFE). Servidor de cópia de segurança do Azure tem o agente num único servidor WFE apenas para servir o ponto de entrada para proteção.
 
 ### <a name="sharepoint-farm"></a>Farm do SharePoint
 Para cada 10 milhões de itens no farm, tem de existir pelo menos 2 GB de espaço no volume onde está localizada na pasta MABS. Este espaço é necessário para a geração do catálogo. Para MABS recuperar os itens específicos (coleções de sites, sites, listas, bibliotecas de documentos, pastas, documentos individuais e itens de lista), a geração do catálogo cria uma lista dos URLs que estão contidas dentro de cada base de dados de conteúdo. Pode ver a lista de URLs no painel de itens recuperáveis no **recuperação** área da consola do administrador MABS de tarefas.
 
 ### <a name="sql-server"></a>SQL Server
-MABS é executado como uma conta LocalSystem. Fazer cópias de segurança de bases de dados do SQL Server, MABS necessita de privilégios sysadmin nessa conta para o servidor que está a executar o SQL Server. Definir NT AUTHORITY\SYSTEM *sysadmin* no servidor que está a executar o SQL Server antes de faça uma cópia de.
+Servidor de cópia de segurança do Azure é executado como uma conta LocalSystem. Fazer cópias de segurança de bases de dados do SQL Server, MABS necessita de privilégios sysadmin nessa conta para o servidor que está a executar o SQL Server. Definir NT AUTHORITY\SYSTEM *sysadmin* no servidor que está a executar o SQL Server antes de faça uma cópia de.
 
 Se o farm do SharePoint tem bases de dados do SQL Server configuradas com aliases do SQL Server, instale os componentes de cliente do SQL Server no servidor Web front-end que MABS irá proteger.
 
@@ -231,5 +231,7 @@ R: Sim, o item pode ser recuperado para o site do SharePoint original.
 P: posso recuperar uma base de dados do SharePoint para a localização original se SharePoint estiver configurado utilizando o SQL Server AlwaysOn?<br>
 R: porque as bases de dados do SharePoint são configuradas no SQL Server AlwaysOn, não pode ser modificados a menos que o grupo de disponibilidade é removido. Como resultado, MABS não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre MABS proteção do SharePoint - consulte [vídeo série - DPM proteção do SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+## <a name="next-steps"></a>Próximos Passos
+
+Consulte o [cópia de segurança do Exchange server](backup-azure-exchange-mabs.md) artigo.
+Consulte o [cópia de segurança do SQL Server](backup-azure-sql-mabs.md) artigo.

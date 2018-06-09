@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247949"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o utilizador o aprovisionamento automatizado para aplicações SaaS?
 Azure Active Directory (Azure AD) permite-lhe automatizar a criação, a manutenção e a remoção de identidades de utilizador na nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aplicações como o Dropbox, Salesforce, ServiceNow e muito mais.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Seguem-se alguns exemplos de que esta funcionalidade permite-lhe fazer:**
 
@@ -77,6 +80,8 @@ Contactar o Azure AD engenharia equipa para pedir suporte aprovisionamento para 
     
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Como configurar o aprovisionamento automático para uma aplicação?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 Configuração do Azure AD para uma aplicação selecionada é iniciado no serviço de fornecimento de  **[portal do Azure](https://portal.azure.com)**. No **do Azure Active Directory > aplicações da empresa** secção, selecione **adicionar**, em seguida, **todos os**e, em seguida, adicione o seguinte dependendo do seu cenário:
 
@@ -170,31 +175,50 @@ Quando em quarentena, a frequência de sincronizações incrementais gradualment
 A tarefa de aprovisionamento será removida da quarentena depois de todos os erros inválidos que está a ser fixos e o próximo ciclo de sincronização é iniciada. Se a tarefa de aprovisionamento permanece em quarentena durante mais de quatro semanas, a tarefa de aprovisionamento está desativada.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo necessário para aprovisionar utilizadores?
+
+Desempenho depende se a tarefa de aprovisionamento está a efetuar uma sincronização inicial ou uma sincronização incremental, conforme descrito na secção anterior.
+
+Para **inicial sincronizações**, o tempo de tarefa depende de vários fatores, incluindo o número de utilizadores e grupos no âmbito de aprovisionamento e o número total de utilizadores e grupo no sistema de origem. Uma lista completa dos fatores que afetam o desempenho de sincronização inicial estão resumidos posteriormente nesta secção.
+
+Para **sincronizações incrementais**, o tempo de tarefa depende o número de foram detetadas alterações nesse ciclo de sincronização. Se existirem menos de 5000 utilizadores ou alterações de associação de grupo, pode concluir a tarefa dentro de um ciclo de sincronização incremental único. 
+
+A tabela seguinte resume as horas de sincronização para cenários comuns de aprovisionamento. Nestes cenários, o sistema de origem é o Azure AD e o sistema de destino é uma aplicação SaaS. Os tempos de sincronização são derivados de uma análise estatística de tarefas de sincronização para as aplicações de SaaS ServiceNow, à área de trabalho, Salesforce e Google Apps.
+
+
+| Configuração de âmbito | Os utilizadores, grupos e membros de âmbito | Hora de sincronização inicial | Hora de sincronização incremental |
+| -------- | -------- | -------- | -------- |
+| Sincronização e atribuídos a utilizadores apenas a grupos |  < 1000 |  < 30 minutos | < 30 minutos |
+| Sincronização e atribuídos a utilizadores apenas a grupos |  1.000 - 10.000 | 142 - 708 minutos | < 30 minutos |
+| Sincronização e atribuídos a utilizadores apenas a grupos |   10.000 - 100 000 | 1,170 - 2,340 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  < 1000 | < 30 minutos  | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  1.000 - 10.000 | < 30 120 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  10.000 - 100 000  | 713 - 1,425 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD|  < 1000  | < 30 minutos | < 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD | 1.000 - 10.000  | 43 - 86 minutos | < 30 minutos |
+
+
+Para a configuração **sincronização atribuídos apenas a grupos de utilizadores e**, pode utilizar as fórmulas seguintes para determinar a aproximado mínimo e máximo esperado **inicial sincronização** vezes:
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Resumo dos fatores que influenciam o tempo que demora a concluir um **inicial sincronização**:
+
+* O número total de utilizadores e grupos no âmbito de aprovisionamento
+
+* O número total de utilizadores, grupos e membros do grupo presentes no sistema de origem (Azure AD)
+
+* Se pretende ou não os utilizadores no âmbito de aprovisionamento são correspondidos para os utilizadores existentes da aplicação de destino ou tem de ser criado pela primeira vez. Tarefas de sincronização para o qual todos os utilizadores são criados pela primeira vez demorar, aproximadamente, *duas vezes, desde* como sincronizar tarefas para o qual todos os utilizadores são correspondidos para os utilizadores existentes.
+
+* Número de erros no [registos de auditoria](active-directory-saas-provisioning-reporting.md). Desempenho é mais lento se houver muitos erros e o serviço de aprovisionamento tornou-se num Estado de quarentena   
+
+* Limites de velocidade e limitação implementada pelo sistema de destino do pedido. Alguns sistemas de destino implementam limites de velocidade do pedido e limitação que pode afetar o desempenho durante as operações de grande sincronização. Nas seguintes condições, uma aplicação que recebe demasiados pedidos demasiado rápidos poderá lenta a respetiva taxa de resposta ou fechar a ligação. Para melhorar o desempenho, o conector tem de ajustar por não enviar os pedidos de aplicação mais rapidamente do que a aplicação pode processá-los. Aprovisionamento conectores criados pela Microsoft tornar este ajuste. 
+
+* O número e tamanhos de grupos atribuídos. A sincronizar atribuídos grupos demora mais de sincronizar os utilizadores. O número e os tamanhos dos grupos atribuídos impacto no desempenho. Se tiver uma aplicação [mapeamentos ativados para sincronização do objeto de grupo](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), as propriedades do grupo, tais como nomes de grupo e as associações são sincronizadas, além de utilizadores. Estes sincronizações adicionais irão demorar mais do que apenas a sincronizar objetos de utilizador.
+ 
+
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-
-**Quanto tempo necessário para aprovisionar os meus utilizadores?**
-
-Desempenho serão diferente consoante se a tarefa de aprovisionamento está a efetuar uma sincronização inicial ou uma sincronização incremental.
-
-Para sincronizações iniciais, o tempo que demora a concluir será diretamente dependente quantos utilizadores, grupos e membros do grupo estão presentes no sistema de origem. Sistemas de origem muito pequeno com centenas de objetos podem concluir as sincronizações iniciais num fim de minutos. No entanto, os sistemas de origem com centenas de milhares ou milhões de objetos combinados irão demorar mais tempo.
-
-Para sincronizações incrementais, o tempo que demora depende as número foram detetadas alterações nesse ciclo de sincronização. Se existirem menos de 5000 utilizadores ou foram detetadas alterações de associação de grupo, estes frequentemente podem ser sincronizadas dentro de um ciclo de 40 minutos. 
-
-Tenha em atenção que o desempenho global está dependente de sistemas de origem e de destino. Alguns sistemas de destino implementam limites de velocidade do pedido e limitação que podem impacto de desempenho durante as operações de grande sincronização e pré-criadas do Azure AD conectores para esses sistemas de aprovisionamento tenha isto em consideração.
-
-Desempenho também é mais lento se existem erros de muitos (registadas no ficheiro de [registos de auditoria](active-directory-saas-provisioning-reporting.md)) e o serviço de aprovisionamento tornou-se num estado "quarentena".
-
-**Como melhorar o desempenho de sincronização?**
-
-A maioria dos problemas de desempenho ocorrem durante sincronizações iniciais dos sistemas que tenham um grande número de grupos e membros do grupo.
-
-Se não for necessária a sincronização de grupos ou associações a grupos, o desempenho de sincronização pode ser significativamente melhorado:
-
-1. Definir o **aprovisionamento > Definições > âmbito** menu para **sincronizar todos os**, em vez de sincronizar atribuídos aos utilizadores e grupos.
-2. Utilize [filtros de âmbito](active-directory-saas-scoping-filters.md) em vez de atribuições para filtrar a lista de utilizadores aprovisionado.
-
-> [!NOTE]
-> Para aplicações que suportam o aprovisionamento de propriedades de grupo (como ServiceNow e Google Apps) e nomes de grupo, também desativar esta reduz o tempo que demora para uma sincronização inicial concluir. Se não pretender aprovisionar os nomes dos grupos e associações a grupos à sua aplicação, pode desativar esta no [mapeamentos de atributos](active-directory-saas-customizing-attribute-mappings.md) da sua configuração de aprovisionamento.
 
 **Como posso acompanhar o progresso da tarefa de aprovisionamento atual?**
 

@@ -1,11 +1,11 @@
 ---
-title: "Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR | Microsoft Docs"
-description: "Saiba como implementar a aplicação no App Service do Azure com um ficheiro ZIP (ou um ficheiro WAR para programadores do Java)."
+title: Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR | Microsoft Docs
+description: Saiba como implementar a aplicação no App Service do Azure com um ficheiro ZIP (ou um ficheiro WAR para programadores do Java).
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3178d5cb09087a243a51e20567895d03ce1f7fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234139"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR
 
@@ -82,7 +83,7 @@ Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta d
 
 ## <a name="deploy-war-file"></a>Implementar ficheiro WAR
 
-Para implementar um ficheiro WAR no App Service, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/wardeploy. O pedido POST tem de conter o ficheiro de .war no corpo da mensagem. Foram fornecidas credenciais de implementação para a sua aplicação no pedido, utilizando a autenticação básica de HTTP. 
+Para implementar um ficheiro WAR no App Service, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/wardeploy. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. 
 
 Para a autenticação HTTP básica, terá das credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de utilizador ao nível](app-service-deployment-credentials.md#userscope).
 
@@ -106,6 +107,8 @@ $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

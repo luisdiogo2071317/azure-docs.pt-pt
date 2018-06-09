@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: cea2fb3069ff69130720049c002e19fa14266b9f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831977"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234500"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+O [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) propriedade é uma API alternativa para obter os valores de definição de aplicação, mas recomendamos que utilize `GetEnvironmentVariable` conforme mostrado aqui.
 
 ## <a name="binding-at-runtime"></a>Enlace no tempo de execução
 

@@ -6,14 +6,14 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/18/2018
+ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 6c7fcc0182add05b68a7b41ab6fe50e18427f6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607308"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248865"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer cópias de segurança de ficheiros e aplicações na pilha do Azure
 Pode utilizar o Backup do Azure para proteger (ou cópia de segurança) ficheiros e aplicações na pilha do Azure. Para fazer uma cópia de segurança de ficheiros e aplicações, instale o servidor de cópia de segurança do Microsoft Azure como uma máquina virtual em execução na pilha do Azure. Pode proteger quaisquer aplicações, em execução em qualquer servidor de pilha do Azure na mesma rede virtual. Uma vez que instalou o servidor de cópia de segurança do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de cópia de segurança de curta duração. Servidor de cópia de segurança do Azure utiliza o armazenamento do Azure para a retenção de longo prazo.
@@ -22,60 +22,124 @@ Pode utilizar o Backup do Azure para proteger (ou cópia de segurança) ficheiro
 > Apesar do servidor de cópia de segurança do Azure e o System Center Data Protection Manager (DPM) são semelhantes, o DPM não é suportado para utilização com a pilha do Azure.
 >
 
-
-## <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
-Servidor de cópia de segurança do Azure protege as seguintes cargas de trabalho de máquina virtual de pilha do Azure.
-
-| Origem de dados protegida | Proteção e recuperação |
-| --------------------- | ----------------------- |
-| Canal de anual do Windows Server Semiestruturados - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
-| Windows Server 2016 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
-| Windows Server 2012 R2 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
-| Windows Server 2012 – Datacenter/Entprise/Standard | Volumes, ficheiros, pastas |
-| Windows Server 2008 R2 - Enterprise/Datacenter/padrão | Volumes, ficheiros, pastas |
-| SQL Server 2016 | Base de Dados |
-| SQL Server 2014 | Base de Dados |
-| SQL Server 2012 SP1 | Base de Dados |
-| SharePoint 2013 | Farm, base de dados, front-end, servidor web |
-| O SharePoint 2010 | Farm, base de dados, front-end, servidor web |
+Este artigo não abrange a instalar o servidor de cópia de segurança do Azure no ambiente de pilha do Azure. Para instalar o servidor de cópia de segurança do Azure na pilha do Azure, consulte o artigo [a preparar a cópia de segurança de cargas de trabalho utilizando o servidor de cópia de segurança do Azure](backup-mabs-install-azure-stack.md).
 
 
-## <a name="install-azure-backup-server"></a>Instalar o servidor de cópia de segurança do Azure
-Para instalar o servidor de cópia de segurança do Azure numa máquina virtual pilha do Azure, consulte o artigo [a preparar a cópia de segurança de cargas de trabalho utilizando o servidor de cópia de segurança do Azure](backup-mabs-install-azure-stack.md). Antes de instalar e configurar o servidor de cópia de segurança do Azure, tenha em atenção o seguinte:
+## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Fazer uma cópia dos dados de ficheiros de VM de pilha do Azure para o Azure
 
-### <a name="determining-size-of-virtual-machine"></a>Determinar o tamanho da máquina virtual
-Para executar o servidor de cópia de segurança do Azure numa máquina virtual do Azure pilha, utilize tamanho A2 ou superior. Para obter ajuda na escolha de um tamanho de máquina virtual, transfira o [Calculadora do tamanho da VM do Azure pilha](https://www.microsoft.com/download/details.aspx?id=56832).
+Para configurar o servidor de cópia de segurança do Azure para proteger máquinas virtuais de IaaS, abra a consola do servidor de cópia de segurança do Azure. Irá utilizar a consola para configurar grupos de proteção e para proteger os dados nas suas máquinas virtuais.
 
-### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Redes virtuais em máquinas virtuais de pilha do Azure
-Todas as máquinas virtuais utilizadas numa carga de trabalho de pilha do Azure têm de pertencer à mesma rede virtual do Azure e subscrição do Azure.
+1. Na consola do servidor de cópia de segurança do Azure, clique em **proteção** e na barra de ferramentas, clique em **novo** para abrir o **criar novo grupo de proteção** assistente.
 
-### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenar dados de cópia de segurança no disco local e no Azure
-Servidor do Backup do Azure armazena os dados de cópia de segurança nos discos Azure ligados à máquina virtual, para recuperação operacional. Assim que o espaço de armazenamento e discos estão anexados à máquina virtual, o servidor de cópia de segurança do Azure gere o armazenamento para si. A quantidade de armazenamento de dados de cópia de segurança depende do número e tamanho dos discos anexados a cada [máquina virtual de pilha do Azure](../azure-stack/user/azure-stack-storage-overview.md). Cada tamanho da VM de pilha do Azure tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é quatro discos. A3 é oito discos. A4 é 16 discos. Novamente, o tamanho e número de discos determina o agrupamento de armazenamento de cópia de segurança total.
+   ![Configurar a proteção na consola do servidor de cópia de segurança do Azure](./media/backup-mabs-files-applications-azure-stack/1-mabs-menu-create-protection-group.png)
 
-> [!IMPORTANT]
-> Deve **não** manter os dados de recuperação operacional (cópia de segurança) nos discos ligados por servidor de cópia de segurança do Azure mais de cinco dias.
->
+    Pode demorar alguns segundos para que o assistente abrir. Uma vez que abre o assistente, clique em **seguinte** para avançar para o **selecionar tipo de grupo de proteção** ecrã.
 
-Armazenar dados de cópia de segurança no Azure reduz a infraestrutura de cópia de segurança na pilha do Azure. Se os dados são mais de cinco dias, devem ser armazenado no Azure.
+   ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/2-create-new-protection-group-wiz.png)
 
-Para armazenar dados de cópia de segurança no Azure, criar ou utilizar um cofre dos serviços de recuperação. Quando preparar a cópia de segurança a carga de trabalho do servidor de cópia de segurança do Azure, [configurar o Cofre dos serviços de recuperação](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Depois de configurar, sempre que é executada uma tarefa de cópia de segurança, é criado um ponto de recuperação no cofre. Cada cofre dos serviços de recuperação contém até 9999 pontos de recuperação. Dependendo do número de pontos de recuperação criados e quanto são mantidos, pode manter os dados de cópia de segurança para muitos anos. Por exemplo, pode criar pontos de recuperação mensal e manter os mesmos cinco anos.
- 
-### <a name="using-sql-server"></a>Utilizar o SQL Server
-Se pretender utilizar um SQL Server remoto para a base de dados do servidor de cópia de segurança do Azure, selecione apenas uma VM de pilha do Azure com o SQL Server.
+2. No **selecionar tipo de grupo de proteção** ecrã, escolha **servidores** e clique em **seguinte**.
 
-### <a name="azure-backup-server-vm-performance"></a>Desempenho de VM do servidor de cópia de segurança do Azure
-Se for partilhado com outras máquinas virtuais, o tamanho de conta de armazenamento e limites IOPS podem afetar o desempenho de máquina virtual do servidor de cópia de segurança do Azure. Por este motivo, deve utilizar uma conta de armazenamento separada para a máquina virtual do servidor de cópia de segurança do Azure. O agente de cópia de segurança do Azure em execução no servidor de cópia de segurança do Azure necessita de armazenamento temporário para:
-    - uso próprio (uma localização da cache),
-    - dados restaurados a partir da nuvem (área de transição local)
-  
-### <a name="configuring-azure-backup-temporary-disk-storage"></a>Configurar o armazenamento de disco temporário de cópia de segurança do Azure
-Cada máquina virtual de pilha do Azure é fornecido com o armazenamento em disco temporário, que está disponível para o utilizador como volume `D:\`. A área de transição local necessária para a cópia de segurança do Azure pode ser configurada para estar situada em `D:\`, e a localização da cache pode ser colocada em `C:\`. Desta forma, nenhum armazenamento tem de ser carved na direção oposta aos discos de dados ligados à máquina virtual do servidor de cópia de segurança do Azure.
+    ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-### <a name="scaling-deployment"></a>Implementação de dimensionamento
-Se pretender dimensionar a sua implantação, tem as seguintes opções:
-  - Aumentar verticalmente - aumentar o tamanho da máquina virtual do servidor de cópia de segurança do Azure, de uma série a série de D e aumentar o armazenamento local [pelas instruções de máquina virtual do Azure pilha](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Descarregar dados - envia os dados antigos para servidor de cópia de segurança do Azure e mantém apenas os dados mais recentes no armazenamento ligado ao servidor de cópia de segurança do Azure.
-  - Ampliar - adicionar mais servidores de cópia de segurança do Azure para proteger as cargas de trabalho.
+    O **selecionar membros do grupo** ecrã é aberto. 
+
+    ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
+
+3. No **selecionar membros do grupo** ecrã, clique em **+** para expandir a lista de subitems. Para todos os itens que pretende proteger, selecione a caixa de verificação. Depois de todos os itens selecionados, clique em **seguinte**.
+
+    ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
+
+    A Microsoft recomenda colocando todas as máquinas virtuais que irão partilhar uma política de proteção, no grupo de proteção de um. Para obter informações completas sobre planear e implementar grupos de proteção, consulte o artigo do System Center DPM [implementar grupos de proteção](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+
+4. No **selecionar método de proteção de dados** ecrã, escreva um nome para o grupo de proteção. Selecione a caixa de verificação **pretendo proteção curto prazo utilizando:** e **pretendo proteção online**. Clique em **Seguinte**.
+
+    ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
+
+    Para selecionar **pretendo proteção online**, primeiro tem de selecionar **pretendo proteção curto prazo utilizando:** disco. Servidor de cópia de segurança do Azure não consegue proteger em banda, para que o disco é a escolha apenas para proteção de curta duração.
+
+5. No **especificar objetivos a curto prazo** ecrã, selecione o período de tempo manter os pontos de recuperação guardados em disco e guardar as cópias de segurança incrementais. Clique em **Seguinte**.
+
+    > [!IMPORTANT]
+    > Deve **não** manter os dados de recuperação operacional (cópia de segurança) nos discos ligados por servidor de cópia de segurança do Azure mais de cinco dias.
+    >
+
+    ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+
+    Em vez de selecionar um intervalo para cópias de segurança incrementais, para executar uma rápida cópia de segurança completa imediatamente antes de cada ponto de recuperação agendado, clique em **apenas antes de um ponto de recuperação**. Se estiver a proteger cargas de trabalho da aplicação, o servidor de cópia de segurança do Azure cria pontos de recuperação pela agenda da frequência de sincronização (desde que a aplicação suportar cópias de segurança incrementais). Se a aplicação não suporta cópias de segurança incrementais, servidor de cópia de segurança do Azure é executada uma rápida cópia de segurança completa.
+
+    Para **pontos de recuperação de ficheiros**, especifique quando criar pontos de recuperação. Clique em **modificar** para definir as horas e os dias da semana quando são criados os pontos de recuperação.
+
+6. No **rever alocação do disco** ecrã, reveja o espaço de disco de agrupamento de armazenamento atribuído para o grupo de proteção.
+
+    **Tamanho de dados total** é o tamanho dos dados que pretende criar cópias de segurança e **disco espaço a ser aprovisionado** no servidor de cópia de segurança do Azure é o espaço recomendado para o grupo de proteção. Servidor do Backup do Azure escolhe o volume de cópia de segurança ideal, com base nas definições. No entanto, pode editar as opções de cópia de segurança de volume nos detalhes de alocação de disco. Para cargas de trabalho, selecione o armazenamento preferencial no menu pendente. As edições que efectuou alterar os valores de armazenamento Total e de armazenamento livre no painel de armazenamento de disco disponível. Espaço underprovisioned é a quantidade de armazenamento de que servidor de cópia de segurança do Azure sugere que adiciona ao volume, para continuar com cópias de segurança facilmente no futuro.
+
+7. No **escolher método de criação de réplica**, selecione a forma como pretende lidar com a replicação inicial de dados completa. Se optar por replicar através da rede, o Azure recomenda que escolher uma hora de ponta. Para grandes quantidades de dados ou condições de rede ideais, considere replicar os dados offline com suporte de dados amovível.
+
+8. No **escolher opções de verificação de consistência**, selecione a forma como pretende automatizar as verificações de consistência. Ative verificações de consistência ser executado apenas quando a replicação de dados se tornar inconsistente ou, de acordo com uma agenda. Se não pretender configurar a verificação de consistência automática, execute uma verificação manual em qualquer altura:
+    * No **proteção** área da consola do servidor de cópia de segurança do Azure, com o botão direito do grupo de proteção e selecione **efetuar verificação de consistência**.
+
+9. Se optar por criar cópias de segurança para o Azure, no **especificar dados da proteção online** página Certifique-se as cargas de trabalho que pretende fazer cópias de segurança do Azure estão selecionadas.
+
+10. No **Especificar agenda de cópia de segurança online**, especifique quando devem ocorrer cópias de segurança incrementais para o Azure. 
+
+    Pode agendar cópias de segurança para executar cada dia/semana/mês/ano e a data/hora em que deve executar. As cópias de segurança podem ocorrer até duas vezes por dia. Sempre que é executada uma tarefa de cópia de segurança, um ponto de recuperação de dados é criado no Azure a partir de cópia dos dados de cópia de segurança armazenados no disco do servidor de cópia de segurança do Azure.
+
+11. No **especificar política de retenção online**, especifique a forma como os pontos de recuperação criados a partir de cópias de segurança diárias/semanal/mensal/anual são mantidos no Azure.
+
+12. No **escolher replicação online**, especifique a forma como ocorre a replicação inicial completa dos dados. 
+
+    Pode replicar através da rede ou fazer uma offline (offline seeding) de cópia de segurança. Cópia de segurança offline utiliza o [funcionalidade Importar do Azure](./backup-azure-backup-import-export.md).
+
+13. No **resumo**, reveja as definições. Ao clicar em **criar grupo**, ocorre a replicação inicial de dados. Quando a replicação de dados estiver concluído, no **estado** página, é apresentado o estado do grupo de proteção como **OK**. A tarefa de cópia de segurança inicial ocorre de acordo com a proteção definições do grupo.
+
+Perguntas que necessitam de atender: como a expandir o armazenamento de disco para armazenamento de disco de curta duração pilha do Azure. Quais são as diretrizes que precisam de ser realçadas explicar o armazenamento de disco de curta duração?
+
+## <a name="recover-file-data"></a>Recuperar dados de ficheiro
+
+Utilize a consola do servidor de cópia de segurança do Azure para recuperar dados para a máquina virtual.
+
+1. Na consola do servidor de cópia de segurança do Azure, na barra de navegação, clique em **recuperação** e navegue para os dados que pretende recuperar. No painel de resultados, selecione os dados.
+
+2. No calendário na secção de pontos de recuperação, datas a negrito indicam os pontos de recuperação estão disponíveis. Selecione a data para recuperar um ponto de recuperação.
+
+3. No **item recuperável** painel, selecione o item que pretende recuperar.
+
+4. No **ações** painel, clique em **recuperar** para abrir o Assistente de recuperação.
+
+5. Pode recuperar os dados da seguinte forma:
+
+    * **Recuperar para a localização original** -se o computador cliente estiver ligado através de VPN, esta opção não funcionar. Em vez disso, utilize uma localização alternativa e, em seguida, copiar dados a partir dessa localização.
+    * **Recuperar para uma localização alternativa**
+
+6. Especifique as opções de recuperação:
+
+    * Para **comportamento de recuperação da versão existente**, selecione **criar cópia**, **ignorar**, ou **substituir**. Substituir só está disponível quando recuperar para a localização original.
+    * Para **restaurar segurança**, escolha **aplicar as definições do computador de destino** ou **aplicar as definições de segurança da versão do ponto de recuperação de**.
+    * Para **limitação da utilização de largura de banda de rede**, clique em **modificar** para ativar a limitação da utilização de largura de banda de rede.
+    * Selecione **recuperação baseada em Ativar SAN utilizando instantâneos de hardware** para utilizar instantâneos de hardware baseados em SAN para acelerar a recuperação. Esta opção é válida apenas quando tiver uma SAN em que a funcionalidade de instantâneos de hardware está ativada. Para tornar a ponto de recuperação gravável, tem de ser capaz de criar um clone e dividi SAN. VM protegidos e servidor de cópia de segurança do Azure tem de estar ligado à mesma SAN.
+    * **Notificação** clique **enviar um e-mail ao concluir a recuperação**, e especifique os destinatários que irão receber a notificação. Separe os endereços de correio eletrónico por vírgulas.
+    * Depois de efetuar as seleções, clique em **seguinte**
+
+7. Reveja as definições de recuperação e clique em **recuperar**. 
+
+    > [!Note] 
+    > Enquanto a tarefa de recuperação está em curso, são canceladas todas as tarefas de sincronização para os itens de recuperação selecionado.
+    >
+
+Se estiver a utilizar o armazenamento de cópia de segurança moderna (MB), não é suportada a recuperação de utilizador final (EUR) do servidor de ficheiros. EUR do servidor de ficheiros tem uma dependência no Volume de cópia sombra Service (VSS), que não utilizam o armazenamento de cópia de segurança moderna. Se estiver ativada EUR, utilize os seguintes passos para recuperar dados:
+
+1. Navegue para os ficheiros protegidos e o nome de ficheiro com o botão direito e selecione **propriedades**.
+
+2. No **propriedades** menu, clique em **versões anteriores** e escolha a versão que pretende recuperar.
+
+
+
+## <a name="register-azure-backup-server-with-a-vault"></a>Registar o servidor de cópia de segurança do Azure com o Cofre de
+Forneça os passos para mostrar como:
+
+1. Abra o Cofre dos serviços de recuperação.
+2. Clique em infraestrutura de cópia de segurança.
+3. Servidores de gestão de cópia de segurança de vista.
 
 ## <a name="see-also"></a>Consulte também
 Para obter informações sobre como utilizar o servidor de cópia de segurança do Azure para proteger outras cargas de trabalho, consulte um dos seguintes artigos:

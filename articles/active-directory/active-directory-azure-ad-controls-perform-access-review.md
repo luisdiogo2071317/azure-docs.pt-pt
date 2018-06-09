@@ -10,14 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 09/19/2017
 ms.author: rolyon
-ms.openlocfilehash: 3688dbc595d7980fee780cac55cb615911b93316
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dbc06f7978b5669e67f1e4161ebcd0bbeb3dec41
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698055"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233500"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Rever o acesso com o Azure AD revisões de acesso
 

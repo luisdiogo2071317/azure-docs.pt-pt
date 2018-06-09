@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: e587edeef1cfa080a81f523f63678a645b514c57
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849496"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233849"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua App Service do Azure
 Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](app-service-web-overview.md). Serviço de aplicações permite que a implementação contínua provém de BitBucket, GitHub e [serviços de equipa do Visual Studio (VSTS)](https://www.visualstudio.com/team-services/) ao extrair nas atualizações mais recentes do seu repositório existente de um destes serviços.
@@ -134,6 +134,8 @@ Para desativar a implementação contínua, navegue para a página da aplicaçã
 No menu à esquerda, clique em **Centro de implementação** > **GitHub** ou **VSTS** ou **BitBucket**  >  **Desligar**.
 
 ![](media/app-service-continuous-deployment/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

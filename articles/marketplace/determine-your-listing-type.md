@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8e9781f97c7d605a5249fcc1684dc2f72cb1e3ac
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824436"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235812"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Determinar o tipo de lista para a sua solução  
 Os storefronts suportam muitas opções de publicação: listagem tipos e tipos de oferta. Selecione um tipo de oferta que melhor represente os detalhes da sua solução e serviço. Todas as opções de publicação fornecem que acesso para levar a partilha.   
@@ -209,10 +209,11 @@ Atualmente, a Microsoft suporta livres e bring-your-proprietário-licença (BYOL
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
-| Faturação e medição | Suporta qualquer um do livre ou modelo de faturação BYOL. |  
-|Imagem incorporada do Dockerfile    |   As imagens de contentor devem basear-se na especificação da imagem Docker e tem de ser criadas a partir de um Dockerfile. Saiba mais sobre como criar imagens de docker [aqui]. (https://docs.docker.com/engine/reference/builder/#usage) |
-|Alojar no ACR    |   Imagens do contentor tem de estar alojadas num repositório de registo de contentor do Azure (ACR). Saiba mais sobre como trabalhar com ACR [aqui]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)   |
-|A marcação de imagem    |   Imagens do contentor tem de conter, pelo menos, 1 tag (máximas etiquetas: 16). Saiba mais sobre a marcação de uma imagem [aqui]. (https://docs.docker.com/engine/reference/commandline/tag/)    |
+|Faturação e medição  |  O contentor tem de suportar o liberte ou traga a sua própria licença modelos de faturação.       |  
+|Imagem incorporada do Dockerfile   |   As imagens de contentor devem basear-se na especificação da imagem Docker e tem de ser criadas a partir de um Dockerfile. Saiba mais sobre como criar imagens de docker [aqui]. (https://docs.docker.com/engine/reference/builder/#usage)
+|Alojar no ACR   |   Imagens do contentor tem de estar alojadas num repositório de registo de contentor do Azure (ACR). Saiba mais sobre como trabalhar com ACR [aqui]. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
+|A marcação de imagem   |   Imagens do contentor tem de conter, pelo menos, 1 tag (máximas etiquetas: 16). Saiba mais sobre a marcação de uma imagem [aqui]. (https://docs.docker.com/engine/reference/commandline/tag/)     | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Requisitos: Azure Marketplace: Transact: aplicações SaaS  
@@ -224,10 +225,11 @@ Microsoft aloja a transação de comércio. Microsoft bills seu cliente em seu n
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
-| Faturação e medição | A oferta tem um preço uma taxa mensal do plana. Baseada na utilização preço e baseada na utilização *true segurança* opções não são suportadas neste momento. |  
-| Cancelamento | A oferta é cancelable pelo cliente em qualquer altura. |  
-|Página de destino de transação     |   Alojar uma página de destino de associação de marcas de transação do Azure, onde os utilizadores podem criar e gerir as respetivas contas de serviço de SaaS.      |    Transação     |
-|API de subscrição    |   Expõe um serviço que pode interagir com a subscrição de SaaS para criar, atualizar e eliminar um plano de serviço e a conta de utilizador. Crítico de API de alterações têm de ser suportadas dentro de 24 horas. Alterações de API não críticos serão lançadas periodicamente.      |     Transação    |
+|Faturação e medição   |   A oferta tem um preço uma taxa mensal do plana. Baseada na utilização de preços e capacidades de "true cópia de segurança" baseada na utilização não são suportadas neste momento.      |  
+|Cancelamento  |   A oferta é cancelable pelo cliente em qualquer altura.      |  
+|Página de destino de transação   |   Alojar uma página de destino de associação de marcas de transação do Azure, onde os utilizadores podem criar e gerir as respetivas contas de serviço de SaaS.      |   
+|API de subscrição    |   Expõe um serviço que pode interagir com a subscrição de SaaS para criar, atualizar e eliminar um plano de serviço e a conta de utilizador. Crítico de API de alterações têm de ser suportadas dentro de 24 horas. Alterações de API não críticos serão lançadas periodicamente.      | 
+
 
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Requisitos: Azure Marketplace: Transact: Máquina Virtual  
