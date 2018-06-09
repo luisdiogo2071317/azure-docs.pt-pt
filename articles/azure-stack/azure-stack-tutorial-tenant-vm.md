@@ -1,6 +1,6 @@
 ---
 title: Máquinas virtuais disponibilizar aos utilizadores de pilha do Azure | Microsoft Docs
-description: Tutorial para disponibilizar as máquinas virtuais na pilha do Azure
+description: Saiba como tornar as máquinas virtuais disponíveis na pilha do Azure
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248164"
 ---
-# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuais disponibilizar aos utilizadores de pilha do Azure
-Como um administrador da nuvem de pilha do Azure, pode criar ofertas podem subscrever os seus utilizadores (algumas vezes referidos como inquilinos). Utilizar a subscrição, os utilizadores podem consumir, em seguida, serviços de pilha do Azure.
+# <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: disponibilizar máquinas virtuais para os utilizadores de pilha do Azure
 
-Este artigo mostra como criar uma oferta e, em seguida, testá-lo. Para o teste, irá iniciar sessão no portal como um utilizador, subscrever a oferta e, em seguida, criar uma máquina virtual utilizando a subscrição.
+Como um administrador da nuvem de pilha do Azure, pode criar ofertas podem subscrever os seus utilizadores (algumas vezes referidos como inquilinos). Ao subscrever uma oferta, os utilizadores podem consumir os serviços de pilha do Azure fornece uma oferta.
+
+Este tutorial mostra como criar uma oferta para uma máquina virtual e, em seguida, inicie sessão como um utilizador para testar a oferta.
 
 O que aprenderá:
 
@@ -34,8 +36,7 @@ O que aprenderá:
 > * Adicionar uma imagem
 > * A oferta de teste
 
-
-Na pilha do Azure, os serviços são fornecidos aos utilizadores através de subscrições, ofertas e planos. Os utilizadores podem subscrever oferece várias. Ofertas podem ter um ou mais planos e planos podem ter um ou mais serviços.
+Na pilha do Azure, os serviços são fornecidos aos utilizadores através de subscrições, ofertas e planos. Os utilizadores podem subscrever oferece várias. Uma oferta pode ter um ou mais planos e um plano pode ter um ou mais serviços.
 
 ![As subscrições, ofertas e planos](media/azure-stack-key-features/image4.png)
 
@@ -43,58 +44,55 @@ Para obter mais informações, consulte [conceitos na pilha do Azure e as funcio
 
 ## <a name="create-an-offer"></a>Criar uma oferta
 
-Agora pode obter coisas pronto para os seus utilizadores. Quando inicia o processo, lhe primeiro para criar a oferta, em seguida, um plano e, finalmente, quotas.
+Ofertas são grupos de um ou mais planos que Fornecedores aos utilizadores para comprar ou subscrever. O processo de criação de uma oferta tem vários passos. Em primeiro lugar, é-lhe pedido que criar a oferta, em seguida, um plano e, por fim, quotas.
 
-3. **Criar uma oferta**
+1. [Inicie sessão no](azure-stack-connect-azure-stack.md) no portal como um administrador da nuvem e, em seguida, selecione **novo** > **oferece + planos** > **oferecem**.
 
-   Ofertas são grupos de um ou mais planos que Fornecedores aos utilizadores para comprar ou subscrever.
-
-   a. [Inicie sessão no](azure-stack-connect-azure-stack.md) no portal como um administrador da nuvem e, em seguida, clique em **novo** > **oferece + planos** > **oferecem**.
    ![Nova oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   b. No **oferecem novo** secção, preencha **nome a apresentar** e **nome do recurso**e, em seguida, selecione o novo ou existente **grupo de recursos**. O Nome a Apresentar é o nome amigável da oferta. Apenas o operador da nuvem, pode ver o nome do recurso. Trata-se do nome que o administrador utiliza para trabalhar com a oferta como um recurso do Azure Resource Manager.
+2. No **oferecem novo**, introduza um **nome a apresentar** e **nome do recurso**e, em seguida, selecione o novo ou existente **grupo de recursos**. O Nome a Apresentar é o nome amigável da oferta. Apenas o operador da nuvem, pode ver o nome do recurso. Trata-se do nome que o administrador utiliza para trabalhar com a oferta como um recurso do Azure Resource Manager.
 
    ![Nome a apresentar](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Clique em **Base planos**e, no **plano** secção, clique em **adicionar** para adicionar um novo plano para a oferta.
+3. Selecione **Base planos**e, no **plano** secção, selecione **adicionar** para adicionar um novo plano para a oferta.
 
    ![Adicione um plano](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. No **planear novo** secção, preencha **nome a apresentar** e **nome do recurso**. O nome de apresentação é o nome amigável do plano e que os utilizadores veem. Apenas o operador da nuvem, pode ver o nome do recurso. É o nome que utilizam os operadores da nuvem para funcionar com o plano como um recurso do Azure Resource Manager.
+4. No **planear novo** secção, preencha **nome a apresentar** e **nome do recurso**. O nome de apresentação é o nome amigável do plano e que os utilizadores veem. Apenas o operador da nuvem, pode ver o nome do recurso. É o nome que utilizam os operadores da nuvem para funcionar com o plano como um recurso do Azure Resource Manager.
 
    ![Planear o nome a apresentar](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Clique em **serviços**, selecione **Microsoft. Compute**, **Network**, e **Microsoft**e, em seguida, clique em **Selecione**.
+5. Selecione **serviços**. Na lista de serviços, escolher **Microsoft. Compute**, **Network**, e **Microsoft**. Escolha **selecione** para adicionar estes serviços para o plano.
 
    ![Planear os serviços](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-   f. Clique em **Quotas**e, em seguida, selecione o primeiro serviço para o qual pretende criar uma quota. Para uma quota de IaaS, siga estes passos para os serviços de computação, rede e armazenamento.
+6. Selecione **Quotas**e, em seguida, selecione o primeiro serviço que pretende criar uma quota para. Para uma quota de IaaS, utilize o exemplo seguinte como guia para configurar quotas para os serviços de computação, rede e armazenamento.
 
-   Neste exemplo, vamos criar primeiro uma quota para o serviço de computação. Na lista de espaço de nomes, selecione o **Microsoft. Compute** espaço de nomes e, em seguida, clique em **criar nova quota**.
-   
-   ![Criar nova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   - Em primeiro lugar, crie uma quota para o serviço de computação. Na lista de espaço de nomes, selecione **Microsoft. Compute** e, em seguida, selecione **criar nova quota**.
 
-   g. No **Criar quota** secção, escreva um nome para a quota e defina os parâmetros pretendidos para a quota e clique em **OK**.
+     ![Criar nova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   ![Nome de quota](media/azure-stack-tutorial-tenant-vm/image07.png)
+   - No **Criar quota**, introduza um nome para a quota. Pode alterar ou aceitar a qualquer um dos valores de quota que são apresentados para a quota de que está a criar. Neste exemplo, podemos aceitar as predefinições e selecione **OK**.
 
-   h. Agora, para **Microsoft. Compute**, selecione a quota que criou.
+     ![Nome de quota](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   ![Selecione quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+   - Escolha **Microsoft. Compute** na lista de espaço de nomes e, em seguida, selecione a quota que criou. Esta ação liga a quota para o serviço de computação.
 
-   Repita estes passos para os serviços de armazenamento e de rede e, em seguida, clique em **OK** no **Quotas** secção.
+     ![Selecione quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   i. Clique em **OK** no **novo plano** secção.
+      Repita estes passos para os serviços de rede e armazenamento. Quando tiver terminado, selecione **OK** no **Quotas** para guardar todas as quotas.
 
-   j. No **plano** secção, selecione o novo plano e clique em **selecione**.
+7. No **novo plano**, selecione **OK**.
 
-   k. No **oferta novo** secção, clique em **criar**. Verá uma notificação quando foi criada a oferta.
+8. Em **plano**, selecione o novo plano e, em seguida, **selecione**.
 
-   l. No menu do dashboard, clique em **oferece** e, em seguida, clique na oferta que criou.
+9. No **oferta novo**, selecione **criar**. Verá uma notificação quando é criada a oferta.
 
-   m. Clique em **Alterar Estado** e, em seguida, em **Público**.
+10. No menu do dashboard, selecione **oferece** e, em seguida, escolha a oferta que criou.
 
-   ![Estado público](media/azure-stack-tutorial-tenant-vm/image09.png)
+11. Selecione **alteração de estado**e, em seguida, escolha **pública**.
+
+    ![Estado público](media/azure-stack-tutorial-tenant-vm/image09.png)
 
 ## <a name="add-an-image"></a>Adicionar uma imagem
 
@@ -106,56 +104,70 @@ Para obter informações sobre como adicionar itens diferentes para o mercado, c
 
 ## <a name="test-the-offer"></a>A oferta de teste
 
-Agora que criou uma oferta, pode testá-lo. Inicie sessão como um utilizador e subscrever a oferta e, em seguida, adicionar uma máquina virtual.
+Agora que criou uma oferta, pode testá-lo. Irá iniciar sessão como um utilizador, subscrever a oferta e, em seguida, adicionar uma máquina virtual.
 
 1. **Subscrever uma oferta**
 
-   Agora, pode iniciar sessão no portal como um utilizador para subscrever uma oferta.
-
-   a. Inicie sessão no portal de utilizador como um utilizador e clique em **obter uma subscrição**.
+   a. Inicie sessão no portal de utilizador com uma conta de utilizador e selecione o **obter uma subscrição** mosaico.
    - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e vai estar no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, o endereço de portal é https://portal.local.azurestack.external.
 
    ![Obter uma subscrição](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. No **nome a apresentar** campo, escreva um nome para a sua subscrição, clique em **oferecem**, clique das ofertas no **escolher uma oferta** secção e, em seguida, clique em  **Criar**.
+   b. No **obter uma subscrição**, introduza um nome para a sua subscrição no **nome a apresentar** campo. Selecione **oferecem**e, em seguida, escolha uma das ofertas no **escolher uma oferta** lista. Selecione **Criar**.
 
    ![Criar uma oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Para ver a subscrição que criou, clique em **mais serviços**, clique em **subscrições**, em seguida, clique em sua nova subscrição.  
+   c. Para ver a subscrição, selecione **mais serviços**e, em seguida, selecione **subscrições**. Selecione a sua nova subscrição para ver quais os serviços fazem parte da subscrição.
 
-   Depois de subscrever uma oferta, atualize o portal para ver quais os serviços fazem parte da nova subscrição.
+   >[!NOTE]
+   >Depois de subscrever uma oferta, poderá ter de atualizar o portal para ver quais os serviços fazem parte da nova subscrição.
 
 2. **Aprovisionar uma máquina virtual**
 
-   Agora, pode iniciar sessão no portal como um utilizador para Aprovisionar uma máquina virtual utilizando a subscrição. 
+   No portal de utilizador pode aprovisionar uma máquina virtual utilizando a nova subscrição.
 
-   a. Inicie sessão no portal de utilizador como um utilizador.
+   a. Inicie sessão no portal de utilizador com uma conta de utilizador.
       - Para um sistema integrado, o URL varia com base na região e nome de domínio externo o operador e vai estar no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
    - Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure, o endereço de portal é https://portal.local.azurestack.external.
 
-   b.  No dashboard, clique em **novo** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, clique em **criar**.
+   b.  No dashboard, selecione **novo** > **computação** > **Windows Server 2016 Datacenter Eval**e, em seguida, selecione **criar**.
 
-   c. No **Noções básicas** secção, escreva um **nome**, **nome de utilizador**, e **palavra-passe**, escolha um **subscrição**, criar um **grupo de recursos** (ou selecione um existente) e, em seguida, clique em **OK**.
+   c. No **Noções básicas**, forneça as seguintes informações:
+      - Introduza um **nome**
+      - Introduza um **nome de utilizador**
+      - Introduza um **palavra-passe**
+      - Escolha um **subscrição**
+      - Criar um **grupo de recursos** (ou selecione um existente.) 
+      - Selecione **OK** para guardar estas informações.
 
-   d. No **escolher um tamanho** secção, clique em **A1 padrão**e, em seguida, clique em **selecione**.  
+   d. No **escolher um tamanho**, selecione **A1 padrão**e, em seguida, **selecione**.  
 
-   e. No **definições** secção, clique em **rede Virtual**. No **escolha de rede virtual** secção, clique em **criar nova**. No **criar rede virtual** secção, aceite todas as predefinições e clique em **OK**. No **definições** secção, clique em **OK**.
+   e. No **definições**, selecione **rede Virtual**.
+
+   f. No **escolha de rede virtual**, selecione **criar nova**.
+
+   g. No **criar rede virtual**, aceite todas as predefinições e selecione **OK**.
+
+   h. Selecione **OK** no **definições** para guardar a configuração de rede.
 
    ![Criar a rede virtual](media/azure-stack-provision-vm/image04.png)
 
-   f. No **resumo** secção, clique em **OK** para criar a máquina virtual.  
+   i. No **resumo**, selecione **OK** para criar a máquina virtual.  
 
-   g. Para ver a nova máquina virtual, clique em **todos os recursos**, em seguida, procure a máquina virtual e clique no respetivo nome.
+   j. Para ver a nova máquina virtual, selecione **todos os recursos**. Pesquisa para a máquina virtual e selecione o nome de resultados da pesquisa.
 
-    ![Todos os recursos](media/azure-stack-provision-vm/image06.png)
+   ![Todos os recursos](media/azure-stack-provision-vm/image06.png)
 
-O que aprendeu neste tutorial:
+## <a name="next-steps"></a>Passos Seguintes
+
+Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Criar uma oferta
 > * Adicionar uma imagem
 > * A oferta de teste
 
+Avançadas para o próximo tutorial para saber como:
 > [!div class="nextstepaction"]
-> [Certifique-web, móveis e API apps disponíveis para os utilizadores de pilha do Azure](azure-stack-tutorial-app-service.md)
+> [Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure](azure-stack-tutorial-sql-server.md)

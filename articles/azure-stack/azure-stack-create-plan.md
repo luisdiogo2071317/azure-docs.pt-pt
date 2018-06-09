@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: b1bfff16c4f51a9fa53204930df78cbd2cf19b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248708"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Criar um plano no Azure Stack
 
@@ -29,34 +30,46 @@ Os [Planos](azure-stack-key-features.md) consistem em agrupamentos de um ou mais
 
 1. Inicie sessão no portal de administrador a pilha do Azure (https://adminportal.local.azurestack.external).
 
-2. Para criar um plano e a oferta que os utilizadores podem subscrever, selecione **novo** > **oferece + planos** > **plano**.  
+2. Para criar um plano e a oferta que os utilizadores podem subscrever, selecione **novo** > **oferece + planos** > **plano**.
+  
    ![Selecionar um plano](media/azure-stack-create-plan/select-plan.png)
 
-3. No **novo plano** painel, preencha **nome a apresentar** e **nome do recurso**. O nome de apresentação é o nome amigável do plano e que os utilizadores veem. Apenas o administrador pode ver o nome de recurso, o que é o nome que os administradores utilizam para trabalhar com o plano como um recurso do Azure Resource Manager.  
+3. Em **novo plano**, introduza um **nome a apresentar** e um **nome do recurso**. O nome de apresentação é o nome amigável do plano e que os utilizadores podem ver. Apenas o administrador pode ver o nome de recurso, os administradores utilizam para trabalhar com o plano como um recurso do Azure Resource Manager.
+
    ![Especifique os detalhes](media/azure-stack-create-plan/plan-name.png)
 
-4. Crie um novo **grupo de recursos**, ou selecione um existente, como um contentor para o plano.  
+4. Crie um novo **grupo de recursos**, ou selecione um existente, como um contentor para o plano.
+
    ![Especifique o grupo de recursos](media/azure-stack-create-plan/resource-group.png)
 
-5. Selecione **serviços** e, em seguida, selecione a caixa de verificação **Microsoft. Compute**, **Network**, e **Microsoft**. Em seguida, escolha **selecione** para guardar a configuração. Caixas de verificação são apresentadas quando o rato passa sobre cada opção.  
-   ![Selecione os serviços](media/azure-stack-create-plan/services.png)
+5. Selecione **serviços** e, em seguida, selecione a caixa de verificação **Microsoft. Compute**, **Network**, e **Microsoft**. Em seguida, escolha **selecione** para guardar a configuração. Caixas de verificação são apresentadas quando o rato passa sobre cada opção.
+  
+   ![Selecionar serviços](media/azure-stack-create-plan/services.png)
 
-6. Selecione **Quotas**, **Microsoft (local)** e, em seguida, escolha o quota predefinida ou selecione **criar nova quota** para personalizar a quota.  
+6. Selecione **Quotas**, **Microsoft (local)** e, em seguida, escolha o quota predefinida ou selecione **criar nova quota** para criar uma quota personalizada.
+  
    ![Quotas](media/azure-stack-create-plan/quotas.png)
 
-7. Se estiver a criar uma nova quota, introduza um **nome** para a quota > especifique os valores de quota > selecione **OK**. O **Criar quota** fecha do painel.
+7. Se estiver a criar uma nova quota, introduza um **nome** para a quota > especifique os valores de quota > selecione **OK**. O **Criar quota** fecha a caixa de diálogo.
+
    ![Nova quota](media/azure-stack-create-plan/new-quota.png)
 
-   Em seguida, selecione a nova quota que criou. Selecionar a quota atribui-o e fecha o painel de seleção.  
+   Em seguida, selecione a nova quota que criou. Selecionar a quota atribui-o e fecha a caixa de diálogo de seleção.
+  
    ![Atribuir a quota](media/azure-stack-create-plan/assign-quota.png)
 
-8. Repita os passos 6 e 7 para criar e atribuir quotas para **Network (local)** e **Microsoft. Compute (local)**.  Quando os três serviços têm quotas atribuídas, aparecem semelhantes para a imagem seguinte.  
+8. Repita os passos 6 e 7 para criar e atribuir quotas para **Network (local)** e **Microsoft. Compute (local)**. Quando os três serviços têm quotas atribuídas, irá procuram semelhante ao seguinte exemplo.
+
    ![Atribuições de quota concluída](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. No **Quotas** painel, escolha **OK**e, em seguida, no **novo plano** painel, escolha **criar** para criar o plano.  
+9. Em **Quotas**, escolha **OK**e, em **novo plano**, escolha **criar** para criar o plano.
+
     ![Criar o plano](media/azure-stack-create-plan/create.png)
-10. Para ver o seu plano de novo, selecione **todos os recursos**, em seguida, procure o plano e selecione o respetivo nome. Se a lista de recursos é longa, utilize **pesquisa** para localizar o plano de por nome.  
+
+10. Para ver o seu plano de novo, selecione **todos os recursos**, em seguida, procure o plano e selecione o respetivo nome. Se a lista de recursos é longa, utilize **pesquisa** para localizar o plano de por nome.
+
    ![Rever o plano](media/azure-stack-create-plan/plan-overview.png)
 
-### <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 [Criar uma oferta](azure-stack-create-offer.md)

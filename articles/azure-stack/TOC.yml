@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notas de versão
       items:
+        - name: atualização 1805
+          href: azure-stack-update-1805.md
         - name: atualização 1804
           href: azure-stack-update-1804.md
         - name: atualização 1803
           href: azure-stack-update-1803.md
         - name: atualização 1802
           href: azure-stack-update-1802.md
-        - name: atualização 1712
-          href: azure-stack-update-1712.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: Publicar pontos finais
                   href: azure-stack-integrate-endpoints.md
+        - name: Integração de identidade
+          items:
+            - name: Escolha um fornecedor de identidade
+              href: azure-stack-integrate-identity.md
+            - name: Validar a identidade do Azure
+              href: azure-stack-validate-identity.md
         - name: Requisitos do PKI de implementação de pilha do Azure
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: Remediar certificados PKI
               href: azure-stack-remediate-certs.md
-            - name: Recursos de implementação
-              items:
-                - name: Referência de cmdlet Start-AzsReadiness
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Ver o relatório de preparação
-                  href: azure-stack-validation-report.md
-            - name: Integração de identidade
-              items:
-                - name: Escolha um fornecedor de identidade
-                  href: azure-stack-integrate-identity.md
-                - name: Validar a identidade do Azure
-                  href: azure-stack-validate-identity.md
+        - name: Recursos de implementação
+          items:
+            - name: Sobre redes de implementação
+              href: deployment-networking.md
         - name: Validar o registo do Azure
           href: azure-stack-validate-registration.md
+          items:
+            - name: Referência de cmdlet Start-AzsReadiness
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Ver o relatório de preparação
+              href: azure-stack-validation-report.md
         - name: Monitorização externo
           href: azure-stack-integrate-monitor.md
         - name: Integração de segurança
@@ -196,6 +199,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: Criar um plano
               href: azure-stack-create-plan.md
+            - name: Criar um plano de suplemento
+              href: create-add-on-plan.md
             - name: Criar uma oferta
               href: azure-stack-create-offer.md
             - name: Subscrever uma oferta
