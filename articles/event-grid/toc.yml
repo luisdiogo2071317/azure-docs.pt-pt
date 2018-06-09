@@ -49,6 +49,8 @@
       href: powershell-samples.md
     - name: Modelos do Resource Manager
       href: template-samples.md
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: Conceitos
   items:
     - name: Conceitos do Event Grid
