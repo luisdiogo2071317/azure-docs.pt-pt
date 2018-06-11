@@ -1,11 +1,11 @@
 ---
-title: "Configurar aplicações Web no Serviço de Aplicações do Azure"
-description: "Como configurar uma aplicação web nos serviços de aplicações do Azure"
+title: Configurar aplicações Web no Serviço de Aplicações do Azure
+description: Como configurar uma aplicação web nos serviços de aplicações do Azure
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234531"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -49,7 +50,7 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Definir **ON** para ativar o protocolo de WebSocket; por exemplo, se a sua aplicação web utiliza [ASP.NET SignalR] ou [socket.io](https://socket.io/).
+**Web Sockets**. Definir **ON** para ativar o protocolo de WebSocket; por exemplo, se a sua aplicação web utiliza [SignalR de ASP.NET] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
 **Always On**. Por predefinição, as aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isto permite que o sistema poupar recursos. No modo básico ou padrão, pode ativar **Always On** manter a aplicação carregada sempre. Se a aplicação for executada WebJobs contínuos ou executa WebJobs acionada através de uma expressão de CRON, deverá ativar **Always On**, ou as tarefas de web podem não ser fiável.
@@ -67,6 +68,8 @@ Esta secção contém pares nome/valor que a aplicação web será carregado no 
 * Para aplicações de .NET, estas definições são inseridas na sua configuração de .NET `AppSettings` em runtime, substituir as definições existentes. 
 * As aplicações PHP, Python, Java e nó podem aceder a estas definições como variáveis de ambiente no tempo de execução. Para cada definição de aplicação, são criadas duas variáveis de ambiente; um com o nome especificado, a entrada de definição de aplicação e outro com um prefixo APPSETTING_. Ambos contêm o mesmo valor.
 
+As definições de aplicação são sempre encriptadas quando armazenados (encriptados-em-rest).
+
 ### <a name="connection-strings"></a>Cadeias de ligação
 Cadeias de ligação de recursos ligados. 
 
@@ -80,6 +83,8 @@ Para aplicações PHP, Python, Java e nó, estas definições estarão disponív
 * Personalizado: `CUSTOMCONNSTR_`
 
 Por exemplo, se uma cadeia de ligação MySql foram denominada `connectionstring1`, teria de ser acedido através da variável de ambiente `MYSQLCONNSTR_connectionString1`.
+
+Cadeias de ligação são sempre encriptadas quando armazenados (encriptados-em-rest).
 
 ### <a name="default-documents"></a>Documentos predefinidos
 O documento predefinido é a página web que é apresentado no URL da raiz para um Web site.  É utilizado o primeiro ficheiro correspondente na lista. 
@@ -147,7 +152,7 @@ Para ver as ranhuras de implementação, clique em **todas as definições** > *
 ### <a name="monitoring"></a>Monitorização
 No modo básico ou padrão, pode testar a disponibilidade de pontos finais HTTP ou HTTPS a partir de localizações até três geo-distribuição. Um teste de monitorização falha se o código de resposta HTTP é um erro (4xx ou 5xx) ou a resposta demora mais do que 30 segundos. Um ponto final é considerado disponível se os testes de monitorização com êxito a partir de localizações especificadas. 
 
-Para obter mais informações, consulte [como: monitorizar o estado do ponto final web].
+Para obter mais informações, consulte [Como: monitorizar o estado de ponto final da web].
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service], onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
@@ -162,12 +167,12 @@ Para obter mais informações, consulte [como: monitorizar o estado do ponto fin
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[SignalR de ASP.NET]: http://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
-[implementar em ambientes de teste para Web Apps no App Service do Azure]: ./web-sites-staged-publishing.md
+[Implementar em ambientes de teste para Web Apps no App Service do Azure]: ./web-sites-staged-publishing.md
 [Ativar HTTPS para uma aplicação no App Service do Azure]: ./app-service-web-tutorial-custom-ssl.md
-[como: monitorizar o estado do ponto final web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Como: monitorizar o estado de ponto final da web]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Noções básicas de monitorização para Web Apps no App Service do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar a uma aplicação web no App Service do Azure]: ./web-sites-scale.md
