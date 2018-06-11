@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: DNS Inverso
       href: dns-reverse-dns-overview.md
+    - name: Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedimento
   items:
     - name: Criar a zona e registo DNS personalizados - CLI do Azure

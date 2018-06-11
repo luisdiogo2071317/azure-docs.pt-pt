@@ -125,7 +125,7 @@
 #### [Notificações](active-directory-reporting-notifications.md)
 #### [Referência da atividade de auditoria](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de erro de atividade de início de sessão](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Autenticação Multifator](active-directory-reporting-activity-sign-ins-mfa.md
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
 
@@ -326,6 +326,7 @@
 #### [Condições](active-directory-conditional-access-conditions.md)
 #### [Condições de localização](active-directory-conditional-access-locations.md)
 #### [Controlos](active-directory-conditional-access-controls.md)
+#### [Proteção de linha de base](active-directory-conditional-access-baseline-protection.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Melhores práticas](active-directory-conditional-access-best-practices.md)
 #### [Compreender as políticas de dispositivo para serviços do Office 365](active-directory-conditional-access-device-policies.md)

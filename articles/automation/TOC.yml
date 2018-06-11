@@ -29,6 +29,8 @@
   items:
     - name: Inclusão
       items:
+        - name: Incluir várias VMs a partir do portal
+          href: automation-onboard-solutions-from-browse.md
         - name: Inclusão a partir de uma VM do Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Inclusão a partir da conta de automatização
