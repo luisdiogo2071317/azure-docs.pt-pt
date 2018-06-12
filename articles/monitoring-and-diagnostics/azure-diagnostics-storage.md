@@ -1,24 +1,19 @@
 ---
-title: Arquivo e a vista de dados de diagnóstico no armazenamento do Azure | Microsoft Docs
+title: Armazenar e Ver Dados de Diagnósticos no Armazenamento do Azure
 description: Obter dados de diagnóstico do Azure para o armazenamento do Azure e vê-la
-services: cloud-services
-documentationcenter: .net
+services: azure-monitor
 author: thraka
-manager: timlt
-editor: tysonn
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: adegeo
-ms.openlocfilehash: 248e1c87ec244649a296233bf2aaa323d3475a79
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267667"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Arquivo e a vista de dados de diagnóstico no armazenamento do Azure
 Dados de diagnóstico não são permanentemente armazenados, a menos que a transferência para o emulador de armazenamento do Microsoft Azure ou para armazenamento do Azure. Uma vez no armazenamento, podem ser visualizado com uma das várias ferramentas disponíveis.
@@ -42,7 +37,7 @@ Dependendo do tipo de dados de diagnóstico que estão a ser recolhidos, diagnó
 | Registos do IIS 7.0 |Blobs |
 | Registos da infraestrutura do Diagnóstico do Azure |Tabela |
 | Falha de registos de rastreio de pedido |Blobs |
-| Registos de eventos do Windows |Tabela |
+| Registos de Eventos do Windows |Tabela |
 | Contadores de desempenho |Tabela |
 | Informações de falha de sistema |Blobs |
 | Registos de erros personalizados |Blobs |

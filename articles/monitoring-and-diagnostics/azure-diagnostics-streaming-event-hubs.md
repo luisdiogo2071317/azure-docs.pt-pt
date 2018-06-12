@@ -1,24 +1,20 @@
 ---
-title: "Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente utilizar Event Hubs | Microsoft Docs"
-description: "Configurar diagnósticos do Azure com o Event Hubs ponto a ponto, incluindo documentação de orientação para cenários comuns."
-services: event-hubs
-documentationcenter: na
+title: Transmitir dados de diagnóstico do Azure para os Event Hubs
+description: Configurar diagnósticos do Azure com o Event Hubs ponto a ponto, incluindo documentação de orientação para cenários comuns.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267718"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece opções flexíveis para recolher métricas e registos de máquinas de virtuais de serviços de nuvem (VMs) e transferir os resultados para o Storage do Azure. A partir de um período de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir os dados de caminho frequente em segundos, utilizando [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -29,7 +25,7 @@ Os tipos de dados suportados incluem:
 * Contadores de desempenho
 * Registos de eventos do Windows
 * Registos de aplicações
-* Registos de infraestrutura de diagnóstico do Azure
+* Registos da infraestrutura do Diagnóstico do Azure
 
 Este artigo mostra como configurar o diagnóstico do Azure com os Event Hubs de extremidade a extremidade. Também é fornecida orientação para os seguintes cenários comuns:
 
@@ -322,7 +318,7 @@ namespace EventHubListener
 
     Tente procura na tabela de armazenamento do Azure que contém erros e registos para diagnósticos do Azure próprio: **WADDiagnosticInfrastructureLogsTable**. Uma opção é utilizar uma ferramenta como [Explorador de armazenamento do Azure](http://www.storageexplorer.com) para ligar a esta conta de armazenamento, visualizar esta tabela e adicionar uma consulta para TimeStamp nas últimas 24 horas. Pode utilizar a ferramenta para exportar um ficheiro. csv e abri-lo numa aplicação, tais como o Microsoft Excel. Excel torna mais fácil procurar cadeias de cartão de chamar, tais como **EventHubs**, para ver o erro é comunicado.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 • [Saber mais sobre os Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Apêndice: Concluir o exemplo de ficheiro (.wadcfgx) de configuração de diagnósticos do Azure
@@ -504,7 +500,7 @@ Definições de Json com base equivalentes para máquinas virtuais é o seguinte
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md)
