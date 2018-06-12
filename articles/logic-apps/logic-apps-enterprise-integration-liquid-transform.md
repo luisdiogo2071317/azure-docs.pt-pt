@@ -1,12 +1,12 @@
 ---
-title: "Converter os dados JSON com transformações Liquid - Azure Logic Apps | Microsoft Docs"
-description: "Crie as transformações ou maps para transformações de JSON avançadas com Logic Apps e Liquid modelo."
+title: Converter os dados JSON com transformações Liquid - Azure Logic Apps | Microsoft Docs
+description: Crie as transformações ou maps para transformações de JSON avançadas com Logic Apps e Liquid modelo.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: divyaswarnkar
-manager: anneta
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42a102c9b2663380a93d56cc5f8fb82abaa83b74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299516"
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Efetuar transformações de JSON avançadas com um modelo Liquid
 
@@ -126,7 +127,7 @@ Liquid não está limitado a apenas transformações de JSON. Seguem-se outras a
   
    ![Exemplo de saída JSON em texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
-* Transformação XML para JSON
+* Transformar XML em JSON
   
   Eis o modelo Liquid utilizado para este exemplo:
    

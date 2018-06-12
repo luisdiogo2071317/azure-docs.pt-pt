@@ -3,19 +3,19 @@ title: Limites e de configuração - Azure Logic Apps | Microsoft Docs
 description: Os limites de serviços e valores de configuração para o Azure Logic Apps
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.topic: article
 ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 713312725c92c6c78241e1cdcaa06280282c7777
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2534210c903e77462ece91c577d731d9c8e3726f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831851"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299720"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -78,7 +78,7 @@ Seguem-se os limites para uma aplicação de lógica única executar:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Até iterações | 5.000 | | 
+| Até iterações | 5,000 | | 
 | ForEach itens | 100,000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maior, conforme necessário. | 
 | ForEach paralelismo | 50 | A predefinição é 20. <p>Para alterar este nível predefinido num ciclo ForEach, defina o `runtimeConfiguration` propriedade no `foreach` ação. <p>Para executar sequencialmente um ciclo de ForEach, defina o `operationOptions` propriedade como "Sequencial" no `foreach` ação. | 
 | Itens de SplitOn | 100,000 | | 

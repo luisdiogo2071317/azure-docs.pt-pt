@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Suite e Azure Active Directory | Microsoft Docs
-description: "Descreve como o Azure IoT Suite utiliza o Azure Active Directory para gerir permissões."
-services: 
+description: Descreve como o Azure IoT Suite utiliza o Azure Active Directory para gerir permissões.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4d0c7aff54ee20cf9ae4e6cdf2fc0718cd0b2f2a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35304141"
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -92,7 +93,7 @@ Pode utilizar o procedimento seguinte para tornar um utilizador do seu Active Di
 Tem de ser um administrador global do AAD para alterar as funções de um utilizador:
 
 1. Aceda ao [portal do Azure][lnk-portal].
-2. Selecione **do Azure Active Directory**.
+2. Selecione **Azure Active Directory**.
 3. Certifique-se de que está a utilizar o diretório que escolheu em azureiotsuite.com Quando aprovisionou a sua solução. Se tiver vários diretórios associados à subscrição, pode alternar entre elas se clicar em seu nome de conta na parte superior direita do portal.
 4. Clique em **aplicações empresariais**, em seguida, **todas as aplicações**.
 4. Mostrar **todas as aplicações** com **qualquer** estado. Em seguida, procure uma aplicação com o nome da sua solução pré-configurada.
@@ -113,7 +114,7 @@ Peça a um administrador global para fazer com que um administrador global no in
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Como posso alternar o inquilino do AAD atribuído à minha aplicação e solução pré-configurada de monitorização remota?
 
-Pode executar uma implementação de nuvem a partir de <https://github.com/Azure/azure-iot-remote-monitoring> e voltar a implementar com um inquilino do AAD recém-criado. Uma vez que é, por predefinição, um administrador global quando cria um inquilino do AAD, não tem permissões para adicionar utilizadores e atribuir funções aos mesmos.
+Pode executar uma implementação de nuvem de <https://github.com/Azure/azure-iot-remote-monitoring> e voltar a implementar com um inquilino do AAD recém-criado. Uma vez que é, por predefinição, um administrador global quando cria um inquilino do AAD, não tem permissões para adicionar utilizadores e atribuir funções aos mesmos.
 
 1. Criar um diretório do AAD no [portal do Azure][lnk-portal].
 2. Aceda a <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -149,7 +150,7 @@ Para saber mais sobre o IoT Suite, veja como pode [personalizar uma solução pr
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs

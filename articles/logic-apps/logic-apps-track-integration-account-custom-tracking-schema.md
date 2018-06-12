@@ -2,7 +2,7 @@
 title: Esquemas de controlo personalizado para a monitorização do B2B - Azure Logic Apps | Microsoft Docs
 description: Crie esquemas de controlo personalizado para monitorizar as mensagens B2B de transações na sua conta de integração do Azure.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299839"
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Ativar o controlo monitorizar o seu fluxo de trabalho completado, ponto a ponto
 Não há incorporadas que pode ativar para diferentes partes da sua empresa-empresa de fluxo de trabalho, tais como controlo AS2 ou X12 mensagens de controlo. Quando criar fluxos de trabalho que inclui uma aplicação lógica, BizTalk Server, SQL Server ou qualquer outra camada, em seguida, pode ativar o controlo personalizado que os registos de eventos a partir do início ao fim do fluxo de trabalho. 
@@ -69,7 +70,7 @@ Este tópico fornece código personalizado que pode utilizar as camadas fora da 
 | runId | Cadeia | Aplicação de lógica executar ID. (Obrigatório) |
 | operationName | Cadeia | Nome da operação (por exemplo, ação ou acionador). (Obrigatório) |
 | repeatItemScopeName | Cadeia | Repita o nome do item se a ação está dentro de um `foreach` / `until` ciclo. (Obrigatório) |
-| repeatItemIndex | Número Inteiro | Se a ação está dentro de um `foreach` / `until` ciclo. Indica o índice do item repetido. (Obrigatório) |
+| repeatItemIndex | Número inteiro | Se a ação está dentro de um `foreach` / `until` ciclo. Indica o índice do item repetido. (Obrigatório) |
 | trackingId | Cadeia | ID de controlo, para correlacionar as mensagens. (Opcional) |
 | correlationId | Cadeia | ID de correlação para correlacionar as mensagens. (Opcional) |
 | clientRequestId | Cadeia | Cliente pode preenchê-lo para correlacionar mensagens. (Opcional) |

@@ -1,11 +1,11 @@
 ---
 title: Agenda de tarefas e regularmente executar fluxos de trabalho - Azure Logic Apps | Microsoft Docs
-description: "Criar e agendar a execução regularmente tarefas, ações, fluxos de trabalho, processos e cargas de trabalho com logic apps"
+description: Criar e agendar a execução regularmente tarefas, ações, fluxos de trabalho, processos e cargas de trabalho com logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296792"
 ---
 # <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Criar e agendar tarefas regularmente em execução com Azure Logic Apps
 
@@ -165,7 +166,7 @@ Eis um exemplo [definição do acionador de recorrência](../logic-apps/logic-ap
 | Executar às 8:30 AM, 8:45 AM, 4:30 PM e 4:45 PM todos os dias | 1 | Dia | {none} | {unavailable} | 8, 16 | 30, 45 | | 
 | Executar todos os sábados às 17: 00 (sem data de início e a hora) | 1 | Week (Semana) | {none} | "Sábado" | 17 | 00 | Esta agenda executa todos os sábados às 17:00:00. | 
 | Executar todos os sábados PM 5 (com a data e hora início) | 1 | Week (Semana) | *startDate*T17:00:00Z | "Sábado" | {none} | {none} | Esta agenda não comece *qualquer define* especificado ao iniciar a data e hora, neste caso, 9 de Setembro de 2017 nas 17:00:00. Recurrences futuras executam todos os sábados as 17:00:00. | 
-| Executar cada terça-feira, Quinta-feira, as 17: 00 | 1 | Week (Semana) | {none} | "Tuesday", "Thursday" | 17 | {none} | Esta agenda executa cada terça-feira e a quinta-feira, as 17:00:00. | 
+| Executar cada terça-feira, Quinta-feira, as 17: 00 | 1 | Week (Semana) | {none} | "Terça-feira", "Quinta-feira" | 17 | {none} | Esta agenda executa cada terça-feira e a quinta-feira, as 17:00:00. | 
 | Executada a cada hora durante o horário de trabalho | 1 | Week (Semana) | {none} | Selecione todos os dias, exceto Sábado e Domingo. | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora em que pretende. | Por exemplo, se o seu horário de trabalho é 8 horas da Manhã para 5:00 PM, em seguida, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se o seu horário de trabalho é 8:30 AM para 5:30 da Tarde, selecione as horas do dia "30" anteriores como minutos da hora. | 
 | Executar uma vez para cada dia no fim de semana | 1 | Week (Semana) | {none} | "Sábado", "Domingo" | Selecione as horas do dia em que pretende. | Selecione qualquer minutos da hora conforme apropriado. | Esta agenda executa todos os sábados e domingo no horário especificado. | 
 | Executar a cada 15 minutos bissemanais segundas apenas | 2 | Week (Semana) | {none} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta agenda de execução todos os outros segunda-feira na marca cada 15 minutos. | 

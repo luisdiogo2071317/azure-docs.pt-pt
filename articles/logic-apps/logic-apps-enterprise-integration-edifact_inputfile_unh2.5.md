@@ -4,8 +4,8 @@ description: Azure Logic Apps B2B edifact descodificar resolver UNH2.5
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e04e7515a8ddfe512ba2efbbd45c3d1b571c1fd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297952"
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Como processar documentos EDIFACT ter UNH2.5 segmento
 Quando UNH2.5 está presente no documento EDIFACT, está a ser utilizado para a pesquisa de esquema. 
@@ -50,5 +51,5 @@ Para codificar a mensagem a receber, configure o esquema nas definições de env
 3. Selecione contratos EDIFACT e clique em **editar como JSON**.  Adicione o valor UNH2.5 no contrato de enviar **schemaReferences**
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Saiba mais sobre contratos de conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração do enterprise")  

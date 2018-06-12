@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265589"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerir a base de dados do Azure para o servidor de MySQL utilizando o portal do Azure
 Este tópico descreve como pode criar rapidamente uma nova base de dados do Azure para o servidor de MySQL. Também inclui informações sobre como gerir o servidor utilizando o portal do Azure. Gestão de servidor inclui ver detalhes do servidor e bases de dados, a repor a palavra-passe, dimensionar recursos e a eliminação do servidor.
@@ -64,7 +65,7 @@ Depois do novo servidor tiver sido aprovisionado, o utilizador tem várias opç�
 
 2. Introduza uma palavra-passe nova e confirme a palavra-passe na janela, conforme mostrado:
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Reposição de palavra-passe](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Clique em **OK** para guardar a nova palavra-passe.
 
@@ -74,7 +75,7 @@ Depois do novo servidor tiver sido aprovisionado, o utilizador tem várias opç�
 
 2. Alterar o **vCore** definição ao mover o controlo de deslize para o valor pretendido.
 
-    ![scale-compute](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![Dimensionar a computação](./media/howto-create-manage-server-portal/scale-compute.png)
 
 3. Clique em **OK** para guardar as alterações.
 
@@ -103,13 +104,13 @@ Depois do novo servidor tiver sido aprovisionado, o utilizador tem várias opç�
 ## <a name="list-the-azure-database-for-mysql-databases"></a>Lista a base de dados do Azure para bases de dados MySQL
 Do servidor **descrição geral**, desloque para baixo até verá o mosaico na parte inferior da base de dados. Todas as bases de dados no servidor estão listados na tabela.
 
-   ![show-databases](./media/howto-create-manage-server-portal/show-databases.png)
+   ![Mostrar-bases de dados](./media/howto-create-manage-server-portal/show-databases.png)
 
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>Mostrar detalhes de uma base de dados do Azure para o servidor de MySQL
 Clique em **propriedades**, localizado em **definições** para ver informações detalhadas sobre o servidor.
 
 ![propriedades](./media/howto-create-manage-server-portal/properties.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Início rápido: Criar a base de dados do Azure para o servidor de MySQL utilizando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

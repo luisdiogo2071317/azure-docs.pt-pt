@@ -6,15 +6,15 @@ author: mbolz
 ms.author: mbolz
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/01/2018
-ms.openlocfilehash: 8e4a14eb796875848406b4fc4ff39b90b9a691e9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7520868fd6bd349043ad2c53e62de5db978db8b1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736444"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267225"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para pontos finais do serviço de MySQL VNet e regras de VNet através do portal do Azure
 Pontos finais de serviços de rede (VNet) virtuais e as regras de expandem o espaço de endereço privado de uma rede Virtual para a base de dados do Azure para o servidor de MySQL. Para obter uma descrição geral da base de dados do Azure para pontos finais de serviço MySQL VNet, incluindo as limitações, consulte [base de dados do Azure para pontos finais do serviço de MySQL servidor VNet](concepts-data-access-and-security-vnet.md). Pontos finais do serviço de VNet estão disponíveis na pré-visualização pública em todas as regiões suportadas para a base de dados do Azure para MySQL.

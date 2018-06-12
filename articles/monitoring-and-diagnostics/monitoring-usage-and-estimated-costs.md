@@ -1,24 +1,20 @@
 ---
-title: Monitorização de utilização e os custos estimados no Monitor do Azure | Microsoft Docs
+title: Utilização de monitorização e os custos estimados no Monitor do Azure
 description: Descrição geral do processo de utilizar a página de custos estimados e utilização de Monitor do Azure
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 4e6b3a2e8769c6e7e93071aed27b81c87ae336ca
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ''
+ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715562"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264287"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Utilização de monitorização e os custos estimados
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 77f3660eef182afe43ec626d71d606ee10037cad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292342"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn elevar para aprovisionamento de utilizadores automática
 
@@ -42,7 +43,7 @@ Azure Active Directory utiliza um conceito chamado "atribuições de" para deter
 
 Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder para elevar LinkedIn. Depois de decidir, pode atribuir estes utilizadores LinkedIn elevação ao seguir as instruções aqui:
 
-[Atribuir um utilizador ou grupo a uma aplicação empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Sugestões importantes para atribuir utilizadores a efetuar a elevação LinkedIn
 
@@ -123,5 +124,5 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

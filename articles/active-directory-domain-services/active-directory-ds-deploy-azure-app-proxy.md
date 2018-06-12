@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 38586763c8bf80ac4ebf2e26b4db935289b88cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac3ea6d696eaf5ba4b2554f416118718271526a8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589054"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292471"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementar o Proxy de aplicações do Azure AD num domínio gerido dos serviços de domínio do Azure AD
 Proxy de aplicações do Azure Active Directory (AD) ajuda-o suporte a funcionários remotos através da publicação de aplicações no local para ser acedido através da internet. Com os serviços de domínio do Azure AD, pode aplicações legadas de comparação de precisão e shift agora em execução no local para serviços de infraestrutura do Azure. Em seguida, pode publicar estas aplicações através do Proxy da aplicação AD do Azure, para fornecer acesso remoto seguro aos utilizadores na sua organização.
@@ -77,7 +77,7 @@ Anteriormente, pode aprovisionar uma máquina virtual do Windows e associados a 
     * Forneça o **credenciais de administrador global do Azure AD**. O inquilino do administrador global pode ser diferente das suas credenciais do Microsoft Azure.
     * A conta de administrador utilizada para registar o conector tem de pertencer ao mesmo diretório onde ativou o serviço de Proxy de aplicações. Por exemplo, se o domínio inquilino for contoso.com, o administrador deve ser admin@contoso.com ou qualquer outro alias nesse domínio válido.
     * Se a configuração de segurança avançada do IE está ativada para o servidor onde está a instalar o conector, o ecrã de registo poderá ser bloqueado. Para permitir o acesso, siga as instruções na mensagem de erro. Certifique-se de que a Segurança Avançada do Internet Explorer está desativada.
-    * Se o registo do conetor falhar, veja [Resolver Problemas da Proxy da Aplicação](../active-directory/active-directory-application-proxy-troubleshoot.md).
+    * Se o registo do conetor falhar, veja [Resolver Problemas da Proxy da Aplicação](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 
     ![Conector instalado](./media/app-proxy/app-proxy-connector-installed.png)
 4. Para garantir que o conector funciona corretamente, execute o Troubleshooter de conector do Proxy de aplicações do Azure AD. Deverá ver um relatório com êxito após a execução de troubleshooter.

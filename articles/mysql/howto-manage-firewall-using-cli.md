@@ -6,15 +6,16 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266062"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir o Azure base de dados MySQL das regras de firewall utilizando a CLI do Azure
 Regras de firewall ao nível do servidor permitem aos administradores gerir o acesso a uma base de dados do Azure para o servidor de MySQL de um endereço IP específico ou um intervalo de endereços IP. Utilizar convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para obter uma descrição geral da base de dados do Azure para MySQL firewalls, consulte [base de dados do Azure para as regras de firewall do servidor MySQL](./concepts-firewall-rules.md)
@@ -42,7 +43,7 @@ az login
 ```
 Este comando devolve um código para utilizar no próximo passo.
 
-2. Utilizar um browser para abrir a página [https://aka.ms/devicelogin](https://aka.ms/devicelogin)e, em seguida, introduza o código.
+2. Utilizar um browser para abrir a página [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)e, em seguida, introduza o código.
 
 3. Na linha de comandos, inicie sessão com as suas credenciais do Azure.
 

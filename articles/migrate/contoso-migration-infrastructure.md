@@ -6,47 +6,51 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9256f7af5b4d5aa8e523dd1b5b1d8d3eaebfd626
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34805050"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301206"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementar uma infraestrutura de migração
 
-Este artigo fornece uma detalhadas como Contoso configura os respetivos no local e a infraestrutura do Azure, durante a preparação para a respetiva migração para o Azure e para executar os seus negócios num ambiente híbrido. É uma arquitetura de exemplo que é específica para Contoso. Se precisar de todos os estes elementos dependem a estratégia de migração. Por exemplo, se estiver a criar apenas as aplicações em nuvem nativo no Azure, poderá ter uma estrutura de rede menos complexa.
+Este artigo examina como Contoso configura no local e a infraestrutura do Azure, durante a preparação para a migração para o Azure e para a execução da empresa num ambiente híbrido.
 
-Este documento é o segundo na série de artigos que documente como a empresa fictícia com Contoso migra os seus recursos no local para a nuvem do Microsoft Azure. A série inclui informações de fundo e uma série de cenários de implementação que ilustram como configurar uma infraestrutura de migração, avaliar a adequabilidade dos recursos no local para a migração e executar diferentes tipos de migrações. Cenários de crescimento em complexidade e será adicionado artigos adicionais ao longo do tempo.
+- É uma arquitetura de exemplo que é específica para Contoso.
+- Se precisar de todos os elementos descritos no artigo depende da sua estratégia de migração. Por exemplo, se estiver a criar apenas as aplicações em nuvem nativo no Azure, poderá ter uma estrutura de rede menos complexa.
+
+Este documento é o segundo na série de artigos que documente a forma como a empresa fictícia com que Contoso migra recursos no local para a nuvem do Microsoft Azure. A série inclui informações de fundo e um conjunto de cenários de implementação que ilustra como configurar uma infraestrutura de migração, avaliar a adequabilidade dos recursos no local para a migração e executar diferentes tipos de migrações. Cenários de crescimento em complexidade e será adicionado artigos adicionais ao longo do tempo.
 
 **Artigo** | **Detalhes** | **Estado**
 --- | --- | ---
-Artigo 1: Descrição geral | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
+[Artigo 1: Descrição geral](contoso-migration-overview.md) | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
 Artigo 2: Implementar uma infraestrutura do Azure (Este artigo) | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
-Artigo 3: Avaliar a recursos no local | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-Artigo 4: Refatorar (comparação de precisão e shift) para as VMs do Azure e uma instância do SQL Server geridos | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
-Artigo 5: Refatorar (comparação de precisão e shift) para as VMs do Azure | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
-Artigo 6: Refatorar (comparação de precisão e shift) para as VMs do Azure e grupos de disponibilidade do SQL Server | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
-Artigo 7: Refatorar (comparação de precisão e shift) para as VMs do Azure e o servidor de MySQL do Azure | Demonstra como Contoso migra SmartHotel aplicação VMs com a recuperação de sites e o MySQL Workbench para migrar (cópia de segurança e restauro) para uma instância de servidor de MySQL do Azure. | Disponível
+[Artigo 3: Avaliar a recursos no local](contoso-migration-assessment.md) | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Realojamento para as VMs do Azure e uma instância do SQL gerida](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
+[Artigo 5: Realojamento para as VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
+[Artigo 6: Realojamento para as VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
+[Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure](contoso-migration-rehost-linux-vm.md) | Demonstra como Contoso migra a aplicação do Linux osTicket para VMs do Azure. | Disponível
+[Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a Linux osTicket aplicação utilizando a recuperação de sites e o MySQL Workbench para migrar (cópia de segurança e restauro) para uma instância de servidor de MySQL do Azure. | Disponível
 
-Se gostaria de utilizar a aplicação de exemplo utilizada neste artigo, é fornecido como código aberto e poderá transferi-lo de [github](https://github.com/Microsoft/SmartHotel360).
+Neste artigo que Contoso configurar todos os elementos de infraestrutura têm de concluir os cenários de migração. 
 
 
 ## <a name="overview"></a>Descrição geral
 
 Antes do podem migrar para o Azure, é fundamental que Contoso prepare a respetiva infraestrutura.  Geralmente, existem cinco áreas abrangentes que precisam de pensar em:
 
-1. **As subscrições do Azure**: forma serão comprar e interagir com os serviços e a plataforma do Azure?
+1. **As subscrições do Azure**: forma serão comprar o Azure e interagir com os serviços e a plataforma do Azure?
 2. **Identidade híbrida**: forma irão gerir e controlar o acesso a recursos do Azure e no local após a migração? Como podem expandir ou mover a gestão de identidade para a nuvem?
 3. **Recuperação após desastre e resiliência**: como irão, certifique-se de que as respetivas aplicações e infraestruturas são resilientes se ocorrerem falhas e desastres inesperados?
-4. **Rede**: forma deve conceber a sua infraestrutura de rede e estabelecer conectividade no local e no Azure?
-5. **Segurança e governação**: como irão os respetivos a implementação híbrida/Azure segura e, de acordo com os requisitos de segurança e governação?
+4. **Rede**: forma deve conceber a sua infraestrutura de rede e estabelecer conectividade entre os respetivos centros de dados no local e o Azure?
+5. **Segurança e governação**: forma irá proteger as suas implementações híbridas/Azure e mantenha-alinhados com as necessidades de segurança e governação?
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de iniciar Vamos observar a infraestrutura, pode querer ler algumas informações gerais sobre as capacidades do Azure que está a ser debater neste artigo:
+Antes de iniciar Vamos observar a infraestrutura, pode querer ler algumas informações gerais sobre as capacidades do Azure, que vamos discutir neste artigo:
 
 - Existe um número de opções disponíveis para a compra de acesso do Azure, incluindo pay as you go, contratos de empresa (EA), ou licenciamento por aberto de revendedores da Microsoft ou de Partners Microsoft sabe como fornecedores de soluções de nuvem (CSPs). Saiba mais sobre [opções de compra](https://azure.microsoft.com/pricing/purchase-options/)e ler sobre como [subscrições do Azure estão organizadas](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
 - Obter uma descrição geral do Azure [gestão de identidades e acessos](https://www.microsoft.com/en-us/trustcenter/security/identity). Em particular, saiba mais sobre [do Azure AD e expandir AD no local para a nuvem](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Há um e-book transferível úteis sobre [acesso gestão de identidades e (IAM) num ambiente híbrido](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
@@ -87,8 +91,8 @@ Contoso vai com um [Enterprise Agreement (EA)](https://azure.microsoft.com/prici
 Depois de pagar para o Azure, a Contoso tem de descobrir como a gerir as suas subscrições. Têm um EA e, por conseguinte, nenhum limite no número de subscrições do Azure podem configurar.
 
 - Uma inscrição Enterprise do Azure define a forma como uma forma de empresa e utiliza os serviços do Azure e define uma estrutura de governação core.
-- Como primeiro passo, Contoso determinou uma estrutura (conhecida como um andaime enterprise) para a inscrição empresarial. A IETF utilizou o [neste artigo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) para ajudar a compreender e um andaime de conceção.
-- Por agora, Contoso tem optar por utilizar uma abordagem funcional para gerir as suas subscrições.
+- Como primeiro passo, Contoso ter determinado uma estrutura (conhecida como um andaime enterprise para a inscrição empresarial. A IETF utilizou o [neste artigo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) para ajudar a compreender e um andaime de conceção.
+- Por agora, Contoso decidiu utilizar uma abordagem funcional para gerir as suas subscrições.
     - Dentro da empresa terá um único departamento de TI, que controla a atribuição do Azure. Este será o grupo de apenas com as subscrições.
     - Estes irá expandir este modelo no futuro, para que outros grupos empresariais podem associar como departamentos na inscrição empresarial.
     - Dentro do departamento de TI Contoso tem estruturados duas subscrições, desenvolvimento e de produção.
@@ -102,7 +106,7 @@ Com as subscrições configuradas, Contoso pode ver os respetivos licenciamento 
 
 #### <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Quando implementar VMs no Azure, o padrão imagens incluem uma licença que cobrará um encargo Contoso por minuto para o software que está a ser utilizado. No entanto, Contoso foi um cliente Microsoft longo prazo e foi mantido EAs e e abra licenças com garantia de software (SA). 
+Quando implementar VMs no Azure, o padrão imagens incluem uma licença que cobrará um encargo Contoso por minuto para o software que está a ser utilizado. No entanto, Contoso e foi um cliente da Microsoft longo prazo, foi mantido EAs e abra licenças com garantia de software (SA). 
 
 Benefício de híbrida do Azure fornece um método económico para a migração de Contoso, ao permitir guardar em VMs do Azure e o SQL Server cargas de trabalho por converter ou reutilizar as licenças de edição Windows Server Datacenter e Standard abrangidas com Software Assurance. Este procedimento activará Contoso aos quais deve prestar uma taxa de computação com base inferior para VMs e SQL Server. [Saiba mais](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -113,7 +117,7 @@ Licença mobilidade através do SA dá-a clientes de licenciamento em Volume da 
 
 #### <a name="reserve-instances-for-predictable-workloads"></a>Instâncias de reserva para cargas de trabalho previsíveis
 
-Cargas de trabalho previsíveis são aqueles que sempre tem de estar disponíveis com as VMs em execução. Por exemplo, aplicações de linha de negócio, tais como um sistema ERP de SAP.  Por outro lado, as cargas de trabalho imprevisíveis são aqueles que são variáveis. Por exemplo, VMs que estão na durante alta exigem e desativado em períodos de pico.
+Cargas de trabalho previsíveis são aqueles que sempre tem de estar disponíveis com as VMs em execução. Linha de negócio, por exemplo, aplicações, tais como um sistema ERP de SAP.  Por outro lado, as cargas de trabalho imprevisíveis são aqueles que são variáveis. Por exemplo, VMs que estão na durante alta exigem e desativado em períodos de pico.
 
 ![Instância reservada](./media/contoso-migration-infrastructure/reserved-instance.png) 
 
@@ -127,7 +131,7 @@ Fornecer e controlar o acesso de utilizador nos recursos do Azure com a gestão 
 - Contoso decidir expandir o seu Active Directory no local para a nuvem, em vez de criar um novo sistema separado no Azure.
 - Se criarem um baseado no Azure Active Directory para efetuar este procedimento.
 - Contoso não tem o Office 365 no local, pelo que precisam para aprovisionar um novo do Azure AD.
-- Office 365 utiliza o Azure AD para gestão de utilizadores. Se tinha Contoso-estes já teria um princípio básico do Azure AD e, deverá certificar-estiverem AD primário.
+- Office 365 utiliza o Azure AD para gestão de utilizadores. Se Contoso estava a utilizar o Office 365, estes seriam já tem um princípio básico do Azure AD e utilizá-lo como as respetivas AD primário.
 - [Saiba mais](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) acerca do Azure AD para o Office 365 e saiba [como adicionar uma subscrição](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) para um existente do Azure AD.
 
 ### <a name="create-an-azure-ad"></a>Criar um Azure AD
@@ -163,7 +167,7 @@ Agora que do Azure AD está a funcionar, Contoso é necessário adicionar aos fu
 
 #### <a name="create-resource-groups-in-azure"></a>Criar grupos de recursos no Azure
 
-Grupos de recursos do Azure do grupo de recursos do Azure em conjunto. Utilizando um ID de grupo de recursos permite ao Azure executar operações no dentro do grupo de recursos.
+Grupos de recursos do Azure reunir recursos do Azure. Utilizando um ID de grupo de recursos permite ao Azure executar operações no dentro do grupo de recursos.
 
 - Uma subscrição do Azure pode ter vários grupos de recursos, mas um grupo de recursos só pode existir dentro de uma única subscrição.
 - Além disso, um grupo de recursos única pode ter vários recursos, mas um recurso só pode pertencer a um único grupo.
@@ -230,7 +234,7 @@ Para facilitar a integração, utilize Contoso o [ferramenta Azure AD Connect](h
 
     ![No AD local no Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
-- Dentro de cada grupo de funcionários a equipa de TI da Contoso são representados, com base na respetiva função.
+- Equipa de TI da Contoso são representados em cada grupo, com base na respetiva função.
 
     ![Os membros do Azure AD no local](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png) 
 
@@ -273,7 +277,7 @@ Contoso tiver decidido demorar uma meio viagem. Irá implementar as aplicações
 Com a sua estrutura de região no local, a Contoso está pronto para considerar uma estratégia de rede. Precisam de pensar sobre como o seu datacenter no local e o Azure, ligarem e comunicarem entre si e para conceber a sua infraestrutura de rede no Azure. Especificamente, tem de:
 
 **Planear a conetividade de rede híbrida**: descobrir como vai ligar redes no local e o Azure.
-**Conceber uma infraestrutura de rede do Azure**: decida como vai implementar redes ao longo do respetivas regiões. Como comunicará redes na mesma região e, em regiões.
+**Estruturar uma infraestrutura de rede do Azure**: decida como vai implementar redes ao longo do respetivas regiões. Como comunicará redes na mesma região e, em regiões.
 **Estruturar e configurar redes do Azure**: configurar redes do Azure e sub-redes e decidir o que irá residir nos mesmos.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Planear a conetividade de rede híbrida
@@ -305,7 +309,7 @@ Eis como Contoso decidiu implementar conectividade híbrida:
 
 ### <a name="design-the-azure-network-infrastructure"></a>Conceber a infraestrutura de rede do Azure
 
-É fundamental que get do Azure existe redes no local de uma forma que faz com que as suas implementações híbridas segura e escalável. Para tal, Contoso está a demorar uma abordagem de longo prazo e está a conceber redes virtuais (VNets) ser a resiliência e enterprise pronto. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sobre o planeamento de VNets.
+É fundamental que Contoso coloca redes no local de uma forma que faz com que as suas implementações híbridas segura e escalável. Para tal, Contoso está a demorar uma abordagem de longo prazo e está a conceber redes virtuais (VNets) ser a resiliência e enterprise pronto. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sobre o planeamento de VNets.
 
 Para ligar as duas regiões, Contoso decidiu implementar um modelo de rede de hub de hub:
 
@@ -324,7 +328,7 @@ O Azure oferece o peering de rede para ligar VNets e hubs. Global peering permit
 
 #### <a name="hub-to-hub-across-regions"></a>Hub-para-hub em regiões
 
-Contoso irá implementar um um concentrador em cada região. Um concentrador é uma rede virtual (VNet) no Azure que age como um ponto central de conectividade à sua rede no local. O hub que irá ligar VNets entre si utilizando global o VNet peering. O VNet peering global liga-se das VNets em regiões do Azure.
+Contoso irá implementar um concentrador em cada região. Um concentrador é uma rede virtual (VNet) no Azure que age como um ponto central de conectividade à sua rede no local. O hub que irá ligar VNets entre si utilizando global o VNet peering. O VNet peering global liga-se das VNets em regiões do Azure.
 
 - O hub em cada região está em modo de peering para o hub de parceiro na outra região.
 - O hub está em modo de peering para cada rede na sua região e pode ligar-se a todos os recursos de rede.
@@ -526,9 +530,9 @@ Quando implementar recursos nas redes virtuais, tem duas opções para a resolu�
 Contoso ter decidido que o serviço DNS do Azure não é uma boa opção no respetivo ambiente híbrido. Em vez disso, está a ficar tirar partido dos seus servidores DNS no local.
 
 - Uma vez que esta é uma rede híbrida de todas a VMs no local e no Azure tem de ser capaz de resolver os nomes a funcionar corretamente. Isto significa que as definições de DNS personalizadas devem ser aplicadas a todas as VNets.
-- Contoso atualmente têm DCs implementados no Centro de dados Contoso e as filiais. Os servidores DNS principais são CONTOSODC1(172.16.0.10) e CONTOSODC2(172.16.0.11)
+- Contoso atualmente têm DCs implementados no Centro de dados Contoso e as filiais. Os servidores DNS principais são CONTOSODC1(172.16.0.10) e CONTOSODC2(172.16.0.1)
 - Quando as VNets são implementadas, os controladores de domínio no local serão definidos para ser utilizado como servidor DNS nas redes. 
-- Para configurar, quando utilizar quando utilizar DNS personalizado na VNet, o endereço IP do Azure recursiva resoluções (por exemplo, 168.63.129.16) tem de ser adicionado à lista de DNS.  Para tal, a Contoso configurar definições do servidor DNS em cada VNet. Por exemplo, as definições de DNS personalizadas para a rede de VNET-HUB-EUS2 seria o seguinte:
+- Para configurar, ao utilizar o DNS personalizado na VNet, o endereço IP do Azure recursiva resoluções (por exemplo, 168.63.129.16) tem de ser adicionado à lista de DNS.  Para tal, Contoso configura as definições do servidor DNS em cada VNet. Por exemplo, as definições de DNS personalizadas para a rede de VNET-HUB-EUS2 seria o seguinte:
     
     ![DNS Personalizado](./media/contoso-migration-infrastructure/custom-dns.png)
 
@@ -559,7 +563,7 @@ Depois de atualizar as definições de rede, a Contoso está pronto para criar o
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
-4. Agora, estes anexar um novo disco de dados para a VM. Este disco contém a base de dados do Active Directory e a partilha SYSVOL. 
+4. Agora, estes anexar um novo disco de dados para a VM. Este disco contém a base de dados do Active Directory e a partilha sysvol. 
     - O tamanho do disco irá determinar o número de IOPS que suporta.
     - Ao longo do tempo, o tamanho do disco poderá ter de aumentar à medida que cresce o ambiente.
     - A unidade não deve ser definida como leitura/escrita para a colocação em cache do anfitrião. Bases de dados de diretório Active Directory não suportam esta.
@@ -608,13 +612,13 @@ O Azure oferece uma gama de controlos de governação em serviços e a plataform
 
 Tal como configurar a identidade e controlo de acesso, Contoso já ter sido iniciada colocar alguns aspetos de governação e de segurança no local. No geral, existem três áreas têm de considerar:
 
-- **Política**: aplica-se de política no Azure e impõe regras e efeitos sobre o reosurces, para que os recursos se manter em conformidade com os requisitos empresariais e SLAs.
+- **Política**: aplica-se de política no Azure e impõe regras e efeitos sobre os recursos, para que os recursos se manter em conformidade com os requisitos empresariais e SLAs.
 - **Bloqueia**: Azure permite-lhe para subscrições de bloqueio, grupos de recursos e outros recursos, para que apenas pode ser modificados por essas com a autoridade para fazê-lo.
 - **Etiquetas**: recursos podem ser controlados, auditados e geridos com etiquetas. Etiquetas anexar metadados a recursos, fornecer informações sobre recursos ou proprietários.
 
 ### <a name="set-up-policies"></a>Configurar políticas
 
-O serviço de política do Azure avalia os recursos, a análise para aqueles que não sejam compatíveis com as definições de política que tem. Por exemplo, pode ter uma política que só permite que apenas determinado tipo de VMs ou necessita de recursos para ter uma tag específica. 
+O serviço de política do Azure avalia os recursos, a análise para aqueles que não sejam compatíveis com as definições de política que tem. Por exemplo, pode ter uma política que só permite determinado tipo de VMs ou necessita de recursos para ter uma tag específica. 
 
 As políticas de Azure especificar uma definição de política e a atribuição de política especifique o âmbito no qual deve ser aplicada uma política. O âmbito pode variar entre um grupo de gestão para um grupo de recursos. [Saiba](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) sobre a criação e gestão de políticas.
 
@@ -625,9 +629,9 @@ Contoso pretende começar com algumas políticas:
 
 #### <a name="limit-resources-to-regions"></a>Recursos de limite para regiões
 
-Utilização do contoso a definição de política incorporada **permitido localizações** para limitar as regiões de recursos.
+Contoso utiliza a definição de política incorporada **permitido localizações** para limitar as regiões de recursos.
 
-1. No portal do Azure, clique em **todos os serviços**e searh para **política**.
+1. No portal do Azure, clique em **todos os serviços**e procure **política**.
 2. Selecione **atribuições** > **atribuir política**.
 3. Na lista de políticas, selecione **permitido localizações**.
 4. Definir **âmbito** para o nome da subscrição do Azure e selecione as dois regiões na lista de permitidos.
@@ -650,7 +654,7 @@ Contoso irá utilizar a definição de política incorporada **permitir a máqui
 
 Políticas de entrar em vigor imediatamente e Contoso pode verificar os recursos de compatibilidade. 
 
-1. No Portal do Azure, clique em de **conformidade** ligação.
+1. No portal do Azure, clique em de **conformidade** ligação.
 2. É apresentado o dashboard de conformidade. Pode desagregar para obter mais detalhes.
 
     ![Conformidade com a política](./media/contoso-migration-infrastructure/policy-compliance.png)
@@ -677,7 +681,7 @@ Contoso precisa de visualizar os seus recursos do Azure de uma forma que faz sen
 
 **Nome da etiqueta** | **Valor**
 --- | ---
-Centro de Custo | 12345: tem de ser um centro de custos válido do SAP.
+CostCenter | 12345: tem de ser um centro de custos válido do SAP.
 BusinessUnit | Nome da unidade de negócio (a partir do SAP). Correspondências CostCenter.
 ApplicationTeam | Alias de correio eletrónico da equipa de que possui suporte para a aplicação.
 CatalogName | Nome da aplicação ou ShareServices, pelo catálogo de serviço que suporte o recurso.
@@ -722,7 +726,7 @@ Contoso tirar partido da avaliação de segurança contínua que monitoriza a se
 
 - O estado de segurança de computação, a infraestrutura e os recursos de dados da Contoso e dos serviços de aplicações do Azure e o Centro de segurança irá analisar.
 - Avaliação contínua ajuda a equipa de operações de Contoso para detetar potenciais problemas de segurança, tais como os sistemas com atualizações de segurança em falta ou expostos portas de rede. 
-- Em particular, Contoso deve certificar-se de que todas as respetivas VMs estão protegidas. Centro de segurança ajuda com esta opção, verificar o estado de funcionamento da VM e tornando prioritários e acionáveis recomendações para remediar vulnerabilidades de segurança antes de que está a forem exploradas.
+- Em particular, a Contoso pretende assegurar-se de que todas as respetivas VMs estão protegidas. Centro de segurança ajuda com esta opção, verificar o estado de funcionamento da VM e tornando prioritários e acionáveis recomendações para remediar vulnerabilidades de segurança antes de que está a forem exploradas.
 
 ![Monitorização](./media/contoso-migration-infrastructure/monitoring.png)
 
@@ -772,7 +776,7 @@ Neste artigo, Contoso configurar a sua infraestrutura do Azure e configura ou se
 
 Nem todos os passos que Contoso concluída aqui são necessários para a migração para a nuvem. No seu caso, estes pretendia planear uma infraestrutura de rede que pode ser utilizada para todos os tipos de migrações e é segura, resiliente e dimensionável. 
 
-Com esta infraestrutura colocá-la, se estão prontos para avançar e experimente a migração.
+Com esta infraestrutura no local, se estiverem prontos para avançar e experimente a migração.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

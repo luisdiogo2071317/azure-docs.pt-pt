@@ -5,25 +5,25 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/02/2018
+ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0bc23c033e868f3cf72256318f0fb129c853e19d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661147"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267276"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar PowerShell scripts numa VM do Windows com o comando executado
 
-Execute comandos permite-lhe executar scripts PowerShell dentro de uma VM do Windows Azure, independentemente da conectividade de rede. Estes scripts podem ser utilizados para a máquina geral ou de gestão de aplicações e podem ser utilizados para diagnosticar e resolver problemas de acesso e da rede VM e rapidamente obter a VM para um bom estado.
+Execute utiliza comandos o agente da VM para executar scripts do PowerShell de shell dentro de uma VM do Windows Azure. Estes scripts podem ser utilizados para a máquina geral ou de gestão de aplicações e podem ser utilizados para diagnosticar e resolver problemas de acesso e da rede VM e rapidamente obter a VM para um bom estado.
 
 ## <a name="benefits"></a>Benefícios
 
-Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Pode executar scripts em máquinas virtuais, independentemente da conectividade de rede do comando de execução e está disponível por predefinição (sem instalação necessária). Execução do comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute comandos podem ser executados scripts as máquinas virtuais com remotamente o agente da VM. Execução do comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Esta capacidade é útil em todos os cenários em que pretende executar um script witin uma máquinas virtuais e é uma das formas apenas para resolver problemas e remediar uma máquina virtual que não está ligada à rede devido a rede incorrecto ou utilizador administrativo configuração.
+Esta capacidade é útil em todos os cenários em que pretende executar um script witin uma máquinas virtuais e é uma das formas apenas para resolver problemas e remediar uma máquina virtual que não tem o RDP ou abrir a porta SSH devido a rede incorrecto ou utilizador administrativo configuração.
 
 ## <a name="restrictions"></a>Restrições
 

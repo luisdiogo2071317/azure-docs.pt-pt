@@ -14,11 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: b97ec4ffacead7630c267284f79f954ef03eff61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292281"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilha de contas com o Azure AD
 ## <a name="overview"></a>Descrição geral
@@ -46,7 +47,7 @@ Os utilizadores iniciar sessão uma vez com a respetiva conta profissional. Esta
 
 Contas partilhadas não só aumentam supervisão e melhoram a facilidade de utilização, também melhoram a segurança. Os utilizadores com permissões para utilizar as credenciais não vê a palavra-passe partilhada, mas em vez disso, obter permissões para utilizar a palavra-passe como parte de um fluxo de autenticação orquestradas. Além disso, algumas aplicações de SSO de palavra-passe dão-lhe a opção de utilizar o Azure AD para periodicamente rollover (atualização) as palavras-passe. O sistema utiliza grande e complexas palavras-passe, o que aumenta a segurança da conta. O administrador pode facilmente conceder ou revogar o acesso a uma aplicação, sabe quem tem acesso à conta e quem acedeu-lo no passado.
 
-Azure AD suporta contas partilhadas para Enterprise Mobility Suite (EMS), Premium ou Basic licenciado a utilizadores, em todos os tipos de palavra-passe único início de sessão aplicações. Pode partilhar contas para qualquer uma das milhares de aplicações previamente integradas na Galeria de aplicações e pode adicionar a sua própria aplicação de autenticação de palavra-passe com [aplicações personalizadas de SSO](active-directory-enterprise-apps-manage-sso.md).
+Azure AD suporta contas partilhadas para Enterprise Mobility Suite (EMS), Premium ou Basic licenciado a utilizadores, em todos os tipos de palavra-passe único início de sessão aplicações. Pode partilhar contas para qualquer uma das milhares de aplicações previamente integradas na Galeria de aplicações e pode adicionar a sua própria aplicação de autenticação de palavra-passe com [aplicações personalizadas de SSO](manage-apps/configure-single-sign-on-portal.md).
 
 Funcionalidades do Azure AD que ativar a partilha de conta incluem:
 

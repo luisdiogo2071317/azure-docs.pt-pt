@@ -1,6 +1,6 @@
 ---
-title: Executar o pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory | Microsoft Docs
-description: Este artigo descreve como executar um pacote de SQL Server Integration Services (SSIS) a partir de um pipeline do Azure Data Factory com atividade de procedimento armazenado.
+title: Execute o pacote SSIS com atividade de procedimento armazenado - Azure | Microsoft Docs
+description: Este artigo descreve como executar um pacote de SQL Server Integration Services (SSIS) num pipeline do Azure Data Factory, utilizando a atividade de procedimento armazenado.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 44c157334306f81a8c9850cfa53e139139ff1db6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618893"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297690"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
-Este artigo descreve como executar um pacote SSIS a partir de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade de procedimento armazenado no Azure Data Factory
+Este artigo descreve como executar um pacote SSIS num pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [pacotes SSIS invocar utilizando a atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

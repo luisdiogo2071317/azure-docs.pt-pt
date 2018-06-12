@@ -1,25 +1,19 @@
 ---
-title: As ações de Webhook para alertas de registo nos alertas do Azure | Microsoft Docs
+title: Ações de Webhook para alertas de registo nos alertas do Azure
 description: Este artigo descreve como para uma regra de alerta de registo utilizando o registo analytics ou o application insights, transmite dados como HTTP webhook e detalhes sobre as personalizações diferentes possíveis.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638675"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264260"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.

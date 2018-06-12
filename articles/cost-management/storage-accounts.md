@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297840"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurar contas de armazenamento para a gestão de custos
 
@@ -39,7 +40,7 @@ Armazenamento do Azure para utilização por gestão de custo de configuração 
 3. Na sua página de conta de armazenamento em **definições**, clique em **chaves de acesso**.
 4. Copiar o **nome da conta de armazenamento** e **cadeia de ligação** em chave1.  
 ![Chaves de acesso de armazenamento do Azure](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
+5. Abra o portal de Cloudyn do portal do Azure ou navegue até ao https://azure.cloudyn.com e iniciar sessão.
 6. Clique no símbolo roda dentada por e, em seguida, selecione **relatórios de gestão de armazenamento**.
 7. Clique em **adicionar novo +** e certifique-se de que o Microsoft Azure está selecionado. Cole o seu nome de conta de armazenamento do Azure no **nome** área. Colar o **cadeia de ligação** na área de correspondente. Introduza um nome de contentor e, em seguida, clique em **guardar**.  
 ![Armazenamento de Cloudyn configurado para o Azure](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +148,7 @@ Também é possível definir permissão para criar relatórios sobre o registo d
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Adicionar o armazenamento de relatório do AWS para Cloudyn
 
-1. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
+1. Abra o portal de Cloudyn do portal do Azure ou navegue até ao https://azure.cloudyn.com e iniciar sessão.
 2. Clique no símbolo roda dentada por e, em seguida, selecione **relatórios de gestão de armazenamento**.
 3. Clique em **adicionar novo +** e certifique-se de que o AWS está selecionado.
 4. Selecione um registo de conta e de armazenamento. O nome do registo de armazenamento AWS é automaticamente preenchida-in.  

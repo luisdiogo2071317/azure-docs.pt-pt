@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323804"
+---
 ## <a name="overview"></a>Descrição geral
 Quando cria uma nova máquina virtual (VM) num grupo de recursos ao implementar uma imagem de [Azure Marketplace](https://azure.microsoft.com/marketplace/), unidade predefinida do SO, muitas vezes, é de 127 GB (algumas imagens tem tamanhos de disco de SO mais pequenos por predefinição). Embora seja possível adicionar discos de dados na VM (consoante o SKU que escolheu) e além disso é recomendado que instale aplicações e cargas de trabalho intensivas de CPU nestes discos de adenda, é frequente que os clientes precisem de expandir a unidade de SO para suportar determinados cenários, como o seguinte:
 
@@ -13,7 +30,7 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos ao implementar 
 >
 
 ## <a name="resize-the-os-drive"></a>Redimensionar a unidade do SO
-Neste artigo, irá realizar a tarefa de redimensionamento da unidade de SO com os módulos do gestor de recursos do [Azure Powershell](/powershell/azureps-cmdlets-docs). Vamos mostrar redimensionar a unidade de SO para discos Unamanged e gerida, uma vez que a abordagem para redimensionar discos difere entre os dois tipos de disco.
+Neste artigo, irá realizar a tarefa de redimensionamento da unidade de SO com os módulos do gestor de recursos do [Azure Powershell](/powershell/azureps-cmdlets-docs). Vamos mostrar redimensionar a unidade de SO para não gerido e gerido discos, uma vez que a abordagem para redimensionar discos difere entre os dois tipos de disco.
 
 ### <a name="for-resizing-unmanaged-disks"></a>Para o redimensionamento de discos não gerido:
 
@@ -106,7 +123,7 @@ E já está! Agora RDP para a VM, abra a Gestão de Computadores (ou gestão de 
 ## <a name="summary"></a>Resumo
 Neste artigo, utilizámos os módulos do Azure Resource Manager do Powershell para expandir o disco de SO da máquina virtual IaaS. Reproduzido abaixo é o script completado para uma referência para os discos não gerido e gerido:
 
-Discos de Unamanged:
+Discos não geridos:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +151,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Próximos Passos
-Embora este artigo, vamos concentra-se principalmente em expansão do disco de SO Unamanged/gerido da VM, o script programado também pode ser utilizado para expandir os discos de dados ligados à VM. Por exemplo, para expandir o primeiro disco de dados ligado à VM, substitua o ```OSDisk``` objeto do ```StorageProfile``` com a ```DataDisks``` matriz e utilizar um indexador numérico para obter uma referência para o disco de dados anexados primeiro, conforme mostrado abaixo:
+## <a name="for-resizing-data-disks"></a>Para o redimensionamento de discos de dados
+Embora este artigo, vamos concentra-se principalmente em expansão do disco de SO gerido/não gerido da VM, o script programado também pode ser utilizado para expandir os discos de dados ligados à VM. Por exemplo, para expandir o primeiro disco de dados ligado à VM, substitua o ```OSDisk``` objeto do ```StorageProfile``` com a ```DataDisks``` matriz e utilizar um indexador numérico para obter uma referência para o disco de dados anexados primeiro, conforme mostrado abaixo:
 
-Disco Unamanged:
+Disco gerido:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +166,11 @@ $disk.DiskSizeGB = 1023
 
 Da mesma forma, pode referenciar outros discos de dados ligados à VM, utilizando um índice, conforme mostrado acima ou a propriedade ```Name``` do disco conforme ilustrado abaixo:
 
-Disco Unamanged:
+Disco gerido:
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Disco passíveis de serem gerido:
+Disco gerido:
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

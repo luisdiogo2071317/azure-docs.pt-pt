@@ -1,12 +1,12 @@
 ---
-title: "Processamento de exceções & cenário de registo de erro - Azure Logic Apps | Microsoft Docs"
-description: "Descreve um caso de utilização real sobre o processamento de exceções avançadas e registo de erros para o Azure Logic Apps"
-keywords: 
+title: Processamento de exceções & cenário de registo de erro - Azure Logic Apps | Microsoft Docs
+description: Descreve um caso de utilização real sobre o processamento de exceções avançadas e registo de erros para o Azure Logic Apps
+keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299363"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Processamento de exceções e registo de erros para aplicações lógicas
 
@@ -412,7 +413,7 @@ Para ver os erros, pode criar uma aplicação web MVC para apresentar os registo
 Seguem-se exemplos de nosso detalhes da aplicação MVC criados com a abordagem descrita anteriormente.
 
 #### <a name="error-management-list"></a>Lista de gestão de erros
-![Lista de erros](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Lista de Erros](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Vista de detalhes do erro gestão
 ![Detalhes do Erro](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
@@ -486,7 +487,7 @@ Verifica a expressão do anterior exemplo de código para o *Create_NewPatientRe
 
 O código de origem para a aplicação API de gestão exceção Logic Apps está disponível neste [repositório do GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gestão de exceção de aplicação lógica").
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Ver mais cenários e exemplos de aplicação lógica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre a monitorização de aplicações lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)

@@ -1,6 +1,6 @@
 ---
 title: Associar o tempo de execução de integração de SSIS do Azure a uma rede virtual | Microsoft Docs
-description: Saiba como associar o tempo de execução de integração de SSIS do Azure a uma rede virtual do Azure.
+description: Saiba como associar o tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 344bd9beff03f423d3dc3431dec56334e721d811
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619648"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298071"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure nos seguintes cenários: 
 
-- Estão a alojar o SQL Server Integration Services (SSIS) catálogo de dados no Azure instância SQL Server da base de dados geridos (pré-visualização) numa rede virtual.
 - Pretende ligar a arquivos de dados no local a partir de pacotes de SSIS em execução no integration runtime do Azure-SSIS.
+
+- Estão a alojar o SQL Server Integration Services (SSIS) catálogo de dados no Azure instância SQL Server da base de dados geridos (pré-visualização) numa rede virtual.
 
  O Azure Data Factory versão 2 (pré-visualização) permite-lhe associar o seu tempo de execução de integração do Azure SSIS para uma rede virtual criadas através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
 
@@ -52,7 +53,7 @@ As secções seguintes fornecem mais detalhes.
 
 ## <a name="requirements-for-virtual-network-configuration"></a>Requisitos para a configuração de rede virtual
 
--   Certifique-se de que `Microsoft.Batch` é um fornecedor registado sob a subscrição da sua sub-rede da VNet que aloja o IR. SSIS do Azure Se estiver a utilizar VNet clássica, também associar `MicrosoftAzureBatch` para a função de contribuinte de Máquina Virtual clássico para essa rede virtual.
+-   Certifique-se de que `Microsoft.Batch` é um fornecedor registado sob a subscrição da sua sub-rede da rede virtual que aloja o IR. SSIS do Azure Se estiver a utilizar rede virtual clássica, também associar `MicrosoftAzureBatch` para a função de contribuinte de Máquina Virtual clássico para essa rede virtual.
 
 -   Selecione a sub-rede adequada para alojar o IR. SSIS do Azure Consulte [seleciona a sub-rede](#subnet).
 
@@ -78,7 +79,7 @@ Os seguintes passos são recomendados:
 
 -   Configure DNS personalizado para reencaminhar pedidos ao DNS do Azure. Pode reencaminhar os registos DNS não resolvidos para o endereço IP de resoluções de recursiva do Azure (168.63.129.16) no seu próprio servidor DNS.
 
--   Configure o DNS personalizado como principal e o DNS do Azure como secundária para a VNet. Registe o endereço IP de resoluções de recursiva do Azure (168.63.129.16) como um servidor DNS secundário caso o próprio servidor DNS não está disponível.
+-   Configure o DNS personalizado como principal e o DNS do Azure como secundária para a rede virtual. Registe o endereço IP de resoluções de recursiva do Azure (168.63.129.16) como um servidor DNS secundário caso o próprio servidor DNS não está disponível.
 
 Para obter mais informações, consulte [resolução que utiliza o seu próprio servidor DNS de nomes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -96,7 +97,7 @@ Se precisar de implementar um grupo de segurança de rede (NSG) numa rede virtua
 
 Pode ligar um [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuito à sua infraestrutura de rede virtual para expandir a sua rede no local para o Azure. 
 
-Uma configuração comum consiste em utilizar a imposição do túnel (anunciar uma rota BGP, 0.0.0.0/0 para a VNet) que força o tráfego de Internet de saída do fluxo de VNet para o dispositivo de rede no local para inspeção e registo. Este fluxo de tráfego de quebras de conectividade entre o Azure SSIS IR na VNet com os serviços do Azure Data Factory dependentes. A solução é definir um (ou mais) [rotas definidas pelo utilizador (UDRs)](../virtual-network/virtual-networks-udr-overview.md) na sub-rede que contém o IR. SSIS do Azure Um UDR define rotas de sub-rede específica, que são cumpridas em vez da rota BGP.
+Uma configuração comum consiste em utilizar a imposição do túnel (anunciar uma rota BGP, 0.0.0.0/0 para a rede virtual) que força o tráfego de Internet de saída do fluxo de rede virtual ao dispositivo de rede no local para inspeção e registo. Este fluxo de tráfego de quebras de conectividade entre o Azure SSIS IR na rede virtual com os serviços do Azure Data Factory dependentes. A solução é definir um (ou mais) [rotas definidas pelo utilizador (UDRs)](../virtual-network/virtual-networks-udr-overview.md) na sub-rede que contém o IR. SSIS do Azure Um UDR define rotas de sub-rede específica, que são cumpridas em vez da rota BGP.
 
 Em alternativa, pode definir as rotas definidas pelo utilizador (UDRs) para forçar o tráfego de Internet de saída da sub-rede que aloja a resposta a incidentes SSIS do Azure para outra sub-rede que aloja uma aplicação de rede Virtual como uma firewall ou um anfitrião de rede de Perímetro para inspeção e registo.
 
@@ -109,11 +110,11 @@ Se estiver preocupados com a perder a capacidade de inspecionar o tráfego de In
 Consulte [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Tem de executar o script semanalmente a par da lista de endereços IP de centro de dados do Azure.
 
 ### <a name="resource-group"></a> Requisitos para o grupo de recursos
-A resposta a incidentes SSIS do Azure tem de criar certos recursos de rede no mesmo grupo de recursos da VNet, incluindo um balanceador de carga do Azure, um endereço IP público do Azure e um grupo de segurança de trabalho de rede.
+A resposta a incidentes SSIS do Azure tem de criar certos recursos de rede no mesmo grupo de recursos de rede virtual, incluindo um balanceador de carga do Azure, um endereço IP público do Azure e um grupo de segurança de trabalho de rede.
 
--   Certifique-se de que não tem qualquer bloqueio de recursos no grupo de recursos ou subscrição à qual pertence a VNet. Se configurar um bloqueio de só de leitura ou de um bloqueio de eliminação, iniciar e parar a resposta a incidentes podem falhar ou bloquear.
+-   Certifique-se de que não tem qualquer bloqueio de recursos no grupo de recursos ou subscrição à qual pertence a rede virtual. Se configurar um bloqueio de só de leitura ou de um bloqueio de eliminação, iniciar e parar a resposta a incidentes podem falhar ou bloquear.
 
--   Certifique-se de que não tem uma política do Azure que impede que os seguintes recursos a ser criado sob o grupo de recursos ou subscrição à qual pertence a VNet:
+-   Certifique-se de que não tem uma política do Azure que impede que os seguintes recursos a ser criado sob o grupo de recursos ou subscrição à qual pertence a rede virtual:
     -   Microsoft.Network/LoadBalancers
     -   Microsoft.Network/NetworkSecurityGroups
     -   Microsoft.Network/PublicIPAddresses
@@ -228,7 +229,7 @@ Terá de configurar uma rede virtual antes de pode associar uma resposta a incid
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
@@ -282,7 +283,7 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id

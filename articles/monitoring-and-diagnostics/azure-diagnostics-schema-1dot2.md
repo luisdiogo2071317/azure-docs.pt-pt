@@ -1,24 +1,20 @@
 ---
-title: Esquema de configuração de diagnóstico do Azure 1.2 | Microsoft Docs
+title: Extensão de diagnóstico do Azure 1.2 esquema de configuração
 description: APENAS relevante se estiver a utilizar o Azure SDK 2.5 com Virtual Machines do Azure, conjuntos de dimensionamento de Máquina Virtual, Service Fabric ou serviços em nuvem.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267701"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração 1.2 de diagnóstico do Azure
 > [!NOTE]
@@ -117,7 +113,7 @@ Define as definições de configuração para os dados de telemetria a ser recol
 |**Diretórios**|Permite a recolha do conteúdo de um diretório, registos de IIS não conseguiu de pedidos de acesso e/ou os registos IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configura a recolha de eventos do ETW de EventSource de e/ou o manifesto do ETW baseado em fornecedores.|  
 |**Métricas**|Este elemento permite-lhe gerar uma tabela de contador de desempenho que está otimizada para consultas rápidas. Cada contador de desempenho que está definida a **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o Azure Diagnostics. Obter o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos de recursos** -> **< nome\>**. Clique em de **propriedades** mosaico e copie o valor da **ID** campo.|  
-|**PerformanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**performanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
@@ -203,4 +199,4 @@ Define as definições de configuração para os dados de telemetria a ser recol
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|
+|**origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|

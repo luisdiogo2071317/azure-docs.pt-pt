@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: c2571a7ca9e92c5088aec600f1865f84736c5bfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592515"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292308"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -110,7 +110,7 @@ Agora, abra um browser e tente aceder novamente a aplicação. Deve ser pedida a
 
 Se continuar a ver o erro, avance para a máquina onde o conector é instalado, abra um browser e tentam aceder o URL interno utilizado para a aplicação. O conector funciona como outro cliente do mesmo computador. Se não conseguirem contactar a aplicação, investigue o motivo pelo qual que a máquina não é possível alcançar a aplicação, ou utilizar um conector num servidor que é capaz de aceder à aplicação.
 
-Se pode aceder a aplicação do que a máquina, para procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](active-directory-application-proxy-troubleshoot.md#connector-errors). Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitos dos nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
+Se pode aceder a aplicação do que a máquina, para procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](manage-apps/application-proxy-troubleshoot.md#connector-errors). Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitos dos nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)

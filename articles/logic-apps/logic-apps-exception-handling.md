@@ -4,7 +4,7 @@ description: Padrões de erro e excepção a processar a Logic Apps.
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300067"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Processar os erros e exceções em aplicações lógicas
 
@@ -79,7 +80,7 @@ Se definir **retryPolicy** para **fixo**, esta política repete a um pedido falh
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 | ------------ | -------- | ---- | ----------- |
-| tipo | Sim | Cadeia | **fixed** |
+| tipo | Sim | Cadeia | **Fixo** |
 | contagem | Sim | Número inteiro | O número de tentativas de repetição, que têm de ser entre 1 e 90 | 
 | intervalo | Sim | Cadeia | O intervalo de repetição em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), que tem de estar entre PT5S e PT1D | 
 ||||| 
@@ -106,9 +107,9 @@ Esta tabela mostra como uma variável de aleatório uniform no intervalo indicad
 | Repetir número | Intervalo mínimo | Intervalo máximo |
 | ------------ | ---------------- | ---------------- |
 | 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Número máximo (2 * intervalo, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Máx. (4 * intervalo, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| 2 | Máx. (intervalo, **minimumInterval**) | Mín. (2 * intervalo, **maximumInterval**) |
+| 3 | Número máximo (2 * intervalo, **minimumInterval**) | Min (4 * intervalo, **maximumInterval**) |
+| 4 | Máx. (4 * intervalo, **minimumInterval**) | Min (8 * intervalo, **maximumInterval**) |
 | .... | | | 
 |||| 
 

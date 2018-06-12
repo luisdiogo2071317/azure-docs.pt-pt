@@ -1,24 +1,25 @@
 ---
 title: Resolver problemas e diagnosticar falhas - Azure Logic Apps | Microsoft Docs
-description: "Compreender como e por que razão as logic apps falhar"
+description: Compreender como e por que razão as logic apps falhar
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298795"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Resolver problemas e diagnosticar falhas de aplicação lógica
 
@@ -31,7 +32,7 @@ Cada aplicação lógica começa com o acionador. Se o acionador não acionados,
 1. Para verificar se o acionador é desencadeado, no menu aplicação lógica, escolha **descrição geral**. Em **histórico de Acionador**, rever o estado do acionador.
 
    > [!TIP]
-   > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra a aplicação lógica.
+   > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra-a.
 
    ![Histórico de Acionador de revisão](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
@@ -44,7 +45,7 @@ Cada aplicação lógica começa com o acionador. Se o acionador não acionados,
    | Estado | Descrição | 
    | ------ | ----------- | 
    | **Foi concluída com êxito** | O acionador selecionado o ponto final e localizar dados disponíveis. Normalmente, um Estado "Fired" também é apresentada juntamente com este estado. Se não, a definição do acionador poderá ter uma condição ou `SplitOn` comando que não foi cumprido. <p>Este estado pode aplicar um acionador manual, acionador de recorrência ou acionador de consulta. Um acionador pode ser executado com êxito, mas a ser executada a próprio ainda poderá falhar quando as ações geram erros de não processados. | 
-   | **Foi ignorada** | O acionador selecionado o ponto final, mas não existem dados não encontrado. | 
+   | **Ignorado** | O acionador selecionado o ponto final, mas não existem dados não encontrado. | 
    | **Falha** | Ocorreu um erro. Para rever as mensagens de erro gerado para um acionador de falha, selecione esse tentativa de Acionador e escolha **saídas**. Por exemplo, poderá encontrar entradas que não são válidas. | 
    ||| 
 
@@ -72,7 +73,7 @@ Cada acionador fired inicia um fluxo de trabalho a executar. Pode rever o que ac
 1. No menu da aplicação lógica, escolha **Descrição geral**. Em **executa histórico**, reveja a execução para o acionador fired.
 
    > [!TIP]
-   > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra a aplicação lógica.
+   > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra-a.
 
    ![Executa o histórico de revisão](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
@@ -114,6 +115,6 @@ Para ajudar a depuração, pode adicionar os passos para um fluxo de trabalho, j
 
 4. Para rever como um pedido está formado quando gerados a partir do motor de Logic Apps, executar a aplicação lógica e atualizar o seu RequestBin.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Monitorizar a sua aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md)

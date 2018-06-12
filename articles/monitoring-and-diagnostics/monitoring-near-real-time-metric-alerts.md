@@ -1,26 +1,19 @@
 ---
-title: Suportado recursos para alertas de métricas de Monitor do Azure mais recentes | Microsoft Docs
+title: Recursos suportados para os alertas de métricas de Monitor do Azure mais recentes
 description: Referência nos registos do Azure mais recente quase em tempo real alertas métricas e métricas de suporte.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809833"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264515"
 ---
 # <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Métodos suportados de métricas e criação de novos alertas métricas
 Azure suporta agora a monitorizar um [novo tipo de alerta métrico](monitoring-overview-unified-alerts.md) que tem vantagens significativas através de mais antigo [clássicas alertas métricas](insights-alerts-portal.md). Os alertas mais antigos suportam um [lista grande de métricas](monitoring-supported-metrics.md). Os alertas mais recentes suportam um subconjunto (crescente) de que lista maior. Este artigo apresenta uma lista esse subconjunto. 

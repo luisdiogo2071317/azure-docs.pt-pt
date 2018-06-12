@@ -1,24 +1,19 @@
 ---
-title: Avançada com máquinas virtuais do Azure de dimensionamento automático | Microsoft Docs
+title: Dimensionamento automático avançado com máquinas virtuais do Azure
 description: Utiliza o Gestor de recursos e conjuntos de dimensionamento de VM com várias regras e perfis que enviem correio eletrónico e chamar URLs de webhook com ações de dimensionamento.
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: c1ac5c4c44386fc05e3ee87ccdbbc4f652a94a1c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: autoscale
+ms.openlocfilehash: 9ff8c28a139d9a16d31a61b560ef7f5759d0a3f5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267735"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração de dimensionamento automático avançadas utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode no dimensionamento horizontal e em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métrica de desempenho, por numa agenda periódica, ou por uma data específica. Também pode configurar as notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração os objetos com um modelo do Resource Manager no conjunto de dimensionamento da VM.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839431"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301376"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
@@ -169,8 +169,6 @@ Cada uma das camadas de rede tem um grupo de segurança de rede dedicado (NSG):
 - Um grupo de segurança de rede DMZ para Gateway de aplicação WAF e firewall
 - Um NSG para gestão jumpbox (anfitrião de bastion)
 - Um NSG para o ambiente de serviço de aplicações
-
-Cada um dos NSGs ter específicas portas e protocolos abertos para a operação segura e correta da solução. Para obter mais informações, consulte [orientações de PCI - grupos de segurança de rede](#network-security-groups).
 
 Cada um dos NSGs ter específicas portas e protocolos abertos para o trabalho seguro e correto da solução. Além disso, as configurações seguintes estão ativadas para cada NSG:
 - Ativado [eventos e registos de diagnóstico](/azure/virtual-network/virtual-network-nsg-manage-log) são armazenados na conta de armazenamento 

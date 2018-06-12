@@ -3,7 +3,7 @@ title: Funções de linguagem de definição de fluxo de trabalho - Azure Logic 
 description: Saiba mais sobre as funções para criar logic apps com a linguagem de definição de fluxo de trabalho
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301393"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referência das funções de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -1450,7 +1451,7 @@ equals('<object1>', '<object2>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto1*>, <*object2*> | Sim | Vários | Os valores, expressões ou objetos a comparar | 
+| <*objeto1*>, <*object2*> | Sim | vários | Os valores, expressões ou objetos a comparar | 
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
@@ -1509,7 +1510,7 @@ E devolver estes resultados:
 
 <a name="float"></a>
 
-## <a name="float"></a>Número de vírgula flutuante
+## <a name="float"></a>flutuante
 
 Converta uma versão de cadeia para um número de vírgula flutuante de um número real de ponto flutuante. Pode utilizar esta função só ao transmitir parâmetros personalizados para uma aplicação, tais como uma aplicação lógica.
 
@@ -1524,7 +1525,7 @@ float('<value>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de vírgula flutuante*> | Número de vírgula flutuante | O número de vírgula flutuante para a cadeia especificada | 
+| <*valor de vírgula flutuante*> | Flutuante | O número de vírgula flutuante para a cadeia especificada | 
 |||| 
 
 *Exemplo*
@@ -2927,7 +2928,7 @@ E devolve o resultado deste: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>string
+## <a name="string"></a>cadeia
 
 Devolva a versão de cadeia para um valor.
 
@@ -3109,7 +3110,7 @@ E devolver estes resultados:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>batimentos
+## <a name="ticks"></a>tiques
 
 Devolver o `ticks` valor da propriedade para um carimbo especificado. A *marcas de escala* é um intervalo de 100 nanossegundos.
 

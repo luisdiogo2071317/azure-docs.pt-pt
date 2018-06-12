@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/18/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640545"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267378"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas do controlo de acesso baseado em funções do Azure
 [O controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de função são a forma de controlar o acesso a recursos no Azure. Se as funções incorporadas não satisfazem as necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas](custom-roles.md).
@@ -133,6 +133,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/Delete | Não é possível eliminar funções e atribuições de função |
 > | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
 > | Microsoft.Authorization/elevateAccess/Action | Garante ao chamador Administrador de Acesso dos Utilizadores acesso ao âmbito do inquilino |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## <a name="reader"></a>Leitor
 > [!div class="mx-tableFixed"]
@@ -709,7 +711,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Ações** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | A remover os dados do Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Eliminar dados especificado a partir da área de trabalho |
 

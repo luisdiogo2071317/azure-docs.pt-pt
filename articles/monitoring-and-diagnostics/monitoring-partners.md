@@ -1,24 +1,19 @@
 ---
-title: "Integrações de parceiro de Monitor do Azure | Microsoft Docs"
-description: "Saiba mais sobre os parceiros do Monitor do Azure e como pode aceder a documentação para integrar com os mesmos."
+title: Parceiros que intergrate com a monitorização do Azure
+description: Saiba mais sobre os parceiros do Monitor do Azure e como pode aceder a documentação para integrar com os mesmos.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: ''
+ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265288"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiro de Monitor do Azure
 | Parceiros |  |  |
@@ -146,7 +141,7 @@ Sumo lógica é um serviço de análise de dados segura, nuvem nativo, máquina,
 [Saiba mais.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic fornece a automatização de carga de trabalho para nuvens híbrida por otimizar o desempenho, o custo e conformidade em tempo real em simultâneo. Ajuda-o Turbonomic organizações ser elástico na respetiva propriedade do Azure por continuamente otimizar a propriedade para garantir que as aplicações constantemente obter os recursos que necessitam para fornecer as respetivas SLA e nada mais através de computação, armazenamento e de rede para o IaaS e PaaS camada. As organizações podem simular migrações, corretamente dimensionar as cargas de trabalho e extinguir recursos de centro de dados de forma responsável migrar para o Azure de tempo, dentro do orçamento, ao assuring desempenho e conformidade. Turbonomic é suscitada pelo departamento de API e é executado como uma VM sem agente no Azure e no local.
+Turbonomic fornece a automatização de carga de trabalho para nuvens híbrida por otimizar o desempenho, o custo e conformidade em tempo real em simultâneo. Ajuda-o Turbonomic organizações ser elástico na respetiva propriedade do Azure por continuamente otimizar a propriedade para garantir que as aplicações constantemente obter os recursos que necessitam para fornecer as respetivas SLA e nada mais através de computação, armazenamento e de rede para o IaaS e PaaS camada. As organizações podem simular migrações, corretamente dimensionar as cargas de trabalho e extinguir recursos de centro de dados de forma responsável migrar para o Azure de tempo, dentro do orçamento, ao assuring desempenho e conformidade. O Turbonomic é orientado por API e executa como uma VM sem agente no Azure e local.
 
 [Saiba mais.][turbonomic-doc]
 

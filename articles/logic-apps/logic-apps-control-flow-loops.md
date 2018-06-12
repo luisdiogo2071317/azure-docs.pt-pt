@@ -5,17 +5,17 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: cfowler
+manager: jeconnoc
 ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 26db63ed7706bdff9eb5c037a906fbc252b83a9a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725960"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298190"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repita ações de fluxo de trabalho ou processam as matrizes das Logic Apps do Azure
 

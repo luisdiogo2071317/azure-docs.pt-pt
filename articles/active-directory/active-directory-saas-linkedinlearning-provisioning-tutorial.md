@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: da39a31777323535c90b4d57e316741295aa873a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 787c294a42a002c387e64942657c63f826c0b98b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292658"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Learning para aprovisionamento de utilizadores automática
 
@@ -42,7 +43,7 @@ Azure Active Directory utiliza um conceito chamado "atribuições de" para deter
 
 Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder a aprendizagem LinkedIn. Depois de decidir, pode atribuir estes utilizadores a aprendizagem LinkedIn ao seguir as instruções aqui:
 
-[Atribuir um utilizador ou grupo a uma aplicação empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Sugestões importantes para atribuir utilizadores a aprendizagem LinkedIn
 
@@ -123,5 +124,5 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

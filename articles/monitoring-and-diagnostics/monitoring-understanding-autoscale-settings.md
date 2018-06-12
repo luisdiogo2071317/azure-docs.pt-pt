@@ -1,24 +1,19 @@
 ---
-title: "Compreender as definições de dimensionamento automático no Azure | Microsoft Docs"
-description: "Uma divisão detalhada das definições de dimensionamento automático e como funcionam."
+title: Compreender as definições de dimensionamento automático no Monitor do Azure
+description: Uma divisão detalhada das definições de dimensionamento automático e como funcionam. Aplica-se às máquinas virtuais, serviços em nuvem, Web Apps
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: 73c79ec4ee1beb5220e088421c78ffffd932eef1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: autoscale
+ms.openlocfilehash: 982bc43fd86a808da07833d77bde17e17789b2d6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265001"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 Definições de dimensionamento automático ajudam Certifique-se de que possui a quantidade certa de recursos em execução para processar a carga fluctuating da sua aplicação. Pode configurar definições de dimensionamento automático para ser acionado com base nas métricas que indiquem a carga ou de desempenho ou accionadas numa hora e data agendada. Este artigo assume uma detalhadas vista de olhos anatomy de uma definição de dimensionamento automático. O artigo começa com o esquema e propriedades de uma definição e, em seguida, explica os tipos de perfil diferente que podem ser configurados. Por fim, o artigo descreve como a funcionalidade de dimensionamento automático no Azure avalia que perfil de executar em qualquer momento.
@@ -97,13 +92,13 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | Section | Nome do elemento | Descrição |
 | --- | --- | --- |
 | Definição | ID | ID de recurso. a definição de dimensionamento automático Definições de dimensionamento automático são um recurso do Azure Resource Manager. |
-| Definição | nome | O nome da definição de dimensionamento automático. |
+| Definição | name | O nome da definição de dimensionamento automático. |
 | Definição | localização | A localização da definição de dimensionamento automático. Esta localização pode ser diferente da localização do recurso que está a ser ampliada. |
 | propriedades | targetResourceUri | O ID de recurso do recurso que está a ser ampliado. Só pode ter uma definição de dimensionamento automático por recurso. |
 | propriedades | Perfis | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o motor de dimensionamento automático é executado, este executa um perfil. |
-| perfil | nome | O nome do perfil. Pode escolher qualquer nome que o ajuda a identificar o perfil. |
-| perfil | Capacity.maximum | A capacidade máxima permitida. Assegura que o dimensionamento automático, quando executar este perfil, não dimensionar o recurso acima este número. |
-| perfil | Capacity.minimum | A capacidade mínima, permitida. Assegura que o dimensionamento automático, quando executar este perfil, não dimensionar os recursos abaixo este número. |
+| perfil | name | O nome do perfil. Pode escolher qualquer nome que o ajuda a identificar o perfil. |
+| perfil | Capacity.Maximum | A capacidade máxima permitida. Assegura que o dimensionamento automático, quando executar este perfil, não dimensionar o recurso acima este número. |
+| perfil | Capacity.Minimum | A capacidade mínima, permitida. Assegura que o dimensionamento automático, quando executar este perfil, não dimensionar os recursos abaixo este número. |
 | perfil | Capacity.default | Se existir um problema ao ler a métrica de recursos (neste caso, a CPU de "vmss1"), e a capacidade atual é inferior a predefinição, dimensionamento automático aumenta horizontalmente de forma predefinido. Isto serve para garantir a disponibilidade do recurso. Se a capacidade atual já for superior à capacidade predefinida, o dimensionamento automático não dimensionar de. |
 | perfil | regras | Dimensionamento automático dimensiona automaticamente entre as mínimas e máxima capacidades, utilizando as regras no perfil. Pode ter várias regras num perfil. Normalmente, existem duas regras: um para determinar quando deve aumentar horizontalmente e determinar quando deve dimensionar de outro. |
 | regra | metricTrigger | Define a condição métrica da regra. |

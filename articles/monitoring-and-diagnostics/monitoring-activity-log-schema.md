@@ -1,22 +1,19 @@
 ---
-title: Esquema de eventos de registo de atividade do Azure | Microsoft Docs
+title: Esquema de eventos de registo de atividade do Azure
 description: Compreender o esquema de eventos para dados emitidos para o registo de atividade
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264556"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividade do Azure
 O **registo de atividade do Azure** é um registo que fornece informações sobre quaisquer eventos ao nível da subscrição ocorridas no Azure. Este artigo descreve o esquema de eventos por categoria de dados.
@@ -482,6 +479,88 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
 | submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
 | subscriptionId |ID da subscrição do Azure. |
+
+## <a name="recommendation"></a>Recomendação
+Esta categoria contém o registo de quaisquer novas recomendações que são gerados para os serviços. Um exemplo de uma recomendação seria "conjuntos de disponibilidade de utilização para tolerância a falhas melhorada." Existem 4 tipos de eventos de recomendação que podem ser gerados: elevada disponibilidade, desempenho, segurança e otimização de custos. 
+
+### <a name="sample-event"></a>Eventos de exemplo
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>Descrições das propriedades
+| Nome do elemento | Descrição |
+| --- | --- |
+| canais | Sempre "operação" |
+| correlationId | Um GUID no formato de cadeia. |
+| descrição |Descrição de texto estático do evento recomendação |
+| eventDataId | Identificador exclusivo do evento de recomendação. |
+| categoria | Sempre "Recommendation" |
+| ID |Identificador de recurso exclusivo do evento de recomendação. |
+| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" ou "Verboso" |
+| operationName |Nome da operação.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
+| resourceGroupName |Nome do grupo de recursos para o recurso. |
+| resourceProviderName |Nome do fornecedor de recursos para o recurso que esta recomendação se aplica, como "Microsoft. Compute" |
+| resourceType |Nome do tipo de recurso para o recurso que esta recomendação se aplica, como "MICROSOFT.COMPUTE/virtualmachines" |
+| resourceId |Id de recurso do recurso que se aplica a recomendação |
+| status | Sempre "ativo" |
+| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
+| subscriptionId |ID da subscrição do Azure. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes da recomendação.|
+| properties.recommendationSchemaVersion| Versão do esquema das propriedades da recomendação publicados na entrada de registo de atividade |
+| properties.recommendationCategory | Categoria da recomendação. Os valores possíveis são "Elevada disponibilidade", "Desempenho", "Segurança" e "Custo" |
+| properties.recommendationImpact| Impacto da recomendação. Os valores possíveis são "Alta", "Médio", "Baixa" |
+| properties.recommendationRisk| Risco da recomendação. Os valores possíveis são "Error", "Aviso", "None" |
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o registo de atividade (anteriormente os registos de auditoria)](monitoring-overview-activity-logs.md)

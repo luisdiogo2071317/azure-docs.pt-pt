@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301070"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -85,10 +86,18 @@ Quando uma consulta DNS no Gestor de tráfego que chegam, até define um valor n
 
 Pode definir, cada um por nível de perfil, o valor de TTL do DNS para ser tão elevado como 2,147,483,647 segundos e como tão baixo como 0 segundos (o intervalo máximo em conformidade com [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). Um valor de TTL de 0 significa que a jusante resoluções DNS não colocar em cache as respostas de consulta e todas as consultas são esperadas para alcançar o DNS do Gestor de tráfego de servidores para a resolução.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Como posso compreender o volume de consultas futuras no meu perfil? 
+Uma das métricas fornecidas pelo Gestor de tráfego é o número de consulta respondeu por um perfil. Pode obter estas informações numa agregação de nível do perfil ou pode dividir-cópia de segurança further to consulte o volume de consultas em que foram devolvidos os pontos finais. Além disso, pode configurar alertas para notificá-lo se o volume de resposta de consulta atravesse as condições que definiu. Para obter mais detalhes, [métricas de Gestor de tráfego e alertas](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego Geographic
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quais são alguns casos de utilização em que o encaminhamento geográfica é útil? 
 Tipo de encaminhamento geográfico pode ser utilizado em qualquer cenário em que um cliente do Azure tem de distinguir os seus utilizadores com base nas regiões geográficas. Por exemplo, utilizando o método de encaminhamento de tráfego geográfica, que pode dar aos utilizadores de regiões específicas uma experiência de utilizador diferente dos existentes a partir de outras regiões. Outro exemplo é complying com indica a soberania dos dados locais que requerem que os utilizadores de uma região específica ser servido apenas por pontos finais nessa região.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Como decidir se deve a utilizar método de encaminhamento de desempenho ou o método de encaminhamento geográfico? 
+A principal diferença entre estes dois métodos de encaminhamento populares é que, no seu principal objetivo é para enviar o tráfego para o ponto final que pode fornecer a latência mais baixa para a função chamadora, ao passo que, no Geographic encaminhamento o principal objetivo é para impor uma georreplicação de método de encaminhamento de desempenho fence para os seus chamadores para que pode encaminhar deliberadamente para um ponto final específico. A sobreposição acontece porque não existe uma correlação entre closeness geográfica e menor latência, embora isto não é sempre verdadeiro. Pode ter um ponto final uma geografia diferentes que pode fornecer uma melhor experiência de latência para o autor da chamada e nesse caso desempenho encaminhamento enviará o utilizador para esse ponto final mas encaminhamento geográfica será sempre enviá-los para o ponto final tem de ser mapeados para as respetivas região geográfica. Para obter mais torná-lo limpar, considere o exemplo seguinte - com Geographic encaminhamento, pode certificar-mapeamentos invulgar como enviar todo o tráfego de Ásia para pontos finais nos EUA e todo o tráfego de E.U.A. para pontos finais na Ásia. Nesse caso, o encaminhamento geográfica deliberadamente executará exatamente o que tiver configurado não e otimização de desempenho não é uma consideração. 
+>[!NOTE]
+>Poderão existir cenários em que poderá ter o desempenho e capacidades de encaminhamento geográficas, para estes perfis aninhados cenários podem ser a escolha ideal. Por exemplo, pode configurar um perfil de principal com o serviço de encaminhamento geográfica para onde enviar todo o tráfego da América do Norte um perfil aninhado tem pontos finais nos E.U.A. e utilizar o encaminhamento para enviar esses tráfego para o ponto final melhor dentro desse conjunto de desempenho. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quais são as regiões suportadas pelo Gestor de tráfego para o encaminhamento geográfica? 
 É possível encontrar a hierarquia de país/região que é utilizada pelo Gestor de tráfego [aqui](traffic-manager-geographic-regions.md). Enquanto esta página onde permanece atualizada com todas as alterações, através de programação também pode obter as mesmas informações utilizando a [REST API da Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -330,6 +339,9 @@ Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/az
 O número de estado de funcionamento do Gestor de tráfego verifica atingir o ponto final depende o seguinte:
 - o valor que definiu para o intervalo de monitorização (intervalo mais pequeno significa mais pedidos de destino no seu ponto final em qualquer período de tempo indicado).
 - o número de localizações de onde verifica o estado de funcionamento provir (os endereços IP a partir de onde pode contar com estas verificações está listado nas FAQ do anterior).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso obter notificado da se um dos meus pontos finais de ficar inativo? 
+Uma das métricas fornecidas pelo Gestor de tráfego é o estado de funcionamento dos pontos finais num perfil. Pode ver esta forma um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais estão em bom estado), ou, um nível de ponto final por. Métricas de Gestor de tráfego são expostas por meio do Monitor do Azure e que pode utilizar o respetivo [alertas capacidades](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) a receber notificações quando existe uma alteração do Estado de funcionamento do seu ponto final. Para obter mais detalhes, consulte [métricas de Gestor de tráfego e alertas](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Gestor de tráfego aninhada perfis
 

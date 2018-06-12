@@ -1,11 +1,11 @@
 ---
-title: "Mensagens de AS2 para a integração do enterprise B2B - Azure Logic Apps | Microsoft Docs"
-description: "Trocar mensagens AS2 para a integração do enterprise B2B com Azure Logic Apps"
+title: Mensagens de AS2 para a integração do enterprise B2B - Azure Logic Apps | Microsoft Docs
+description: Trocar mensagens AS2 para a integração do enterprise B2B com Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: acc66f2cc88734b5c15fb9f4ace8339908418463
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298244"
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Trocar mensagens AS2 para a integração empresarial com logic apps
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32313516"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267099"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows Azure
 Tal como qualquer outro computador, máquinas virtuais no Azure utilizar discos como um local para armazenar os dados, aplicações e um sistema operativo. Todas as máquinas virtuais do Azure de ter, pelo menos, dois discos – um disco de sistema operativo Windows e um disco temporário. O disco do sistema operativo é criado a partir de uma imagem e o disco do sistema operativo e a imagem são discos rígidos virtuais (VHDs) armazenados numa conta de armazenamento do Azure. Máquinas virtuais podem ter também um ou mais discos de dados, que também são armazenados como VHDs. 
@@ -32,7 +32,7 @@ Vamos ver como os discos são utilizados por VMs.
 Cada máquina virtual possui um disco de sistema de operativo anexado. Tem registado como uma unidade SATA e identificados como a unidade c: por predefinição. Este disco tem uma capacidade máxima de 2048 gigabytes (GB). 
 
 ### <a name="temporary-disk"></a>Disco temporário
-Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curta duração para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de página ou a troca. Dados no disco temporário podem ser perdidos durante uma [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando a [voltar a implementar uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante um reinício padrão da VM, devem manter os dados na unidade temporária.
+Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curta duração para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de página ou a troca. Dados no disco temporário podem ser perdidos durante uma [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando a [voltar a implementar uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante o reinício padrão com êxito da VM, irão manter os dados na unidade temporária. 
 
 O disco temporário assinalada como como unidade d: por predefinição e utilizado para armazenar pagefile.sys. Para remapear este disco para uma letra de unidade diferente, consulte o artigo [alterar a letra de unidade de disco temporário Windows](change-drive-letter.md). O tamanho do disco temporário varia, com base no tamanho da máquina virtual. Para obter mais informações, consulte [máquinas virtuais de tamanhos para Windows](sizes.md).
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5db7d57045acea3ded82e880169ebf02f4151ec5
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d78980b69e6598dff349c75527fc27d8a04dfa18
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824732"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301189"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -40,7 +40,7 @@ O servidor de configuração é uma máquina no local que executa os componentes
 **Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
-RAM | 12 GB
+RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Discos incluem o disco de SO, disco de cache do servidor de processo e unidade de retenção para reativação pós-falha.
 Espaço livre em disco | 600 GB de espaço necessário para a cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
@@ -205,7 +205,7 @@ VMs no local que replicam para o Azure tem de cumprir os requisitos de VM do Azu
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated-machines). | Falha na verificação se não suportado.
+Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated-machines) para replicar máquinas. | Falha na verificação se não suportado.
 Arquitetura do sistema operativo convidado | 64 bits. | Falha na verificação se não suportado.
 Tamanho do disco do sistema operativo | Até 2.048 GB. | Falha na verificação se não suportado.
 Contagem de discos do sistema operativo | 1 | Falha na verificação se não suportado.  

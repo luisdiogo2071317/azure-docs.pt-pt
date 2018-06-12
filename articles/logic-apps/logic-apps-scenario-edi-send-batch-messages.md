@@ -1,13 +1,13 @@
 ---
-title: "Lote processar EDI mensagens como um grupo ou uma coleção - Azure Logic Apps | Microsoft Docs"
+title: Lote processar EDI mensagens como um grupo ou uma coleção - Azure Logic Apps | Microsoft Docs
 description: Enviar mensagens EDI lote em processamento nas logic apps
 keywords: processar do batch, lote, codificar do batch
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299295"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Mensagens de envio X12 no batch para comerciais parceiros
 
@@ -159,7 +160,7 @@ Remetente logic apps precisam de saber para onde enviar os itens, enquanto as re
    
    ![Defina as propriedades do batch](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
 
-6. Guarde a sua aplicação lógica. A aplicação de lógica de remetente agora semelhante para este exemplo:
+6. Guarde a aplicação lógica. A aplicação de lógica de remetente agora semelhante para este exemplo:
 
    ![Guarde a aplicação de lógica de remetente](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
 
@@ -167,7 +168,7 @@ Remetente logic apps precisam de saber para onde enviar os itens, enquanto as re
 
 Para testar a sua solução de lotes, post X12 mensagens à sua aplicação de lógica de remetente do [Postman](https://www.getpostman.com/postman) ou ferramenta semelhante. Em breve, deve iniciar a obtenção de X12 mensagens, como um lote de itens de cinco ou cada 10 minutos, a Reciclagem de pedido - tudo com a mesma chave de partição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Processar mensagens como lotes](logic-apps-batch-process-send-receive-messages.md) 
 * [Criar uma aplicação sem servidor no Visual Studio com Azure Logic Apps e funções](../logic-apps/logic-apps-serverless-get-started-vs.md)

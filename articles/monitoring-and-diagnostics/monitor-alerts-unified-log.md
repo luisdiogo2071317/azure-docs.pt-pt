@@ -1,25 +1,19 @@
 ---
-title: Registar alertas no Monitor do Azure - alertas | Microsoft Docs
+title: Registo de alertas no Monitor do Azure
 description: Acionar mensagens de correio eletrónico, notificações, é possível chamar URLs de Web sites (webhooks) ou automatização quando são satisfeitas as condições de consulta de análise que especificar para alertas do Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638726"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264379"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Registo de alertas no Monitor do Azure - alertas 
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas suportados no novo [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem plataforma de análise do Azure como base para alertas... Para obter detalhes de alertas de métrica utilizando os registos, consulte [quase em Tempo Real métrica alertas](monitoring-near-real-time-metric-alerts.md)

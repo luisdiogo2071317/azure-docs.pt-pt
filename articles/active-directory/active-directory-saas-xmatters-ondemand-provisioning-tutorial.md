@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: e0b945a99766ee52cb357f54d7135fbbdf1fada2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 52fe23f5353a68e3afbac6a91955a61c7b8fb44c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292675"
 ---
 # <a name="tutorial-configure-xmatters-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar xMatters OnDemand para o aprovisionamento de utilizador automáticas
 
@@ -72,7 +73,7 @@ Azure Active Directory utiliza um conceito chamado "atribuições de" para deter
 
 Antes de configurar e ativar o aprovisionamento de utilizadores automática, deve decidir quais os utilizadores e/ou grupos no Azure AD necessitam de aceder a xMatters OnDemand. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a xMatters OnDemand ao seguir as instruções aqui:
 
-*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-xmatters-ondemand"></a>Sugestões importantes para atribuir utilizadores a xMatters OnDemand
 
@@ -158,7 +159,7 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes

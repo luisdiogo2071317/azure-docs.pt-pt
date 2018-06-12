@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8fa98ff4cee206894c35f84cca3f3b4c43e2e5ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4d483f045a8e778953ddb578dd7bb81fdb05fdf2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292413"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento de utilizadores automática
 
@@ -42,7 +43,7 @@ AD do Azure utiliza um conceito chamado "atribuições de" para determinar quais
 
 Antes de configurar e ativar o serviço de aprovisionamento, tem de decidir quais os utilizadores no Azure AD tem acesso à sua aplicação Pingboard. Em seguida, pode atribuir estes utilizadores à sua aplicação Pingboard ao seguir as instruções aqui:
 
-[Atribuir um utilizador a uma aplicação empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+[Atribuir um utilizador a uma aplicação empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Sugestões importantes para atribuir utilizadores a Pingboard
 
@@ -99,6 +100,6 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o início de sessão único](active-directory-saas-pingboard-tutorial.md)

@@ -12,13 +12,14 @@ ms.devlang: other
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/30/2018
+ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: 2d98cff1a5869091aa81097bbb34da6e525a2ad5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d6195eda43dfd6ad249e82dabd0b314fc162b8c6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301087"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de Volume de ficheiros do Azure do serviço Fabric (pré-visualização)
 O plug-in de volume de ficheiros do Azure é um [Plug-in do Docker volume](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contentores de Docker. Este plug-in do Docker volume é empacotada como uma aplicação de Service Fabric que pode ser implementada nos clusters de Service Fabric. Objetivo de consiste em fornecer ficheiros do Azure com base em volumes para outras aplicações de contentor do Service Fabric que são implementadas para o cluster.
@@ -30,6 +31,8 @@ O plug-in de volume de ficheiros do Azure é um [Plug-in do Docker volume](https
 ## <a name="prerequisites"></a>Pré-requisitos
 * A versão do Windows do plug-in de volume de ficheiros do Azure funciona em [Windows Server versão 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versão 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) ou apenas os sistemas de operativos posteriores. A versão do Linux do plug-in de volume de ficheiros do Azure funciona em todas as versões de sistema operativo suportadas pelo Service Fabric.
 
+* O plug-in de volume de ficheiros do Azure só funciona no Service Fabric versão 6.2 e mais recente.
+
 * Siga as instruções no [documentação de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) para criar uma partilha de ficheiros para a aplicação de contentor do Service Fabric para utilizar como volume.
 
 * Terá de [Powershell com o módulo do Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) instalado.
@@ -38,9 +41,9 @@ O plug-in de volume de ficheiros do Azure é um [Plug-in do Docker volume](https
 
 Pode ser transferida a aplicação de Service Fabric fornece os volumes para os contentores seguintes [ligação](https://aka.ms/sfvolume). A aplicação pode ser implementada para o cluster através de [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) ou [FabricClient APIs](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
-1. Utilizando a linha de comandos, altere o diretório para o diretório de raiz do pacote de aplicações transferido. 
+1. Utilizando a linha de comandos, altere o diretório para o diretório de raiz do pacote de aplicações transferido.
 
-    ```powershell 
+    ```powershell
     cd .\AzureFilesVolume\
     ```
 
@@ -81,7 +84,7 @@ Pode ser transferida a aplicação de Service Fabric fornece os volumes para os 
 
 > [!NOTE]
 
-> O Centro de dados do Windows Server 2016 não suporta o mapeamento SMB monta para contentores ([que só é suportada no Windows Server versão 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Esta restrição impede o mapeamento do volume de rede e controladores de volume de ficheiros do Azure nas versões mais antigas do que 1709. 
+> O Centro de dados do Windows Server 2016 não suporta o mapeamento SMB monta para contentores ([que só é suportada no Windows Server versão 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Esta restrição impede o mapeamento do volume de rede e controladores de volume de ficheiros do Azure nas versões mais antigas do que 1709.
 >   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>Implementar a aplicação num cluster de desenvolvimento local
@@ -109,7 +112,7 @@ O fragmento seguinte mostra como pode ser especificado um volume de ficheiros do
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
      <Policies>
-       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
             <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
             <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
@@ -130,9 +133,9 @@ O fragmento seguinte mostra como pode ser especificado um volume de ficheiros do
 
 O nome de controlador para o plug-in de volume de ficheiros do Azure é **sfazurefile**. Este valor é definido para o **controlador** atributo o **Volume** elemento no manifesto da aplicação.
 
-No **Volume** elemento no fragmento acima, o plug-in de volume de ficheiros do Azure requer as seguintes tags: 
-- **Origem** -Isto refere-se para a pasta de origem que pode ser uma pasta na VM que aloja os contentores ou um arquivo persistente remoto
-- **Destino** -esta etiqueta é a localização que o **origem** está mapeado para no contentor em execução. Assim, o seu destino não pode ser uma localização que já existe no contentor de
+No **Volume** elemento no fragmento acima, o plug-in de volume de ficheiros do Azure requer as seguintes tags:
+- **Origem** -este é o nome do volume. O utilizador pode escolher qualquer nome para as respetivas volume.
+- **Destino** -esta etiqueta é a localização que o volume está mapeado para no contentor em execução. Assim, o seu destino não pode ser uma localização que já existe no contentor de
 
 Conforme mostrado no **DriverOption** elementos no fragmento acima, o plug-in de volume de ficheiros do Azure suporta as seguintes opções de controlador:
 
@@ -140,10 +143,10 @@ Conforme mostrado no **DriverOption** elementos no fragmento acima, o plug-in de
 - **storageAccountName** – nome da conta do storage do Azure que contém o ficheiro de ficheiros do Azure partilhar
 - **storageAccountKey** -chave de acesso para a conta de armazenamento do Azure que contém a partilha de ficheiros de ficheiros do Azure
 
-Todas as opções de controlador acima são necessárias. 
+Todas as opções de controlador acima são necessárias.
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Utilizar os seus próprios volume ou controlador de registo
-Recursos de infraestrutura de serviço também permite a utilização do seu próprio volume personalizado ou de controladores de registo. Se o controlador de volume/registo de Docker não está instalado no cluster, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode efetuar a instalação com estes protocolos através de um [conjunto de dimensionamento de máquina virtual de script de arranque](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou um [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Recursos de infraestrutura de serviço também permite a utilização da sua própria personalizada [volume](https://docs.docker.com/engine/extend/plugins_volume/) ou [registo](https://docs.docker.com/engine/admin/logging/overview/) controladores. Se o controlador de volume/registo de Docker não está instalado no cluster, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode efetuar a instalação com estes protocolos através de um [conjunto de dimensionamento de máquina virtual de script de arranque](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou um [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Um exemplo de script para instalar o [controladores de volume do Docker para o Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) é o seguinte:
 
@@ -155,10 +158,10 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-Nas suas aplicações, ao utilizar o volume ou controlador de registo instalado, terá de especificar os valores adequados no **Volume** e **LogConfig** elementos em  **ContainerHostPolicies** no seu manifesto de aplicação. 
+Nas suas aplicações, ao utilizar o volume ou controlador de registo instalado, terá de especificar os valores adequados no **Volume** e **LogConfig** elementos em  **ContainerHostPolicies** no seu manifesto de aplicação.
 
 ```xml
-<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
     <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
     <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
     <LogConfig Driver="[YOUR_LOG_DRIVER]" >
@@ -172,8 +175,18 @@ Nas suas aplicações, ao utilizar o volume ou controlador de registo instalado,
 </ContainerHostPolicies>
 ```
 
+Quando especificar um plug-in de volume, o Service Fabric cria automaticamente o volume utilizando os parâmetros especificados. O **origem** etiqueta para o **Volume** elemento é o nome do volume e o **controlador** tag Especifica o plug-in de controlador de volume. O **destino** etiquetas é a localização que o **origem** está mapeado para no contentor em execução. Assim, o seu destino não pode ser uma localização que já existe no contentor de. Podem ser especificadas opções utilizando o **DriverOption** tag da seguinte forma:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+São suportados parâmetros de aplicação para volumes, conforme ilustrado no fragmento de manifesto anterior (procure `MyStorageVar` para obter um exemplo utilizar).
+
+Se não for especificado um controlador de registo do Docker, tem de implementar agentes (ou contentores) para processar os registos no cluster. O **DriverOption** etiqueta pode ser utilizada para especificar as opções do controlador de registo.
+
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver as amostras de contentor, incluindo o controlador de volume, visite o [amostras de contentor do Service Fabric](https://github.com/Azure-Samples/service-fabric-containers)
 * Para implementar um cluster do Service Fabric contentores, consulte o artigo [implementar um contentor no Service Fabric](service-fabric-deploy-container.md)
-
-

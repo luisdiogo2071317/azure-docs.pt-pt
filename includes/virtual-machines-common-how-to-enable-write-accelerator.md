@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 5/9/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: c6fdd51bd522b08b33e6cac852ef313475682550
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723148"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323787"
 ---
 # <a name="write-accelerator"></a>Escrever o acelerador
 Escreva que acelerador é uma capacidade de disco para a série M máquinas virtuais (VMs) no armazenamento Premium com discos gerida do Azure exclusivamente. Como o nome de Estados, o objetivo da funcionalidade é melhorar a latência de e/s de escritas contra o Premium Storage do Azure. Escreva que acelerador Idealmente é adequada em que as atualizações de ficheiro de registo são necessárias para manter o disco de uma forma de performant elevada disponibilidade para bases de dados modernas.
@@ -49,17 +49,13 @@ Existem limites de VHDs de armazenamento do Azure Premium por VM que pode ser su
 
 | SKU DE VM | Número de discos de escrever o acelerador | Escrever acelerador disco IOPS por VM |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
-| M32ms | 4 | 2000 | 
-| M32s | 4 | 2000 | 
-| M16ms | 2 | 1000 | 
-| M16s | 2 | 1000 | 
-| M8ms | 1 | 500 | 
-| M8s | 1 | 500 | 
+| M128ms, 128s | 16 | 8000 |
+| M64s M64ms, M64ls, | 8 | 4000 |
+| M32ms, M32s M32ls, M32ts, | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+Os limites de IOPS são por VM e *não* por disco. Todos os discos de escrever acelerador partilham o mesmo limite IOPS por VM.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Ativar o acelerador escrever num disco específico
 As secções seguintes alguns descrevem como escrever acelerador pode ser ativada em VHDs de armazenamento do Azure Premium.
 

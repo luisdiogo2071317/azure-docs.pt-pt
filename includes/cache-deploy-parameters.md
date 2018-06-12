@@ -53,5 +53,5 @@ O tamanho da nova instância da Cache de Redis do Azure.
     }
 
 
-O modelo define os valores que são permitidos para este parâmetro (0, 1, 2, 3, 4, 5 ou 6) e atribui um valor predefinido (1) se for especificado nenhum valor. Os números correspondem ao seguinte tamanhos de cache: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+O modelo define os valores que são permitidos para este parâmetro (0, 1, 2, 3, 4, 5 ou 6) e atribui um valor predefinido (0) se for especificado nenhum valor. Os números correspondem ao seguinte tamanhos de cache: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

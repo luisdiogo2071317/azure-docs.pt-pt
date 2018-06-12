@@ -1,24 +1,19 @@
 ---
-title: Métricas de Monitor do Azure - métricas suportadas por tipo de recurso | Microsoft Docs
+title: Monitor do Azure suportada métricas por tipo de recurso
 description: Lista de haver métricas disponíveis para cada tipo de recurso com a monitorização do Azure.
 author: anirudhcavale
-manager: ashwink
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: metrics
+ms.openlocfilehash: d7d51a7c037e109c730dd79005a2c75eeb0697c0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266898"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure. Outras métricas poderão estar disponíveis no portal ou com APIs de legado. Esta lista abaixo inclui apenas as métricas disponíveis através do pipeline de métrico de Monitor do Azure consolidado. Para consultar e aceder a estas métricas utilize o [2018-01-01-versão de api](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -345,7 +340,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Latência|Latência|Milissegundos|Média|Latência em milisegundos.|Não foram dimensões|
 |CharactersTranslated|Carateres Traduzidos|Contagem|Total|Número total de carateres na receção do pedido de texto.|Não foram dimensões|
 |SpeechSessionDuration|Duração da Sessão de Voz|Segundos|Total|Duração total da sessão de voz em segundos.|Não foram dimensões|
-|TotalTransactions|Total de transações|Contagem|Total|Número total de transações|Não foram dimensões|
+|TotalTransactions|Total de Transações|Contagem|Total|Número total de transações|Não foram dimensões|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -360,16 +355,16 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Média|IOPS de Escrita de Disco|Não foram dimensões|
 |Créditos CPU Restantes|Créditos CPU Restantes|Contagem|Média|Número total de créditos disponíveis para rajada|Não foram dimensões|
 |Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Não foram dimensões|
-|Por disco Bytes lidos/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante o período de monitorização|SlotId|
-|Por Bytes de escrita de disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante o período de monitorização|SlotId|
-|Por disco lidos/seg de operações|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante o período de monitorização|SlotId|
-|Por operações de escrita de disco/seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|ESP totais enquanto a escrita num disco individual durante o período de monitorização|SlotId|
-|Por disco QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco de dados (ou comprimento da fila)|SlotId|
-|SO por Bytes lidos de disco/seg|Disco do SO Bytes lidos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco escrever Bytes/seg|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por operações de leitura de disco/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|Operações por segundo de escrita de SO por disco|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|ESP totais enquanto estiver a escrever para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco do SO (ou comprimento da fila)|Não foram dimensões|
+|Bytes Lidos por Disco/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização|SlotId|
+|Bytes Escritos por Disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização|SlotId|
+|Operações de Leitura Por Disco/Seg|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao ler de um único disco durante o período de monitorização por disco de SO|SlotId|
+|Operações de Escrita Por Disco/Seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização|SlotId|
+|Por Disco de QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|SlotId|
+|Bytes de Leitura por Disco de SO/Seg.|Disco do SO Bytes lidos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Bytes de Escrita por Disco de SO/Seg.|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Leitura por Disco de SO/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|Total de IOPS realizados ao ler a partir de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Escrita Por Disco de SO/Seg|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização por disco de SO|Não foram dimensões|
+|Por Disco de Sistema Operativo QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Não foram dimensões|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -384,16 +379,16 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Média|IOPS de Escrita de Disco|Não foram dimensões|
 |Créditos CPU Restantes|Créditos CPU Restantes|Contagem|Média|Número total de créditos disponíveis para rajada|Não foram dimensões|
 |Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Não foram dimensões|
-|Por disco Bytes lidos/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante o período de monitorização|SlotId|
-|Por Bytes de escrita de disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante o período de monitorização|SlotId|
-|Por disco lidos/seg de operações|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante o período de monitorização|SlotId|
-|Por operações de escrita de disco/seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|ESP totais enquanto a escrita num disco individual durante o período de monitorização|SlotId|
-|Por disco QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco de dados (ou comprimento da fila)|SlotId|
-|SO por Bytes lidos de disco/seg|Disco do SO Bytes lidos/seg|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco escrever Bytes/seg|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por operações de leitura de disco/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|Operações por segundo de escrita de SO por disco|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|ESP totais enquanto estiver a escrever para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco do SO (ou comprimento da fila)|Não foram dimensões|
+|Bytes Lidos por Disco/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização|SlotId|
+|Bytes Escritos por Disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização|SlotId|
+|Operações de Leitura Por Disco/Seg|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao ler de um único disco durante o período de monitorização por disco de SO|SlotId|
+|Operações de Escrita Por Disco/Seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização|SlotId|
+|Por Disco de QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|SlotId|
+|Bytes de Leitura por Disco de SO/Seg.|Bytes de Leitura em Disco de SO/Seg|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Bytes de Escrita por Disco de SO/Seg.|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Leitura por Disco de SO/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|Total de IOPS realizados ao ler a partir de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Escrita Por Disco de SO/Seg|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização por disco de SO|Não foram dimensões|
+|Por Disco de Sistema Operativo QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Não foram dimensões|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -408,23 +403,23 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Média|IOPS de Escrita de Disco|Não foram dimensões|
 |Créditos CPU Restantes|Créditos CPU Restantes|Contagem|Média|Número total de créditos disponíveis para rajada|Não foram dimensões|
 |Créditos CPU Consumidos|Créditos CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela Máquina Virtual|Não foram dimensões|
-|Por disco Bytes lidos/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante o período de monitorização|SlotId|
-|Por Bytes de escrita de disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante o período de monitorização|SlotId|
-|Por disco lidos/seg de operações|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante o período de monitorização|SlotId|
-|Por operações de escrita de disco/seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|ESP totais enquanto a escrita num disco individual durante o período de monitorização|SlotId|
-|Por disco QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco de dados (ou comprimento da fila)|SlotId|
-|SO por Bytes lidos de disco/seg|Disco do SO Bytes lidos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg é lida por um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco escrever Bytes/seg|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/seg escrito para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por operações de leitura de disco/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|ESP totais durante a leitura de um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|Operações por segundo de escrita de SO por disco|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|ESP totais enquanto estiver a escrever para um único disco durante a monitorização período para disco do SO|Não foram dimensões|
-|SO por disco QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade de fila de disco do SO (ou comprimento da fila)|Não foram dimensões|
+|Bytes Lidos por Disco/seg|Bytes lidos/seg (pré-visualização) de disco de dados|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização|SlotId|
+|Bytes Escritos por Disco/seg|Bytes dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização|SlotId|
+|Operações de Leitura Por Disco/Seg|Dados lidos de disco operações/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao ler de um único disco durante o período de monitorização por disco de SO|SlotId|
+|Operações de Escrita Por Disco/Seg|Operações de dados disco escritos/seg (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização|SlotId|
+|Por Disco de QD|Disco de dados QD (pré-visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|SlotId|
+|Bytes de Leitura por Disco de SO/Seg.|Disco do SO Bytes lidos/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg de leitura de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Bytes de Escrita por Disco de SO/Seg.|Disco do SO escrita Bytes/seg (pré-visualização)|CountPerSecond|Média|Total de Bytes/Seg escritos para um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Leitura por Disco de SO/seg|Disco do SO lidos operações/seg (pré-visualização)|CountPerSecond|Média|Total de IOPS realizados ao ler a partir de um único disco durante o período de monitorização para o disco de SO|Não foram dimensões|
+|Operações de Escrita Por Disco de SO/Seg|Disco do SO escrita operações por segundo (pré-visualização)|CountPerSecond|Média|IOPS totais concluídos ao escrever para um único disco durante o período de monitorização por disco de SO|Não foram dimensões|
+|Por Disco de Sistema Operativo QD|Disco do SO QD (pré-visualização)|Contagem|Média|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Não foram dimensões|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuUsage|Utilização da CPU|Contagem|Média|Utilização da CPU em todos os núcleos em millicores.|containerName|
-|MemoryUsage|Utilização da Memória|Bytes|Média|Utilização de memória total em bytes.|containerName|
+|CpuUsage|Utilização da CPU|Contagem|Média|Utilização da CPU em todos os núcleos em milinúcleos.|containerName|
+|MemoryUsage|Utilização da Memória|Bytes|Média|Utilização da memória total em bytes.|containerName|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
@@ -467,7 +462,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |DCIProfilesCount|Contagem de instâncias de perfil|Contagem|Último||Não foram dimensões|
 |DCIInteractionsPerMonthCount|Interações por contagem de mês|Contagem|Último||Não foram dimensões|
 |DCIKpisCount|Contagem de KPI|Contagem|Último||Não foram dimensões|
-|DCISegmentsCount|Contagem de segmento|Contagem|Último||Não foram dimensões|
+|DCISegmentsCount|Contagem de Segmentos|Contagem|Último||Não foram dimensões|
 |DCIPredictiveMatchPoliciesCount|Contagem de correspondências preditiva|Contagem|Último||Não foram dimensões|
 |DCIPredictionsCount|Contagem de predição|Contagem|Último||Não foram dimensões|
 
@@ -643,13 +638,13 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |ActiveConnections|ActiveConnections (pré-visualização)|Contagem|Média|Total de Ligações Ativas do Microsoft.EventHub. (Pré-visualização)|Não foram dimensões|
 |ConnectionsOpened|Ligações Abertas. (Pré-visualização)|Contagem|Média|Ligações Abertas do Microsoft.EventHub. (Pré-visualização)|EntityName|
 |ConnectionsClosed|Ligações Fechadas. (Pré-visualização)|Contagem|Média|Ligações Fechadas do Microsoft.EventHub. (Pré-visualização)|EntityName|
-|CaptureBacklog|Registo de tarefas pendentes de Captura. (Pré-visualização)|Contagem|Total|Registo de tarefas pendentes de captura do Microsoft.EventHub. (Pré-visualização)|EntityName|
-|CapturedMessages|Mensagens Capturadas. (Pré-visualização)|Contagem|Total|Mensagens Capturadas do Microsoft.EventHub. (Pré-visualização)|EntityName|
-|CapturedBytes|Bytes Capturados. (Pré-visualização)|Bytes|Total|Bytes Capturadas do Microsoft.EventHub. (Pré-visualização)|EntityName|
+|CaptureBacklog|Registo de tarefas pendentes de Recolha. (Pré-visualização)|Contagem|Total|Registo de tarefas pendentes de Recolha do Microsoft.EventHub. (Pré-visualização)|EntityName|
+|CapturedMessages|Mensagens Recolhidas. (Pré-visualização)|Contagem|Total|Mensagens Recolhidas do Microsoft.EventHub. (Pré-visualização)|EntityName|
+|CapturedBytes|Bytes Recolhidos. (Pré-visualização)|Bytes|Total|Bytes Recolhidos do Microsoft.EventHub. (Pré-visualização)|EntityName|
 |Tamanho|Tamanho (pré-visualização)|Bytes|Média|Tamanho de um EventHub em Bytes. (Pré-visualização)|EntityName|
 |INREQS|Pedidos Recebidos|Contagem|Total|Total de pedidos de entrada enviados para um espaço de nomes|Não foram dimensões|
 |SUCCREQ|Pedidos com Êxito|Contagem|Total|Total de pedidos com êxito para um espaço de nomes|Não foram dimensões|
-|FAILREQ|Pedidos Falhados|Contagem|Total|Total de pedidos falhados para um espaço de nomes|Não foram dimensões|
+|FAILREQ|Pedidos com Falhas|Contagem|Total|Total de pedidos falhados para um espaço de nomes|Não foram dimensões|
 |SVRBSY|Erros de Servidor Ocupado|Contagem|Total|Total de erros de servidor ocupado para um espaço de nomes|Não foram dimensões|
 |INTERR|Erros Internos de Servidor|Contagem|Total|Total de erros de servidor internos para um espaço de nomes|Não foram dimensões|
 |MISCERR|Outros Erros|Contagem|Total|Total de pedidos falhados para um espaço de nomes|Não foram dimensões|
@@ -711,7 +706,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |ActionsStarted|Ações Iniciadas |Contagem|Total|Número de ações de fluxo de trabalho iniciadas.|Não foram dimensões|
 |ActionsCompleted|Ações Concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Não foram dimensões|
 |ActionsSucceeded|Ações com Êxito |Contagem|Total|Número de ações de fluxo de trabalho com êxito.|Não foram dimensões|
-|ActionsFailed|Ações Falhadas|Contagem|Total|Número de ações de fluxo de trabalho falhadas.|Não foram dimensões|
+|ActionsFailed|Falhada de ações|Contagem|Total|Número de ações de fluxo de trabalho falhadas.|Não foram dimensões|
 |ActionsSkipped|Ações Ignoradas |Contagem|Total|Número de ações de fluxo de trabalho ignoradas.|Não foram dimensões|
 |ActionLatency|Latência da Ação |Segundos|Média|Latência das ações de fluxo de trabalho concluídas.|Não foram dimensões|
 |ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Média|Latência de ações de fluxo de trabalho com êxito.|Não foram dimensões|
@@ -788,7 +783,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |UnhealthyHostCount|Contagem de anfitrião mau estado de funcionamento|Contagem|Média|Número de anfitriões de back-end mau estado de funcionamento. Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.|BackendSettingsPool|
 |HealthyHostCount|Contagem de anfitrião bom estado de funcionamento|Contagem|Média|Número de anfitriões de back-end em bom estado. Pode filtrar por um por base de conjunto de back-end para mostrar anfitriões bom estado de funcionamento/mau estado de funcionamento de um conjunto de back-end específico.|BackendSettingsPool. |
 |TotalRequests|Total de Pedidos|Contagem|Total|Contagem de pedidos com êxito que o Gateway de aplicação foi servido|BackendSettingsPool|
-|FailedRequests|Pedidos Falhados|Contagem|Total|Contagem de pedidos falhados que tem servidos Gateway de aplicação|BackendSettingsPool|
+|FailedRequests|Pedidos com Falhas|Contagem|Total|Contagem de pedidos falhados que tem servidos Gateway de aplicação|BackendSettingsPool|
 |ResponseStatus|Estado de resposta|Contagem|Total|Estado de resposta de HTTP devolvido pelo Gateway de aplicação. A distribuição de código de estado de resposta pode ser mais categoized para mostrar as respostas em 2xx, 3xx, 4xx e 5xx categorias.|HttpStatusGroup|
 |CurrentConnections|Ligações atuais|Contagem|Total|Contagem de ligações atuais estabelecidas com o Gateway de aplicação|Não foram dimensões|
 
@@ -1016,9 +1011,9 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |IncomingMessages|Mensagens a receber (pré-visualização)|Contagem|Total|Mensagens Recebidas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
 |OutgoingMessages|Mensagens de saída (pré-visualização)|Contagem|Total|Mensagens Enviadas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
 |ActiveConnections|ActiveConnections (pré-visualização)|Contagem|Total|Total de Ligações Ativas do Microsoft.ServiceBus. (Pré-visualização)|Não foram dimensões|
-|Tamanho|Tamanho (pré-visualização)|Bytes|Média|Tamanho de um fila tópico em Bytes. (Pré-visualização)|EntityName|
-|Mensagens|Contagem de mensagens em fila um tópico/fila. (Pré-visualização)|Contagem|Média|Contagem de mensagens em fila um tópico/fila. (Pré-visualização)|EntityName|
-|ActiveMessages|Contagem de mensagens de Active Directory num tópico/fila. (Pré-visualização)|Contagem|Média|Contagem de mensagens de Active Directory num tópico/fila. (Pré-visualização)|EntityName|
+|Tamanho|Tamanho (pré-visualização)|Bytes|Média|Tamanho de um(a) Fila/Tópico em Bytes. (Pré-visualização)|EntityName|
+|Mensagens|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|EntityName|
+|ActiveMessages|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|Contagem|Média|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|EntityName|
 |CPUXNS|Utilização da CPU por espaço de nomes|Percentagem|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Não foram dimensões|
 |WSXNS|Utilização do tamanho da memória por espaço de nomes|Percentagem|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Não foram dimensões|
 
@@ -1046,7 +1041,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Não foram dimensões|
 |armazenamento|Tamanho total da base de dados|Bytes|Máximo|Tamanho total da base de dados|Não foram dimensões|
 |connection_successful|Ligações com êxito|Contagem|Total|Ligações com êxito|Não foram dimensões|
-|connection_failed|Falha de ligações|Contagem|Total|Falha de ligações|Não foram dimensões|
+|connection_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Não foram dimensões|
 |blocked_by_firewall|Bloqueado pela Firewall|Contagem|Total|Bloqueado pela Firewall|Não foram dimensões|
 |impasse|Impasses|Contagem|Total|Impasses|Não foram dimensões|
 |storage_percent|Percentagem de tamanho da Base de Dados|Percentagem|Máximo|Percentagem de tamanho da Base de Dados|Não foram dimensões|
@@ -1169,7 +1164,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AMLCalloutFailedRequests|Falha no pedido de funções|Contagem|Total|Falha no pedido de funções|Não foram dimensões|
 |AMLCalloutInputEvents|Eventos de Função|Contagem|Total|Eventos de Função|Não foram dimensões|
 |DeserializationError|Erros de Desserialização de entrada|Contagem|Total|Erros de Desserialização de entrada|Não foram dimensões|
-|EarlyInputEvents|Eventos cuja hora da aplicação é anterior à hora de chegada.|Contagem|Total|Eventos cuja hora da aplicação é anterior à hora de chegada.|Não foram dimensões|
+|EarlyInputEvents|Eventos cujo tempo de aplicação é anterior à respetiva hora de chegada.|Contagem|Total|Eventos cujo tempo de aplicação é anterior à respetiva hora de chegada.|Não foram dimensões|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
@@ -1229,19 +1224,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Identificadores|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Contagem|Média|Número de Threads|Instância|
-|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
-|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
-|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
-|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
-|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
-|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
+|IoWriteBytesPerSecond|Bytes de Escrita Por Segundo de E/S|BytesPerSecond|Total|Bytes de Escrita Por Segundo de E/S|Instância|
+|IoOtherBytesPerSecond|Outros Bytes Por Segundo de E/S|BytesPerSecond|Total|Outros Bytes Por Segundo de E/S|Instância|
+|IoReadOperationsPerSecond|Bytes de Leitura Por Segundo de E/S|BytesPerSecond|Total|Bytes de Leitura Por Segundo de E/S|Instância|
+|IoWriteOperationsPerSecond|Operações de Escrita Por Segundo de E/S|BytesPerSecond|Total|Operações de Escrita Por Segundo de E/S|Instância|
+|IoOtherOperationsPerSecond|Outras Operações Por Segundo de E/S|BytesPerSecond|Total|Outras Operações Por Segundo de E/S|Instância|
+|RequestsInApplicationQueue|Pedidos na Fila de Aplicação|Contagem|Média|Pedidos na Fila de Aplicação|Instância|
 |CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
-|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
-|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
-|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
-|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
-|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
+|TotalAppDomains|Domínios de Aplicação Totais|Contagem|Média|Domínios de Aplicação Totais|Instância|
+|TotalAppDomainsUnloaded|Domínios de Aplicação Totais Descarregados|Contagem|Média|Domínios de Aplicação Totais Descarregados|Instância|
+|Gen0Collections|Libertações de Memória da Ger 0|Contagem|Total|Libertações de Memória da Ger 0|Instância|
+|Gen1Collections|Libertações de Memória da Ger 1|Contagem|Total|Libertações de Memória da Ger 1|Instância|
+|Gen2Collections|Libertações de Memória da Ger 2|Contagem|Total|Libertações de Memória da Ger 2|Instância|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
 
@@ -1254,19 +1249,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Total|Unidades de Execução de Funções|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Total|Contagem de Execuções de Função|Instância|
-|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
-|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
-|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
-|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
-|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
-|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
+|IoWriteBytesPerSecond|Bytes de Escrita Por Segundo de E/S|BytesPerSecond|Total|Bytes de Escrita Por Segundo de E/S|Instância|
+|IoOtherBytesPerSecond|Outros Bytes Por Segundo de E/S|BytesPerSecond|Total|Outros Bytes Por Segundo de E/S|Instância|
+|IoReadOperationsPerSecond|Bytes de Leitura Por Segundo de E/S|BytesPerSecond|Total|Bytes de Leitura Por Segundo de E/S|Instância|
+|IoWriteOperationsPerSecond|Operações de Escrita Por Segundo de E/S|BytesPerSecond|Total|Operações de Escrita Por Segundo de E/S|Instância|
+|IoOtherOperationsPerSecond|Outras Operações Por Segundo de E/S|BytesPerSecond|Total|Outras Operações Por Segundo de E/S|Instância|
+|RequestsInApplicationQueue|Pedidos na Fila de Aplicação|Contagem|Média|Pedidos na Fila de Aplicação|Instância|
 |CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
-|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
-|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
-|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
-|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
-|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
+|TotalAppDomains|Domínios de Aplicação Totais|Contagem|Média|Domínios de Aplicação Totais|Instância|
+|TotalAppDomainsUnloaded|Domínios de Aplicação Totais Descarregados|Contagem|Média|Domínios de Aplicação Totais Descarregados|Instância|
+|Gen0Collections|Libertações de Memória da Ger 0|Contagem|Total|Libertações de Memória da Ger 0|Instância|
+|Gen1Collections|Libertações de Memória da Ger 1|Contagem|Total|Libertações de Memória da Ger 1|Instância|
+|Gen2Collections|Libertações de Memória da Ger 2|Contagem|Total|Libertações de Memória da Ger 2|Instância|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1293,19 +1288,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Identificadores|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Contagem|Média|Número de Threads|Instância|
-|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
-|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
-|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
-|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
-|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
-|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
-|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|
+|IoWriteBytesPerSecond|Bytes de Escrita Por Segundo de E/S|BytesPerSecond|Total|Bytes de Escrita Por Segundo de E/S|Instância|
+|IoOtherBytesPerSecond|Outros Bytes Por Segundo de E/S|BytesPerSecond|Total|Outros Bytes Por Segundo de E/S|Instância|
+|IoReadOperationsPerSecond|Bytes de Leitura Por Segundo de E/S|BytesPerSecond|Total|Bytes de Leitura Por Segundo de E/S|Instância|
+|IoWriteOperationsPerSecond|Operações de Escrita Por Segundo de E/S|BytesPerSecond|Total|Operações de Escrita Por Segundo de E/S|Instância|
+|IoOtherOperationsPerSecond|Outras Operações Por Segundo de E/S|BytesPerSecond|Total|Outras Operações Por Segundo de E/S|Instância|
+|RequestsInApplicationQueue|Pedidos na Fila de Aplicação|Contagem|Média|Pedidos na Fila de Aplicação|Instância|
 |CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
-|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
-|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
-|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
-|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
-|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
+|TotalAppDomains|Domínios de Aplicação Totais|Contagem|Média|Domínios de Aplicação Totais|Instância|
+|TotalAppDomainsUnloaded|Domínios de Aplicação Totais Descarregados|Contagem|Média|Domínios de Aplicação Totais Descarregados|Instância|
+|Gen0Collections|Libertações de Memória da Ger 0|Contagem|Total|Libertações de Memória da Ger 0|Instância|
+|Gen1Collections|Libertações de Memória da Ger 1|Contagem|Total|Libertações de Memória da Ger 1|Instância|
+|Gen2Collections|Libertações de Memória da Ger 2|Contagem|Total|Libertações de Memória da Ger 2|Instância|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

@@ -1,6 +1,6 @@
 ---
-title: Executar o pacote SSIS utilizando a atividade de pacote de SSIS executar no Azure Data Factory | Microsoft Docs
-description: Este artigo descreve como executar um pacote de SQL Server Integration Services (SSIS) a partir de um pipeline do Azure Data Factory com atividade para executar o pacote de SSIS.
+title: Execute o pacote SSIS com atividade de executar nas pacote de SSIS - Azure | Microsoft Docs
+description: Este artigo descreve como executar um pacote de SQL Server Integration Services (SSIS) num pipeline do Azure Data Factory, utilizando a atividade para executar o pacote de SSIS.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,15 +12,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: douglasl
-ms.openlocfilehash: fed4e10fcaaa5282c37b175f355b94522c3b2b46
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ce041813d52e645c336869ef04c9522962c80cf5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700490"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297160"
 ---
-# <a name="run-an-ssis-package-using-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS utilizando a atividade para executar o pacote de SSIS no Azure Data Factory
-Este artigo descreve como executar um pacote SSIS a partir de um pipeline do Azure Data Factory através da utilização de uma atividade de executar o pacote de SSIS. 
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade para executar o pacote de SSIS no Azure Data Factory
+Este artigo descreve como executar um pacote SSIS num pipeline do Azure Data Factory através da utilização de uma atividade de executar o pacote de SSIS. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. A atividade para executar o pacote de SSIS não está disponível na versão 1 do serviço do Data Factory, o que é geralmente disponível (GA). Para um método alternativo executar um pacote SSIS com a versão 1 do serviço Data Factory, consulte [pacotes SSIS executar utilizando a atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

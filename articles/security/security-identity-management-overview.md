@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 22b233e23c5c4609990bb6ba6148fe24d3d82c4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641354"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300662"
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral de segurança de gestão de identidade do Azure
 Microsoft identidades e acessos soluções ajuda da gestão de IT proteger o acesso a aplicações e recursos em todo o datacenter empresarial e para a nuvem. Essa proteção permite níveis adicionais de validação, como o multi-factor Authentication e políticas de acesso condicional. Monitorização de atividade suspeita através de segurança avançadas de relatórios, auditoria e ajuda a mitigar potenciais problemas de segurança de alerta. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece início de sessão único (SSO) para milhares de software na nuvem como uma aplicações de serviço (SaaS) e acesso a aplicações web que é executado no local.
@@ -58,7 +58,7 @@ Saiba mais:
 
 * [Descrição geral sobre o início de sessão único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrar aplicações SaaS do Azure Active Directory-início de sessão único](../active-directory/active-directory-enterprise-apps-manage-sso.md)
+* [Integrar aplicações SaaS do Azure Active Directory-início de sessão único](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 Proxy de aplicações do Azure AD permite-lhe publicar aplicações no local, tais como [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), e [IIS](http://www.iis.net/)-com base em aplicações dentro da sua rede privada e proporciona acesso seguro aos utilizadores fora da rede. Proxy de aplicações fornece acesso remoto e as aplicações com milhares de aplicações SaaS que suporte do Azure AD de web de SSO para muitos tipos de no local. Os funcionários podem iniciar sessão às suas aplicações de casa nos seus próprios dispositivos e autenticar através deste proxy baseado na nuvem.

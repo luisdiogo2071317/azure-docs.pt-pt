@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 11b5e2a408d3ba514753f3510b36fce02470c6e9
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 13b36398afdf8eb4db3adeee4ebb821411d813f5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825264"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300791"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração de Contoso: realojamento uma aplicação no local para VMs do Azure
 
@@ -26,21 +26,22 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 
 **Artigo** | **Detalhes** | **Estado**
 --- | --- | ---
-Artigo 1: Descrição geral | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
-Artigo 2: Implementar uma infraestrutura do Azure | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
-Artigo 3: Avaliar a recursos no local  | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-Artigo 4: Refatorar (comparação de precisão e shift) para as VMs do Azure e uma instância do SQL geridos (Este artigo) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
-Artigo 5: Refatorar (comparação de precisão e shift) para as VMs do Azure (Este artigo) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
-Artigo 6: Refatorar (comparação de precisão e shift) para as VMs do Azure e grupos de disponibilidade do SQL Server | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
-Artigo 7: Refatorar (comparação de precisão e shift) para as VMs do Azure e o servidor de MySQL do Azure | Demonstra como Contoso migra SmartHotel aplicação VMs com a recuperação de sites e o MySQL Workbench para migrar (cópia de segurança e restauro) para uma instância de servidor de MySQL do Azure. | Disponível
+[Artigo 1: Descrição geral](contoso-migration-overview.md) | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
+[Artigo 2: Implementar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
+[Artigo 3: Avaliar a recursos no local](contoso-migration-assessment.md)  | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Realojamento para as VMs do Azure e uma instância do SQL gerida](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
+Artigo 5: Realojamento para VMs do Azure (Este artigo) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
+[Artigo 6: Realojamento para as VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
+[Artigo 7: Realojamento uma aplicação do Linux em VMs do Azure](contoso-migration-rehost-linux-vm.md) | Demonstra como Contoso migra a aplicação do Linux osTicket para VMs do Azure com a recuperação de Site. | Disponível
+[Artigo 8: Uma aplicação do Linux de realojamento as VMs do Azure e MySQL o servidor do Azure](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação do Linux osTicket para VMs do Azure com a recuperação de Site e migra a base de dados de aplicação para uma instância de servidor de MySQL do Azure utilizando o MySQL Workbench. | Disponível
 
-Neste artigo, Contoso irá migrar do Windows de duas camadas. NET SmartHotel aplicação em execução em VMs de VMware, para o Azure. Se pretender utilizar esta aplicação, é fornecido como código aberto e poderá transferi-lo de [github](https://github.com/Microsoft/SmartHotel360).
+Neste artigo, Contoso irá migrar do Windows de duas camadas. NET SmartHotel aplicação em execução em VMs de VMware, para o Azure. Se pretender utilizar esta aplicação, é fornecido como open source e poderá transferi-lo de [github](https://github.com/Microsoft/SmartHotel360).
 
 
 
 ## <a name="business-drivers"></a>Controladores de negócio
 
-A equipa de TI liderança trabalhou coincida com os respetivos parceiros de negócios para compreender o que pretende alcançar com esta migração:
+A equipa de TI liderança trabalhou coincida com parceiros de negócios para compreender o que pretende alcançar com esta migração:
 
 - **Crescimento de negócio de endereços**: Contoso está a crescer e, como resultado existe pressão na infraestrutura e sistemas no local.
 - **Limitar o risco**: SmartHotel a aplicação é fundamental para as empresas de Contoso. Pretende movê-la para o Azure com o risco de zero.
@@ -53,7 +54,7 @@ A equipa de nuvem Contoso tem afixado baixo objetivos para esta migração. Este
 
 - Após a migração, a aplicação no Azure deve ter as mesmas capacidades de desempenho, como sucede no VMware.  A aplicação irá permanecer como crítica na nuvem porque está no local. 
 - Contoso não quer investir nesta aplicação.  É importante para o negócio, mas o respetivo formato atual simplesmente pretendem movê-lo em segurança para a nuvem.
-- Contoso não pretende alterar o modelo do OPS Manager para esta aplicação. Pretendem interagir com ele na nuvem da mesma forma que são agora.
+- Contoso não pretende alterar o modelo do OPS Manager para esta aplicação. Pretende interagir com ele na nuvem da mesma forma que são agora.
 - Contoso não pretende alterar qualquer funcionalidade de aplicações. Apenas a localização da aplicação será alterado.
 
 ## <a name="proposed-architecture"></a>Arquitetura proposta
@@ -224,7 +225,7 @@ Para continuar, confirmarem que que tenham concluído planeamento da implementa�
 
 ### <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-Contoso tem de configurar o respetivo ambiente de origem. Para tal, podem transferir um modelo OVF e utilizá-lo para implementar o servidor de configuração da recuperação de sites como altamente disponível, VM de VMware no local. Depois do servidor de configuração está a funcionar, estes registá-lo no ths cofre.
+Contoso tem de configurar o respetivo ambiente de origem. Para tal, podem transferir um modelo OVF e utilizá-lo para implementar o servidor de configuração da recuperação de sites como altamente disponível, VM de VMware no local. Depois do servidor de configuração está a funcionar, se registar no cofre.
 
 O servidor de configuração é executado um número de componentes:
 

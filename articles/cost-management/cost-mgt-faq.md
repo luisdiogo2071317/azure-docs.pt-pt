@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298414"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas mais frequentes sobre gestão de custo do Azure
 
@@ -28,23 +29,23 @@ Ao utilizar o portal de Cloudyn pela primeira vez, poderá ver as seguintes mens
 - "Inscrição direta – não" apresentado no portal do contrato Enterprise.
 - "Não existem dados de utilização encontrados para os últimos 30 dias. Entre em contacto com o distribuidor para se certificar de marcação foi ativada para a sua conta do Azure"apresentado no portal do Cloudyn.
 
-As mensagens anteriores indicam que comprou um Enterprise Agreement do Azure através de um revendedor ou CSP. Seu revendedor ou CSP tem de ativar _markup_ para o Azure da conta para que possa visualizar os dados no Cloudyn.
+As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. Seu revendedor ou CSP tem de ativar _markup_ para o Azure da conta para que possa visualizar os dados no Cloudyn.
 
-Eis como corrigir os problemas:
+Eis como resolver os problemas:
 
-1. Tem de ativar o revendedor _markup_ para a sua conta. Para obter instruções, consulte o [Indireta guia de integração do cliente](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+1. O seu revendedor tem de ativar a _marcação_ para a sua conta. Para obter instruções, consulte o [Guia de Introdução do Cliente Indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
 2. Gerar a chave de Enterprise Agreement do Azure para utilização com Cloudyn. Para obter instruções, consulte [EA para adicionar o Azure](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) ou [como encontrar o ID de inscrição EA e a chave de API](https://youtu.be/u_phLs_udig).
 
-Apenas um administrador de serviço do Azure pode ativar a gestão de custo. Permissões de coadministrador são insuficientes.
+Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes.
 
 Pode gerar a chave de API de contrato Enterprise do Azure para configurar Cloudyn, tem de ativar a API de faturação do Azure ao seguir as instruções em:
 
-- [Descrição geral de APIs de relatórios para os clientes empresariais](../billing/billing-enterprise-api.md)
-- [Portal de empresa do Microsoft Azure API de relatórios](https://ea.azure.com/helpdocs/reportingAPI) em **ativar acesso a dados para a API**
+- [Descrição geral de APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
+- [API de Relatórios do portal empresarial do Microsoft Azure](https://ea.azure.com/helpdocs/reportingAPI) em **Ativar o acesso a dados para a API**
 
 
-Também poderá ter de conceder os administradores de departamento, proprietários de conta e permissões de administradores da empresa para _ver encargos_ com a API de faturação.
+Também poderá ter de conceder permissões a administradores de departamento, proprietários de conta e administradores empresariais para _ver custos_ com a API de Faturação.
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>Por que motivo não vejo recomendações otimizador?
 
@@ -71,16 +72,20 @@ Depois de concluir os passos anteriores, pode ver recomendações de otimizador 
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Como ativar a suspensos ou Escalamento bloqueado utilizadores?
 
+Em primeiro lugar, vamos ver cenário comum no máximo, que faz com que as contas de utilizador obter *initiallySuspended*.
+
+> Admin1 poderá ser fornecedor de solução em nuvem Microsoft ou o Enterprise Agreement do utilizador. A organização está pronta para começar a utilizar o custo de gestão.  Ele regista através do portal do Azure e inicia sessão no portal do Cloudyn. Como a pessoa que regista o serviço de gestão de custos e inicia no portal do Cloudyn, ele fica o *administrador principais*. Admin1 não criar as contas de utilizador. No entanto, utilizar o portal de Cloudyn, ele criar as contas do Azure e configura uma hierarquia de entidades. Admin1 informa Admin2, um administrador inquilino, o que ele tem de registar o custo de gestão e inicie sessão portal do Cloudyn.
+
+> Regista Admin2 através do portal do Azure. No entanto quando ele tenta iniciar sessão portal do Cloudyn, ele recebe um erro a indicar que a conta é **suspenso**. O administrador principal, Admin1, é notificado da suspensão de conta. Admin1 tem de ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades adequadas e permite o acesso de gestão de utilizador e ativa a conta de utilizador.
+
+
 Se receber um alerta com um pedido para permitir o acesso de um utilizador, terá de ativar a conta de utilizador.
 
 Para ativar a conta de utilizador:
 
 1. Inicie sessão no Cloudyn utilizando a conta de utilizador administrativo do Azure que utilizou para configurar Cloudyn. Em alternativa, inicie sessão com uma conta de utilizador que foi concedida acesso de administrador.
-
 2. Selecione o símbolo de equipamento no canto superior direito e selecione **gestão de utilizadores**.
-
 3. Localize o utilizador, selecione o símbolo de lápis e, em seguida, edite o utilizador.
-
 4. Em **estado do utilizador**, alterar o estado de **suspenso** para **Active Directory**.
 
 Contas de utilizador Cloudyn ligam utilizando o início de sessão a partir do Azure. Se um utilizador mistypes a palavra-passe, poderá obter bloqueados de Cloudyn, mesmo que ainda possam aceder ao Azure.

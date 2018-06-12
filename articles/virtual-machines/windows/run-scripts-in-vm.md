@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 98c2934800c739b463b168786e14f6a2a9cb47e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d8df5e4992cd8d51f1b5259947139d3b180ec82
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661140"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267051"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executem scripts na sua VM do Windows
 
@@ -31,14 +31,14 @@ O [extensão de Script personalizado](../extensions/custom-script-windows.md) é
 
 ## <a name="run-command"></a>Execute o comando
 
-O [executar comando](run-command.md) funcionalidade permite que a máquina virtual e a gestão de aplicações e a resolução de problemas com scripts e está disponível, mesmo quando a máquina não é de rede ligado.
+O [executar comando](run-command.md) funcionalidade permite que a máquina virtual e a gestão de aplicações e a resolução de problemas com scripts e está disponível, mesmo quando o computador não estiver acessível, por exemplo, se a firewall do convidado não tiver a porta RDP ou SSH abrir.
 
 * Execute scripts em máquinas virtuais do Azure.
 * Pode ser executado utilizando [portal do Azure](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 * Executar um script e vista de saída e repita conforme necessário no portal do Azure rapidamente.
 * Script pode ser digitado diretamente ou pode executar um dos scripts incorporados.
 * Executar script do PowerShell nas máquinas do Windows e Bash script em máquinas Linux.
-* Útil para a máquina virtual e gestão de aplicações e para executar scripts em máquinas virtuais que não são rede ligada.
+* Útil para a máquina virtual e gestão de aplicações e para executar scripts em máquinas virtuais que estiverem inacessíveis.
 
 ## <a name="hybrid-runbook-worker"></a>Função de Trabalho de Runbook Híbrida
 

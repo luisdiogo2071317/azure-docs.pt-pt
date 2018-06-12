@@ -1,18 +1,19 @@
 ---
-title: "Configurar um servidor de processos no Azure para a VM de VMware e reativação pós-falha do servidor físico com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha VMs do Azure para VMware."
+title: Configurar um servidor de processos no Azure para a VM de VMware e reativação pós-falha do servidor físico com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha VMs do Azure para VMware.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: c6ef0ae663727c519f9b6a8a56027a3dd8a9503d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 06/10/2018
+ms.author: raynew
+ms.openlocfilehash: 1a6a1276d1a63971fba68dc868aa56ce687a6cc2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300927"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
 
@@ -26,7 +27,7 @@ Saiba mais sobre o [só](vmware-azure-reprotect.md) e [reativação pós-falha](
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processos no Azure
 
-1. No cofre > **infraestrutura de recuperação de Site**> **Mnaage** > **servidores de configuração**, selecione o servidor de configuração.
+1. No cofre > **infraestrutura de recuperação de Site**> **gerir** > **servidores de configuração**, selecione o servidor de configuração.
 2. Na página do servidor, clique em **+ o servidor de processos**
 3. No **Adicionar servidor de processos** página e selecione para implementar o servidor de processos no Azure.
 4. Especifique as definições do Azure, incluindo a subscrição utilizada para ativação pós-falha, um grupo de recursos, a região do Azure utilizados para a ativação pós-falha e a rede virtual no qual estão localizadas as VMs do Azure. Se utilizou várias redes do Azure, é necessário um servidor de processos em cada um deles.

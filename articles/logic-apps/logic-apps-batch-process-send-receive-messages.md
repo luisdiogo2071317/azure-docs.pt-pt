@@ -1,13 +1,13 @@
 ---
-title: "Processar mensagens do lote como um grupo ou uma coleção - Azure Logic Apps | Microsoft Docs"
+title: Processar mensagens do lote como um grupo ou uma coleção - Azure Logic Apps | Microsoft Docs
 description: Envie e receba mensagens para lote em processamento nas logic apps
 keywords: lote, processo em lote
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298020"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Enviar, receber e processar mensagens nas logic apps do batch
 
@@ -77,7 +78,7 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
 
    1. Sob o acionador do batch, escolha **+ novo passo** > **adicionar uma ação**.
 
-   2. Na caixa de pesquisa, introduza "e-mail" como o filtro.
+   2. Na caixa de pesquisa, introduza "e-mail" como filtro.
    Com base no seu fornecedor de e-mail, seleccione um conector do e-mail.
    
       Por exemplo, se tiver uma conta profissional ou escolar, selecione o conector do Outlook do Office 365. 
@@ -131,7 +132,7 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
 1. Criar outra aplicação lógica com este nome: "BatchSender"
 
    1. Na caixa de pesquisa, introduza "recurrence" como o filtro. 
-   Selecione este acionador: **agenda - periodicidade**
+   Selecione o acionador **Schedule - Recurrence**
 
       ![Adicionar o acionador "Recurrence agenda"](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 
@@ -168,9 +169,9 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
    Neste exemplo, adicione esta expressão que insere a data e hora atuais no conteúdo de mensagem a enviar para o batch:
 
      1. Quando o **conteúdo dinâmico** é apresentada a lista, escolha **expressão**. 
-     2. Introduza a expressão **utcnow()**e escolha **OK**. 
+     2. Introduza a expressão **utcnow()** e escolha **OK**. 
 
-        ![Em "Mensagem conteúdo", escolha "Expressão". Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+        ![Em "Mensagem conteúdo", escolha "Expressão". Introduza "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
 4. Configure agora uma partição para o batch. A ação "BatchReceiver", escolha **Mostrar opções avançadas**.
 
@@ -187,7 +188,7 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
    * **Id de mensagem**: um identificador da mensagem opcional e é um GUID gerado quando vazio. 
    Neste exemplo, deixe esta caixa em branco.
 
-5. Guarde a sua aplicação lógica. A aplicação de lógica de remetente agora semelhante para este exemplo:
+5. Guarde a aplicação lógica. A aplicação de lógica de remetente agora semelhante para este exemplo:
 
    ![Guarde a aplicação de lógica de remetente](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
 

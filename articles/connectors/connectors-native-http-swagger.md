@@ -1,11 +1,11 @@
 ---
 title: Chamar pontos finais REST com HTTP + Swagger connector para Azure Logic Apps | Microsoft Docs
-description: "Ligar a pontos finais REST a partir das logic apps através de Swagger com o HTTP + Swagger connector"
+description: Ligar a pontos finais REST a partir das logic apps através de Swagger com o HTTP + Swagger connector
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296524"
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Começar a utilizar o HTTP + Swagger ação
 
@@ -98,20 +99,20 @@ Um asterisco (*) significa que um campo obrigatório.
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Método * |método |Verbo HTTP a utilizar. |
-| URI* |uri |URI do pedido de HTTP. |
+| URI * |uri |URI do pedido de HTTP. |
 | Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir. |
 | Corpo |corpo |O corpo do pedido HTTP. |
 | Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte o [conetor HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
-Resposta de HTTP
+Resposta HTTP
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de Estado |Int |Código de estado HTTP |
+| Código de Estado |Int |Código de estado de HTTP |
 
 ### <a name="http-responses"></a>Respostas de HTTP
 Quando efetuar chamadas para várias ações, poderá obter determinadas respostas. Segue-se uma tabela que descreve as respostas correspondentes e descrições.

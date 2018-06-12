@@ -2,44 +2,99 @@
 title: Configurar um servidor de processos no Azure para a VM de VMware e reativação pós-falha do servidor físico com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha VMs do Azure para VMware.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/10/2018
+ms.author: raynew
+ms.openlocfilehash: 3e53954341136a293052f9af755515a5552432fe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300852"
 ---
-# <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
+# <a name="set-up-additional-process-servers-for-scalability"></a>Configurar servidores de processos adicionais para escalabilidade
 
-Após a ativação pós-falha de VMs de VMware ou servidores físicos a utilização do Azure [recuperação de Site](site-recovery-overview.md), pode recuperá-los para o site no local quando for novamente em funcionamento. Para voltar a falhar, terá de configurar um servidor de processo temporário no Azure, para lidar com a replicação a partir do Azure no local. É possível eliminar esta VM após a conclusão da reativação pós-falha.
+Por predefinição, quando está a replicar VMs de VMware ou servidores físicos a utilização do Azure [recuperação de Site](site-recovery-overview.md), um servidor de processos está instalado na máquina do servidor de configuração e é utilizado para coordenar a transferência de dados entre a recuperação de sites e a infraestrutura no local. Para aumentar a capacidade e dimensionar a sua implementação de replicação, pode adicionar servidores de processos adicionais autónomo. Este artigo descreve como efetuar esta ação.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Saiba mais sobre o [só](vmware-azure-reprotect.md) e [reativação pós-falha](vmware-azure-failback.md) processo.
+### <a name="capacity-planning"></a>Planeamento de capacidade
 
-[!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+Certifique-se de que já realizou [planeamento de capacidade](site-recovery-plan-capacity-vmware.md) para replicação de VMware. Isto ajuda a identificar como e quando deve implementar mais servidores de processos.
 
-## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processos no Azure
+### <a name="sizing-requirements"></a>Requisitos de dimensionamento 
 
-1. No cofre > **infraestrutura de recuperação de Site**> **gerir** > **servidores de configuração**, selecione o servidor de configuração.
-2. Na página do servidor, clique em **+ o servidor de processos**
-3. No **Adicionar servidor de processos** página e selecione para implementar o servidor de processos no Azure.
-4. Especifique as definições do Azure, incluindo a subscrição utilizada para ativação pós-falha, um grupo de recursos, a região do Azure utilizados para a ativação pós-falha e a rede virtual no qual estão localizadas as VMs do Azure. Se utilizou várias redes do Azure, é necessário um servidor de processos em cada um deles.
-5. No **nome do servidor**, **nome de utilizador**, e **palavra-passe**, especifique um nome para o servidor de processos e as credenciais que serão atribuídas permissões de administrador no servidor.
-6. Especifique uma conta de armazenamento a serem utilizadas para os discos VM do servidor, a sub-rede na qual o servidor de processos VM estarão localizado e o endereço IP do servidor que será atribuído quando a VM entrar.
-7. Clique em **OK** botão para iniciar a implementação de VM do servidor de processos.
+Certifique-se os requisitos de dimensionamento resumidos na tabela. Em geral, se pode dimensionar a sua implementação para mais de 200 máquinas de origem ou tem um total diariamente churn taxa de mais do que 2 TB, terá de servidores de processos adicionais para processar o volume de tráfego.
 
->
+| **Servidor de processos adicionais** | **Tamanho da cache do disco** | **Taxa de alteração de dados** | **Máquinas protegidas** |
+| --- | --- | --- | --- |
+|4 vCPUs (2 sockets * 2 núcleos @ GHz 2,5), 8 GB de memória |300 GB |250 GB ou inferior |Replicar máquinas 85 ou menos. |
+|8 vCPUs (2 sockets * 4 núcleos @ GHz 2,5), 12 GB de memória |600 GB |250 GB a 1 TB |Replicar entre 85 150 máquinas. |
+|12 vCPUs (2 sockets * 6 núcleos @ GHz 2,5) 24 GB de memória |1 TB |1 TB para 2 TB |Replicar entre 150 225 máquinas. |
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registar o servidor de processos (em execução no Azure) para um servidor de configuração (em execução no local)
+### <a name="prerequisites"></a>Pré-requisitos
 
-Depois do servidor de processos VM está a funcionar, tem de registá-lo com o servidor de configuração no local, da seguinte forma:
+Os pré-requisitos para o servidor de processos adicionais estão resumidos na tabela seguinte.
 
-[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+## <a name="download-installation-file"></a>Transferir o ficheiro de instalação
+
+Transfira o ficheiro de instalação para o servidor de processos da seguinte forma:
+
+1. Inicie sessão no portal do Azure e navegue para o Cofre de serviços de recuperação.
+2. Abra **infraestrutura de recuperação de sites** > **VMWare e máquinas físicas** > **servidores de configuração** (em para VMware & física Máquinas).
+3. Selecione o servidor de configuração para desagregar os detalhes do servidor. Em seguida, clique em **+ o servidor de processos**.
+4. No **servidor de processos adicionar** >  **escolha onde pretende implementar o servidor de processos**, selecione **no local do servidor de processos de implementar, escalamento horizontal**.
+
+  ![Adicionar página de servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+1. Clique em **transferir o Microsoft Azure Site Recovery Unified configuração**. Esta ação transfere a versão mais recente do ficheiro de instalação.
+
+  > [!WARNING]
+  A versão de instalação do servidor de processo deve ser o mesmo como, ou anterior, a versão do servidor de configuração tem de executar. É uma forma simples para garantir a compatibilidade da versão a utilizar o mesmo programa de instalação, o que utilizou mais recentemente para instalar ou atualizar o seu servidor de configuração.
+
+## <a name="install-from-the-ui"></a>Instale a partir da IU
+
+Instale da seguinte forma. Depois de configurar o servidor, migre as máquinas de origem para utilizá-lo.
+
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
+
+
+## <a name="install-from-the-command-line"></a>Instalar a partir da linha de comandos
+
+Instale, executando o seguinte comando:
+
+```
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
+
+Onde os parâmetros da linha de comando são os seguintes:
+
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
+
+Por exemplo:
+
+```
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+cd C:\Temp\Extracted
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
+```
+### <a name="create-a-proxy-settings-file"></a>Criar um ficheiro de definições de proxy
+
+Se precisar de configurar um proxy, o parâmetro ProxySettingsFilePath aceita um ficheiro como entrada. Pode criar o ficheiro da seguinte forma e transmita-o como parâmetro de entrada ProxySettingsFilePath.
+
+```
+* [ProxySettings]
+* ProxyAuthentication = "Yes/No"
+* Proxy IP = "IP Address"
+* ProxyPort = "Port"
+* ProxyUserName="UserName"
+* ProxyPassword="Password"
+```
+
+## <a name="next-steps"></a>Passos Seguintes
+Saiba mais sobre [gerir processar as definições do servidor](vmware-azure-manage-process-server.md)

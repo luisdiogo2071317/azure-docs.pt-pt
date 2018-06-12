@@ -1,12 +1,12 @@
 ---
 title: Ligar a sistemas de ficheiros no local - Azure Logic Apps | Microsoft Docs
-description: "Ligar a sistemas de ficheiros no local a partir de fluxos de trabalho de aplicação de lógica através do gateway de dados no local e conector sistema de ficheiros"
+description: Ligar a sistemas de ficheiros no local a partir de fluxos de trabalho de aplicação de lógica através do gateway de dados no local e conector sistema de ficheiros
 keywords: sistemas de ficheiros, no local
 services: logic-apps
 author: derek1ee
-manager: anneta
-documentationcenter: 
-ms.assetid: 
+manager: jeconnoc
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300825"
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Ligar a sistemas de ficheiros no local a partir das logic apps com o conector sistema de ficheiros
 
@@ -73,7 +74,7 @@ Para gerir os dados e aceder de forma segura a recursos no local, as logic apps 
 
    ![Enviar correio eletrónico ação](media/logic-apps-using-file-connector/send-email.png)
 
-9. Guarde a sua aplicação lógica. Teste a aplicação através do carregamento de um ficheiro para a Dropbox. O ficheiro deve obter copiado para a partilha de ficheiros no local e deverá receber uma mensagem de e-mail sobre a operação.
+9. Guarde a aplicação lógica. Teste a aplicação através do carregamento de um ficheiro para a Dropbox. O ficheiro deve obter copiado para a partilha de ficheiros no local e deverá receber uma mensagem de e-mail sobre a operação.
 
 Parabéns, tem agora uma aplicação de lógica de trabalho que se pode ligar para o sistema de ficheiros no local. 
 

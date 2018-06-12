@@ -1,5 +1,5 @@
 ---
-title: Instalação paga ou está licenciado componentes para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+title: Instalar componentes licenciados para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
 description: Saiba como pode desenvolver um ISV e instalar paga ou está licenciado componentes personalizados para o tempo de execução de integração do Azure-SSIS
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6351381e525d256ef5e9693ea1fb5e3a6f4e5ea3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830848"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298581"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Desenvolver pagos ou licenciados componentes personalizados para o tempo de execução de integração do Azure-SSIS
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalar componentes personalizados pagos ou licenciados para o tempo de execução de integração do Azure-SSIS
 
 Este artigo descreve como um ISV e estiver pode desenvolver e instalar pagos ou licenciados componentes personalizados para pacotes de SQL Server Integration Services (SSIS) que são executados no Azure em tempo de execução de integração SSIS do Azure.
 

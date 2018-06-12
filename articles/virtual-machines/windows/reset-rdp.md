@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: cynthn
-ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b61b7501c94e9682a3b324488caf119ce4aad3df
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267208"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Como repor o serviço de ambiente de trabalho remoto ou a palavra-passe de início de sessão numa VM do Windows
 Se não é possível ligar a uma máquina virtual (VM) do Windows, pode repor a palavra-passe de administrador local ou reponha a configuração do serviço de ambiente de trabalho remoto (não suportada em controladores de domínio do Windows). Pode utilizar o portal do Azure ou a extensão de acesso de VM no Azure PowerShell para repor a palavra-passe. Depois de ter a sessão iniciada para a VM, deve repor a palavra-passe para esse utilizador.  
@@ -57,7 +58,7 @@ Selecione **apenas a configuração de reposição** no menu pendente, em seguid
 Certifique-se de que tem o [módulo do PowerShell mais recente instalado e configurado](/powershell/azure/overview) e a sessão iniciada na sua subscrição do Azure com o `Connect-AzureRmAccount` cmdlet.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Repor a palavra-passe da conta de administrador local**
-Repor o nome de utilizador ou palavra-passe de administrador com a [conjunto AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) cmdlet do PowerShell. 
+Repor o nome de utilizador ou palavra-passe de administrador com a [conjunto AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) cmdlet do PowerShell. O typeHandlerVersion tem de ser 2.0 ou superior, como versão 1 é preterida. 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 

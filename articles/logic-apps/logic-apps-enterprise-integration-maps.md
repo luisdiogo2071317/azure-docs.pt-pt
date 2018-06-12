@@ -4,7 +4,7 @@ description: Adicionar que XSLT mapeia para transformar dados XML com Azure Logi
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4b4d626028eed09e9ce6a45fa8fa69859c082da7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0a8e5dfd42d447b4e049574b346c41fe0067c9f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299142"
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Adicionar mapeamentos para a transformação de dados XML
 
@@ -76,7 +77,7 @@ Abra a conta de integração onde pretende carregar a assemblagem.
 
 2. Depois de assemblagens é aberta a página, escolha **adicionar**. Introduza um **nome** para a assemblagem. Para carregar o ficheiro de assemblagem, selecione o ícone de pasta no lado direito do **assemblagem** caixa de texto. Depois de concluir o processo de carregamento, escolha **OK**.
 
-    ![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+    ![assemblagem adicionar](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
 
 
 ## <a name="how-do-i-edit-a-map"></a>Como posso editar um mapa?

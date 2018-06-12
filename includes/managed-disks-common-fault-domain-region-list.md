@@ -10,7 +10,7 @@
 | EUA Centro-Norte    | 3                       |
 | EUA Centro-Sul    | 3                       |
 | EUA Centro-Oeste     | 2                       |
-| Canadá Central      | 2                       |
+| Canadá Central      | 3                      |
 | Leste do Canadá         | 2                       |
 |                     |                         |
 | Europa do Norte        | 3                       |

@@ -1,13 +1,13 @@
 ---
-title: "Ligue um computador a uma rede virtual através da autenticação ponto a Site e RADIUS: PowerShell | Azure"
-description: "Ligar-se os clientes Windows e Mac OS X em segurança para uma rede virtual através da autenticação P2S e RADIUS."
+title: 'Ligue um computador a uma rede virtual através da autenticação ponto a Site e RADIUS: PowerShell | Azure'
+description: Ligar-se os clientes Windows e Mac OS X em segurança para uma rede virtual através da autenticação P2S e RADIUS.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: df7afe9324831ffb8e79d7320f2c716ed18a7b4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267354"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurar uma ligação ponto a Site para uma VNet com a autenticação RADIUS: PowerShell
 
@@ -134,7 +135,7 @@ Antes de criar e configurar o gateway de rede virtual, o servidor RADIUS deve se
 
 1. Se não tiver um servidor RADIUS implementado, implemente uma. Para obter passos de implementação, consulte o guia de configuração fornecido pelo seu fornecedor RADIUS.  
 2. Configure o gateway VPN como um cliente RADIUS no RADIUS. Ao adicionar este cliente RADIUS, especifique a rede virtual GatewaySubnet que criou. 
-3. Depois de configurada a servirem RADIUS, obter o endereço IP do servidor RADIUS e o segredo partilhado que os clientes RADIUS devem utilizar para comunicar com o servidor RADIUS. Se o servidor RADIUS na VNet do Azure, utilize o IP de AC do servidor RADIUS VM.
+3. Depois de configurar o servidor RADIUS, obter o endereço IP do servidor RADIUS e o segredo partilhado que os clientes RADIUS devem utilizar para comunicar com o servidor RADIUS. Se o servidor RADIUS na VNet do Azure, utilize o IP de AC do servidor RADIUS VM.
 
 O [servidor de políticas de rede (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) artigo fornece orientação sobre como configurar um servidor RADIUS do Windows (NPS) para autenticação de domínio do AD.
 
@@ -188,7 +189,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  For SSTP + IKEv2
+  Para SSTP + IKEv2
 
     ```powershell
     $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName

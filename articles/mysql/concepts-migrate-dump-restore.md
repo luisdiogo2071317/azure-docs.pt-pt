@@ -6,15 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/02/2018
-ms.openlocfilehash: 9d9b9b5eda110ad7fa66bb99501936dda5d45e52
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737050"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265848"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a base de dados MySQL à base de dados do Azure para utilizar a captura e restauro de MySQL
 Este artigo explica duas formas comuns de cópia de segurança e restaurar bases de dados na base de dados do Azure para MySQL

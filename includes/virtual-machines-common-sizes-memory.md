@@ -5,22 +5,22 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d3e0f2680cbe703edc553ddff310fba2d1ddf77f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323821"
 ---
 Otimização de memória oferta de tamanhos VM numa proporção de memória a CPU elevada que são ótimos para servidores de base de dados relacional, caches médias e grandes e análise de memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
 * M-série oferece a maior vCPU contagem (até 128 vCPUs) e a maior memória (TiB até 3.8) de qualquer VM na nuvem.  É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
 
-* As séries Dv2, D, G e as variantes DS/GS são ideais para aplicações que exigem vCPUs mais rápidas, melhor desempenho de armazenamento temporário ou memórias com mais capacidade.  Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
+* Série Dv2, G série e os outros colaboradores série DSv2/GS são ideais para aplicações que exigem vCPUs mais rápida, um melhor desempenho de armazenamento temporário, ou tem exigências de memória superiores.  Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
 
-* As VMs da série D foram concebidos para executar aplicações que exigem um maior desempenho de poder de computação e disco temporário. As VMs da série D fornecem processadores mais rápidos, um rácio de memória para núcleo de vCPU e uma unidade de estado sólida (SSD) para o armazenamento temporário. Para obter detalhes, consulte o anúncio no blogue do Azure, [Novos Tamanhos de Máquinas Virtuais da Série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 * A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Se baseia na geração de mais recente 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) ou processadores do E5-2673 v4 2.3 GHz (Broadwell) e com o Intel Turbo intensificação tecnologia 2.0, pode ir até GHz 3.1. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
@@ -86,7 +86,7 @@ ACU: 160-180 <sup>1</sup>
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
 | Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
 
 <sup>1</sup> funcionalidade da série M VM tecnologia® Hyper-Threading da Intel
 
@@ -176,31 +176,5 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series"></a>Série DS 
 
-ACU: 160 <sup>1</sup>
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2 / 1000 |
-| Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4 / 2000 |
-| Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
-| Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
-
-<sup>1</sup> o débito máximo de disco (IOPS ou MBps) possíveis com uma série DS VM podem ser limitadas pelo número, tamanho e striping dos discos anexados.  Para obter mais detalhes, veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
-
-
-
-## <a name="d-series"></a>Série D
-
-ACU: 160
-
-| Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
-
-<br>
 

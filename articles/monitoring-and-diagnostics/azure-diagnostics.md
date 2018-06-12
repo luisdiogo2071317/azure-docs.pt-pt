@@ -1,24 +1,20 @@
 ---
-title: Descrição geral da extensão de diagnóstico do Azure | Microsoft Docs
+title: Descrição geral da extensão de diagnóstico do Azure
 description: Utilize o diagnóstico do Azure para depuração, medir o desempenho, monitorização, análise de tráfego em serviços em nuvem, as máquinas virtuais e recursos de infraestrutura de serviço
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267684"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico sobre uma aplicação implementada. Pode utilizar a extensão de diagnóstico de um número de diferentes origens. São atualmente suportados Web do serviço em nuvem do Azure (clássica) e as funções de trabalho, máquinas virtuais, conjuntos de dimensionamento da Máquina Virtual e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Consulte [descrição geral de monitorização no Azure](monitoring-overview.md). 
@@ -33,9 +29,9 @@ A extensão de diagnóstico do Azure pode recolher os seguintes tipos de dados:
 | --- | --- |
 | Contadores de desempenho |Sistema operativo e os contadores de desempenho personalizado |
 | Registos de aplicações |Mensagens de rastreio escritas pela sua aplicação |
-| Registos de eventos do Windows |Informações enviadas para o sistema de registo de eventos do Windows |
+| Registos de Eventos do Windows |Informações enviadas para o sistema de registo de eventos do Windows |
 | Origem de evento de .NET |Código de escrita de eventos utilizando o .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) classe |
-| Registos de IIS |Informações sobre sites de web do IIS |
+| Registos IIS |Informações sobre sites de web do IIS |
 | O manifesto com base em ETW |Eventos de rastreio para o Windows de eventos gerados por qualquer processo |
 | Informações de falha de sistema |Informações sobre o estado do processo em caso de uma falha de aplicação |
 | Registos de erros personalizados |Registos criados pela sua aplicação ou serviço |

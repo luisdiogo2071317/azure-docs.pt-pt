@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 97c8430ab5d4e08e52790b898051d5985c3df03c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839901"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301308"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: uma aplicação no local ao grupo de disponibilidade de VMs do Azure e SQL Server AlwaysOn de realojamento
 
@@ -29,8 +29,9 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 [Artigo 4: Uma aplicação para as VMs do Azure e uma instância do SQL gerida de realojamento](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso executa uma migração de comparação de precisão e shift para o Azure para a aplicação de SmartHotel. Contoso migra o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação a uma instância gerida do SQL Server, utilizando o [serviço de migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponível
 [Artigo 5: Realojamento uma aplicação para as VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a aplicação de SmartHotel VMs utilizando apenas a recuperação de sites.
 Artigo 6: Realojamento uma aplicação para as VMs do Azure e SQL Server sempre no grupo de disponibilidade (Este artigo) | Mostra como Contoso migra a aplicação de SmartHotel. A Contoso utiliza a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um cluster do SQL Server protegido por um grupo de Disponibilidade AlwaysOn. | Disponível
-Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure e MySQL o servidor do Azure | Demonstra como Contoso migra a aplicação do Linux osTicket. Migrar a VM com a recuperação de sites de front-end e migrar (cópia de segurança e restauro) a base de dados para uma instância de servidor de MySQL do Azure, utilizando o MySQL Workbench | Planeado
-Artigo 8: Realojamento uma aplicação do Linux para as VMs do Azure | Mostra como Contoso funciona uma migração de comparação de precisão e shift de ther osTicket VMs de aplicação para o Azure, utilizando a recuperação de sites | Planeado
+[Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure](contoso-migration-rehost-linux-vm.md) | Mostra como Contoso funciona uma migração de comparação de precisão e shift da aplicação de osTicket Linux para VMs do Azure, utilizando a recuperação de sites | Planeado
+[Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação do Linux osTicket para VMs do Azure com a recuperação de Site e migra a base de dados de aplicação para uma instância de servidor de MySQL do Azure utilizando o MySQL Workbench. | Disponível
+
 
 
 Neste artigo, Contoso migrar do Windows de duas camadas. NET SmartHotel aplicação em execução em VMs de VMware para o Azure. Se gostaria de utilizar esta aplicação, é fornecido como código aberto e poderá transferi-lo de [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -52,7 +53,7 @@ A equipa de nuvem Contoso tem afixado baixo objetivos para esta migração. Este
 - Contoso não quer investir nesta aplicação.  É importante para o negócio, mas o respetivo formato atual simplesmente pretendem movê-lo em segurança para a nuvem.
 - A base de dados no local para a aplicação tenha tido problemas de disponibilidade. Gostaria de ver que esta implementada no Azure como um cluster de elevada disponibilidade, com capacidades de ativação pós-falha.
 - A Contoso pretende atualizar a partir da respetiva plataforma atual do SQL Server 2008 R2, para 2017 do SQL Server.
-- Contoso não a pretende utilizar uma base de dados do SQL do Azure para esta aplicação, e e está à procura de alternativas.
+- Contoso não a pretende utilizar uma base de dados do SQL do Azure para esta aplicação e está à procura de alternativas.
 
 ## <a name="proposed-architecture"></a>Arquitetura proposta
 
@@ -305,7 +306,7 @@ Se configuraram estas da seguinte forma:
     - A aplicação de SmartHotel é uma aplicação de produção e WEBVM será migrada para a rede de produção do Azure (VNET-PROD-EUS2) na região primária US2 Leste.
     - WEBVM será colocada no grupo de recursos ContosoRG, que é utilizado para recursos de produção, e a sub-rede de produção (PROD-FE-EUS2).
 
-2. Contoso cria um acount de armazenamento do Azure (contosovmsacc20180528) na região primária.
+2. Contoso cria uma conta de armazenamento do Azure (contosovmsacc20180528) na região primária.
 
     - Utilizam uma conta para fins gerais, com o armazenamento padrão e replicação do LRS.
     - A conta tem de ser na mesma região que o cofre.
@@ -401,7 +402,7 @@ Para continuar, necessitam de confirmar que que tenham concluído planeamento da
 
 ### <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-Contoso tem de configurar o respetivo ambiente de origem. Para tal, podem transferir um modelo OVF e utilizá-lo para implementar o servidor de configuração da recuperação de sites como altamente disponível, VM de VMware no local. Depois do servidor de configuração está a funcionar, estes registá-lo no ths cofre.
+Contoso tem de configurar o respetivo ambiente de origem. Para tal, podem transferir um modelo OVF e utilizá-lo para implementar o servidor de configuração da recuperação de sites como altamente disponível, VM de VMware no local. Depois do servidor de configuração está a funcionar, se registar no cofre.
 
 O servidor de configuração é executado um número de componentes:
 
@@ -435,7 +436,7 @@ Contoso execute estes passos da seguinte forma:
 
 10. Estes, em seguida, transferiram e instalar o servidor de MySQL e VMWare PowerCLI. 
 11. Após a validação, se especificarem o FQDN ou endereço IP do anfitrião do servidor ou vSphere do vCenter. Deixe a porta predefinida e especifique um nome amigável para o servidor vCenter.
-12. Se especificarem a conta que estes criados para a deteção automática e as credenciais que são utilizadas para instalar automaticamente o serviço de mobilidade. Para máquinas do Windows, a conta tem privilégios de administrador local nas VMs.
+12. Se especificarem a conta que estes criados para a deteção automática e as credenciais são utilizadas para instalar automaticamente o serviço de mobilidade. Para máquinas do Windows, a conta tem privilégios de administrador local nas VMs.
 
     ![vCenter](./media/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
 
@@ -532,11 +533,11 @@ O DMS estabelece ligação à VM do servidor de SQL no local através de uma lig
 
 ## <a name="step-7-protect-the-database"></a>Passo 7: Proteger a base de dados
 
-Com a base de dados de aplicação em execução no **SQLAOG1**, Contoso agora pode protegê-lo a utilizar grupos de Disponibilidade AlwaysOn. Configurar Alwayson utilizando o SQL Server Management Studio e, em seguida, atribuir um serviço de escuta utilizar clustering do Windows. 
+Com a base de dados de aplicação em execução no **SQLAOG1**, Contoso agora pode protegê-lo a utilizar grupos de Disponibilidade AlwaysOn. Configurar AlwaysOn utilizando o SQL Server Management Studio e, em seguida, atribuir um serviço de escuta utilizar clustering do Windows. 
 
 ### <a name="create-an-alwayson-availability-group"></a>Criar um grupo de Disponibilidade AlwaysOn
 
-1. No SQL Server Management Studio, com o botão direito clique no **sempre de elevada disponibilidade,** para iniciar o **Assistente de novo grupo de disponibilidade**.
+1. No SQL Server Management Studio, clique com botão direito no **sempre de elevada disponibilidade,** para iniciar o **Assistente de novo grupo de disponibilidade**.
 2. No **especificar opções de**, nome do grupo de disponibilidade **SHAOG**. No **selecionar bases de dados**, selecionarão SmartHotel base de dados.
 
     ![Grupo de Disponibilidade AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
@@ -624,7 +625,7 @@ Como o último passo no processo de migração, a Contoso atualizar a cadeia de 
     ![Ativação pós-falha](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. Depois de atualizar o ficheiro e guardá-lo, de reiniciar o IIS no WEBVM. Tal utilizando o IISRESET /RESTART de uma linha de comandos.
-2. Após o reinício do IIS, a aplicação é agora possível utilizar a base de dados em execução no MI SQL Server.
+2. Após o reinício do IIS, a aplicação está agora a utilizar a base de dados em execução no MI SQL Server.
 
 
 **Precisa de mais ajuda?**

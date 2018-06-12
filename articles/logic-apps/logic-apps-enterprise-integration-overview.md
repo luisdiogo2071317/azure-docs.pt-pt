@@ -1,10 +1,10 @@
 ---
-title: "A integração do Enterprise para B2B - as do Azure Logic Apps | Microsoft Docs"
-description: "Criar fluxos de trabalho B2B e suporta cenários de integração do enterprise para aplicações lógicas com o pacote de integração do Enterprise"
+title: A integração do Enterprise para B2B - as do Azure Logic Apps | Microsoft Docs
+description: Criar fluxos de trabalho B2B e suporta cenários de integração do enterprise para aplicações lógicas com o pacote de integração do Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9462707db03ecfcc3d5186ce7ded8655ad3bdcc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298642"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Descrição geral: Cenários B2B e comunicação com o pacote de integração do Enterprise
 
@@ -61,7 +62,7 @@ Suporta a integração empresarial com essas normas da indústria:
 
 ## <a name="learn-more"></a>Saiba mais
 * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração do enterprise")
-* [Cenários de (B2B) a empresa-empresa](../logic-apps/logic-apps-enterprise-integration-b2b.md "Saiba como criar aplicações lógicas com funcionalidades de B2B")  
+* [Cenários de (B2B) a empresa-empresa](../logic-apps/logic-apps-enterprise-integration-b2b.md "Saiba como criar aplicações lógicas com funcionalidades de B2B ")  
 * [Certificados](logic-apps-enterprise-integration-certificates.md "Saiba mais sobre certificados de integração do enterprise")
 * [Simples de ficheiro codificação/descodificação](logic-apps-enterprise-integration-flatfile.md "Saiba como codificar e descodificar o conteúdo do ficheiro simples")  
 * [Contas de automatização](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba mais sobre contas de automatização")

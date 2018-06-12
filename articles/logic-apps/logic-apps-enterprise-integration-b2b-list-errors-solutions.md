@@ -1,11 +1,11 @@
 ---
-title: "Lista de aplicações B2B de lógica de erros e soluções: App Service do Azure | Microsoft Docs"
-description: "Lista de aplicações B2B de lógica de erros e soluções"
+title: 'Lista de aplicações B2B de lógica de erros e soluções: App Service do Azure | Microsoft Docs'
+description: Lista de aplicações B2B de lógica de erros e soluções
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298343"
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Lista de aplicações B2B de lógica de erros e soluções  
 Este artigo ajuda-o a resolver erros que poderão acontecer em Logic Apps B2B cenários e sugere as ações adequadas para corrigir os erros.
@@ -118,7 +119,7 @@ Este artigo ajuda-o a resolver erros que poderão acontecer em Logic Apps B2B ce
 
 |   |   | 
 |---|---| 
-| Descrição de erro | Número de controlo duplicado |
+| Descrição de erro | Número de Controlo Duplicado |
 | Ação do utilizador | Este erro indica que a mensagem recebida tem controlo duplicado números. </br> Corrija o número de controlo e volte a enviar a mensagem |
 |   |   |
 
@@ -134,7 +135,7 @@ Este artigo ajuda-o a resolver erros que poderão acontecer em Logic Apps B2B ce
 
 |   |   | 
 |---|---| 
-| Descrição de erro | A mensagem tem um tipo de documento desconhecido e não foi possível resolver a nenhum dos esquemas existentes configurados no contrato de. |
+| Descrição de erro | A mensagem tem um tipo de documento desconhecido e não foi resolvida para nenhum dos esquemas existentes configurados no contrato. |
 | Ação do utilizador | Configurar esquema correta nas definições do contrato  |
 |   |   |
 

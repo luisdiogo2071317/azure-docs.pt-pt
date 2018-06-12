@@ -1,11 +1,11 @@
 ---
-title: "Processar tipos de conteúdo - Azure Logic Apps | Microsoft Docs"
-description: "Forma como o Azure Logic Apps lida com tipos de conteúdo em tempo de execução e de design"
+title: Processar tipos de conteúdo - Azure Logic Apps | Microsoft Docs
+description: Forma como o Azure Logic Apps lida com tipos de conteúdo em tempo de execução e de design
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 809cc8524bf0d9922aec1f88aa5bfe3b8f2f4d78
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297126"
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Processar tipos de conteúdo nas logic apps
 
@@ -72,15 +73,15 @@ Se a próxima ação, enviar o pedido como o corpo do pedido de outro (`@body('f
 
 O motor de aplicações lógicas sempre preserva a `Content-Type` que foi recebido no pedido de HTTP ou resposta. Por isso, caso o motor recebe conteúdo com o `Content-Type` de `application/octet-stream`, e o inclui que conteúdo sem conversão de uma ação de subsequente, o pedido de saída tem `Content-Type`: `application/octet-stream`. Desta forma, o motor pode garantir a dados não estão perder-se ao mover através do fluxo de trabalho. No entanto, o estado da ação (entradas e saídas) é armazenado num objeto JSON como o estado passa pelo fluxo de trabalho. Para preservar alguns tipos de dados, o motor converte o conteúdo para uma cadeia codificada em base64 binário com os metadados adequados que preserva ambos `$content` e `$content-type`, que são automaticamente convertido. 
 
-* `@json()`-casts dados`application/json`
-* `@xml()`-casts dados`application/xml`
-* `@binary()`-casts dados`application/octet-stream`
-* `@string()`-casts dados`text/plain`
-* `@base64()`-Converte o conteúdo para uma cadeia base64
-* `@base64toString()`-Converte uma cadeia codificada em base64 para`text/plain`
-* `@base64toBinary()`-Converte uma cadeia codificada em base64 para`application/octet-stream`
-* `@encodeDataUri()`-codifica uma cadeia como uma matriz de bytes dataUri
-* `@decodeDataUri()`-Descodifica um dataUri para uma matriz de bytes
+* `@json()` -casts dados `application/json`
+* `@xml()` -casts dados `application/xml`
+* `@binary()` -casts dados `application/octet-stream`
+* `@string()` -casts dados `text/plain`
+* `@base64()` -Converte o conteúdo para uma cadeia base64
+* `@base64toString()` -Converte uma cadeia codificada em base64 para `text/plain`
+* `@base64toBinary()` -Converte uma cadeia codificada em base64 para `application/octet-stream`
+* `@encodeDataUri()` -codifica uma cadeia como uma matriz de bytes dataUri
+* `@decodeDataUri()` -Descodifica um dataUri para uma matriz de bytes
 
 Por exemplo, se recebeu um pedido HTTP com `Content-Type`: `application/xml`:
 

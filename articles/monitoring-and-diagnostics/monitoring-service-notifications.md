@@ -1,24 +1,19 @@
 ---
-title: Quais são as notificações de estado de funcionamento do serviço do Azure? | Microsoft Docs
+title: Quais são as notificações de estado de funcionamento do serviço do Azure?
 description: Notificações do Estado de funcionamento do serviço permitem-lhe ver mensagens de estado de funcionamento de serviço publicadas pelo Microsoft Azure.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
-ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: d6a87b17041c4ce6cf41da863354ef5a2a37141c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264447"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço utilizando o portal do Azure
 
@@ -48,7 +43,7 @@ subStatus | Normalmente, o código de estado HTTP do resto correspondente chamar
 eventTimestamp | Timestamp quando o evento foi gerado pelo serviço do Azure de processamento do pedido correspondente ao evento.
 submissionTimestamp | Timestamp quando o evento ficou disponível para consulta.
 subscriptionId | A subscrição do Azure em que este evento foi registado.
-estado | Cadeia que descrevem o estado da operação. Alguns valores comuns são: **iniciado**, **em curso**, **com êxito**, **falha**, **Active Directory**, e **Resolvido**.
+status | Cadeia que descrevem o estado da operação. Alguns valores comuns são: **iniciado**, **em curso**, **com êxito**, **falha**, **Active Directory**, e **Resolvido**.
 operationName | O nome da operação.
 categoria | Esta propriedade é sempre **ServiceHealth**.
 resourceId | O ID de recurso do recurso afetado.
