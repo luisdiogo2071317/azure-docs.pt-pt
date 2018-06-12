@@ -41,6 +41,8 @@
       href: traffic-manager-rum-overview.md
     - name: Vista de Tráfego
       href: traffic-manager-traffic-view-overview.md
+    - name: Métricas e alertas
+      href: traffic-manager-metrics-alerts.md
     - name: Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
       href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: FAQs

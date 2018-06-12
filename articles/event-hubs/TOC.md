@@ -33,6 +33,8 @@
 ### [Criar Hubs de Eventos ativados pelo Kafka](event-hubs-create-kafka-enabled.md) 
 ### [Transmitir para os Hubs de Eventos do Azure para o Ecossistema Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Utilizar o Kafka MirrorMaker com os Hubs de Eventos do Azure para o Ecossistema do Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Utilizar o Apache Flink com os Hubs de Eventos para o ecossistema Kafka](event-hubs-kafka-flink-tutorial.md)
+### [Utilizar o Akka Streams com os Hubs de Eventos para o ecossistema Kafka](event-hubs-kafka-akka-streams-tutorial.md)
 ## Programar
 ### [Enviar eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receber eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
