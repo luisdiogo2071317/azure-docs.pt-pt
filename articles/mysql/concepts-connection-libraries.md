@@ -6,14 +6,15 @@ author: mswutao
 ms.author: wutao
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: c22bb9b31e7623daa635f82256e28ed466070481
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c826bf1cf17230563b608e764c443b6166f13924
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264008"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de ligação para base de dados do Azure para MySQL
 Este artigo apresenta uma lista de cada biblioteca ou controlador programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL.
@@ -21,7 +22,7 @@ Este artigo apresenta uma lista de cada biblioteca ou controlador programas de c
 ## <a name="client-interfaces"></a>Interfaces de cliente
 MySQL oferece a conectividade de controlador de base de dados standard para utilizar o MySQL com as ferramentas que são compatíveis com as normas do sector ODBC e JDBC e aplicações. Qualquer sistema que trabalha com ODBC ou JDBC pode utilizar o MySQL.
 
-| **Language** (Idioma) | **Platform** | **Recursos adicionais** | **Transferência** |
+| **Language** (Idioma) | **Plataforma** | **Recursos adicionais** | **Transferência** |
 | :----------- | :------------| :-----------------------| :------------|
 | PHP | Windows, Linux | [Controlador nativo MySQL para PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Transferência](http://php.net/downloads.php) |
 | ODBC | Plataformas Windows, Linux, Mac OS X e Unix | [Guia para programadores de MySQL conector/ODBC](https://dev.mysql.com/doc/connector-odbc/en/) | [Transferência](https://dev.mysql.com/downloads/connector/odbc/) |

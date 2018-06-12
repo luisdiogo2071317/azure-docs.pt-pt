@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293114"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -140,7 +141,7 @@ Hora para concluído aproximada: 60 minutos
 | --- | --- |
 | Ambiente de teste da aplicação SaaS disponível. Neste guia, utilizamos ServiceNow como exemplo.<br/>Recomendamos vivamente que utilize uma instância de teste para minimizar friction no navegar qualidade de dados existente e mapeamentos. | Aceda a https://developer.servicenow.com/app.do#! / raiz para iniciar o processo de obtenção de uma instância de teste |
 | Acesso de administrador para a consola de gestão do ServiceNow | [Tutorial: Integração do Azure Active Directory com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Destino definido de utilizadores para atribuir a aplicação. Recomenda-se um grupo de segurança que contenha os utilizadores de PoC. <br/>Se criar o grupo não for viável, em seguida, atribuir os utilizadores diretamente para a aplicação para a PoC | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Destino definido de utilizadores para atribuir a aplicação. Recomenda-se um grupo de segurança que contenha os utilizadores de PoC. <br/>Se criar o grupo não for viável, em seguida, atribuir os utilizadores diretamente para a aplicação para a PoC | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Passos
 
@@ -148,13 +149,13 @@ Hora para concluído aproximada: 60 minutos
 | --- | --- |
 | Partilhar o tutorial para todos os atores do Documentation Microsoft  | [Tutorial: Integração do Azure Active Directory com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Defina uma reunião de trabalho e siga os passos do tutorial com cada ator. | [Tutorial: Integração do Azure Active Directory com o ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Atribua a aplicação para o grupo identificado nos pré-requisitos. Se a POC tem o acesso condicional no âmbito, pode revê que mais tarde e adicionar MFA e semelhantes. <br/>Tenha em atenção de que isto irá iniciar o processo de aprovisionamento (se configurada) |  [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Crie um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Atribua a aplicação para o grupo identificado nos pré-requisitos. Se a POC tem o acesso condicional no âmbito, pode revê que mais tarde e adicionar MFA e semelhantes. <br/>Tenha em atenção de que isto irá iniciar o processo de aprovisionamento (se configurada) |  [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Crie um grupo e adicionar membros no Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Utilize a gestão de AD do Azure Portal para adicionar a aplicação de ServiceNow da Galeria| [Gestão do AD do Azure Portal: aplicações da empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novidades na gestão de aplicações da empresa no Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | No painel "De sessão único-" da aplicação do ServiceNow ativar "baseados em SAML início de sessão" |  |
 | Preencha os campos "Início de sessão no URL" e "Identificador" com o seu URL de ServiceNow<br/>Selecione a caixa para "Tornar novo certificado ativa"<br/>e guardar definições |  |
 | Abra o painel de "Configurar ServiceNow" na parte inferior do painel para ver instruções personalizadas para configurar o ServiceNow |  |
 | Siga as instruções para configurar o ServiceNow |  |
-| No painel de "A aprovisionar" da aplicação do ServiceNow ativar o aprovisionamento "Automático" | [Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| No painel de "A aprovisionar" da aplicação do ServiceNow ativar o aprovisionamento "Automático" | [Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Aguarde alguns minutos enquanto ter concluído o aprovisionamento.  Entretanto, pode verificar os relatórios de aprovisionamento |  |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
 | Clique no mosaico para a aplicação que acabou de criar. Confirmar o acesso |  |
@@ -175,7 +176,7 @@ Hora para concluído aproximada: 15 minutos
 | --- | --- |
 | Ambiente de teste para aplicações SaaS. Um exemplo de SSO de palavra-passe é HipChat e o Twitter. Para qualquer outra aplicação, é necessário o URL exato da página com o formulário de início de sessão de html. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Contas para as aplicações de teste. | [Inscrever-se no Twitter](https://twitter.com/signup?lang=en)<br/>[Inscrever-se gratuitamente: HipChat](https://www.hipchat.com/sign_up) |
-| Destino definido de utilizadores para atribuir a aplicação. Um grupo de segurança contidos os utilizadores é recomendada. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Destino definido de utilizadores para atribuir a aplicação. Um grupo de segurança contidos os utilizadores é recomendada. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acesso de administrador local para um computador para implementar a extensão do painel de acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do painel de acesso de i/e](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão de painel de acesso para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão de painel de acesso para o Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passos
@@ -184,8 +185,8 @@ Hora para concluído aproximada: 15 minutos
 | --- | --- |
 | Instale a extensão de browser | [Extensão do painel de acesso de i/e](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão de painel de acesso para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão de painel de acesso para o Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar a aplicação a partir da Galeria | [Novidades na gestão de aplicações da empresa no Azure Active Directory: À Galeria de aplicações novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar a palavra-passe SSO | [Gerir o início de sessão para aplicações da empresa no portal do Azure: início de sessão baseado em palavra-passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Atribuir a aplicação para o grupo identificado nos pré-requisitos | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurar a palavra-passe SSO | [Gerir o início de sessão para aplicações da empresa no portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Atribuir a aplicação para o grupo identificado nos pré-requisitos | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso |  |
 | Clique no mosaico para a aplicação que acabou de criar. | [O que é o painel de acesso?: SSO baseada em palavra-passe sem aprovisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Forneça a credencial de aplicação | [O que é o painel de acesso?: SSO baseada em palavra-passe sem aprovisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Hora para concluído aproximada: 30 minutos
 | --- | --- |
 | A lista de aplicações de destino e os URLS exatos início de sessão antes de tempo. Por exemplo, pode utilizar o Twitter. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Inscrever-se no Twitter](https://twitter.com/signup?lang=en) |
 | Partilhado credenciais para esta aplicação SaaS. | [Partilha de contas de utilizar o Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automatizada palavra-passe roll a ativação pós-falha para o Facebook, Twitter e LinkedIn agora em pré-visualização! -Blogue Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Credenciais para, pelo menos, dois membros de equipa que serão a mesma conta de acesso. Têm de ser parte de um grupo de segurança. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Credenciais para, pelo menos, dois membros de equipa que serão a mesma conta de acesso. Têm de ser parte de um grupo de segurança. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acesso de administrador local para um computador para implementar a extensão do painel de acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do painel de acesso de i/e](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão de painel de acesso para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão de painel de acesso para o Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passos
@@ -219,8 +220,8 @@ Hora para concluído aproximada: 30 minutos
 | --- | --- |
 | Instale a extensão de browser | [Extensão do painel de acesso de i/e](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão de painel de acesso para Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão de painel de acesso para o Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar a aplicação a partir da Galeria | [Novidades na gestão de aplicações da empresa no Azure Active Directory: À Galeria de aplicações novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar a palavra-passe SSO | [Gerir o início de sessão para aplicações da empresa no portal do Azure: início de sessão baseado em palavra-passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Atribuir a aplicação para o grupo identificado nos pré-requisitos ao atribuir-lhes credenciais | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurar a palavra-passe SSO | [Gerir o início de sessão para aplicações da empresa no portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Atribuir a aplicação para o grupo identificado nos pré-requisitos ao atribuir-lhes credenciais | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sessão como utilizadores de diferentes nessa aplicação acesso como o **mesmo partilhado conta.**  |  |
 | Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção que é alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: a utilização das aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -371,7 +372,7 @@ Hora para concluído aproximada: 10 minutos
 
 As aplicações escolhidas poderão ter requisitos de aprovisionamento, pelo que vai imediatamente para a aplicação pode causar alguns erros. Se a aplicação escolhida suporta o aprovisionamento com o azure ad e está configurado, poderá utilizar isto como uma oportunidade para mostrar o fluxo de todo a funcionar de ponto a ponto. Consulte o bloco modular para [SaaS configuração de SSO federado](#saas-federated-sso-configuration) para obter mais recomendações
 
-## <a name="self-service-password-reset"></a>Reposição de palavra-passe Self-Service
+## <a name="self-service-password-reset"></a>Reposição Autónoma de Palavra-passe
 
 Hora para concluído aproximada: 15 minutos
 

@@ -15,17 +15,18 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f00c22a5a7bde69136c674c1362e3a9d65dd7934
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294636"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada no cabeçalho para início de sessão com o Proxy de aplicações e PingAccess
 
 Azure Active Directory para o Proxy de aplicações e PingAccess ter parcerias em conjunto para fornecer aos clientes do Azure Active Directory acesso ao mesmo mais aplicações. PingAccess expande o [ofertas de Proxy de aplicações existentes](application-proxy.md) para incluir o acesso de início de sessão único para aplicações que utilizam os cabeçalhos de autenticação.
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para Azure AD?
+## <a name="what-is-pingaccess-for-azure-ad"></a>O que é PingAccess para o Azure AD?
 
 PingAccess do Azure Active Directory é uma oferta de PingAccess permite-lhe conceder acesso de utilizadores e o início de sessão único para aplicações que utilizam os cabeçalhos de autenticação. Proxy de aplicação trata estas aplicações, como qualquer outro, utilizar o Azure AD para autenticar o acesso e, em seguida, transmitir o tráfego através do serviço de conector. PingAccess encontra-se à frente as aplicações e traduz o token de acesso do Azure AD para um cabeçalho para que a aplicação receba a autenticação no formato que pode lê-lo.
 
@@ -178,8 +179,8 @@ Esses passos guiá-lo durante o processo de obtenção de uma conta de PingAcces
 
 Quando tiver terminado de todos estes passos, a aplicação deve ser configurado e em execução. Para testar, abra um browser e navegue para o URL externo que criou quando publicado a aplicação no Azure. Inicie sessão com a conta de teste que atribuídos à aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar PingAccess para o Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Como Proxy de aplicações do Azure AD fornece o início de sessão único?](application-proxy-single-sign-on.md)
-- [Resolver problemas de Proxy de aplicações](../active-directory-application-proxy-troubleshoot.md)
+- [Resolver problemas de Proxy de aplicações](application-proxy-troubleshoot.md)

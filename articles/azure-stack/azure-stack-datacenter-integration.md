@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261224"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Centro de dados para sistemas de pilha do Azure integrada
 Se estiver interessado num sistema pilha do Azure integrado, deve compreender algumas das principais considerações sobre planeamento em torno da implementação e como o sistema se enquadra no seu centro de dados. Este artigo fornece uma descrição geral de alto nível destas considerações para o ajudar a tomar decisões importantes infraestrutura para o seu sistema de vários nós de pilha do Azure. Uma compreensão destas considerações ajuda-o ao trabalhar com o fornecedor do hardware OEM à medida que implementam a pilha do Azure para o seu centro de dados.  
@@ -134,9 +135,9 @@ A tabela seguinte resume os cenários de conectividade híbrida, com o profissio
 
 | Cenário | Método de conectividade | Profissionais de TI | Contras | Boa para |
 | -- | -- | --| -- | --|
-| Único inquilino do Azure pilha, implementação de intranet | NAT de saída | Uma melhor largura de banda para transferências mais rápidas. Simples de implementar; Não existem gateways necessários. | Tráfego não encriptado; sem isolamento ou a encriptação para além de TOR. | Implementações em empresas onde todos os inquilinos são igualmente fidedignos.<br><br>Empresas que têm um circuito ExpressRoute do Azure para o Azure. |
+| Único inquilino do Azure pilha, implementação de intranet | NAT de saída | Uma melhor largura de banda para transferências mais rápidas. Simples de implementar; Não existem gateways necessários. | Tráfego não encriptado; sem isolamento ou encriptação fora da pilha. | Implementações em empresas onde todos os inquilinos são igualmente fidedignos.<br><br>Empresas que têm um circuito ExpressRoute do Azure para o Azure. |
 | Pilha de Azure multi-inquilino, implementação de intranet | VPN de site a site | Tráfego de inquilino VNet para o destino é seguro. | Largura de banda é limitada pelo túnel VPN de site para site.<br><br>Necessita de um gateway de rede virtual e um dispositivo VPN na rede de destino. | Implementações em empresas onde algumas tráfego de inquilino tem de estar protegidas de outros inquilinos. |
-| Único inquilino do Azure pilha, implementação de internet | NAT de saída | Uma melhor largura de banda para transferências mais rápidas. | Tráfego não encriptado; sem isolamento ou a encriptação para além de TOR. | Alojamento de cenários em que o inquilino obtém as seus próprios implementação da pilha do Azure e um circuito dedicado para o ambiente de pilha do Azure. Por exemplo, ExpressRoute e de mudança de etiqueta Multiprotocol (MPLS).
+| Único inquilino do Azure pilha, implementação de internet | NAT de saída | Uma melhor largura de banda para transferências mais rápidas. | Tráfego não encriptado; sem isolamento ou encriptação fora da pilha. | Alojamento de cenários em que o inquilino obtém as seus próprios implementação da pilha do Azure e um circuito dedicado para o ambiente de pilha do Azure. Por exemplo, ExpressRoute e de mudança de etiqueta Multiprotocol (MPLS).
 | Pilha de Azure multi-inquilino, implementação de internet | VPN de site a site | Tráfego de inquilino VNet para o destino é seguro. | Largura de banda é limitada pelo túnel VPN de site para site.<br><br>Necessita de um gateway de rede virtual e um dispositivo VPN na rede de destino. | Cenários em que pretende oferecem uma nuvem de multi-inquilino o fornecedor de alojamento, em que os inquilinos não confiam entre si e o tráfego tem de estar encriptado.
 |  |  |  |  |  |
 

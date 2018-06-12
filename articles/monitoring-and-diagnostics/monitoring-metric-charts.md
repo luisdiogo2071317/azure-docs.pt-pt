@@ -1,24 +1,19 @@
 ---
-title: "Explorador de métricas de Monitor do Azure | Microsoft Docs"
-description: "Saiba mais sobre as novas funcionalidades no Explorador de métricas de Monitor do Azure"
+title: Explorador de métricas de Monitor do Azure
+description: Saiba mais sobre as novas funcionalidades no Explorador de métricas de Monitor do Azure
 author: vgorbenko
-manager: Victor.Mushkatin
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264093"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
@@ -43,7 +38,7 @@ O exemplo abaixo ilustra os dois conjuntos de dados para uma métrica hipotétic
 ### <a name="network-throughput"></a>Débito de rede
 (Esta métrica tem não foram dimensões)
 
- |Timestamp        | Valor métrico de | 
+ |Carimbo de data/hora        | Valor métrico de | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8 kbps | 
    | 8/9/2017 8:15 | 1,141.4 kbps |
@@ -53,7 +48,7 @@ Esta métrica não dimensional pode apenas uma pergunta básica de resposta, com
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Débito de rede + duas dimensões ("IP" e "Direção")
 
-| Timestamp          | Dimensão "IP" | Dimensão "Direção" | Valor métrico de| 
+| Carimbo de data/hora          | Dimensão "IP" | Dimensão "Direção" | Valor métrico de| 
    | ------------- |:-----------------|:------------------- |:-----------|  
    | 8/9/2017 8:14 | IP = "192.168.5.2" | Direção = "Enviar"    | 646.5 kbps |
    | 8/9/2017 8:14 | IP = "192.168.5.2" | Direção = "Receber" | 420.1 kbps |
@@ -156,6 +151,6 @@ Depois de configurar o gráfico, clique em de **gráfico ações** menu no lado 
 
    ![imagem de métrica](./media/monitoring-metric-charts/013.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
   Leitura [criar dashboards personalizados do KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para criar dashboards acionáveis com a métrica.

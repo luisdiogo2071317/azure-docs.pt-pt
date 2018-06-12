@@ -1,24 +1,19 @@
 ---
-title: Criar um alerta de registo com um modelo do Resource Manager | Microsoft Docs
+title: Criar um alerta de registo com um modelo do Resource Manager
 description: Saiba como criar o alerta de registo utilizando um modelo Azure Resource Manager e a API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 14a2560d91fd0f8dcc729b32c7155c4b74aa8aa1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263206"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo com um modelo do Resource Manager
 Este artigo mostra como pode gerir [registar alertas](monitor-alerts-unified-log.md) através de programação à escala, no Azure com [modelo Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) através de [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e [CLI do azure](../azure-resource-manager/resource-group-template-deploy-cli.md). Atualmente alertas do Azure, suporta registar alertas em consultas de [Log Analytics do Azure](../log-analytics/log-analytics-tutorial-viewdata.md) e [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).

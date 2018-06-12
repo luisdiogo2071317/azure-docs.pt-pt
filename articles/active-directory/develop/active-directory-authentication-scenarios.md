@@ -17,11 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261649"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação para o Azure AD
 
@@ -137,7 +138,7 @@ Esta secção descreve uma aplicação que efetua a autenticação de um utiliza
 1. Quando um utilizador aceder a aplicações e tem de iniciar sessão, será redirecionado através de um pedido de início de sessão para o ponto final de autenticação no Azure AD.
 1. O utilizador inicia sessão na página de início de sessão.
 1. Se a autenticação for bem-sucedida, o Azure AD cria um token de autenticação e devolve uma resposta de início de sessão para o URL de resposta da aplicação que foi configurada no portal do Azure. Para uma aplicação de produção, este URL de resposta deve ser HTTPS. O token devolvido inclui afirmações sobre o utilizador e o Azure AD que são necessárias para a aplicação para validar o token.
-1. A aplicação valida o token utilizando uma chave pública de assinatura e informações disponíveis sobre emissor no documento de metadados de Federação para o Azure AD. Depois da aplicação valida o token, o Azure AD inicia uma nova sessão com o utilizador. Esta sessão permite ao utilizador aceder à aplicação até expirar.
+1. A aplicação valida o token utilizando uma chave pública de assinatura e informações disponíveis sobre emissor no documento de metadados de Federação para o Azure AD. Depois da aplicação valida o token, inicia uma nova sessão com o utilizador. Esta sessão permite ao utilizador aceder à aplicação até expirar.
 
 #### <a name="code-samples"></a>Exemplos de código
 

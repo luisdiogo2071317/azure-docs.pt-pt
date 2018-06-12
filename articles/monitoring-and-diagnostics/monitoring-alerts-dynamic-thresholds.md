@@ -1,24 +1,20 @@
 ---
-title: Criar alertas com limiares dinâmicos no Monitor do Azure | Microsoft Docs
+title: Criar alertas com limiares dinâmicos no Monitor do Azure
 description: Criar alertas com limiares dinâmico de machine learning
 author: antonfrMSFT
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: antonfr;mbullwin
-ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: mbullwin
+ms.reviewer: antonfr
+ms.component: alerts
+ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263318"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Alertas com limiares dinâmicas no Monitor do Azure (limitado pré-visualização pública)
 

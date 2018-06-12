@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: 94db54f35b7871407368b174536dc6454775779c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249407"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294882"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migrar para a API de AI do lote atualizado
 
@@ -110,28 +110,28 @@ az batchai cluster delete -g resource-group-name -w migrated-<region> -n cluster
 #### <a name="get-old-file-server"></a>Obter o antigo servidor de ficheiros
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server show -g resource-group-name -w migrated-<region> -n fileserver-name
 ```
 
 
 #### <a name="delete-old-file-server"></a>Eliminar o antigo servidor de ficheiros 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -n fileserver-name
+az batchai file-server delete -g resource-group-name -w migrated-<region> -n fileserver-name
 ``` 
 
 
 #### <a name="get-old-job"></a>Obter tarefa antiga
 
 ```azurecli
-az batchai fileserver show -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job show -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ```
 
 
 #### <a name="delete-old-job"></a>Eliminar a tarefa antiga 
 
 ```azurecli
-az batchai fileserver delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
+az batchai job delete -g resource-group-name -w migrated-<region> -e migrated -n job-name
 ``` 
 
 ## <a name="create-batch-ai-resources"></a>Criar recursos do Batch AI 
@@ -181,6 +181,6 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência da API do Batch AI: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai)e [REST](/rest/api/batchai)

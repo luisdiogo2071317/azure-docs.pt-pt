@@ -10,24 +10,29 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/22/2018
-ms.openlocfilehash: e239077b0c2c547ceb73d4d1ab975ee633ecb2e4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.date: 05/07/2018
+ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261615"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrar do SQL Server para o Azure SQL da base de dados geridos instância utilizando DMS
-Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para um [da base de dados geridas por instância de SQL do Azure](../sql-database/sql-database-managed-instance.md) quase sem período de indisponibilidade. Para métodos adicionais que requerem algum período de indisponibilidade, consulte [migração de instância do SQL Server para instância geridos base de dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
+Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para um [da base de dados geridas por instância de SQL do Azure](../sql-database/sql-database-managed-instance.md). Para métodos adicionais que podem necessitar de algum esforço manual, consulte o artigo [migração de instância do SQL Server para instância geridos base de dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
+
+> [!IMPORTANT]
+> Projetos de migração do SQL Server para a base de dados geridas por instância de SQL do Azure estão sujeitos a pré-visualização e o [suplementares os termos de utilização para a pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Neste tutorial, migra a **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma instância de geridos das base de dados Azure SQL Server utilizando o serviço de migração de base de dados do Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Crie uma instância de serviço de migração de base de dados do Azure.
+> * Crie uma instância do serviço de migração de base de dados do Azure.
 > * Crie um projeto de migração utilizando o serviço de migração de base de dados do Azure.
 > * Execute a migração.
 > * Monitorize a migração.
+> * Transferir um relatório de migração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa de:
@@ -47,107 +52,148 @@ Para concluir este tutorial, precisa de:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
-1.  Inicie sessão no portal do Azure, selecione **todos os serviços**e, em seguida, selecione **subscrições**.
-![Mostrar subscrições portais](media\tutorial-sql-server-to-managed-instance\portal-select-subscription.png)
+1. Inicie sessão no portal do Azure, selecione **todos os serviços**e, em seguida, selecione **subscrições**.
 
-2.  Selecione a subscrição na qual pretende criar a instância do Database Migration Service do Azure e, em seguida, selecione **Fornecedores de recursos**.
-![Mostrar os fornecedores de recursos](media\tutorial-sql-server-to-managed-instance\portal-select-resource-provider.png)
+    ![Mostrar subscrições portais](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
-3.  Pesquisa para a migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **registar**.
-![registar o fornecedor de recursos](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)   
+2. Selecione a subscrição na qual pretende criar a instância do Database Migration Service do Azure e, em seguida, selecione **Fornecedores de recursos**.
+
+    ![Mostrar os fornecedores de recursos](media\tutorial-sql-server-to-managed-instance\portal-select-resource-provider.png)
+
+3. Pesquisa para a migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **registar**.
+
+    ![Registar o fornecedor de recursos](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância de serviço de migração de base de dados do Azure
 
-1.  No portal do Azure, selecione **+ criar um recurso**, procure **serviço de migração de base de dados do Azure**e, em seguida, selecione **serviço de migração de base de dados do Azure** da lista pendente lista.
+1. No portal do Azure, selecione + **crie um recurso**, procure **serviço de migração de base de dados do Azure**e, em seguida, selecione **serviço de migração de base de dados do Azure** da lista pendente lista.
 
      ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance\portal-marketplace.png)
 
-2.  No **serviço de migração de base de dados do Azure (pré-visualização)** ecrã, selecione **criar**.
+2. No **serviço de migração de base de dados do Azure** ecrã, selecione **criar**.
 
-    ![Criar uma instância de serviço de migração de base de dados do Azure](media\tutorial-sql-server-to-managed-instance\dms-create.png)
+    ![Criar uma instância de serviço de migração de base de dados do Azure](media\tutorial-sql-server-to-managed-instance\dms-create1.png)
 
-3.  No **serviço de migração de base de dados** ecrã, especifique um nome para o serviço, a subscrição, grupo de recursos, uma rede virtual e o escalão de preço.
+3. No **criar serviço de migração** ecrã, especifique um nome para o serviço, a subscrição e um grupo de recursos novo ou existente.
 
-    Para obter mais informações sobre os custos e escalões de preços, consulte o [página de preços](https://aka.ms/dms-pricing). *O serviço de migração de base de dados do Azure está atualmente em pré-visualização e há sem qualquer encargo.*
+4. Selecione uma rede virtual (VNET) existente ou criar um.
+ 
+    A VNET fornece o serviço de migração de base de dados do Azure com acesso para a origem do SQL Server e o destino da base de dados geridas por instância de SQL do Azure.
 
-    **Rede:** selecione um existente ou crie uma nova VNET, que fornece o serviço de migração de base de dados do Azure com acesso à origem de SQL Server e o destino da base de dados geridas por instância de SQL do Azure. [Saiba topologias de rede para migrações de base de dados geridas por instância de SQL do Azure utilizando o serviço de migração de base de dados do Azure](https://aka.ms/dmsnetworkformi).
+    Para obter mais informações sobre como criar uma VNET no portal do Azure, consulte o artigo [criar uma rede virtual com o portal do Azure](https://aka.ms/DMSVnet).
 
-    Para obter mais informações sobre como criar a VNET no portal do Azure, consulte [criar uma rede virtual com várias sub-redes no portal do Azure](https://aka.ms/DMSVnet).
+    Para obter detalhes adicionais, consulte o artigo [topologias para migrações de base de dados geridas por instância de SQL do Azure utilizando o serviço de migração de base de dados do Azure de rede](https://aka.ms/dmsnetworkformi).
 
-    ![Criar serviço DMS](media\tutorial-sql-server-to-managed-instance\dms-create-service.png)
+5. Selecione um escalão de preço.
 
-4.  Selecione **criar** ao criar o serviço.
+    Para obter mais informações sobre os custos e escalões de preços, consulte o [página de preços](https://aka.ms/dms-pricing).
+   
+    ![Criar serviço DMS](media\tutorial-sql-server-to-managed-instance\dms-create-service1.png)
+
+6.  Selecione **criar** ao criar o serviço.
 
 ## <a name="create-a-migration-project"></a>Criar um projeto de migração
 
-Depois de criar o serviço, localizá-la no portal do Azure e abri-lo.
+Depois de criar o serviço, localizá-la no portal do Azure, abra-o e, em seguida, crie um novo projeto de migração.
 
-1.  Selecione **+ novo projeto de migração**.
+1. No portal do Azure, selecione **todos os serviços**, procure o serviço de migração de base de dados do Azure e, em seguida, selecione **serviços de migração de base de dados do Azure**.
 
-2.  No **novo projeto de migração** ecrã, especifique um nome para o projeto no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**e, em seguida, no **destino tipo de servidor** caixa de texto, selecione **da base de dados geridas por instância de SQL do Azure**.
+    ![Localizar todas as instâncias do serviço de migração de base de dados do Azure](media\tutorial-sql-server-to-azure-sql\dms-search.png)
 
-    ![Criar projeto do DMS](media\tutorial-sql-server-to-managed-instance\dms-create-project.png)
+2. No **ecrã do serviço de migração de base de dados do Azure**, procure o nome da instância que criou e, em seguida, selecione a instância.
+ 
+3. Selecione + **novo projeto de migração**.
 
-3.  Selecione **criar** para criar o projeto.
+4. No **novo projeto de migração** ecrã, especifique um nome para o projeto no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**e, em seguida, no **destino tipo de servidor** caixa de texto, selecione **da base de dados geridas por instância de SQL do Azure**.
+
+   ![Criar projeto do DMS](media\tutorial-sql-server-to-managed-instance\dms-create-project1.png)
+
+5. Selecione **criar** para criar o projeto.
 
 ## <a name="specify-source-details"></a>Especifique os detalhes de origem
 
-1.  No **origem detalhes** ecrã, especifique os detalhes de ligação para a origem de SQL Server.
+1. No **origem detalhes** ecrã, especifique os detalhes de ligação para a origem de SQL Server.
 
-    ![Detalhes de origem](media\tutorial-sql-server-to-managed-instance\dms-source-details.png)
+2. Se não tiver instalado um certificado fidedigno no seu servidor, selecione o **certificado de servidor de confiança** caixa de verificação.
 
-2.  Selecione **guardar**e, em seguida, selecione o **Adventureworks2012** base de dados para migração.
+    Quando um certificado fidedigno não estiver instalado, o SQL Server gera um certificado autoassinado quando é iniciada a instância. Este certificado é utilizado para encriptar as credenciais para ligações de cliente.
 
-    ![Selecionar bases de dados de origem](media\tutorial-sql-server-to-managed-instance\dms-source-database.png)
+    > [!CAUTION]
+    > Ligações de SSL estão encriptadas com um certificado autoassinado não fornecem segurança forte. Estes são suscetíveis a ataques man-in-the-middle. Não deverá confiar no SSL, utilizar certificados autoassinados num ambiente de produção ou nos servidores que estejam ligados à internet.
+
+   ![Detalhes de origem](media\tutorial-sql-server-to-managed-instance\dms-source-details1.png)
+
+3. Selecione **Guardar**.
+
+4. No **selecionar bases de dados de origem** ecrã, selecione o **Adventureworks2012** base de dados para migração.
+
+   ![Selecionar bases de dados de origem](media\tutorial-sql-server-to-managed-instance\dms-source-database1.png)
+
+5. Selecione **Guardar**.
 
 ## <a name="specify-target-details"></a>Especifique os detalhes de destino
 
-1.  Selecione **guardar**e, em seguida, no **detalhes de destino** ecrã, especifique os detalhes de ligação para o destino, o que é pré-aprovisionada Azure instância do SQL da base de dados geridos para os quais o  **AdventureWorks2012** será possível migrar a base de dados.
+1.  No **detalhes de destino** ecrã, especifique os detalhes de ligação para o destino, o que é pré-aprovisionada Azure instância do SQL da base de dados geridos para os quais o **AdventureWorks2012** base de dados será migradas.
 
-    ![Selecione o destino](media\tutorial-sql-server-to-managed-instance\dms-target-details.png)
+    Se ainda não aprovisionou a instância de gerido da base de dados do Azure SQL, selecione **não** para uma ligação para o ajudar a aprovisionar a instância. Pode ainda pode continuar com a criação do projeto e, quando a instância de gerido da base de dados do Azure SQL estiver pronta, volte a este projeto específico ao executar a migração.   
+ 
+       ![Selecione o destino](media\tutorial-sql-server-to-managed-instance\dms-target-details1.png)
 
 2.  Selecione **Guardar**.
 
 3.  No **resumo de projeto** ecrã, reveja e verifique os detalhes associados ao projeto de migração.
+ 
+    ![Resumo de projeto de migração](media\tutorial-sql-server-to-managed-instance\dms-project-summary1.png)
+
+4.  Selecione **Guardar**.   
 
 ## <a name="run-the-migration"></a>Executar a migração
 
-1.  Selecione o projeto guardado recentemente, selecione **+ nova atividade**e, em seguida, selecione **executar migração**.
+1.  Selecione o projeto guardado recentemente, selecione + **nova atividade**e, em seguida, selecione **executar migração**.
 
-    ![Criar nova atividade](media\tutorial-sql-server-to-managed-instance\dms-create-new-activity.png)
+    ![Criar Nova Atividade](media\tutorial-sql-server-to-managed-instance\dms-create-new-activity1.png)
 
 2.  Quando lhe for pedido, introduza as credenciais de origem e os servidores de destino e, em seguida, selecione **guardar**.
 
-3.  No **mapa para bases de dados de destino** ecrã, selecione as bases de dados de origem que pretende migrar.
+3.  No **selecionar bases de dados de origem** ecrã, selecione a base de dados de origem que pretende migrar.
 
-    ![Selecionar bases de dados de origem](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases.png)
+    ![Selecionar bases de dados de origem](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
 
-4.  Selecione **guardar**, no **configurar definições de migração** ecrã, forneça os detalhes seguintes:
+4.  Selecione **guardar**e, em seguida, no **configurar definições de migração** ecrã, forneça os detalhes seguintes:
 
     | | |
     |--------|---------|
-    |**Localização de cópia de segurança do servidor** | A rede local partilhar que o serviço de migração de base de dados do Azure pode demorar a origem a cópias de segurança da base de dados. A conta de serviço que executa a instância do SQL Server de origem tem de ter privilégios de escrita nesta partilha de rede. |
+    |**Partilha da localização de rede** | A rede local partilhar que o serviço de migração de base de dados do Azure pode demorar a origem a cópias de segurança da base de dados. A conta de serviço que executa a instância do SQL Server de origem tem de ter privilégios de escrita nesta partilha de rede. Forneça um endereços IP ou FQDN do servidor na partilha de rede, por exemplo, '\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder'.|
     |**Nome de utilizador** | Nome de utilizador windows que o serviço de migração de base de dados do Azure pode representar e carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure para a operação de restauro. |
-    |**Palavra-passe** | Palavra-passe para o utilizador acima. |
-    |**URI de SAS do armazenamento** | URI de SAS que fornece o serviço de migração de base de dados do Azure com acesso ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança e de que é utilizado para migrar as bases de dados à instância gerido da base de dados SQL do Azure. [Saber como obter o URI de SAS do contentor de blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**Palavra-passe** | Palavra-passe para o utilizador. |
+    |**Definições de conta de armazenamento** | O URI de SAS que fornece o serviço de migração de base de dados do Azure com acesso ao contentor de conta de armazenamento para o qual o serviço carrega os ficheiros de cópia de segurança e de que é utilizado para migrar as bases de dados à instância gerido da base de dados SQL do Azure. [Saber como obter o URI de SAS do contentor de blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
-    ![Configurar definições de migração](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings.png)
+    ![Configurar definições de migração](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
 
-5.  Selecione **guardar**, no ecrã de migração resumo, no **nome da atividade** texto caixa, especifique um nome para a atividade de migração.
+5.  Selecione **guardar**e, em seguida, no **resumo de migração** no ecrã o **nome da atividade** texto caixa, especifique um nome para a atividade de migração.
 
-    ![Resumo de migração](media\tutorial-sql-server-to-managed-instance\dms-migration-summary.png)
+6. Expanda o **opção de validação** secção para visualizar o **escolher a opção de validação** ecrã, especifique se pretende validar a base de dados migrado correcção de consulta e, em seguida, selecione **guardar** .  
+
+    ![Resumo de migração](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+
+7. Selecione **executar migração**.
+
+    É apresentada a janela de atividade de migração e o estado da atividade é **pendente**.
+
+   ![Atividade de migração pendentes](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 
-1.  Selecione a atividade de migração para rever o estado da atividade.
+1. No ecrã de atividade de migração, selecione **atualizar** para atualizar a apresentação até verá que o estado da migração é apresentado como **concluído**.
+ 
+   ![Atividade de migração foi concluída](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
 
-2.  Depois de concluída a migração, certifique-se as bases de dados de destino no destino da base de dados geridas por instância de SQL do Azure.
-
-    ![Monitorizar a migração](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration.png)
+2. Depois de concluir a migração, selecione **transferir relatório** para obter um relatório lista os detalhes associados com o processo de migração.
+ 
+3. Certifique-se de que a base de dados de destino no ambiente de base de dados geridas por instância de SQL do Azure de destino.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para um tutorial mostrar como migrar uma base de dados para uma instância geridos utilizando o comando de RESTAURO de T-SQL, consulte [restaurar uma cópia de segurança para uma instância geridos utilizando o comando restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Para obter informações sobre como importar uma base de dados a partir de um ficheiro BACPAC, consulte [importar um ficheiro BACPAC para uma nova base de dados do Azure SQL](../sql-database/sql-database-import.md).
 - Para obter informações sobre a instância geridos, consulte [o que é uma instância geridos](../sql-database/sql-database-managed-instance.md).
 - Para obter informações sobre a ligação a aplicações a uma instância geridos, consulte [ligar aplicações](../sql-database/sql-database-managed-instance-connect-app.md).

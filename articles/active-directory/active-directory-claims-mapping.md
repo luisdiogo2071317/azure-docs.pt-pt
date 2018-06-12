@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261209"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Afirmações mapeamento no Azure Active Directory (pré-visualização pública)
 
@@ -79,7 +80,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |azpacr|
 |c_hash|
 |ca_enf|
-|cc|
+|Cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -132,7 +133,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|nbf|
+|NBF|
 |netbios_name|
 |nonce|
 |OID|
@@ -157,7 +158,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |Recurso|
 |função|
 |funções|
-|Âmbito|
+|scope|
 |scp|
 |SID|
 |Assinatura|
@@ -238,7 +239,7 @@ Utilize as propriedades de uma política de mapeamento para o controlo que afirm
 
 ### <a name="include-basic-claim-set"></a>Incluir o conjunto de afirmações básico
 
-**String:** IncludeBasicClaimSet
+**Cadeia:** IncludeBasicClaimSet
 
 **Tipo de dados:** booleano (VERDADEIRO ou FALSO)
 
@@ -284,21 +285,21 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |-----|-----|-----|
 |Utilizador|Apelido|Nome de família|
 |Utilizador|givenName|Nome Próprio|
-|Utilizador|displayname|Nome a Apresentar|
+|Utilizador|DisplayName|Nome a Apresentar|
 |Utilizador|ObjectId|ObjectID|
-|Utilizador|capacidade de correio|Endereço de E-mail|
+|Utilizador|mail|Endereço de E-mail|
 |Utilizador|userprincipalname|Nome do Principal de Utilizador|
-|Utilizador|Departamento|Departamento|
+|Utilizador|departamento|Departamento|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
 |Utilizador|netbiosname|Nome NetBios|
 |Utilizador|dnsdomainname|Nome de domínio de DNS|
 |Utilizador|onpremisesecurityidentifier|Identificador de segurança no local|
 |Utilizador|companyname|Nome da Organização|
-|Utilizador|streetaddress|Morada|
+|Utilizador|streetAddress|Morada|
 |Utilizador|postalcode|Código Postal|
-|Utilizador|preferredlanguange|Idioma preferencial|
+|Utilizador|preferredlanguange|Idioma Preferencial|
 |Utilizador|onpremisesuserprincipalname|UPN no local|
-|Utilizador|mailNickname|Alcunha de correio|
+|Utilizador|mailNickname|Alcunha de Correio|
 |Utilizador|extensionattribute1|Atributo de extensão 1|
 |Utilizador|extensionattribute2|Atributo de extensão 2|
 |Utilizador|extensionattribute3|Atributo de extensão 3|
@@ -321,7 +322,7 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |Utilizador|jobtitle|Cargo|
 |Utilizador|Campo IDdeEmpregado|ID do Empregado|
 |Utilizador|facsimiletelephonenumber|Número de telefone facsimile|
-|aplicação, recursos, público-alvo|displayname|Nome a Apresentar|
+|aplicação, recursos, público-alvo|DisplayName|Nome a Apresentar|
 |aplicação, recursos, público-alvo|objeto|ObjectID|
 |aplicação, recursos, público-alvo|etiquetas|Etiqueta de Principal de serviço|
 |Empresa|tenantcountry|País do inquilino|
@@ -356,7 +357,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. Es
 |TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
 |Associar|string1, string2, separador|outputClaim|As associações de entrada cadeias utilizando um separador de sessão. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|capacidade de correio|outputClaim|Extrai a parte do local de um endereço de e-mail. Por exemplo: correio: "foo@bar.com" resulta na outputClaim: "foo". Não @ sessão estiver presente, em seguida, a cadeia de entrada orignal é devolvida como está.|
+|ExtractMailPrefix|mail|outputClaim|Extrai a parte do local de um endereço de e-mail. Por exemplo: correio: "foo@bar.com" resulta na outputClaim: "foo". Não @ sessão estiver presente, em seguida, a cadeia de entrada orignal é devolvida como está.|
 
 **InputClaims:** utilize um elemento de InputClaims para passar os dados a partir de uma entrada de esquema de afirmação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -380,7 +381,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. Es
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como origem de dados para SAML NameID
 |Origem|ID|Descrição|
 |-----|-----|-----|
-|Utilizador|capacidade de correio|Endereço de E-mail|
+|Utilizador|mail|Endereço de E-mail|
 |Utilizador|userprincipalname|Nome do Principal de Utilizador|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
 |Utilizador|Campo IDdeEmpregado|ID do Empregado|
@@ -467,7 +468,7 @@ Neste exemplo, criar uma política que adiciona o campo IDdeEmpregado e TenantCo
     1. Para criar uma política, execute este comando:  
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
     2. Para ver a nova política de e para obter a política ObjectId, execute o seguinte comando:

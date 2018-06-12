@@ -1,24 +1,19 @@
 ---
-title: "Configurar o diagnóstico do Azure para enviar dados para o Application Insights | Microsoft Docs"
-description: "Atualize a configuração pública de diagnóstico do Azure para enviar dados para o Application Insights."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Configurar o diagnóstico do Azure para enviar dados para o Application Insights
+description: Atualize a configuração pública de diagnóstico do Azure para enviar dados para o Application Insights.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: f9e12c3e-c307-435e-a149-ef0fef20513a
-ms.service: monitoring-and-diagnostics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: diagnostic-extension
+ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262142"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
 Serviços cloud, máquinas virtuais, conjuntos de dimensionamento de Máquina Virtual e Service Fabric todas as utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, também pode pipe todas ou um subconjunto dos dados para outras localizações utilizando a extensão de diagnóstico do Azure versão 1.5 ou posterior.
@@ -76,7 +71,7 @@ Configuração de exemplo de um receptor de para o Application Insights:
         - Informações
         - Aviso
         - Erro
-        - Crítico
+        - Crítica
 
 Um canal funciona como um filtro e permite-lhe selecionar os níveis de registo específicos para enviar para o sink de destino. Por exemplo, pode recolher registos verbosos e enviá-los para armazenamento, mas enviar erros apenas para o sink.
 

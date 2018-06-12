@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713617"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260934"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Dispositivos associados ao conjunto de cópias de segurança do Azure Active Directory
 
@@ -48,6 +48,10 @@ Para associar um dispositivo Windows 10, o serviço de registo do dispositivo te
 - Se for um utilizador gerido, o Windows leva-o no ambiente de trabalho através do automático início de sessão.
 
 - Se um utilizador federado, tem de iniciar sessão com as suas credenciais.
+
+- Se estiver federado, o fornecedor de identidade têm de suportar WS-Trust e WS-Fed ponto final de nome de utilizador/palavra-passe. Isto pode ser versão 1.3 ou 2005. Este suporte de protocolo não é necessária para associar o dispositivo para o Azure AD e inicie sessão no dispositivo com uma palavra-passe. 
+
+
 
 
 ## <a name="joining-a-device"></a>Associar um dispositivo

@@ -1,23 +1,24 @@
 ---
-title: "Importar os seus dados para análise no Azure Application Insights | Microsoft Docs"
-description: "Importar dados estáticos para associar a telemetria da aplicação ou importar um fluxo de dados separada para consulta de análise."
+title: Importar os seus dados para análise no Azure Application Insights | Microsoft Docs
+description: Importar dados estáticos para associar a telemetria da aplicação ou importar um fluxo de dados separada para consulta de análise.
 services: application-insights
-keywords: "Abra o esquema, a importação de dados"
-documentationcenter: 
+keywords: Abra o esquema, a importação de dados
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293626"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para análise
 
@@ -144,7 +145,7 @@ Pode efetuar o seguinte processo manualmente ou configurar um sistema automatiza
 2. [Criar uma chave de assinatura de acesso partilhado do blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de expiração de um dia e fornecer acesso de leitura.
 3. Efetuar uma chamada REST para notificar o Application Insights que está a aguardar a dados.
 
- * Ponto final:`https://dc.services.visualstudio.com/v2/track`
+ * Ponto final: `https://dc.services.visualstudio.com/v2/track`
  * Método HTTP: POST
  * Payload:
 
@@ -172,7 +173,7 @@ Os marcadores de posição são:
 * `Blob URI with Shared Access Key`: Pode obter esta do procedimento para criar uma chave. É específico para o blob.
 * `Schema ID`: O ID de esquema gerado para o esquema definido. Os dados no blob deste devem estar em conformidade com o esquema.
 * `DateTime`: A hora em que o pedido ser submetido, UTC. Podemos aceitar estes formatos: ISO8601 (como "2016-01-01 13:45:01"); Rfc822 ("Qua, 14 16 de Dec 14:57:01 + 0000"); RFC850 ("Quarta-feira, 14-Dec-16 UTC de 57:14:00"); RFC1123 ("Qua, 14 de Dec de 2016 57:14:00 + 0000").
-* `Instrumentation key`de recurso do Application Insights.
+* `Instrumentation key` de recurso do Application Insights.
 
 Os dados estão disponíveis no Analytics após alguns minutos.
 

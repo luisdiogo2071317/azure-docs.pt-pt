@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234500"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261292"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+As definições de aplicação podem ser lidos na variáveis de ambiente quando desenvolver localmente e quando em execução no Azure. Ao desenvolver localmente, definições de aplicação provenientes de `Values` coleção no *local.settings.json* ficheiro. Em ambos os ambientes, local e o Azure, `GetEnvironmentVariable("<app setting name>")` obtém o valor da definição de aplicação com nome. Por exemplo, quando estiver a executar localmente, ""os meus sites nome iria ser devolvido se o *local.settings.json* ficheiro contém `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 O [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) propriedade é uma API alternativa para obter os valores de definição de aplicação, mas recomendamos que utilize `GetEnvironmentVariable` conforme mostrado aqui.
 

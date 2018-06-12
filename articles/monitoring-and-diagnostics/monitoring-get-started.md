@@ -1,24 +1,19 @@
 ---
-title: Introdução ao Azure Monitor | Microsoft Docs
+title: Introdução ao Azure Monitor
 description: Comece a utilizar o Azure Monitor para obter informações sobre o funcionamento dos seus recursos e tomar medidas com base nos dados.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 70807db256f72b77bb29db3f6f59474a892f2939
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263366"
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
 O Azure Monitor é o serviço de plataforma que fornece uma única origem para a monitorização de recursos do Azure. Com a monitorização do Azure, pode visualizar, consultar, encaminhar, arquivar e caso contrário, execute as ações no métricas e registos proveniente de recursos no Azure. Pode trabalhar com dados utilizando através do portal do Azure, [Cmdlets do PowerShell Monitor](insights-powershell-samples.md), [CLI de várias plataformas](insights-cli-samples.md), ou [as APIs REST da Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, explicaremos alguns dos principais componentes do Azure Monitor, utilizando o portal para demonstração.
@@ -73,9 +68,9 @@ O Azure Monitor é o serviço de plataforma que fornece uma única origem para a
 
     No portal, pode visualizar e filtrar uma lista de todos os recursos na sua subscrição para identificar se têm registos de diagnóstico ativados.
     > [!NOTE]
-    > Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+    > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
     >
-    > *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+    > *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
     >
     >
 

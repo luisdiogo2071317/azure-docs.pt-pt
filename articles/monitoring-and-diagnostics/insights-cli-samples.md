@@ -1,31 +1,26 @@
 ---
-title: Exemplos de início rápido do Azure do Monitor CLI 2.0. | Microsoft Docs
+title: Exemplos de início rápido do Monitor CLI do Azure
 description: Comandos de exemplo CLI 2.0 para funcionalidades de monitorização do Azure. Monitor do Azure é um serviço Microsoft Azure permite-lhe enviar notificações de alerta, chamar URLs web com base nos valores de dados de telemetria configurado e serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web.
-author: kamathashwin
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: ashwink
-ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ''
+ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262407"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Exemplos de início rápido do Azure do Monitor CLI 2.0
 Este artigo mostra-lhe exemplo comandos de interface de linha de comandos (CLI) para o ajudar a aceder às funcionalidades de monitorização do Azure. Monitor do Azure permite-lhe para serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web e enviar notificações de alerta ou chamar URLs web com base nos valores de dados de telemetria configurado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não instalou a CLI do Azure, siga as instruções para [instalar o 2.0 CLI do Azure](/cli/azure/install-azure-cli). Também pode utilizar [Shell de nuvem do Azure](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu browser. 
+Se ainda não instalou a CLI do Azure, siga as instruções para [instalar o 2.0 CLI do Azure](/cli/azure/install-azure-cli). Também pode utilizar [Shell de nuvem do Azure](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu browser. Consulte uma referência completa de todos os comandos disponíveis disponíveis no [referência da CLI do Azure Monitor](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 O primeiro passo consiste em início de sessão para a sua conta do Azure.
@@ -90,7 +85,8 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="work-with-alerts"></a>Trabalhar com alertas 
-[!NOTE] Apenas alertas (clássica) é suportada na CLI neste momento. 
+> [!NOTE]
+> Apenas alertas (clássica) é suportada na CLI neste momento. 
 
 ### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obter as regras de alertas (clássica) num grupo de recursos
 

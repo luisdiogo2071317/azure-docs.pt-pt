@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: daeb41d9094077950223820f8580ae057d039ef0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261241"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -371,8 +372,8 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
 | **Empresa**         | Empresa   |     |  Criar + atualizar |
-| **SupervisoryOrganization**  | Departamento  |     |  Criar + atualizar |
-| **ManagerReference**   | Gestor  |     |  Criar + atualizar |
+| **SupervisoryOrganization**  | departamento  |     |  Criar + atualizar |
+| **ManagerReference**   | gestor  |     |  Criar + atualizar |
 | **BusinessTitle**   |  título     |     |  Criar + atualizar | 
 | **AddressLineData**    |  StreetAddress  |     |   Criar + atualizar |
 | **Municipality**   |   l   |     | Criar + atualizar |
@@ -397,7 +398,7 @@ Depois de instalar o agente, execute os comandos do Powershell abaixo para confi
 
 **Comando #1**
 
-> CD "C:\Program Files\Microsoft Azure AD Connect aprovisionamento Agent\Modules\AADSyncAgent" agente\\módulos\\AADSyncAgent
+> CD "C:\Program Files\Microsoft Azure AD Connect aprovisionamento Agent\Modules\AADSyncAgent"
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect aprovisionamento Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 

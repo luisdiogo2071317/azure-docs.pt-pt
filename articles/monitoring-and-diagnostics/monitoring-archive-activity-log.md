@@ -1,25 +1,19 @@
 ---
-title: Arquivar o registo de atividade do Azure | Microsoft Docs
-description: Saiba como o registo de atividade do Azure para a retenção de longa duração numa conta de armazenamento de arquivo.
+title: Arquivar o registo de atividade do Azure
+description: O registo de atividade do Azure para a retenção de longa duração numa conta de armazenamento de arquivo.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: e401d22dbcf5074f4652fb60ee5eeec1d31ef164
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: activitylog
+ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235605"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263434"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividade do Azure
 Neste artigo, mostramos como pode utilizar o portal do Azure, o Cmdlets do PowerShell ou a CLI de várias plataformas para arquivar a [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) numa conta do storage. Esta opção é útil se gostaria de manter o registo de atividade mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estático. Se pretender manter os eventos durante 90 dias ou menos não terá de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de atividade são retidos na plataforma do Azure para 90 dias sem ativar o arquivo.

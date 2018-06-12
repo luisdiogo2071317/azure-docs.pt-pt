@@ -15,12 +15,12 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f6e2cc9b137de48a1d186739a8c76e2f1d18c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590125"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293199"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar início de sessão único para aplicações que não estejam na Galeria de aplicações do Azure Active Directory
 
@@ -32,7 +32,7 @@ Clientes com [Azure Active Directory Premium](active-directory-whatis.md) licen�
 
 * Integração de self-service de qualquer aplicação que suporta SAML 2.0 fornecedores de identidade (iniciado por SP ou iniciadas por IdP)
 * Integração de self-service de qualquer aplicação web que tem um baseado em HTML página de início de sessão utilizando [SSO baseada em palavra-passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Ligação self-service das aplicações que utilizam o protocolo SCIM para aprovisionamento de utilizadores ([descrito aqui](active-directory-scim-provisioning.md))
+* Ligação self-service das aplicações que utilizam o protocolo SCIM para aprovisionamento de utilizadores ([descrito aqui](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Capacidade de adicionar ligações a qualquer aplicação no [iniciador da aplicação do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou [painel de acesso do Azure AD](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Isto pode incluir não apenas aplicações de SaaS que utilizar, mas tem não ainda foi integrada para a Galeria de aplicações do Azure AD, mas as aplicações web de terceiros que tenha implementado organização servidores que controlar, ou na nuvem ou no local.
@@ -123,7 +123,7 @@ Certifique-se de que o certificado tem:
 - Estado do Active Directory. Se o estado está inativo, altere o estado para o Active Directory. Para alterar o estado, verifique **Active Directory** e, em seguida, guarde a configuração. 
 - O e-mail de notificação correto. Quando o certificado do Active Directory estiver próxima da data de expiração, o Azure AD irá enviar uma notificação para o endereço de e-mail configurado neste campo.  
 
-Para obter mais informações, consulte [gerir os certificados federado início de sessão no Azure Active Directory](active-directory-sso-certs.md).
+Para obter mais informações, consulte [gerir os certificados federado início de sessão no Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Configurar a aplicação de destino
 

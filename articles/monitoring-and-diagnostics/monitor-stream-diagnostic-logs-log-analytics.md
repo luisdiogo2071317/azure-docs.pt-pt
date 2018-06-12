@@ -1,24 +1,19 @@
 ---
-title: Transmitir os registos de diagnóstico do Azure ao Log Analytics | Microsoft Docs
+title: Transmitir os registos de diagnóstico do Azure ao Log Analytics
 description: Saiba como transmitir os registos de diagnóstico do Azure para uma área de trabalho de análise de registos.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: logs
+ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263512"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir os registos de diagnóstico do Azure ao Log Analytics
 
@@ -40,9 +35,9 @@ Pode ativar a transmissão em fluxo de registos de diagnóstico programaticament
 A área de trabalho de análise de registos não tem de estar na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 > [!NOTE]
-> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+> Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 

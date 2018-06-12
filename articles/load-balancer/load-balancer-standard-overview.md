@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261938"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -32,7 +33,7 @@ Padrão de Balanceador de carga é um produto de Balanceador de carga novo para 
 
 Pode utilizar o padrão de Balanceador de carga como um balanceador de carga público ou interno. E pode ser ligada uma máquina virtual para um público e um recurso de Balanceador de carga interno.
 
-Funções do recurso de Balanceador de carga são sempre expresso como um front-end, uma regra, uma pesquisa de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o conjunto de back-end, especificando o conjunto de back-end do recurso de NIC da máquina virtual.  No caso de um conjunto de dimensionamento de máquina virtual, este parâmetro é transmitido através do perfil de rede e expandir.
+Funções do recurso de Balanceador de carga são sempre expresso como um front-end, uma regra, uma pesquisa de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o conjunto de back-end, especificando o conjunto de back-end do recurso de NIC da máquina virtual.  Este parâmetro é transmitido através do perfil de rede e expandido quando utilizar conjuntos de dimensionamento de máquina virtual.
 
 Um aspeto chave é o âmbito da rede virtual para o recurso.  Enquanto básico Balanceador de carga existe no âmbito do conjunto de disponibilidade, um balanceador de carga Standard está totalmente integrado com o âmbito de uma rede virtual e aplicam a todos os conceitos de rede virtual.
 
@@ -43,7 +44,7 @@ Recursos de Balanceador de carga são objetos dentro do qual pode express como o
 
 ## <a name="why-use-standard-load-balancer"></a>Porquê utilizar o padrão de Balanceador de carga?
 
-Balanceador de carga padrão permite-lhe dimensionar as suas aplicações e criar elevada disponibilidade para implementações de pequena escala em arquiteturas de zona multi grande e complexas.
+O Balanceador de Carga Standard permite-lhe dimensionar as suas aplicações e criar uma elevada disponibilidade para implementações de pequena escala em arquiteturas com várias zonas grandes e complexas.
 
 Reveja a tabela abaixo para obter uma descrição geral das diferenças entre padrão Balanceador de carga e básico Balanceador de carga:
 
@@ -71,7 +72,7 @@ Reveja [os limites de serviço para o Balanceador de carga](https://aka.ms/lblim
 
 Conjuntos de back-end de Balanceador de carga padrão expande a qualquer recurso de máquina virtual numa rede virtual.  Pode conter até 1000 instâncias de back-end.  Uma instância de back-end é uma configuração de IP, o que é uma propriedade de um recurso NIC.
 
-O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquina virtual.  Pode misturar recursos no conjunto de back-end e pode conter qualquer combinação destes recursos até 150 total.
+O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquina virtual.  Também pode misturar recursos no conjunto de back-end. Pode combinar até 150 recursos no conjunto back-end por recurso de Balanceador de carga.
 
 Ao considerar como estruturar o conjunto de back-end, pode conceber para o menor número de recursos de conjunto de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não há qualquer diferença no desempenho de plane de dados ou a escala.
 
@@ -89,7 +90,7 @@ Reveja [debate detalhado das zonas de disponibilidade relacionadas com capacidad
 
 ### <a name="diagnostics"></a> Diagnóstico
 
-Balanceador de carga padrão fornece métricas multidimensionais por meio do Monitor do Azure.  Estas métricas podem ser filtrado, agrupados e fornecer informações históricos e atuais de desempenho e estado de funcionamento do seu serviço.  Estado de funcionamento de recursos também é suportado.  Segue-se uma breve descrição geral de diagnóstico suportado:
+Balanceador de carga padrão fornece métricas multidimensionais por meio do Monitor do Azure.  Estas métricas podem ser filtradas, agrupadas e divididas para uma dimensão especificada.  Fornecem históricos e atuais informações sobre desempenho e estado de funcionamento do seu serviço.  Estado de funcionamento de recursos também é suportado.  Segue-se uma breve descrição geral de diagnóstico suportado:
 
 | Métrica | Descrição |
 | --- | --- |
@@ -117,7 +118,7 @@ Reveja [detalhadas debate do HA portas](load-balancer-ha-ports-overview.md).
 
 ### <a name="securebydefault"></a>Seguro por predefinição
 
-Balanceador de carga padrão é totalmente integrado à rede virtual.  A rede virtual está numa rede privada, fechada.  Porque padrão balanceadores de carga e os endereços IP públicos padrão foram concebidos para permitir esta rede virtual ser acedido a partir de fora da rede virtual, estes recursos agora a predefinição fechada, a menos que abre-los. Isto significa que os grupos de segurança de rede (NSGs) agora são utilizados para permitir explicitamente e lista branca de tráfego permitido.  Pode criar o seu centro de dados virtual completo e decidir através do NSG que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC de recurso de máquina virtual, não podemos irá permitir o tráfego para aceder este recurso.
+Balanceador de carga padrão é totalmente integrado à rede virtual.  A rede virtual está numa rede privada, fechada.  Porque padrão balanceadores de carga e os endereços IP públicos padrão foram concebidos para permitir esta rede virtual ser acedido a partir de fora da rede virtual, estes recursos agora a predefinição fechada, a menos que abre-los. Isto significa que os grupos de segurança de rede (NSGs) agora são utilizados para permitir explicitamente e lista branca de tráfego permitido.  Pode criar o seu centro de dados virtual completo e decidir através do NSG que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC de recurso de máquina virtual, o tráfego não é permitido para aceder a este recurso.
 
 Para saber mais sobre NSGs e como aplicá-las para o seu cenário, consulte [grupos de segurança de rede](../virtual-network/security-overview.md).
 
@@ -202,7 +203,7 @@ SKUs não são mutável. Siga os passos nesta secção para mover de um recurso 
 >
 >Básico e padrão SKU têm um número de diferenças, conforme descrito neste artigo.  Certifique-se compreender e preparar para os mesmos.
 >
->SKUs de correspondência tem de ser utilizado para recursos de Balanceador de carga e um IP público. Não é possível ter uma mistura de recursos de SKU básico e recursos de Standard SKU. Não é possível ligar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade, ou um máquina virtual do conjunto de dimensionamento recursos para ambos os SKUs em simultâneo.
+>SKUs de correspondência tem de ser utilizado para recursos de Balanceador de carga e um IP público. Não é possível ter uma mistura de recursos de SKU básico e recursos de Standard SKU. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 

@@ -4,7 +4,7 @@ description: CDN do Azure suporta a utilização de acesso assinatura partilhado
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261173"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -70,7 +71,7 @@ Esta opção é a mais simples e utiliza um único token SAS, o que é transmiti
  
 Esta opção só está disponível para **CDN do Azure Premium da Verizon** perfis. Com esta opção, pode proteger o armazenamento de BLOBs no servidor de origem. Poderá utilizar esta opção se não precisa de restrições de acesso específicas para o ficheiro, mas pretende impedir que os utilizadores acedam a origem de armazenamento diretamente para melhorar os tempos de descarga da CDN do Azure. O token SAS, que é desconhecido para o utilizador, é necessário para que qualquer pessoa que acedem aos ficheiros no contentor especificado do servidor de origem. No entanto, devido a regra, o URL Rewrite o token SAS não é necessário no ponto final de CDN.
  
-1. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite. Novas regras demorar cerca de 90 minutos para propagar.
+1. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite. Novas regras demorar cerca de 10 minutos para propagar.
 
    ![Botão de gerir a CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Para utilizar a autenticação de token de segurança de CDN do Azure, tem de te
        
    As opções de parâmetros para uma autenticação de token de segurança são diferentes as opções de parâmetros para um token SAS. Se optar por utilizar um período de tempo de expiração quando cria um token de segurança, deve defini-lo para o mesmo valor que a hora de expiração para o token SAS. Se o fizer, garante que a hora de expiração é previsível. 
  
-2. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite para ativar o acesso de token SAS para todos os blobs no contentor. Novas regras demorar cerca de 90 minutos para propagar.
+2. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite para ativar o acesso de token SAS para todos os blobs no contentor. Novas regras demorar cerca de 10 minutos para propagar.
 
    A seguinte regra de URL Rewrite de exemplo utiliza um padrão de expressão regular com um grupo de captura e um ponto final com o nome *storagedemo*:
    
@@ -135,7 +136,7 @@ Porque os parâmetros SAS não estão visíveis para a CDN do Azure, a CDN do Az
 | Nome do parâmetro SAS | Descrição |
 | --- | --- |
 | Iniciar | O tempo que pode começar a CDN do Azure para aceder ao ficheiro de blob. Devido a relógio desfasamento (quando é recebido um sinal de relógio em alturas diferentes para diferentes componentes), escolha uma hora de 15 minutos anteriormente se pretender que o elemento estar imediatamente disponível. |
-| Fim | O tempo após o qual a CDN do Azure já não pode aceder ao ficheiro de blob. Anteriormente, os ficheiros em cache na CDN do Azure são continuarão acessíveis. Para controlar a hora de expiração de ficheiros, defina a hora de expiração adequado no token de segurança de CDN do Azure ou remover o elemento. |
+| Terminar | O tempo após o qual a CDN do Azure já não pode aceder ao ficheiro de blob. Anteriormente, os ficheiros em cache na CDN do Azure são continuarão acessíveis. Para controlar a hora de expiração de ficheiros, defina a hora de expiração adequado no token de segurança de CDN do Azure ou remover o elemento. |
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **CDN do Azure da Verizon**, pode definir este parâmetro para os intervalos definidos no [CDN do Azure da Verizon Edge intervalos de IP servidor](https://msdn.microsoft.com/library/mt757330.aspx). Se estiver a utilizar **CDN do Azure da Akamai**, não é possível definir o parâmetro de intervalos IP, porque os endereços IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para um pedido efetuado com a conta SAS. Recomenda-se a definição de HTTPS.|
 

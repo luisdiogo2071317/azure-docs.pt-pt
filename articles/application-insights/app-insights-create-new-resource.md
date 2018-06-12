@@ -1,8 +1,8 @@
 ---
 title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
-description: "Configure manualmente monitorização do Application Insights para uma nova aplicação em direto."
+description: Configure manualmente monitorização do Application Insights para uma nova aplicação em direto.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294722"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 Azure Application Insights apresenta dados sobre a sua aplicação num Microsoft Azure *recursos*. Criar um novo recurso, por conseguinte, faz parte de [ao configurar o Application Insights para monitorizar uma nova aplicação][start]. Em muitos casos, criação de um recurso pode ser efetuado automaticamente o IDE. Mas em alguns casos, criar um recurso manualmente - por exemplo, a ter recursos separados para programação e produção baseia-se da sua aplicação.
@@ -29,7 +30,7 @@ Se ainda não recebeu um [Microsoft conta, crie uma agora](http://live.com). (Se
 
 Também precisa de uma subscrição [Microsoft Azure](http://azure.com). Se a sua equipa ou organização tiver uma subscrição do Azure, o proprietário pode adicioná-, utilizando o ID de Windows Live. Apenas a cobrado o que utiliza. Permite que o plano básico predefinido para uma determinada quantidade de utilização experimental gratuitamente.
 
-Quando já tem acesso a uma subscrição, inicie sessão no Application Insights no [http://portal.azure.com](https://portal.azure.com)e utilizar o Live ID para iniciar sessão.
+Quando já tem acesso a uma subscrição, inicie sessão no Application Insights no [ http://portal.azure.com ](https://portal.azure.com)e utilizar o Live ID para iniciar sessão.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 No [portal.azure.com](https://portal.azure.com), adicione um recurso do Application Insights:

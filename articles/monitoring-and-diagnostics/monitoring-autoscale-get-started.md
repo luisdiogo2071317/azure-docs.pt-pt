@@ -1,24 +1,19 @@
 ---
-title: "Introdução ao dimensionamento automático no Azure | Microsoft Docs"
-description: Saiba como dimensionar o seu recurso no Azure.
+title: Introdução ao dimensionamento automático no Azure
+description: Saiba como dimensionar a sua aplicação Web de recursos, defina o serviço em nuvem, a Máquina Virtual ou dimensionamento da Máquina Virtual no Azure.
 author: rajram
-manager: rboucher
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263651"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as definições de dimensionamento automático para o seu recurso no portal do Microsoft Azure.
@@ -93,7 +88,7 @@ Para além de escala com base na CPU, pode definir a escala diferente para datas
 ### <a name="view-the-scale-history-of-your-resource"></a>Ver o histórico de escala do seu recurso
 Sempre que o recurso do é escalado para cima ou para baixo, fica registado um evento no registo de atividade. Pode ver o histórico de escala dos seus recursos para as últimas 24 horas, mudar para o **histórico de execução** separador.
 
-![histórico de execução][11]
+![Histórico de execuções][11]
 
 Se pretender ver o histórico de escala completa (para até 90 dias), selecione **clique aqui para ver mais detalhes**. É aberto o registo de atividade, com dimensionamento automático previamente selecionado para o recurso e categoria.
 
@@ -119,7 +114,7 @@ Agora pode definir o número de instâncias que pretende dimensionar manualmente
 
 Pode sempre regressar ao dimensionamento automático ao clicar em **ativar o dimensionamento automático** e, em seguida, **guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Criar um alerta de registo de atividade para monitorizar todas as operações de motor de dimensionamento automático na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Criar um alerta de registo de atividade para monitorizar as operações de escala-na/escalável de dimensionamento automático falhas todas na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

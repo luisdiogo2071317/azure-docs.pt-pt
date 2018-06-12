@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 87ed987b53b45ef9dacb771d8dd057432712fb16
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 18c2cb975e1e7c93f2aba18f99e23998ce47501b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293345"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar Zendesk para aprovisionamento de utilizadores automática
 
@@ -71,7 +72,7 @@ Azure Active Directory utiliza um conceito chamado "atribuições de" para deter
 
 Antes de configurar e ativar o aprovisionamento de utilizadores automática, deve decidir quais os utilizadores e/ou grupos no Azure AD necessitam de aceder a Zendesk. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a Zendesk ao seguir as instruções aqui:
 
-*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Sugestões importantes para atribuir utilizadores a Zendesk
 
@@ -165,7 +166,7 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes

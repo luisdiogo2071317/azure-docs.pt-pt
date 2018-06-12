@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 973b11cd7bcb46bfb113998ff4a4e0b9c6317042
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593440"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261768"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -419,6 +419,7 @@ Estes atributos para **utilizador** estão além de outras aplicações que sele
 | --- |:---:| --- |
 | domainFQDN |X |Também denominado dnsDomainName. Por exemplo, contoso.com. |
 | domainNetBios |X |Também denominado netBiosName. Por exemplo, CONTOSO. |
+| msDS-KeyCredentialLink |X |Depois do utilizador estiver inscrito no Windows Hello para empresas. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Repetição de escrita do Exchange híbrida
 Estes atributos são repetidos do AD do Azure Active Directory no local ao selecionar a opção para ativar **híbrida do Exchange**. Dependendo da versão do Exchange, poderão estar sincronizados menos atributos.

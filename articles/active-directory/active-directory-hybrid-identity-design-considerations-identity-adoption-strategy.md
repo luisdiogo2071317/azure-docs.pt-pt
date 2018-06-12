@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801801"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260367"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
@@ -67,7 +67,7 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 | Browsers da Web |Autenticação baseada em formulários |início de sessão único, por vezes, é necessário fornecer o ID de organização |
 | Outlook |Pedido de credenciais |Pedido de credenciais |
 | Skype para empresas (Lync) |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
-| SkyDrive Pro |Pedido de credenciais |O início de sessão único |
+| OneDrive para Empresas |Pedido de credenciais |O início de sessão único |
 | Office Pro Plus subscrição |Pedido de credenciais |O início de sessão único |
 
 **Origens externas ou não fidedignas**:
@@ -75,7 +75,7 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 |  | Identidade sincronizada | Identidade federada |
 | --- | --- | --- |
 | Browsers da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
-| Outlook, o Skype para empresas (Lync), Skydrive Pro, subscrição do Office |Pedido de credenciais |Pedido de credenciais |
+| Outlook, o Skype para empresas (Lync), o OneDrive para empresas, a subscrição do Office |Pedido de credenciais |Pedido de credenciais |
 | Exchange ActiveSync |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
 | Aplicações móveis |Pedido de credenciais |Pedido de credenciais |
 

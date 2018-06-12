@@ -1,11 +1,11 @@
 ---
 title: Personalizar os mapeamentos de atributos do Azure AD | Microsoft Docs
-description: "Identificar os mapeamentos de atributos para aplicações de SaaS no Azure Active Directory como a pode modificá-los para abordar as necessidades de negócio."
+description: Identificar os mapeamentos de atributos para aplicações de SaaS no Azure Active Directory como a pode modificá-los para abordar as necessidades de negócio.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295630"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de utilizador aprovisionamento mapeamentos de atributos para aplicações de SaaS no Azure Active Directory
 Microsoft Azure AD fornece suporte para o aprovisionamento de utilizadores para aplicações de SaaS de terceiros, tais como o Salesforce, Google Apps e outros. Se tiver utilizadores de aprovisionamento para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de uma configuração denominada "mapeamento de atributos".
@@ -83,7 +84,7 @@ Aprovisionamento de grupo pode ser opcionalmente ativado ou desativado, selecion
 Os atributos aprovisionados como parte dos objetos de grupo podem ser personalizados da mesma forma que os objetos de utilizador, descrito anteriormente. 
 
 >[!TIP]
->O aprovisionamento dos objetos de grupo (propriedades e membros) é um conceito distinto do [atribuir grupos](active-directory-coreapps-assign-user-azure-portal.md) para uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas aprovisionar os objetos de utilizador contidos no grupo. O aprovisionamento dos objetos de grupo completo não é necessário para utilizar grupos na atribuições.
+>O aprovisionamento dos objetos de grupo (propriedades e membros) é um conceito distinto do [atribuir grupos](manage-apps/assign-user-or-group-access-portal.md) para uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas aprovisionar os objetos de utilizador contidos no grupo. O aprovisionamento dos objetos de grupo completo não é necessário para utilizar grupos na atribuições.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Editar a lista de atributos suportados
@@ -144,12 +145,12 @@ A seleção desta opção irá eficazmente forçar uma sincronização de todos 
 * É uma melhor prática recomendada para manter o número de alterações consecutivas para os mapeamentos de atributos no mínimo.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
-* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](active-directory-scim-provisioning.md)
+* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->

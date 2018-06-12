@@ -1,24 +1,19 @@
 ---
-title: "Utilize ações de dimensionamento automático para enviar correio eletrónico e webhook notificações de alerta. | Microsoft Docs"
-description: "Ver como utilizar as ações de dimensionamento automático URLs da web ou enviar notificações por correio eletrónico no Monitor do Azure. "
+title: Utilize o dimensionamento automático para enviar correio eletrónico e webhook notificações de alerta
+description: 'Ver como utilizar as ações de dimensionamento automático URLs da web ou enviar notificações por correio eletrónico no Monitor do Azure. '
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 65405a6d7f1d49911da1e2a5d26b02098a261c01
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262227"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de dimensionamento automático para enviar correio eletrónico e webhook notificações de alertas no Monitor do Azure
 Este artigo mostra como configurar acionadores para que possa chamar URLs específicos na web ou enviar mensagens de correio eletrónico com base nas ações de dimensionamento automático no Azure.  
@@ -26,7 +21,7 @@ Este artigo mostra como configurar acionadores para que possa chamar URLs espec�
 ## <a name="webhooks"></a>Webhooks
 Webhooks permitem-lhe encaminhar as notificações de alerta do Azure para outros sistemas de notificações de pós-processamento ou personalizados. Por exemplo, de encaminhamento de alerta para serviços que podem processar um pedido web recebido a enviar do que SMS, o registo de erros, notificar a equipa utilizando chat ou mensagens de serviços, etc. O URI de webhook tem de ser um ponto final HTTP ou HTTPS válido.
 
-## <a name="email"></a>E-mail
+## <a name="email"></a>Email
 E-mail pode ser enviado para qualquer endereço de correio eletrónico válido. Os administradores e coadministradores da subscrição que está a executar a regra também serão notificados.
 
 ## <a name="cloud-services-and-web-apps"></a>Serviços em nuvem e de aplicações Web
@@ -72,7 +67,7 @@ Quando utilizar o modelo de REST API ou do Resource Manager, inclua o elemento d
 | customEmails |sim |o valor pode ser [] nulo ou uma matriz de cadeia de mensagens de correio eletrónico |
 | Webhooks |sim |valor pode ser nula ou válida Uri |
 | serviceUri |sim |um Uri de https válido |
-| propriedades |sim |valor tem de ser vazio {} ou pode contêm pares chave-valor |
+| propriedades |sim |o valor deve estar vazio {} ou pode contêm pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação no webhooks
 O webhook pode autenticar através da autenticação baseada em tokens, onde guardar o webhook URI com um ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -114,8 +109,8 @@ Quando a notificação de dimensionamento automático é gerada, os metadados se
 | Contexto |sim |O contexto de ação de dimensionamento automático |
 | carimbo de data/hora |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
 | ID |Sim |Gestor de recursos do ID de definição de dimensionamento automático |
-| nome |Sim |O nome da definição de dimensionamento automático |
-| Detalhes |Sim |Explicação da ação que o serviço de dimensionamento automático demorou e a alteração na contagem de instância |
+| name |Sim |O nome da definição de dimensionamento automático |
+| detalhes |Sim |Explicação da ação que o serviço de dimensionamento automático demorou e a alteração na contagem de instância |
 | subscriptionId |Sim |ID de subscrição do recurso de destino que está a ser escalado |
 | resourceGroupName |Sim |Nome do grupo de recursos do recurso de destino que está a ser escalado |
 | resourceName |Sim |Nome do recurso de destino que está a ser escalado |

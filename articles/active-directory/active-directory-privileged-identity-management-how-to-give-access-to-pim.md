@@ -13,15 +13,15 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 150f994aedfc8d2847a0741792c32114e1b520fe
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: efbfcdd1a50069a943fc57da9d402e4cc7c408ed
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233551"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260564"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Conceder acesso para gerir o Azure AD Privileged Identity Management
-Administrador global que permite o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter as atribuições de funções e acesso a PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura para o Azure AD PIM. Para conceder acesso a PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função. Esta atribuição tem de ser efetuada a partir da PIM em si e não pode ser alterada através do PowerShell ou outros portais.
+Administrador global que permite o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter as atribuições de funções e acesso a PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura para o Azure AD PIM. Para conceder acesso a PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função.
 
 > [!NOTE]
 > Gestão do Azure AD PIM requer o MFA do Azure. Uma vez que não é possível registar as contas Microsoft para o MFA do Azure, um utilizador que inicia sessão com uma conta Microsoft não é possível aceder a Azure AD PIM.

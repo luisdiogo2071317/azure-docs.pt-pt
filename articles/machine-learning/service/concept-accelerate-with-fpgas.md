@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/31/2018
-ms.openlocfilehash: 18b0ee143443ecf128bdfe57adb61cc22f95db87
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ed94c3b750c927ec48959c12388bd22de3d3df4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832589"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261955"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>O que é FPGA e projeto Brainwave?
 
@@ -62,7 +62,7 @@ Os cenários seguintes utilizam FPGA na arquitetura de projeto Brainwave:
 - A atribuição de sistema de inspeção optical. Consulte [AI em tempo real: Microsoft announces pré-visualização do projeto Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
 - Mapeamento de abrange do telefone. Consulte [como utilizar FPGAs para Learning profunda inferência para efetuar abrange telefone mapeamento de Terabytes de imagens com vista aérea](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
 
-## <a name="how-to-create-an-fpga-service"></a>Como criar um serviço FPGA?
+## <a name="how-to-deploy-a-web-service-to-an-fpga"></a>Como implementar um serviço web para um FPGA?
 
 O fluxo de alto nível para criar um serviço de reconhecimento de imagem no Azure utilizando ResNet50 como um featurizer é o seguinte:
 
@@ -70,7 +70,8 @@ O fluxo de alto nível para criar um serviço de reconhecimento de imagem no Azu
 2. Registe o modelo utilizando a API de gestão de modelo do Azure ML com o ficheiro zip no armazenamento de Blobs.
 3. Implemente o serviço com o modelo registado utilizando a API de gestão de modelo do Azure ML.
 
-Para um tutorial, consulte [ML Hardware acelerados modelos de início rápido do Azure](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/resnet50/00_QuickStart.ipynb).
+Saiba mais sobre este processo no artigo, [implementar um modelo como um serviço web num FPGA com o Azure Machine Learning](how-to-deploy-fpga-web-service.md).
+
 
 ## <a name="start-using-fpga"></a>Começar a utilizar FPGA
 

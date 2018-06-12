@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628798"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261581"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo de MXChip IoT DevKit à sua aplicação do Azure IoT Central
 
@@ -28,7 +28,9 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 Uma aplicação criada a partir de **Devkits de exemplo** modelo de aplicação inclui um **MXChip** modelo de dispositivo com as seguintes características:
 
-### <a name="telemetry-measurements"></a>Medidas de telemetria
+### <a name="measurements"></a>Medições
+
+#### <a name="telemetry"></a>Telemetria 
 
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ Uma aplicação criada a partir de **Devkits de exemplo** modelo de aplicação 
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### <a name="states"></a>Estados 
+
+| Nome          | Nome a apresentar   | NORMAL | ATENÇÃO | RISCO | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Estado do dispositivo   | Verde  | Orange  | Vermelho    | 
+
+#### <a name="events"></a>Eventos 
+
+| Nome             | Nome a apresentar      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Premido do botão B  | 
+
+
 
 ### <a name="settings"></a>Definições
 
@@ -68,17 +84,6 @@ Definições de ativar/desativar
 | Propriedade do dispositivo | Die número   | dieNumber  | número    |
 | Texto            | Localização     | localização   | N/A       |
 
-### <a name="states"></a>Estados 
-
-| Nome          | Nome a apresentar   | NORMAL | ATENÇÃO | RISCO | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Estado do dispositivo   | Verde  | Orange  | Vermelho    | 
-
-### <a name="events"></a>Eventos 
-
-| Nome             | Nome a apresentar      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Premido do botão B  | 
 
 ### <a name="add-a-real-device"></a>Adicionar um dispositivo real
 

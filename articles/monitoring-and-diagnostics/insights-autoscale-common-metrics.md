@@ -1,24 +1,19 @@
 ---
-title: "Azure métricas comuns para o Monitor de dimensionamento automático | Microsoft Docs"
-description: "Saiba quais métricas são frequentemente utilizadas para efetuar o dimensionamento automático a serviços em nuvem, as máquinas virtuais e aplicações Web."
+title: Métrica de dimensionamento automático comuns
+description: Saiba quais métricas são frequentemente utilizadas para efetuar o dimensionamento automático a serviços em nuvem, as máquinas virtuais e aplicações Web.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262244"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure métricas comuns de dimensionamento automático Monitor
 Dimensionamento automático de Monitor do Azure permite-lhe aumentar o número de instâncias em execução ou descendente, com base nos dados de telemetria (métricas). Este documento descreve as métricas comuns que poderá querer utilizar. No portal do Azure para serviços em nuvem e de Farms de servidores, pode escolher a métrica do recurso para dimensionar por. No entanto, também pode escolher qualquer métrica de um recurso Dimensionar por diferentes.
@@ -53,7 +48,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Pode criar um alerta para as métricas seguintes:
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Percentagem |
 | \Processor(_Total)\% de tempo privilegiado |Percentagem |
@@ -77,7 +72,7 @@ Pode criar um alerta para as métricas seguintes:
 | \PhysicalDisk ( total) \Disk bytes/seg |BytesPerSecond |
 | \Disk \PhysicalDisk ( total) Bytes lidos/seg |BytesPerSecond |
 | Escrita de \Disk \PhysicalDisk ( total) Bytes/seg |BytesPerSecond |
-| \Avg \PhysicalDisk ( total). Comprimento da fila de disco |Contagem |
+| \Avg \PhysicalDisk ( total). Comprimento da Fila de Discos |Contagem |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de leitura do disco |Contagem |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de escrita de disco |Contagem |
 | \LogicalDisk(_Total)\% espaço livre |Percentagem |
@@ -94,7 +89,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
  Pode criar um alerta para as métricas seguintes:
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
 | \Memory\PercentAvailableMemory |Percentagem |
@@ -147,7 +142,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Pode alerta sobre ou dimensionar por estas métricas.
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
 | CpuPercentage |Percentagem |
 | MemoryPercentage |Percentagem |
