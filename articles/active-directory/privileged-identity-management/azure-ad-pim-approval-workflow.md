@@ -1,24 +1,25 @@
 ---
-title: "Fluxos de trabalho de aprovação de gestão de identidades privilegiadas do Azure | Microsoft Docs"
-description: "Saiba mais sobre fluxos de trabalho de aprovação no Privileged Identity Management (PIM)"
+title: Fluxos de trabalho de aprovação de gestão de identidades privilegiadas do Azure | Microsoft Docs
+description: Saiba mais sobre fluxos de trabalho de aprovação no Privileged Identity Management (PIM)
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261020"
 ---
 # <a name="approvals"></a>Aprovações
 
@@ -43,23 +44,23 @@ A pré-visualização privada suporta os seguintes cenários:
 
 -   [Especifique o aprovador utilizadores e/ou grupos para aprovar pedidos](#specify-approver-users-and/or-groups-to-approve-requests)
 
--   [ver o histórico do pedido e aprovação para funções com todos os privilégios](#view-request-and-approval-history-for-all-privileged-roles)
+-   [Ver o histórico do pedido e aprovação para funções com todos os privilégios](#view-request-and-approval-history-for-all-privileged-roles)
 
 **Como um aprovador designado, pode:**
 
 -   [Ver pendentes aprovações (pedidos)](#view-pending-approvals-requests)
 
--   [aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [Aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [fornecer a justificação para os meus aprovação/rejeição](#provide-justification-for-my-approval/rejection) 
+-   [Fornecer a justificação para os meus aprovação/rejeição](#provide-justification-for-my-approval/rejection) 
 
 **Como função de utilizador elegível, pode:**
 
--   [pedir a ativação de uma função que necessita de aprovação](#request-activation-of-a-role-that-requires-approval)
+-   [Ativação de uma função que requeira a aprovação do pedido](#request-activation-of-a-role-that-requires-approval)
 
--   [ver o estado do seu pedido para ativar](#view-the-status-of-your-request-to-activate)
+-   [Ver o estado do seu pedido para ativar](#view-the-status-of-your-request-to-activate)
 
--   [concluir a tarefa no Azure AD, se foi aprovada a ativação](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [Concluir a tarefa no Azure AD, se foi aprovada a ativação](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navegação
 
@@ -187,6 +188,6 @@ Quando o pedido é aprovado, a função está ativa e pode continuar com o traba
 
 ![](media/azure-ad-pim-approval-workflow/image043.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os seus comentários são importantes para nós. Hesite partilhar os seus comentários ou comentários connosco aqui!

@@ -2,7 +2,7 @@
 title: Ligar ao DB2 - as do Azure Logic Apps | Microsoft Docs
 description: Gerir os recursos com as APIs REST do DB2 e Azure Logic Apps
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, estfan
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609754"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295096"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Começar a utilizar o conector DB2
 Conector do Microsoft para DB2 liga as Logic Apps aos recursos armazenados numa base de dados IBM DB2. Este conector inclui o cliente Microsoft para comunicar com computadores de servidor DB2 remotos através de uma rede TCP/IP. Isto inclui as bases de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para o Windows em execução no Azure Virtualização e no local utilizando o gateway de dados no local de bases de dados. Consulte o [suportado lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) do IBM DB2 plataformas e versões (deste tópico).
@@ -44,7 +44,7 @@ O conector DB2 suporta as seguintes ações de aplicação lógica:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Listar as tabelas
+## <a name="list-tables"></a>Lista de tabelas
 Criar uma aplicação lógica em nenhuma operação é composta por vários passos realizados através do portal do Microsoft Azure.
 
 Na sua aplicação lógica, pode adicionar uma ação para listar as tabelas na base de dados DB2. A ação instrui o conector para processar uma instrução de esquema DB2, tais como `CALL SYSIBM.SQLTABLES`.
@@ -277,6 +277,6 @@ Este conector suporta nas seguintes plataformas IBM DB2 e versões, bem como IBM
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/db2/). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
 

@@ -1,24 +1,19 @@
 ---
-title: "Descrição geral das métricas no Microsoft Azure | Microsoft Docs"
-description: "Saiba como personalizar a monitorização gráficos no Azure."
+title: Descrição geral das métricas no Monitor do Azure
+description: Saiba como personalizar a monitorização gráficos no Azure.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
-ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262261"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Descrição geral das métricas no Microsoft Azure
 Todos os serviços do Azure controlam as métricas-chave que permitem-lhe monitorizar o estado de funcionamento, desempenho, disponibilidade e a utilização dos seus serviços. Pode ver estas métricas no portal do Azure e também pode utilizar o [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para aceder ao conjunto completo de métricas programaticamente.
@@ -60,7 +55,7 @@ Também pode ver as quotas de utilização no painel de recursos que tenham quot
 
 Tal como com métricas, pode utilizar o [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) aceder programaticamente o conjunto completo de quotas de utilização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Receber notificações de alerta](insights-receive-alert-notifications.md) sempre uma métrica atravesse um limiar.
 * [Ativar a monitorização e diagnóstico](insights-how-to-use-diagnostics.md) para recolher métricas de alta frequência detalhadas do seu serviço.
 * [Dimensionar a contagem de instâncias automaticamente](insights-how-to-scale.md) para se certificar de que o serviço está disponível e reativa.

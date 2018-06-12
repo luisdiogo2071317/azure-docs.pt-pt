@@ -14,11 +14,12 @@ ms.date: 05/17/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 38f65804e9166a77278a11d545374461e6f6c38f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261122"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
@@ -77,7 +78,7 @@ A tabela seguinte apresenta uma lista de todos os operadores de regra de express
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| É igual a |-eq |
+| Igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa por |-startsWith |
 | Não contém |-notContains |
@@ -110,7 +111,7 @@ Por exemplo:
 
 Se pretender comparar o valor de um atributo de utilizador em relação a um número de valores diferentes pode utilizar-na ou - notIn operadores. Eis um exemplo utilizando-no operador:
 ```
-    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
 Tenha em atenção a utilização de "[" e "]" no início e no fim da lista de valores. Esta condição for avaliada como True do valor de user.department igual a um dos valores existentes na lista.
 
@@ -157,13 +158,13 @@ Operadores permitidos
 | city |Qualquer valor de cadeia ou *nulo* |(user.city - eq "value") |
 | País |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
 | companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
-| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
+| departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
 | displayName |Qualquer valor de cadeia |(user.displayName - eq "value") |
 | campo IDdeEmpregado |Qualquer valor de cadeia |(user.employeeId - eq "value")<br>(user.employeeId - ne *nulo*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName - eq "value") |
 | jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle - eq "value") |
-| correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
+| mail |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
 | mailNickName |Qualquer valor de cadeia (alias de correio do utilizador) |(user.mailNickName -eq "value") |
 | Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile - eq "value") |
 | objectId |GUID de objeto de utilizador |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |

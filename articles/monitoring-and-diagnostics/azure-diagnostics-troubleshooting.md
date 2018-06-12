@@ -1,24 +1,20 @@
 ---
-title: "Resolução de problemas de diagnóstico do Azure | Microsoft Docs"
-description: "Resolva problemas quando utiliza o diagnóstico do Azure em Virtual Machines do Azure, Service Fabric ou serviços em nuvem."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Resolução de problemas de extensão de diagnóstico do Azure
+description: Resolva problemas quando utiliza o diagnóstico do Azure em Virtual Machines do Azure, Service Fabric ou serviços em nuvem.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263851"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](azure-diagnostics.md).
@@ -38,7 +34,7 @@ Seguem-se os caminhos para alguns registos importantes e os artefactos. Vamos re
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Arquivo local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Arquivo local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
 | **Ficheiro de configuração do agente de monitorização** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Pacote de extensão de diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho do utilitário de recolha de registo** | %SystemDrive%\Packages\GuestAgent\ |
@@ -207,7 +203,7 @@ Este código gera as quatro tabelas:
 
 | Evento | Nome da tabela |
 | --- | --- |
-| fornecedor = "prov1" &lt;id de evento = "1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
+| fornecedor = "prov1" &lt;id de evento = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
 | fornecedor = "prov1" &lt;id de evento = "2" eventDestination = "dest1" /&gt; |WADdest1 |
 | fornecedor = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
 | fornecedor = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |

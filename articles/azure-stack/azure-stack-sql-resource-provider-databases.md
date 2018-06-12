@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294943"
 ---
 # <a name="create-sql-databases"></a>Criar bases de dados SQL
-Bases de dados self-service são fornecidos através da experiência do portal de utilizador. O utilizador precisa de uma subscrição que tenha uma oferta, que contém o serviço de base de dados.
+Bases de dados self-service são fornecidos através do portal de utilizador. Um utilizador de pilha do Azure tem uma subscrição que tenha uma oferta, que contém o serviço de base de dados do SQL Server.
 
 1. Iniciar sessão para o [Azure pilha](azure-stack-poc.md) portal de utilizador (administradores de serviço também podem utilizar o portal de administração).
 
@@ -54,6 +55,6 @@ Bases de dados do AlwaysOn devem aparecer como sincronizadas e estão disponíve
 ![Verifique se AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Manter o fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-maintain.md)

@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601263"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260486"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -192,7 +192,7 @@ A condição for avaliada se um **campo** cumpra determinados critérios. As con
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Ao utilizar o **como** e **notLike** condições, pode fornecer um caráter universal (*) no valor.
+Ao utilizar o **como** e **notLike** condições, pode fornecer um caráter universal (*) no valor. O valor não deve conter mais de 1 caráter universal (*).
 
 Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` para representar um dígito, `?` para uma letra e quaisquer outros carateres para representar esse caráter real. Para obter exemplos, consulte [permitir várias padrões de nome](scripts/allow-multiple-name-patterns.md).
 

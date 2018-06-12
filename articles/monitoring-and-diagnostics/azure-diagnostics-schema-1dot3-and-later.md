@@ -1,24 +1,20 @@
 ---
-title: Extensão de diagnóstico do Azure 1.3 e esquema de configuração posterior | Microsoft Docs
+title: Extensão de diagnóstico do Azure 1.3 e esquema de configuração posterior
 description: Versão do esquema de 1.3 e posterior diagnóstico do Azure vem incluído como parte do 2.4 de SDK do Microsoft Azure e mais tarde.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262380"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
 > [!NOTE]
@@ -399,7 +395,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**LocalResourceDirectory**|O diretório na máquina virtual em que o agente de monitorização armazena dados de eventos. Se não, definido, é utilizado o diretório predefinido:<br /><br /> Para uma função de trabalho/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> - **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *Árvore: - DiagnosticsConfiguration - PublicConfig - WadCFG de raiz*
  
  Identifica e configura os dados de telemetria a ser recolhido.  
 
@@ -423,7 +419,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Diretórios**|Ver descrição noutro local nesta página.|  
 |**EtwProviders**|Ver descrição noutro local nesta página.|  
 |**Métricas**|Ver descrição noutro local nesta página.|  
-|**PerformanceCounters**|Ver descrição noutro local nesta página.|  
+|**performanceCounters**|Ver descrição noutro local nesta página.|  
 |**WindowsEventLog**|Ver descrição noutro local nesta página.| 
 |**DockerSources**|Ver descrição noutro local nesta página. | 
 
@@ -557,7 +553,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento subordinado|Descrição|  
 |-------------------|-----------------|  
-|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*"|  
+|**origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*"|  
 
 
 
@@ -573,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de gravidade mínimo para as entradas de registo que são transferidos. O valor predefinido é **Undefined**, que transfere todos os registos. Outros valores possíveis (por ordem de mais informações, pelo menos,) são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|**Duração**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 |**sinks** adicionado no 1.5|**string**|Opcional. Aponta para uma localização de receptores também enviar dados de diagnóstico. Por exemplo, Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
@@ -603,12 +599,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|string|Uma cadeia que identifica o sinkname.|  
+|**name**|cadeia|Uma cadeia que identifica o sinkname.|  
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
-|**Channels**|string|Um para cada adicionais de filtragem de fluxo que|  
+|**Application Insights**|cadeia|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights que tenha acesso.|  
+|**canais**|cadeia|Um para cada adicionais de filtragem de fluxo que|  
 
 ## <a name="channels-element"></a>Elemento de canais  
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG -*
@@ -619,7 +615,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Channel**|string|Ver descrição noutro local nesta página.|  
+|**Canal**|cadeia|Ver descrição noutro local nesta página.|  
 
 ## <a name="channel-element"></a>Canal de elemento
  *Árvore: Canais de SinksConfig - Sink - raiz - DiagnosticsConfiguration - PublicConfig - WadCFG --canal*

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735169"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261564"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -159,8 +159,9 @@ Para utilizar simultaneidade otimista no .NET, utilize o [AccessCondition](https
 A API do SQL Server suporta transações de linguagem integrada através de acionadores e procedimentos armazenados do JavaScript. Todas as operações de base de dados no interior de scripts são executadas em isolamento do instantâneo. Se se tratar de uma coleção de partição única, a execução é confinada à coleção. Se a coleção estiver particionada, a execução é confinada aos documentos com o mesmo valor de chave de partição dentro da coleção. Um instantâneo das versões do documento (ETags) é tirado no início da transação e consolidado apenas se o script for concluído com êxito. Se o JavaScript emitir um erro, a transação é revertida. Para obter mais informações, consulte [programação JavaScript do lado do servidor de base de dados do Azure Cosmos](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Como pode posso inserção em massa documentos para a base de dados do Cosmos?
--Pode inserção em massa documentos para a base de dados do Azure Cosmos em qualquer uma das seguintes formas:
+-Pode inserção em massa documentos para a base de dados do Azure Cosmos das seguintes formas:
 
+* A ferramenta de executor em massa, conforme descrito em [biblioteca .NET do Using em massa executor](bulk-executor-dot-net.md) e [biblioteca Java do Using em massa executor](bulk-executor-java.md)
 * A ferramenta de migração de dados, conforme descrito em [ferramenta de migração de base de dados para a base de dados do Azure Cosmos](import-data.md).
 * Procedimentos armazenados, conforme descrito em [programação JavaScript do lado do servidor de base de dados do Azure Cosmos](programming.md).
 

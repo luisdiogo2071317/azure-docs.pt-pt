@@ -4,7 +4,7 @@ description: Cadeia de consulta do Azure CDN controla como os ficheiros são col
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260435"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controlo do Azure CDN comportamento com cadeias de consulta - escalão standard a colocação em cache
 > [!div class="op_single_selector"]
@@ -50,17 +51,17 @@ Estão disponíveis três modos de cadeia de consulta:
    
 2. No painel esquerdo em definições, clique em **regras a colocação em cache**.
    
-    ![Botão de regras de colocação em cache de CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Botão Regras de colocação em cache da CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. No **comportamento de colocação em cache de cadeia de consulta** lista, selecione um modo de cadeia de consulta, em seguida, clique em **guardar**.
    
    ![Cadeia de consulta CDN opções a colocação em cache](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Uma vez demora algum tempo para que o registo propagar pela CDN, alterações de definições de cadeia de cache poderão não ser imediatamente visíveis:
-> - Para **CDN do Azure Standard da Microsoft** perfis, propagação normalmente conclusão na dez minutos. 
-> - Para **CDN do Azure Standard da Akamai** perfis, propagação normalmente concluída num minuto. 
-> - Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, propagação normalmente for concluída dentro de 90 minutos. 
+> Uma vez demora algum tempo para que o registo propagar através da CDN do Azure, as alterações de definições de cadeia cache poderão não ser imediatamente visíveis:
+> - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+> - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+> - Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, propagação normalmente conclui em 10 minutos. 
 
 
 

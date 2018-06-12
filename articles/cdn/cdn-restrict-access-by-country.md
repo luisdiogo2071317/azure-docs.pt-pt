@@ -3,8 +3,8 @@ title: Restringir o conteúdo da CDN do Azure por país | Microsoft Docs
 description: Saiba como restringir o acesso ao seu conteúdo da CDN do Azure utilizando a funcionalidade de filtragem de georreplicação.
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260757"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restringir o conteúdo da CDN do Azure por país
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 Quando um utilizador solicita o conteúdo, por predefinição, o conteúdo for servido independentemente de onde o utilizador efetuou este pedido de. Em alguns casos, poderá querer restringir o acesso ao conteúdo por país. Este artigo explica como utilizar o *filtragem georreplicação* funcionalidade para configurar o serviço para permitir ou bloquear o acesso por país.
 
 > [!IMPORTANT]
-> Os produtos da CDN do Azure fornecem todas a mesma funcionalidade filtragem de georreplicação mas tem uma diferença pequena nos indicativos de país te suportam. Consulte o passo 3 para uma ligação para as diferenças.
+> Os produtos da CDN do Azure fornecem todas a mesma funcionalidade filtragem de georreplicação mas tem uma diferença pequena nos indicativos de país te suportam. Para obter mais informações, consulte [indicativos de país do Azure CDN](https://msdn.microsoft.com/library/mt761717.aspx).
 
 
 Para obter informações sobre as considerações que se aplicam ao configurar este tipo de restrição, consulte [considerações](cdn-restrict-access-by-country.md#considerations).  
@@ -65,14 +66,17 @@ Por exemplo, a regra do bloqueio /Photos/Strasbourg/irá filtrar ficheiros, incl
 
 
 ### <a name="country-codes"></a>Códigos de país
-A funcionalidade de filtragem de georreplicação utiliza indicativos de país para definir países/regiões do que um pedido será permitido ou bloqueado para um diretório protegido. Embora os produtos da CDN do Azure todas as fornecem a mesma funcionalidade filtragem de georreplicação, há uma pequena diferença no indicativos de país suportam. Para informações, consulte [indicativos de país do Azure CDN](https://msdn.microsoft.com/library/mt761717.aspx). 
+A funcionalidade de filtragem de georreplicação utiliza indicativos de país para definir países/regiões do que um pedido será permitido ou bloqueado para um diretório protegido. Embora os produtos da CDN do Azure todas as fornecem a mesma funcionalidade filtragem de georreplicação, há uma pequena diferença no indicativos de país suportam. Para obter mais informações, consulte [indicativos de país do Azure CDN](https://msdn.microsoft.com/library/mt761717.aspx). 
 
 ## <a name="considerations"></a>Considerações
 * As alterações à sua configuração de filtragem de país não entram em vigor imediatamente:
-   * Para **CDN do Azure Standard da Microsoft** perfis, propagação normalmente conclusão na dez minutos. 
-   * Para **CDN do Azure Standard da Akamai** perfis, propagação normalmente concluída num minuto. 
-   * Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, propagação normalmente for concluída dentro de 90 minutos.  
+   * Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+   * Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+   * Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, propagação normalmente conclui em 10 minutos. 
+ 
 * Esta funcionalidade não suporta carateres universais (por exemplo, ' *').
+
 * A configuração de filtragem de georreplicação associada com o caminho relativo será aplicado em modo recursivo para esse caminho.
-* Apenas uma regra pode ser aplicada para o mesmo caminho relativo (não é possível criar vários filtros de país que apontam para o mesmo caminho relativo. No entanto, uma pasta pode ter vários filtros de país. Isto acontece devido à natureza recursiva de filtros de país. Por outras palavras, pode ser atribuída uma subpasta da pasta configurada anteriormente um filtro de noutro país.
+
+* Apenas uma regra pode ser aplicada para o mesmo caminho relativo. Ou seja, não é possível criar vários filtros de país que apontam para o mesmo caminho relativo. No entanto, uma pasta pode ter vários filtros de país, devido à natureza recursiva de filtros de país. Por outras palavras, pode ser atribuída uma subpasta da pasta configurada anteriormente um filtro de noutro país.
 

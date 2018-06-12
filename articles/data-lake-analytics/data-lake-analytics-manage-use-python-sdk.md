@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
-ms.date: 06/18/2017
-ms.openlocfilehash: 4df5d4294708f2b475adf3fff87b122f261f8fc8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/08/2018
+ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623133"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261465"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir o Azure Data Lake Analytics com o Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,9 +34,9 @@ Este artigo descreve como gerir contas de Azure Data Lake Analytics, origens de 
 Instale os seguintes módulos:
 
 * O **azure-mgmt-recurso** módulo inclui outros módulos do Azure para o Active Directory, etc.
-* O **do azure-mgmt-datalake-store** módulo inclui as operações de gestão de conta do Azure Data Lake Store.
 * O **datalake-azure-arquivo** módulo inclui as operações de sistema de ficheiros do Azure Data Lake Store. 
-* O **análise do datalake azure** módulo inclui as operações do Azure Data Lake Analytics. 
+* O **do azure-mgmt-datalake-store** módulo inclui as operações de gestão de conta do Azure Data Lake Store.
+* O **-mgmt-datalake-análise do azure** módulo inclui as operações do Azure Data Lake Analytics. 
 
 Em primeiro lugar, certifique-se de que tem a versão mais recente `pip` executando o seguinte comando:
 

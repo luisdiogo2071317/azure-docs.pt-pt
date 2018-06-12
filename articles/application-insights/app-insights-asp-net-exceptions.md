@@ -1,6 +1,6 @@
 ---
-title: "Diagnosticar falhas e exceções em aplicações web com o Azure Application Insights | Microsoft Docs"
-description: "Capture as exceções de aplicações do ASP.NET, juntamente com a telemetria de pedido."
+title: Diagnosticar falhas e exceções em aplicações web com o Azure Application Insights | Microsoft Docs
+description: Capture as exceções de aplicações do ASP.NET, juntamente com a telemetria de pedido.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3dcf4211df5d40c4b174fd9a818d3268ffaa3a0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295715"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são reportadas pelo [Application Insights](app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos no cliente e no servidor, para que pode Diagnostique rapidamente as causas.
@@ -296,7 +297,7 @@ Todas as exceções *processado* por aplicação ainda têm de ser monitorizados
 Se utilizar end WebAPI 1 (e versões anteriores) do Application Insights Web SDK 2.5 (e versões anteriores), consulte os seguintes exemplos para controlar as exceções.
 
 #### <a name="web-api-1x"></a>Web API 1. x
-Override System.Web.Http.Filters.ExceptionFilterAttribute:
+Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
 
 ```csharp
     using System.Web.Http.Filters;
@@ -483,7 +484,7 @@ Isto é diferente da contagem de 'Exceções' calculada pelo portal do Applicati
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Monitorizar REST, SQL e outras chamadas para dependências](app-insights-asp-net-dependencies.md)
 * [Monitorizar os tempos de carregamento de página, exceções de browser e chamadas AJAX](app-insights-javascript.md)
 * [Contadores de monitor de desempenho](app-insights-performance-counters.md)

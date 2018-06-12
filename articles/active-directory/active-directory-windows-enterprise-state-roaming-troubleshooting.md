@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261156"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -79,7 +80,7 @@ Em determinadas condições, o Roaming de estado empresarial pode falhar sincron
 **Potencial problema**: sincronização pode falhar se o administrador configura a política de acesso condicional de Active Directory Federação serviços multi-factor Authentication e o token de acesso do dispositivo expira. Certifique-se de que a iniciar sessão e terminar sessão utilizando o Microsoft Passport para Work PIN ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
-Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar os erros específicos. Estes estão documentados na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync** e para problemas relacionados com a identidade com a sincronização **Microsoft** > **Windows** > **do Azure AD**.
+Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar os erros específicos. Estes estão documentados na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync** e para problemas relacionados com a identidade com a sincronização **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

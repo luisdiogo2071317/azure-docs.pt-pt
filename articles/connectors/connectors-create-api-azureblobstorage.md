@@ -2,7 +2,7 @@
 title: Ligar ao armazenamento de Blobs do Azure - Azure Logic Apps | Microsoft Docs
 description: Criar e gerir os blobs no armazenamento do Azure com Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 15d737cd85f70717bfdf15dfb3d179f977b63c72
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34723437"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294684"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerir os blobs no armazenamento de Blobs do Azure com Azure Logic Apps
 
@@ -47,7 +47,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicação lógic
 
    Este exemplo utiliza este acionador: **Blob Storage do Azure - quando um blob é adicionado ou modificados (apenas propriedades)**
 
-   ![Selecionar acionador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Selecione o acionador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
 3. Se lhe for pedida para detalhes de ligação, [criar a ligação de armazenamento de BLOBs agora](#create-connection). Em alternativa, se a ligação já existir, forneça as informações necessárias para o acionador.
 
@@ -118,6 +118,6 @@ Para obter detalhes técnicos, como acionadores, ações e limites, conforme des
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre outros [conectores Logic Apps](../connectors/apis-list.md)

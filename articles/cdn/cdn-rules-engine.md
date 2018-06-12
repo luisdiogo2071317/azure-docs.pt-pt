@@ -1,24 +1,25 @@
 ---
 title: Substituir o comportamento HTTP utilizando o motor de regras do Azure CDN | Microsoft Docs
-description: "O motor de regras permite-lhe personalizar como os pedidos de HTTP são processados pela CDN do Azure, tais como o fornecimento de determinados tipos de conteúdo a bloquear, definir uma política de colocação em cache e modificar os cabeçalhos de HTTP."
+description: O motor de regras permite-lhe personalizar como os pedidos de HTTP são processados pela CDN do Azure, tais como o fornecimento de determinados tipos de conteúdo a bloquear, definir uma política de colocação em cache e modificar os cabeçalhos de HTTP.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261054"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir o comportamento HTTP utilizando o motor de regras da CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -49,6 +50,7 @@ Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte 
     ![Botão de gerir do perfil de CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     É aberto o portal de gestão do CDN.
+
 2. Selecione o **HTTP grande** separador, em seguida, selecione **motor de regras**.
    
     São apresentadas as opções para uma nova regra.
@@ -58,7 +60,9 @@ Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte 
    > [!IMPORTANT]
    > A ordem em que várias regras estão listadas afeta a forma como são processadas. Uma regra subsequente pode substituir as ações especificadas por uma regra de anterior.
    > 
+
 3. Introduza um nome no **nome / descrição** caixa de texto.
+
 4. Identifique o tipo de pedidos que se aplica a regra. Utilizar a condição de correspondência predefinido, **sempre**. 
    
    ![Condição de correspondência de regra de CDN](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte 
    > Para obter uma lista detalhada dos termos de correspondência, consulte [regras condições de correspondência do motor](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Para adicionar uma nova funcionalidade, selecione o  **+**  junto a **funcionalidades**.  Na lista pendente no lado esquerdo, selecione **idade de máxima de interno Force**.  Na caixa de texto que aparece, introduza **300**. Não altere os valores predefinidos restantes.
+
+5. Para adicionar uma nova funcionalidade, selecione o **+** junto a **funcionalidades**.  Na lista pendente no lado esquerdo, selecione **idade de máxima de interno Force**.  Na caixa de texto que aparece, introduza **300**. Não altere os valores predefinidos restantes.
    
    ![Funcionalidade de regra CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,10 +88,11 @@ Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte 
    > Para obter uma lista detalhada das funcionalidades, consulte [regras motor funcionalidades](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Clique em de **adicionar** botão para guardar a nova regra.  A nova regra agora está a aguardar aprovação. Depois de tiver sido aprovado, o estado é alterado de **XML pendente** para **XML Active Directory**.
+
+6. Selecione **adicionar** para guardar a nova regra.  A nova regra agora está a aguardar aprovação. Depois de tiver sido aprovado, o estado é alterado de **XML pendente** para **XML Active Directory**.
    
    > [!IMPORTANT]
-   > Alterações de regras podem demorar até 90 minutos para propagar pela CDN.
+   > Alterações de regras podem demorar até 10 minutos para propagar através da CDN do Azure.
    > 
    > 
 
@@ -94,6 +100,6 @@ Para o motor de regras de acesso, tem de selecionar primeiro **gerir** da parte 
 * [Descrição geral CDN do Azure](cdn-overview.md)
 * [Referência do motor de regras](cdn-rules-engine-reference.md)
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
-* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
+* [Expressões condicionais do motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
 * [Azure sextas: Nova premium funcionalidades poderosas CDN do Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)

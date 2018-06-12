@@ -1,8 +1,8 @@
 ---
 title: Utilizando a pesquisa no Azure Application Insights | Microsoft Docs
-description: "Procurar e filtrar telemetria não processados enviada pela sua aplicação web."
+description: Procurar e filtrar telemetria não processados enviada pela sua aplicação web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294389"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizando a pesquisa no Application Insights
 Pesquisa é uma funcionalidade do [Application Insights](app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, tais como vistas de página, exceções ou pedidos da web. E pode ver os rastreios de registo e eventos que tenham codificado.
@@ -113,9 +114,9 @@ Pode querer definir uma hora de intervalo, como pesquisas através de um períod
 
 Procurar palavras concluídas, não subcadeias. Utilize aspas incluir carateres especiais.
 
-| Cadeia | é *não* encontrado por | mas estes encontrá-lo |
+| cadeia | é *não* encontrado por | mas estes encontrá-lo |
 | --- | --- | --- |
-| HomeController.About |Home page<br/>Controlador<br/>Saída | homecontroller<br/>sobre<br/>"homecontroller.about"|
+| HomeController.About |home page<br/>Controlador<br/>Saída | homecontroller<br/>acerca<br/>"homecontroller.about"|
 |Estados Unidos|Sinalização UNI<br/>TED|Unidas<br/>Estados<br/>Unidas e Estados<br/>"dos Estados Unidos"
 
 Seguem-se as expressões de pesquisa, que pode utilizar:

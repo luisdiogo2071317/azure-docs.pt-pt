@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714396"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261190"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -57,7 +57,8 @@ Para melhorar a legibilidade das descrições, este artigo utiliza o termo segui
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- O registo de dispositivos de nível inferior do Windows **é** suportada em ambientes não federada através de totalmente integrada de sessão único [do Azure Active Directory totalmente integrada Single Sign-On](https://aka.ms/hybrid/sso).
+- O registo de dispositivos de nível inferior do Windows **é** suportada em ambientes não federada através de totalmente integrada de sessão único [do Azure Active Directory totalmente integrada Single Sign-On](https://aka.ms/hybrid/sso). 
+- O registo de dispositivos de nível inferior do Windows **não é** suportados quando utilizar a autenticação pass-through do Azure AD.
 - O registo de dispositivos de nível inferior do Windows **não é** suportados para dispositivos com perfis itinerantes. Se estiver a depender de perfis ou definições de roaming, utilize o Windows 10.
 
 
@@ -81,8 +82,7 @@ Certifique-se de que os seguintes URLs são acessíveis a partir de computadores
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com Permitir
 - https://device.login.microsoftonline.com
 
 - STS da sua organização (federados domínios)
@@ -95,7 +95,7 @@ Se a sua organização está a planear utilizar o SSO totalmente integrada, em s
 
 - https://aadg.windows.net.nsatc.net
 
-- Além disso, a seguinte definição deve estar ativada na zona de intranet do utilizador: "Permitir atualizações à barra de estado através do script".
+- Além disso, a seguinte definição deve estar ativada na zona de intranet do utilizador: "Permitir atualizações da barra de estado através do script".
 
 Se a organização utilizar configuração (não federada) gerida com o AD no local e não utiliza o AD FS para federar com o Azure AD, em seguida, a associação do Azure AD híbrido no Windows 10 baseia-se nos objetos de computador no AD para ser sync'ed para o Azure AD. Certifique-se de que quaisquer unidades organizacionais (UO) que contêm os objetos de computador que tem de ser híbrida do Azure AD associado estão ativados para a sincronização na configuração de sincronização do Azure AD Connect.
 

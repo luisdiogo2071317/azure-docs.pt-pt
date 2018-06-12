@@ -3,7 +3,7 @@ title: Descrição geral de recursos do Azure PIM RBAC | Microsoft Docs
 description: Obter uma descrição geral da funcionalidade RBAC no PIM incluindo terminologia e notificações
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 304a06dee04b405c7e7acb2c73b31af426591d1d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233293"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261037"
 ---
 # <a name="pim-for-azure-resources"></a>PIM para recursos do Azure
 

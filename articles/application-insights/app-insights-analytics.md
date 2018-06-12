@@ -1,8 +1,8 @@
 ---
-title: "Análise - a pesquisa de elevado desempenho e a ferramenta de consulta do Azure Application Insights | Microsoft Docs"
-description: "Descrição geral da análise, a ferramenta de pesquisa de diagnóstico de elevado desempenho do Application Insights. "
+title: Análise - a pesquisa de elevado desempenho e a ferramenta de consulta do Azure Application Insights | Microsoft Docs
+description: 'Descrição geral da análise, a ferramenta de pesquisa de diagnóstico de elevado desempenho do Application Insights. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294205"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e a consulta poderosa de [Application Insights](app-insights-overview.md). Análise é uma ferramenta web, pelo que não é necessária nenhuma configuração. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação, abrindo a análise da sua aplicação [painel Descrição geral](app-insights-dashboards.md).

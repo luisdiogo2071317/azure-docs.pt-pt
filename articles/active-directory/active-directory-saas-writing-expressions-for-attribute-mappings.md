@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293165"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento para uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes, tem de escrever uma expressão de tipo de script que permite-lhe transformar dados dos utilizadores em formatos mais aceitáveis para a aplicação SaaS.
@@ -91,8 +92,8 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
-| **start** |Necessário |número inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
-| **comprimento** |Necessário |número inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
+| **start** |Necessário |inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
+| **comprimento** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
 
 - - -
 ### <a name="not"></a>não
@@ -176,7 +177,7 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 | **origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
 | **defaultValue** |Opcional |Cadeia |Valor predefinido a ser utilizado quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia vazia (""). |
 | **key** |Necessário |Cadeia |**Chave** para comparar **origem** valor com. |
-| **valor** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
+| **value** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa
@@ -251,12 +252,12 @@ Se o código de estado não corresponde a qualquer uma das opções predefinidas
 * **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
-## <a name="related-articles"></a>Artigos Relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Personalizar os mapeamentos de atributos para o aprovisionamento de utilizador](active-directory-saas-customizing-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
-* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](active-directory-scim-provisioning.md)
+* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Notificações de aprovisionamento de contas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](active-directory-saas-tutorial-list.md)
 

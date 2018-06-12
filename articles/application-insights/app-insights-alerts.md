@@ -1,8 +1,8 @@
 ---
 title: Definir alertas no Azure Application Insights | Microsoft Docs
-description: "Seja notificado sobre tempos de resposta lento, exceções e outros desempenho ou alterações de utilização na sua aplicação web."
+description: Seja notificado sobre tempos de resposta lento, exceções e outros desempenho ou alterações de utilização na sua aplicação web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: b0e4828b2cb6bbcb4329381e77db3b187d659706
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87be1a48a6c3320187243e549a8fb8e5ecc9e006
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293608"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [Azure Application Insights] [ start] podem alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -98,7 +99,7 @@ Não se esqueça de que [diagnósticos de taxa de falhas proativa](app-insights-
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Testes web de disponibilidade](app-insights-monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 * [Diagnóstico](app-insights-proactive-diagnostics.md) 

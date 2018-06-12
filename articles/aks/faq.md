@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596502"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260801"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
 
@@ -49,7 +49,7 @@ Enquanto AKS permanece na pré-visualização, recomendamos a criação de clust
 
 ## <a name="when-will-acs-be-deprecated"></a>Quando os ACS vão ser preteridos?
 
-ACS que vão ser preteridos perto da hora que AKS torna-se depois da disponibilidade geral Terá de 12 meses após essa data para migrar clusters para AKS. Durante o período de 12 meses, pode executar todas as operações de ACS.
+ACS que vão ser preteridos perto da hora AKS torna-se depois da disponibilidade geral Terá de 12 meses após essa data para migrar clusters para AKS. Durante o período de 12 meses, pode executar todas as operações de ACS.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS suporta o dimensionamento automático de nó?
 
@@ -76,6 +76,10 @@ Para executar os contentores do Windows Server, tem de executar nós baseado no 
 Cada implementação AKS abrange dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso AKS. O fornecedor de recursos AKS cria automaticamente um segundo durante a implementação com o nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. É criado para simplificar a limpeza de recursos.
 
 Se estiver a criar recursos que serão utilizados com o cluster AKS, tais como contas de armazenamento ou endereço IP público reservado, deve colocá-los no grupo de recursos geradas automaticamente.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>AKS oferecem um contrato de nível de serviço?
+
+Um serviço contrato de nível (SLA), o fornecedor o concordar para reimburse o cliente para o custo do serviço deve o nível de serviço publicadas não ser cumprido. Uma vez que AKS próprio livre, há sem qualquer custo disponível reimburse e assim nenhuma formal SLA. No entanto, iremos procurar o ressarcimento de manter a disponibilidade de, pelo menos, a 99,5% para o servidor de Kubernetes API.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

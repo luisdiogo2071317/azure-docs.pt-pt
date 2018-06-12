@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: Evgeny.Ternovsky;mbullwin
-ms.openlocfilehash: 1f9f7d53fc09111e0060c934e3869326fcaadb7e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: Evgeny.Ternovsky
+ms.author: mbullwin
+ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655361"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294426"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>Orientações para os dados pessoais armazenados no Application Insights
 
@@ -83,5 +84,5 @@ Assim que tiver sido atribuída a função do Azure Resource Manager, dois camin
 
 Embora a vasta maioria das operações de remoção de é concluída muito mais rápida do que o SLA, devido ao respetivo impacto nas pesada na plataforma de dados utilizado pelo Application Insights, o formal SLA para a conclusão das operações de remoção está definido no prazo de 30 dias.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como os dados são recolhidos, processados e protegidos, consulte o artigo [segurança de dados do Application Insights](app-insights-data-retention-privacy.md).

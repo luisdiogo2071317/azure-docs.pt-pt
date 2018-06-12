@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725229"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294502"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -64,9 +64,9 @@ Os seguintes passos utilizem npm para instalar as ferramentas de núcleos no Win
 
 3. Instale o pacote de ferramentas de núcleo:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>MacOS com Homebrew
 
@@ -74,9 +74,9 @@ Os passos seguintes utilizam Homebrew para instalar as ferramentas de núcleos n
 
 1. Instalar [.NET Core 2.0 para macOS](https://www.microsoft.com/net/download/macos).
 
-1. Instalar [Homebrew](https://brew.sh/), se ainda não estiver instalado.
+2. Instalar [Homebrew](https://brew.sh/), se ainda não estiver instalado.
 
-2. Instale o pacote de ferramentas de núcleo:
+3. Instale o pacote de ferramentas de núcleo:
 
     ```bash
     brew tap azure/functions
@@ -89,42 +89,43 @@ Os passos seguintes utilize [APT](https://wiki.debian.org/Apt) para instalar fer
 
 1. Instalar [2.0 do .NET Core para Linux](https://www.microsoft.com/net/download/linux).
 
-1. Registe a chave de produto da Microsoft como fidedigna:
+2. Registe a chave de produto da Microsoft como fidedigna:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Certifique-se de que o seu servidor Ubuntu executar uma das versões adequadas da tabela abaixo. Para adicionar a origem apt, execute:
+3. Certifique-se de que o seu servidor Ubuntu executar uma das versões adequadas da tabela abaixo. Para adicionar a origem apt, execute:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Distribuição de Linux | Versão |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Distribuição de Linux | Versão |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-3. Instale o pacote de ferramentas de núcleo:
+4. Instale o pacote de ferramentas de núcleo:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>Executar as ferramentas de núcleos de funções do Azure
- 
+
 Ferramentas de núcleos de funções do Azure adiciona os aliases de comando seguinte:
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 Qualquer uma destes aliases podem ser utilizadas onde `func` é ilustrado nos exemplos.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -134,13 +135,13 @@ Ao executar localmente, um projeto de funções é um diretório com os ficheiro
 
 Na janela de terminal ou numa linha de comandos, execute o seguinte comando para criar o projeto e o repositório de Git local:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 Procura o resultado semelhante ao seguinte exemplo:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -166,8 +167,9 @@ O ficheiro local.settings.json armazena as definições de aplicação, cadeias 
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -178,16 +180,17 @@ O ficheiro local.settings.json armazena as definições de aplicação, cadeias 
   }
 }
 ```
+
 | Definição      | Descrição                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Quando definido como **verdadeiro**, todos os valores são encriptados utilizando uma chave de computador local. Utilizado com `func settings` comandos. Valor predefinido é **falso**. |
-| **Valores** | Coleção de definições da aplicação utilizada ao executar localmente. **AzureWebJobsStorage** e **AzureWebJobsDashboard** são exemplos; para obter uma lista completa, consulte [referência de definições de aplicação](functions-app-settings.md). Muitos acionadores e enlaces tem uma propriedade que se refira a uma definição de aplicação, tais como **ligação** para o acionador de armazenamento de Blobs. Para essas propriedades, precisa de uma definição de aplicação definida no **valores** matriz. Isto também se aplica a qualquer propriedade de enlace definido como um nome de definição de aplicação, o valor de moldagem no sinais de percentagem, por exemplo `%AppSettingName%`. |
-| **Anfitrião** | As definições nesta secção personalizar o processo de anfitrião de funções ao executar localmente. | 
+| **Valores** | Coleção de definições da aplicação e cadeias de ligação utilizadas ao executar localmente. Estes correspondem às definições de aplicação na sua aplicação de função no Azure, tais como **AzureWebJobsStorage** e **AzureWebJobsDashboard**. Muitos acionadores e enlaces tem uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, tal como **ligação** para o [acionador de armazenamento de BLOBs](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, precisa de uma definição de aplicação definida no **valores** matriz. <br/>**AzureWebJobsStorage** é uma definição de aplicação necessária para acionadores diferentes de HTTP. Se tiver o [emulador do storage do Azure](../storage/common/storage-use-emulator.md) instalado localmente, pode definir **AzureWebJobsStorage** para `UseDevelopmentStorage=true` e ferramentas principais utiliza o emulador. Isto é útil durante o desenvolvimento, mas deverá testar com uma ligação de armazenamento real antes da implementação. |
+| **Anfitrião** | As definições nesta secção personalizar o processo de anfitrião de funções ao executar localmente. |
 | **LocalHttpPort** | Define a porta predefinida utilizada ao executar o anfitrião de funções local (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |
 | **CORS** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista de valores separados por vírgulas de mensagens em fila sem espaços. O valor de caráter universal (\*) é suportada, que permite que os pedidos de qualquer origem. |
-| **ConnectionStrings** | Contém as cadeias de ligação de base de dados para as suas funções. Cadeias de ligação neste objeto são adicionadas para o ambiente com o tipo de fornecedor de **SqlClient**.  | 
+| **ConnectionStrings** | Utilize esta coleção para as cadeias de ligação utilizadas pelo seu enlaces de funções. Esta coleção só é utilizada pelo estruturas que tem de obter as cadeias de ligação do **ConnectionStrings** secção de configuração de uma ficheiro, tal como [do Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Cadeias de ligação neste objeto são adicionadas para o ambiente com o tipo de fornecedor de [SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Itens desta coleção não são publicadas no Azure com outras definições de aplicação. Tem de adicionar explicitamente estes valores para o **cadeias de ligação** secção o **definições da aplicação** para a sua aplicação de função. |
 
-Estas definições também podem ser lidos no seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de específicas do idioma:
+Os valores de definições de aplicação de função também podem ser lidos no seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de específicas do idioma:
 
 + [Pré-compilada com c#](functions-dotnet-class-library.md#environment-variables)
 + [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
@@ -195,26 +198,37 @@ Estas definições também podem ser lidos no seu código como variáveis de amb
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-As definições no ficheiro local.settings.json apenas são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` comutador [quando publica](#publish) para se certificar de que estas definições são adicionadas para a aplicação de função no Azure.
+As definições no ficheiro local.settings.json apenas são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` comutador [quando publica](#publish) para se certificar de que estas definições são adicionadas para a aplicação de função no Azure. Os valores no **ConnectionStrings** nunca são publicadas.
 
-Quando nenhuma cadeia de ligação de armazenamento válido está definida para **AzureWebJobsStorage**, é apresentada a seguinte mensagem de erro:  
+Quando nenhuma cadeia de ligação de armazenamento válido está definida para **AzureWebJobsStorage** e não está a ser utilizado o emulador, é apresentada a seguinte mensagem de erro:  
 
 >Falta o valor para AzureWebJobsStorage no local.settings.json. Isto é necessário para todos os acionadores diferentes de HTTP. Pode executar ' func azure functionapp obtenção--as definições de aplicação <functionAppName>' ou especifique uma cadeia de ligação na local.settings.json.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>Configurar as definições da aplicação
+### <a name="get-your-storage-connection-strings"></a>Obter as cadeias de ligação de armazenamento
 
-Para definir um valor para cadeias de ligação, pode efetuar uma das seguintes opções:
-* Introduza a cadeia de ligação de [Explorador de armazenamento do Azure](http://storageexplorer.com/).
-* Utilize um dos seguintes comandos:
+Mesmo quando utilizar o emulador do storage para o desenvolvimento, poderá ser útil de teste com uma ligação de armazenamento real. Partindo do princípio de que já tem [criou uma conta de armazenamento](../storage/common/storage-create-storage-account.md), pode obter uma cadeia de ligação de armazenamento válida de uma das seguintes formas:
 
-    ```
++ Do [portal do Azure]. Navegue até à sua conta de armazenamento, selecione **chaves de acesso** no **definições**, em seguida, copie um do **cadeia de ligação** valores.
+
+  ![Copie a cadeia de ligação do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ Utilize [Explorador de armazenamento do Azure](http://storageexplorer.com/) para ligar à sua conta do Azure. No **Explorer**, expanda a sua subscrição, selecione a sua conta de armazenamento e copie a cadeia de ligação primária ou secundária. 
+
+  ![Copie a cadeia de ligação a partir do Explorador de armazenamento](./media/functions-run-local/storage-explorer.png)
+
++ Utilize ferramentas de núcleos para transferir a cadeia de ligação a partir do Azure com um dos seguintes comandos:
+
+    + Transferir todas as definições a partir de uma aplicação de função existente:
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + Obter a cadeia de ligação para uma conta de armazenamento específico:
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Ambos os comandos exigem que para primeiro início de sessão para o Azure.
 
 <a name="create-func"></a>
@@ -222,7 +236,7 @@ Para definir um valor para cadeias de ligação, pode efetuar uma das seguintes 
 
 Para criar uma função, execute o seguinte comando:
 
-```
+```bash
 func new
 ``` 
 `func new` suporta os seguintes argumentos opcionais:
@@ -235,21 +249,21 @@ func new
 
 Por exemplo, para criar um acionador de HTTP de JavaScript, execute:
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Para criar uma função acionada pela fila, execute:
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>Executar funções localmente
+## Run functions locally
 
-Para executar um projeto de funções, execute o anfitrião de funções. O anfitrião permite acionadores para todas as funções no projeto:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -268,7 +282,7 @@ func host start
 
 Quando o anfitrião de funções é iniciado, produz as funções acionadas por URL de HTTP:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -284,7 +298,7 @@ Para depurar as funções de c#, utilize `--debug vs`. Também pode utilizar [Az
 
 Para iniciar o anfitrião e configurar a depuração de JavaScript, execute:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -314,12 +328,12 @@ Certifique-se utilizar o mesmo nome de servidor e a porta que o anfitrião de fu
 
 O seguinte cURL acionadores de comando de `MyHttpTrigger` função de início rápido de um pedido GET com o _nome_ parâmetro transmitido na cadeia de consulta. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 O exemplo seguinte é a mesma função chamada a partir de um pedido POST transmitir _nome_ no corpo do pedido:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -341,7 +355,7 @@ Para transmitir dados de teste para o ponto final de administrador de uma funç�
 ```` 
 O `<trigger_input>` valor contém dados num formato esperado pela função. O seguinte exemplo de cURL é um pedido POST para um `QueueTriggerJS` função. Neste caso, a entrada é uma cadeia que é equivalente à mensagem deve ser encontrada na fila.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -364,7 +378,7 @@ Pode também invocar uma função utilizando diretamente `func run <FunctionName
 
 Por exemplo, para chamar uma função acionada por HTTP e passar o corpo de conteúdo, execute o seguinte comando:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -376,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Para publicar um projeto de funções para uma aplicação de função no Azure, utilize o `publish` comando:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -384,7 +398,7 @@ Pode utilizar as seguintes opções:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Definições de publicação local.settings.json para o Azure, que lhe pede para substituir se a definição já existe.|
+| **`--publish-local-settings -i`** |  Definições de publicação local.settings.json para o Azure, que lhe pede para substituir se a definição já existe. Se estiver a utilizar o emulador do storage, altere a definição de aplicação para um [ligação de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Tem de ser utilizado com `-i`. Substitui AppSettings no Azure com o valor local, se for diferente. Predefinição é de linha de comandos.|
 
 Este comando publica uma aplicação de função existente no Azure. Ocorre um erro quando o `<FunctionAppName>` não existe na sua subscrição. Para saber como criar uma aplicação de função a partir da linha de comandos ou janela de terminal utilizando a CLI do Azure, consulte [criar uma aplicação de função para execução sem servidor](./scripts/functions-cli-create-serverless.md).
@@ -400,7 +414,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Ferramentas de núcleos de funções do Azure é [abrir a origem e está lojado no GitHub](https://github.com/azure/azure-functions-cli).  
 No ficheiro de um pedido de erros ou funcionalidade, [abrir um problema no GitHub](https://github.com/azure/azure-functions-cli/issues). 

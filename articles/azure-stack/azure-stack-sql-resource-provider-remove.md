@@ -1,6 +1,6 @@
 ---
-title: Bases de dados SQL a utilizar na pilha do Azure | Microsoft Docs
-description: Saiba como pode implementar bases de dados do SQL Server como um serviço na pilha do Azure e os passos rápidos para implementar o adaptador de fornecedor de recursos do SQL Server.
+title: Remover o fornecedor de recursos do SQL Server na pilha do Azure | Microsoft Docs
+description: Saiba como pode remover o fornecedor de recursos do SQL Server da sua implementação de pilha do Azure.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9f90201cad0f74923460c2f25eff4de98dc6690a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294785"
 ---
-# <a name="remove-the-sql-resource-provider"></a>Remover o fornecedor de recursos SQL
+# <a name="removing-the-mysql-resource-provider"></a>Remover o fornecedor de recursos de MySQL  
+Antes de remover o fornecedor de recursos do SQL Server, é essencial primeiro de remover as dependências.
 
-Para remover o fornecedor de recursos do SQL Server, é essencial primeiro de remover quaisquer dependências:
+## <a name="remove-the-mysql-resource-provider"></a>Remover o fornecedor de recursos de MySQL 
 
-1. Certifique-se de que tem o pacote de implementação original que transferiu para esta versão do adaptador de fornecedor de recursos do SQL Server.
+1. Certifique-se de que tenha removido quaisquer dependências de fornecedor de recursos existentes do SQL Server.
 
-2. Devem ser apagadas todas as bases de dados de utilizador do fornecedor de recursos. (A eliminar as bases de dados do utilizador não elimina os dados.) Esta tarefa deve ser efetuada pelos utilizadores pessoalmente.
+  > [!NOTE]
+  > Desinstalar o fornecedor de recursos do SQL Server irá continuar, mesmo se os recursos dependentes estão a utilizar atualmente o fornecedor de recursos. 
+  
+2. Certifique-se de que tem o pacote de implementação original que transferiu para esta versão do adaptador de fornecedor de recursos do SQL Server.
+3. Volte a executar o script de implementação utilizando os seguintes parâmetros:
+    - Utilize o - desinstalar parâmetro
+    - O endereço IP ou nome DNS do ponto final com privilégios.
+    - A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios.
+    - As credenciais para a conta de administrador do serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure.
 
-3. O administrador terá de eliminar os servidores de alojamento do adaptador de fornecedor de recursos do SQL Server.
-
-4. O administrador tem de eliminar quaisquer planos que referenciam o adaptador de fornecedor de recursos do SQL Server.
-
-5. O administrador tem de eliminar todos os SKUs e quotas que estão associadas a placa de fornecedor de recursos do SQL Server.
-
-6. Volte a executar o script de implementação com os seguintes elementos:
-    - -Desinstalar parâmetro
-    - Os pontos finais do Azure Resource Manager
-    - O DirectoryTenantID
-    - As credenciais da conta de administrador de serviço
-
+## <a name="next-steps"></a>Passos Seguintes
+[Oferecer serviços aplicacionais como PaaS](azure-stack-app-service-overview.md)

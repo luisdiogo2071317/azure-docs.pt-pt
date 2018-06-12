@@ -1,24 +1,19 @@
 ---
-title: "Descrição geral de dimensionamento automático no Microsoft Azure Virtual Machines, Cloud Services e as aplicações Web | Microsoft Docs"
-description: "Descrição geral de dimensionamento automático no Microsoft Azure. Se aplica a máquinas virtuais, Cloud Services e as aplicações Web."
+title: Descrição geral de dimensionamento automático em máquinas virtuais, Cloud Services e as aplicações Web
+description: Dimensionamento automático no Microsoft Azure. Aplica-se às máquinas virtuais, conjuntos de dimensionamento de máquinas de virtuais, Cloud Services e as aplicações Web.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264675"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral de dimensionamento automático no Microsoft Azure Virtual Machines, Cloud Services e as aplicações Web
 Este artigo descreve o dimensionamento automático de Microsoft Azure está, suas vantagens e como começar a utilizá-la.  
@@ -45,7 +40,7 @@ A explicação seguinte aplica-se para as peças do diagrama anterior.
 Métricas de emissão de recursos, estas métricas mais tarde são processadas pelas regras. As métricas são fornecidos através de métodos diferentes.
 Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, enquanto que as aplicações Web e serviços em nuvem a telemetria provém diretamente a partir da infraestrutura do Azure. Algumas estatísticas frequentemente utilizadas incluem a utilização da CPU, utilização de memória, as contagens de threads, comprimento da fila e a utilização de disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns de dimensionamento automático](insights-autoscale-common-metrics.md).
 
-## <a name="custom-metrics"></a>Métricas personalizadas
+## <a name="custom-metrics"></a>Métricas Personalizadas
 Também pode tirar partido do seus próprio métricas personalizadas que pode ser emitir a sua aplicação (ões). Se tiver configurado a sua aplicação (ões) para enviar as métricas para o Application Insights pode tirar partido dessas métricas para tomar decisões se dimensionar ou não. 
 
 ## <a name="time"></a>Hora
@@ -116,7 +111,7 @@ Pode configurar através de dimensionamento automático
 | Máquinas virtuais: Conjuntos de dimensionamento de Linux |[Dimensionamento de dimensionamento da máquina virtual define no Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
 | Máquinas virtuais: Exemplo de Windows |[Configuração avançada de dimensionamento automático utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o dimensionamento automático, utilize as instruções de dimensionamento automático listadas anteriormente ou consulte os seguintes recursos:
 
 * [Azure métricas comuns para o Monitor de dimensionamento automático](insights-autoscale-common-metrics.md)

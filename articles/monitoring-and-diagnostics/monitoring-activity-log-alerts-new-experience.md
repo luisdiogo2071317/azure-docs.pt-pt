@@ -1,25 +1,19 @@
 ---
-title: Criar alertas de registo de atividade e geri-los utilizando a nova experiência de alertas no Monitor do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como criar alertas de registo de atividade no separador de alertas no Monitor do Azure
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Utilizar alertas de registo de atividade na nova experiência de alertas do Monitor do Azure
+description: Como criar alertas de registo de atividade a partir do separador de alertas (pré-visualização) no Monitor do Azure. Este artigo fornece detalhes sobre a nova experiência de utilizador para esta funcionalidade.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: ''
-ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 10cd4e2ea14ab66a44ba2123e025b3d1b91f385c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263569"
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Criar registo de atividade alertas utilizando os alertas de nova experiência
 

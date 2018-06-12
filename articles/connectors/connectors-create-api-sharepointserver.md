@@ -1,11 +1,11 @@
 ---
 title: Utilizar o conector do servidor do SharePoint nas suas Logic Apps | Microsoft Docs
-description: "Começar a utilizar o conector do SharePoint Server, nas suas Logic apps"
+description: Começar a utilizar o conector do SharePoint Server, nas suas Logic apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c153b4987e37a5d97b95d4f1249de1ed92e851b3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295949"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Começar a utilizar o conector do SharePoint
 O conector do SharePoint fornece uma forma para trabalhar com apresenta uma lista do SharePoint.
@@ -31,7 +32,7 @@ Para utilizar o conector do SharePoint, tem primeiro de criar um **ligação** ,
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Certificado de |Sim |Forneça credenciais do SharePoint |
+| Certificado de |Sim |Fornecer Credenciais do SharePoint |
 
 Para ligar ao **SharePoint**, introduza a sua identidade (nome de utilizador e palavra-passe, as credenciais de smartcart e assim sucessivamente). Assim que tiver autenticado, pode continuar a utilizar o conector do SharePoint na sua aplicação lógica. 
 

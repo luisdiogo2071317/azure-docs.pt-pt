@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850530"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261088"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -47,7 +47,7 @@ No brief, eis como criação de partições funciona do BD Azure Cosmos:
 
 * Aprovisionar um conjunto de contentores de base de dados do Azure Cosmos com **T** débito RU/s (pedidos por segundo).
 * Nos bastidores, a base de dados do Azure Cosmos Aprovisiona partições físicas necessárias para servir **T** pedidos por segundo. Se **T** é superior ao débito máximo por partição física **t**, em seguida, a base de dados do Azure Cosmos Aprovisiona **N = T/t** partições físicas. O valor de débito máximo por partition(t) é configurado pelo Azure Cosmos DB, este valor está atribuído com base no débito aprovisionado total e a configuração de hardware utilizada. 
-* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições físicas. Assim, cada físico anfitriões de partição **1/N** (partições lógicas) de valores de chave de partição.
+* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições físicas. Deste modo, o número de partições lógicas anfitriões cada partição física é **1/N** * número de valores de chave de partição.
 * Quando uma partição física **p** atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide **p** em duas partições físicas novo, **p1** e **p2**. Distribui-lo valores que correspondem a aproximadamente metade das chaves para cada uma das partições físicas novo. Esta operação de divisão é completamente invisível para a aplicação. Se uma partição física atinge o limite de armazenamento e todos os dados na partição física pertence a mesma chave de partição lógica, a operação de divisão não ocorrer. Isto acontece porque todos os dados para uma chave de partição lógica única tem de residir na mesma partição física. Neste caso, deve ser utilizada uma estratégia de chave de partição diferentes.
 * Quando aprovisionar o débito superior **t * N**, base de dados do Azure Cosmos divide uma ou mais das suas partições físicas para suportar um maior débito.
 
@@ -61,6 +61,8 @@ A semântica para as chaves de partição é ligeiramente diferente para corresp
 | Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
 
 BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. 
+
+## <a name="best-practices-when-choosing-a-partition-key"></a>Melhores práticas ao escolher uma chave de partição
 
 A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Escolha um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. É uma melhor prática de ter uma chave de partição com um grande número de valores distintos (por exemplo, centenas ou milhares). Permite-lhe distribuir a carga de trabalho uniformemente em todos estes valores. Uma chave de partição ideal é aquele que aparece frequentemente como um filtro em consultas e tem cardinalidade suficiente para garantir a sua solução escalável.
 

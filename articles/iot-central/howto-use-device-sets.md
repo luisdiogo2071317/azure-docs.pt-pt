@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d27e687acf62e4a1e96f1bb49607618dff45512b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628509"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261683"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilizar conjuntos de dispositivo na sua aplicação do Azure IoT Central
 
@@ -86,10 +86,40 @@ Depois de criar o conjunto de dispositivos, pode configurar o respetivo **Dashbo
 
     > [!NOTE]
     > Pode adicionar várias imagens, ligações e grelhas.
-
-1. Desativar **modo de estrutura**.
+  
+    1. Desativar **modo de estrutura**.
 
     ![Modo de desenho desativado](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard 
+Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa. 
+
+Para poder adicionar um mapa de localização para o dispositivo define o dashboard tem de ter propriedade de localização configurado no seu modelo do dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
+
+
+1. No Dashboard de conjuntos de dispositivo, selecione o mapa da biblioteca. 
+
+    ![Dispositivo define os mapas de Dashboard](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Dê um título e escolha a propriedade de localização que configurou anteriormente como parte da sua propriedade do dispositivo.
+
+    ![Configurar os mapeamentos de Dashboard](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Guardar e irá ver o mapa de mosaico apresenta a localização dos seus dispositivos no conjunto de dispositivos.
+
+    ![Guardar o Maps de Dashboard](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Agora, quando um operador vistas do dashboard de conjuntos de dispositivo, ela consegue ver todos os mosaicos configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante!
+
+    ![Vista do dashboard de operador de Maps](media/howto-use-device-sets/LocationMaps4.png)
+
+    Será possível redimensionar o mapa para o seu tamanho pretendido.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o conjunto de dispositivos
 

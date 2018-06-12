@@ -1,11 +1,11 @@
 ---
 title: Conector de Trello no Azure Logic Apps | Microsoft Docs
-description: "Crie aplicações lógicas com o App service do Azure. Trello dá-lhe perspetiva através de todos os seus projetos, no trabalho e em casa.  É uma forma fácil, gratuita, flexível e visual para gerir os seus projetos e organizar qualquer coisa.  Ligar ao Trello para gerir os seus quadros, listas e cartões"
+description: Crie aplicações lógicas com o App service do Azure. Trello dá-lhe perspetiva através de todos os seus projetos, no trabalho e em casa.  É uma forma fácil, gratuita, flexível e visual para gerir os seus projetos e organizar qualquer coisa.  Ligar ao Trello para gerir os seus quadros, listas e cartões
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f7fefde5f35c65d707ad96a475935dd0d791259
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296191"
 ---
 # <a name="get-started-with-the-trello-connector"></a>Começar a utilizar o conector Trello
 Trello dá-lhe perspetiva através de todos os seus projetos, no trabalho e em casa.  É uma forma fácil, gratuita, flexível e visual para gerir os seus projetos e organizar qualquer coisa.  Ligar ao Trello para gerir os seus quadros, listas e cartões.
@@ -31,7 +32,7 @@ Para criar aplicações lógicas com Trello, primeiro crie um **ligação**e int
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Certificado de |Sim |Fornecer Credenciais do Trello |
+| Certificado de |Sim |Forneça credenciais Trello |
 
 Depois de criar a ligação, pode utilizá-lo para executar as ações e escutar de acionadores.
 

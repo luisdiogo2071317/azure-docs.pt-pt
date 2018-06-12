@@ -1,24 +1,19 @@
 ---
-title: Invocar um webhook num alerta de registo de atividade do Azure | Microsoft Docs
-description: "Saiba como encaminhar eventos de registo de atividade para outros serviços para ações personalizadas. Por exemplo, pode enviar mensagens SMS, registo de erros ou notificar a equipa através de um chat ou o serviço de mensagens."
+title: Invocar um webhook num alerta de registo de atividade do Azure (clássica)
+description: Saiba como encaminhar eventos de registo de atividade para outros serviços para ações personalizadas. Por exemplo, pode enviar mensagens SMS, registo de erros ou notificar a equipa através de um chat ou o serviço de mensagens.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262465"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Invocar um webhook num alerta de registo de atividade do Azure
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas de pós-processamento ou de ações personalizadas. Pode utilizar um webhook num alerta para o encaminhar para os serviços que enviam mensagens de SMS, para o registo de erros, notificar a equipa através de chat ou serviços de mensagens ou para várias outras ações. Também pode configurar um alerta de registo de atividade para enviar correio eletrónico quando um alerta é ativado.
@@ -107,11 +102,11 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os aler
 | Nome do elemento | Descrição |
 | --- | --- |
 | status |Utilizado para os alertas de métricas. Existência de alertas de registo de atividade, sempre definido como ativado.|
-| context |O contexto do evento. |
+| Contexto |O contexto do evento. |
 | activityLog | As propriedades de registo do evento.|
 | Autorização |As propriedades de controlo de acesso baseado em funções (RBAC) do evento. Estas propriedades incluem, normalmente, **ação**, **função**, e **âmbito**. |
 | action | A ação capturada pelo alerta. |
-| Âmbito | O âmbito do alerta (ou seja, o recurso).|
+| scope | O âmbito do alerta (ou seja, o recurso).|
 | canais | A operação. |
 | afirmações | Uma coleção de informações que está relacionada com as afirmações. |
 | chamador |O GUID ou nome de utilizador do utilizador que executou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. Pode ser um valor nulo para determinadas chamadas de sistema. |

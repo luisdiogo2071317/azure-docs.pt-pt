@@ -2,7 +2,7 @@
 title: Ligar à base de dados IBM Informix - Azure Logic Apps | Microsoft Docs
 description: Gerir os recursos com as APIs REST do IBM Informix e Azure Logic Apps
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609393"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296041"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Começar a utilizar o conector Informix
 Conector do Microsoft para Informix liga as Logic Apps aos recursos armazenados numa base de dados IBM Informix. O conector Informix inclui o cliente Microsoft para comunicar com computadores remotos de servidor Informix através de uma rede TCP/IP. Isto inclui as bases de dados de nuvem, tais como IBM Informix para o Windows em execução no Azure Virtualização e no local utilizando o gateway de dados no local de bases de dados. Consulte o [suportado lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) do IBM Informix plataformas e versões (deste tópico).
@@ -44,7 +44,7 @@ Este conector suporta as seguintes ações de aplicação lógica:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Listar as tabelas
+## <a name="list-tables"></a>Lista de tabelas
 Criar uma aplicação lógica em nenhuma operação é composta por vários passos realizados através do portal do Microsoft Azure.
 
 Na sua aplicação lógica, pode adicionar uma ação para listar tabelas numa base de dados Informix. Esta ação instrui o conector para processar uma instrução de esquema Informix, tais como `CALL SYSIBM.SQLTABLES`.
@@ -272,6 +272,6 @@ Este conector suporta as seguintes versões do IBM Informix, quando configurado 
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/informix/). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
 

@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 58245478cf49c030c435b487e233bbc893a2b9a3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296361"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicione as métricas expandidas para máquinas virtuais do Azure
 
@@ -74,6 +75,6 @@ Para ver métricas de desempenho nas instâncias do Azure no portal do Cloudyn, 
 
 ![Explorador de instância](./media/azure-vm-extended-metrics/instance-explorer.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Se já ainda não ativou o acesso à API do Azure Resource Manager para as contas, avance para [subscrições do Azure ativar e contas](activate-subs-accounts.md)

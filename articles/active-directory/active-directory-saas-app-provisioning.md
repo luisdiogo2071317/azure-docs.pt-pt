@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247949"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293301"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o utilizador o aprovisionamento automatizado para aplicações SaaS?
@@ -71,7 +71,7 @@ Funcionalidades do Azure AD pré-integrado suporte para uma variedade de aplica�
 
 Para obter uma lista de todas as aplicações para o qual o AD do Azure suporta um conector de aprovisionamento previamente integrado, consulte o [lista de tutoriais de aplicação para o aprovisionamento de utilizador](active-directory-saas-tutorial-list.md).
 
-Para obter informações sobre como adicionar suporte para o aprovisionamento de utilizador do Azure AD para uma aplicação, consulte [a utilizar o SCIM para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações](active-directory-scim-provisioning.md).
+Para obter informações sobre como adicionar suporte para o aprovisionamento de utilizador do Azure AD para uma aplicação, consulte [a utilizar o SCIM para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 Contactar o Azure AD engenharia equipa para pedir suporte aprovisionamento para aplicações adicionais, enviar uma mensagem através de [fórum de comentários do Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
@@ -106,7 +106,7 @@ No ecrã de gestão de aplicações, aprovisionamento está configurado no **apr
 
     * **Filtro de valores de atributo** -usando o menu "Âmbito de objeto de origem" nos mapeamentos de atributos permite a filtragem de valores de atributo específico. Por exemplo, pode especificar que apenas os utilizadores com um atributo de "Departamento" de "Vendas" devem estar no âmbito de aprovisionamento. Para obter mais informações, consulte [utilizando filtros de âmbito](active-directory-saas-scoping-filters.md).
 
-    * **Filtro em atribuições de** -o menu de "Âmbito" o aprovisionamento > da secção definições do portal permite-lhe especificar se devem ser apenas "atribuídos" os utilizadores e grupos no âmbito de aprovisionamento ou se devem ser todos os utilizadores no diretório do Azure AD aprovisionado. Para obter informações sobre "atribuir" utilizadores e grupos, consulte [atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filtro em atribuições de** -o menu de "Âmbito" o aprovisionamento > da secção definições do portal permite-lhe especificar se devem ser apenas "atribuídos" os utilizadores e grupos no âmbito de aprovisionamento ou se devem ser todos os utilizadores no diretório do Azure AD aprovisionado. Para obter informações sobre "atribuir" utilizadores e grupos, consulte [atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
     
 * **Definições** controlam o funcionamento do serviço aprovisionamento para uma aplicação, incluindo se está em execução ou não.
 
@@ -126,7 +126,7 @@ Quando o Azure AD é o sistema de origem, o serviço de aprovisionamento utiliza
 Quando é iniciado o serviço de aprovisionamento, será a primeira sincronização efetuada alguma vez:
 
 1. Consultar todos os utilizadores e grupos de sistema de origem, obter todos os atributos definidos no [mapeamentos de atributos](active-directory-saas-customizing-attribute-mappings.md).
-2. Filtrar os utilizadores e grupos devolvidos, utilizando qualquer configurado [atribuições](active-directory-coreapps-assign-user-azure-portal.md) ou [filtros de âmbito baseadas em atributos](active-directory-saas-scoping-filters.md).
+2. Filtrar os utilizadores e grupos devolvidos, utilizando qualquer configurado [atribuições](manage-apps/assign-user-or-group-access-portal.md) ou [filtros de âmbito baseadas em atributos](active-directory-saas-scoping-filters.md).
 3. Quando é encontrado um utilizador que seja atribuído ou no âmbito de aprovisionamento, o serviço de consulta o sistema de destino para um utilizador correspondente utilizando designado [correspondente atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Exemplo: Se o nome de userPrincipal no sistema de origem é o atributo correspondente e mapeia para o nome de utilizador no sistema de destino, em seguida, o serviço de aprovisionamento consulta o sistema de destino para nomes de utilizador que correspondem aos valores de nome userPrincipal no sistema de origem.
 4. Se um utilizador correspondente não foi encontrado no sistema de destino, é criada utilizando os atributos devolvidos do sistema de origem.
 5. Se um utilizador correspondente for encontrado, é atualizado com os atributos fornecidos pelo sistema de origem.
@@ -139,7 +139,7 @@ Algumas aplicações, tais como o ServiceNow, Google Apps, caixa de suporte e n�
 Após a sincronização inicial, todas as sincronizações subsequentes irão:
 
 1. Consulta o sistema de origem para os utilizadores e grupos que tenham sido atualizados desde que foi armazenada a marca d'água último.
-2. Filtrar os utilizadores e grupos devolvidos, utilizando qualquer configurado [atribuições](active-directory-coreapps-assign-user-azure-portal.md) ou [filtros de âmbito baseadas em atributos](active-directory-saas-scoping-filters.md).
+2. Filtrar os utilizadores e grupos devolvidos, utilizando qualquer configurado [atribuições](manage-apps/assign-user-or-group-access-portal.md) ou [filtros de âmbito baseadas em atributos](active-directory-saas-scoping-filters.md).
 3. Quando é encontrado um utilizador que seja atribuído ou no âmbito de aprovisionamento, o serviço de consulta o sistema de destino para um utilizador correspondente utilizando designado [correspondente atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
 4. Se um utilizador correspondente não foi encontrado no sistema de destino, é criada utilizando os atributos devolvidos do sistema de origem.
 5. Se um utilizador correspondente for encontrado, é atualizado com os atributos fornecidos pelo sistema de origem.
@@ -242,7 +242,7 @@ Contacte-nos através do [fórum de comentários do Azure Active Directory](http
 * [Personalizar os mapeamentos de atributos para o aprovisionamento de utilizador](active-directory-saas-customizing-attribute-mappings.md)
 * [Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
-* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](active-directory-scim-provisioning.md)
+* [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Descrição geral de API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Plano de implementação passo a passo para aprovisionamento de utilizadores de saída de uma aplicação](https://aka.ms/userprovisioningdeploymentplan)
 

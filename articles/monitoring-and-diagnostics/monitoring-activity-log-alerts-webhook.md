@@ -1,22 +1,19 @@
 ---
-title: Compreender o esquema de webhook utilizado nos alertas do registo de atividade | Microsoft Docs
+title: Compreender o esquema de webhook utilizado nos alertas do registo de atividade
 description: Saiba mais sobre o esquema de JSON que é registado para um URL do webhook quando ativa a um alerta de registo de atividade.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263244"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas de ações de pós-processamento ou personalizados. Este artigo mostra que aspeto o payload para o POST de HTTP para um webhook.
@@ -134,10 +131,10 @@ Para detalhes de esquema específico em todos os outros alertas de registo de at
 | Nome do elemento | Descrição |
 | --- | --- |
 | status |Utilizado para os alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
-| context |Contexto do evento. |
+| Contexto |Contexto do evento. |
 | resourceProviderName |O fornecedor de recursos do recurso afetado. |
 | conditionType |Sempre "evento de". |
-| nome |Nome da regra de alerta. |
+| name |Nome da regra de alerta. |
 | ID |ID de recurso do alerta. |
 | descrição |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |ID da subscrição do Azure. |

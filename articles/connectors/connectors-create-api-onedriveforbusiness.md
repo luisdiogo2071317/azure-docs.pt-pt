@@ -2,7 +2,7 @@
 title: Ligar para o OneDrive para empresas - as do Azure Logic Apps | Microsoft Docs
 description: Carregar e gerir ficheiros com o OneDrive para APIs REST de empresas e Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/18/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: cf0541fc4271766ed5fe2e9720c6312f229bc450
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609599"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295647"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Começar a utilizar o OneDrive para o conector de negócio
 Ligar para o OneDrive para empresas para gerir os seus ficheiros. Pode efetuar várias ações, como o carregamento, atualizar, obter e eliminar ficheiros.

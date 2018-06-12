@@ -1,11 +1,11 @@
 ---
-title: "Conector Wunderlist posso aplicações lógicas do Azure n | Microsoft Docs"
-description: "Criar uma ligação a Wunderlist e utilizar esta ligação para criar o fluxo de trabalho das logic apps."
+title: Conector Wunderlist posso aplicações lógicas do Azure n | Microsoft Docs
+description: Criar uma ligação a Wunderlist e utilizar esta ligação para criar o fluxo de trabalho das logic apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ed9b19700157abca6e5ac4265f1e8c99a3d846d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296378"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Começar a utilizar o conector Wunderlist
 Wunderlist é um Gestor de lista e tarefas de tarefas para ajudar os utilizadores concluam as respetivas tarefas.  Se estiver a partilhar uma lista de grocery a trabalhar num projeto ou planeamento das férias, Wunderlist facilita o processo de captura, partilhar e concluir os itens de lista. Wunderlist instantaneamente sincroniza-se entre o seu telefone, o tablet e o computador, para que possa aceder a todas as tarefas a partir de qualquer lugar.
@@ -31,7 +32,7 @@ Para criar aplicações lógicas com Wunderlist, primeiro tem de criar um **liga
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Certificado de |Sim |Fornecer Credenciais de Wunderlist |
+| Certificado de |Sim |Forneça credenciais Wunderlist |
 
 Depois de criar a ligação, pode utilizá-lo para executar as ações e escutar de acionadores.
 

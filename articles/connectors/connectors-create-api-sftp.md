@@ -1,11 +1,11 @@
 ---
 title: Saiba como utilizar o conector SFTP nas suas logic apps | Microsoft Docs
-description: "Crie aplicações lógicas com o App service do Azure. Ligar à API do SFTP para enviar e receber ficheiros. Pode realizar várias operações, tais como criar, atualizar, obterem ou eliminar ficheiros."
+description: Crie aplicações lógicas com o App service do Azure. Ligar à API do SFTP para enviar e receber ficheiros. Pode realizar várias operações, tais como criar, atualizar, obterem ou eliminar ficheiros.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: ee4dd59bd7b4c09cccadfff29868029559955c28
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296007"
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Começar a utilizar o conector SFTP
 Utilize o conector SFTP para aceder a uma conta SFTP para enviar e receber ficheiros. Pode realizar várias operações, tais como criar, atualizar, obterem ou eliminar ficheiros.  

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 562fc4a08e2d59739b53cb06c37a880616c9143f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5c33e1a5568de5fffb5ea9cedb43bdc04aeaeba7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234823"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293847"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para as métricas e eventos personalizados
 
@@ -48,7 +48,7 @@ Se ainda não tem uma referência no Application Insights SDK:
   * [Projeto de Java](app-insights-java-get-started.md)
   * [Projeto de node.js](app-insights-nodejs.md)
   * [JavaScript em cada página Web](app-insights-javascript.md) 
-* No código do seu dispositivo ou servidor Web, inclua:
+* No seu código de servidor web ou de dispositivo, incluem:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -353,7 +353,7 @@ A telemetria está disponível no `customMetrics` tabela no [Application Insight
 * `valueSum` -Esta é a soma dos valores. Para obter o valor médio, dividir por `valueCount`.
 * `valueCount` -O número de valores que foram agregados neste `trackMetric(..)` chamada.
 
-## <a name="page-views"></a>Visualizações da página
+## <a name="page-views"></a>Vistas de página
 Numa aplicação ou página Web de dispositivo, a telemetria de visualizações de página é enviada por predefinição quando cada ecrã ou a página é carregada. Mas pode alterar que para controlar as vistas de página em alturas diferentes ou adicionais. Por exemplo, numa aplicação que apresenta os separadores ou em painéis, pode querer controlar uma página sempre que o utilizador abre um novo painel.
 
 ![Lente de utilização no painel de descrição geral](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)

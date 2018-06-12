@@ -1,24 +1,19 @@
 ---
-title: "Configurar webhooks em alertas métricas do Azure | Microsoft Docs"
-description: "Saiba como reroute alertas do Azure para sistemas de outros, não do Azure."
+title: Um alerta de métrica clássico notificar um sistema não do Azure utilizando um webhook
+description: Saiba como reroute alertas métricas do Azure para sistemas de outros, não do Azure.
 author: johnkemnetz
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262356"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook num alerta métrico do Azure
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas de ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para os serviços que enviam mensagens de SMS, para o registo de erros, notificar a equipa através de chat ou serviços de mensagens ou para várias outras ações. 
@@ -80,15 +75,15 @@ A operação POST contém as seguinte payload JSON e o esquema para todos os ale
 | Campo | Obrigatório | Fixo conjunto de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |S |Ativado, resolvido |O estado para o alerta com base nas condições definido. |
-| context |S | |O contexto do alerta. |
+| Contexto |S | |O contexto do alerta. |
 | carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
 | ID |S | |Cada regra de alerta tem um ID exclusivo. |
-| nome |S | |O nome do alerta. |
+| name |S | |O nome do alerta. |
 | descrição |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica do evento |São suportados dois tipos de alertas: métricas e eventos. Alertas métricas baseiam-se numa condição de métrica. Alertas de eventos são baseadas num evento no registo de atividade. Utilize este valor para verificar se o alerta é baseado numa métrica ou um evento. |
 | condição |S | |Os campos específicos para verificar se baseiam o **conditionType** valor. |
 | metricName |Existência de alertas métricas | |O nome da métrica que define o que monitoriza a regra. |
-| metricUnit |Existência de alertas métricas |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |A unidade permitida na métrica. Consulte [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Existência de alertas métricas |Bytes, BytesPerSecond, Count, CountPerSecond, por cento, segundos |A unidade permitida na métrica. Consulte [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Existência de alertas métricas | |O valor real da métrica que causou o alerta. |
 | Limiar |Existência de alertas métricas | |O valor de limiar em que o alerta está ativado. |
 | windowSize |Existência de alertas métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. O valor tem de estar entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |

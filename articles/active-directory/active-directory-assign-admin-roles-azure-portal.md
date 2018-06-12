@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234618"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260418"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -54,7 +54,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Administrador de serviço do Exchange**: os utilizadores com esta função permissões global dentro do Microsoft Exchange Online, quando o serviço está presente. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Administrador global / administrador da empresa**: os utilizadores com esta função tem acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que federar ao Azure Active Directory como o Exchange Online, SharePoint Online, e Skype para empresas Online. A pessoa que se inscreve para o inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Só pode existir mais do que um administrador global da sua empresa. Administradores globais podem repor a palavra-passe para qualquer utilizador e de todos os outros administradores.
+* **Administrador global / administrador da empresa / administrador inquilino**: os utilizadores com esta função tem acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que federar ao Azure Active Directory como o Exchange Online, O SharePoint Online e Skype para empresas Online. A pessoa que se inscreve para o inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Só pode existir mais do que um administrador global da sua empresa. Administradores globais podem repor a palavra-passe para qualquer utilizador e de todos os outros administradores.
 
   > [!NOTE]
   > Na Microsoft Graph API, AD Graph API do Azure e Azure AD PowerShell, esta função é identificada como "Administrador da empresa". Faz o "Administrador Global" do [portal do Azure](https://portal.azure.com).

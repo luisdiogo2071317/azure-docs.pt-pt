@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 841b11421b7198efc7fc9bb3226c7b067fcbbdc4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598832"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294899"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviado a partir de [Application Insights](app-insights-overview.md) SDKs para o portal.
@@ -159,7 +159,7 @@ Eventos personalizados gerados pelo [trackevent ()](app-insights-api-custom-even
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de eventos [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de eventos [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | nome do evento [0] |cadeia |Nome do evento.  Comprimento de máximo 250. |
 | url de eventos [0] |cadeia | |
 | o evento [0] urlData.base |cadeia | |
@@ -171,7 +171,7 @@ Relatórios [exceções](app-insights-asp-net-exceptions.md) no servidor e no br
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | assemblagem basicException [0] |cadeia | |
-| Contagem de basicException [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de basicException [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | exceptionGroup basicException [0] |cadeia | |
 | exceptionType basicException [0] |cadeia | |
 | failedUserCodeMethod basicException [0] |cadeia | |
@@ -188,8 +188,8 @@ Relatórios [exceções](app-insights-asp-net-exceptions.md) no servidor e no br
 | outerId basicException [0] |cadeia | |
 | assemblagem de parsedStack [0] basicException [0] |cadeia | |
 | o nome de ficheiro do basicException [0] parsedStack [0] |cadeia | |
-| nível de parsedStack [0] basicException [0] |inteiro | |
-| linha de parsedStack [0] basicException [0] |inteiro | |
+| nível de parsedStack [0] basicException [0] |número inteiro | |
+| linha de parsedStack [0] basicException [0] |número inteiro | |
 | método de parsedStack [0] basicException [0] |cadeia | |
 | pilha basicException [0] |cadeia |Comprimento de máximo 10 mil |
 | typeName basicException [0] |cadeia | |
@@ -212,7 +212,7 @@ Enviada pelo TrackDependency. Utilizado para desempenho de relatório e a utiliz
 | async remoteDependency [0] |boolean | |
 | baseName remoteDependency [0] |cadeia | |
 | commandName remoteDependency [0] |cadeia |Por exemplo "home/index" |
-| Contagem de remoteDependency [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de remoteDependency [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | dependencyTypeName remoteDependency [0] |cadeia |HTTP, SQL,... |
 | durationMetric.value remoteDependency [0] |número |Tempo da chamada para a conclusão da resposta pela dependência |
 | id de remoteDependency [0] |cadeia | |
@@ -230,11 +230,11 @@ Enviada pelo [TrackRequest](app-insights-api-custom-events-metrics.md#trackreque
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de pedido [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo: 4 =&gt; 25%. |
+| Contagem de pedido [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo: 4 =&gt; 25%. |
 | durationMetric.value pedido [0] |número |Tempo do pedido que chegam a resposta. 1e7 = = 1s |
-| id do pedido [0] |cadeia |ID da operação |
+| id do pedido [0] |cadeia |Id de operação |
 | nome do pedido [0] |cadeia |GET/POST + url base.  Comprimento de máximo 250 |
-| responseCode pedido [0] |inteiro |Resposta HTTP enviada ao cliente |
+| responseCode pedido [0] |número inteiro |Resposta HTTP enviada ao cliente |
 | sucesso de pedido [0] |boolean |Predefinição = = (responseCode &lt; 400) |
 | url do pedido [0] |cadeia |Não, incluindo anfitriões |
 | urlData.base pedido [0] |cadeia | |
@@ -248,26 +248,26 @@ Mostram valores de contexto SO de cliente e a versão do browser.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| clientProcess.value clientPerformance [0] |inteiro |Hora de fim da receção de HTML para apresentar a página. |
+| clientProcess.value clientPerformance [0] |número inteiro |Hora de fim da receção de HTML para apresentar a página. |
 | nome de clientPerformance [0] |cadeia | |
-| networkConnection.value clientPerformance [0] |inteiro |Tempo decorrido para estabelecer uma ligação de rede. |
-| receiveRequest.value clientPerformance [0] |inteiro |Hora de fim de enviar o pedido para receber o HTML no reply. |
-| sendRequest.value clientPerformance [0] |inteiro |Tempo de demora a enviar o pedido HTTP. |
-| total.value clientPerformance [0] |inteiro |Tempo de começar a enviar o pedido para apresentar a página. |
+| networkConnection.value clientPerformance [0] |número inteiro |Tempo decorrido para estabelecer uma ligação de rede. |
+| receiveRequest.value clientPerformance [0] |número inteiro |Hora de fim de enviar o pedido para receber o HTML no reply. |
+| sendRequest.value clientPerformance [0] |número inteiro |Tempo de demora a enviar o pedido HTTP. |
+| total.value clientPerformance [0] |número inteiro |Tempo de começar a enviar o pedido para apresentar a página. |
 | url de clientPerformance [0] |cadeia |URL deste pedido |
 | urlData.base clientPerformance [0] |cadeia | |
 | urlData.hashTag clientPerformance [0] |cadeia | |
 | urlData.host clientPerformance [0] |cadeia | |
 | urlData.protocol clientPerformance [0] |cadeia | |
 
-## <a name="page-views"></a>Vistas de Página
+## <a name="page-views"></a>Vistas de página
 Enviada pelo trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Contagem de visualizações [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
-| Ver durationMetric.value [0] |inteiro |Valor, opcionalmente, definido na trackPageView() ou startTrackPage() - stopTrackPage(). Não igual clientPerformance valores. |
-| nome da vista [0] |cadeia |Título da página.  Comprimento de máximo 250 |
+| Contagem de visualizações [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Ver durationMetric.value [0] |número inteiro |Valor, opcionalmente, definido na trackPageView() ou startTrackPage() - stopTrackPage(). Não igual clientPerformance valores. |
+| nome da vista [0] |cadeia |Título de página.  Comprimento de máximo 250 |
 | url da vista [0] |cadeia | |
 | Ver urlData.base [0] |cadeia | |
 | Ver urlData.hashTag [0] |cadeia | |
@@ -280,9 +280,9 @@ Relatórios [testes web de disponibilidade](app-insights-monitor-web-app-availab
 | --- | --- | --- |
 | availabilityMetric.name disponibilidade [0] |cadeia |disponibilidade |
 | availabilityMetric.value disponibilidade [0] |número |1.0 ou 0,0 |
-| Contagem de disponibilidade [0] |inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
+| Contagem de disponibilidade [0] |número inteiro |100 / ([amostragem](app-insights-sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | dataSizeMetric.name disponibilidade [0] |cadeia | |
-| dataSizeMetric.value disponibilidade [0] |inteiro | |
+| dataSizeMetric.value disponibilidade [0] |número inteiro | |
 | durationMetric.name disponibilidade [0] |cadeia | |
 | durationMetric.value disponibilidade [0] |número |Duração de teste. 1e7 = = 1s |
 | mensagem de disponibilidade [0] |cadeia |Falha de diagnóstico |

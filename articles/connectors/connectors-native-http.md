@@ -3,7 +3,7 @@ title: Comunicar com qualquer ponto final através de HTTP - Azure Logic Apps | 
 description: Criar as logic apps que podem comunicar com qualquer ponto final através de HTTP
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296429"
 ---
 # <a name="get-started-with-the-http-action"></a>Começar com a ação de HTTP
 
@@ -114,9 +115,9 @@ A * significa que é um campo obrigatório.
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Método * |método |O verbo HTTP a utilizar |
-| URI * |uri |O URI do pedido de HTTP |
-| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
-| Corpo |corpo |O corpo do pedido HTTP |
+| URI * |URI |O URI do pedido de HTTP |
+| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
+| Corpo |Corpo |O corpo do pedido HTTP |
 | Autenticação |autenticação |Os detalhes no [autenticação](#authentication) secção |
 
 <br>
@@ -214,6 +215,6 @@ Por exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis em Logic Apps observando nosso [lista APIs](apis-list.md).
 
