@@ -66,14 +66,12 @@
           href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Mapa de Serviços
           items:
-            - name: Instruções
-              href: ../operations-management-suite/operations-management-suite-walkthrough-servicemap.md?toc=%2fazure%2fmonitoring%2ftoc.json
             - name: Utilizar
-              href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map.md
             - name: Configurar
-              href: ../operations-management-suite/operations-management-suite-service-map-configure.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map-configure.md
             - name: Integração com o Operations Manager
-              href: ../operations-management-suite/operations-management-suite-service-map-scom.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map-scom.md
     - name: Outros recursos
       items:
         - name: Avaliação do Estado de Funcionamento do AD
