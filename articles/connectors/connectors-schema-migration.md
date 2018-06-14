@@ -1,11 +1,11 @@
 ---
-title: "Como migrar Logic Apps para o esquema versão 2015-08-01-pré-visualização | Microsoft Docs"
-description: "Pode migrar facilmente as Logic Apps para a versão mais recente do esquema. Basta seguir estes passos."
+title: Como migrar Logic Apps para o esquema versão 2015-08-01-pré-visualização | Microsoft Docs
+description: Pode migrar facilmente as Logic Apps para a versão mais recente do esquema. Basta seguir estes passos.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707129"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Como migrar Logic Apps para o esquema versão 2015-08-01-pré-visualização
 Para mover as Logic Apps existentes para o novo esquema, efetue o seguinte:  

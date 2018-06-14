@@ -1,13 +1,13 @@
 ---
-title: "Testar as funções do Azure | Microsoft Docs"
-description: "Teste as suas funções do Azure utilizando o Postman, cURL e Node.js."
+title: Testar as funções do Azure | Microsoft Docs
+description: Teste as suas funções do Azure utilizando o Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funções, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, teste"
+editor: ''
+tags: ''
+keywords: Azure funções, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, teste
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: functions
 ms.devlang: multiple
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23838955"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código das funções do Azure
 

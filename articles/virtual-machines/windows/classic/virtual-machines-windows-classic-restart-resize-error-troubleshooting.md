@@ -1,11 +1,11 @@
 ---
 title: VM reiniciar ou redimensionar problemas | Microsoft Docs
-description: "Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual existente do Windows no Azure"
+description: Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual existente do Windows no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23989299"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual existente do Windows no Azure
 > [!div class="op_single_selector"]
