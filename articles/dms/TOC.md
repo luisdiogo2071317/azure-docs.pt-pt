@@ -13,11 +13,11 @@
 
 # Recursos
 ## [Comentários da Voz do Utilizador](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Mapa do Azure](https://azure.microsoft.com/en-us/roadmap/)
+## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
 ## [Guia de Migração de Bases de Dados](https://aka.ms/datamigration)
 ## [Assistente de Migração de Dados](https://aka.ms/dma)
 ## [Preços](https://aka.ms/dms-pricing)
 ## [Descrição de pré-requisitos](pre-reqs.md)
 ## [FAQ](faq.md)
-## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Topologias de rede para as migrações da Instância Gerida da BD SQL do Azure](resource-network-topologies.md)

@@ -2,11 +2,11 @@
 title: Ligar a pilha do Azure para o Azure com o ExpressRoute
 description: Como ligar redes virtuais na pilha do Azure para redes virtuais no Azure com o ExpressRoute.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
 ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29844926"
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Ligar a pilha do Azure para o Azure com o ExpressRoute
 

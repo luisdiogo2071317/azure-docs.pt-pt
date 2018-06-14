@@ -2,9 +2,9 @@
 title: Utilizar discos geridos em modelos do Azure Resource Manager para VMs do Windows | Microsoft Docs
 description: Fornece detalhes sobre como utilizar misks gerido em modelos do Azure Resource Manager para VMs do Windows
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jboeshart
-manager: 
+manager: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,5 +17,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23882705"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

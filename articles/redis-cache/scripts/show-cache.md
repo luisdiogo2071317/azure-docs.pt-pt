@@ -2,10 +2,10 @@
 title: Exemplo de Script CLI do Azure - Obtenha detalhes de uma Cache de Redis do Azure | Microsoft Docs
 description: Exemplo de Script CLI do Azure - Obtenha detalhes de uma Cache de Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
 ms.service: cache-redis
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846252"
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Obter os detalhes de uma Cache de Redis do Azure
 

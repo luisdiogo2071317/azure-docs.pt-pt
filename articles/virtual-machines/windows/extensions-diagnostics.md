@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30928721"
 ---
 # <a name="windows-azure-diagnostics-extension"></a>Extensão de diagnóstico do Azure do Windows
 

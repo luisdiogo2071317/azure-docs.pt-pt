@@ -1,8 +1,8 @@
 ---
 title: Criar e utilizar uma assinatura de acesso partilhado (SAS) com o Blob storage do Azure | Microsoft Docs
-description: "Este tutorial mostra como criar assinaturas de acesso partilhado para utilização com o Blob storage e como aceder aos mesmos nas suas aplicações de cliente."
+description: Este tutorial mostra como criar assinaturas de acesso partilhado para utilização com o Blob storage e como aceder aos mesmos nas suas aplicações de cliente.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -16,9 +16,10 @@ ms.date: 05/15/2017
 ms.author: tamram
 ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873213"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o Blob storage
 
@@ -160,7 +161,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-Na parte inferior do **main ()** método, adicione as seguintes linhas ao chamar **GetBlobSasUri()**, antes da chamada para **Console.ReadLine()**e de escrita de assinatura de acesso partilhado URI para a janela de consola:
+Na parte inferior do **main ()** método, adicione as seguintes linhas ao chamar **GetBlobSasUri()**, antes da chamada para **Console.ReadLine()** e de escrita de assinatura de acesso partilhado URI para a janela de consola:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.

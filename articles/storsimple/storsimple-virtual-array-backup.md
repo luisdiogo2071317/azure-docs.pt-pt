@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de cópia de segurança de matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Descreve como fazer cópias de segurança de volumes e partilhas de matriz Virtual StorSimple."
+title: Tutorial de cópia de segurança de matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+description: Descreve como fazer cópias de segurança de volumes e partilhas de matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875649"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Criar cópias de segurança partilhas ou volumes na sua matriz de Virtual StorSimple
 

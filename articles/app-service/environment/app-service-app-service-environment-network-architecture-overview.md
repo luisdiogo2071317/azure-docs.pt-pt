@@ -1,11 +1,11 @@
 ---
-title: "Descrição Geral da Arquitetura de Rede de Ambientes de Serviço de Aplicações"
-description: "Descrição geral da arquitetura de topologia de rede ofApp ambientes de serviço."
+title: Descrição Geral da Arquitetura de Rede de Ambientes de Serviço de Aplicações
+description: Descrição geral da arquitetura de topologia de rede ofApp ambientes de serviço.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836827"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Descrição Geral da Arquitetura de Rede de Ambientes de Serviço de Aplicações
 ## <a name="introduction"></a>Introdução
