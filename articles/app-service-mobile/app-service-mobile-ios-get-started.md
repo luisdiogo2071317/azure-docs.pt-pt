@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação iOS nas Aplicações Móveis do Serviço de Aplicações do Azure | Microsoft Docs"
-description: "Siga este tutorial para começar a utilizar back-ends de aplicações móveis do Azure para desenvolvimento iOS em Objective-C ou Swift"
+title: Criar uma aplicação iOS nas Aplicações Móveis do Serviço de Aplicações do Azure | Microsoft Docs
+description: Siga este tutorial para começar a utilizar back-ends de aplicações móveis do Azure para desenvolvimento iOS em Objective-C ou Swift
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595319"
 ---
 # <a name="create-an-ios-app"></a>Criar uma aplicação iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

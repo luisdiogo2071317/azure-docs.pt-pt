@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163372"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 

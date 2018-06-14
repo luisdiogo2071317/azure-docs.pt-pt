@@ -1,11 +1,11 @@
 ---
-title: "Colocação em cache as políticas de gestão de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de colocação em cache disponíveis para utilização na API Management do Azure."
+title: Colocação em cache as políticas de gestão de API do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas de colocação em cache disponíveis para utilização na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26344827"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de gestão de API de colocação em cache
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  

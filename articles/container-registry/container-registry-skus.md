@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32165219"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 

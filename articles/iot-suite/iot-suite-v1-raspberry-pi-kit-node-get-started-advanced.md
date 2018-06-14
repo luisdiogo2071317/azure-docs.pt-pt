@@ -1,12 +1,12 @@
 ---
-title: "Ligar um Raspberry Pi para com o Node.js para suportar atualizações de firmware do Azure IoT Suite | Microsoft Docs"
-description: "Utilize o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 e o Azure IoT Suite. Utilize Node.js para ligar o seu Raspberry Pi a solução de monitorização remota, enviar telemetria a partir de sensores para a nuvem e efetuar uma atualização de firmware remoto."
-services: 
+title: Ligar um Raspberry Pi para com o Node.js para suportar atualizações de firmware do Azure IoT Suite | Microsoft Docs
+description: Utilize o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 e o Azure IoT Suite. Utilize Node.js para ligar o seu Raspberry Pi a solução de monitorização remota, enviar telemetria a partir de sensores para a nuvem e efetuar uma atualização de firmware remoto.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: nodejs
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012114"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Ligar a 3 de Pi Raspberry a solução de monitorização remota e ativar as atualizações de firmware remoto com o Node.js
 

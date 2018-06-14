@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas com os registos de operações do BizTalk Services | Microsoft Docs"
-description: "Resolver problemas dos BizTalk Services utilizando os registos de operações. MABS, WABS"
+title: Resolver problemas com os registos de operações do BizTalk Services | Microsoft Docs
+description: Resolver problemas dos BizTalk Services utilizando os registos de operações. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 1081a9c6-58cc-4a76-8ac8-11e5e7a6ea27
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102023"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Resolver problemas com os registos de operações
 

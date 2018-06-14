@@ -1,8 +1,8 @@
 ---
-title: "Como utilizar as palavras-passe de aplicação no Azure MFA? | Microsoft Docs"
-description: "Esta página irá ajudar os utilizadores a compreenderem quais são as palavras-passe de aplicação e o que são utilizadas com regard a MFA do Azure."
+title: Como utilizar as palavras-passe de aplicação no Azure MFA? | Microsoft Docs
+description: Esta página irá ajudar os utilizadores a compreenderem quais são as palavras-passe de aplicação e o que são utilizadas com regard a MFA do Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700355"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Quais são palavras-passe de aplicação no Azure multi-factor Authentication?
 Determinadas aplicações não baseadas no browser, por exemplo, o cliente de e-mail nativa Apple que utiliza o Exchange Active Sync, atualmente não suportam autenticação multifator. Autenticação multifator é ativada por utilizador. Isto significa que se um utilizador tiver sido ativado para autenticação multifator e estão a tentar utilizar aplicações não baseadas no browser, será possível fazê-lo. Uma palavra-passe de aplicação permite tal utilização. Se impor a multi-factor Authentication através de políticas de acesso condicional e não através de MFA por utilizador, não é possível criar palavras-passe de aplicação. As aplicações que utilizam políticas de acesso condicional para controlar o acesso não precisam de palavras-passe de aplicação.

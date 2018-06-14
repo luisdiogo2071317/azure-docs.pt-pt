@@ -1,11 +1,11 @@
 ---
-title: "Introdução à autenticação para Mobile Apps no app formulários de Xamarin | Microsoft Docs"
-description: "Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação de formulários de Xamarin através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
+title: Introdução à autenticação para Mobile Apps no app formulários de Xamarin | Microsoft Docs
+description: Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação de formulários de Xamarin através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593403"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicionar autenticação à sua aplicação de formulários de Xamarin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
