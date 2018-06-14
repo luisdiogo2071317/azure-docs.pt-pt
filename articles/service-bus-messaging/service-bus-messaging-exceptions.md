@@ -1,11 +1,11 @@
 ---
-title: "Exceções de mensagens do Service Bus do Azure | Microsoft Docs"
-description: "Lista de exceções de mensagens do Service Bus e as ações sugeridas."
+title: Exceções de mensagens do Service Bus do Azure | Microsoft Docs
+description: Lista de exceções de mensagens do Service Bus e as ações sugeridas.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930155"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Service Bus
 Este artigo apresenta uma lista de algumas exceções geradas pelo Microsoft Azure Service Bus APIs de mensagens. Esta referência está sujeita a alterações, por isso, verifique novamente para as atualizações.
