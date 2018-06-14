@@ -1,11 +1,11 @@
 ---
-title: "Azure AD e aplicações: atribuir utilizadores a uma aplicação | Microsoft Docs"
-description: "Como implementar a atribuição de utilizadores para aplicações do Azure."
+title: 'Azure AD e aplicações: atribuir utilizadores a uma aplicação | Microsoft Docs'
+description: Como implementar a atribuição de utilizadores para aplicações do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598628"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD e aplicações: atribuir utilizadores a uma aplicação
 Antes de pode atribuir utilizadores e grupos para uma aplicação, deve necessitar de atribuição de utilizadores.  Para saber como requerer a atribuição de utilizadores, consulte o [necessidade de atribuição de utilizador](active-directory-applications-guiding-developers-requiring-user-assignment.md) artigo.

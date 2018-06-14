@@ -1,11 +1,11 @@
 ---
-title: "Como conceder permissões a uma aplicação desenvolvida personalizado | Microsoft Docs"
-description: "Como conceder permissões à sua aplicação personalizada desenvolvida utilizando o portal do Azure AD ou um parâmetro de URL"
+title: Como conceder permissões a uma aplicação desenvolvida personalizado | Microsoft Docs
+description: Como conceder permissões à sua aplicação personalizada desenvolvida utilizando o portal do Azure AD ou um parâmetro de URL
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26611666"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Como conceder permissões a uma aplicação desenvolvida personalizada
 

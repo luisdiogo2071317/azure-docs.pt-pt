@@ -1,12 +1,12 @@
 ---
-title: "Gerir volumes do StorSimple (atualização 3) | Microsoft Docs"
-description: "Explica como adicionar, modificar, monitorizar e eliminar os volumes do StorSimple e como colocar offline se necessário."
+title: Gerir volumes do StorSimple (atualização 3) | Microsoft Docs
+description: Explica como adicionar, modificar, monitorizar e eliminar os volumes do StorSimple e como colocar offline se necessário.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26578878"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilizar o serviço StorSimple Manager de dispositivos para gerir volumes (atualização 3 ou posterior)
 

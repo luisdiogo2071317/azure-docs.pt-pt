@@ -1,12 +1,12 @@
 ---
-title: "Instalação de tempo de execução das funções do Azure | Microsoft Docs"
-description: "Como instalar a pré-visualização de Runtime de funções do Azure 2"
+title: Instalação de tempo de execução das funções do Azure | Microsoft Docs
+description: Como instalar a pré-visualização de Runtime de funções do Azure 2
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290662"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalar a pré-visualização de Runtime de funções do Azure 2
 

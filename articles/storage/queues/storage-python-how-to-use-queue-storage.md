@@ -1,6 +1,6 @@
 ---
 title: Como utilizar o armazenamento de filas do Python | Microsoft Docs
-description: "Saiba como utilizar o serviço de fila do Azure do Python para criar e eliminar filas, inserir, obter e eliminar as mensagens."
+description: Saiba como utilizar o serviço de fila do Azure do Python para criar e eliminar filas, inserir, obter e eliminar as mensagens.
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986754"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como utilizar o Armazenamento de filas do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
