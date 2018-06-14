@@ -2,7 +2,7 @@
 title: Ferramentas para trabalhar com o Storage do Azure | Microsoft Docs
 description: Uma lista das ferramentas que lhe permitem ver/interagir com os seus dados de armazenamento do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933390"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
 Os utilizadores do Storage do Azure com frequência querem ser capazes de vista/interagir com os dados utilizando uma ferramenta de cliente do Storage do Azure. Nas tabelas abaixo, iremos lista várias ferramentas que permitem-lhe fazê-lo. Vamos colocar "X" em cada bloco se fornece a capacidade para a enumeração de e/ou aceder a abstração de dados. A tabela mostra também se as ferramentas está livre ou não. "Versão de avaliação" indica que existe uma versão de avaliação gratuita, mas o produto completo não está livre. "Y/N" indica que está disponível uma versão gratuitamente, enquanto está disponível para comprar uma versão diferente.

@@ -1,11 +1,11 @@
 ---
 title: Transferir o modelo para uma VM do Azure | Microsoft Docs
-description: "Transferir o templatefor uma VM para o ajudar a automatizar implementações no modelo de implementação Resource Manager"
+description: Transferir o templatefor uma VM para o ajudar a automatizar implementações no modelo de implementação Resource Manager
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/02/2017
+ms.locfileid: "26055794"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando cria uma VM no Azure utilizando o portal ou PowerShell, um modelo do Resource Manager é criado automaticamente para si. Pode utilizar este modelo rapidamente duplicar uma implementação. O modelo contém informações sobre todos os recursos num grupo de recursos. Para uma máquina virtual, isto significa que o modelo contém tudo o que é criado para suportar a VM nesse grupo de recursos, incluindo os recursos de rede.

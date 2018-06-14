@@ -1,12 +1,12 @@
 ---
 title: Executar a CLI do Azure com Jenkins | Microsoft Docs
-description: "Saiba como utilizar a CLI do Azure para implementar uma aplicação web Java no Azure no Pipeline de Jenkins"
+description: Saiba como utilizar a CLI do Azure para implementar uma aplicação web Java no Azure no Pipeline de Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: jenkins
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926935"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no App Service do Azure com Jenkins e a CLI do Azure
 Para implementar uma aplicação web Java no Azure, pode utilizar o CLI do Azure no [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:

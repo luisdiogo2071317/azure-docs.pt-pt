@@ -1,12 +1,12 @@
 ---
-title: "Integração da automatização do Azure com grelha de eventos | Microsoft Docs"
-description: "Saiba como adicionar automaticamente uma etiqueta quando é criada uma nova VM e enviar uma notificação para Teams da Microsoft."
-keywords: "automatização runbook, as equipas, grelha de eventos, a máquina virtual, VM"
+title: Integração da automatização do Azure com grelha de eventos | Microsoft Docs
+description: Saiba como adicionar automaticamente uma etiqueta quando é criada uma nova VM e enviar uma notificação para Teams da Microsoft.
+keywords: automatização runbook, as equipas, grelha de eventos, a máquina virtual, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -16,9 +16,10 @@ ms.date: 12/06/2017
 ms.author: eamono
 ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349075"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integração da automatização do Azure com grelha de eventos e equipas da Microsoft
 

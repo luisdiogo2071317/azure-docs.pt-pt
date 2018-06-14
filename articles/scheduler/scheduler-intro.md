@@ -1,11 +1,11 @@
 ---
-title: "O que é o Agendador do Azure? | Microsoft Docs"
-description: "O Agendador do Azure permite-lhe descrever detalhamente as ações a executar na nuvem. Então agenda e executa essas ações automaticamente."
+title: O que é o Agendador do Azure? | Microsoft Docs
+description: O Agendador do Azure permite-lhe descrever detalhamente as ações a executar na nuvem. Então agenda e executa essas ações automaticamente.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715119"
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
 O Agendador do Azure permite-lhe descrever detalhamente as ações a executar na nuvem. Então agenda e executa essas ações automaticamente.  O Agendador pode fazê-lo através do [Portal do Azure](scheduler-get-started-portal.md), POR código, [API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou do Azure PowerShell.
