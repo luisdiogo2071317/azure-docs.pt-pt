@@ -1,8 +1,8 @@
 ---
-title: "Criar uma função no Azure que é implementada a partir do Visual Studio Team Services | Microsoft Docs"
-description: "Criar uma Aplicação de Funções e implementar código de função a partir do Visual Studio Team Services"
+title: Criar uma função no Azure que é implementada a partir do Visual Studio Team Services | Microsoft Docs
+description: Criar uma Aplicação de Funções e implementar código de função a partir do Visual Studio Team Services
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 01/09/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842352"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Criar uma aplicação de funções e implementar código de função a partir do Visual Studio Team Services
 

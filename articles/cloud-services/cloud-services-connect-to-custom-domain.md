@@ -1,11 +1,11 @@
 ---
-title: "Ligar um serviço em nuvem para um controlador de domínio personalizado | Microsoft Docs"
-description: "Saiba como ligar o seu web/funções de trabalho a um domínio personalizado do AD com o PowerShell e a extensão de domínio do AD"
+title: Ligar um serviço em nuvem para um controlador de domínio personalizado | Microsoft Docs
+description: Saiba como ligar o seu web/funções de trabalho a um domínio personalizado do AD com o PowerShell e a extensão de domínio do AD
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845660"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ligar a funções de serviços na nuvem do Azure como um controlador de domínio do AD alojado no Azure de personalizado
 Vamos primeiro configurar uma rede Virtual (VNet) no Azure. Em seguida, iremos adicionar um controlador de domínio do Active Directory (alojado uma Máquina Virtual no Azure) para a VNet. Em seguida, iremos irá adicionar funções de serviço existente na nuvem para a VNet criada previamente, em seguida, ligue-o para o controlador de domínio.

@@ -1,6 +1,6 @@
 ---
-title: "Configurar a recuperação após desastre de VMs de VMware ou servidores físicos para um site secundário com o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como configurar a recuperação após desastre de VMs de VMware, ou o Windows e Linux servidores físicos, para um site secundário com o Azure Site Recovery."
+title: Configurar a recuperação após desastre de VMs de VMware ou servidores físicos para um site secundário com o Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação após desastre de VMs de VMware, ou o Windows e Linux servidores físicos, para um site secundário com o Azure Site Recovery.
 services: site-recovery
 author: nsoneji
 manager: gauarvd
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852222"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configure a recuperação de desastre no local em máquinas virtuais VMware ou servidores físicos para um site secundário
 

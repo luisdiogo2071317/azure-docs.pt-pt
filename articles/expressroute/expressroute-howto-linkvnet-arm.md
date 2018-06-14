@@ -1,11 +1,11 @@
 ---
 title: 'Ligar uma rede virtual a um circuito de ExpressRoute: PowerShell: Azure | Microsoft Docs'
-description: "Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação do Resource Manager e o PowerShell."
+description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação do Resource Manager e o PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877556"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual para um circuito do ExpressRoute
 > [!div class="op_single_selector"]

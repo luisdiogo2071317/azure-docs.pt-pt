@@ -1,6 +1,6 @@
 ---
 title: Script da CLI do Azure - Criar uma Base de Dados do Azure para PostgreSQL
-description: "Script de Exemplo da CLI do Azure - Cria um servidor da Base de Dados do Azure para PostgreSQL e configura uma regra de firewall ao nível do servidor."
+description: Script de Exemplo da CLI do Azure - Cria um servidor da Base de Dados do Azure para PostgreSQL e configura uma regra de firewall ao nível do servidor.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847965"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL e configurar uma regra de firewall com a CLI do Azure
 Este script de exemplo da CLI cria um servidor da Base de Dados do Azure para PostgreSQL e configura uma regra de firewall ao nível do servidor. Assim que o script tiver sido executado com êxito, o servidor PostgreSQL pode ser acedido a partir de todos os serviços do Azure e do endereço IP configurado.

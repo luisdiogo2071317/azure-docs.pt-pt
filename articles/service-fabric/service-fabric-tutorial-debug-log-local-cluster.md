@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949808"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar uma aplicação Java implementada num cluster do Service Fabric local 
 Este tutorial é a segunda parte de uma série. Saiba como anexar um depurador remoto com o Eclipse para a aplicação Service Fabric. Além disso, saiba como redirecionar registos das aplicações em execução para uma localização conveniente para o programador.

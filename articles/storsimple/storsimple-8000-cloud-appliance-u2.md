@@ -1,12 +1,12 @@
 ---
-title: "StorSimple Cloud Appliance Atualização 3 | Microsoft Docs"
-description: "Saiba como criar, implementar e gerir uma StorSimple Cloud Appliance numa rede virtual do Microsoft Azure. (Aplica-se a Atualização 3 do StorSimple e posterior)."
+title: StorSimple Cloud Appliance Atualização 3 | Microsoft Docs
+description: Saiba como criar, implementar e gerir uma StorSimple Cloud Appliance numa rede virtual do Microsoft Azure. (Aplica-se a Atualização 3 do StorSimple e posterior).
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852341"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 

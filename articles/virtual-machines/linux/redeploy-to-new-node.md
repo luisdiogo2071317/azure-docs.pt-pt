@@ -1,6 +1,6 @@
 ---
-title: "Volte a implementar máquinas virtuais do Linux no Azure | Microsoft Docs"
-description: "Como voltar a implementar máquinas virtuais do Linux no Azure para mitigar problemas de ligação SSH."
+title: Volte a implementar máquinas virtuais do Linux no Azure | Microsoft Docs
+description: Como voltar a implementar máquinas virtuais do Linux no Azure para mitigar problemas de ligação SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849312"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Volte a implementar máquina virtual do Linux para o novo nó do Azure
 Se enfrentam dificuldades a resolução de problemas de SSH ou acesso à aplicação a uma máquina virtual (VM) do Linux no Azure, voltar a implementar a VM pode ajudar. Quando voltar a implementar uma VM, muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, for ligado-lo novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra como voltar a implementar uma VM utilizando a CLI do Azure ou o portal do Azure.
