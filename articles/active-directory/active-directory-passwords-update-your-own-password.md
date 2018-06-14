@@ -1,9 +1,9 @@
 ---
 title: 'Azure AD: Repor a palavra-passe | Microsoft Docs'
-description: "Utilizar o self-service reposição palavra-passe ao recuperar o acesso ao seu trabalho ou escola conta de utilizador"
+description: Utilizar o self-service reposição palavra-passe ao recuperar o acesso ao seu trabalho ou escola conta de utilizador
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463783"
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe de conta escolar ou profissional
 

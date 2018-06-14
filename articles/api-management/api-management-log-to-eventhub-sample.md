@@ -1,11 +1,11 @@
 ---
 title: Monitorizar APIs com API Management do Azure, os Event Hubs e Runscope | Microsoft Docs
-description: "Aplicação de exemplo que demonstra a política de registo para eventhub por ligação API Management do Azure, Event Hubs do Azure e Runscope para HTTP de registo e monitorização"
+description: Aplicação de exemplo que demonstra a política de registo para eventhub por ligação API Management do Azure, Event Hubs do Azure e Runscope para HTTP de registo e monitorização
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117073"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorizar as suas APIs com API Management do Azure, os Event Hubs e Runscope
 O [serviço de API Management](api-management-key-concepts.md) oferece muitas funcionalidades para melhorar o processamento de pedidos HTTP enviados para a API de HTTP. No entanto, a existência de pedidos e respostas é transitória. O pedido é efetuado e fluem através do serviço de API Management para a API de back-end. A API processa o pedido e uma resposta flui através de volta para o consumidor da API. O serviço de API Management mantém algumas estatísticas importantes sobre as APIs para apresentação no dashboard do portal do Azure, mas beyond, os detalhes são removidos.

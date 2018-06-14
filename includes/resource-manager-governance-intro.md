@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29528344"
 ---
 Quando implementar recursos do Azure, tem imenso flexibilidade ao decidir que tipos de recursos para implementar, onde estão localizados e como configurá-los. No entanto, essa flexibilidade poderá abrir mais opções de que pretende permitir na sua organização. Tenha em conta a implementar recursos do Azure, poderá ser perguntar-se:
 
