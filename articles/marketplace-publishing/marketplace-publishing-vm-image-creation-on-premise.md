@@ -1,11 +1,11 @@
 ---
-title: "Criar uma imagem de máquina virtual no local para o Azure Marketplace | Microsoft Docs"
+title: Criar uma imagem de máquina virtual no local para o Azure Marketplace | Microsoft Docs
 description: Compreender e executar os passos para criar uma imagem VM no local e implementar no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944436"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Desenvolver uma imagem de máquina virtual no local para o Azure Marketplace
 Recomendamos vivamente que desenvolver Azure discos rígidos virtuais (VHDs) diretamente na nuvem utilizando o protocolo de ambiente de trabalho remoto. No entanto, se necessário, é possível transferir um VHD e desenvolvê-lo utilizando a infraestrutura no local.  

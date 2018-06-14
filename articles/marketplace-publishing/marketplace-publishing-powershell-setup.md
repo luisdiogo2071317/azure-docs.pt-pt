@@ -1,11 +1,11 @@
 ---
 title: Configurar o PowerShell para criar uma VM para o Marketplace | Microsoft Docs
-description: "Instruções para configurar o Azure PowerShell e utilizá-lo como um processo opcional fluir para criar imagens VM para implementar e propor no Azure Marketplace"
+description: Instruções para configurar o Azure PowerShell e utilizá-lo como um processo opcional fluir para criar imagens VM para implementar e propor no Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e19d6cda-76df-4e42-be84-c9fe47a636db
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937404"
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Configurar o Azure PowerShell para criar uma oferta para o Azure Marketplace
 Para obter informações detalhadas sobre como configurar o PowerShell no Azure, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Uma abordagem simple consiste em utilizar o método de certificado, que transfere e importa um certificado necessário para autenticação. Para obter o certificado necessário, utilize o **Get-AzurePublishSettingsFile** cmdlet. Guarde o ficheiro quando lhe for pedida. Para importar o certificado para uma sessão do PowerShell, utilize o **importação AzurePublishSettingsFile** cmdlet.

@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846269"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restaurar um servidor da Base de Dados do Azure para PostgreSQL com a CLI do Azure
 Este script da CLI de exemplo restaura um servidor único da Base de Dados do Azure para PostgreSQL para um ponto anterior no tempo.

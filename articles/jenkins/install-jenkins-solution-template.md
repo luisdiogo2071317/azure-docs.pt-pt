@@ -1,6 +1,6 @@
 ---
 title: Criar um servidor do Jenkins no Azure
-description: "Instale o Jenkins numa máquina virtual do Linux do Azure a partir do modelo de solução do Jenkins e crie uma aplicação Java de exemplo."
+description: Instale o Jenkins numa máquina virtual do Linux do Azure a partir do modelo de solução do Jenkins e crie uma aplicação Java de exemplo.
 author: tomarcher
 manager: rloutlaw
 ms.service: multiple
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936582"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 

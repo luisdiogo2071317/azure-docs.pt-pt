@@ -1,12 +1,12 @@
 ---
-title: "Identidade do serviço gerido pré-visualização do Service Bus do Azure | Microsoft Docs"
-description: "Utilizar as identidades de serviço geridas com o Service Bus do Azure"
+title: Identidade do serviço gerido pré-visualização do Service Bus do Azure | Microsoft Docs
+description: Utilizar as identidades de serviço geridas com o Service Bus do Azure
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874657"
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de serviço geridas (pré-visualização)
 

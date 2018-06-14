@@ -1,8 +1,8 @@
 ---
-title: "Resolver problemas de falhas durante a reativação pós-falha de VMs do Azure para VMware no local com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve formas de resolver erros comuns de reativação pós-falha e só durante a reativação pós-falha para VMware a partir do Azure utilizando o Azure Site Recovery."
+title: Resolver problemas de falhas durante a reativação pós-falha de VMs do Azure para VMware no local com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve formas de resolver erros comuns de reativação pós-falha e só durante a reativação pós-falha para VMware a partir do Azure utilizando o Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941041"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Resolver problemas de reativação pós-falha a partir do Azure para VMware
 

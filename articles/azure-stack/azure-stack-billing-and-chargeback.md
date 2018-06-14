@@ -1,11 +1,11 @@
 ---
-title: "Faturação de cliente e o estorno na pilha do Azure | Microsoft Docs"
-description: "Saiba como obter as informações de utilização de recursos do Azure pilha."
+title: Faturação de cliente e o estorno na pilha do Azure | Microsoft Docs
+description: Saiba como obter as informações de utilização de recursos do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877488"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Utilização e faturação na pilha do Azure
 

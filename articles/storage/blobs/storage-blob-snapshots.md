@@ -1,6 +1,6 @@
 ---
-title: "Criar um instantâneo só de leitura de um blob no Storage do Azure | Microsoft Docs"
-description: "Saiba como criar um instantâneo de um blob para cópia de segurança de dados de BLOBs um determinado momento. Compreenda a forma como os instantâneos são faturados e como utilizá-los para minimizar os custos de capacidade."
+title: Criar um instantâneo só de leitura de um blob no Storage do Azure | Microsoft Docs
+description: Saiba como criar um instantâneo de um blob para cópia de segurança de dados de BLOBs um determinado momento. Compreenda a forma como os instantâneos são faturados e como utilizá-los para minimizar os custos de capacidade.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852936"
 ---
 # <a name="create-a-blob-snapshot"></a>Criar um instantâneo de blob
 

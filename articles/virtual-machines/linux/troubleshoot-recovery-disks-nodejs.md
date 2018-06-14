@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915206"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Resolver problemas de uma VM com Linux ao anexar o disco de SO para uma VM utilizando a CLI do Azure 1.0 de recuperação
 Se a máquina virtual (VM) do Linux encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum é uma entrada inválida no `/etc/fstab` que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar a CLI do Azure 1.0 para ligar o seu disco rígido virtual a outra VM com Linux para corrigir os eventuais erros, em seguida, voltar a criar a VM original.

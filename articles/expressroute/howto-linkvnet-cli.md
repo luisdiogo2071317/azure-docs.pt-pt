@@ -1,13 +1,13 @@
 ---
 title: 'Ligar uma rede virtual a um circuito de ExpressRoute: CLI: Azure | Microsoft Docs'
-description: "Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação do Resource Manager e a CLI."
+description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação do Resource Manager e a CLI.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlit
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875407"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual para um circuito ExpressRoute com o CLI
 

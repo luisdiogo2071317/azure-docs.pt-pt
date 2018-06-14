@@ -1,11 +1,11 @@
 ---
-title: "Ligar uma rede virtual a um circuito de ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs"
-description: "Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação clássica e o PowerShell."
+title: 'Ligar uma rede virtual a um circuito de ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
+description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute, utilizando o modelo de implementação clássica e o PowerShell.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875002"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligar uma rede virtual para um circuito ExpressRoute com o PowerShell (clássica)
 > [!div class="op_single_selector"]

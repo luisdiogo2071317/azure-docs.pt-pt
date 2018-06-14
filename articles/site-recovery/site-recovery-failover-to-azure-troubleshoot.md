@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de ativação pós-falha para falhas do Azure | Microsoft Docs"
-description: "Este artigo descreve formas de resolver erros comuns no falha através do Azure"
+title: Resolver problemas de ativação pós-falha para falhas do Azure | Microsoft Docs
+description: Este artigo descreve formas de resolver erros comuns no falha através do Azure
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874364"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha de uma máquina virtual para o Azure
 Poderá receber um dos seguintes erros ao efetuar ativação pós-falha de uma máquina virtual para o Azure. Para resolver problemas, utilize os passos descritos para cada condição de erro.

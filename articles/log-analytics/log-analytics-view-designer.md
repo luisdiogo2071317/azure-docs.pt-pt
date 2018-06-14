@@ -1,11 +1,11 @@
 ---
 title: Criar vistas para analisar os dados no Log Analytics do Azure | Microsoft Docs
-description: "Ao utilizar o estruturador de vistas da análise de registos, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações de dados na área de trabalho de análise de registos. Este artigo contém uma descrição geral do estruturador de vistas e apresenta os procedimentos para criar e editar vistas personalizadas."
+description: Ao utilizar o estruturador de vistas da análise de registos, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações de dados na área de trabalho de análise de registos. Este artigo contém uma descrição geral do estruturador de vistas e apresenta os procedimentos para criar e editar vistas personalizadas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939874"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas utilizando o estruturador de vistas do Log Analytics
 Ao utilizar o estruturador de vistas no [Log Analytics do Azure](log-analytics-overview.md), pode criar uma variedade de vistas personalizadas no portal do Azure que pode ajudar a visualizar dados da sua área de trabalho de análise de registos. Este artigo apresenta uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.

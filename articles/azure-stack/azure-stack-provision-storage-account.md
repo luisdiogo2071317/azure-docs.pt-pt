@@ -2,7 +2,7 @@
 title: Contas de armazenamento na pilha do Azure | Microsoft Docs
 description: Saiba como criar uma conta de armazenamento de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733728"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Contas de armazenamento no Azure Stack
 As contas de armazenamento incluem os serviços Blob e Tabela e o espaço de nomes exclusivo dos seus objetos de dados de armazenamento. Por predefinição, os dados na sua conta só estão disponíveis para si, o proprietário da conta de armazenamento.

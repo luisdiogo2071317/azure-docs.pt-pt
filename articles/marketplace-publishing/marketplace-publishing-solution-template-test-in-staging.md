@@ -1,11 +1,11 @@
 ---
-title: "Testar a sua oferta do modelo de solução para o Marketplace | Microsoft Docs"
-description: "Compreenda como testar a sua oferta do modelo de solução para o Azure Marketplace."
+title: Testar a sua oferta do modelo de solução para o Marketplace | Microsoft Docs
+description: Compreenda como testar a sua oferta do modelo de solução para o Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937840"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a sua oferta do modelo de solução no modo de transição
 Transição significa implementar a sua oferta no privado "sandbox", onde pode testar e verificar a respetiva funcionalidade antes de enviá-lo para produção. A oferta é apresentada no teste faria para um cliente que tenha implementado. A oferta tem de estar certificada para ser enviado para o teste.

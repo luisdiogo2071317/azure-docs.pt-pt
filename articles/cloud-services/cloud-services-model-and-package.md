@@ -1,11 +1,11 @@
 ---
-title: "O que é um modelo de serviço em nuvem e o pacote | Microsoft Docs"
-description: "Descreve o modelo de serviço de nuvem (. csdef,. cscfg) e o pacote (. cspkg) no Azure"
+title: O que é um modelo de serviço em nuvem e o pacote | Microsoft Docs
+description: Descreve o modelo de serviço de nuvem (. csdef,. cscfg) e o pacote (. cspkg) no Azure
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,9 +19,10 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876564"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como pacote-lo?
-Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)*e um pacote de serviço *(. cspkg)*. Tanto o **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrevem a estrutura do serviço em nuvem e como está configurada; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir de **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. Azure cria um serviço em nuvem a partir de ambos os **ServicePackage.cspkg** e **ServiceConfig.cscfg**.
+Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)*. Tanto o **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrevem a estrutura do serviço em nuvem e como está configurada; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir de **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. Azure cria um serviço em nuvem a partir de ambos os **ServicePackage.cspkg** e **ServiceConfig.cscfg**.
 
 Assim que o serviço em nuvem está em execução no Azure, pode reconfigurá-la através de **ServiceConfig.cscfg** ficheiro, mas não é possível alterar a definição.
 

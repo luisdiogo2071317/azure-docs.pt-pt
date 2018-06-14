@@ -1,12 +1,12 @@
 ---
-title: "Obter pré-aprovados através do programa de certificados do Microsoft Azure | Microsoft Docs"
-description: "Saiba mais sobre o programa para parceiros do Microsoft Azure certificado e a obtenção de propor a imagem de máquina virtual, o modelo de solução, o serviço de programador ou o serviço de dados no Azure Marketplace"
+title: Obter pré-aprovados através do programa de certificados do Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre o programa para parceiros do Microsoft Azure certificado e a obtenção de propor a imagem de máquina virtual, o modelo de solução, o serviço de programador ou o serviço de dados no Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
 author: msmbaldwin
 manager: mbaldwin
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
 ms.service: marketplace
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939013"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovados através do programa de certificados do Microsoft Azure
 Este artigo fornece instruções sobre como tornar-se certificadas do Microsoft Azure para que possam publicar a sua solução no Azure Marketplace e se qualificam para vantagens de marketing. Para obter uma descrição detalhada do programa de certificados do Microsoft Azure e respetivos benefícios, visite [ http://azure.com/certified ](http://azure.com/certified).

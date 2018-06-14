@@ -10,9 +10,10 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 508685954e23a357fa5fc48b0e89c5e7daedb5c6
 ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326543"
 ---
 Pode verificar se a ligação teve êxito com o cmdlet "Get-AzureRmVirtualNetworkGatewayConnection", com ou sem "-Debug". 
 

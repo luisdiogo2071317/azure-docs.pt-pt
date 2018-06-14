@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949026"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de produção de pós-implementação para ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como pode atualizar uma oferta de máquinas de virtuais em direto no Azure Marketplace. Orienta-o durante o processo de adicionar um ou mais SKUs de novo a uma oferta existente. É também orienta-o processo de remoção de uma oferta de máquinas de virtuais em direto ou o SKU do Marketplace.

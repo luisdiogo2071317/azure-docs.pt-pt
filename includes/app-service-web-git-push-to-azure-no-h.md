@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29821050"
 ---
 Regresse à _janela de terminal local_ e adicione um remoto do Azure ao seu repositório Git local. Substitua _&lt;deploymentLocalGitUrl-from-create-step>_ pelo URL do Git remoto que guardou em [Criar uma aplicação Web](#create).
 

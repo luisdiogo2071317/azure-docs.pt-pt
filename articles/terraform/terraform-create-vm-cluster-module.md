@@ -1,7 +1,7 @@
 ---
-title: "Utilize módulos Terraform para criar um cluster VM no Azure"
-description: "Saiba como utilizar módulos Terraform para criar um cluster de máquina virtual do Windows no Azure"
-keywords: "terraform devops, máquina virtual, rede, módulos"
+title: Utilize módulos Terraform para criar um cluster VM no Azure
+description: Saiba como utilizar módulos Terraform para criar um cluster de máquina virtual do Windows no Azure
+keywords: terraform devops, máquina virtual, rede, módulos
 author: rloutlaw
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952222"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Criar um cluster VM com Terraform com o módulo de registo
 

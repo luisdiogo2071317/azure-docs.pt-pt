@@ -1,11 +1,11 @@
 ---
-title: "Como configurar um serviço em nuvem (portal) | Microsoft Docs"
-description: "Saiba como configurar os serviços em nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar o acesso remoto para instâncias de função. Estes exemplos utilizam o portal do Azure."
+title: Como configurar um serviço em nuvem (portal) | Microsoft Docs
+description: Saiba como configurar os serviços em nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar o acesso remoto para instâncias de função. Estes exemplos utilizam o portal do Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874326"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar os serviços Cloud
 

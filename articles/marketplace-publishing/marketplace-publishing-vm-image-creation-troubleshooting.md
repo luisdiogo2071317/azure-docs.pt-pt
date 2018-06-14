@@ -1,11 +1,11 @@
 ---
-title: "Como resolver problemas comuns durante a criação do VHD | Microsoft Docs"
-description: "Respostas a perguntas de resolução de problemas comuns e problemas durante a criação do VHD."
+title: Como resolver problemas comuns durante a criação do VHD | Microsoft Docs
+description: Respostas a perguntas de resolução de problemas comuns e problemas durante a criação do VHD.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941607"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Como resolver problemas comuns encontrados durante a criação do VHD
 Este artigo é fornecido para o ajudar um publicador do Azure Marketplace e/ou coadministrador que pode ocorrer um problema ou tiver questões comuns ao publicar ou gerir os respetivos solution(s) de máquina virtual.

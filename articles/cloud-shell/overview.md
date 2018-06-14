@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de Shell de nuvem do Azure | Microsoft Docs"
-description: "Descrição geral da Shell em nuvem do Azure."
-services: 
-documentationcenter: 
+title: Descrição geral de Shell de nuvem do Azure | Microsoft Docs
+description: Descrição geral da Shell em nuvem do Azure.
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29844110"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral da Shell de nuvem do Azure
 Shell de nuvem do Azure é uma shell interativa e acessíveis para o browser para a gestão de recursos do Azure.

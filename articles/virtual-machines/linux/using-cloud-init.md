@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral do suporte de nuvem init para computadores virtuais Linux no Azure | Microsoft Docs"
-description: "Descrição geral das capacidades de nuvem init no Microsoft Azure"
+title: Descrição geral do suporte de nuvem init para computadores virtuais Linux no Azure | Microsoft Docs
+description: Descrição geral das capacidades de nuvem init no Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763150"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de nuvem init para máquinas virtuais no Azure
 Este artigo explica o suporte se existe para [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  

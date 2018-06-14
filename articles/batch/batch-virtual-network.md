@@ -1,6 +1,6 @@
 ---
 title: Aprovisionar o conjunto do Azure Batch numa rede virtual | Microsoft Docs
-description: "Pode criar um conjunto do Batch numa rede virtual para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros."
+description: Pode criar um conjunto do Batch numa rede virtual para que nós de computação podem comunicar de forma segura com outras VMs na rede, tais como um servidor de ficheiros.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846813"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Azure Batch numa rede virtual
 
