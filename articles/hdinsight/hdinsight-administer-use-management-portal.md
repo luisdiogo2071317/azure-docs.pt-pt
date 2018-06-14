@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405369"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop baseados em Windows no HDInsight ao utilizar o portal do Azure
 
@@ -82,7 +83,7 @@ Não é suportada a instalação de software personalizadas no cluster utilizand
 
    * Para personalizar o menu, clique com botão direito em qualquer lugar no menu e, em seguida, clique em **personalizar**.
    * **Definições** e **todas as definições**: apresenta o **definições** painel para o cluster, o que lhe permite aceder às informações detalhadas de configuração para o cluster.
-   * **Dashboard**, **Cluster Dashboard** e **URL: estes são todas as formas para aceder ao dashboard do cluster, o que é Web do Ambari para clusters baseados em Linux. -**Secure Shell * *: Mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH).
+   * **Dashboard**, **Cluster Dashboard** e **URL: estes são todas as formas para aceder ao dashboard do cluster, o que é Web do Ambari para clusters baseados em Linux. -** Secure Shell * *: Mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH).
    * **Dimensionar o Cluster**: permite-lhe alterar o número de nós de trabalho para este cluster.
    * **Eliminar**: elimina o cluster.
    * **Início Rápido**: apresenta informações que irão ajudar a começar a utilizar o HDInsight.

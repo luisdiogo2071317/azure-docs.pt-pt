@@ -1,12 +1,12 @@
 ---
-title: "Referência de sintaxe SQLFilter de barramento de serviço do Azure | Microsoft Docs"
-description: "Detalhes sobre SQLFilter gramática."
+title: Referência de sintaxe SQLFilter de barramento de serviço do Azure | Microsoft Docs
+description: Detalhes sobre SQLFilter gramática.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132172"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe de SQLFilter
 

@@ -1,11 +1,11 @@
 ---
-title: "Integrar o Cofre de chaves com o SQL Server em VMs do Windows no Azure (clássica) | Microsoft Docs"
-description: "Saiba como automatizar a configuração de encriptação do SQL Server para utilização com o Cofre de chaves do Azure. Este tópico explica como utilizar a integração do Cofre de chaves do Azure com o SQL Server a criar máquinas virtuais no modelo de implementação clássica."
+title: Integrar o Cofre de chaves com o SQL Server em VMs do Windows no Azure (clássica) | Microsoft Docs
+description: Saiba como automatizar a configuração de encriptação do SQL Server para utilização com o Cofre de chaves do Azure. Este tópico explica como utilizar a integração do Cofre de chaves do Azure com o SQL Server a criar máquinas virtuais no modelo de implementação clássica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399734"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em Virtual Machines do Azure (clássica)
 > [!div class="op_single_selector"]
