@@ -1,11 +1,11 @@
 ---
-title: "Pesquisa de registo do registo análise nova perguntas mais frequentes | Microsoft Docs"
-description: "Este artigo fornece perguntas mais frequentes sobre a atualização de análise de registos para o novo idioma de consulta."
+title: Pesquisa de registo do registo análise nova perguntas mais frequentes | Microsoft Docs
+description: Este artigo fornece perguntas mais frequentes sobre a atualização de análise de registos para o novo idioma de consulta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993874"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Análise de registos nova registo pesquisa FAQ e problemas conhecidos
 

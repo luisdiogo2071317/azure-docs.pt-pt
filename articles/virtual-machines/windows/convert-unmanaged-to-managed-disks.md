@@ -1,13 +1,13 @@
 ---
-title: "Converter uma máquina virtual do Windows de discos não geridos para discos geridos - discos gerida do Azure | Microsoft Docs"
-description: "Como converter uma VM do Windows a partir de discos não geridos para gerido discos utilizando o PowerShell no modelo de implementação Resource Manager"
+title: Converter uma máquina virtual do Windows de discos não geridos para discos geridos - discos gerida do Azure | Microsoft Docs
+description: Como converter uma VM do Windows a partir de discos não geridos para gerido discos utilizando o PowerShell no modelo de implementação Resource Manager
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29804220"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não geridos para gerido discos
 

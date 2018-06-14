@@ -1,11 +1,11 @@
 ---
-title: "Aprovisionar uma Cache de Redis através do Azure Resource Manager | Microsoft Docs"
+title: Aprovisionar uma Cache de Redis através do Azure Resource Manager | Microsoft Docs
 description: Utilize o modelo Azure Resource Manager para implementar uma Cache de Redis do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910746"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Criar uma Cache de Redis com um modelo
 Neste tópico, irá aprender a criar um modelo Azure Resource Manager que implementa uma Cache de Redis do Azure. A cache pode ser utilizada com uma conta de armazenamento existente para manter os dados de diagnóstico. Pode também Saiba como definir quais os recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.

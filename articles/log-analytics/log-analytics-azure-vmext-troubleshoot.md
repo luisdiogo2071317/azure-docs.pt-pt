@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas com a extensão de VM de análise de registos do Azure | Microsoft Docs"
-description: "Descrevem os sintomas, faz com que e resolução de problemas mais comuns com a extensão de VM de análise do registo para o Windows e as VMs do Linux do Azure."
+title: Resolver problemas com a extensão de VM de análise de registos do Azure | Microsoft Docs
+description: Descrevem os sintomas, faz com que e resolução de problemas mais comuns com a extensão de VM de análise do registo para o Windows e as VMs do Linux do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394991"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>A extensão de VM de análise do registo de resolução de problemas
 Este artigo fornece erros podem ocorrer com a extensão de VM de análise do registo para o Windows e Linux máquinas de virtuais em execução no Microsoft Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.

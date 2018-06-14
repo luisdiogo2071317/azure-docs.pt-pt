@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "O Cofre de chaves do Azure - como utilizar a eliminação de forma recuperável com a CLI"
-description: "Utilizar maiúsculas e exemplos de eliminação de forma recuperável com o CLI recortes de código"
+ms.assetid: ''
+title: O Cofre de chaves do Azure - como utilizar a eliminação de forma recuperável com a CLI
+description: Utilizar maiúsculas e exemplos de eliminação de forma recuperável com o CLI recortes de código
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927979"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Cofre de chaves com a CLI
 

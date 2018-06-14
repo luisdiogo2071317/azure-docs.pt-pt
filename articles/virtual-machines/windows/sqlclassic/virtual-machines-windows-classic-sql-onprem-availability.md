@@ -1,11 +1,11 @@
 ---
 title: Expandir no local Always On nos grupos de disponibilidade para o Azure | Microsoft Docs
-description: "Este tutorial utiliza recursos criados com o modelo de implementação clássica e descreve como utilizar o Assistente de adicionar a réplica no SQL Server Management Studio (SSMS) para adicionar uma réplica sempre no grupo de disponibilidade no Azure."
+description: Este tutorial utiliza recursos criados com o modelo de implementação clássica e descreve como utilizar o Assistente de adicionar a réplica no SQL Server Management Studio (SSMS) para adicionar uma réplica sempre no grupo de disponibilidade no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400482"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Expandir no local Always On nos grupos de disponibilidade para o Azure
 Grupos de disponibilidade Always fornecer elevada disponibilidade para grupos de base de dados, adicionando as réplicas secundárias. Permitem a estas réplicas efetuar a ativação pós-falha de bases de dados em caso de falha. Além disso, podem ser utilizados para a descarga de cargas de trabalho de leitura ou tarefas de cópia de segurança.

@@ -1,11 +1,11 @@
 ---
 title: Migrar uma base de dados do SQL Server para o SQL Server numa VM | Microsoft Docs
-description: "Saiba mais sobre como migrar uma base de dados de utilizador no local para o SQL Server numa máquina virtual do Azure."
+description: Saiba mais sobre como migrar uma base de dados de utilizador no local para o SQL Server numa máquina virtual do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809442"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar uma base de dados do SQL Server para o SQL Server numa VM do Azure
 

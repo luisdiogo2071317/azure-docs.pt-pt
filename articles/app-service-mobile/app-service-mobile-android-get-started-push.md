@@ -1,10 +1,10 @@
 ---
-title: "Adicionar notificações push para a sua aplicação Android com aplicações móveis | Microsoft Docs"
-description: "Saiba como utilizar as Mobile Apps para enviar notificações push para a sua aplicação Android."
+title: Adicionar notificações push para a sua aplicação Android com aplicações móveis | Microsoft Docs
+description: Saiba como utilizar as Mobile Apps para enviar notificações push para a sua aplicação Android.
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593033"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações push para a sua aplicação Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

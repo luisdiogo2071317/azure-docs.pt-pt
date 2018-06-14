@@ -1,13 +1,13 @@
 ---
-title: "Débito de rede de máquina virtual do Azure | Microsoft Docs"
-description: "Saiba mais sobre o débito de rede de máquina virtual do Azure."
+title: Débito de rede de máquina virtual do Azure | Microsoft Docs
+description: Saiba mais sobre o débito de rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27778960"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquina virtual
 
