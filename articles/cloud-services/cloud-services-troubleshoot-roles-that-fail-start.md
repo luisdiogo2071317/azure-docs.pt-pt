@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de funções que não conseguem iniciar | Microsoft Docs"
-description: "Seguem-se algumas razões comuns por que motivo uma função de serviço em nuvem pode falhar ao iniciar. Também são fornecidas soluções para esses problemas."
+title: Resolver problemas de funções que não conseguem iniciar | Microsoft Docs
+description: Seguem-se algumas razões comuns por que motivo uma função de serviço em nuvem pode falhar ao iniciar. Também são fornecidas soluções para esses problemas.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875339"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas relacionados com funções de serviço em nuvem que não conseguem iniciar
 Seguem-se alguns problemas comuns e soluções relacionadas com a Cloud Services do Azure funções que não conseguem iniciar.

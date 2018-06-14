@@ -1,11 +1,11 @@
 ---
-title: "Um guia de referência para as partes do estruturador de vistas no Log Analytics do Azure | Microsoft Docs"
-description: "Ao utilizar o estruturador de vistas da análise de registos, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas."
+title: Um guia de referência para as partes do estruturador de vistas no Log Analytics do Azure | Microsoft Docs
+description: Ao utilizar o estruturador de vistas da análise de registos, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949536"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para as partes de visualização do estruturador de vistas na análise de registos
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.

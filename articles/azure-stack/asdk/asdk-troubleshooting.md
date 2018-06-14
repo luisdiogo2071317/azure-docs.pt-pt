@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30167905"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Resolução de problemas do Microsoft Azure pilha Development Kit (ASDK)
 Este documento fornece informações de resolução de problemas comuns para o ASDK. Se estiver a ter um problema que não é documentado, certifique-se verificar o [fórum MSDN do Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  

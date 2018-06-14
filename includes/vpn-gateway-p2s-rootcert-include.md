@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197078"
 ---
 Pode utilizar um certificado de raiz que tenha sido gerado com uma solução empresarial (recomendado) ou pode gerar um certificado autoassinado. Depois de criar o certificado de raiz, pode exportar os dados do certificado público (não a chave privada) como ficheiro .cer X.509 com codificação Base-64 e carregá-los para o Azure.
 

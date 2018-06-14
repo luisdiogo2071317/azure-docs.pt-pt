@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240913"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente de Docker no Azure através da extensão de VM de Docker
 Docker é uma gestão de contentores populares e a plataforma de processamento de imagens que permite-lhe trabalhar rapidamente com contentores no Linux. No Azure, existem várias formas como pode implementar Docker consoante as suas necessidades. Este artigo foca-se utilizando a extensão de VM de Docker e modelos Azure Resource Manager com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](dockerextension-nodejs.md).

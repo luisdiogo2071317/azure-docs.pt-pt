@@ -17,6 +17,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264868"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar o DNS inversa para serviços alojados no Azure
 

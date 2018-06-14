@@ -1,11 +1,11 @@
 ---
-title: "Guia para criar um modelo de solução para o Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre como criar, certificar e implementar um modelo de solução da imagem de várias VMS para comprar no Azure Marketplace."
+title: Guia para criar um modelo de solução para o Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre como criar, certificar e implementar um modelo de solução da imagem de várias VMS para comprar no Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937313"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Depois de concluir o passo 1, [conta criação e registo][link-acct-creation], iremos orientado na criação de um modelo de solução do Azure compatível em [pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora iremos irá guiá-lo através dos passos para criar um modelo de solução para várias VMs no [Portal publicação] [ link-pubportal] para o Azure Marketplace.

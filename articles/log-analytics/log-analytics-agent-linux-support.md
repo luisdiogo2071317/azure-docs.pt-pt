@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de agente do Linux de análise de registos do Azure | Microsoft Docs"
-description: "Descrevem os sintomas, faz com que e resolução de problemas mais comuns com o agente Linux de análise do registo."
+title: Resolver problemas de agente do Linux de análise de registos do Azure | Microsoft Docs
+description: Descrevem os sintomas, faz com que e resolução de problemas mais comuns com o agente Linux de análise do registo.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936480"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Como resolver problemas com o agente Linux para análise de registos
 

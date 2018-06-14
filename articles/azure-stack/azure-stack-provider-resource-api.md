@@ -1,11 +1,11 @@
 ---
-title: "Utilização de recursos do fornecedor API | Microsoft Docs"
-description: "Referência para a utilização de recursos API, que obtém as informações de utilização de pilha do Azure"
+title: Utilização de recursos do fornecedor API | Microsoft Docs
+description: Referência para a utilização de recursos API, que obtém as informações de utilização de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877284"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
 O termo *fornecedor* aplica-se para o administrador de serviço e para quaisquer fornecedores de delegado. Operadores de pilha do Azure e os fornecedores de delegado podem utilizar a API de utilização do fornecedor para ver a utilização dos respetivos inquilinos diretas. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o fornecedor de API para obter informações de utilização sobre do P1 e utilização direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.

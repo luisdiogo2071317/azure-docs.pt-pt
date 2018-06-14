@@ -1,11 +1,11 @@
 ---
-title: "Continuidade do negócio de rede virtual | Microsoft Docs"
-description: "Saiba o que fazer em caso de uma interrupção do serviço do Azure com impacto na redes virtuais do Azure."
+title: Continuidade do negócio de rede virtual | Microsoft Docs
+description: Saiba o que fazer em caso de uma interrupção do serviço do Azure com impacto na redes virtuais do Azure.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: NarayanAnnamalai
 manager: jefco
-editor: 
+editor: ''
 ms.assetid: ad260ab9-d873-43b3-8896-f9a1db9858a5
 ms.service: virtual-network
 ms.workload: virtual-network
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854160"
 ---
 # <a name="virtual-network--business-continuity"></a>Rede virtual – continuidade do negócio
 

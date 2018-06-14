@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197183"
 ---
 A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo SKU do gateway. Esta tabela aplica-se a modelos de implementação clássica e Resource Manager. 
 

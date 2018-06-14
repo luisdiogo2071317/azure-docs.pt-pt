@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31589837"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas mais frequentes sobre gestão de API do Azure
 Obter as respostas a perguntas comuns, padrões e melhores práticas para a API Management do Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral sobre os vários portais necessários para criar uma oferta para Marketplace | Microsoft Docs"
-description: "Descrição geral sobre os vários portais necessários para criar uma oferta para o Marketplace"
+title: Descrição geral sobre os vários portais necessários para criar uma oferta para Marketplace | Microsoft Docs
+description: Descrição geral sobre os vários portais necessários para criar uma oferta para o Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938649"
 ---
 # <a name="portals-you-will-need"></a>Terá de portais
 Antes de começar o processo de publicação de uma oferta, vamos introduzida para os vários portais que irá precisar. Segue-se o resumo curto sobre os portais – Centro para programadores, o Portal de publicação do Azure e o Portal do Azure – pela ordem que irá interagir com eles.                                                                            

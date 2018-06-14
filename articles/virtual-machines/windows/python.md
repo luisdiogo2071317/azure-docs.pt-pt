@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528346"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs do Windows no Azure com o Python
 

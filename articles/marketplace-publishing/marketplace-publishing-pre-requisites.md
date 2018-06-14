@@ -1,11 +1,11 @@
 ---
-title: "Não técnicos pré-requisitos para criar uma oferta para o Azure Marketplace | Microsoft Docs"
+title: Não técnicos pré-requisitos para criar uma oferta para o Azure Marketplace | Microsoft Docs
 description: Compreenda os requisitos para criar e implementar uma oferta no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940046"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Pré-requisitos gerais para criar uma oferta para o Azure Marketplace
 Compreenda os pré-requisitos gerais, negócio processo-centrado em que são necessárias para avançar com o processo de criação da oferta.

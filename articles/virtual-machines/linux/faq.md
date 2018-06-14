@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30242443"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Pergunta frequentes sobre as máquinas virtuais Linux
 Este artigo aborda algumas perguntas comuns sobre computadores virtuais Linux criados no Azure utilizando o modelo de implementação Resource Manager. Para a versão do Windows deste tópico, consulte [perguntas mais frequentes pergunta sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

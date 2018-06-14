@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526989"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilizar identidade para criar chaves de substituição no Azure SQL Data Warehouse
 As recomendações e os exemplos para criar chaves de substituição em tabelas no Azure SQL Data Warehouse, utilizando a propriedade de identidade.

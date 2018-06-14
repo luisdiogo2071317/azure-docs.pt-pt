@@ -1,6 +1,6 @@
 ---
-title: "Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para o Azure com a recuperação de Site | Microsoft Docs"
-description: "Saiba como efetuar a ativação pós-falha de VMs de Hyper-V para o Azure e haja reativação para o site no local, com o Azure Site Recovery"
+title: Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para o Azure com a recuperação de Site | Microsoft Docs
+description: Saiba como efetuar a ativação pós-falha de VMs de Hyper-V para o Azure e haja reativação para o site no local, com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852902"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para o Azure
 

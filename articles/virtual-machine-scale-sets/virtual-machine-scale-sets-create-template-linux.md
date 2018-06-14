@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure | Microsoft Docs
+title: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure | Microsoft Docs
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais Linux com um modelo do Azure Resource Manager que implementa uma aplicação de exemplo e configura regras de dimensionamento automático
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -12,25 +12,24 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/27/18
+ms.topic: get-started-article
+ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: c23c798e1e79f8bf66b59da96ccd5342105ffd3a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247397"
+ms.lasthandoff: 03/27/2018
+ms.locfileid: "30201126"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
-Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com um modelo do Azure Resource Manager.
+# <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
+Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste artigo de introdução, vai criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure Resource Manager. Também pode criar um conjunto de dimensionamento com a [CLI 2.0 do Azure](virtual-machine-scale-sets-create-cli.md), o [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou o [portal do Azure](virtual-machine-scale-sets-create-portal.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>Definir um conjunto de dimensionamento num modelo
@@ -95,8 +94,8 @@ Para criar um dimensionamento com um modelo, tem de definir os recursos adequado
  Para manter o exemplo curto, a configuração da placa de interface de rede virtual (NIC) não é apresentada. Também não são apresentados componentes adicionais, como um balanceador de carga. Um modelo de conjunto de dimensionamento completo é apresentado [no fim deste artigo](#deploy-the-template).
 
 
-## <a name="add-a-sample-application"></a>Adicionar uma aplicação de exemplo
-Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. Quando implementa um conjunto de dimensionamento, as extensões de VM podem fornecer tarefas de automatização e configuração pós-implementação, tais como a instalação de uma aplicação. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. Para aplicar uma extensão ao conjunto de dimensionamento, adicione a secção *extensionProfile* ao exemplo de recurso anterior. Normalmente, o perfil de extensão define as seguintes propriedades:
+## <a name="install-an-application"></a>Instalar uma aplicação
+Quando implementa um conjunto de dimensionamento, as extensões de VM podem fornecer tarefas de automatização e configuração pós-implementação, tais como a instalação de uma aplicação. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. Para aplicar uma extensão ao conjunto de dimensionamento, adicione a secção *extensionProfile* ao exemplo de recurso anterior. Normalmente, o perfil de extensão define as seguintes propriedades:
 
 - Tipo de extensão
 - Publicador da extensão
@@ -152,8 +151,8 @@ az group deployment create \
 Responda aos pedidos para fornecer um nome do conjunto de dimensionamento, uma contagem de instâncias e as credenciais de administrador para as instâncias de VM. A criação do conjunto de dimensionamento e dos recursos de apoio demora algum tempo.
 
 
-## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de exemplo num browser. Obtenha o endereço IP público do balanceador de carga com [az network public-ip list](/cli/azure/network/public-ip#show) da seguinte forma:
+## <a name="test-your-sample-application"></a>Testar o exemplo de aplicação
+Para ver a sua aplicação em ação, obtenha o endereço IP público do balanceador de carga com [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) da seguinte forma:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -167,15 +166,16 @@ Introduza o endereço IP público do balanceador de carga num browser no formato
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma. O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
+Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma:
 
-```azurecli-interactive
-az group delete --name myResourceGroup --yes --no-wait
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste início rápido, criou um conjunto de dimensionamento Linux com um modelo do Azure e utilizou a Extensão de Script Personalizado para instalar um servidor Web de Python básico nas instâncias da VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
+Neste artigo de introdução, criou um conjunto de dimensionamento Linux com um modelo do Azure e utilizou a Extensão de Script Personalizado para instalar um servidor Web de Python básico nas instâncias da VM. Para maior escalabilidade e automatização, expanda o conjunto de dimensionamento com os seguintes artigos de procedimentos:
 
-> [!div class="nextstepaction"]
-> [Criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure](tutorial-create-and-manage-cli.md)
+- [Implementar uma aplicação em conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-deploy-app.md)
+- Dimensionar automaticamente com a [CLI do Azure](virtual-machine-scale-sets-autoscale-cli.md), o [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) ou o [portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Utilizar as atualizações automáticas de SO para as instâncias de VM do seu conjunto de dimensionamento](virtual-machine-scale-sets-automatic-upgrade.md)
