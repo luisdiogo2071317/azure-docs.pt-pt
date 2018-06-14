@@ -1,11 +1,11 @@
 ---
 title: 'Otimizar o encaminhamento do ExpressRoute: Azure | Microsoft Docs'
-description: "Esta página disponibiliza detalhes sobre como otimizar o encaminhamento quando tem mais do que um circuito do ExpressRoute que se ligam entre a rede da Microsoft e a sua rede empresarial."
+description: Esta página disponibiliza detalhes sobre como otimizar o encaminhamento quando tem mais do que um circuito do ExpressRoute que se ligam entre a rede da Microsoft e a sua rede empresarial.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710002"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
