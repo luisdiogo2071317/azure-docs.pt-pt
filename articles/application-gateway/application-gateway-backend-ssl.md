@@ -1,6 +1,6 @@
 ---
-title: "Ativar SSL de ponta a ponta no Gateway de Aplicação do Azure | Microsoft Docs"
-description: "Esta página fornece uma descrição geral do suporte de SSL de ponta a ponta do Gateway de Aplicação."
+title: Ativar SSL de ponta a ponta no Gateway de Aplicação do Azure | Microsoft Docs
+description: Esta página fornece uma descrição geral do suporte de SSL de ponta a ponta do Gateway de Aplicação.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704715"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Descrição geral do SSL ponto a ponto com o Gateway de Aplicação
 

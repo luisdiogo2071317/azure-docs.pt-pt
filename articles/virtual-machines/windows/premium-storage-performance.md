@@ -1,6 +1,6 @@
 ---
 title: 'Armazenamento Premium do Azure: Estruturar para desempenho em VMs do Windows | Microsoft Docs'
-description: "Conceber aplicações de elevado desempenho com o Premium Storage do Azure. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure."
+description: Conceber aplicações de elevado desempenho com o Premium Storage do Azure. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949847"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
