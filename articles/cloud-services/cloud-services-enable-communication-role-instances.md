@@ -1,11 +1,11 @@
 ---
-title: "Comunicação para funções nos serviços em nuvem | Microsoft Docs"
-description: "Instâncias de função nos serviços em nuvem podem ter pontos finais (http, https, tcp, udp) definidos para os mesmos que comunicam com exterior ou entre outras instâncias de função."
+title: Comunicação para funções nos serviços em nuvem | Microsoft Docs
+description: Instâncias de função nos serviços em nuvem podem ter pontos finais (http, https, tcp, udp) definidos para os mesmos que comunicam com exterior ou entre outras instâncias de função.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701895"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Ativar a comunicação para instâncias de função no azure
 Funções de serviço na nuvem comunicam através de ligações internas e externas. Ligações externas são denominadas **pontos finais de entrada** enquanto são denominadas ligações internas **pontos finais internos**. Este tópico descreve como modificar o [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos finais.

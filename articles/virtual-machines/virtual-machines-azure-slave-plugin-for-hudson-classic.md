@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson | Microsoft Docs"
-description: "Descreve como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson."
+title: Como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson | Microsoft Docs
+description: Descreve como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27704805"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson
 O serviço do Azure secundário Plug-in para Hudson permite-lhe aprovisionar nós secundários no Azure, quando executar distribuída baseia-se.
