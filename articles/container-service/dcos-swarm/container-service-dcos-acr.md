@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922897"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Utilizar o ACR com um cluster DC/OS para implementar a sua aplicação
 

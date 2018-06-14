@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral dos conectores de aplicações lógicas | Microsoft Docs"
-description: "Descrição geral dos conectores que podem ser utilizados numa aplicação lógica"
-services: 
-documentationcenter: 
+title: Descrição geral dos conectores de aplicações lógicas | Microsoft Docs
+description: Descrição geral dos conectores que podem ser utilizados numa aplicação lógica
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: ca8dab2e-9b69-4b1e-865d-1facd9f0cdac
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27961657"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>A utilização de conectores uma aplicação lógica
 Conectores fornecem acesso rápido aos eventos, dados e ações em plataformas, serviços e protocolos.  A lista completa dos conectores que suporta as Logic Apps pode [ser encontrada aqui](apis-list.md).  Conectores podem ser utilizados como um acionador ou uma ação numa aplicação lógica e pode necessitar de um configurado *ligação* utilizar (por exemplo: autorizar uma conta do Twitter para aceder ou colocar em seu nome).

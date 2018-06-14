@@ -1,6 +1,6 @@
 ---
-title: "Comunicação segurança - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs"
-description: "Mitigações ameaças exposta na ferramenta de modelação de ameaça"
+title: Comunicação segurança - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs
+description: Mitigações ameaças exposta na ferramenta de modelação de ameaça
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019488"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Moldura de segurança: Segurança de comunicação | Mitigações 
 | Produtos/serviços | Artigo |

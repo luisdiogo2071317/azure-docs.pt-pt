@@ -1,9 +1,9 @@
 ---
-title: "Configurar a verificação de dois passos para a minha conta escolar ou profissional | Microsoft Docs"
-description: "Quando a sua empresa configura Azure multi-factor Authentication, será solicitado para se inscrever para verificação de dois passos. Saiba como configurá-la. "
+title: Configurar a verificação de dois passos para a minha conta escolar ou profissional | Microsoft Docs
+description: 'Quando a sua empresa configura Azure multi-factor Authentication, será solicitado para se inscrever para verificação de dois passos. Saiba como configurá-la. '
 services: multi-factor-authentication
 keywords: como utilizar o azure, active directory na nuvem, tutorial do Active Directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198360"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para a verificação de dois passos
 Verificação de dois passos é um passo de segurança adicional que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas para entrar na. Se estiver a ler este artigo, provavelmente, recebeu uma mensagem de e-mail do administrador de conta escolar ou profissional sobre multi-factor Authentication. Ou, talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso, **não pode iniciar sessão depois de concluir o processo de inscrição automática**.

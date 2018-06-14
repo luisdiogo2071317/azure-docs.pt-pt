@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b9484336add0719749e9f0af56bdd70fa3906ef5
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29532346"
 ---
 Para adicionar duas etiquetas para um grupo de recursos, utilize o [atualização az da grupo](/cli/azure/group#az_group_update) comando:
 

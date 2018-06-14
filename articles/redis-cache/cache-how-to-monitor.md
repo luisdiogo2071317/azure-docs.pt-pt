@@ -1,11 +1,11 @@
 ---
 title: Como monitorizar a Cache de Redis do Azure | Microsoft Docs
-description: "Saiba como monitorizar o estado de funcionamento e desempenho as instâncias de Cache de Redis do Azure"
+description: Saiba como monitorizar o estado de funcionamento e desempenho as instâncias de Cache de Redis do Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910654"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Como monitorizar a Cache de Redis do Azure
 Cache de Redis do Azure utiliza [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ao fornecer várias opções para monitorizar as instâncias de cache. Pode ver as métricas, afixar gráficos de métricas ao Startboard, personalizar o intervalo de data e hora de monitorização de gráficos, adicionar e remover as métricas de gráficos e definir alertas quando forem cumpridas determinadas condições. Estas ferramentas permitem-lhe monitorizar o estado de funcionamento das suas instâncias de Cache de Redis do Azure e ajudar a gerir as suas aplicações de colocação em cache.

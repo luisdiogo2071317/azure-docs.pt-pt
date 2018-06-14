@@ -1,11 +1,11 @@
 ---
-title: "Como configurar a persistência de dados para uma Cache de Redis do Azure Premium"
-description: "Saiba como configurar e gerir as instâncias de Cache de Redis do Azure Premium camada de persistência de dados"
+title: Como configurar a persistência de dados para uma Cache de Redis do Azure Premium
+description: Saiba como configurar e gerir as instâncias de Cache de Redis do Azure Premium camada de persistência de dados
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910854"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Como configurar a persistência de dados para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Este artigo descreve como configurar a persistência numa instância de Cache de Redis do Azure premium.

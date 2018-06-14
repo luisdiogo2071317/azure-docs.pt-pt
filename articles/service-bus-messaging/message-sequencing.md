@@ -1,11 +1,11 @@
 ---
-title: "Sequência de mensagem de Service Bus do Azure e carimbos | Microsoft Docs"
-description: "Preservar a sequência de mensagem do barramento de serviço e a ordem com carimbos"
+title: Sequência de mensagem de Service Bus do Azure e carimbos | Microsoft Docs
+description: Preservar a sequência de mensagem do barramento de serviço e a ordem com carimbos
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200739"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagem e carimbos
 

@@ -1,12 +1,12 @@
 ---
-title: "Caminho de blob de alteração da predefinição | Microsoft Docs"
-description: "Saiba como configurar uma função do Azure para mudar o nome de um caminho de ficheiro do blob"
+title: Caminho de blob de alteração da predefinição | Microsoft Docs
+description: Saiba como configurar uma função do Azure para mudar o nome de um caminho de ficheiro do blob
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862405"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar um caminho de blob do caminho predefinido
 

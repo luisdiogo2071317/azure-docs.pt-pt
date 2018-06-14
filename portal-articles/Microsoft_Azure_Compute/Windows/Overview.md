@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral das Máquinas Virtuais do Windows | Microsoft Docs"
-description: "Conteúdo de ajuda da descrição geral de máquinas virtuais do Windows no portal do Azure"
+title: Descrição geral das Máquinas Virtuais do Windows | Microsoft Docs
+description: Conteúdo de ajuda da descrição geral de máquinas virtuais do Windows no portal do Azure
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073865"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentação de Máquinas Virtuais do Windows
 
