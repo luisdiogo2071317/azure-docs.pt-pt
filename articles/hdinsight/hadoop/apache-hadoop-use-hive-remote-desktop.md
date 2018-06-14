@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400644"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

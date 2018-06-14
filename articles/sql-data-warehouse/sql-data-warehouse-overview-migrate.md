@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523480"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migrar a sua solução ao Azure SQL Data Warehouse
 Ver o que está envolvido no migrar uma solução de base de dados existente para o Azure SQL Data Warehouse. 

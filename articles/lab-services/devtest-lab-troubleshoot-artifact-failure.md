@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788726"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefacto no laboratório 
 Depois de criar um artefacto, pode verificar para ver se foi concluída com êxito ou falha. Os registos de artefacto no Azure DevTest Labs fornecem informações que pode utilizar para diagnosticar uma falha de artefactos. Tem duas opções para visualizar as informações de registo de artefactos para uma VM do Windows:

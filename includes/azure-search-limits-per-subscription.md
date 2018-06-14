@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844097"
 ---
 Pode criar vários serviços numa subscrição, cada um deles aprovisionados a nenhum escalão específico, limitado apenas pelo número de serviços permitidos em cada camada. Por exemplo, pode criar até 12 serviços na camada básica e outro serviços 12 na camada S1 dentro da mesma subscrição. Para obter mais informações sobre as camadas, consulte [escolha um SKU ou a camada para a Azure Search](../articles/search/search-sku-tier.md).
 

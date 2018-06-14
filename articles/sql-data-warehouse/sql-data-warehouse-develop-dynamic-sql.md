@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523171"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Dinâmica SQL no SQL Data Warehouse
 Sugestões de utilização do SQL Server dinâmico no Azure SQL Data Warehouse para desenvolver soluções.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911986"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carregar e criar uma VM com Linux a partir do disco personalizado com o 2.0 CLI do Azure
 Este artigo mostra como carregar um disco rígido virtual (VHD) para uma conta de armazenamento do Azure com o 2.0 CLI do Azure e criar VMs com Linux a partir deste disco personalizado. Também pode efetuar estes passos com a [CLI 1.0 do Azure](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Esta funcionalidade permite-lhe instalar e configurar um distro Linux os seus requisitos e, em seguida, utilizar essa VHD para criar rapidamente máquinas de virtuais (VMs) do Azure.

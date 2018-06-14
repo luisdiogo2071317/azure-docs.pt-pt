@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31422016"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utilize o coordenador de Oozie baseado no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar as tarefas
 Neste artigo, irá aprender como definir fluxos de trabalho e os coordenadores e como acionar as tarefas de coordenador, com base no tempo. É útil seguir [Oozie de utilização com o HDInsight] [ hdinsight-use-oozie] antes de ler este artigo. Para além do Oozie, também pode agendar tarefas utilizando o Azure Data Factory. Para obter o Azure Data Factory, consulte [Pig de utilização e o Hive com o Data Factory](../data-factory/transform-data.md).

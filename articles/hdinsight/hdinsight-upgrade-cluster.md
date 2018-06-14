@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406835"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualize o cluster do HDInsight para uma versão mais recente
 Para tirar partido das funcionalidades mais recentes do HDInsight, recomendamos que os clusters do HDInsight sejam atualizados para a versão mais recente. Siga o abaixo diretrizes para atualizar o HDInsight versões de cluster.

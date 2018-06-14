@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517437"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos de HTTP X-EC-Debug para o motor de regras da CDN do Azure
 O cabeçalho de pedido de cache de depuração, `X-EC-Debug`, fornece informações adicionais sobre a política de cache que é aplicada ao elemento de pedido. Estes cabeçalhos estão específicos **CDN do Azure Premium da Verizon** produtos.

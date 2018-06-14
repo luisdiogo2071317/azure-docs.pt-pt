@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403939"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Os registos de aplicação de YARN de acesso no HDInsight baseado em Windows
 Este documento explica como aceder a registos de aplicações de YARN que tem concluído a um cluster do Hadoop baseados em Windows no Azure HDInsight

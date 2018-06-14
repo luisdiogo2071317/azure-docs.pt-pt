@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918443"
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Utilizar nuvem init para personalizar uma VM com Linux durante a criação com a CLI do Azure 1.0
 Este artigo mostra como efetuar um script de nuvem init para definir o nome de anfitrião, os pacotes de atualização instalada e gerir contas de utilizador.  Os scripts de nuvem init são denominados durante a criação de VM a partir da CLI do Azure.  O artigo requer:

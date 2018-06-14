@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915063"
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Gerir utilizadores, SSH e verificação ou reparar discos em VMs do Linux do Azure utilizando a extensão VMAccess com a CLI do Azure 1.0
 Este artigo mostra como utilizar a extensão do Azure VMAcesss para verificar ou reparar um disco, reponha o acesso de utilizador, gerir contas de utilizador ou repor a configuração de SSHD no Linux. O artigo requer:
