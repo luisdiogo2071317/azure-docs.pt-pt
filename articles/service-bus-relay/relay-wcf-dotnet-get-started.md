@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure reencaminhamento WCF reencaminha no .NET | Microsoft Docs"
-description: "Saiba como utilizar os reencaminhamentos de WCF de reencaminhamento do Azure para ligar duas aplicações alojadas em localizações diferentes."
+title: Introdução ao Azure reencaminhamento WCF reencaminha no .NET | Microsoft Docs
+description: Saiba como utilizar os reencaminhamentos de WCF de reencaminhamento do Azure para ligar duas aplicações alojadas em localizações diferentes.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856087"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Como utilizar o Azure reencaminhamento WCF reencaminha com o .NET
 Este artigo descreve como utilizar o serviço de reencaminhamento do Azure. Os exemplos são escritos em C# e utilizam a API do Windows Communication Foundation (WCF) com extensões contidas na assemblagem do Service Bus. Para mais informações sobre o reencaminhamento do Azure, consulte o [descrição geral do reencaminhamento do Azure](relay-what-is-it.md).

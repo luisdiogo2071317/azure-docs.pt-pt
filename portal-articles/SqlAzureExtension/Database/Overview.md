@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral da base de dados SQL | Microsoft Docs"
-description: "Conteúdo de ajuda da descrição geral da Base de Dados SQL no portal do Azure"
+title: Descrição geral da base de dados SQL | Microsoft Docs
+description: Conteúdo de ajuda da descrição geral da Base de Dados SQL no portal do Azure
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073933"
 ---
 # <a name="sql-database-documentation"></a>Documentação da Base de Dados SQL
 

@@ -1,11 +1,11 @@
 ---
-title: "Gerir problemas de proteção de ponto final com o Centro de segurança do Azure | Microsoft Docs"
-description: "Saiba como gerir problemas de proteção de ponto final no Centro de segurança do Azure."
+title: Gerir problemas de proteção de ponto final com o Centro de segurança do Azure | Microsoft Docs
+description: Saiba como gerir problemas de proteção de ponto final no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23936295"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerir problemas de proteção de ponto final com o Centro de segurança do Azure
 Centro de segurança do Azure monitoriza o estado de proteção antimalware e os relatórios tal o painel de problemas do Endpoint protection. Centro de segurança realça problemas, tais como a ameaças detetadas e proteção insuficiente, que pode tornar as máquinas de virtuais (VMs) e os computadores vulneráveis a ameaças de antimalware. Ao utilizar as informações em **problemas de proteção de ponto final**, pode identificar um plano para resolver quaisquer problemas identificados.

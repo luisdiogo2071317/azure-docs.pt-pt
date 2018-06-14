@@ -1,11 +1,11 @@
 ---
-title: "As ligações híbridas do App Service do Azure | Microsoft Docs"
-description: "Como criar e utilizar ligações híbridas para aceder a recursos em redes diferentes"
+title: As ligações híbridas do App Service do Azure | Microsoft Docs
+description: Como criar e utilizar ligações híbridas para aceder a recursos em redes diferentes
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25990824"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações híbridas do App Service do Azure #
 
