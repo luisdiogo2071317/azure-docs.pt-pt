@@ -1,13 +1,13 @@
 ---
-title: "Configurar um cluster HPC Pack de híbridos no Azure | Microsoft Docs"
-description: "Saiba como utilizar o Microsoft HPC Pack e o Azure para configurar uma pequena, híbrida computação de alto desempenho cluster (HPC)"
+title: Configurar um cluster HPC Pack de híbridos no Azure | Microsoft Docs
+description: Saiba como utilizar o Microsoft HPC Pack e o Azure para configurar uma pequena, híbrida computação de alto desempenho cluster (HPC)
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985311"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configurar um cluster (HPC) com o Microsoft HPC Pack e os nós de computação do Azure a pedido de computação de alto no desempenho por híbrida
 Utilize o Microsoft HPC Pack 2012 R2 e o Azure para configurar um pequeno, híbrida computação de alto desempenho cluster (HPC). O cluster apresentado neste artigo é composta por um nó principal de pacote HPC no local e alguns computação nós implementar a pedido num Azure serviço em nuvem. Em seguida, pode executar tarefas de computação no cluster híbrida.
