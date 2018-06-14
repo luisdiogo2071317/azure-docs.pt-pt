@@ -1,12 +1,12 @@
 ---
-title: "Gerir um plano de serviço de aplicações no Azure | Microsoft Docs"
-description: "Saiba como efetuar tarefas diferentes para gerir um plano de serviço de aplicações."
-keywords: "do serviço de aplicações, o serviço de aplicações do azure, o dimensionamento, o plano do app service, alterar, criar, gerir, gestão"
+title: Gerir um plano de serviço de aplicações no Azure | Microsoft Docs
+description: Saiba como efetuar tarefas diferentes para gerir um plano de serviço de aplicações.
+keywords: do serviço de aplicações, o serviço de aplicações do azure, o dimensionamento, o plano do app service, alterar, criar, gerir, gestão
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117685"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano de serviço de aplicações no Azure
 

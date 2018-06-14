@@ -1,5 +1,5 @@
 ---
-title: "Um guia prático para estruturar soluções de saúde seguras no Azure | Microsoft Docs"
+title: Um guia prático para estruturar soluções de saúde seguras no Azure | Microsoft Docs
 description: " Este artigo ajuda-o a compreender como melhorar a segurança para as suas soluções de saúde, utilizando os serviços do Azure e funcionalidades que configurar. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540980"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Um guia prático para estruturar soluções de saúde seguras no Azure
 As startups do Estado de funcionamento da indústria, integradores de sistema (SIs), os fabricantes independentes de software (ISV) e organizações de cuidados de saúde considerar uma mudança para o Azure estiver à procura de documentação de orientação que ajuda os controlos de segurança para cumprir as obrigações de conformidade de incorporar.

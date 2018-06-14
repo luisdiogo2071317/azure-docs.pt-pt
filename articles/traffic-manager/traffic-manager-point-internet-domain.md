@@ -1,11 +1,11 @@
 ---
-title: "Apontar um domínio de Internet da empresa para um nome de domínio do Gestor de Tráfego | Microsoft Docs"
-description: "Este artigo ajuda-o a apontar o nome de domínio da sua empresa para um nome de domínio do Traffic Manager."
+title: Apontar um domínio de Internet da empresa para um nome de domínio do Gestor de Tráfego | Microsoft Docs
+description: Este artigo ajuda-o a apontar o nome de domínio da sua empresa para um nome de domínio do Traffic Manager.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22719930"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gestor de Tráfego do Azure
 

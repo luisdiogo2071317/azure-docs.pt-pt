@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832103"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral

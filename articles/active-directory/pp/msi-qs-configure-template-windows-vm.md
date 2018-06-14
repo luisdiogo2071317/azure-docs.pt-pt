@@ -1,11 +1,11 @@
 ---
-title: "Como configurar um MSI atribuído por utilizador para uma VM do Azure através de um modelo do Azure"
-description: "Passo pelo passo as instruções para configurar um utilizador atribuído geridos serviço de identidade (MSI) para uma VM do Azure, utilizando um modelo Azure Resource Manager."
+title: Como configurar um MSI atribuído por utilizador para uma VM do Azure através de um modelo do Azure
+description: Passo pelo passo as instruções para configurar um utilizador atribuído geridos serviço de identidade (MSI) para uma VM do Azure, utilizando um modelo Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984044"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configurar um utilizador atribuído geridos serviço de identidade (MSI) para uma VM, utilizando um modelo do Azure
 

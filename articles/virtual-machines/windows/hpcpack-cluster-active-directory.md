@@ -2,7 +2,7 @@
 title: Cluster HPC Pack no Azure Active Directory | Microsoft Docs
 description: Saiba como integrar um cluster do Microsoft HPC Pack 2016 no Azure com o Azure Active Directory
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2017
+ms.locfileid: "25452577"
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Gerir um cluster HPC Pack no Azure utilizando o Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) suporta a integração com [do Azure Active Directory](../../active-directory/index.md) (Azure AD) para os administradores que implementar um cluster HPC Pack no Azure.

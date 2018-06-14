@@ -1,8 +1,8 @@
 ---
-title: "Utilizar o Docker máquina criar anfitriões do Linux no Azure | Microsoft Docs"
-description: "Descreve como utilizar o Docker máquina para criar os anfitriões de Docker no Azure."
+title: Utilizar o Docker máquina criar anfitriões do Linux no Azure | Microsoft Docs
+description: Descreve como utilizar o Docker máquina para criar os anfitriões de Docker no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125508"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como utilizar o Docker máquina para criar anfitriões no Azure
 Este artigo fornece detalhes sobre como utilizar [Docker máquina](https://docs.docker.com/machine/) criar anfitriões no Azure. O `docker-machine` comando cria uma máquina virtual (VM) do Linux no Azure, em seguida, instala Docker. Em seguida, pode gerir os anfitriões de Docker no Azure com o mesmas ferramentas locais e fluxos de trabalho. Para utilizar o docker máquina no Windows 10, tem de utilizar Linux bash.

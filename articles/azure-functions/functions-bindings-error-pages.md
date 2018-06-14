@@ -1,12 +1,12 @@
 ---
-title: "Erro de funções do Azure processamento orientações | Microsoft Docs"
-description: "Fornece orientações gerais para processamento de erros que ocorrem no quando executar as suas funções e ligações para tópicos de erros específicos de enlace."
+title: Erro de funções do Azure processamento orientações | Microsoft Docs
+description: Fornece orientações gerais para processamento de erros que ocorrem no quando executar as suas funções e ligações para tópicos de erros específicos de enlace.
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118490"
 ---
 # <a name="azure-functions-error-handling"></a>Processamento de erros de funções do Azure
 

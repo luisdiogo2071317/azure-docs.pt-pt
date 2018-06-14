@@ -1,11 +1,11 @@
 ---
-title: "Início Rápido do Centro de Segurança do Azure - Carregar os computadores Linux para o Centro de Segurança | Microsoft Docs"
-description: "Este início rápido mostra como carregar os computadores Linux para o Centro de Segurança."
+title: Início Rápido do Centro de Segurança do Azure - Carregar os computadores Linux para o Centro de Segurança | Microsoft Docs
+description: Este início rápido mostra como carregar os computadores Linux para o Centro de Segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530171"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Carregar computadores Linux para o Centro de Segurança do Azure
 Depois de carregar as subscrições do Azure, pode ativar o Centro de Segurança para os recursos Linux em execução fora do Azure, por exemplo, no local ou noutras clouds, ao aprovisionar o Agente para Linux.

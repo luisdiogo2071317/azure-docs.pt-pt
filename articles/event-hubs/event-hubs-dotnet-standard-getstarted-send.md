@@ -1,12 +1,12 @@
 ---
 title: Enviar eventos para Hubs de Eventos do Azure com o .NET Standard | Microsoft Docs
-description: "Introdução ao envio de eventos para Hubs de Eventos no .NET Standard"
+description: Introdução ao envio de eventos para Hubs de Eventos no .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28985209"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard
 
