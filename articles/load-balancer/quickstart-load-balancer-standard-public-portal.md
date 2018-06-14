@@ -78,7 +78,7 @@ Nesta secção, vai criar uma rede virtual, duas máquinas virtuais para o conju
     - *myNetworkSecurityGroup* - no nome do novo grupo de segurança de rede (firewall) que tem de criar.
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
-7. Utilize os passos 1 a 6 e crie uma segunda VM, com o nome *VM2* com *myAvailibilityset* como o Conjunto de disponibilidade, *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e *myNetworkSecurityGroup* como o grupo de segurança de rede. 
+7. Utilize os passos 1 a 6 e crie uma segunda VM, com o nome *VM2* com *myAvailibilityset* como o Conjunto de disponibilidade, *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e \**myNetworkSecurityGroup* como o grupo de segurança de rede. 
 
 ### <a name="create-nsg-rules"></a>Criar regras de NSG
 
