@@ -1,11 +1,11 @@
 ---
-title: "Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações"
-description: "Saiba como escalar horizontalmente aplicações ao utilizar a georreplicação distribuição com ambientes do App Service e o Traffic Manager."
+title: Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
+description: Saiba como escalar horizontalmente aplicações ao utilizar a georreplicação distribuição com ambientes do App Service e o Traffic Manager.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836834"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral

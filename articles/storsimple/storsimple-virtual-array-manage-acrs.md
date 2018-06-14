@@ -1,11 +1,11 @@
 ---
 title: Gerir registos de controlo de acesso para a matriz Virtual StorSimple | Microsoft Docs
-description: "Descreve como gerir registos de controlo de acesso (ACRs) para determinar os anfitriões que podem ligar a um volume na matriz Virtual StorSimple."
+description: Descreve como gerir registos de controlo de acesso (ACRs) para determinar os anfitriões que podem ligar a um volume na matriz Virtual StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875943"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Utilize o Gestor de dispositivo StorSimple para gerir registos de controlo de acesso para a matriz Virtual StorSimple
 

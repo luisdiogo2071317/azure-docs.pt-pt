@@ -2,7 +2,7 @@
 title: Definir e obter as propriedades do objeto e os metadados no armazenamento do Azure | Microsoft Docs
 description: Armazenar metadados personalizados sobre objetos no Storage do Azure e definir e obter as propriedades do sistema.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873031"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e obter propriedades e metadados
 

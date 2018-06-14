@@ -1,8 +1,8 @@
 ---
-title: "Recolha de dados JSON personalizado na análise de registos do OMS | Microsoft Docs"
-description: "Origens de dados JSON personalizadas podem ser recolhidas para análise de registos com o agente do OMS para Linux.  Estas origens de dados personalizados podem ser scripts simples devolver JSON como curl ou um dos 300 + plug-ins do FluentD. Este artigo descreve a configuração necessária para esta recolha de dados."
+title: Recolha de dados JSON personalizado na análise de registos do OMS | Microsoft Docs
+description: Origens de dados JSON personalizadas podem ser recolhidas para análise de registos com o agente do OMS para Linux.  Estas origens de dados personalizados podem ser scripts simples devolver JSON como curl ou um dos 300 + plug-ins do FluentD. Este artigo descreve a configuração necessária para esta recolha de dados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855223"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Recolha de origens de dados JSON personalizadas com o agente do OMS para Linux na análise de registos
 Origens de dados JSON personalizadas podem ser recolhidas para análise de registos com o agente do OMS para Linux.  Estas origens de dados personalizados podem ser scripts simples, tais como a devolver o JSON [curl](https://curl.haxx.se/) ou um dos [300 + plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para esta recolha de dados.
