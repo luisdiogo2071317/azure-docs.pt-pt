@@ -1,8 +1,8 @@
 ---
 title: Armazenamento Standard para os discos de VM do Windows no Azure | Microsoft Docs
-description: "Aborda padrão de armazenamento económico e discos de VM do Windows não geridos e geridos."
+description: Aborda padrão de armazenamento económico e discos de VM do Windows não geridos e geridos.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: aungoo-msft
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23950519"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

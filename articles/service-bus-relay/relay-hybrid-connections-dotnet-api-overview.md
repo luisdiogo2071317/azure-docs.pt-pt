@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral do reencaminhamento do Azure APIs padrão do .NET | Microsoft Docs"
-description: "Descrição geral de API padrão de .NET de reencaminhamento do Azure"
+title: Descrição geral do reencaminhamento do Azure APIs padrão do .NET | Microsoft Docs
+description: Descrição geral de API padrão de .NET de reencaminhamento do Azure
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016438"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Descrição geral de API padrão do reencaminhamento híbrido ligações .NET do Azure
 

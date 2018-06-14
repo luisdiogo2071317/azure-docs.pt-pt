@@ -1,12 +1,12 @@
 ---
-title: "Utilize a automatização do Azure para iniciar uma tarefa no Gestor de dados do StorSimple | Microsoft Docs"
-description: "Saiba como utilizar a automatização do Azure para acionar as tarefas do Gestor de dados do StorSimple"
+title: Utilize a automatização do Azure para iniciar uma tarefa no Gestor de dados do StorSimple | Microsoft Docs
+description: Saiba como utilizar a automatização do Azure para acionar as tarefas do Gestor de dados do StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862201"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Utilize a automatização do Azure para acionar uma tarefa
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31424706"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcular as pontuações de benchmark para VMs do Windows
 As pontuações de benchmark SPECInt seguintes mostram o desempenho de computação para lineup VM de elevado desempenho do Azure com o Windows Server. Também estão disponíveis para computação benchmark pontuações [VMs com Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

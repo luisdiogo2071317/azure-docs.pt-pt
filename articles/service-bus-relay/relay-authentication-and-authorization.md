@@ -1,12 +1,12 @@
 ---
-title: "Autorização e autenticação de reencaminhamento do Azure | Microsoft Docs"
-description: "Descrição geral da autenticação da assinatura de acesso partilhado (SAS) no reencaminhamento do Azure"
+title: Autorização e autenticação de reencaminhamento do Azure | Microsoft Docs
+description: Descrição geral da autenticação da assinatura de acesso partilhado (SAS) no reencaminhamento do Azure
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018122"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autorização e autenticação de reencaminhamento do Azure
 

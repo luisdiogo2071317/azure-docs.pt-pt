@@ -1,11 +1,11 @@
 ---
-title: "Utilize ações de pedido e resposta | Microsoft Docs"
-description: "Descrição geral do pedido e resposta acionador e ação numa aplicação lógica do Azure"
-services: 
-documentationcenter: 
+title: Utilize ações de pedido e resposta | Microsoft Docs
+description: Descrição geral do pedido e resposta acionador e ação numa aplicação lógica do Azure
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27960566"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Começar com os componentes de pedido e resposta
 Com os componentes de pedido e resposta numa aplicação lógica, pode responder em tempo real a eventos.
