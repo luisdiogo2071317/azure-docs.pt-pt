@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com o comando [z vm create](/cli/azure/vm#az_vm_create).
+Crie uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create).
 
 O seguinte exemplo cria uma VM com o nome *myVM*, adiciona uma conta de utilizador com o nome *azureuser* e gera chaves SSH, caso não existam, na localização predefinida da chave (*~/.ssh*). Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`:
 
