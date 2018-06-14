@@ -1,11 +1,11 @@
 ---
-title: "Instruções de infraestrutura do Azure de exemplo | Microsoft Docs"
-description: "Saiba mais sobre as diretrizes de conceção e implementação chaves para implementar uma infraestrutura de exemplo no Azure."
-documentationcenter: 
+title: Instruções de infraestrutura do Azure de exemplo | Microsoft Docs
+description: Saiba mais sobre as diretrizes de conceção e implementação chaves para implementar uma infraestrutura de exemplo no Azure.
+documentationcenter: ''
 services: virtual-machines-linux
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745780"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Instruções de infraestrutura do Azure de exemplo para VMs com Linux
 Este artigo explica de conceção de uma infraestrutura de aplicação de exemplo. Iremos detalhe conceber uma infraestrutura para uma loja online simple que reúne as diretrizes e as decisões relativamente convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e a implementação, na verdade, as máquinas virtuais (VMs).
@@ -53,7 +54,7 @@ Todos os anteriores, siga estas convenções de nomenclatura:
 
 * Adventure Works Cycles utiliza **[carga de trabalho IT]-[localização]-[recursos do Azure]** como prefixo
   * Neste exemplo, "**azos**" (Azure on-line Store) é o nome de carga de trabalho de TI e "**utilizar**" (EUA Leste 2) é a localização
-* Redes virtuais utilizam AZOS-utilização-VN**[número]**
+* Redes virtuais utilizam AZOS-utilização-VN **[número]**
 * Conjuntos de disponibilidade utilizam azos-utilizar-como-**[função]**
 * Nomes de máquina virtual utilizar azos-utilizar-vm -**[vmname]**
 

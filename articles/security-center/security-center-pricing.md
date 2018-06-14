@@ -1,11 +1,11 @@
 ---
-title: "Atualizar para o escalão Standard do Centro de segurança para a segurança avançada | Microsoft Docs"
-description: "Este artigo fornece informações sobre preços do Centro de segurança do Azure."
+title: Atualizar para o escalão Standard do Centro de segurança para a segurança avançada | Microsoft Docs
+description: Este artigo fornece informações sobre preços do Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23931920"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para o escalão Standard do Centro de segurança para a segurança avançada
 Centro de segurança do Azure fornece gestão unificada de segurança e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e em outros nuvens. Fornece visibilidade e controlo sobre híbridos na nuvem cargas de trabalho, defesas Active Directory que reduzir a exposição a ameaças e deteção inteligente para o ajudar a manter o ritmo com rapidamente evolução de ataques de informático.

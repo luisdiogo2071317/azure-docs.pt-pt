@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27600151"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para a pedido previsão de energia
 ## <a name="overview"></a>**Descrição geral**

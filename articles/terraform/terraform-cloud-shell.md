@@ -1,7 +1,7 @@
 ---
 title: Utilizar Terraform com a Shell de nuvem do Azure
-description: "Utilize Terraform com a Shell de nuvem do Azure para simplificar a autenticação e a configuração de modelo."
-keywords: "terraform, devops, dimensionamento de máquina virtual, definida, rede, armazenamento, módulos"
+description: Utilize Terraform com a Shell de nuvem do Azure para simplificar a autenticação e a configuração de modelo.
+keywords: terraform, devops, dimensionamento de máquina virtual, definida, rede, armazenamento, módulos
 ms.service: virtual-machines-linux
 author: dcaro
 ms.author: dcaro
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121530"
 ---
 # <a name="terraform-cloud-shell-development"></a>Desenvolvimento de Terraform nuvem Shell 
 

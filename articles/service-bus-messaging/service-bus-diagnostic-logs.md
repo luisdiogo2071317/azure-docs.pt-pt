@@ -1,13 +1,13 @@
 ---
-title: "Registos de diagnóstico do Azure Service Bus | Microsoft Docs"
-description: "Saiba como configurar registos de diagnóstico para o Service Bus no Azure."
-keywords: 
+title: Registos de diagnóstico do Azure Service Bus | Microsoft Docs
+description: Saiba como configurar registos de diagnóstico para o Service Bus no Azure.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122187"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registos de diagnóstico do Service Bus
 

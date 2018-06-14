@@ -1,11 +1,11 @@
 ---
-title: "Introdução à autenticação para Mobile Apps no Xamarin Android"
-description: "Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação Xamarin Android através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
+title: Introdução à autenticação para Mobile Apps no Xamarin Android
+description: Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação Xamarin Android através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595300"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação à sua aplicação xamarin. Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
