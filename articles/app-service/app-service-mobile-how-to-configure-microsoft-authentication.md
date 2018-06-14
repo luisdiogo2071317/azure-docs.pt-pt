@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150008"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão do Microsoft Account
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

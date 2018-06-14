@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918069"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Gere as extensões de máquina virtual
 Descreve como localizar, adicionar, modificar ou remover as extensões das VMS com Windows ou máquinas virtuais Linux no Azure.

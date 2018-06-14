@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30182733"
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solução Funcionamento de Agente no OMS
 A solução Funcionamento de Agente no OMS ajuda-o a determinar que agentes não respondem e que agentes estão a submeter dados operacionais, relativamente a todos os agentes que reportam diretamente à área de trabalho do OMS ou a um grupo de gestão do System Center Operations Manager ligado ao OMS.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    

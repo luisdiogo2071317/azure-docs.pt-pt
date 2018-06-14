@@ -1,10 +1,10 @@
 ---
 title: Gerir um servidor de processos no Azure Site Recovery | Microsoft Docs
-description: "Este artigo descreve gerir um servidor de processos estar configurada para a VM de VMware e replicação do servidor físico no Azure Site Recovery."
+description: Este artigo descreve gerir um servidor de processos estar configurada para a VM de VMware e replicação do servidor físico no Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
-editor: 
+editor: ''
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812741"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 

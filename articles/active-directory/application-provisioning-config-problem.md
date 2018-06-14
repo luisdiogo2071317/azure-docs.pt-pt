@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30160336"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração de aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 

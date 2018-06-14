@@ -1,12 +1,12 @@
 ---
 title: Transferir e extrair o Kit de desenvolvimento de pilha do Azure (ASDK) | Microsoft Docs
-description: "Descreve como a transferência e extraiu o Kit de desenvolvimento de pilha do Azure (ASDK)."
+description: Descreve como a transferência e extraiu o Kit de desenvolvimento de pilha do Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975882"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Transferir e extrair o Kit de desenvolvimento de pilha do Azure (ASDK)
 Depois de se certificar de que o computador de anfitrião de kit de desenvolvimento cumpre os requisitos básicos para instalar o ASDK, o passo seguinte é a mesma e extraiu o pacote de implementação para obter o Cloudbuilder.vhdx ASDK.
