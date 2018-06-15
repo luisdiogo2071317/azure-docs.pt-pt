@@ -1,11 +1,11 @@
 ---
 title: Utilizar o blob storage para o armazenamento IIS e a tabela de eventos no Log Analytics do Azure | Microsoft Docs
-description: "Análise de registos pode ler os registos de serviços do Azure que escrever diagnósticos para armazenamento de tabelas ou escritos para o armazenamento de BLOBs de registos de IIS."
+description: Análise de registos pode ler os registos de serviços do Azure que escrever diagnósticos para armazenamento de tabelas ou escritos para o armazenamento de BLOBs de registos de IIS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855447"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com a análise de registos
 

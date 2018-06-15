@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34302261"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Ativar a cópia de segurança para a pilha do Azure no portal de administração
 Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que a pilha do Azure pode gerar cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na nuvem de recuperação em caso de a utilizar [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação na nuvem é garantir que os operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão as respetivas subscrições restauradas incluindo permissões de acesso baseado em funções e as funções, planos originais, ofertas e a computação definida anteriormente, armazenamento e quotas de rede.

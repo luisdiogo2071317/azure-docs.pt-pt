@@ -1,11 +1,11 @@
 ---
-title: "Otimizar o seu código do Azure no Visual Studio | Microsoft Docs"
-description: "Saiba mais sobre código como Azure otimização as ferramentas do Visual Studio ajudam a tornar o seu código mais robusto e better-realizar."
+title: Otimizar o seu código do Azure no Visual Studio | Microsoft Docs
+description: Saiba mais sobre código como Azure otimização as ferramentas do Visual Studio ajudam a tornar o seu código mais robusto e better-realizar.
 services: visual-studio-online
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23890839"
 ---
 # <a name="optimizing-your-azure-code"></a>Otimizar o seu código do Azure
 Quando estiver a programação aplicações que utilizam o Microsoft Azure, existem algumas práticas de codificação que deverá seguir para ajudar a evitar problemas com a escalabilidade de aplicação, o comportamento e o desempenho num ambiente de nuvem. A Microsoft fornece uma ferramenta de análise de código do Azure que reconhece e identifica os vários destes problemas normalmente encontrado e ajuda-o a resolvê-los. Pode transferir a ferramenta no Visual Studio através do NuGet.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31521841"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar os registos de Web site utilizando uma biblioteca de Python personalizada com um cluster do Spark no HDInsight
 

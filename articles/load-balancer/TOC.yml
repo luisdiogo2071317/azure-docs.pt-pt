@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: Balancear carga de VMs dentro de uma zona (CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: Criar um balanceador de carga do Azure com a API REST
+      href: create-load-balancer-rest-api.md
     - name: Criar Balanceador de Carga Básico (Modelo)
       href: load-balancer-get-started-internet-arm-template.md
     - name: Criar Balanceador de Carga público com o IPv6
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Log Analytics para o Balanceador de Carga do Azure
       href: load-balancer-monitor-log.md
+    - name: Obter métricas do Balanceador de Carga com REST
+      href: load-balancer-query-metrics-rest-api.md
     - name: Configurar Portas de Elevada Disponibilidade para o Balanceador de Carga Interno
       href: load-balancer-configure-ha-ports.md
     - name: Resolução de problemas

@@ -1,6 +1,6 @@
 ---
-title: "Auditoria e registo - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs"
-description: "Mitigações ameaças exposta na ferramenta de modelação de ameaça"
+title: Auditoria e registo - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs
+description: Mitigações ameaças exposta na ferramenta de modelação de ameaça
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926747"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Período de segurança: Auditoria e registo | Mitigações 
 | Produtos/serviços | Artigo |

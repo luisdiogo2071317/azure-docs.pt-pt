@@ -1,6 +1,6 @@
 ---
-title: "Suporte de WebSocket no Gateway de aplicação do Azure | Microsoft Docs"
-description: "Esta página fornece uma descrição geral sobre o suporte de WebSocket do Gateway de aplicação."
+title: Suporte de WebSocket no Gateway de aplicação do Azure | Microsoft Docs
+description: Esta página fornece uma descrição geral sobre o suporte de WebSocket do Gateway de aplicação.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836799"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Descrição geral do suporte de WebSocket no Gateway de aplicação
 

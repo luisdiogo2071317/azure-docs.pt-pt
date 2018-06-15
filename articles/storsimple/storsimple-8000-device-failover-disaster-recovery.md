@@ -1,12 +1,12 @@
 ---
-title: "Ativação pós-falha de StorSimple, recuperação após desastre para os dispositivos de 8000 série | Microsoft Docs"
-description: "Saiba como efetuar a ativação pós-falha do dispositivo StorSimple para si próprio, outro dispositivo físico ou uma aplicação de nuvem."
+title: Ativação pós-falha de StorSimple, recuperação após desastre para os dispositivos de 8000 série | Microsoft Docs
+description: Saiba como efetuar a ativação pós-falha do dispositivo StorSimple para si próprio, outro dispositivo físico ou uma aplicação de nuvem.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874984"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Ativação pós-falha e recuperação após desastre para o seu dispositivo de série 8000 do StorSimple
 

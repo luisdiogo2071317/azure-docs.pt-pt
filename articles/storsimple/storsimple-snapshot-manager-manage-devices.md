@@ -2,10 +2,10 @@
 title: Gerir dispositivos com o Snapshot Manager do StorSimple | Microsoft Docs
 description: Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ligar e gerir dispositivos StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876811"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o Snapshot Manager do StorSimple para ligar e gerir dispositivos StorSimple
 ## <a name="overview"></a>Descrição geral

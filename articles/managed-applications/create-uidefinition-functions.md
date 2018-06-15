@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34304509"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta secção contém as assinaturas para todas as funções suportadas de um CreateUiDefinition.

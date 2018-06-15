@@ -1,11 +1,11 @@
 ---
 title: Snapshot Manager do StorSimple e volumes | Microsoft Docs
-description: "Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir volumes e configurar cópias de segurança."
+description: Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir volumes e configurar cópias de segurança.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876993"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilize o Snapshot Manager do StorSimple para ver e gerir volumes
 ## <a name="overview"></a>Descrição geral

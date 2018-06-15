@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598970"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilizar ciclos de T-SQL no SQL Data Warehouse
 Sugestões para utilizar ciclos de T-SQL e de substituir cursores no Azure SQL Data Warehouse para desenvolver soluções.

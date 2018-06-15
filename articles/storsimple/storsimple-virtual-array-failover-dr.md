@@ -1,11 +1,11 @@
 ---
-title: "Matriz Virtual StorSimple desastre dispositivo e de recuperação de ativação pós-falha | Microsoft Docs"
-description: "Saiba mais sobre como a ativação pós-falha a matriz de Virtual StorSimple."
+title: Matriz Virtual StorSimple desastre dispositivo e de recuperação de ativação pós-falha | Microsoft Docs
+description: Saiba mais sobre como a ativação pós-falha a matriz de Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927769"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ativação pós-falha de dispositivo e de recuperação após desastre para a matriz de Virtual StorSimple através do portal do Azure
 

@@ -1,11 +1,11 @@
 ---
-title: "Monitorização e a processar eventos de segurança no Centro de segurança do Azure | Microsoft Docs"
-description: "Saiba como pode utilizar o dashboard do Centro de segurança eventos para ver eventos de segurança de VMs do Azure e computadores não do Azure."
+title: Monitorização e a processar eventos de segurança no Centro de segurança do Azure | Microsoft Docs
+description: Saiba como pode utilizar o dashboard do Centro de segurança eventos para ver eventos de segurança de VMs do Azure e computadores não do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926530"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorização e a processar eventos de segurança no Centro de segurança do Azure
 O dashboard de eventos fornece uma descrição geral do número de eventos de segurança recolhidos ao longo do tempo e uma lista dos eventos relevantes que poderão necessitam da sua atenção.  

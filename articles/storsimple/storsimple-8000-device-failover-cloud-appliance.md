@@ -1,12 +1,12 @@
 ---
-title: "Ativação pós-falha de StorSimple, recuperação após desastre para uma aplicação de nuvem do StorSimple | Microsoft Docs"
-description: "Saiba como efetuar a ativação pós-falha 8000 do StorSimple série dispositivo físico para uma aplicação de nuvem."
+title: Ativação pós-falha de StorSimple, recuperação após desastre para uma aplicação de nuvem do StorSimple | Microsoft Docs
+description: Saiba como efetuar a ativação pós-falha 8000 do StorSimple série dispositivo físico para uma aplicação de nuvem.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874900"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Ativação pós-falha para o seu dispositivo de nuvem do StorSimple
 

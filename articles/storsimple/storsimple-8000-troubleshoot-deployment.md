@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de implementação de série 8000 do StorSimple | Microsoft Docs"
+title: Resolver problemas de implementação de série 8000 do StorSimple | Microsoft Docs
 description: Descreve como diagnosticar e corrigir os erros ocorridos ao primeiro implementar StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927860"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Resolver problemas de implementação do dispositivo StorSimple
 ## <a name="overview"></a>Descrição geral

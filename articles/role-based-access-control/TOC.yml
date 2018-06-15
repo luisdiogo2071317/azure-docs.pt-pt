@@ -5,6 +5,16 @@
 - name: Controlo de acesso baseado em funções (RBAC)
   href: overview.md
   items:
+    - name: Inícios rápidos
+      items:
+        - name: Conceder acesso a um utilizador - Portal
+          href: quickstart-assign-role-user-portal.md
+    - name: Tutoriais
+      items:
+        - name: Conceder acesso a um utilizador - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Conceder acesso a um grupo - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Gerir atribuições de funções
       items:
         - name: Utilizador

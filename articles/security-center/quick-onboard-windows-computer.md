@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922778"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.

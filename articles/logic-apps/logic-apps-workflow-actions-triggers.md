@@ -3,7 +3,7 @@ title: Acionadores de fluxo de trabalho e ações - Azure Logic Apps | Microsoft
 description: Saiba mais sobre os acionadores e ações nas definições de fluxo de trabalho para o Azure Logic Apps
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886787"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300152"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Acionadores e ações de definições de fluxo de trabalho no Azure Logic Apps
 
@@ -56,7 +56,7 @@ Todos os acionadores de ter estes elementos de nível superior, embora alguns s�
 | ------------ | ---- | ----------- | 
 | <*triggerName*> | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O acionador escreva, por exemplo: "Http" ou "ApiConnection" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | recurrence | Objeto JSON | A frequência e o intervalo que descreve com que frequência o acionador é acionado |  
 | frequência | Cadeia | A unidade de tempo que descreve com que frequência o acionador desencadeado: "Segundo", "minutos", "Horas", "Dia", "Semanas" ou "Mês" | 
 | intervalo | Número inteiro | Um número inteiro que descreve com que frequência o acionador é acionado com base na frequência de. <p>Seguem-se os intervalos de mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é de "mês", em seguida, a periodicidade é a cada 6 meses. | 
@@ -124,7 +124,7 @@ Segue-se a definição do acionador:
 | ------------ | ---- | ----------- | 
 | Recorrência | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "Recurrence" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | recurrence | Objeto JSON | A frequência e o intervalo que descreve com que frequência o acionador é acionado |  
 | frequência | Cadeia | A unidade de tempo que descreve com que frequência o acionador desencadeado: "Segundo", "minutos", "Horas", "Dia", "Semanas" ou "Mês" | 
 | intervalo | Número inteiro | Um número inteiro que descreve com que frequência o acionador é acionado com base na frequência de. <p>Seguem-se os intervalos de mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: 1-500 dias </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: segundos de 1-9,999,999<p>Por exemplo, se o intervalo é de 6 e a frequência é de "mês", em seguida, a periodicidade é a cada 6 meses. | 
@@ -228,7 +228,7 @@ Este acionador faz com que a aplicação lógica possível chamar EndRead atrav�
 | Manual | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "Pedir" | 
 | tipo | Cadeia | O tipo de pedido, o que é "Http" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 |||| 
 
 *Opcional*
@@ -239,7 +239,7 @@ Este acionador faz com que a aplicação lógica possível chamar EndRead atrav�
 | RelativePath | Cadeia | O caminho relativo para o parâmetro que aceita URL do ponto final de HTTP | 
 | Esquema | Objeto JSON | O esquema JSON que descreve e valida o payload ou entradas, que o acionador recebe o pedido de entrada. Este esquema ajuda ações de fluxo de trabalho subsequentes saber as propriedades para efeitos de referência. | 
 | propriedades | Objeto JSON | Uma ou mais propriedades no esquema JSON que descreve o payload | 
-| Necessário | Array | Uma ou mais propriedades que necessitam de valores | 
+| obrigatório | Array | Uma ou mais propriedades que necessitam de valores | 
 |||| 
 
 *Exemplo*
@@ -316,7 +316,7 @@ Este acionador consulta um ponto final especificado e verifica a resposta. A res
 | ------------ | ---- | ----------- | 
 | HTTP | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "Http" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | método | Sim | Cadeia | O método HTTP para a consulta o ponto final especificado: "GET", "Colocar", "Publicar", "Corrigir", "Eliminar" ou "HEAD" | 
 | uri | Sim| Cadeia | O URL de ponto final HTTP ou HTTPS que o acionador verifica ou consulta <p>Tamanho máximo de cadeia: 2 KB | 
 | recurrence | Objeto JSON | A frequência e o intervalo que descreve com que frequência o acionador é acionado |  
@@ -328,7 +328,7 @@ Este acionador consulta um ponto final especificado e verifica a resposta. A res
 
 | Nome do elemento | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| consultas de  | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?api-version=2015-02-01` cadeia para o URL de consulta: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultado: `https://contoso.com?api-version=2015-02-01` | 
+| consultas de | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?api-version=2015-02-01` cadeia para o URL de consulta: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultado: `https://contoso.com?api-version=2015-02-01` | 
 | cabeçalhos | Objeto JSON | Um ou mais cabeçalhos a enviar no pedido <p>Por exemplo, para definir o idioma e o tipo de um pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Objeto JSON | O payload (dados) para enviar para o ponto final | 
 | autenticação | Objeto JSON | O método que o pedido de entrada deve utilizar para autenticação. Para obter mais informações, consulte [autenticação de saída do agendador](../scheduler/scheduler-outbound-authentication.md). Para além do programador, a `authority` propriedade é suportada. Quando não especificado, o valor predefinido é `https://login.windows.net`, mas pode utilizar um valor diferente, tal como`https://login.windows\-ppe.net`. | 
@@ -415,7 +415,7 @@ Segue-se a definição do acionador, apesar de muitas secções são opcionais, 
 | ------------ | ---- | ----------- | 
 | *APIConnectionTriggerName* | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "ApiConnection" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | anfitrião | Objeto JSON | O objeto JSON que descreve o gateway de anfitrião e o ID para a API gerida <p>O `host` objeto JSON tem estes elementos: `api` e `connection` | 
 | api | Objeto JSON | O URL de ponto final para a API gerido: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
 | ligação | Objeto JSON | O nome para a API ligações gerido que utiliza o fluxo de trabalho, que tem de incluir uma referência a um parâmetro com o nome `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
@@ -429,7 +429,7 @@ Segue-se a definição do acionador, apesar de muitas secções são opcionais, 
 
 | Nome do elemento | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| consultas de  | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?api-version=2015-02-01` cadeia para o URL de consulta: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultado: `https://contoso.com?api-version=2015-02-01` | 
+| consultas de | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?api-version=2015-02-01` cadeia para o URL de consulta: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultado: `https://contoso.com?api-version=2015-02-01` | 
 | cabeçalhos | Objeto JSON | Um ou mais cabeçalhos a enviar no pedido <p>Por exemplo, para definir o idioma e o tipo de um pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Objeto JSON | O objeto JSON que descreve o payload (dados) para enviar para a API gerida | 
 | autenticação | Objeto JSON | O método que um pedido recebido deve utilizar para autenticação. Para obter mais informações, consulte [autenticação de saída do agendador](../scheduler/scheduler-outbound-authentication.md). |
@@ -516,7 +516,7 @@ Segue-se a definição do acionador, apesar de muitas secções são opcionais e
 | ------------ | ---- | ----------- | 
 | HTTP_Webhook | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "HttpWebhook" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | subscrever | Objeto JSON| O pedido de envio para chamar e efetuar o registo inicial quando o acionador é criado. Esta chamada acontece para que o acionador pode começar a escutar eventos em ponto final. Para obter mais informações, consulte [subscrever e anular a subscrição](#subscribe-unsubscribe). | 
 | método | Cadeia | O método HTTP utilizado para o pedido de subscrição: "GET", "Colocar", "Publicar", "Corrigir", "Eliminar" ou "HEAD" | 
 | uri | Cadeia | O URL de ponto final para onde enviar o pedido de subscrição | 
@@ -616,7 +616,7 @@ Segue-se a definição do acionador:
 | ------------ | ---- | ----------- | 
 | <*ApiConnectionWebhookTriggerName*> | Objeto JSON | O nome para o acionador, que é um objeto descrito no formato de Javascript Object Notation (JSON)  | 
 | tipo | Cadeia | O tipo de Acionador, que é "ApiConnectionWebhook" | 
-| Entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
+| entradas | Objeto JSON | Entradas do accionador que definem o comportamento do acionador | 
 | anfitrião | Objeto JSON | O objeto JSON que descreve o gateway de anfitrião e o ID para a API gerida <p>O `host` objeto JSON tem estes elementos: `api` e `connection` | 
 | ligação | Objeto JSON | O nome para a API ligações gerido que utiliza o fluxo de trabalho, que tem de incluir uma referência a um parâmetro com o nome `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
 | corpo | Objeto JSON | O objeto JSON que descreve o payload (dados) para enviar para a API gerida | 
@@ -627,7 +627,7 @@ Segue-se a definição do acionador:
 
 | Nome do elemento | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| consultas de  | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?folderPath=Inbox` cadeia para o URL de consulta: <p>`"queries": { "folderPath": "Inbox" }` <p>Resultado: `https://<managed-API-URL>?folderPath=Inbox` | 
+| consultas de | Objeto JSON | Quaisquer parâmetros de consulta que pretende incluir o URL <p>Por exemplo, este elemento adiciona o `?folderPath=Inbox` cadeia para o URL de consulta: <p>`"queries": { "folderPath": "Inbox" }` <p>Resultado: `https://<managed-API-URL>?folderPath=Inbox` | 
 |||| 
 
 <a name="trigger-conditions"></a>
@@ -822,7 +822,7 @@ Aqui, o `inputs` objeto aceita estes parâmetros necessários para construir uma
 | ------------ | -------- | ---- | ----------- | 
 | método | Sim | Cadeia | Utiliza um destes métodos HTTP: "GET", "Publicar", "Colocar", "Eliminar", "Corrigir" ou "HEAD" | 
 | uri | Sim| Cadeia | O HTTP ou HTTPs ponto final que verifica o acionador. Tamanho máximo de cadeia: 2 KB | 
-| consultas de  | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
+| consultas de | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
 | cabeçalhos | Não | Objeto JSON | Representa a cada cabeçalho que é enviado no pedido. <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Não | Objeto JSON | Representa o payload de que é enviado para o ponto final. | 
 | retryPolicy | Não | Objeto JSON | Utilize este objeto para personalizar o comportamento de repetição para 4xx ou 5xx erros. Para obter mais informações, consulte [Repita políticas](../logic-apps/logic-apps-exception-handling.md). | 
@@ -926,7 +926,7 @@ Esta ação faz referência a um conector gerida pela Microsoft, que requerem um
 | anfitrião | Sim | Objeto JSON | Representa as informações do conector como a `runtimeUrl` e referência ao objeto de ligação. | 
 | método | Sim | Cadeia | Utiliza um destes métodos HTTP: "GET", "Publicar", "Colocar", "Eliminar", "Corrigir" ou "HEAD" | 
 | caminho | Sim | Cadeia | O caminho para a operação de API | 
-| consultas de  | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
+| consultas de | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
 | cabeçalhos | Não | Objeto JSON | Representa a cada cabeçalho que é enviado no pedido. <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Não | Objeto JSON | Representa o payload de que é enviado para o ponto final. | 
 | retryPolicy | Não | Objeto JSON | Utilize este objeto para personalizar o comportamento de repetição para 4xx ou 5xx erros. Para obter mais informações, consulte [Repita políticas](../logic-apps/logic-apps-exception-handling.md). | 
@@ -979,7 +979,7 @@ A ação de APIConnectionWebhook referencia um conector gerida pela Microsoft. E
 | ------------ | -------- | ---- | ----------- | 
 | anfitrião | Sim | Objeto JSON | Representa as informações do conector como a `runtimeUrl` e referência ao objeto de ligação. | 
 | caminho | Sim | Cadeia | O caminho para a operação de API | 
-| consultas de  | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
+| consultas de | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
 | cabeçalhos | Não | Objeto JSON | Representa a cada cabeçalho que é enviado no pedido. <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Não | Objeto JSON | Representa o payload de que é enviado para o ponto final. | 
 | retryPolicy | Não | Objeto JSON | Utilize este objeto para personalizar o comportamento de repetição para 4xx ou 5xx erros. Para obter mais informações, consulte [Repita políticas](../logic-apps/logic-apps-exception-handling.md). | 
@@ -1068,7 +1068,7 @@ Esta ação permite-lhe representam e chamada um [função do Azure](../azure-fu
 | ------------ | -------- | ---- | ----------- |  
 | id de função | Sim | Cadeia | O ID de recurso para a função do Azure que pretende ligar. | 
 | método | Não | Cadeia | O método HTTP utilizado para chamar a função. Se não for especificado, "POST" é o método predefinido. | 
-| consultas de  | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
+| consultas de | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
 | cabeçalhos | Não | Objeto JSON | Representa a cada cabeçalho que é enviado no pedido. <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Não | Objeto JSON | Representa o payload de que é enviado para o ponto final. | 
 |||||
@@ -1303,7 +1303,7 @@ Esta ação permite-lhe aninhar um fluxo de trabalho. O motor de Logic Apps efet
 | ------------ | -------- | ---- | ----------- |  
 | id de anfitrião | Sim | Cadeia| O ID de recurso para o fluxo de trabalho que pretende chamar | 
 | triggerName de anfitrião | Sim | Cadeia | O nome do acionador que pretende invocar | 
-| consultas de  | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
+| consultas de | Não | Objeto JSON | Representa a quaisquer parâmetros de consulta que pretende incluir no URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` para o URL. | 
 | cabeçalhos | Não | Objeto JSON | Representa a cada cabeçalho que é enviado no pedido. <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | corpo | Não | Objeto JSON | Representa o payload de que é enviado para o ponto final. | 
 ||||| 
@@ -1435,7 +1435,7 @@ Esta ação, o que é uma instrução de comutador, efetua ações diferentes co
 | casos | Sim | Objeto JSON | Contém os conjuntos de internas ações executadas com base no resultado de expression. | 
 | Caso | Sim | Cadeia | O valor para corresponder com o resultado | 
 | ações | Sim | Objeto JSON | As internas ações executadas para o case correspondente ao resultado expression | 
-| predefinido | Não | Objeto JSON | As ações internas que são executados quando não existem casos correspondem o resultado | 
+| predefinição | Não | Objeto JSON | As ações internas que são executados quando não existem casos correspondem o resultado | 
 ||||| 
 
 Por exemplo:
