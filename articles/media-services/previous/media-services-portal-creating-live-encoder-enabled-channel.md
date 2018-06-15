@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940987"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla com o Portal do Azure
 > [!div class="op_single_selector"]

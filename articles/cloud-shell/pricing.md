@@ -1,12 +1,12 @@
 ---
-title: "Preços de Shell de nuvem do Azure | Microsoft Docs"
-description: "Descrição geral de preços da Shell de nuvem do Azure"
-services: 
-documentationcenter: 
+title: Preços de Shell de nuvem do Azure | Microsoft Docs
+description: Descrição geral de preços da Shell de nuvem do Azure
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24809871"
 ---
 # <a name="pricing"></a>Preços
 Bash na Shell de nuvem e o PowerShell na Shell de nuvem (pré-visualização) são requerente para as informações abaixo.

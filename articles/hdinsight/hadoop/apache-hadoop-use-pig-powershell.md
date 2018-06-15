@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939445"
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Utilizar o Azure PowerShell para executar tarefas do Pig com o HDInsight
 

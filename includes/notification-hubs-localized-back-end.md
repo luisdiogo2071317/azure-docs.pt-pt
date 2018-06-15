@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33836686"
 ---
 Enviar notificações de modelo, apenas terá de fornecer um conjunto de propriedades. Neste cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.
 

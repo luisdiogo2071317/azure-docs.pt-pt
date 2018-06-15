@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597416"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Captura de pacotes de utilização para a rede proativa monitorização com alertas e as funções do Azure
 

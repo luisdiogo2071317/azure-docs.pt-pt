@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Serviço de Aplicações no Linux"
+title: Documentação do Serviço de Aplicações no Linux
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: "Documentação de Aplicações Web do Azure para Contentores - Tutoriais, Referência de API"
+  title: Documentação de Aplicações Web do Azure para Contentores - Tutoriais, Referência de API
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956451"
 sections:
-- title: "Inícios rápidos de cinco minutos"
+- title: Inícios rápidos de cinco minutos
   items:
   - type: list
     style: icon48
@@ -61,14 +62,14 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Saiba como implementar, gerir e monitorizar aplicações Web seguras no Serviço de Aplicações no Linux"
+    text: Saiba como implementar, gerir e monitorizar aplicações Web seguras no Serviço de Aplicações no Linux
   - type: list
     style: ordered
     items:
-    - html: "Crie uma aplicação com <a href=\"azure/app-service/containers/tutorial-dotnetcore-sqldb-app\">.NET Core com a BD SQL do Azure</a> ou com <a href=\"azure/app-service/containers/tutorial-nodejs-mongodb-app\">Node.js com MongoDB</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-domain\">Mapeie um domínio personalizado existente na sua aplicação.</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-SSL\">Vincule um certificado SSL existente à aplicação</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-content-delivery-network\">Adicionar uma CDN à sua aplicação</a>"
+    - html: Crie uma aplicação com <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core com a BD SQL do Azure</a> ou com <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js com MongoDB</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente na sua aplicação.</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Vincule um certificado SSL existente à aplicação</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Adicionar uma CDN à sua aplicação</a>
 - title: Amostras
   items:
   - type: paragraph
@@ -79,7 +80,7 @@ sections:
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
@@ -90,4 +91,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/appservice\">Referência da API REST</a></p>"
+      html: <p><a href="/rest/api/appservice">Referência da API REST</a></p>

@@ -16,9 +16,10 @@ ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887847"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Soluções de gestão de destino no Azure (pré-visualização)
 Quando adiciona uma solução de gestão à sua subscrição, é automaticamente implementada por predefinição para todos os agentes Windows e Linux ligado à sua área de trabalho de análise de registos.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução, limitando-la a um conjunto específico de agentes.  Este artigo descreve como utilizar **solução filtragem** que é uma funcionalidade que permite-lhe aplicar um âmbito para as suas soluções.

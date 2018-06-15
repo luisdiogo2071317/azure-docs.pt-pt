@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "23945885"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros nas vistas de análise de registos
 A **filtro** num [ver análise de registos](log-analytics-view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma propriedade específica sem modificar a vista de si próprio.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um computador específico ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir aos utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma a uma vista personalizada.

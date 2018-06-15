@@ -1,6 +1,6 @@
 ---
-title: "Ligação híbrida com a aplicação de camada 2 | Microsoft Docs"
-description: "Saiba como implementar aplicações virtuais e UDR para criar um ambiente de aplicação multicamadas no Azure"
+title: Ligação híbrida com a aplicação de camada 2 | Microsoft Docs
+description: Saiba como implementar aplicações virtuais e UDR para criar um ambiente de aplicação multicamadas no Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23943225"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aplicação virtual
 Um cenário comum entre o cliente do Azure maior é a necessidade de fornecer uma aplicação de duas camadas exposta à Internet, ao permitir o acesso para a camada de back-a partir de um datacenter no local. Este documento irá guiá-lo através de um cenário de rotas definidas pelo utilizador (UDR), um Gateway de VPN e os dispositivos de rede virtual a utilizar para implementar um ambiente de duas camadas que cumpre os seguintes requisitos:

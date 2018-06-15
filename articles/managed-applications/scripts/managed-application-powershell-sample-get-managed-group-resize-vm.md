@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script de PowerShell do Azure - obter um grupo de recursos geridos e redimensionar VMs | Microsoft Docs
-description: "Exemplo de script do PowerShell do Azure - introdução de um grupo de recursos geridos e redimensionar VMs"
+description: Exemplo de script do PowerShell do Azure - introdução de um grupo de recursos geridos e redimensionar VMs
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: f549f26cb3f9fdb2d805d2efb2c0e1706abe3edb
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940943"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Obter recursos num grupo de recursos geridos e redimensionar VMs com o PowerShell
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942239"
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturar uma máquina virtual do Linux em execução no Azure
 Siga os passos neste artigo para generalizar e capturar a máquina virtual do Linux do Azure (VM) no modelo de implementação Resource Manager. Quando generalize a VM, pode remover as informações de conta pessoal e preparar a VM para ser utilizado como uma imagem. Pode, em seguida, captura de imagem do SO, VHDs anexado dos discos de dados, um disco de rígido virtual (VHD) generalizado e um [modelo do Resource Manager](../../azure-resource-manager/resource-group-overview.md) para novas implementações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM com discos não geridos. Também pode [capturar uma VM com discos gerida do Azure com o 2.0 CLI do Azure](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Discos geridos são processados pela plataforma do Azure e não necessitam de quaisquer de preparação ou localização para armazená-las. Para obter mais informações, veja [Azure Managed Disks overview (Descrição geral dos Managed Disks do Azure)](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

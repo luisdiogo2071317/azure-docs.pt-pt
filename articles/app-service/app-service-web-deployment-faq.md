@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068075"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas mais frequentes de implementação para aplicações Web no Azure
 

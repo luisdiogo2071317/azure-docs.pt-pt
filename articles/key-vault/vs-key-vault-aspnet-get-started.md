@@ -15,6 +15,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787403"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-projects"></a>Introdução à chave de cofre ligado serviço no Visual Studio (projetos de ASP.NET)
 

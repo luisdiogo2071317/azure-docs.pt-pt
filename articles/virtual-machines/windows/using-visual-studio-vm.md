@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894275"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio as imagens no Azure
 Com o Visual Studio numa pré-configurada do Azure máquina virtual (VM) é uma forma rápida e fácil fazer a partir nada para um ambiente de desenvolvimento de segurança e executar. Imagens de sistema com configurações diferentes do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).

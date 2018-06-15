@@ -1,6 +1,6 @@
 ---
-title: "Exemplos do PowerShell do Azure - aplicações geridas do Azure | Microsoft Docs"
-description: "Exemplos do PowerShell do Azure - aplicações geridas do Azure"
+title: Exemplos do PowerShell do Azure - aplicações geridas do Azure | Microsoft Docs
+description: Exemplos do PowerShell do Azure - aplicações geridas do Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 54663282f0a7c9491c0f6501af74eca1a907c44a
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940950"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 

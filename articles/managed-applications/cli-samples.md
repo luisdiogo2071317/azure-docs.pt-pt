@@ -1,6 +1,6 @@
 ---
-title: "Amostras do CLI do Azure - aplicações geridas do Azure | Microsoft Docs"
-description: "CLI do Azure amostras - Azure aplicações geridas"
+title: Amostras do CLI do Azure - aplicações geridas do Azure | Microsoft Docs
+description: CLI do Azure amostras - Azure aplicações geridas
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 38ebea86783970e0b045dcf5a8a91f54ae6c6d6a
 ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23939935"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 

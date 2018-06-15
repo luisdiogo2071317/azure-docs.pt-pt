@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603849"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automaticamente aumentar e diminuir os recursos de cluster HPC Pack no Azure, de acordo com a carga de trabalho de cluster
 Se implementar nós do Azure "rajada" no seu cluster HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá pretender uma forma de automaticamente aumentar ou diminuir os recursos de cluster como nós ou núcleos, de acordo com a carga de trabalho no cluster. Dimensionar os recursos de cluster desta forma permite-lhe utilizar os recursos do Azure de forma mais eficiente e controlar os custos.

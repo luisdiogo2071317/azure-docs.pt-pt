@@ -1,6 +1,6 @@
 ---
-title: "Criar uma API sem servidor através das funções do Azure | Microsoft Docs"
-description: "Como criar uma API sem servidor através das funções do Azure"
+title: Criar uma API sem servidor através das funções do Azure | Microsoft Docs
+description: Como criar uma API sem servidor através das funções do Azure
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -13,9 +13,10 @@ ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24811605"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor através das funções do Azure
 

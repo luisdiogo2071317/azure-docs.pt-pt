@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937237"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador com OAuth 2.0 na API Management do Azure
 Suportam muitas APIs [OAuth 2.0](http://oauth.net/2/) para proteger a API e certifique-se de que apenas os utilizadores válidos têm acesso, e apenas podem aceder a recursos a que está a elegível. Para utilizar a consola de programador interativo da API Management do Azure com essas APIs, o serviço permite-lhe configurar a sua instância de serviço funcione com o OAuth 2.0 API ativada.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894260"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Capacidades de deteção do Centro de Segurança do Azure
 Este documento descreve as capacidades de deteção avançadas do Centro de Segurança do Azure, o que ajuda a identificar ameaças ativas que ameaçam os seus recursos do Microsoft Azure e fornece informações necessárias para responder rapidamente.

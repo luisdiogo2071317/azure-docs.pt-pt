@@ -1,11 +1,11 @@
 ---
 title: Tarefas permitidas em Estados diferentes ou Estados nos BizTalk Services | Microsoft Docs
-description: "As ações/operações permitidas no Estado MABS diferente: parar, iniciar, reiniciar, suspender, retomar, eliminar, dimensionar, atualizar a configuração e efetuar uma cópia de segurança"
+description: 'As ações/operações permitidas no Estado MABS diferente: parar, iniciar, reiniciar, suspender, retomar, eliminar, dimensionar, atualizar a configuração e efetuar uma cópia de segurança'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102747"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>O que pode e não pode fazer com o estado do BizTalk Service
 
