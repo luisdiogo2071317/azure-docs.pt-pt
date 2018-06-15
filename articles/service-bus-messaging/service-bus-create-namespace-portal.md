@@ -1,11 +1,11 @@
 ---
-title: "Como criar um espaço de nomes do Service Bus no portal do Azure | Microsoft Docs"
-description: "Crie um espaço de nomes do Service Bus com o portal do Azure."
+title: Como criar um espaço de nomes do Service Bus no portal do Azure | Microsoft Docs
+description: Crie um espaço de nomes do Service Bus com o portal do Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29556420"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um espaço de nomes do Service Bus com o portal do Azure
 

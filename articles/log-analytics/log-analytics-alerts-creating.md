@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31519584"
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alertas na análise de registos
 

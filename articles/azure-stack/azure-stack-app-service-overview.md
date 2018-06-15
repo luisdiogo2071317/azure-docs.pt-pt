@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral do serviço de aplicações: pilha do Azure | Microsoft Docs"
-description: "Descrição geral do serviço de aplicações na pilha do Azure"
+title: 'Descrição geral do serviço de aplicações: pilha do Azure | Microsoft Docs'
+description: Descrição geral do serviço de aplicações na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386083"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*

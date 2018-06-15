@@ -1,11 +1,11 @@
 ---
-title: "Problema através de acesso de aplicação personalizada | Microsoft Docs"
-description: "Resolver problemas relacionados com acesso de aplicação personalizada"
+title: Problema através de acesso de aplicação personalizada | Microsoft Docs
+description: Resolver problemas relacionados com acesso de aplicação personalizada
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382360"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problema através de acesso de aplicação personalizada
 

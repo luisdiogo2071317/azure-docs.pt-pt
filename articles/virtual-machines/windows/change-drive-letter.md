@@ -2,10 +2,10 @@
 title: 'Faz com que a unidade d: de uma VM de um disco de dados | Microsoft Docs'
 description: 'Descreve como alterar as letras de unidade para uma VM do Windows para que possa utilizar a unidade d: como uma unidade de dados.'
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577450"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilizar a unidade d: como uma unidade de dados numa VM do Windows
 Se a aplicação tem de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar dados que precisa para manter.

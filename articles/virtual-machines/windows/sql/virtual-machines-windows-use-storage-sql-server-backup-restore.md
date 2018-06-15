@@ -1,8 +1,8 @@
 ---
-title: "Como utilizar o armazenamento do Azure para cópia de segurança do SQL Server e restaurar | Microsoft Docs"
-description: "Saiba como efetuar cópias de segurança do SQL Server para o armazenamento do Azure. Explica as vantagens da cópia de segurança das bases de dados do SQL Server para o armazenamento do Azure."
+title: Como utilizar o armazenamento do Azure para cópia de segurança do SQL Server e restaurar | Microsoft Docs
+description: Saiba como efetuar cópias de segurança do SQL Server para o armazenamento do Azure. Explica as vantagens da cópia de segurança das bases de dados do SQL Server para o armazenamento do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399054"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilizar o armazenamento do Azure para cópia de segurança do SQL Server e de restauro
 ## <a name="overview"></a>Descrição geral

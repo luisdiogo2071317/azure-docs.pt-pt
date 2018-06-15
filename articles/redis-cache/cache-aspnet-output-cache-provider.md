@@ -1,6 +1,6 @@
 ---
-title: "Fornecedor de cache de Cache de saída do ASP.NET"
-description: "Saiba como colocar em cache de saída de página do ASP.NET com a Cache de Redis do Azure"
+title: Fornecedor de cache de Cache de saída do ASP.NET
+description: Saiba como colocar em cache de saída de página do ASP.NET com a Cache de Redis do Azure
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909827"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Fornecedor de Cache de saída do ASP.NET para o Azure Redis Cache
 O fornecedor de Cache de saída Redis é um mecanismo de armazenamento de fora do processo para dados da cache de saída. Estes dados são especificamente para as respostas HTTP completas (página a cache de saída). O fornecedor plugs para o novo saída cache fornecedor extensibilidade ponto que foi introduzido no ASP.NET 4.

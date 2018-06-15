@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402497"
 ---
 Bloqueios de recurso impedem os utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Ao contrário do controlo de acesso baseado em funções, bloqueios de recurso aplicam-se uma restrição em todos os utilizadores e funções. 
 

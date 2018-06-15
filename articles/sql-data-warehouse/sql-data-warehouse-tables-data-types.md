@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523511"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tipos de dados de tabela no Azure SQL Data Warehouse
 Recomendações para definir os tipos de dados de tabela no Azure SQL Data Warehouse. 
