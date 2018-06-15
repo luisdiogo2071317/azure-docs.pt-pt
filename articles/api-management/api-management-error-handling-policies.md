@@ -1,11 +1,11 @@
 ---
-title: "Erro ao processar o nas políticas de API Management do Azure | Microsoft Docs"
-description: "Saiba como responder a condições de erro que possam ocorrer durante o processamento de pedidos na API Management do Azure."
+title: Erro ao processar o nas políticas de API Management do Azure | Microsoft Docs
+description: Saiba como responder a condições de erro que possam ocorrer durante o processamento de pedidos na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128231"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar o nas políticas de gestão de API
 Gestão de API do Azure permite editores responder a condições de erro que possam ocorrer durante o processamento de pedidos para o proxy, fornecendo um `ProxyError` objeto. O `ProxyError` objeto é acedido através do [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade e pode ser utilizado pelas políticas no `on-error` secção política. Este tópico fornece uma referência para o erro capacidades de processamento na API Management do Azure.  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894754"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacionais do Azure
 Implementar uma aplicação no Azure é rápido, fácil e económica. Antes de implementar a aplicação na nuvem em produção útil ter uma lista de verificação para ajudar a avaliar a aplicação relativamente a uma lista de ações de segurança operacional essenciais e recomendados para a ter em consideração.

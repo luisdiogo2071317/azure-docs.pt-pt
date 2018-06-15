@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar propriedades nas políticas de API Management do Azure"
-description: "Saiba como utilizar propriedades nas políticas de API Management do Azure."
+title: Como utilizar propriedades nas políticas de API Management do Azure
+description: Saiba como utilizar propriedades nas políticas de API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197117"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Como utilizar propriedades nas políticas de API Management do Azure
 Políticas de API Management são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas com valores de texto literal, expressões de política e as propriedades. 

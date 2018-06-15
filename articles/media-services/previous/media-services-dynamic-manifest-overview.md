@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788873"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790294"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualize os serviços de suporte de dados depois de implementar chaves de acesso de armazenamento
 

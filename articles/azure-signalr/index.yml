@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33867288"
 abstract:
   description: O Serviço Azure SignalR é um serviço gerido do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real. Este serviço é baseado em ASP.NET Core, que consiste numa biblioteca de código aberto que simplifica o processo de acrescentar funcionalidades da web em tempo real às aplicações.
 sections:

@@ -1,11 +1,11 @@
 ---
 title: Como configurar o Azure para importar/exportar ferramenta v1 | Microsoft Docs
-description: "Saiba como configurar a preparação de unidade e reparar ferramenta para o serviço importar/exportar do Azure. Isto refere-se v1 da ferramenta de importação/exportação."
+description: Saiba como configurar a preparação de unidade e reparar ferramenta para o serviço importar/exportar do Azure. Isto refere-se v1 da ferramenta de importação/exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873941"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurar a ferramenta de importação/exportação do Azure
 A ferramenta de importação/exportação do Microsoft Azure é a ferramenta de preparação e de reparação de unidade que pode utilizar com o serviço de importação/exportação do Microsoft Azure. Pode utilizar a ferramenta para as seguintes funções:  

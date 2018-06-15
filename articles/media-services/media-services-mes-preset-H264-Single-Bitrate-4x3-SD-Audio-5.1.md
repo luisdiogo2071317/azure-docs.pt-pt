@@ -1,12 +1,12 @@
 ---
-title: H264 Único 16 x 9 de velocidade de transmissão SD 5.1 áudio | Microsoft Docs
-description: O tópico fornece uma descrição geral do **H264 de transmissão única 16 x 9 SD áudio 5.1** tarefas da configuração predefinida.
+title: H264 Único SD de velocidade de transmissão 4 x 3 5.1 áudio | Microsoft Docs
+description: O tópico fornece uma descrição geral do * * H264 de transmissão única 4 x 3 SD áudio 5.1* * tarefas predefinição.
 author: Juliako
 manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d57cd39f-60e8-4248-a21d-c5b9f096b0ce
+ms.assetid: e55dd302-2f42-46b5-ae17-bd3c72329c03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 6e8b7201d1c37deb02803f2e5160c68c8fdf1ed8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c2e1b5a5d246a512a847c0ca2601d685a9aaeb27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788313"
+ms.lasthandoff: 10/11/2017
+ms.locfileid: "23860200"
 ---
-# <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 Velocidade de transmissão única 16 x 9 SD 5.1 de áudio
-`Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-4x3-sd-audio-51"></a>H264 Velocidade de transmissão única 4 x 3 SD 5.1 de áudio
+`Media Encoder Standard`Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Single Bitrate 16x9 SD Audio 5.1` no formato XML e o JSON da configuração predefinida.  
+ Este tópico mostra o `H264 Single Bitrate 4x3 SD Audio 5.1` no formato XML e o JSON da configuração predefinida.  
   
- Esta predefinição produz um único ficheiro MP4 com velocidade de transmissão de 2200 kbps e AAC 5.1 áudio. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de significa que cada elemento e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md).  
+ Esta predefinição produz um único ficheiro MP4 com velocidade de transmissão de 1800 kbps e AAC 5.1 áudio. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de significa que cada elemento e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -39,8 +39,8 @@ ms.locfileid: "33788313"
       <SceneChangeDetection>true</SceneChangeDetection>  
       <H264Layers>  
         <H264Layer>  
-          <Bitrate>2200</Bitrate>  
-          <Width>848</Width>  
+          <Bitrate>1800</Bitrate>  
+          <Width>640</Width>  
           <Height>480</Height>  
           <FrameRate>0/1</FrameRate>  
           <Profile>Auto</Profile>  
@@ -51,7 +51,7 @@ ms.locfileid: "33788313"
           <AdaptiveBFrame>true</AdaptiveBFrame>  
           <EntropyMode>Cabac</EntropyMode>  
           <BufferWindow>00:00:05</BufferWindow>  
-          <MaxBitrate>2200</MaxBitrate>  
+          <MaxBitrate>1800</MaxBitrate>  
         </H264Layer>  
       </H264Layers>  
       <Chapters />  
@@ -84,10 +84,10 @@ ms.locfileid: "33788313"
         {  
           "Profile": "Auto",  
           "Level": "auto",  
-          "Bitrate": 2200,  
-          "MaxBitrate": 2200,  
+          "Bitrate": 1800,  
+          "MaxBitrate": 1800,  
           "BufferWindow": "00:00:05",  
-          "Width": 848,  
+          "Width": 640,  
           "Height": 480,  
           "BFrames": 3,  
           "ReferenceFrames": 3,  

@@ -1,12 +1,12 @@
 ---
-title: "Modificar a configuração de dispositivos de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve como utilizar o serviço do Gestor de dispositivos do StorSimple para reconfigurar um dispositivo StorSimple que já tenha sido implementado."
+title: Modificar a configuração de dispositivos de série 8000 do StorSimple | Microsoft Docs
+description: Descreve como utilizar o serviço do Gestor de dispositivos do StorSimple para reconfigurar um dispositivo StorSimple que já tenha sido implementado.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875159"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple
 

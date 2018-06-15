@@ -1,11 +1,11 @@
 ---
-title: "Cloud Services função configuração XPath cábula | Microsoft Docs"
-description: "Várias definições de XPath pode utilizar a configuração de função do serviço em nuvem para expor as definições como uma variável de ambiente."
+title: Cloud Services função configuração XPath cábula | Microsoft Docs
+description: Várias definições de XPath pode utilizar a configuração de função do serviço em nuvem para expor as definições como uma variável de ambiente.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860376"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expõe as definições de configuração de função como uma variável de ambiente com XPath
 No ficheiro de definição de serviço de função web ou trabalho do serviço de nuvem, pode expor os valores de configuração de tempo de execução como variáveis de ambiente. Os seguintes valores de XPath são suportados (que correspondem aos valores de API).

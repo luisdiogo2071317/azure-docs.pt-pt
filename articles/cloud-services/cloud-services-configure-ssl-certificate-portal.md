@@ -1,11 +1,11 @@
 ---
-title: "Configurar o SSL para um serviço em nuvem | Microsoft Docs"
-description: "Saiba como especificar um ponto final de HTTPS para uma função da web e como carregar um certificado SSL para proteger a sua aplicação. Estes exemplos utilizam o portal do Azure."
+title: Configurar o SSL para um serviço em nuvem | Microsoft Docs
+description: Saiba como especificar um ponto final de HTTPS para uma função da web e como carregar um certificado SSL para proteger a sua aplicação. Estes exemplos utilizam o portal do Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24859781"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurar o SSL para uma aplicação no Azure
 

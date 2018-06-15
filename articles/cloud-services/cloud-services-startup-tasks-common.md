@@ -1,11 +1,11 @@
 ---
-title: "Tarefas de arranque comuns para serviços em nuvem | Microsoft Docs"
-description: "Fornece alguns exemplos de tarefas comuns de arranque que pretende executar na sua função de web de serviços de nuvem ou a função de trabalho."
+title: Tarefas de arranque comuns para serviços em nuvem | Microsoft Docs
+description: Fornece alguns exemplos de tarefas comuns de arranque que pretende executar na sua função de web de serviços de nuvem ou a função de trabalho.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843701"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas comuns de arranque do serviço em nuvem
 Este artigo fornece alguns exemplos de tarefas comuns de arranque que pretende executar no seu serviço em nuvem. Pode utilizar tarefas de arranque para executar operações antes de começa a uma função. As operações que poderá querer efetuar incluem instalar um componente, registar componentes COM, definir as chaves de registo ou iniciar um processo de execução longa. 

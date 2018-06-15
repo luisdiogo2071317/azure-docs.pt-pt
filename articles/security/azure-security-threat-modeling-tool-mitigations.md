@@ -1,6 +1,6 @@
 ---
-title: "Azure mitigações - ferramenta de modelação de ameaça Microsoft - | Microsoft Docs"
-description: "Página de mitigações para a Microsoft ameaça modelação ferramenta Realce possíveis soluções para o mais expostas gerado ameaças."
+title: Azure mitigações - ferramenta de modelação de ameaça Microsoft - | Microsoft Docs
+description: Página de mitigações para a Microsoft ameaça modelação ferramenta Realce possíveis soluções para o mais expostas gerado ameaças.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867984"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações de ferramenta de modelação de ameaça na Microsoft
 

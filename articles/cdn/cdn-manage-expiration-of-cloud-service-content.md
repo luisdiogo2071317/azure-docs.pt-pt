@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765546"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerir a expiração de conteúdo web na CDN do Azure
 > [!div class="op_single_selector"]

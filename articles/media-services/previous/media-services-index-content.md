@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788908"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>A indexação de ficheiros de suporte de dados com o indexador de Media Services do Azure
 Indexador de suporte de dados do Azure permite-lhe para que o conteúdo dos seus ficheiros de suporte de dados pesquisáveis e para gerar um transcript de texto completo para captioning fechada e as palavras-chave. Pode processar um ficheiro de multimédia ou vários num lote.  

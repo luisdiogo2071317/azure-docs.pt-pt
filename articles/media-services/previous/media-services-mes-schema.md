@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788992"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de codificador de multimédia Standard
 Este artigo descreve alguns dos elementos e tipos de esquema XML nos quais [predefinições codificador de multimédia Standard](media-services-mes-presets-overview.md) baseiam-se. O artigo fornece uma explicação de elementos e os respetivos valores válidos.  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788229"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Como: fornecer um recurso por transferência
 Este artigo aborda as opções de entrega de recursos de suporte de dados carregados nos serviços de suporte de dados. Pode fornecer conteúdo de serviços de suporte de dados em vários cenários de aplicação. Depois da codificação, transferir os recursos de suporte de dados gerado ou aceder às mesmas através da utilização de um localizador de transmissão em fluxo. Para um melhor desempenho e escalabilidade, pode também de fornecer conteúdo utilizando uma rede de entrega de conteúdos (CDN).

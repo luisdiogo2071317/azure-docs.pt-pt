@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930617"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço geridas VMSS utilizando um modelo
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31602635"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: criar e utilizar um par de chaves públicas-privadas SSH para VMs com Linux no Azure
 Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra como gerar e utilizar um par de ficheiro de chaves públicas-privadas SSH para VMs com Linux rapidamente. Pode concluir estes passos com a Shell de nuvem do Azure, uma macOS ou anfitrião Linux, o subsistema Windows para Linux e outras ferramentas que suportam OpenSSH. 
