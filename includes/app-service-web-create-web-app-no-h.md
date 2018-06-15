@@ -13,6 +13,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29348902"
 ---
 No Cloud Shell, crie uma [aplicação Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan`. Pode fazê-lo através do comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No exemplo a seguir, substitua *\<app_name>* com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
 

@@ -1,6 +1,6 @@
 ---
-title: "Resultados do teste para replicação de VMs de Hyper-V em nuvens VMM para um site secundário com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece informações sobre testes de desempenho para replicação de VMs de Hyper-V em nuvens VMM para um site secundário utilizando o Azure Site Recovery."
+title: Resultados do teste para replicação de VMs de Hyper-V em nuvens VMM para um site secundário com o Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece informações sobre testes de desempenho para replicação de VMs de Hyper-V em nuvens VMM para um site secundário utilizando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378898"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados do teste para replicação de Hyper-V para um site secundário
 

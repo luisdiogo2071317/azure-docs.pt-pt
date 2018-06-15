@@ -20,6 +20,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010776"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Criar um dashboard personalizado para ser utilizado na análise de registos
 

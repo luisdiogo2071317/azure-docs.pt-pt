@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341011"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo
 Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores. Esta extensão é necessária para os utilizadores de Internet Explorer que tem de iniciar sessão em aplicações que são configuradas utilizando [baseada em palavra-passe de início de sessão](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).

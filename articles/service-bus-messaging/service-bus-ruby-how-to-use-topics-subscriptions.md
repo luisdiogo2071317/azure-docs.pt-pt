@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar os tópicos do Service Bus (Ruby) | Microsoft Docs"
-description: "Saiba como utilizar os tópicos do Service Bus e subscrições no Azure. Exemplos de código são escritos para aplicações Ruby."
+title: Como utilizar os tópicos do Service Bus (Ruby) | Microsoft Docs
+description: Saiba como utilizar os tópicos do Service Bus e subscrições no Azure. Exemplos de código são escritos para aplicações Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926796"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Como utilizar os tópicos do Service Bus e as subscrições com Ruby
  
