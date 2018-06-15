@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194129"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como utilizar o Azure Search a partir de uma aplicação .NET
 Este artigo é uma explicação passo a passo para ajudá-lo em execução com a [SDK .NET da Azure Search](https://aka.ms/search-sdk). Pode utilizar o SDK .NET para implementar uma experiência de pesquisa avançada na sua aplicação utilizando a pesquisa do Azure.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155624"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Aplicação e objetos de principal de serviço no Azure Active Directory (Azure AD)
 Por vezes, o significado da "aplicação" pode ser misunderstood quando utilizados no contexto do Azure AD. O objetivo deste artigo é esclarecer aspetos conceptuais e concretos de integração de aplicações do Azure AD, com uma ilustração de registo e consentimento para um [aplicação multi-inquilino](active-directory-dev-glossary.md#multi-tenant-application).

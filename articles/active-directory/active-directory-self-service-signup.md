@@ -16,9 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 67fd5ba9be2de1f79511c806ffaa0ae3001bfdcf
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760294"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
 Este artigo explica inscrição self-service e como o suportam no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio de um Azure AD não gerido de inquilino, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).

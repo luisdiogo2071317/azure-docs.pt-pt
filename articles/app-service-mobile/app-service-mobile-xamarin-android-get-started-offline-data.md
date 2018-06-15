@@ -1,10 +1,10 @@
 ---
-title: "Ativar a sincronização offline da aplicação móvel de Azure (Xamarin Android)"
-description: "Saiba como utilizar a aplicação do serviço de aplicações móveis para sincronização e a cache de dados offline na sua aplicação Xamarin Android"
+title: Ativar a sincronização offline da aplicação móvel de Azure (Xamarin Android)
+description: Saiba como utilizar a aplicação do serviço de aplicações móveis para sincronização e a cache de dados offline na sua aplicação Xamarin Android
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593101"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Ativar a sincronização offline para a sua aplicação móvel xamarin. Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

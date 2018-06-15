@@ -1,8 +1,8 @@
 ---
 title: Operations Management Suite (OMS) SDK | Microsoft Docs
-description: "Este artigo apresenta uma lista a documentação e outros recursos disponíveis para aceder aos serviços do OMS fora portais do OMS e o Azure.  Isto inclui a REST API para acesso a partir de várias interfaces de programação e motores de script, como o PowerShell"
+description: Este artigo apresenta uma lista a documentação e outros recursos disponíveis para aceder aos serviços do OMS fora portais do OMS e o Azure.  Isto inclui a REST API para acesso a partir de várias interfaces de programação e motores de script, como o PowerShell
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865625"
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) é baseado na nuvem IT solução de gestão da Microsoft que o ajuda a gerir e proteger no local e a infraestrutura de nuvem.  Este artigo apresenta uma lista a documentação e outros recursos disponíveis para aceder aos serviços do OMS fora portais do OMS e o Azure.  Isto inclui a REST API para acesso a partir de várias interfaces de programação e motores de script, como o PowerShell. 

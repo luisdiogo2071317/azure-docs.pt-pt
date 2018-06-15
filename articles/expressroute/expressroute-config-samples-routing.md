@@ -1,11 +1,11 @@
 ---
-title: "Exemplos de configuração de router de cliente do ExpressRoute | Microsoft Docs"
-description: "Esta página fornece exemplos de configuração de router para os routers Cisco e Juniper."
+title: Exemplos de configuração de router de cliente do ExpressRoute | Microsoft Docs
+description: Esta página fornece exemplos de configuração de router para os routers Cisco e Juniper.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850771"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração de router para configurar e gerir encaminhamento
 Esta página fornece uma interface e encaminhamento amostras de configuração para Cisco IOS-XE e Juniper MX routers da série. Estes são se destina a ser amostras para obter orientações sobre apenas e não pode ser utilizados tal como está. Pode trabalhar com o fornecedor de pensar em configurações adequadas para a sua rede. 

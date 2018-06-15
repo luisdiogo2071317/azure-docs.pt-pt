@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157343"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto final v 2.0 do Azure Active Directory
 As aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre a forma como uma aplicação pode aceder aos respetivos dados. A implementação de v 2.0 do modelo de autorização foi atualizada e as alterações como uma aplicação tem de interagir com o Azure AD. Este artigo aborda os conceitos básicos neste modelo de autorização, incluindo âmbitos, permissões e consentimento.

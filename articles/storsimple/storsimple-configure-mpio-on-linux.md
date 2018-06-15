@@ -1,6 +1,6 @@
 ---
-title: "Configurar o MPIO num anfitrião Linux do StorSimple | Microsoft Docs"
-description: "Configurar o MPIO no StorSimple ligado ao anfitrião Linux em execução CentOS 6.6"
+title: Configurar o MPIO num anfitrião Linux do StorSimple | Microsoft Docs
+description: Configurar o MPIO no StorSimple ligado ao anfitrião Linux em execução CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779096"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO num anfitrião StorSimple com CentOS
 Este artigo explica os passos necessários para configurar Multipathing e/s (MPIO) no seu servidor de anfitrião do Centos 6.6. O servidor anfitrião está ligado ao dispositivo Microsoft Azure StorSimple para elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a deteção automática de dispositivos multipath e o programa de configuração específico apenas para os volumes do StorSimple.

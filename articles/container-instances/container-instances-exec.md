@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32165651"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Executar um comando numa instância de contentor do Azure em execução
 

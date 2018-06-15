@@ -1,6 +1,6 @@
 ---
 title: Como utilizar o armazenamento de filas do Ruby | Microsoft Docs
-description: "Saiba como utilizar o serviço de fila do Azure para criar e eliminar filas, inserir, obter e eliminar as mensagens. Amostras de escrita em Ruby."
+description: Saiba como utilizar o serviço de fila do Azure para criar e eliminar filas, inserir, obter e eliminar as mensagens. Amostras de escrita em Ruby.
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993641"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762375"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Ligações de conta LinkedIn para serviços e aplicações da Microsoft
 Neste artigo, pode saber como gerir LinkedIn ligações de conta para o seu inquilino no Centro de administração do Azure Active Directory (Azure AD). 

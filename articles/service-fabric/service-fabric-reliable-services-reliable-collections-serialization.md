@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207670"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Fiável serialização do objeto de coleção no Azure Service Fabric
 As coleções fiável replicam e manter os seus itens para garantir que são duráveis em falhas de máquina e falhas de energia.

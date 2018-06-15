@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205458"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar a aplicação de Java Service Fabric com o Eclipse
 > [!div class="op_single_selector"]

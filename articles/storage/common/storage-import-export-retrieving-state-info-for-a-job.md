@@ -1,11 +1,11 @@
 ---
-title: "A obtenção de informações de estado para uma tarefa de importação/exportação do Azure | Microsoft Docs"
-description: "Saiba como obter informações de estado de tarefas do serviço de importação/exportação do Microsoft Azure."
+title: A obtenção de informações de estado para uma tarefa de importação/exportação do Azure | Microsoft Docs
+description: Saiba como obter informações de estado de tarefas do serviço de importação/exportação do Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874011"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>A obtenção de informações de estado para uma tarefa de importação/exportação
 Pode chamar o [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operação para obter informações sobre ambos importar e exportar tarefas. As informações devolvidas incluem:

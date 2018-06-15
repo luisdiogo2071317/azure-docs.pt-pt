@@ -1,11 +1,11 @@
 ---
-title: "Fornecer detalhes de contacto de segurança no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como fornecer detalhes de contacto de segurança no Centro de segurança do Azure."
+title: Fornecer detalhes de contacto de segurança no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como fornecer detalhes de contacto de segurança no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866528"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contacto de segurança no Centro de segurança do Azure
 Centro de segurança do Azure recomendará que forneça os detalhes de contacto de segurança para a sua subscrição do Azure se ainda não o fez. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. MSRC efetua a segurança selecione monitorização de rede do Azure e a infraestrutura e recebe queixas intelligence e abuso de ameaças de terceiros.

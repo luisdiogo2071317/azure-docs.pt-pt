@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar AMQP 1.0 com a API de barramento de serviço do Java | Microsoft Docs"
-description: "Como utilizar o serviço de mensagens de Java (JMS) com o Service Bus do Azure e avançadas mensagem colocação Protodol (AMQP) 1.0."
+title: Como utilizar AMQP 1.0 com a API de barramento de serviço do Java | Microsoft Docs
+description: Como utilizar o serviço de mensagens de Java (JMS) com o Service Bus do Azure e avançadas mensagem colocação Protodol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868383"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como utilizar o Java mensagem de serviço (JMS) API com o Service Bus e AMQP 1.0
 O Advanced mensagem colocação protocolo (AMQP) 1.0 é um protocolo de mensagens económicos, fiável e nível de rede que pode utilizar para criar aplicações robustas, entre plataformas de processamento de mensagens.

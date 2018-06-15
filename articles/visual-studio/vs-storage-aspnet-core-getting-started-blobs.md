@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET Core) | Microsoft Docs"
-description: "Como começar a utilizar o armazenamento de Blobs do Azure num projeto ASP.NET Core no Visual Studio, depois de ligar a uma conta de armazenamento utilizando o Visual Studio ligado serviços"
+title: Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET Core) | Microsoft Docs
+description: Como começar a utilizar o armazenamento de Blobs do Azure num projeto ASP.NET Core no Visual Studio, depois de ligar a uma conta de armazenamento utilizando o Visual Studio ligado serviços
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621228"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (ASP.NET Core)
 

@@ -1,11 +1,11 @@
 ---
 title: Interfaces de hardware para StorSimple 10 GbE | Microsoft Docs
-description: "Descreve os transcetores (SFP) incorporável suportados fator de forma pequeno, cabos e comutadores para as interfaces de rede 10 GbE no dispositivo StorSimple."
+description: Descreve os transcetores (SFP) incorporável suportados fator de forma pequeno, cabos e comutadores para as interfaces de rede 10 GbE no dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927755"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware suportado para as interfaces de rede GbE 10 no seu dispositivo StorSimple
 ## <a name="overview"></a>Descrição geral

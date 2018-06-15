@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181825"
 ---
 # <a name="azure-status"></a>Estado do Azure
 [Estado do Azure](https://azure.microsoft.com/status/) fornece-lhe uma vista global do Estado de funcionamento dos serviços do Azure. Com o estado do Azure, pode obter up-to-the-minute informações sobre a disponibilidade do serviço. Todos os utilizadores têm acesso para o estado do Azure e pode ver todos os serviços que comunicar o respetivo estado de funcionamento do serviço. 

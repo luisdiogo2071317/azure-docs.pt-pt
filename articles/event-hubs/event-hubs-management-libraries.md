@@ -1,12 +1,12 @@
 ---
-title: "Bibliotecas de gestão de Event Hubs do Azure | Microsoft Docs"
-description: "Gerir espaços de nomes de Event Hubs e entidades do .NET"
+title: Bibliotecas de gestão de Event Hubs do Azure | Microsoft Docs
+description: Gerir espaços de nomes de Event Hubs e entidades do .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,9 +16,10 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780978"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão de Hubs de eventos
 

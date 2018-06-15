@@ -1,11 +1,11 @@
 ---
-title: "Ativar o agente da VM no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure * * ativar VM agente * *."
+title: Ativar o agente da VM no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação de centro de segurança do Azure * * ativar VM agente * *.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866311"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Ativar o agente da VM no Centro de segurança do Azure
 O agente da VM tem de estar instalado em máquinas virtuais (VMs) de modo a [ativar a recolha de dados](security-center-enable-data-collection.md).  Centro de segurança do Azure permite-lhe ver as VMs requerem o agente da VM e recomendará que ative o agente da VM dessas VMs.

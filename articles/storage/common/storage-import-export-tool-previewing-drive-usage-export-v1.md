@@ -1,11 +1,11 @@
 ---
-title: "Utilização da unidade de uma tarefa de exportação de importação/exportação do Azure - v1 de pré-visualização | Microsoft Docs"
-description: "Saiba como pré-visualize a lista de blobs que selecionou para uma tarefa de exportação no serviço de importação/exportação do Azure."
+title: Utilização da unidade de uma tarefa de exportação de importação/exportação do Azure - v1 de pré-visualização | Microsoft Docs
+description: Saiba como pré-visualize a lista de blobs que selecionou para uma tarefa de exportação no serviço de importação/exportação do Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873647"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Pré-visualização da utilização da unidade para uma tarefa de exportação
 Antes de criar uma tarefa de exportação, tem de escolher um conjunto de blobs para ser exportada. O serviço de importação/exportação do Microsoft Azure permite-lhe utilizar uma lista de caminhos de blob ou blob prefixos para representar os blobs que selecionou.  
