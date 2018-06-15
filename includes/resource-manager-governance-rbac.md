@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433254"
 ---
 Deve certificar-se de que os utilizadores na sua organização tiverem o nível adequado de acesso a estes recursos. Não pretende conceder acesso ilimitado a utilizadores, mas terá também de certificar-se de que podem fazer o seu trabalho. O controlo de acesso baseado em funções (RBAC) permite-lhe gerir os utilizadores que têm permissão para concluir as ações específicas a um âmbito. Uma função define um conjunto de ações permitidas. Pode atribuir a função a um âmbito e especificar os utilizadores que pertencem a essa função para o âmbito.
 

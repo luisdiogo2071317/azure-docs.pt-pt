@@ -1,6 +1,6 @@
 ---
-title: "Configurar a ligação a um site secundário no local após a ativação pós-falha com o Azure Site Recovery de endereçamento IP | Microsoft Docs"
-description: "Descreve como configurar o endereçamento IP para ligar a VMs num site secundário no local após a ativação pós-falha do Azure Site Recovery."
+title: Configurar a ligação a um site secundário no local após a ativação pós-falha com o Azure Site Recovery de endereçamento IP | Microsoft Docs
+description: Descreve como configurar o endereçamento IP para ligar a VMs num site secundário no local após a ativação pós-falha do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378891"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar a ligação a um site secundário no local após a ativação pós-falha de endereçamento IP
 

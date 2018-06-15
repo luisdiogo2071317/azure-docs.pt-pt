@@ -1,11 +1,11 @@
 ---
-title: "Modificar conteúdos de páginas no portal do programador na Gestão de API do Azure | Microsoft Docs"
-description: "Saiba como editar conteúdos de páginas no portal do programador na Gestão de API do Azure."
+title: Modificar conteúdos de páginas no portal do programador na Gestão de API do Azure | Microsoft Docs
+description: Saiba como editar conteúdos de páginas no portal do programador na Gestão de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29377804"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:

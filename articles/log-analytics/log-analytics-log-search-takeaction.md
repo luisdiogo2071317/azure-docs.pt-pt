@@ -1,12 +1,12 @@
 ---
-title: "Utilizador iniciadas por ação de Runbook da automatização do Azure na análise de registos | Microsoft Docs"
-description: "Este artigo descreve como executar um runbook de automatização a partir de uma análise de registos pesquisa resultado a pedido."
+title: Utilizador iniciadas por ação de Runbook da automatização do Azure na análise de registos | Microsoft Docs
+description: Este artigo descreve como executar um runbook de automatização a partir de uma análise de registos pesquisa resultado a pedido.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394620"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Ação com um Runbook de automatização a partir de um resultado de pesquisa de registos de análise de registos
 

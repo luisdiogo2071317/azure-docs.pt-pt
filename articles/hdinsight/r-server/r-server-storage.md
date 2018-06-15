@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409470"
 ---
 # <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Soluções de armazenamento do Azure para o servidor R no Azure HDInsight
 

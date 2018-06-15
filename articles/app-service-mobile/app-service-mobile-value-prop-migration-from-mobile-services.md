@@ -1,11 +1,11 @@
 ---
-title: "Utilizo Mobile Services, como é que o App Service me vai ajudar?"
-description: "Conheça as vantagens que o App Service traz para os seus atuais projetos de Mobile Services."
+title: Utilizo Mobile Services, como é que o App Service me vai ajudar?
+description: Conheça as vantagens que o App Service traz para os seus atuais projetos de Mobile Services.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460417"
 ---
 # <a name="getting-started"> </a>Utilizo os Serviços Móveis, como é que o App Service me vai ajudar?
 ## <a name="overview"></a>Descrição geral

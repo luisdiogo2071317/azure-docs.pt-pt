@@ -1,11 +1,11 @@
 ---
-title: "Uma aplicação atribuída é não volte a aparecer no painel de acesso | Microsoft Docs"
-description: "Resolver problemas com a razão pela qual uma aplicação não está a ser apresentados no painel de acesso"
+title: Uma aplicação atribuída é não volte a aparecer no painel de acesso | Microsoft Docs
+description: Resolver problemas com a razão pela qual uma aplicação não está a ser apresentados no painel de acesso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384121"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Uma aplicação atribuída é não volte a aparecer no painel de acesso
 

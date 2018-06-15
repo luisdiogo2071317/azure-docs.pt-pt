@@ -1,6 +1,6 @@
 ---
-title: "Configuração de armazenamento para VMs de SQL Server | Microsoft Docs"
-description: "Este tópico descreve a forma como o Azure configura armazenamento para VMs de SQL Server durante o aprovisionamento (modelo de implementação do Resource Manager). Também explica como configurar o armazenamento para as VMs de SQL Server existente."
+title: Configuração de armazenamento para VMs de SQL Server | Microsoft Docs
+description: Este tópico descreve a forma como o Azure configura armazenamento para VMs de SQL Server durante o aprovisionamento (modelo de implementação do Resource Manager). Também explica como configurar o armazenamento para as VMs de SQL Server existente.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399088"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs de SQL Server
 Quando configura uma imagem de máquina virtual do SQL Server no Azure, o Portal de ajuda a automatizar a configuração de armazenamento. Isto inclui anexar armazenamento para a VM, tornando esse armazenamento acessível ao SQL Server e configurá-lo a otimizar para os seus requisitos de desempenho específicos.

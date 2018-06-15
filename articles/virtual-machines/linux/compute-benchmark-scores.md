@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425600"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcular as pontuações de benchmark para VMs com Linux
 As pontuações de benchmark CoreMark seguintes mostram o desempenho de computação para lineup VM de elevado desempenho do Azure em execução Ubuntu. Também estão disponíveis para computação benchmark pontuações [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

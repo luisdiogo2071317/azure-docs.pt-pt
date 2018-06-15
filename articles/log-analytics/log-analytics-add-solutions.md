@@ -1,11 +1,11 @@
 ---
-title: "Adicione as soluções de gestão do Log Analytics do Azure | Microsoft Docs"
-description: "Soluções de gestão no Azure são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico."
+title: Adicione as soluções de gestão do Log Analytics do Azure | Microsoft Docs
+description: Soluções de gestão no Azure são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395467"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicione as soluções de gestão do Log Analytics do Azure à sua área de trabalho
 

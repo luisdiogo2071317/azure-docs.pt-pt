@@ -1,11 +1,11 @@
 ---
-title: "Executar tarefas de arranque nos serviços em nuvem do Azure | Microsoft Docs"
-description: "Tarefas de arranque ajudam a preparar o ambiente de serviço em nuvem para a sua aplicação. Isto informa como funcionam as tarefas de arranque e como para torná-las"
+title: Executar tarefas de arranque nos serviços em nuvem do Azure | Microsoft Docs
+description: Tarefas de arranque ajudam a preparar o ambiente de serviço em nuvem para a sua aplicação. Isto informa como funcionam as tarefas de arranque e como para torná-las
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843680"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço em nuvem
 Pode utilizar tarefas de arranque para executar operações antes de começa a uma função. As operações que poderá querer efetuar incluem instalar um componente, registar componentes COM, definir as chaves de registo ou iniciar um processo de execução longa.

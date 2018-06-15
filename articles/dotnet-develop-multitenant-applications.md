@@ -1,11 +1,11 @@
 ---
-title: "Padrão de aplicação Web do multi-inquilino | Microsoft Docs"
-description: "Localize descrições gerais da arquitetura e padrões de conceção que descrevem como implementar uma aplicação web do multi-inquilino no Azure."
-services: 
+title: Padrão de aplicação Web do multi-inquilino | Microsoft Docs
+description: Localize descrições gerais da arquitetura e padrões de conceção que descrevem como implementar uma aplicação web do multi-inquilino no Azure.
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850715"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações multi-inquilino no Azure
 Uma aplicação multi-inquilino é um recurso partilhado que permite que os utilizadores separados, ou "inquilinos", para ver a aplicação como se se tratasse foi os seus próprios. Um cenário típico que presta-se a uma aplicação multi-inquilino é uma em que todos os utilizadores da aplicação podem pretender personalizar a experiência de utilizador, mas têm caso contrário, os mesmos requisitos de negócio básico. Exemplos de aplicações multi-inquilino grandes são do Office 365, Outlook.com e visualstudio.com.

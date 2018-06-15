@@ -1,12 +1,12 @@
 ---
-title: "Introdução aos tópicos e subscrições do Azure Service Bus | Microsoft Docs"
-description: "Grave uma aplicação da consola C# .NET Core que utilize tópicos e subscrições das mensagens do Service Bus."
+title: Introdução aos tópicos e subscrições do Azure Service Bus | Microsoft Docs
+description: Grave uma aplicação da consola C# .NET Core que utilize tópicos e subscrições das mensagens do Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396946"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 

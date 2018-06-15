@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406512"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Utilizar a IU de Tez para depurar Tez tarefas do HDInsight baseado em Windows
 A IU de Tez pode ser utilizada para depurar tarefas do Hive que utilizar Tez como o motor de execução. A IU de Tez visualiza a tarefa porque um gráfico de itens ligados, pode explorar cada item e obter as estatísticas e as informações de registo.

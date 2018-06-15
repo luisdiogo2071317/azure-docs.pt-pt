@@ -1,11 +1,11 @@
 ---
-title: "Ligar uma rede virtual a vários sites com Gateway de VPN e o PowerShell: clássico | Microsoft Docs"
-description: "Ligar vários sites locais no local a uma rede virtual clássica a utilizar um Gateway de VPN."
+title: 'Ligar uma rede virtual a vários sites com Gateway de VPN e o PowerShell: clássico | Microsoft Docs'
+description: Ligar vários sites locais no local a uma rede virtual clássica a utilizar um Gateway de VPN.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399377"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicionar uma ligação Site a Site para uma VNet com uma ligação de gateway VPN existente (clássica)
 

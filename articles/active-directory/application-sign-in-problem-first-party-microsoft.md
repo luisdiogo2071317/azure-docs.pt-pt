@@ -1,11 +1,11 @@
 ---
-title: "Problemas em iniciar sessão para uma aplicação da Microsoft | Microsoft Docs"
-description: "Resolver problemas comuns de deparam quando iniciar sessão no originais Applications Microsoft utilizar o Azure AD (como o Office 365)"
+title: Problemas em iniciar sessão para uma aplicação da Microsoft | Microsoft Docs
+description: Resolver problemas comuns de deparam quando iniciar sessão no originais Applications Microsoft utilizar o Azure AD (como o Office 365)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384231"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas em iniciar sessão para uma aplicação da Microsoft
 

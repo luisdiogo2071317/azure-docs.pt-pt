@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31600347"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Passos de detalhado: criar e gerir chaves SSH para a autenticação para uma VM com Linux no Azure 
 Com um par de chaves secure shell (SSH), pode criar uma máquina virtual Linux no Azure que será assumida a utilizar chaves SSH para a autenticação, eliminando a necessidade de palavras-passe iniciar sessão. As VMs criadas com o portal do Azure, CLI do Azure, o Gestor de recursos, modelos ou outras ferramentas podem incluir a chave pública SSH como parte da implementação, que configura a autenticação de chave SSH para ligações SSH. 

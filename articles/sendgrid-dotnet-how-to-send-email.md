@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar o serviço de correio eletrónico do SendGrid (.NET) | Microsoft Docs"
-description: "Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito em c# e utilizam a API .NET."
-services: 
+title: Como utilizar o serviço de correio eletrónico do SendGrid (.NET) | Microsoft Docs
+description: Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito em c# e utilizam a API .NET.
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534860"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar E-mails utilizando SendGrid com o Azure
 ## <a name="overview"></a>Descrição geral

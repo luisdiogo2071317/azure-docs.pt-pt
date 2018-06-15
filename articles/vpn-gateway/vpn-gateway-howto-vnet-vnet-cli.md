@@ -1,11 +1,11 @@
 ---
-title: "Ligar uma rede virtual do Azure a outra VNet com uma ligação VNet a VNet: CLI do Azure | Microsoft Docs"
-description: "Ligue redes virtuais entre si com uma ligação VNet a VNet e a CLI do Azure."
+title: 'Ligar uma rede virtual do Azure a outra VNet com uma ligação VNet a VNet: CLI do Azure | Microsoft Docs'
+description: Ligue redes virtuais entre si com uma ligação VNet a VNet e a CLI do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400322"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 

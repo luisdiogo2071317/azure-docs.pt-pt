@@ -1,11 +1,11 @@
 ---
 title: seguido de 42 carateres | Microsoft Docs
-description: "Apresentado no motores de busca sob o título. Tem mais espaço aqui, utilize mais palavras-chave e uma explicação mais descritiva que o título"
+description: Apresentado no motores de busca sob o título. Tem mais espaço aqui, utilize mais palavras-chave e uma explicação mais descritiva que o título
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: top-support-issue
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "23886254"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 carateres, a palavra-chave primária de destino)
 *Utilize palavras-chave secundárias de 2 a 3 na descrição.*

@@ -1,12 +1,12 @@
 ---
 title: Utilize o toolkit de Marketplace para criar e publicar itens do marketplace | Microsoft Docs
-description: "Saiba como criar rapidamente os itens do marketplace com a publicação Toolkit"
+description: Saiba como criar rapidamente os itens do marketplace com a publicação Toolkit
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386882"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace utilizando a ferramenta de publicação
 Adicionar o conteúdo para o [Azure pilha Marketplace](azure-stack-marketplace.md) disponibiliza as suas soluções e inquilinos para a implementação.  O Toolkit de Marketplace cria ficheiros de Azure Marketplace pacotes (.azpkg) com base nos seus modelos do IaaS do Azure Resource Manager ou extensões de VM.  Também pode utilizar o Toolkit de Marketplace para publicar ficheiros .azpkg, criado com a ferramenta ou utilizar [manual](azure-stack-create-and-publish-marketplace-item.md) passos.  Este tópico orienta-o transferir a ferramenta, criar um item do marketplace com base num modelo de VM e, em seguida, publicar este item para a pilha do Azure Marketplace.     

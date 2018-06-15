@@ -1,12 +1,12 @@
 ---
-title: "Gerir políticas de cópia de segurança de série 8000 do StorSimple | Microsoft Docs"
-description: "Explica como pode utilizar o serviço do Gestor de dispositivos do StorSimple para criar e gerir cópias de segurança manuais, as agendas de cópia de segurança e retenção de cópias de segurança num dispositivo série 8000 do StorSimple."
+title: Gerir políticas de cópia de segurança de série 8000 do StorSimple | Microsoft Docs
+description: Explica como pode utilizar o serviço do Gestor de dispositivos do StorSimple para criar e gerir cópias de segurança manuais, as agendas de cópia de segurança e retenção de cópias de segurança num dispositivo série 8000 do StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874872"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Utilizar o serviço StorSimple Manager de dispositivos no portal do Azure para gerir políticas de cópia de segurança
 

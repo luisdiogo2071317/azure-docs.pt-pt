@@ -1,11 +1,11 @@
 ---
-title: "Ativar ou desativar a dispositivo da série 8000 do StorSimple | Microsoft Docs"
-description: "Explica como ativar um novo dispositivo StorSimple, ative um dispositivo que foi encerrado ou perdido de energia e desativar um dispositivo em execução."
+title: Ativar ou desativar a dispositivo da série 8000 do StorSimple | Microsoft Docs
+description: Explica como ativar um novo dispositivo StorSimple, ative um dispositivo que foi encerrado ou perdido de energia e desativar um dispositivo em execução.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779453"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar o dispositivo de série 8000 do StorSimple
 

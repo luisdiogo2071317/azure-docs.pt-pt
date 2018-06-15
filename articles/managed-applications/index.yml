@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação das Aplicações Geridas do Azure"
+title: Documentação das Aplicações Geridas do Azure
 metadata:
-  title: "Documentação das Aplicações Geridas do Azure - Tutoriais, Referência da API"
-  description: "Utilize as Aplicações Geridas do Azure para publicar soluções cloud que os consumidores têm mais facilidade em manter."
+  title: Documentação das Aplicações Geridas do Azure - Tutoriais, Referência da API
+  description: Utilize as Aplicações Geridas do Azure para publicar soluções cloud que os consumidores têm mais facilidade em manter.
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27779572"
 abstract:
-  description: "As Aplicações Geridas do Azure permitem-lhe oferecer as suas soluções cloud a clientes internos e externos. Pode definir a infraestrutura para a solução, bem como os termos da gestão contínua da mesma. A faturação da solução é processada através da faturação do Azure."
+  description: As Aplicações Geridas do Azure permitem-lhe oferecer as suas soluções cloud a clientes internos e externos. Pode definir a infraestrutura para a solução, bem como os termos da gestão contínua da mesma. A faturação da solução é processada através da faturação do Azure.
 sections:
-- title: "Inícios rápidos de cinco minutos"
+- title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
-    text: "Saiba como publicar e implementar uma aplicação gerida."
+    text: Saiba como publicar e implementar uma aplicação gerida.
   - type: list
     style: icon48
     items:
@@ -35,13 +36,13 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Saiba como desenvolver aplicações geridas e como disponibilizá-las através do Azure Marketplace."
+    text: Saiba como desenvolver aplicações geridas e como disponibilizá-las através do Azure Marketplace.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Publicar uma aplicação gerida para utilizadores internos</a>"
-    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Publicar uma aplicação gerida para utilizadores externos</a>"
-- title: "Referência"
+    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publicar uma aplicação gerida para utilizadores internos</a>
+    - html: <a href="/azure/managed-applications/publish-marketplace-app">Publicar uma aplicação gerida para utilizadores externos</a>
+- title: Referência
   items:
   - type: list
     style: cards
@@ -52,4 +53,4 @@ sections:
     - title: APIs REST
       html: <p><a href="/rest/api/resources/">REST</a></p>
     - title: Interface de utilizador
-      html: "<p><a href=\"/azure/managed-applications/create-uidefinition-elements\">Elementos da IU</a></p><p><a href=\"/azure/managed-applications/create-uidefinition-functions\">Funções da IU</a></p>"
+      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementos da IU</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funções da IU</a></p>

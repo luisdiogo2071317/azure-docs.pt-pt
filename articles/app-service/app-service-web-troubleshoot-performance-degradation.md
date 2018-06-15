@@ -1,13 +1,13 @@
 ---
-title: "Desempenho de aplicações web no App Service lento | Microsoft Docs"
-description: "Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta web no App Service do Azure."
+title: Desempenho de aplicações web no App Service lento | Microsoft Docs
+description: Este artigo ajuda-o a resolver problemas de desempenho de aplicações lenta web no App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "desempenho de aplicações Web, aplicações lenta, aplicação lenta"
+keywords: desempenho de aplicações Web, aplicações lenta, aplicação lenta
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461847"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Resolver problemas de desempenho de aplicações lenta web no App Service do Azure
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações web lenta no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).

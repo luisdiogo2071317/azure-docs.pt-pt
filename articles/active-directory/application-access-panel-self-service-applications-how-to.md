@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar o acesso de aplicação personalizada | Microsoft Docs"
-description: "Ativar o acesso de aplicação self-service permitir aos utilizadores localizar as suas próprias aplicações"
+title: Como utilizar o acesso de aplicação personalizada | Microsoft Docs
+description: Ativar o acesso de aplicação self-service permitir aos utilizadores localizar as suas próprias aplicações
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383195"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso de aplicação personalizada
 

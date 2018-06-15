@@ -1,13 +1,13 @@
 ---
 title: 'Configurar filtros de rota para peering de ExpressRoute ao Microsoft Azure: Portal | Microsoft Docs'
-description: "Este artigo descreve como configurar filtros de rota para Peering da Microsoft através do portal do Azure"
+description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft através do portal do Azure
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387732"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para peering da Microsoft: portal do Azure
 > [!div class="op_single_selector"]

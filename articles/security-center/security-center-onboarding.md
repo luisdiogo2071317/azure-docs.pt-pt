@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416494"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração do Azure Security Center Standard para a segurança avançada
 Atualizar para o Security Center Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de nuvem híbrida.  Pode tentar padrão livre durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.

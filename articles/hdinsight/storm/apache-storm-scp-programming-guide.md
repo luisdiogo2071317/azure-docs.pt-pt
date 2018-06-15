@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421560"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação de SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e a aplicação de processamento de dados de elevado desempenho. Baseia-se de [Apache Storm](http://storm.incubator.apache.org/) – pelo Comunidades de OSS do sistema de processamento de transmissão. Storm está concebido por Nathan Marz e foi aberto obtido pelo Twitter. Utiliza o [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto Apache para ativar a elevada disponibilidade fiável distribuídas coordenação e estado de gestão. 

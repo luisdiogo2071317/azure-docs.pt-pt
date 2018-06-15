@@ -1,12 +1,12 @@
 ---
-title: "Substitua bateria em dispositivos de série 8000 do Microsoft Azure StorSimple | Microsoft Docs"
-description: "Descreve como remover, substitua e manter o módulo de bateria cópia de segurança no dispositivo StorSimple."
+title: Substitua bateria em dispositivos de série 8000 do Microsoft Azure StorSimple | Microsoft Docs
+description: Descreve como remover, substitua e manter o módulo de bateria cópia de segurança no dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742818"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria cópia de segurança no dispositivo StorSimple
 

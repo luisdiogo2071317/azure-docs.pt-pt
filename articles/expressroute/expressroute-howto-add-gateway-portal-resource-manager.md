@@ -1,13 +1,13 @@
 ---
 title: 'Adicionar um gateway de rede virtual para uma VNet para o ExpressRoute: Portal: Azure | Microsoft Docs'
-description: "Este artigo explica como adicionar um gateway de rede virtual para uma VNet do Resource Manager já criados para o ExpressRoute."
+description: Este artigo explica como adicionar um gateway de rede virtual para uma VNet do Resource Manager já criados para o ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850869"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para o ExpressRoute com o portal do Azure
 > [!div class="op_single_selector"]
