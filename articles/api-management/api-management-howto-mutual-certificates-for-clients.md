@@ -1,11 +1,11 @@
 ---
-title: "Protegem as APIs utilizando o cliente de autenticação de certificado na API Management - API Management do Azure | Microsoft Docs"
-description: "Saiba como proteger o acesso a APIs da utilização de certificados de cliente"
+title: Protegem as APIs utilizando o cliente de autenticação de certificado na API Management - API Management do Azure | Microsoft Docs
+description: Saiba como proteger o acesso a APIs da utilização de certificados de cliente
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26406748"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como protegem as APIs utilizando o cliente de autenticação de certificado na API Management
 

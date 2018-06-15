@@ -1,11 +1,11 @@
 ---
-title: "Espaços de nomes de emparelhar do Service Bus do Azure | Microsoft Docs"
-description: "Detalhes de implementação do espaço de nomes emparelhado e os custos"
+title: Espaços de nomes de emparelhar do Service Bus do Azure | Microsoft Docs
+description: Detalhes de implementação do espaço de nomes emparelhado e os custos
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159546"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Emparelhado detalhes de implementação do espaço de nomes e as implicações de custos
 

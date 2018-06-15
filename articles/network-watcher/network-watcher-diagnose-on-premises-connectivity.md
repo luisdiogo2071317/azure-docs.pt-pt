@@ -1,11 +1,11 @@
 ---
-title: "Diagnostique conectividade no local através do gateway VPN com o observador de rede do Azure | Microsoft Docs"
-description: "Este artigo descreve como diagnosticar conectividade no local através do gateway VPN com a resolução de problemas de recursos do observador de rede do Azure."
+title: Diagnostique conectividade no local através do gateway VPN com o observador de rede do Azure | Microsoft Docs
+description: Este artigo descreve como diagnosticar conectividade no local através do gateway VPN com a resolução de problemas de recursos do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26374207"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar conectividade no local através de gateways de VPN
 

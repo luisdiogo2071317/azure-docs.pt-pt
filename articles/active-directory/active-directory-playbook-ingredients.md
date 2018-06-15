@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory manual de comunicação social PoC Ingredients | Microsoft Docs"
-description: "Explorar e implementar rapidamente a cenários de identidade e gestão de acesso"
+title: Azure Active Directory manual de comunicação social PoC Ingredients | Microsoft Docs
+description: Explorar e implementar rapidamente a cenários de identidade e gestão de acesso
 services: active-directory
 keywords: do Azure Active Directory, manual, uma prova de conceito, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602544"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Azure Active Directory prova de conceito manual de comunicação social Ingredients 
 

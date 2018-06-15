@@ -1,9 +1,9 @@
 ---
-title: "Gerir as definições da verificação de dois passos | Microsoft Docs"
-description: "Gerir a forma como utiliza o Azure multi-factor Authentication, incluindo alterar as informações de contacto ou configurar os seus dispositivos."
+title: Gerir as definições da verificação de dois passos | Microsoft Docs
+description: Gerir a forma como utiliza o Azure multi-factor Authentication, incluindo alterar as informações de contacto ou configurar os seus dispositivos.
 services: multi-factor-authentication
-keywords: "cliente de autenticação multifator, problema de autenticação, ID de correlação"
-documentationcenter: 
+keywords: cliente de autenticação multifator, problema de autenticação, ID de correlação
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626662"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerir as definições de verificação em dois passos
 Este artigo responde a questões sobre como atualizar as definições de autenticação em dois passos de verificação ou multifator. Se estiver a ter problemas de início de sessão na sua conta, consulte [problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.

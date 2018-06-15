@@ -1,11 +1,11 @@
 ---
-title: "Atribua grupos para aplicações do Azure AD | Microsoft Docs"
-description: "Como implementar a atribuição do grupo de aplicações do Azure."
+title: Atribua grupos para aplicações do Azure AD | Microsoft Docs
+description: Como implementar a atribuição do grupo de aplicações do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26597148"
 ---
 # <a name="assign-azure-active-directory-groups-to-an-application"></a>Atribua grupos do Active Directory do Azure para uma aplicação
 Antes de pode atribuir utilizadores e grupos para uma aplicação, deve necessitar de atribuição de utilizadores. Para saber como requerer a atribuição de utilizadores, consulte o [necessidade de atribuição de utilizador](active-directory-applications-guiding-developers-requiring-user-assignment.md) artigo.

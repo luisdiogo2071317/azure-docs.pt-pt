@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526707"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos do PowerShell comuns para redes virtuais do Azure
 

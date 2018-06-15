@@ -1,9 +1,9 @@
 ---
-title: "Descrição geral do Roaming de estado empresarial | Microsoft Docs"
-description: "Fornece informações sobre as definições de Roaming de estado empresarial em dispositivos Windows. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo."
+title: Descrição geral do Roaming de estado empresarial | Microsoft Docs
+description: Fornece informações sobre as definições de Roaming de estado empresarial em dispositivos Windows. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo.
 services: active-directory
-keywords: "o que é o Roaming de estado empresarial, a sincronização de enterprise, windows na nuvem"
-documentationcenter: 
+keywords: o que é o Roaming de estado empresarial, a sincronização de enterprise, windows na nuvem
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -17,9 +17,10 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 2e1ebf5a9bfc4a1f0f92ff85f9406ecc7d538819
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614954"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Descrição geral do Roaming de Estado Empresarial
 Com o Windows 10, [Azure Active Directory (Azure AD)](active-directory-whatis.md) os utilizadores obtêm a capacidade de forma segura sincronizar os seus dados de definições de aplicação para a nuvem e de definições do utilizador. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. Roaming de estado empresarial funciona semelhante para a norma [sincronização de definições de consumidor](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) que foi introduzida pela primeira vez no Windows 8. Além disso, proporciona Roaming de estado empresarial:

@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral das Ligações Híbridas | Microsoft Docs"
-description: "Saiba mais sobre Ligações Híbridas, segurança, portas TCP e configurações suportadas. MABS, WABS."
+title: Descrição geral das Ligações Híbridas | Microsoft Docs
+description: Saiba mais sobre Ligações Híbridas, segurança, portas TCP e configurações suportadas. MABS, WABS.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26629691"
 ---
 # <a name="hybrid-connections-overview"></a>Descrição geral das Ligações Híbridas
 

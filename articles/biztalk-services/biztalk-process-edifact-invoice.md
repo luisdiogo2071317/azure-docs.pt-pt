@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Processar faturas EDIFACT utilizando os BizTalk Services do Azure | Microsoft Docs'
-description: "Como criar e configurar a aplicação de caixa de conector ou a API e utilizá-lo numa aplicação lógica no App Service do Azure"
+description: Como criar e configurar a aplicação de caixa de conector ou a API e utilizá-lo numa aplicação lógica no App Service do Azure
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633870"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processo EDIFACT faturas utilizando os BizTalk Services do Azure
 
