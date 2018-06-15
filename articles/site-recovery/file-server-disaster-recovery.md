@@ -17,6 +17,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30266194"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de ficheiros ao utilizar o Azure Site Recovery 
 

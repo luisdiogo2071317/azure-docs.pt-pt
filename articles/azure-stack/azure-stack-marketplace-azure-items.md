@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165252"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 

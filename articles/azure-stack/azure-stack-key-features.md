@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198478"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>As principais funcionalidades e conceitos na pilha do Azure
 Se estiver familiarizado com o Microsoft Azure pilha, estes termos de licenciamento e descrições das funcionalidades poderão ser úteis.

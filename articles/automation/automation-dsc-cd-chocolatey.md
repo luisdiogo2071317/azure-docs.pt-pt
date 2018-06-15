@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195272"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais utilizando o DSC de automatização e Chocolatey
 Um universo de DevOps existem diversas ferramentas para ajudá-lo com vários pontos no pipeline de integração contínua.  Configuração de estado de Desired de automatização do Azure (DSC) é uma adição de nova boas-vindas para as opções que podem utilizar agrupamentos de DevOps.  Este artigo demonstra definição cópia contínua implementação (CD) para um computador Windows.  Pode expandir facilmente técnica para incluir tantos computadores Windows, conforme necessário na função (um web site, por exemplo) e a partir daí, bem como funções adicionais.

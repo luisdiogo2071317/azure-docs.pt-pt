@@ -18,9 +18,10 @@ ms.author: celested
 ms.custom: aaddev
 ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158154"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para alguns dos principais do Azure Active Directory (AD) para programadores conceitos, que são úteis para saber mais sobre o desenvolvimento de aplicações do Azure AD.

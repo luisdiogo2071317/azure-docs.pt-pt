@@ -20,6 +20,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264477"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure 2.0
 

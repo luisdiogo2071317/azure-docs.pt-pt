@@ -1,6 +1,6 @@
 ---
-title: "Replicar uma multicamadas de aplicação web baseada em IIS utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como replicar máquinas virtuais IIS web farm utilizando o Azure Site Recovery."
+title: Replicar uma multicamadas de aplicação web baseada em IIS utilizando o Azure Site Recovery | Microsoft Docs
+description: Saiba como replicar máquinas virtuais IIS web farm utilizando o Azure Site Recovery.
 services: site-recovery
 author: nsoneji
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809425"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicar uma multicamadas de aplicação web baseada em IIS
 

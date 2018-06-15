@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165184"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento explica a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:

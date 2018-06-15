@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156226"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v 2.0 protocolos - OAuth 2.0 & OpenID Connect
 O ponto final v 2.0 pode utilizar o Azure AD para identidade-como-um-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Enquanto o serviço está em conformidade com as normas, pode ser ligeiras diferenças entre as duas implementações destes protocolos. As informações aqui será útil se pretender escrever o seu código enviando diretamente & HTTP a processar pedidos ou utilizar uma biblioteca de open source para terceiros 3rd, em vez de utilizar um dos nossos [abrir bibliotecas de origem](active-directory-v2-libraries.md).

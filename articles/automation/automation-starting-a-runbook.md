@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195299"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 A tabela seguinte ajuda-o a determinar o método para iniciar um runbook na automatização do Azure que é mais adequado para o cenário em particular. Este artigo inclui detalhes sobre a iniciar um runbook com o portal do Azure e com o Windows PowerShell. Detalhes sobre os outros métodos são fornecidos na outra documentação que podem aceder a partir das ligações abaixo.

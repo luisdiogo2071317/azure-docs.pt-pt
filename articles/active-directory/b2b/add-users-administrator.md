@@ -12,9 +12,10 @@ manager: mtillman
 ms.reviewer: sasubram
 ms.openlocfilehash: 7dddc41d35ae466f7c1392450fbda3c86a72a538
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267539"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração do B2B de diretório Active Directory do Azure no portal do Azure
 

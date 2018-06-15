@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826553"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414574"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre os discos de VM do IaaS do Azure e os discos premium geridas e não geridas
 
@@ -45,13 +45,9 @@ Os preços dos discos premium gerido é o mesmo que os discos premium não gerid
 
 Sim. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal do Azure, PowerShell ou a CLI do Azure.
 
-**Existe alguma forma posso pode copiar ou exportar um disco gerido para uma conta de armazenamento privada?**
-
-Sim. Pode exportar os discos geridos utilizando o portal do Azure, PowerShell ou a CLI do Azure.
-
 **Pode utilizar um ficheiro VHD de uma conta de armazenamento do Azure para criar um disco gerido com uma subscrição diferente?**
 
-Não.
+Sim.
 
 **Pode utilizar um ficheiro VHD de uma conta de armazenamento do Azure para criar um disco gerido numa região diferente?**
 
@@ -59,7 +55,7 @@ Não.
 
 **Existem algumas limitações de dimensionamento para os clientes que utilizam discos geridos?**
 
-Discos geridos elimina os limites associados a contas de armazenamento. No entanto, o limite máximo bem como a predefinição limite é 10 000 discos geridos por região e por tipo de disco para uma subscrição.
+Discos geridos elimina os limites associados a contas de armazenamento. No entanto, o limite máximo é de 50 000 discos geridos por região e por tipo de disco para uma subscrição.
 
 **Pode tirar um instantâneo incremental de um disco gerido?**
 
@@ -95,7 +91,7 @@ Gerido funções do discos suporta três predefinido de chaves:
 
 **Existe alguma forma posso pode copiar ou exportar um disco gerido para uma conta de armazenamento privada?**
 
-Pode obter uma URI de assinatura de acesso partilhado só de leitura para o disco gerido e utilizá-lo para copiar o conteúdo para um armazenamento de conta ou no local de armazenamento privada.
+Pode gerar uma assinatura de só de leitura de acesso partilhado (SAS) URI para o disco gerida e utilizá-lo para copiar o conteúdo para um armazenamento de conta ou no local de armazenamento privada. Pode utilizar o URI de SAS através do portal do Azure, Azure PowerShell, a CLI do Azure ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Pode criar uma cópia do meu disco gerido?**
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777632"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido parallelization de consulta no Azure Stream Analytics
 Este artigo mostra como tirar partido das parallelization do Azure Stream Analytics. Saiba como dimensionar as tarefas do Stream Analytics, deve configurar partições de entrada e otimizar a definição de consulta de análise.

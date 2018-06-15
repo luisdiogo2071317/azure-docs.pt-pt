@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30322799"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de carga padrão e zonas de disponibilidade
 

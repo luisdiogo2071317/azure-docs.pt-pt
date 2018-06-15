@@ -17,9 +17,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.openlocfilehash: 922af0d860528902bc1eb36d72476852c67fcadf
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157448"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientações para programadores do acesso condicional do Azure Active Directory
 

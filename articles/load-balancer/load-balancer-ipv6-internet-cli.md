@@ -20,6 +20,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264035"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Criar um balanceador de carga público com o IPv6 no Gestor de recursos do Azure, utilizando a CLI do Azure
 

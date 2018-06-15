@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157680"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como ativar a SSO em várias aplicações no Android utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.

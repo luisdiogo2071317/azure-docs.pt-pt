@@ -3,9 +3,17 @@ Uma máquina virtual do Azure suporta anexar um número de discos de dados. Este
 > [!IMPORTANT]
 > Para um desempenho ideal, limite o número de elevada disponibilidade sobreutilizados discos ligados à máquina virtual para evitar possíveis limitação. Se todos os discos ligados não são altamente utilizados ao mesmo tempo, em seguida, a máquina virtual pode suportar um grande número de discos.
 
-* **Para discos gerida do Azure:** o limite de disco para discos geridos é por região e por tipo de disco. O limite máximo bem como a predefinição limite é 10 000 discos geridos por região e por tipo de disco para uma subscrição. Por exemplo, pode criar até 10 000 padrão geridos discos e também 10 000 premium geridos discos numa região por subscrição.
+* **Para o Azure discos geridos pelo:** 
 
-    Gerido instantâneos e imagens contagem contra o limite de discos geridos.
+> | Recurso | Limite Predefinido | Limite Máximo |
+> | --- | --- | --- |
+> | Managed Disks Standard | 10,000 | 50,000 |
+> | Managed Disks SSD Standard | 10,000 | 50,000 |
+> | Managed Disks Premium | 10,000 | 50,000 |
+> | Instantâneos Standard_LRS | 10,000 | 50,000 |
+> | Instantâneos Standard_ZRS | 10,000 | 50,000 |
+> | Instantâneos Premium_LRS | 10,000 | 50,000 |
+> | Imagem gerida | 10,000 | 50,000 |
 
 * **Para contas de armazenamento standard:** uma conta de armazenamento standard tem uma taxa de pedidos total máxima de 20.000 IOPS. O IOPS total em todos os discos da máquina virtual numa conta de armazenamento standard não deve exceder este limite.
   

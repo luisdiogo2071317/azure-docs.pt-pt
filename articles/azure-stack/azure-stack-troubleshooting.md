@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30229895"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Resolução de problemas de pilha do Microsoft Azure
 

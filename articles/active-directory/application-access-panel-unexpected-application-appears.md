@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054331"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como as aplicações são apresentadas no painel de acesso
 

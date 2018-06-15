@@ -1,6 +1,6 @@
 ---
-title: "Preparar o ambiente de destino para replicação de VMware no Azure | Microsoft Docs"
-description: "Este artigo descreve como preparar o ambiente do Azure para replicação de VM de VMware no Azure de destino."
+title: Preparar o ambiente de destino para replicação de VMware no Azure | Microsoft Docs
+description: Este artigo descreve como preparar o ambiente do Azure para replicação de VM de VMware no Azure de destino.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812636"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Preparar o ambiente de destino para replicação de VMware no Azure
 

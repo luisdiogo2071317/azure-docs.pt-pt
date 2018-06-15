@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211393"
 ---
 # <a name="replicas-and-instances"></a>As réplicas e de instâncias 
 Este artigo fornece uma descrição geral do ciclo de vida das réplicas de serviços com monitorização de estado e as instâncias de serviços sem monitorização de estado.

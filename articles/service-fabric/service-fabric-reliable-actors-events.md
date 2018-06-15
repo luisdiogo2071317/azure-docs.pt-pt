@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207082"
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator fornecem uma forma para enviar notificações de melhor esforço a partir de ator aos clientes. Eventos de ator foram concebidos para a comunicação de ator-cliente e não devem ser utilizados para comunicação de ator-ator.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307442"
 ---
 A família VM de série B permite-lhe escolher o tamanho da VM que fornece-lhe o desempenho de nível de base necessário para a carga de trabalho, a capacidade de impulsar desempenho da CPU de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 

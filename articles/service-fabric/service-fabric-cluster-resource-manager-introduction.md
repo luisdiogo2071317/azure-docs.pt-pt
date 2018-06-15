@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210601"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzir o Gestor de recursos de cluster do Service Fabric
 Tradicionalmente gerir os sistemas de TI ou serviços online pretendem dedicação física específica ou de máquinas virtuais a esses serviços específicos ou sistemas. Foram criados como camadas de serviços. Poderia ser uma camada de "web" e uma camada de "dados" ou "armazenamento". As aplicações seriam ter uma camada de serviço de mensagens onde pedidos em fluxo e terminar, bem como um conjunto de máquinas dedicadas a colocação em cache. Cada camada ou tipo de carga de trabalho tinha máquinas específicas dedicadas para a mesma: a base de dados obteve máquinas alguns dedicadas, os servidores web a poucos. Se as máquinas que estava de surgir um determinado tipo de carga de trabalho execute demasiado frequente, em seguida, adicionar mais máquinas com essa mesma configuração para essa camada. No entanto, nem todas as cargas de trabalho podem ser ampliadas, por isso, facilmente - particularmente com a camada de dados normalmente seriam substituir máquinas com máquinas maiores. Fácil. Se uma máquina falhou, que parte da aplicação global ficou inferior capacidade até que a máquina pode ser restaurada. Ainda bastante fácil (se não necessariamente diversão).

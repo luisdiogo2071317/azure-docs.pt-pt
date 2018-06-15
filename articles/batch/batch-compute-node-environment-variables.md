@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312706"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure variáveis de ambiente do nó de computação do Batch
 O [serviço Azure Batch](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente de nós de computação. Pode fazer referência a estas variáveis de ambiente linhas de comandos de tarefas e os programas e scripts são executados por linhas de comandos.

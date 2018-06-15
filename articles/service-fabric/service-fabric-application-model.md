@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204639"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar uma aplicação no Service Fabric
 Este artigo fornece uma descrição geral do modelo de aplicação de Service Fabric do Azure e como definir uma aplicação e do serviço através de ficheiros de manifesto.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208442"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida de ator, recolha de lixo automática e manual delete
 Um ator está ativado na primeira vez que é efetuada uma chamada para qualquer um dos respetivos métodos. Um ator está desativada (libertação da memória recolhidos pelo tempo de execução de Atores) se não for utilizado para um período de tempo configurável. Um ator e o estado também podem ser eliminadas manualmente em qualquer altura.

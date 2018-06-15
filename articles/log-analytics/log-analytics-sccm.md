@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284001"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Gestor de configuração ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager ao Log Analytics do Azure para dados de coleção de dispositivos de sincronização e fazem referência a estas coleções na análise de registos e a automatização do Azure.  

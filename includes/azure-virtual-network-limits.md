@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: bbeceb868466de42cfdffa3991983ac906cb98aa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323736"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568131"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -68,7 +68,6 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
 | Balanceadores de Carga | 100 | 1000 |
-| Recursos de back-end por carga Balanceador * | 50 | 150 |
 | Regras por recurso, Basic | 150 | 250 |
 | Regras por recurso, Standard | 1250 | 1500 |
 | Regras por configuração de IP | 299 |299 |
@@ -76,9 +75,10 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Configurações de IP de front-end, Standard | 10 | 600 |
 | Conjunto de back-end, Basic | 100, único conjunto de disponibilidade | 100, único conjunto de disponibilidade |
 | Conjunto de back-end, Standard | 1000, único VNet | 1000, único VNet |
+| Recursos de back-end por Balanceador de carga, Standard &ast; | 50 | 150 |
 | HA portas, Standard | 1 por interno front-end | 1 por interno front-end |
 
-* Até 150 recursos, qualquer combinação de máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
+&ast; Até 150 recursos, qualquer combinação de máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
 
 Caso seja necessário aumentar os limites para lá da predefinição, [contacte o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

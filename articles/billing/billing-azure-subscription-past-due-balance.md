@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159225"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver vencido saldo para a sua subscrição do Azure após obter um e-mail a partir do Azure
 

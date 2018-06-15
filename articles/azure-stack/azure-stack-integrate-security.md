@@ -1,6 +1,6 @@
 ---
-title: "Integração do Centro de dados do Azure pilha - segurança"
-description: "Saiba como integrar a segurança de pilha do Azure com a segurança do Centro de dados"
+title: Integração do Centro de dados do Azure pilha - segurança
+description: Saiba como integrar a segurança de pilha do Azure com a segurança do Centro de dados
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29734432"
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integração do Centro de dados do Azure pilha - segurança
 Pilha do Azure foi concebida e criada com a segurança em mente. Pilha do Azure é um sistema de baixo bloqueado, pelo que não é suportada a instalação do agente de segurança de software.
