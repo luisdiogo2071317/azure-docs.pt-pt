@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360477"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Segurança de rede e serviços da nuvem Microsoft
 Serviços cloud Microsoft fornecem serviços de hiper escala e infraestrutura, as capacidades de nível empresarial e muitas opções para conectividade híbrida. Os clientes podem optar por aceder a esses serviços através da Internet ou com o ExpressRoute do Azure, que fornece a conectividade de rede privada. A plataforma Microsoft Azure permite aos clientes expandir a sua infraestrutura para a nuvem e criar arquiteturas de várias camadas de forma totalmente integrada. Além disso, terceiros pode ativar avançadas de capacidades por oferta de serviços de segurança e de aplicações virtuais. Este documento técnico fornece uma descrição geral da arquitetura problemas que os clientes devem ter quando o Microsoft cloud services acedidos através do ExpressRoute e de segurança. Também abrange a criação de serviços mais seguros em redes virtuais do Azure.

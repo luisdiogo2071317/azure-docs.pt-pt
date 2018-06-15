@@ -10,9 +10,10 @@ ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
 ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371155"
 ---
 1. Inicie sessão no [Portal do Azure][lnk-portal].
 1. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.

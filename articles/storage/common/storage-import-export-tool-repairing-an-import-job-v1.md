@@ -1,11 +1,11 @@
 ---
-title: "Reparação de uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs"
-description: "Saiba como reparar uma tarefa de importação que foi criada e executada com o serviço importar/exportar do Azure."
+title: Reparação de uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs
+description: Saiba como reparar uma tarefa de importação que foi criada e executada com o serviço importar/exportar do Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927468"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de uma tarefa de importação
 O serviço de importação/exportação do Microsoft Azure poderá não conseguir copiar alguns dos seus ficheiros ou partes de um ficheiro para o serviço Blob do Windows Azure. Algumas razões para falhas incluem:  

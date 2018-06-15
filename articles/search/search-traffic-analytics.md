@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777264"
 ---
 # <a name="what-is-search-traffic-analytics"></a>O que é a análise de tráfego de pesquisa
 Análise de tráfego de pesquisa é um padrão para implementar um ciclo de comentários do seu serviço de pesquisa. Este padrão descreve os dados necessários e como recolhê-la utilizando o Application Insights, um leader da indústria para monitorizar os serviços em várias plataformas.

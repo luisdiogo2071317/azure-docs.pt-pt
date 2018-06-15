@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359021"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição de serviços em nuvem do Azure (ficheiro. csdef)
 O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço em nuvem, especifica os pontos finais de serviço e estabelece definições de configuração para o serviço. Os valores de definição de configuração estão definidos no ficheiro de configuração do serviço, conforme descrito pelo [esquema de configuração do serviço em nuvem (clássica)](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).

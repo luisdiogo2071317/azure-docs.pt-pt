@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365717"
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral de segurança operacionais do Azure
 [Segurança operacional do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) refere-se os serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros recursos no Microsoft Azure. É uma estrutura que incorpora o conhecimento adquirido através de uma variedade de capacidades que são exclusivos para a Microsoft. Estas capacidades incluem o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e a deteção profunda de ameaças atuais.

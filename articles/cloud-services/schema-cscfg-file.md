@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358222"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuração (ficheiro. cscfg) para serviços em nuvem do Azure
 O ficheiro de configuração do serviço Especifica o número de instâncias de função para implementar para cada função no serviço, os valores de quaisquer definições de configuração e os thumbprints para todos os certificados associados a uma função. Se o serviço for parte de uma rede Virtual, informações de configuração para a rede tem de ser fornecidas no ficheiro de configuração do serviço, bem como no ficheiro de configuração de rede virtual. A extensão de predefinido para o ficheiro de configuração de serviço é. cscfg.

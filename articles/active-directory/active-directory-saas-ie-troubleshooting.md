@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337763"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>A extensão do painel de acesso de resolução de problemas para o Internet Explorer
 Este artigo ajuda-o a resolver os problemas seguintes:

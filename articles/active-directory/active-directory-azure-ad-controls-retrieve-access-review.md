@@ -11,18 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192229"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233119"
 ---
 # <a name="retrieve-access-review-results"></a>Obter resultados da revisão de acesso
 
 Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação.  Um utilizador que tenha a função de **Administrador Global**, **Administrador de Segurança** ou **Leitor de Segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir utilizadores a uma dessas funções, um Administrador com Função Privilegiada pode utilizar o Azure AD PIM para tornar um utilizador elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um utilizador à função](active-directory-users-assign-role-azure-portal.md).
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Localizar uma revisão de acesso
 
@@ -42,8 +45,6 @@ Para ver os resultados de uma instância concluída de uma revisão de acesso qu
 
 
 ## <a name="removing-users-from-an-access-review"></a>Remover utilizadores de uma revisão de acesso
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 Por predefinição, um utilizador eliminado permanecerá eliminado no Azure AD para 30 dias, durante o qual pode ser restaurado por um administrador, se necessário.  Após 30 dias, esse utilizador é eliminado permanentemente.  Além disso, através do portal do Azure Active Directory, um Administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](active-directory-users-restore.md) antes desse período de tempo ser atingido.  Depois de um utilizador ser eliminado de maneira permanente, subsequentemente os dados sobre esse utilizador serão removidos das revisões de acesso ativas.  As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
 

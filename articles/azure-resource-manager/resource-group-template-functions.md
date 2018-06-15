@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359497"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Azure Resource Manager
 Este artigo descreve todas as funções que pode utilizar um modelo Azure Resource Manager.
