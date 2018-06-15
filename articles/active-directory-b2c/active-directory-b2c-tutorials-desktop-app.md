@@ -2,18 +2,20 @@
 title: Tutorial - Ativar a autenticação de aplicações de ambiente de trabalho com contas através do Azure Active Directory B2C | Microsoft Docs
 description: Tutorial sobre como utilizar o Azure Active Directory B2C para fornecer o início de sessão do utilizador a uma aplicação de ambiente de trabalho .NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: parja
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 2/28/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 86d8b105828bdb2a83eac24aebf227b9ae7615e2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711737"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial - Ativar a autenticação de aplicações de ambiente de trabalho com contas através do Azure Active Directory B2C
 
@@ -160,7 +162,7 @@ A aplicação de exemplo suporta inscrição, início de sessão, edição de pe
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
-1. Clique no botão **Iniciar Sessão** para se inscrever como utilizador da aplicação de ambiente de trabalho. Esta opção utiliza a política **B2C_1_SiUpIn** definida por si num passo anterior.
+1. Clique no botão **Iniciar Sessão** para se inscrever como utilizador da aplicação de ambiente de trabalho. Esta opção utiliza a política **B2C_1_SiUpIn** definida num passo anterior.
 
 2. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Uma vez que ainda não tem uma conta, clique na ligação **Inscrever-se agora**. 
 

@@ -1,29 +1,27 @@
 ---
 title: Vários trajetos com o Azure Maps | Microsoft Docs
 description: Localizar trajetos para diferentes meios de deslocação com o Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b45394cedcb7bbcb46b9730b7e445b04c8cf4f18
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601416"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 
 Este tutorial mostra como utilizar a sua conta do Azure Maps e o serviço de rotas para encontrar o caminho para o seu ponto de interesse, priorizado pelo seu meio de transporte. Apresente dois trajetos diferentes no seu mapa, um para carros e outro para camiões que possam ter restrições de trânsito, devido a altura, peso ou carga perigosa. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nova página Web com a API de Controlo de Mapas
+> * Criar uma nova página Web com a API de controlo de mapas
 > * Visualizar o fluxo de tráfego no seu mapa
 > * Criar consultas de trajeto que declaram o modo de deslocação
 > * Apresentar vários trajetos no seu mapa
@@ -288,7 +286,7 @@ Esta secção mostra como utilizar a API de serviço de trajetos do Maps para en
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar uma nova página Web com a API de Controlo de Mapas
+> * Criar uma nova página Web com a API de controlo de mapas
 > * Visualizar o fluxo de tráfego no seu mapa
 > * Criar consultas de trajeto que declaram o modo de deslocação
 > * Apresentar vários trajetos no seu mapa

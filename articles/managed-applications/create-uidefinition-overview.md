@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34305230"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Criar a interface de utilizador do portal do Azure para a sua aplicação gerida
 Este documento apresenta os conceitos principais do ficheiro createUiDefinition.json. O portal do Azure utiliza este ficheiro para gerar a interface de utilizador para criar uma aplicação gerida.

@@ -4,21 +4,18 @@ description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribui
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611233"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -55,7 +52,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
     * O Azure Cosmos DB garante baixa latência ponto a ponto no percentil 99 aos seus clientes. 
     * Para um item de 1 KB típico, o Cosmos DB garante a latência ponto a ponto das leituras abaixo dos 10 ms e das escritas indexadas abaixo dos 15 ms no percentil 99, dentro da mesma região do Azure. As latências medianas são significativamente inferiores (abaixo dos 5 ms).
 
-* **Garantia de disponibilidade "always on"**
+* **Garantia de disponibilidade “always on”**
     * SLA de 99,99% de disponibilidade para todas as contas de bases de dados de região única e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
     * Para maior disponibilidade e melhor desempenho, implemente em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions).
     * Defina dinamicamente prioridades para regiões e [simule uma falha](regional-failover.md) de uma ou mais regiões com garantia de zero perda de dados para testar a disponibilidade ponto a ponto de toda a aplicação (e não apenas da base de dados). 
@@ -83,7 +80,7 @@ O Azure Cosmos DB fornece as melhores capacidades das bases de dados relacionais
 | Distribuição global | Não | Não | Sim, distribuição chave na mão em mais de 30 regiões, com APIs multi-homing|
 | Dimensionamento horizontal | Não | Sim | Sim, pode dimensionar o armazenamento e o débito de forma independente | 
 | Garantias de latência | Não | Sim | Sim, 99% de leituras em < 10 ms e de escritas em < 15 ms | 
-| Elevada disponibilidade | Não | Sim | Sim, o Azure Cosmos DB está sempre ativado ("always on"), tem compromissos PACELC bem definidos e oferece opções de ativação pós-falha automáticas e manuais|
+| Elevada disponibilidade | Não | Sim | Sim, o Azure Cosmos DB está sempre ativado (“always on”), tem compromissos PACELC bem definidos e oferece opções de ativação pós-falha automáticas e manuais|
 | Modelo de dados + API | Relacional + SQL | Vários modelos e API OSS | Vários modelos + SQL + API OSS (mais em breve) |
 | SLAs | Sim | Não | Sim, SLAs abrangentes para latência, débito, consistência e disponibilidade |
 

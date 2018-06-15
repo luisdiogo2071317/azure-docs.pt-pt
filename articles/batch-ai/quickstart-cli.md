@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure – Preparação CNTK com o Batch AI - CLI do Azure | Microsoft Docs
-description: Aprenda rapidamente a executar um trabalho de preparação CNTK com o Batch AI com a CLI do Azure
+description: Aprenda rapidamente a executar uma tarefa de preparação CNTK com o Batch AI com a CLI do Azure
 services: batch-ai
 documentationcenter: na
 author: AlexanderYukhanov
@@ -15,14 +15,14 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
-ms.openlocfilehash: 3601ea412790c991892a0c05210d2551810287b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8d2381f710e87751bd6547c7f435080f185020d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869024"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608550"
 ---
-# <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Executar um trabalho de preparação CNTK com a CLI do Azure
+# <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Executar uma tarefa de preparação CNTK com a CLI do Azure
 
 A CLI 2.0 do Azure permite-lhe criar e gerir recursos do Batch AI - criar/eliminar servidores de ficheiros e clusters do Batch AI e submeter/terminar/eliminar/monitorizar trabalhos de preparação.
 
@@ -446,5 +446,5 @@ Exemplo de saída:
 Elimine o grupo de recursos e todos os recursos alocados com o seguinte comando:
 
 ```azurecli
-az batchai group delete -n batchai.quickstart -y
+az group delete -n batchai.quickstart -y
 ```

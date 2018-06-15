@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: Integração do Azure Active Directory com as vídeo 23
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796025"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instância pública IP (clássica) Descrição geral detalhada
 Uma instância IP público ao nível (ILPIP) é um endereço IP público que pode atribuir diretamente a uma instância de função VM ou Cloud Services, em vez de para o serviço em nuvem que a VM ou instância de função residem no. Um ILPIP não tem o local de IP virtual (VIP) que é atribuído ao seu serviço em nuvem. Em vez disso, é um endereço IP adicional que pode utilizar para ligar diretamente à sua VM ou instância de função.

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb9bfd000c377f63e99350d0615a7e92ba8bb8ef
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209278"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716249"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure entre regiões do Azure
 
@@ -28,7 +28,7 @@ Este tutorial descreve como realizar a ativação pós-falha numa única VM do A
 > * Realizar a reativação pós-falha da VM secundária
 > * Voltar a proteger a VM primária para a região secundária
 
-A replicação do Azure para o Azure está atualmente em pré-visualização.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795097"
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Manter um endereço IP virtual constante para um serviço em nuvem do Azure
 Quando atualizar um serviço em nuvem que está alojado no Azure, poderá ter de garantir que não altera o endereço IP virtual (VIP) do serviço. Muitos serviços de gestão do domínio utilizam o sistema de nomes de domínio (DNS) para registar nomes de domínio. DNS só funciona se o VIP permanece igual. Pode utilizar o **publicar assistente** nas ferramentas do Azure para se certificar de que o VIP do seu serviço em nuvem não altera quando efetua a atualização. Para obter mais informações sobre como utilizar a gestão de domínios DNS para serviços em nuvem, consulte [configurar um nome de domínio personalizado para um serviço em nuvem do Azure](cloud-services/cloud-services-custom-domain-name-portal.md).

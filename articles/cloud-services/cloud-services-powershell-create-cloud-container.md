@@ -1,11 +1,11 @@
 ---
-title: "Criar um contentor de serviços em nuvem com o PowerShell | Microsoft Docs"
-description: "Este artigo explica como criar um contentor de serviços em nuvem com o PowerShell. O contentor aloja funções web e de trabalho."
+title: Criar um contentor de serviços em nuvem com o PowerShell | Microsoft Docs
+description: Este artigo explica como criar um contentor de serviços em nuvem com o PowerShell. O contentor aloja funções web e de trabalho.
 services: cloud-services
 documentationcenter: .net
 author: cawaMS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29376138"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Utilizar um comando do PowerShell do Azure para criar um contentor do serviço de nuvem vazio
 Este artigo explica como criar rapidamente um contentor de serviços em nuvem utilizando cmdlets do PowerShell do Azure. Siga os passos abaixo:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271654"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet através do Gateway do OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e análise de registos com o Gateway do OMS quando direta ligado ou computadores monitorizados do Operations Manager não têm acesso à Internet.  O Gateway do OMS, que é um proxy de reencaminhamento de HTTP que suporte o HTTP de túnel utilizando o comando HTTP ligar, pode recolher dados e envia-as à automatização do Azure e análise de registos em nome daqueles.  
