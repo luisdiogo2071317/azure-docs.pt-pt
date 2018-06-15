@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212828"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Por isso que pretende saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma área de superfície grande, no entanto, e houver muita para saber mais.  Este artigo fornece um resumo dos recursos de infraestrutura de serviço e descreve os conceitos principais, modelos, o ciclo de vida de aplicação, testar, clusters e monitorização de estado de funcionamento de programação. Leia o [descrição geral](service-fabric-overview.md) e [quais são micro-serviços?](service-fabric-overview-microservices.md) para uma introdução e como os recursos de infraestrutura de serviço podem ser utilizados para criar micro-serviços. Este artigo não contém uma lista completa de conteúdo, mas a ligação para descrição geral e obter artigos iniciados para cada área de Service Fabric. 

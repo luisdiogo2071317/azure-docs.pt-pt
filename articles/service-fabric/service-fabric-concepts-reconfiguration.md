@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212811"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguração nos recursos de infraestrutura de serviço do Azure
 A *configuração* está definida como as réplicas e as respetivas funções para uma partição de um serviço com monitorização de estado.

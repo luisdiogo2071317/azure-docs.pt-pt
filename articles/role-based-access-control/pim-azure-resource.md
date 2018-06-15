@@ -20,6 +20,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204214"
 ---
 # <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Gerir o acesso aos recursos do Azure Privileged Identity Management
 

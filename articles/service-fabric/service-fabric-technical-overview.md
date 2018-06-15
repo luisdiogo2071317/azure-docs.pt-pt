@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212073"
 ---
 # <a name="service-fabric-terminology-overview"></a>Descrição geral de terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis. Este artigo fornece detalhes sobre a terminologia utilizada pelo serviço de recursos de infraestrutura para compreender os termos utilizados na documentação.

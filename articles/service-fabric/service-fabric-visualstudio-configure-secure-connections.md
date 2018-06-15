@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208690"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar ligações seguras para um cluster do Service Fabric do Visual Studio
 Saiba como utilizar o Visual Studio para acederem um cluster do Service Fabric do Azure com as políticas de controlo de acesso configuradas.

@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206325"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de alojamento de Service Fabric do Azure
 Este artigo fornece uma descrição geral da aplicação que aloja modelos fornecidos pelo Azure Service Fabric e descreve as diferenças entre o **processo partilhado** e **processo exclusivo** modelos. Descreve como uma aplicação implementada procura um nó de Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de anfitrião do serviço.

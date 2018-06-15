@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207558"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendado que familiarizar-se com a forma como o Service Fabric utiliza certificados x. 509 e deve estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender que um certificado de cluster e o que é utilizado para, antes de prosseguir.
