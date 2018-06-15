@@ -1,8 +1,8 @@
 ---
-title: "Melhores Práticas do Serviço de Aplicações do Azure"
-description: "Saiba as melhores práticas e resolução de problemas do App Service do Azure."
+title: Melhores Práticas do Serviço de Aplicações do Azure
+description: Saiba as melhores práticas e resolução de problemas do App Service do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868323"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
 Este artigo resume as melhores práticas para utilizar [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 

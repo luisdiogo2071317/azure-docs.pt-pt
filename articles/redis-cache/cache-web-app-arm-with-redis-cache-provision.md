@@ -1,11 +1,11 @@
 ---
-title: "Aplicação Web de aprovisionamento com a Cache de Redis"
-description: "Utilize o modelo Azure Resource Manager para implementar a aplicação web com a Cache de Redis."
+title: Aplicação Web de aprovisionamento com a Cache de Redis
+description: Utilize o modelo Azure Resource Manager para implementar a aplicação web com a Cache de Redis.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909895"
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Criar uma aplicação Web, Cache de Redis através de um modelo
 Neste tópico, irá aprender a criar um modelo Azure Resource Manager que implementa uma aplicação de Web do Azure com a cache de Redis. Ficará a saber como definir quais os recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.

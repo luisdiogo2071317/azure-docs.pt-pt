@@ -1,11 +1,11 @@
 ---
-title: "Utilizar a ferramenta de importação/exportação do Azure | Microsoft Docs"
-description: "Saiba como utilizar a ferramenta de importação/exportação para preparar os discos rígidos de uma tarefa de importação, repare uma tarefa de importação ou reparar uma tarefa de exportação."
+title: Utilizar a ferramenta de importação/exportação do Azure | Microsoft Docs
+description: Saiba como utilizar a ferramenta de importação/exportação para preparar os discos rígidos de uma tarefa de importação, repare uma tarefa de importação ou reparar uma tarefa de exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873675"
 ---
 # <a name="using-the-azure-importexport-tool"></a>Utilizar a ferramenta de importação/exportação do Azure 
 

@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de Script do PowerShell do Azure - remover aplicações a partir de um cluster | Microsoft Docs"
-description: "Azure PowerShell Script de exemplo - remover uma aplicação de um cluster do Service Fabric."
+title: Exemplo de Script do PowerShell do Azure - remover aplicações a partir de um cluster | Microsoft Docs
+description: Azure PowerShell Script de exemplo - remover uma aplicação de um cluster do Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -17,9 +17,10 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: ea7037fc3655298fc4c03b8d9f988a55e42c9fe9
 ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927867"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>Remover uma aplicação de um cluster do Service Fabric
 

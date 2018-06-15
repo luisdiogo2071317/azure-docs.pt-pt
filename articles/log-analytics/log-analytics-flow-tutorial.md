@@ -1,8 +1,8 @@
 ---
-title: "Automatizar processos de análise de registos do Azure com o Microsoft Flow"
-description: "Saiba como pode utilizar o Microsoft Flow rapidamente automatizar processos repetíveis, utilizando o conector do Log Analytics do Azure."
+title: Automatizar processos de análise de registos do Azure com o Microsoft Flow
+description: Saiba como pode utilizar o Microsoft Flow rapidamente automatizar processos repetíveis, utilizando o conector do Log Analytics do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: CFreemanwa
 manager: carmonm
 ms.service: log-analytics
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2017
+ms.locfileid: "23889509"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de análise de registos com o conector Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) permite-lhe criar fluxos de trabalho automatizados através de centenas de ações para uma variedade de serviços. Resultado de uma ação pode ser utilizado como entrada para outro, permitindo-lhe criar integração entre os diferentes serviços.  O conector do Log Analytics do Azure para a Microsoft Flow permitem-lhe criar fluxos de trabalho que incluem dados obtidos através de pesquisas de registo na análise de registos.

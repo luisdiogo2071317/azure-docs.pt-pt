@@ -1,11 +1,11 @@
 ---
-title: "Limites de programador e as predefinições"
-description: "Limites de programador e as predefinições"
+title: Limites de programador e as predefinições
+description: Limites de programador e as predefinições
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867816"
 ---
 # <a name="scheduler-limits-and-defaults"></a>Limites de programador e as predefinições
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Quotas de programador, limites, predefinições e limitações

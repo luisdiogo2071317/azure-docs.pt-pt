@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de implementação de VM com Linux-clássico | Microsoft Docs"
-description: "Resolver problemas de implementação clássica, quando criar uma nova máquina virtual de Linux no Azure"
+title: Resolver problemas de implementação de VM com Linux-clássico | Microsoft Docs
+description: Resolver problemas de implementação clássica, quando criar uma nova máquina virtual de Linux no Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27965973"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Resolver problemas de implementação clássica com a criação de uma nova máquina virtual de Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]

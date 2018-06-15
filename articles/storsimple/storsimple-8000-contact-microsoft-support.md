@@ -1,12 +1,12 @@
 ---
-title: "Criar pedido de suporte ou maiúsculas e minúsculas para a série 8000 do StorSimple | Microsoft Docs"
-description: "Saiba como registar o pedido de suporte e iniciar uma sessão de suporte no seu dispositivo de série 8000 do StorSimple."
+title: Criar pedido de suporte ou maiúsculas e minúsculas para a série 8000 do StorSimple | Microsoft Docs
+description: Saiba como registar o pedido de suporte e iniciar uma sessão de suporte no seu dispositivo de série 8000 do StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743058"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 

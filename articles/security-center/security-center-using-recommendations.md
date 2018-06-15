@@ -1,12 +1,12 @@
 ---
-title: "As recomendações do Centro de segurança do Azure de utilização para melhorar a segurança | Microsoft Docs"
+title: As recomendações do Centro de segurança do Azure de utilização para melhorar a segurança | Microsoft Docs
 description: " Saiba como utilizar políticas de segurança e as recomendações no Centro de segurança do Azure para o ajudar a mitigar um ataque de segurança. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866668"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança
 Pode reduzir as possibilidades de um evento de segurança ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra como utilizar políticas de segurança e as recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança.

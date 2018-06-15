@@ -1,11 +1,11 @@
 ---
 title: Auto-reencaminhamento entidades de mensagens de Service Bus do Azure | Microsoft Docs
-description: "Como encadear uma fila do Service Bus ou uma subscrição para outra fila ou tópico."
+description: Como encadear uma fila do Service Bus ou uma subscrição para outra fila ou tópico.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558097"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadeamento de entidades do Service Bus com o reencaminhamento automática
 

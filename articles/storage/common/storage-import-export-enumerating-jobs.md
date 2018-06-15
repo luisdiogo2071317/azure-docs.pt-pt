@@ -1,11 +1,11 @@
 ---
-title: "Lista todas as tarefas de importação/exportação do Azure | MicrosoftDocs"
-description: "Saiba como lista de todas as tarefas de serviço do Azure para importar/exportar numa subscrição."
+title: Lista todas as tarefas de importação/exportação do Azure | MicrosoftDocs
+description: Saiba como lista de todas as tarefas de serviço do Azure para importar/exportar numa subscrição.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873703"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerar tarefas no serviço do Azure para importar/exportar
 Para enumerar todas as tarefas numa subscrição, chame o [tarefas lista](/rest/api/storageimportexport/jobs#Jobs_List) operação. `List Jobs`Devolve uma lista de tarefas, bem como os seguintes atributos:

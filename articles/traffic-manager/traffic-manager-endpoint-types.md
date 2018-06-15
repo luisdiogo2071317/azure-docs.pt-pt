@@ -1,11 +1,11 @@
 ---
-title: "Tipos de ponto final do Gestor de tráfego | Microsoft Docs"
-description: "Este artigo explica os diferentes tipos de pontos finais que podem ser utilizados com o Gestor de tráfego do Azure"
+title: Tipos de ponto final do Gestor de tráfego | Microsoft Docs
+description: Este artigo explica os diferentes tipos de pontos finais que podem ser utilizados com o Gestor de tráfego do Azure
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877518"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução nos centros de dados diferentes. Configure cada implementação de aplicação como um ponto 'final' no Traffic Manager. Quando o Gestor de tráfego recebe um pedido DNS, escolhe um ponto final disponível para devolver na resposta DNS. Gestor de tráfego bases de escolha sobre o estado de ponto final atual e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como Gestor de tráfego funciona](traffic-manager-how-traffic-manager-works.md).

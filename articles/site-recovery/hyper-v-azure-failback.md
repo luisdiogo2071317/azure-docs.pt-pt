@@ -1,6 +1,6 @@
 ---
-title: "Executar uma reativação pós-falha para um site no local para máquinas virtuais Hyper-v | Microsoft Docs"
-description: "O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a reativação pós-falha a partir do Azure datacenter no local."
+title: Executar uma reativação pós-falha para um site no local para máquinas virtuais Hyper-v | Microsoft Docs
+description: O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a reativação pós-falha a partir do Azure datacenter no local.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467122"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para as VMs de Hyper-V
 

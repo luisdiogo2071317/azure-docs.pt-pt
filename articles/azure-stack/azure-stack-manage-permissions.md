@@ -1,11 +1,11 @@
 ---
-title: "Gerir permissões para recursos por utilizador na pilha do Azure (administrador de serviço e inquilino) | Microsoft Docs"
-description: "Como um administrador de serviço ou o inquilino, saiba como gerir RBAC permissões."
+title: Gerir permissões para recursos por utilizador na pilha do Azure (administrador de serviço e inquilino) | Microsoft Docs
+description: Como um administrador de serviço ou o inquilino, saiba como gerir RBAC permissões.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385641"
 ---
 # <a name="manage-role-based-access-control"></a>Gerir o controlo de acesso baseado em funções
 

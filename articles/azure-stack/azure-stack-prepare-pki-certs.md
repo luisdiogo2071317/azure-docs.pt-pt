@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203481"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
 Os ficheiros de certificado [obtido a partir da sua AC escolhidas](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes requisitos de certificado da pilha do Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Família de SO convidado 1 extinção Repare | Microsoft Docs"
-description: "Fornece informações sobre quando ocorreu a extinção de 1 de família de SO de convidado do Azure e como determinar se são afetados"
+title: Família de SO convidado 1 extinção Repare | Microsoft Docs
+description: Fornece informações sobre quando ocorreu a extinção de 1 de família de SO de convidado do Azure e como determinar se são afetados
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843134"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de 1 de família de SO convidado
 A extinção de 1 de família do SO foi anunciada pela primeira vez no dia 1 de Junho de 2013.

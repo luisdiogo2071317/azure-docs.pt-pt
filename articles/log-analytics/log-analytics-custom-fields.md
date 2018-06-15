@@ -1,8 +1,8 @@
 ---
 title: Campos personalizados no Log Analytics do Azure | Microsoft Docs
-description: "A funcionalidade de campos personalizados do Log Analytics permite-lhe criar os suas próprias campos pesquisáveis a partir de registos de análise de registos que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas sobre um evento de exemplo."
+description: A funcionalidade de campos personalizados do Log Analytics permite-lhe criar os suas próprias campos pesquisáveis a partir de registos de análise de registos que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas sobre um evento de exemplo.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030712"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados na análise de registos
 O **campos personalizados** funcionalidade de análise de registos permite-lhe expandir registos existentes na análise de registos ao adicionar os seus próprios campos pesquisáveis.  Campos personalizados serão preenchidos automaticamente a partir dos dados extraídos de outras propriedades no registo mesmo.

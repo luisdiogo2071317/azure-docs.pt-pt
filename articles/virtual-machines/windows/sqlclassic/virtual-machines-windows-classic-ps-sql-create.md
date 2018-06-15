@@ -1,6 +1,6 @@
 ---
-title: "Criar uma Máquina Virtual do SQL Server no Azure PowerShell (clássica) | Microsoft Docs"
-description: "Fornece os passos e scripts do PowerShell para criar uma VM do Azure com imagens de Galeria de máquina virtual do SQL Server. Este tópico utiliza o modo de implementação clássica."
+title: Criar uma Máquina Virtual do SQL Server no Azure PowerShell (clássica) | Microsoft Docs
+description: Fornece os passos e scripts do PowerShell para criar uma VM do Azure com imagens de Galeria de máquina virtual do SQL Server. Este tópico utiliza o modo de implementação clássica.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399666"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprovisionar uma máquina virtual de SQL Server com o Azure PowerShell (clássica)
 

@@ -1,9 +1,9 @@
 ---
-title: "Arquitetura de modelo de solução do Cortana Intelligence para prever a pedido de energia | Microsoft Docs"
-description: "Arquitetura Microsoft Cortana Intelligence solução do modelo de previsão a pedido para uma empresa de utilitário de energia de ajuda."
-keywords: "Acelerador solução; cortana análise, a previsão de energia"
+title: Arquitetura de modelo de solução do Cortana Intelligence para prever a pedido de energia | Microsoft Docs
+description: Arquitetura Microsoft Cortana Intelligence solução do modelo de previsão a pedido para uma empresa de utilitário de energia de ajuda.
+keywords: Acelerador solução; cortana análise, a previsão de energia
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23845661"
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Arquitetura de modelo de solução do Cortana Intelligence para prever a pedido de energia
 O diagrama a seguir fornece uma descrição geral da arquitetura de [modelo de solução do Cortana Intelligence para prever a pedido de energia](cortana-analytics-playbook-demand-forecasting-energy.md).

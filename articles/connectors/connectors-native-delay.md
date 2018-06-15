@@ -1,11 +1,11 @@
 ---
 title: Adicionar um atraso nas logic apps | Microsoft Docs
-description: "Descrição geral do atraso e atraso-até ações e como utilizá-los com uma aplicação lógica do Azure."
-services: 
-documentationcenter: 
+description: Descrição geral do atraso e atraso-até ações e como utilizá-los com uma aplicação lógica do Azure.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27963677"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Começar a utilizar o retardamento e o atraso-até ações
 Utilizando o atraso e "atraso-até" ações, pode concluir cenários de fluxo de trabalho.

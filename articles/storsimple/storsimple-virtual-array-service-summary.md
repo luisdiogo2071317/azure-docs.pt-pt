@@ -1,11 +1,11 @@
 ---
-title: "Painel de resumo de serviço de matriz Virtual StorSimple | Microsoft Docs"
-description: "Descreve o painel de resumo de serviço para o Gestor de dispositivos do StorSimple e explica como utilizá-lo para monitorizar o estado de funcionamento a matriz de Virtual StorSimple."
+title: Painel de resumo de serviço de matriz Virtual StorSimple | Microsoft Docs
+description: Descreve o painel de resumo de serviço para o Gestor de dispositivos do StorSimple e explica como utilizá-lo para monitorizar o estado de funcionamento a matriz de Virtual StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 8a2b9a84-b0e6-48b9-b366-d16f004241a5
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875740"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize o painel de resumo de serviço para o Gestor de dispositivos do StorSimple ligado à matriz Virtual StorSimple
 ## <a name="overview"></a>Descrição geral

@@ -1,11 +1,11 @@
 ---
-title: "Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - REST API | Microsoft Docs"
-description: "Este artigo descreve como utilizar o PowerShell para analisar um segurança de máquinas virtuais com a vista do grupo de segurança."
+title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - REST API | Microsoft Docs
+description: Este artigo descreve como utilizar o PowerShell para analisar um segurança de máquinas virtuais com a vista do grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23864323"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar a segurança da Máquina Virtual com a vista de grupo de segurança utilizando a REST API
 

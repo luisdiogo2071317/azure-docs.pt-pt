@@ -1,11 +1,11 @@
 ---
-title: "Ativar a encriptação transparente de dados no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure * * ativar transparente dados encriptação * *."
+title: Ativar a encriptação transparente de dados no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação de centro de segurança do Azure * * ativar transparente dados encriptação * *.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866297"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Ativar a encriptação transparente de dados no Centro de segurança do Azure
 Centro de segurança do Azure recomendará ativar encriptação de dados transparente (TDE) nas bases de dados do SQL Server se o TDE não estiver ativado. TDE protege os dados e ajuda a cumprir os requisitos de conformidade ao encriptar a sua base de dados, cópias de segurança associadas e os ficheiros de registo de transações inativos, sem necessidade de alterar a aplicação. Para saber mais, consulte [encriptação transparente de dados com a SQL Database do Azure](https://msdn.microsoft.com/library/dn948096).

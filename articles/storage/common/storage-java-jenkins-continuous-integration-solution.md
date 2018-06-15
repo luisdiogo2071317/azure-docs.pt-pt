@@ -1,6 +1,6 @@
 ---
-title: "Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins | Microsoft Docs"
-description: "Este tutorial mostra como utilizar o serviço blob do Azure como um repositório para criar os artefactos criados por uma solução de integração contínua Jenkins."
+title: Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins | Microsoft Docs
+description: Este tutorial mostra como utilizar o serviço blob do Azure como um repositório para criar os artefactos criados por uma solução de integração contínua Jenkins.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874137"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o Armazenamento do Azure com uma solução Jenkins de Integração Contínua
 ## <a name="overview"></a>Descrição geral

@@ -1,11 +1,11 @@
 ---
-title: "Proteger a sua rede no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento trata as recomendações no Centro de segurança do Azure que o ajudam a proteger a rede do Azure e manter em conformidade com as políticas de segurança."
+title: Proteger a sua rede no Centro de segurança do Azure | Microsoft Docs
+description: Este documento trata as recomendações no Centro de segurança do Azure que o ajudam a proteger a rede do Azure e manter em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866479"
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>Proteger a sua rede no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos Azure. Quando o Centro de segurança identificar potenciais vulnerabilidades de segurança, cria recomendações ajudá-lo durante o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e aplicações.

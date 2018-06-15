@@ -1,11 +1,11 @@
 ---
-title: "Catálogo de cópias de segurança do Snapshot Manager do StorSimple | Microsoft Docs"
-description: "Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir o catálogo de cópias de segurança."
+title: Catálogo de cópias de segurança do Snapshot Manager do StorSimple | Microsoft Docs
+description: Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir o catálogo de cópias de segurança.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876713"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Utilize o Gestor de instantâneo StorSimple para gerir o catálogo de cópias de segurança
 
@@ -124,7 +125,7 @@ Antes de começar, certifique-se de que tem uma cópia de segurança atual do gr
    
    1. No **nome** caixa de texto, escreva um nome para o volume clonado. Este nome será apresentado no **Volumes** nós. 
    2. (Opcional) Selecione **unidade**e, em seguida, selecione uma letra de unidade na lista pendente. 
-   3. (Opcional) Selecione **pasta (NTFS)**e escreva um caminho de pasta ou clique em **procurar** e selecione uma localização para a pasta. 
+   3. (Opcional) Selecione **pasta (NTFS)** e escreva um caminho de pasta ou clique em **procurar** e selecione uma localização para a pasta. 
    4. Clique em **Criar**. 
 5. Quando o processo de clonagem é concluído, o volume clonado tem de ser inicializado. Inicie o Gestor de servidor e, em seguida, inicie a gestão de discos. Para obter instruções detalhadas, consulte [montar os volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Depois de ser inicializada, o volume será listado sob o **Volumes** no nó de **âmbito** painel. 
    

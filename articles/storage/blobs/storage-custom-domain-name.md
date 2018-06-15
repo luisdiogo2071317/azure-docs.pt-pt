@@ -1,6 +1,6 @@
 ---
-title: "Configurar um nome de domínio personalizado para o ponto final de armazenamento de Blobs do Azure | Microsoft Docs"
-description: "Utilize o portal do Azure para mapear o seus próprios nome canónico (CNAME) para o ponto final de armazenamento de BLOBs numa conta do Storage do Azure."
+title: Configurar um nome de domínio personalizado para o ponto final de armazenamento de Blobs do Azure | Microsoft Docs
+description: Utilize o portal do Azure para mapear o seus próprios nome canónico (CNAME) para o ponto final de armazenamento de BLOBs numa conta do Storage do Azure.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559932"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para o ponto final do Armazenamento de Blobs
 

@@ -1,11 +1,11 @@
 ---
-title: "Preparar os discos rígidos de uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs"
-description: "Saiba como preparar os discos rígidos utilizando a ferramenta de v1 WAImportExport para criar uma tarefa de importação para o serviço importar/exportar do Azure."
+title: Preparar os discos rígidos de uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs
+description: Saiba como preparar os discos rígidos utilizando a ferramenta de v1 WAImportExport para criar uma tarefa de importação para o serviço importar/exportar do Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874095"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígido para uma tarefa de importação
 Para preparar um ou mais unidades de disco rígido para uma tarefa de importação, siga estes passos:

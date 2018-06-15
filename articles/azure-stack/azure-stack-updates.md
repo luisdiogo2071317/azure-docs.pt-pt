@@ -1,11 +1,11 @@
 ---
-title: "Gerir as atualizações na descrição geral de pilha do Azure | Microsoft Docs"
-description: "Saiba mais sobre a gestão de atualizações para os sistemas de pilha do Azure integrado."
+title: Gerir as atualizações na descrição geral de pilha do Azure | Microsoft Docs
+description: Saiba mais sobre a gestão de atualizações para os sistemas de pilha do Azure integrado.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27620928"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerir as atualizações na descrição geral de pilha do Azure
 

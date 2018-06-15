@@ -1,8 +1,8 @@
 ---
-title: "Alerta de gestão no Microsoft monitorização produtos | Microsoft Docs"
-description: "Um alerta indica algum problema que necessita de atenção a partir de um administrador.  Este artigo descreve as diferenças na forma como alertas são criados e geridos no System Center Operations Manager (SCOM) e análise de registos e apresenta as melhores práticas no tirar partido os dois produtos para uma estratégia de gestão de alertas híbrida."
+title: Alerta de gestão no Microsoft monitorização produtos | Microsoft Docs
+description: Um alerta indica algum problema que necessita de atenção a partir de um administrador.  Este artigo descreve as diferenças na forma como alertas são criados e geridos no System Center Operations Manager (SCOM) e análise de registos e apresenta as melhores práticas no tirar partido os dois produtos para uma estratégia de gestão de alertas híbrida.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865772"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Gerir alertas com a monitorização da Microsoft
 Um alerta indica algum problema que necessita de atenção a partir de um administrador.  Existem diferenças distintas entre o System Center Operations Manager (SCOM) e análise de registos no Operations Management Suite (OMS) em termos de como os alertas são criados, como são geridos e analisados e como são notificados que foi um problema crítico detetada.

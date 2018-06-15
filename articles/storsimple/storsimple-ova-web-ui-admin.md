@@ -1,11 +1,11 @@
 ---
-title: "Web matriz Virtual StorSimple administração de IU | Microsoft Docs"
-description: "Descreve como efetuar tarefas de administração do dispositivo básico através da IU da web de matriz Virtual StorSimple."
+title: Web matriz Virtual StorSimple administração de IU | Microsoft Docs
+description: Descreve como efetuar tarefas de administração do dispositivo básico através da IU da web de matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875887"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utilizar a IU da Web para administrar a matriz de Virtual StorSimple
 ![fluxo de processo de configuração](./media/storsimple-ova-web-ui-admin/manage4.png)

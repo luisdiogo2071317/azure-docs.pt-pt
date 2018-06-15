@@ -2,11 +2,11 @@
 title: Incorporar Shell em nuvem do Azure | Microsoft Docs
 description: Saiba como incorporar a Shell de nuvem do Azure.
 services: cloud-shell
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27864889"
 ---
 # <a name="embed-azure-cloud-shell"></a>Incorporar Shell em nuvem do Azure
 

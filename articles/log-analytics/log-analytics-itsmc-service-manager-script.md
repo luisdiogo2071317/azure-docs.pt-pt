@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32772131"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager, utilizando o script automatizado
 

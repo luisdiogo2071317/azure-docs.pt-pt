@@ -1,8 +1,8 @@
 ---
-title: "Manual de modelo do Cortana Intelligence solução para prever a pedido de energia | Microsoft Docs"
-description: "Um modelo de solução com o Microsoft Cortana Intelligence que ajuda a prever a pedido para uma empresa de utilitário de energia."
+title: Manual de modelo do Cortana Intelligence solução para prever a pedido de energia | Microsoft Docs
+description: Um modelo de solução com o Microsoft Cortana Intelligence que ajuda a prever a pedido para uma empresa de utilitário de energia.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: ilanr9
 manager: ilanr9
 editor: yijichen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23846431"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual de modelo do Cortana Intelligence solução para prever a pedido de energia
 ## <a name="executive-summary"></a>Resumo Executivo

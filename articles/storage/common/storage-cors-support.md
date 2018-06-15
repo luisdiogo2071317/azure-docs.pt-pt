@@ -16,9 +16,10 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
 ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23873976"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Recursos de várias origens (CORS) suporte para os serviços de armazenamento do Azure de partilha
 A partir da versão 2013-08-15, os serviços de armazenamento do Azure suportam a partilha de recursos de várias origens (CORS) para os serviços Blob, tabela, fila e ficheiro. CORS é uma funcionalidade HTTP que permite uma aplicação web em execução com um domínio aceder a recursos noutro domínio. Browsers da Web implementam uma restrição de segurança denominada [política da mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) impede que uma página web a partir de APIs chamadas num domínio diferente; CORS fornece uma forma segura para permitir que um domínio (o domínio de origem) chamar as APIs noutro domínio. Consulte o [especificação de CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre CORS.

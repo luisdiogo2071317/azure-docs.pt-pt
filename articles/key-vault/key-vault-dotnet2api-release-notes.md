@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27909759"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre de chaves do Azure .NET 2.0 - Guia de migração e notas de versão
 As informações seguintes ajudam a migrar para a versão 2.0 da biblioteca do Cofre de chaves do Azure para c# e .NET.  Aplicações escritas para versões anteriores tem de atualizar para suportar a versão mais recente.  Estas alterações são necessários para suportar totalmente as funcionalidades novas e melhoradas, tais como **certificados do Cofre de chaves**.

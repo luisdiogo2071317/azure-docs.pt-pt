@@ -1,12 +1,12 @@
 ---
-title: "As especificações técnicas do StorSimple | Microsoft Docs"
-description: "Descreve as informações de conformidade de regulamentação normas para os componentes de hardware do StorSimple e as especificações técnicas."
+title: As especificações técnicas do StorSimple | Microsoft Docs
+description: Descreve as informações de conformidade de regulamentação normas para os componentes de hardware do StorSimple e as especificações técnicas.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785531"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>As especificações técnicas e compatibilidade do dispositivo StorSimple
 

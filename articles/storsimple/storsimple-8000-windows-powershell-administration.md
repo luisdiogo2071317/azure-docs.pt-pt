@@ -1,12 +1,12 @@
 ---
-title: "PowerShell para gestão de dispositivos do StorSimple | Microsoft Docs"
+title: PowerShell para gestão de dispositivos do StorSimple | Microsoft Docs
 description: Saiba como utilizar o Windows PowerShell para StorSimple para gerir o dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743729"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 

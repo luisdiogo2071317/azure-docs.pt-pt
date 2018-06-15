@@ -1,8 +1,8 @@
 ---
 title: Utilizar o armazenamento Premium do Azure com o SQL Server | Microsoft Docs
-description: "Este artigo utiliza os recursos criados com o modelo de implementação clássica e fornece orientações sobre como utilizar o Premium Storage do Azure com o SQL Server em execução em máquinas de virtuais do Azure."
+description: Este artigo utiliza os recursos criados com o modelo de implementação clássica e fornece orientações sobre como utilizar o Premium Storage do Azure com o SQL Server em execução em máquinas de virtuais do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400618"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral

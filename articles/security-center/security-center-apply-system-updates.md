@@ -1,11 +1,11 @@
 ---
-title: "Aplicar atualizações do sistema no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações do Centro de segurança do Azure * * aplicar sistema atualizações * * e * * reinício após atualizações do sistema *."
+title: Aplicar atualizações do sistema no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure * * aplicar sistema atualizações * * e * * reinício após atualizações do sistema *.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866430"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema no Centro de segurança do Azure
 Centro de segurança do Azure monitoriza diárias Windows e Linux as máquinas virtuais (VMs) e computadores em falta atualizações do sistema operativo. Centro de segurança obtém uma lista de atualizações críticas e de segurança disponíveis do Windows Update ou Windows Server Update Services (WSUS), dependendo de que o serviço está configurado num computador Windows. Centro de segurança também verifica se as atualizações mais recentes nos sistemas Linux. Se a VM ou o computador está em falta uma atualização do sistema, o Centro de segurança recomendará que aplique a atualizações do sistema.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774391"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Manual de Início Rápido: ligar soluções de segurança ao Centro de Segurança
 

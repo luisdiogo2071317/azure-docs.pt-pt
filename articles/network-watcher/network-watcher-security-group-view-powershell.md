@@ -1,11 +1,11 @@
 ---
-title: "Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - PowerShell | Microsoft Docs"
-description: "Este artigo descreve como utilizar o PowerShell para analisar um segurança de máquinas virtuais com a vista do grupo de segurança."
+title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - PowerShell | Microsoft Docs
+description: Este artigo descreve como utilizar o PowerShell para analisar um segurança de máquinas virtuais com a vista do grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23864176"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança da Máquina Virtual com a vista de grupo de segurança com o PowerShell
 

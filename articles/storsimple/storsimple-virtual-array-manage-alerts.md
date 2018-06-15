@@ -1,11 +1,11 @@
 ---
 title: Ver e gerir alertas do Microsoft Azure StorSimple Virtual matriz | Microsoft Docs
-description: "Descreve as condições de alerta de matriz Virtual StorSimple e gravidade e como utilizar o serviço StorSimple Manager para gerir alertas."
+description: Descreve as condições de alerta de matriz Virtual StorSimple e gravidade e como utilizar o serviço StorSimple Manager para gerir alertas.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27786412"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de dispositivo StorSimple para gerir alertas para a matriz de Virtual StorSimple
 

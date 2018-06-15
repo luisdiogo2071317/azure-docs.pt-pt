@@ -1,11 +1,11 @@
 ---
-title: "Proteger as máquinas virtuais no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento trata as recomendações no Centro de segurança do Azure que o ajudam a proteger as máquinas virtuais e ficam em conformidade com as políticas de segurança."
+title: Proteger as máquinas virtuais no Centro de segurança do Azure | Microsoft Docs
+description: Este documento trata as recomendações no Centro de segurança do Azure que o ajudam a proteger as máquinas virtuais e ficam em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -16,9 +16,10 @@ ms.date: 01/04/2018
 ms.author: terrylan
 ms.openlocfilehash: 54375f6f98b4989a7af8bcde649d967f77c6c862
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27623503"
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Proteger as máquinas virtuais no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos Azure. Quando o Centro de segurança identificar potenciais vulnerabilidades de segurança, cria recomendações ajudá-lo durante o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e aplicações.

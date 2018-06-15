@@ -1,11 +1,11 @@
 ---
-title: "Errado conjunto de utilizadores estão a ser aprovisionado para uma aplicação de galeria do Azure AD | Microsoft Docs"
-description: "Saiba como saber por que razão a ser aprovisionados um conjunto diferente de utilizadores a uma aplicação que as que o esperado"
+title: Errado conjunto de utilizadores estão a ser aprovisionado para uma aplicação de galeria do Azure AD | Microsoft Docs
+description: Saiba como saber por que razão a ser aprovisionados um conjunto diferente de utilizadores a uma aplicação que as que o esperado
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383142"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Errado conjunto de utilizadores estão a ser aprovisionado para uma aplicação de galeria do Azure AD
 

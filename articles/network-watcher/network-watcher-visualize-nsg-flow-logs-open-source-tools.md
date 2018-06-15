@@ -1,11 +1,11 @@
 ---
 title: Visualizar registos de fluxo de NSG de observador de rede do Azure com ferramentas open source | Microsoft Docs
-description: "Esta página descreve como utilizar ferramentas open source para visualizar registos de fluxo NSG."
+description: Esta página descreve como utilizar ferramentas open source para visualizar registos de fluxo NSG.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394175"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos de fluxo de NSG de observador de rede do Azure com ferramentas open source
 

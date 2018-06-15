@@ -1,11 +1,11 @@
 ---
-title: "Configuração do servidor do Microsoft Azure StorSimple Virtual matriz iSCSI | Microsoft Docs"
-description: "Descreve como efetuar a configuração inicial, registar o servidor de iSCSI StorSimple e concluir a configuração do dispositivo."
+title: Configuração do servidor do Microsoft Azure StorSimple Virtual matriz iSCSI | Microsoft Docs
+description: Descreve como efetuar a configuração inicial, registar o servidor de iSCSI StorSimple e concluir a configuração do dispositivo.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877308"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementar StorSimple Virtual matriz – conjunto de cópias de segurança como um servidor de iSCSI através do portal do Azure
 

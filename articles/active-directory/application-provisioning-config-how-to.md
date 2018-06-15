@@ -1,11 +1,11 @@
 ---
-title: "Como configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs"
-description: "Como pode rapidamente configurar conta de utilizador Rica de aprovisionamento e desaprovisionamento para aplicações já listadas na Galeria de aplicações do Azure AD"
+title: Como configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD | Microsoft Docs
+description: Como pode rapidamente configurar conta de utilizador Rica de aprovisionamento e desaprovisionamento para aplicações já listadas na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464430"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 

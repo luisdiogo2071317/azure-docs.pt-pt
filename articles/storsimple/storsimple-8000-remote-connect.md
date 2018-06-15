@@ -1,12 +1,12 @@
 ---
 title: Ligar remotamente ao dispositivo StorSimple | Microsoft Docs
-description: "Explica como configurar o seu dispositivo para a gestão remota e como ligar ao Windows PowerShell para StorSimple através de HTTP ou HTTPS."
+description: Explica como configurar o seu dispositivo para a gestão remota e como ligar ao Windows PowerShell para StorSimple através de HTTP ou HTTPS.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103960"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Ligar remotamente ao dispositivo de série 8000 do StorSimple
 

@@ -1,11 +1,11 @@
 ---
-title: "Formato de ficheiro de registo de importação/exportação do Azure | Microsoft Docs"
-description: "Saiba mais sobre o formato dos ficheiros de registo criado quando são executados os passos para uma tarefa de serviço de importação/exportação."
+title: Formato de ficheiro de registo de importação/exportação do Azure | Microsoft Docs
+description: Saiba mais sobre o formato dos ficheiros de registo criado quando são executados os passos para uma tarefa de serviço de importação/exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874102"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato do ficheiro de registo de serviço do Azure para importar/exportar
 Quando o serviço de importação/exportação do Microsoft Azure efetua uma ação num disco como parte de uma tarefa de importação ou uma tarefa de exportação, os registos são escritos para bloquear os blobs na conta do storage associadas com essa tarefa.  

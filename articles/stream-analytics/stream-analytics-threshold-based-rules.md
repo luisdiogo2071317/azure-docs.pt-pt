@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32767972"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras baseadas em limiares no Azure Stream Analytics configuráveis
 Este artigo descreve como utilizar os dados de referência para alcançar uma solução de alertas que utiliza regras baseadas em limiares configuráveis no Azure Stream Analytics.
