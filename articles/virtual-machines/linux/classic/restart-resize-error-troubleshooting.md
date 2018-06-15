@@ -1,11 +1,11 @@
 ---
 title: VM reiniciar ou redimensionar problemas | Microsoft Docs
-description: "Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual de Linux existente no Azure"
+description: Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual de Linux existente no Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24051618"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual de Linux existente no Azure
 > [!div class="op_single_selector"]

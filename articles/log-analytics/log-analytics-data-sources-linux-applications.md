@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168287"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux na análise de registos 
 Este artigo fornece detalhes para configurar o [agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho para aplicações específicas.  As aplicações incluídas neste artigo são:  

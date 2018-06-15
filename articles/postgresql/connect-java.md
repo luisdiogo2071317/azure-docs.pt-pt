@@ -1,6 +1,6 @@
 ---
-title: "Ligar à Base de Dados do Azure para PostgreSQL com Java"
-description: "Este guia de início rápido proporciona um código de exemplo de Java que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL."
+title: Ligar à Base de Dados do Azure para PostgreSQL com Java
+description: Este guia de início rápido proporciona um código de exemplo de Java que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686848"
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilizar Java para se ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação Java. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
