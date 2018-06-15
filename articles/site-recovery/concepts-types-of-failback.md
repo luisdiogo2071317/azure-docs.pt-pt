@@ -1,6 +1,6 @@
 ---
-title: "Reativação pós-falha no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral dos vários tipos de reativação pós-falha e avisos para ser considerado ao falhar no local com o serviço do Azure Site Recovery."
+title: Reativação pós-falha no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma descrição geral dos vários tipos de reativação pós-falha e avisos para ser considerado ao falhar no local com o serviço do Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803557"
 ---
 # <a name="overview-of-failback"></a>Descrição geral da reativação pós-falha
 

@@ -1,6 +1,6 @@
 ---
-title: "Amostras do CLI do Azure - serviço de aplicações | Microsoft Docs"
-description: "Amostras do CLI do Azure - serviço de aplicações"
+title: Amostras do CLI do Azure - serviço de aplicações | Microsoft Docs
+description: Amostras do CLI do Azure - serviço de aplicações
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -18,9 +18,10 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658368"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 

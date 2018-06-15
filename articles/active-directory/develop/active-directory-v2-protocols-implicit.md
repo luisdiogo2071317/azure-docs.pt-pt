@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158392"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v 2.0 protocolos - SPAs utilizando o fluxo implícito
 Com o ponto final v 2.0, pode iniciar a sessão de utilizadores para as aplicações de página única com contas pessoais e trabalho/profissional da Microsoft. Página única e outras aplicações de JavaScript que execute principalmente na enfrentam browser algumas interessantes desafia quando se trata de autenticação:

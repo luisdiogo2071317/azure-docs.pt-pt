@@ -1,26 +1,21 @@
 ---
-title: "Cópia de Segurança do Windows Server para o Azure | Microsoft Docs"
-description: "Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação."
+title: Cópia de Segurança do Windows Server para o Azure
+description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre"
-ms.assetid: 
+keywords: cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609023"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -56,7 +51,7 @@ Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local
     - O ID da subscrição atual aparece em **Subscription** (Subscrição).
     - Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Create New** (Criar novo) e escreva *myResourceGroup*. 
     - No menu pendente **Location** (Localização), escolha *West Europe* (Europa Ocidental).
-    - Clique em **Create** (Criar) para criar o cofre dos Serviços de Recuperação.
+    - Clique em **Criar** para criar o cofre dos Serviços de Recuperação.
  
 Quando o cofre for criado, aparecerá na lista de cofres dos Serviços de Recuperação.
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204928"
 ---
 # <a name="service-movement-cost"></a>Custo de movimento de serviço
 Um fator que considera que o Gestor de recursos de Cluster do serviço de recursos de infraestrutura ao tentar determinar o que é alterado para fazer a um cluster é o custo dessas alterações. A noção de "Custo" é transacionada desativar contra quanto o cluster pode ser melhorado. Custo é factored ao mover os serviços para balanceamento, desfragmentação e outros requisitos. O objetivo é para cumprir os requisitos da forma menos acontece ou dispendiosa. 

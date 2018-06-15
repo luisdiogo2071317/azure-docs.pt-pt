@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206718"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Executar um serviço como uma Conta de Serviço Gerida de grupo
 Num cluster do Windows Server autónomo, pode executar um serviço como um grupo de conta de serviço gerida (gMSA) através de uma política de RunAs.  Por predefinição, as aplicações de Service Fabric executam sob a conta que executa o processo de Fabric.exe em. A execução de aplicações em diferentes contas, mesmo num ambiente alojado partilhado, torna-os mais segura entre si. Tenha em atenção que esta utiliza o Active Directory no local dentro do seu domínio e não do Azure Active Directory (Azure AD). Ao utilizar uma gMSA, não há nenhuma palavra-passe ou a palavra-passe encriptada armazenados no manifesto da aplicação.  Também pode executar um serviço como um [grupo ou utilizador do Active Directory](service-fabric-run-service-as-ad-user-or-group.md).

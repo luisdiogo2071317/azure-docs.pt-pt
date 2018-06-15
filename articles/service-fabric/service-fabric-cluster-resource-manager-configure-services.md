@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210584"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurar definições de Gestor de recursos do cluster para serviços do Service Fabric
 O Gestor de recursos de Cluster do serviço de recursos de infraestrutura permite um controlo detalhado sobre as regras que regem cada indivíduo com o nome de serviço. Cada serviço com o nome pode especificar regras para a forma como deve ser alocada no cluster. Cada serviço com nome também pode definir o conjunto de métricas pretende para o relatório, incluindo a forma como estes são importantes para esse serviço. Configurar os serviços divide em três tarefas diferentes:

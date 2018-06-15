@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260974"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de IU Microsoft.Common.Section
 Um controlo que agrupa um ou mais elementos sob um cabeçalho.
