@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral da política SSL para o Gateway de aplicação do Azure | Microsoft Docs"
-description: "Saiba mais sobre como Gateway de aplicação do Azure permite-lhe configurar a política de SSL"
+title: Descrição geral da política SSL para o Gateway de aplicação do Azure | Microsoft Docs
+description: Saiba mais sobre como Gateway de aplicação do Azure permite-lhe configurar a política de SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836953"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Descrição geral da política de SSL de Gateway de aplicação
 

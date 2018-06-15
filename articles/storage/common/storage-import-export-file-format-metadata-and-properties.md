@@ -1,11 +1,11 @@
 ---
 title: Do Azure para importar/exportar metadados e as propriedades de formato de ficheiro de | Microsoft Docs
-description: "Saiba como especificar os metadados e propriedades de um ou mais blobs que fazem parte de uma importação ou exportação tarefa."
+description: Saiba como especificar os metadados e propriedades de um ou mais blobs que fazem parte de uma importação ou exportação tarefa.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873654"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Do Azure para importar/exportar serviço metadados e as propriedades de formato de ficheiro
 Pode especificar propriedades de um ou mais blobs e metadados como parte de uma tarefa de importação ou uma tarefa de exportação. Para definir os metadados ou propriedades de blobs a ser criadas como parte de uma tarefa de importação, forneça um ficheiro de metadados ou propriedades no disco rígido que contém os dados a ser importados. Para uma tarefa de exportação, metadados e as propriedades são escritas num ficheiro de metadados ou propriedades que está incluído no disco rígido devolvido para si.  

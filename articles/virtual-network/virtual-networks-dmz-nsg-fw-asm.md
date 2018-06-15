@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de rede de Perímetro – criar uma rede de Perímetro a proteger as aplicações com uma Firewall e NSGs | Microsoft Docs"
-description: "Criar uma rede de Perímetro com uma Firewall e grupos de segurança de rede (NSG)"
+title: Exemplo de rede de Perímetro – criar uma rede de Perímetro a proteger as aplicações com uma Firewall e NSGs | Microsoft Docs
+description: Criar uma rede de Perímetro com uma Firewall e grupos de segurança de rede (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885127"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2 – criar uma rede de Perímetro a proteger as aplicações com uma Firewall e NSGs
 [Regressar à página de segurança limites melhores práticas][HOME]

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906944"
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Criar uma cópia de uma máquina virtual de Linux em execução no Azure com a CLI do Azure 1.0
 Este artigo mostra como criar uma cópia da sua máquina virtual do Azure (VM) com Linux utilizando o modelo de implementação Resource Manager. Primeiro copiar sobre o sistema operativo e os discos de dados para um novo contentor, em seguida, configurar os recursos de rede e criar a nova máquina virtual.

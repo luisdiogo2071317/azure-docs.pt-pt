@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776606"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.

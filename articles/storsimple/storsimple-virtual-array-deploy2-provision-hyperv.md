@@ -1,11 +1,11 @@
 ---
 title: Aprovisionar StorSimple matriz Virtual no Hyper-V | Microsoft Docs
-description: "Este tutorial segundo na implementação de matriz Virtual StorSimple envolve o aprovisionamento de uma matriz virtual no Hyper-V."
+description: Este tutorial segundo na implementação de matriz Virtual StorSimple envolve o aprovisionamento de uma matriz virtual no Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876594"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar StorSimple Virtual matriz - aprovisionar no Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)

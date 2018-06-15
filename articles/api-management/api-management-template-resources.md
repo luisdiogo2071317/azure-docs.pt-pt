@@ -1,11 +1,11 @@
 ---
 title: Recursos de modelo de API Management do Azure | Microsoft Docs
-description: "Saiba mais sobre os tipos de recursos disponíveis para utilização em modelos de portal do programador na API Management do Azure."
+description: Saiba mais sobre os tipos de recursos disponíveis para utilização em modelos de portal do programador na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23835399"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de API Management do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização no programador modelos portais.  

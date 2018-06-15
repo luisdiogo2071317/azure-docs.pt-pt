@@ -1,11 +1,11 @@
 ---
-title: "Dimensionar um serviço em nuvem do Azure no Windows PowerShell | Microsoft Docs"
-description: "(clássica) Saiba como utilizar o PowerShell para dimensionar a uma função da web ou a função de trabalho entrada ou saída no Azure."
+title: Dimensionar um serviço em nuvem do Azure no Windows PowerShell | Microsoft Docs
+description: (clássica) Saiba como utilizar o PowerShell para dimensionar a uma função da web ou a função de trabalho entrada ou saída no Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842952"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como dimensionar um serviço em nuvem no PowerShell
 

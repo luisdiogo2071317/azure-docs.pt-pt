@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31586811"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço de API Management do Azure em várias regiões do Azure
 Gestão de API suporta a implementação de multirregião que permite que os publicadores de API distribuir um único serviço de gestão de API em qualquer número de regiões do Azure pretendidos. Isto ajuda a reduzir o pedido de latência interpretada pela distribuída geograficamente os consumidores de API e melhora também a disponibilidade do serviço se uma região ficar offline. 

@@ -1,8 +1,8 @@
 ---
-title: "Exemplo de ação de alerta de Webhook no OMS Log Analytics | Microsoft Docs"
-description: "Uma das ações que pode ser executadas em resposta a um alerta de análise de registos é uma * webhook *, que lhe permite invocar um processo externo através de um único pedido HTTP. Este artigo explica-se um exemplo de criação de uma ação de webhook num alerta de análise de registos utilizando Slack."
+title: Exemplo de ação de alerta de Webhook no OMS Log Analytics | Microsoft Docs
+description: Uma das ações que pode ser executadas em resposta a um alerta de análise de registos é uma * webhook *, que lhe permite invocar um processo externo através de um único pedido HTTP. Este artigo explica-se um exemplo de criação de uma ação de webhook num alerta de análise de registos utilizando Slack.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855174"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Criar uma ação do webhook alerta na análise de registos do OMS enviar mensagem para Slack
 Uma das ações pode executar em resposta a um [alerta de análise de registos](log-analytics-alerts.md) é um *webhook*, que lhe permite invocar um processo externo através de um único pedido HTTP.  Pode ler sobre os detalhes de alertas e webhooks no [alertas na análise de registos](log-analytics-alerts.md)

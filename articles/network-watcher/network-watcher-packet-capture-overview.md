@@ -1,11 +1,11 @@
 ---
-title: "Introdução à captura de pacotes no observador de rede do Azure | Microsoft Docs"
-description: "Esta página fornece uma descrição geral da capacidade de captura de pacotes de observador de rede"
+title: Introdução à captura de pacotes no observador de rede do Azure | Microsoft Docs
+description: Esta página fornece uma descrição geral da capacidade de captura de pacotes de observador de rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864295"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacotes variável na observador de rede do Azure
 

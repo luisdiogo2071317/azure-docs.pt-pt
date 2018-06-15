@@ -1,11 +1,11 @@
 ---
 title: Rever o estado da tarefa importar/exportar do Azure - v1 | Microsoft Docs
-description: "Saiba como utilizar os ficheiros de registo criados quando a tarefa de importação ou exportação foi executada para ver o estado da tarefa de importação/exportação."
+description: Saiba como utilizar os ficheiros de registo criados quando a tarefa de importação ou exportação foi executada para ver o estado da tarefa de importação/exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c69d1d69-6403-4eee-9949-0185faeecfa1
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873710"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Rever o estado da tarefa de importação/exportação do Azure com os ficheiros de registo de cópia
 Quando o serviço de importação/exportação do Microsoft Azure processa unidades associadas uma tarefa de importação ou exportação, escreve copiar ficheiros de registo para a conta de armazenamento para ou a partir do qual está a importar ou exportar blobs. O ficheiro de registo contém estado detalhadas sobre cada ficheiro que foi importado ou exportado. O URL para cada ficheiro de registo de cópia é devolvido quando consultar o estado de uma tarefa concluída; consulte [Get Job](/rest/api/storageservices/Get-Job3) para obter mais informações.  

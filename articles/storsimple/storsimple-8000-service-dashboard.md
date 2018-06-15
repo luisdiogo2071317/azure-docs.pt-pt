@@ -1,12 +1,12 @@
 ---
-title: "Dispositivos de série de 8000 do StorSimple utilize resumo | Microsoft Docs"
-description: "Descreve o painel de resumo do serviço StorSimple e explica como utilizá-lo para monitorizar o estado de funcionamento da solução StorSimple."
+title: Dispositivos de série de 8000 do StorSimple utilize resumo | Microsoft Docs
+description: Descreve o painel de resumo do serviço StorSimple e explica como utilizá-lo para monitorizar o estado de funcionamento da solução StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874830"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utilize o painel de resumo de serviço para o dispositivo de série 8000 do StorSimple
 

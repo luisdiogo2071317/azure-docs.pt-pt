@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914550"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurar o acesso de WinRM para máquinas virtuais no Gestor de recursos do Azure
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM na gestão de serviço do Azure vs do Azure Resource Manager

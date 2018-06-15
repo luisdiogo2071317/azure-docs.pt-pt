@@ -1,11 +1,11 @@
 ---
-title: "Políticas de cópia de segurança do Snapshot Manager do StorSimple | Microsoft Docs"
-description: "Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para criar e gerir as políticas de cópia de segurança que controlam as cópias de segurança agendadas."
+title: Políticas de cópia de segurança do Snapshot Manager do StorSimple | Microsoft Docs
+description: Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para criar e gerir as políticas de cópia de segurança que controlam as cópias de segurança agendadas.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875474"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utilize o Snapshot Manager do StorSimple para criar e gerir políticas de cópia de segurança
 ## <a name="overview"></a>Descrição geral

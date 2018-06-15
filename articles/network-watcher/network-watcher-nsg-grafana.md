@@ -1,13 +1,13 @@
 ---
-title: "Gerir a rede grupo fluxo registos de segurança utilizando o observador de rede e Grafana | Microsoft Docs"
-description: "Gerir e analisar rede grupo fluxo registos de segurança no Azure utilizando o observador de rede e Grafana."
+title: Gerir a rede grupo fluxo registos de segurança utilizando o observador de rede e Grafana | Microsoft Docs
+description: Gerir e analisar rede grupo fluxo registos de segurança no Azure utilizando o observador de rede e Grafana.
 services: network-watcher
 documentationcenter: na
 author: kumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864092"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar os registos de fluxo de grupo de segurança de rede utilizando o observador de rede e Grafana
 

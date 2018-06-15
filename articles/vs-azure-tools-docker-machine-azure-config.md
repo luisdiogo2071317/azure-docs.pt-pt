@@ -1,11 +1,11 @@
 ---
-title: "Criar os anfitriões de Docker no Azure com o Docker máquina | Microsoft Docs"
-description: "Descreve a utilização da máquina de Docker para criar os anfitriões de docker no Azure."
+title: Criar os anfitriões de Docker no Azure com o Docker máquina | Microsoft Docs
+description: Descreve a utilização da máquina de Docker para criar os anfitriões de docker no Azure.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883881"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Criar Anfitriões do Docker no Azure com Máquina do Docker
 Executar [Docker](https://www.docker.com/) contentores necessita de um anfitrião VM a executar o daemon de docker.

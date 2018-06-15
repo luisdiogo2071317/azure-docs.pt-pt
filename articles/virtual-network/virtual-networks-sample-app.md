@@ -1,11 +1,11 @@
 ---
-title: "Aplicação de exemplo do Azure para utilização com DMZ | Microsoft Docs"
-description: "Implementar esta aplicação web simples depois de criar uma rede de Perímetro para testar cenários de fluxo de tráfego"
+title: Aplicação de exemplo do Azure para utilização com DMZ | Microsoft Docs
+description: Implementar esta aplicação web simples depois de criar uma rede de Perímetro para testar cenários de fluxo de tráfego
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883797"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemplo de aplicação para utilização com DMZ
 [Regressar à página de segurança limites melhores práticas][HOME]
