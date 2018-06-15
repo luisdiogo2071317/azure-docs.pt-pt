@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: Gerir
       items:
+        - name: Criar um ponto final
+          href: cdn-create-endpoint-how-to.md
         - name: Gerir com o Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Restringir acesso por país

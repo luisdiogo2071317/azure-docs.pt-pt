@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 3157f5db58be5735fa7b194393b0ab6d0e143a91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414642"
 ---
 ## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
-Tem primeiro de criar uma conta dos Serviços de Multimédia. Esta secção apresenta aquilo de que necessita para criar a conta com a CLI 2.0.
+Tem primeiro de criar uma conta dos Serviços de Multimédia. Esta secção apresenta aquilo de que necessita para criar a conta com a CLI do Azure.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -30,7 +31,7 @@ az group create --name amsResourceGroup --location westus2
 
 Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. 
 
-Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundário** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas **v2 para fins gerais** (GPv2) ou **v1 para fins gerais**(GPv1). As contas de blob únicas não são permitidas como **Principal**. Se quiser saber mais sobre as contas de armazenamento, veja [Opções de conta de armazenamento do Azure](../articles/storage/common/storage-account-options.md). 
+Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundárias** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas para **Fins gerais v2** (GPv2) ou **Fins gerais v1** (GPv1). As contas apenas de blobs não são permitidas como **Principais**. Se quiser saber mais sobre as contas de armazenamento, veja [Opções de conta de armazenamento do Azure](../articles/storage/common/storage-account-options.md). 
 
 Para obter mais informações sobre a forma como as contas de armazenamento são utilizadas nos Serviços de Multimédia, veja [Storage accounts](../articles/media-services/latest/storage-account-concept.md) (Contas de armazenamento).
 

@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutoriais
   items:
-    - name: 1 - Criar o runtime de integração de SSIS do Azure
+    - name: 1 - Aprovisionar um runtime de integração Azure-SSIS
       items:
         - name: Interface de Utilizador (IU)
           href: tutorial-deploy-ssis-packages-azure.md
