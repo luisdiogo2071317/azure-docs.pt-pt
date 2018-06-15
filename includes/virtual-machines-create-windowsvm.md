@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958916"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

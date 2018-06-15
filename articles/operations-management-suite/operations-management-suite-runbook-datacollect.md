@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597372"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados de análise de registos com um runbook de automatização do Azure
 Pode recolher uma quantidade significativa de dados da análise de registos a partir de uma variedade de origens, incluindo [origens de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../log-analytics/log-analytics-azure-storage.md).  Há um cenários embora onde que precisa para recolher dados que não se encontra acessível através destas origens padrão.  Nestes casos, pode utilizar o [API de Recoletor de dados de HTTP](../log-analytics/log-analytics-data-collector-api.md) para escrever dados para análise de registos a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29957317"
 ---
 O utilizador aplica as etiquetas nos recursos do Azure para as organizar por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 

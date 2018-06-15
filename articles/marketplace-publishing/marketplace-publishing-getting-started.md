@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral de como criar e implementar uma oferta do Marketplace | Microsoft Docs"
-description: "Compreender os passos necessários para se tornar um programador aprovado da Microsoft e criar e implementar uma imagem de máquina virtual, modelo, o serviço de dados ou serviço do Programador no Azure Marketplace"
+title: Descrição geral de como criar e implementar uma oferta do Marketplace | Microsoft Docs
+description: Compreender os passos necessários para se tornar um programador aprovado da Microsoft e criar e implementar uma imagem de máquina virtual, modelo, o serviço de dados ou serviço do Programador no Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943178"
 ---
 > [!NOTE]
 > Esta documentação já não está atualizada e não é precisa. Em vez disso, visite o Azure Marketplace [vendedor guia](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) para obter orientações sobre a publicação de uma oferta no Azure Marketplace.

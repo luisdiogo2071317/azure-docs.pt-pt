@@ -1,11 +1,11 @@
 ---
 title: Atualizar Log Analytics do Azure para a nova pesquisa de registo | Microsoft Docs
-description: "O idioma de consulta de análise de registos nova é quase aqui e pode participar na pré-visualização pública.  Este artigo descreve as vantagens do novo idioma e como converter a sua área de trabalho."
+description: O idioma de consulta de análise de registos nova é quase aqui e pode participar na pré-visualização pública.  Este artigo descreve as vantagens do novo idioma e como converter a sua área de trabalho.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983993"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Análise de registos do Azure atualizar para a nova pesquisa de registo
 

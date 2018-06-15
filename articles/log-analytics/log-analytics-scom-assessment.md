@@ -1,8 +1,8 @@
 ---
 title: Otimizar o seu ambiente do System Center Operations Manager com o Log Analytics do Azure | Microsoft Docs
-description: "Pode utilizar a solução de System Center Operations Manager estado de funcionamento da verificação do sistema para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular."
+description: Pode utilizar a solução de System Center Operations Manager estado de funcionamento da verificação do sistema para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180041"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar o seu ambiente com a solução de System Center Operations Manager estado de funcionamento da verificação do sistema (pré-visualização)
 

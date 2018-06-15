@@ -1,8 +1,8 @@
 ---
 title: Utilize um MSI de VM do Windows para aceder ao armazenamento do Azure
-description: "Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao armazenamento do Azure."
+description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao armazenamento do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984838"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Utilizar uma identidade de serviço geridas do Windows VM para aceder ao armazenamento do Azure através de chave de acesso
 

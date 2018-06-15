@@ -1,11 +1,11 @@
 ---
 title: Como atribuir acesso MSI para um recurso do Azure, utilizando o portal do Azure
-description: "Instruções passo a passo para atribuir um MSI num acesso a recursos a outro recurso, utilizando o portal do Azure."
+description: Instruções passo a passo para atribuir um MSI num acesso a recursos a outro recurso, utilizando o portal do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28978842"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir acesso uma identidade de serviço geridas para um recurso com o portal do Azure
 

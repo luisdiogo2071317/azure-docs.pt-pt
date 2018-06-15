@@ -1,12 +1,12 @@
 ---
-title: "Pilha do Azure integrado modelos de ligação de sistemas | Microsoft Docs"
-description: "Determine as decisões sobre a pilha do Azure de vários nós de planeamento de implementação."
+title: Pilha do Azure integrado modelos de ligação de sistemas | Microsoft Docs
+description: Determine as decisões sobre a pilha do Azure de vários nós de planeamento de implementação.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118793"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de ligação de sistemas de pilha integrada do Azure
 Se estiver interessado num sistema de pilha do Azure integrado, terá de compreender [várias considerações de integração do Centro de dados](azure-stack-datacenter-integration.md) para a implementação de pilha do Azure determinar a forma como o sistema adequarão seu centro de dados. Além disso, terá de decidir exatamente como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida. Este artigo fornece uma descrição geral destas decisões principais, incluindo a ligação do Azure, o arquivo de identidade e decisões de modelo de faturação.

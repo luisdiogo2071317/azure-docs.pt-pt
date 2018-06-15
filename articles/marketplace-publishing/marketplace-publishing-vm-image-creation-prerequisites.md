@@ -1,11 +1,11 @@
 ---
-title: "Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs"
-description: "Compreenda os requisitos para criar e implementar uma imagem de máquina virtual no Azure Marketplace para outras pessoas para comprar."
+title: Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs
+description: Compreenda os requisitos para criar e implementar uma imagem de máquina virtual no Azure Marketplace para outras pessoas para comprar.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936660"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreenda o onde e por que motivo é efetuado cada passo. Quanto possível, deve preparar as informações da sua empresa e outros dados, descarregar as ferramentas necessárias, e/ou criar os componentes de técnicos antes de iniciar o processo de criação de oferta. Estes itens devem ser encriptados de rever este artigo.  

@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação Web em Python no Azure | Microsoft Docs"
-description: "Implemente em minutos a sua primeira aplicação Python Hello World nas Aplicações Web do Serviço de Aplicações do Azure."
+title: Criar uma aplicação Web em Python no Azure | Microsoft Docs
+description: Implemente em minutos a sua primeira aplicação Python Hello World nas Aplicações Web do Serviço de Aplicações do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979369"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Criar uma aplicação Web em Python no Azure
 

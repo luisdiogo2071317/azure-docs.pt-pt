@@ -2,10 +2,10 @@
 title: Testar a sua oferta VM para o Marketplace | Microsoft Docs
 description: Compreenda como a imagem VM de teste para o Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936944"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testar a sua oferta VM para o Azure Marketplace em transição
 Transição significa implementar o SKU no privado "sandbox", onde pode testar e validar a sua funcionalidade antes de o implementar no Marketplace. O SKU não aparece na transição faria para um cliente que tenha implementado. A imagem VM tem de ser certificada para ser enviado para o teste.

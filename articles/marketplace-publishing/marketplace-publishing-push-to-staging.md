@@ -1,11 +1,11 @@
 ---
-title: "Preparar e testar a sua oferta para a implementação no Azure Marketplace | Microsoft Docs"
-description: "Instruções detalhadas sobre fornecer conteúdo de marketing, configurar planos de preços e testar a sua oferta antes de implementar no Azure Marketplace."
+title: Preparar e testar a sua oferta para a implementação no Azure Marketplace | Microsoft Docs
+description: Instruções detalhadas sobre fornecer conteúdo de marketing, configurar planos de preços e testar a sua oferta antes de implementar no Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947275"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Conclua a criação de oferta com conteúdo de marketing
 Neste passo do processo de publicação, terá de fornecer determinados conteúdo de marketing e detalhes sobre a sua oferta e/ou SKUs no Azure Marketplace. Por exemplo, irá fornecer uma descrição do seu produto, logótipos da empresa, planos de preços, os detalhes dos planos e outras informações necessárias para enviar a sua oferta e/ou SKU para teste. Estas informações são utilizadas como conteúdo marketing no portal do Azure. Irá iniciar este processo no [portal publicação][link-pubportal].

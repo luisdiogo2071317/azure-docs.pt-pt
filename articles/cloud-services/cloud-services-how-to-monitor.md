@@ -1,12 +1,12 @@
 ---
-title: "Monitorizar um serviço em nuvem do Azure | Microsoft Docs"
-description: "Descreve o que monitorizar um serviço em nuvem do Azure envolve e que algumas das suas opções são."
+title: Monitorizar um serviço em nuvem do Azure | Microsoft Docs
+description: Descreve o que monitorizar um serviço em nuvem do Azure envolve e que algumas das suas opções são.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149911"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço de nuvem
 

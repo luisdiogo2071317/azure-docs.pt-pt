@@ -1,6 +1,6 @@
 ---
-title: "Automatização de aplicações de Web de três camadas RU oficial - descrição geral"
-description: "Automatização de aplicações de Web de três camadas RU oficial - descrição geral"
+title: Automatização de aplicações de Web de três camadas RU oficial - descrição geral
+description: Automatização de aplicações de Web de três camadas RU oficial - descrição geral
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151383"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Descrição geral de segurança de informático Centre princípios de segurança de nuvem nacional
 

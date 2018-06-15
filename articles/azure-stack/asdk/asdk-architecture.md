@@ -2,11 +2,11 @@
 title: Arquitetura de Kit de desenvolvimento de pilha do Azure | Microsoft Docs
 description: Descreve a arquitetura do Kit de desenvolvimento de pilha do Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975868"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitetura do Kit de desenvolvimento de pilha do Microsoft Azure
 O Kit de desenvolvimento de pilha do Azure (ASDK) é uma implementação de nó único da pilha do Azure. Todos os componentes são instalados em máquinas virtuais em execução numa máquina de anfitrião único. 

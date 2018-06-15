@@ -1,12 +1,12 @@
 ---
-title: "Exportar dados de segurança do Azure para o SIEM - configuração do Pipeline [pré-visualização] | Microsoft Docs"
-description: "Este artigo documentos produzir de obter os registos do System center para um SIEM de segurança do Azure"
+title: Exportar dados de segurança do Azure para o SIEM - configuração do Pipeline [pré-visualização] | Microsoft Docs
+description: Este artigo documentos produzir de obter os registos do System center para um SIEM de segurança do Azure
 services: security-center
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124838"
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportação de dados de segurança do Azure para o SIEM - configuração do Pipeline [pré-visualização]
 

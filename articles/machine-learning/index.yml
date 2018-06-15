@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31598766"
 abstract:
   description: Saiba como utilizar o Azure Machine Learning, com os seus serviços totalmente geridos para criar, implementar e gerir modelos de aprendizagem automática e de IA na cloud. Tutoriais, inícios rápidos, referências e exemplos mostram-lhe como criar e implementar modelos para as suas aplicações.
 sections:

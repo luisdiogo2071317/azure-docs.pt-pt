@@ -1,11 +1,11 @@
 ---
-title: "Início de sessão pesquisas Log Analytics do Azure | Microsoft Docs"
-description: "Requer uma pesquisa de registo para obter os dados da análise de registos.  Este artigo descreve a forma como o novo registo pesquisas são utilizadas na análise de registos e fornece os conceitos que tem de compreender antes de criar um."
+title: Início de sessão pesquisas Log Analytics do Azure | Microsoft Docs
+description: Requer uma pesquisa de registo para obter os dados da análise de registos.  Este artigo descreve a forma como o novo registo pesquisas são utilizadas na análise de registos e fornece os conceitos que tem de compreender antes de criar um.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953316"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Noções sobre pesquisas de registo na análise de registos
 

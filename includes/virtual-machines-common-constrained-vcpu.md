@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958746"
 ---
 Algumas cargas de trabalho de base de dados, como o SQL Server ou Oracle requerem elevada da memória, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos elevada. Muitas cargas de trabalho de base de dados não são intensivas em CPU. O Azure disponibiliza determinados tamanhos de VM em que pode restringir o número de vCPU VM para reduzir o custo de licenciamento de software, mantendo a mesma memória, armazenamento e largura de banda de e/s.
 
