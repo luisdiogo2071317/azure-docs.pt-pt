@@ -1,12 +1,12 @@
 ---
 title: Criar fluxos de trabalho para processar e-mails e anexos - Azure Logic Apps | Microsoft Docs
-description: "Este tutorial mostra como criar fluxos de trabalho automatizados para processar e-mails e anexos com o Azure Logic Apps, o Armazenamento do Azure e as Funções do Azure"
+description: Este tutorial mostra como criar fluxos de trabalho automatizados para processar e-mails e anexos com o Azure Logic Apps, o Armazenamento do Azure e as Funções do Azure
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300638"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Processar e-mails e anexos com uma aplicação lógica
 
@@ -91,7 +92,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
    
    1. No menu da conta do armazenamento, no painel **Descrição Geral**, escolha **Blobs**, em **Serviços**, e escolha **+ Contentor**.
 
-   2. Introduza "attachments" como o nome do contentor. Em **Nível de acesso público**, selecione **Contentor (acesso de leitura anónimo para contentores e blobs)**e escolha **OK**.
+   2. Introduza "attachments" como o nome do contentor. Em **Nível de acesso público**, selecione **Contentor (acesso de leitura anónimo para contentores e blobs)** e escolha **OK**.
 
    Também pode utilizar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
    Quando terminar, pode encontrar o contentor de armazenamento na sua conta de armazenamento aqui no portal do Azure:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30174985"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Conceder permissão para muitas aplicações para um cofre de chaves de acesso
 

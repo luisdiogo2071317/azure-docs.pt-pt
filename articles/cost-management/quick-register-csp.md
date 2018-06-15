@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302537"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297187"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
@@ -31,7 +31,7 @@ Para obter mais informações, consulte [Ligar à API do Centro de Parceiros](ht
 >
 >O acesso ao Cloudyn pode ser disponibilizado aos Revendedores CSP Indiretos após o respetivo Fornecedor CSP Indireto se registar no Cloudyn. Os Revendedores CSP Indiretos podem então fornecer acesso ao Cloudyn aos clientes e subscrições do Azure.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 - Inicie sessão no portal do Azure em http://portal.azure.com.
 

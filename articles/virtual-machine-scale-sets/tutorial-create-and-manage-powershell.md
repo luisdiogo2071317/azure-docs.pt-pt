@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7531ddce37b2f6d140cb277727d6168d8d98ba1e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366261"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802389"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
@@ -146,7 +146,7 @@ Após iniciar sessão na instância da VM, pode fazer algumas alterações de co
 
 
 ## <a name="understand-vm-instance-images"></a>Compreender as imagens de instâncias de VM
-Quando definiu uma configuração de conjunto de dimensionamento com [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) num passo anterior, utilizou uma imagem do Windows Server 2016 Datacenter. O Azure Marketplace inclui muitas imagens que podem ser utilizadas para criar as instâncias de VM. Para ver uma lista dos editores disponíveis utilize o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+O Azure Marketplace inclui muitas imagens que podem ser utilizadas para criar as instâncias de VM. Para ver uma lista dos editores disponíveis utilize o comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

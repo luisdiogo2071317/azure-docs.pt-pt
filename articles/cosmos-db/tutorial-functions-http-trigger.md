@@ -2,29 +2,26 @@
 title: Criar um Acionador HTTP com um enlace de entrada do Azure Cosmos DB | Microsoft Docs
 description: Saiba como utilizar as Funções do Azure com os Acionadores de HTTP para consultar o Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818904"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Criar um acionador HTTP das Funções do Azure com um enlace de entrada do Azure Cosmos DB
 
 O Azure Cosmos DB é uma base de dados com múltiplos modelos distribuída globalmente, sem esquemas e servidores. A Função do Azure é um serviço de computação sem servidores que permite a execução de código a pedido. Combine estes dois serviços do Azure e terá a base para uma arquitetura sem servidores que lhe permite focar-se na criação de aplicações fantásticas e não se preocupar sobre o aprovisionamento e a manutenção dos servidores das suas necessidades de computação e base de dados.
 
-Este tutorial é baseado no código que criou no [Início Rápido do Graph API para .NET](create-graph-dotnet.md). Este tutorial adiciona uma Função do Azure que contém um [acionador HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). O acionador HTTP utiliza um [enlace de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para obter dados da base de dados do gráfico criado no início rápido. Este acionador HTTP específico consulta os dados do Azure Cosmos DB, mas os enlaces de entrada do Azure Cosmos DB podem servir para obter valores de entrada de dados para o que a sua função desejar.
+Este tutorial é baseado no código que criou no [Início Rápido do Graph API para .NET](create-graph-dotnet.md). Este tutorial adiciona uma Função do Azure que contém um [acionador HTTP](../azure-functions/functions-bindings-http-webhook.md). O acionador HTTP utiliza um [enlace de entrada](../azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para obter dados da base de dados do gráfico criado no início rápido. Este acionador HTTP específico consulta os dados do Azure Cosmos DB, mas os enlaces de entrada do Azure Cosmos DB podem servir para obter valores de entrada de dados para o que a sua função desejar.
 
 Este tutorial abrange as seguintes tarefas:
 

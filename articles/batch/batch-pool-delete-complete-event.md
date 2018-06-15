@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30310319"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de eliminação de conjunto
 

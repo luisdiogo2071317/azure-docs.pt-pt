@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314787"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer em caso de um Azure service interrupção que tem impacto nos Cloud Services do Azure
 Na Microsoft, trabalhamos rígido para assegurar que os nossos serviços de sempre estão disponíveis para si quando precisá-los. Força se para além dos nosso controlo, por vezes, um impacto no-nos de formas que provocar interrupções de serviço não planeada.

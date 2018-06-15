@@ -3,7 +3,7 @@ title: Esquema de linguagem de definição de fluxo de trabalho - Azure Logic Ap
 description: Escrever as definições de fluxo de trabalho personalizado para o Azure Logic Apps com a linguagem de definição de fluxo de trabalho
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300186"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definições de fluxo de trabalho de aplicações lógicas com o esquema de linguagem de definição de fluxo de trabalho
 
@@ -358,7 +359,7 @@ Para alterar o tipo ou formato de um valor, pode utilizar estas funções de con
 
 <a name="math-functions"></a>
 
-### <a name="math-functions"></a>Funções de bibliotecas
+### <a name="math-functions"></a>Funções matemáticas
 
 Para trabalhar com números inteiros e floats, pode utilizar estas funções de bibliotecas. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -444,7 +445,7 @@ Por exemplo, pode referenciar as saídas de uma ação e utilizar esses dados nu
 
 <a name="uri-parsing-functions"></a>
 
-### <a name="uri-parsing-functions"></a>Análise de funções URI
+### <a name="uri-parsing-functions"></a>Funções de análise do URI
 
 Para trabalhar com identificadores de recurso uniforme (URI) e obter vários valores de propriedade para estes URIs, pode utilizar estes URI análise funções. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
 

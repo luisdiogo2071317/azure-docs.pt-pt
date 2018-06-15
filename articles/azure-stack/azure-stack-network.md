@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936522"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede de pilha do Azure para o ajudar a decidir como pretende integrar melhor pilha do Azure no seu ambiente de rede existente. 
