@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30161851"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Gerir API Management do Azure através da automatização do Azure
 Este guia apresenta-lhe para o serviço de automatização do Azure e como podem ser utilizada para simplificar a gestão de API Management do Azure.

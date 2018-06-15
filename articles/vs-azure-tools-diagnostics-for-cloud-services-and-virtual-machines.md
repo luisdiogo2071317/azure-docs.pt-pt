@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292545"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure
 Quando precisar de resolver problemas de uma máquina virtual ou serviço em nuvem do Azure, pode utilizar o Visual Studio para configurar mais facilmente o diagnóstico do Azure. Diagnóstico de captura de dados de sistema e dados de registo em máquinas virtuais e instâncias de máquina virtual com o seu serviço em nuvem. Dados de diagnóstico são transferidos para uma conta de armazenamento que escolher. Para obter mais informações sobre diagnósticos registo no Azure, consulte o artigo [ativar o registo de diagnóstico para Web Apps no App Service do Azure](app-service/web-sites-enable-diagnostic-log.md).

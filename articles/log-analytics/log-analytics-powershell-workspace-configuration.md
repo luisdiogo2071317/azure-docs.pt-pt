@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30179094"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para efetuar várias funções na análise de registos, numa linha de comandos ou como parte de um script.  Exemplos de tarefas que pode realizar com o PowerShell incluem:

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196813"
 ---
 * **PolicyBased:** PolicyBased VPNs eram anteriormente denominadas gateways de encaminhamento estático no modelo de implementação clássica. As VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec baseados nas políticas IPsec configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet do Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN. O valor para um tipo de PolicyBased VPN é *PolicyBased*. Quando utilizar uma VPN PolicyBased, tenha em atenção as seguintes limitações:
   

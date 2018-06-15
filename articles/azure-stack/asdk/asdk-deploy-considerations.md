@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164972"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Implementação do Azure da pilha considerações de planeamento
 Antes de implementar o Kit de desenvolvimento de pilha do Azure (ASDK), certifique-se de que o computador de anfitrião do kit de desenvolvimento cumpre os requisitos descritos neste artigo.

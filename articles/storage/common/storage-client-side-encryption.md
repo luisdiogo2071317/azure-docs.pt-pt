@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30245452"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Cofre de chaves para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +66,7 @@ Durante a encriptação, a biblioteca de clientes irá gerar um Vetor de inicial
 > 
 > 
 
-Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o **DownloadTo *** /**BlobReadStream * *: métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
+Transferência de um blob encriptado envolve a obter o conteúdo da utilização de BLOBs de todo o **DownloadTo *** /** BlobReadStream * *: métodos conveniência. O CEK encapsulada e não encapsulada e utilizado juntamente com o IV (armazenada como metadados do blob neste caso) para devolver os dados desencriptados para os utilizadores.
 
 Transferência de um intervalo de arbitrário (**DownloadRange*** métodos) no blob encriptado envolve ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados para desencriptá com êxito o intervalo pedido.
 

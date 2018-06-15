@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169744"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script do PowerShell - incrementalmente carga dados através da utilização do Azure Data Factory
 Este script do PowerShell de exemplo carrega registos apenas novos ou atualizados a partir de um arquivo de dados de origem para um arquivo de dados dependente após a cópia inicial completa dos dados de origem para o sink.  
