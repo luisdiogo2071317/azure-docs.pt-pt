@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365383"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral de segurança de armazenamento do Azure
 O Azure Storage é a solução de armazenamento na cloud para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. Storage do Azure fornece um conjunto completo de capacidades de segurança. Pode:

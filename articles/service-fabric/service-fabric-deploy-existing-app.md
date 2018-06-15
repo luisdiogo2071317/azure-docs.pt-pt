@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205992"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>O pacote e implementar um executável existente para o Service Fabric
 Quando o empacotamento um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher a utilizar um modelo de projeto do Visual Studio ou [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacote de aplicação e ficheiros de manifesto são criados pelo modelo de projeto novo.

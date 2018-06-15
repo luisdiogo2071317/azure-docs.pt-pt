@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312683"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo inclui perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique-los no [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

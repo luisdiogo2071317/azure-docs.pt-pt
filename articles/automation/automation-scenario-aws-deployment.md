@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193486"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automatização do Azure - aprovisionar uma máquina virtual do AWS
 Neste artigo, saiba como pode tirar partido da automatização do Azure para Aprovisionar uma máquina virtual na sua subscrição do Amazon Web Service (AWS) e dar um nome específico – que AWS refere-se a como "marcação" a VM dessa VM.

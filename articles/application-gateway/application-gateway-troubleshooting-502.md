@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356040"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros do gateway incorreto no Gateway de aplicação
 

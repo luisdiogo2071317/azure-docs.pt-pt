@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360041"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Definição NetworkTrafficRules esquema de serviços em nuvem do Azure
 O `NetworkTrafficRules` nó é um elemento opcional no ficheiro de definição de serviço que especifica a forma como as funções de comunicarem entre si. Limita que funções podem aceder os pontos finais internos da função específica. O `NetworkTrafficRules` não é um elemento de autónomo; for combinada com dois ou mais funções de um ficheiro de definição de serviço.

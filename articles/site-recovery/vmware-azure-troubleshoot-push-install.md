@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery resolução de problemas do VMware para Azure | Microsoft Docs"
-description: "Resolva os erros quando replicar máquinas virtuais do Azure."
+title: Azure Site Recovery resolução de problemas do VMware para Azure | Microsoft Docs
+description: Resolva os erros quando replicar máquinas virtuais do Azure.
 services: site-recovery
 author: anoopkv
 manager: gauravd
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812895"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação push do serviço de mobilidade
 

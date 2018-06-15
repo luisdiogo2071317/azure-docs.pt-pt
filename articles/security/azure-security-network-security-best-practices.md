@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367329"
 ---
 # <a name="azure-network-security-best-practices"></a>Práticas recomendadas de segurança de rede do Azure
 Microsoft Azure permite-lhe ligar máquinas virtuais e aplicações para outros dispositivos de rede, colocando-los em redes virtuais do Azure. Uma rede Virtual do Azure é uma construção que permite ligar placas de interface de rede virtual a uma rede virtual para permitir a comunicação baseada em TCP/IP entre dispositivos de rede ativada. Máquinas virtuais do Azure ligado a uma rede Virtual do Azure podem ligar para dispositivos em que a mesma rede Virtual do Azure, Azure redes virtuais diferentes, na Internet ou até mesmo as suas próprias redes no local.

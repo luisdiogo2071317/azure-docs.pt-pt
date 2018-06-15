@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371274"
 ---
 Existem várias razões quando não é possível iniciar ou ligar a uma aplicação em execução numa máquina virtual do Azure (VM). Por motivos incluem a aplicação não está em execução ou está a escutar as portas esperadas, a porta de escuta bloqueado ou redes regras correctamente transmissão de tráfego para a aplicação. Este artigo descreve uma abordagem methodical para localizar e corrigir o problema.
 

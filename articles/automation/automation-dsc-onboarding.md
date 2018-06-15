@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195561"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 

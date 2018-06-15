@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771502"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Nuvem Cruiser e a integração de API de faturação do Microsoft Azure
 Este artigo descreve como as informações recolhidas a partir do novo Microsoft Azure Billing APIs podem ser utilizadas na nuvem Cruiser para simulação de custo de fluxo de trabalho e de análise.

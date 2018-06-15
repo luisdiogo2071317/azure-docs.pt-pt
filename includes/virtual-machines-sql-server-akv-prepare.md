@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32787421"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparar a integração AKV
 Para utilizar a integração do Cofre de chaves do Azure para configurar a VM do SQL Server, existem vários pré-requisitos: 

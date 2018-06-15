@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360262"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Definição WorkerRole esquema de serviços em nuvem do Azure
 A função de trabalho do Azure é uma função que é útil para desenvolvimento generalizado e pode efetuar o processamento em segundo plano para uma função da web.

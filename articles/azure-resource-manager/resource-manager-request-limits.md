@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358868"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitação de pedidos de Gestor de recursos
 Para cada subscrição e de inquilino, limites de Gestor de recursos pedidos para 15 000 por hora para ler e escrever pedidos 1,200 por hora. Aplicam estes limites para cada instância do Azure Resource Manager. Existem várias instâncias em cada região do Azure e do Azure Resource Manager é implementado para todas as regiões do Azure.  Para que, na prática, os limites de forma eficaz muito superiores a estes limites, como utilizador pedidos são normalmente servidos por várias instâncias diferentes.

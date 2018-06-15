@@ -1,6 +1,6 @@
 ---
-title: "Configurar e gerir políticas de replicação para a replicação de VMware com o Azure Site Recovery | Microsoft Docs"
-description: "Descreve como configurar as definições de replicação para replicação de VMware no Azure com o Azure Site Recovery."
+title: Configurar e gerir políticas de replicação para a replicação de VMware com o Azure Site Recovery | Microsoft Docs
+description: Descreve como configurar as definições de replicação para replicação de VMware no Azure com o Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812671"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configurar e gerir políticas de replicação para a replicação de VMware
 Este artigo descreve como configurar uma política de replicação quando estiver a replicar VMware VMs para o Azure, utilizando [do Azure Site Recovery](site-recovery-overview.md).

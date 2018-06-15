@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364238"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Descrição geral de segurança de máquinas virtuais do Azure
 Pode utilizar máquinas virtuais do Azure para implementar uma vasta gama de soluções de informáticas de uma forma seja ágil. O serviço suporta o Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e BizTalk Services do Azure. Por isso, pode implementar qualquer linguagem em praticamente qualquer sistema operativo e qualquer carga de trabalho.

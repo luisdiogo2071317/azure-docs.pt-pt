@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364374"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Gestão de segurança do Azure e a descrição geral da monitorização
 O Azure oferece mecanismos de segurança para ajudar na gestão e monitorização do cloud services do Azure e máquinas virtuais (VMs). Este artigo fornece uma descrição geral destas funcionalidades de segurança de núcleo e serviços. São fornecidas hiperligações para artigos que fornecer detalhes de cada, pelo que pode saber mais.

@@ -1,11 +1,11 @@
 ---
-title: "Limitação com a API Management do Azure de pedidos avançada"
-description: "Saiba como criar e aplicar quota flexível e a taxa de limitação de políticas de API Management do Azure."
+title: Limitação com a API Management do Azure de pedidos avançada
+description: Saiba como criar e aplicar quota flexível e a taxa de limitação de políticas de API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800028"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação com a API Management do Azure de pedidos avançada
 A capacidade para limitar os pedidos recebidos é uma função de chave de API Management do Azure. Ou ao controlar a taxa de pedidos ou os dados/pedidos totais transferidos, gestão de API permite que os fornecedores de API proteger as respetivas APIs de abuso e criar o valor para diferentes camadas de produto de API.

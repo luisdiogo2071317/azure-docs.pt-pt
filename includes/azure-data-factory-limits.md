@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371325"
 ---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 

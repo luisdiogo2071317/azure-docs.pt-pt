@@ -20,6 +20,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012789"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado através do PowerShell
 

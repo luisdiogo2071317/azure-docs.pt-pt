@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364459"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Ativar grupos de segurança no Centro de segurança do Azure
 Centro de segurança do Azure recomenda que ative um grupo de segurança de rede (NSG) se uma ainda não estiver ativada. Os NSGs contêm uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM. Para saber mais, consulte [o que é um grupo de segurança de rede (NSG)?](../virtual-network/security-overview.md)

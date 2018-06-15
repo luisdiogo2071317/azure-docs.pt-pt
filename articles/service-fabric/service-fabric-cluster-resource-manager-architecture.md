@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211434"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Descrição geral da arquitetura de Gestor de recursos de cluster
 O Gestor de recursos de Cluster do serviço de recursos de infraestrutura é um serviço central que é executado no cluster. Gere o estado pretendido de serviços do cluster, particularmente relativamente a quaisquer regras de posicionamento e consumo de recursos. 

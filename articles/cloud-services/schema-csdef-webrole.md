@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360347"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Esquema de WebRole de definição de serviços em nuvem do Azure
 A função da web do Azure é uma função personalizada para a programação de aplicações web como suportada pelo IIS 7, tal como ASP.NET, PHP, Windows Communication Foundation e FastCGI.

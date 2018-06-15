@@ -10,9 +10,10 @@ ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a9d0f4c8de26d3c501c3b04e42864efaa880ee62
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32297608"
 ---
 Se não tiver afixado a sua cache ao dashboard, encontre a sua cache no [Portal do Azure](https://portal.azure.com) ao utilizar **Todos os serviços**.
 

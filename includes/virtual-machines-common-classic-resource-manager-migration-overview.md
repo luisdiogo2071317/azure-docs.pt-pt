@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371342"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plataforma suportada a migração de recursos IaaS do clássico para o Azure Resource Manager
 Neste artigo, vamos descrever como podemos está a ativar a migração da infraestrutura como um recursos de serviço (IaaS) do clássico para modelos de implementação do Resource Manager. Pode ler mais sobre [funcionalidades do Azure Resource Manager e os benefícios](../articles/azure-resource-manager/resource-group-overview.md). Iremos detalhe como ligar recursos a partir de modelos de implementação de dois coexistem na sua subscrição através de gateways de site para site de rede virtual.

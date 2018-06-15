@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212369"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de tipos de nó de Service Fabric do Azure e a máquina virtual
 [Conjuntos de dimensionamento de máquina virtual](/azure/virtual-machine-scale-sets) são recursos de computação de um Azure. Pode utilizar conjuntos de dimensionamento para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que definem num cluster do Azure Service Fabric configura um dimensionamento independente.  Definir o tempo de execução do Service Fabric instalado em cada máquina virtual na escala. Independentemente pode dimensionar cada tipo de nó ou reduzir verticalmente, alterar o SKU de SO em execução em cada nó de cluster, têm conjuntos diferentes de portas abertas e utilizar as métricas de capacidade diferentes.

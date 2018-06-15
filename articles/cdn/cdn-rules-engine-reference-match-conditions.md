@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30173326"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de corresponder ao motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições disponíveis de correspondência de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).

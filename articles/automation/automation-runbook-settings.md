@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194201"
 ---
 # <a name="runbook-settings"></a>Definições de runbook
 Cada runbook na automatização do Azure tem várias definições que ajudam a ser identificados e alterar o respetivo comportamento de registo. Cada uma destas definições é descrita abaixo seguida pelos procedimentos sobre como modificá-las.

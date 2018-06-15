@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367137"
 ---
 Este artigo descreve um conjunto de práticas comprovadas para executar máquinas virtuais (VMs) do Linux no Azure, tendo em atenção a escalabilidade, a disponibilidade, a gestão e a segurança. O Azure suporta a execução de várias distribuições Linux populares, incluindo CentOS, Debian, Red Hat Enterprise, Ubuntu e FreeBSD. Para obter mais informações, veja [Azure and Linux (O Azure e o Linux)][azure-linux].
 
