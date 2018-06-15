@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267515"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Utilizar Habitat para implementar a aplicação no Azure
 [Habitat](https://www.habitat.sh/) é uma primeira do respetivo tipo projeto open source que oferece uma abordagem de nova à gestão de aplicações. Habitat faz com que a aplicação e a automatização a unidade de implementação. Quando as aplicações são moldadas num "habitat" simples, o ambiente de tempo de execução, se se trata de um contentor, bare-metal ou PaaS, já não é o foco e não a restringir a aplicação. 

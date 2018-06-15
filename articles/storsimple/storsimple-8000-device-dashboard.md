@@ -1,12 +1,12 @@
 ---
-title: "Dispositivos de série de 8000 do StorSimple utilize resumo | Microsoft Docs"
-description: "Descreve o dispositivo de serviço do Gestor de dispositivos do StorSimple, resumo e como utilizá-la para ver as métricas do storage e ligados iniciadores e localizar o número de série e IQN."
+title: Dispositivos de série de 8000 do StorSimple utilize resumo | Microsoft Docs
+description: Descreve o dispositivo de serviço do Gestor de dispositivos do StorSimple, resumo e como utilizá-la para ver as métricas do storage e ligados iniciadores e localizar o número de série e IQN.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874858"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utilizar o dispositivo resumo no serviço do Gestor de dispositivos do StorSimple
 

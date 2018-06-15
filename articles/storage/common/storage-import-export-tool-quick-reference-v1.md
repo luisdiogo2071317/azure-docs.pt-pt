@@ -1,12 +1,12 @@
 ---
-title: "Referência rápida para comandos de tarefa de importação de ferramenta de importação/exportação do Azure - v1 | Microsoft Docs"
-description: "Referência de comandos de ferramenta de importação/exportação do Azure para comandos de tarefa de importação utilizadas frequentemente. Isto refere-se v1 da ferramenta de importação/exportação."
+title: Referência rápida para comandos de tarefa de importação de ferramenta de importação/exportação do Azure - v1 | Microsoft Docs
+description: Referência de comandos de ferramenta de importação/exportação do Azure para comandos de tarefa de importação utilizadas frequentemente. Isto refere-se v1 da ferramenta de importação/exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873682"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Referência rápida para comandos utilizados com frequência para tarefas de importação
 Esta secção fornece que uma referência rápida para algumas utilizadas frequentemente comandos. Para utilização detalhada, consulte [preparar os discos rígidos de uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  

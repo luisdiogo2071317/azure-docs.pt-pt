@@ -1,11 +1,11 @@
 ---
 title: Resolver problemas de matriz Virtual StorSimple | Microsoft Docs
-description: "Descreve o Gestor de dispositivos do StorSimple capacidade de diagnosticar e explica como utilizá-la para resolver problemas relacionados com a matriz de Virtual StorSimple."
+description: Descreve o Gestor de dispositivos do StorSimple capacidade de diagnosticar e explica como utilizá-la para resolver problemas relacionados com a matriz de Virtual StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875257"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para resolver problemas relacionados com a matriz de Virtual StorSimple
 ## <a name="overview"></a>Descrição geral

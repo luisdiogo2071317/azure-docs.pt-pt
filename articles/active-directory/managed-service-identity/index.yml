@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 05/20/2018
+  ms.locfileid: "34354287"
 abstract:
   description: A Identidade de Serviço Gerida (MSI) fornece serviços do Azure com uma identidade gerida automática no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporta a autenticação Azure AD sem ter que ter nenhumas credenciais no seu código.  Saiba como criar e gerir as Identidades de Serviço Geridas com os nossos inícios rápidos e tutoriais.
 sections:

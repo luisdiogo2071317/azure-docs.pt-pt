@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360058"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Definição LoadBalancerProbe esquema de serviços em nuvem do Azure
 A sonda do Balanceador de carga é uma sonda do Estado de funcionamento definido de cliente de pontos finais do UDP e os pontos finais em instâncias de função. O `LoadBalancerProbe` não é um elemento de autónomo; for combinada com a função da web ou função de trabalho num ficheiro de definição de serviço. A `LoadBalancerProbe` pode ser utilizado por mais de uma função.

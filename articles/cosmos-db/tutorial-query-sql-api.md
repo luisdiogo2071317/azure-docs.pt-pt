@@ -2,25 +2,22 @@
 title: Como fazer consultas com SQL na Azure Cosmos DB? | Microsoft Docs
 description: Saiba como fazer consultas com SQL na Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2febb0a358a27db3d83e95930b7a56e6a67b7e3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615058"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
@@ -67,7 +64,7 @@ As consultas de SQL neste artigo utilizam o documento de exemplo seguinte.
 
 Pode executar consultas utilizando o Data Explorer no portal do Azure, através de [REST API e SDK](sql-api-sdk-dotnet.md)e até mesmo [Teste de consulta](https://www.documentdb.com/sql/demo), que executada consultas num conjunto de dados de exemplo.
 
-Para obter mais informações sobre as consultas SQL, veja:
+Para obter mais informações sobre as consultas SQL, consulte:
 * [Consulta SQL e sintaxe SQL](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos

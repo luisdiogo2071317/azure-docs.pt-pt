@@ -1,11 +1,11 @@
 ---
-title: "Repor um gateway de VPN do Azure para restabelecer túneis IPsec | Microsoft Docs"
-description: "Este artigo explica como repor o Gateway de VPN do Azure para restabelecer túneis IPsec. O artigo aplica-se a gateways VPN no clássica tanto os modelos de implementação Resource Manager."
+title: Repor um gateway de VPN do Azure para restabelecer túneis IPsec | Microsoft Docs
+description: Este artigo explica como repor o Gateway de VPN do Azure para restabelecer túneis IPsec. O artigo aplica-se a gateways VPN no clássica tanto os modelos de implementação Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884553"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 

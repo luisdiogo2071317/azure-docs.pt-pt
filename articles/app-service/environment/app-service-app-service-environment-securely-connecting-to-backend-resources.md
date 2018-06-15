@@ -1,11 +1,11 @@
 ---
-title: "Ligar em segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações"
-description: "Saiba mais sobre como ligar de forma segura a recursos de back-end de um ambiente de serviço de aplicações."
+title: Ligar em segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações
+description: Saiba mais sobre como ligar de forma segura a recursos de back-end de um ambiente de serviço de aplicações.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836526"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ligar em segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral

@@ -1,5 +1,5 @@
 ---
-title: "Gerir listas de controlo de acesso de ponto final do Azure | PowerShell | Clássico | Microsoft Docs"
+title: Gerir listas de controlo de acesso de ponto final do Azure | PowerShell | Clássico | Microsoft Docs
 description: Saiba como gerir ACLs com o PowerShell
 services: virtual-network
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928854"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Gerir listas de controlo de acesso de ponto final com o PowerShell no modelo de implementação clássica
 Pode criar e gerir o controlo de acesso de rede lista (ACLs) para pontos finais utilizando o Azure PowerShell ou no Portal de gestão. Neste tópico, encontrará procedimentos para tarefas comuns de ACL que pode realizar com o PowerShell. Para obter a lista do Azure PowerShell cmdlets consulte [Cmdlets de gestão do Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para obter mais informações sobre as ACLs, consulte [o que é uma lista de controlo de acesso de rede (ACL)?](virtual-networks-acl.md). Se pretender gerir as ACLs utilizando o Portal de gestão, consulte [como conjunto de cópias de segurança de pontos finais para uma Máquina Virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

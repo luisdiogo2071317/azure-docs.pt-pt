@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915112"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós pedido "rajada" para um cluster HPC Pack no Azure
 Se configurar um [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster no Azure, poderá pretender que uma forma rapidamente aumentar a capacidade de cluster ou para baixo, sem mantendo um conjunto de nó de computação pré-configurada VMs. Este artigo mostra como adicionar nós pedido "rajada" (instâncias de função de trabalho em execução num serviço em nuvem) como recursos de computação para um nó principal no Azure. 

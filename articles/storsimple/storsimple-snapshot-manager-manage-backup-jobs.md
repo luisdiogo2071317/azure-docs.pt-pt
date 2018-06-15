@@ -1,11 +1,11 @@
 ---
-title: "Tarefas de cópia de segurança do Snapshot Manager do StorSimple | Microsoft Docs"
-description: "Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir tarefas de cópia de segurança agendadas, atualmente em execução e foi concluídas."
+title: Tarefas de cópia de segurança do Snapshot Manager do StorSimple | Microsoft Docs
+description: Descreve como utilizar o snap-in MMC de Snapshot Manager do StorSimple para ver e gerir tarefas de cópia de segurança agendadas, atualmente em execução e foi concluídas.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875817"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Utilize o Snapshot Manager do StorSimple para ver e gerir tarefas de cópia de segurança
 

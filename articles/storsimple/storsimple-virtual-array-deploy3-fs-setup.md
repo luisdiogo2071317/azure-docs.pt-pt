@@ -1,11 +1,11 @@
 ---
 title: Configurar StorSimple matriz Virtual como servidor de ficheiros | Microsoft Docs
-description: "Este tutorial terceiro na implementação de matriz Virtual StorSimple dá instruções ao configurar um dispositivo virtual como servidor de ficheiros."
+description: Este tutorial terceiro na implementação de matriz Virtual StorSimple dá instruções ao configurar um dispositivo virtual como servidor de ficheiros.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927825"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual matriz - conjunto de cópias de segurança como servidor de ficheiros através do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

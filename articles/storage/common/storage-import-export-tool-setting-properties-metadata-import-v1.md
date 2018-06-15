@@ -1,11 +1,11 @@
 ---
-title: "A definição de propriedades e os metadados utilizando para importar/exportar do Azure - v1 | Microsoft Docs"
-description: "Saiba como especificar as propriedades e metadados de ser definida nos blobs de destino ao executar a ferramenta de importação/exportação do Azure para preparar as suas unidades. Isto refere-se v1 da ferramenta de importação/exportação."
+title: A definição de propriedades e os metadados utilizando para importar/exportar do Azure - v1 | Microsoft Docs
+description: Saiba como especificar as propriedades e metadados de ser definida nos blobs de destino ao executar a ferramenta de importação/exportação do Azure para preparar as suas unidades. Isto refere-se v1 da ferramenta de importação/exportação.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873738"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Definir propriedades e metadados durante o processo de importação
 Quando executar a ferramenta de importação/exportação do Microsoft Azure para preparar as suas unidades, pode especificar propriedades e metadados de ser definida nos blobs de destino. Siga estes passos.  
