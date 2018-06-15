@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246343"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Criar um conjunto de dimensionamento de máquinas virtuais a partir de uma imagem de VM personalizada com a CLI do Azure 2.0
 Este script cria um conjunto de dimensionamento de máquinas virtuais que utiliza uma imagem de VM personalizada como origem para as instâncias de VMs.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790385"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdos através do portal do Azure
  Com os Media Services do Azure, pode proteger o suporte de dados desde o momento em que deixa o seu computador através de armazenamento, processamento e entrega. Pode utilizar os serviços de suporte de dados para entregar o conteúdo encriptado dinamicamente com a encriptação AES (Advanced Standard) utilizando as chaves de encriptação de 128 bits. Também pode utilizá-lo com encriptação comum (CENC) com PlayReady e/ou Widevine gestão de direitos digitais (DRM) e do FairPlay da Apple. 

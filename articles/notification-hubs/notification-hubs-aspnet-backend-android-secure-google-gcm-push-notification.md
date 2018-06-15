@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776765"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Enviar notificações Push segura com Notification Hubs do Azure
 > [!div class="op_single_selector"]

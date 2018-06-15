@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231107"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com WebJobs no App Service do Azure
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314053"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 

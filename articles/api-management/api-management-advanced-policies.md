@@ -18,6 +18,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233831"
 ---
 # <a name="api-management-advanced-policies"></a>API de gestão avançada de políticas
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932392"
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Resolver problemas de desenvolvimento de aplicações do Azure Active Directory
 As seguintes ligações aparecerá a um mapa de conteúdo que irá ajudá-lo a resolver alguns dos problemas mais comuns com o desenvolvimento de aplicações com o **registo de aplicação** no Azure Active Directory.

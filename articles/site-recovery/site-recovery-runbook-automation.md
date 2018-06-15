@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896025"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automatização do Azure para planos de recuperação
 Neste artigo, vamos descrever como o Azure Site Recovery se integra com a automatização do Azure para o ajudar a expandir os planos de recuperação. Planos de recuperação podem orquestrar a recuperação de VMs que estão protegidos com a recuperação de Site. Funcionam planos de recuperação para a replicação para uma nuvem secundária e para replicação no Azure. Planos de recuperação também ajudam a efetuar a recuperação **consistentemente exata**, **repetíveis**, e **automatizada**. Se a ativação pós-falha as suas VMs no Azure, a integração com a automatização do Azure expande os planos de recuperação. Pode utilizá-lo para executar runbooks, o que oferece tarefas de automatização de elevado desempenho.

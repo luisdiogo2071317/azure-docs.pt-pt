@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33865940"
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Como funciona o Azure multi-factor Authentication
 A segurança de verificação de dois passos reside na respetiva abordagem em camadas. Compromisso de vários fatores de autenticação apresenta um significativo desafio para os atacantes. Mesmo se um atacante conseguir saber a palavra-passe do utilizador, é inútil sem também ter posse do dispositivo fidedigno. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788684"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um elemento com o codificador de multimédia Standard utilizando o .NET
 As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Quando codificar, pode utilizar o codificador de multimédia incorporada dos Media Services. Também pode utilizar um codificador fornecido por um parceiro de Media Services; codificadores de terceiros estão disponíveis através do Azure Marketplace. 

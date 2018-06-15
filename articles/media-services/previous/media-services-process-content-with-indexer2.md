@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790245"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>A indexação de ficheiros de suporte de dados pré-visualização do indexador 2 Media Services do Azure
 ## <a name="overview"></a>Descrição geral

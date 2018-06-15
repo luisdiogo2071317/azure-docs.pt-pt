@@ -10,9 +10,10 @@ ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: cfdf7c723416471d733e2bc9c71e0f519020fbe6
 ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196930"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN de VNet clássica ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.
 

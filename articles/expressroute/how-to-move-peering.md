@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314304"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um peering público para peering da Microsoft
 

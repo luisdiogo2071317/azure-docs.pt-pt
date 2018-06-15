@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790735"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de Postman com operações de transmissão em fluxo em direto
 

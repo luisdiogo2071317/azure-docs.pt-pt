@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30235330"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca dos gateways de rede virtual para o ExpressRoute
 Um gateway de rede virtual é utilizado para enviar tráfego de rede entre redes virtuais do Azure e localizações no local. Quando configurar uma ligação ExpressRoute, tem de criar e configurar um gateway de rede virtual e uma ligação de gateway de rede virtual.

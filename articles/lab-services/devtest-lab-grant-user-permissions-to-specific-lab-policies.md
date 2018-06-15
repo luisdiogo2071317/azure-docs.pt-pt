@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787459"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizador para políticas de laboratório específico
 ## <a name="overview"></a>Descrição geral

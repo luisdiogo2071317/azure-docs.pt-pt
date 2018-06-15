@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714676"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizando os serviços externos do serviço de API Management do Azure
 As políticas disponíveis no serviço de API Management do Azure o podem fazer uma vasta gama de trabalho útil, consoante puramente o pedido de entrada, a saída de resposta e informações básicas de configuração. No entanto, a ser capazes de interagir com os serviços externos da gestão de API políticas abre-se muitas oportunidades mais.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231281"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilizar as funções do Azure para ligar a uma base de dados do SQL do Azure
 Este tópico mostra como utilizar as funções do Azure para criar uma tarefa agendada que limpa linhas numa tabela numa base de dados SQL do Azure. A nova função de script do c# é criada com base num modelo de Acionador de temporizador predefinidos no portal do Azure. Para suportar este cenário, também tem de definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Este cenário utiliza uma operação em massa na base de dados. 

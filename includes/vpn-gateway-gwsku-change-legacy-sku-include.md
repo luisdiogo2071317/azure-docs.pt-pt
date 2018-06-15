@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196829"
 ---
 Se estiver a trabalhar com o modelo de implementação Resource Manager, pode alterar para o novo SKUs de gateway. Quando alterar a partir de um SKU de gateway legado para um SKU de novo, elimine o gateway VPN existente e criar um novo gateway VPN.
 
