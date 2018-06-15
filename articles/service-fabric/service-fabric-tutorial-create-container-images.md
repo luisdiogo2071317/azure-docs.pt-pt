@@ -1,14 +1,14 @@
 ---
 title: Criar imagens de contentor para o Azure Service Fabric | Microsoft Docs
-description: "Neste tutorial, saiba como criar imagens de contentor para uma aplicação do Service Fabric com vários contentores."
+description: Neste tutorial, saiba como criar imagens de contentor para uma aplicação do Service Fabric com vários contentores.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Contentores, Microsserviços, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Contentores, Microsserviços, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558190"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>Tutorial: criar imagens de contentor para o Service Fabric
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529979"
 ---
 [As políticas do Azure](/azure/azure-policy/) ajudam-se de que todos os recursos na subscrição cumpre os padrões empresariais. Utilize políticas para reduzir os custos, restringindo opções de implementação apenas esses tipos de recursos e os SKUs que forem aprovados. Definir regras e ações para os seus recursos e essas regras são automaticamente aplicadas durante a implementação. Por exemplo, pode controlar os tipos de recursos que estão implementados. Em alternativa, pode restringir as localizações aprovadas para recursos. Uma ação de negação de algumas políticas e algumas políticas configurar a auditoria de uma ação.
 
