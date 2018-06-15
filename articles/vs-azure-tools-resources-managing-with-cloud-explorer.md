@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794077"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gerir os recursos associados as contas do Azure no Visual Studio Cloud Explorer
 Explorador de nuvem permite-lhe ver os recursos do Azure e os grupos de recursos, inspecionar as respetivas propriedades e efetuar ações de diagnóstico de chave para programadores no Visual Studio. 
