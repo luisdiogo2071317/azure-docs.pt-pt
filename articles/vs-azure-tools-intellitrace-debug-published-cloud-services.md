@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292562"
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>A depuração de um serviço em nuvem do Azure publicadas com o Visual Studio e o IntelliTrace
 Com IntelliTrace, que pode iniciar sessão extensas informações de depuração para uma instância de função quando for executada no Azure. Se precisar de descobrir a causa de um problema, pode utilizar os registos do IntelliTrace para seguir o código do Visual Studio como se estivesse em execução no Azure. Em vigor, registos do IntelliTrace de chave de execução de código e os dados de ambiente quando a aplicação do Azure está em execução como um serviço em nuvem no Azure e permite-lhe os dados do Visual Studio registados de reprodução. 

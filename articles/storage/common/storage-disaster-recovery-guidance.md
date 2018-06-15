@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323156"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se ocorrer uma falha do Armazenamento do Azure
 Na Microsoft, trabalhamos rígido para se certificar de que os nossos serviços estão sempre disponíveis. Por vezes, força se para além dos nosso impacto de controlo-nos de formas que provocar falhas de serviço não planeada num ou mais regiões. Para ajudar a lidar com estas ocorrências raras, podemos fornecer as seguintes orientações de alto nível para serviços de armazenamento do Azure.

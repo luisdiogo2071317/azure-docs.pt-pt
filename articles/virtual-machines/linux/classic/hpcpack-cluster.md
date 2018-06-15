@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841698"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução aos nós de computação do Linux num cluster HPC Pack no Azure
 Configurar um [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) com uma distribuição Linux suportada de nós de computação de cluster no Azure que contém um nó principal com o Windows Server e várias. Explore as opções para mover dados entre os nós do Linux e o nó principal do cluster do Windows. Saiba como submeter as tarefas de Linux HPC para o cluster.
