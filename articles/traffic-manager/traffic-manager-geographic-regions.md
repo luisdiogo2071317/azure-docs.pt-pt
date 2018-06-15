@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201501"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região utilizada pelo Gestor de tráfego do Azure para o método de encaminhamento de tráfego geográfica
 

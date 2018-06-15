@@ -1,11 +1,11 @@
 ---
-title: "Deteção de mensagens duplicadas do Service Bus do Azure | Microsoft Docs"
+title: Deteção de mensagens duplicadas do Service Bus do Azure | Microsoft Docs
 description: Detetar mensagens duplicadas do Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198558"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 

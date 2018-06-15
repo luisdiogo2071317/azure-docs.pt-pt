@@ -1,8 +1,8 @@
 ---
 title: Recolher e analisar registos de eventos do Windows no Log Analytics do Azure | Microsoft Docs
-description: "Registos de eventos do Windows são uma das origens de dados mais comuns utilizadas pela análise de registos.  Este artigo descreve como configurar a recolha de registos de eventos do Windows e detalhes dos registos que criarem na área de trabalho de análise de registos."
+description: Registos de eventos do Windows são uma das origens de dados mais comuns utilizadas pela análise de registos.  Este artigo descreve como configurar a recolha de registos de eventos do Windows e detalhes dos registos que criarem na área de trabalho de análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782035"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos de Windows na análise de registos
 Registos de eventos do Windows são uma das mais comuns [origens de dados](log-analytics-data-sources.md) para recolher dados com agentes do Windows, uma vez que muitas aplicações escrevem o registo de eventos do Windows.  Pode recolher eventos a partir de registos de padrão, tais como o sistema e de aplicações, além de especificar quaisquer registos personalizados criados pelas aplicações que precisar de monitorizar.

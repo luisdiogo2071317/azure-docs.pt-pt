@@ -1,11 +1,11 @@
 ---
-title: "Referência do protocolo SAML do Azure AD | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral dos perfis de Single Sign-On e única Sign-Out SAML no Azure Active Directory."
+title: Referência do protocolo SAML do Azure AD | Microsoft Docs
+description: Este artigo fornece uma descrição geral dos perfis de Single Sign-On e única Sign-Out SAML no Azure Active Directory.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26615779"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Como o Azure Active Directory utiliza o protocolo SAML
 Azure Active Directory (Azure AD) utiliza SAML 2.0 que o protocolo permitem às aplicações fornecer uma experiência de início de sessão única aos respetivos utilizadores. O [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) e [fim de sessão único](active-directory-single-sign-out-protocol-reference.md) perfis SAML do Azure AD explicam como SAML asserções, protocolos e enlaces são utilizados no serviço do fornecedor de identidade.

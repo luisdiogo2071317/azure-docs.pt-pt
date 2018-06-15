@@ -1,11 +1,11 @@
 ---
-title: "Criar uma aplicação Web HTML estática no Azure | Microsoft Docs"
-description: "Saiba como é fácil executar aplicações Web no Serviço de Aplicações do Azure ao implementar uma aplicação de exemplo HTML estática."
+title: Criar uma aplicação Web HTML estática no Azure | Microsoft Docs
+description: Saiba como é fácil executar aplicações Web no Serviço de Aplicações do Azure ao implementar uma aplicação de exemplo HTML estática.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28918782"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 

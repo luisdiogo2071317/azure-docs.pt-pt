@@ -21,6 +21,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778448"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing
 Neste tutorial, irá aprender a entregar notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing. 

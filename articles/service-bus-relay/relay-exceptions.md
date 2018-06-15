@@ -1,11 +1,11 @@
 ---
-title: "Exceções de reencaminhamento do Azure e como resolvê-los | Microsoft Docs"
-description: "Lista de exceções de reencaminhamento do Azure e as ações sugeridas que pode tomar para ajudar a resolvê-los."
+title: Exceções de reencaminhamento do Azure e como resolvê-los | Microsoft Docs
+description: Lista de exceções de reencaminhamento do Azure e as ações sugeridas que pode tomar para ajudar a resolvê-los.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855866"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de reencaminhamento do Azure
 

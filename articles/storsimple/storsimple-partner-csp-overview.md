@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de programa do Microsoft Azure StorSimple e soluções de nuvem | Microsoft Docs"
-description: "Uma descrição geral sobre o StorSimple e o CSP para parceiros do StorSimple."
+title: Descrição geral de programa do Microsoft Azure StorSimple e soluções de nuvem | Microsoft Docs
+description: Uma descrição geral sobre o StorSimple e o CSP para parceiros do StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26367680"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para o programa de fornecedores de soluções em nuvem?
 

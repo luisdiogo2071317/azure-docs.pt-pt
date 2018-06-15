@@ -1,11 +1,11 @@
 ---
-title: "Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual | Microsoft Docs"
-description: "Saiba como criar um modelo de conjunto de dimensionamento viável mínimo para conjuntos de dimensionamento de máquina virtual"
+title: Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual | Microsoft Docs
+description: Saiba como criar um modelo de conjunto de dimensionamento viável mínimo para conjuntos de dimensionamento de máquina virtual
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781260"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de dimensionamento viável mínima e como modificar este modelo de acordo com os vários cenários. Todos os exemplos provenientes isto [repositório do GitHub](https://github.com/gatneil/mvss). 

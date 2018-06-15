@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894929"
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Requisitos de monitorização para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-10"></a>Requisito de PCI DSS 10

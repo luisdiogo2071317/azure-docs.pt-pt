@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942307"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Media Services do Azure
 Este tópico fornece uma descrição geral dos conceitos de Media Services mais importantes.

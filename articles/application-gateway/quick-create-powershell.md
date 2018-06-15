@@ -18,6 +18,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202053"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - Azure PowerShell
 

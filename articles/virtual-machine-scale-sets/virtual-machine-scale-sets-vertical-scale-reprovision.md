@@ -1,11 +1,11 @@
 ---
-title: "Aumentar verticalmente conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs"
-description: "Como aumentar verticalmente uma Máquina Virtual em resposta a alertas com a automatização do Azure de monitorização"
+title: Aumentar verticalmente conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs
+description: Como aumentar verticalmente uma Máquina Virtual em resposta a alertas com a automatização do Azure de monitorização
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781824"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Define o dimensionamento automático vertical com dimensionamento da máquina virtual
 Este artigo descreve como dimensionar verticalmente Azure [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/) com ou sem reprovisioning. Dimensionamento de VMs que não estejam em conjuntos de dimensionamento na vertical, consulte [aumentar verticalmente a máquina virtual do Azure com a automatização do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

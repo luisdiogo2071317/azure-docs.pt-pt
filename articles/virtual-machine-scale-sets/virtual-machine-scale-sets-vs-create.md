@@ -1,11 +1,11 @@
 ---
-title: "Implementar o conjunto de dimensionamento de Máquina Virtual com o Visual Studio | Microsoft Docs"
-description: "Implementar os conjuntos de dimensionamento de Máquina Virtual utilizando o Visual Studio e um modelo do Resource Manager"
+title: Implementar o conjunto de dimensionamento de Máquina Virtual com o Visual Studio | Microsoft Docs
+description: Implementar os conjuntos de dimensionamento de Máquina Virtual utilizando o Visual Studio e um modelo do Resource Manager
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782151"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de dimensionamento de Máquina Virtual com o Visual Studio
 Este artigo mostra como implementar uma Azure Virtual Machine conjunto de dimensionamento de uma implementação de grupo de recursos do Studio Visual a utilizar.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868803"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Orientações de segurança para a utilização do Azure multi-factor Authentication com contas do Azure AD
 

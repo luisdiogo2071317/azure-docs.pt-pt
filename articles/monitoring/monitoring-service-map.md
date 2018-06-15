@@ -16,9 +16,10 @@ ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887910"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução de mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que pensa que deles: como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos, e portas em qualquer arquitetura ligados de TCP, sem qualquer configuração necessária à instalação de um agente.

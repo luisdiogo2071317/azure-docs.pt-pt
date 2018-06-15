@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893372"
 ---
 # <a name="pen-testing"></a>Teste de caneta
 Uma das vantagens da utilização do Azure para implementação e teste de aplicações é que pode obter rapidamente ambientes criados.  Não tem de se preocupar com requisitioning, aquisição, "racking e empilhamento" hardware os seus próprios no local.

@@ -1,9 +1,9 @@
 ---
-title: "Azure MFA inicie sessão com a verificação de dois passos | Microsoft Docs"
-description: "Esta página irá fornecer orientações sobre onde ir para ver os vários início de sessão métodos disponíveis com a MFA do Azure."
-keywords: "autenticação de utilizador, o início de sessão experiência, início de sessão com o telemóvel, início de sessão com o telefone do escritório"
+title: Azure MFA inicie sessão com a verificação de dois passos | Microsoft Docs
+description: Esta página irá fornecer orientações sobre onde ir para ver os vários início de sessão métodos disponíveis com a MFA do Azure.
+keywords: autenticação de utilizador, o início de sessão experiência, início de sessão com o telemóvel, início de sessão com o telefone do escritório
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628418"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o multi-factor Authentication do Azure
 > [!NOTE]

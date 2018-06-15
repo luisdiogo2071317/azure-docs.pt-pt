@@ -1,11 +1,11 @@
 ---
-title: "Recuperação de desastre georreplicação de Event Hubs do Azure | Microsoft Docs"
-description: "Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre em Event Hubs do Azure"
+title: Recuperação de desastre georreplicação de Event Hubs do Azure | Microsoft Docs
+description: Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre em Event Hubs do Azure
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745899"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre de Event Hubs do Azure
 

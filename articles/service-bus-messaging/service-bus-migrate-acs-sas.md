@@ -1,11 +1,11 @@
 ---
-title: "Migrar do serviço de controlo de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado | Microsoft Docs"
-description: "Migrar aplicações de serviço de controlo de acesso a SAS"
+title: Migrar do serviço de controlo de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado | Microsoft Docs
+description: Migrar aplicações de serviço de controlo de acesso a SAS
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27160270"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controlo de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado
 

@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Authenticator phone início de sessão - contas do Azure e da Microsoft | Microsoft Docs"
-description: "Utilize o seu telefone para iniciar sessão sua conta Microsoft em vez de escrever a palavra-passe. Este artigo responde a perguntas mais frequentes sobre esta funcionalidade."
+title: Microsoft Authenticator phone início de sessão - contas do Azure e da Microsoft | Microsoft Docs
+description: Utilize o seu telefone para iniciar sessão sua conta Microsoft em vez de escrever a palavra-passe. Este artigo responde a perguntas mais frequentes sobre esta funcionalidade.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "26630396"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o seu telemóvel, não a palavra-passe
 

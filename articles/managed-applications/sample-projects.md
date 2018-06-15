@@ -1,6 +1,6 @@
 ---
-title: "Azure geridos projetos de exemplo de aplicação | Microsoft Docs"
-description: "Resume os projetos de exemplo disponíveis para o Azure geridos aplicações"
+title: Azure geridos projetos de exemplo de aplicação | Microsoft Docs
+description: Resume os projetos de exemplo disponíveis para o Azure geridos aplicações
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,10 @@ ms.date: 12/15/2017
 ms.author: tomfitz
 ms.openlocfilehash: 9acc769355b44628ca617550e44c9ed9724cfdcb
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753065"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>As aplicações de gerido de projetos de exemplo para o Azure
 

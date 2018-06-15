@@ -18,6 +18,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204195"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure
 API Management fornece a capacidade para proteger o acesso ao serviço de back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados no portal do publicador API e como configurar uma API para utilizar um certificado para aceder ao seu serviço de back-end.

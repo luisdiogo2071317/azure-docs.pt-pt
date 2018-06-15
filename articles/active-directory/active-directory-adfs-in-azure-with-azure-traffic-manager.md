@@ -1,12 +1,12 @@
 ---
-title: "Implementação de AD FS de geografia cruzada de elevada disponibilidade no Azure com o Gestor de Tráfego do Azure | Microsoft Docs"
+title: Implementação de AD FS de geografia cruzada de elevada disponibilidade no Azure com o Gestor de Tráfego do Azure | Microsoft Docs
 description: 'Neste documento, vai aprender a implementar o AD FS no Azure para disponibilidade elevada '
-keywords: "AD FS com o Gestor de Tráfego do Azure, adfs com Gestor de Tráfego do Azure, geográfico, centro de dados múltiplos, centros de dados geográficos, centros de dados geográficos múltiplos, implementar o AD FS no azure, implementar adfs do azure, azure adfs, ad fs azure , implementar adfs, implementar ad fs, adfs no azure, implementar adfs no azure, implementar AD FS no azure, adfs azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure"
+keywords: AD FS com o Gestor de Tráfego do Azure, adfs com Gestor de Tráfego do Azure, geográfico, centro de dados múltiplos, centros de dados geográficos, centros de dados geográficos múltiplos, implementar o AD FS no azure, implementar adfs do azure, azure adfs, ad fs azure , implementar adfs, implementar ad fs, adfs no azure, implementar adfs no azure, implementar AD FS no azure, adfs azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604784"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implementação de AD FS geográficos cruzados de elevada disponibilidade no Azure com o Gestor de Tráfego do Azure
 [Implementação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md) fornece orientação passo a passo sobre como pode implementar uma infraestrutura de AD FS simples para a sua organização no Azure. Este artigo fornece os passos seguintes para criar uma implementação geográfica cruzada do AD FS no Azure com o [Gestor de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). O Gestor de Tráfego do Azure ajuda-o a criar uma infraestrutura do AD FS de elevado desempenho e elevada disponibilidade propagada a nível geográfico para a sua organização ao utilizar o intervalo de métodos de encaminhamento disponíveis para satisfazer as necessidades diferentes da infraestrutura.
