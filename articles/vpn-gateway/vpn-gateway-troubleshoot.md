@@ -1,13 +1,13 @@
 ---
-title: "Resolver problemas de ligações e configurações do VPN Gateway | Microsoft Docs"
-description: "Este artigo ajuda-ligue a artigos para resolver problemas relacionados com a configuração do Gateway de VPN, ligação e para validar o débito."
+title: Resolver problemas de ligações e configurações do VPN Gateway | Microsoft Docs
+description: Este artigo ajuda-ligue a artigos para resolver problemas relacionados com a configuração do Gateway de VPN, ligação e para validar o débito.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934772"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Resolver problemas de Gateway de VPN
 

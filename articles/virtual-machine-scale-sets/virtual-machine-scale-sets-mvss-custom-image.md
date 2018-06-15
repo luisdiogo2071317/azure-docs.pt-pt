@@ -1,11 +1,11 @@
 ---
-title: "Referência a uma imagem personalizada num modelo de conjunto de dimensionamento do Azure | Microsoft Docs"
-description: "Saiba como adicionar uma imagem personalizada a um modelo existente de conjunto de dimensionamento de Máquina Virtual do Azure"
+title: Referência a uma imagem personalizada num modelo de conjunto de dimensionamento do Azure | Microsoft Docs
+description: Saiba como adicionar uma imagem personalizada a um modelo existente de conjunto de dimensionamento de Máquina Virtual do Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780923"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada para um modelo de conjunto de dimensionamento do Azure
 

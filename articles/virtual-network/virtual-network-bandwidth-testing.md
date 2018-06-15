@@ -1,12 +1,12 @@
 ---
-title: "Teste débito de rede de VM do Azure | Microsoft Docs"
-description: "Saiba como testar o débito de rede de máquina virtual do Azure."
+title: Teste débito de rede de VM do Azure | Microsoft Docs
+description: Saiba como testar o débito de rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200984"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito (NTTTCP) de teste
 

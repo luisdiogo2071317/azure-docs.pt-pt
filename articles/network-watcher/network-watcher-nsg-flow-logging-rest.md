@@ -1,11 +1,11 @@
 ---
-title: "Os registos de fluxo de gerir o grupo de segurança de rede com o observador de rede do Azure - REST API | Microsoft Docs"
-description: "Esta página explica como gerir os registos de fluxo do grupo de segurança de rede no observador de rede do Azure com a REST API"
+title: Os registos de fluxo de gerir o grupo de segurança de rede com o observador de rede do Azure - REST API | Microsoft Docs
+description: Esta página explica como gerir os registos de fluxo do grupo de segurança de rede no observador de rede do Azure com a REST API
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774376"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Registos de fluxo de configurar o grupo de segurança de rede através da API de REST
 

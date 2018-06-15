@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894645"
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como a ativação pós-falha máquinas de virtuais e físicos servidores protegidos pela recuperação de sites.

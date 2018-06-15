@@ -2,7 +2,7 @@
 title: Ferramentas para utilizar Ansible com o Azure
 description: Instalar e utilizar ferramentas individuais para Ansible com o Azure
 ms.service: ansible
-keywords: "ansible do azure, devops, ferramentas, o vs code, código do visual studio, a extensão"
+keywords: ansible do azure, devops, ferramentas, o vs code, código do visual studio, a extensão
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28212051"
 ---
 # <a name="tools-for-using-ansible-with-azure"></a>Ferramentas para utilizar Ansible com o Azure
 

@@ -1,11 +1,11 @@
 ---
-title: "Atualizar e dimensionar uma instância de API Management do Azure | Microsoft Docs"
-description: "Este tópico descreve como atualizar e dimensionar uma instância de API Management do Azure."
+title: Atualizar e dimensionar uma instância de API Management do Azure | Microsoft Docs
+description: Este tópico descreve como atualizar e dimensionar uma instância de API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658641"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Atualizar e dimensionar uma instância de API Management 
 

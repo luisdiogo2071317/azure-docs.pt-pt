@@ -1,8 +1,8 @@
 ---
 title: Recolher e analisar os contadores de desempenho Log Analytics do Azure | Microsoft Docs
-description: "Contadores de desempenho são recolhidos através da análise de registos para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambas as janelas e agentes do Linux, os detalhes do são armazenados na área de trabalho e como analisá-las no portal do Azure."
+description: Contadores de desempenho são recolhidos através da análise de registos para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambas as janelas e agentes do Linux, os detalhes do são armazenados na área de trabalho e como analisá-las no portal do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783167"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho na análise de registos
 Os contadores de desempenho do Windows e Linux fornecem informações aprofundadas o desempenho dos componentes de hardware, sistemas operativos e aplicações.  Análise de registos pode recolher contadores de desempenho em intervalos frequentes para análise de quase em Tempo Real (NRT) para além de relatórios e agregar dados de desempenho para uma análise mais longo prazo.

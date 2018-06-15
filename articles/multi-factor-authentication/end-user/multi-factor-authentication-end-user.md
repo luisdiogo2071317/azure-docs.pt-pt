@@ -1,8 +1,8 @@
 ---
-title: "Introdução à verificação de dois passos | Microsoft Docs"
-description: "Esta é a página do multi-factor authentication que irá ajudar os utilizadores finais com obter vai com multi-factor Authentication do Azure."
+title: Introdução à verificação de dois passos | Microsoft Docs
+description: Esta é a página do multi-factor authentication que irá ajudar os utilizadores finais com obter vai com multi-factor Authentication do Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198110"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que significa Azure multi-factor Authentication para mim?
 Por isso, poderá ter foi obtido um e-mail de alguém na IT ou o boss indicar adicionou verificação adicional de segurança à sua conta.  Por isso, o que significa?

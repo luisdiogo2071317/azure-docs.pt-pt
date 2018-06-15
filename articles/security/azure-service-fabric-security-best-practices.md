@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894134"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric melhores práticas de segurança
 Implementar uma aplicação no Azure é rápido, fácil e económica. Antes de implementar a aplicação de nuvem em produção, consulte a nossa lista de essenciais e recomendadas melhores práticas para implementar clusters seguras na sua aplicação.

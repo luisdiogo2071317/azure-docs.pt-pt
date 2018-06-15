@@ -1,6 +1,6 @@
 ---
-title: "Ferramenta - Azure de modelação de ameaça de Microsoft | Microsoft Docs"
-description: "Saiba mais sobre todas as funcionalidades disponíveis na ferramenta de modelação de ameaça"
+title: Ferramenta - Azure de modelação de ameaça de Microsoft | Microsoft Docs
+description: Saiba mais sobre todas as funcionalidades disponíveis na ferramenta de modelação de ameaça
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754750"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Descrição geral da funcionalidade de ferramenta modelação de ameaça
 

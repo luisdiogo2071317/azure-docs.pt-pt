@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196943"
 ---
 1. No portal, em **Todos os recursos**, clique em **+Adicionar**.
 2. No **tudo** caixa de pesquisa de página, escreva **gateway de rede Local**, em seguida, clique aqui para obter uma lista de recursos. Clique em **Gateway de rede Local** para abrir a página e, em seguida, clique em **Criar** para abrir a página **Criar gateway de rede local**.

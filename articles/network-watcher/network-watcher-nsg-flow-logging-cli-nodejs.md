@@ -1,11 +1,11 @@
 ---
-title: "Gerir registos de fluxo de grupo de segurança de rede com o observador de rede do Azure - CLI do Azure 1.0 | Microsoft Docs"
-description: "Esta página explica como gerir os registos de fluxo de grupo de segurança de rede no observador de rede do Azure com a CLI do Azure 1.0"
+title: Gerir registos de fluxo de grupo de segurança de rede com o observador de rede do Azure - CLI do Azure 1.0 | Microsoft Docs
+description: Esta página explica como gerir os registos de fluxo de grupo de segurança de rede no observador de rede do Azure com a CLI do Azure 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774493"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Configurar os registos de fluxo de grupo de segurança de rede com a CLI do Azure 1.0
 

@@ -1,11 +1,11 @@
 ---
-title: "Fluxo de trabalho de exemplo para prep unidades de disco rígido para uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs"
-description: "Consulte as instruções para o processo de conclusão da preparação unidades para uma tarefa de importação no serviço de importação/exportação do Azure."
+title: Fluxo de trabalho de exemplo para prep unidades de disco rígido para uma tarefa de importação do Azure para importar/exportar - v1 | Microsoft Docs
+description: Consulte as instruções para o processo de conclusão da preparação unidades para uma tarefa de importação no serviço de importação/exportação do Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26692028"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de amostra para preparar unidades de disco rígido para uma tarefa de importação
 Este tópico explica o processo de preparação unidades para uma tarefa de importação concluído.  

@@ -1,13 +1,13 @@
 ---
-title: "Os registos de diagnóstico dos Event Hubs do Azure | Microsoft Docs"
-description: "Saiba como configurar registos de diagnóstico para os event hubs no Azure."
-keywords: 
-documentationcenter: 
+title: Os registos de diagnóstico dos Event Hubs do Azure | Microsoft Docs
+description: Saiba como configurar registos de diagnóstico para os event hubs no Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932720"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Registos de diagnóstico de Hubs de eventos
 

@@ -1,11 +1,11 @@
 ---
-title: "Como efetuar uma chamada telefónica do Twilio (.NET) | Microsoft Docs"
-description: "Saiba como efetuar uma chamada telefónica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de código escrito no .NET."
-services: 
+title: Como efetuar uma chamada telefónica do Twilio (.NET) | Microsoft Docs
+description: Saiba como efetuar uma chamada telefónica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de código escrito no .NET.
+services: ''
 documentationcenter: .net
 author: devinrader
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26366009"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como efetuar uma chamada telefónica utilizando Twilio numa função da web no Azure
 Este guia demonstra como utilizar Twilio para efetuar uma chamada de uma página web alojado no Azure. A aplicação resultante pede ao utilizador para efetuar uma chamada com o número especificado e a mensagem, conforme mostrado na captura de ecrã seguinte.
