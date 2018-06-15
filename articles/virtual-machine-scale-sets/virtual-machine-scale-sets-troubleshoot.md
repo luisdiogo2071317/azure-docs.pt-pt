@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161027"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolução de problemas de dimensionamento automático com conjuntos de dimensionamento de Máquina Virtual
 **Problema** – criar uma infraestrutura de dimensionamento automático no Azure Resource Manager utilizando conjuntos de dimensionamento de máquina virtual – por exemplo, ao implementar um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – tiver as regras de dimensionamento definidas e funciona great, exceto não Importa a quantidade de carga colocado nas VMs, não de dimensionamento automático.

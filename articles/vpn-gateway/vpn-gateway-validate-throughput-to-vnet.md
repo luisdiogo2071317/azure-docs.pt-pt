@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191320"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito da VPN a uma rede virtual
 

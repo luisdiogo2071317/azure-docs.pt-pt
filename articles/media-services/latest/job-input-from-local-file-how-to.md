@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160010"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de tarefa a partir de um ficheiro local
 

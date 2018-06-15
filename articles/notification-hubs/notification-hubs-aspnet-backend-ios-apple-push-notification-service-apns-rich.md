@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777462"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push de avançada de Hubs de notificação do Azure
 ## <a name="overview"></a>Descrição geral

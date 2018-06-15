@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071610"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utilizar o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery
 

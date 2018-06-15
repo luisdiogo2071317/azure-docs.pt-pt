@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212930"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução às coleções fiável nos serviços de monitorização de estado do Azure Service Fabric
 Coleções fiáveis permitem-lhe escrever aplicações em nuvem de elevada disponibilidade, dimensionáveis e baixa latência, como se se tratasse foram escrever as aplicações de computador individual. As classes no **Microsoft.ServiceFabric.Data.Collections** espaço de nomes fornecem um conjunto de coleções que tornam o estado de disponibilidade elevada automaticamente. Os programadores têm de programa apenas para as APIs de coleção fiável e permitir que as coleções fiável gerir o estado replicado e local.

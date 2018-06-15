@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156896"
 ---
 # <a name="permissions-in-azure-ad"></a>Permissões no Azure AD
 O Azure Active Directory (Azure AD) utiliza intensivamente as permissões tanto para fluxos de OAuth, como de OpenID Connect (OICD). Quando a sua aplicação recebe um token de acesso do Azure AD, este incluirá afirmações que descrevem as permissões (também conhecidas como âmbitos) que a aplicação tem relativamente a um determinado recurso. Isto facilita autorização para o recurso porque apenas tem de verificar que o seu token contém a permissão adequada para a API que esteja a chamar. 

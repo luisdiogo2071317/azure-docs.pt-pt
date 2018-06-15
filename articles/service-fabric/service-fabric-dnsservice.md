@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204999"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS nos recursos de infraestrutura de serviço do Azure
 O serviço DNS é um serviço de sistema opcional que pode ativar no seu cluster para detetar outros serviços utilizando o protocolo DNS. 

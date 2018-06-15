@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156175"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que razão são adicionadas aplicações para o Azure AD
 Existem dois representações de aplicações no Azure AD: 

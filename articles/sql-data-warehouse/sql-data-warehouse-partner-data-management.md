@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187373"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Parceiros de gestão de dados do armazém de dados do SQL Server
 Para criar a sua solução de armazém de dados, escolha a partir de uma ampla variedade de ferramentas de líder da indústria. Este artigo realça empresas de parceiro da Microsoft com as ferramentas de gestão de dados e soluções de suporte do Azure SQL Data Warehouse.

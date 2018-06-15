@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212624"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação de Service Fabric do Azure. Os parâmetros de incluir o nome e versão da aplicação. São botões que controlam os tempos limite e verificações de estado de funcionamento que são aplicadas durante a atualização, e especificarem as políticas que tem de ser aplicadas quando uma atualização falha.

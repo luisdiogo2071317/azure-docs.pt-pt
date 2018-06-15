@@ -61,9 +61,9 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 
 Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isto irá redirecionar para o dashboard do SendGrid.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Para obter mais informações sobre o envio de e-mail através do SendGrid, visite o [descrição geral da API de correio eletrónico][Email API Overview].
 
 <!--images-->
 

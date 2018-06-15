@@ -13,6 +13,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203098"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Alocar partições e réplicas para consulta e indexação cargas de trabalho na Azure Search
 Depois de [escolha um escalão de preço](search-sku-tier.md) e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), o passo seguinte consiste em opcionalmente aumentar o número de réplicas ou partições utilizadas pelo seu serviço. Cada camada oferece um número fixo de unidades de faturação. Este artigo explica como atribuir as unidades para alcançar uma configuração ideal equilibrar os requisitos para a execução da consulta, indexação e armazenamento.

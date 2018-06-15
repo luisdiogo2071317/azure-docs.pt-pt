@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 05/14/2018
+  ms.locfileid: "34166505"
 abstract:
   description: As Máquinas Virtuais do Windows no Azure fornecem uma infraestrutura a pedido, altamente dimensionável, segura e virtualizada através do Windows Server. Saiba como criar, configurar, gerir e dimensionar VMs do Windows com os nossos inícios rápidos, tutoriais e amostras.
   aside:

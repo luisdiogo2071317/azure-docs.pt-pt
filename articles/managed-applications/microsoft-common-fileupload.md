@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266923"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de IU Microsoft.Common.FileUpload
 Um controlo que permite ao utilizador especificar um ou mais ficheiros para carregar.

@@ -8,20 +8,21 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4ae4cfb91fb3a746c73d6b098a1adc9e4dee8698
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414710"
 ---
 Depois de criar um certificado de raiz autoassinado, exporte o ficheiro de. cer de chave pública do certificado de raiz (não a chave privada). Mais tarde, irá carregar este ficheiro para o Azure. Os seguintes passos ajudam a exportar o ficheiro. cer para o seu certificado de raiz autoassinado:
 
-1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**.
+1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não é possível localizar o certificado em User\Personal\Certificates atual poderia ser que abrir o Gestor de certificados para os certificados de computador local (título será "Certificados - Computador Local" como opposed para "Certificados - utilizador atual"). Para abrir o Gestor de certificados no atual âmbito do utilizador inicie-o partir do mesmo PowerShell onde os certificados foram criados, escrevendo ```certmgr```.
 
   ![Exportar](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. No Assistente, clique em **Seguinte**.
 
-  ![Exportar certificado](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
+  ![Exportar o certificado](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
 3. Selecione **Não, não exportar a chave privada** e, em seguida, clique em **Seguinte**.
 
   ![Não exportar a chave privada](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)

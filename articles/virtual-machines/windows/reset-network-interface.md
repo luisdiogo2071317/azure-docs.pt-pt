@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160687"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como repor o interface de rede para a VM do Windows Azure 
 

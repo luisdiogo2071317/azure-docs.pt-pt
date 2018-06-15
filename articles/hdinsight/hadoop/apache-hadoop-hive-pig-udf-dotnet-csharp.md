@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31404040"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilizar funções definidas pelo utilizador c# com o Hive e do Pig de transmissão em fluxo do Hadoop no HDInsight
 
@@ -61,7 +62,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
 ### <a name="hive-udf"></a>Ramo de registo UDF
 
-1. Abra o Visual Studio e criar uma solução. Para o tipo de projeto, selecione **aplicação de consola (.NET Framework)**e atribua o nome do novo projeto **HiveCSharp**.
+1. Abra o Visual Studio e criar uma solução. Para o tipo de projeto, selecione **aplicação de consola (.NET Framework)** e atribua o nome do novo projeto **HiveCSharp**.
 
     > [!IMPORTANT]
     > Selecione __.NET Framework 4.5__ se estiver a utilizar um cluster do HDInsight baseado em Linux. Para obter mais informações sobre Mono compatibilidade com versões do .NET Framework, consulte [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/).

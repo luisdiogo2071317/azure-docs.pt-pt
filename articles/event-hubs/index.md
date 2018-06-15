@@ -1,11 +1,11 @@
 ---
-title: "Documentação dos Hubs de Eventos do Azure - Tutoriais, Referência da API | Microsoft Docs"
-description: "Saiba como utilizar Hubs de Eventos para ingerir milhões de eventos por segundo a partir de dispositivos IoT ligados e aplicações num conjunto abrangente de plataformas."
+title: Documentação dos Hubs de Eventos do Azure - Tutoriais, Referência da API | Microsoft Docs
+description: Saiba como utilizar Hubs de Eventos para ingerir milhões de eventos por segundo a partir de dispositivos IoT ligados e aplicações num conjunto abrangente de plataformas.
 services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25945759"
 ---
 # <a name="event-hubs-documentation"></a>Documentação dos Hubs de Eventos
 

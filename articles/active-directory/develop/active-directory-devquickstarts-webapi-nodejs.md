@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155842"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Introdução de API web do AD Node.js do Azure
 

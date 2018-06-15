@@ -10,11 +10,12 @@ ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 1f1aa6b5a81285f2f6b3a298917f3d7c48853e29
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9cd8ef3977d12364759838b46632ba32e0de6e70
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075674"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>O que é o Azure Blockchain Workbench?
 
@@ -22,7 +23,7 @@ O Azure Blockchain Workbench é uma coleção de funcionalidades e serviços do 
 
 ## <a name="create-blockchain-applications"></a>Criar aplicações blockchain
 
-Com o Blockchain Workbench, pode definir as aplicações blockchain através da configuração e da escrita de código para contratos inteligentes. Pode impulsionar o desenvolvimento das aplicações blockchain e focar-se na definição de contratos e na escrita de lógica de negócio em vez de dedicar-se à criação e configuração de serviços de suporte.
+Com o Blockchain Workbench, pode definir as aplicações blockchain a utilizar a configuração e da escrita de código para contratos inteligentes. Pode impulsionar o desenvolvimento das aplicações blockchain e focar-se na definição de contratos e na escrita de lógica de negócio em vez de dedicar-se à criação e configuração de serviços de suporte.
 
 ## <a name="manage-applications-and-users"></a>Gerir aplicações e utilizadores
 
@@ -50,4 +51,5 @@ O Azure Blockchain Workbench facilita a análise dos dados e eventos blockchain 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implementar o Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Arquitetura do Azure Blockchain Workbench](blockchain-workbench-architecture.md)

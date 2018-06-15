@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163851"
 ---
 # <a name="azure-portal-documentation"></a>Documentação do portal do Azure
 Saiba mais sobre as funcionalidades que pode utilizar para implementar recursos no portal do Azure. Os tutoriais, as referências de API e outra documentação mostram-lhe como implementar, gerir e monitorizar recursos do Azure.

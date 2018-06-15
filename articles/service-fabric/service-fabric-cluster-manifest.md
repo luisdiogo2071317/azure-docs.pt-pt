@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205370"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster do Windows autónomo
 Este artigo descreve como configurar um cluster do Azure Service Fabric autónoma, utilizando o ficheiro Clusterconfig. Irá utilizar este ficheiro para especificar as informações sobre nós do cluster, configurações de segurança, bem como a topologia de rede em termos de domínios de falhas e a atualização.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593054"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funcionalidades de análise do registo para fornecedores de serviços
 Análise de registos pode ajudar os fornecedores de serviços geridos (MSPs), as grandes empresas, os fabricantes independentes de software (ISV) e fornecedores de serviços de alojamento gerir e monitorizar os servidores de infraestrutura de nuvem ou no local do cliente. 

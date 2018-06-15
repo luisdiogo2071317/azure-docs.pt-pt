@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198128"
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acesso do Azure Data Lake Store das VMs dentro de uma VNET do Azure
 O Azure Data Lake Store é um serviço de PaaS, que é executada em endereços IP de Internet públicos. Qualquer servidor que possam ligar à Internet pública, normalmente, pode ligar para os pontos finais do Azure Data Lake Store também. Por predefinição, todas as VMs que estão em VNETs do Azure podem aceder à Internet e, por conseguinte, podem aceder ao Azure Data Lake Store. No entanto, é possível configurar as VMs numa VNET por não ter acesso à Internet. Para essas VMs, acesso ao Azure Data Lake Store é restrito bem. Bloquear o acesso de Internet público para VMs nas VNETs do Azure pode ser feito utilizando uma das abordagens seguintes:

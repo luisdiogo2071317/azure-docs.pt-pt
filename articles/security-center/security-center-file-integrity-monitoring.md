@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34162177"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Ficheiro integridade monitorização no Centro de segurança do Azure (pré-visualização)
 Saiba como configurar a monitorização de integridade de ficheiro (FIM) no Centro de segurança do Azure a utilizar estas instruções.
