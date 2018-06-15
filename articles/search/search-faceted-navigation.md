@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195299"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece pesquisa auto-direcionada navegação nas aplicações de pesquisa. O termo 'navegação por facetas' poderá estar familiarizado, mas provavelmente, utilizou-lo antes de. Tal como o exemplo seguinte mostra, navegação por facetas é nothing mais do que as categorias utilizadas para filtrar os resultados.

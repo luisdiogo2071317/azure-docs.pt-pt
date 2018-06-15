@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799078"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelo tipos de dados complexas na Azure Search
 Conjuntos de dados externos utilizados para preencher um índice da Azure Search, por vezes, incluem substructures hierárquicas ou aninhadas que não quebrar neatly um conjunto de linhas de tabela. Exemplos de tais estruturas podem incluir várias localizações e números de telefone para um único cliente, vários cores e tamanhos de um SKU único, vários autores de um livro único e assim sucessivamente. Em termos de modelação, poderá ver estas estruturas que referida como *tipos de dados complexos*, *composta tipos de dados*, *tipos de dados composto*, ou *agregar os tipos de dados*, algumas o nome.

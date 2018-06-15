@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32202677"
 ---
 # <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Início de sessão de utilizadores e todos os o Microsoft Graph API a partir de uma aplicação Android
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790649"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalar Visual Studio e SSDT para SQL Data Warehouse
 Para desenvolver aplicações SQL do armazém de dados, recomendamos que utilize a versão mais recente do Visual Studio com a versão mais recente do SQL Server Data Tools (SSDT).  A Atualização 5 do Visual Studio 2013 com SSDT também é suportada para compatibilidade com versões anteriores.  

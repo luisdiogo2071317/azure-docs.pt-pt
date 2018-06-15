@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192949"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Visual Studio Team Services com projetos de implementação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em várias etapas: cópia de compilação, teste, para o Azure (também denominada "Testes") e implementar o modelo. Existem duas formas diferentes de implementar modelos Visual Studio Team Services (VS equipa de serviços). Ambos os métodos de fornecer os mesmos resultados, por isso, escolha a que melhor se adequa o fluxo de trabalho.

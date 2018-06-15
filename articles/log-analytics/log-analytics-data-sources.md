@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792553"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados de análise de registos
 Análise de registos recolhe dados do seu origens ligadas e armazena-os na sua área de trabalho de análise de registos.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurar.  Dados de análise de registos são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo, com cada tipo de ter o seu próprio conjunto de propriedades.
