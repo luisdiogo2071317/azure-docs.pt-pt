@@ -1,11 +1,11 @@
 ---
-title: "Problemas em iniciar sessão a uma aplicação de Galeria não configurada para Federado de sessão único-| Microsoft Docs"
-description: "Orientações para problemas específicos que podem enfrentam quando iniciar sessão a uma aplicação configurada para baseados em SAML federado-início de sessão único com o Azure AD"
+title: Problemas em iniciar sessão a uma aplicação de Galeria não configurada para Federado de sessão único-| Microsoft Docs
+description: Orientações para problemas específicos que podem enfrentam quando iniciar sessão a uma aplicação configurada para baseados em SAML federado-início de sessão único com o Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "29383468"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de Galeria não configurada para federado-início de sessão único
 

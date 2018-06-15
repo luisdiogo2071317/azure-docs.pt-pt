@@ -1,8 +1,8 @@
 ---
-title: "Integração com o Operations Management Suite (OMS) | Microsoft Docs"
-description: "Além de utilizar as funcionalidades padrão do OMS, pode integrá-lo com outras aplicações de gestão e experiência de serviços para fornecer um ambiente de gestão híbrida, para fornecer os cenários de gestão personalizado exclusivos para o seu ambiente, ou para fornecer um gestão personalizado para os seus clientes.  Este artigo fornece uma descrição geral das suas opções diferentes para integrar com o OMS e ligações para artigos fornecer informações técnicas detalhadas."
+title: Integração com o Operations Management Suite (OMS) | Microsoft Docs
+description: Além de utilizar as funcionalidades padrão do OMS, pode integrá-lo com outras aplicações de gestão e experiência de serviços para fornecer um ambiente de gestão híbrida, para fornecer os cenários de gestão personalizado exclusivos para o seu ambiente, ou para fornecer um gestão personalizado para os seus clientes.  Este artigo fornece uma descrição geral das suas opções diferentes para integrar com o OMS e ligações para artigos fornecer informações técnicas detalhadas.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865863"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integração com o Operations Management Suite (OMS)
 Operations Management Suite é baseado na nuvem IT solução de gestão que o ajuda a gerir e proteger no local e a infraestrutura de nuvem. da Microsoft  Além de utilizar as funcionalidades padrão do OMS, pode integrá-lo com outras aplicações de gestão e experiência de serviços para fornecer um ambiente de gestão híbrida, para fornecer os cenários de gestão personalizado exclusivos para o seu ambiente, ou para fornecer um gestão personalizado para os seus clientes.  Este artigo fornece uma descrição geral das suas opções diferentes para integrar com os serviços do OMS e ligações para artigos fornecer informações técnicas detalhadas. 

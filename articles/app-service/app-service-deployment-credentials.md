@@ -1,8 +1,8 @@
 ---
-title: "Credenciais de implementação do App Service do Azure | Microsoft Docs"
-description: "Saiba como utilizar as credenciais de implementação do App Service do Azure."
+title: Credenciais de implementação do App Service do Azure | Microsoft Docs
+description: Saiba como utilizar as credenciais de implementação do App Service do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778552"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implementação para o App Service do Azure
 [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) suportam dois tipos de credenciais para [implementação de Git local](app-service-deploy-local-git.md) e [implementação de FTP/S](app-service-deploy-ftp.md). Estes não são as mesmas que as suas credenciais do Azure Active Directory.

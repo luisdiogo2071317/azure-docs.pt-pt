@@ -1,11 +1,11 @@
 ---
-title: "Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do VPN Gateway | Azure | PowerShell | Microsoft Docs"
-description: "Este artigo explica como alterar os prefixos de endereços IP para o gateway de rede local com o PowerShell"
+title: Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do VPN Gateway | Azure | PowerShell | Microsoft Docs
+description: Este artigo explica como alterar os prefixos de endereços IP para o gateway de rede local com o PowerShell
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23885106"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificar as definições do gateway de rede local com o PowerShell
 

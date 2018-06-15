@@ -1,11 +1,11 @@
 ---
-title: "Aplicar a encriptação de disco no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure * * aplicar encriptação de disco *."
+title: Aplicar a encriptação de disco no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação de centro de segurança do Azure * * aplicar encriptação de disco *.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866262"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar a encriptação de disco no Centro de segurança do Azure
 Centro de segurança do Azure recomenda que aplique a encriptação de disco se tiver discos do Windows ou Linux VM que não são encriptados utilizando a Azure Disk Encryption. Encriptação de disco permite-lhe encriptar os discos do Windows e a VM do IaaS Linux.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.

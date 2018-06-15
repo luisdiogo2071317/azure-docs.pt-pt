@@ -1,8 +1,8 @@
 ---
-title: "Aprovisionar e implementar micro-serviços previsibilidade no Azure"
-description: "Saiba como implementar uma aplicação é composta por Micro-serviços no serviço de aplicações do Azure como uma única unidade e de forma previsível utilizando modelos de grupo de recursos JSON e scripts do PowerShell."
+title: Aprovisionar e implementar micro-serviços previsibilidade no Azure
+description: Saiba como implementar uma aplicação é composta por Micro-serviços no serviço de aplicações do Azure como uma única unidade e de forma previsível utilizando modelos de grupo de recursos JSON e scripts do PowerShell.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23837100"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar micro-serviços previsibilidade no Azure
 Este tutorial mostra como aprovisionar e implementar uma aplicação é composta por [micro-serviços](https://en.wikipedia.org/wiki/Microservices) no [App Service do Azure](/services/app-service/) como uma única unidade e de forma previsível utilizando modelos de grupo de recursos JSON e Scripts do PowerShell. 

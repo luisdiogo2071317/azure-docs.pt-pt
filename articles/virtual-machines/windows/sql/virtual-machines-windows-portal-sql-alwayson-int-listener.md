@@ -1,6 +1,6 @@
 ---
-title: "Criar um serviço de escuta do grupo de disponibilidade do SQL Server em virtual machines do Azure | Microsoft Docs"
-description: "Instruções passo a passo para criar um serviço de escuta para um grupo de disponibilidade Always On para o SQL Server em virtual machines do Azure"
+title: Criar um serviço de escuta do grupo de disponibilidade do SQL Server em virtual machines do Azure | Microsoft Docs
+description: Instruções passo a passo para criar um serviço de escuta para um grupo de disponibilidade Always On para o SQL Server em virtual machines do Azure
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400635"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure que estejam a executar com o Azure Resource Manager. Um grupo de disponibilidade necessita de um balanceador de carga quando são instâncias do SQL Server em virtual machines do Azure. O Balanceador de carga armazena o endereço IP para o serviço de escuta do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região necessita de um balanceador de carga.

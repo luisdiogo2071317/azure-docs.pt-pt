@@ -1,11 +1,11 @@
 ---
 title: Atualizar o dispositivo StorSimple | Microsoft Docs
-description: "Explica como utilizar a funcionalidade de atualização do StorSimple para instalar atualizações de modo normal e a manutenção e correções."
+description: Explica como utilizar a funcionalidade de atualização do StorSimple para instalar atualizações de modo normal e a manutenção e correções.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103613"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar o seu dispositivo de série de 8000 do StorSimple
 > [!NOTE]

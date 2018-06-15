@@ -1,11 +1,11 @@
 ---
-title: "Exemplo de rede de Perímetro – criar uma rede de Perímetro a proteger a redes com uma Firewall, UDR e NSG | Microsoft Docs"
-description: "Criar uma rede de Perímetro com uma Firewall, definidas pelo utilizador (UDR) encaminhamento e grupos de segurança de rede (NSG)"
+title: Exemplo de rede de Perímetro – criar uma rede de Perímetro a proteger a redes com uma Firewall, UDR e NSG | Microsoft Docs
+description: Criar uma rede de Perímetro com uma Firewall, definidas pelo utilizador (UDR) encaminhamento e grupos de segurança de rede (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885246"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 – criar uma rede de Perímetro a proteger a redes com um NSG, UDR e Firewall
 [Regressar à página de segurança limites melhores práticas][HOME]

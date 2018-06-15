@@ -1,14 +1,14 @@
 ---
-title: "Efetuar a ativação pós-falha e dimensionar uma aplicação de contentores do Azure Service Fabric | Microsoft Docs"
-description: "Neste tutorial, saiba como a ativação pós-falha é processada numa aplicação de contentores do Azure Service Fabric.  Além disso, saiba como dimensionar os contentores e serviços em execução num cluster."
+title: Efetuar a ativação pós-falha e dimensionar uma aplicação de contentores do Azure Service Fabric | Microsoft Docs
+description: Neste tutorial, saiba como a ativação pós-falha é processada numa aplicação de contentores do Azure Service Fabric.  Além disso, saiba como dimensionar os contentores e serviços em execução num cluster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Contentores, Microsserviços, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Contentores, Microsserviços, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555489"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: demonstrar a ativação pós-falha e o dimensionamento dos serviços de contentores com o Service Fabric
 

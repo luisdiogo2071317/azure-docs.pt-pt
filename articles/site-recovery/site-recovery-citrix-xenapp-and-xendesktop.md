@@ -1,11 +1,11 @@
 ---
-title: "Replicar uma implementação de várias camada Citrix XenDesktop e XenApp utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como proteger e recuperar implementações Citrix XenDesktop e XenApp utilizando o Azure Site Recovery."
+title: Replicar uma implementação de várias camada Citrix XenDesktop e XenApp utilizando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como proteger e recuperar implementações Citrix XenDesktop e XenApp utilizando o Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559711"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implementação de várias camada Citrix XenApp e XenDesktop utilizando o Azure Site Recovery
 

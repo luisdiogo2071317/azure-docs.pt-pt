@@ -1,6 +1,6 @@
 ---
-title: "Ativar o acesso de leitura público para contentores e blobs do armazenamento de Blobs do Azure | Microsoft Docs"
-description: "Saiba como tornar disponível para acesso anónimo a contentores e blobs e como aceder às mesmas através de programação."
+title: Ativar o acesso de leitura público para contentores e blobs do armazenamento de Blobs do Azure | Microsoft Docs
+description: Saiba como tornar disponível para acesso anónimo a contentores e blobs e como aceder às mesmas através de programação.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29557068"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
 Pode ativar o acesso de leitura anónimo, público para um contentor e os respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a estes recursos sem partilha a chave de conta e, sem necessidade de uma assinatura de acesso partilhado (SAS).

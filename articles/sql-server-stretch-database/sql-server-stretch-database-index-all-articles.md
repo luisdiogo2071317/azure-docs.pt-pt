@@ -1,8 +1,8 @@
 ---
-title: "Todos os tópicos para o serviço do SQL Server Stretch Database | Microsoft Docs"
-description: "Tabela de todos os tópicos para o serviço do Azure com o nome de SQL Server Stretch Database que existem num http://azure.microsoft.com/documentation/articles/, título e descrição."
+title: Todos os tópicos para o serviço do SQL Server Stretch Database | Microsoft Docs
+description: Tabela de todos os tópicos para o serviço do Azure com o nome de SQL Server Stretch Database que existem num http://azure.microsoft.com/documentation/articles/, título e descrição.
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23872947"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos para o serviço do Azure SQL Server Stretch Database
 Este tópico apresenta uma lista de cada tópico que se aplica diretamente para o **SQL Server Stretch Database** serviço do Azure. Pode procurar esta página Web para palavras-chave, utilizando **Ctrl + F**, para localizar os tópicos de interesse atual.

@@ -1,12 +1,12 @@
 ---
-title: "Ver e gerir alertas para o dispositivo de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve as condições de alerta do StorSimple e gravidade, como configurar notificações de alertas e como utilizar o serviço StorSimple Manager de dispositivos para gerir alertas."
+title: Ver e gerir alertas para o dispositivo de série 8000 do StorSimple | Microsoft Docs
+description: Descreve as condições de alerta do StorSimple e gravidade, como configurar notificações de alertas e como utilizar o serviço StorSimple Manager de dispositivos para gerir alertas.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745783"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para ver e gerir alertas do StorSimple
 
