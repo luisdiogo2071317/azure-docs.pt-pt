@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788894"
 ---
 # <a name="deliver-content-to-customers"></a>Fornecer conteúdos aos clientes
 Quando estiver a entrega dos seus conteúdos de vídeo a pedido ou de transmissão em fluxo para os clientes, o seu objetivo é fornecer as vídeo de alta qualidade para vários dispositivos em condições de rede diferentes.

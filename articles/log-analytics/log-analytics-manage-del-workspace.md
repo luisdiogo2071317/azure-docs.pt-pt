@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938697"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure
 Este artigo mostra como utilizar o portal do Azure para eliminar uma área de trabalho de análise de registos que poderá deixar de necessitar. 

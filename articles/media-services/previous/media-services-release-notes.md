@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942416"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.

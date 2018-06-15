@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788579"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilizar Media Services do Azure para fornecer licenças DRM ou chaves AES
 Media Services do Azure permite-lhe inserir, codificar, adicionar proteção de conteúdos e transmitir o seu conteúdo. Para obter mais informações, consulte [utilize PlayReady e/ou Widevine a encriptação comum dinâmica](media-services-protect-with-playready-widevine.md). Alguns clientes querer utilizar os serviços de suporte de dados apenas para fornecer licenças e/ou as chaves e codificar, encriptar e transmitir em fluxo utilizando os seus servidores no local. Este artigo descreve como pode utilizar os Media Services a fornecer licenças PlayReady e/ou Widevine mas fazer o resto com os servidores no local. 

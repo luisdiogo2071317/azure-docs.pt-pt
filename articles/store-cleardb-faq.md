@@ -1,11 +1,11 @@
 ---
 title: Perguntas mais frequentes sobre bases de dados ClearDB MySql App Service do Azure | Microsoft Docs
-description: "Respostas a perguntas comuns sobre a utilização de bases de dados ClearDB MySQL App Service do Azure."
+description: Respostas a perguntas comuns sobre a utilização de bases de dados ClearDB MySQL App Service do Azure.
 documentationcenter: php
-services: 
+services: ''
 author: sunbuild
 manager: yochayk
-editor: 
+editor: ''
 tags: mysql
 ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28948041"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sobre as bases de dados do MySql ClearDB com Serviço de Aplicações do Azure
 Estas FAQ responde a questões recorrentes sobre a utilizar e aquisição de bases de dados ClearDB MySQL para Web Apps do Azure.

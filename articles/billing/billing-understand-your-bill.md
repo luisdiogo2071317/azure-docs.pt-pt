@@ -17,9 +17,10 @@ ms.date: 08/31/2017
 ms.author: tonguyen
 ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
 ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204896"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare da sua fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.

@@ -1,11 +1,11 @@
 ---
-title: "Avaliar as aplicações de Service Fabric com a análise de registos com o portal do Azure | Microsoft Docs"
-description: "Pode utilizar a solução de Service Fabric no Log Analytics no portal do Azure para avaliar o risco e o funcionamento das suas aplicações Service Fabric, microserviços, nós e clusters."
+title: Avaliar as aplicações de Service Fabric com a análise de registos com o portal do Azure | Microsoft Docs
+description: Pode utilizar a solução de Service Fabric no Log Analytics no portal do Azure para avaliar o risco e o funcionamento das suas aplicações Service Fabric, microserviços, nós e clusters.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932686"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avalie as aplicações de Service Fabric e microserviços com o portal do Azure
 

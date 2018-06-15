@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 03/23/2018
+  ms.locfileid: "30162208"
 abstract:
   description: Aprenda a utilizar o Azure Databricks com o início rápido e outras ligações fornecidas aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure. Concebida com os fundadores do Apache Spark, o Databricks está integrado com o Azure para prestar configurações com um clique, fluxos de trabalho fluídos e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas empresariais.
   aside:

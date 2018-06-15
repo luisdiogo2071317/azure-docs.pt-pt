@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796857"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo na indexadores de pesquisa do Azure
 Quando utilizar indexadores de pesquisa do Azure, pode encontrar sozinho ocasionalmente em situações em que os dados de entrada não bastante corresponde ao esquema do seu índice de destino. Nesses casos, pode utilizar **campo mapeamentos** para transformar os dados para a forma pretendida.

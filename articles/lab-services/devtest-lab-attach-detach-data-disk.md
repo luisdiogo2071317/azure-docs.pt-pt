@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787592"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs
 [Discos do Azure gerida](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.

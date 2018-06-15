@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895879"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de verificação de segurança do Azure Service Fabric
 Este artigo fornece uma lista de verificação de fácil utilização que irão ajudar a proteger o seu ambiente do Azure Service Fabric.

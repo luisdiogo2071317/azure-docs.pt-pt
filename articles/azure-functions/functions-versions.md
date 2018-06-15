@@ -1,11 +1,11 @@
 ---
-title: "As funções runtime versões descrição geral do Azure"
-description: "As funções do Azure suporta várias versões do tempo de execução. Saber as diferenças entre-los e como escolher aquele que é adequada para si."
+title: As funções runtime versões descrição geral do Azure
+description: As funções do Azure suporta várias versões do tempo de execução. Saber as diferenças entre-los e como escolher aquele que é adequada para si.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919360"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31789212"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma Azure Virtual Network
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com aplicações [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se estiver familiarizado com o Azure redes virtuais (VNets), esta é uma funcionalidade que permite-lhe colocar muitos dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando uma variedade de tecnologias VPN. Para saber mais sobre redes virtuais do Azure, comece com as informações aqui: [descrição geral de rede Virtual do Azure][VNETOverview]. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937843"
 ---
 # <a name="validate-azure-registration"></a>Validar o registo do Azure 
 Utilize a ferramenta de Verificador de preparação de pilha do Azure (AzsReadinessChecker) para validar que a sua subscrição do Azure está pronta para utilizar com a pilha do Azure. Valide o registo antes de iniciar uma implementação de pilha do Azure. Valida o Verificador de preparação:

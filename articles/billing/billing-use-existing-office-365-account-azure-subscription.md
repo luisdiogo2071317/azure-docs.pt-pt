@@ -17,9 +17,10 @@ ms.date: 11/03/2017
 ms.author: cjiang
 ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
 ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204569"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se uma subscrição do Azure com a sua conta Office 365
 Se tiver uma subscrição do Office 365, pode utilizar a sua conta Office 365 para criar uma subscrição do Azure. Iniciar sessão para o [portal do Azure](https://portal.azure.com/) utilizando o seu nome de utilizador do Office 365 e a palavra-passe. Se pretender configurar máquinas virtuais ou utilizar outros serviços do Azure, deve inscrever-se para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o controlo de acesso baseado em funções para gerir o acesso à sua subscrição do Azure e recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

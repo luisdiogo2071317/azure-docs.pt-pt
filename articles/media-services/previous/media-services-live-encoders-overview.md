@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788173"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar codificadores no local ao utilizar os Media Services do Azure para criar fluxos de transmissão múltipla
 Este tópico lista codificadores em direto no local que pode utilizar para capturar os eventos em direto e enviar uma transmissão em fluxo em direto para canais de AMS (que estão em direto codificação ativado) para processamento adicional. O tópico também contém ligações para tutoriais que mostram como configurar codificadores listadas.
