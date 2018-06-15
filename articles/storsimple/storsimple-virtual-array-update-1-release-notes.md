@@ -1,12 +1,12 @@
 ---
-title: "Notas de versão 1.0 do StorSimple Virtual matriz Update | Microsoft Docs"
-description: "Descreve problemas abertos críticos e resoluções para a matriz de Virtual StorSimple com atualização 1.0."
+title: Notas de versão 1.0 do StorSimple Virtual matriz Update | Microsoft Docs
+description: Descreve problemas abertos críticos e resoluções para a matriz de Virtual StorSimple com atualização 1.0.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012107"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Notas de versão do StorSimple Virtual matriz atualização 1.0
 

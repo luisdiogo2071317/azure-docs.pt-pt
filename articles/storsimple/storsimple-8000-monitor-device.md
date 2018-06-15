@@ -1,12 +1,12 @@
 ---
-title: "Monitorizar o seu dispositivo de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve como utilizar o serviço do Gestor de dispositivos do StorSimple para monitorizar a utilização, o desempenho de e/s e utilização da capacidade."
+title: Monitorizar o seu dispositivo de série 8000 do StorSimple | Microsoft Docs
+description: Descreve como utilizar o serviço do Gestor de dispositivos do StorSimple para monitorizar a utilização, o desempenho de e/s e utilização da capacidade.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933145"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para monitorizar o dispositivo StorSimple
 

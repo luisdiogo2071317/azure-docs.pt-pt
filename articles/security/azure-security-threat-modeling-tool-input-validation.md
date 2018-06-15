@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778584"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Moldura de segurança: Validação de entrada | Mitigações 
 | Produtos/serviços | Artigo |

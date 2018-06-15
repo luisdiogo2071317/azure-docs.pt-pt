@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770577"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso do voo utilizando o Hive no HDInsight
 Ramo de registo fornece um meio de tarefas em execução Hadoop MapReduce através de uma linguagem de scripts semelhante a SQL denominada  *[HiveQL][hadoop-hiveql]*, que podem ser aplicadas para resumir, consultar e analisar grandes volumes de dados.

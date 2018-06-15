@@ -17,6 +17,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592680"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar políticas de Hive no HDInsight associados a um domínio
 Saiba como configurar políticas do Apache Ranger para o Hive. Neste artigo, irá criar duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable é fornecido com clusters do HDInsight. Após ter configurado as políticas, utilize o Excel e o controlador ODBC para estabelecer uma ligação a tabelas do Hive no HDInsight.

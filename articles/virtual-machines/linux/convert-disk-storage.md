@@ -1,13 +1,13 @@
 ---
 title: Converter Azure geridas armazenamento de discos de norma para premium e vice versa | Microsoft Docs
-description: "Como converter Azure geridos armazenamento de discos do padrão para premium e vice versa, utilizando a CLI do Azure."
+description: Como converter Azure geridos armazenamento de discos do padrão para premium e vice versa, utilizando a CLI do Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23950512"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter Azure geridas armazenamento de discos de norma para premium e vice versa
 
