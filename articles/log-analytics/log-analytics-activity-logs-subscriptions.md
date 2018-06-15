@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636975"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -113,7 +114,7 @@ Antes de criar a sua aplicação lógica, confirme que tem as seguintes informa�
 - O ID da área de trabalho do Log Analytics
 - A chave partilhada do Log Analytics
 
-Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs) (Verificar as permissões de espaços de nomes dos Hubs de Eventos e encontrar a cadeia de ligação).
+Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string) (Verificar as permissões de espaços de nomes dos Hubs de Eventos e encontrar a cadeia de ligação).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Criar uma aplicação lógica em branco nova

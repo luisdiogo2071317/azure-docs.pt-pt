@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260151"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente de Chef do portal do Azure
 Quando criar ou modificar uma máquina virtual Linux ou do Windows a partir do portal do Azure, pode adicionar a extensão de Chef à máquina virtual. Este artigo orienta-o através do processo através de uma nova máquina virtual de Linux.

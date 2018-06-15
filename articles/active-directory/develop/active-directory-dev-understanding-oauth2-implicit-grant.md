@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155784"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Compreender o fluxo de concessão implícita de OAuth2 no Azure Active Directory (AD)
 A concessão implícita OAuth2 é notorious para ser a concessão com a lista mais longo das preocupações de segurança na especificação do OAuth2. E, ainda, que é a abordagem implementada por ADAL JS e aquele que recomendamos quando SPA aplicações de escrita. O que lhe dá? É todos os um fim de fala: e como fica, a concessão implícita é a abordagem das melhores pode pursue para aplicações que consumam uma API Web através de JavaScript a partir de um browser.

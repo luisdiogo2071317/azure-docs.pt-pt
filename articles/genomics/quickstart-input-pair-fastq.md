@@ -1,7 +1,7 @@
 ---
-title: "Início Rápido: Submeter um fluxo de trabalho através de entradas de ficheiros FASTQ | Microsoft Docs"
+title: 'Início Rápido: Submeter um fluxo de trabalho através de entradas de ficheiros FASTQ | Microsoft Docs'
 titleSuffix: Azure
-description: "O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço."
+description: O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684488"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs"></a>Submeter um fluxo de trabalho através de entradas de ficheiros FASTQ
 

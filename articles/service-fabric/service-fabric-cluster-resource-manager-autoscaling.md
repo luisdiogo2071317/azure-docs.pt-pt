@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213202"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução à escala automática
 Escala automática é uma capacidade adicional do Service Fabric dinamicamente dimensionar os serviços com base na carga que os serviços estiverem a comunicar ou com base na respetiva utilização de recursos. Escala automática proporciona excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. A automática toda dimensionamento processo é automática e transparente e, depois de configurar as políticas num serviço é necessário para operações de dimensionamento manuais a nível de serviço. Escala automática pode ser ativada no momento de criação do serviço, ou em qualquer altura por atualizar o serviço.

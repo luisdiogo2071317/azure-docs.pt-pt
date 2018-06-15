@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207015"
 ---
 # <a name="reliable-services-notifications"></a>Notificações de serviços fiáveis
 Notificações de permitir que os clientes controlar as alterações que estão a ser efetuadas a um objeto que o se estiverem interessados em. Notificações de suportam dois tipos de objetos: *fiável Gestor de estado* e *dicionário fiável*.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210822"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 Recursos de infraestrutura de serviço oferece um modelo de programação com monitorização de estado disponível para programadores do .NET através de coleções fiável. Especificamente, o Service Fabric fornece dicionário fiável e classes de fila fiável. Ao utilizar estas classes, o estado está particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos observar uma utilização típica de um objeto de dicionário fiável e ver o respetivo, na verdade, a fazer.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206582"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue nos recursos de infraestrutura de serviço do Azure
 Fiável fila em simultâneo é uma fila assíncrona, transacional e replicada que simultaneidade elevada de funcionalidades para colocar em fila e anular operações. Foi concebido para fornecer o débito alto e baixa latência ao simplificar a ordenação de FIFO strict fornecida pelo [fila fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e em vez disso, fornece uma ordenação de melhor esforço.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208816"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Que descrevem um cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para assegurar elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, este também tenta otimizar o consumo de recursos do cluster.

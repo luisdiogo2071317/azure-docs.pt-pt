@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212998"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicações
 Gestor de recursos de Cluster do Service Fabric gere, normalmente, os recursos do cluster, propagando-se a carga (representado através de [métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gere a capacidade de nós no cluster e o cluster como um todo através de [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). Métricas e a capacidade de trabalham ótimo para muitas cargas de trabalho, mas os padrões que utilizam de instâncias da aplicação do serviço de recursos de infraestrutura diferentes, por vezes, colocar em requisitos adicionais. Por exemplo, poderá pretender:

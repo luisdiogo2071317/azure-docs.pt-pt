@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164640"
 ---
 # <a name="phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Phoenix
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153114"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utilizar Ansible para gerir os inventários dinâmicos do Azure
 Ansible pode ser utilizado para solicitar informações de inventário a partir de várias origens (incluindo origens de nuvem, como o Azure) para um *inventário dinâmicas*. Neste artigo, utilize o [Shell de nuvem do Azure](./ansible-run-playbook-in-cloudshell.md) para configurar um inventário dinâmicas de Ansible do Azure na qual criar duas máquinas virtuais, marcar uma dessas máquinas virtuais e instalar Nginx na máquina virtual marcada.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208000"
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Ajudar a comunicação segura para serviços no Azure Service Fabric
 > [!div class="op_single_selector"]

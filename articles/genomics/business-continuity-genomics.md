@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427167"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Descrição geral da continuidade do negócio com o Microsoft Genomics
 Esta descrição geral descreve as funcionalidades que Microsoft Genomics fornece continuidade do negócio e recuperação de desastre. Saiba mais sobre as opções para recuperar a partir de eventos acontece, por exemplo, uma falha de região do Azure, que podem provocar a perda de dados. 

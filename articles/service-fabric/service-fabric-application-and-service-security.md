@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207915"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicação de Service Fabric
 Pode colocar uma arquitetura de micro-serviços [muitas vantagens](service-fabric-overview-microservices.md). Gerir a segurança dos micro-serviços, no entanto, é um desafio e diferente de gerir a segurança de aplicações monolithic tradicional. 

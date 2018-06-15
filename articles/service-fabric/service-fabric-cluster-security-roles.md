@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204656"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controlo de acesso baseado em funções para clientes de Service Fabric
 Recursos de infraestrutura de serviço do Azure suporta dois tipos de controlo de acesso diferentes para clientes que estão ligados a um cluster do Service Fabric: administrador e utilizador. Controlo de acesso permite ao administrador de cluster limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores, tornando o cluster mais segura.  

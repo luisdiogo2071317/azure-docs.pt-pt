@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359004"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de configuração de função de serviços em nuvem do Azure
 

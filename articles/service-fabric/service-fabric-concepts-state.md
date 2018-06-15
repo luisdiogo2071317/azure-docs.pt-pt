@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213100"
 ---
 # <a name="service-state"></a>Estado do serviço
 **Estado do serviço** refere-se para a memória ou nos dados de disco que necessita de um serviço de função. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço de leituras e escritas para trabalhar. Dependendo de como o serviço é criado, também pode incluir ficheiros ou outros recursos que são armazenados no disco. Por exemplo, os ficheiros de uma base de dados utilizará para armazenar os registos de dados e a transação.

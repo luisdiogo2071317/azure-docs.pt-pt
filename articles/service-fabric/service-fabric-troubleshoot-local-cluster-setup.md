@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212022"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Resolver problemas relacionados com a configuração de cluster de desenvolvimento local
 Caso se depare com um problema ao interagir com o cluster de desenvolvimento local do Azure Service Fabric, reveja as seguintes sugestões para possíveis soluções.

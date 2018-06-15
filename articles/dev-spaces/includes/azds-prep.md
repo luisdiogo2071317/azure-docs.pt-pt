@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198831"
 ---
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar o código para o desenvolvimento de Docker e Kubernetes
 Até ao momento, terá uma aplicação web básica que pode ser executados localmente. Agora irá containerize através da criação de ativos que definem contentor da aplicação e a forma como irá implementar para Kubernetes. Isto é fácil fazer com os espaços de programador do Azure: 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358715"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Controlar assíncronas operações do Azure
 Algumas operações de REST de Azure executam de forma assíncrona porque a operação não é possível concluir o mais rapidamente. Este tópico descreve como monitorizar o estado de operações assíncronas através de valores obtidos na resposta.  
