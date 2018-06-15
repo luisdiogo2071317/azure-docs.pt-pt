@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281880"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Criar uma cópia de segurança agendada para uma aplicação Web
 

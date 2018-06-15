@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528499"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerir computação no Azure SQL Data Warehouse
 Saiba mais sobre a gestão de recursos de computação no Azure SQL Data Warehouse. Baixar os custos ao colocar em pausa o armazém de dados ou aumentar o armazém de dados para satisfazer os pedidos de desempenho. 

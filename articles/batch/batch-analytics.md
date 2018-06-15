@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312682"
 ---
 # <a name="batch-analytics"></a>Batch Analytics
 Os tópicos na análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos do serviço Batch.

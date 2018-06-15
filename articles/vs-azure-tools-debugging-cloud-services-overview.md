@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292426"
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Aprender as várias formas para depurar um serviço em nuvem do Azure
 Este artigo fornece ligações para as várias formas para depurar um serviço em nuvem do Azure. 
