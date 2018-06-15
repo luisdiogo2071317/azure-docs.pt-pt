@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790370"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Atualizar para o SDK de gestão de .NET do Azure Search versão 2
 Se estiver a utilizar a versão 1.0.2 ou mais antiga do [SDK de gestão de .NET de pesquisa do Azure](https://aka.ms/search-mgmt-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 2.

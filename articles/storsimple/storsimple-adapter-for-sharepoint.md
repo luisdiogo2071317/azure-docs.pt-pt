@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193823"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configure o adaptador do StorSimple para SharePoint
 ## <a name="overview"></a>Descrição geral

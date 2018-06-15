@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795539"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Otimizar as transações no Azure SQL Data Warehouse
 Saiba como otimizar o desempenho do seu código transacional no Azure SQL Data Warehouse, para minimizar o risco para reverte longo.

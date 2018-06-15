@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral de AMQP 1.0 no Service Bus do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Advanced mensagem colocação protocolo (AMQP) 1.0 no Azure."
+title: Descrição geral de AMQP 1.0 no Service Bus do Azure | Microsoft Docs
+description: Saiba como utilizar o Advanced mensagem colocação protocolo (AMQP) 1.0 no Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926602"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte de AMQP 1.0 no Service Bus
 O serviço de nuvem de Service Bus do Azure e no local [Service Bus para o Windows Server (1.1 de barramento de serviço)](https://msdn.microsoft.com/library/dn282144.aspx) suportar o Advanced mensagem de colocação de protocolo (AMQP) 1.0. AMQP permite-lhe criar várias plataformas, aplicações híbridas com um protocolo padrão aberto. Pode criar aplicações com os componentes que são criadas com linguagens diferentes e arquiteturas, e que são executadas em sistemas operativos diferentes. Todos estes componentes podem ligar ao Service Bus e totalmente integrada trocam mensagens empresariais estruturados de forma eficiente e a fidelidade completa.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788558"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestão de suporte de dados dos serviços de recursos em várias contas de armazenamento
 A partir dos serviços de suporte de dados do Microsoft Azure 2.2, poderá anexar várias contas de armazenamento para uma única conta de Media Services. Capacidade para anexar várias contas de armazenamento para uma conta de Media Services fornece as seguintes vantagens:

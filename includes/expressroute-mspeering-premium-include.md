@@ -13,6 +13,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32773602"
 ---
 >[!NOTE]
 >Para configurar o peering da Microsoft, o seu circuito de ExpressRoute tem de utilizar o escalão SKU de suplemento Premium. 

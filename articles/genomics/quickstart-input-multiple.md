@@ -1,7 +1,7 @@
 ---
-title: "Início Rápido: Submeter um fluxo de trabalho através de várias entradas | Microsoft Docs"
+title: 'Início Rápido: Submeter um fluxo de trabalho através de várias entradas | Microsoft Docs'
 titleSuffix: Azure
-description: "O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço."
+description: O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120000"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Submeter um fluxo de trabalho através de várias entradas do mesmo exemplo
 

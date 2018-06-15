@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777958"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações de plataforma para os utilizadores com os Notification Hubs
 Um tutorial anterior, [notificar os utilizadores com os Notification Hubs], aprendeu como notificações push para todos os dispositivos que estão registados para um utilizador autenticado específico. Este tutorial, era necessário vários pedidos para enviar uma notificação para cada plataforma de cliente suportada. Os Hubs de notificação do Azure suporta modelos, com o qual pode especificar a forma como pretende receber notificações de um dispositivo específico. Este método simplifica o envio de notificações de várias plataformas. 

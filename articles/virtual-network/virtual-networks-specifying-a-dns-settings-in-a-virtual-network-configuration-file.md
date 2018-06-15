@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794529"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificar as definições de DNS num ficheiro de configuração de rede virtual
 Um ficheiro de configuração de rede tem dois elementos que pode utilizar para especificar as definições do sistema de nomes de domínio (DNS): **DnsServers** e **DnsServerRef**. Pode adicionar uma lista de servidores DNS especificando os respetivos endereços IP e referenciar nomes para o **DnsServers** elemento. Em seguida, pode utilizar um **DnsServerRef** elemento para especificar que as entradas de servidor DNS do elemento DnsServers de são utilizadas para os sites de rede diferente dentro da sua rede virtual.

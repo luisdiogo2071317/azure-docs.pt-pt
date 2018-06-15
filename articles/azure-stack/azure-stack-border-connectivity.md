@@ -1,12 +1,12 @@
 ---
-title: "Considerações de integração de rede de conectividade para sistemas de pilha do Azure integrado do limite | Microsoft Docs"
-description: "Saiba o que pode fazer para planear a conectividade de rede de limite de centro de dados com vários nós do Azure pilha."
+title: Considerações de integração de rede de conectividade para sistemas de pilha do Azure integrado do limite | Microsoft Docs
+description: Saiba o que pode fazer para planear a conectividade de rede de limite de centro de dados com vários nós do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919439"
 ---
 # <a name="border-connectivity"></a>Conectividade de limite 
 Planeamento de integração de rede é um pré-requisito importante para implementação de sistemas de pilha do Azure integrado com êxito, operação e gestão. Planeamento de conectividade de limite começa por escolher se deve ou não utilizar encaminhamento dinâmico com protocolo border gateway protocol (BGP). É necessário atribuir um número de sistema autónomo 16 bits BGP (público ou privado) ou utilizar o encaminhamento estático, onde uma rota predefinida estático é atribuída aos dispositivos de limite.
