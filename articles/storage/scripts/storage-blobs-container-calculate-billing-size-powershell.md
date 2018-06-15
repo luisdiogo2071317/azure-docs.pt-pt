@@ -1,12 +1,12 @@
 ---
-title: "Script do PowerShell do Azure de exemplo - calcular o tamanho total de faturação de um contentor de blob | Microsoft Docs"
-description: "Calcule o tamanho total de um contentor no Blob storage do Azure para fins de faturação."
+title: Script do PowerShell do Azure de exemplo - calcular o tamanho total de faturação de um contentor de blob | Microsoft Docs
+description: Calcule o tamanho total de um contentor no Blob storage do Azure para fins de faturação.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 11/07/2017
 ms.author: fryu
 ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368549"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de blob
 

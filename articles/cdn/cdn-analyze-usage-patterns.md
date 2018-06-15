@@ -1,11 +1,11 @@
 ---
-title: "Principais relatórios da Verizon | Microsoft Docs"
-description: "Pode ver os padrões de utilização para a CDN utilizando os seguintes relatórios: largura de banda, os dados transferidos, pedidos com êxito, os Estados da Cache, rácio de acertos na Cache, IPV4/IPV6 dados transferidos."
+title: Principais relatórios da Verizon | Microsoft Docs
+description: 'Pode ver os padrões de utilização para a CDN utilizando os seguintes relatórios: largura de banda, os dados transferidos, pedidos com êxito, os Estados da Cache, rácio de acertos na Cache, IPV4/IPV6 dados transferidos.'
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345252"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleos da Verizon
 
