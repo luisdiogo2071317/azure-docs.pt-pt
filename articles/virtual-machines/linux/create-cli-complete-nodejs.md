@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910769"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Criar um ambiente de Linux completado com a CLI do Azure 1.0
 Neste artigo, vamos criar uma rede simple com um balanceador de carga e um par de VMs que são úteis para desenvolvimento e computação simples. Vamos guiá-lo durante o processo de comando pelo comando, até ter duas VMs de Linux funcionar, segura ao qual pode ligar de qualquer lugar na Internet. Em seguida, pode passar mais complexas redes e ambientes.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907121"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída de Stream Analytics do Azure à base de dados do Azure Cosmos  
 Pode visar do Stream Analytics [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo consultas de arquivo e baixa latência de dados em dados não estruturados de JSON. Este documento inclui algumas melhores práticas para implementar esta configuração.

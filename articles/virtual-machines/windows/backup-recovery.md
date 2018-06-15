@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915223"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de cópia de segurança e restauro de máquinas virtuais do Azure
 Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Existem várias opções de cópia de segurança disponíveis para as VMs, consoante o caso de utilização.
