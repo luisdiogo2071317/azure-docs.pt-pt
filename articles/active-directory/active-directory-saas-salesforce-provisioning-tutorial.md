@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344257"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058299"
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar a Cloud App Discovery no Azure AD
 

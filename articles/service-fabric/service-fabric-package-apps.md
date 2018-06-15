@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205815"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
 Este artigo descreve como uma aplicação de Service Fabric do pacote e torná-lo preparado para a implementação.

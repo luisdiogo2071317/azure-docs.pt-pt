@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205081"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e a carga no Service Fabric
 Os recursos de infraestrutura Cluster recursos do Service Manager estratégia a predefinição para gerir as métricas de carga no cluster é distribuir a carga. Garantir que os nós estão uniformemente utilizados evita oportunidades de acesso frequente e amovíveis que levar a contenção e wasted recursos. Distribuição de cargas de trabalho no cluster também é esta em termos de reiniciadas falhas, uma vez que garante que uma falha não remova uma grande percentagem de uma carga de trabalho especificada. 

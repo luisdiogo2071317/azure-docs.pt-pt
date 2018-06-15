@@ -17,6 +17,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077331"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 

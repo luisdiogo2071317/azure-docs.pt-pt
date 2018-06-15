@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194364"
 ---
 # <a name="manage-azure-automation-account"></a>Gerir conta de Automatização do Azure
 Num dado momento antes de a sua conta de Automatização expirar, vai ter de renovar o certificado. Se considerar que a conta Run As tiver sido comprometida, pode eliminá-la e voltar a criá-la. Esta secção mostra como executar estas operações.

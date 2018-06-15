@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202133"
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Ligar o Excel ao Hadoop com o Power Query
 Uma funcionalidade-chave da solução de macrodados Microsoft é a integração de componentes do Microsoft business intelligence (BI) com clusters do Hadoop no Azure HDInsight. Um exemplo primário é a capacidade de ligar o Excel à conta de armazenamento do Azure que contém os dados associados com o cluster de Hadoop, utilizando o Microsoft Power Query para o suplemento do Excel. Este artigo explica como configurar e utilizar o Power Query para consultar dados associados a um cluster de Hadoop gerido com o HDInsight.

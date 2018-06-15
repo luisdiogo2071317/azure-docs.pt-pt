@@ -1,13 +1,13 @@
 ---
-title: "Descrição geral de Cache Local do serviço de aplicações do Azure | Microsoft Docs"
-description: "Este artigo descreve como ativar, redimensionar e consultar o estado da funcionalidade de Cache Local do serviço de aplicações do Azure"
+title: Descrição geral de Cache Local do serviço de aplicações do Azure | Microsoft Docs
+description: Este artigo descreve como ativar, redimensionar e consultar o estado da funcionalidade de Cache Local do serviço de aplicações do Azure
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836386"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Descrição geral de Cache Local do serviço de aplicações do Azure
 Conteúdo de aplicação web do Azure é armazenado no Storage do Azure e é anexado cópias de segurança de forma durável, como uma partilha de conteúdo. Esta estrutura destina a trabalhar com uma variedade de aplicações e tem os seguintes atributos:  

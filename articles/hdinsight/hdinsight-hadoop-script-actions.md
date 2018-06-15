@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271620"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Desenvolver scripts de ação de Script para clusters baseados em Windows de HDInsight
 Saiba mais sobre como escrever scripts de ação de Script para o HDInsight. Para obter informações sobre como utilizar os scripts de ação de Script, consulte [clusters do HDInsight de personalizar através da ação de Script](hdinsight-hadoop-customize-cluster.md). Para o mesmo artigo escrito para clusters do HDInsight baseado em Linux, consulte [scripts de ação de Script desenvolver para o HDInsight](hdinsight-hadoop-script-actions-linux.md).

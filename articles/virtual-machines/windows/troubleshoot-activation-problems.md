@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071498"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Azure Windows
 
