@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182077"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Índice Table storage do Azure com a pesquisa do Azure
 Este artigo mostra como utilizar a pesquisa do Azure para dados do índice armazenados no Table storage do Azure.

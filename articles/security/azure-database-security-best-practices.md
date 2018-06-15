@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893896"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimentos de segurança da base de dados do Azure
 

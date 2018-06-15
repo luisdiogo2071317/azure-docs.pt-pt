@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273971"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balanceamento de carga VMs em todas as zonas de disponibilidade com a CLI do Azure
 

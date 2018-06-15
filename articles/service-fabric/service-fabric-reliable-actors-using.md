@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212896"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementar funcionalidades de nível de serviço no seu serviço de atores
 Conforme descrito em [dispor de serviço](service-fabric-reliable-actors-platform.md#service-layering), o próprio serviço de atores é um serviço fiável.  Pode escrever o seu próprio serviço que deriva de `ActorService` e implementar funcionalidades de nível de serviço da mesma forma que faria ao herdar StatefulService, tais como:

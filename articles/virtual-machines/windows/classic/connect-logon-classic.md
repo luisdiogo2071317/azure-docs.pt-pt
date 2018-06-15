@@ -21,6 +21,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012364"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Iniciar sessão numa máquina virtual do Windows através do portal do Azure
 No portal do Azure, utilize o **Connect** botão para iniciar uma sessão de ambiente de trabalho remoto e inicie sessão numa VM do Windows.

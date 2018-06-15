@@ -16,9 +16,10 @@ ms.date: 04/20/2018
 ms.author: bwren
 ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885273"
 ---
 # <a name="management-solutions-in-azure"></a>Soluções de gestão no Azure
 As soluções de gestão tirar partido dos serviços do Azure para fornecer informações adicionais sobre a operação de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral das soluções de gestão no Azure e detalhes sobre como utilizar e instalá-los.

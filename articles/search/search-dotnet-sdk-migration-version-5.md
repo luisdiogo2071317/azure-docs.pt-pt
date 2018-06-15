@@ -13,6 +13,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778585"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizar para o SDK de .NET de pesquisa do Azure versão 5
 Se estiver a utilizar a versão pré-visualização do 4.0 ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 5.

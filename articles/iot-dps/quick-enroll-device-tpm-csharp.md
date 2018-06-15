@@ -1,22 +1,21 @@
 ---
 title: Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos do Azure com C# | Microsoft Docs
 description: Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço C#
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 01/16/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: c9492d47461e95c7baa28f82b8a95fd7e370ac16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 68ef2c3c13dcf3c193ce1dd5e9b14c73113b5c9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629835"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço C#
 
@@ -28,7 +27,7 @@ Estes passos explicam como criar através de programação uma inscrição indiv
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
 1. Certifique-se de que tem o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado no seu computador. 
-2. Certifique-se de que tem o [.Net Core SDK](https://www.microsoft.com/net/download/windows) instalado no computador. 
+2. Certifique-se de que tem o [SDK .Net Core](https://www.microsoft.com/net/download/windows) instalado no computador. 
 3. Antes de avançar, certifique-se de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 4. (Opcional) Se pretender inscrever um dispositivo simulado no final deste Manual de Início Rápido, siga os passos em [Criar e aprovisionar um dispositivo TPM simulado com o SDK do dispositivo C#](quick-create-simulated-device-tpm-csharp.md) até ao passo onde pode obter uma chave de endossamento para o dispositivo. Anote a chave de endossamento, o ID de registo e, opcionalmente, o ID do dispositivo, terá de os utilizar mais tarde neste Início Rápido. **Não siga os passos para criar uma inscrição individual com o portal do Azure.**
 

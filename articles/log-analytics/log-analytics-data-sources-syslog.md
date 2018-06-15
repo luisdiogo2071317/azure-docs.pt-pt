@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011099"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origens de dados de syslog no Log Analytics
 Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicações vai enviar mensagens que podem ser armazenadas no computador local ou entregar para um coletor Syslog.  Quando é instalado o agente do OMS para Linux, configura o daemon de Syslog local para reencaminhar mensagens para o agente.  O agente, em seguida, envia a mensagem para análise de registos em que é criado um registo correspondente no repositório de OMS.  

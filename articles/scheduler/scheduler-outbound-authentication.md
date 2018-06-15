@@ -1,11 +1,11 @@
 ---
-title: "Autenticação de saída do agendador"
-description: "Autenticação de saída do agendador"
+title: Autenticação de saída do agendador
+description: Autenticação de saída do agendador
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926509"
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticação de saída do agendador
 Trabalhos do programador do poderão ter de a chamada para serviços que requerem autenticação. Desta forma, um serviço chamado pode determinar se a tarefa do agendador pode aceder aos respetivos recursos. Alguns destes serviços incluem outros serviços do Azure, em Salesforce.com, Facebook e Web sites personalizados segurados.

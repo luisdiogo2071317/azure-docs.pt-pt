@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral de segurança do Azure | Microsoft Docs"
-description: "O site de informações de segurança do Microsoft Azure no Azure.com é o local para técnicas respostas às suas perguntas de segurança do Azure."
+title: Descrição geral de segurança do Azure | Microsoft Docs
+description: O site de informações de segurança do Microsoft Azure no Azure.com é o local para técnicas respostas às suas perguntas de segurança do Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25542151"
 ---
 # <a name="azure-security-overview"></a>Descrição geral da segurança do Azure
 O site de informações de segurança do Microsoft Azure no Azure.com é o local para técnicas respostas às suas perguntas de segurança do Azure. Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).

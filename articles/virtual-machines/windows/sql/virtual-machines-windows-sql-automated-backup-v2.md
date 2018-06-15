@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894514"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Gestor de recursos)
 

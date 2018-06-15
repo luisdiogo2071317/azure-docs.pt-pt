@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790275"
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quem está a utilizar a pesquisa do Azure: casos práticos e stories de cliente
 Saiba como as organizações seguintes movido experiência reencaminhar as respetivas empresas ao integrar uma procura avançada do Azure nas suas aplicações online.
