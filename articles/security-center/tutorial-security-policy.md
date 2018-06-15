@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779473"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: definir e avaliar as políticas de segurança
 O Centro de Segurança ajuda-o a manter a conformidade com os requisitos de segurança empresariais ou regulamentares mediante a utilização de políticas de segurança que definem a configuração pretendida para as suas cargas de trabalho. Depois de definir políticas para as suas subscrições do Azure e de as adaptar ao tipo de carga de trabalho ou à sensibilidade dos seus dados, o Centro de Segurança pode mostrar recomendações de segurança para os seus recursos de computação, rede, SQL e armazenamento e de aplicações. Neste tutorial, vai aprender a:

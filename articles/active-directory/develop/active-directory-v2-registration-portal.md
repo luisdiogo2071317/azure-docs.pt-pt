@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156192"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 Este documento fornece contexto e descrições de diversas funcionalidades encontradas no Portal de registo de aplicações do Microsoft [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
