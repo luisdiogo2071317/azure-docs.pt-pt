@@ -12,9 +12,10 @@ ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 173bc797cb6436decddb68aaf1599ea7a6dd597e
 ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793584"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticar para o armazém de dados SQL do Azure
 Saiba como autenticar para o Azure SQL Data Warehouse, utilizando a autenticação do Azure Active Directory (AAD) ou o SQL Server.

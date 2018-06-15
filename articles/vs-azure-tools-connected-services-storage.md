@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793601"
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>A adição de armazenamento do Azure utilizando o Visual Studio ligado Services
 Com o Visual Studio, pode ligar qualquer um dos seguintes ao Storage do Azure utilizando o **adicionar serviços ligados** diálogo:

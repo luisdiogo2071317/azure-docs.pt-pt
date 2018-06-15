@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33880754"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentication do Azure Active Directory baseada em certificado no Android
 

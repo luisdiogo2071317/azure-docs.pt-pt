@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32202546"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar o Microsoft Graph API a partir de uma aplicação de página de JavaScript única (SPA)
 

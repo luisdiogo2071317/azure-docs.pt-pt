@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793975"
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Gestão de funções nos serviços em nuvem do Azure com o Visual Studio
 Depois de ter criado o seu serviço de nuvem do Azure, pode adicionar novas funções ao mesmo ou remova funções existentes a partir do mesmo. Também pode importar um projeto existente e convertê-la a uma função. Por exemplo, pode importar uma aplicação web ASP.NET e designá-la como uma função da web.

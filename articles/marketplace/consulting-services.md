@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312088"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
 Consultar os serviços no Azure Marketplace disponibiliza a parceiros da Microsoft o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure. O Azure Marketplace suporta a listagem das ofertas de serviço consultadoria de parceiros de integrador de sistema (TAMA) da Microsoft. 

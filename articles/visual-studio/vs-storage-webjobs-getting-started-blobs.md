@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796997"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Blob do Azure Visual Studio e de armazenamento ligado serviços (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

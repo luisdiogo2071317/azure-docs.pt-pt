@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937049"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na API Management do Azure
 Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  

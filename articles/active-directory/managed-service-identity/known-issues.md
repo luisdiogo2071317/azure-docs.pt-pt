@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930991"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
 

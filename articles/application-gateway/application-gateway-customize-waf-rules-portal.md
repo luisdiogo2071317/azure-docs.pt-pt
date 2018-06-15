@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769125"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizar regras de firewall de aplicação web através do portal do Azure
 

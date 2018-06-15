@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792176"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configurar um projeto de serviço em nuvem do Azure com o Visual Studio
 Pode configurar um projeto de serviço em nuvem do Azure, dependendo dos requisitos para esse projeto. Pode definir propriedades do projeto relativamente às seguintes categorias:

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931746"
 ---
 # <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>Problemas ao utilizar o site do painel de acesso de aplicações ou a aplicação móvel
 

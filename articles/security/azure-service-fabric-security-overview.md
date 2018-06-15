@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895668"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Descrição geral de segurança do Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) é uma plataforma de sistemas distribuídos que facilita a pacote, implementar e gerir micro-serviços escaláveis e fiáveis. Service Fabric aborda os desafios significativos de desenvolvimento e gestão de aplicações em nuvem. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis.

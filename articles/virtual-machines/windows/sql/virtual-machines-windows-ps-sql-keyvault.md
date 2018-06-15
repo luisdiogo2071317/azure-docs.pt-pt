@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774731"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em Virtual Machines do Azure (Gestor de recursos)
 

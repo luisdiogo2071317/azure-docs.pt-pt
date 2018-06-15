@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798731"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Configurar funções de serviço em nuvem do Azure com o Visual Studio
 Um serviço em nuvem do Azure pode ter mais do que um trabalho ou funções da web. Para cada função, tem de definir a forma como essa função está configurada e também configurar como essa função é executada. Para saber mais sobre as funções nos serviços em nuvem, veja o vídeo [introdução ao Cloud Services do Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 

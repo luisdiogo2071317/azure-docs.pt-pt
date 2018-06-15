@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791431"
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>A criar os projetos do Azure na linha de comandos
 Utilizar o motor de compilação da Microsoft (MSBuild), pode criar produtos em ambientes de laboratório de compilação em que o Visual Studio não está instalado. MSBuild utiliza um formato XML para ficheiros de projeto do extensível e totalmente suportados pela Microsoft. Utilizar o formato de ficheiro do MSBuild, possa descrever o que itens têm de ser criado para um ou mais plataformas e configurações.

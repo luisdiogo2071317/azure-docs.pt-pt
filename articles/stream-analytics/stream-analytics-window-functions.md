@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893655"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de sistema baseado em janelas do Stream Analytics
 Em cenários de transmissão em fluxo tempo, executar operações nos dados contidos no windows temporais é um padrão comum. Do Stream Analytics tem suporte nativo para funções de sistema baseado em janelas, permitindo aos programadores para as tarefas de processamento de fluxo complexas de autor sem qualquer esforço.

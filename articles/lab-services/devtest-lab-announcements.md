@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787473"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicar um anúncio para um laboratório no Azure DevTest Labs
 

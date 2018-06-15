@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192881"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais
 Armazenamento do Azure fornece um modelo de segurança por camadas que permite proteger as contas de armazenamento para um conjunto específico de redes permitidos.  Quando as regras de rede estiverem configuradas, apenas as aplicações permitidas redes podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, as aplicações continuam a exigir autorização adequada (uma chave de acesso válido ou SAS token) para aceder à conta de armazenamento.
