@@ -33,7 +33,8 @@ Os passos seguintes mostram como configurar a autenticação de palavra-passe pa
    * **{Palavra-passe}:** uma palavra-passe que utiliza para autenticar com a sua aplicação.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Anote o **ApplicationId** da aplicação que criou. Poderá precisa deste mais tarde.
 5. Criar um novo principal de serviço utilizando o seguinte comando, substituindo **{MyApplicationId}** com o **ApplicationId** do passo anterior:

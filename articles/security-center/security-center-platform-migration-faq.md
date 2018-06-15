@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527030"
 ---
 # <a name="security-center-platform-migration-faq"></a>Migração de plataforma do Centro de segurança FAQ
 No precoce de Junho de 2017, o Centro de segurança do Azure começou a utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma de centro de segurança do Azure](security-center-platform-migration.md). Estas perguntas mais frequentes respondem a dúvidas sobre a migração de plataforma.

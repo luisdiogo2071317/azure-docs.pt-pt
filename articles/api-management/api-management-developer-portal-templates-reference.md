@@ -1,11 +1,11 @@
 ---
-title: "Modelos de portais para programadores de gestão de API do Azure | Microsoft Docs"
-description: "Saiba como personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos na API Management do Azure."
+title: Modelos de portais para programadores de gestão de API do Azure | Microsoft Docs
+description: Saiba como personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128754"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portais de programador
 

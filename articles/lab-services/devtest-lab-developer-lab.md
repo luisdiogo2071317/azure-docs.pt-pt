@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787564"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utilizar o Azure DevTest Labs para programadores
 Azure DevTest Labs podem ser utilizados para implementar vários cenários de chaves, mas um dos principais cenários envolve utilizar DevTest Labs para máquinas de desenvolvimento do anfitrião para programadores. Neste cenário, o DevTest Labs fornece destas vantagens:

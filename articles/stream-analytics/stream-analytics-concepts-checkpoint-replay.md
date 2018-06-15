@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529486"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e repetição nas tarefas do Azure Stream Analytics
 Este artigo descreve os internos ponto de verificação e repetição conceitos no Azure Stream Analytics e o impacto que das tem na recuperação de tarefa. Sempre que é executada uma tarefa de Stream Analytics, informações de estado são mantidas internamente. Essas informações de estado são guardadas num ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são utilizadas para recuperação da tarefa se ocorrer uma falha de tarefa ou a atualização. Noutras circunstâncias, o ponto de verificação não pode ser utilizado para recuperação, não sendo uma repetição necessária.

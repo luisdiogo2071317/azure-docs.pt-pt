@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790427"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Repetir lógica em que o SDK de Media Services para .NET
 Ao trabalhar com os serviços do Microsoft Azure, podem ocorrer falhas transitórias. Se ocorrer uma falha transitória, na maioria dos casos, após várias tentativas de alguns a operação é bem sucedida. O SDK de Media Services para .NET implementa a lógica de repetição para lidar com falhas transitórias associadas exceções e erros causados por pedidos web, execução de consultas, guardar as alterações e operações de armazenamento.  Por predefinição, o SDK de Media Services para .NET executa quatro tentativas antes de voltar a gerar a exceção à sua aplicação. O código na sua aplicação, em seguida, deve processar esta exceção corretamente.  

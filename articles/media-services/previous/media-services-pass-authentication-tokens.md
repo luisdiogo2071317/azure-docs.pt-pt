@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788453"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passaram tokens para o serviço de entrega de chave de Media Services do Azure
 Os clientes, muitas vezes, pergunte como um leitor pode passar tokens para o serviço de entrega de chave de Media Services do Azure para fins de verificação para que o leitor pode obter a chave. Os Media Services suportam o token de web simples (SWT) e formatos JSON Web tokens (JWT). Autenticação de token é aplicada a qualquer tipo de chave, independentemente se utilizar encriptação comum ou de encriptação de envelope Advanced Encryption Standard (AES) no sistema.

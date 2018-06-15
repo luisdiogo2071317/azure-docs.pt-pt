@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33789412"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilização do Azure Webhooks para monitorizar as notificações de tarefa de Media Services com .NET
 Quando executar tarefas, muitas vezes, necessitam de uma forma de controlar o progresso da tarefa. Pode monitorizar as notificações de tarefa de Media Services utilizando o Azure Webhooks ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.

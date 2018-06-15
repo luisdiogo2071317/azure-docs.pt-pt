@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788488"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
 Hyperlapse de multimédia do Azure é um suporte de dados de processador (MP) que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  O colateral baseado na nuvem para [Microsoft Research Pro de Hyperlapse ambiente de trabalho e móvel de Hyperlapse baseada no telefone](http://aka.ms/hyperlapse), Microsoft Hyperlapse de Media Services do Azure utiliza a grande escala do processamento do suporte de dados do Azure suporte de dados serviços plataforma horizontalmente dimensionar e parallelize em massa Hyperlapse de processamento.

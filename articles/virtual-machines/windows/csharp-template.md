@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527829"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina de Virtual do Azure com c# e um modelo do Resource Manager
 Este artigo mostra como implementar um modelo de Gestor de recursos do Azure com c#. O modelo que criou implementa uma única máquina virtual com o Windows Server numa rede virtual novo com uma única sub-rede.

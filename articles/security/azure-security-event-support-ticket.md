@@ -1,6 +1,6 @@
 ---
-title: "Como iniciar um pedido de suporte de eventos de segurança - Azure | Microsoft Docs"
-description: "Como um vendedor no Azure Marketplace, ter identificado um evento de segurança potencial, necessário saber como iniciar uma permissão adequada."
+title: Como iniciar um pedido de suporte de eventos de segurança - Azure | Microsoft Docs
+description: Como um vendedor no Azure Marketplace, ter identificado um evento de segurança potencial, necessário saber como iniciar uma permissão adequada.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129945"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como iniciar um pedido de suporte de eventos de segurança
 

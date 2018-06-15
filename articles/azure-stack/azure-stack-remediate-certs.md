@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937854"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Resolver problemas comuns para certificados PKI de pilha do Azure
 As informações deste artigo podem ajudar a compreender e resolver problemas comuns para certificados PKI de pilha do Azure. Pode detetar problemas ao utilizar a ferramenta do Verificador de preparação de pilha do Azure para [validar os certificados PKI de pilha do Azure](azure-stack-validate-pki-certs.md). A ferramenta verifica para se certificar de que os certificados cumprir os requisitos de PKI de uma implementação de pilha do Azure e a rotação de segredo de pilha do Azure e regista os resultados num [report.json ficheiro](azure-stack-validation-report.md).  

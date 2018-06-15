@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942775"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utilizar o Azure personalizada Script extensão versão 1 com máquinas virtuais do Linux
 O Script de personalizado extensão versão 1 transfere e executa os scripts em máquinas virtuais do Azure. Esta extensão é útil para configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Pode transferir scripts do Storage do Azure ou noutra localização acessível da internet ou pode fornecê-los para o tempo de execução da extensão. 

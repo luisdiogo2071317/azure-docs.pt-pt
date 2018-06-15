@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788362"
 ---
 # <a name="h264-multiple-bitrate-1080p"></a>H264 Múltipla 1080p
 `Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  

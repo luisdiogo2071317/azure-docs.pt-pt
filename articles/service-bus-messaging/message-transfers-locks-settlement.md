@@ -1,11 +1,11 @@
 ---
-title: "Transferências de mensagem, bloqueios e settlement Service Bus do Azure | Microsoft Docs"
-description: "Descrição geral das transferências de mensagem do barramento de serviço e operações settlement"
+title: Transferências de mensagem, bloqueios e settlement Service Bus do Azure | Microsoft Docs
+description: Descrição geral das transferências de mensagem do barramento de serviço e operações settlement
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28199037"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e settlement
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866673"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Azure AD self-service reposição palavra-passe para profissionais de TI
 

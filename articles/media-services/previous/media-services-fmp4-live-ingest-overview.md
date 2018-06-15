@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788978"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação de inserção de Media Services do Azure live MP4 fragmentados
 Esta especificação descreve o protocolo e o formato fragmentado com base em MP4 em direto transmissão em fluxo para ingestão de Media Services do Azure. Os Media Services fornecem um serviço de transmissão em fluxo em direto que os clientes podem utilizar para sequência eventos em direto e difusão conteúdo em tempo real, utilizando o Azure como a plataforma de nuvem. Este documento descreve também as melhores práticas para a criação de elevada disponibilidade redundante robusta e responsiva direta mecanismos de inserção.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788145"
 ---
 # <a name="configure-localization"></a>Configurar a localização
 Recortador de suporte de dados do Azure está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passagem da cadeia de código de idioma pretendido na lista seguinte:

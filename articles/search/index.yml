@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943183"
 abstract:
   description: Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários. <p/><b>Nova pré-visualização de pesquisa cognitiva.</b> Utilize uma API REST de pré-lançamento para o enlace de algoritmos com tecnologia de IA para o pipeline de indexação. Extrair dados, invocar linguagem natural e processamento de imagens para transformar conteúdo não estruturado bruto em conteúdo pesquisável num índice do Azure Search. <p/>Introdução aos <a href="/azure/search/cognitive-search-quickstart-blob">recursos e dados de exemplo</a> ou saiba mais em <a href="/azure/search/cognitive-search-concept-intro">Conceitos</a>.
   aside:

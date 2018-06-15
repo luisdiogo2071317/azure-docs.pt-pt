@@ -14,6 +14,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936450"
 ---
 # <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>Eliminar um cluster do serviço de Kubernetes do Azure (AKS)
 

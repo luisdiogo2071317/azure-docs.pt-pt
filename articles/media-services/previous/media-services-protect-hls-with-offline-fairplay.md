@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790392"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline do FairPlay de transmissão em fluxo para iOS 
  Media Services do Azure fornece um conjunto de devidamente concebida [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) que abrange:

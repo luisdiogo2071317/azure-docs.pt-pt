@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526000"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vistas do armazém de dados SQL do Azure
 Sugestões para utilizar as vistas de T-SQL no Azure SQL Data Warehouse para desenvolver soluções. 

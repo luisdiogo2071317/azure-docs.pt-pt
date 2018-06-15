@@ -24,18 +24,18 @@
 
 <sup>2</sup> Este número inclui trabalhos em fila, concluídos, ativos e cancelados. Não inclui trabalhos eliminados. Pode utilizar **IJob.Delete** ou o pedido HTTP **DELETE** para eliminar os trabalhos antigos.
 
-A partir de 1 de Abril de 2017, qualquer registo de tarefas na sua conta mais antiga do que 90 dias serão automaticamente eliminado, juntamente com os respetivos registos de tarefa associados, mesmo que o número total de registos é inferior a quota máxima. Se precisar de arquivar as informações de tarefas, pode utilizar o código descrito [aqui](../articles/media-services/media-services-dotnet-manage-entities.md).
+A partir de 1 de Abril de 2017, qualquer registo de tarefas na sua conta mais antiga do que 90 dias serão automaticamente eliminado, juntamente com os respetivos registos de tarefa associados, mesmo que o número total de registos é inferior a quota máxima. Se precisar de arquivar as informações de tarefas, pode utilizar o código descrito [aqui](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
 <sup>3</sup> ao efetuar um pedido de lista tarefa entidades, um máximo de 1.000 tarefas é devolvido por pedido. Se tiver de estar a par de todos os Trabalhos submetidos, pode utilizar “top/skip”, conforme descrito em [OData system query options (Opções de consultas de sistema OData)](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM). Para obter mais informações, veja [esta](../articles/media-services/media-services-content-protection-overview.md) secção.
+<sup>4</sup> Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM). Para obter mais informações, veja [esta](../articles/media-services/previous/media-services-content-protection-overview.md) secção.
 
 <sup>5</sup> As contas de armazenamento têm de estar na mesma subscrição do Azure.
 
 <sup>6</sup> Existe um limite de um milhão de políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Se estiver sempre a utilizar os mesmos dias, permissões de acesso, etc., deve utilizar o mesmo ID de política. Para obter informações e um exemplo, consulte [esta](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) secção.
+> Se estiver sempre a utilizar os mesmos dias, permissões de acesso, etc., deve utilizar o mesmo ID de política. Para obter informações e um exemplo, consulte [esta](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) secção.
 
 <sup>7</sup>se estiver a carregar conteúdo para um recurso de Media Services processá-la com uma dos processadores de suporte de dados no serviço do Azure (ou seja, codificadores como motores codificador de multimédia Standard e o fluxo de trabalho do suporte de dados codificador Premium ou análise como enfrentam Detector), em seguida, deve estar ciente das restrições nos tamanhos de ficheiro máximo suportados. 
 

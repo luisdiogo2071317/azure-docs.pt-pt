@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866613"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios do multi-factor Authentication do Azure
 

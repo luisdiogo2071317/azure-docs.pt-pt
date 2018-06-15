@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788222"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure no portal
 Pode utilizar o Recortador de suporte de dados do Azure no portal para criar aplicações de clips de recursos nas suas contas de serviços de suporte de dados. Para começar a utilizar, navegue até à sua conta de media services no portal. Em seguida, selecione o **Subclip** separador.

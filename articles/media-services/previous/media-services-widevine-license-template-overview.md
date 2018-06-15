@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790483"
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença Widevine
 Pode utilizar os Media Services do Azure para configurar e pedido licenças Widevine da Google. Quando o leitor tenta reproduzir os conteúdos protegidos de Widevine, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licenciamento aprova o pedido, o serviço emite a licença. Este é enviada para o cliente e é utilizada para desencriptar e reproduzir o conteúdo especificado.

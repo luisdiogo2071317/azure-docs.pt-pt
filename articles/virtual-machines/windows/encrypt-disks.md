@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603747"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Como encriptar discos virtuais numa VM do Windows
 Para segurança avançada máquina virtual (VM) e conformidade, discos virtuais no Azure podem ser encriptados. Discos estão encriptados com as chaves criptográficas que são protegidas um cofre de chaves do Azure. Pode controla estas chaves criptográficas e pode auditar a sua utilização. Este artigo fornece detalhes sobre como encriptar discos virtuais numa VM do Windows com o Azure PowerShell. Também pode [encriptar uma VM com Linux utilizando o 2.0 CLI do Azure](../linux/encrypt-disks.md).

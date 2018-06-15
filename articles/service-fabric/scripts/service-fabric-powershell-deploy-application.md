@@ -1,13 +1,13 @@
 ---
-title: "Script do PowerShell do Azure de exemplo - implementar aplicações para um cluster | Microsoft Docs"
-description: "Script do PowerShell do Azure de exemplo - implementar uma aplicação para um cluster do Service Fabric."
+title: Script do PowerShell do Azure de exemplo - implementar aplicações para um cluster | Microsoft Docs
+description: Script do PowerShell do Azure de exemplo - implementar uma aplicação para um cluster do Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -17,9 +17,10 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: c81514fb4b1c1da483ebd55deae149caf22d4b63
 ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927605"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implementar uma aplicação para um cluster do Service Fabric
 

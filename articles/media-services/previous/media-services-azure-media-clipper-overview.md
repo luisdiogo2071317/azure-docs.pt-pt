@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788124"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure é uma biblioteca de JavaScript livre que permite aos programadores de web fornecer os seus utilizadores com uma interface para criar aplicações de clips de suporte de dados. Esta ferramenta pode ser integrada em qualquer página web e fornece APIs para carregar os recursos e submeter tarefas de recorte.

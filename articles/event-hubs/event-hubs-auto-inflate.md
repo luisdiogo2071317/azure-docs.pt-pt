@@ -1,12 +1,12 @@
 ---
-title: "Dimensionar automaticamente unidades de débito de Event Hubs do Azure | Microsoft Docs"
-description: "Ativar o inflate de automaticamente um espaço de nomes para dimensionar automaticamente unidades de débito"
+title: Dimensionar automaticamente unidades de débito de Event Hubs do Azure | Microsoft Docs
+description: Ativar o inflate de automaticamente um espaço de nomes para dimensionar automaticamente unidades de débito
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018614"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito de Event Hubs do Azure
 
