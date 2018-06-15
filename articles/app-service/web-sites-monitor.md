@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573808"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: monitorizar aplicações no App Service do Azure
 [Serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitorização incorporada no [portal do Azure](https://portal.azure.com).

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513640"
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Adicionar uma aplicação de Java para Web Apps do Azure App Service
 Depois de ter a inicializar a aplicação web de Java no [App Service do Azure] [ Azure App Service] conforme documentado no [criar uma aplicação web Java no App Service do Azure](app-service-web-get-started-java.md), pode carregar a aplicação, colocando o WAR no **webapps** pasta.

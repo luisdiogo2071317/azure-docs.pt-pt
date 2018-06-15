@@ -1,12 +1,12 @@
 ---
-title: "Utilize as VMs do intensivas de computação do Azure com o Batch | Microsoft Docs"
+title: Utilize as VMs do intensivas de computação do Azure com o Batch | Microsoft Docs
 description: Como tirar partido de tamanhos de VM com capacidade RDMA ou GPU-ativado em conjuntos do Azure Batch
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762446"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utilize com capacidade RDMA ou preparados para a GPU instâncias em conjuntos do Batch
 

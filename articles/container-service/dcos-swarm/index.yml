@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Azure Container Service com DC/OS e Swarm"
+title: Documentação do Azure Container Service com DC/OS e Swarm
 metadata:
   document_id: 
-  title: "Documentação do Azure Container Service com DC/OS e Swarm - Tutoriais, Referência da API | Microsoft Docs"
+  title: Documentação do Azure Container Service com DC/OS e Swarm - Tutoriais, Referência da API | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -19,10 +19,11 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068411"
 abstract:
-  description: "O Azure Container Service permite-lhe implementar rapidamente um cluster DC/OS ou Docker Swarm pronto para produção. Saiba como utilizar o Azure Container Service com estes guias de introdução, tutoriais e amostras."
+  description: O Azure Container Service permite-lhe implementar rapidamente um cluster DC/OS ou Docker Swarm pronto para produção. Saiba como utilizar o Azure Container Service com estes guias de introdução, tutoriais e amostras.
 sections:
-- title: "Inícios rápidos de cinco minutos"
+- title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
     text: 'Saiba como implementar clusters DC/OS com o Azure Container Service:'
@@ -40,14 +41,14 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Saiba como implementar, gerir e atualizar aplicações num cluster DC/OS do Azure Container Service."
+    text: Saiba como implementar, gerir e atualizar aplicações num cluster DC/OS do Azure Container Service.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Criar e gerir um cluster DC/OS do Azure Container Service</a>
     - html: <a href="/azure/container-service/container-service-load-balancing">Contentores de balanceamento de carga num cluster DC/OS do Azure Container Service</a>
     - html: <a href="/azure/container-service/container-service-dcos-fileshare">Criar e montar uma partilha de ficheiros num cluster DC/OS</a>
-    - html: "<a href=\"/azure/container-service/container-service-dcos-acr\">Utilizar o Azure Container Registry com um cluster DC/OS para implementar a sua aplicação</a>"
+    - html: <a href="/azure/container-service/container-service-dcos-acr">Utilizar o Azure Container Registry com um cluster DC/OS para implementar a sua aplicação</a>
 - title: Amostras
   items:
   - type: list
@@ -55,7 +56,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/container-service/cli-samples">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards

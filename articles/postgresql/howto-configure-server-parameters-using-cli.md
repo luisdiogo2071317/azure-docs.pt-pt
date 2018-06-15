@@ -15,6 +15,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691398"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Personalizar parâmetros de configuração de servidor utilizando a CLI do Azure
 Pode listar, mostrar e atualizar os parâmetros de configuração para um servidor de PostgreSQL do Azure utilizando a Interface de linha de comandos (CLI do Azure). Um subconjunto das configurações de motor está exposto ao nível do servidor e pode ser modificado. 

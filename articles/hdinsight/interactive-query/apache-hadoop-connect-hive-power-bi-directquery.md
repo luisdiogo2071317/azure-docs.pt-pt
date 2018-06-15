@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407967"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de ramo de registo de consultas interativas com o Microsoft Power BI utilizando a consulta direta no Azure HDInsight
 
@@ -43,7 +44,7 @@ A tabela de Hive hivesampletable inclui todos os clusters do HDInsight.
 
     ![Dados aberto HDInsight Power BI](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 3. Do **obter dados** painel, escreva **hdinsight** na caixa de pesquisa. Se não vir **HDInsight interativa consulta (Beta)**, tem de atualizar o seu ambiente de trabalho do Power BI para a versão mais recente.
-4. Clique em **HDInsight interativa consulta (Beta)**e, em seguida, clique em **Connect**.
+4. Clique em **HDInsight interativa consulta (Beta)** e, em seguida, clique em **Connect**.
 5. Clique em **continuar** para fechar o **conector de pré-visualização** caixa de diálogo de aviso.
 6. De **consulta interativa HDInsight**, selecione ou introduza as seguintes informações:
 

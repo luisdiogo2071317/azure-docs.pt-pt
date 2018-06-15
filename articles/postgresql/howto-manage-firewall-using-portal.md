@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690344"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para as regras de firewall de PostgreSQL no portal do Azure
 Regras de firewall ao nível do servidor permitem que os administradores aceder a uma base de dados do Azure para o servidor de PostgreSQL de um endereço IP especificado ou intervalo de endereços IP. 

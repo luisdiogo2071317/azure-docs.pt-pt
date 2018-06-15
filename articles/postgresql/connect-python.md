@@ -1,6 +1,6 @@
 ---
-title: "Ligar à Base de Dados do Azure para PostgreSQL a partir do Python"
-description: "Este guia de início rápido fornece um código de exemplo Python que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL."
+title: Ligar à Base de Dados do Azure para PostgreSQL a partir do Python
+description: Este guia de início rápido fornece um código de exemplo Python que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687324"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados
 Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.

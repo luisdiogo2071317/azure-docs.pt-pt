@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687613"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Monitorização na base de dados do Azure para PostgreSQL
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias métricas que permitem determinar o comportamento de recursos que suportam o servidor de PostgreSQL. 

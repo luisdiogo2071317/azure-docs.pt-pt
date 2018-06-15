@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398162"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utilizar o Hive com o HDInsight baseado em Windows para analisar os registos de Web sites
 Saiba como utilizar o HiveQL com o HDInsight para analisar os registos de um Web site. Análise de registos de Web site pode ser utilizado para segmentar o público-alvo com base em atividades semelhantes, categorizar os visitantes do site por dados demográficos e para saber o conteúdo vista, Web sites entram do e assim sucessivamente.

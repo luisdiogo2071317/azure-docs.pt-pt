@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29575640"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Criar utilizadores na base de dados do Azure para o servidor de PostgreSQL 
 Este artigo descreve como pode criar utilizadores numa base de dados do Azure para o servidor de PostgreSQL.

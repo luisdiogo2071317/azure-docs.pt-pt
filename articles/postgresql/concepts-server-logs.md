@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691098"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Os registos do servidor na base de dados do Azure para PostgreSQL 
 Base de dados do Azure para PostgreSQL gera o erro de consulta e registos. No entanto, o acesso aos registos de transações não é suportado. Os registos de consulta e o erro podem ser utilizados para identificar, resolver problemas e reparar erros de configuração e o desempenho inferior ao ideal. Para obter mais informações, consulte [relatório de erros e registo](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
