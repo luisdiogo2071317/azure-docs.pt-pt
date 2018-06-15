@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163304"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162165"
 ---
 # <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Criar um Cluster Linux do Azure Container Service no Kubernetes
 

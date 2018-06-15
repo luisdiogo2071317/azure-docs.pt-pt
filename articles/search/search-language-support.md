@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182769"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Criar um índice para documentos em vários idiomas na Azure Search
 > [!div class="op_single_selector"]

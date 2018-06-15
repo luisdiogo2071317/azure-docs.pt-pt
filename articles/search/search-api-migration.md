@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181975"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Atualizar para a versão mais recente da API de REST do serviço de pesquisa do Azure
 Se estiver a utilizar uma versão anterior do [API de REST do serviço de pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice/), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão mais recente versão de API geralmente disponível, 2017-11-11.

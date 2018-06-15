@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163253"
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilizando a IU da web de Kubernetes com o serviço de contentor do Azure
 

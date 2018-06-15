@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177004"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>As alterações de preço para o Monitor de desempenho de rede do Azure
 

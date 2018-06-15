@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186118"
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>Redimensionar uma VM com Linux com a CLI do Azure 1.0
 

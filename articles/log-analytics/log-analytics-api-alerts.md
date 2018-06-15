@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178532"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alertas na análise de registos com a REST API
 A API de REST de alerta de análise do registo permite-lhe criar e gerir alertas no Operations Management Suite (OMS).  Este artigo fornece detalhes sobre a API e vários exemplos para efetuar operações diferentes.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192786"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão de carga de trabalho com classes de recursos no Azure SQL Data Warehouse
 Orientações para a utilização de classes de recursos para gerir a memória e simultaneidade de consultas no Azure SQL Data Warehouse.  

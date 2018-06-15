@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158873"
 ---
 # <a name="article-top"></a>Migrar o serviço de móvel do Azure existente para o App Service do Azure
 Com o [disponibilidade geral do App Service do Azure], sites de Mobile Services do Azure podem ser migrados facilmente no local para tirar partido de todas as funcionalidades do serviço de aplicações do Azure.  Este documento explica o que esperar quando migrar o seu site de Mobile Services do Azure App Service do Azure.

@@ -16,6 +16,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187288"
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Criar uma única base de dados SQL do Azure com a CLI do Azure
 

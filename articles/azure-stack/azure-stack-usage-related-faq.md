@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159623"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas mais frequentes sobre a utilização de pilha de Azure API do
 Este artigo responde a algumas perguntas mais frequentes sobre a API de utilização de pilha do Azure.

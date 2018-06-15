@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162267"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Conjuntos de agente DC/OS para o serviço de contentor do Azure
 Clusters DC/SO no serviço de contentor do Azure contêm nós de agente em dois conjuntos, um conjunto público e um conjunto privado. Uma aplicação pode ser implementada para o agrupamento, que afeta a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou manter interno (privado). Este artigo fornece uma breve descrição geral do motivo que existem conjuntos de públicos e privados.
