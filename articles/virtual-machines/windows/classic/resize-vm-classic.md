@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913630"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Redimensionar uma VM do Windows criados no modelo de implementação clássica
 Este artigo mostra como redimensionar uma VM do Windows, criado no modelo de implementação clássica com o Azure Powershell.

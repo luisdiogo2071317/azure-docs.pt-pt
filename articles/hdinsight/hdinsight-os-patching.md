@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409760"
 ---
 # <a name="os-patching-for-hdinsight"></a>Para o HDInsight a aplicação de patches de SO 
 Como um serviço gerido do Hadoop, HDInsight encarrega-se de aplicação de patches de SO das VMs subjacentes utilizados pelos clusters do HDInsight. A partir de 1 de Agosto de 2016, vamos foram alterados a política de aplicação de patches de SO convidado para os clusters do HDInsight baseado em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinícios devido a aplicação de patches. A nova política irá continuar a correção máquinas de virtuais (VMs) em clusters do Linux cada segunda-feira ou quinta começando UTC 12: 00, de forma escalonada em nós em qualquer cluster especificado. No entanto, qualquer VM especificada só será reiniciado no máximo uma vez a cada 30 dias devido a aplicação de patches de SO do convidado. Além disso, o primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias a contar da data de criação do cluster. Correções de erros serão aplicadas depois das VMs são reiniciadas.

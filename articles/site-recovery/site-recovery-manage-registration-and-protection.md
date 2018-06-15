@@ -1,6 +1,6 @@
 ---
-title: "Remova os servidores e desative a proteção | Microsoft Docs"
-description: "Este artigo descreve como anular o registo de servidores a partir de um cofre de recuperação de Site e para desativar a proteção para máquinas virtuais e servidores físicos."
+title: Remova os servidores e desative a proteção | Microsoft Docs
+description: Este artigo descreve como anular o registo de servidores a partir de um cofre de recuperação de Site e para desativar a proteção para máquinas virtuais e servidores físicos.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29806420"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 

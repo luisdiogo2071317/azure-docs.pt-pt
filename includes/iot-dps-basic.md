@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325332"
 ---
 >[!NOTE]
 >A configuração do estado inicial do dispositivo duplo só está disponível no escalão standard do Hub IoT. Para obter mais informações sobre os escalões básico e standard do Hub IoT, veja [How to choose the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md) (Como escolher o escalão do Hub IoT certo).

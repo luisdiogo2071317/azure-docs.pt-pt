@@ -1,11 +1,11 @@
 ---
-title: "Os registos de fluxo do grupo de segurança de rede de Azure visualizing com o Power BI | Microsoft Docs"
-description: "Esta página descreve como visualizar registos de fluxo NSG com o Power BI."
+title: Os registos de fluxo do grupo de segurança de rede de Azure visualizing com o Power BI | Microsoft Docs
+description: Esta página descreve como visualizar registos de fluxo NSG com o Power BI.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878586"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Registos de fluxo do grupo de segurança de rede visualizing com o Power BI
 

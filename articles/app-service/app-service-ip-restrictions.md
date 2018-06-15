@@ -1,11 +1,11 @@
 ---
-title: "Restrições de IP do App Service do Azure | Microsoft Docs"
-description: "Como utilizar as restrições de IP com o App Service do Azure"
+title: Restrições de IP do App Service do Azure | Microsoft Docs
+description: Como utilizar as restrições de IP com o App Service do Azure
 author: btardif
 manager: stefsch
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800114"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrições de IP estático do App Service do Azure #
 

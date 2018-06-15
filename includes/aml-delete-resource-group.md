@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574992"
 ---
 Se não pretender continuar a utilizar esta aplicação, elimine todos os recursos criados com este início rápido com os seguintes passos, para não lhe serem cobrados custos:
 

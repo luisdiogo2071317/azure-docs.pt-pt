@@ -1,12 +1,12 @@
 ---
-title: "Instalar a atualização 1.0 na matriz Virtual StorSimple | Microsoft Docs"
-description: "Descreve como utilizar a IU da web de matriz Virtual StorSimple para aplicar atualizações utilizando o método de portal e a correção do Azure"
+title: Instalar a atualização 1.0 na matriz Virtual StorSimple | Microsoft Docs
+description: Descreve como utilizar a IU da web de matriz Virtual StorSimple para aplicar atualizações utilizando o método de portal e a correção do Azure
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012079"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instalar a atualização 1.0 na sua matriz de Virtual StorSimple
 

@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 11/08/2017
+  ms.locfileid: "24052162"
 abstract:
-  description: "Utilize o servidor open-source do Jenkins para criar as suas aplicações na cloud e implementá-las no Azure. Aprenda a instalar, configurar e dimensionar o Jenkins no Azure e configurar a integração contínua (CI) para as suas aplicações com as nossas introduções, tutoriais e pipelines de exemplo."
+  description: Utilize o servidor open-source do Jenkins para criar as suas aplicações na cloud e implementá-las no Azure. Aprenda a instalar, configurar e dimensionar o Jenkins no Azure e configurar a integração contínua (CI) para as suas aplicações com as nossas introduções, tutoriais e pipelines de exemplo.
   aside:
     image:
       alt: Jenkins logo
@@ -29,10 +30,10 @@ abstract:
       src: media/Jenkins.png
     title: 
 sections:
-- title: "Inícios rápidos de cinco minutos"
+- title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
-    text: "Criar um sistema Jenkins no Azure e criar uma aplicação."
+    text: Criar um sistema Jenkins no Azure e criar uma aplicação.
   - type: list
     style: icon48
     items:
@@ -43,11 +44,11 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Configure a integração contínua nas suas aplicações, execute agentes na cloud e utilize os serviços do Azure nas suas tarefas."
+    text: Configure a integração contínua nas suas aplicações, execute agentes na cloud e utilize os serviços do Azure nas suas tarefas.
   - type: list
     style: ordered
     items:
-    - html: "Configurar CI no <a href=\"/azure/jenkins/java-deploy-webapp-tutorial\">Serviço de Aplicações do Azure</a>, <a href=\"/azure/container-service/kubernetes/container-service-kubernetes-jenkins\">Kubernetes</a> ou numa <a href=\"/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd\">VM de Linux</a>."
+    - html: Configurar CI no <a href="/azure/jenkins/java-deploy-webapp-tutorial">Serviço de Aplicações do Azure</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> ou numa <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">VM de Linux</a>.
     - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Aprovisionar os recursos numa tarefa de pipeline</a>.
     - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Dimensionar com os agentes de VM do Azure</a>.
 - title: Amostras
@@ -59,13 +60,13 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Fases e fragmentos do Jenkinsfile</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Plug-ins
-      html: "<p><a href=\"https://plugins.jenkins.io/azure-vm-agents\">Agentes VM do Azure</a><p><a href=\"https://plugins.jenkins.io/azure-app-service\">Serviço de Aplicações do Azure</a></p><p><a href=\"https://plugins.jenkins.io/windows-azure-storage\">Armazenamento do Azure</a></p><p><a href=\"https://plugins.jenkins.io/azure-container-agents\">Agentes de Contentor do Azure</a><p><a href=\"https://plugins.jenkins.io/azure-function\">Plug-in de Função do Azure</a><p><a href=\"https://plugins.jenkins.io/azure-acs\">Plug-in do Azure Container Service</a>"
+      html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Agentes VM do Azure</a><p><a href="https://plugins.jenkins.io/azure-app-service">Serviço de Aplicações do Azure</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Armazenamento do Azure</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Agentes de Contentor do Azure</a><p><a href="https://plugins.jenkins.io/azure-function">Plug-in de Função do Azure</a><p><a href="https://plugins.jenkins.io/azure-acs">Plug-in do Azure Container Service</a>
 - type: paragraph
-  text: "<h4>A Jenkins® é uma marca registada de Software in the Public Interest, Inc. O [logótipo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) está licenciado sob [CC por SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) do [projeto Jenkins](https://jenkins.io).</h4>"
+  text: <h4>A Jenkins® é uma marca registada de Software in the Public Interest, Inc. O [logótipo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) está licenciado sob [CC por SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) do [projeto Jenkins](https://jenkins.io).</h4>

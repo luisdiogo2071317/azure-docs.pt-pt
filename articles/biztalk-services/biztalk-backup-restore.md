@@ -1,11 +1,11 @@
 ---
-title: "Criar e restaurar uma cópia de segurança nos BizTalk Services | Microsoft Docs"
-description: "BizTalk Services inclui a cópia de segurança e restauro. Saiba como criar e restaurar uma cópia de segurança e determine o que obtém uma cópia de segurança. MABS, WABS"
+title: Criar e restaurar uma cópia de segurança nos BizTalk Services | Microsoft Docs
+description: BizTalk Services inclui a cópia de segurança e restauro. Saiba como criar e restaurar uma cópia de segurança e determine o que obtém uma cópia de segurança. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102346"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Cópia de segurança e Restauro
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841508"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Otimizar o desempenho de MySQL em VMs do Linux do Azure
 Existem muitos fatores que afetam o desempenho de MySQL no Azure, tanto na seleção de virtual hardware e a configuração de software. Este artigo incida no otimizar o desempenho através de armazenamento, sistema e configurações de base de dados.

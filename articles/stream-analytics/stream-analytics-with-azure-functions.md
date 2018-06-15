@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416028"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418497"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Cria uma topologia do Apache Storm em Java
 

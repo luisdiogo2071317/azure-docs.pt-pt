@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841492"
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar ESTRELA-CCM + com o Microsoft HPC Pack num RDMA Linux cluster no Azure
 Este artigo mostra como implementar um cluster do Microsoft HPC Pack no Azure e execute um [CD adapco ESTRELA-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) tarefa em diversos nós de computação do Linux que estão interligados com InfiniBand.

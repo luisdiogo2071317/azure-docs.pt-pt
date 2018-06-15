@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412115"
 ---
 # <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Tutorial: Configurar alertas para tarefas do Azure Stream Analytics
 Pode configurar alertas para acionar um alerta quando uma métrica atinge uma condição que especificar. Por exemplo, pode configurar um alerta para uma condição como o seguinte:

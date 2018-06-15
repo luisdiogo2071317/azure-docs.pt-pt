@@ -1,12 +1,12 @@
 ---
-title: "O que é o Azure Event Hubs e por que motivo deve ser utilizado | Microsoft Docs"
-description: "Descrição geral e introdução ao Azure Event Hubs – Ingestão de telemetria escalável na cloud a partir de Web sites, aplicações e dispositivos"
+title: O que é o Azure Event Hubs e por que motivo deve ser utilizado | Microsoft Docs
+description: Descrição geral e introdução ao Azure Event Hubs – Ingestão de telemetria escalável na cloud a partir de Web sites, aplicações e dispositivos
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686910"
 ---
 # <a name="what-is-event-hubs"></a>O que são os Hubs de Eventos?
 

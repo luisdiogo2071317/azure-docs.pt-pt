@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909280"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
 É diretamente reencaminhar para configurar uma tarefa de Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando é necessário executar a mesma tarefa com o volume de dados superior? Requer-nos compreender como configurar a tarefa de Stream Analytics para que o se dimensiona. Neste documento, iremos focar-se nos aspetos de especiais de dimensionamento tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar as tarefas do Stream Analytics em geral, consulte o artigo [dimensionamento tarefas](stream-analytics-scale-jobs.md).

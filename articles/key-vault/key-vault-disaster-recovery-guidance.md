@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409346"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade do Cofre de chaves do Azure e de redundância
 O Cofre de chaves do Azure inclui várias camadas de redundância para se certificar de que as chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se os componentes individuais do serviço falharem.

@@ -1,11 +1,11 @@
 ---
-title: "Aplicação de web Django numa VM do Azure do Windows Server | Microsoft Docs"
-description: "Saiba como alojar um Web site baseado em Django no Azure através de uma VM do Windows Server 2012 R2 Datacenter com o modelo de implementação clássica."
+title: Aplicação de web Django numa VM do Azure do Windows Server | Microsoft Docs
+description: Saiba como alojar um Web site baseado em Django no Azure através de uma VM do Windows Server 2012 R2 Datacenter com o modelo de implementação clássica.
 services: virtual-machines-windows
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e36484d1-afbf-47f5-b755-5e65397dc1c3
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057023"
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Aplicação de web Django Olá, mundo numa VM do Windows
 

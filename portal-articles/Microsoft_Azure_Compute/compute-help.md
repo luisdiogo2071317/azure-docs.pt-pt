@@ -1,6 +1,6 @@
 ---
-title: "Documentação de ajuda das máquinas virtuais | Microsoft Docs"
-description: "Conteúdo de ajuda da descrição geral das máquinas virtuais no portal do Azure"
+title: Documentação de ajuda das máquinas virtuais | Microsoft Docs
+description: Conteúdo de ajuda da descrição geral das máquinas virtuais no portal do Azure
 services: virtual-machines
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057676"
 ---
 # <a name="virtual-machines-documentation"></a>Documentação das máquinas virtuais
 As Máquinas Virtuais do Azure proporcionam uma infraestrutura virtualizada, a pedido, altamente dimensionável e segura. Pode criar máquinas virtuais do Windows ou do Linux que executam Red Hat, Ubuntu ou a distribuição de Linux da sua preferência. Para saber como, veja:

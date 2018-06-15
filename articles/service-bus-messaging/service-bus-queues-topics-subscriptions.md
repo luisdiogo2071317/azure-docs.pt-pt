@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral de mensagens de filas, tópicos e subscrições do Azure Service Bus | Microsoft Docs"
-description: "Descrição geral de entidades de mensagens do Service Bus."
+title: Descrição geral de mensagens de filas, tópicos e subscrições do Azure Service Bus | Microsoft Docs
+description: Descrição geral de entidades de mensagens do Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24029512"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 

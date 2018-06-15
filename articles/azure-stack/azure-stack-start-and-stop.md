@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391138"
 ---
 # <a name="start-and-stop-azure-stack"></a>Iniciar e parar a pilha do Azure
 Deve seguir os procedimentos neste artigo corretamente encerrar e reiniciar os serviços de pilha do Azure. 

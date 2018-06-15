@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406879"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gerir o Cofre de chaves do Azure através da automatização do Azure
 Este guia apresenta-lhe o serviço de automatização do Azure e como podem ser utilizada para simplificar a gestão das suas chaves e segredos no Cofre de chaves do Azure.

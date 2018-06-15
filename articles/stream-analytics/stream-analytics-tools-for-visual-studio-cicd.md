@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906278"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Continuamente integrar e desenvolver com ferramentas do Stream Analytics
 Este artigo descreve como utilizar para utilizar as ferramentas do Azure Stream Analytics para o Visual Studio para configurar um processo de integração e a implementação contínuo.

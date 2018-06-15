@@ -1,6 +1,6 @@
 ---
-title: "Ativar o acesso à aplicação de contentor do Azure DC/OS"
-description: "Como ativar o acesso público ao contentores de DC/SO no serviço de contentor do Azure."
+title: Ativar o acesso à aplicação de contentor do Azure DC/OS
+description: Como ativar o acesso público ao contentores de DC/SO no serviço de contentor do Azure.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332284"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Ativar o acesso público para uma aplicação de serviço de contentor do Azure
 

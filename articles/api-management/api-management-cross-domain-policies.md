@@ -1,11 +1,11 @@
 ---
-title: "Gestão de API do Azure políticas entre domínios | Microsoft Docs"
-description: "Saiba mais sobre as políticas de domínio cruzada disponíveis para utilização na API Management do Azure."
+title: Gestão de API do Azure políticas entre domínios | Microsoft Docs
+description: Saiba mais sobre as políticas de domínio cruzada disponíveis para utilização na API Management do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129039"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
