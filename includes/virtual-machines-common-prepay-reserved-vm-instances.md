@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307571"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683054"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias VM reservados do Azure
 
@@ -16,7 +16,14 @@ Pode comprar instâncias reservados do Azure [portal do Azure](https://portal.az
 -   Para as subscrições empresariais, instância reservado compras tem de estar ativadas no [EA portal](https://ea.azure.com).
 -   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as instâncias reservado.
 
-## <a name="buy-a-reserved-instance"></a>Comprar uma instância reservada
+[!IMPORTANT]
+Tem de utilizar um dos métodos descritos abaixo para identificar o tamanho da VM corretamente para uma compra de reserva.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Determinar o tamanho VM adequado antes de compra
+1. Consulte o campo de AdditionalInfo no seu ficheiro de utilização ou a API de utilização para determinar o tamanho VM correto para uma compra de reserva. Não utilize os valores de campos de produto ou subcategoria de medição, uma vez que estes campos não diferenciam entre versões S e não-S de uma VM.
+2. Também pode obter informações de tamanho VM exatas relacionadas com o Powershell, do Azure Resource Manager ou a partir de uma VM em detalhe no portal do Azure.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma instância de Máquina Virtual reservada
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione **adicionar** para comprar uma nova instância reservado.

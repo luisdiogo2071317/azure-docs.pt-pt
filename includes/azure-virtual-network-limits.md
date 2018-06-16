@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568131"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35683037"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -50,7 +50,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Grupos de Segurança de Rede (NSG) |100 |5000 |
 | Regras do NSG por NSG |1000 * * |1000 |
 | Endereços IP e intervalos especificados para a origem ou de destino num grupo de segurança |2000 |4000 |
-| Grupos de segurança de aplicações |200 |500 |
+| Grupos de segurança de aplicações |500 |3000 |
 | Grupos de segurança de aplicações por configuração de IP, por NIC |10 |20 |
 | Configurações de IP por grupo de segurança de aplicações |1000 |4000 |
 | Grupos de segurança de aplicações que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |50 |100 |
