@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Proprietário de subscrição de utilizador de alteração
           href: azure-stack-change-subscription-owner.md
-        - name: Gerir VMs do Windows Azure Pack
-          href: azure-stack-manage-windows-azure-pack.md
         - name: Iniciar e parar a pilha do Azure
           href: azure-stack-start-and-stop.md
         - name: Gerir capacidade
