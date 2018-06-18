@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267448"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrar dados no local para o armazenamento na cloud com o AzCopy
 
@@ -22,8 +23,8 @@ O AzCopy é uma ferramenta de linha de comandos para copiar dados de ou para o a
 
 Pode transferir duas versões do AzCopy:
 
-* O [AzCopy no Linux](storage-use-azcopy.md) inclui o .NET Core Framework. Destina-se às plataformas Linux e tem opções de linha de comandos do estilo POSIX. 
-* O [AzCopy no Windows](../storage-use-azcopy.md) inclui o .NET Framework. Tem opções de linha de comandos do estilo Windows. 
+* O [AzCopy no Linux](storage-use-azcopy-linux.md) inclui o .NET Core Framework. Destina-se às plataformas Linux e tem opções de linha de comandos do estilo POSIX. 
+* O [AzCopy no Windows](storage-use-azcopy.md) inclui o .NET Framework. Tem opções de linha de comandos do estilo Windows. 
  
 Neste tutorial, ficará a saber como:
 
