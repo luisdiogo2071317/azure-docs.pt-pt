@@ -30,6 +30,8 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
+        - name: Gestão do Serviço do Azure (Clássico)
+          href: custom-script-classic.md
     - name: Acesso à máquina virtual
       href: vmaccess.md
     - name: Operations Management Suite

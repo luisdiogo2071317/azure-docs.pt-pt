@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: Monitorizar dentro da memória
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Tarefas de Base de Dados Elástica
+      items:
+        - name: Descrição geral
+          href: elastic-jobs-overview.md
+        - name: Criar e Gerir (Powershell)
+          href: elastic-jobs-powershell.md
+        - name: Criar e Gerir (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Migrar (de tarefas Elásticas antigas)
+          href: elastic-jobs-migrate.md
+        - name: Tarefas elásticas (preteridas)
+          items:
+            - name: Descrição geral (preterido)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Instalar tarefas elásticas (preterido)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: Criar tarefa - Portal (preterido)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: Criar tarefa - Azure PowerShell (preterido)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: Criar tarefa - Aplicação de exemplo (preterido)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Desinstalar tarefa elástica (preterido)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Aumentar horizontalmente
       items:
         - name: Descrição geral
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Transações elásticas
           href: sql-database-elastic-transactions-overview.md
-        - name: Tarefas elásticas
-          href: sql-database-elastic-jobs-overview.md
         - name: Mapas de partições horizontais
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Encaminhamento da consulta
@@ -276,16 +298,6 @@
       items:
         - name: Atualizar a biblioteca de cliente da base de dados elástica
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Instalar tarefa elástica
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Criar tarefa - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Criar trabalho - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Criar tarefa - Exemplo de aplicação
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Desinstalar tarefa elástica
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Consultar dados particionados verticalmente
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Relatórios entre camadas de dados de aumento horizontal
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (DB Elástica)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: CLI 2.0 do Azure
       href: /cli/azure/sql
     - name: .NET
