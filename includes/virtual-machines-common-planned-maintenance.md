@@ -9,10 +9,11 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "30196445"
 ---
 Azure executa periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura de anfitrião para máquinas virtuais. Estes intervalo de atualizações de componentes de software no ambiente de alojamento (como o sistema operativo, hipervisor e agentes vários implementados no anfitrião), a aplicação de patches atualizar componentes de rede, a desativação de hardware. A maioria destas atualizações são efetuadas sem qualquer impacto para as máquinas virtuais alojadas. No entanto, há casos em que as atualizações de ter um impacto:
 

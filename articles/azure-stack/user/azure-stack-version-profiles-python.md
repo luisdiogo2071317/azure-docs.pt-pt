@@ -10,19 +10,53 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: a4fe62ba8c0732745326831b977e8975e1210436
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806841"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utilize perfis de versão de API com o Python na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+
+## <a name="python-and-api-version-profiles"></a>Perfis de versão do Python e API
+
+O SDK Python suporta perfis de versão de API para plataformas de nuvem diferente, tais como a pilha do Azure e global do Azure de destino. Pode utilizar perfis de API na criação de soluções para uma nuvem híbrida. O SDK Python suporta os seguintes perfis de API:
+
+1. **latest**  
+    O perfil destina-se as versões de API mais recentes para todos os fornecedores de serviços na plataforma do Azure.
+2.  **2017-03-09-perfil**  
+    **2017-03-09-perfil**  
+    O perfil destina-se as versões de API dos fornecedores de recursos suportados pela pilha de Azure.
+
+    Para obter mais informações sobre perfis de API e pilha do Azure, consulte [perfis de versão de API gerir no Azure pilha](azure-stack-version-profiles.md).
+
+## <a name="install-azure-python-sdk"></a>Instalar o SDK de Python para o Azure
+
+1.  Instalar o Git do [o site oficial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2.  Para obter instruções instalar o SDK Python, consulte [do Azure para programadores do Python](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python).
+3.  Se não estiver disponível, crie uma subscrição e guarde o ID de subscrição a utilizar mais tarde. Para obter instruções criar uma subscrição, consulte [criar subscrições de ofertas na pilha de Azure](../azure-stack-subscribe-plan-provision-vm.md). 
+4.  Criar um principal de serviço e guarde o respetivo ID e o segredo. Para obter instruções criar um principal de serviço para a pilha do Azure, consulte [fornecer acesso de aplicações do Azure pilha](../azure-stack-create-service-principals.md). 
+5.  Certifique-se a que sua principal de serviço tem a função de contribuinte/proprietário na sua subscrição. Para obter instruções sobre como atribuir função a principal de serviço, consulte [fornecer acesso de aplicações do Azure pilha](../azure-stack-create-service-principals.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para utilizar o SDK do Azure de Python com pilha do Azure, tem de indicar os valores seguintes e, em seguida, definir valores de variáveis de ambiente. Consulte as instruções depois da tabela para o seu sistema operativo em definir as variáveis de ambientais. 
+
+| Valor | Variáveis de ambiente | Descrição |
+|---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
+| ID do inquilino | AZURE_TENANT_ID | O valor da pilha do Azure [ID de inquilino](../azure-stack-identity-overview.md). |
+| ID de Cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste documento. |
+| ID da subscrição | AZURE_SUBSCRIPTION_ID | O [ID de subscrição](../azure-stack-plan-offer-quota-overview.md#subscriptions) é como aceder aos ofertas na pilha do Azure. |
+| Segredo do Cliente | AZURE_CLIENT_SECRET | A aplicação principal de serviço segredo guardados quando principal de serviço foi criado. |
+| Ponto final do Gestor de recursos | ARM_ENDPOINT | Consulte [o ponto de final do Gestor de recursos do Azure pilha](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+
 
 ## <a name="python-samples-for-azure-stack"></a>Exemplos de Python para a pilha do Azure 
 
@@ -83,11 +117,9 @@ Os exemplos não são necessariamente pela ordem apresentada na lista acima.
     pip install -r requirements.txt
     ````
 
-5.  Criar um [principal de serviço](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) para trabalhar com a pilha do Azure. Certifique-se o principal de serviço tem [função de contribuinte/proprietário](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) na sua subscrição.
+5.  Criar um [principal de serviço](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) para trabalhar com a pilha do Azure. Certifique-se o principal de serviço tem [função de contribuinte/proprietário](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal) na sua subscrição.
 
 6.  Defina as seguintes variáveis e exportar estas variáveis de ambiente para o shell atual. 
-
-`Note: provide an explanation of where these variables come from?`
 
     ````bash
     export AZURE_TENANT_ID={your tenant id}
@@ -97,30 +129,32 @@ Os exemplos não são necessariamente pela ordem apresentada na lista acima.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  Tenha em atenção que para executar este exemplo, Ubuntu 16.04-LTS e imagens de Datacenter de R2 de 2012 do Windows tem de estar presentes na pilha do Azure Marketplace. Estes podem ser [transferido a partir do Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-download-azure-marketplace-item) ou [adicionados ao repositório de imagens de plataforma](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image).
+7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-
-8. Execute o exemplo.
+8. Run the sample.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## <a name="notes"></a>Notas
+## Notes
 
-Poderá estar tempted para tentar obter o disco do SO da VM utilizando `virtual_machine.storage_profile.os_disk`.
-Em alguns casos, isto pode fazer o que pretende, mas tenha em atenção de que proporciona um `OSDisk` objeto.
-Para atualizar o tamanho do disco do SO, como `example.py` , não tem um `OSDisk` objeto, mas um `Disk` objeto.
-`example.py` obtém o `Disk` objeto com o seguinte:
+You may be tempted to try to retrieve a VM's OS disk by using
+`virtual_machine.storage_profile.os_disk`.
+In some cases, this may do what you want,
+but be aware that it gives you an `OSDisk` object.
+In order to update the OS Disk's size, as `example.py` does,
+you need not an `OSDisk` object but a `Disk` object.
+`example.py` gets the `Disk` object with the following:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## Next steps
 
-- [O Centro de desenvolvimento do Python do Azure](https://azure.microsoft.com/develop/python/)
-- [Documentação de Virtual Machines do Azure](https://azure.microsoft.com/services/virtual-machines/)
-- [Percurso de aprendizagem para máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- Se não tiver uma subscrição do Microsoft Azure pode obter uma conta de avaliação gratuita [aqui](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
+- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
+- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).

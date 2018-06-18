@@ -1,21 +1,21 @@
 ---
-title: 'O Azure Active Directory B2C: Personalizar dinamicamente a interface de utilizador (IU) do Azure AD B2C, utilizando as políticas personalizadas'
+title: Personalizar a interface de utilizador (IU) do Azure Active Directory B2C dinamicamente através da utilização de políticas personalizadas | Microsoft Docs
 description: Suporta várias experiências de imagem corporativa com conteúdo de HTML5/CSS que alterado de forma dinâmica no tempo de execução.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: d01f7b884e03bb311350c508dc46f699cd6717c0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709347"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a IU com conteúdo dinâmico utilizando as políticas personalizadas
 

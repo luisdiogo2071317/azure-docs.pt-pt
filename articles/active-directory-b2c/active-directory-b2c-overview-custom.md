@@ -1,21 +1,20 @@
 ---
-title: 'Do Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: As políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 0d507c2116aa9e420ddc0dec4999ea21d28e60fc
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709262"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: As políticas personalizadas
 
@@ -35,20 +34,20 @@ As políticas personalizadas são ficheiros de configuração que definem o comp
 | Personalização de atributo | Atributos de padrão e personalizados | mesmo |
 |Gestão de token e de sessão | Token personalizado e várias opções de sessão | mesmo |
 |Fornecedores de Identidade| **Hoje em dia**: fornecedor predefinido de local, redes social<br><br>**Futuro**: OIDC baseada em normas, SAML, OAuth | **Hoje em dia**: OIDC baseada em normas, OAUTH, SAML<br><br>**Futuro**: WsFed |
-|Tarefas de identidade (exemplos) | Inscrever-se ou iniciar sessão com muitas contas de redes sociais e local<br><br>Reposição Personalizada de Palavra-passe<br><br>Editar perfil<br><br>Cenários de autenticação Multifator<br><br>Personalizar Tokens e sessões<br><br>Fluxos de Token de acesso | Conclua as mesmas tarefas como políticas incorporadas a utilizar fornecedores de identidade personalizada ou utilize âmbitos personalizados<br><br>Utilizador de aprovisionar no outro sistema no momento de registo<br><br>Enviar um e-mail de boas-vindas utilizando o seu próprio fornecedor de serviço de e-mail<br><br>Utilize um arquivo de utilizador fora do B2C<br><br>Validar o utilizador fornecido informações com um sistema fidedigna através de API |
+|Tarefas de identidade (exemplos) | Se inscrever ou iniciar sessão com muitas contas de redes sociais e local<br><br>Reposição Personalizada de Palavra-passe<br><br>Editar perfil<br><br>Cenários de autenticação Multifator<br><br>Personalizar Tokens e sessões<br><br>Fluxos de Token de acesso | Conclua as mesmas tarefas como políticas incorporadas a utilizar fornecedores de identidade personalizada ou utilize âmbitos personalizados<br><br>Utilizador de aprovisionar no outro sistema no momento de registo<br><br>Enviar um e-mail de boas-vindas utilizando o seu próprio fornecedor de serviço de e-mail<br><br>Utilize um arquivo de utilizador fora do B2C<br><br>Validar o utilizador fornecido informações com um sistema fidedigna através de API |
 
 ## <a name="policy-files"></a>Ficheiros de política
 
-Uma política personalizada é representada como um ou vários ficheiros de formatado em XML que se referenciar entre si numa cadeia hierárquica. Definem os elementos XML: o esquema de afirmações, as afirmações transformações, definições de conteúdo, perfis de fornecedores/técnica de afirmações e etapas da orquestração Userjourney, entre outros elementos.
+Uma política personalizada é representada como um ou vários ficheiros de formatado em XML que se referenciar entre si numa cadeia hierárquica. Definem os elementos XML: o esquema de afirmações, as afirmações transformações, definições de conteúdo, perfis de fornecedores/técnica de afirmações e etapas da orquestração journey utilizador, entre outros elementos.
 
 Recomendamos a utilização dos três tipos de ficheiros de política:
 
 - **Um ficheiro de BASE**, que contém a maioria das definições e para que o Azure oferece um exemplo completo.  É recomendado que torne um número mínimo de alterações a este ficheiro para o ajudar a resolver problemas de mensagens em fila e a longo prazo manutenção das políticas de
 - **um ficheiro de extensões** que contém as alterações de configuração exclusivo para o seu inquilino
-- **um ficheiro de terceiros entidade Confiadora (RP)** que é o único ficheiro concentra-se tarefas que é invocado diretamente pela aplicação ou serviço (aka entidade Confiadora).  Leia o artigo em definições do ficheiro de política para obter mais informações.  Cada tarefa exclusiva requer a sua própria RP e consoante os requisitos de imagem corporativa o número pode ser "total de aplicações x o número total de cenários de utilização de".
+- **um ficheiro de terceiros entidade Confiadora (RP)** que é o único centrados na tarefa de ficheiro que é invocado diretamente pela aplicação ou serviço (aka entidade Confiadora).  Leia o artigo em definições do ficheiro de política para obter mais informações.  Cada tarefa exclusiva requer a sua própria RP e consoante os requisitos de imagem corporativa o número pode ser "total de aplicações x o número total de cenários de utilização."
 
 
-As políticas incorporadas no Azure AD B2C seguem o padrão de ficheiro de 3 descrito acima, mas o programador só vê o ficheiro de terceiros entidade Confiadora (RP), enquanto o portal faz as alterações em segundo plano para o ficheiro de extensões.
+As políticas incorporadas no Azure AD B2C seguem o padrão de ficheiro de três descrito acima, mas o programador só vê o ficheiro de terceiros entidade Confiadora (RP), enquanto o portal faz as alterações em segundo plano para o ficheiro de extensões.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceitos principais que deve conhecer ao utilizar políticas personalizadas
 
@@ -58,9 +57,9 @@ Ao cliente identidades e acessos (CIAM) serviço de gestão do Azure. O serviço
 
 1. Um diretório de utilizador no formato de uma oferta especial de objetivo do Azure Active Directory acessível através do Microsoft Graph e que contém dados de utilizador para contas locais e contas federadas 
 2. Acesso a **identidade experiência Framework** que orquestra fidedignidade entre os utilizadores e as entidades e transmite afirmações entre-los para concluir uma tarefa de gestão de identidade/acesso 
-3. Um token serviço de segurança (STS) emitir id tokens, atualização de tokens e acesso tokens (e equivalentes asserções de SAML) e a validá-las para proteger os recursos.
+3. Um token serviço de segurança (STS) emitir ID tokens, atualização de tokens e acesso tokens (e equivalentes asserções de SAML) e a validá-las para proteger os recursos.
 
-O Azure AD B2C interage com fornecedores de identidade, os utilizadores, outros sistemas e com o diretório de utilizador local na sequência para alcançar uma tarefa de identidade (por exemplo início de sessão um utilizador registar um novo utilizador, repor uma palavra-passe). A plataforma subjacente que estabelece a fidedignidade de múltiplos intervenientes e executa estes passos denomina-se a estrutura de experiência de identidade e uma política (também denominada journey um utilizador ou uma política de estrutura de confiança) explicitamente define os atores, as ações, os protocolos, e a sequência de passos para concluir.
+O Azure AD B2C interage com fornecedores de identidade, os utilizadores, outros sistemas e com o diretório de utilizador local na sequência para alcançar uma tarefa de identidade (por exemplo início de sessão um utilizador registar um novo utilizador, repor uma palavra-passe). A plataforma subjacente que estabelece a fidedignidade de múltiplos intervenientes e executa estes passos denomina-se a estrutura de experiência de identidade e uma política (também denominada journey um utilizador ou uma política de estrutura de confiança) explicitamente define os atores, as ações, os protocolos e o sequência de passos para concluir.
 
 ### <a name="identity-experience-framework"></a>Estrutura de Experiência de Identidade
 
@@ -68,14 +67,14 @@ Formatos de uma plataforma do Azure totalmente configurável, orientadas por pol
 
 ### <a name="built-in-policies"></a>Políticas incorporadas
 
-Predefinidas de ficheiros de configuração que direcionam o comportamento do Azure AD B2C para efetuar mais frequentemente utilizada identidade tarefas (ou seja, registo de utilizador, de início de sessão, reposição de palavra-passe) e interagir com entidades fidedignas cuja relação também predefinida no Azure AD B2C (para exemplo Facebook fornecedor de identidade, LinkedIn, Microsoft Account, contas Google).  No futuro, também podem fornecer políticas incorporadas para personalização de fornecedores de identidade que são normalmente no realm enterprise como o Azure Active Directory Premium, do Active Directory/ADFS, Salesforce ID fornecedor etc.
+Predefinidas configuração ficheiros direcionam o comportamento do Azure AD B2C para efetuar mais frequentemente utilizadas tarefas de identidade (ou seja, registo de utilizador, de início de sessão, reposição de palavra-passe) e interagirem com terceiros fidedignas cuja relação também é predefinida no Azure AD B2C ( Por exemplo Facebook fornecedor de identidade, LinkedIn, Microsoft Account, contas Google).  No futuro, também podem fornecer políticas incorporadas para personalização de fornecedores de identidade que são normalmente no realm enterprise como o Azure Active Directory Premium, do Active Directory/ADFS, Salesforce ID fornecedor etc.
 
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
-Ficheiros de configuração que definem o comportamento do Framework de experiência de identidade no seu inquilino do Azure AD B2C. Uma política personalizada está acessível como um ou vários ficheiros XML (consulte as definições de política de ficheiros) que são executados pelo Framework de experiência de identidade quando foi invocado por uma entidade confiadora (por exemplo uma aplicação). As políticas personalizadas podem ser editadas diretamente por um programador de identidade para concluir um número ilimitado near de tarefas. Os programadores de configurar as políticas personalizadas tem de definir as relações fidedignas em detalhe cuidado para incluir pontos finais de metadados, afirmações exatas definições do exchange e configurar certificados conforme necessário, por cada fornecedor de identidade, as chaves e segredos.
+Ficheiros de configuração que definem o comportamento do Framework de experiência de identidade no seu inquilino do Azure AD B2C. Uma política personalizada está acessível como um ou vários ficheiros XML (consulte as definições de política de ficheiros) que são executados pelo Framework de experiência de identidade quando foi invocado por uma entidade confiadora (por exemplo uma aplicação). As políticas personalizadas podem ser editadas diretamente por um programador de identidade para concluir um número ilimitado near de tarefas. Os programadores de configurar as políticas personalizadas tem de definir as relações fidedignas em detalhe cuidado para incluir pontos finais de metadados, afirmações exatas definições do exchange e configurar certificados, chaves e segredos, conforme necessário, por cada fornecedor de identidade.
 
-## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Definições do ficheiro de política para Trustframeworks de estrutura de experiência de identidade
+## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>Definições do ficheiro de política para estruturas de fidedignidade do Framework de experiência de identidade
 
 ### <a name="policy-files"></a>Ficheiros de política
 
