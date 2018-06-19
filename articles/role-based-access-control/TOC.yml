@@ -1,5 +1,5 @@
-- name: Descrição geral da gestão do acesso
-  href: manage-access-to-azure-resources.md
+- name: Documentação do Controlo de Acesso Baseado em Funções
+  href: index.yml
   items: null
 - name: Descrição geral
   items:
@@ -36,6 +36,7 @@
     - name: Acesso condicional para a gestão do Azure
       href: conditional-access-azure-management.md
 - name: Guias de procedimentos
+  expanded: true
   items:
     - name: Gerir o acesso
       items:

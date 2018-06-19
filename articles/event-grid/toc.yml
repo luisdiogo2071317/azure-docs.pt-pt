@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: Receber eventos num ponto final de HTTP
       href: receive-events.md
+    - name: Gerir a entrega de eventos
+      href: manage-event-delivery.md
     - name: Monitorize a entrega de eventos
       href: monitor-event-delivery.md
     - name: Subscrições de eventos de consultas

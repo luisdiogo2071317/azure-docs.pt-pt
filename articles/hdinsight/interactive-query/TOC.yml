@@ -337,13 +337,10 @@
         - name: Ligar o HDInsight com a sua rede local
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Monitorizar com OMS
+    - name: Monitorizar com o Log Analytics
       items:
         - name: Utilizar o Log Analytics do Azure
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Dashboards específicos do cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Utilizar consultas com o Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
