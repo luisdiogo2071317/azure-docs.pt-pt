@@ -97,6 +97,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Autenticação de Certificados Mútuos
           href: api-management-howto-mutual-certificates.md
+        - name: Gerir as cifras e protocolos
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalizar a experiência do programador
       items:
         - name: Modificar o conteúdo e o esquema da página

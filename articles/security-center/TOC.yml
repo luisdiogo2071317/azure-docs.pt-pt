@@ -53,7 +53,7 @@
     - name: Monitorizar o estado de funcionamento da segurança
       href: security-center-monitoring.md
       items:
-        - name: Segurança da computação
+        - name: Segurança de aplicações e de computação
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: Aplicar encriptação de discos
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: Avaliação de vulnerabilidades não instalada
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: Adicionar uma firewall de aplicação Web
+              href: security-center-add-web-application-firewall.md
+            - name: Finalizar a proteção das aplicações
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Segurança da rede
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: Ativar a Encriptação de Dados Transparente
               href: security-center-enable-transparent-data-encryption.md
-        - name: Segurança de aplicações
-          href: security-center-application-recommendations.md
-          items:
-            - name: Adicionar uma firewall de aplicação Web
-              href: security-center-add-web-application-firewall.md
-            - name: Finalizar a proteção das aplicações
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Identidade e Acesso
           href: security-center-identity-access.md
     - name: Aplicar defesas da cloud
