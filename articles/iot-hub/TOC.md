@@ -1,4 +1,4 @@
-# [Noções básicas do IoT do Azure](../iot-fundamentals/index.yml)
+# [Noções básicas do IoT do Azure](/azure/iot-fundamentals)
 # [Documentação do Hub IoT](index.yml)
 
 # Descrição geral
@@ -84,10 +84,10 @@
 ### [Utilizar o IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Utilizar o serializador](iot-hub-device-sdk-c-serializer.md)
 
-## [Segurança desde o início](iot-hub-security-ground-up.md)
-## [Melhores práticas de segurança](iot-hub-security-best-practices.md)
-## [Arquitetura de segurança](iot-hub-security-architecture.md)
-## [Proteger a sua implementação de IoT](iot-hub-security-deployment.md)
+## [Segurança desde o início](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Melhores práticas de segurança](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Arquitetura de segurança](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Proteger a sua implementação de IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Proteger com certificados X.509 de AC
 ### [Descrição geral da segurança de certificado X.509 de AC](iot-hub-x509ca-overview.md)
 #### [Conceitos da segurança de certificado X.509 de AC](iot-hub-x509ca-concept.md)

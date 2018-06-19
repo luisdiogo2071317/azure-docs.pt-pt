@@ -17,6 +17,7 @@
 ### [Secções de modelos](resource-group-authoring-templates.md)
 #### [Parâmetros](resource-manager-templates-parameters.md)
 #### [Variáveis](resource-manager-templates-variables.md)
+#### [Funções](resource-group-authoring-templates.md#functions)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Saídas](resource-manager-templates-outputs.md)
 ### [Modelos ligados e aninhados](resource-group-linked-templates.md)
