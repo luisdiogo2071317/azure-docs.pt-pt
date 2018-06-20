@@ -3,22 +3,22 @@ title: Como agendar o tempo de execução de integração do Azure SSIS | Micros
 description: Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS através da automatização do Azure e do Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/01/2018
-ms.author: douglasl
-ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297799"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266826"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o tempo de execução de integração de SSIS do Azure com base numa agenda
 Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, normalmente, pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e parar a resposta a incidentes quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)).

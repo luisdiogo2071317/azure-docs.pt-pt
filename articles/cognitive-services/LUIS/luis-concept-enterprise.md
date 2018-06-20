@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: dde7012dee0eb5ea3ac2e1257cb8d2fca5843d4b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35356488"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263758"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias de empresa para uma aplicação LUIS
 Reveja estes estratégias de design para a sua aplicação da empresa.
@@ -58,10 +58,13 @@ O chatbot recebe o utterance, em seguida, envia para o elemento principal aplica
 
 Compreender a forma como esta hierarquia de chamadas é efetuada a partir v4 do construtor Bot [tutorial de aplicação de emissor][dispatcher-application-tutorial].  
 
+### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de emissão
+Uma aplicação de distribuição tem 500 origens de emissão, equivalentes para 500 pendentes, como o máximo. 
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [um lote de teste](luis-how-to-batch-test.md)
 
-[LUIS]:luis-reference-regions.md
-[dispatcher-application-tutorial]:https://aka.ms/bot-dispatch
-[dispatch-tool]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187696"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266887"
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -49,11 +49,13 @@ Encriptação de disco do Azure é suportada no seguintes distribuições de ser
 | --- | --- |--- |
 | Ubuntu | 16.04-DIARIAMENTE-LTS | Disco do SO e dados |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco do SO e dados |
+| RHEL | 7.5 | Disco de dados * |
 | RHEL | 7.4 | Disco de dados * |
 | RHEL | 7.3 | Disco de dados * |
 | RHEL | 7.2 | Disco de dados * |
 | RHEL | 6.8 | Disco de dados * |
 | RHEL | 6.7 | Disco de dados * |
+| CentOS | 7.4 | Disco do SO e dados |
 | CentOS | 7.3 | Disco do SO e dados |
 | CentOS | 7.2N | Disco do SO e dados |
 | CentOS | 6.8 | Disco do SO e dados |

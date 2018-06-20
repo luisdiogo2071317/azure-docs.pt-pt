@@ -3,25 +3,25 @@ title: Relatórios do Azure Active Directory | Microsoft Docs
 description: Mostra uma descrição geral dos relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 816caf0e65520c1f6fede55b522681ae0a46f955
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 1bcd7f9e0a134173a8942b71259428a720a3d076
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588561"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222506"
 ---
 # <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
@@ -104,7 +104,7 @@ Para aceder aos relatórios de atividade de inícios de sessão, o seu inquilino
 Para além da interface de utilizador, os relatórios do Azure Active Directory também lhe fornecem [acesso programático](active-directory-reporting-api-getting-started-azure-portal.md) aos dados dos relatórios. Os dados destes relatórios podem ser bastante úteis para as suas aplicações, como sistemas SIEM e ferramentas de auditoria e de business intelligence. As APIs dos relatórios do Azure AD proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se quiser saber mais sobre os vários tipos de relatórios do Azure Active Directory, veja:
 

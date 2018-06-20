@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 760434253a3ece14352154a22cc68142ec2b0531
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35760243"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221636"
 ---
 # <a name="test-your-luis-app"></a>Testar a aplicação de LUIS
 <a name="train-your-app"></a>
@@ -92,18 +92,23 @@ Se tiver vários pontos finais de LUIS, utilize o **definições adicionais** li
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Ver as correções de verificação de ortográfica do Bing no painel de teste
-Pode ver as correções de ortografia fornecidas pelo [Bing de verificação ortográfica v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API na vista de JSON a **publicada** painel do painel de teste. 
+Requisitos para ver as correções ortografia: 
 
-Para utilizar esta funcionalidade, tem de ter publicado aplicações, e tem um ortográfica do Bing verifique [chave do serviço](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). A chave do serviço não está armazenada e tem de ser reposto para cada sessão de browser. 
+* Aplicação publicada
+* Verificação de ortográfica do Bing [chave do serviço](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). A chave do serviço não está armazenada e tem de ser reposto para cada sessão de browser. 
 
-Utilize o seguinte para utilizar a chave do serviço de v7 a verificação de ortográfica do Bing no painel de teste. 
+Utilize o procedimento seguinte para incluir o [Bing de verificação ortográfica v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) serviço nos resultados de painel de teste. 
 
-1. No painel de teste, no **publicada** painel, selecione **definições adicionais**.
+1. No **teste** painel, introduza um utterance. Quando o utterance é previu, selecione **[inspecionar](#inspect-score)** por baixo utterance que introduziu. 
 
-2. Na caixa de diálogo de pop-up, introduza o **Bing de verificação ortográfica** chave do serviço. 
+2. Quando o **inspecionar** painel se abre, selecione  **[comparar com publicada](#compare-with-published-version)**. 
+
+3. Quando o **publicada** painel se abre, selecione  **[definições adicionais](#additional-settings-in-test-panel)**.
+
+4. Na caixa de diálogo de pop-up, introduza o **Bing de verificação ortográfica** chave do serviço. 
     ![Introduza a chave do serviço de verificação de ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
-3. Introduza uma consulta com um spelling incorreto, tais como `book flite to seattle` e selecione introduza. A ortografia incorreta de palavra `flite` é substituído na consulta enviada para LUIS e JSON resultante mostra ambas a consulta original, como `query`e a ortografia corrigida da consulta, como `alteredQuery`.
+5. Introduza uma consulta com um spelling incorreto, tais como `book flite to seattle` e selecione introduza. A ortografia incorreta de palavra `flite` é substituído na consulta enviada para LUIS e JSON resultante mostra ambas a consulta original, como `query`e a ortografia corrigida da consulta, como `alteredQuery`.
 
     ![Corrigido spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 

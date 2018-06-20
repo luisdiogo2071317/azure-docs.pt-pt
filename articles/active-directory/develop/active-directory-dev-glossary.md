@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158154"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268137"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para alguns dos principais do Azure Active Directory (AD) para programadores conceitos, que são úteis para saber mais sobre o desenvolvimento de aplicações do Azure AD.
@@ -45,7 +45,7 @@ Uma funcionalidade fornecida pelo [portal do Azure][AZURE-portal], que produz um
 ## <a name="application-object"></a>Objeto de aplicação
 Quando lhe registe/atualizar uma aplicação no [portal do Azure][AZURE-portal], o portal cria/atualizações de um objeto de aplicação e um correspondente [objeto principal do serviço](#service-principal-object) para esse inquilino. O objeto de aplicação *define* a aplicação da configuração da identidade globalmente (em todos os inquilinos onde tem acesso), que fornece um modelo a partir dos quais são os objetos de principal de serviço correspondente *derivada* para utilização localmente em tempo de execução (de um inquilino específico).
 
-Consulte [aplicação e objetos de principais de serviço] [ AAD-App-SP-Objects] para obter mais informações.
+Para obter mais informações, consulte [aplicação e objetos de principais de serviço][AAD-App-SP-Objects].
 
 ## <a name="application-registration"></a>Registo de aplicação
 Para permitir que uma aplicação integrar e delegar funções de gestão de acesso e de identidade para o Azure AD, tem de ser registado com um Azure AD [inquilino](#tenant). Ao registar a sua aplicação com o Azure AD, que está a fornecer uma configuração de identidade para a sua aplicação, permitindo que integrar com o Azure AD e utilizar as funcionalidades, tais como:
@@ -132,7 +132,7 @@ Como [âmbitos](#scopes), funções fornecem uma forma de um [servidor recursos]
 
 As funções são definidas pelo recurso cadeias (por exemplo "evitam o aprovador", "Só de leitura", "Directory.ReadWrite.All"), gerido no [portal do Azure] [ AZURE-portal] através do recurso [manifesto da aplicação](#application-manifest)e armazenados no recurso [appRoles propriedade][AAD-Graph-Sp-Entity]. O portal do Azure também é utilizado para atribuir utilizadores a funções de "utilizador" e configurar o cliente [permissões de aplicação](#permissions) para aceder a uma função de "aplicação".
 
-Para ver um debate detalhado das funções de aplicação exposta pelo Azure AD Graph API, consulte [âmbitos de permissões do API Graph][AAD-Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [controlo de acesso em aplicações em nuvem com o Azure AD baseado em funções][Duyshant-Role-Blog].
+Para ver um debate detalhado das funções de aplicação exposta pelo Azure AD Graph API, consulte [âmbitos de permissões do API Graph][AAD-Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [gerir o acesso através do portal do Azure e o RBAC][AAD-RBAC].
 
 ## <a name="scopes"></a>âmbitos
 Como [funções](#roles), âmbitos de fornecem uma forma de um [servidor recursos](#resource-server) para controlam o acesso aos respetivos recursos protegidos. Âmbitos são utilizados para implementar [baseado no âmbito] [ OAuth2-Access-Token-Scopes] o controlo de acesso, para um [aplicação cliente](#client-application) que foi fornecido acesso delegado o recurso pelo respetivo proprietário.
@@ -147,7 +147,7 @@ Um documento assinado que contém as afirmações, tais como um OAuth2 token ou 
 ## <a name="service-principal-object"></a>Objeto principal do serviço
 Quando lhe registe/atualizar uma aplicação no [portal do Azure][AZURE-portal], o portal cria/atualizações ambos um [objeto da aplicação](#application-object) e um objeto principal de serviço correspondentes para esse inquilino. O objeto de aplicação *define* configuração da identidade da aplicação global (em todos os inquilinos onde a aplicação associada foi concedida acesso), e é o modelo a partir dos quais são os objetos de principal de serviço correspondente *derivada* para utilização localmente em tempo de execução (de um inquilino específico).
 
-Consulte [aplicação e objetos de principais de serviço] [ AAD-App-SP-Objects] para obter mais informações.
+Para obter mais informações, consulte [aplicação e objetos de principais de serviço][AAD-App-SP-Objects].
 
 ## <a name="sign-in"></a>iniciar sessão
 O processo de um [aplicação cliente](#client-application) iniciar autenticação de utilizador final e capturar relacionados com o estado, para fins de adquirir uma [token de segurança](#security-token) e controlo de âmbito de sessão de aplicação para esse Estado. Pode incluir artefactos, tais como informações de perfil de utilizador e informações derivam do token afirmações de estado.
@@ -155,7 +155,7 @@ O processo de um [aplicação cliente](#client-application) iniciar autenticaç�
 A função de início de sessão de uma aplicação é normalmente utilizada para implementar o single-sign-on (SSO). -Pode também ser precedido por uma função de "inscrição", como o ponto de entrada para um utilizador final obter acesso a uma aplicação (após a primeira início de sessão). A função de inscrição é utilizada para recolher e manter o estado adicionais específico para o utilizador e pode necessitar de [consentimento do utilizador](#consent).
 
 ## <a name="sign-out"></a>de fim de sessão
-O processo de autenticação não associados a um utilizador final, desanexar o estado do utilizador com o [aplicação cliente](#client-application) sessão durante [início de sessão](#sign-in)
+O processo de unauthenticating um utilizador final, desanexar o estado do utilizador associada a [aplicação cliente](#client-application) sessão durante [início de sessão](#sign-in)
 
 ## <a name="tenant"></a>inquilino
 Uma instância de um diretório do Azure AD é referida como um inquilino do Azure AD. Fornece várias funcionalidades, incluindo:
@@ -170,18 +170,18 @@ Inquilinos do Azure AD são criados/associada ao subscrições do Azure e o Offi
 Um dos pontos finais implementados pelo [servidor autorização](#authorization-server) para suportar o OAuth2 [concede autorização](#authorization-grant). Consoante a concessão, podem ser utilizado para adquirir um [token de acesso](#access-token) (e de token 'atualizar' relacionados) para um [cliente](#client-application), ou [ID token](#ID-token) quando utilizado com o [OpenID Connect] [ OpenIDConnect] protocolo.
 
 ## <a name="user-agent-based-client"></a>Utilizador agente baseada em cliente
-Um tipo de [aplicação cliente](#client-application) que transfere o código de um servidor web e executa dentro de um agente de utilizador (por exemplo, um web browser), tal como uma única página aplicação (SPA). Uma vez que todo o código é executado num dispositivo, considera-se um cliente "público" devido a sua incapacidade de armazenar credenciais em privado/confidentially. Consulte [de perfis e tipos de cliente de OAuth2] [ OAuth2-Client-Types] para obter mais detalhes.
+Um tipo de [aplicação cliente](#client-application) que transfere o código de um servidor web e executa dentro de um agente de utilizador (por exemplo, um web browser), tal como uma única página aplicação (SPA). Uma vez que todo o código é executado num dispositivo, considera-se um cliente "público" devido a sua incapacidade de armazenar credenciais em privado/confidentially. Para obter mais informações, consulte [de perfis e tipos de cliente de OAuth2][OAuth2-Client-Types].
 
 ## <a name="user-principal"></a>principal de utilizador
 A objeto principal do serviço é utilizado para representar uma instância de aplicação de forma semelhante, um objeto principal de utilizador é outro tipo de principal de segurança, que representa um utilizador. O Azure AD Graph [entidade utilizador] [ AAD-Graph-User-Entity] define o esquema para um objeto de utilizador, incluindo propriedades relacionadas com o utilizador, tais como o nome próprio e apelido, nome principal de utilizador, membro da função de diretório, etc. Isto fornece a configuração de identidade de utilizador para o Azure AD estabelecer um principal de utilizador em tempo de execução. O principal de utilizador é utilizado para representar um utilizador autenticado para Single Sign-On, gravar [consentimento](#consent) delegação, tomar decisões de controlo de acesso, etc.
 
 ## <a name="web-client"></a>cliente Web
-Um tipo de [aplicação cliente](#client-application) que executa a todo o código num servidor web e capacidade para funcionar como um cliente "Confidencial" por armazenar as respetivas credenciais de forma segura no servidor. Consulte [de perfis e tipos de cliente de OAuth2] [ OAuth2-Client-Types] para obter mais detalhes.
+Um tipo de [aplicação cliente](#client-application) que executa a todo o código num servidor web e capacidade para funcionar como um cliente "Confidencial" por armazenar as respetivas credenciais de forma segura no servidor. Para obter mais informações, consulte [de perfis e tipos de cliente de OAuth2][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Passos Seguintes
-O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os desenvolvimento do Azure AD relacionadas com tópicos, incluindo uma descrição geral do [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas do [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de código & tutoriais sobre como obter rapidamente e em execução no [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todas as do Azure AD relacionadas com o desenvolvimento tópicos, incluindo uma descrição geral do [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas do [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de código & tutoriais sobre como obter rapidamente e em execução no [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incluindo pedidos de existência de novas definições ou a atualização já existentes, utilize a seguinte secção de comentários!
+Utilize a seguinte secção de comentários para fornecer comentários e ajudar a otimizar e formam este conteúdo, incluindo pedidos de existência de novas definições ou a atualização já existentes!
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incl
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incl
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

@@ -3,21 +3,22 @@ title: Personalizar a configuração para o tempo de execução de integração 
 description: Este artigo descreve como utilizar a interface de configuração personalizada para o tempo de execução de integração do Azure-SSIS para instalar componentes adicionais ou alterar as definições
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298397"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268130"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o tempo de execução de integração do Azure-SSIS
 
@@ -30,13 +31,13 @@ Pode instalar componentes livres ou sem licença e pagos ou licenciados componen
 
 ## <a name="current-limitations"></a>Limitações atuais
 
--   Se pretender utilizar `gacutil.exe` para instalar as assemblagens na Cache de assemblagem Global (GAC), tem de fornecer como parte da sua configuração personalizada, ou utilizar a cópia fornecida no contentor de pré-visualização pública.
+-   Se pretender utilizar `gacutil.exe` para instalar as assemblagens na Cache de assemblagem Global (GAC), tem de fornecer `gacutil.exe` como parte da sua configuração personalizada, ou utilize a cópia fornecida no contentor de pré-visualização pública.
+
+-   Se pretender fazer referência a uma subpasta no script, `msiexec.exe` não suporta o `.\` notação para referenciar a pasta raiz. Utilizar um comando como `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` em vez de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
 -   Se precisar de aderir a sua resposta a incidentes SSIS do Azure com a configuração personalizada a uma rede virtual, apenas o Azure Resource Manager rede virtual é suportada. Não é suportada a rede virtual clássica.
 
 -   Partilha administrativa não é actualmente suportada no IR. SSIS do Azure
-
--   Se pretender mapear uma partilha de ficheiros para uma unidade na sua configuração personalizada, o `net use` comando não é atualmente suportado. Como resultado, não é possível utilizar um comando como `net use d: \\fileshareserver\sharename`. Em alternativa, utilize o `cmdkey` comando - por exemplo, `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - para acesso a `\\fileshareserver\folder` diretamente nos seus pacotes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,8 +59,7 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
     1.  Tem de ter um ficheiro de script com o nome `main.cmd`, que é o ponto de entrada do seu programa de configuração personalizado.
 
-    2.  Se pretender que os registos adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) para ser carregado para o contentor, especifique a variável de ambiente predefinidas, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de registo na sua scripts (por exemplo, `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Se pretender que os registos adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) para ser carregado para o contentor, especifique a variável de ambiente predefinidas, `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de registo na sua scripts (por exemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Transferir, instalar e iniciar [Explorador de armazenamento do Azure](http://storageexplorer.com/).
 

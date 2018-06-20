@@ -8,22 +8,23 @@ manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: ab2897eefd1c394ba0b10ba6fce3e11af4a0b2a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587965"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265274"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como ativar o Azure Active Directory Domain Services (Azure AD DS) no portal do Azure.
+
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para concluir as tarefas apresentadas neste artigo, tem de:
@@ -35,6 +36,7 @@ Para concluir as tarefas apresentadas neste artigo, tem de:
 
 
 ## <a name="enable-azure-ad-domain-services"></a>Ativar o Azure AD Domain Services
+
 Para iniciar o **serviços de domínio do AD de Azure ativar** assistente, execute os seguintes passos:
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).

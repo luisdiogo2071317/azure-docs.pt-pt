@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
-ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294016"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222982"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>App Service do Azure no Linux FAQ
 
 Com a versão do serviço de aplicações no Linux, estamos a trabalhar na adição de funcionalidades e a efetuar melhoramentos à nossa plataforma. Este artigo fornece respostas às questões que os nossos clientes tinham vindo a pedir-nos recentemente.
 
-Se tiver uma pergunta, comentário no artigo e iremos irá responder logo que possível.
+Se tiver uma pergunta, comente neste artigo.
 
 ## <a name="built-in-images"></a>Imagens incorporadas
 
@@ -54,13 +54,13 @@ Sim, pode fazê-lo através do site de gestão (SCM) do controlo de origem.
 
 **Como posso criar um plano de serviço de aplicações do Linux através de um SDK ou um modelo Azure Resource Manager?**
 
-Tem de definir o **reservado** campo o app service para *verdadeiro*.
+Deve definir o **reservado** campo o app service para *verdadeiro*.
 
 ## <a name="continuous-integration-and-deployment"></a>Integração e implementação contínua
 
 **A minha aplicação web ainda utiliza uma imagem de contentor do Docker antiga depois posso atualizou a imagem no Hub de Docker. Suportam integração contínua e a implementação de contentores personalizados?**
 
-Para configurar a integração/implementação contínua para registo de contentor do Azure ou DockerHub imagens pela verificação do seguinte artigo [a implementação contínua com a aplicação Web para contentores](./app-service-linux-ci-cd.md). Para os registos do privada, pode atualizar o contentor por parar e, em seguida, iniciar a aplicação web. Ou pode alterar ou adicionar uma definição de aplicação fictício para forçar uma atualização do seu contentor.
+Sim, para configurar a integração/implementação contínua para registo de contentor do Azure ou DockerHub, seguir [a implementação contínua com a aplicação Web para contentores](./app-service-linux-ci-cd.md). Para os registos do privada, pode atualizar o contentor por parar e, em seguida, iniciar a aplicação web. Ou pode alterar ou adicionar uma definição de aplicação fictício para forçar uma atualização do seu contentor.
 
 **Suportam ambientes de testes?**
 
@@ -70,15 +70,15 @@ Sim.
 
 Sim, tem de definir uma aplicação definição chamado `WEBSITE_WEBDEPLOY_USE_SCM` para *falso*.
 
-**Falha na implementação do Git da minha aplicação ao utilizar a aplicação web de Linux. Como posso solução o problema?**
+**Falha na implementação do Git da minha aplicação ao utilizar a aplicação web de Linux. Como posso resolver o problema?**
 
-Se falhar a implementação de Git para a sua aplicação web do Linux, pode escolher as seguintes opções alternativas para implementar o código de aplicação:
+Se falhar a implementação de Git para a sua aplicação web do Linux, escolha uma das seguintes opções para implementar o código da aplicação:
 
-- Utilizar a funcionalidade de entrega contínua (pré-visualização): pode armazenar o código fonte da aplicação num repositório de Git de serviços da equipa ou repositório do GitHub para utilizar a distribuição contínua do Azure. Para obter mais detalhes, consulte [como configurar a entrega contínua da aplicação web de Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilizar a funcionalidade de entrega contínua (pré-visualização): pode armazenar o código fonte da aplicação num repositório de Git de serviços da equipa ou repositório do GitHub para utilizar a distribuição contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua da aplicação web de Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para utilizar esta API, [SSH para a aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte:
+- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para utilizar esta API, [SSH para a aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte código:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -86,10 +86,11 @@ Se falhar a implementação de Git para a sua aplicação web do Linux, pode esc
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-**Pretende utilizar websockets na minha aplicação Node.js, definições especiais ou configurações para definir?**
+**Pretende utilizar sockets web na minha aplicação Node.js, quaisquer definições especiais ou configurações para definir?**
 
-Sim, desativar `perMessageDeflate` no seu código de Node.js do lado do servidor. Por exemplo, se estiver a utilizar o socket.io, efetue o seguinte:
-```
+Sim, desativar `perMessageDeflate` no seu código Node.js do lado do servidor. Por exemplo, se estiver a utilizar o socket.io, utilize o seguinte código:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -101,16 +102,16 @@ Sim.
 
 **Suportam compositor como um Gestor de dependência para aplicações PHP?**
 
-Sim. Durante a implementação de Git, o Kudu deve detetar que está a implementar uma aplicação PHP (graças à presença de um ficheiro de composer.lock), e Kudu irá acionar uma instalação de compositor por si.
+Sim, durante a implementação de Git, o Kudu deve detetar que estiver a implementar uma aplicação PHP (graças à presença de um ficheiro de composer.lock) e o Kudu irá acionar uma instalação de compositor.
 
 ## <a name="custom-containers"></a>Contentores personalizados
 
 **Estou a utilizar o meu próprio contentor personalizado. Quero a plataforma para montar uma partilha SMB para a `/home/` diretório.**
 
-Pode fazê-lo definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição de aplicação para *verdadeiro* ou removendo a aplicação definir completamente. Tenha em atenção que o se o fizer Isto fará com que reinícios do contentor quando o armazenamento de plataforma passa através de uma alteração. 
+Pode fazê-lo definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição de aplicação para *verdadeiro*. Tenha em atenção que isto causará reinícios do contentor quando o armazenamento de plataforma passa através de uma alteração.
 
 >[!NOTE]
->Se o `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição é *falso*, a `/home/` directory não irão ser partilhado entre instâncias de escala e ficheiros que são escritos existe não irão ser persistente entre reinícios.
+>Se o `WEBSITES_ENABLE_APP_SERVICE_STORAGE` definição está especificada ou defina como *falso*, a `/home/` directory não irão ser partilhado entre instâncias de escala e ficheiros que são escritos existe não irão ser persistente entre reinícios.
 
 **A minha contentor personalizado demora muito tempo a iniciar e, a plataforma reinicia o contentor antes de concluir a iniciar.**
 
@@ -162,6 +163,6 @@ Pode submeter a ideia no [fórum de comentários do Web Apps](https://aka.ms/web
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [O que é o serviço de aplicações do Azure no Linux?](app-service-linux-intro.md)
-* [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implementação contínua com a aplicação Web para contentores](./app-service-linux-ci-cd.md)
+- [O que é o serviço de aplicações do Azure no Linux?](app-service-linux-intro.md)
+- [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Implementação contínua com a aplicação Web para contentores](./app-service-linux-ci-cd.md)

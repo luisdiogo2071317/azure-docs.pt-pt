@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ea2465dfd3a2ecea161da143e301f5a73408a78
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: cdb59a7078b3bbce112356b61e19702fb6ed9df1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35954296"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integração do Azure Active Directory com iLMS
 
@@ -135,7 +136,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |    
     | divisão | User.Department |
     | Região | User.state |

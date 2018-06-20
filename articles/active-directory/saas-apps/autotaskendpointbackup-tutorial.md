@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9f55319e-895b-4130-8460-71713f25ed04
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: jeedes
-ms.openlocfilehash: ef68047542e8d1f9f8cc1f997e5ceca2dfa84cef
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 0cbdb297f7f92c247295f11df459fe682ccebf47
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35969427"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Azure Active Directory com cópia de segurança de ponto final de Autotask
 
@@ -108,7 +109,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de cópia de segurança do ponto final de Autotask e URLs único informações de início de sessão](./media/autotaskendpointbackup-tutorial/tutorial_autotaskendpointbackup_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+    um. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
@@ -149,13 +150,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     ![A caixa de diálogo de utilizador](./media/autotaskendpointbackup-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    um. No **nome** caixa, escreva **BrittaSimon**.
 
     b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    d. Clique em **criar**.
   
 ### <a name="create-a-autotask-endpoint-backup-test-user"></a>Criar um utilizador de teste de cópia de segurança de ponto final de Autotask
 
@@ -191,7 +192,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 

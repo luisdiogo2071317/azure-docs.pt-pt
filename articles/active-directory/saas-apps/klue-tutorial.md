@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: be5a5487fbaf751f1756f08e6c49d7b598e77766
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: e2a625c733aac82b5db8529f2d770d31578a6246
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35945965"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com Klue
 
@@ -60,7 +61,7 @@ Para configurar a integração de Klue com o Azure AD, terá de adicionar Klue a
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![Do Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
@@ -111,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/klue-tutorial/tutorial_klue_url1.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `urn:klue:<Customer ID>`
+    um. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `urn:klue:<Customer ID>`
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
@@ -130,13 +131,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem anterior e execute os seguintes passos:
     
-    | Nome do Atributo      | Valor do Atributo      |
+    | Nome do atributo      | Valor do atributo      |
     | ------------------- | -------------------- |
     | first_name          | User.givenName |
     | last_name           | User.Surname |
-    | e-mail               | user.userprincipalname|
+    | Correio eletrónico               | User.userPrincipalName|
     
-    a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
+    um. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
     ![Configurar o início de sessão único](./media/klue-tutorial/tutorial_attribute_04.png)
 
@@ -146,7 +147,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
     
-    d. Clique em **OK**.
+    d. Click **Ok**.
 
 7. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -188,13 +189,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
     ![Criar um utilizador de teste do Azure AD](./media/klue-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    um. No **nome** caixa de texto, tipo **BrittaSimon**.
 
     b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
-    d. Clique em **Criar**.
+    d. Clique em **criar**.
  
 ### <a name="creating-a-klue-test-user"></a>Criar um utilizador de teste Klue
 

@@ -3,17 +3,16 @@ title: Contoso-configurar uma infraestrutura de migração | Microsoft Docs
 description: Saiba como Contoso configura uma infraestrutura do Azure para a migração para o Azure.
 services: azure-migrate
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301206"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232461"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementar uma infraestrutura de migração
 
@@ -42,11 +41,12 @@ Neste artigo que Contoso configurar todos os elementos de infraestrutura têm de
 
 Antes do podem migrar para o Azure, é fundamental que Contoso prepare a respetiva infraestrutura.  Geralmente, existem cinco áreas abrangentes que precisam de pensar em:
 
-1. **As subscrições do Azure**: forma serão comprar o Azure e interagir com os serviços e a plataforma do Azure?
-2. **Identidade híbrida**: forma irão gerir e controlar o acesso a recursos do Azure e no local após a migração? Como podem expandir ou mover a gestão de identidade para a nuvem?
-3. **Recuperação após desastre e resiliência**: como irão, certifique-se de que as respetivas aplicações e infraestruturas são resilientes se ocorrerem falhas e desastres inesperados?
-4. **Rede**: forma deve conceber a sua infraestrutura de rede e estabelecer conectividade entre os respetivos centros de dados no local e o Azure?
-5. **Segurança e governação**: forma irá proteger as suas implementações híbridas/Azure e mantenha-alinhados com as necessidades de segurança e governação?
+**Passo 1: As subscrições do Azure**: forma serão comprar o Azure e interagir com os serviços e a plataforma do Azure?  
+**Passo 2: Identidade híbrida**: forma irão gerir e controlar o acesso a recursos do Azure e no local após a migração? Como podem expandir ou mover a gestão de identidade para a nuvem?  
+**Passo 3: Recuperação após desastre e resiliência**: como irão, certifique-se de que as respetivas aplicações e infraestruturas são resilientes se ocorrerem falhas e desastres inesperados?  
+**Passo 4: Redes**: forma deve conceber a sua infraestrutura de rede e estabelecer conectividade entre os respetivos centros de dados no local e o Azure?  
+**Passo 5: Segurança**: como irão poderem proteger as suas implementações híbridas/Azure?  
+**Passo 6: Governação**: como vai manter a sua implementação alinhada com as necessidades de segurança e governação?
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -575,7 +575,7 @@ Depois de atualizar as definições de rede, a Contoso está pronto para criar o
 
      ![Assistente de novo Volume](./media/contoso-migration-infrastructure/volume-wizard.png)
 
-7. No Gestor de servidor adicionarem a **serviços de domínio do Active Directory** função. Em seguida, a VM é configurado como um controlador de domínio.
+7. No Gestor de servidor, adicione o **serviços de domínio do Active Directory** função. Em seguida, a VM é configurado como um controlador de domínio.
 
       ![Função de servidor](./media/contoso-migration-infrastructure/server-role.png)  
 
@@ -681,7 +681,7 @@ Contoso precisa de visualizar os seus recursos do Azure de uma forma que faz sen
 
 **Nome da etiqueta** | **Valor**
 --- | ---
-CostCenter | 12345: tem de ser um centro de custos válido do SAP.
+Centro de Custo | 12345: tem de ser um centro de custos válido do SAP.
 BusinessUnit | Nome da unidade de negócio (a partir do SAP). Correspondências CostCenter.
 ApplicationTeam | Alias de correio eletrónico da equipa de que possui suporte para a aplicação.
 CatalogName | Nome da aplicação ou ShareServices, pelo catálogo de serviço que suporte o recurso.
@@ -780,4 +780,4 @@ Com esta infraestrutura no local, se estiverem prontos para avançar e experimen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Como primeiro cenário de migração, Contoso vai migrar as respetivas no local SmartHotel duas camadas aplicação em execução em VMs de VMware para o Azure. Irá migrar as VMs de aplicação para as VMs do Azure e a base de dados de aplicação a uma instância de geridos de SQL do Azure.
+Como primeiro cenário de migração, Contoso vai [avaliar a respetiva aplicação de duas camadas do SmartHotel no local para a migração para o Azure](contoso-migration-assessment.md). 

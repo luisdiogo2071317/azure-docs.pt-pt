@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/19/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699908"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36229340"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -166,6 +166,10 @@ Este cenário pode ser feito utilizando NSGs na sub-rede de Gateway de aplicaç�
 * Bloquear todas as regras de todos os outros tráfego de entrada com uma negação.
 
 * Permitir o tráfego de saída para a internet para todos os destinos.
+
+**Q. A mesma porta pode ser utilizada para serviços de escuta destinado ao públicos e privados?**
+
+Não, esta extensão não é suportada.
 
 ## <a name="performance"></a>Desempenho
 

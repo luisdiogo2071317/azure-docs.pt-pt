@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228619"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reencaminhar o estado da tarefa e fluxos de trabalho da automatização para análise de registos
 Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos. Os registos de tarefa e fluxos de trabalho são visíveis no portal do Azure, ou com o PowerShell, para tarefas individuais e Isto permite-lhe efetuar as investigações simples. Agora com a análise de registos, pode:
@@ -28,7 +29,7 @@ Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa p
 Para começar a enviar os registos de automatização à análise de registos, é necessário:
 
 * Versão de Novembro de 2016 ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Uma área de trabalho de análise de registos. Para obter mais informações, consulte [introdução à análise de registos](../log-analytics/log-analytics-get-started.md). 
+* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [introdução à análise de registos](../log-analytics/log-analytics-get-started.md). 
 * O ResourceId para a sua conta de automatização do Azure.
 
 
@@ -139,7 +140,7 @@ Para criar uma regra de alerta, pode começa por criar uma pesquisa de registo p
 2. Criar uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` também pode agrupar pelo RunbookName utilizando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se configurar os registos de mais do que uma conta de automatização ou a subscrição para a sua área de trabalho, pode agrupar os alertas por subscrição e conta de automatização. Nome da conta de automatização pode ser encontrado no campo de recurso na pesquisa de JobLogs.
-1. Para abrir o **Adicionar regra de alerta** ecrã, clique em **alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [alertas na análise de registos](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Para abrir o **criar regra** ecrã, clique em **+ nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [registar alertas no Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todas as tarefas que foram concluídas com erros
 Para além dos alertas sobre falhas, pode encontrar quando uma tarefa de runbook tem um erro de não interrupção. Nestes casos PowerShell produz uma sequência de erro, mas os erros de não interrupção não fazer com que a tarefa suspender ou falhar.    

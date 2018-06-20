@@ -2,17 +2,16 @@
 title: Descrição geral da migração de Contoso para o Azure | Microsoft Docs
 description: Fornece uma descrição geral da estratégia de migração e cenários utilizados pelo Contoso para migrar os seus centros de dados no local para o Azure.
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 659627eb6241bf31350b5a51c2e6c449c7f731c2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec0308bb2e39c3801305748f19783e70d58b0b7e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300808"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232495"
 ---
 # <a name="contoso-migration-overview"></a>Migração de Contoso: Descrição geral
 
@@ -37,9 +36,9 @@ Estratégias para migração para a nuvem que se enquadram quatro categorias amp
 **Estratégia de** | **Definição** | **Quando utilizar** 
 --- | --- | --- 
 **Realojamento** | Muitas vezes, referida como uma migração "comparação de precisão e shift". Esta opção não necessita de alterações de código e permite-lhe migra as suas aplicações existentes para o Azure rapidamente. Cada aplicação é migrada como é, reap as vantagens da nuvem, sem o risco e os custos associados com alterações de código. | Quando tiver de mover as aplicações rapidamente para a nuvem.<br/><br/> Quando pretender mover uma aplicação sem modificá-lo.<br/><br/> Quando as suas aplicações são criadas para que estes possam tirar partido de [IaaS do Azure](https://azure.microsoft.com/overview/what-is-iaas/) escalabilidade após a migração.<br/><br/> Quando as aplicações são importantes ao seu negócio, mas não precisa de imediato alterações nas funcionalidades de aplicação.
-**Refatorar** | Muitas vezes, referida como "incluí-las num", refactoring necessita de alterações mínimas para aplicações, para que liguem a [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)e utilizar as ofertas de nuvem.<br/><br/> Por exemplo, foi possível migrar as aplicações existentes para o App Service do Azure ou do Azure Kubernetes serviço (AKS). Em alternativa, pode refatorar bases de dados relacionais e não relacionais para opções como a base de dados geridas por instância de SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e base de dados do Azure Cosmos. | Se a sua aplicação pode facilmente ser empacotadas novamente para funcionar no Azure.<br/><br/> Se pretender aplicar práticas de DevOps inovadoras fornecido pelo Azure ou estiver a pensar sobre a utilização de uma estratégia de contentor para cargas de trabalho do DevOps.<br/><br/> Para refactoring, tem de pensar sobre a portabilidade da sua base de código existente e competências de desenvolvimento disponíveis.
-**Rearchitect** | Reformulação da migração centra-se em modificar e expandir a funcionalidade da aplicação e o código base para otimizar a arquitetura de aplicação para escalabilidade de cloud.<br/><br/> Por exemplo, pode dividir uma aplicação monolithic num grupo de micro-serviços que funcionam em conjunto e dimensionar facilmente. Ou, foi rearchitect relacional e bases de dados não relacionais completamente geridos soluções DBaaS, tais como base de dados geridas por instância de SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e base de dados do Azure Cosmos. | Quando as suas aplicações precisam revisões principais para incorporar as novas capacidades de ou para trabalhar de forma eficaz numa plataforma de nuvem.<br/><br/> Quando pretender utilizar os investimentos de aplicação, cumpre os requisitos de escalabilidade de forma económica, aplicar práticas de Azure DevOps inovadoras e minimizar a utilização de máquinas virtuais.
-**Reconstrução** | Reconstrua demora coisas um passo ainda mais ao reconstruir uma aplicação a partir do zero utilizando tecnologias de nuvem do Azure. Por exemplo, foi possível criar aplicações de campo verde com tecnologias de nuvem nativo como sem servidor, AI do Azure, base de dados geridas por instância de SQL do Azure e a base de dados do Azure Cosmos. | Quando pretender que um desenvolvimento rápido e as aplicações existentes limitada a funcionalidade e tempo de vida.<br/><br/> Quando estiver pronto para agilizar inovação empresariais (incluindo práticas de DevOps fornecidas pelo Azure), criar novas aplicações utilizando tecnologias de nuvem nativo e tirar partido de avanços AI, blockchain e IoT.
+**Refatorar** | Muitas vezes, referida como "incluí-las num", refactoring necessita de alterações mínimas para aplicações, para que liguem a [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)e utilizar as ofertas de nuvem.<br/><br/> Por exemplo, foi possível migrar as aplicações existentes para o App Service do Azure ou do Azure Kubernetes serviço (AKS).<br/><br/> Em alternativa, pode refatorar bases de dados relacionais e não relacionais para opções como a base de dados geridas por instância de SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e base de dados do Azure Cosmos. | Se a sua aplicação pode facilmente ser empacotadas novamente para funcionar no Azure.<br/><br/> Se pretender aplicar práticas de DevOps inovadoras fornecido pelo Azure ou estiver a pensar sobre a utilização de uma estratégia de contentor para cargas de trabalho do DevOps.<br/><br/> Para refactoring, tem de pensar sobre a portabilidade da sua base de código existente e competências de desenvolvimento disponíveis.
+**Rearchitect** | Reformulação da migração centra-se em modificar e expandir a funcionalidade da aplicação e o código base para otimizar a arquitetura de aplicação para escalabilidade de cloud.<br/><br/> Por exemplo, pode dividir uma aplicação monolithic num grupo de micro-serviços que funcionam em conjunto e dimensionar facilmente.<br/><br/> Ou, foi rearchitect relacional e bases de dados não relacionais completamente geridos soluções DBaaS, tais como base de dados geridas por instância de SQL do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e base de dados do Azure Cosmos. | Quando as suas aplicações precisam revisões principais para incorporar as novas capacidades de ou para trabalhar de forma eficaz numa plataforma de nuvem.<br/><br/> Quando pretender utilizar os investimentos de aplicação, cumpre os requisitos de escalabilidade, aplicar práticas de Azure DevOps inovadoras e minimizar a utilização de máquinas virtuais.
+**Reconstrução** | Reconstrua demora coisas um passo ainda mais ao reconstruir uma aplicação a partir do zero utilizando tecnologias de nuvem do Azure.<br/><br/> Por exemplo, foi possível criar aplicações de campo verde com tecnologias de nuvem nativo como sem servidor, AI do Azure, base de dados geridas por instância de SQL do Azure e a base de dados do Azure Cosmos. | Quando pretender que um desenvolvimento rápido e as aplicações existentes limitada a funcionalidade e tempo de vida.<br/><br/> Quando estiver pronto para agilizar inovação empresariais (incluindo práticas de DevOps fornecidas pelo Azure), criar novas aplicações utilizando tecnologias de nuvem nativo e tirar partido de avanços AI, blockchain e IoT.
 
 ## <a name="migration-articles"></a>Artigos de migração
 
@@ -57,8 +56,8 @@ Artigo 1: Descrição geral (Este artigo) | Fornece uma descrição geral da est
 [Artigo 4: Realojamento para as VMs do Azure e uma instância do SQL gerida](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. Se migrar a aplicação web VM através de [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação para uma instância do SQL geridos utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço. | Disponível
 [Artigo 5: Realojamento para as VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando o serviço de recuperação de sites.
 [Artigo 6: Realojamento para as VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a VM de aplicação e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de Disponibilidade AlwaysOn do SQL Server. | Disponível
-Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure | Demonstra como Contoso migra a aplicação VMs no Azure utilizando a recuperação de sites. | Planeado
-Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento | Demonstra como Contoso migra a aplicação VM utilizando a recuperação de sites e utiliza o MySQL Workbench para migrar para uma instância de servidor de MySQL do Azure. | Planeado
+[Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure](contoso-migration-rehost-linux-vm.md) | Demonstra como Contoso migra a aplicação VMs no Azure utilizando a recuperação de sites. | Planeado
+[Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação VM utilizando a recuperação de sites e utiliza o MySQL Workbench para migrar para uma instância de servidor de MySQL do Azure. | Planeado
 
 
 
@@ -66,8 +65,8 @@ Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure My
 
 Os artigos utilizam duas aplicações de demonstração - SmartHotel e osTicket.
 
-- SmartHotel360: Esta aplicação foi desenvolvida pela Microsoft como uma aplicação de teste que pode utilizar ao trabalhar com o Azure. É fornecido como código aberto e poderá transferi-lo de [GitHub](https://github.com/Microsoft/SmartHotel360). É uma aplicação ASP.NET ligada a uma base de dados do SQL Server. A aplicação está atualmente em duas VMs de VMware com o Windows Server 2008 R2 e o SQL Server 2008 R2. A aplicação VMs estão alojados no local e gerido pelo vCenter Server.
-- osTicket é um suporte de serviço de open source emissão de permissões de aplicação que é executado no Linux. Poderá transferi-lo de [GitHub](https://github.com/osTicket/osTicket). A aplicação atual está em duas VMs de VMware com Ubuntu 16.04LTS, utilizando o Apache 2, o PHP 7.0 e o MySQL 5.7
+- **SmartHotel360**: esta aplicação foi desenvolvida pela Microsoft, como uma aplicação de teste que pode utilizar ao trabalhar com o Azure. É fornecido como código aberto e poderá transferi-lo de [GitHub](https://github.com/Microsoft/SmartHotel360). É uma aplicação ASP.NET ligada a uma base de dados do SQL Server. A aplicação está atualmente em duas VMs de VMware com o Windows Server 2008 R2 e o SQL Server 2008 R2. A aplicação VMs estão alojados no local e gerido pelo vCenter Server.
+- **osTicket**: um técnico de serviço de open source emissão de permissões de aplicação que é executado no Linux. Poderá transferi-lo de [GitHub](https://github.com/osTicket/osTicket). A aplicação atual está em duas VMs de VMware com Ubuntu 16.04LTS, utilizando o Apache 2, o PHP 7.0 e o MySQL 5.7
     
 
 ## <a name="next-steps"></a>Passos Seguintes

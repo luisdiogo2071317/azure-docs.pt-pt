@@ -1,6 +1,6 @@
 ---
-title: Utilizar bases de dados fornecidas pelo RP de adaptador de SQL na pilha do Azure | Microsoft Docs
-description: Como criar e gerir bases de dados SQL aprovisionados utilizando o fornecedor de recursos do adaptador de SQL
+title: Utilizar bases de dados fornecidos pelo fornecedor de recursos de adaptador de SQL na pilha do Azure | Microsoft Docs
+description: Como criar e gerir bases de dados SQL aprovisionados através da utilização do fornecedor de recursos de adaptador de SQL
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,50 +11,71 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294943"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264187"
 ---
 # <a name="create-sql-databases"></a>Criar bases de dados SQL
-Bases de dados self-service são fornecidos através do portal de utilizador. Um utilizador de pilha do Azure tem uma subscrição que tenha uma oferta, que contém o serviço de base de dados do SQL Server.
 
-1. Iniciar sessão para o [Azure pilha](azure-stack-poc.md) portal de utilizador (administradores de serviço também podem utilizar o portal de administração).
+Pode criar e gerir bases de dados personalizados no portal de utilizador. Um utilizador de pilha do Azure tem uma subscrição com uma oferta, que inclui o serviço de base de dados do SQL Server.
 
-2. Clique em **+ nova** &gt; **dados + armazenamento "** &gt; **base de dados do SQL Server** &gt; **adicionar**.
+1. Iniciar sessão para o [Azure pilha](azure-stack-poc.md) portal de utilizador.
 
-3. Preencha o formulário com detalhes de base de dados, incluindo um **nome de base de dados**, **tamanho máximo**e alterar os outros parâmetros conforme necessário. É-lhe pedido para escolher um SKU para a base de dados. Servidores de alojamento são adicionadas, foram atribuídos um SKU. Bases de dados são criadas nesse agrupamento de servidores que compõem o SKU de alojamento.
+2. Selecione **+ nova** &gt; **dados + armazenamento "** &gt; **base de dados do SQL Server** &gt; **adicionar**.
 
-  ![Nova base de dados](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+3. Em **Create Database**, introduza as informações necessárias, tais como **nome de base de dados** e **tamanho máximo em MB**.
 
-  >[!NOTE]
-  > O tamanho de base de dados tem de ser, pelo menos, a 64 MB. Podem ser aumentado com as definições.
+   >[!NOTE]
+   >O tamanho de base de dados tem de ser, pelo menos, 64 MB, o que pode aumentar depois de implementar a base de dados.
 
-4. Preencha as definições de início de sessão: **início de sessão da base de dados**, e **palavra-passe**. Estas definições estão a credencial de autenticação do SQL Server que é criada para o acesso ao apenas esta base de dados. O nome de utilizador de início de sessão tem de ser globalmente exclusivo. Crie uma nova definição de início de sessão ou selecione um existente. Pode reutilizar definições de início de sessão para outras bases de dados utilizando o SKU do mesmo.
+   Configure as outras definições conforme necessário para o seu ambiente.
 
-    ![Criar um novo início de sessão de base de dados](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+4. Em **Create Database**, selecione **SKU**. Em **selecionar um SKU**, selecione o SKU da base de dados.
 
+   ![Criar base de dados](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
-5. Submeter o formulário e aguarde a conclusão da implementação.
+   >[!NOTE]
+   >Servidores de alojamento são adicionadas à pilha do Azure, foram atribuídos um SKU. Bases de dados são criados no agrupamento de servidores de um SKU de alojamento.
 
-    No painel resultante, tenha em atenção o campo de "Cadeia de ligação". Pode utilizar essa cadeia em qualquer aplicação que necessita de acesso do SQL Server (por exemplo, uma aplicação web) na sua pilha do Azure.
+5. Selecione **início de sessão**.
+6. Em **selecionar um início de sessão**, escolha um início de sessão existente ou selecione **+ criar um novo início de sessão**.
+7. Em **novo início de sessão**, introduza um nome para **início de sessão da base de dados** e um **palavra-passe**.
 
-    ![Obter a cadeia de ligação](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+   >[!NOTE]
+   >Estas definições estão a credencial de autenticação do SQL Server que é criada para o acesso ao apenas esta base de dados. O nome de utilizador de início de sessão tem de ser globalmente exclusivo. Pode reutilizar definições de início de sessão para outras bases de dados que utilizam o SKU do mesmo.
 
-## <a name="delete-sql-alwayson-databases"></a>Eliminar as bases de dados do AlwaysOn de SQL
-Quando uma base de dados do AlwaysOn de SQL é eliminado do fornecedor de recursos, este é eliminada com êxito da primário e de Disponibilidade AlwaysOn grupo, mas por conceção, SQL Server AG coloca a base de dados em estado de cada réplica de restauro e não remover a base de dados, a menos que acionado. Se uma base de dados não for removido, as réplicas secundárias vai para sincronizar não Estado. Adicionar uma nova base de dados novamente para o AG com o mesmo através de RP ainda funciona.
+   ![Criar um novo início de sessão de base de dados](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
-## <a name="verify-sql-alwayson-databases"></a>Certifique-se de bases de dados do AlwaysOn de SQL
-Bases de dados do AlwaysOn devem aparecer como sincronizadas e estão disponíveis em todas as instâncias e no grupo de disponibilidade. Após a ativação pós-falha, a base de dados deve ligar de forma totalmente integrada. Pode utilizar o SQL Server Management Studio para verificar que uma base de dados está a sincronizar:
+8. Selecione **OK** para concluir a implementação da base de dados.
 
-![Verifique se AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+Em **Essentials**, que é apresentado depois da base de dados é implementado, tome nota do **cadeia de ligação**. Pode utilizar esta cadeia de qualquer aplicação que necessita de aceder à base de dados do SQL Server.
 
+![Obter a cadeia de ligação](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="sql-always-on-databases"></a>SQL Always On bases de dados
+
+Por predefinição, Always On bases de dados são processadas de forma que num ambiente de servidor autónomo. Para obter mais informações, consulte [introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview).
+
+### <a name="verify-sql-always-on-databases"></a>Verificar SQL Always On bases de dados
+
+A seguinte captura de ecrã mostra como pode utilizar o SQL Server Management Studio para observar o estado da base de dados no SQL Always On.
+
+![Estado de base de dados do AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+Devem mostrar como sincronizado e disponível em todas as instâncias do SQL Server e são apresentados em grupos de disponibilidade Always On bases de dados. Na captura de ecrã anterior, o exemplo de base de dados é newdb1 e o respetivo estado é **newdb1 (sincronizar)**.
+
+### <a name="delete-an-alwayson-database"></a>Eliminar uma base de dados do AlwaysOn
+
+Quando elimina uma base de dados do AlwaysOn de SQL do fornecedor de recursos, o SQL Server elimina a base de dados da réplica primária e do grupo de disponibilidade.
+
+SQL Server, em seguida, coloca a base de dados no Estado a restaurar nas outras réplicas e não remover a base de dados, a menos que acionado. Se a base de dados não for removida, as réplicas secundárias aceda num Estado não sincronizar.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 [Manter o fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-maintain.md)

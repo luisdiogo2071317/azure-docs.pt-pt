@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: f850ca9f3a83b63d4978eb857327672bf7849959
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: a0481b2eb688b70d5e56b2b6793b026d6b4c96a2
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35954181"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integração do Azure Active Directory com o Dropbox para empresas
 
@@ -109,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Dropbox para domínio de negócio e URLs único início de sessão informações](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.dropbox.com/sso/<id>`
+    um. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.dropbox.com/sso/<id>`
 
     b. No **identificador** caixa de texto, escreva um valor: `Dropbox`
 
@@ -131,7 +132,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 7. Para configurar o início de sessão único em **Dropbox para empresas** lado, visite no seu Dropbox para o inquilino de negócio.
 
-    a. Inicie sessão seu Dropbox para o inquilino de negócio. 
+    um. Inicie sessão seu Dropbox para o inquilino de negócio. 
    
     ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/ic769509.png "configurar o início de sessão único")
    

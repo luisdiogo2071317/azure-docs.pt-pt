@@ -6,14 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218960"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Reencaminhar dados de relatórios ao Log Analytics do Azure Automation DSC
 
@@ -85,14 +86,14 @@ Também pode diminuir a consulta com o nome de operação. Por exemplo: ' tipo =
 
 Um dos nossos pedidos de cliente superior é a capacidade de enviar um e-mail ou um texto quando algo não bate com uma configuração de DSC.   
 
-Para criar uma regra de alerta, pode começa por criar uma pesquisa de registo dos registos de relatório de DSC deve invocar o alerta.  Clique em de **alerta** botão para criar e configurar a regra de alerta.
+Para criar uma regra de alerta, pode começa por criar uma pesquisa de registo dos registos de relatório de DSC deve invocar o alerta.  Clique em de **+ nova regra de alerta** botão para criar e configurar a regra de alerta.
 
 1. Na página de descrição geral da análise do registo, clique em **pesquisa registo**.
 1. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a pesquisa seguinte para o campo de consulta:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Se configurou os registos de mais do que uma conta de automatização ou a subscrição para a sua área de trabalho, pode agrupar os alertas por subscrição e conta de automatização.  
   Nome da conta de automatização pode ser derivado do campo de recurso na pesquisa de DscNodeStatusData.  
-1. Para abrir o **Adicionar regra de alerta** ecrã, clique em **alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [alertas na análise de registos](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Para abrir o **criar regra** ecrã, clique em **+ nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [criar um alerta rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Falha ao localizar recursos de DSC em todos os nós
 

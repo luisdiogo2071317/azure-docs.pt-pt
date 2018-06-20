@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 420f268090dbcfcc4f2fa7383b8b8892952030ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355760"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265392"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -179,7 +179,7 @@ A chave de subscrição é a chave associada ao serviço LUIS [criada no Azure](
 
 ## <a name="test"></a>Teste
 
-[Testar](train-test.md#test-your-app) uma aplicação LUIS significa resulta de transmitir um utterance ao LUIS e visualizar o JSON.
+[Testar](interactive-test.md#test-your-app) uma aplicação LUIS significa resulta de transmitir um utterance ao LUIS e visualizar o JSON.
 
 ## <a name="timezoneoffset"></a>Desvio de fuso horário
 
@@ -210,4 +210,4 @@ Um utterance é uma expressão de linguagem natural como "permissões de livro 2
 
 Um LUIS [versão](luis-how-to-manage-versions.md) é um modelo de dados específicos associado a um ID de aplicação LUIS e o ponto final publicado. Todas as aplicações de LUIS tem, pelo menos, uma versão.
 
-[batch-testing]: train-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

@@ -8,6 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 0c135af0341e5f4644961b5859574b334048543e
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 6d9562697c8135ba4b92b1bbf304a41af8c426c0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35955751"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220388"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento de utilizadores automática
 
@@ -70,7 +71,7 @@ Esta secção orienta-o ao ligar o seu Azure AD para a conta de utilizador Pingb
     
 5. Sob o **credenciais de administrador** secção, execute os seguintes passos:
 
-    a. No **URL de inquilino**, introduza `https://your_domain.pingboard.com/scim/v2`e substitua "your_domain" com o seu domínio real.
+    um. No **URL de inquilino**, introduza `https://your_domain.pingboard.com/scim/v2`e substitua "your_domain" com o seu domínio real.
 
     b. Inicie sessão no [Pingboard](https://pingboard.com/) utilizando a sua conta de administrador.
 
@@ -78,13 +79,13 @@ Esta secção orienta-o ao ligar o seu Azure AD para a conta de utilizador Pingb
 
     d. Vá para o **configurar** separador e selecione **ativar o aprovisionamento de utilizadores do Azure**.
 
-    e. Copie o token no **tokens de portador do OAuth**e introduza-o no **segredo Token**.
+    i. Copie o token no **tokens de portador do OAuth**e introduza-o no **segredo Token**.
 
 6. No portal do Azure, selecione **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação Pingboard. Se a ligação falhar, certifique-se de que a conta de Pingboard tem permissões de administrador e tente a **Testar ligação** passo novamente.
 
 7. Introduza o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de aprovisionamento no **correio eletrónico de notificação**. Selecione a caixa de verificação por baixo.
 
-8. Selecione **Guardar**. 
+8. Selecione **guardar**. 
 
 9. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Pingboard**.
 

@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: fb6d5b73-e491-4dd2-92d6-94e5aba21465
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a9f8f860116b203740a65e7da9a5213ab8af68f
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: e9a4ab5bb262b274f4c53741f7a9ea1ce3956848
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35947762"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Active Directory com Questetra BPM Suite
 
@@ -61,7 +62,7 @@ Para configurar a integração do Questetra BPM Suite com o Azure AD, terá de a
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![Do Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
@@ -102,13 +103,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Inicio de sessão baseado em SAML](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
+    ![Baseados em SAML início de sessão](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
 3. No **Questetra BPM Suite domínio e os URLs** secção, execute os seguintes passos:
 
     ![Secção Questetra BPM Suite domínio e os URLs](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    um. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.questetra.net/`
 
@@ -139,7 +140,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 10. No seu **Questetra BPM Suite** da empresa site, no **SP informações** secção, execute os seguintes passos:
 
-    a. Copiar o **URL de ACS**e, em seguida, cole-o para o **URL de início de sessão** textbox no **Questetra BPM Suite domínio e os URLs** secção a partir do portal do Azure.
+    um. Copiar o **URL de ACS**e, em seguida, cole-o para o **URL de início de sessão** textbox no **Questetra BPM Suite domínio e os URLs** secção a partir do portal do Azure.
     
     b. Copiar o **ID de entidade**e, em seguida, cole-o para o **identificador** textbox no **Questetra BPM Suite domínio e os URLs** secção a partir do portal do Azure.
 
@@ -147,7 +148,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Configurar o início de sessão único][15]
    
-    a. Selecione **ativar o início de sessão único**.
+    um. Selecione **ativar o início de sessão único**.
    
     b. No **ID de entidade** caixa de texto, cole o valor de **ID de entidade de SAML** que copiou do portal do Azure.
     
@@ -155,11 +156,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     d. No **URL da página de início de sessão** caixa de texto, cole o valor de **Sign-Out URL** que copiou do portal do Azure.
     
-    e. No **NameID formato** caixa de texto, tipo `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    i. No **NameID formato** caixa de texto, tipo `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
-    f. Abra o **Base-64** certificado codificado no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-o para o **certificado validação** caixa de texto. 
+    F. Abra o **Base-64** certificado codificado no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-o para o **certificado validação** caixa de texto. 
 
-    g. Clique em **Guardar**.
+    G. Clique em **guardar**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -188,13 +189,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
     ![Criar um utilizador de teste do Azure AD](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    um. No **nome** caixa de texto, tipo **BrittaSimon**.
 
     b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
-    d. Clique em **Criar**.
+    d. Clique em **criar**.
  
 ### <a name="create-a-questetra-bpm-suite-test-user"></a>Criar um utilizador de teste Questetra BPM Suite
 
@@ -208,7 +209,7 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon n
    
     ![Criar utilizador de teste][300] 
    
-    a. No **nome** caixa de texto, tipo **nome** do utilizador **britta.simon@contoso.com**.
+    um. No **nome** caixa de texto, tipo **nome** do utilizador **britta.simon@contoso.com**.
    
     b. No **E-Mail** caixa de texto, tipo **e-mail** do utilizador **britta.simon@contoso.com**
    
@@ -246,7 +247,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 

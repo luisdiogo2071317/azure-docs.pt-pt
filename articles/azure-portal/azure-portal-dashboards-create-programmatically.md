@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: d3a59c2d9b62bdbde75c54347ce9117fc9114cd6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164390"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220021"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programaticamente Criar Dashboards do Azure
 
@@ -89,11 +89,11 @@ O Azure oferece a capacidade para orquestrar a implementação de vários recurs
 Se estiver a ficar esta rota, em seguida, parametrização forced deve ser feito utilizando a sintaxe do parâmetro do modelo.  Substitua todas as instâncias do id do recurso que encontrámos anterior, conforme mostrado aqui.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Propriedade JSON de exemplo com o Id do recurso hard-coded
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Propriedade JSON de exemplo convertida para uma versão parametrizada com base nos parâmetros de modelo
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 Também tem de declarar alguns metadados do modelo necessário e os parâmetros na parte superior do modelo json como esta:
 
@@ -122,7 +122,7 @@ __Pode ver o modelo de trabalho completo, no final deste documento.__
 
 Depois de ter crafted o seu modelo pode implementá-la utilizando o [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), ou o [página de implementação do modelo do portal ](https://portal.azure.com/#create/Microsoft.Template).
 
-Apresentamos a seguir são duas versões do nosso JSON do dashboard de exemplo. A primeira é a versão que foi exportados a partir do portal do que já foi vinculado a um recurso. O segundo é a versão de modelo pode estar vinculada através de programação para qualquer VM e implementadas utilizando o Azure Resource Manager.
+Seguem-se duas versões do nosso JSON do dashboard de exemplo. A primeira é a versão que foi exportados a partir do portal do que já foi vinculado a um recurso. O segundo é a versão de modelo pode estar vinculada através de programação para qualquer VM e implementadas utilizando o Azure Resource Manager.
 
 ## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Representação JSON do nosso dashboard de exemplo (antes de templating)
 

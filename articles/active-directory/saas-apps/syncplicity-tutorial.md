@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 65b58a1a995b09e3905962f41ccdaa6360692006
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: df0842c494fd69f41c97019c3ded9c2509c2463f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35949640"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integração do Azure Active Directory com Syncplicity
 
@@ -60,7 +61,7 @@ Para configurar a integração de Syncplicity com o Azure AD, terá de adicionar
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![Do Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
@@ -111,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/syncplicity-tutorial/tutorial_syncplicity_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.syncplicity.com`
+    um. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.syncplicity.com`
 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.syncplicity.com/sp`
 
@@ -142,7 +143,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![De sessão único- \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")   
 
-    a. No **domínio personalizado** caixa de texto, escreva o nome do seu domínio.
+    um. No **domínio personalizado** caixa de texto, escreva o nome do seu domínio.
   
     b. Selecione **ativada** como **Single Sign-On estado**.
 
@@ -150,11 +151,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. No **URL de página de início de sessão** caixa de texto, cole o **único início de sessão no URL do serviço SAML** que copiou do portal do Azure.
 
-    e. No **terminar o URL da página** caixa de texto, cole o **Sign-Out URL** que copiou do portal do Azure.
+    i. No **terminar o URL da página** caixa de texto, cole o **Sign-Out URL** que copiou do portal do Azure.
 
-    f. No **certificado do fornecedor de identidade**, clique em **Escolher ficheiro**e, em seguida, carregue o certificado que transferiu do portal do Azure. 
+    F. No **certificado do fornecedor de identidade**, clique em **Escolher ficheiro**e, em seguida, carregue o certificado que transferiu do portal do Azure. 
 
-    g. Clique em **guardar alterações**.
+    G. Clique em **guardar alterações**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -183,13 +184,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
     ![Criar um utilizador de teste do Azure AD](./media/syncplicity-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    um. No **nome** caixa de texto, tipo **BrittaSimon**.
 
     b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
-    d. Clique em **Criar**.
+    d. Clique em **criar**.
  
 ### <a name="creating-a-syncplicity-test-user"></a>Criar um utilizador de teste Syncplicity
 Para os utilizadores AAD conseguir iniciar sessão, têm de ser aprovisionados para aplicação Syncplicity. Esta secção descreve como criar contas de utilizador do AAD no Syncplicity.

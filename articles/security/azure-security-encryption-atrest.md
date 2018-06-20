@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: fa03d62a3125b3bf8f23a53903a733dbec8ea662
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4bcc691e00b373028acaf0936af8336a76306aec
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839468"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232439"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
 
@@ -130,7 +130,7 @@ Para muitos clientes, o requisito de essencial é Certifique-se de que os dados 
 
 Encriptação do lado do servidor a utilizar chaves de serviço gerida, por conseguinte, rapidamente aborda a necessidade de ter a encriptação Inativos com baixo overhead ao cliente. Se estiver disponível um cliente, normalmente, abre-se o portal do Azure para a subscrição de destino e o fornecedor de recursos e verifica uma caixa que indica, gostaria os dados sejam encriptados. Em alguns gestores de recursos a encriptação do lado do servidor com o serviço gerido chaves está ativada por predefinição.
 
-Encriptação do lado do servidor com chaves gerida pela Microsoft implica o serviço tem acesso total para armazenar e gere as chaves. Embora alguns clientes poderão querer gerir as chaves porque estes sentir ganham maior segurança, o custo e os riscos associados uma solução de armazenamento de chaves devem ser considerados ao avaliar este modelo. ManIn muitos casos, ganization pode determinar que riscos de uma solução no local ou restrições de recurso podem maior do que o risco de gestão de nuvem de encriptação de chaves de rest.  No entanto, este modelo poderá não ser suficiente para as organizações que têm requisitos para controlar a criação ou o ciclo de vida das chaves de encriptação ou ter diferentes técnico gerir chaves de encriptação de um serviço que são gerir o serviço (ou seja, segregação de gestão de chaves do modelo global de gestão para o serviço).
+Encriptação do lado do servidor com chaves gerida pela Microsoft implica o serviço tem acesso total para armazenar e gere as chaves. Embora alguns clientes poderão querer gerir as chaves porque estes sentir ganham maior segurança, o custo e os riscos associados uma solução de armazenamento de chaves devem ser considerados ao avaliar este modelo. Em muitos casos, organização pode determinar que riscos de uma solução no local ou restrições de recurso podem maior do que o risco de gestão de nuvem de encriptação de chaves de rest.  No entanto, este modelo poderá não ser suficiente para as organizações que têm requisitos para controlar a criação ou o ciclo de vida das chaves de encriptação ou ter diferentes técnico gerir chaves de encriptação de um serviço que são gerir o serviço (ou seja, segregação de gestão de chaves do modelo global de gestão para o serviço).
 
 ##### <a name="key-access"></a>Acesso a chaves
 
@@ -233,7 +233,7 @@ Recomenda-se que sempre que possível, aplicações de IaaS tirar partido do Azu
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Suporte de modelo de encriptação de fornecedores de recursos do Azure
 
-Serviços do Microsoft Azure cada suporta um ou mais da encriptação em modelos de rest. Para alguns serviços, no entanto, um ou mais dos modelos de encriptação podem não ser aplicáveis. Além disso, os serviços podem de versão suporte para estes cenários em diferentes agendamentos. Esta secção descreve a encriptação no suporte de rest no momento desta redação para cada um dos serviços de armazenamento de dados do Azure principais.
+Serviços do Microsoft Azure cada suporta um ou mais da encriptação em modelos de rest. Para alguns serviços, no entanto, um ou mais dos modelos de encriptação podem não ser aplicáveis. Para os serviços que suportam cenários-chave gerida pelo cliente, poderá suportam apenas um subconjunto dos tipos de chaves que suporte o Cofre de chaves do Azure para as chaves de encriptação de chaves. Além disso, os serviços podem de versão suporte para estes tipos de chave diferentes agendamentos e cenários. Esta secção descreve a encriptação no suporte de rest no momento desta redação para cada um dos serviços de armazenamento de dados do Azure principais.
 
 ### <a name="azure-disk-encryption"></a>Encriptação de disco do Azure
 
@@ -243,7 +243,7 @@ Qualquer cliente utilizando a infraestrutura do Azure como um serviço (IaaS) fu
 
 Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor inativos, com alguns dos serviços de suporte gerida pelo cliente chaves e a encriptação do lado do cliente.  
 
-- Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, utilizando o serviço gerido chaves, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam chaves gerida pelo cliente no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, utilizando o serviço gerido chaves, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam RSA 2048 bits gerida pelo cliente chaves no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Do lado do cliente: Blobs do Azure, tabelas e filas suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptar os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
@@ -251,40 +251,38 @@ Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazename
 
 Atualmente, a base de dados SQL do Azure suporta encriptação de Inativos para cenários de encriptação do lado do cliente e do lado de serviço gerida pela Microsoft.
 
-Suporte para encriptação de servidor atualmente é fornecido através da funcionalidade SQL denominada a encriptação transparente de dados. Depois de um cliente de SQL Database do Azure permite chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação de Inativos nos níveis de base de dados e servidor. A partir de Junho de 2017, [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) será ativada por predefinição nas bases de dados recentemente criados.
+Suporte para encriptação de servidor atualmente é fornecido através da funcionalidade SQL denominada a encriptação transparente de dados. Depois de um cliente de SQL Database do Azure permite chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação de Inativos nos níveis de base de dados e servidor. A partir de Junho de 2017, [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) está ativada por predefinição nas bases de dados recentemente criados. Base de dados SQL do Azure suporta RSA 2048 bits gerida pelo cliente chaves no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação transparente de dados com suporte de colocar a sua própria chave para a SQL Database do Azure e do armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
 Encriptação do lado do cliente de dados de SQL Database do Azure é suportada através de [sempre encriptados](https://msdn.microsoft.com/library/mt163865.aspx) funcionalidade. Sempre encriptado utiliza uma chave que criada e armazenada pelo cliente. Os clientes podem armazenar a chave mestra num arquivo de certificados do Windows, o Cofre de chaves do Azure ou um módulo de Hardware de segurança local. Utilizar o SQL Server Management Studio, os utilizadores do SQL Server escolhem que gostaria de utilizar para encriptar as colunas de chave.
 
-|                                  |                |                     | **Modelo de encriptação**             |                              |        |
-|----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | **Cliente** |
-|                                  | **Gestão de chaves** | **Chave gerida pelo serviço** | **Cliente gerido no Cofre de chaves** | **Gerida pelo cliente no local** |        |
-| **Armazenamento e bases de dados**            |                |                     |                              |                              |        |
-| Disco (IaaS)                      |                | -                   | Sim                          | Sim*                         | -      |
-| SQL Server (IaaS)                |                | Sim                 | Sim                          | Sim                          | Sim    |
-| Base de dados SQL do Azure (PaaS)                 |                | Sim                 | Sim                          | -                            | Sim    |
-| Armazenamento do Azure (Blobs de blocos/páginas) |                | Sim                 | Sim                          | -                            | Sim    |
-| Armazenamento do Azure (ficheiros)            |                | Sim                 | Sim                          | -                            | -      |
-| Armazenamento do Azure (tabelas, filas)   |                | Sim                 | -                            | -                            | Sim    |
-| Cosmos BD (documento DB)          |                | Sim                 | -                            | -                            | -      |
-| StorSimple                       |                | Sim                 | -                            | -                            | Sim    |
-| Cópia de segurança                           |                | -                   | -                            | -                            | Sim    |
-| **Intelligence e análise**       |                |                     |                              |                              |        |
-| Azure Data Factory               |                | Sim                 | -                            | -                            | -      |
-| Azure Machine Learning           |                | -                   | Pré-visualização                      | -                            | -      |
-| Azure Stream Analytics           |                | Sim                 | -                            | -                            | -      |
-| HDInsight (armazenamento de Blobs do Azure)  |                | Sim                 | -                            | -                            | -      |
-| HDInsight (armazenamento do Data Lake)   |                | Sim                 | -                            | -                            | -      |
-| Azure Data Lake Store            |                | Sim                 | Sim                          | -                            | -      |
-| Catálogo de Dados do Azure               |                | Sim                 | -                            | -                            | -      |
-| Power BI                         |                | Sim                 | -                            | -                            | -      |
-| **Serviços IoT**                     |                |                     |                              |                              |        |
-| IoT Hub                          |                | -                   | -                            | -                            | Sim    |
-| Service Bus                      |                | Sim              | -                            | -                            | Sim    |
-| Event Hubs                       |                | Sim             | -                            | -                            | -      |
+|                                  |                    | **Modelo de encriptação e gestão de chaves** |                   |                    |
+|----------------------------------|--------------------|--------------------|--------------------|--------------------|
+|                                  | **Lado do servidor utilizando a chave de serviço gerido**     | **Lado do servidor utilizando gerida pelo cliente no Cofre de chaves**             |  **Lado do servidor com gerida pelo cliente no local**                  | **Cliente utilizando o cliente gerido**      |
+| **Armazenamento e bases de dados**        |                    |                    |                    |                    |                    |
+| Disco (IaaS)                      | -                  | Sim, RSA 2048 bits  | Sim*               | -                  |
+| SQL Server (IaaS)                | Sim                | Sim, RSA 2048 bits  | Sim                | Sim                |
+| Base de dados SQL do Azure (PaaS)        | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |
+| Armazenamento do Azure (Blobs de blocos/páginas) | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |
+| Armazenamento do Azure (ficheiros)            | Sim                | Sim, RSA 2048 bits  | -                  | -                  |
+| Armazenamento do Azure (tabelas, filas)   | Sim                | -                  | -                  | Sim                |
+| Cosmos BD (documento DB)          | Sim                | -                  | -                  | -                  |
+| StorSimple                       | Sim                | -                  | -                  | Sim                |
+| Cópia de segurança                           | -                  | -                  | -                  | Sim                |
+| **Intelligence e análise**   |                    |                    |                    |                    |
+| Azure Data Factory               | Sim                | -                  | -                  | -                  |
+| Azure Machine Learning           | -                  | Pré-visualização, RSA 2048 bits | -                  | -                  |
+| Azure Stream Analytics           | Sim                | -                  | -                  | -                  |
+| HDInsight (armazenamento de Blobs do Azure)   | Sim                | -                  | -                  | -                  |
+| HDInsight (armazenamento do Data Lake)    | Sim                | -                  | -                  | -                  |
+| Azure Data Lake Store            | Sim                | Sim, RSA 2048 bits  | -                  | -                  |
+| Catálogo de Dados do Azure               | Sim                | -                  | -                  | -                  |
+| Power BI                         | Sim                | -                  | -                  | -                  |
+| **Serviços IoT**                 |                    |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | -                  | Sim                |
+| Service Bus                      | Sim                | -                  | -                  | Sim                |
+| Event Hubs                       | Sim                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusão
 
 Proteção de dados de cliente armazenados dentro de serviços do Azure é essencial da importância à Microsoft. Todos os Azure alojada serviços são consolidados para fornecer encriptação em Opções de Rest. Serviços de intelligence e serviços fundamentais sobre como o Storage do Azure, SQL Database do Azure e análise de chave já fornecem a encriptação em Opções de Rest. Alguns destes serviços suportam chaves cliente controlada e encriptação do lado do cliente, bem como as chaves de serviço gerido e encriptação. Serviços do Microsoft Azure são amplamente Otimização da encriptação na disponibilidade de Rest e novas opções estejam planeadas para pré-visualização e disponibilidade geral nos meses futuros.
-

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ad9eaa966aafc4a9fc526d44d57c68cdaee3a5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356136"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265257"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter as informações da utterances de linguagem natural de um utilizador. As informações são extraídas de forma a que pode ser utilizado por um programa, aplicação ou chatbot qualquer ação.
@@ -711,4 +711,4 @@ O ponto final LUIS pode detetar os mesmos dados em entidades diferentes:
 
 Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

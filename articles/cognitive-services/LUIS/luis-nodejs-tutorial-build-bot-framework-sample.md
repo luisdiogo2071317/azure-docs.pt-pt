@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cc84942c139d3c5e981aec902557201c9c8092
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355771"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264978"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrar LUIS com um bot utilizando o SDK de construtor Bot para Node.js
 
@@ -235,15 +235,14 @@ No Portal do Azure, selecione em **testar na Web Chat** para testar o bot. Tente
    ![Testar HomeAutomation bot Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS, concedendo-la mais utterances de exemplo para prepará-lo. Pode a reparametrização dos aplicação LUIS sem qualquer modificação ao código da sua bot. Consulte [adicionar utterances exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [dar formação e testar a aplicação de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test).
+> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS, concedendo-la mais utterances de exemplo para prepará-lo. Pode a reparametrização dos aplicação LUIS sem qualquer modificação ao código da sua bot. Consulte [adicionar utterances exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [dar formação e testar a aplicação de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre a arquitetura de Bot
 Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e [3](https://github.com/Microsoft/BotBuilder) e [4. x](https://github.com/Microsoft/botbuilder-js) SDKs.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-Pode tentar adicionar outros pendentes, como obter ajuda, Cancelar e a saudação inicial, para a aplicação de LUIS. Em seguida, adicionar as caixas de diálogo para os novo pendentes e teste-los utilizando o bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Pode tentar adicionar outros pendentes, como obter ajuda, Cancelar e a saudação inicial, para a aplicação de LUIS. Em seguida, adicionar as caixas de diálogo para os novo pendentes e teste-los utilizando o bot. 
 
 <!-- 
 > [!NOTE] 
@@ -298,10 +297,10 @@ Pode tentar adicionar outros pendentes, como obter ajuda, Cancelar e a saudaçã
 <!-- Old Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]:https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

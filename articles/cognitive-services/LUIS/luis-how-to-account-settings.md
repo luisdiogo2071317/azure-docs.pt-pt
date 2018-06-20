@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 25989d07b7d879ac68283ee56a7ccb0c07e09623
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.openlocfilehash: 76300b307c8e87a3dd108fc53d3b30a53d3276dd
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35356063"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263929"
 ---
 # <a name="manage-your-luis-account"></a>Gerir a sua conta LUIS
 Duas peças-chave de informações para uma conta de LUIS são a conta de utilizador e a chave de criação. As informações de início de sessão são geridas no [account.microsoft.com](https://account.microsoft.com). É gerida a partir da sua chave de criação de [LUIS][LUIS] Web site **definições** página. 
@@ -50,8 +50,12 @@ Se o administrador inquilino não irá iniciar sessão no LUIS, o administrador 
 
 Se o administrador inquilino quiser apenas determinados utilizadores para utilizar LUIS, consulte este [blogue de identidade](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Contas de utilizador com várias mensagens de correio eletrónico para os colaboradores
+Se adicionar colaboradores para uma aplicação LUIS, especifica o endereço de e-mail exato que um funcionário tem de utilizar LUIS como um funcionário. Enquanto o Azure Active Directory (Azure AD) permite um único utilizador ter mais do que uma conta de e-mail-no alternadamente, LUIS exige que o utilizador iniciar sessão com o endereço de e-mail especificado na lista do colaborador. 
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o [criação chave](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
