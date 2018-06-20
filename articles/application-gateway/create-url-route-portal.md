@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: e923167ef0b7cdb300fa5ad1421cc18489393ce2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356346"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265183"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento utilizando o portal do Azure
 
@@ -142,8 +142,8 @@ Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de 
 
 1. Clique em **regras** e, em seguida, clique em **com base no caminho**.
 2. Introduza *rule2* para o nome.
-3. Introduza *imagens* para o nome do caminho primeiro. Introduza */images/** para o caminho. Selecione **imagesBackendPool** para o conjunto de back-end.
-4. Introduza *vídeo* para o nome do caminho segundo. Introduza */video/** para o caminho. Selecione **videoBackendPool** para o conjunto de back-end.
+3. Introduza *imagens* para o nome do caminho primeiro. Introduza */images/* \* para o caminho. Selecione **imagesBackendPool** para o conjunto de back-end.
+4. Introduza *vídeo* para o nome do caminho segundo. Introduza */video/* \* para o caminho. Selecione **videoBackendPool** para o conjunto de back-end.
 
     ![Criar uma regra de caminho](./media/create-url-route-portal/application-gateway-route-rule.png)
 

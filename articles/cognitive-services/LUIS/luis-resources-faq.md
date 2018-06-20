@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: ff7b12b623c0c910d3a8b643f3c26f35d2fc0355
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9804b9d5187637fe509d79134f93280d93daca76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355772"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266146"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -208,4 +208,4 @@ Para saber mais sobre LUIS, consulte os seguintes recursos:
 * [Perguntas de capacidade excedida da pilha etiquetadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Idioma MSDN compreender inteligente (LUIS) fórum de serviços](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605761"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228395"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Resolver problemas de registo e de configuração do agente de cópia de segurança do Azure
 ## <a name="recommended-steps"></a>Passos recomendados
@@ -36,13 +36,19 @@ Consulte as ações recomendadas nas tabelas seguintes para resolver erros que p
 
 | Detalhes do erro | Causas possíveis | Ações recomendadas |
 | ---     | ---     | ---    |      
-| **Erro** </br>*Falha ao definir a chave de encriptação de cópias de segurança seguras. A operação atual falhou devido a um erro interno do serviço erro' inválido entrada'. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft*. |Servidor já está registado noutro cofre.| Anular o registo do servidor do cofre e registe novamente.
+| **Erro** </br>*Falha ao definir a chave de encriptação de cópias de segurança seguras ativação completamente não teve êxito, mas foi guardado o frase de acesso de encriptação para o seguinte ficheiro*. |<li>Servidor já está registado noutro cofre.<li>Durante a configuração, o frase de acesso estava danificado| Anular o registo do servidor do cofre e registe novamente com uma nova frase de acesso.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>A ativação não foi concluída com êxito. A operação atual falhou devido a um erro interno do serviço [0x1FC07]
 
 | Detalhes do erro | Causas possíveis | Ações recomendadas |
 | ---     | ---     | ---    |          
-| **Erro** </br><ol><li>*A ativação não foi concluída com êxito. A operação atual falhou devido a um erro interno do serviço [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft* <li>*Erro 34506. O frase de acesso de encriptação armazenada neste computador não está corretamente configurada*. | <li> A pasta scratch se encontra num volume que não tem espaço suficiente. <li> A pasta scratch foi movida incorretamente para outra localização. <li> O ficheiro OnlineBackup.KEK está em falta. | <li>Mova a pasta scratch ou a localização da cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos descritos para [perguntas sobre o agente de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta scratch ou o caminho de localização da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Erro** </br><ol><li>*A ativação não foi concluída com êxito. A operação atual falhou devido a um erro interno do serviço [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft*| <li> A pasta scratch se encontra num volume que não tem espaço suficiente. <li> A pasta scratch foi movida incorretamente para outra localização. <li> O ficheiro OnlineBackup.KEK está em falta. | <li>Atualizar para o [versão mais recente](http://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a pasta scratch ou a localização da cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos descritos para [perguntas sobre o agente de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta scratch ou o caminho de localização da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Erro 34506. O frase de acesso de encriptação armazenada neste computador não está corretamente configurada
+
+| Detalhes do erro | Causas possíveis | Ações recomendadas |
+| ---     | ---     | ---    |          
+| **Erro** </br><ol><li>*Erro 34506. O frase de acesso de encriptação armazenada neste computador não está corretamente configurada*. | <li> A pasta scratch se encontra num volume que não tem espaço suficiente. <li> A pasta scratch foi movida incorretamente para outra localização. <li> O ficheiro OnlineBackup.KEK está em falta. | <li>Atualizar para o [versão mais recente](http://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a pasta scratch ou a localização da cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos descritos para [perguntas sobre o agente de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta scratch ou o caminho de localização da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

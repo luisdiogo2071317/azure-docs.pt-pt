@@ -3,24 +3,24 @@ title: Utilizar a API de Relatórios do Azure AD com certificados para obter dad
 description: Explica como utilizar a API de Relatórios do Azure AD com credenciais de certificados para obter dados de diretórios sem intervenção do utilizador.
 services: active-directory
 documentationcenter: ''
-author: ramical
-writer: v-lorisc
-manager: kannar
+author: priyamohanram
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: ramical
-ms.openlocfilehash: 5ceb3d1ef99189e5b0cfcc48b38906ed28c07730
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.author: priyamo
+ms.reviewer: dhanyahk
+ms.openlocfilehash: aa0891126ad6fa05a39b9245e4fe85b61218ec40
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588962"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222465"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obter dados com a API de relatórios do Azure Active Directory com certificados
 
@@ -107,7 +107,7 @@ Agora, pode criar o script. Segue-se um exemplo que utiliza o cmdlet **Invoke-Az
 
 Agora, está pronto para exportar para um CSV e guardar num sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Obter uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 

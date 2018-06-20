@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: b21d711e59ddc762eaf72f49e501d9f324d75105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240539"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215104"
 ---
-# <a name="service-endpoint-monitor"></a>Monitor de ponto final de serviço
+# <a name="service-endpoint-monitor"></a>Monitor do Ponto Final de Serviço
 
 Pode utilizar a capacidade de Monitor de ponto final de serviço no [Monitor de desempenho de rede](log-analytics-network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que possui uma porta TCP aberta. Esses pontos finais incluem sites, aplicações de SaaS, PaaS e bases de dados SQL. 
 
@@ -34,7 +34,7 @@ Pode efetuar as seguintes funções com a monitorização do ponto final de serv
 - Identifique oportunidades de frequente na rede que poderá estar a causar o desempenho de aplicações fraco visualizando a latência contribuída por cada salto num mapa de topologia.
 
 
-![Monitor de ponto final de serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitor do Ponto Final de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -52,7 +52,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,a
 netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
 netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
 netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
-netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action 
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
 ### <a name="create-service-endpoint-monitor-tests"></a>Criar testes de Monitor de ponto final de serviço 

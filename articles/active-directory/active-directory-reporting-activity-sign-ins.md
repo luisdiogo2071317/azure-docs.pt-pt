@@ -3,25 +3,25 @@ title: Relatórios de atividade de início de sessão no portal do Azure Active 
 description: Introdução aos relatórios de atividade de início de sessão no portal do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588612"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232449"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -153,7 +153,7 @@ Pode transferir os dados de atividades de início de sessão se pretender trabal
 
 ![Transferir](./media/active-directory-reporting-activity-sign-ins/71.png "Transferir")
 
-Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes. Se necessita de mais flexibilidade, pode utilizar a solução de script. Ao clicar em **Script** cria um script que inclui todos os filtros que definiu. Além da implementação técnica, o número de registos que pode transferir também é limitado pelas [políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md).  
+Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes. Se necessita de mais flexibilidade, pode utilizar a solução de script. Ao clicar em **Script** cria um script do PowerShell que inclui todos os filtros que definiu. Transfira e execute este script numa **modo de administrador** para gerar o ficheiro CSV. Além da implementação técnica, o número de registos que pode transferir também é limitado pelas [políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md).  
 
 
 
@@ -245,7 +245,7 @@ A opção **Inícios de sessão** dá uma visão geral completa de todos os even
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se quiser saber mais sobre os códigos de erro das atividades de inícios de sessão, veja os [Códigos de erro dos relatórios de atividades de inícios de sessão no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 

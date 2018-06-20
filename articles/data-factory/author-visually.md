@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725147"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265293"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>A criação de Visual no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite-lhe visualmente cria e implementar os recursos para a fábrica de dados sem ter de escrever qualquer código. Pode arraste as actividades à tela pipeline, efetuar execuções do teste, iteratively, depurar e implementar e monitorizar a execução de pipeline. Existem duas abordagens para utilizar o UX para efetuar a criação de visual:
@@ -63,11 +63,11 @@ O painel mostra o seguinte código VSTS repositório:
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código VSTS.<br/>**Tenha em atenção**: GitHub não é atualmente suportado. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
-| **Conta do Visual Studio Team Services** | Nome da sua conta VSTS. Pode localizar o nome da sua conta VSTS em `https://{account name}.visualstudio.com`. Pode [iniciar sessão na sua conta VSTS](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e ver as repositórios e projetos. | \<nome da sua conta > |
-| **ProjectName** | O nome de projeto VSTS. Pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | \<o nome do projeto VSTS > |
-| **RepositoryName** | O nome de repositório de código VSTS. Projetos VSTS contêm repositórios de Git para gerir o seu código de origem à medida que cresce o projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | \<o nome de repositório de código VSTS > |
-| **Ramo de colaboração** | O ramo de colaboração VSTS que será utilizado para publicação. Por predefinição, é `master`. Altere esta opção caso pretenda publicar recursos a partir de outra sucursal. | \<o nome da sua sucursal colaboração > |
-| **Pasta raiz** | A pasta de raiz no seu ramo de colaboração VSTS. | \<nome da pasta de raiz > |
+| **Conta do Visual Studio Team Services** | Nome da sua conta VSTS. Pode localizar o nome da sua conta VSTS em `https://{account name}.visualstudio.com`. Pode [iniciar sessão na sua conta VSTS](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e ver as repositórios e projetos. | <your account name> |
+| **ProjectName** | O nome de projeto VSTS. Pode localizar o nome do projeto VSTS em `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | O nome de repositório de código VSTS. Projetos VSTS contêm repositórios de Git para gerir o seu código de origem à medida que cresce o projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | <your VSTS code repository name> |
+| **Ramo de colaboração** | O ramo de colaboração VSTS que será utilizado para publicação. Por predefinição, é `master`. Altere esta opção caso pretenda publicar recursos a partir de outra sucursal. | <your collaboration branch name> |
+| **Pasta raiz** | A pasta de raiz no seu ramo de colaboração VSTS. | <your root folder name> |
 | **Importar os recursos de fábrica de dados existentes para o repositório** | Especifica se pretende importar recursos existentes de fábrica de dados a partir do UX **criação tela** para um repositório de VSTS Git. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>O método de configuração 2: UX criação tela

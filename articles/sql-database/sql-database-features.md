@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d49cd0096eb173c0f483a7b7ab1f3def745f56a6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248814"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231615"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
@@ -39,7 +39,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [Cópias de segurança automáticas](sql-database-automated-backups.md) | Sim | Sim |
 | [Automático otimização (forçar o plano de)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| [Sim](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Automático (índices) de otimização](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| Não |
-| [Ficheiro BACPAC (exportação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim - consulte [exportação de base de dados SQL](sql-database-export.md) | Sim |
+| [Ficheiro BACPAC (exportação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim - consulte [exportação de base de dados SQL](sql-database-export.md) | Não |
 | [Ficheiro BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim - consulte [importar da base de dados SQL](sql-database-import.md) | Não |
 | [Comando de cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Não, apenas iniciadas por sistema cópias de segurança automáticas - Consulte [cópias de segurança automatizadas](sql-database-automated-backups.md) | Cópias de segurança automatizadas iniciadas pelo sistema e o utilizador iniciou as cópias de segurança apenas de cópia - consulte [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Funções incorporadas](https://docs.microsoft.com/sql/t-sql/functions/functions) | Consulte mais - funções individuais | Sim - consulte [os procedimentos armazenados, funções, aciona diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

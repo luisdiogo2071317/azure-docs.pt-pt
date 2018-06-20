@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5e4d5a03db6210c159227530b94fbde6873bc211
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356119"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264390"
 ---
 # <a name="use-composite-entity-to-extract-complex-data"></a>Utilizar a entidade composta para extrair dados complexo
 Esta aplicação simple tem dois [pendentes](luis-concept-intent.md) e várias entidades. O objetivo é livro flights como "1 do mesmo Seattle para Cairo no sexta-feira" e devolva todas as especificações de reserva como um único conjunto de dados. 
@@ -249,5 +249,5 @@ LUIS é feito com este pedido. A aplicação de chamada, tais como um chatbot, p
 [Saiba mais sobre entidades](luis-concept-entity-types.md). 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

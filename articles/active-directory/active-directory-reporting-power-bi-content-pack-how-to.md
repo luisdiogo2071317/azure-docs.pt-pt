@@ -2,24 +2,24 @@
 title: Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory | Microsoft Docs
 description: Saiba como utilizar o Pacote de Conteúdos do Power BI Para o Azure Active Directory
 services: active-directory
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: ''
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 12/06/2017
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fd52f8a31d0fe54cce9b39d7de7eb45336efeb7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 531d192bf024def1a90d9e5034645b6ec6e0c0e1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588329"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225427"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory
 
@@ -148,6 +148,6 @@ Assim que a versão nova do pacote de conteúdos estiver em funcionamento, pode 
 Veja o nosso [guia de resolução de problemas](active-directory-reporting-troubleshoot-content-pack.md). Para obter ajuda geral com o Power BI, veja estes [artigos de ajuda](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma descrição geral dos relatórios, veja [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).

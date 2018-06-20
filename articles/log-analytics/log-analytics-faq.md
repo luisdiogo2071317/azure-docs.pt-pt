@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637179"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221549"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 Estas FAQ Microsoft é uma lista de perguntas mais comuns sobre a análise de registos no Microsoft Azure. Se tiver alguma questão adicional sobre a análise de registos, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que possam ser localizada forma rápida e fácil.
@@ -75,18 +75,21 @@ Análise de registos utiliza a hora UTC e começam a todos os dias à meia-noite
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Como pode posso ser notificado quando parar a recolha de dados?
 
-R: utilizar os passos descritos no [criar uma regra de alerta](log-analytics-alerts-creating.md#create-an-alert-rule) para ser notificado quando parar a recolha de dados.
+R: utilizar os passos descritos no [criar um novo alerta de registo](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado quando parar a recolha de dados.
 
 Quando criar o alerta para quando interrompe a recolha de dados, defina o:
-- **Nome** para *parada a recolha de dados*
-- A **gravidade** como *Aviso*
-- A **consulta de pesquisa** como `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Janela de tempo** para *30 minutos*.
-- **Frequência de alerta** a cada *dez* minutos.
-- **Gerar alerta com base em** como o *número de resultados*
-- O **número de resultados** como *Superior a 0*
 
-Este alerta serão acionados quando a consulta devolve resultados apenas se tiver o heartbeat em falta para a mais de 15 minutos.  Utilize os passos descritos em [Add actions to alert rules](log-analytics-alerts-actions.md) (Adicionar ações a regras de alertas) para configurar uma ação de e-mail, webhook ou runbook para a regra de alerta.
+- **Definir a condição de alerta** especificar a sua área de trabalho de análise de registos como o destino de recursos.
+- **Critérios de alerta** especifique o seguinte:
+   - **Assinalar nome** selecione **pesquisa de registo personalizado**.
+   - A **consulta de pesquisa** como `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Alerta lógica** é **com base no** *número de resultados* e **condição** é *maior* um **limiar**  de *0*
+   - **Período de tempo** de *30* minutos e **frequência do alerta** a cada *10* minutos
+- **Definir os detalhes do alerta** especifique o seguinte:
+   - **Nome** para *parada a recolha de dados*
+   - A **gravidade** como *Aviso*
+
+Especifique um existente ou crie um novo [ação grupo](../monitoring-and-diagnostics/monitoring-action-groups.md) para que quando o alerta de registo corresponde aos critérios, será notificado se tiver um heartbeat em falta para a mais de 15 minutos.
 
 ## <a name="configuration"></a>Configuração
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Pode alterar o nome do contentor de blob/tabela utilizado para ler a partir do diagnóstico do Azure (WAD)?

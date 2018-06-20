@@ -1,6 +1,6 @@
 ---
 title: Gerir atualizações para várias máquinas virtuais do Azure
-description: Este tópico descreve como gerir atualizações para as máquinas virtuais do Azure.
+description: Este artigo descreve como gerir atualizações para máquinas virtuais do Azure.
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -9,93 +9,96 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66d50c94f2aad15e0d4a1b7500e8a4aeb45b1742
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833724"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214258"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
-Pode utilizar a gestão de atualizações para gerir atualizações e correções para as suas máquinas virtuais do Windows e do Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
+Pode utilizar a solução de gestão de atualizações para gerir as atualizações e correções de erros de máquinas virtuais Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
 
-- Adicionar máquinas virtuais.
-- Avaliar o estado das atualizações disponíveis.
-- Agendar a instalação das atualizações necessárias.
-- Reveja os resultados da implementação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais que têm a gestão de atualizações ativada.
+- Integrar as máquinas virtuais
+- Avaliar o estado das atualizações disponíveis
+- Agendar a instalação de atualizações necessárias
+- Reveja os resultados de implementação para verificar que as atualizações foram aplicadas com êxito para todas as máquinas virtuais para que a gestão de atualizações está ativada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a gestão de atualizações, precisa de:
+Para utilizar a gestão de atualizações, tem de:
 
-- Uma conta Run As de Automatização. Para obter instruções sobre como criá-la, veja [Introdução à Automatização do Azure](automation-offering-get-started.md).
-
+- Uma conta Run As de Automatização. Para saber como criar um, consulte [introdução da automatização do Azure](automation-offering-get-started.md).
 - Uma máquina virtual ou um computador que tenha instalado um dos sistemas operativos suportados.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 Gestão de atualizações é suportada nos seguintes sistemas operativos:
 
-|Sistema Operativo  |Notas  |
+|Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Só suporta as avaliações de atualização         |
-|Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou superior ([transferir o WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> 5.1 do Windows PowerShell ([transferir o WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) é recomendada para uma maior fiabilidade.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas atualizar avaliações.         |
+|Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou posterior. ([Transferir WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> 5.1 do Windows PowerShell é recomendada para uma maior fiabilidade. ([Transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+|Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desativar as atualizações automáticas. Para obter informações, veja [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) (Tópico de Atualizações Automáticas no Guia do Ubuntu Server).
 
 Os agentes do Linux têm de ter acesso a um repositório de atualização.
 
-Esta solução não suporta um agente do OMS de Linux configurado para relatar para várias áreas de trabalho de análise de registos.
+Esta solução não suporta um agente do Operations Management Suite (OMS) para o Linux que está configurado para o relatório para várias áreas de trabalho do Log Analytics do Azure.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Ativar a gestão de atualização para máquinas virtuais do Azure
+## <a name="enable-update-management-for-azure-virtual-machines"></a>Ative a gestão de atualização para máquinas virtuais do Azure
 
-No portal do Azure, abra a sua conta de automatização e selecione **gestão de atualizações**.
+No portal do Azure, abra a sua conta de automatização e, em seguida, selecione **gestão de atualizações**.
 
-Na parte superior da janela, selecione **Adicionar VM do Azure**.
+Selecione **adicionar a VM do Azure**.
 
 ![Adicionar o separador de VM do Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Selecione uma máquina virtual para carregar. É aberta a caixa de diálogo **Ativar Gestão de Atualizações**. Selecione **ativar** integrar a máquina virtual. Assim que a integração for concluída, a gestão de atualizações está ativada para a máquina virtual.
+Selecione uma máquina virtual para carregar. 
+
+Em **ativar a gestão de atualização**, selecione **ativar** integrar a máquina virtual.
 
 ![Caixa de diálogo Ativar Gestão de Atualizações](./media/manage-update-multi/update-enable.png)
 
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Ativar a gestão de atualização para máquinas virtuais e computadores não Azure
+Quando a integração for concluída, a gestão de atualizações está ativada para a máquina virtual.
 
-Para obter instruções sobre como ativar a gestão de atualizações para máquinas virtuais e computadores não Azure, veja [Connect Windows computers to the Log Analytics service in Azure (Ligar computadores Windows ao serviço do Log Analytics no Azure)](../log-analytics/log-analytics-windows-agent.md).
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Ative a gestão de atualização para máquinas virtuais do Azure não e computadores
 
-Para obter instruções sobre como ativar a gestão de atualizações para máquinas virtuais e computadores Linux não Azure, veja [Connect your Linux computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Ligar os seus computadores Linux ao Log Analytics).
+Para saber como ativar a gestão de atualizações para as máquinas virtuais do Azure de Windows e computadores, consulte [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agent.md).
 
-## <a name="view-computers-attached-to-your-automation-account"></a>Ver computadores ligados à sua conta de automatização
+Para saber como ativar a gestão de atualizações para as máquinas virtuais Linux não do Azure e computadores, consulte [ligar os computadores com Linux a análise de registos](../log-analytics/log-analytics-agent-linux.md).
 
-Depois de ativar a gestão de atualizações nas suas máquinas, pode clicar em **Computadores** para ver as respetivas informações. Informações do computador, tal como *nome*, *conformidade*, *ambiente*, *tipo de SO*, *crítica e atualizações de segurança* , *Outras atualizações*, e *preparação de agente de atualização* estão disponíveis.
+## <a name="view-computers-attached-to-your-automation-account"></a>Computadores de vista ligados a sua conta de automatização
+
+Depois de ativar a gestão de atualizações para as suas máquinas, pode ver as informações da máquina, selecionando **computadores**. Pode ver informações *nome da máquina*, *estado de conformidade*, *ambiente*, *tipo de SO*, *críticos e atualizações de segurança instaladas*, *outras atualizações instaladas*, e *preparação de agente de atualização* para os seus computadores.
 
   ![Separador Ver computadores](./media/manage-update-multi/update-computers-tab.png)
 
-Relativamente aos computadores nos quais a gestão de atualizações tenha sido ativada recentemente, é possível que possam ainda não ter sido avaliados. O estado de conformidade destes será *Não avaliado*.  Esta é uma lista dos valores para o estado de conformidade:
+Computadores recentemente tem sido ativadas para a gestão de atualizações podem não ter sido avaliado em matéria ainda. O estado de estado de conformidade para os computadores é **não avaliado**. Eis uma lista de valores possíveis para o estado de compatibilidade:
 
-- Conforme – computadores que não têm atualizações críticas ou de segurança em falta.
+- **Em conformidade**: computadores que estão em falta não críticos ou atualizações de segurança.
 
-- Não conforme – computadores que têm em falta pelo menos uma atualizações crítica ou de segurança.
+- **Não compatível**: computadores que estão em falta, pelo menos, um críticas ou de atualização de segurança.
 
-- Não avaliado – os dados da avaliação de atualizações não foram recebidos do computador dentr do período de tempo esperado.  Para computadores Linux, nas últimas três horas e, para computadores Windows, nas últimas 12 horas.
+- **Não é avaliada**: os dados da avaliação de atualização não foi recebidos do computador durante o período de tempo esperado. Para computadores Linux, o período de tempo esperado é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
 
-Para ver o estado do agente, clique na ligação no **preparação de agente de ATUALIZAÇÃO** coluna. Esta ação abre a página de função de trabalho híbrida que mostra o estado do Worker híbrido. A imagem seguinte mostra um exemplo de um agente que não foi ligado a gestão de atualizações durante um período de tempo expandido.
+Para ver o estado do agente, selecione a hiperligação no **preparação de agente de ATUALIZAÇÃO** coluna. A seleção desta opção abre o **Worker híbrido** painel e mostra o estado do Worker híbrido. A imagem seguinte mostra um exemplo de um agente que ainda não foi ligado a gestão de atualizações por um longo período de tempo:
 
 ![Separador Ver computadores](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Ver avaliações de atualizações
 
-Depois de ativada a gestão de atualizações, é apresentada a caixa de diálogo **Atualizar gestão**. Pode ver uma lista de atualizações em falta no separador **Atualizações em falta**.
+Depois de ativar a gestão de atualizações, o **gestão de atualizações** abre o painel. Pode ver uma lista de atualizações em falta no separador **Atualizações em falta**.
 
 ## <a name="collect-data"></a>Recolher dados
 
-Os agentes instalados nas máquinas virtuais e computadores recolhem dados sobre as atualizações e enviam-nos para a gestão de atualizações do Azure.
+Os agentes que estão instalados nos computadores e máquinas virtuais recolhem dados sobre atualizações. Os agentes de enviam os dados para a gestão de atualizações do Azure.
 
 ### <a name="supported-agents"></a>Agentes suportados
 
@@ -103,32 +106,32 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem ligada | Suportadas | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A gestão de atualizações recolhe informações sobre as atualizações do sistema de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |A gestão de atualizações recolhe informações sobre as atualizações do sistema a partir dos agentes do Linux e inicia a instalação das atualizações obrigatórias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A gestão de atualizações recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado. |
-| Conta de armazenamento do Azure |Não |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
+| Agentes do Windows |Sim |Gestão de atualizações recolhe informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |Sim |Gestão de atualizações recolhe informações sobre atualizações do sistema de agentes Linux e, em seguida, inicia a instalação de atualizações necessárias no distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |Gestão de atualizações recolhe informações sobre atualizações do sistema de agentes no grupo de gestão ligado. |
+| Conta de armazenamento do Azure |Não |Armazenamento do Azure não inclui informações sobre as atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
-Em cada computador Windows gerido, é executada uma análise duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização, para determinar se o estado foi alterado. Se assim for, é iniciada uma análise de compatibilidade. Em cada computador Linux gerido, é executada uma análise de três em três horas.
+Uma análise é executada duas vezes por dia para cada computador gerido do Windows. A cada 15 minutos, a API do Windows denomina-se a consulta para a hora da última atualização determinar se o estado mudou. Se alterar o estado, inicia uma análise de compatibilidade. Uma análise é executada a cada 3 horas para cada computador Linux gerido.
 
-O dashboard pode demorar entre 30 minutos a seis horas a apresentar os dados atualizados a partir dos computadores geridos.
+Pode demorar entre 30 minutos e 6 horas para o dashboard apresentar dados atualizados a partir de computadores geridos.
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implementação de atualizações
 
-Para instalar atualizações, agende uma implementação que siga o seu agendamento e o período de administração da versão.
-Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
+Para instalar atualizações, agende uma implementação que está alinhada com a janela de agendamento e o serviço de versão. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
-Para agendar uma nova implementação de atualização numa ou mais máquinas virtuais, selecione **Agendar a implementação da atualização**, na parte superior da caixa de diálogo **Gestão de atualizações**.
-No painel **Nova implementação de atualização**, especifique o seguinte:
+Para agendar uma nova implementação de atualização para um ou mais máquinas virtuais, em **gestão de atualizações**, selecione **implementação de atualização de agendamento**.
 
-- **Nome**: indique um nome exclusivo para identificar a implementação de atualizações.
-- **Tipo de SO**: selecione Windows ou Linux.
-- **Máquinas para atualizar**: selecione as máquinas virtuais que pretende atualizar. A preparação da máquina é apresentada no **preparação de agente de ATUALIZAÇÃO** coluna. Isto permite-lhe ver o estado de funcionamento da máquina antes de agendar a implementação da atualização.
+No **novo atualizar implementação** painel, especifique as seguintes informações:
 
-  ![Painel “Nova implementação de atualizações”](./media/manage-update-multi/update-select-computers.png)
+- **Nome**: introduza um nome exclusivo para identificar a implementação da atualização.
+- **Sistema operativo**: selecione **Windows** ou **Linux**.
+- **Máquinas para atualizar**: selecione as máquinas virtuais que pretende atualizar. A preparação da máquina é apresentada no **preparação de agente de ATUALIZAÇÃO** coluna. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização.
 
-- **Classificação da atualização**: selecione os tipos de software que a implementação de atualizações vai incluir. Para obter uma descrição dos tipos de classificação, veja [Classificações de atualizações](automation-update-management.md#update-classifications). Os tipos de classificação são:
+  ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
+
+- **Classificação da atualização**: selecione os tipos de software para incluir na implementação de atualização. Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-update-management.md#update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Update rollups
@@ -138,43 +141,44 @@ No painel **Nova implementação de atualização**, especifique o seguinte:
   - Ferramentas
   - Atualizações
 
-- **Atualizações para excluir** -esta ação abre o **excluir** página. Introduza o KBs ou nomes de pacote para excluir.
+- **Atualizações para excluir**: a seleção desta opção abre o **excluir** página. Introduza nomes de pacote para excluir ou artigos da KB.
 
-- **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Em alternativa, pode especificar uma hora diferente.
-   Também pode especificar se a implementação ocorre uma vez ou de acordo com um agendamento periódico. Para configurar um agendamento periódico, selecione a opção **Periódico**, em **Periodicidade**.
+- **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Também pode especificar uma hora diferente.
+
+   Também pode especificar se a implementação ocorre uma vez ou de acordo com um agendamento periódico. Para configurar uma agenda periódica, em **periodicidade**, selecione **periódica**.
 
    ![Caixa de diálogo Definições de Agendamento](./media/manage-update-multi/update-set-schedule.png)
+- **Janela de manutenção (minutos)**: Especifique o período de tempo que pretende que a implementação da atualização para ocorrer. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
-- **Janela de manutenção (minutos)**. especifique o período de tempo no qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
-
-Depois de concluir a configuração do agendamento, selecione o botão **Criar** para regressar ao dashboard de estado. A tabela **Agendada** mostra o agendamento da implementação que acabou de criar.
+Quando tiver terminado de configurar a agenda, selecione o **criar** botão para regressar ao dashboard de estado. O **agendada** tabela mostra a agenda de implementação que criou.
 
 > [!WARNING]
-> Para as atualizações que requerem reinício, a máquina virtual será reiniciada automaticamente.
+> A máquina virtual para as atualizações que requerem o reinício, reinicie automaticamente.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
-Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualizações**, na caixa de diálogo **Gestão de atualizações**.
-Se a implementação estiver em execução, o estado será **Em curso**. Após a conclusão bem-sucedida da implementação, muda para **Bem-sucedida**.
+Após a implementação planeada é iniciada, pode ver o estado dessa implementação no **implementações de atualizações** separador em **gestão de atualizações**.
+
+Se a implementação estiver em execução, o estado será **Em curso**. Após a conclusão da implementação com êxito, o estado é alterado para **com êxito**.
+
 Se uma ou mais atualizações falharem na implementação, o estado é **Falha parcial**.
 
 ![Estado da implementação de atualizações](./media/manage-update-multi/update-view-results.png)
 
 Para ver o dashboard relativo a uma implementação de atualizações, selecione a implementação concluída.
 
-O painel **Resultados da atualização** mostra o número total de atualizações e os resultados da implementação da máquina virtual.
-A tabela à direita mostra uma divisão detalhada de cada atualização e os resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
+O **atualizar resultados** painel mostra o número total de atualizações e os resultados da implementação da máquina virtual. A tabela à direita fornece uma repartição detalhada de cada atualização e os resultados da instalação. Os resultados da instalação podem ser um dos seguintes valores:
 
-- Não tentada: a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-- Bem-sucedida: a atualização foi executada com êxito.
-- Falhou: a atualização falhou.
+- **Não foi efetuada uma tentativa**: A atualização não foi instalada porque tempo insuficiente não estava disponível com base na janela de manutenção definidas.
+- **Foi concluída com êxito**: A atualização foi bem-sucedida.
+- **Não foi possível**: A atualização falhou.
 
 Para ver todas as entradas de registo que a implementação criou, selecione **Todos os registos**.
 
-Para ver o fluxo de trabalhos do runbook responsável pela gestão da implementação de atualizações na máquina virtual de destino, selecione o mosaico **Saída**.
+Para ver a sequência de tarefa do runbook que gere a implementação da atualização na máquina virtual de destino, selecione o mosaico de saída.
 
 Para ver informações detalhadas sobre os erros da implementação, selecione **Erros**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre a gestão de atualização - consulte os registos, saída e erros – incluindo [solução de gestão de atualização no Azure](../operations-management-suite/oms-solution-update-management.md).
+- Para saber mais sobre a gestão de atualização, incluindo os registos, de saída e de erros, veja [solução de gestão de atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).

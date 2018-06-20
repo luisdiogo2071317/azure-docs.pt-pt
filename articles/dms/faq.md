@@ -10,25 +10,25 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 06/19/2018
+ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850077"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214108"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas mais comuns sobre como utilizar o serviço de migração de base de dados do Azure, juntamente com respostas relacionadas.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>Q. O que é o serviço de migração de base de dados do Azure?
-O serviço de migração de base de dados do Azure é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. O serviço está atualmente em pré-visualização pública, com esforços de desenvolvimento concentra-se em:
+O serviço de migração de base de dados do Azure é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. O serviço está atualmente geralmente disponível, com esforços de desenvolvimento em curso concentra-se em:
 - Fiabilidade e desempenho.
 - Iterativa adição de pares de destino de origem.
 - Contínuo investimento em migrações friction-livre.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>Q. Os pares de destino origem o serviço de migração de base de dados do Azure suporta atualmente?
-O serviço em pré-visualização pública atualmente suporta migrações do SQL Server para a SQL Database do Azure e pode ir para o portal do Azure agora para começar a utilizar o serviço de migração de base de dados do Azure para este cenário. Outros pares de destino de origem, como o SQL Server para a base de dados geridas por instância de SQL do Azure e Oracle a SQL Database do Azure estão disponíveis através de uma versão de pré-visualização privada limitado. Para uma oportunidade de participar na pré-visualização privada limitado um destes cenários, inscreva-se [aqui](https://sqldatabase-migrationpreview.azurewebsites.net/).
+Atualmente, o serviço suporta migrações do SQL Server para a SQL Database do Azure e pode ir para o portal do Azure agora para começar a utilizar o serviço de migração de base de dados do Azure para este cenário. Outros pares de destino de origem, tais como Oracle a SQL Database do Azure estão disponíveis através de uma versão de pré-visualização privada limitado. Para uma oportunidade de participar na pré-visualização privada limitado um destes cenários, inscreva-se [aqui](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>Q. Como o serviço de migração de base de dados do Azure comparar com outras ferramentas de migração de base de dados do Microsoft, como o Assistente de base de dados de migração (DMA) ou o SQL Server migração Assistente (SSMA)?
 O serviço de migração de base de dados do Azure é o método preferencial de migração de base de dados para o Microsoft Azure à escala. Para mais detalhes sobre como o serviço de migração de base de dados do Azure compara para outro Microsoft ferramentas de migração de base de dados e para as recomendações sobre como utilizar o serviço para vários cenários, consulte a publicação do blogue [base de dados Differentiating Microsoft As ferramentas de migração e serviços](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -93,4 +93,4 @@ Se o utilizador explicitamente parar o serviço de migração de base de dados d
 Queremos ouvi do utilizador. Envie quaisquer comentários e / ideias tem sobre o serviço de migração de base de dados do Azure através de voz do utilizador, [aqui](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma descrição geral do serviço de migração de base de dados do Azure e disponibilidade regional durante a pré-visualização pública, consulte o artigo [o que é a pré-visualização de serviço de migração de base de dados do Azure](dms-overview.md). 
+Para obter uma descrição geral do serviço de migração de base de dados do Azure e regional disponibilidade, consulte o artigo [o que é o serviço de migração de base de dados do Azure](dms-overview.md). 

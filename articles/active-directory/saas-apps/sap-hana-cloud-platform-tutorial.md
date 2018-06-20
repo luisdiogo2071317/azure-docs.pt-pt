@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: fed3e6c27e5921a293a9431500cfbfbe21dbd5f4
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 2f3c3c8db93ae638cfc0bf82ee26ff2e26646d49
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35955948"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory com a plataforma de nuvem do SAP
 
@@ -112,7 +113,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio SAP da plataforma de nuvem e os URLs únicos de informações de início de sessão](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão na sua **SAP Cloud Platform** aplicação. Este é o URL da conta específica de um recurso protegido na sua aplicação da plataforma de nuvem do SAP. O URL é baseado no padrão do seguinte: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    um. No **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para iniciar sessão na sua **SAP Cloud Platform** aplicação. Este é o URL da conta específica de um recurso protegido na sua aplicação da plataforma de nuvem do SAP. O URL é baseado no padrão do seguinte: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Este é o URL na aplicação SAP Cloud Platform que requer o autenticação do utilizador.
@@ -166,7 +167,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Gestão de confiança](./media/sap-hana-cloud-platform-tutorial/ic793931.png "gestão de confiança")
    
-    a. Clique em **Editar**.
+    um. Clique em **editar**.
 
     b. Como **tipo de configuração**, selecione **personalizada**.
 
@@ -174,17 +175,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Para gerar um **chave de assinatura** e um **certificado de assinatura** par de chaves, clique em **gerar par de chaves**.
 
-    e. Como **propagação Principal**, selecione **desativado**.
+    i. Como **propagação Principal**, selecione **desativado**.
 
-    f. Como **Force autenticação**, selecione **desativado**.
+    F. Como **Force autenticação**, selecione **desativado**.
 
-    g. Clique em **Guardar**.
+    G. Clique em **guardar**.
 
 9. Depois de guardar o **fornecedor de serviços locais** definições, efetue o seguinte para obter o URL de resposta:
    
     ![Obter metadados](./media/sap-hana-cloud-platform-tutorial/ic793930.png "obter metadados")
 
-    a. Transfira o ficheiro de metadados de plataforma de nuvem do SAP clicando **obter metadados**.
+    um. Transfira o ficheiro de metadados de plataforma de nuvem do SAP clicando **obter metadados**.
 
     b. Abra o ficheiro XML de metadados SAP Cloud Platform transferido e, em seguida, localize o **ns3:AssertionConsumerService** etiquetas.
  
@@ -207,19 +208,19 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     >Depois de carregar o ficheiro de metadados, os valores para **URL de início de sessão único**, **URL de fim de sessão único**, e **certificado de assinatura** são povoadas automaticamente.
     > 
      
-12. Clique no separador **Atributos**.
+12. Clique em de **atributos** separador.
 
 13. No **atributos** separador, executar o passo seguinte:
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "atributos") 
 
-    a. Clique em **Add Assertion-Based atributo**e, em seguida, adicione os seguintes atributos baseado na asserção:
+    um. Clique em **Add Assertion-Based atributo**e, em seguida, adicione os seguintes atributos baseado na asserção:
        
     | Atributo de asserção | Atributo principal |
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |nome próprio |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Apelido |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |Correio eletrónico |
    
      >[!NOTE]
      >A configuração dos atributos depende da forma como a aplicação (ões) no SCP é desenvolvidas, ou seja, os atributos pode esperar da resposta SAML e sob o nome (atributo Principal) acederem a este atributo com o código.
@@ -267,13 +268,13 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     ![A caixa de diálogo de utilizador](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    um. No **nome** caixa, escreva **BrittaSimon**.
 
     b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    d. Clique em **criar**.
  
 ### <a name="create-a-sap-cloud-platform-test-user"></a>Criar um utilizador de teste de SAP Cloud Platform
 
@@ -287,7 +288,7 @@ Para ativar os utilizadores do Azure AD iniciem sessão plataforma de nuvem do S
    
     ![Autorizações](./media/sap-hana-cloud-platform-tutorial/ic790805.png "autorizações")
    
-    a. Clique em **autorização**.
+    um. Clique em **autorização**.
 
     b. Clique em de **utilizadores** separador.
 
@@ -295,7 +296,7 @@ Para ativar os utilizadores do Azure AD iniciem sessão plataforma de nuvem do S
 
     d. Clique em **atribuir** atribuir o utilizador a uma função.
 
-    e. Clique em **Guardar**.
+    i. Clique em **guardar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -327,7 +328,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.
 

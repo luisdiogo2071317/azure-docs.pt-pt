@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 398b69769cebb9d54121e357faed06294499bd61
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e666d23cec4ec6d987084bf5dc33bdb7c3db0f66
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723784"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231202"
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Configurar o SharePoint Online e Exchange Online para o acesso condicional do Azure Active Directory 
 
@@ -182,7 +182,7 @@ Ao aplicar as regras de três seguintes:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações, consulte [de acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Para obter mais informações, consulte [que é o acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 Para obter instruções sobre como configurar regras de afirmação, consulte [configurar regras de afirmação](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-claim-rules). 
 

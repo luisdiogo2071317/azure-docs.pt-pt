@@ -3,17 +3,18 @@ title: Criar um skillset num pipeline pesquisa cognitivos (Azure Search) | Micro
 description: Definir a extração de dados, linguagem natural a processar, ou passos de análise de imagem para enriqueça e extrair informações estruturadas dos seus dados para utilizam na Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640931"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268235"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um skillset um pipeline sem causa
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Recuperar a estrutura de enricher de pesquisa de entidade de Bing personalizado:
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Recuperar a estrutura de enricher de pesquisa de entidade de Bing personalizado:
 
 Esta definição é uma skill personalizado que chama uma API web como parte do processo de sem causa. Para cada organização identificada por reconhecimento de entidade com nome, este skill chama uma API web do encontrar a descrição da organização. A orquestração de quando a chamada da API web e como as informações que recebeu do fluxo é processada internamente pelo motor de sem causa. No entanto, a inicialização necessária para chamar esta API personalizada tem de ser fornecida no JSON (por exemplo, uri, httpHeaders e as entradas esperadas). Para obter orientações sobre como criar uma API de web personalizado para o pipeline sem causa, consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
-Tenha em atenção que o campo "contexto" está definido como ```"/document/content/organizations/*"``` com um asterisco, o que significa que o passo de sem causa é chamado *para cada* organização em ```"/document/content/organizations"```. 
+Tenha em atenção que o campo "contexto" está definido como ```"/document/organizations/*"``` com um asterisco, o que significa que o passo de sem causa é chamado *para cada* organização em ```"/document/organizations"```. 
 
-Saída, neste caso, uma descrição da empresa, é gerado para cada organização identificada. Ao fazer referência a descrição num passo (por exemplo, na extração da expressão de chave) a jusante, teria de utilizar o caminho ```"/document/content/organizations/*/description"``` para fazê-lo. 
+Saída, neste caso, uma descrição da empresa, é gerado para cada organização identificada. Ao fazer referência a descrição num passo (por exemplo, na extração da expressão de chave) a jusante, teria de utilizar o caminho ```"/document/organizations/*/description"``` para fazê-lo. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments criar a estrutura de informações não estruturadas
 

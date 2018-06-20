@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 49123a47d90970d1a99276521b5aa1d516f509ab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1facce770ca2b106d2e3113bb6d1a754ecb9376b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587594"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36211718"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma unidade organizacional (UO) num domínio gerido dos serviços de domínio do Azure AD
 Domínios geridos de serviços de domínio do AD do Azure incluem dois contentores incorporadas, denominadas 'AADDC computadores' e 'AADDC utilizadores' respetivamente. O contentor 'AADDC computadores' tem objetos de computador para todos os computadores que estão associados ao domínio gerido. O contentor 'AADDC utilizadores' inclui os utilizadores e grupos no inquilino do Azure AD. Ocasionalmente, poderá ser necessário criar contas de serviço no domínio gerido para implementar cargas de trabalho. Para esta finalidade, pode criar uma unidade organizacional personalizado (UO) no domínio gerido e criar contas de serviço nessa UO. Este artigo mostra como criar uma UO no seu domínio gerido.
