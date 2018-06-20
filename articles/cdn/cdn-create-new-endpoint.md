@@ -4,7 +4,7 @@ description: Este início rápido mostra como ativar a CDN do Azure através da 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198712"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607876"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
 Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através da criação de um novo perfil da CDN e ponto final da CDN. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes.
@@ -28,7 +28,7 @@ Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para efeitos deste início rápido, tem de ter criado uma conta de armazenamento com o nome *mystorageacct123*, que utiliza para o nome do anfitrião de origem. Para obter mais informações, veja [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md)
+Para efeitos deste início rápido, tem de ter criado uma conta de armazenamento com o nome *mystorageacct123*, que utiliza para o nome do anfitrião de origem. Para obter mais informações, veja [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
@@ -47,23 +47,23 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
    
     ![Perfil da CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    A página **Adicionar um ponto final** é apresentada.
+    O painel **Adicionar um ponto final** aparece.
 
-    Utilize as definições especificadas na tabela abaixo da imagem.
-   
-    ![Painel Adicionar ponto final](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. Nas definições de ponto final, utilize os valores especificados na tabela seguinte:
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Nome** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já se encontrar em utilização, pode introduzir um diferente. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_.azureedge.net.|
+    | **Nome** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_.azureedge.net.|
     | **Tipo de origem** | Selecione **Armazenamento**. | 
-    | **Nome de anfitrião da origem** | Introduza *mystorageacct123.blob.core.windows.net* no nome de anfitrião. Este nome deve ser globalmente exclusivo; se já se encontrar em utilização, pode introduzir um diferente |
+    | **Nome de anfitrião da origem** | Introduza *mystorageacct123.blob.core.windows.net* no nome de anfitrião. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
     | **Caminho de origem** | Deixe em branco. |
     | **Cabeçalho de anfitrião de origem** | Deixe o valor predefinido gerado. |  
     | **Protocolo** | Deixe as opções **HTTP** e **HTTPS** predefinidas selecionadas. |
     | **Porta de origem** | Deixe os valores de porta predefinidos. | 
     | **Otimizado para** | Deixe a seleção predefinida, **Entrega geral Web**. |
-    
+
+    ![Painel Adicionar ponto final](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Selecione **Adicionar** para criar o novo ponto final.
    
    Depois de o ponto final ser criado, aparece na lista de pontos finais para o perfil.

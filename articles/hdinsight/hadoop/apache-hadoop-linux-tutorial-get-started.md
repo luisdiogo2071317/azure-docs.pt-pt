@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 4cf20dacf66ee334dcd455ce1770609c175d3b88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763260"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight através de um modelo do Resource Manager
 
-Neste artigo, vai aprender a criar clusters do [Hadoop](http://hadoop.apache.org/) no HDInsight através de um modelo do Resource Manager e, em seguida, executar tarefas do Hive no HDInsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, vai realizar as três tarefas.
+Neste artigo, vai aprender a criar clusters do [Hadoop](http://hadoop.apache.org/) no HDInsight através de um modelo do Resource Manager e, em seguida, executar tarefas do Hive no HDInsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, irá realizar as três tarefas.
 
 Neste início rápido, vai utilizar um modelo do Resource Manager para criar um cluster do Hadoop no HDInsight. Também pode criar um cluster com o [Portal do Azure](apache-hadoop-linux-create-cluster-get-started-portal.md).
 
@@ -53,10 +54,10 @@ Nesta secção, vai criar um cluster do Hadoop no HDInsight com um modelo do Azu
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Subscrição**     |  Selecione a sua subscrição do Azure. |
-    |**Grupo de recursos**     | Crie um grupo de recursos ou selecione crie um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
+    |**Grupo de recursos**     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
     |**Localização**     | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
     |**Tipo de Cluster**     | Selecione **hadoop**. |
-    |**Nome do Cluster**     | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode ser composto por um máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e o último carateres do nome não podem ser hífenes. |
+    |**Nome do Cluster**     | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode ser composto por um máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
     |**Nome e palavra-passe de início de sessão no cluster**     | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |**Nome de utilizador e palavra-passe de SSH**     | O nome de utilizador predefinido é **sshuser**.  Pode mudar o nome de utilizador do SSH.  A palavra-passe de utilizador do SSH tem os mesmos requisitos que a palavra-passe de início de sessão do cluster.|
        
@@ -77,6 +78,110 @@ Nesta secção, vai criar um cluster do Hadoop no HDInsight com um modelo do Azu
 > Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).       
 > 
 >
+
+## <a name="use-vscode-to-run-hive-queries"></a>Utilizar o VSCode para executar consultas do Hive
+
+Para saber como obter as Ferramentas do HDInsight no VSCode, veja [Utilizar Ferramentas do HDInsight para o Visual Studio Code](../hdinsight-for-vscode.md).
+
+### <a name="submit-interactive-hive-queries"></a>Submeter consultas interativas do Hive
+
+Com as Ferramentas do HDInsight para o VSCode, pode submeter consultas do Hive interativas para clusters de consulta interativa do HDInsight.
+
+1. Crie uma nova pasta de trabalho e um novo ficheiro de script do Hive, se ainda não os tiver.
+
+2. Ligue-se à sua conta do Azure e, em seguida, configure o cluster predefinido, se ainda não o tiver feito.
+
+3. Copie e cole o seguinte código para o ficheiro do Hive e guarde-o.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Clique com o botão direito do rato no editor de scripts e, em seguida, selecione **HDInsight: Hive Interativo** para submeter a consulta. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Logo depois, os resultados da consulta são apresentados num novo separador.
+
+   ![Resultado do Hive interativo](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - Painel **RESULTADOS**: pode guardar todo o resultado como ficheiro CSV, JSON ou Excel no caminho local ou apenas selecionar várias linhas.
+
+    - Painel **MENSAGENS**: quando seleciona o número da **Linha**, passa para a primeira linha do script em execução.
+
+A execução da consulta interativa demora muito menos tempo que [executar uma tarefa de lote do Hive](#submit-hive-batch-scripts).
+
+### <a name="submit-hive-batch-scripts"></a>Submeter scripts de lote do Hive
+
+1. Crie uma nova pasta de trabalho e um novo ficheiro de script do Hive, se ainda não os tiver.
+
+2. Ligue-se à sua conta do Azure e, em seguida, configure o cluster predefinido, se ainda não o tiver feito.
+
+3. Copie e cole o seguinte código para o ficheiro do Hive e guarde-o.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Clique com o botão direito do rato no editor de scripts e, em seguida, selecione **HDInsight: Lote do Hive** para submeter a tarefa do Hive. 
+
+5. Selecione o cluster para o qual pretende submeter.  
+
+    Depois de submeter uma tarefa do Hive, as informações de êxito de submissão e o ID da tarefa são apresentados no painel **SAÍDA**. A tarefa do Hive também abre o **BROWSER**, que mostra o estado e os registos da tarefa em tempo real.
+
+   ![submeter o resultado da tarefa do Hive](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+[Submeter consultas interativas do Hive](#submit-interactive-hive-queries) demora muito menos tempo que submeter uma tarefa de lote.
+
+## <a name="use-visualstudio-to-run-hive-queries"></a>Utilizar o VisualStudio para executar consultas do Hive
+
+Para saber como obter as Ferramentas do HDInsight no Visual Studio, veja [Utilizar as Ferramentas do Data Lake para o Visual Studio](./apache-hadoop-visual-studio-tools-get-started.md).
+
+### <a name="run-hive-queries"></a>Executar consultas do Hive
+
+Tem duas opções para criar e executar consultas do Hive:
+
+* Criar consultas ad-hoc
+* Criar uma aplicação do Hive
+
+Para criar e executar consultas ad hoc:
+
+1. No **Explorador de Servidores**, selecione **Azure** > **Clusters do HDInsight**.
+
+2. Clique com o botão direito do rato no cluster no qual pretende executar a consulta e, em seguida, selecione **Escrever uma Consulta do Hive**.  
+
+3. Introduza as consultas do Hive. 
+
+    O editor do Hive suporta IntelliSense. O Data Lake Tools para Visual Studio suportam o carregamento de metadados remotos durante a edição do script do Hive. Por exemplo, quando escreve **SELECT * FROM**, o IntelliSense apresenta uma lista de todos os nomes de tabela sugeridos. Quando é especificado um nome de tabela, o IntelliSense lista os nomes das colunas. As ferramentas suportam quase todas as instruções DML do Hive, subconsultas e os UDFs incorporados.
+   
+    ![Captura de ecrã de um exemplo do IntelliSense do HDInsight Visual Studio Tools IntelliSense 1](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![Captura de ecrã de um exemplo do IntelliSense do HDInsight Visual Studio Tools IntelliSense 2](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > O IntelliSense sugere apenas os metadados do cluster selecionado na barra de ferramentas do HDInsight.
+   > 
+   
+4. Selecione **Submeter** ou **Submeter (Avançado)**. 
+   
+    ![Captura de ecrã da submissão de uma consulta do Hive](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   Se selecionar a opção de submissão avançada, configura o **Nome da Tarefa**, **Argumentos**, **Configurações Adicionais** e **Diretório de Estado** para o script:
+
+    ![Captura de ecrã da consulta do Hive do Hadoop HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submeter consultas")
+
+   Executar consultas interativas do Hive
+
+   * Clique na seta para baixo para escolher **interativo**. 
+   
+   * Clique em **Executar**.
+
+   ![Captura de ecrã de Executar consultas interativas do Hive](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+Para criar e executar uma solução do Hive:
+
+1. No menu **Ficheiro**, selecione **Novo** e, em seguida, selecione **Projeto**.
+2. No painel da esquerda, selecione **HDInsight**. No painel do meio, selecione **Aplicação do Hive**. Introduza as propriedades e, em seguida, selecione **OK**.
+   
+    ![Captura de ecrã de um novo projeto do Hive no HDInsight Visual Studio Tools](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Criar aplicações do Hive do Visual Studio")
+3. No **Explorador de Soluções**, faça duplo clique em **Script.hql** para abrir o script.
+4. Introduza as consultas do Hive e submeta. (Consulte o passo 3 e 4 acima)  
+
+
 
 ## <a name="run-hive-queries"></a>Executar consultas do Hive
 
@@ -127,7 +232,7 @@ Caso se depare com problemas com a criação de clusters do HDInsight, veja [ace
 Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. 
 
 > [!NOTE]
-> Se tenciona avançar *imediatamente* para o tutorial seguinte para saber como executar operações de ETL com o Hadoop no HDInsight, talvez seja conveniente manter o cluster em execução. Isto porque tem de criar novamente um cluster do Hadoop no tutorial. No entanto, se não tenciona avançar já para o tutorial seguinte, tem de eliminar o cluster agora.
+> Se avançar *imediatamente* para o tutorial seguinte para saber como executar operações de ETL com o Hadoop no HDInsight, é recomendado que mantenha o cluster em execução. Isto porque tem de voltar a criar um cluster do Hadoop no tutorial. No entanto, se não avançar já para o tutorial seguinte, tem de eliminar o cluster agora.
 > 
 > 
 
@@ -158,7 +263,7 @@ Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artig
 * Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, veja [Use Pig with HDInsight](hdinsight-use-pig.md) (Utilizar o Pig com o HDInsight).
 * Para saber mais sobre o MapReduce, uma forma de escrever programas que processam dados no Hadoop, veja [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md) (Utilizar o MapReduce com o HDInsight).
 * Para saber mais sobre como utilizar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-
+* Para saber mais sobre como utilizar as Ferramentas do HDInsight para o VSCode para analisar dados no HDInsight, consulte [Utilizar as Ferramentas do HDInsight para o Visual Studio Code](../hdinsight-for-vscode.md).
 
 
 Se gostaria de saber mais sobre como criar ou gerir um cluster do HDInsight, consulte os seguintes artigos:

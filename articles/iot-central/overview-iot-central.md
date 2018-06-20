@@ -1,19 +1,20 @@
 ---
 title: O que é o Azure IoT Central | Microsoft Docs
 description: O Azure IoT Central é uma solução de SaaS ponto a ponto, que pode utilizar para criar e gerir a sua solução de IoT personalizada. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 41eb9049b45c6835dd866c988af486a4975c4831
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201171"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628781"
 ---
 <!---
 Purpose of an Overview article: 
@@ -109,7 +110,7 @@ Os administradores podem gerir o acesso à sua aplicação com [funções e perm
 
 Agora que tem uma descrição geral do Azure IoT Central, eis os passos sugeridos:
 
-- Compreender as diferenças entre o [Azure IoT Central e o Azure IoT Suite](overview-iot-options.md).
+- Compreender as diferenças entre o [Azure IoT Central e os aceleradores de soluções do Azure IoT](overview-iot-options.md).
 - Familiarizar-se com a [IU do Azure IoT Central](overview-iot-central-tour.md).
 - Começar por [criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).
 - Siga uma sequência de tutoriais que mostram como:

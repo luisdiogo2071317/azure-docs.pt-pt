@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fa6a232c657d9d96943f241eb05221e42f0f599b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302564"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763345"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos personalizados com o portal do Azure e o Event Grid
 
@@ -71,7 +71,7 @@ Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de even
 
    ![Criar função](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Forneça um nome exclusivo para a Função do Azure. Não utilize o nome apresentado na imagem. Selecione o grupo de recursos que criou neste artigo. Para o plano de alojamento, utilize o **Plano de Consumo**. Utilize a nova conta de armazenamento sugerida. Depois de fornecer os valores, selecione **Criar**.
+1. Forneça um nome exclusivo para a Função do Azure. Não utilize o nome apresentado na imagem. Selecione o grupo de recursos que criou neste artigo. Para o plano de alojamento, utilize o **Plano de Consumo**. Utilize a nova conta de armazenamento sugerida. Pode desativar o Application Insights. Depois de fornecer os valores, selecione **Criar**.
 
    ![Indicar os valores de função](./media/custom-event-quickstart-portal/provide-function-values.png)
 

@@ -1,11 +1,11 @@
 ---
-title: Como criar uma partilha de Ficheiros do Azure | Microsoft Docs
+title: Como criar uma partilha de ficheiros do Azure | Microsoft Docs
 description: Como criar uma partilha de ficheiros do Azure nos Ficheiros do Azure com o portal do Azure, o PowerShell e a CLI do Azure.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737865"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar uma partilha de ficheiros nos Ficheiros do Azure
 Pode criar partilhas de Ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, irá aprender:
-* [Como criar uma partilha de Ficheiros do Azure com o portal do Azure](#Create file share through the Portal)
-* [Como criar uma partilha de Ficheiros do Azure com o PowerShell](#Create file share using PowerShell)
-* [Como criar uma partilha de Ficheiros do Azure com a CLI](#create-file-share-using-command-line-interface-cli)
+* [Como criar uma partilha de ficheiros do Azure com o portal do Azure](#create-file-share-through-the-azure-portal)
+* [Como criar uma partilha de ficheiros do Azure com o PowerShell](#create-file-share-through-powershell)
+* [Como criar uma partilha de ficheiros do Azure com a CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar uma partilha de Ficheiros do Azure, pode utilizar uma Conta de Armazenamento já existente ou [criar uma Conta de Armazenamento do Azure nova](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar uma partilha de Ficheiros do Azure com o PowerShell, precisa da chave de conta e do nome da sua conta de armazenamento. Se quiser utilizar o PowerShell ou a CLI, precisa da chave da conta de Armazenamento.
+Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armazenamento já existente ou [criar uma Conta de Armazenamento do Azure nova](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar uma partilha de ficheiros do Azure com o PowerShell, precisa da chave da conta e do nome da conta de armazenamento. Se quiser utilizar o PowerShell ou a CLI, precisa da chave da conta de Armazenamento.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Criar a partilha de ficheiros através do portal do Azure
 1. **Aceda ao painel da Conta de Armazenamento no portal do Azure**:    

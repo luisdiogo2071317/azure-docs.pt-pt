@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric CLI Script de exemplo remover
-description: "Remover uma aplicação de um cluster do Service Fabric do Azure utilizando a CLI do Azure Service Fabric"
+title: Exemplo de Remoção de Script da CLI do Azure Service Fabric (sfctl)
+description: Remover uma aplicação de um cluster do Azure Service Fabric com a CLI do Azure Service Fabric
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -15,17 +15,18 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 95a6bac7ee79e3490584305e78d410104363b780
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 83f2fc52debd24afd97a391466cb5a0b1a8cd93c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642721"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Remover uma aplicação de um cluster do Service Fabric
+# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Remover uma aplicação de um cluster do Service Fabric Explorer
 
-Este script de exemplo elimina uma instância de aplicação de Service Fabric em execução, anula o registo de um tipo de aplicação e a versão do cluster.  A eliminar a instância da aplicação também elimina todos os a execução do serviço instâncias associadas com essa aplicação. Em seguida, são eliminados os ficheiros da aplicação da loja de imagem. 
+Este script de exemplo elimina uma instância de aplicação do Service Fabric em execução e anula o registo de um tipo de aplicação e a versão do cluster.  A eliminação da instância da aplicação também elimina todas as instâncias do serviço em execução associadas a essa aplicação. Em seguida, são eliminados os ficheiros da aplicação do arquivo de imagens. 
 
-Se necessário, instale o [CLI de recursos de infraestrutura de serviço](../service-fabric-cli.md).
+Se necessário, instale a [CLI do Service Fabric](../service-fabric-cli.md).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -33,6 +34,6 @@ Se necessário, instale o [CLI de recursos de infraestrutura de serviço](../ser
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte o [documentação do Service Fabric CLI](../service-fabric-cli.md).
+Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 
-Amostras de CLI de recursos de infraestrutura de serviço adicionais para o Azure Service Fabric podem ser encontradas no [exemplos de Service Fabric CLI](../samples-cli.md).
+Podem ser encontrados exemplos adicionais da CLI do Service Fabric para o Azure Service Fabric em [Exemplos da CLI do Service Fabric](../samples-cli.md).

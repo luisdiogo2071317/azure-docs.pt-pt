@@ -1,58 +1,61 @@
 ---
-title: Criar um ambiente de desenvolvimento do Kubernetes na cloud | Microsoft Docs
+title: Criar um espaço de programador do Kubernetes na cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.topic: quickstart
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
+description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 9c9a485a5c59342149027798e118b97b7305c640
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 764606d838ac067a09072b84222a8ec092c4c124
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361537"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823212"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-nodejs"></a>Início rápido: Criar um ambiente de desenvolvimento do Kubernetes com Azure Dev Spaces (Node.js)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (Node.js)
 
+Neste guia, vai aprender a:
 
-[!INCLUDE[](includes/learning-objectives.md)]
+- Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
+- Utilizar o VS Code e a linha de comandos para desenvolver iterativamente código em contentores.
+- Depurar o código em execução no cluster.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **Se ficar bloqueado** em qualquer altura, veja a secção [Resolução de problemas](troubleshooting.md) ou publique um comentário nesta página. Também pode consultar o [tutorial](get-started-nodejs.md) mais detalhado.
 
-Está agora pronto para criar um ambiente de desenvolvimento baseado no Kubernetes no Azure.
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
+- Um [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) a executar Kubernetes 1.9.6, na região EUA Leste, Europa Ocidental ou Leste do Canadá, com o **Encaminhamento de Aplicações de Http** ativado.
 
-## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do ambiente de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+  ![É necessário ativar o Encaminhamento de Aplicações de Http.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-> [!IMPORTANT]
-> Se já tiver a CLI do Azure instalada, confirme que está a utilizar a versão 2.0.32 ou superior.
+- Visual Studio Code, que pode transferir [aqui](https://code.visualstudio.com/download).
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.33 ou superior).
+1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
+1. Transfira a [extensão dos Espaços de Programador do Azure](https://aka.ms/get-azds-code) para o VS Code.
+1. Instale a extensão: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
 
-Enquanto aguarda pela criação do ambiente, pode começar a escrever código.
+1. Transfira o código de exemplo do GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
+1. Altere o diretório para a pasta de webfrontend: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
+1. Gere elementos de gráfico do Docker e do Helm: `azds prep --public`
+1. Crie o espaço de programador no AKS. Na janela do terminal, execute este comando na **pasta de código raiz**, webfrontend: `azds up`
+1. Analise o resultado da consola para obter informações sobre o URL que foi criado pelo comando `up`. Estará na forma: 
 
-## <a name="create-a-nodejs-container-in-kubernetes"></a>Criar um contentor de Node.js no Kubernetes
+   `Service 'webfrontend' port 'http' is available at <url>` 
 
-Nesta secção, vai criar uma aplicação Web em Node.js e executá-la num contentor no Kubernetes.
-
-### <a name="create-a-nodejs-web-app"></a>Criar uma aplicação Web em Node.js
-Transfira o código do GitHub ao navegar para https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub para o seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
-
-[!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+   Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. 
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
@@ -63,7 +66,7 @@ O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kuber
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Guarde o ficheiro. Pouco depois, na janela do terminal, verá uma mensagem que diz que um ficheiro no contentor em execução foi atualizado.
+1. Guarde o ficheiro. Pouco depois, na janela do terminal, verá uma mensagem que diz que um ficheiro no contentor em execução foi atualizado.
 1. Aceda ao seu browser e atualize a página. Deverá ver a cor atualizada.
 
 O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não requerem o reinício do processo de Node.js, pelo que um comando `azds up` ativo irá sincronizar, de forma automática, qualquer ficheiro de conteúdo modificado diretamente com o contentor em execução no Azure, oferecendo-lhe, assim, um modo rápido de ver as edições aos seus conteúdos.
@@ -85,7 +88,7 @@ Para corrigir este problema, vai adicionar uma etiqueta mega `viewport`:
 1. Guarde o ficheiro.
 1. Atualize o browser do dispositivo. Deverá ver a aplicação Web composta corretamente. 
 
-Este é um exemplo de como alguns problemas só são detetados quando testa nos dispositivos nos quais a aplicação deve ser utilizada. Com o VS Azure Dev Spaces, pode iterar rapidamente o seu código e validar todas as alterações nos dispositivos de destino.
+Este é um exemplo de como alguns problemas só são detetados quando testa nos dispositivos nos quais a aplicação deve ser utilizada. Com o Azure Dev Spaces, pode iterar rapidamente o seu código e validar todas as alterações nos dispositivos de destino.
 
 ### <a name="update-a-code-file"></a>Atualizar um ficheiro de código
 Atualizar os ficheiros de código do lado do servidor requer um pouco mais trabalho, porque a aplicação Node.js tem de ser reiniciada.
@@ -106,9 +109,18 @@ Mas existe um *método ainda mais rápido* para programar código, que vai explo
 
 ## <a name="debug-a-container-in-kubernetes"></a>Depurar um contentor no Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+Nesta secção, ai utilizar o VS Code para depurar diretamente o nosso contentor em execução no Azure. Também vai aprender como obter um ciclo de edição-execução-teste mais rápido.
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+![](./media/common/edit-refresh-see.png)
+
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicializar ativos de depuração com a extensão do VS Code
+Primeiro tem de configurar o seu projeto de código para que o VS Code comunique com o nosso espaço de programação no Azure. A extensão do VS Code para Espaços de Programação do Azure oferece um comando auxiliar para contribuir para a configuração da depuração. 
+
+Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Create configuration files for connected development`. 
+
+Esta ação adiciona a configuração de depuração para os Espaços de Programação do Azure na pasta `.vscode`.
+
+![](./media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Selecionar a configuração de depuração do AZDS
 1. Para abrir a vista Debug (Depuração), clique no ícone Debug em **Activity Bar** (Barra de Atividades), no lado do VS Code.
@@ -122,9 +134,10 @@ Mas existe um *método ainda mais rápido* para programar código, que vai explo
 ### <a name="debug-the-container-in-kubernetes"></a>Depurar o contentor no Kubernetes
 Prima **F5** para depurar o código no Kubernetes.
 
-Semelhante ao comando `up`, o código é sincronizado com o ambiente de desenvolvimento quando iniciar a depuração e é criado e implementado um contentor no Kubernetes. Desta vez, o depurador é ligado ao contentor remoto.
+Semelhante ao comando `up`, o código é sincronizado com o espaço de programador quando iniciar a depuração e é criado e implementado um contentor no Kubernetes. Desta vez, o depurador é ligado ao contentor remoto.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+> [!Tip]
+> A barra de estado do VS Code apresentará um URL clicável.
 
 Defina um ponto de interrupção num ficheiro de código do lado do servidor, como, por exemplo, dentro de `app.get('/api'...` em `server.js`. Atualize a página do browser ou prima o botão “Say It Again” (“Repetir”) e deverá atingir o ponto de interrupção e conseguir aceder ao código.
 
@@ -148,9 +161,8 @@ Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que s�
 Atualize a aplicação Web no browser ou prima o botão *Say It Again* (Repetir). Deverá ver a mensagem personalizada apresentada na IU.
 
 ### <a name="use-nodemon-to-develop-even-faster"></a>Utilizar Nodemon para desenvolver ainda mais depressa
-O *Nodemon* é uma ferramenta popular que os programadores de Node.js utilizam para o desenvolvimento rápido. Em vez de reiniciar manualmente o processo de Node sempre que é feita uma edição ao código do lado do servidor, os programadores irão, muitas vezes, configurar os projetos de Node de modo a que o *nodemon* monitorize as alterações aos ficheiros e reinicie automaticamente o processo do servidor. Neste estilo de trabalho, o programador só tem de atualizar o browser e fazer uma edição ao código.
 
-Com o Azure Dev Spaces, pode utilizar muitos dos fluxos de trabalho de desenvolvimento que utiliza quando desenvolve localmente. Para ilustrar isto, o projeto de exemplo `webfrontend` foi configurado para utilizar o *nodemon* (está configurado como dependência de desenvolvimento em `package.json`).
+O projeto `webfrontend` de exemplo foi configurado para utilizar [nodemon](https://nodemon.io/), uma ferramenta popular para acelerar a programação de Node.js que é totalmente compatível com os espaços de programador do Azure.
 
 Experimente os passos seguintes:
 1. Pare o depurador do VS Code.
@@ -167,4 +179,4 @@ Nesta configuração, o contentor é configurado para iniciar o *nodemon*. Quand
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md#call-a-service-running-in-a-separate-container) (Trabalhar com vários contentores e com o desenvolvimento em equipa)
+> [Working with multiple containers and team development](get-started-nodejs.md#call-a-service-running-in-a-separate-container) (Trabalhar com vários contentores e o desenvolvimento em equipa)

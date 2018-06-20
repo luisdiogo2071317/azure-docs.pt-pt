@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2efbd6e0fc3f90909553bc839a8b61ff3ed681ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267395"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual através do portal do Azure
 
@@ -65,6 +65,8 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="enable-a-service-endpoint"></a>Ativar um ponto final de serviço
 
+Os pontos finais de serviço são ativados por serviço, por sub-rede. Crie uma sub-rede e ative um ponto final de serviço para a sub-rede.
+
 1. Na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal, introduzar *myVirtualNetwork.* Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione a mesma.
 2. Adicione uma sub-rede à rede virtual. Em **DEFINIÇÕES**, selecione **Sub-redes** e selecione **+ Sub-rede**, conforme mostrado na imagem seguinte:
 
@@ -78,11 +80,16 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos finais de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
+> [!CAUTION]
+> Antes de ativar um ponto final de serviço para uma sub-rede existente que tem recursos, veja [Alterar definições da sub-rede](virtual-network-manage-subnet.md#change-subnet-settings).
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso de rede a uma sub-rede
+
+Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recursos. Pode limitar a comunicação de e para todos os recursos numa sub-rede através da criação de um grupo de segurança de rede e associá-lo à sub-rede.
 
 1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
 2. Selecione **Rede** e selecione **Grupo de segurança de rede**.
-Em **Criar um grupo de segurança de rede**, introduza ou selecione as seguintes informações e selecione **Criar**:
+3. Em **Criar um grupo de segurança de rede**, introduza ou selecione as seguintes informações e selecione **Criar**:
 
     |Definição|Valor|
     |----|----|
@@ -94,7 +101,7 @@ Em **Criar um grupo de segurança de rede**, introduza ou selecione as seguintes
 4. Depois de criar o grupo de segurança de rede, introduza *myNsgPrivate*, na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal. Quando **myNsgPrivate** aparecer nos resultados da pesquisa, selecione-os.
 5. Em **DEFINIÇÕES**, selecione **regras de segurança de saída**.
 6. Selecione **+ Adicionar**.
-7. Crie uma regra que permita o acesso de saída para os endereços IP públicos atribuídos ao serviço Armazenamento do Azure. Introduza ou selecione as seguintes informações e selecione **OK**:
+7. Crie uma regra que permita comunicações de saída para o serviço de Armazenamento do Azure. Introduza ou selecione as seguintes informações e selecione **OK**:
 
     |Definição|Valor|
     |----|----|
@@ -107,7 +114,8 @@ Em **Criar um grupo de segurança de rede**, introduza ou selecione as seguintes
     |Ação|Permitir|
     |Prioridade|100|
     |Nome|Allow-Storage-All|
-8. Crie uma regra que substitui uma regra de segurança predefinida que permita o acesso de saída a todos os endereços IP públicos. Conclua os passos 6 e 7 novamente, com os seguintes valores:
+    
+8. Crie uma regra que negue a comunicação de saída para a Internet. Esta regra substitui a regra predefinida em todos os grupos de segurança de rede que permite a comunicação de saída para a Internet. Conclua os passos 6 e 7 novamente, com os seguintes valores:
 
     |Definição|Valor|
     |----|----|
@@ -146,7 +154,7 @@ Em **Criar um grupo de segurança de rede**, introduza ou selecione as seguintes
 
 Os passos necessários para restringir o acesso de rede a recursos criados através de serviços do Azure ativados para pontos finais de serviço varia de serviço para serviço. Veja a documentação relativa aos serviços individuais para obter os passos específicos dos mesmos. O resto deste tutorial inclui passos para restringir o acesso de rede a uma conta de Armazenamento do Azure, como um exemplo.
 
-### <a name="create-a-storage-account"></a>Create a storage account
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
 2. Selecione **Armazenamento** e selecione **Conta de Armazenamento - blob, ficheiro, tabela, fila**.
@@ -171,9 +179,9 @@ Os passos necessários para restringir o acesso de rede a recursos criados atrav
 4. Introduza *my-file-share*, em **Nome**, e selecione **OK**.
 5. Feche a caixa **Serviço de ficheiros**.
 
-### <a name="enable-network-access-from-a-subnet"></a>Ativar o acesso de rede a partir de uma de sub-rede
+### <a name="restrict-network-access-to-a-subnet"></a>Restringir o acesso de rede a uma sub-rede
 
-Por predefinição, as contas de Armazenamento aceitam ligações de rede de clientes em qualquer rede. Para autorizar o acesso apenas uma sub-rede específica e negar o acesso de rede a partir de todas as outras redes, conclua os seguintes passos:
+Por predefinição, as contas de armazenamento aceitam ligações de rede de clientes em qualquer rede, incluindo a Internet. Negue o acesso de rede da Internet e de todas as outras sub-redes em todas as redes virtuais, exceto a sub-rede *Privada* na rede virtual *myVirtualNetwork*.
 
 1. Nas **DEFINIÇÕES** da conta de Armazenamento, selecione **Firewalls e redes virtuais**.
 2. Em **Redes virtuais**, selecione **Redes selecionadas**.
@@ -202,7 +210,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
 
 ### <a name="create-the-first-virtual-machine"></a>Criar a primeira máquina virtual
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
 3. Introduza ou selecione as seguintes informações e selecione **OK**:
 
@@ -234,8 +242,8 @@ A implementação da VM demora alguns minutos. Não avance para o próximo passo
 
     ![Ligar a uma máquina virtual](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
-2. Depois de selecionar o botão **Ligar**é criado e transferido um ficheiro Remote Desktop Protocol (.rdp) para o computador.  
-3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM. 
+2. Depois de selecionar o botão **Ligar**, é criado e transferido um ficheiro Remote Desktop Protocol (.rdp) para o computador.  
+3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM. 
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
 6. Na VM *myVmPrivate*, mapeie a partilha de ficheiros do Azure para a unidade Z com o PowerShell. Antes de executar os comandos que se seguem, substitua `<storage-account-key>` e `<storage-account-name>` pelos valores que indicou e obteve em [Criar uma conta de Armazenamento](#create-a-storage-account).
@@ -256,13 +264,13 @@ A implementação da VM demora alguns minutos. Não avance para o próximo passo
 
     A partilha de ficheiros do Azure mapeada com êxito para a unidade Z.
 
-7. Confirme que a VM não tem conectividade de saída para outros endereços IP públicos numa linha de comandos:
+7. Confirme que a VM não tem conectividade de saída para a Internet numa linha de comandos:
 
     ```
     ping bing.com
     ```
     
-    Não vai receber respostas, porque o grupo de segurança de rede associado à sub-rede *Privada* não permite o acesso de saída a endereços IP públicos que não os atribuídos ao serviço Armazenamento do Azure.
+    Não vai receber respostas, porque o grupo de segurança de rede associado à sub-rede *Privada* não permite o acesso de saída para a Internet.
 
 8. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
 
@@ -272,7 +280,7 @@ A implementação da VM demora alguns minutos. Não avance para o próximo passo
 2. Quando **myVmPublic** aparecer nos resultados de pesquisa, selecione-a.
 3. Conclua os passos 1 a 6 em [Confirmar o acesso à conta de Armazenamento](#confirm-access-to-storage-account) na VM *myVmPublic*.
 
-    O acesso é negado e recebe o erro `New-PSDrive : Access is denied`. O acesso é negado porque a VM *myVmPublic* é implementada na sub-rede *Pública*. A sub-rede *Pública* não tem um ponto final de serviço ativado para o Armazenamento do Azure e a conta de armazenamento só permite o acesso de rede a partir da sub-rede *Privada*, não da *Público*.
+    O acesso é negado e recebe o erro `New-PSDrive : Access is denied`. O acesso é negado porque a VM *myVmPublic* é implementada na sub-rede *Pública*. A sub-rede *Pública* não tem nenhum ponto final de serviço ativado para o Armazenamento do Azure. A conta de armazenamento só permite o acesso de rede da sub-rede *Privada*, mas não da sub-rede *Pública*.
 
 4. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPublic*.
 
@@ -289,13 +297,13 @@ A implementação da VM demora alguns minutos. Não avance para o próximo passo
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ativou um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu que os pontos finais de serviço podem ser ativados para recursos implementados com vários serviços do Azure. Criou uma conta de Armazenamento do Azure e limitou o acesso de rede à mesma apenas para os recursos dentro de uma sub-rede de uma rede virtual. Para saber mais sobre os pontos finais de serviço, veja [Descrição geral dos pontos finais de serviço](virtual-network-service-endpoints-overview.md) e [Manage subnets](virtual-network-manage-subnet.md) (Gerir sub-redes).
+Neste tutorial, ativou um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu que pode ativar os pontos finais de serviço para os recursos implementados a partir de vários serviços do Azure. Criou uma conta de Armazenamento do Azure e restringiu o acesso de rede à mesma apenas para os recursos dentro de uma sub-rede de uma rede virtual. Para saber mais sobre os pontos finais de serviço, veja [Descrição geral dos pontos finais de serviço](virtual-network-service-endpoints-overview.md) e [Manage subnets](virtual-network-manage-subnet.md) (Gerir sub-redes).
 
 Se tiver várias redes virtuais na sua conta, poderá pretender ligar duas redes virtuais para que os recursos dentro de ambas possam comunicar entre si. Para saber como ligar redes virtuais, avance para o próximo tutorial.
 

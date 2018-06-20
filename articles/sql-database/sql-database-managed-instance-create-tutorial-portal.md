@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850615"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma MI no portal do Azure
 
@@ -161,16 +162,16 @@ Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-
 
    ![criação de instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Selecione a sua subscrição e certifique-se de que os termos de pré-visualização são apresentados como **Aceites**.
+4. Selecione a sua subscrição e certifique-se de que os termos de pré-visualização são apresentados como **Aceites**.
 
    ![pré-visualização de instância gerida aceite](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Preencha o formulário da Instância Gerida com as informações pedidas, utilizando as informações da tabela seguinte:
+5. Preencha o formulário da Instância Gerida com as informações pedidas, utilizando as informações da tabela seguinte:
 
    | Definição| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
    |**Nome da instância gerida**|Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize “serveradmin”, que é uma função reservada a nível de servidor.| 
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Grupo de Recursos**|O grupo de recursos que criou anteriormente||
    |**Localização**|A localização que selecionou anteriormente|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
@@ -178,17 +179,17 @@ Os passos seguintes mostram como criar a sua Instância Gerida depois de a pré-
 
    ![formulário de criação de instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Clique em **Escalão de preço** para saber o tamanho dos recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. Por predefinição, a sua instância obtém 32 GB de espaço de armazenamento livre de encargos, o que poderá não ser suficiente para as suas aplicações.
-6. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-   ![formulário de criação de instância gerida](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Clique em **Escalão de preço** para saber o tamanho dos recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. Por predefinição, a sua instância obtém 32 GB de espaço de armazenamento livre de encargos, o que poderá não ser suficiente para as suas aplicações.
+7. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
+   ![escalão de preço de instâncias geridas](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Quando terminar, clique em **Aplicar** para guardar a sua seleção.  
-8. Clique em **Criar** para implementar a Instância Gerida.
-9. Clique no ícone **Notificações** para ver o estado da implementação.
+8. Quando terminar, clique em **Aplicar** para guardar a sua seleção.  
+9. Clique em **Criar** para implementar a Instância Gerida.
+10. Clique no ícone **Notificações** para ver o estado da implementação.
  
    ![progresso da implementação](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Clique em **Implementação em curso** para abrir a janela Instância Gerida, para monitorizar ainda mais o progresso da implementação.
+11. Clique em **Implementação em curso** para abrir a janela Instância Gerida, para monitorizar ainda mais o progresso da implementação.
  
    ![progresso da implementação 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ Os passos seguintes mostram como criar uma máquina virtual na mesma VNet na qua
 
    ![formulário de criação de máquina virtual](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Clique em **OK**.
-4. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Neste tutorial, só precisa de uma máquina virtual pequena.
+4. Clique em **OK**.
+5. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Neste tutorial, só precisa de uma máquina virtual pequena.
 
     ![Tamanhos de VM](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Clique em **Selecionar**.
-6. No formulário das **Definições**, clique em **Sub-rede** e, em seguida, selecione **vm_subnet**. Não escolha a sub-rede na qual a Instância Gerida está aprovisionada, mas sim outra sub-rede na mesma Vnet.
+6. Clique em **Selecionar**.
+7. No formulário das **Definições**, clique em **Sub-rede** e, em seguida, selecione **vm_subnet**. Não escolha a sub-rede na qual a Instância Gerida está aprovisionada, mas sim outra sub-rede na mesma Vnet.
 
     ![Definições de VM](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Clique em **OK**.
-8. Na página de resumo, reveja os detalhes da oferta e, em seguida, clique em **Criar** para iniciar a implementação da máquina virtual.
+8. Clique em **OK**.
+9. Na página de resumo, reveja os detalhes da oferta e, em seguida, clique em **Criar** para iniciar a implementação da máquina virtual.
  
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 

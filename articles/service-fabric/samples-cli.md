@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure Service Fabric
-description: Exemplos da CLI do Azure Service Fabric
+title: CLI do Azure (az) e exemplos da CLI do Azure Service Fabric (sfctl)
+description: CLI do Azure (az) e exemplos da CLI do Azure Service Fabric (sfctl)
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -16,23 +16,24 @@ ms.workload: service-fabric
 ms.date: 04/09/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: c7f6ce7cea62bd4bf9baca6119f204fc43cf4d45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e37bbd5e12608c5acbd19d5c57667d9e34c74b3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641854"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Exemplos da CLI do Azure Service Fabric
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>CLI do Azure (az) e exemplos da CLI do Azure Service Fabric (sfctl)
 
-A tabela seguinte inclui ligações para exemplos de scripts da [CLI do Service Fabric](service-fabric-cli.md) que gerem clusters, aplicações e serviços do Service Fabric.
+A tabela seguinte inclui ligações para exemplos de como gerir clusters, aplicações e serviços do Service Fabric.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **Criar cluster** ||
-| [Criar um cluster do Linux seguro (Azure)](./scripts/cli-create-cluster.md)| Cria um cluster do Azure Service Fabric. |
-| **Gerir aplicações** ||
+| **Criar cluster** (com a CLI do Azure)||
+| [Criar um cluster do Linux seguro](./scripts/cli-create-cluster.md)| Cria um cluster do Azure Service Fabric. |
+| **Gerir aplicações** (com a CLI do Service Fabric )||
 | [Listar aplicações](./scripts/sfctl-list-applications.md)| Liste aplicações aprovisionadas num cluster.|
 | [Implementar uma aplicação](./scripts/cli-deploy-application.md)| Implemente uma aplicação num cluster.|
 | [Remover uma aplicação](./scripts/cli-remove-application.md)| Remova uma aplicação de um cluster.|

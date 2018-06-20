@@ -1,24 +1,20 @@
 ---
-title: "Descrição geral dos princípios básicos do Azure Service Bus | Microsoft Docs"
-description: "Uma introdução à utilização do Service Bus para ligar aplicações Azure com outros programas de software."
+title: Descrição geral dos princípios básicos do Azure Service Bus | Microsoft Docs
+description: Uma introdução à utilização do Service Bus para ligar aplicações Azure com outros programas de software.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641327"
 ---
 # <a name="azure-service-bus"></a>Service Bus do Azure
 
@@ -37,14 +33,14 @@ O Service Bus é um serviço de nuvem multi-inquilino, o que significa que vári
 Dentro de um espaço de nomes, pode utilizar uma ou mais instâncias dos três diferentes mecanismos de comunicação, os quais ligam aplicações de forma diferente. As opções são:
 
 * *Filas*, que permitem comunicação unidirecional. Cada fila funciona como um intermediário (por vezes denominado *mediador*) que armazena as mensagens enviadas até serem recebidas. Cada mensagem é recebida por um único destinatário.
-* *Tópicos*, que proporcionam uma comunicação unidirecional através de *subscrições* – um só tópico pode ter várias subscrições. Tal como as filas, o tópico funciona como um mediador, mas cada subscrição pode utilizar opcionalmente um filtro para receber apenas as mensagens que correspondem a critérios específicos.
+* *Tópicos*, que proporcionam uma comunicação unidirecional através de *subscrições*. Um só tópico pode ter várias subscrições. Tal como as filas, o tópico funciona como um mediador, mas cada subscrição pode utilizar opcionalmente um filtro para receber apenas as mensagens que correspondem a critérios específicos.
 * *Reencaminhamentos*, que proporcionam comunicação bidirecional. Ao contrário das filas e tópicos, o reencaminhamento não armazena as mensagens em trânsito - não é um mediador. Simplesmente, transmite-as à aplicação de destino.
 
 Quando cria uma fila, tópico ou reencaminhamento, dá-lhe um nome. Quando combinado com o espaço de nomes, cria-se um identificador exclusivo para o objeto. As aplicações podem indicar este nome ao Service Bus e, em seguida, utilizar essa fila, tópico ou reencaminhamento para comunicar entre si. 
 
 Para utilizar qualquer um destes objetos no cenário de reencaminhamento, as aplicações do Windows podem utilizar o Windows Communication Foundation (WCF). Este serviço é conhecido como [Reencaminhamento do WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e tópicos, as aplicações do Windows podem utilizar as APIs de mensagens definidas pelo Service Bus. Para facilitar a utilização destes objetos a partir de aplicações que não sejam de Windows, a Microsoft disponibiliza SDKs para Java, Node.js e outras linguagens. Também pode aceder às filas e tópicos com as [REST APIs](/rest/api/servicebus/) através de HTTP(s). 
 
-É importante compreender que, apesar do Service Bus propriamente dito ser executado na nuvem (ou seja, nos datacenters de Azure da Microsoft), as aplicações que o utilizam podem ser executadas em qualquer lugar. Pode utilizar o Service Bus para ligar aplicações que se executam, por exemplo, no Azure, ou aplicações que se executam dentro do seu próprio datacenter. Também pode utilizá-lo para ligar uma aplicação em execução no Azure ou noutra plataforma na nuvem com uma aplicação no local ou com telemóveis e tablets. Também é possível ligar aparelhos domésticos, sensores e outros dispositivos a uma aplicação central ou ligue estes dispositivos entre si. O Service Bus é um mecanismo de comunicação na nuvem que é acessível em praticamente qualquer lugar. O modo como o utiliza depende do que tem de realizar a aplicação.
+É importante compreender que, apesar do Service Bus propriamente dito ser executado na cloud (ou seja, nos datacenters do Microsoft Azure), as aplicações que o utilizam podem ser executadas em qualquer lugar. Pode utilizar o Service Bus para ligar aplicações que se executam, por exemplo, no Azure, ou aplicações que se executam dentro do seu próprio datacenter. Também pode utilizá-lo para ligar uma aplicação em execução no Azure ou noutra plataforma na cloud a uma aplicação no local ou a telemóveis e tablets. O Service Bus é um mecanismo de comunicação na nuvem que é acessível em praticamente qualquer lugar. O modo como o utiliza depende do que tem de realizar a aplicação.
 
 ## <a name="queues"></a>Filas
 
@@ -54,9 +50,9 @@ Suponha que decide ligar duas aplicações com uma fila do Service Bus. A figura
 
 **Figura 2: As filas do Service Bus proporcionam filas unidirecionais assíncronas.**
 
-Um remetente envia uma mensagem para uma fila do Service Bus e um recetor apanha essa mensagem mais tarde. Uma fila pode ter apenas um recetor único, como mostra a Figura 2. Ou várias aplicações podem ler a partir da mesma fila. Na última situação, cada mensagem é lida por apenas um recetor. Num serviço multicast, deve utilizar um tópico.
+Um remetente envia uma mensagem para uma fila do Service Bus e um recetor consome essa mensagem mais tarde. Uma fila pode ter apenas um recetor único, como mostra a Figura 2. Ou várias aplicações podem ler a partir da mesma fila. Na última situação, cada mensagem é lida por apenas um recetor. Num serviço multicast, deve utilizar um tópico.
 
-Cada mensagem tem duas partes: um conjunto de propriedades, cada uma delas um par chave/valor e um payload de mensagem. O payload pode ser binário, texto ou até mesmo XML. O modo como são utilizados depende do que a aplicação está a tentar fazer. Por exemplo, uma aplicação que envia uma mensagem sobre uma venda recente pode incluir as propriedades **Vendedor="Ava"** e **Valor= 10000**. O corpo da mensagem poderá conter uma imagem digitalizada do contrato de venda assinado ou, se não existir, permanece vazio.
+Cada mensagem tem duas partes: um conjunto de propriedades, um par chave/valor e um payload da mensagem. O payload pode ser binário, texto ou até mesmo XML. O modo como são utilizados depende do que a aplicação está a tentar fazer. Por exemplo, uma aplicação que envia uma mensagem sobre uma venda recente pode incluir as propriedades **Vendedor="Ava"** e **Valor= 10000**. O corpo da mensagem poderá conter uma imagem digitalizada do contrato de venda assinado ou, se não existir, permanece vazio.
 
 O recetor pode ler uma mensagem da fila do Service Bus de duas formas diferentes. A primeira opção, denominada *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, recebe a mensagem da fila e elimina-a imediatamente. Esta opção é simples, mas se há uma falha da parte do recetor antes de concluir o processamento da mensagem, esta será perdida. Dado que é removida da fila, nenhum outro recetor pode aceder à mesma. 
 
@@ -68,7 +64,7 @@ A segunda opção, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemod
 
 Tenha em atenção o que pode acontecer aqui: a mesma mensagem poderá ser entregue duas vezes, talvez a dois recetores diferentes. As aplicações que utilizam filas do Service Bus devem estar preparadas para este evento. Para facilitar a deteção duplicada, cada mensagem dispõe de uma propriedade [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) exclusiva que não se modifica de forma predefinida, independentemente do número de vezes que se leia uma mensagem numa fila. 
 
-As filas são úteis em determinadas situações. Permitem às aplicações comunicar entre si, mesmo quando ambas não estão a ser executadas ao mesmo tempo, algo que é especialmente útil com lotes e aplicações móveis. Uma fila com vários recetores também proporciona um balanceamento de carga automático, uma vez que as mensagens enviadas são distribuídas por estes recetores.
+As filas são úteis em determinadas situações. Permitem às aplicações comunicarem entre si, mesmo quando não estão a ser executadas ao mesmo tempo, algo que é especialmente útil com lotes e aplicações móveis. Uma fila com vários recetores também proporciona um balanceamento de carga automático, uma vez que as mensagens enviadas são distribuídas por estes recetores.
 
 ## <a name="topics"></a>Tópicos
 
@@ -78,11 +74,11 @@ Ainda que sejam úteis, as filas não sempre são a solução certa. Por vezes, 
 
 **Figura 3: Com base no filtro especificado por uma aplicação de subscrição, pode receber algumas ou todas as mensagens enviadas para um tópico do Service Bus.**
 
-Um *tópico* é semelhante em muitos aspetos a uma fila. Os remetentes submetem mensagens a um tópico da mesma forma que submetem mensagens a uma fila e essas mensagens têm o mesmo aspeto que nas filas. A diferença é que os tópicos permitem a cada aplicação de receção criar a sua própria *subscrição* e definir opcionalmente um *filtro*. Consequentemente, o subscritor vê apenas as mensagens que correspondem a esse filtro. Por exemplo, a figura 3 mostra um remetente e um tópico com três subscritores, cada um com o seu próprio filtro:
+Um *tópico* é semelhante em muitos aspetos a uma fila. Os remetentes submetem mensagens a um tópico da mesma forma que submetem mensagens a uma fila e essas mensagens têm o mesmo aspeto que nas filas. A diferença é que os tópicos permitem a cada aplicação de receção criar a sua própria *subscrição* e definir opcionalmente um *filtro*. Um subscritor recebe uma cópia de cada mensagem no tópico, mas ao utilizar um filtro pode receber apenas as mensagens que correspondem a esse filtro. Por exemplo, a figura 3 mostra um remetente e um tópico com três subscritores, cada um com o seu próprio filtro:
 
-* O subscritor 1 recebe apenas as mensagens que contêm a propriedade *Vendedor="Ava"*.
-* O subscritor 2 recebe mensagens que contêm a propriedade *Vendedor="Ruby"* e/ou contem a propriedade *Valor* cujo valor é superior a 100.000. Talvez Ruby seja a gestora de vendas, pelo que pretende ver as suas próprias vendas e todas as vendas grandes, independentemente de quem as faz.
-* O subscritor 3 definiu o seu filtro como *True*, o que significa que recebe todas as mensagens. Por exemplo, esta aplicação pode ser responsável por manter um registo de auditoria e, por conseguinte, precisa de ver todas as mensagens.
+* O subscritor 1 recebe apenas as mensagens que contêm a propriedade **Vendedor="Ava"**.
+* O subscritor 2 recebe mensagens que contêm a propriedade **Vendedor="Ruby"** e/ou contem a propriedade **Valor** cujo valor é superior a 100.000. Talvez Ruby seja a gestora de vendas, pelo que pretende ver as suas próprias vendas e todas as vendas grandes, independentemente de quem as faz.
+* O subscritor 3 definiu o seu filtro como **True**, o que significa que recebe todas as mensagens. Por exemplo, esta aplicação pode ser responsável por manter um registo de auditoria; por conseguinte, precisa de ver todas as mensagens.
 
 Como acontece com as filas, os subscritores de um tópico podem ler mensagens através de [ReceiveAndDelete ou de PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). No entanto, ao contrário das filas, uma única mensagem enviada para um tópico pode recebida por várias subscrições. Esta abordagem, geralmente designada por *publicar e subscrever* (ou *pub/sub*), é útil quando várias aplicações estão interessadas nas mesmas mensagens. Se definir o filtro adequado, cada subscritor pode recuperar apenas a parte do fluxo de mensagens que quer ver.
 
@@ -92,7 +88,7 @@ Tanto as filas como os tópicos proporcionam comunicação assíncrona unidireci
 
 ![][4]
 
-**Figura 4: O reencaminhamento do Service Bus proporciona comunicação síncrona bidirecional entre as aplicações.**
+**Figura 4: o Reencaminhamento do Service Bus permite a comunicação síncrona bidirecional entre as aplicações.**
 
 A questão óbvia sobre os reencaminhamentos que se coloca é esta: por que tenho de utilizar um? Mesmo que não precise de filas, por que motivo fazer com que as aplicações comuniquem através de um serviço em nuvem em vez de apenas interagir diretamente? A resposta é que comunicar diretamente pode ser mais difícil de que se pensa.
 

@@ -1,22 +1,20 @@
 ---
 title: Pesquisa de Mapas Interativa com o Azure Maps | Microsoft Docs
 description: Início Rápido do Azure – Iniciar uma pesquisa de mapas interativa de demonstração com o Azure Maps
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599767"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Iniciar uma pesquisa de mapas interativa com o Azure Maps
 
@@ -77,3 +75,11 @@ Neste Início Rápido, criou a sua conta do Maps e iniciou uma aplicação de de
 
 > [!div class="nextstepaction"]
 > [Procurar pontos de interesse com o Maps](./tutorial-search-location.md)
+
+Para obter mais exemplos de código e uma experiência interativa de programação, veja abaixo os Guias de procedimentos.
+
+> [!div class="nextstepaction"]
+> [Como localizar um endereço com as APIs REST do Azure Maps](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Como utilizar o controlo de mapa do Azure Maps](./how-to-use-map-control.md)

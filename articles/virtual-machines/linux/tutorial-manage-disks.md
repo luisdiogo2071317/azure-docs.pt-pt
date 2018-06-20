@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dff6af6a68dcc454877532c3d6f06cb86e6fe897
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 470e938aa4ef70f9682528003ccdaba2ef6cc013
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192497"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839695"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Tutorial – Gerir discos do Azure com a CLI 2.0 do Azure
 
-As máquinas virtuais do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados das VMs. Ao criar uma VM, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange a implementação e gestão de discos de VM. Vai obter informações sobre:
+As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando cria a VM, é importante escolher um tamanho de disco e configuração adequados para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
@@ -38,41 +38,41 @@ As máquinas virtuais do Azure utilizam discos para armazenar o sistema operativ
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Discos do Azure predefinidos
 
-Quando uma máquina virtual do Azure é criada, dois discos são automaticamente expostos à máquina virtual. 
+Quando uma máquina virtual do Azure é criada, dois discos são automaticamente expostos à máquina virtual.
 
-**Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 1 terabyte, e alojam o sistema operativo das VMs. O disco do SO está identificado como */dev/sda* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. Devido a esta configuração, o disco do SO **não deve** alojar aplicações nem dados. Para aplicações e dados, utilize discos de dados, que são descritos posteriormente neste artigo. 
+**Disco do sistema operativo** – os discos do sistema operativo podem ter o tamanho máximo de 2 TB e alojam o sistema operativo das VMs. O disco do SO está identificado como */dev/sda* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. Devido a esta configuração, o disco do SO **não deve** ser utilizado para aplicações nem para dados. Para aplicações e dados, utilize discos de dados, que são descritos posteriormente neste tutorial.
 
 **Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e servem para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
 
-| Tipo | Tamanho da VM | Tamanho máximo de disco temporário (GB) |
+| Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
-| [Fins gerais](sizes-general.md) | Séries A e D | 800 |
-| [Com otimização de computação](sizes-compute.md) | Série F | 800 |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md) | Séries D e G | 6144 |
-| [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md) | Série L | 5630 |
+| [Fins gerais](sizes-general.md) | Séries A, B e D | 1600 |
+| [Com otimização de computação](sizes-compute.md) | Série F | 576 |
+| [Com otimização de memória](sizes-memory.md) | Séries D, E, G e M | 6144 |
+| [Com otimização de armazenamento](sizes-storage.md) | Série L | 5630 |
 | [GPU](sizes-gpu.md) | Série N | 1440 |
 | [Elevado desempenho](sizes-hpc.md) | Séries A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Podem ser adicionados mais discos para instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. Cada disco de dados tem a capacidade máxima de 1 terabyte. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos dois discos de dados. 
+Para instalar aplicações e armazenar dados, podem ser adicionados mais discos de dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
 
 | Tipo | Tamanho da VM | Discos de dados máximos por VM |
 |----|----|----|
-| [Fins gerais](sizes-general.md) | Séries A e D | 32 |
-| [Com otimização de computação](sizes-compute.md) | Série F | 32 |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md) | Séries D e G | 64 |
+| [Fins gerais](sizes-general.md) | Séries A, B e D | 64 |
+| [Com otimização de computação](sizes-compute.md) | Série F | 64 |
+| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md) | Séries D, E e G | 64 |
 | [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md) | Série L | 64 |
-| [GPU](sizes-gpu.md) | Série N | 48 |
-| [Elevado desempenho](sizes-hpc.md) | Séries A e H | 32 |
+| [GPU](sizes-gpu.md) | Série N | 64 |
+| [Elevado desempenho](sizes-hpc.md) | Séries A e H | 64 |
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
@@ -84,15 +84,15 @@ O Armazenamento Standard está protegido por HDDs e fornece armazenamento econó
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Os discos Premium são fornecidos em três tipos (P10, P20, P30), e o tamanho do disco determina o tipo de disco. Ao selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Para tudo o que estiver acima de 512 GB, o tamanho é P30.
+Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 
-|Tipo de disco de armazenamento Premium | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 128 GB | 512 GB | 1.024 GB (1 TB) |
-| IOPs Máx por disco | 500 | 2.300 | 5.000 |
-Débito por disco | 100 MB/s | 150 MB/s | 200 MB/s |
+|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
+| IOPs Máx por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, consulte [Tamanhos de VM do Linux](sizes.md).
 
@@ -102,13 +102,13 @@ Os discos de dados podem ser criados e expostos no momento de criação da VM ou
 
 ### <a name="attach-disk-at-vm-creation"></a>Expor o disco durante a criação de VM
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create).
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Crie uma VM com o comando [z vm create]( /cli/azure/vm#az_vm_create). O seguinte exemplo cria uma VM com o nome *myVM*, adiciona uma conta de utilizador com o nome *azureuser* e gera chaves SSH, caso não existam. O argumento `--datadisk-sizes-gb` é utilizado para especificar que um disco adicional deve ser criado e exposto à máquina virtual. Para criar e expor mais do que um disco, utilize uma lista delimitada por espaços dos valores de tamanho de disco. No exemplo seguinte, é criada uma VM com dois discos de dados, ambos de 128 GB. Porque os tamanhos de disco são de 128 GB, estes discos são configurados como P10s, que fornecem o máximo de 500 IOPS por disco.
+Crie uma VM com o comando [z vm create](/cli/azure/vm#az-vm-create). O seguinte exemplo cria uma VM com o nome *myVM*, adiciona uma conta de utilizador com o nome *azureuser* e gera chaves SSH, caso não existam. O argumento `--datadisk-sizes-gb` é utilizado para especificar que um disco adicional deve ser criado e exposto à máquina virtual. Para criar e expor mais do que um disco, utilize uma lista delimitada por espaços dos valores de tamanho de disco. No exemplo seguinte, é criada uma VM com dois discos de dados, ambos de 128 GB. Porque os tamanhos de disco são de 128 GB, estes discos são configurados como P10s, que fornecem o máximo de 500 IOPS por disco.
 
 ```azurecli-interactive
 az vm create \
@@ -123,10 +123,16 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>Expor o disco a uma VM existente
 
-Para criar e expor um disco novo a uma máquina virtual existente, utilize o comando [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). O exemplo seguinte cria um disco premium, de 128 gigabytes de tamanho, e expõe-o à VM criada no último passo.
+Para criar e expor um disco novo a uma máquina virtual existente, utilize o comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach). O exemplo seguinte cria um disco premium, de 128 gigabytes de tamanho, e expõe-o à VM criada no último passo.
 
-```azurecli-interactive 
-az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
+```azurecli-interactive
+az vm disk attach \
+    --resource-group myResourceGroupDisk \
+    --vm-name myVM \
+    --disk myDataDisk \
+    --size-gb 128 \
+    --sku Premium_LRS \
+    --new
 ```
 
 ## <a name="prepare-data-disks"></a>Preparar dados de discos
@@ -137,8 +143,8 @@ Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de s
 
 Crie uma ligação SSH com a máquina virtual. Substitua o endereço IP de exemplo pelo IP público da máquina virtual.
 
-```azurecli-interactive 
-ssh 52.174.34.95
+```azurecli-interactive
+ssh azureuser@52.174.34.95
 ```
 
 Particione o disco com `fdisk`.
@@ -159,7 +165,7 @@ Monte o disco novo para que fique acessível no sistema operativo.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-O disco pode agora ser acedido através do ponto de montagem *datadrive*, que pode ser verificado com o comando `df -h`. 
+O disco pode agora ser acedido através do ponto de montagem *datadrive*, que pode ser verificado com o comando `df -h`.
 
 ```bash
 df -h
@@ -200,87 +206,97 @@ exit
 
 ## <a name="resize-vm-disk"></a>Redimensionar um disco de VM
 
-Assim que uma VM tiver sido implementada, o tamanho do disco do sistema operativo ou de quaisquer discos de dados expostos pode ser aumentado. Aumentar o tamanho de um disco é vantajoso quando necessitar de mais espaço de armazenamento ou de um nível mais elevado de desempenho (P10 P20, P30). Tenha em atenção que não pode diminuir o tamanho dos discos.
+Assim que uma VM tiver sido implementada, o tamanho do disco do sistema operativo ou de quaisquer discos de dados expostos pode ser aumentado. Aumentar o tamanho de um disco é vantajoso quando necessitar de mais espaço de armazenamento ou de um nível mais elevado de desempenho (como, por exemplo, P10, P20 ou P30). Não pode diminuir o tamanho dos discos.
 
-Antes de aumentar o tamanho do disco, é necessário o Id ou nome do disco. Utilize o comando [az disk list](/cli/azure/disk#az_disk_list) para obter todos os discos num grupo de recursos. Tome nota do nome do disco que gostaria de redimensionar.
+Antes de aumentar o tamanho do disco, é necessário o ID ou o nome do disco. Utilize o comando [az disk list](/cli/azure/disk#az-disk-list) para obter todos os discos num grupo de recursos. Tome nota do nome do disco que gostaria de redimensionar.
 
-```azurecli-interactive 
-az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+```azurecli-interactive
+az disk list \
+    --resource-group myResourceGroupDisk \
+    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
+    --output table
 ```
 
-A VM também tem de ser desalocada. Utilize o comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) para parar e desalocar a VM.
+A VM tem de ser desalocada. Utilize o comando [az vm deallocate](/cli/azure/vm#az-vm-deallocate) para parar e desalocar a VM.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Utilize o comando [az disk update](/cli/azure/vm/disk#az_vm_disk_update) para redimensionar o disco. Este exemplo redimensiona um disco com o nome *myDataDisk* para 1 terabyte.
+Utilize o comando [az disk update](/cli/azure/vm/disk#az-vm-disk-update) para redimensionar o disco. Este exemplo redimensiona um disco com o nome *myDataDisk* para 1 terabyte.
 
-```azurecli-interactive 
+```azurecli-interactive
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 Depois de a operação de redimensionamento estar concluída, inicie a VM.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Se tiver redimensionado o disco do sistema operativo, a partição é automaticamente expandida. Se tiver redimensionado um disco de dados, quaisquer partições atuais têm de ser expandidas no sistema operativo das VMs.
+Se redimensionar o disco do sistema operativo, a partição será automaticamente expandida. Se redimensionar um disco de dados, quaisquer partições atuais terão de ser expandidas no sistema operativo das VMs.
 
 ## <a name="snapshot-azure-disks"></a>Instantâneos de discos do Azure
 
-Tirar um instantâneo de disco cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Caso se conclua que as alterações da configuração são indesejadas, o estado da VM pode ser restaurado com o instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
+Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Caso se conclua que as alterações da configuração são indesejadas, o estado da VM pode ser restaurado com o instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 
-Antes de criar um instantâneo do disco da máquina virtual, é necessário o Id ou nome do disco. Utilize o comando [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) para obter o id do disco. Neste exemplo, o id do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
+Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Utilize o comando [az vm show](/cli/azure/vm#az-vm-show) para obter o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
 
-```azurecli-interactive 
+```azurecli-interactive
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
-Agora que tem o id do disco da máquina virtual, o comando seguinte cria um instantâneo do disco.
+Agora que tem o ID do disco da máquina virtual, o comando seguinte cria um instantâneo do disco.
 
 ```azurcli
-az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-backup
+az snapshot create \
+    --resource-group myResourceGroupDisk \
+    --source "$osdiskid" \
+    --name osDisk-backup
 ```
 
 ### <a name="create-disk-from-snapshot"></a>Criar disco a partir de instantâneo
 
 Este instantâneo pode então ser convertido num disco, que pode ser utilizado para recriar a máquina virtual.
 
-```azurecli-interactive 
+```azurecli-interactive
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Restaurar a máquina virtual a partir de instantâneo
 
-Para demonstrar a recuperação da máquina virtual, elimine a máquina virtual existente. 
+Para demonstrar a recuperação da máquina virtual, elimine a máquina virtual existente.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
 Crie uma máquina virtual nova a partir do disco do instantâneo.
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupDisk \
+    --name myVM \
+    --attach-os-disk mySnapshotDisk \
+    --os-type linux
 ```
 
 ### <a name="reattach-data-disk"></a>Voltar a expor disco de dados
 
 Todos os discos de dados têm de ser novamente expostos à máquina virtual.
 
-Em primeiro lugar, localize o nome do disco de dados com o comando [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list). Este exemplo coloca o nome do disco numa variável designada *datadisk*, que é utilizada no próximo passo.
+Em primeiro lugar, localize o nome do disco de dados com o comando [az disk list](/cli/azure/disk#az-disk-list). Este exemplo coloca o nome do disco numa variável designada *datadisk*, que é utilizada no próximo passo.
 
-```azurecli-interactive 
+```azurecli-interactive
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Utilize o comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) para expor o disco.
+Utilize o comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) para expor o disco.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 

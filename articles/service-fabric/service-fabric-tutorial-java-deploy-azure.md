@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644047"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 Este tutorial é a terceira parte de uma série e mostra-lhe como implementar uma aplicação do Service Fabric num cluster no Azure.
@@ -198,7 +199,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     </Certificates>
     ```
 
-2. Para implementar a aplicação neste cluster, tem de utilizar o SFCTL para estabelecer uma ligação ao cluster. O SFCTL precisa de um ficheiro PEM com a chave pública e privada para ligar ao cluster e, como resultado, executar o seguinte comando para produzir um ficheiro PEM com a chave pública e privada. 
+2. Para implementar a aplicação neste cluster, tem de utilizar o SFCTL para estabelecer uma ligação ao cluster. O SFCTL necessita de um ficheiro PEM com chave pública e chave privada para se ligar ao cluster. Execute o seguinte comando para produzir um ficheiro PEM com chave pública e chave privada. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

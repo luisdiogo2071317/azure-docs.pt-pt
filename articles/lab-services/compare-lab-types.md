@@ -1,6 +1,6 @@
 ---
 title: Comparar diferentes tipos de laboratórios no Azure Lab Services | Microsoft Docs
-description: Explica e compara diferentes tipos de laboratórios que pode criar com o Azure Lab Services (anteriormente DevTest Labs).
+description: Explica e compara os diferentes tipos de laboratórios que pode criar com o Azure Lab Services
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361187"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637878"
 ---
-# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Comparar laboratórios geridos e DevTest no Azure Lab Services
-Pode criar dois tipos de laboratórios, **laboratórios geridos** com o Azure Lab Services, e **laboratórios personalizados** com o Azure DevTest Labs. Se apenas quiser introduzir o que precisa num laboratório e permitir que o serviço configure e faça a gestão da infraestrutura necessária para o laboratório, escolha um dos **laboratórios geridos**. Atualmente, o **laboratório de sala de aula** é o único tipo de laboratório gerido que pode criar com o Azure Lab Services. Se quiser gerir a sua própria infraestrutura, crie um **laboratório personalizado** com o Azure DevTest Labs.
+# <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Comparar laboratórios geridos no Azure Lab Services e DevTest Labs
+Pode criar dois tipos de laboratórios, **laboratórios geridos** com o Azure Lab Services, e **laboratórios personalizados** com o Azure DevTest Labs. Se apenas quiser introduzir o que precisa num laboratório e permitir que o serviço configure e faça a gestão da infraestrutura necessária para o laboratório, escolha um dos **laboratórios geridos**. Atualmente, o **laboratório de sala de aula** é o único tipo de laboratório gerido que pode criar com o Azure Lab Services. Se quiser gerir a sua própria infraestrutura, crie um laboratório com o Azure DevTest Labs.
 
 As seguintes secções fornecem mais detalhes sobre estes laboratórios. 
 
@@ -39,9 +39,9 @@ Eis alguns **casos de utilização de laboratórios geridos**:
 
 
 ## <a name="devtest-labs"></a>DevTest Labs
-Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório personalizado com o Azure DevTest Labs no portal do Azure. Para estes laboratórios, não tem de criar uma conta de laboratório. Estes laboratórios não são apresentados na conta de laboratório (que existe para os laboratórios geridos).  
+Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório com o Azure DevTest Labs no portal do Azure. Para estes laboratórios, não tem de criar uma conta de laboratório. Estes laboratórios não são apresentados na conta de laboratório (que existe para os laboratórios geridos).  
 
-Eis alguns **casos de utilização de laboratórios DevTest**: 
+Veja a seguir alguns **casos de utilização do DevTest Labs**: 
 
 - Aprovisione rapidamente um laboratório de máquinas virtuais para alojar um hackathon ou uma sessão prática numa conferência. Elimine o laboratório com um único clique quando terminar. 
 - Crie um conjunto de VMs configuradas com a sua aplicação e permita que a sua equipa utilize facilmente uma máquina virtual para deteção de erros.  
@@ -64,5 +64,5 @@ A seguinte tabela compara dois tipos de laboratórios suportados pelo Azure Lab 
 ## <a name="next-steps"></a>Passos seguintes
 Introdução à configuração de um laboratório com o Azure Lab Services:
 
-- [Configurar um laboratório de sala de aula](tutorial-setup-classroom-lab.md)
-- [Configurar um laboratório personalizado](tutorial-create-custom-lab.md)
+- [Configurar um laboratório de sala de aula](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Configurar um laboratório](tutorial-create-custom-lab.md)

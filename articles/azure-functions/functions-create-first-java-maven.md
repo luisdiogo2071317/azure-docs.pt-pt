@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600600"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Crie a sua primeira função com o Java e o Maven (Pré-visualização)
 
@@ -43,23 +44,9 @@ Para desenvolver uma aplicação de funções com o Java, tem de ter o seguinte 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
-As [Ferramentas de Núcleo das Funções do Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) oferecem um ambiente de desenvolvimento local para escrever, executar e depurar Funções do Azure. 
+As Ferramentas de Núcleo das Funções do Azure oferecem um ambiente de desenvolvimento local para escrever, executar e depurar Funções do Azure a partir do terminal ou da linha de comandos. 
 
-Para instalar, visite a secção [Instalar](https://github.com/azure/azure-functions-core-tools#installing) do projeto Ferramentas de Núcleo das Funções do Azure para localizar as instruções específicas para o seu sistema operativo.
-
-Pode também instalar manualmente com o [npm](https://www.npmjs.com/), incluído com o [Node.js](https://nodejs.org/), após instalar os seguintes requisitos:
-
--  [.NET Core](https://www.microsoft.com/net/core), versão mais recente.
--  [Node.js](https://nodejs.org/download/) versão 8.6 ou superior.
-
-Para avançar com uma instalação baseada em npm, consulte:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Se tiver dificuldades em instalar as Ferramentas de Núcleo das Funções do Azure versão 2.0, veja [Versão 2.x do runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Instale a [versão 2 das Ferramentas de Núcleo](functions-run-local.md#v2) no computador local antes de continuar.
 
 ## <a name="generate-a-new-functions-project"></a>Gerar um novo projeto das Funções
 
@@ -194,7 +181,7 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Criou uma aplicação de funções do Java com um acionador HTTP simples e implementou o mesmo nas Funções do Azure.
+Criou uma aplicação de funções do Java com um acionador HTTP simples e implementou-a nas Funções do Azure.
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione mais funções com diferentes acionadores ao seu projeto com o destino do Maven `azure-functions:add`.

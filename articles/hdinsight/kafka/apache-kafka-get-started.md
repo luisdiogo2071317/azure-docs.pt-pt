@@ -1,6 +1,6 @@
 ---
-title: Começar com o Apache Kafka – Início Rápido do Azure HDInsight | Microsoft Docs
-description: Neste início rápido, vai saber como criar um cluster do Apache Kafka no Azure HDInsight através do portal do Azure. Também vai saber mais sobre tópicos, subscritores e consumidores do Kafka.
+title: Começar com o Apache Kafka – Guia de Início Rápido do Azure HDInsight | Microsoft Docs
+description: Neste guia de início rápido, irá saber como criar um cluster do Apache Kafka no Azure HDInsight através do portal do Azure. Também irá saber mais sobre tópicos, subscritores e consumidores do Kafka.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -13,15 +13,16 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0917894250c8cf907d721749be506d2c247111a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626322"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka num cluster do HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guia de Início Rápido: Criar um Kafka num cluster do HDInsight
 
 O Kafka é uma plataforma open source de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
@@ -30,15 +31,15 @@ Neste início rápido, vai aprender a criar um cluster do [Apache Kafka](https:/
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 > [!IMPORTANT]
-> Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste início rápido, vai aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede.
+> Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede.
 >
-> Para obter mais informações, veja o documento [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) (Utilizar uma rede virtual para utilizar o Kafka).
+> Para obter mais informações, veja o documento [Ligar ao Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Um cliente SSH. Os passos neste documento utilizam o SSH para se ligar ao cluster.
+* Um cliente SSH. Os passos neste documento utilizam SSH para se ligar ao cluster.
 
     O comando `ssh` é fornecido por predefinição nos sistemas Linux, Unix e macOS. No Windows 10, utilize um dos seguintes métodos para instalar o comando `ssh`:
 
@@ -63,7 +64,7 @@ Utilize os seguintes passos para criar um Kafka no cluster HDInsight:
 
     | Definição | Valor |
     | --- | --- |
-    | Nome do cluster | Um nome exclusivo para o cluster do HDInsight. |
+    | Nome do Cluster | Um nome exclusivo para o cluster do HDInsight. |
     | Subscrição | Selecione a sua subscrição. |
     
     Selecione __Tipo de Cluster__ para apresentar a **Configuração do Cluster**.
@@ -127,7 +128,7 @@ Utilize os seguintes passos para criar um Kafka no cluster HDInsight:
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-1. Para se ligar ao nó principal do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
+1. Para ligar ao nó principal primário do cluster do Kafka, utilize o seguinte comando. Substitua `sshuser` pelo nome de utilizador SSH. Substitua `mykafka` pelo nome do seu cluster do Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -182,10 +183,13 @@ Nesta secção, irá obter as informações do anfitrião da API REST do Ambari 
     Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
 3. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper, utilize o comando seguinte:
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
+
+    > [!TIP]
+    > Este comando consulta diretamente o serviço do Ambari no nó principal do cluster. Também pode aceder ao Ambari através do endereço público de `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algumas configurações de rede podem impedir o acesso ao endereço público. Por exemplo, ao utilizar Grupos de Segurança de Rede (NSG) para restringir o acesso ao HDInsight numa rede virtual.
 
     Quando lhe for pedido, introduza a palavra-passe da conta do início de sessão do cluster (não a conta SSH).
 
@@ -205,7 +209,7 @@ Nesta secção, irá obter as informações do anfitrião da API REST do Ambari 
 5. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper e do mediador, utilize o comando seguinte:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Quando lhe for pedido, introduza a palavra-passe da conta do início de sessão do cluster (não a conta SSH).
@@ -254,7 +258,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
         * Aumentar verticalmente um cluster
 
-* **Para listar os tópicos**, utilize o comando seguinte:
+* **Para listar os tópicos**, utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS

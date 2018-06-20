@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236200"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -166,13 +167,13 @@ Suportamos servidores de Encaminhamento e Acesso Remoto (RRAS) do Windows Server
 
 Outras soluções de VPN de software devem funcionar com o nosso gateway, desde que obedeçam às implementações de IPsec de norma da indústria. Contacte o fornecedor do software para as obter instruções de configuração e de suporte.
 
-## <a name="P2S"></a>Ponto a Site - autenticação de certificados nativa do Azure
+## <a name="P2S"></a>Ponto a Site com a autenticação de certificados nativa do Azure
 
 Esta secção aplica-se ao Modelo de implementação Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Ponto a Site - autenticação RADIUS
+## <a name="P2SRADIUS"></a>Ponto a Site com a autenticação RADIUS
 
 Esta secção aplica-se ao Modelo de implementação Resource Manager.
 

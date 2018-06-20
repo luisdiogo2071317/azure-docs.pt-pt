@@ -1,31 +1,26 @@
 ---
 title: Configurar o encaminhamento de mensagens com o Hub IoT do Azure (.NET) | Microsoft Docs
 description: Configurar o encaminhamento de mensagens com o Hub IoT do Azure
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700830"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o Hub IoT
 
-O encaminhamento de mensagens permite enviar dados de telemetria dos dispositivos IoT para pontos finais compatíveis com Hubs de Eventos incorporados ou pontos finais personalizados, tais como armazenamento de blobs, Fila do Service Bus, Tópico do Service Bus e Hubs de Eventos. Ao configurar o Encaminhamento de Mensagens, pode criar regras de encaminhamento para personalizar o encaminhamento que corresponde a uma determinada regra. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. 
+O encaminhamento de mensagens permite enviar dados de telemetria dos dispositivos IoT para pontos finais compatíveis com Hubs de Eventos incorporados ou pontos finais personalizados, tais como armazenamento de blobs, Fila do Service Bus, Tópico do Service Bus e Hubs de Eventos. Ao configurar o encaminhamento de mensagens, pode criar regras de encaminhamento para personalizar o encaminhamento que corresponde a uma determinada regra. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. 
 
-Neste tutorial, vai aprender a configurar e a utilizar regras de encaminhamento com o Hub IoT. Vai encaminhar mensagens de um dispositivo IoT para um dos vários serviços, incluindo para o armazenamento de blobs e para uma fila do Service Bus. As mensagens para a fila do Service Bus serão detetadas por uma Aplicação Lógica e enviadas por e-mail. As mensagens que não dispõem de configuração especificamente para encaminhamento são enviadas para o ponto final predefinido e apresentadas numa visualização do PowerBI.
+Neste tutorial, vai aprender a configurar e a utilizar regras de encaminhamento com o Hub IoT. Vai encaminhar mensagens de um dispositivo IoT para um dos vários serviços, incluindo para o armazenamento de blobs e para uma fila do Service Bus. As mensagens para a fila do Service Bus serão detetadas por uma Aplicação Lógica e enviadas por e-mail. As mensagens que não dispõem de configuração especificamente para encaminhamento são enviadas para o ponto final predefinido e apresentadas numa visualização do Power BI.
 
 Neste tutorial, vai realizar as seguintes tarefas:
 
@@ -34,11 +29,11 @@ Neste tutorial, vai realizar as seguintes tarefas:
 > * Configurar pontos finais e rotas no hub IoT para a conta de armazenamento e para a fila do Service Bus.
 > * Criar uma Aplicação Lógica que é acionada para enviar e-mails quando é adicionada uma mensagem à fila do Service Bus.
 > * Transferir e executar uma aplicação que simula um Dispositivo IoT a enviar mensagens para o hub para as diferentes opções de encaminhamento.
-> * Criar uma visualização do PowerBI de dados enviados para o ponto final predefinido.
+> * Criar uma visualização do Power BI de dados enviados para o ponto final predefinido.
 > * Visualizar os resultados...
 > * …na fila do Service Bus e nos e-mails.
 > * …na conta de armazenamento.
-> * …na visualização do PowerBI.
+> * ...na visualização do Power BI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +41,7 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 - Instale o [Visual Studio para Windows](https://www.visualstudio.com/). 
 
-- Uma conta do PowerBI para examinar a análise de transmissão do ponto final predefinido. ([Experimentar o PowerBI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Uma conta do Power BI para examinar a análise de transmissão do ponto final predefinido. ([Experimente o Power BI gratuitamente](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Uma conta do Office 365 para enviar e-mails de notificação. 
 
@@ -81,7 +76,7 @@ Para este tutorial, precisa de um hub IoT, uma conta de armazenamento e uma fila
 
 As secções seguintes descrevem como efetuar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell.
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
@@ -104,24 +99,24 @@ A forma mais fácil de utilizar este script é copiá-lo e colá-lo num Cloud Sh
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ A forma mais fácil de utilizar este script é abrir o [ISE do PowerShell](/powe
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -256,8 +277,6 @@ Depois, crie uma identidade do dispositivo e guarde a chave para utilização po
 
    ![Captura de ecrã que mostra os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
 
-
-
 ## <a name="set-up-message-routing"></a>Configurar o encaminhamento de mensagens
 
 Vai encaminhar mensagens para diferentes recursos com base nas propriedades anexadas à mensagem através do dispositivo simulado. As mensagens sem encaminhamento personalizado são enviadas para o ponto final predefinido (mensagens/eventos). 
@@ -266,7 +285,7 @@ Vai encaminhar mensagens para diferentes recursos com base nas propriedades anex
 |------|------|
 |level="storage" |Escrever no Armazenamento do Azure.|
 |level="critical" |Escrever numa fila do Service Bus. Uma Aplicação Lógica obtém a mensagem da fila e utiliza o Office 365 para enviar o e-mail.|
-|predefinição |Apresentar estes dados com o PowerBI.|
+|predefinição |Apresentar estes dados com o Power BI.|
 
 ### <a name="routing-to-a-storage-account"></a>Encaminhar para uma conta de armazenamento 
 
@@ -278,7 +297,7 @@ Agora configure o encaminhamento para a conta de armazenamento. Defina um ponto 
    
    **Tipo de Ponto Final**: selecione **Contentor de Armazenamento do Azure** na lista pendente.
 
-   Clique em **Escolher um contentor** para ver a lista das contas de armazenamento. Selecione a sua conta de armazenamento. Este tutorial utiliza **contosoresultsstorage**. Em seguida, selecione o contentor. Este tutorial utiliza **contosoresults**. Clique em **Selecionar** para voltar ao painel Adicionar ponto final. 
+   Clique em **Escolher um contentor** para ver a lista das contas de armazenamento. Selecione a sua conta de armazenamento. Este tutorial utiliza **contosostorage**. Em seguida, selecione o contentor. Este tutorial utiliza **contosoresults**. Clique em **Selecionar** para voltar ao painel **Adicionar ponto final**. 
    
    ![Captura de ecrã que mostra a adição de um ponto final.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -390,7 +409,7 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
-Para ver os dados numa visualização do PowerBI, configure primeiro uma tarefa do Stream Analytics para obter os dados. Lembre-se de que apenas as mensagens com o **nível** definido como **normal** são enviadas para o ponto final predefinido e serão obtidas pela tarefa do Stream Analytics para a visualização do PowerBI.
+Para ver os dados numa visualização do Power BI, configure primeiro uma tarefa do Stream Analytics para obter os dados. Lembre-se de que apenas as mensagens com o **nível** definido como **normal** são enviadas para o ponto final predefinido e serão obtidas pela tarefa do Stream Analytics para a visualização do Power BI.
 
 ### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
 
@@ -405,6 +424,8 @@ Para ver os dados numa visualização do PowerBI, configure primeiro uma tarefa 
    **Localização**: utilize a mesma localização que utilizou no script de configuração. Este tutorial utiliza **West US**. 
 
    ![Captura de ecrã que mostra como criar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
+
+3. Clique em **Criar** para criar a tarefa. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial utiliza **ContosoResources**. Selecione o grupo de recursos e, em seguida, clique na tarefa de Stream Analytics na lista de recursos. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
@@ -434,17 +455,17 @@ Para ver os dados numa visualização do PowerBI, configure primeiro uma tarefa 
 
 1. Em **Topologia de Tarefas**, clique em **Saídas**.
 
-2. No painel **Saídas**, clique em **Adicionar**e selecione **PowerBI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: o alias exclusivo da saída. Este tutorial utiliza **contosooutputs**. 
 
-   **Nome do conjunto de dados**: nome do conjunto de dados a ser utilizado no PowerBI. Este tutorial utiliza **contosodataset**. 
+   **Nome do conjunto de dados**: nome do conjunto de dados a ser utilizado no Power BI. Este tutorial utiliza **contosodataset**. 
 
-   **Nome da tabela**: nome da tabela a ser utilizada no PowerBI. Este tutorial utiliza **contosotable**.
+   **Nome da tabela**: nome da tabela a ser utilizada no Power BI. Este tutorial utiliza **contosotable**.
 
    Aceite as predefinições no resto dos campos.
 
-3. Clique em **Autorizar**e inicie sessão na sua conta do PowerBI.
+3. Clique em **Autorizar**e inicie sessão na sua conta do Power BI.
 
    ![Captura de ecrã que mostra como configurar as saídas para a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
@@ -462,19 +483,19 @@ Para ver os dados numa visualização do PowerBI, configure primeiro uma tarefa 
 
 4. Clique em **Guardar**.
 
-5. Feche o painel Consulta.
+5. Feche o painel Consulta. Esta ação leva-o de volta à vista de recursos no grupo de recursos. Clique na tarefa do Stream Analytics. Este tutorial denomina-o **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
 Na tarefa do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**. Assim que a tarefa for iniciada com êxito, o estado da tarefa é alterado de **Parado** para **Em execução**.
 
-Para configurar o relatório do PowerBI, vai precisar de dados. Para isso, vai configurar o PowerBI depois de criar o dispositivo e executar a aplicação de simulação do dispositivo.
+Para configurar o relatório do Power BI, vai precisar de dados. Para isso, vai configurar o Power BI, depois de criar o dispositivo e executar a aplicação de simulação do dispositivo.
 
 ## <a name="run-simulated-device-app"></a>Executara aplicação de Dispositivo Simulada
 
 Anteriormente na secção de configuração de scripts, configurou um dispositivo para simular a utilização de um dispositivo IoT. Nesta secção, vai transferir uma aplicação de consola do .NET para simular um dispositivo que envia mensagens de dispositivo para cloud a um Hub IoT. Esta aplicação envia mensagens para cada um dos métodos de encaminhamento diferentes. 
 
-Transfira a solução para a [Simulação de Dispositivos IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Esta ação transfere um repositório com várias aplicações; a solução que procura está em Tutorials/Routing/SimulatedDevice/.
+Transfira a solução para a [Simulação de Dispositivos IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Esta ação transfere um repositório com várias aplicações; a solução que procura está em iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Faça duplo clique no ficheiro da solução (SimulatedDevice.sln) para abrir o código no Visual Studio e, em seguida, abra Program.cs. Substitua `{iot hub hostname}` pelo nome do anfitrião do hub IoT. O formato do nome do anfitrião do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome do anfitrião do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{device key}` pela chave de dispositivo que guardou anteriormente quando configurou o dispositivo simulado. 
 
@@ -512,11 +533,11 @@ Significado:
 
    * O encaminhamento para a conta de armazenamento está a funcionar corretamente.
 
-Agora com a aplicação ainda em execução, configure a visualização do PowerBI para ver as mensagens que chegam através do encaminhamento predefinido. 
+Agora com a aplicação ainda em execução, configure a visualização do Power BI para ver as mensagens que chegam através do encaminhamento predefinido. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>Configurar as Visualizações do PowerBI
+## <a name="set-up-the-power-bi-visualizations"></a>Configurar as Visualizações do Power BI
 
-1. Inicie sessão na sua conta do [PowerBI](https://powerbi.microsoft.com/).
+1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
 2. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
 
@@ -526,7 +547,7 @@ Agora com a aplicação ainda em execução, configure a visualização do Power
 
 4. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
-   ![Captura de ecrã que mostra a área de trabalho do PowerBI com Ações e o ícone de relatório realçados.](./media/tutorial-routing/power-bi-actions.png)
+   ![Captura de ecrã que mostra a área de trabalho do Power BI com Ações e o ícone de relatório realçados.](./media/tutorial-routing/power-bi-actions.png)
 
 5. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
@@ -544,7 +565,7 @@ Agora com a aplicação ainda em execução, configure a visualização do Power
 
 7. Crie outro gráfico de linhas para mostrar a humidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga os mesmos passos acima e coloque **EventEnqueuedUtcTime** no eixo X e **humidade** no eixo Y.
 
-   ![Captura de ecrã que mostra o relatório do PowerBI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
+   ![Captura de ecrã que mostra o relatório do Power BI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
 
 8. Clique em **Guardar** para guardar o relatório.
 
@@ -552,17 +573,17 @@ Poderá ver os dados em ambos os gráficos. Significado:
 
    * O encaminhamento para o ponto final predefinido está a funcionar corretamente.
    * A tarefa do Azure Stream Analytics está a transmitir corretamente.
-   * A Visualização do PowerBI está configurada corretamente.
+   * A Visualização do Power BI está configurada corretamente.
 
-Pode atualizar os gráficos para ver os dados mais recentes ao clicar no botão Atualizar na parte superior da janela do PowerBI. 
+Pode atualizar os gráficos para ver os dados mais recentes ao clicar no botão Atualizar na parte superior da janela do Power BI. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
 Se quiser remover todos os recursos que criou, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, o espaço de nomes e a fila do Service Bus, a Aplicação Lógica, a conta de armazenamento e o próprio grupo de recursos. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>Limpar os recursos na visualização do PowerBI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
-Inicie sessão na sua conta do [PowerBI](https://powerbi.microsoft.com/). Vá para a área de trabalho. Este tutorial utiliza **A Minha Área de Trabalho**. Para remover a visualização do PowerBI, aceda a Conjuntos de Dados e clique no ícone do lixo para eliminar o conjunto de dados. Este tutorial utiliza **contosodataset**. Quando remover o conjunto de dados, o relatório é também removido.
+Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá para a área de trabalho. Este tutorial utiliza **A Minha Área de Trabalho**. Para remover a visualização do Power BI, aceda a Conjuntos de Dados e clique no ícone do lixo para eliminar o conjunto de dados. Este tutorial utiliza **contosodataset**. Quando remover o conjunto de dados, o relatório é também removido.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar os recursos com a CLI do Azure
 
@@ -589,15 +610,15 @@ Neste tutorial, aprendeu a utilizar o encaminhamento de mensagens para encaminha
 > * Configurar pontos finais e rotas no hub IoT para a conta de armazenamento e para a fila do Service Bus.
 > * Criar uma Aplicação Lógica que é acionada para enviar e-mails quando é adicionada uma mensagem à fila do Service Bus.
 > * Transferir e executar uma aplicação que simula um Dispositivo IoT a enviar mensagens para o hub para as diferentes opções de encaminhamento.
-> * Criar uma visualização do PowerBI de dados enviados para o ponto final predefinido.
+> * Criar uma visualização do Power BI de dados enviados para o ponto final predefinido.
 > * Visualizar os resultados...
 > * …na fila do Service Bus e nos e-mails.
 > * …na conta de armazenamento.
-> * …na visualização do PowerBI.
+> * ...na visualização do Power BI.
 
 Avance para o tutorial seguinte para aprender a gerir o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Começar a utilizar dispositivos duplos do Hub IoT do Azure](iot-hub-node-node-twin-getstarted.md)
+[Configure os seus dispositivos a partir de um serviço de back-end](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

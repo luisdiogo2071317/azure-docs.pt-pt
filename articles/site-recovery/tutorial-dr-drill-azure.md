@@ -5,41 +5,42 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209730"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737111"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure
 
-Este tutorial mostra como executar um teste de recuperação após desastre para uma máquina no local para o Azure com uma ativação pós-falha de teste. Um teste valida a estratégia de replicação sem perda de dados. Neste tutorial, ficará a saber como:
+O [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
+
+- Este artigo é o quarto tutorial de uma série que lhe mostra como configurar a recuperação após desastre no Azure para VMs do VMware no local. Pressupõe que concluiu os dois primeiros tutoriais:
+    - No [primeiro tutorial](tutorial-prepare-azure.md), configurámos os componentes do Azure necessários para a recuperação após desastre do VMware.
+    - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), preparámos os componentes no local para a recuperação após desastre e revimos os pré-requisitos.
+    - No [terceiro tutorial](vmware-azure-tutorial.md), configurámos e ativámos a replicação para a nossa VM do VMware no local.
+- Os tutoriais são concebidos para mostrar o caminho de implementação mais simples num cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
+
+
+Neste artigo, mostramos-lhe como executar um teste de recuperação após desastre num computador no local no Azure com uma ativação pós-falha de teste. Um teste valida a estratégia de replicação sem perda de dados. Aprenda a:
 
 > [!div class="checklist"]
 > * Configurar uma rede isolada para ativação pós-falha de teste
 > * Preparar a ligação para a VM do Azure após a ativação pós-falha
 > * Executar uma ativação pós-falha de teste para uma única máquina
 
-Este é o quarto tutorial de uma série. Este tutorial parte do princípio de que já concluiu as tarefas nos tutoriais anteriores.
-
-1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar o VMware no local](tutorial-prepare-on-premises-vmware.md)
-3. [Configurar a recuperação após desastre](tutorial-vmware-to-azure.md)
+Este tutorial configura a recuperação após desastre do VMware no Azure com as definições mais simples. Se pretender saber mais sobre os passos de ativação pós-falha de teste, leia o [Guia de Procedimentos](site-recovery-test-failover-to-azure.md).
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Antes de executar uma ativação pós-falha de teste, verifique as propriedades da VM e certifique-se de que o Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [a VM VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) estão em conformidade com os requisitos do Azure.
+Antes de executar uma ativação pós-falha de teste, verifique as propriedades da VM do VMWare e verifique se a VM de Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], [a VM do VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) estão em conformidade com os requisitos do Azure.
 
-1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
+1. Em **Itens Protegidos**, clique em **Itens Replicados** > e na VM.
 2. No painel **Item replicado**, existe um resumo das informações, do estado de funcionamento e dos pontos de recuperação mais recentes disponíveis da VM. Clique em **Propriedades** para ver mais detalhes.
-3. Em **Computação e Rede**, pode modificar o nome do Azure, o grupo de recursos, o tamanho de destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as definições do disco gerido.
-   
-      >[!NOTE]
-      Atualmente, não é suportada a reativação pós-falha para máquinas Hyper-V no local a partir de VMs do Azure com discos geridos. Só deve utilizar a opção de discos geridos para a ativação pós-falha se estiver a planear migrar VMs no local para o Azure, sem reativá-las.
-   
+3. Em **Computação e Rede**, pode modificar o nome do Azure, o grupo de recursos, o tamanho de destino, o conjunto de disponibilidade e as definições do disco gerido.
 4. Pode ver e modificar as definições de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após a ativação pós-falha e o endereço IP que será atribuído à mesma.
 5. Em **Discos**, pode ver informações sobre o sistema operativo e os discos de dados na VM.
 

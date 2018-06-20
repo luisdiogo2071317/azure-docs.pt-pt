@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211801"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726334"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -167,7 +167,9 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
         - Ser capaz de utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego no recurso de destino na sub-rede, bem como de devolvê-lo à Internet. 
     - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) do ExpressRoute.  
 
-  Veja [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
+Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente.
+
+Veja [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
 
 ## <a name="routing-example"></a>Exemplo de encaminhamento
 
@@ -259,5 +261,5 @@ A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pel
 - [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utilizar o BGP com o ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Ver todas as rotas de uma sub-rede](virtual-network-routes-troubleshoot-portal.md). As tabelas de rotas definidas pelo utilizador só lhe mostram este tipo de rotas e não as rotas predefinidas nem do BGP relativas às sub-redes. Ver todas as rotas mostra as rotas predefinidas, do BGP e definidas pelo utilizador relativas à sub-rede na qual a interface de rede se encontra.
+- [Ver todas as rotas de uma sub-rede](diagnose-network-routing-problem.md). As tabelas de rotas definidas pelo utilizador só lhe mostram este tipo de rotas e não as rotas predefinidas nem do BGP relativas às sub-redes. Ver todas as rotas mostra as rotas predefinidas, do BGP e definidas pelo utilizador relativas à sub-rede na qual a interface de rede se encontra.
 - [Determinar o tipo de próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre uma máquina virtual e um endereço IP de destino. A funcionalidade de próximo salto do Observador de Rede do Azure permite-lhe ver se o tráfego está a sair de uma sub-rede e a ser encaminhado para onde é suposto.

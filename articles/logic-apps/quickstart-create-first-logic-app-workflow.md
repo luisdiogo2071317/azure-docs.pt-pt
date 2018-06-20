@@ -1,28 +1,24 @@
 ---
-title: Criar o primeiro fluxo de trabalho automatizado - Azure Logic Apps | Microsoft Docs
-description: Este início rápido mostra como automatizar o primeiro fluxo de trabalho com o Azure Logic Apps para cenários de integração de sistemas e integração de aplicações empresariais (EAI) que integram sistemas e serviços cloud
-author: ecfan
-manager: anneta
-editor: ''
+title: Criar e automatizar o primeiro fluxo de trabalho – Azure Logic Apps | Microsoft Docs
+description: Início Rápido sobre como criar a sua primeira aplicação lógica que automatiza tarefas, processos e fluxos de trabalho com o Azure Logic Apps. Criar aplicações lógicas para soluções de integração de sistemas e integração de aplicações empresariais (EAI) para os seus sistemas e serviços na cloud
 services: logic-apps
-keywords: fluxos de trabalho, serviços cloud, integração de sistemas, integração de aplicações empresariais, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300944"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho de aplicação lógica - portal do Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho automatizado com o Azure Logic Apps – portal do Azure
 
 Este início rápido mostra como criar o primeiro fluxo de trabalho automatizado com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Neste artigo, vai criar uma aplicação lógica que verifica regularmente o feed RSS de um site relativamente à existência de novos itens. Se existirem novos itens, a aplicação lógica envia uma mensagem de e-mail para cada item. Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a alto nível:
 
@@ -158,7 +154,7 @@ Em seguida, teste a aplicação lógica.
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente a sua aplicação lógica, na barra de ferramentas do estruturador, escolha **Executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. 
+Para iniciar manualmente a sua aplicação lógica, na barra de ferramentas do estruturador, escolha **Executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de realizar uma nova consulta. 
 
 Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicação lógica. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
 

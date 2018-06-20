@@ -2,23 +2,21 @@
 title: Criar uma base de dados de gráficos do Azure Cosmos DB com Java | Microsoft Docs
 description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar dados de gráficos no Azure Cosmos DB com Gremlin.
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: a7c86ab78704baf4048bc0415d89c1ab826e16bc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac9d0291b38e7a8679e9c6e7707e13a90554b914
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796184"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Java e o portal do Azure
 
@@ -85,7 +83,7 @@ Os fragmentos seguintes são retirados do ficheiro C:\git-samples\azure-cosmos-d
     client = cluster.connect();
     ```
 
-* São executados uma série de passos do Gremlin com o método `client.submit`.
+* São executadas séries de passos do Gremlin com o método `client.submit`.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -113,7 +111,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Altere `graphs` para `gremlin.cosmosdb` no valor `endpoint`. (Se tiver criado a sua conta de base de dados do gráfico antes de 20 de dezembro de 2017 não faça alterações ao valor do ponto final e continue para o passo seguinte.)
+3. Altere `graphs` para `gremlin.cosmosdb` no valor `endpoint`. (Se tiver criado a conta da base de dados do gráfico antes de 20 de dezembro de 2017, não faça alterações ao valor do ponto final e avance para o passo seguinte.)
 
     O valor de ponto final deverá agora ter o seguinte aspeto:
 
@@ -172,7 +170,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que o utilizador está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
@@ -191,7 +189,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     técnico | java | 
 
     > [!NOTE]
-    > Neste guia de início rápido, criámos uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
+    > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
 6. Clique em **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
 
@@ -213,11 +211,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para apresentar todos os resultados novamente.
 
-12. Agora, podemos ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão ![Alterar o destino de um vértice num gráfico](./media/create-graph-java/edit-pencil-button.png)  junto a **Destinos** no lado inferior direito. Poderá ter de alargar a janela para ver o botão.
+12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão ![Alterar o destino de um vértice num gráfico](./media/create-graph-java/edit-pencil-button.png)  junto a **Destinos** no lado inferior direito. Poderá ter de alargar a janela para ver o botão.
 
    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *Conhece* e clique no visto.
+13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *conhece* e, em seguida, clique na caixa de verificação.
 
    ![Adicionar uma ligação entre ashley e rakesh no Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

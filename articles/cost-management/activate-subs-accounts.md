@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297976"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar subscrições e contas do Azure com o Azure Cost Management
 
@@ -35,7 +36,7 @@ Se estiver atribuída a função **Contribuidor** à sua conta, não tem permiss
 
 ### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. No portal do Azure, selecione **Azure Active Directory**.
 3. No Azure Active Directory, selecione **Definições do utilizador**.
 4. Verifique a opção **Registos das aplicações**.
@@ -95,14 +96,39 @@ Eis como resolver os problemas:
 1. O seu revendedor tem de ativar a _marcação_ para a sua conta. Para obter instruções, consulte o [Guia de Introdução do Cliente Indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 2. A chave do Contrato Enterprise do Azure para utilizar com o Azure Cost Management é gerida por si. Para obter instruções, veja [Registar um Contrato Enterprise do Azure e ver dados de custos](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes.
-
 Para poder gerar a chave de API do Contrato Enterprise do Azure, para configurar o Azure Cost Management, tem de ativar a API de Faturação do Azure ao seguir as instruções em:
 
 - [Descrição geral de APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
 - [API de Relatórios do portal empresarial do Microsoft Azure](https://ea.azure.com/helpdocs/reportingAPI) em **Ativar o acesso a dados para a API**
 
 Também poderá ter de conceder permissões a administradores de departamento, proprietários de conta e administradores empresariais para _ver custos_ com a API de Faturação.
+
+Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes. No entanto, pode contornar o requisito de administrador. Pode pedir que o administrador do Azure Active Directory conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script seguinte concede permissão para registar o **CloudynAzureCollector** do Principal de Serviço do Azure Active Directory.
+
+```
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Tenant - enter your tenant ID or Name
+$tenant = "<ReplaceWithYourTenantID>"
+
+#Cloudyn Collector application ID
+$appId = "83e638ef-7885-479f-bbe8-9150acccdb3d"
+
+#URL to activate the consent screen
+$url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&response_type=code&client_id="+$appId+"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FCloudynJava&prompt=consent"
+
+#Choose your browser, the default is Internet Explorer
+
+#Chrome
+#[System.Diagnostics.Process]::Start("chrome.exe", "--incognito $url")
+
+#Firefox
+#[System.Diagnostics.Process]::Start("firefox.exe","-private-window $url" )
+
+#IExplorer
+[System.Diagnostics.Process]::Start("iexplore.exe","$url -private" )
+
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

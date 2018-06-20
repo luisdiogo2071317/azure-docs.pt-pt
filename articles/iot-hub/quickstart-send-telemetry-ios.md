@@ -1,25 +1,24 @@
 ---
 title: 'Início Rápido: Enviar telemetria para o Hub IoT do Azure | Microsoft Docs'
 description: Neste início rápido, vai executar uma aplicação iOS de exemplo para enviar telemetria simulada para um hub do IoT e ler telemetria do mesmo, para processamento na cloud.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808184"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Enviar telemetria a partir de um dispositivo para um hub IoT (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste artigo, vai enviar telemetria a partir de uma aplicação de dispositivo simulado para o Hub IoT. Em seguida, pode ver os dados de uma aplicação de back-end. 
 
@@ -42,32 +41,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-O primeiro passo consiste em utilizar o portal do Azure para criar um hub IoT na sua subscrição. O Hub IoT permite-lhe ingerir elevados volumes de telemetria na cloud a partir de vários dispositivos. Depois, o hub ativa um ou mais serviços de back-end em execução na cloud, para ler e processar essa telemetria.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
-
-1. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**. 
-
-   ![Selecione para instalar o Hub IoT](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. Para criar o seu hub IoT, utilize os valores da tabela seguinte:
-
-    | Definição | Valor |
-    | ------- | ----- |
-    | Nome | Um nome exclusivo para o hub |
-    | Escalão de preço e dimensionamento | F1 Gratuito |
-    | Unidades do Hub IoT | 1 |
-    | Partições do dispositivo para a cloud | 2 partições |
-    | Subscrição | A sua subscrição do Azure. |
-    | Grupo de recursos | Crie um novo. Introduza um nome para o grupo de recursos novo. |
-    | Localização | A localização mais próxima de si. |
-    | Afixar ao dashboard | Sim |
-
-1. Clique em **Criar**.  
-
-   ![Definições do Hub](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. Anote o nome do Hub IoT e dos grupos de recursos. Vai utilizar esses valores mais tarde neste início rápido.
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
@@ -168,10 +143,13 @@ Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no po
 
 Neste artigo, configurou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub a partir de um dispositivo iOS e leu-a no hub. 
 
-Para saber mais sobre como os dispositivos iOS podem funcionar com o Hub IoT, veja [Send cloud-to-device messages with iOS (Swift)](iot-hub-ios-swift-c2d.md) (Enviar mensagens da cloud para o dispositivo com o iOS [Swift])
+Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
+
+> [!div class="nextstepaction"]
+> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

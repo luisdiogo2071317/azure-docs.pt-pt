@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/28/2018
-ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/02/2018
+ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737236"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
@@ -22,7 +23,7 @@ A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacio
 
 - Elevada disponibilidade incorporada sem custos adicionais
 - Desempenho previsível com preços pay as you go inclusivos
-- Dimensionamento imediato em segundos
+- Dimensionamento conforme necessário no prazo de segundos
 - Segurança para proteger os dados confidenciais inativos e em movimento
 - Cópias de segurança automáticas e restauro para um ponto anterior no tempo até 35 dias
 - Segurança e conformidade de nível empresarial
@@ -52,7 +53,15 @@ Por norma, os serviços de base de dados do Azure asseguram a segurança dos dad
 
 A Base de Dados do Azure para o serviço PostgreSQL utiliza a encriptação de armazenamento para dados inativos. Os dados, incluindo as cópias de segurança, estão encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
-Por predefinição, a Base de Dados do Azure para o serviço PostgreSQL está configurada para exigir [Segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.  Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
+Por predefinição, a Base de Dados do Azure para o serviço PostgreSQL está configurada para exigir [Segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento na rede. A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
+
+## <a name="contacts"></a>Contactos
+Relativamente a dúvidas ou sugestões sobre como trabalhar com a Base de Dados do Azure para MySQL, envie um e-mail para a equipa da Base de Dados do Azure para MySQL ([@Ask BD do Azure para PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Tenha em atenção que não se trata de um alias de suporte técnico.
+
+Além disso, considere os seguintes pontos de contacto, conforme adequado:
+- Para contactar o Suporte do Azure, [crie um pedido no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Passos seguintes
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver as comparações de preços e as calculadoras.

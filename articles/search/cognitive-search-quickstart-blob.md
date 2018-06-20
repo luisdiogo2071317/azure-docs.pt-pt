@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640266"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: criar um pipeline de pesquisa cognitiva com competências e dados de exemplo
 
@@ -59,7 +60,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > A Pesquisa Cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuita. Posteriormente, iremos anunciar os preços desta capacidade.
+  > A Pesquisa Cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
@@ -95,6 +96,8 @@ Uma vantagem da utilização do assistente para **Importar dados** é que també
 ### <a name="step-2-add-cognitive-skills"></a>Passo 2: adicionar capacidades cognitivas
 
 Em seguida, adicione passos de melhoramento ao pipeline de indexação. O portal fornece-lhe competências cognitivas predefinidas para a análise de imagens e a análise de texto. No portal, um conjunto de competências funciona através de um campo de origem exclusivo. Tal poderá parecer como um destino pequeno, mas, para os blobs do Azure, o campo `content` contém a maior parte do documento de blobs (por exemplo, um documento Word ou uma apresentação do PowerPoint). Como tal, este campo é uma entrada ideal uma vez que contém todo o conteúdo de um blob.
+
+Por vezes, quer extrair a representação textual dos ficheiros que são compostos principalmente por imagens digitalizadas, como um PDF que é gerado por um scanner. O Azure Search pode extrair automaticamente o conteúdo das imagens incorporadas no documento. Para tal, selecione a opção **Ativar OCR e intercalar todo o texto no campo merged_content**. Esta ação criará automaticamente um campo `merged_content`, que contém o texto extraído do documento e a representação textual das imagens incorporadas no documento. Quando seleciona esta opção, o `Source data field` será definido como `merged_content`.
 
 Em **Adicionar competências cognitivas**, escolha as competências que realizam o processamento de linguagem natural. Para este início rápido, escolha o reconhecimento de entidades de pessoas, organizações e localizações.
 

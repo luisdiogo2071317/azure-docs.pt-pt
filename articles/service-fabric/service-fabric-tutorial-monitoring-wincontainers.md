@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248246"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com o Log Analytics
 
@@ -212,18 +213,14 @@ Clicar em qualquer um destes painéis leva-o para a consulta do Log Analytics qu
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurar o agente do OMS para recolher contadores de desempenho
 
-Outra vantagem da utilização do agente do OMS é a capacidade de alterar os contadores de desempenho que quer recolher através da experiência de IU do OMS em vez de ter de configurar o agente de diagnósticos do Azure e de fazer uma atualização baseada num modelo do Resource Manager de cada vez. Para tal, clique em **Portal do OMS** na página de destino da sua Solução de Monitorização de Contentores (ou do Service Fabric).
+Outra vantagem da utilização do agente do OMS é a capacidade de alterar os contadores de desempenho que quer recolher através da experiência de IU do OMS em vez de ter de configurar o agente de diagnósticos do Azure e de fazer uma atualização baseada num modelo do Resource Manager de cada vez. Para tal, clique em **Área de Trabalho do OMS** na página de destino da solução de Monitorização de Contentores (ou do Service Fabric).
 
-![Portal do OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Desta forma, é encaminhado para a sua área de trabalho no portal do OMS, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do OMS. 
-* Clique na **roda dentada**, no canto superior direito do ecrã, para abrir o menu *Definições*.
+Desta forma, é encaminhado para a Área de Trabalho do OMS, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do OMS. 
+* Clique em **Definições Avançadas** para abrir o menu Definições Avançadas.
 * Clique em **Connected Sources** (Origens Ligadas)  > **Windows Servers** (Servidores Windows) *5 Windows Computers Connected* (5 Computadores Windows Ligados).
-* Clique em **Data** (Dados) > **Windows Performance Counters** (Contadores de Desempenho do Windows) para procurar e adicionar contadores de desempenho novos. Aqui, verá uma lista de recomendações do Log Analytics relativamente aos contadores de desempenho que pode recolher, bem como a opção para procurar outros contadores. Clique em **Add the selected performance counters** (Adicionar os contadores de desempenho selecionados) para começar a recolher as métricas sugeridas.
+* Clique em **Data** (Dados) > **Windows Performance Counters** (Contadores de Desempenho do Windows) para procurar e adicionar contadores de desempenho novos. Aqui, verá uma lista de recomendações do Log Analytics relativamente aos contadores de desempenho que pode recolher, bem como a opção para procurar outros contadores. Verifique se os contadores **Processador(_Total)\% de Tempo do Processador** e **Memória(*)\MBytes Disponíveis** estão a ser recolhidos.
 
-    ![Contadores de desempenho](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Novamente no portal do Azure, **atualize** a Solução de Monitorização de Contadores passados alguns minutos e, depois, deverá começar a receber dados de *Desempenho do Computador*. Isto ajuda a compreender de que forma é que os seus recursos estão a ser atualizados. Também pode utilizar estas métricas para tomar decisões adequadas relativamente ao dimensionamento do seu cluster ou para confirmar se um cluster está a balancear a sua carga conforme esperado.
+**Atualize** a Solução de Monitorização de Contadores passados alguns minutos e, depois, deverá começar a receber dados de *Desempenho do Computador*. Isto ajuda a compreender de que forma é que os seus recursos estão a ser atualizados. Também pode utilizar estas métricas para tomar decisões adequadas relativamente ao dimensionamento do seu cluster ou para confirmar se um cluster está a balancear a sua carga conforme esperado.
 
 *Nota: certifique-se de que os seus filtros de hora estão definidos corretamente para poder consumir estas métricas.* 
 

@@ -15,17 +15,18 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597931"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 ## <a name="overview"></a>Descrição geral
 O Azure oferece várias formas para alojar sites: [Serviço de Aplicações do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços Cloud][Cloud Services]. Este artigo ajuda-o a compreender as opções e a fazer a escolha certa para a sua aplicação Web.
 
-O Serviço de Aplicações do Azure é a melhor escolha para a maioria das aplicações Web. A implementação e a gestão estão integradas na plataforma, os sites podem ser dimensionados rapidamente para lidar com cargas elevadas de tráfego e o balanceamento de carga e o gestor de tráfego incorporados proporcionam elevada disponibilidade. Pode mover sites existentes para o Serviço de Aplicações do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), utilizar uma aplicação de código aberto da Galeria de Aplicações Web ou criar um novo site com as ferramentas e a arquitetura da sua preferência. A funcionalidade [WebJobs][WebJobs] possibilita adicionar de forma fácil processamento de trabalhos em segundo plano à sua aplicação Web do Serviço de Aplicações.
+O Serviço de Aplicações do Azure é a melhor escolha para a maioria das aplicações Web. A implementação e a gestão estão integradas na plataforma, os sites podem ser dimensionados rapidamente para lidar com cargas elevadas de tráfego e o balanceamento de carga e o gestor de tráfego incorporados proporcionam elevada disponibilidade. Pode mover facilmente sites existentes para o Serviço de Aplicações do Azure com uma [ferramenta de migração online][migrate-tool], utilize uma aplicação de código aberto da Galeria de Aplicações Web ou crie um novo site com as ferramentas e a arquitetura da sua preferência. A funcionalidade [WebJobs][WebJobs] possibilita adicionar de forma fácil processamento de trabalhos em segundo plano à sua aplicação Web do Serviço de Aplicações.
 
 O Service Fabric é uma boa opção se pretender criar uma aplicação nova ou reescrever uma já existente para utilizar uma arquitetura de microsserviço. As aplicações, que são executadas num conjunto partilhado de máquinas, podem começar por ser pequenas e dimensionar-se para escalas massivas com centenas ou milhares de máquinas, consoante as suas necessidades. Com os serviços com estado, é fácil armazenar de forma consistente e fiável o estado das aplicações e o Service Fabric gere automaticamente a criação de partições, o dimensionamento e a disponibilidade do serviço.  O Service Fabric também suporta WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core.  Comparando com o Serviço de Aplicações, o Service Fabric também proporciona acesso direto ou mais controlo sobre a infraestrutura subjacente. Pode aceder remotamente aos seus servidores ou configurar tarefas de arranque de servidores. Os Serviços Cloud são semelhantes ao Service Fabric quanto ao nível de controlo versus facilidade de utilização, mas são agora um serviço legado, sendo que se recomenda o Service Fabric para implementações novas.
 
@@ -97,7 +98,7 @@ O Serviço de Aplicações do Azure é uma excelente solução para o alojamento
 * Integrar no Active Directory
 
 ### <a id="iis6"></a>Tenho uma aplicação IIS6 em execução no Windows Server 2003.
-Com o Serviço de Aplicações do Azure, é fácil evitar os custos de infraestrutura associados à migração de aplicações IIS6. A Microsoft criou [ferramentas de migração fáceis de utilizar e orientações de migração detalhadas](https://www.migratetoazure.net/) que lhe permitem verificar a compatibilidade e identificar eventuais alterações que tenham de ser feitas. A integração no Visual Studio, o TFS e as ferramentas de CMS comuns fazem com que seja mais fácil implementar aplicações IIS6 diretamente na cloud. Depois de implementadas, o portal do Azure proporciona ferramentas de gestão robustas que lhe permitem reduzir verticalmente, para gerir os custos, e aumentar verticalmente, para satisfazer a procura, conforme necessário. Com a ferramenta de migração, pode:
+Com o Serviço de Aplicações do Azure, é fácil evitar os custos de infraestrutura associados à migração de aplicações IIS6. A Microsoft criou [ferramentas de migração fáceis de utilizar e orientações de migração detalhadas][migrate-tool] que lhe permitem verificar a compatibilidade e identificar eventuais alterações que tenham de ser feitas. A integração no Visual Studio, o TFS e as ferramentas de CMS comuns fazem com que seja mais fácil implementar aplicações IIS6 diretamente na cloud. Depois de implementadas, o portal do Azure proporciona ferramentas de gestão robustas que lhe permitem reduzir verticalmente, para gerir os custos, e aumentar verticalmente, para satisfazer a procura, conforme necessário. Com a ferramenta de migração, pode:
 
 * Migrar, de forma rápida e fácil, a sua aplicação Web legada do Windows Server 2003 para a cloud.
 * Optar por deixar a base de dados SQL ligada no local, para criar uma aplicação híbrida.
@@ -191,3 +192,4 @@ Para começar a utilizar as opções que escolheu para a sua aplicação, veja o
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

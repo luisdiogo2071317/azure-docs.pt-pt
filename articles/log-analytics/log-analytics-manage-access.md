@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271675"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637536"
 ---
 # <a name="manage-workspaces"></a>Gerir áreas de trabalho
 
@@ -98,7 +98,7 @@ As atividades seguintes também necessitam de permissões do Azure:
 
 | Ação                                                          | Permissões do Azure Necessárias | Notas |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adicionar e remover soluções de gestão                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Adicionar e remover soluções de gestão                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Estas permissões têm de ser concedidas ao nível do grupo de recursos ou da subscrição. |
 | Alterar o escalão de preço                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Ver dados nos mosaicos de solução *Backup* e *Site Recovery* | Administrador/Coadministrador | Acede aos recursos implementados com o modelo de implementação clássica |
 | Criar um espaço de trabalho no portal do Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 
 Os membros da função *Contribuidor do Log Analytics* podem:
-- Ler todos os dados de monitorização 
-- Criar e configurar contas de Automatização
-- Adicionar e remover soluções de gestão
-- Ler as chaves das contas de armazenamento 
-- Configurar a recolha de registos a partir do Armazenamento do Azure
+- Ler todos os dados de monitorização  
+- Criar e configurar contas de Automatização  
+- Adicionar e remover soluções de gestão    
+    > [!NOTE] 
+    > Para realizar com êxito estas duas ações, esta permissão tem de ser concedida ao nível do grupo de recursos ou da subscrição.  
+
+- Ler as chaves das contas de armazenamento   
+- Configurar a recolha de registos a partir do Armazenamento do Azure  
 - Editar as definições de monitorização para recursos do Azure, incluindo
   - Adicionar a extensão de VM a VMs
   - Configurar os diagnósticos do Azure em todos os recursos do Azure
@@ -157,7 +160,7 @@ Utilize estas funções para conceder aos utilizadores acesso em âmbitos difere
 - Grupo de Recursos - acesso a todas as áreas de trabalho no grupo de recursos
 - Recurso - acesso apenas à área de trabalho especificada
 
-Utilize [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
+Recomendamos que realiza as atribuições ao nível do recurso (área de trabalho), para garantir o controlo de acesso correto.  Utilize [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Funções de utilizador do Azure e funções de utilizador do portal do Log Analytics
 Se tiver, pelo menos, permissão de leitura do Azure na área de trabalho do Log Analytics, pode abrir o portal do Log Analytics ao clicar na tarefa **Portal do OMS** quando visualizar a área de trabalho do Log Analytics.

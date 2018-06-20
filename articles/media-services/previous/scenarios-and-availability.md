@@ -1,6 +1,6 @@
 ---
 title: Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia do Microsoft Azure em datacenters | Microsoft Docs
-description: Este tópico disponibiliza uma descrição geral dos cenários e da disponibilidade dos serviços e funcionalidades os Serviços de Multimédia do Microsoft Azure em datacenters.
+description: Este tópico apresenta uma descrição geral dos cenários e da disponibilidade dos serviços e funcionalidades dos Serviços de Multimédia do Microsoft Azure em datacenters.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809286"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
-O AMS funciona em vários datacenters em todo o mundo. Estes datacenters são agrupados em regiões geográficas, dando-lhe a flexibilidade de escolher onde pretende criar as suas aplicações. Pode rever a [lista de regiões e as respetivas localizações](https://azure.microsoft.com/regions/). 
+O AMS funciona em vários datacenters em todo o mundo. Estes datacenters são agrupados por regiões geográficas, dando-lhe a flexibilidade de escolher onde pretende criar as suas aplicações. Pode rever a [lista de regiões e as respetivas localizações](https://azure.microsoft.com/regions/). 
 
 Este tópico mostra cenários comuns para a entrega dos seus conteúdos [em direto](#live_scenarios) ou [a pedido](#vod_scenarios). Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
 
@@ -147,7 +148,7 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
 
     Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre o dimensionamento de pontos finais de transmissões em fluxo **Premium** veja o tópico [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Dimensionar pontos finais de transmissões em fluxo).
 
-* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de multimédia. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
+* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
 
     Para além de especificar o tipo de unidade reservada, pode especificar o aprovisionamento da sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
 
@@ -155,7 +156,7 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
     >As RUs destinam-se a paralelizar todos os processamentos de multimédia, incluindo trabalhos de indexação com o Azure Media Indexer. No entanto, ao contrário da codificação, os trabalhos de indexação não são processados mais depressa com unidades reservadas mais rápidas.
 
     Para obter mais informações, veja [Scale media processing](media-services-portal-scale-media-processing.md) (Dimensionar o processamento de multimédia).
-* Também pode escalar a sua conta dos Media Services adicionando-lhe contas do Storage. Cada conta do Storage está limitada a 500 TB. Para expandir o limite predefinido do seu armazenamento, pode optar por ligar várias contas do Storage numa única conta de Media Services. Para obter mais informações, veja [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md) (Gerir contas de armazenamento).
+* Também pode escalar a sua conta dos Media Services adicionando-lhe contas deo Storage. Cada conta do Storage está limitada a 500 TB. Para expandir o limite predefinido do seu armazenamento, pode optar por ligar várias contas do Storage numa única conta de Media Services. Para obter mais informações, veja [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md) (Gerir contas de armazenamento).
 
 ##<a id="availability"></a> Disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -165,7 +166,7 @@ Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Se
 
 #### <a name="availability"></a>Disponibilidade
 
-Para determinar se os Serviços de Multimédia estão disponíveis num datacenter, navegue até https://azure.microsoft.com/status/ e desloque-se até à tabela SUPORTE DE DADOS.
+Para determinar se os Serviços de Multimédia estão disponíveis num datacenter, navegue até https://azure.microsoft.com/status/ e desloque-se até à tabela MULTIMÉDIA.
 
 ### <a name="streaming-endpoints"></a>Pontos finais de transmissões em fluxo 
 
@@ -182,7 +183,7 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os datacenters, exceto Alemanha, Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
+Disponível em todos os dataenters, exceto Alemanha, Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Processadores de multimédia de codificação
 
@@ -190,7 +191,7 @@ O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Me
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome do processador de multimédia|Estado|Datacenters
+|Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
 |Media Encoder Standard|GA|Todos|
 |Fluxo de Trabalho Premium de Codificador de Multimédia|GA|Tudo, exceto a China|
@@ -201,7 +202,7 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome do processador de multimédia|Estado|Datacenters
+|Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
 |Azure Media Face Detector|Pré-visualização|Todos|
 |Azure Media Hyperlapse|Pré-visualização|Todos|

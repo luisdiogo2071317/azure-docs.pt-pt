@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651731"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -41,7 +42,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados configurad
    ```
 2. Inicie sessão no Portal do Azure.  
 
-3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página da tarefa da Conta de armazenamento com **Nome** definido como "myasastorageaccount", **Localização** definido como "EUA Oeste 2", **Grupo de recursos** definido como "MyRG" (anfitrião da conta de armazenamento no mesmo grupo de recursos da tarefa de Transmissão em Fluxo para um melhor desempenho). As restantes definições podem ser mantidas nos respetivos valores predefinidos.  
+3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página da tarefa Conta de armazenamento com o **Nome** definido como “asaquickstartstorage”, **Localização** definida como “EUA Oeste 2”, **Grupo de recursos** definido como “asaquickstart-resourcegroup” (anfitrião da conta de armazenamento no mesmo grupo de recursos da tarefa Transmissão em Fluxo para um melhor desempenho). As restantes definições podem ser mantidas nos respetivos valores predefinidos.  
 
    ![Criar conta de armazenamento](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -67,9 +68,9 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados configurad
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Nome da tarefa   |  myJob   |   Introduza um nome para identificar a tarefa do Stream Analytics. O nome da tarefa do Stream Analytics só pode conter carateres alfanuméricos, hífenes e carateres de sublinhado e tem de ter entre 3 a 63 carateres. |
+   |Nome da tarefa   |  myasajob   |   Introduza um nome para identificar a tarefa do Stream Analytics. O nome da tarefa do Stream Analytics só pode conter carateres alfanuméricos, hífenes e carateres de sublinhado e tem de ter entre 3 a 63 carateres. |
    |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que quer utilizar para esta tarefa. |
-   |Grupo de recursos   |   myResourceGroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
+   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
    |Localização  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione a localização geográfica onde pode alojar a tarefa do Stream Analytics. Utilize a localização mais próxima dos seus utilizadores para um melhor desempenho e reduzir os custos de transferência de dados. |
    |Unidades de transmissão em fluxo  | 1  |   As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente de alojamento  |  Nuvem  |   As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A cloud permite-lhe implementar no Azure Cloud e o Edge permite-lhe implementar num dispositivo do IoT Edge. |
@@ -116,7 +117,8 @@ Nesta secção, irá configurar o armazenamento de blobs como entrada da tarefa 
    |Alias de saída |   BlobOutput   |   Introduza um nome para identificar a saída da tarefa. |
    |Subscrição  |  \<A sua subscrição\>  |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
    |Conta de armazenamento |  myasastorageaccount |   Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.       |
-   |Contentor |   container2  |  Crie um novo contentor na mesma conta de armazenamento que utilizou para a entrada.   |
+   |Contentor |   container1  |  Selecione o contentor existente que criou na conta de armazenamento.   |
+   |Padrão do caminho |   saída  |  Introduza um nome para servir como caminho para a saída dentro do contentor existente.   |
 
 4. Mantenha as outras opções com os valores predefinidos e selecione **Guardar** para guardar as definições.  
 
@@ -153,7 +155,7 @@ Nesta secção, irá configurar o armazenamento de blobs como entrada da tarefa 
 
    ![Iniciar a tarefa](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Após alguns minutos, no portal, localize a conta de armazenamento e o contentor que configurou como saída da tarefa. Agora, pode ver o ficheiro de saída no contentor. A tarefa demora alguns minutos a iniciar pela primeira vez. Depois de ser iniciada, continuará a ser executada à medida que os dados são recebidos.  
+3. Após alguns minutos, no portal, localize a conta de armazenamento e o contentor que configurou como saída da tarefa. Selecione o caminho de saída. Agora, pode ver o ficheiro de saída no contentor. A tarefa demora alguns minutos a iniciar pela primeira vez. Depois de ser iniciada, continuará a ser executada à medida que os dados são recebidos.  
 
    ![Saída transformada](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

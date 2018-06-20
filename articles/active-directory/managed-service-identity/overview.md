@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724103"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>O que é a Identidade de Serviço Gerida (MSI) para os recursos do Azure?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que têm de estar no código para autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
+A Identidade de Serviço Gerida está incluída no Azure Active Directory gratuito, que é a predefinição para as subscrições do Azure. Não existem custos adicionais.
+
 ## <a name="how-does-it-work"></a>Como funciona?
 
 Existem dois tipos de Identidades de Serviço Geridas, **Atribuídas pelo Sistema** e **Atribuídas pelo Utilizador**.
 
 - A **Identidade Atribuída pelo Sistema** é ativada diretamente numa instância de um serviço do Azure. Quando ativada, o Azure cria uma identidade para a instância do serviço no inquilino do Azure AD no qual a subscrição da instância do serviço confia. Assim que a identidade for criada, as respetivas credenciais são aprovisionadas na instância do serviço. O ciclo de vida das identidades atribuídas pelo sistema está diretamente ligado à instância do serviço do Azure nas quais estão ativadas. Se a instância do serviço for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
-- As **Identidades Atribuídas pelo Utilizador** (pré-visualização pública) são criadas como recursos do Azure autónomos. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas.
+- As **Identidades Atribuídas pelo Utilizador** são criadas como um recurso do Azure autónomo. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas.
 
 Como resultado, pode utilizar uma identidade atribuída pelo sistema ou pelo utilizador no seu código, para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. E tudo isto enquanto o Azure se encarrega da implementação das credenciais que a instância do serviço utiliza.
 
@@ -103,17 +106,6 @@ Experimente um tutorial sobre a Identidade de Serviço Gerida para obter cenári
 
 As identidades geridas podem ser utilizadas para autenticação em serviços que suportem a autenticação do Azure AD. Para obter uma lista dos serviços do Azure que suportam a Identidade de Serviço Gerida, veja o artigo seguinte:
 - [Serviços que suportam a Identidade de Serviço Gerida](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Quanto custa a Identidade de Serviço Gerida?
-
-A Identidade de Serviço Gerida está incluída no Azure Active Directory Gratuito, que é a predefinição para as subscrições do Azure. Não existem custos adicionais.
-
-## <a name="support-and-feedback"></a>Suporte e comentários
-
-Gostaríamos de ouvir a sua opinião!
-
-* Tire dúvidas sobre procedimentos no Stack Overflow com a etiqueta [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Peça funcionalidades ou envie comentários no [fórum de comentários do Azure AD para programadores](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
 ## <a name="next-steps"></a>Passos seguintes
 

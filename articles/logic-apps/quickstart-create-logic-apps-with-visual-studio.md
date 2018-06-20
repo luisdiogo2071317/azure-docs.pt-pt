@@ -1,29 +1,26 @@
 ---
-title: Automatizar tarefas e processos com o Visual Studio e o Azure Logic Apps | Microsoft Docs
-description: Este início rápido mostra como criar fluxos de trabalho que automatizam tarefas e processos com o Azure Logic Apps no Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Criar aplicações lógicas que automatizam os fluxos de trabalho com o Visual Studio – Azure Logic Apps | Microsoft Docs
+description: Início Rápido sobre como automatizar tarefas, processos e fluxos de trabalho com o Azure Logic Apps no Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300757"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Início Rápido: Automatizar tarefas e processos com o Azure Logic Apps – Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar e automatizar tarefas, processos e fluxos de trabalho com o Azure Logic Apps – Visual Studio
 
-Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md), pode criar fluxos de trabalho que automatizem tarefas e processos para a integração de aplicações, dados, sistemas e serviços nas empresas e organizações. Este início rápido mostra como criar e desenvolver estes fluxos de trabalho através da criação de aplicações lógicas no Visual Studio e da respetiva implementação no <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> na cloud. Além disso, apesar de poder executar estas tarefas no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, o Visual Studio permite-lhe adicionar aplicações lógicas ao controlo de código fonte, publicar versões diferentes e criar modelos do Azure Resource Manager para ambientes de implementação diferentes. 
+Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio, pode criar fluxos de trabalho para automatizarem tarefas e processos que integram aplicações, dados, sistemas e serviços nas empresas e organizações. Este início rápido mostra como criar e desenvolver estes fluxos de trabalho através da criação de aplicações lógicas no Visual Studio e da respetiva implementação no <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> na cloud. Além disso, apesar de poder executar estas tarefas no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, o Visual Studio permite-lhe adicionar aplicações lógicas ao controlo de código fonte, publicar versões diferentes e criar modelos do Azure Resource Manager para ambientes de implementação diferentes. 
 
 Se não estiver familiarizado com o Azure Logic Apps e quiser apenas os conceitos básicos, experimente o [início rápido para a criação de uma aplicação lógica no portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). O modo de funcionamento do Estruturador da Aplicação Lógica é semelhante tanto no portal do Azure como no Visual Studio. 
 
@@ -161,7 +158,7 @@ Antes de executar a aplicação lógica, implemente a aplicação a partir do Vi
    Em termos técnicos, quando o acionador consulta o feed RSS e encontra itens novos, este é acionado e o motor do Logic Apps cria uma instância do fluxo de trabalho da aplicação lógica que executa as ações no fluxo de trabalho.
    Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
 
-Parabéns, acaba de criar e implementar a sua aplicação lógica com o Visual Studio de forma bem-sucedida! Para gerir a sua aplicação lógica e analisar o respetivo histórico de execuções, consulte [Gerir aplicações lógicas com o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+Parabéns! Criou e implementou a aplicação lógica com o Visual Studio com êxito! Para gerir a sua aplicação lógica e analisar o respetivo histórico de execuções, consulte [Gerir aplicações lógicas com o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -187,4 +184,5 @@ Quando já não for necessário, elimine o grupo de recursos que contém a aplic
 Neste artigo, criou, implementou e executou a sua aplicação lógica com o Visual Studio. Para saber mais sobre como gerir e realizar a implementação avançada para aplicações lógicas com o Visual Studio, veja estes artigos:
 
 > [!div class="nextstepaction"]
-> [Gerir aplicações lógicas com o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Gerir aplicações lógicas com o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Criar modelos de implementação para aplicações lógicas com o Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272068"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236149"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -118,29 +118,6 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Para a versão OVA 1.0.8.59
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Para a versão OVA 1.0.8.49
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Para a versão OVA 1.0.8.40:
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Criar a VM do recoletor
 
 Importe o ficheiro transferido para o vCenter Server.
@@ -162,7 +139,8 @@ Importe o ficheiro transferido para o vCenter Server.
 1. Na consola do vSphere Client, clique com o botão direito do rato na VM > **Abrir Consola**.
 2. Forneça as preferências de idioma, fuso horário e palavra-passe para a aplicação.
 3. No ambiente de trabalho, clique no atalho **Executar recoletor**.
-4. No Recoletor do Azure Migrate, abra **Configurar pré-requisitos**.
+4. Clique em **Procurar atualizações**, na barra superior da IU do recoletor, e verifique se o recoletor está em execução na versão mais recente. Caso contrário, pode optar por transferir o pacote de atualização mais recente a partir da ligação e atualizar o recoletor.
+5. No Recoletor do Azure Migrate, abra **Configurar pré-requisitos**.
     - Aceite os termos de licenciamento e leia as informações de terceiros.
     - O recoletor verifica se a VM tem acesso à Internet.
     - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) acerca dos requisitos de conectividade à Internet e da lista dos URLs a que o recoletor acede.
@@ -173,13 +151,13 @@ Importe o ficheiro transferido para o vCenter Server.
     - O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
     - Transfira e instale o VMware PowerCLI.
 
-5. Em **Especificar detalhes do vCenter Server**, efetue o seguinte:
+6. Em **Especificar detalhes do vCenter Server**, efetue o seguinte:
     - Especifique o nome (FQDN) ou o endereço IP do vCenter Server.
     - Em **Nome de utilizador** e **Palavra-passe**, especifique as credenciais da conta só de leitura que o recoletor utilizará para detetar VMs no vCenter Server.
     - Em **Âmbito da coleção**, selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) acerca da deteção de um ambiente maior.
 
-6. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
-7. Em **Ver progresso da coleção**, monitorize a deteção e verifique se os metadados recolhidos das VMs estão dentro do âmbito. O recoletor fornece um período de deteção aproximado. [Saiba mais](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
+7. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
+8. Em **Ver progresso da coleção**, monitorize a deteção e verifique se os metadados recolhidos das VMs estão dentro do âmbito. O recoletor fornece um período de deteção aproximado. [Saiba mais](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
 
 > [!NOTE]
 > O recoletor só suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e da interface do recoletor. O suporte de mais idiomas estará disponível brevemente.
@@ -219,7 +197,7 @@ A vista de preparação para o Azure na avaliação mostra o estado de preparaç
 - Não está pronto para o Azure
 - Preparação desconhecida
 
-Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure. A recomendação de tamanho feita pelo Azure Migrate depende do critério de dimensão especificado nas propriedades de avaliação. Se o critério de tamanho for o tamanho baseado em desempenho, a recomendação de tamanho será feita tendo em consideração o histórico de desempenho das VMs. Se o critério de tamanho for “como no local”, a recomendação para o tamanho da VM no Azure será feita após a visualização do tamanho da VM no local (tamanho como está). Os dados de utilização da CPU e da memória da VM não são considerados para o dimensionamento da VM. No entanto, os discos, no caso do dimensionamento no local, são dimensionados após a visualização dos dados de desempenho.  [Saiba mais](concepts-assessment-calculation.md) sobre como se processa o dimensionamento no Azure Migrate.
+Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure. A recomendação de tamanho feita pelo Azure Migrate depende do critério de dimensão especificado nas propriedades de avaliação. Se o critério de tamanho for o tamanho baseado no desempenho, a recomendação de tamanho será feita tendo em consideração o histórico de desempenho das VMs (CPU e memória) e dos discos (IOPS e débito). Se o critério de dimensionamento for “como no local”, o Azure Migrate não considerará os dados de desempenho da VM e dos discos. A recomendação para o tamanho da VM no Azure é feita ao observar o tamanho da VM no local e o dimensionamento de disco é efetuado com base no Tipo de armazenamento especificado nas propriedades de avaliação (a predefinição é discos premium). [Saiba mais](concepts-assessment-calculation.md) sobre como se processa o dimensionamento no Azure Migrate.
 
 Para VMs não preparadas ou condicionalmente preparadas para o Azure, o Azure Migrate explica os problemas de preparação e fornece passos de solução.
 
@@ -244,7 +222,7 @@ Os custos mensais estimados para computação e armazenamento são agregados par
 
 Cada avaliação no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
 
-Para o dimensionamento com base no desempenho da VM, o Azure Migrate precisa dos dados de utilização relativos a CPU e memória. Além disso, para o dimensionamento de cada disco anexado à VM, é necessário o IOPS de leitura/escrita e o débito. De forma semelhante, para cada adaptador de rede anexado à VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base em desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
+A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como dimensionamento com base em desempenho. Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---
@@ -269,3 +247,4 @@ Uma avaliação pode não ter todos os pontos de dados disponíveis por um dos s
 - Saiba como criar grupos de avaliação de confiança elevada através do [mapeamento de dependência de máquinas](how-to-create-group-machine-dependencies.md)
 - [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.
 - [Saiba](how-to-scale-assessment.md) como detetar e avaliar um ambiente VMware grande.
+- [Saiba mais](resources-faq.md) sobre as FAQs do Azure Migrate

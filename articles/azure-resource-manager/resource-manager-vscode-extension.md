@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358664"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603768"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Utilizar a extensão do Visual Studio Code para criar modelos do Azure Resource Manager
 Este artigo mostra as vantagens de instalar e utilizar a extensão Azure Resource Manager Tools no Visual Studio Code. Pode criar modelos do Resource Manager no VS Code sem a extensão, mas esta proporciona opções de conclusão automática que simplificam o desenvolvimento dos modelos. Sugere funções, parâmetros e variáveis que estão disponíveis nos modelos.
@@ -171,7 +171,18 @@ Este artigo baseia-se no modelo que criou em [Criar e implementar o seu primeiro
 
    ![Mostrar variáveis](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Selecione a variável **storageName**. Adicione o parêntesis reto de fecho. O exemplo seguinte mostra a secção de saídas:
+10. Selecione a variável **storageName**. Agora, o código tem o seguinte aspeto:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. O código anterior não funcionará porque `reference` devolve um objeto, mas o seu valor de saída está definido como *cadeia*. Tem de especificar um dos valores nesse objeto. A função de referência pode ser utilizada com qualquer tipo de recurso, pelo que o VS Code não sugere propriedades para o objeto. Em vez disso, pode descobrir que um valor [devolvido para uma conta de armazenamento](/rest/api/storagerp/storageaccounts/getproperties) é `.primaryEndpoints.blob`. 
+
+   Adicione essa propriedade após o último parênteses. Adicione o parêntesis reto de fecho. O exemplo seguinte mostra a secção de saídas:
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Este artigo baseia-se no modelo que criou em [Criar e implementar o seu primeiro
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ O modelo final é:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

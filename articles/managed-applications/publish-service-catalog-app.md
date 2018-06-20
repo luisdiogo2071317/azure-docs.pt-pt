@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305315"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247885"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar uma aplicação gerida para consumo interno
 
-Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que garantir a conformidade com as normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
+Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que cumprem normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
 
 Para publicar uma aplicação gerida no catálogo de serviços, tem de:
 
@@ -29,11 +29,13 @@ Para publicar uma aplicação gerida no catálogo de serviços, tem de:
 * Decida que utilizador, grupo ou aplicação precisa de aceder ao grupo de recursos na subscrição do utilizador.
 * Crie a definição de aplicação gerida que aponta para o pacote .zip e pedidos de acesso para a identidade.
 
-Para este artigo, a sua aplicação gerida contém apenas uma conta de armazenamento. Destina-se a ilustrar os passos para publicar uma aplicação gerida. Para obter exemplos completos, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
+Para este artigo, a aplicação gerida tem apenas uma conta de armazenamento. Destina-se a ilustrar os passos para publicar uma aplicação gerida. Para obter exemplos completos, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
+
+Os exemplos do PowerShell neste artigo requerem o Azure PowerShell 6.2 ou posterior. Se necessário, [atualize a versão](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>Criar o modelo de recurso
 
-Cada definição de aplicação gerida contém um ficheiro denominado **mainTemplate.json**. Nele, defina os recursos do Azure para aprovisionar. O modelo é igual aos modelos normais do Resource Manager.
+Cada definição de aplicação gerida inclui um ficheiro denominado **mainTemplate.json**. Nele, defina os recursos do Azure a implementar. O modelo é igual aos modelos normais do Resource Manager.
 
 Crie um ficheiro denominado **mainTemplate.json**. O nome é sensível a maiúsculas e minúsculas.
 
@@ -143,7 +145,7 @@ Guarde o ficheiro createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Empacote os ficheiros
 
-Adicione os dois ficheiros num ficheiro .zip com o nome app.zip. Os dois ficheiros têm de estar ao nível da raiz do ficheiro .zip. Se os colocar numa pasta, irá receber um erro ao criar a definição da aplicação gerida que indica que os ficheiros necessários não estão presentes. 
+Adicione os dois ficheiros num ficheiro .zip com o nome app.zip. Os dois ficheiros têm de estar ao nível da raiz do ficheiro .zip. Se os colocar numa pasta, receberá um erro ao criar a definição da aplicação gerida que indica que os ficheiros necessários não estão presentes. 
 
 Carregue o pacote para uma localização acessível a partir de onde pode ser utilizada. 
 
@@ -209,6 +211,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### <a name="make-sure-users-can-see-your-definition"></a>Confirmar que os utilizadores podem ver a definição
+
+Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, veja [Utilizar o Controlo de Acesso Baseado em Função para gerir o acesso aos recursos da subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
+
 ## <a name="create-the-managed-application"></a>Criar a aplicação gerida
 
 Pode implementar a aplicação gerida através do portal, o PowerShell ou a CLI do Azure.
@@ -256,6 +262,16 @@ Agora, vamos utilizar o portal para implementar a aplicação gerida. Veja a int
 1. Encontre a aplicação gerida que pretende criar na lista de soluções disponíveis e selecione-a. Selecione **Criar**.
 
    ![Encontre a aplicação gerida](./media/publish-service-catalog-app/find-application.png)
+
+   Se não vir a definição de aplicações geridas através do portal, poderá ter de alterar as definições de portais. Selecione o **Filtro de Diretório e Subscrição**.
+
+   ![Selecionar o filtro de subscrição](./media/publish-service-catalog-app/select-filter.png)
+
+   Verifique se o filtro de subscrição global inclui a subscrição que contém a definição de aplicações geridas.
+
+   ![Verificar o filtro de subscrição](./media/publish-service-catalog-app/check-global-filter.png)
+
+   Depois de selecionar a subscrição, comece novamente com a criação da aplicação do serviço do catálogo gerido. Deve vê-la agora.
 
 1. Conceda informações básicas que são precisas para a aplicação gerida. Especifique a subscrição e um novo grupo de recursos para conter a aplicação gerida. Selecione **E.U.A. Centro-Oeste** para a localização. Quando terminar, selecione **OK**.
 

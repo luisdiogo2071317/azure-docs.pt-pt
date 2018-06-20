@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781139"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824691"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -32,6 +32,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 - **Base de Dados SQL do Azure**: Disponibilidade Geral em todas as regiões do Azure
 - **Azure Cosmos DB**: Disponibilidade Geral em todas as regiões da cloud pública do Azure 
 - **Azure SQL Data Warehouse**: Pré-visualização em todas as regiões da cloud pública do Azure
+- **Serviços de base de dados do Azure para PostgreSQL e MySQL**: pré-visualização em regiões do Azure onde o serviço de base de dados está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -99,7 +100,7 @@ Depois configurar os pontos finais de serviço para um serviço específico, val
   - Indica que está em vigor uma ligação mais direta ao serviço, em comparação com quaisquer rotas de imposição de túnel
 
 >[!NOTE]
-> As rotas do ponto final de serviço substituem quaisquer rotas BGP ou UDR para a correspondência de prefixo de endereço de um serviço do Azure. Saiba mais sobre como [resolver problemas com rotas efetivas](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> As rotas do ponto final de serviço substituem quaisquer rotas BGP ou UDR para a correspondência de prefixo de endereço de um serviço do Azure. Saiba mais sobre como [resolver problemas com rotas efetivas](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Aprovisionamento
 
