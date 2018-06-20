@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: bf131877080f46781e74991ef627922384cc4c08
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355742"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263823"
 ---
 # <a name="keys-in-luis"></a>Chaves na LUIS
 LUIS utiliza duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta LUIS. Quando estiver pronto para publicar a aplicação de LUIS, terá de [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](Manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -76,4 +76,4 @@ Se for excedido o por segundo quota, receberá um erro de HTTP 429. Se for exced
 
 * Saiba [conceitos](Manage-Keys.md#assign-endpoint-key) sobre chaves de criação e o ponto final.
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

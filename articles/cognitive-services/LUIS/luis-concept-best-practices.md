@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 729f510de59fe27761389fb1f6edb4025021565a
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356392"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264014"
 ---
 # <a name="best-practices"></a>Melhores práticas
 Utilize a aplicação do processo de criação para criar a sua aplicação LUIS. 
@@ -114,4 +114,5 @@ Adicione 10 ou 15 utterances antes de formação e publicação. Que permite-lhe
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [planear a sua aplicação](plan-your-app.md) na sua aplicação LUIS.
-[LUIS]: luis-referência-regions.md #luis-Web site
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2018
+ms.date: 06/08/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7cfd3fba459f409079cb0c621edab3197070285e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164726"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232424"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>O que são zonas de disponibilidade no Azure?
 Zonas de disponibilidade é uma oferta que protege as suas aplicações e dados de falhas de centro de dados de elevada disponibilidade. Zonas de disponibilidade estão localizações físicas exclusivas dentro de uma região do Azure. Cada zona é constituída por um ou vários centros de dados equipados com energia independentes, arrefecimento e funcionamento em rede. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege a aplicações e dados de falhas de centro de dados. Zona redundante serviços replicar as suas aplicações e dados em zonas de disponibilidade para proteger contra único pontos de falha. Com zonas de disponibilidade, o Azure oferece SLA de disponibilidade VM da indústria melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
+
+Uma zona de disponibilidade na região do Azure é uma combinação de um domínio de falhas e de um domínio de atualização. Por exemplo, se criar três ou mais VMs em três horários numa região do Azure, as VMs estão eficazmente distribuídas três domínios de falhas e três domínios de atualização. A plataforma do Azure reconhece esta distribuição entre domínios de atualização para se certificar de que as VMs em diferentes zonas não são atualizadas ao mesmo tempo.
 
 Crie elevada disponibilidade para a arquitetura da aplicação por colocalizar os recursos de computação, armazenamento, rede e dados dentro de uma zona e replicar em outras zonas. Serviços do Azure que suportam disponibilidade zonas enquadram-se em duas categorias:
 
@@ -58,7 +60,7 @@ Os serviços do Azure que suportam zonas de disponibilidade são:
 
 
 ## <a name="pricing"></a>Preços
-Não há sem custos adicionais para máquinas virtuais implementadas numa zona de disponibilidade. SLA de disponibilidade VM de 99,99% é fornecido quando duas ou mais máquinas virtuais são implementadas através de dois ou mais zonas de disponibilidade dentro de uma região do Azure. Será adicionais disponibilidade entre zona-VM para dados taxas aplicáveis às transferências. Para obter mais informações, consulte o [preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) página.
+Não há sem custos adicionais para máquinas virtuais implementadas numa zona de disponibilidade. Tempo de atividade VM de 99,99% SLA é fornecido quando são implementadas duas ou mais VMs em dois ou mais zonas de disponibilidade dentro de uma região do Azure. Será adicionais disponibilidade entre zona-VM para dados taxas aplicáveis às transferências. Para obter mais informações, consulte o [preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) página.
 
 
 ## <a name="get-started-with-availability-zones"></a>Introdução à disponibilidade zonas

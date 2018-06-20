@@ -1,5 +1,5 @@
 ---
-title: Condições de localização do acesso condicional do Azure Active Directory | Microsoft Docs
+title: O que é as condições de localização do acesso condicional do Azure Active Directory? | Microsoft Docs
 description: Saiba como utilizar a condição de localização para controlar o acesso às suas aplicações em nuvem com base na localização de rede de um utilizador.
 services: active-directory
 keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1b3dd172e42ecbaa20bbd3763fa13651e1663adb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e5924262d9965c4e6732f8c23031cd575dc7958d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725297"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232477"
 ---
-# <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condições de localização do acesso condicional do Azure Active Directory 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização do acesso condicional do Azure Active Directory? 
 
 Com [acesso condicional do Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), pode controlar os utilizadores autorizados como pode aceder às suas aplicações em nuvem. A condição de localização de uma política de acesso condicional permite-lhe associar as definições de controlos de acesso para as localizações de rede dos seus utilizadores.
 
@@ -166,6 +166,6 @@ API e PowerShell ainda não é suportado para localizações com nome, ou para p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se quiser saber como configurar uma política de acesso condicional, consulte [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o [melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

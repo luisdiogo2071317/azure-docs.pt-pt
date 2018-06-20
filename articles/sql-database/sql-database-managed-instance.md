@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648130"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215529"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -39,7 +39,7 @@ Destaques de tabela seguintes diferenças da chave e envisioned cenários de uti
 
 | | Cenário de utilização | 
 | --- | --- | 
-|Instância Gerida da Base de Dados SQL |Para os clientes procura para migrar um grande número de aplicações no local ou IaaS, personalizada incorporada, ou ISV fornecido, com como esforço de migração baixa quanto possível, propor instância geridos. Utilizar totalmente automatizado [serviço de migração de dados (DMS)](/sql/dma/dma-overview) no Azure, os clientes podem de comparação de precisão e deslocar o respetivo SQL Server no local a uma instância de geridos oferece compatibilidade com o SQL Server no local e o isolamento completado do instâncias de cliente com suporte VNET nativo.  Com o Software Assurance, pode trocar as respetivas licenças existentes para taxas com desconto durante uma instância de geridos de base de dados do SQL Server utilizando o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A instância de gerido da base de dados do SQL Server é o destino de migração melhores na nuvem para instâncias do SQL Server que necessitam de alta segurança e uma superfície de programação para avançado. |
+|Instância Gerida da Base de Dados SQL |Para os clientes procura para migrar um grande número de aplicações no local ou IaaS, personalizada incorporada, ou ISV fornecido, com como esforço de migração baixa quanto possível, propor instância geridos. Utilizar totalmente automatizado [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem de comparação de precisão e deslocar o respetivo SQL Server no local a uma instância de geridos oferece compatibilidade com o SQL Server no local e o isolamento completado do instâncias de cliente com suporte VNET nativo.  Com o Software Assurance, pode trocar as respetivas licenças existentes para taxas com desconto durante uma instância de geridos de base de dados do SQL Server utilizando o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A instância de gerido da base de dados do SQL Server é o destino de migração melhores na nuvem para instâncias do SQL Server que necessitam de alta segurança e uma superfície de programação para avançado. |
 |Base de dados SQL do Azure (único ou agrupamento) |**Conjuntos elásticos**: para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>**Único bases de dados**: para os clientes a desenvolver novas aplicações que não sejam SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
 |Máquina virtual IaaS do SQL Server|Para os clientes que necessitam personalizar o sistema operativo ou o servidor de base de dados, bem como os clientes ter requisitos específicos em termos de aplicações em execução por terceiros pelo lado com o SQL Server (na mesma VM), propor VMs de SQL / IaaS como a solução ideal|
 |||
@@ -186,11 +186,10 @@ O serviço de migração de base de dados do Azure é um serviço completamente 
 
 A abordagem de migração tira partido das cópias de segurança do SQL Server para o armazenamento de Blobs do Azure. Cópias de segurança armazenadas no blob storage do Azure podem ser diretamente restauradas na instância geridos. Para restaurar uma base de dados existente do SQL Server para uma instância de gerido, pode:
 
-- Utilize [o serviço de migração de dados (DMS)](/sql/dma/dma-overview). Para um tutorial, consulte [migrar para uma instância geridos utilizando o serviço de migração de base de dados do Azure (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados
+- Utilize [o serviço de migração de dados (DMS)](../dms/dms-overview.md). Para um tutorial, consulte [migrar para uma instância geridos utilizando o serviço de migração de base de dados do Azure (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados
 - Utilize o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Para um tutorial que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados padrão, consulte [restaurar um ficheiro de cópia de segurança para uma instância geridos](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e segura-la utilizando uma chave de assinatura (SAS) de acesso partilhado.
   - Para obter informações sobre o restauro a partir do URL, consulte [restaurar nativo a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importar de um ficheiro BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Funcionalidades do SQL Server suportadas 
 

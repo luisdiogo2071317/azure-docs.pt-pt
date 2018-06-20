@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f18e94b6f788609dc5a0466e9d8ffa0c02056b1e
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236705"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35678060"
 ---
 ### <a name="supportedclientos"></a>Que sistemas operativos cliente posso utilizar com a ligação Ponto a Site?
 
@@ -21,14 +21,13 @@ São suportados os seguintes sistemas operativos cliente:
 
 * Windows 7 (32 e 64 bits)
 * Windows Server 2008 R2 (apenas 64 bits)
-* Windows 8 (32 e 64 bits)
 * Windows 8.1 (32 e 64 bits)
 * Windows Server 2012 (apenas 64 bits)
 * Windows Server 2012 R2 (apenas 64 bits)
 * Windows Server 2016 (apenas 64 bits)
 * Windows 10
-* Versão do Mac OS X 10.11 (El Capitan)
-* Versão do Mac OS X 10.12 (Sierra)
+* Mac OS X, versão 10.11 (El Capitan)
+* Mac OS X, versão 10.12 (Sierra)
 * Linux (StrongSwan)
 * iOS
 
@@ -74,28 +73,28 @@ Não. Só pode utilizar o cliente VPN nativo no Windows para SSTP e o cliente VP
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>O Azure suporta a VPN IKEv2 no Windows?
 
-IKEv2 é suportado no Windows 10 e o servidor de 2016. No entanto, para poder utilizar IKEv2, tem de instalar as atualizações e definir um valor de chave de registo localmente. SO versões anteriores ao Windows 10 não são suportadas e só podem utilizar o SSTP.
+O IKEv2 é suportado no Windows 10 e Windows Server 2016. No entanto, para poder utilizar o IKEv2, tem de instalar as atualizações e definir uma chave de registo localmente. As versões de SO anteriores ao Windows 10 não são suportadas e só podem utilizar o SSTP.
 
-Para preparar o Windows 10 ou Server 2016 para IKEv2:
+Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
 
 1. Instale a atualização.
 
-  | Versão do SO | Date | Número/de ligação |
+  | Versão do SO | Date | Número/Ligação |
   |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Versão do Windows 10 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  | Windows Server 2016<br>Windows 10, Versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10, Versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
   |  |  |  |  |
 
-2. Defina o valor de chave de registo. Criar ou definir chave REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" no registo para 1.
+2. Defina o valor da chave de registo. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD no registo como 1.
 
-### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>O que acontece quando configurar SSTP e IKEv2 para ligações P2S VPN?
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>O que acontece quando configuro o SSTP e o IKEv2 para ligações VPN P2S?
 
-Quando configura o SSTP e IKEv2 num ambiente misto (composto por dispositivos Windows e Mac), o cliente de VPN do Windows tentará sempre túnel IKEv2 pela primeira vez, mas irá reverter para SSTP se a ligação de IKEv2 não for bem sucedida. MacOSX só irá ligar através de IKEv2.
+Quando configura o SSTP e o IKEv2 num ambiente misto (composto por dispositivos Windows e Mac), o cliente VPN do Windows tentará sempre utilizar o túnel IKEv2 em primeiro lugar, mas irá reverter para o SSTP se a ligação IKEv2 não tiver êxito. O MacOSX só liga através do IKEv2.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Que outras plataformas não Windows e Mac suporta o Azure na VPN P2S?
 
 O Azure suporta apenas Windows e Mac na VPN P2S.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Já tenho um Gateway de VPN do Azure implementado. Posso ativar RADIUS e/ou IKEv2 VPN no mesmo?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Já tenho um Gateway de VPN do Azure implementado. Posso ativar a VPN RADIUS e/ou IKEv2 no mesmo?
 
-Sim, pode ativar estas novas funcionalidades nos gateways já implementadas utilizando o Powershell ou o portal do Azure, desde que o SKU de gateway que estiver a utilizar suporta RADIUS e/ou IKEv2. Por exemplo, o SKU básico de gateway VPN não suporta RADIUS ou IKEv2.
+Sim, pode ativar estas novas funcionalidades nos gateways que já estejam implementados através do PowerShell ou do portal do Azure, desde que o SKU de gateway que estiver a utilizar suporte RADIUS e/ou IKEv2. Por exemplo, o SKU Básico do gateway de VPN não suporta RADIUS nem IKEv2.

@@ -1,22 +1,20 @@
 ---
 title: Procedimento do Azure - Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos no Azure
 description: Procedimento do Azure - Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos no Azure
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 03/30/2018
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: ''
-ms.devlang: na
+services: iot-dps
+manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 14c9bc0dd82575783a5af7293b48f56b36110f9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "34630430"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C
 

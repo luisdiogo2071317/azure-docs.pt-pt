@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587907"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263980"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -72,6 +72,9 @@ O processo de aprovisionamento do seu domínio gerido pode demorar até uma hora
 4. Quando o domínio gerido esteja totalmente aprovisionado, o **descrição geral** separador mostra o estado de domínio como **executar**.
 
     ![Serviços de domínio - separador Descrição geral depois de totalmente aprovisionado](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Durante o processo de aprovisionamento, os serviços de domínio do Azure AD cria as aplicações da empresa com o nome "Serviços de controlador de domínio" e "AzureActiveDirectoryDomainControllerServices" no seu diretório. Estas aplicações da empresa são necessárias para atender o seu domínio gerido. É imperativo que estes não serão eliminados em qualquer altura.
+    >
 
 5. No **propriedades** separador, verá dois endereços IP no qual o domínio controladores estão disponíveis para a rede virtual.
 

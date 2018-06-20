@@ -11,14 +11,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/08/2017
+  ms.date: 06/18/2018
   ms.author: tamram
-  ms.openlocfilehash: de0672c3f4f06dd20081e401121f1cbbe2d77c9f
-  ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
+  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/05/2018
-  ms.locfileid: "34763175"
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36266676"
 abstract:
   description: O Armazenamento do Microsoft Azure é um serviço cloud gerido da Microsoft que oferece armazenamento de elevada disponibilidade, seguro, duradouro, dimensionável e redundante. O Armazenamento do Azure consiste no Armazenamento de blobs, no Armazenamento de ficheiros e no Armazenamento de filas.  Saiba como tirar partido do Armazenamento do Azure nas suas aplicações com os nossos inícios rápidos e tutoriais.
 sections:
@@ -126,6 +126,6 @@ sections:
     - title: Linha de Comandos
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">CLI do Azure</a></p>
     - title: Linguagens
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: <p><a href="/rest/api/storageservices">Blobs, Filas, Tabelas e Ficheiros</a></p><p><a href="/rest/api/storagerp">Fornecedor de recursos</a></p><p><a href="/rest/api/storageimportexport">Importação/exportação</a></p>
+      html: <p><a href="/rest/api/storageservices">API de Blobs, Filas, Tabelas e Ficheiros</a></p><p><a href="/rest/api/storagerp">API do Fornecedor de Recursos de Armazenamento</a></p><p><a href="/rest/api/storageimportexport">API do Serviço Importar/Exportar</a></p>

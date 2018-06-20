@@ -3,17 +3,16 @@ title: Avaliar as cargas de trabalho no local para a migração de Contoso para 
 description: Saiba como Contoso avalia as respetivas máquinas no local para a migração para o Azure com a migração do Azure e a base de dados no
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8568668032a97e574a85758080818311839a9caa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fb987c95afc0f77386f4f78c44f3c6825f86ee43
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301138"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232498"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho no local para a migração para o Azure
 
@@ -23,15 +22,15 @@ Este documento é o terceiro na série de artigos que documente a forma como a e
 
 **Artigo** | **Detalhes** | **Estado**
 --- | --- | ---
-Artigo 1: Descrição geral | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
-Artigo 2: Implementar uma infraestrutura do Azure | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
-Artigo 3: Avaliar a recursos no local (neste artigo) | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-Artigo 4: Refatorar (comparação de precisão e shift) para as VMs do Azure e uma instância do SQL Server geridos | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
-Artigo 5: Refatorar (comparação de precisão e shift) para as VMs do Azure | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
-Artigo 6: Refatorar (comparação de precisão e shift) para as VMs do Azure e grupos de disponibilidade do SQL Server | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
-Artigo 7: Refatorar (comparação de precisão e shift) para as VMs do Azure e o servidor de MySQL do Azure | Demonstra como Contoso migra SmartHotel aplicação VMs com a recuperação de sites e o MySQL Workbench para migrar (cópia de segurança e restauro) para uma instância de servidor de MySQL do Azure. | Disponível
+[Artigo 1: Descrição geral](contoso-migration-overview.md) | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
+[Artigo 2: Implementar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
+Artigo 3: Avaliar a recursos no local (neste artigo)  | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Realojamento para as VMs do Azure e uma instância do SQL gerida](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
+[Artigo 5: Realojamento para as VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
+[Artigo 6: Realojamento para as VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
+[Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure](contoso-migration-rehost-linux-vm.md) | Mostra como Contoso migra a respetiva aplicação de Linux osService utilizando o Azure Site Recovery.
+[Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação do Linux osService, utilizar a recuperação de sites para a migração de VM e o MySQL Workbench para migrar (para uma instância de servidor de MySQL do Azure. | Disponível
 
-Se gostaria de utilizar a aplicação de exemplo utilizada neste artigo, é fornecido como código aberto e poderá transferi-lo de [github](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="overview"></a>Descrição geral
 
@@ -41,7 +40,7 @@ Para obter as respetivas wet feet e compreende melhor as tecnologias envolvidas,
 
 **Nome da aplicação**  | **Plataforma** | **Camadas de aplicação** | **Detalhes**
 --- | --- | --- | ---
-SmartHotel<br/><br/> Gere os requisitos de levar Contoso | Em execução no Windows com uma base de dados do SQL Server | Aplicação de duas camadas de mensagens em fila com o Web site ASP.NET de front-end execução de uma VM (WEBVM) e o SQL Server em execução no outro VM (SQLVM) | As VMs são VMware, em execução num anfitrião ESXi gerido pelo vCenter server.<br/><br/> A aplicação de exemplo que pode ser transferida do [github](https://github.com/Microsoft/SmartHotel360).
+SmartHotel<br/><br/> Gere os requisitos de levar Contoso | Em execução no Windows com uma base de dados do SQL Server | Aplicação de duas camadas de mensagens em fila com o Web site ASP.NET de front-end execução de uma VM (WEBVM) e o SQL Server em execução no outro VM (SQLVM) | As VMs são VMware, em execução num anfitrião ESXi gerido pelo vCenter server.<br/><br/> A aplicação de exemplo que pode ser transferida do [GitHub](https://github.com/Microsoft/SmartHotel360).
 OSTicket<br/><br/> Suporte técnico do app Service de contoso | Em execução no Linux/Apache, com um PHP MySQL (LAMP). | Aplicação de duas camadas com um Web site PHP de front-end de uma VM (OSTICKETWEB) e a base de dados MySQL em execução no outro VM (OSTICKETMYSQL) | A aplicação é utilizada pelo cliente do serviço de aplicações para controlar problemas para os empregados internos e clientes externos.<br/><br/> A aplicação de exemplo que pode ser transferida do [GitHub](https://github.com/osTicket/osTicket).
 
 ## <a name="current-architecture"></a>Arquitetura atual
@@ -545,7 +544,7 @@ Esta vista mostra o custo total de computação e armazenamento da execução da
 - Depois de concluída a avaliação, a Contoso mantém a aplicação de migração do Azure para avaliações futuras.
 - Se desativar a VM de VMware. Estes irá iniciá-lo novamente quando avaliam VMs adicionais.
 - Estes irá manter o projeto de migração do Contoso no Azure.  Está atualmente implementada no grupo de recursos ContosoFailoverRG, do leste-na região do Azure.
--  O recoletor VM ter uma licença de avaliação de 180 dias. Se este limite expirar, terá de transferir e voltar a configurar o recoletor.
+-  O recoletor VM ter uma licença de avaliação de 180 dias. Se este limite expirar, estas terá de transferir e voltar a configurar o recoletor.
 
 
 ## <a name="conclusion"></a>Conclusão

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 4ced7bcec87a9edde2e3ded8c8c61abe96003572
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356087"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265976"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Tutorial: Adicionar a lista de expressão para melhorar as predições
 Neste tutorial, melhorar a exatidão da intenção pontuações e identificar entidades para palavras que têm o mesmo significado (sinónimos), adicionando um permutáveis [funcionalidade da lista de expressão](./luis-concept-feature.md).
@@ -33,7 +33,7 @@ Para este artigo, precisa de um livre [LUIS] [ LUIS] conta para criar a sua apli
 
 2. Conforme descrito em [criar uma aplicação](Create-new-app.md#import-new-app), importar o ficheiro que transferiu para a [LUIS] [ LUIS] Web site como uma nova aplicação. O nome da aplicação é "Os meus tutorial da lista de expressão." Tem utterances, entidades e pendentes. 
 
-3. [Formação](luis-how-to-train.md) a aplicação. Até que está preparado, não é possível [interativamente testar](Train-Test.md#interactive-testing) -na [LUIS] [ LUIS] Web site. 
+3. [Formação](luis-how-to-train.md) a aplicação. Até que está preparado, não é possível [interativamente testar](interactive-test.md#interactive-testing) -na [LUIS] [ LUIS] Web site. 
 
 4. No [publicar](PublishApp.md) página, selecione o **prever a incluir todas as pontuações intenção** caixa de verificação. Quando a caixa de verificação está selecionada, são devolvidos todos os pendentes. Quando a caixa de verificação está desmarcada, apenas o objetivo principal é devolvido. 
 
@@ -174,7 +174,7 @@ Tem ensinar LUIS que *pretende* e *requerem* significar a mesma coisa neste dom�
 5. Na barra de navegação superior, selecione **preparar** para preparar a aplicação, mas não publicá-lo. Agora, tem dois modelos. Pode comparar valores em dois modelos.
 
 ## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Comparar o modelo de lista de expressão para o modelo publicado
-Nesta aplicação, o modelo publicado não está preparado com os sinónimos. Apenas o modelo atualmente editado inclui a lista de expressão de sinónimos. Para comparar os modelos, utilize [testar interativa](Train-Test.md#interactive-testing). 
+Nesta aplicação, o modelo publicado não está preparado com os sinónimos. Apenas o modelo atualmente editado inclui a lista de expressão de sinónimos. Para comparar os modelos, utilize [testar interativa](interactive-test.md#interactive-testing). 
 
 1. Abra o **teste** painel e introduza o utterance seguinte:
 
@@ -196,7 +196,7 @@ Depois de adicionar a lista de frase, a maior precisão do utterance e **Hardwar
 | Atualmente a editar |✔| 0.92 | Entidade de hardware identificada |
 
 > [!TIP]
-> * Ao utilizar [testar interativa](Train-Test.md#interactive-testing), pode comparar o modelo publicado para qualquer treinados as alterações efetuadas depois de publicar. 
+> * Ao utilizar [testar interativa](interactive-test.md#interactive-testing), pode comparar o modelo publicado para qualquer treinados as alterações efetuadas depois de publicar. 
 > * Ao utilizar [teste de ponto final](PublishApp.md#test-your-published-endpoint-in-a-browser), pode ver a resposta exata de LUIS JSON. 
 
 ## <a name="get-the-entity-score-with-the-endpoint-test"></a>Obter a classificação de entidade com o teste de ponto final
@@ -261,8 +261,6 @@ Quando já não é necessário elimine a aplicação de LUIS. Para tal, selecion
 > [!div class="nextstepaction"]
 > [Obter predição utterance com a consulta de ponto final](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

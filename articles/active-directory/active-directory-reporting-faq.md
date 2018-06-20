@@ -3,24 +3,24 @@ title: Azure Active Directory Reporting FAQ | Microsoft Docs
 description: Azure Active Directory FAQ de relatórios.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588595"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232453"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting FAQ
 
@@ -72,7 +72,7 @@ Este artigo inclui as respostas a perguntas mais frequentes sobre o Azure Active
 
 **P: o número de registos posso pode transferir a partir do portal do Azure?**
 
-**R:** pode transferir os registos de K até 120 do portal do Azure. Os registos são ordenados por *mais recente* e por predefinição, o que obtém os registos de 120 K mais recentes. 
+**R:** pode transferir até 5000 registos do portal do Azure. Os registos são ordenados por *mais recente* e por predefinição, o que obtém os registos de 5000 mais recentes. Para registar os tamanhos superiores a 5000, escolha as condições de filtro e, em seguida, clique em de *Script* botão no portal do Azure. Isto irá transferir um script do PowerShell, que pode executar para gerar um ficheiro CSV de todos os registos correspondentes as condições de filtro. Tem de executar o script do PowerShell *modo de administrador*. Para obter mais informações, consulte [transferir atividades de início de sessão](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Este artigo inclui as respostas a perguntas mais frequentes sobre o Azure Active
 
 **P: como posso obter uma licença de premium?**
 
-**R:** consulte [introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para uma resposta a esta pergunta.
+**R:** consulte [introdução ao Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) para uma resposta a esta pergunta.
 
 ---
 

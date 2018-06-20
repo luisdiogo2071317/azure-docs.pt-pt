@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/12/2018
 ms.author: magoedte
-ms.openlocfilehash: f0501d4404375ee44b96ae4514c15e69b616d38a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3aca03d39221ffe32d7a4198c83c0cfad27f6349
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266944"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do serviço de Kubernetes do Azure (AKS) contentor (pré-visualização)
 
@@ -38,8 +39,8 @@ Antes de começar, reveja os detalhes seguintes para que possa compreender os pr
 
 - São suportadas as seguintes versões do AKS cluster: 1.7.7 para 1.9.6.
 - Um agente OMS de para a versão do Linux microsoft / oms:ciprod04202018 e mais tarde. Este agente é instalado automaticamente durante a integração do Estado de funcionamento do contentor.  
-- Uma área de trabalho de análise de registos.  Podem ser criado quando ativar a monitorização do novo cluster AKS ou pode criar um através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou a partir de [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
-
+- Uma área de trabalho do Log Analytics.  Podem ser criado quando ativar a monitorização do novo cluster AKS ou pode criar um através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou a partir de [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+- Membro da função de contribuinte de análise de registos para ativar a monitorização do contentor.  Para obter mais informações sobre como controlar o acesso a uma área de trabalho de análise de registos, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componentes 
 
@@ -49,7 +50,7 @@ Esta funcionalidade baseia-se num agente OMS de para Linux recolher dados de eve
 >Se já tiver implementado um cluster AKS, que ativa a monitorização utilizando um modelo Azure Resource Manager fornecido como demonstrados mais à frente neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente.  
 >
 
-## <a name="log-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="log-in-to-azure-portal"></a>Inicie sessão no Portal do Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Ativar a monitorização de estado de funcionamento de contentor para um novo cluster
@@ -65,7 +66,27 @@ Depois de ativar a monitorização de todas as tarefas de configuração são co
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Ativar a monitorização de estado de funcionamento de contentor para clusters geridos existentes
-Ativar a monitorização do seu contentor AKS já implementado não pode ser efetuada no portal, só pode ser efetuado utilizando o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou a CLI do Azure.  Um modelo JSON Especifica a configuração para ativar a monitorização e o modelo JSON contém valores de parâmetro que configurar para especificar o seguinte:
+Ativar a monitorização do seu contentor AKS já implementado pode ser efetuada a partir do portal do Azure ou com o modelo Azure Resource Manager fornecido utilizando o cmdlet PowerShell **New-AzureRmResourceGroupDeployment** ou CLI do Azure.  
+
+
+### <a name="enable-from-azure-portal"></a>Ativar a partir do portal do Azure
+Execute os seguintes passos para ativar a monitorização do seu contentor AKS do portal do Azure.
+
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **contentores**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Kubernetes serviços**.<br><br> ![Portal do Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. Na lista de contentores, selecione um contentor.
+3. Na página de descrição geral do contentor, selecione **monitorizar estado de funcionamento do contentor** e **integração do Estado de funcionamento do contentor e os registos** é apresentada a página.
+4. No **integração do Estado de funcionamento do contentor e os registos** página, se tiver uma análise de registos existente área de trabalho na mesma subscrição do cluster, selecione-na lista pendente.  A lista preselects a área de trabalho predefinida e localização do contentor AKS for implementada na subscrição. Ou pode selecionar **criar novo** e especifique uma nova área de trabalho na mesma subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    Se selecionar **criar novo**, a **criar nova área de trabalho** painel aparece. O **região** por predefinição, a região que o recurso do contentor é criado no e pode aceitar a predefinição ou selecione uma região diferente e, em seguida, especifique um nome para a área de trabalho.  Clique em **criar** para aceitar a sua seleção.<br><br> ![Definir a área de trabalho para o contentor monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >De momento, que não é possível criar uma nova área de trabalho na região Central EUA oeste, pode selecionar apenas a uma área de trabalho pré-existente nessa região.  Apesar de poder selecionar nessa região na lista, irá iniciar a implementação mas falhar em breve posteriormente.  
+    >
+ 
+Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster. 
+
+### <a name="enable-using-azure-resource-manager-template"></a>Ative a utilizando o modelo Azure Resource Manager
+Este método inclui dois modelos JSON, um modelo especifica a configuração para ativar a monitorização e o modelo JSON contém valores de parâmetro que configurar para especificar o seguinte:
 
 * ID de recurso de contentor AKS 
 * Grupo de recursos do cluster é implementado no 
@@ -77,7 +98,7 @@ Se não estiver familiarizado com conceitos de implementar recursos através de 
 
 Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CLI localmente.  É necessário que está a executar a CLI do Azure versão 2.0.27 ou posterior. Executar `az --version` para identificar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-### <a name="create-and-execute-template"></a>Criar e executar o modelo
+#### <a name="create-and-execute-template"></a>Criar e executar o modelo
 
 1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -89,7 +110,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
+           "description": "AKS Cluster Resource ID"
         }
     },
     "aksResourceLocation": {
@@ -101,7 +122,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
       "workspaceId": {
         "type": "string",
         "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
+          "description": "Azure Monitor Log Analytics Resource ID"
         }
       },
       "workspaceRegion": {
@@ -223,12 +244,12 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente foi implementado com êxito
-Para verificar o agente do OMS implementado corretamente, execute o seguinte comando: ` kubectl get ds omsagent -—namespace=kube-system`.
+Para verificar o agente do OMS implementado corretamente, execute o seguinte comando: ` kubectl get ds omsagent --namespace=kube-system`.
 
 A saída deve assemelhar-se a seguinte que indica que foi implementada corretamente:
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -248,7 +269,7 @@ Pode selecionar os controladores ou de contentores da parte superior da página 
 
 Por predefinição, dados de desempenho baseia-se em seis últimas horas, mas pode alterar a janela com o **intervalo de tempo** encontrado na lista pendente no canto superior direito da página. Neste momento, a página não atualização automática, por isso terá de atualizá-lo manualmente. 
 
-No exemplo seguinte, repare para o nó *aks-agentpool-3402399-0*, o valor para **contentores** é 10, que é um rollup do número total de contentores implementado.<br><br> ![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Isto pode ajudar a identificar rapidamente se não tiver equilíbrio adequado de contentores entre os nós do cluster.  
+No exemplo seguinte, repare para o nó *aks-agentpool-3402399-0*, o valor para **contentores** é 10, que é um rollup do número total de contentores implementado.<br><br> ![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Pode ajudar a identificar rapidamente se não tiver um equilíbrio adequado de contentores entre os nós do cluster.  
 
 A tabela seguinte descreve as informações apresentadas ao ver nós.
 
@@ -325,8 +346,8 @@ A tabela seguinte mostra exemplos de registos por Estado de funcionamento do con
 | Inventário da parte de nós de um cluster de Kubernetes | `KubeNodeInventory` | TimeGenerated, computador, ClusterName, ClusterId, LastTransitionTimeReady, etiquetas, estado, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, computador, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, mensagem, SourceSystem | 
 | Serviços em Kubernetes cluster | `KubeServices_CL` | TimeGenerated ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de desempenho para a parte de nós do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SNode" | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes | 
-| Métricas de desempenho para a parte de contentores do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SContainer" | cpuUsageNanoCores memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes | 
+| Métricas de desempenho para a parte de nós do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SNode" | Computador, ObjectName, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de desempenho para a parte de contentores do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SContainer" | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>Registos de pesquisa para analisar dados
 Análise de registos pode ajudar a procurar tendências, diagnosticar congestionamentos, previsão ou correlacionar os dados que podem ajudar a determinam se a configuração de cluster atual for satisfatória.  Pesquisas de registo predefinidos são fornecidas para iniciar imediatamente a utilizar ou personalizar para devolver as informações da forma que pretende. 
@@ -363,7 +384,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -416,7 +437,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
 
 4. Edite o valor para **aksResourceId** e **aksResourceLocation** com os valores do cluster AKS, que pode encontrar no **propriedades** página para o cluster selecionado.<br><br> ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    Enquanto estiver a **propriedades** página, também copia o **Id de recurso da área de trabalho**.  Este valor é necessário se decidir que pretende eliminar a análise de registos área de trabalho mais tarde, que não é efetuada como parte deste processo.  
+    Enquanto estiver a **propriedades** página, também copia o **ID de recurso da área de trabalho**.  Este valor é necessário se decidir que pretende eliminar a análise de registos área de trabalho mais tarde, que não é efetuada como parte deste processo.  
 
 5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
 6. Está pronto para implementar este modelo. 
@@ -429,7 +450,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, uma mensagem semelhante ao seguinte que inclui o resultado é devolvida:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -443,13 +464,13 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, uma mensagem semelhante ao seguinte que inclui o resultado é devolvida:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-Se a área de trabalho foi criada apenas para suportar a monitorização de cluster e já não é necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça sobre o **Id de recurso da área de trabalho** copiou anteriormente no passo 4, que vai necessitar que.  
+Se a área de trabalho foi criada apenas para suportar a monitorização de cluster e já não é necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça sobre o **ID de recurso da área de trabalho** copiou anteriormente no passo 4, que vai necessitar que.  
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Esta secção fornece informações para ajudar a resolver problemas com o estado de funcionamento do contentor.
