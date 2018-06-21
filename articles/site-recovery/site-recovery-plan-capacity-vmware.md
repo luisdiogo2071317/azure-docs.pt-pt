@@ -3,17 +3,16 @@ title: Planear a capacidade e Dimensionar para replicação de VMware no Azure c
 description: Utilize este artigo para a capacidade de plano e a escala quando replicar VMs de VMware para o Azure com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692203"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287359"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planear a capacidade e o dimensionamento para replicação de VMware com o Azure Site Recovery
 
@@ -38,7 +37,7 @@ Recolher informações sobre o ambiente de replicação ao executar o [Planeador
 8 vCPUs (2 sockets * 4 núcleos @ gigahertz 2,5 [GHz]) | 16 GB | 300 GB | 500 GB ou inferior | Replicar máquinas inferior a 100.
 12 vCPUs (2 sockets * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 150 máquinas.
 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB para 2 TB | Replicar entre 150 200 máquinas.
-Implementar a outro servidor de processos | | | > 2 TB | Implemente servidores de processos adicionais se está a replicar mais de 200 máquinas ou, se alterar os dados diários taxa excede 2 TB.
+Implementar a outro servidor de processos | | | &GT; 2 TB | Implemente servidores de processos adicionais se está a replicar mais de 200 máquinas ou, se alterar os dados diários taxa excede 2 TB.
 
 Em que:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234531"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293721"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -46,7 +46,7 @@ O **definições da aplicação** painel tem agrupadas em várias categorias de 
 Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de .NET, PHP e Python.
 
 <a name="platform"></a>
-**Plataforma**. Seleciona se a sua aplicação web é executada num ambiente de 32 bits ou 64 bits. O ambiente de 64 bits requer modo básicas ou Standard. Gratuito e partilhado modos são sempre executadas num ambiente de 32 bits.
+**Plataforma**. Seleciona se a sua aplicação web é executada num ambiente de 32 bits ou 64 bits. O ambiente de 64 bits necessita de escalão básicas ou Standard. Gratuito e partilhado camada são sempre executadas num ambiente de 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 **Always On**. Por predefinição, as aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isto permite que o sistema poupar recursos. No modo básico ou padrão, pode ativar **Always On** manter a aplicação carregada sempre. Se a aplicação for executada WebJobs contínuos ou executa WebJobs acionada através de uma expressão de CRON, deverá ativar **Always On**, ou as tarefas de web podem não ser fiável.
 
 **Gerido Pipeline versão**. Define o IIS [modo de pipeline]. Deixe este conjunto como integrado (predefinição), a menos que tenha uma aplicação de legado que requer uma versão anterior do IIS.
+
+**Versão de HTTP**. Definido como **2.0** para ativar o suporte para [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocolo. 
+
+> [!NOTE]
+> Browsers modernos mais suportam o protocolo HTTP/2 sobre TLS apenas, enquanto o tráfego encriptado não continua a utilizar HTTP/1.1. Para se certificar de que o cliente browsers ligar à sua aplicação com HTTP/2, ou [comprar um certificado de serviço de aplicações](web-sites-purchase-ssl-web-site.md) para o domínio personalizado da sua aplicação ou [vincular um certificado de terceiros](app-service-web-tutorial-custom-ssl.md).
+
+**O ARR afinidade**. Numa aplicação que é aumentado horizontalmente a várias instâncias VM, afinidade de ARR cookies garantir que o cliente é encaminhado para a mesma instância de vida da sessão. Para melhorar o desempenho das aplicações sem monitorização de estado, defina esta opção para **desativar**.   
 
 **Auto troca**. Se ativar troca automática para uma ranhura de implementação, serviço de aplicações será automaticamente de comutação a aplicação web em produção quando emitir uma atualização para essa ranhura. Para obter mais informações, consulte [implementar para a transição ranhuras para web apps no App Service do Azure](web-sites-staged-publishing.md).
 
