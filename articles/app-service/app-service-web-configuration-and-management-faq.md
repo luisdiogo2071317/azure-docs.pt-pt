@@ -186,7 +186,7 @@ Tem duas opções para capturar um rastreio de F12:
 3. Certifique-se de que o **rede** separador está selecionada e, em seguida, selecione a verde **reproduzir** botão.
 4. Efetue os passos que reproduza o problema.
 5. Selecione a vermelho **parar** botão.
-6. Selecione o **guardar** botão (ícone de disco) e guarde o ficheiro HAR (no Internet Explorer e Edge) *ou* o ficheiro HAR com o botão direito e, em seguida, selecione **guardar como HAR com conteúdo** (em Chrome).
+6. Selecione o **guardar** botão (ícone de disco) e guarde o ficheiro HAR (no Internet Explorer e Microsoft Edge) *ou* o ficheiro HAR com o botão direito e, em seguida, selecione **guardar como HAR com conteúdo** (em Chrome).
 
 ### <a name="f12-console-output"></a>Resultado da consola F12
 

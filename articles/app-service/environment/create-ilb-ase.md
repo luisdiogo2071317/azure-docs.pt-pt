@@ -195,7 +195,7 @@ Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o po
 
 Quando utiliza as Funções do Azure num ASE de ILB, poderá receber uma mensagem de erro com a indicação "Não é possível obter as funções neste momento. Tente novamente mais tarde." Este erro ocorre porque a IU de Funções tira partido do site do SCM através de HTTPS e o certificado de raiz não está na cadeia de certificação do browser. Os WebJobs têm um problema semelhante. Para evitar este problema, pode executar uma das seguintes ações:
 
-- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Edge e o Internet Explorer.
+- Adicione o certificado ao arquivo de certificados fidedignos. Esta ação desbloqueia o Microsoft Edge e o Internet Explorer.
 - Utilize o Chrome e aceda primeiro ao site do SCM, aceite o certificado não fidedigno e, em seguida, aceda ao portal.
 - Utilize um certificado comercial que esteja na cadeia de certificação do seu browser.  Esta é a melhor opção.  
 

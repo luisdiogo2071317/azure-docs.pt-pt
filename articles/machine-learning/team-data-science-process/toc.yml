@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: Classificação de sentimento
+        - name: Classificação de sentimento com o Keras & Scikit Learn
           href: predict-twitter-sentiment.md
+        - name: Classificação de sentimento com o pacote de análise de texto AML
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: Classificação de receitas dos E.U.A.
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Reconhecimento de entidades biomédicas
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: Classificação de imagem de cancro na pele
+        - name: Classificação de imagem de cancro na pele com o pacote de imagem digitalizada AML
           href: isic-image-classification.md
           maintainContext: true
     - name: Spark com PySpark e Scala

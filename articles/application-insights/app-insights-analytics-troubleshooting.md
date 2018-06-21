@@ -55,7 +55,7 @@ Ocorreu um erro relacionado com a autenticação (durante a autenticação ou du
 2. Utilizou um favorito, marcador ou ligação guardada para abrir o portal do Analytics? Iniciou sessão com credenciais diferentes das que utilizou quando guardou a ligação?
 3. Tente utilizar uma janela do browser em privado/incognito (depois de fechar todas essas janelas). Terá de fornecer as suas credenciais. 
 4. Abrir outra janela do browser (comum) e aceda a [Azure](https://portal.azure.com). Termine a sessão. Em seguida, abra a ligação e inicie a sessão com as credenciais corretas.
-5. Os utilizadores do Edge ou do Internet Explorer também podem obter este erro quando as definições da zona de confiança não são suportadas.
+5. Os utilizadores do Microsoft Edge ou do Internet Explorer também podem obter este erro quando as definições da zona de confiança não são suportadas.
    
     Certifique-se ambos [portal da análise](https://analytics.applicationinsights.io) e [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
    

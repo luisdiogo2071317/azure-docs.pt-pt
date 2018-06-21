@@ -198,7 +198,7 @@ Podem ser automatizados estes passos através de uma tarefa de arranque, para qu
 Assim que tiver sido realizada, pode verificar se foi ativado HTTP/2 ou não utilizando um dos seguintes métodos:
 
 - Ativar a versão de protocolo nos registos do IIS e procure para os registos IIS. Esta operação irá mostrar HTTP/2 nos registos. 
-- Ativar a ferramenta do programador F12 no Internet Explorer/Edge e mude para o separador de rede para verificar o protocolo. 
+- Ativar a ferramenta do programador F12 no Internet Explorer/Microsoft Edge e mude para o separador de rede para verificar o protocolo. 
 
 Para obter mais informações, consulte [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2).
 

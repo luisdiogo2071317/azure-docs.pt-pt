@@ -123,7 +123,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Estado Independente de Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Ilhas Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Ilhas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
 | Coreia do Sul                                         |                 |                |              |      ✓     |          ✓         |

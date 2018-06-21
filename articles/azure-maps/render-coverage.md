@@ -168,7 +168,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | China                     |   | Ø |
 | Ilhas dos Cocos (Keeling)   |   | Ø |
 | República Democrática Popular da Coreia do Norte |   | Ø |
-| Dokdo e Takeshima       |   | Ø |
+| Takeshima       |   | Ø |
 | RAE de Hong Kong                 | ✓ | ✓ |
 | Indonésia                 | ✓ | ✓ |
 | Irão                      |   | Ø |
@@ -193,7 +193,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 | Catar                     | ✓ | ✓ |
 | República da Coreia         | ✓ | Ø |
 | Arábia Saudita              | ✓ | ✓ |
-| Ilhas Senkaku           |   | ✓ |
+| Ilhas Senkaku/Diaoyutai           |   | ✓ |
 | Singapura                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
 | República Árabe Síria      |   | Ø |

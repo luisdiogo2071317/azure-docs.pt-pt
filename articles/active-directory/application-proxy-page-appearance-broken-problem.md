@@ -28,7 +28,7 @@ Este artigo ajuda-o a resolver problemas com aplicações de Proxy de aplicaçõ
 ## <a name="overview"></a>Descrição geral
 Quando publica uma aplicação de Proxy de aplicações, apenas páginas na sua raiz estão acessíveis quando o acesso à aplicação. Se a página não apresentar corretamente, o URL interno de raiz utilizado para a aplicação poderá estar em falta alguns recursos de página. Para resolver, certifique-se tiver publicado *todos os* os recursos para a página como parte da sua aplicação.
 
-Pode verificar se a falta de recursos é o problema, abrindo o controlador de rede (por exemplo, o Fiddler ou F12 ferramentas no Internet Explorer/Edge), carregamento da página e está à procura de 404 erros. Que indica as páginas atualmente não não possível encontrar o e que tem de publicá-los.
+Pode verificar se a falta de recursos é o problema, abrindo o controlador de rede (por exemplo, o Fiddler ou F12 ferramentas no Internet Explorer/Microsoft Edge), carregamento da página e está à procura de 404 erros. Que indica as páginas atualmente não não possível encontrar o e que tem de publicá-los.
 
 Como um exemplo de neste caso, partem do princípio de ter publicado uma aplicação de despesas utilizando o URL interno http://myapps/expenses, mas a aplicação utilizar a folha de estilos http://myapps/style.css. Neste caso, a folha de estilos não está publicada na sua aplicação, para carregar a aplicação de despesas gerar um erro 404 ao tentar carregar style.css. Neste exemplo, o problema for resolvido por publicar a aplicação com um URL interno http://myapp/.
 

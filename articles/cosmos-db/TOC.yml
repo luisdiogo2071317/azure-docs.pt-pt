@@ -328,6 +328,8 @@ items:
                 href: mongodb-readpreference.md
               - name: Indexação
                 href: mongodb-indexing.md
+              - name: TTL no MongoDB
+                href: mongodb-ttl.md
               - name: Ver os seus dados com o Power BI
                 href: powerbi-visualize.md
               - name: Gerir o Explorador do Armazenamento

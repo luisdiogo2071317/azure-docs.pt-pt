@@ -109,7 +109,7 @@ O *AzureOfflineBackupDiskPrep* utilitário prepara as utilizem unidades SATA que
     * O computador de cópia pode aceder a localização de transição para o fluxo de trabalho offline seeding utilizando o mesmo caminho de rede que foi fornecido o **iniciar cópia de segurança offline** fluxo de trabalho.
     * O BitLocker está ativado no computador de cópia.
     * O Azure PowerShell 3.7.0 está instalado.
-    * Browsers mais recentes compatíveis (Edge ou o Internet Explorer 11) estão instalados e é o JavaScript ativado. 
+    * Browsers mais recentes compatíveis (Microsoft Edge ou o Internet Explorer 11) estão instalados e é o JavaScript ativado. 
     * O computador de cópia pode aceder ao portal do Azure. Se necessário, o computador de cópia pode ser o mesmo que o computador de origem.
     
     > [!IMPORTANT] 

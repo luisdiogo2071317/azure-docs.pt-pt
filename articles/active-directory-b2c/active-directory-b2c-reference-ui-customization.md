@@ -351,7 +351,7 @@ Se estiver a planear utilizar a funcionalidade de personalização do página IU
 * Não copie o conteúdo de predefinido do Azure AD B2C e tentar modificá-lo. É melhor para criar o seu conteúdo HTML5 a partir do zero e a utilizar conteúdo predefinido como referência.
 * Por motivos de segurança, iremos não permitem incluir quaisquer JavaScript no seu conteúdo. O que precisa da maioria deve estar disponível a box. Se não, utilizar [voz do utilizador](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para pedir novas funcionalidades.
 * Versões de browser suportado:
-  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 11, 10, Microsoft Edge
   * Suporte limitado para a Internet Explorer 9, 8
   * Google Chrome 42.0 e acima
   * Mozilla Firefox 38.0 e acima

@@ -149,7 +149,7 @@ Para recolher o rastreio de eventos para o Windows, efetue o seguinte:
 2. Premir a tecla F12 para iniciar as ferramentas de programador. Se necessário, desmarque a definição **limpar as entradas navegação**.
 3. Clique em de **rede** separador e começar a capturar o tráfego de rede:
  - No Chrome, selecione **Preserve registo**. A gravação deve iniciar automaticamente. Um círculo vermelho indica que o tráfego está a ser captura. Se não for apresentada, clique no círculo preto para iniciar
- - No Edge/IE, gravação deve iniciar automaticamente. Se não, clique no botão Reproduzir verde.
+ - No Microsoft Edge/IE, gravação deve iniciar automaticamente. Se não, clique no botão Reproduzir verde.
 4. Tente recriar o erro.
 5. Depois de ter encontrou o erro durante a gravação, parar a gravação e guarde uma cópia da atividade registada:
  - No Chrome, clique com botão direito e clique em **guardar como HAR com conteúdo**. Isto zips e exporta os registos como um ficheiro de .har.

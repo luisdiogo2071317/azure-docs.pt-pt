@@ -268,14 +268,14 @@
       items:
         - name: Monitorizar estado de aplicações lógicas
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Monitorizar o estado da aplicação lógica no OMS com o Log Analytics
+        - name: Monitorizar o estado da aplicação com o Azure Log Analytics
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: Monitorizar mensagens B2B
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: Monitorizar mensagens B2B no OMS
+            - name: Controlar mensagens B2B no Azure Log Analytics
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Consultar OMS por mensagens para B2B
+            - name: Consultar mensagens B2B no Azure Log Analytics
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Exemplos, cenários e instruções'
       href: logic-apps-examples-and-scenarios.md
