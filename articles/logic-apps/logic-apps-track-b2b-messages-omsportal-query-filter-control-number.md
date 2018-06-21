@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 520a1212eaccc48f8b8b423f7dede9c16409220b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300332"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294314"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Consultar AS2, X12 e EDIFACT mensagens na análise de registos
 
@@ -53,41 +53,33 @@ Este exemplo mostra como pode encontrar com base no respetivo número de control
 
    ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Em **gestão**, escolha **Portal do OMS**.
+3. Em **gestão**, escolha **pesquisa registo**.
 
-   ![Escolha o portal do OMS](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Escolha Lo pesquisa](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. Na sua home page, escolha **pesquisa registo**.
-
-   ![Na sua home page, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   -ou-
-
-   ![No menu, escolha "Registo de pesquisa"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. Na caixa de pesquisa, introduza um campo que pretende localizar e prima **Enter**. Quando começar a escrever, análise de registos mostra-lhe correspondências possíveis e as operações que pode utilizar. Saiba mais sobre [como localizar dados na análise de registos](../log-analytics/log-analytics-log-searches.md).
+4. Na caixa de pesquisa, introduza um campo que pretende localizar e prima **Enter**. Quando começar a escrever, análise de registos mostra-lhe correspondências possíveis e as operações que pode utilizar. Saiba mais sobre [como localizar dados na análise de registos](../log-analytics/log-analytics-log-searches.md).
 
    Neste exemplo procura para eventos com **tipo = AzureDiagnostics**.
 
    ![Comece a escrever a cadeia de consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. Na barra da esquerda, escolha o período de tempo que pretende visualizar. Para adicionar um filtro à consulta, escolha **+ adicionar**.
+5. Na barra da esquerda, escolha o período de tempo que pretende visualizar. Para adicionar um filtro à consulta, escolha **+ adicionar**.
 
    ![Adicionar filtro de consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. Em **adicionar filtros**, introduza o nome do filtro, pelo que pode encontrar o filtro que pretende. Selecione o filtro e escolha **+ adicionar**.
+6. Em **adicionar filtros**, introduza o nome do filtro, pelo que pode encontrar o filtro que pretende. Selecione o filtro e escolha **+ adicionar**.
 
    Para determinar o número de controlo do intercâmbio, neste exemplo procura para a palavra "intercâmbio" e seleciona **event_record_messageProperties_interchangeControlNumber_s** como o filtro.
 
    ![Selecione o filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. Na barra da esquerda, selecione o valor do filtro que pretende utilizar e escolha **aplicar**.
+7. Na barra da esquerda, selecione o valor do filtro que pretende utilizar e escolha **aplicar**.
 
    Neste exemplo seleciona o número de controlo de intercâmbio de mensagens que queremos.
 
    ![Selecione o valor do filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Agora, volte para a consulta que está a criar. A consulta foi atualizada com o evento de filtro selecionado e o valor. Os resultados anteriores agora são filtrados demasiado.
+8. Agora, volte para a consulta que está a criar. A consulta foi atualizada com o evento de filtro selecionado e o valor. Os resultados anteriores agora são filtrados demasiado.
 
     ![Regressar à sua consulta com resultados filtrados](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

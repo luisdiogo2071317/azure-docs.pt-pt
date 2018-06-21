@@ -3,32 +3,37 @@ title: Regras de Alerta Personalizadas no Centro de Segurança do Azure | Micros
 description: Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/19/2018
+ms.author: terrylan
+ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775807"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284782"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de Alerta Personalizadas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segurança do Azure.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>O que são regras de alerta personalizadas no Centro de Segurança?
 
-O Centro de Segurança tem um conjunto de [alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) predefinidos, que são acionados quando ocorre uma ameaça ou atividade suspeita. Em alguns cenários, poderá querer criar um alerta personalizado para satisfazer necessidades específicas do seu ambiente. 
+O Centro de Segurança tem um conjunto de [alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) predefinidos, que são acionados quando ocorre uma ameaça ou atividade suspeita. Em alguns cenários, poderá querer criar um alerta personalizado para satisfazer necessidades específicas do seu ambiente.
 
-As regras de alerta personalizadas no Centro de Segurança permitem-lhe definir novos alertas de segurança com base nos dados que já são recolhidos do seu ambiente. Pode criar consultas e o resultado destas consultas pode ser utilizado como critérios para a regra personalizada e, depois deste critério ser correspondido, a regra é executada. Pode utilizar eventos de segurança de computadores, registos de soluções de segurança de um parceiro ou dados ingeridos com APIs para criar as suas consultas personalizadas. 
+As regras de alerta personalizadas no Centro de Segurança permitem-lhe definir novos alertas de segurança com base nos dados que já são recolhidos do seu ambiente. Pode criar consultas e o resultado destas consultas pode ser utilizado como critérios para a regra personalizada e, depois deste critério ser correspondido, a regra é executada. Pode utilizar eventos de segurança de computadores, registos de soluções de segurança de um parceiro ou dados ingeridos com APIs para criar as suas consultas personalizadas.
+
+> [!NOTE]
+> Permissão tem de ser escrita na área de trabalho que selecionou para armazenar o alerta personalizado.
+>
+>
 
 ## <a name="how-to-create-a-custom-alert-rule-in-security-center"></a>Como criar uma regra de alerta personalizada no Centro de Segurança?
 
@@ -38,16 +43,16 @@ Abra o dashboard **Centro de Segurança** e siga estes passos para criar uma reg
 2.  Na página **Centro de Segurança – Regras de alerta personalizadas (Pré-visualização)**, clique em **Nova regra de alerta personalizada**.
 
     ![Alerta personalizado](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
-    
+
 3.  A página Criar regra de alerta personalizada é apresentada com as seguintes opções:
-    
+
     ![Criar](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.  Escreva o nome desta regra personalizada no campo **Nome**.
 5.  Escreva uma breve descrição que reflita o objetivo desta regra no campo **Descrição**.
 6.  Selecione o nível de gravidade (Alta, Média, Baixa) de acordo com as suas necessidades no campo **Gravidade**.
 7.  Selecione a subscrição na qual esta regra é aplicável no campo **Subscrição**.
-8.  Selecione a área de trabalho que pretende monitorizar com esta regra no campo **Área de trabalho** e, no campo **Consulta de Pesquisa**, a consulta que irá utilizar para obter os resultados. O resultado da consulta aciona o alerta. Tenha em atenção que quando escreve uma consulta válida, a marca de verificação verde é apresentada no canto direito deste campo:
+8.  Selecione a área de trabalho que pretende monitorizar com esta regra no **área de trabalho** campo e o **consulta de pesquisa** campo, a consulta que pretende utilizar para obter os resultados. Permissão tem de ser escrita na área de trabalho que selecionou para armazenar o alerta personalizado. O resultado da consulta aciona o alerta. Tenha em atenção que quando escreve uma consulta válida, a marca de verificação verde é apresentada no canto direito deste campo:
 
     ![Consulta](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
@@ -73,7 +78,6 @@ Neste documento, aprendeu a criar uma regra de alerta personalizada no Centro de
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança. 
+* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 * [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
-

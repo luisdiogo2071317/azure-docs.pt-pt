@@ -1,27 +1,19 @@
 ---
 title: Utilizar o controlo de acesso baseado em funções para gerir o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como aplicar e utilizar o controlo de acesso baseado em funções (RBAC) para gerir as implementações do Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+author: mayanknayar
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9d1d6aac463e5b9cf9994bfefac1aa1c38bb1e03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071610"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284746"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utilizar o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Utilizar o controlo de acesso baseado em funções para gerir o acesso de recuperação de sites
 
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Utilizar o RBAC, pode segregar responsabilidades na sua equipa e conceder apenas permissões de acesso específico aos utilizadores conforme necessário para efetuar tarefas específicas.
 
@@ -33,7 +25,7 @@ O Azure Site Recovery fornece 3 funções incorporadas para controlar as operaç
 
 Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como [criar funções personalizadas](../role-based-access-control/custom-roles.md) no Azure.
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Permissões necessárias para ativar replicação para novas máquinas virtuais
+## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Permissões necessárias para ativar a replicação para novas máquinas virtuais
 Quando uma nova máquina Virtual é replicado para o Azure utilizando o Azure Site Recovery, níveis de acesso do utilizador associada são validadas para garantir que o utilizador tem as permissões necessárias para utilizar os recursos do Azure fornecidos ao Site Recovery.
 
 Para ativar a replicação para uma nova máquina virtual, tem de ter um utilizador:

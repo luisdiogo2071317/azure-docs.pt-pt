@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35683037"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297971"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35683037"
 | Endereços de IP privados por rede virtual |4096 |4096 |
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |500 K |
 | Grupos de Segurança de Rede (NSG) |100 |200 |
-| Regras do NSG por NSG |200 |400 |
+| Regras do NSG por NSG |200 |1000 |
 | Tabelas da rota definida pelo utilizador |100 |200 |
 | Rotas definidas pelo utilizador por tabela de rota |100 |400 |
 | Endereços IP públicos (dinâmico) |5 |contactar o suporte |
@@ -64,6 +64,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 * * Estes limites de predefinição aplicam às subscrições que não tenham sido anteriormente estes limites aumentadas através do suporte
 
 #### <a name="load-balancer"></a>Limites de Balanceador de carga
+Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual contra os limites de subscrição](../articles/networking/check-usage-against-limits.md)
 
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 918f5d9efa1163558e44c2c67028dbf802f479a5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266792"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286023"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -66,7 +66,7 @@ LUIS oferece muitos tipos de entidades; entidades prebuilt, máquina personaliza
 | Nome | Pode etiqueta | Descrição |
 | -- |--|--|
 | **Prebuilt** <br/>[Personalizada](#prebuilt)| |  **Definição**<br>Tipos incorporados que representam os conceitos comuns. <br><br>**lista**<br/>número de expressão de chave, ordinal, temperatura, dimensão, dinheiro, idade, percentagem, e-mail, URL, número de telefone e expressão de chave. <br><br>Os nomes das entidades prebuilt estão reservados. <br><br>Todas as entidades prebuilt que são adicionadas à aplicação são devolvidas no [endpoint](luis-glossary.md#endpoint) consulta. Para obter mais informações, consulte [entidades Prebuilt](./Pre-builtEntities.md). <br/><br/>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto formatado. Ignora a maiúsculas e minúsculas e ignora variante cultural.  <br><br>Esta entidade é boa para palavras ou frases reconhecíveis que estejam formatados consistentemente com qualquer variação que também seja consistente.<br><br>Expressão regular de correspondência é aplicada após expansões de verificação ortográfica. <br><br>Se a expressão regular é demasiado complexa, por exemplo, utilizando parênteses Retos muitos, não é possível adicionar a expressão para o modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` corresponde à kb123456.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto formatado utterance não processados. Ignora a maiúsculas e minúsculas e ignora variante cultural.  <br><br>Esta entidade é boa para palavras ou frases reconhecíveis que estejam formatados consistentemente com qualquer variação que também seja consistente.<br><br>Expressão regular de correspondência é aplicada após expansões de verificação ortográfica. <br><br>Se a expressão regular é demasiado complexa, por exemplo, utilizando parênteses Retos muitos, não é possível adicionar a expressão para o modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` corresponde à kb123456.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md)|
 | **Simples** <br/>[Aprendeu de máquina](#machine-learned) | ✔ | **Definição**<br>Uma entidade simple é uma entidade genérica que descreve um único conceito e adquirida a partir do contexto aprendidas de máquina. Contexto incluem escolha do word, colocação do word e o comprimento de utterance.<br/><br/>Esta é uma boa entidade para palavras ou frases reconhecíveis que não estão formatados consistentemente mas indicam a mesma coisa. <br/><br/>[Início rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md#simple-entity-data)|  
 | **lista** <br/>[Correspondência exata](#exact-match)|| **Definição**<br>Lista de entidades representam um conjunto de fixo, fechado das palavras relacionados, juntamente com os respetivos synoymns no seu sistema. <br><br>Cada entidade de lista pode ter um ou mais formulários. Melhor utilizadas para um conjunto conhecido de variações no formas para representar o mesmo conceito.<br/><br/>LUIS não detetar valores adicionais para entidades da lista. Utilize a ver [dicionário semântico](luis-glossary.md#semantic-dictionary) para encontrar sugestões para novas palavras com base na lista atual.<br/><br>Se existir mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final. <br/><br/>[Início rápido](luis-quickstart-intent-and-list-entity.md)<br>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Misto](#mixed) | ✔|**Definição**<br>Patterns.any é um marcador de posição de comprimento variável apenas utilizado na utterance de modelo de um padrão para marcar em que a entidade inicia e termina.  <br><br>**Exemplo**<br>Tendo em conta uma pesquisa de utterance para books com base no título, a pattern.any extrai o título concluído. É um utterance modelo utilizando pattern.any `Who wrote {BookTitle}[?]`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Exemplo de resposta para a entidade](luis-concept-data-extraction.md#composite-entity-data)|  

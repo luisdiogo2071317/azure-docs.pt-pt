@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592267"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295618"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>O Azure AD Connect: Considerações especiais para instâncias
 O Azure AD Connect é normalmente utilizado com a instância em todo o mundo do Azure AD e o Office 365. Mas também existem outras instâncias e estes têm diferentes requisitos para os URLs e outras considerações especiais.
@@ -38,8 +38,6 @@ Quando inicia sessão seu inquilino do Azure AD, tem de utilizar uma conta no do
 
 Funcionalidades atualmente não estão presentes na Alemanha Microsoft Cloud:
 
-* **O Azure AD Connect Health** não está disponível.
-* **As atualizações automáticas** não está disponível.
 * **Repetição de escrita de palavras-passe** está disponível para pré-visualização com a versão do Azure AD Connect 1.1.570.0 e depois.
 * Não estão disponíveis outros serviços do Azure AD Premium.
 
@@ -61,8 +59,6 @@ Esta nuvem é suportada por versões anteriores do DirSync. A partir de compila�
 
 Funcionalidades atualmente não está presentes na nuvem do Microsoft Azure Government:
 
-* **O Azure AD Connect Health** não está disponível.
-* **As atualizações automáticas** não está disponível.
 * **Repetição de escrita de palavras-passe** está disponível para pré-visualização com a versão do Azure AD Connect 1.1.570.0 e depois.
 * Não estão disponíveis outros serviços do Azure AD Premium.
 

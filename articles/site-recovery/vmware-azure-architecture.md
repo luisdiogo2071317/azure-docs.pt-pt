@@ -3,15 +3,15 @@ title: VMware para a arquitetura da replicação do Azure no Azure Site Recovery
 description: Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar VMs de VMware no local para o Azure com o Azure Site Recovery e componentes
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184586"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285275"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware para a arquitetura da replicação do Azure
 
@@ -42,7 +42,7 @@ Os passos abrangentes para configurar o VMware para recuperação após desastre
 3. **Configurar a replicação**. Selecione onde pretende replicar para. Configurar o ambiente de replicação de origem, configurar uma VM (o servidor de configuração) que executa todos os locais componentes da recuperação de Site que precisa de VMware único no local. Após a configuração, registar a máquina do servidor de configuração no cofre dos serviços de recuperação. Em seguida, selecione as definições de destino. [Saiba mais](vmware-azure-tutorial.md).
 4. **Criar uma política de replicação**. Criar uma política de replicação que especifica a forma como a replicação deve ocorrer. 
     - **Limiar RPO**: esta definição de monitorização Estados que se a replicação não ocorrer no tempo especificado, um alerta (e opcionalmente um e-mail) são emitidos. Por exemplo, se definir o limiar do RPO para 30 minutos e impede a um problema de replicação aconteça durante 30 minutos, é gerado um evento. Esta definição não afeta a replicação. A replicação está contínua e pontos de recuperação são criados em poucos minutos
-    - **Retenção**: ponto de recuperação retenção Especifica o período de tempo pontos de recuperação deve ser mantido no Azure. Pode especificar um valor entre 0 e 24 horas para o premium storage, ou até 72 horas para armazenamento standard. Pode ativação pós-falha para o ponto de recuperação mais recente ou para um ponto de armazenado se definir o valor superior a zero. Depois da janela de retenção, pontos de recuperação são removidos.
+    - **Retenção**: ponto de recuperação retenção Especifica o período de tempo pontos de recuperação deve ser mantido no Azure. Pode especificar um valor entre 0 e 24 horas para o premium storage, ou até 72 horas para armazenamento standard. Pode efetuar a ativação pós-falha para o ponto de recuperação mais recente ou para um ponto de armazenado se definir o valor superior a zero. Depois da janela de retenção, pontos de recuperação são removidos.
     - **Instantâneos consistentes com falhas**: por predefinição, a recuperação de Site demora instantâneos consistentes com falhas e cria pontos de recuperação com os mesmos, cada alguns minutos. Um ponto de recuperação com se todos os componentes dados interrelated são consistente escrita ordem falhas, tal como estavam na instantâneas o ponto de recuperação foi criado. Para compreender melhor, imagine o estado dos dados no disco rígido PC após uma falha de energia ou evento semelhante. Um ponto de recuperação consistentes com falhas é normalmente suficiente se a aplicação foi concebida para recuperar a partir de uma falha sem quaisquer inconsistências de dados.
     - **Instantâneos consistentes com aplicação**: se este valor não for zero, o serviço de mobilidade em execução na VM tenta gerar instantâneos consistentes com o sistema de ficheiros e de pontos de recuperação. O primeiro instantâneo é colocado depois de concluída a replicação inicial. Em seguida, são tirados instantâneos com a frequência que especificar. Um ponto de recuperação se consistentes com aplicações se, além de ser escrita ordem consistentes e em execução, aplicações concluir todas as respetivas operações e descarregar as memórias intermédias para disco (quiescing de aplicação). Pontos de recuperação consistentes da aplicação são recomendados para aplicações de base de dados, tais como o SQL Server, Oracle e o Exchange. Se um instantâneo consistente de falhas é suficiente, este valor pode ser definido como 0.  
     - **A consistência multi VM**: Opcionalmente, pode criar um grupo de replicação. Em seguida, ao ativar a replicação, pode recolher as VMs para esse grupo. As VMs de uma replicação agrupar replicar e tem partilhado pontos de recuperação consistentes com falhas e consistentes da aplicação quando a ativação pós-falha. Deve utilizar esta opção atentamente, uma vez que pode afetar o desempenho da carga de trabalho como instantâneos necessárias para ser reunidas em várias máquinas. Apenas fazê-lo se VMs executam a mesma carga de trabalho e precisam de ser consistente e as VMs têm churns semelhantes. Pode adicionar até 8 VMs a um grupo. 

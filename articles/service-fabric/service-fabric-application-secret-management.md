@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212692"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295458"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>Gerir os segredos em aplicações de Service Fabric
 Este guia explica os passos de gestão de segredos numa aplicação de Service Fabric. Os segredos podem ser qualquer informações confidenciais, tais como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que não devem ser processados em texto simples.
@@ -43,7 +43,7 @@ Um certificado de encriptação de dados é utilizado estritamente para a encrip
 Este certificado tem de ser instalado em cada nó no cluster. Será utilizado no tempo de execução para desencriptar valores armazenados em Settings.xml de um serviço. Consulte [como criar um cluster com o Azure Resource Manager] [ service-fabric-cluster-creation-via-arm] para obter instruções de configuração. 
 
 ## <a name="encrypt-application-secrets"></a>Encriptar os segredos de aplicação
-Quando implementar uma aplicação, encriptar o segredo valores com o certificado e inseri-los no ficheiro de configuração de Settings.xml de um serviço. O SDK de Service Fabric tem funções incorporadas de encriptação e desencriptação de secretas. Segredo valores podem ser encriptados durante a incorporada e, em seguida, desencriptados e ler programaticamente com código do serviço. 
+Quando implementar uma aplicação, encriptar o segredo valores com o certificado e inseri-los no ficheiro de configuração de Settings.xml de um serviço. O SDK de Service Fabric tem funções incorporadas de encriptação e desencriptação de secretas. Segredo valores podem ser encriptados no momento da compilação e, em seguida, desencriptados e ler programaticamente com código do serviço. 
 
 O seguinte comando do PowerShell é utilizado para encriptar um segredo. Este comando só encripta o valor; faz **não** assinar o texto de cifra. Tem de utilizar o mesmo certificado de encriptação está instalado no seu cluster para produzir o ficheiro de encriptação para os valores de segredos:
 

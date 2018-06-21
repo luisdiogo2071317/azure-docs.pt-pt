@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299982"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293210"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Controlar a comunicação de B2B com Log Analytics do Azure
 
@@ -56,39 +56,31 @@ Para controlar as mensagens B2B para a sua aplicação de lógica de análise de
 
    ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Em **gestão**, escolha **Portal do OMS**.
+3. Em **gestão**, escolha **descrição geral**.
 
-   ![Escolha o portal do OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Escolha o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Depois de abrir a home page, escolha **soluções galeria**.    
+4. Depois de abrir a home page, escolha **adicionar** instalar Logic Apps B2B solução.    
+   ![Escolha a Galeria de soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Escolha a Galeria de soluções](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Em **todas as soluções**, localizar e escolha **Logic Apps B2B**.     
-
-   ![Escolha as Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Em **Logic Apps B2B**, escolha **adicionar**.
-
-   ![Escolher adicionar](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Em **soluções de gestão**, localizar e criar **Logic Apps B2B** solução.     
+   ![Escolha as Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    Na página inicial, o mosaico da **Logic Apps B2B mensagens** aparece. 
    Este mosaico atualiza a contagem de mensagens quando as mensagens B2B são processadas.
-
-   ![Home page do mosaico de mensagens de B2B Logic Apps](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Controlar o estado de mensagem e os detalhes no Log Analytics
 
-1. Depois das mensagens B2B são processadas, pode ver o estado e os detalhes para essas mensagens. Na página inicial, escolha o **Logic Apps B2B mensagens** mosaico.
+1. Depois das mensagens B2B são processadas, pode ver o estado e os detalhes para essas mensagens. Na página Descrição geral, escolha o **Logic Apps B2B mensagens** mosaico.
 
-   ![Contagem de mensagens atualizado](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Contagem de mensagens atualizado](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Por predefinição, o **Logic Apps B2B mensagens** mosaico mostra dados com base num único dia. Para alterar o âmbito de dados para um intervalo de diferentes, escolha o controlo de âmbito na parte superior da página:
    > 
-   > ![Alterar o âmbito de dados](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Alterar o âmbito de dados](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. Após a mensagem de dashboard de estado é apresentado, pode ver mais detalhes sobre um tipo de mensagem específico, que mostra os dados com base num único dia. Escolha o mosaico da **AS2**, **X12**, ou **EDIFACT**.

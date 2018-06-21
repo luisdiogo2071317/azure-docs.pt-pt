@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185225"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285972"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para a replicação do Azure
 
@@ -29,7 +29,7 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>O que posso fazer com o VMware para a replicação do Azure?
 - **Recuperação após desastre**: pode configurar a recuperação após desastre completa. Neste cenário, replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, se a sua infraestrutura no local não estiver disponível, pode efetuar a ativação pós-falha para o Azure. Quando efetuar a ativação pós-falha, as VMs do Azure são criadas utilizando os dados replicados. Pode aceder a aplicações e cargas de trabalho em VMs do Azure, até que o seu centro de dados no local está novamente disponível. Em seguida, pode efetuar a reativação a partir do Azure para o site no local.
-- **Migração**: pode utilizar a recuperação de sites para migrar as VMs de VMware no local para o Azure. Neste cenário replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, pode efetua a ativação pós-falha no local para o Azure. Após a ativação pós-falha, a aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
+- **Migração**: pode utilizar a recuperação de sites para migrar as VMs de VMware no local para o Azure. Neste cenário replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, pode efetua a ativação pós-falha no local para o Azure. Após a ativação pós-falha, as suas aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
 
 
 
@@ -41,7 +41,7 @@ Precisa de uma subscrição do Azure, um cofre dos serviços de recuperação, u
 Necessita de uma conta de armazenamento LRS ou GRS. Recomendamos GRS para que os dados sejam resilientes se ocorrer uma falha regional ou se a região primária não pode ser recuperada. Armazenamento Premium é suportado.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>A minha conta do Azure necessita de permissões para criar VMs?
-Se a um administrador de subscrição, tem as permissões de replicação que é necessário. Se não estiver, precisa de permissões para criar uma VM do Azure no grupo de recursos e especificar quando configurar Reocvery de Site de rede virtual e permissões para escrever o accout de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Se a um administrador de subscrição, tem as permissões de replicação que é necessário. Se não estiver, precisa de permissões para criar uma VM do Azure no grupo de recursos e especificar quando configurar a recuperação de sites de rede virtual e permissões para escrever na conta de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

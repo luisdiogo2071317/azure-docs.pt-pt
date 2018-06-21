@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 536118c61fe204351374d2b5b3cbc0514f6cd435
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: e25c8d97698d7a61501094a457174202322d146f
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205659"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297954"
 ---
-# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Início de sessão de utilizadores e todos os o Microsoft Graph API a partir de uma aplicação Android
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Os utilizadores de início de sessão e a Microsoft Graph API de chamada de uma aplicação Android
 
 Este guia demonstra como uma aplicação Android nativa pode obter um token de acesso e chamar outras APIs que necessitam de tokens de acesso do ponto final v2 do Azure Active Directory ou o Microsoft Graph API.
 

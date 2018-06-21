@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 63d22a3213e7a3d8d2f8bf7714eb5bc8f3f0f477
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212643"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integração do Azure Active Directory com Wingspan eTMF
 
@@ -204,7 +204,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. 
 
-Clique no mosaico de eTMF Wingspan no painel de acesso, será redirecionado para início de sessão de organização na página. Após o início de sessão com êxito, poderá irá ser com sessão iniciada para a aplicação de eTMF Wingspan. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586).
+Clique no mosaico de eTMF Wingspan no painel de acesso, será redirecionado para início de sessão de organização na página. Após o início de sessão com êxito, poderá irá ser com sessão iniciada para a aplicação de eTMF Wingspan. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

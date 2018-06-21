@@ -1,20 +1,18 @@
 ---
 title: " Gerir servidores VMware vcenter Server no Azure Site Recovery | Microsoft Docs"
 description: Este artigo descreve como adicionar e gerir o VMware vCenter no Azure Site Recovery.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
-ms.openlocfilehash: be415340da09043eccd361b0168bb304d8904bef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48b6cf9b90b429520df435aee00f57ea7b588748
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852307"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285003"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>Gerir servidores VMware vcenter Server 
 
@@ -72,7 +70,7 @@ Modificar as credenciais utilizadas para ligar ao servidor vCenter ou anfitrião
 2. No **detalhes** página, selecione o servidor vCenter.
 3. Clique em de **eliminar** botão.
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+  ![eliminar conta](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
 Se necessitar de modificar o endereço IP do vCenter, o FQDN ou a porta, terá de eliminar o servidor vCenter e adicione-a novamente para o portal.

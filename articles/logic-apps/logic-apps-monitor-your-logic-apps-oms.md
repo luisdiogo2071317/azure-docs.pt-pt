@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299948"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294579"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorizar e obter informações sobre a execução de aplicação lógica com a análise de registos
 
 Para informações de depuração e Rica de monitorização, pode ativar análise de registos ao mesmo tempo, quando criar uma aplicação lógica. Análise de registos fornece diagnóstico de registo e monitorização para a sua aplicação lógica é executada através do portal do Azure. Quando adiciona a solução de gestão de aplicações lógicas, obter o estado agregado da sua execuções de aplicação de lógica e os detalhes específicos, como o estado, o tempo de execução, o estado de resubmission e o ID de correlação.
 
-Este tópico mostra como ativar análise de registos para pode ver eventos de tempo de execução e execute de dados para a sua aplicação lógica.
+Este artigo mostra como ativar análise de registos para pode ver eventos de tempo de execução e execute de dados para a sua aplicação lógica.
 
  > [!TIP]
  > Para monitorizar as logic apps existentes, siga estes passos para [ativar o registo de diagnóstico e enviar dados de tempo de execução da aplicação de lógica ao Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -67,17 +67,17 @@ Se já ativou análise de registos quando criou a sua aplicação lógica, ignor
 
    ![Selecione a sua área de trabalho de análise de registos](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Em **gestão**, escolha **Portal do OMS**.
+3. Em **gestão**, escolha **descrição geral**.
 
-   ![Escolha "Portal do OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Escolha "Portal do OMS"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. Em **todas as soluções**, localizar e escolha o mosaico relativo a **de gestão de aplicações lógicas** solução.
+4. Na página Descrição geral, escolha **adicionar** para abrir o mosaico soluções de gestão. 
 
-   ![Escolha "Lógica de gestão de aplicações"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Escolha "Lógica de gestão de aplicações"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Para instalar a solução na sua área de trabalho de análise de registos, escolha **adicionar**.
+5. Desloque-se através da lista de **soluções de gestão**, escolha **de gestão de aplicações lógicas** solução e escolha **criar** instalá-la para a página de descrição geral.
 
-   ![Escolha "Adicionar" para "Gestão de aplicações lógicas"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Escolha "Adicionar" para "Gestão de aplicações lógicas"](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

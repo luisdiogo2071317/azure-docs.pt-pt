@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735463"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294000"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure
 
@@ -80,7 +80,7 @@ Depois de pontos finais do serviço de rede Virtual do Azure estão ativados par
 
 Se a conta de base de dados do Azure Cosmos é utilizada por outros serviços do Azure, como pesquisa do Azure ou acedida a partir do Stream analytics ou o Power BI, permitir o acesso ao verificar **permitir o acesso aos serviços do Azure**.
 
-Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métricas do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, consulte [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações a partir de serviços do Azure PaaS](firewall-support.md#connections-from-other-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
+Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métricas do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, consulte [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações a partir de serviços do Azure PaaS](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Remover uma rede virtual ou a sub-rede 
 

@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294882"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294965"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Migrar para a API de AI do lote atualizado
 
-Na futura API de REST do Batch AI versão 2018-05-01 e relacionados Batch AI SDKs e ferramentas, estão a ser introduzidas alterações significativas e novas funcionalidades.
+Na API de REST do Batch AI versão 2018-05-01 e relacionados SDKs de AI do Batch e das ferramentas, as alterações significativas e novas funcionalidades foram introduzidas.
 
-Se utilizou uma versão anterior da API de AI do Batch, este artigo explica como modificar o código e a funcionar com a nova API de scripts. Efetue estas alterações apenas depois da nova API está disponível.
+Se utilizou uma versão anterior da API de AI do Batch, este artigo explica como modificar o código e a funcionar com a nova API de scripts. 
 
 ## <a name="whats-changing"></a>O que está a mudar?
 
@@ -181,6 +181,6 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte a referência da API do Batch AI: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai)e [REST](/rest/api/batchai)

@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 885ee10bc63b65d936f5b433a18c4435b2503720
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313448"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295215"
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Como localizar as imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
 Este artigo descreve como utilizar o Azure PowerShell para localizar as imagens VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace, quando criar uma VM através de programação com o PowerShell, modelos do Resource Manager ou outras ferramentas.
+
+Procurar também imagens disponíveis e as ofertas utilizando o [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, o [portal do Azure](https://portal.azure.com), ou o [CLI do Azure](../linux/cli-ps-findimage.md). 
 
 Certifique-se de que é instalado e configurado a versão mais recente [módulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 

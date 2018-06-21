@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737814"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294095"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -91,7 +91,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 
 * <a id="afs-region-availability"></a>
 **As regiões são suportadas para a sincronização de ficheiros do Azure (pré-visualização)?**  
-    Atualmente, a sincronização de ficheiros do Azure está disponível no Leste da Austrália, Canadá Central, EUA leste, Sudeste asiático, RU Sul, Europa Ocidental e EUA oeste. Suporte para obter mais regiões será adicionado à medida que trabalha na direção de disponibilidade geral. Para obter mais informações, consulte [disponibilidade de região](storage-sync-files-planning.md#region-availability).
+    Atualmente, a sincronização de ficheiros do Azure está disponível no Leste da Austrália, Sudeste da Austrália, Canadá Central, Canadá leste, EUA Central, Ásia Oriental, EUA leste, US2 leste, Europa do Norte, Sudeste asiático, RU Sul, RU oeste, Europa Ocidental e EUA oeste. Suporte para obter mais regiões será adicionado à medida que trabalha na direção de disponibilidade geral. Para obter mais informações, consulte [disponibilidade de região](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Pode ter servidores associados a um domínio e não associados a domínios no mesmo grupo de sincronização?**  

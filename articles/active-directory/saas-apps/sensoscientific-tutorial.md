@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bb0952fe5b78b0a9933cf7e9f20787150bdbcc3b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231513"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
     
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. Clique no mosaico do sistema de monitorização do SensoScientific sem fios temperatura no painel de acesso, irão ser automaticamente com sessão iniciada para a aplicação de sistema de monitorização do SensoScientific sem fios temperatura. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586).
+Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. Clique no mosaico do sistema de monitorização do SensoScientific sem fios temperatura no painel de acesso, irão ser automaticamente com sessão iniciada para a aplicação de sistema de monitorização do SensoScientific sem fios temperatura. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

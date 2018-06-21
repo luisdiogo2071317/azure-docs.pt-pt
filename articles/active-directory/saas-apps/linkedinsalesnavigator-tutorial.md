@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dc5a1e21dacff74394c2ce05ebb8013306bbc13c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2bc4f42b0a22ce804db9290728944575888f9c72
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211242"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory com LinkedIn navegador de vendas
 
@@ -261,7 +261,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Quando clica no mosaico do navegador de vendas LinkedIn no painel de acesso, deve ser redirecionado para a página organizacional onde tem de fornecer detalhes da sua conta LinkedIn pessoais. -Liga a sua conta pessoal com a sua conta de negócio LinkedIn. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586). 
+Quando clica no mosaico do navegador de vendas LinkedIn no painel de acesso, deve ser redirecionado para a página organizacional onde tem de fornecer detalhes da sua conta LinkedIn pessoais. -Liga a sua conta pessoal com a sua conta de negócio LinkedIn. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

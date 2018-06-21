@@ -10,29 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292564"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Repor o licenciamento requisitos de palavra-passe self-service do Azure AD
 
-Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização*. Iremos não impõem licenciamento a experiência de reposição de palavra-passe por utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
+Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização* para esse utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
 
 * **Os utilizadores apenas na nuvem**: do Office 365 qualquer paga SKU ou do Azure AD Basic
 * **Nuvem** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + de segurança (EMS) ou Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licenças necessárias para a repetição de escrita de palavras-passe
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavras-passe
+
+**Self-Service palavra-passe reposição/alterar/desbloqueio com repetição de escrita no local é uma funcionalidade de premium do Azure AD**. Para obter mais informações sobre o licenciamento, consulte o [Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Para utilizar a repetição de escrita de palavras-passe, tem de ter uma das seguintes licenças atribuídas no seu inquilino:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + E3 de segurança ou A3
+* Enterprise Mobility + E5 de segurança ou A5
+* Microsoft 365 E3 ou A3
+* Microsoft 365 E5 ou A5
 * Microsoft 365 F1
 
 > [!WARNING]

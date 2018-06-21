@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809265"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294114"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação adequado para a sua solução de identidade híbrida do Azure Active Directory 
 
@@ -41,6 +41,8 @@ As organizações que não tenham um requisitos de espaço de diretório no loca
 Quando a solução de identidade híbrida do Azure AD é o novo plane de controlo, a autenticação é a base de acesso à nuvem. Escolher o método de autenticação correto é uma primeira decisão fundamental na configuração de uma solução de identidade híbrida do Azure AD. Implemente o método de autenticação que é configurado através do Azure AD Connect, o que também Aprovisiona utilizadores na nuvem.
 
 Para escolher um método de autenticação, tem de considerar o tempo, a infraestrutura existente, a complexidade e o custo de implementação à sua escolha. Estes fatores são diferentes para cada organização e podem ser alterados ao longo do tempo. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 AD do Azure suporta os seguintes métodos de autenticação de soluções de identidade híbrida.
 

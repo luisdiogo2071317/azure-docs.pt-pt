@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 14ed3ef57da28b6929115cf3e5746653d199b140
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263753"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294909"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar os dados na base de dados do Azure para MySQL
 
-Dados na funcionalidade de replicação permite-lhe sincronizar os dados de um servidor de MySQL em execução no local, em máquinas virtuais ou serviços de base de dados alojados por outros fornecedores de nuvem para a base de dados do Azure para o serviço de MySQL. Replicação de dados baseia-se a replicação de posição com base de ficheiro de registo binário (binlog) nativa para MySQL. Para saber mais sobre a replicação de binlog, consulte o [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Replicação de dados permite-lhe sincronizar os dados de um servidor de MySQL em execução no local, em máquinas virtuais ou serviços de base de dados alojados por outros fornecedores de nuvem para a base de dados do Azure para o serviço de MySQL. Replicação de dados baseia-se o registo binário (binlog) ficheiro posição replicação baseada em MySQL nativa. Para saber mais sobre a replicação de binlog, consulte o [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Quando utilizar a replicação de dados
 Os cenários principais a considerar utilizando a replicação de dados são:

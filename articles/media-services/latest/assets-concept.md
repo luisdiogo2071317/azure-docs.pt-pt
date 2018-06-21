@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268242"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284843"
 ---
 # <a name="assets"></a>Elementos
 
@@ -37,7 +37,7 @@ A tabela seguinte apresenta as propriedades do elemento e fornece as respetivas 
 |Nome|Tipo|Descrição|
 |---|---|---|
 |Id|cadeia|ID de recurso completamente qualificado para o recurso.|
-|name|cadeia|O nome do recurso.|
+|nome|cadeia|O nome do recurso.|
 |properties.alternateId |cadeia|O ID alternativo do elemento.|
 |properties.assetId |cadeia|O ID de recurso.|
 |Properties.Container |cadeia|O nome do contentor do blob de recurso.|
@@ -107,7 +107,7 @@ while (currentPage.NextPageLink != null)
 Para obter exemplos REST, consulte [ativos - lista](https://docs.microsoft.com/rest/api/media/assets/list)
 
 
-### <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
+## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
 Para proteger os seus recursos inativos, os ativos devem ser encriptados pela encriptação do lado do armazenamento. A tabela seguinte mostra como a encriptação do lado do armazenamento funciona nos Media Services:
 

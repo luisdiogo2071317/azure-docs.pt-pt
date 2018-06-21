@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265756"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294426"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados do Azure para replicação de dados MySQL
 
-Neste artigo, ficará a saber como configurar a replicação de dados na base de dados do Azure para o serviço de MySQL por configurar principal e servidores de réplica.
+Neste artigo, irá aprender a configurar a replicação de dados na base de dados do Azure para o serviço de MySQL ao configurar os servidores primário e réplica. Replicação de dados permite-lhe sincronizar os dados de um servidor principal do MySQL, em execução no local, em máquinas virtuais ou serviços de base de dados alojados por outros fornecedores de nuvem para uma réplica na base de dados do Azure para o serviço de MySQL. 
 
 Este artigo pressupõe que tem, pelo menos, de alguma experiência anterior com servidores MySQL e bases de dados.
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que tem, pelo menos, de alguma experiência anterior com 
    Criar um novo servidor de MySQL (ex. "replica.mysql.database.azure.com"). Consulte [criar uma base de dados do Azure para o servidor de MySQL, utilizando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md) para a criação do servidor. Este servidor é o servidor de "réplica" na replicação de dados.
 
    > [!IMPORTANT]
-   > Este servidor tem de ser criado nos escalões de preços de finalidade geral ou de otimização de memória.
+   > A base de dados do Azure para o servidor de MySQL têm de ser criado os escalões de preços de finalidade geral ou de otimização de memória.
    > 
 
 2. Criar contas de utilizador mesmo e privilégios correspondentes
@@ -37,6 +37,7 @@ Este artigo pressupõe que tem, pelo menos, de alguma experiência anterior com 
    Contas de utilizador não são replicadas a partir do servidor primário para o servidor de réplica. Se pretender fornecer aos utilizadores acesso ao servidor de réplica, terá de criar manualmente todas as contas e privilégios correspondentes neste criado recentemente a base de dados do Azure para o servidor de MySQL.
 
 ## <a name="configure-the-primary-server"></a>Configurar o servidor primário
+Os seguintes passos preparam e configurem o MySQL server alojado no local, uma máquina virtual ou o serviço de base de dados alojado por outros fornecedores de nuvem para replicação de dados. Este servidor encontra-se a "primário" na replicação de dados. 
 
 1. Ativar o registo binário
 
@@ -226,3 +227,6 @@ Para ignorar a um erro de replicação e permitir que a replicação continuar, 
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
+- Saiba mais sobre [replicação de dados](concepts-data-in-replication.md) para a base de dados do Azure para MySQL. 

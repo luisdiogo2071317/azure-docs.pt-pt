@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738340"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296177"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -145,6 +145,9 @@ Para a sincronização de ficheiros do Azure e DFS-R para lado a lado de trabalh
 
 Para obter mais informações, consulte [descrição geral da replicação de DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Procura do Windows
+Se nuvem camadas está ativado no ponto de final do servidor, os ficheiros que são estão cansados são ignorados e não indexados por procura do Windows. Os ficheiros em camadas não são indexados corretamente.
+
 ### <a name="antivirus-solutions"></a>Soluções de antivírus
 Porque antivírus funciona através da análise de ficheiros de código malicioso conhecido, um produto antivírus pode causar a devolução de chamada de ficheiros em camadas. Porque os ficheiros em camadas tem o atributo "offline" definido, recomendamos a consultar o fornecedor de software para aprender a configurar a solução para ignorar a leitura de ficheiros offline. 
 
@@ -158,6 +161,11 @@ As seguintes soluções são conhecidas para suportar a ignorar os ficheiros off
 
 ### <a name="backup-solutions"></a>Soluções de cópia de segurança
 Como soluções de antivírus, soluções de cópia de segurança poderão causar a devolução de chamada de ficheiros em camadas. Recomendamos que utilize uma solução de cópia de segurança da nuvem para criar cópias de segurança da partilha de ficheiros do Azure em vez de um produto de cópia de segurança no local.
+
+Se estiver a utilizar uma solução de cópia de segurança no local, as cópias de segurança devem ser efetuadas num servidor no grupo de sincronização que tem na nuvem em camadas desativado. Ao restaurar os ficheiros na localização de ponto final de servidor, utilize a opção de restauro ao nível do ficheiro. Ficheiros restaurados serão sincronizados para todos os pontos finais no grupo de sincronização e ficheiros existentes serão substituídos com a versão restaurada a partir de cópia de segurança.
+
+> [!Note]  
+> Suporte para aplicações, ao nível de volume bare-metal (BMR) restauro as opções e podem causar resultados inesperados e não são atualmente suportadas. Estas opções serão suportadas numa futura versão de restauro.
 
 ### <a name="encryption-solutions"></a>Soluções de encriptação
 Suporte para soluções de encriptação depende da forma como são implementados. Sincronização de ficheiros do Azure é conhecida para trabalhar com:
@@ -180,6 +188,7 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 | Região | Localização do Centro de dados |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
+| Sudeste da Austrália | Victoria |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
 | EUA Central | Iowa |
@@ -189,6 +198,7 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 | Europa do Norte | Irlanda |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
+| Reino Unido Oeste | Cardiff |
 | Europa Ocidental | Países Baixos |
 | EUA Oeste | Califórnia |
 

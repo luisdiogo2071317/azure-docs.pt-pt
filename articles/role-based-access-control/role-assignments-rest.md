@@ -1,6 +1,6 @@
 ---
-title: Controlo de acesso baseado em funções com REST - do Azure AD | Microsoft Docs
-description: Gerir o controlo de acesso baseado em funções com a API REST
+title: Gerir o acesso através do RBAC e a API de REST - Azure | Microsoft Docs
+description: Saiba como gerir o acesso de utilizadores, grupos e aplicações, utilizando o controlo de acesso baseado em funções (RBAC) e a API REST. Isto inclui a listagem acesso, conceder acesso e remoção de acesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267480"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294467"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerir o controlo de acesso baseado em funções com a API REST
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [CLI do Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gerir o acesso através do RBAC e a API REST
 
-Com baseada em funções controlo de acesso (RBAC), é possível definir acesso para utilizadores, grupos e principais de serviço através da atribuição de funções num determinado âmbito. Este artigo descreve como gerir o acesso através da API REST.
+[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Este artigo descreve como gerir o acesso de utilizadores, grupos e aplicações através do RBAC e a API REST.
 
 ## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
 Apresenta uma lista de todas as atribuições de função no âmbito especificado e subscopes.
 
-Para listar atribuições de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/read` operação no âmbito. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para listar atribuições de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/read` operação no âmbito. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **obter** método com o URI seguinte:
@@ -83,7 +79,7 @@ Código de estado: 200
 ## <a name="get-information-about-a-role-assignment"></a>Obter informações sobre uma atribuição de função
 Obtém informações sobre uma atribuição de função única especificada pelo identificador de atribuição de função.
 
-Para obter informações sobre uma atribuição de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/read` operação. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para obter informações sobre uma atribuição de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/read` operação. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **obter** método com o URI seguinte:
@@ -124,7 +120,7 @@ Código de estado: 200
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 Crie uma atribuição de função no âmbito especificado para o principal especificado conceder a função especificada.
 
-Para criar uma atribuição de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/write` operação. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para criar uma atribuição de função, tem de ter acesso a `Microsoft.Authorization/roleAssignments/write` operação. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **colocar** método com o URI seguinte:
@@ -182,7 +178,7 @@ Código de estado: 201
 ## <a name="delete-a-role-assignment"></a>Elimina uma atribuição de função
 Elimina uma atribuição de função no âmbito especificado.
 
-Para eliminar uma atribuição de função, tem de ter acesso para o `Microsoft.Authorization/roleAssignments/delete` operação. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para eliminar uma atribuição de função, tem de ter acesso para o `Microsoft.Authorization/roleAssignments/delete` operação. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **eliminar** método com o URI seguinte:
@@ -223,7 +219,7 @@ Código de estado: 200
 ## <a name="list-all-roles"></a>Lista todas as funções
 Apresenta uma lista de todas as funções que estão disponíveis para atribuição no âmbito especificado.
 
-Para funções de lista, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/read` operação no âmbito. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para funções de lista, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/read` operação no âmbito. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **obter** método com o URI seguinte:
@@ -306,7 +302,7 @@ Código de estado: 200
 ## <a name="get-information-about-a-role"></a>Obter informações sobre uma função
 Obtém informações sobre uma única função especificada pelo identificador de definição de função. Para obter informações sobre uma única função utilizando o respetivo nome a apresentar, consulte o artigo [lista todas as funções](role-assignments-rest.md#list-all-roles).
 
-Para obter informações sobre uma função, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/read` operação. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para obter informações sobre uma função, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/read` operação. Todas as funções incorporadas são concedidas acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **obter** método com o URI seguinte:
@@ -386,7 +382,7 @@ Código de estado: 200
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 Crie uma função personalizada.
 
-Para criar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/write` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para criar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/write` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **colocar** método com o URI seguinte:
@@ -438,7 +434,7 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia |Identificador GUID da função personalizada. |
+| nome |Sim |Cadeia |Identificador GUID da função personalizada. |
 | properties.roleName |Sim |Cadeia |Nome a apresentar da função personalizada. Caracteres de tamanho máximo de 128. |
 | Properties.Description |Não |Cadeia |Descrição da função personalizada. Caracteres de tamanho máximo 1024. |
 | Properties.Type |Sim |Cadeia |Definido como "CustomRole." |
@@ -489,7 +485,7 @@ Código de estado: 201
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 Modificar uma função personalizada.
 
-Para modificar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/write` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para modificar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/write` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **colocar** método com o URI seguinte:
@@ -541,7 +537,7 @@ Para o corpo do pedido, forneça os valores no seguinte formato:
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| name |Sim |Cadeia |Identificador GUID da função personalizada. |
+| nome |Sim |Cadeia |Identificador GUID da função personalizada. |
 | properties.roleName |Sim |Cadeia |Nome a apresentar da função personalizada atualizada. |
 | Properties.Description |Não |Cadeia |Descrição da função personalizada atualizada. |
 | Properties.Type |Sim |Cadeia |Definido como "CustomRole." |
@@ -592,7 +588,7 @@ Código de estado: 201
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 Elimine uma função personalizada.
 
-Para eliminar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/delete` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso em funções do Azure](role-assignments-portal.md).
+Para eliminar uma função personalizada, tem de ter acesso a `Microsoft.Authorization/roleDefinitions/delete` operação em todos os o `AssignableScopes`. Das funções incorporadas, apenas *proprietário* e *administrador de acesso de utilizador* é concedido o acesso a esta operação. Para obter mais informações sobre atribuições de funções e gestão de acesso para recursos do Azure, consulte [controlo de acesso baseado em funções do Azure](role-assignments-portal.md).
 
 ### <a name="request"></a>Pedir
 Utilize o **eliminar** método com o URI seguinte:

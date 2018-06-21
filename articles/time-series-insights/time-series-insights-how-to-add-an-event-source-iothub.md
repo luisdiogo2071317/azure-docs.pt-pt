@@ -3,19 +3,19 @@ title: Como adicionar uma origem de evento do IoT Hub às informações de séri
 description: Este artigo descreve como adicionar uma origem de evento que está ligada a um IoT Hub para o seu ambiente de informações de séries de tempo
 ms.service: time-series-insights
 services: time-series-insights
-author: sandshadow
+author: ashannon7
 ms.author: edett
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b970d01c586e016d47b0f0480d73f06211969814
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652530"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294885"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem de evento do IoT Hub para o ambiente de informações de séries de tempo
 Este artigo descreve como utilizar o portal do Azure para adicionar uma origem de evento que lê dados a partir de um IoT Hub para o seu ambiente de informações de séries de tempo.

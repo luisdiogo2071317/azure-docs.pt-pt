@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658677"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295674"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -39,7 +39,7 @@ A conta iniciar sessão ou ligar para o Azure com deve ser atribuída ao [contri
 
 ## <a name="work-with-network-security-groups"></a>Trabalhar com grupos de segurança de rede
 
-Pode criar, [ver todos os](#view-all-network-security-groups), [ver os detalhes das](#view-details-of-a-network-security-group), [alterar](#change-a-network-security-group), e [eliminar](#delete-a-network-security-group) um grupo de segurança de rede. Também pode [associar ou desassociar](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) um grupo de segurança de rede de uma interface de rede ou de sub-rede.
+Pode criar, [ver todos os](#view-all-network-security-groups), [ver os detalhes das](#view-details-of-a-network-security-group), [alterar](#change-a-network-security-group), e [eliminar](#delete-a-network-security-group) um grupo de segurança de rede. Também pode [associar ou desassociar](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) um grupo de segurança de rede de uma interface de rede ou de sub-rede.
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -121,9 +121,9 @@ Não há um limite para quantas regras por grupo de segurança de rede podem cri
     
     |Definição  |Valor  |Detalhes  |
     |---------|---------|---------|
-    |Origem     | Selecione **qualquer**, **endereços IP**, ou **Service Tag**.        | Se selecionar **endereços IP**, em seguida, tem de especificar **intervalos de endereços/CIDR de IP de origem**. Pode especificar um valor único ou uma lista de valores separados por vírgulas de vários valores. Um exemplo de vários valores é 10.0.0.0/16, 192.188.1.1. Existem limites para o número de valores que pode especificar. Consulte [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter mais detalhes. Se selecionar **etiquetas de serviço**, em seguida, tem de selecionar uma tag de serviço. Uma tag de serviço é um identificador predefinido para uma categoria de endereços IP. Para obter mais informações sobre etiquetas de serviço disponível e que cada etiqueta representa, consulte [etiquetas de serviço](security-overview.md#service-tags)        |
+    |Origem     | Selecione **qualquer**, **endereços IP**, ou **Service Tag**.        | Se selecionar **endereços IP**, em seguida, tem de especificar **intervalos de endereços/CIDR de IP de origem**. Pode especificar um valor único ou uma lista de valores separados por vírgulas de vários valores. Um exemplo de vários valores é 10.0.0.0/16, 192.188.1.1. Existem limites para o número de valores que pode especificar. Consulte [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter mais detalhes. Se selecionar **etiquetas de serviço**, em seguida, tem de selecionar uma tag de serviço. Uma tag de serviço é um identificador predefinido para uma categoria de endereços IP. Para obter mais informações sobre etiquetas de serviço disponível e que cada etiqueta representa, consulte [etiquetas de serviço](security-overview.md#service-tags). Se o endereço IP que especificou é atribuído a uma máquina virtual do Azure, certifique-se de que especifica o endereço IP privado, não o endereço IP público, se estiver atribuído um endereço IP público para a máquina virtual. As regras de segurança são processadas depois Azure traduz o endereço IP público para um endereço IP privado para regras de segurança de entrada e antes de Azure traduz um endereço IP privado para um endereço IP público para regras de saída. Para obter mais informações sobre endereços IP públicos e privados no Azure, consulte o artigo [tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalo de portas de origem     | Especifique uma porta única, como 80, um intervalo de portas, por exemplo 1024-65535 ou uma lista separada por vírgulas de portas único e/ou intervalos de portas, tais como 80, 1024-65535. Introduza um asterisco para permitir tráfego em qualquer porta. | As portas e intervalos de especificam o tráfego de portas é permitido ou negado pela regra. Existem limites para o número de portas, que pode especificar. Consulte [Azure limita](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter mais detalhes.  |
-    |Destino     | Selecione **qualquer**, **endereços IP**, ou **rede Virtual**.        | Se selecionar **endereços IP**, em seguida, tem de especificar **intervalos de endereços/CIDR de destino IP**. Semelhante ao **origem** e **intervalos de endereços/CIDR de IP de origem**, pode especificar um único ou vários endereços ou intervalos e existem limites para o número especificar. Selecionar **rede Virtual**, que é uma etiqueta de serviço, significa que o tráfego é permitida para todos os endereços IP num espaço de endereços da rede virtual.        |
+    |Destino     | Selecione **qualquer**, **endereços IP**, ou **rede Virtual**.        | Se selecionar **endereços IP**, em seguida, tem de especificar **intervalos de endereços/CIDR de destino IP**. Semelhante ao **origem** e **intervalos de endereços/CIDR de IP de origem**, pode especificar um único ou vários endereços ou intervalos e existem limites para o número especificar. Selecionar **rede Virtual**, que é uma etiqueta de serviço, significa que o tráfego é permitida para todos os endereços IP num espaço de endereços da rede virtual. Se o endereço IP que especificou é atribuído a uma máquina virtual do Azure, certifique-se de que especifica o endereço IP privado, não o endereço IP público, se estiver atribuído um endereço IP público para a máquina virtual. As regras de segurança são processadas depois Azure traduz o endereço IP público para um endereço IP privado para regras de segurança de entrada e antes de Azure traduz um endereço IP privado para um endereço IP público para regras de saída. Para obter mais informações sobre endereços IP públicos e privados no Azure, consulte o artigo [tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de portas de destino     | Especifique um valor único ou a lista de valores separados por vírgulas. | Semelhante ao **intervalos de portas de origem**, pode especificar uma única ou várias portas e intervalos e existem limites para o número especificar. |
     |Protocolo     | Selecione **qualquer**, **TCP**, ou **UDP**.        |         |
     |Ação     | Selecione **permitir** ou **negar**.        |         |

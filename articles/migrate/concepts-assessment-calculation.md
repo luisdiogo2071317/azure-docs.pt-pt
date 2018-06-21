@@ -4,14 +4,14 @@ description: Fornece uma descrição geral de cálculos de avaliação no servi�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: ec8e026fc9bab192f6944e590fa703dbbd5772c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221364"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287893"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -109,7 +109,7 @@ Se for o critério de dimensionamento *tal como no local dimensionamento*, não 
 
 Cada avaliação no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
 
-A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como ' dimensionamento com base no desempenho. Para dimensionamento, com base no desempenho do Azure migrar precisa dos dados de utilização para a CPU, memória da VM. Além disso, para cada disco ligado à VM, é o disco de IOPS e dados de débito. Da mesma forma para cada adaptador de rede ligado a uma VM, migrar do Azure necessita de rede/out fazer com base no desempenho dimensionamento. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
+A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como dimensionamento com base em desempenho. Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---
@@ -132,7 +132,7 @@ Uma avaliação pode não ter todos os pontos de dados disponíveis por um dos s
 
 Depois de concluídas as recomendações de dimensionamento, o Azure migrar calcula os custos de armazenamento e computação de pós-migração.
 
-- **Custos de computação**: utilizar o tamanho recomendado da VM do Azure, Azure migrar utiliza a API de faturação para calcular o custo mensal para a VM. O cálculo demora o sistema operativo, software assurance da, localização e as definições de moeda na conta. Agrega o custo em todas as máquinas, para calcular o custo mensal total de computação.
+- **Custos de computação**: utilizar o tamanho recomendado da VM do Azure, Azure migrar utiliza a API de faturação para calcular o custo mensal para a VM. O cálculo demora o sistema operativo, garantia de software, instâncias reservadas, VM tempo de atividade, localização e as definições de moeda na conta. Agrega o custo em todas as máquinas, para calcular o custo mensal total de computação.
 - **Custo de armazenamento**: O armazenamento mensal de custos para uma máquina é calculada ao agregar o custo mensal de todos os discos ligados à máquina. Migrar do Azure calcula os custos de armazenamento mensal total por agregar os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não demorar ofertas especificadas nas definições de avaliação na conta.
 
 Os custos são apresentados na moeda especificada nas definições de avaliação.

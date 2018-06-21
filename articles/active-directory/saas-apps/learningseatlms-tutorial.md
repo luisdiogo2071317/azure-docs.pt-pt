@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: aee99add093a6da14a4d146ed29e48604eabfb1f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229076"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Azure Active Directory com LMS de postos de trabalho de aprendizagem
 
@@ -207,7 +207,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. 
 
-Clique no mosaico de aprendizagem posto de trabalho LMS no painel de acesso, irão ser automaticamente com sessão iniciada para a aplicação de aprendizagem LMS de postos de trabalho. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586).
+Clique no mosaico de aprendizagem posto de trabalho LMS no painel de acesso, irão ser automaticamente com sessão iniciada para a aplicação de aprendizagem LMS de postos de trabalho. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

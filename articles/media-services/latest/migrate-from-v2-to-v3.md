@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655632"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295688"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Migrar a partir de serviços de multimédia v2 v3
 
@@ -50,6 +50,10 @@ Este artigo descreve as alterações que foram introduzidas no Serviços de supo
 
 ## <a name="changes-from-v2"></a>Alterações de v2
 
+* Nos Media Services v3, encriptação de armazenamento (encriptação AES 256) só é suportada para em efeitos de compatibilidade quando os elementos criados com os Media Services v2. Significado v3 funciona com o armazenamento existente encriptados ativos, mas não permitirá a criação de novos.
+
+    Para elementos criados com v3, os Media Services suportam a [Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) encriptação de armazenamento do lado do servidor.
+    
 * SDKs de serviços de suporte de dados desassociada do SDK de armazenamento que lhe dá mais controlo sobre o SDK de armazenamento utilizado e evita a problemas de controlo de versões. 
 * V3, todas as taxas de bits codificação estão no bits por segundo. Isto é diferente de v2 as restantes predefinições codificador de multimédia Standard. Por exemplo, velocidade de transmissão na v2 teria de ser especificada como 128, mas v3 seria possível 128000. 
 * IngestManifests AssetFiles, AccessPolicies, não existem na v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Criar política de chave de conteúdo
 2. Criar recurso
 3. Carregar conteúdo ou utilizar recursos como JobOutput
-4. Criar localizador
+4. Criar StreamingLocator
 
 ## <a name="next-steps"></a>Passos Seguintes
 

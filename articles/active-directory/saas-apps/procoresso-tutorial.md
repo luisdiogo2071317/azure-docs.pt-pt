@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: e96a34cf0e9fe4f4b0a35790089bda17ced5d818
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231251"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
 
@@ -254,7 +254,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Se pretender testar as definições de início de sessão único, abra o painel de acesso. Para obter mais detalhes sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586). Quando clica no mosaico Procore SSO no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Procore SSO.
+Se pretender testar as definições de início de sessão único, abra o painel de acesso. Para obter mais detalhes sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). Quando clica no mosaico Procore SSO no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Procore SSO.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

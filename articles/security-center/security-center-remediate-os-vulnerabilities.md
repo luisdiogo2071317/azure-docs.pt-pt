@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103936"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285921"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
 Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e para uma configuração que possam tornar as VMs e os computadores mais vulnerável a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não corresponde às regras de configuração de segurança recomendados e recomenda alterações de configuração para resolver estas vulnerabilidades.
@@ -51,7 +51,7 @@ Este exemplo aborda a recomendação "Remediar configurações de segurança" em
 
   - **CCEID**: Identificador exclusivo de CCE o para a regra. Centro de segurança utiliza comuns configuração enumeração CCE () para atribuir os identificadores exclusivos para as regras de configuração.
   - **Nome**: O nome da regra falhou.
-  - **Tipo de regra**: O *chave de registo*, *política de segurança*, ou *a política de auditoria* tipo de regra.
+  - **Tipo de regra**: O *chave de registo*, *política de segurança*, *a política de auditoria*, ou *IIS* tipo de regra.
   - **Não. VMs & computadores**: O número total de VMs e os computadores que se aplica a regra de falha.
   - **Regra de gravidade**: valor de CCE o *crítico*, *importante*, ou *aviso*.
   - **Estado**: O estado atual da Recomendação:
@@ -100,10 +100,10 @@ Para rever as configurações específicas que estão a ser monitorizadas, consu
 
 Para saber mais acerca do Centro de segurança, consulte os seguintes recursos:
 
-* Para obter uma lista de VMs com Linux e Windows suportados, consulte [plataformas suportadas no Centro de segurança do Azure](security-center-os-coverage.md). 
-* Para saber como configurar políticas de segurança para as suas subscrições do Azure e os grupos de recursos, consulte o artigo [definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md). 
-* Para saber como recomendações ajudam a proteger os seus recursos do Azure, consulte [gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md). 
-* Para saber como monitorizar o estado de funcionamento dos seus recursos do Azure, consulte [monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md). 
+* Para obter uma lista de VMs com Linux e Windows suportados, consulte [plataformas suportadas no Centro de segurança do Azure](security-center-os-coverage.md).
+* Para saber como configurar políticas de segurança para as suas subscrições do Azure e os grupos de recursos, consulte o artigo [definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md).
+* Para saber como recomendações ajudam a proteger os seus recursos do Azure, consulte [gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
+* Para saber como monitorizar o estado de funcionamento dos seus recursos do Azure, consulte [monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md).
 * Para saber como gerir e responder a alertas de segurança, consulte [gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md).
 * Para saber como monitorizar o estado de funcionamento das suas soluções de parceiros, consulte [monitorizar soluções de parceiros com o Centro de segurança do Azure](security-center-partner-solutions.md).
 * Para obter respostas a perguntas mais frequentes sobre como utilizar o serviço de mensagens em fila, consulte [FAQ do Centro de segurança do Azure](security-center-faq.md).

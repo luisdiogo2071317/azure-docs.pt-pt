@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bcc691e00b373028acaf0936af8336a76306aec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232439"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294061"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
 
@@ -259,7 +259,7 @@ Encriptação do lado do cliente de dados de SQL Database do Azure é suportada 
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Lado do servidor utilizando a chave de serviço gerido**     | **Lado do servidor utilizando gerida pelo cliente no Cofre de chaves**             |  **Lado do servidor com gerida pelo cliente no local**                  | **Cliente utilizando o cliente gerido**      |
 | **Armazenamento e bases de dados**        |                    |                    |                    |                    |                    |
-| Disco (IaaS)                      | -                  | Sim, RSA 2048 bits  | Sim*               | -                  |
+| Disco (IaaS)                      | -                  | Sim, RSA 2048 bits  | Sim               | -                  |
 | SQL Server (IaaS)                | Sim                | Sim, RSA 2048 bits  | Sim                | Sim                |
 | Base de dados SQL do Azure (PaaS)        | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |
 | Armazenamento do Azure (Blobs de blocos/páginas) | Sim                | Sim, RSA 2048 bits  | -                  | Sim                |

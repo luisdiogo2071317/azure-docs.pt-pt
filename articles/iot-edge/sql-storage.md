@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632405"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287212"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -33,7 +33,7 @@ Os artigos seguintes não são necessários para concluir este tutorial com êxi
 * [Utilizar o Visual Studio Code para desenvolver e implementar as funções do Azure para o limite de IoT do Azure](how-to-vscode-develop-azure-function.md)
 
 Depois de concluir os tutoriais necessários, devem ter todos os pré-requisitos necessários prontos no seu computador: 
-* Um hub IoT do Azure Active Directory.
+* Um hub IoT do Azure Active Directory com, pelo menos, um dispositivo de limite de IoT.
 * Um dispositivo de limite de IoT com, pelo menos, 2 GB de RAM e uma unidade de disco de 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -43,7 +43,6 @@ Depois de concluir os tutoriais necessários, devem ter todos os pré-requisitos
 * [Python 2.7](https://www.python.org/downloads/)
 * [Script de controlo contorno de IoT](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * Modelo de AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* Um hub IoT Active Directory com, pelo menos, um dispositivo de limite de IoT.
 
 Contentores Windows e Linux num x64 arquiteturas de processador de trabalho para este tutorial. SQL Server não suporta processadores ARM.
 

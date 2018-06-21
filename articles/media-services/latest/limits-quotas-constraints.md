@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: juliako
-ms.openlocfilehash: 75bfb0d5d29f0b8e038e68af08130564b72a05bf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 14779306815681c368a98d698a6688d528a6c747
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266758"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294034"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações v3 de Media Services do Azure
 
@@ -25,10 +25,11 @@ Este artigo descreve as quotas e limitações na v3 de Media Services do Azure.
 | Recurso | Limite Predefinido | 
 | --- | --- | 
 | Ativos por conta de Media Services do Azure | 1 000 000|
-| JobInputs por tarefa | 50 |
-| JobOutputs por tarefa | 20 (fixo) |
+| JobInputs por tarefa | 50 (fixo)|
+| JobOutputs por tarefa/TransformOutputs numa transformação | 20 (fixo) |
+| Ficheiros por JobInput|10 (fixo)|
 | Tamanho dos ficheiros| Em alguns cenários, não há um limite no tamanho máximo de ficheiro suportado para processamento nos Media Services. <sup>(1)</sup> |
-| Tarefas por conta de Media Services | 500 000 <sup>(2)</sup>|
+| Tarefas por conta de Media Services | 500 000 <sup>(2)</sup> (fixo)|
 | Listar as transformações|A resposta, com 1000 transformações por página de paginação|
 | Tarefas de listagem|A resposta, 500 tarefas por página de paginação|
 | LiveEvents por conta de Media Services |5|
@@ -36,11 +37,9 @@ Este artigo descreve as quotas e limitações na v3 de Media Services do Azure.
 | StreamingPolicies | 1,000,000<sup>(3)</sup> |
 | LiveOutputs no estado por LiveEvent de execução |3|
 | LiveOutputs no estado de paragem por LiveEvent |50|
-| Número de ficheiros por JobInput|10|
 | Contas de armazenamento | 100<sup>(4)</sup> (fixo) |
 | Pontos finais de transmissão em fluxo em execução estado por conta de Media Services|2|
-| Transforma por conta de Media Services | 100 |
-| TransformOutputs numa transformação| 20|
+| Transforma por conta de Media Services | 100 (fixo)|
 | StreamingLocators exclusivo associado um recurso de uma só vez | 20<sup>(5)</sup> |
 
 <sup>1</sup> o tamanho máximo suportado para um blob único atualmente é até 5 TB de armazenamento de Blobs do Azure. No entanto, os limites adicionais aplicam-se nos serviços de suporte de dados do Azure com base nos tamanhos VM que são utilizados pelo serviço. Se o ficheiro de origem é superior a 260-GB, a tarefa provavelmente irá falhar. Se tiver conteúdo de 4K, que é maior do que o limite de 260 GB, contacte-nos amshelp@microsoft.com para potenciais mitigações suportar o seu cenário.

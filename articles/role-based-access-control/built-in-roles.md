@@ -1,6 +1,6 @@
 ---
-title: Funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure | Microsoft Docs
-description: Descreve as funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure. Lista as ações e notActions.
+title: Funções incorporadas no Azure | Microsoft Docs
+description: Descreve as funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure. Lista de ações, notActions, dataActions e notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267378"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294501"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas do controlo de acesso baseado em funções do Azure
+# <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
 [O controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de função são a forma de controlar o acesso a recursos no Azure. Se as funções incorporadas não satisfazem as necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas](custom-roles.md).
 
 As funções incorporadas são sempre evolução. Para obter as definições de função mais recentes, utilize [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definição de função az](/cli/azure/role/definition#az-role-definition-list).
@@ -39,7 +39,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem acr |
 | [AcrQuarantineReader](#acrquarantinereader) | leitor de dados de quarentena do acr |
 | [AcrQuarantineWriter](#acrquarantinewriter) | escritor de dados de quarentena do acr |
-| [Contribuinte de serviço de gestão de API](#api-management-service-contributor) | Pode gerir o serviço e as APIs |
+| [Contribuinte de serviço de gestão de API](#api-management-service-contributor) | Pode gerir as APIs e do serviço |
 | [Função de operador de serviço de gestão de API](#api-management-service-operator-role) | Pode gerir o serviço, mas não as APIs |
 | [Função de leitor de serviço de gestão de API](#api-management-service-reader-role) | Acesso só de leitura para o serviço e APIs |
 | [Contribuinte de componentes do Application Insights](#application-insights-component-contributor) | Permite gerir componentes do Application Insights |
@@ -51,7 +51,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Cópia de segurança contribuinte](#backup-contributor) | Permite-lhe gerir o serviço de cópia de segurança mas não pode criar cofres e conceder o acesso a outros |
 | [Operador de cópia de segurança](#backup-operator) | Permite-lhe gerir serviços de cópia de segurança, exceto de remoção de cópia de segurança, criação de cofre e concessão de acesso a outros |
 | [Leitor de cópia de segurança](#backup-reader) | Pode ver os serviços de cópia de segurança mas não pode efetuar alterações |
-| [Leitor de faturação](#billing-reader) | Permite o acesso de leitura para dados de faturação |
+| [Leitor de faturação](#billing-reader) | Permite o acesso de leitura aos dados de faturação |
 | [Contribuinte de BizTalk](#biztalk-contributor) | Permite-lhe gerir serviços do BizTalk, mas não aceder-lhes. |
 | [Contribuinte de ponto final CDN](#cdn-endpoint-contributor) | Pode gerir pontos finais de CDN, as não pode conceder o acesso a outros utilizadores. |
 | [Leitor de ponto final CDN](#cdn-endpoint-reader) | Pode visualizar os pontos finais de CDN, mas não pode efetuar alterações. |
@@ -63,10 +63,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor clássico Máquina Virtual](#classic-virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais clássicas, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
 | [Contribuidor ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Permite-lhe gerir bases de dados MySQL ClearDB, mas não aceder-lhes. |
 | [Função de leitor de conta do cosmos DB](#cosmos-db-account-reader-role) | Pode ler os dados de conta de base de dados do Azure Cosmos. Consulte [contribuinte de conta do DocumentDB](#documentdb-account-contributor) para gerir contas de base de dados do Azure Cosmos. |
-| [Contribuinte da fábrica de dados](#data-factory-contributor) | Criar e gerir fábricas de dados, assim como os recursos subordinados dentro dos mesmos. |
+| [Contribuinte da fábrica de dados](#data-factory-contributor) | Criar e gerir as fábricas de dados, bem como recursos subordinados dentro delas. |
 | [Para programadores do Data Lake Analytics](#data-lake-analytics-developer) | Permite-lhe submeter, monitorizar e gerir as suas tarefas, mas não criar ou eliminar as contas do Data Lake Analytics. |
-| [Purger de dados](#data-purger) | Pode remover os dados de análise |
-| [DevTest Labs utilizador](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
+| [Purger de dados](#data-purger) | Pode remover dados de análise |
+| [DevTest Labs utilizador](#devtest-labs-user) | Permite efetuar a ligação, início, reiniciar e encerrar as máquinas virtuais no seu Azure DevTest Labs. |
 | [Contribuinte de zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Conta do DocumentDB contribuinte](#documentdb-account-contributor) | Pode gerir contas de base de dados do Azure Cosmos. BD do Azure do Cosmos anteriormente é conhecido como DocumentDB. |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) | Permite-lhe gerir contas de Sistemas Inteligentes, mas não aceder-lhes. |
@@ -178,7 +178,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode gerir o serviço e as APIs |
+> | **Descrição** | Pode gerir as APIs e do serviço |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Ações** |  |
 > | Microsoft.ApiManagement/service/* | Criar e gerir o serviço de API Management |
@@ -472,7 +472,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite o acesso de leitura para dados de faturação |
+> | **Descrição** | Permite o acesso de leitura aos dados de faturação |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e atribuições de função |
@@ -660,7 +660,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Criar e gerir fábricas de dados, assim como os recursos subordinados dentro dos mesmos. |
+> | **Descrição** | Criar e gerir as fábricas de dados, bem como recursos subordinados dentro delas. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e atribuições de função |
@@ -703,11 +703,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Criar ou atualizar uma política de computação. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Elimine uma política de computação. |
 
-## <a name="data-purger"></a>Purger de dados
+## <a name="data-purger"></a>Eliminação de Dados
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode remover os dados de análise |
+> | **Descrição** | Pode remover dados de análise |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Ações** |  |
 > | Microsoft.Insights/components/*/read |  |
@@ -719,7 +719,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
+> | **Descrição** | Permite efetuar a ligação, início, reiniciar e encerrar as máquinas virtuais no seu Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e atribuições de função |
@@ -1110,7 +1110,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Security/policies/write | Atualiza a política de segurança |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="security-manager-legacy"></a>Gestor de Segurança (Legado)
+## <a name="security-manager-legacy"></a>Gestor de segurança (legados)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

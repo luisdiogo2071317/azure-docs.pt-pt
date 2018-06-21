@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267463"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285761"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell na VM com Linux com o comando executado
 
@@ -33,6 +33,7 @@ Seguem-se uma lista de restrições que estão presentes quando executar o coman
 * O tempo mínimo para executar um script cerca de 20 segundos
 * Scripts são executadas por predefinição como utilizador elevados no Linux
 * Pode executar um script num momento
+* Scripts que solicitar informações (modo interativo) não são suportadas.
 * Não é possível cancelar um script em execução
 * O tempo máximo que pode executar um script é 90 minutos, após o qual as TI será o tempo limite
 

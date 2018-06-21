@@ -1,6 +1,6 @@
 ---
 title: Ver registos de atividade para alterações RBAC no Azure | Microsoft Docs
-description: Ver registos de atividade para alterações de controlo de acesso baseado em funções nos últimos 90 dias.
+description: Regista a atividade de vista para controlo de acesso baseado em funções (RBAC) alterações nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266663"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293392"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Ver registos de atividade para alterações de controlo de acesso baseado em funções
+# <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para que as alterações do RBAC
 
 Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, tal como para auditoria ou a resolução de problemas. Sempre que alguém fizer alterações a atribuições de funções ou as definições de função na suas subscrições, as alterações são registadas [registo de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
 

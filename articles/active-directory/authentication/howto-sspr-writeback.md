@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868830"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296163"
 ---
 # <a name="password-writeback-overview"></a>Descrição geral de repetição de escrita de palavras-passe
 
-Com repetição de escrita de palavras-passe, pode configurar o Azure Active Directory (Azure AD) para escrever as palavras-passe do Active Directory no local. Repetição de escrita de palavras-passe remove a necessidade de configurar e gerir uma solução de reposição (SSPR) de palavra-passe self-service complicada no local e fornece uma maneira conveniente para os seus utilizadores para repor as respetivas palavras-passe no local onde quer que estejam baseado na nuvem. Repetição de escrita de palavras-passe é um componente do [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que pode ser ativada e utilizado por subscritores atuais do Premium [edições do Azure Active Directory](../active-directory-whatis.md).
+Com repetição de escrita de palavras-passe, pode configurar o Azure Active Directory (Azure AD) para escrever as palavras-passe do Active Directory no local. Repetição de escrita de palavras-passe remove a necessidade de configurar e gerir uma solução de reposição (SSPR) de palavra-passe self-service complicada no local e fornece uma maneira conveniente para os seus utilizadores para repor as respetivas palavras-passe no local onde quer que estejam baseado na nuvem. Repetição de escrita de palavras-passe é um componente do [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que pode ser ativada e utilizado por subscritores atuais do Premium [edições do Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 Repetição de escrita de palavras-passe fornece as seguintes funcionalidades:
 
@@ -129,7 +129,7 @@ Para configurar as permissões adequadas para a palavra-passe repetição de esc
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavras-passe
 
-Para informações sobre o licenciamento, consulte [licenças necessárias para a repetição de escrita de palavras-passe](concept-sspr-licensing.md#licenses-required-for-password-writeback) ou os seguintes sites:
+Para informações sobre o licenciamento, consulte [licenças necessárias para a repetição de escrita de palavras-passe](concept-sspr-licensing.md) ou os seguintes sites:
 
 * [Azure Active Directory preços do site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

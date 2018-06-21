@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185948"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284986"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir chaves de api para um serviço da Azure Search
 
-Todos os pedidos para um serviço de pesquisa tem uma chave de api que foi gerada especificamente para o seu serviço. Esta chave de api é o mecanismo único para a autenticação de acesso para o ponto final de serviço de pesquisa. 
+Todos os pedidos para um serviço de pesquisa tem de uma só de leitura-chave de api que foi gerada especificamente para o seu serviço. A chave de api é o mecanismo único para a autenticação de acesso para o ponto final de serviço de pesquisa e têm de ser incluída em cada pedido. No [soluções REST](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), a chave de api, geralmente, é especificada no cabeçalho do pedido. No [soluções .NET](search-howto-dotnet-sdk.md#core-scenarios), uma chave é, muitas vezes, especificada como uma definição de configuração e, em seguida, transmitida como [credenciais](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (chave de administrador) ou [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (chave de consulta) no [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+As chaves são criadas com o serviço de pesquisa durante o aprovisionamento de serviço. Pode ver e obter valores de chave no [portal do Azure](https://portal.azure.com).
+
+![Secção de chaves de página do portal, as definições,](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>O que é uma chave de api
 
 Uma chave de api é uma cadeia composta por letras e números gerados aleatoriamente. Através de [permissões baseadas em função](search-security-rbac.md), pode eliminar ou ler as chaves, mas não é possível substituir uma chave com uma palavra-passe definida pelo utilizador ou utilizar o Active Directory como a metodologia de autenticação primária para aceder às operações de pesquisa. 
 

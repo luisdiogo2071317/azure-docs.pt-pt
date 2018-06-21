@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a82718b17c623a59b0ea03297f47d54ff49eced
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0cd42f5863293dfe5b52ab1fd99c2fc04aa9aeee
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225957"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Azure Active Directory com LCVista
 
@@ -224,7 +224,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
     
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. Clique no mosaico LCVista no painel de acesso, será redirecionado para início de sessão de organização na página. Após o início de sessão com êxito, é irá ser com sessão iniciada para a aplicação de LCVista. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586).
+Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso. Clique no mosaico LCVista no painel de acesso, será redirecionado para início de sessão de organização na página. Após o início de sessão com êxito, é irá ser com sessão iniciada para a aplicação de LCVista. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

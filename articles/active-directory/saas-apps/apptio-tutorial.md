@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: fd393107fa8e142f042b0bf1e4283b3cacd4050e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e39bd40a25333f6b2e323439d29e2a85e67d20d5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218219"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Tutorial: Integração do Azure Active Directory com Apptio
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único](./media/apptio-tutorial/tutorial_apptio_attributes.png)     
     
     > [!NOTE]
-    > Clique [aqui](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) saber como configurar **função** no Azure AD
+    > Clique [aqui](../../role-based-access-control/role-assignments-portal.md) saber como configurar **função** no Azure AD
     
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
 
@@ -243,4 +243,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/apptio-tutorial/tutorial_general_201.png
 [202]: ./media/apptio-tutorial/tutorial_general_202.png
 [203]: ./media/apptio-tutorial/tutorial_general_203.png
-

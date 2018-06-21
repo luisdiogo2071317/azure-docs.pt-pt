@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716725"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287808"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar sempre no grupo de disponibilidade na VM do Azure manualmente
 
@@ -56,7 +56,7 @@ Antes de começar o tutorial, terá de [concluir os pré-requisitos para a cria�
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Criar o cluster
+## <a name="create-the-cluster"></a>Criar o cluster
 
 Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Cluster de ativação pós-falha do Windows Server que inclua dois SQL Servers e um servidor de testemunho.
 
@@ -413,8 +413,8 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando criou o Balanceador de carga. |
    | **Protocolo** | Escolha TCP |TCP |
-   | **Porta** | Utilizar a porta para a instância do SQL Server | 1433 |
-   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 1433 |
+   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1435 |
+   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 1435 |
    | **Sonda** |O nome especificado para a sonda | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma ligação de TCP aberta | 4 |

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314053"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293626"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento de back-end, os registos de diagnóstico e métricas de Gateway de aplicação
 
@@ -36,7 +36,7 @@ Gateway de aplicação fornece a capacidade de monitorizar o estado de funcionam
 O relatório de estado de funcionamento de back-end reflete o resultado da sonda de estado de funcionamento do Gateway de aplicação para as instâncias de back-end. Quando pesquisar é efetuada com êxito e o back-end pode receber tráfego, que é considerado em bom estado. Caso contrário, considera-se danificado.
 
 > [!IMPORTANT]
-> Se existir um grupo de segurança de rede (NSG) numa sub-rede de Gateway de aplicação, abra o intervalos de portas 65503 65534 a sub-rede do Gateway de aplicação para o tráfego de entrada. Estas portas são necessárias para o estado de funcionamento do back-end API para trabalhar.
+> Se existir um grupo de segurança de rede (NSG) numa sub-rede de Gateway de aplicação, abra o intervalos de portas 65503 65534 a sub-rede do Gateway de aplicação para o tráfego de entrada. Este intervalo de portas não é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não poderá iniciar quaisquer alterações nesses pontos finais.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Ver estado de funcionamento de back-end através do portal
@@ -170,7 +170,7 @@ O registo de acesso é gerado apenas se tiver ativado, cada instância de Gatewa
 |Valor  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
-|clientIP     | IP de origem para o pedido.        |
+|ClientIP     | IP de origem para o pedido.        |
 |clientPort     | Porta de origem para o pedido.       |
 |httpMethod     | Método HTTP utilizado por pedido.       |
 |requestUri     | URI do pedido recebido.        |
@@ -261,9 +261,9 @@ O registo de firewall é gerado apenas se tiver ativado-la para cada gateway de 
 |action     |  Ação tomada no pedido. Os valores disponíveis são bloqueado e permitido.      |
 |site     | Site para o qual o registo foi gerado. Atualmente, apenas Global está listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de acionamento.        |
-|details.message     | Descrição da regra.        |
+|details.Message     | Descrição da regra.        |
 |details.data     | Foram encontrados pedido que correspondeu à regra de dados específicos.         |
-|details.file     | Ficheiro de configuração que continha a regra.        |
+|details.File     | Ficheiro de configuração que continha a regra.        |
 |details.line     | Número de linha no ficheiro de configuração que acionou o evento.       |
 
 ```json

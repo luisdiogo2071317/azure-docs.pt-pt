@@ -1,26 +1,26 @@
 ---
-title: Resolver problemas de sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs
-description: Saiba como resolver problemas comuns com a sincronização de dados de SQL do Azure (pré-visualização).
+title: Resolver problemas de sincronização de dados SQL do Azure | Microsoft Docs
+description: Saiba como resolver problemas comuns com a sincronização de dados SQL do Azure.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 43d230b013f95c56fb162be3e361a6b68d1b26fe
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757541"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296135"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Resolver problemas com a sincronização de dados do SQL Server (pré-visualização)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados do SQL Server
 
-Este artigo descreve como resolver problemas conhecidos com a sincronização de dados de SQL do Azure (pré-visualização). Se existir uma resolução para um problema, é fornecido aqui.
+Este artigo descreve como resolver problemas conhecidos com a sincronização de dados SQL do Azure. Se existir uma resolução para um problema, é fornecido aqui.
 
-Para obter uma descrição geral da sincronização de dados do SQL Server (pré-visualização), consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md).
+Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problemas de sincronização
 
@@ -28,7 +28,7 @@ Para obter uma descrição geral da sincronização de dados do SQL Server (pré
 
 #### <a name="description-and-symptoms"></a>A descrição e sintomas
 
-Sincronização falha em sincronização de dados do SQL Server (pré-visualização) IU do portal para bases de dados no local que estão associados com o agente. No computador local que está a executar o agente, consulte os erros de System.IO.IOException no registo de eventos. Os erros indicar que o disco tem espaço suficiente.
+Sincronização falha em sincronização de dados do SQL Server IU do portal para bases de dados no local que estão associados com o agente. No computador local que está a executar o agente, consulte os erros de System.IO.IOException no registo de eventos. Os erros indicar que o disco tem espaço suficiente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -38,7 +38,7 @@ Crie mais espaço na unidade em que está localizado o diretório % TEMP %.
 
 #### <a name="description-and-symptoms"></a>A descrição e sintomas
 
-Um grupo de sincronização na sincronização de dados do SQL Server (pré-visualização) está a ser o estado de processamento durante muito tempo. Não responder a **parar** comando e os registos de mostram não novas entradas.
+Um grupo de sincronização na sincronização de dados do SQL Server está a ser o estado de processamento durante muito tempo. Não responder a **parar** comando e os registos de mostram não novas entradas.
 
 #### <a name="cause"></a>Causa
 
@@ -48,14 +48,14 @@ Qualquer uma das seguintes condições poderá resultar num grupo de sincroniza�
 
 -   **O agente do cliente está em falta ou desinstalada**. Se o agente de cliente desinstalada ou de outra forma de em falta:
 
-    1. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server (pré-visualização), se o ficheiro existe.
+    1. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.
     2. Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.
 
 -   **O serviço de sincronização de dados do SQL Server está parado**.
 
     1. No **iniciar** menu, procure **serviços**.
     2. Nos resultados da pesquisa, selecione **serviços**.
-    3. Localizar o **sincronização de dados do SQL Server (pré-visualização)** serviço.
+    3. Localizar o **sincronização de dados do SQL Server** serviço.
     4. Se o estado do serviço **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
 
 #### <a name="resolution"></a>Resolução
@@ -70,7 +70,7 @@ No caso de tabelas que têm o mesmo nome mas que são de esquemas de base de dad
 
 #### <a name="cause"></a>Causa
 
-A sincronização de dados do SQL Server (pré-visualização) processo de aprovisionamento utiliza as mesmo tabelas de controlo para tabelas que têm o mesmo nome mas que estão em esquemas diferentes. Por este motivo, as alterações de ambas as tabelas são refletidas na mesma tabela de controlo. Isto faz com que as alterações de dados errada durante a sincronização.
+A sincronização de dados SQL, processo de aprovisionamento utiliza as mesmo tabelas de controlo para tabelas que têm o mesmo nome mas que estão em esquemas diferentes. Por este motivo, as alterações de ambas as tabelas são refletidas na mesma tabela de controlo. Isto faz com que as alterações de dados errada durante a sincronização.
 
 #### <a name="resolution"></a>Resolução
 
@@ -109,10 +109,10 @@ A correção melhor é prevenção. Certifique-se de que não tem referências c
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna \<coluna\>. Coluna não permite nulls." O que significa e como pode corrigir? 
 Esta mensagem de erro indica que tenha ocorrido um dos dois seguintes problemas:
 -  Uma tabela não tem uma chave primária. Para corrigir este problema, adicione uma chave primária para todas as tabelas que estiver a sincronizar.
--  Não há uma cláusula WHERE da instrução CREATE INDEX. Sincronização de dados (pré-visualização) não processa esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, efetue as alterações a todas as bases de dados. 
+-  Não há uma cláusula WHERE da instrução CREATE INDEX. Sincronização de dados não processa esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, efetue as alterações a todas as bases de dados. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Como a sincronização de dados (pré-visualização) processar referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?
-Sincronização de dados (pré-visualização) não processa as referências circulares. Lembre-se de que os evitar. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Como a sincronização de dados processar referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?
+Sincronização de dados não processa as referências circulares. Lembre-se de que os evitar. 
 
 ## <a name="client-agent-issues"></a>Problemas de agente do cliente
 
@@ -131,27 +131,6 @@ Para determinar a causa da falha específica, gerar e consulte os registos do Wi
 
 Também pode ativar o registo para todas as instalações de que são efetuadas pelo Windows Installer. O artigo da Base de dados de Conhecimento Microsoft [como ativar o registo do Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornece uma solução de um clique para ativar o registo para o Windows Installer. Também fornece a localização dos registos.
 
-### <a name="my-client-agent-doesnt-work"></a>Agente do cliente não funciona
-
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
-
-Obter mensagens seguintes quando tenta utilizar o agente do cliente:
-
-"Falha na sincronização com a exceção Ocorreu um erro ao tentar anular a serialização do parâmetro www.microsoft.com/.../05:GetBatchInfoResult. Consulte a InnerException para obter mais informações."
-
-"Mensagem de exceção interna: o tipo 'Microsoft.Synchronization.ChangeBatch' é um tipo de coleção inválido desde que não tem um construtor predefinido."
-
-#### <a name="cause"></a>Causa
-
-Este é um problema conhecido com a instalação de sincronização de dados do SQL Server (pré-visualização). A causa mais provável desta mensagem é um dos seguintes:
-
--   Está a executar o Windows 8 Developer Preview.
--   Tem de instalar o .NET Framework 4.5.
-
-#### <a name="resolution"></a>Resolução
-
-Certifique-se de que instala o agente do cliente num computador que não está a executar o Windows 8 Developer Preview e que o .NET Framework 4.5 não está instalado.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>Agente do cliente não funciona após cancelar a desinstalação
 
 #### <a name="description-and-symptoms"></a>A descrição e sintomas
@@ -160,7 +139,7 @@ O agente do cliente não funciona, mesmo depois de cancelar a respetiva desinsta
 
 #### <a name="cause"></a>Causa
 
-Isto ocorre porque o agente de cliente de sincronização de dados do SQL Server (pré-visualização) não armazena as credenciais.
+Isto ocorre porque o agente de cliente de sincronização de dados do SQL Server não armazena as credenciais.
 
 #### <a name="resolution"></a>Resolução
 
@@ -215,18 +194,18 @@ Uma causa provável deste erro é que a palavra-passe no servidor local foi alte
 
 Atualize palavra-passe o agente para a sua palavra-passe atual do servidor:
 
-1. Localize o agente de cliente de sincronização de dados do SQL Server (pré-visualização) serviço de pré-visualização.  
+1. Localize o serviço de agente do cliente de sincronização de dados do SQL Server.  
     a. Selecione **iniciar**.  
     b. Na caixa de pesquisa, introduza **services.msc**.  
     c. Nos resultados da pesquisa, selecione **serviços**.  
-    d. No **serviços** janela, desloque-se para a entrada para **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)**.  
-2. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** e, em seguida, selecione **parar**.
-3. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** e, em seguida, selecione **propriedades**.
-4. No **propriedades de pré-visualização do agente de sincronização de dados do SQL Server (pré-visualização)**, selecione o **início de sessão** separador.
+    d. No **serviços** janela, desloque-se para a entrada para **agente de sincronização de dados do SQL Server**.  
+2. Clique com botão direito **agente de sincronização de dados do SQL Server**e, em seguida, selecione **parar**.
+3. Clique com botão direito **agente de sincronização de dados do SQL Server**e, em seguida, selecione **propriedades**.
+4. No **das propriedades do agente de sincronização de dados do SQL Server**, selecione o **início de sessão** separador.
 5. No **palavra-passe** box, introduza a palavra-passe.
 6. No **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
 7. Selecione **Apply** (Aplicar) e **OK**.
-8. No **serviços** janela, clique com botão direito a **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** de serviço e, em seguida, clique em **iniciar**.
+8. No **serviços** janela, clique com botão direito a **agente de sincronização de dados do SQL Server** de serviço e, em seguida, clique em **iniciar**.
 9. Fechar o **serviços** janela.
 
 ### <a name="i-cant-submit-the-agent-key"></a>Posso não é possível enviar a chave do agente
@@ -239,8 +218,8 @@ Depois de criar ou voltar a criar uma chave para um agente, tentar submeter a ch
 
 Antes de continuar, verifique as seguintes condições:
 
--   O serviço do Windows de sincronização de dados do SQL Server (pré-visualização) está em execução.  
--   A conta de serviço do serviço do Windows de pré-visualização de sincronização de dados do SQL Server (pré-visualização) tem acesso à rede.    
+-   O serviço do Windows de sincronização de dados do SQL Server está em execução.  
+-   A conta de serviço do serviço do Windows de sincronização de dados do SQL Server tem acesso à rede.    
 -   A porta 1433 saída está aberta na sua regra de local firewall.
 -   O ip local é adicionado para o servidor ou a regra de firewall de base de dados para a base de dados de metadados de sincronização.
 
@@ -248,7 +227,7 @@ Antes de continuar, verifique as seguintes condições:
 
 A chave do agente identifica exclusivamente cada agente local. A chave tem de cumprir duas condições:
 
--   A chave do agente de cliente no servidor de sincronização de dados do SQL Server (pré-visualização) e o computador local deve ser idêntica.
+-   A chave do agente de cliente no servidor de sincronização de dados do SQL Server e no computador local deve ser idêntica.
 -   A chave do agente de cliente pode ser utilizada apenas uma vez.
 
 #### <a name="resolution"></a>Resolução
@@ -272,7 +251,7 @@ Para aplicar a nova chave para o agente:
 
 #### <a name="description-and-symptoms"></a>A descrição e sintomas
 
-Se um ponto final local (ou seja, uma base de dados) que está registado com um agente de cliente de sincronização de dados do SQL Server (pré-visualização) ficar inacessível, não é possível eliminar o agente do cliente.
+Se um ponto final local (ou seja, uma base de dados) que está registado com um agente de cliente de sincronização de dados do SQL Server torna-se inacessível, não é possível eliminar o agente do cliente.
 
 #### <a name="cause"></a>Causa
 
@@ -295,8 +274,8 @@ Experimente os passos seguintes:
 2. Abra o painel de serviços de componentes.  
     a. Na caixa de pesquisa na barra de tarefas, introduza **services.msc**.  
     b. Nos resultados da pesquisa, faça duplo clique em **serviços**.  
-3. Parar o **pré-visualização de sincronização de dados do SQL Server (pré-visualização)** serviço.
-4. Reinicie o **pré-visualização de sincronização de dados do SQL Server (pré-visualização)** serviço.  
+3. Parar o **sincronização de dados do SQL Server** serviço.
+4. Reinicie o **sincronização de dados do SQL Server** serviço.  
 5. Reabra a aplicação.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuração e manutenção
@@ -335,12 +314,12 @@ Para resolver a falha para eliminar um grupo de sincronização:
 
 -   Certifique-se de que o agente do cliente está online e, em seguida, tente novamente.
 -   Se o agente de cliente desinstalada ou de outra forma de em falta:  
-    a. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server (pré-visualização), se o ficheiro existe.  
+    a. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.  
     b. Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.
--   Certifique-se de que o serviço de sincronização de dados do SQL Server (pré-visualização) está em execução:  
+-   Certifique-se de que o serviço de sincronização de dados do SQL Server está em execução:  
     a. No **iniciar** menu, procure **serviços**.  
     b. Nos resultados da pesquisa, selecione **serviços**.  
-    c. Localizar o **pré-visualização de sincronização de dados do SQL Server (pré-visualização)** serviço.  
+    c. Localizar o **sincronização de dados do SQL Server** serviço.  
     d. Se o estado do serviço **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
 -   Certifique-se de que o SQL Server e bases de dados do SQL Server estão todos os online.
 -   Aguarde pela conclusão do processo de aprovisionamento ou sincronização e, em seguida, repita a eliminar o grupo de sincronização.
@@ -361,7 +340,7 @@ Se esta operação não consegue remover a base de dados do grupo de sincroniza�
     a. Selecione o **iniciar** menu.  
     b. Na caixa de pesquisa, introduza **services.msc**.  
     c. No **programas** secção da pesquisa resulta painel, faça duplo clique em **serviços**.  
-    d. Clique com botão direito do **sincronização de dados do SQL Server (pré-visualização)** serviço.  
+    d. Clique com botão direito do **sincronização de dados do SQL Server** serviço.  
     e. Se o serviço está em execução, pare-o.  
     f. O serviço com o botão direito e, em seguida, selecione **iniciar**.  
     g. Verifique se a base de dados ainda está registado. Se já não estiver registado, terminar. Caso contrário, continuar com o passo seguinte.
@@ -391,7 +370,7 @@ Conceda credenciais de registo-em-como-um-serviço para a conta de utilizador:
 
 #### <a name="cause"></a>Causa
 
-Sincronização de dados do SQL Server (pré-visualização) remove as bases de dados que foram offline do serviço de 45 dias ou mais (como contados desde o momento que a base de dados ficou offline). Se uma base de dados está offline para 45 dias ou mais e, em seguida, volta a ficar online, o respetivo estado é **Desatualizadas**.
+Sincronização de dados do SQL Server remove as bases de dados que foram offline do serviço de 45 dias ou mais (como contados desde o momento que a base de dados ficou offline). Se uma base de dados está offline para 45 dias ou mais e, em seguida, volta a ficar online, o respetivo estado é **Desatualizadas**.
 
 #### <a name="resolution"></a>Resolução
 
@@ -421,14 +400,14 @@ Se o estado de um grupo de sincronização é **Desatualizadas**, elimine o grup
 
 #### <a name="description-and-symptoms"></a>A descrição e sintomas
 
-Não é possível eliminar um grupo de sincronização dentro de três minutos de desinstalar ou parar o agente de cliente de sincronização de dados do SQL Server (pré-visualização) associado.
+Não é possível eliminar um grupo de sincronização dentro de três minutos de desinstalar ou parar o agente de cliente de sincronização de dados do SQL Server associado.
 
 #### <a name="resolution"></a>Resolução
 
 1. Remover um grupo de sincronização, enquanto que os agentes de sincronização associados são online (recomendado).
-2. Se o agente estiver offline, mas está instalado, colocá-la online no computador local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados do SQL Server (pré-visualização). Em seguida, remova o grupo de sincronização.
+2. Se o agente estiver offline, mas está instalado, colocá-la online no computador local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados do SQL Server. Em seguida, remova o grupo de sincronização.
 3. Se o agente estiver offline, porque foi desinstalado:  
-    a.  Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server (pré-visualização), se o ficheiro existe.  
+    a.  Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.  
     b.  Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.  
     c. Tente eliminar o grupo de sincronização.
 
@@ -437,16 +416,16 @@ Não é possível eliminar um grupo de sincronização dentro de três minutos d
 Se restaurar uma base de dados perdido ou danificado a partir de uma cópia de segurança, poderá haver um nonconvergence dos dados nos grupos de sincronização a que pertence a base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a sincronização de dados do SQL Server (pré-visualização), consulte:
+Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
 
--   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md)  
--   [Configurar a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-get-started-sql-data-sync.md)  
--   [Melhores práticas para a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-best-practices-data-sync.md)  
--   [Monitor SQL do Azure de sincronização de dados (pré-visualização) análise do registo](sql-database-sync-monitor-oms.md)  
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server (pré-visualização):  
+-   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)  
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)  
+-   [Melhores práticas da Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)  
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:  
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Transferir a documentação da API de REST de sincronização de dados do SQL Server (pré-visualização)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para obter mais informações sobre a base de dados SQL, consulte:
 

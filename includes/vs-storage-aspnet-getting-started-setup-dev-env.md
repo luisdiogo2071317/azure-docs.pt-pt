@@ -22,7 +22,7 @@ Esta secção explica como configurar o ambiente de desenvolvimento. Isto inclui
 
 2. No menu de contexto, selecione **adicionar** > **serviço ligado**.
 
-1. No **serviços ligados** caixa de diálogo, selecione **armazenamento na nuvem com o Storage do Azure**e, em seguida, selecione **configurar**.
+1. No **serviços ligados** caixa de diálogo, selecione **armazenamento na nuvem com o Storage do Azure**.
 
     ![Caixa de diálogo de captura de ecrã de serviços ligados](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

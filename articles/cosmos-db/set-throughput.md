@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614082"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285778"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter débito para contentores de base de dados do Azure Cosmos e base de dados
 
@@ -177,7 +177,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 BD do Azure do Cosmos funciona um modelo de reserva para um débito. Ou seja, é-lhe faturado para a quantidade de débito *reservado*, independentemente da quantidade de débito de que está ativamente *utilizado*. Como a aplicação da alteração de padrões de carga, dados e a utilização, pode dimensionar facilmente para cima e baixo o número de reservado RUs através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
 
-Cada contentor, ou um conjunto de contentores, está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET:
+Cada contentor, ou um conjunto de contentores, está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET. Depois de alterar o débito, deve atualizar quaisquer janelas de portais do Azure existentes para o débito foi alterada apresentar. 
 
 ```csharp
 // Fetch the resource to be updated

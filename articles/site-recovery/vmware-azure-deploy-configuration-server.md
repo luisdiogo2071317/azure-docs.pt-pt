@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4d944bec9d1cf73263d9deb54d0d9b3f6fc5532f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267514"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285038"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -31,7 +31,7 @@ Recomendamos que implemente o servidor de configuração como uma VM de VMware a
 
 MySQL tem de estar instalado no servidor de configuração. Pode fazê-lo utilizando um dos seguintes métodos:
 
-- Permitir que transfira e instale-a recuperação de sites quando quando o Assistente de gestão do servidor de configuração é executada. Não precisa de efetuar qualquer ação específica.
+- Permitir que a recuperação de sites, transfira e instale-o quando executa o Assistente de gestão do servidor de configuração. Não precisa de efetuar qualquer ação específica.
 - Manualmente transferir MySQL e coloque-o na pasta C:\Temp\ASRSetup. Em seguida, execute a instalação. Recuperação de sites irá reconhece que é instalado quando o assistente é executado.
 - Manualmente transferir MySQL e coloque-o na pasta C:\Temp\ASRSetup. Quando executa o assistente possa localizar o ficheiro de configuração e instalá-lo a partir desta localização. 
 

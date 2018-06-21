@@ -1,6 +1,6 @@
 ---
-title: Gerir as atribuições de função para utilizadores externos no Azure | Microsoft Docs
-description: Gerir o controlo de acesso baseado em funções (RBAC) no Azure para utilizadores externos à organização
+title: Gerir o acesso de utilizadores externos, utilizar o RBAC no Azure | Microsoft Docs
+description: Saiba como gerir o acesso de utilizadores externos à organização utilizar o controlo de acesso baseado em funções (RBAC) no Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,13 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 084594b637f813c110e4e0b2e9df2b9103d58efc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 98eb104981051bd5e7440954470960977b38286d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296219"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>Gerir as atribuições de função para utilizadores externos
+# <a name="manage-access-for-external-users-using-rbac"></a>Gerir o acesso de utilizadores externos através do RBAC
 
 O controlo de acesso baseado em funções (RBAC) permite a gestão de segurança melhor para organizações grandes e para PMEs trabalhar com colaboradores externos, fornecedores ou freelancers que precisam de acesso a recursos específicos no seu ambiente, mas não necessariamente a toda a infraestrutura ou qualquer âmbitos relacionadas com a faturação. RBAC permite a flexibilidade de proprietário de uma subscrição do Azure gerida pela conta de administrador (função de administrador de serviço a um nível de subscrição) e têm vários utilizadores convidados funcione na mesma subscrição, mas sem quaisquer direitos administrativos para o mesmo.
 
@@ -43,10 +44,10 @@ Funções do RBAC podem ser concedidas apenas pelo **proprietários** da subscri
 No portal do Azure, depois de iniciar sessão como administrador, selecione "Subscrições" e escolha um pretendido.
 ![Painel de subscrição no portal do Azure](./media/role-assignments-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador irá aparecer como **administrador da conta**, isto ser a função de subscrição. Para obter mais informações sobre as funções da subscrição do Azure, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](../billing/billing-add-change-azure-subscription-administrator.md).
 
-Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** de "Avaliação gratuita" subscrição do AAD inquilino "Predefinido inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a Account Microsoft inicial "Outlook" (Microsoft Account = Outlook, etc. Live) o nome de domínio predefinido para todos os outros utilizadores adicionado neste inquilino será **"@alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio está formada por colocando, em conjunto, o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". c o m"**.
+Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** de "Avaliação gratuita" subscrição do AAD inquilino "Predefinido inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a Account Microsoft inicial "Outlook" (Microsoft Account = Outlook, etc. Live) o nome de domínio predefinido para todos os outros utilizadores adicionado neste inquilino será **"\@ alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio está formada por colocando, em conjunto, o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". c o m"**.
 Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre a forma de verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
 
-Neste exemplo, o diretório de "Predefinição inquilino do Azure" contém apenas os utilizadores com o nome de domínio "@alflanigan.onmicrosoft.com".
+Neste exemplo, o diretório de "Predefinição inquilino do Azure" contém apenas os utilizadores com o nome de domínio "\@alflanigan.onmicrosoft.com".
 
 Depois de selecionar a subscrição, o utilizador de administrador tem de clicar em **controlo de acesso (IAM)** e, em seguida, **adicionar uma nova função**.
 
@@ -54,7 +55,7 @@ Depois de selecionar a subscrição, o utilizador de administrador tem de clicar
 
 ![Adicionar novo utilizador na funcionalidade IAM de controlo de acesso no portal do Azure](./media/role-assignments-external-users/2.png)
 
-O passo seguinte consiste em selecionar qual será atribuída a função RBAC para a função a ser atribuída e o utilizador. No **função** menu pendente, o utilizador de administrador verá apenas as RBAC funções incorporadas que estão disponíveis no Azure. Para obter uma explicação de cada função e os respetivos âmbitos atribuíveis mais detalhadas, consulte [funções incorporadas para controlo de acesso em funções do Azure](built-in-roles.md).
+O passo seguinte consiste em selecionar qual será atribuída a função RBAC para a função a ser atribuída e o utilizador. No **função** menu pendente, o utilizador de administrador verá apenas as RBAC funções incorporadas que estão disponíveis no Azure. Para obter uma explicação de cada função e os respetivos âmbitos atribuíveis mais detalhadas, consulte [funções incorporadas](built-in-roles.md).
 
 O utilizador de administrador, em seguida, tem de adicionar o endereço de e-mail do utilizador externo. É o comportamento esperado para o utilizador externo não apareçam no inquilino existente. Depois do utilizador externo tem foi convidado, ele vai estar visível em **subscrições > controlo de acesso (IAM)** com todos os utilizadores atuais que estão atualmente atribuídos uma função RBAC no âmbito de subscrição.
 

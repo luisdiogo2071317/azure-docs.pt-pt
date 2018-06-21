@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801495"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284675"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory híbrida identidade estrutura considerações-passos
 Agora que concluiu os seus requisitos e analisou todas as opções para a sua solução de gestão de dispositivos móveis, está pronto para dar os passos para implementar a infraestrutura de suporte adequada a si e à sua organização.
@@ -42,7 +42,7 @@ O planeamento conceptual e procedimental, a implementação e conteúdo de admin
 ## <a name="hybrid-identity-resources"></a>Recursos de identidade híbrida
 Monitorização, muitas vezes, os seguintes recursos disponibiliza as mais recentes notícias e atualizações para as soluções de gestão de dispositivos móveis:
 
-* [Blogue do Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
+* [Blogue do Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blogue do Microsoft In The Cloud](http://blogs.technet.com/b/in_the_cloud/)
 * [Blogue do Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 * [Blogue do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)

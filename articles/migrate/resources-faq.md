@@ -4,14 +4,14 @@ description: Endereços perguntas mais frequentes sobre migrar do Azure
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: a18cab73a019039bf5e5829ad1faa4b8f1a70391
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209950"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285710"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrar do Azure - perguntas mais frequentes (FAQ)
 
@@ -21,7 +21,7 @@ Este artigo inclui perguntas mais frequentes sobre como migrar do Azure. Se tive
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como é migrar Azure diferente do Azure Site Recovery?
 
-Migrar do Azure é um serviço de avaliação que o ajuda a detetar as cargas de trabalho no local e planeie a migração para o Azure. [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), juntamente com a ser uma solução de recuperação após desastre, ajuda-o a migrar cargas de trabalho no local para as VMs IaaS do Azure. 
+Migrar do Azure é um serviço de avaliação que o ajuda a detetar as cargas de trabalho no local e planeie a migração para o Azure. [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), juntamente com a ser uma solução de recuperação após desastre, ajuda-o a migrar cargas de trabalho no local para as VMs IaaS do Azure.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Como é migrar Azure diferente do Planeador de implementação do Azure Site Recovery?
 
@@ -36,6 +36,10 @@ Migrar do Azure é uma ferramenta de planeamento da migração e Planeador de im
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>A migrar do Azure necessita de servidor para detetar num ambiente VMware vCenter?
 
 Sim, a migrar do Azure requer o vCenter Server para detetar num ambiente VMware. Não suporta a deteção de anfitriões ESXi que não são geridos pelo vCenter Server.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Em que regiões do Azure são suportadas pelo Azure migrar?
+
+Migrar do Azure suporta atualmente EUA leste e Central EUA Oeste como localizações de projeto. Tenha em atenção que, mesmo que só pode criar os projetos de migração no Central EUA oeste e EUA leste, ainda pode avaliar as máquinas para [várias localizações de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A localização de projeto só é utilizada para armazenar os dados detetados.
 
 ## <a name="discovery"></a>Deteção
 

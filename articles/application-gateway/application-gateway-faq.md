@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/19/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229340"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295533"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -115,7 +115,7 @@ Não, mas pode implementar outros gateways de aplicação na sub-rede.
 
 Grupos de segurança de rede são suportados na sub-rede de Gateway de aplicação com as seguintes restrições:
 
-* Exceções devem ser colocadas para o tráfego de entrada nas portas 65503-65534 para Estado de funcionamento de back-end funcionar corretamente.
+* Exceções devem ser colocadas para o tráfego de entrada nas portas 65503 65534. Este intervalo de portas não é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não poderá iniciar quaisquer alterações nesses pontos finais.
 
 * Conectividade de internet de saída não pode ser bloqueada.
 
@@ -159,7 +159,7 @@ Este cenário pode ser feito utilizando NSGs na sub-rede de Gateway de aplicaç�
 
 * Permitir o tráfego de entrada do intervalo de IP/IP de origem.
 
-* Permitir pedidos de entrada de todas as origens para portas 65503 65534 para [comunicação de estado de funcionamento de back-end](application-gateway-diagnostics.md).
+* Permitir pedidos de entrada de todas as origens para portas 65503 65534 para [comunicação de estado de funcionamento de back-end](application-gateway-diagnostics.md). Este intervalo de portas não é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não poderá iniciar quaisquer alterações nesses pontos finais.
 
 * Permitir entradas sondas de Balanceador de carga do Azure (etiqueta AzureLoadBalancer) e a entrada tráfego de rede virtual (etiqueta VirtualNetwork) no [NSG](../virtual-network/security-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Sincronização de dados SQL do Azure (pré-visualização) | Microsoft Docs
-description: Esta descrição geral apresenta a sincronização de dados de SQL do Azure (pré-visualização)
+title: Sincronização de dados SQL do Azure | Microsoft Docs
+description: Esta descrição geral apresenta a sincronização de dados SQL do Azure
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301053"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296184"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server (pré-visualização)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server
 
 Sincronização de dados do SQL Server é um serviço incorporado numa base de dados do SQL do Azure que permite-lhe sincronizar os dados que selecionar bidirecional entre várias bases de dados SQL e instâncias do SQL Server.
 
@@ -53,15 +53,15 @@ Sincronização de dados é útil nos casos em que dados é necessário manter a
 
 -   **Global de aplicações distribuídas:** muitas empresas abrangem várias regiões e até mesmo vários países. Para minimizar a latência de rede, é melhor terá os seus dados numa região perto de si. Sincronização de dados, pode conservar facilmente bases de dados em regiões em todo o mundo sincronizados.
 
-Sincronização de dados não é adequada para os seguintes cenários:
+Sincronização de dados não é a melhor solução para os seguintes cenários:
 
--   Recuperação Após Desastre
-
--   Escala de leitura
-
--   ETL (OLTP para OLAP)
-
--   Migração de SQL Server no local para a base de dados SQL do Azure
+| Cenário | Algumas soluções recomendadas |
+|----------|----------------------------|
+| Recuperação Após Desastre | [Cópias de segurança com redundância geográfica do Azure](sql-database-automated-backups.md) |
+| Escala de leitura | [Utilizar réplicas de só de leitura para carregar saldo de consulta só de leitura cargas de trabalho (pré-visualização)](sql-database-read-scale-out.md) |
+| ETL (OLTP para OLAP) | [Fábrica de dados do Azure](https://azure.microsoft.com/services/data-factory/) ou [do SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migração de SQL Server no local para a base de dados SQL do Azure | [Serviço de migração de base de dados do Azure](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Como funciona a sincronização de dados? 
 
@@ -127,13 +127,13 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sobre a sincronização de dados do SQL Server
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Quanto custo do serviço de sincronização de dados do SQL Server (pré-visualização)?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Quanto custo do serviço de sincronização de dados SQL?
 
-Durante a pré-visualização, há sem encargos durante o próprio serviço de sincronização de dados do SQL Server (pré-visualização).  No entanto, que ainda acumular custos de transferência de dados de movimento de dados e para a instância de base de dados SQL. Para obter mais informações, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Não há sem encargos durante o próprio serviço de sincronização de dados do SQL Server.  No entanto, que ainda acumular custos de transferência de dados de movimento de dados e para a instância de base de dados SQL. Para obter mais informações, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>As regiões suportam a sincronização de dados?
 
-Sincronização de dados do SQL Server (pré-visualização) está disponível em todas as regiões de nuvem pública.
+Sincronização de dados do SQL Server está disponível em todas as regiões de nuvem pública.
 
 ### <a name="is-a-sql-database-account-required"></a>É necessária uma conta de base de dados SQL? 
 
@@ -152,7 +152,7 @@ Sim. Crie manualmente o esquema na nova base de dados, processamento de scripts 
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Deve utilizar sincronização de dados do SQL Server para criar cópias de segurança e restaurar os meus bases de dados?
 
-Não se recomenda utilizar a sincronização de dados do SQL Server (pré-visualização) para criar uma cópia de segurança dos seus dados. Não é possível fazer cópias de segurança e restaurar para um ponto específico no tempo, porque as sincronizações de sincronização de dados do SQL Server (pré-visualização) não são com a versão. Além disso, a sincronização de dados do SQL Server (pré-visualização) não efetuar cópias de segurança outros objetos SQL, tais como procedimentos armazenados e não o equivalente a uma operação de restauro rapidamente.
+Não se recomenda utilizar a sincronização de dados do SQL Server para criar uma cópia de segurança dos seus dados. Não é possível fazer cópias de segurança e restaurar para um ponto específico no tempo, porque as sincronizações de sincronização de dados do SQL Server não são com a versão. Além disso, a sincronização de dados do SQL Server não efetuar cópias de segurança outros objetos SQL, tais como procedimentos armazenados e não o equivalente a uma operação de restauro rapidamente.
 
 Para obter um recomendado técnica de cópia de segurança, consulte [copiar uma base de dados SQL do Azure](sql-database-copy.md).
 
@@ -172,7 +172,7 @@ Sim. Sincronização de dados do SQL Server suporta o agrupamento nos seguintes 
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Federação é suportada sincronização de dados SQL?
 
-Base de dados de raiz de Federação pode ser utilizado no serviço de sincronização de dados do SQL Server (pré-visualização) sem qualquer limitação. Não é possível adicionar o ponto final de base de dados federada para a versão atual de sincronização de dados do SQL Server (pré-visualização).
+Base de dados de raiz de Federação pode ser utilizado no serviço de sincronização de dados SQL sem qualquer limitação. Não é possível adicionar o ponto final de base de dados federada para a versão atual de sincronização de dados do SQL Server.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

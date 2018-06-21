@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264345"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287842"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas utilizando o Monitor do Azure  
 
@@ -148,7 +148,13 @@ Para **alertas de registo** alertas podem ser baseados em:
 2. O **alertas Dashboard** é apresentado - wherein todos os alertas do Azure são unified e apresentados num painel único ![Dashboard alerta](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Da parte superior esquerda para a direita, o Dashboard mostra rapidamente, o seguinte -, que pode ser clicado para ver uma lista detalhada:
     - *É desencadeado alertas*: O número de alertas atualmente, tiver cumprido lógica e no desencadeou o Estado
-    - *Total de regras de alerta*: O número de regras de alerta criadas e na subtext, o número que estão atualmente ativadas
+    - *Total de regras de alerta*: O número de regras de alerta criadas e na subtext, o número que estão atualmente ativadas 
+    
+
+        > [!NOTE]
+        > Para garantir que o dashboard consistente com os detalhes em todos os desencadeado alertas, incluindo alertas de registo para o application insights e análise de registos [Avançado unificada alerta (pré-visualização)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) deve ser utilizado
+  
+  
 4. Uma lista de todos os alertas fired é apresentada que o utilizador pode clicar para ver os detalhes
 5. Aiding no específicos a localizar os alertas; um pode utilizar as opções de lista pendente na parte superior para filtrar específico *subscrição, grupo de recursos e/ou recurso*. Adicional para qualquer não pode estar resolvido de alertas, um utilize o *alerta filtro* opção para encontrar para fornecido palavra-chave - alertas correspondentes específicos com *nome, alerta critérios, grupo de recursos e o recurso de destino*
 

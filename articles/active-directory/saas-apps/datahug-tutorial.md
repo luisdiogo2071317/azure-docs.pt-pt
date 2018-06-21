@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e8295d7cba023697e803bce2d8a321a943761f2a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb2d6194b5a515d89e3204679860ab19a052ba03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222911"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Azure Active Directory com Datahug
 
@@ -240,7 +240,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
-Quando clica no mosaico Datahug no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Datahug. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://msdn.microsoft.com/library/dn308586). 
+Quando clica no mosaico Datahug no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Datahug. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
