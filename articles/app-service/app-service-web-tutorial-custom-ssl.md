@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193459"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714583"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure
 
@@ -84,17 +84,17 @@ No painel de navegação esquerdo da página da aplicação Web, desloque-se par
 
 ![Menu de aumento vertical](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Confirme que a aplicação Web não está no escalão **Gratuito** ou **Partilhado**. O escalão atual da aplicação é realçado com uma caixa azul-escura.
+Confirme que a aplicação Web não está no escalão **F1** ou **D1**. O escalão atual da aplicação é realçado com uma caixa azul-escura.
 
 ![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-O SSL personalizado não é suportado nos escalões **Gratuito** e **Partilhado**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **Escolher o escalão de preço** e avance para [Carregar e vincular o certificado SSL](#upload).
+O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **Aumentar verticalmente** e avance para [Carregar e vincular o certificado SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Aumentar verticalmente o seu plano do Serviço de Aplicações
 
-Selecione um dos escalões **Básico**, **Standard** ou **Premium**.
+Selecione qualquer uma das camadas não gratuitas (**B1**, **B2**, **B3** ou qualquer camada na categoria **Produção**). Para obter opções adicionais, clique em **Ver opções adicionais**.
 
-Clique em **Selecionar**.
+Clique em **Aplicar**.
 
 ![Escolher um escalão de preço](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

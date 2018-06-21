@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595204"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
 O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
@@ -55,9 +57,7 @@ Conforme mencionado acima, pode criar duas sub-redes numa única rede virtual ou
 ![Criar a rede virtual](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 No portal do Azure, selecione “rede virtual” e pode implementar a rede virtual e uma sub-rede imediatamente com um só clique. A sub-rede INT também é definida e está agora pronta para receber as VMs.
-O passo seguinte consiste em adicionar outra sub-rede à rede, por exemplo, a sub-rede de perímetro.
- Para criar a sub-rede de perímetro, basta:
-
+O passo seguinte consiste em adicionar outra sub-rede à rede, por exemplo, a sub-rede de perímetro. Para criar a sub-rede de perímetro, basta
 
 * Selecionar a rede acabada de criar
 * Selecionar a sub-rede nas propriedades
@@ -66,8 +66,7 @@ O passo seguinte consiste em adicionar outra sub-rede à rede, por exemplo, a su
 
 ![Subrede](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
-![Sub-rede de perímetro
-](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+![Sub-rede de perímetro](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
 **1.2. Criar os grupos de segurança de rede**
 
@@ -80,8 +79,7 @@ Depois de criado o NSG, existiram 0 regras de entrada e 0 regras de saída. Quan
 
 ![Inicializar o NSG](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-Depois de criados os NSGs, associe NSG_INT à sub-rede INT e NSG_DMZ à sub-rede de perímetro.
- É apresentada uma captura de ecrã de exemplo abaixo:
+Depois de criados os NSGs, associe NSG_INT à sub-rede INT e NSG_DMZ à sub-rede de perímetro. É apresentada uma captura de ecrã de exemplo abaixo:
 
 ![Configurar o NGS](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 

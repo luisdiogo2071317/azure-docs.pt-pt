@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 manager: carmonm
 ms.topic: tutorial
-ms.date: 03/16/2018
+ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 97db493b77483d68860c6124f1063bc4a743c3be
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830525"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Carregar soluções de atualização e controlo de alterações para a Automatização do Azure
 
@@ -36,7 +37,7 @@ Para concluir este tutorial, é necessário o seguinte:
 
 ## <a name="onboard-an-azure-vm"></a>Carregar uma VM do Azure
 
-Existem várias formas de carregar máquinas. Pode carregar a solução [a partir de uma máquina virtual](automation-onboard-solutions-from-vm.md), [a partir da sua conta de Automatização](automation-onboard-solutions-from-automation-account.md) ou através do runbook. Este tutorial explica a ativação da Gestão de Atualizações através de um runbook. Para carregar Máquinas Virtuais do Azure à escala, é necessário carregar uma VM existente com a solução de Controlo de alterações ou Gestão de atualizações. Neste passo, vai carregar uma máquina virtual com Gestão de atualizações e Controlo de alterações.
+Existem várias formas de carregar máquinas. Pode carregar a solução [a partir de uma máquina virtual](automation-onboard-solutions-from-vm.md), [ao pesquisar em várias máquinas](automation-onboard-solutions-from-browse.md), [a partir da sua conta de Automatização](automation-onboard-solutions-from-automation-account.md) ou através do runbook. Este tutorial explica a ativação da Gestão de Atualizações através de um runbook. Para carregar Máquinas Virtuais do Azure à escala, é necessário carregar uma VM existente com a solução de Controlo de alterações ou Gestão de atualizações. Neste passo, vai carregar uma máquina virtual com Gestão de atualizações e Controlo de alterações.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 

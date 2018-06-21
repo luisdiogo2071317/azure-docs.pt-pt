@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261326"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
@@ -43,7 +44,7 @@ Para concluir este tutorial, precisa de:
 
 * [Git](https://git-scm.com/downloads)
 * Uma [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ativa
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * Uma [conta do Docker Hub](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -145,7 +146,7 @@ Agora, pode utilizar esta imagem como origem de implementação para uma nova ap
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -226,7 +227,7 @@ Neste tutorial, ficou a saber como:
 > * Implementar uma aplicação de funções a partir do Docker Hub.
 > * Adicionar as definições de aplicação à aplicação de funções.
 
-Saiba mais sobre o desenvolvimento das Funções do Azure localmente com as Ferramentas de Núcleo das Funções do Azure.
+Saiba como ativar a funcionalidade de integração contínua integrada na plataforma principal do Serviço de Aplicações. Pode configurar a sua aplicação de funções para que o contentor seja novamente implementado ao atualizar a imagem no Hub do Docker.
 
 > [!div class="nextstepaction"] 
-> [Criar código e testar as Funções do Azure localmente](functions-run-local.md)
+> [Implementação contínua com a Aplicação Web para Contentores](../app-service/containers/app-service-linux-ci-cd.md)

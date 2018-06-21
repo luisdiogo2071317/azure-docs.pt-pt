@@ -1,31 +1,28 @@
 ---
-title: Introdução ao Azure Data Lake Analytics com a CLI 2.0 do Azure | Microsoft Docs
-description: 'Saiba como utilizar a Interface de Linha de Comandos 2.0 do Azure para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics com U-SQL e submeter o trabalho. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Introdução ao Azure Data Lake Analytics com a CLI 2.0 do Azure
+description: Aprenda a utilizar a Interface de Linha de Comandos do Azure 2.0 para criar uma conta do Azure Data Lake Analytics e submeta uma tarefa de U-SQL.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625106"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introdução ao Azure Data Lake Analytics com a CLI 2.0 do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Neste tutorial, vai desenvolver uma tarefa que lê um ficheiro de valores separados por tabulações (TSV) e converte-o num ficheiro de valores separados por vírgulas (CSV). Para seguir o mesmo tutorial, utilizando outras ferramentas suportadas, utilize a lista pendente na parte superior desta secção.
+Este artigo descreve como utilizar a interface de linha de comandos da CLI 2.0 do Azure para criar contas do Azure Data Lake Analytics, submeter tarefas do USQL e catálogos. A tarefa que lê um ficheiro de valores separados por tabulações (TSV) e converte-o num ficheiro de valores separados por vírgulas (CSV). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, tem de ter os seguintes itens:
+Antes de começar, irá precisar dos seguintes itens:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI 2.0 do Azure**. Consulte [instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).

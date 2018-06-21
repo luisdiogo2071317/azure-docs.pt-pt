@@ -1,21 +1,22 @@
 ---
 title: Personalizar as vistas do operador no Azure IoT Central | Microsoft Docs
 description: EnqPersonalize as vistas do operador na sua aplicação do Azure IoT Central como construtor.
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202327"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235373"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 - Personalizar a vista de operador do Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista de operador do Azure IoT Central
 
 Este tutorial mostra-lhe como personalizar a vista do operador da sua aplicação como construtor. Quando fizer uma alteração à aplicação como construtor, pode pré-visualizar a vista do operador na aplicação do Microsoft Azure IoT Central.
 
@@ -35,8 +36,8 @@ Neste tutorial, ficará a saber como:
 
 Antes de iniciar sessão, deve concluir os dois tutoriais anteriores:
 
-1. [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type.md).
-1. [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md).
+* [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type.md).
+* [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Configurar o dashboard do seu dispositivo
 
@@ -46,17 +47,17 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Página do Explorador](media/tutorial-customize-operator/explorer.png)
 
-1. Para começar a personalizar o dashboard do dispositivo de ar condicionado ligado, selecione o modelo do dispositivo de **Ar Condicionado Ligado (1.0.0)**. Escolha o dispositivo de **Ar Condicionado Ligado-1** que criou no tutorial [Definir um novo tipo de dispositivo na sua aplicação](tutorial-define-device-type.md):
+2. Para começar a personalizar o dashboard do dispositivo de ar condicionado ligado, selecione o modelo do dispositivo de **Ar Condicionado Ligado (1.0.0)**. Escolha o dispositivo de **Ar Condicionado Ligado-1** que criou no tutorial [Definir um novo tipo de dispositivo na sua aplicação](tutorial-define-device-type.md):
 
     ![Selecionar o dispositivo de ar condicionado ligado](media/tutorial-customize-operator/selectdevice.png)
 
     Quando fizer uma alteração a um dispositivo, como **Ar Condicionado Ligado-1**, faça uma alteração ao modelo subjacente. Para obter mais informações, veja [Criar uma nova versão do modelo de dispositivo](howto-version-devicetemplate.md).
 
-1. Para editar o dashboard, escolha **Dashboard**:
+3. Para editar o dashboard, escolha **Dashboard**:
 
     ![Página do dashboard do modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-1. Para adicionar um mosaico de KPI ao dashboard, escolha **KPI**:
+4. Para adicionar um mosaico de KPI ao dashboard, escolha **KPI**:
 
     ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +70,11 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
     | Agregação | Máximo |
     | Intervalo de tempo  | Passado 1 semana |
 
-1. Escolha **Guardar**. Agora pode ver o mosaico de KPI no dashboard:
+5. Escolha **Guardar**. Agora pode ver o mosaico de KPI no dashboard:
 
     ![Mosaico de KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Para mover ou redimensionar um mosaico no dashboard, mova o ponteiro do rato sobre o mosaico. Pode arrastar o mosaico para uma nova localização ou redimensioná-lo:
+6. Para mover ou redimensionar um mosaico no dashboard, mova o ponteiro do rato sobre o mosaico. Pode arrastar o mosaico para uma nova localização ou redimensioná-lo:
 
     ![Editar esquema do dashboard](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +86,7 @@ Também pode configurar a vista do operador das definições do dispositivo como
 
     ![Página de definições](media/tutorial-customize-operator/settings.png)
 
-1. Pode mover e redimensionar os mosaicos de definições:
+2. Pode mover e redimensionar os mosaicos de definições:
 
     ![Editar o esquema de definições](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +101,7 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 
     ![Página Propriedades](media/tutorial-customize-operator/properties.png)
 
-1. Pode mover e redimensionar os campos de propriedades:
+2. Pode mover e redimensionar os campos de propriedades:
 
     ![Editar o esquema de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +114,17 @@ No **Modo de Estrutura**, pode personalizar o dashboard, as definições e as p�
 
 1. Para ver o seu dispositivo de ar condicionado ligado como um operador, tem de desativar o **Modo de Estrutura**. Para desativar o **Modo de Estrutura**, desative o **Modo de Estrutura** no canto superior direito da página.
 
-1. Para atualizar o número de série deste dispositivo, edite o valor no mosaico do número de série e escolha **Guardar**:
+2. Para atualizar o número de série deste dispositivo, edite o valor no mosaico do número de série e escolha **Guardar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
-1. Para enviar uma definição para o seu ar condicionado ligado, escolha **Definições**, altere um valor de definição num mosaico e escolha **Atualizar**:
+3. Para enviar uma definição para o seu ar condicionado ligado, escolha **Definições**, altere um valor de definição num mosaico e escolha **Atualizar**:
 
     ![Enviar definição para dispositivo](media/tutorial-customize-operator/sendsetting.png)
 
     Quando o dispositivo reconhece o novo valor de definição, a definição é apresentada como **sincronizada** no mosaico.
 
-1. Enquanto operador, pode ver o dashboard do dispositivo, conforme configurado pelo construtor:
+4. Enquanto operador, pode ver o dashboard do dispositivo, conforme configurado pelo construtor:
 
     ![Vista do operador do dashboard do dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -135,14 +136,14 @@ Quando um construtor ou operador inicia sessão numa aplicação do Azure IoT Ce
 
     ![Página Application Builder](media/tutorial-customize-operator/builderhome.png)
 
-1. Para personalizar a home page, adicione mosaicos a partir da **Biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
+2. Para personalizar a home page, adicione mosaicos a partir da **Biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
 
     ![Adicionar ligação à home page](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Também pode adicionar ligações a páginas na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar uma ligação a um dashboard de dispositivo ou à página de definições.
 
-1. Opcionalmente, escolha **Imagem** e carregue uma imagem a apresentar na sua home page. Uma imagem pode ter um URL para o qual navega ao clicar no mesmo:
+3. Opcionalmente, escolha **Imagem** e carregue uma imagem a apresentar na sua home page. Uma imagem pode ter um URL para o qual navega ao clicar no mesmo:
 
     ![Adicionar imagem à home page](media/tutorial-customize-operator/addimage.png)
 

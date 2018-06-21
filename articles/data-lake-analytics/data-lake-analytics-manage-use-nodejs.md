@@ -1,32 +1,28 @@
 ---
-title: Gerir o Azure Data Lake Analytics com o Azure SDK para Node.js | Microsoft Docs
-description: Saiba como gerir contas de Data Lake Analytics, origens de dados, tarefas e os utilizadores que utilizam o Azure SDK para Node.js
+title: Gerir a Análise do Azure Data Lake com o Azure SDK para Node.js
+description: Este artigo descreve como utilizar o SDK do Azure para Node.js, para gerir contas de Data Lake Analytics, origens de dados, tarefas e utilizadores.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: f11695df74e30f7ba9b1459f443a720208e542c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
+ms.topic: get-started-article
+ms.date: 12/05/2016
+ms.openlocfilehash: 7af56c7770de7eef0fcf33b2c29f02d3b9fe7170
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624316"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gerir a Análise do Azure Data Lake com o Azure SDK para Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-O Azure SDK para Node.js pode ser utilizado para gerir contas, tarefas e catálogos de Análise do Azure Data Lake. Para ver o tópico de gestão sobre a utilização de outras ferramentas, clique para selecionar o separador acima.
+Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de dados, utilizadores e tarefas com uma aplicação escrita através da SDK do Azure para Node.js. 
 
-Atualmente, suporta:
-
+Suporta as seguintes versões:
 * **Versão Node.js: 0.10.0 ou superior**
 * **Versão de API REST para a Conta: 2015-10-01-preview**
 * **Versão de API REST para o Catálogo: 2015-10-01-preview**

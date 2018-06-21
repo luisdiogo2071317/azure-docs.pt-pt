@@ -7,39 +7,39 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4f76602d469766f75e7a3948ae1aed290bffb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589003"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Ativar o Azure Active Directory Domain Services
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tarefa 4: Atualizar as definições de DNS para a rede virtual do Azure
-Nas tarefas de configuração anteriores, ativou com êxito o Azure Active Directory Domain Services no seu diretório. A tarefa seguinte é garantir que os computadores na rede virtual se conseguem ligar e consumir esses serviços. Neste artigo, atualiza as definições do servidor DNS da sua rede virtual para que apontem para os dois endereços IP nos quais o Azure Active Directory Domain Services está disponível na rede virtual.
+Nas tarefas de configuração anteriores, ativou com êxito o Azure Active Directory Domain Services no seu diretório. Em seguida permita que os computadores na rede virtual se liguem e consumam estes serviços. Neste artigo, atualiza as definições do servidor DNS da sua rede virtual para que apontem para os dois endereços IP nos quais o Azure Active Directory Domain Services está disponível na rede virtual.
 
-Para atualizar a definição do servidor DNS para a rede virtual em que tenha ativado o Azure Active Directory Domain Services, faça o seguinte:
+Para atualizar as definições do servidor DNS para a rede virtual em que tenha ativado o Azure Active Directory Domain Services, faça o seguinte:
+
 
 1. O separador **Descrição geral** lista um conjunto de **Passos de configuração necessários** para serem executados depois dee o domínio gerido estar totalmente aprovisionado. O primeiro passo de configuração é **Definições do servidor DNS para a sua rede virtual**.
 
-    ![Serviços de domínio - separador Descrição geral depois de totalmente aprovisionado](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Serviços de Domínio - separador Descrição geral](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. Quando o seu domínio está totalmente aprovisionado, dois endereços IP são exibidos neste mosaico. Cada um desses endereços IP representa um controlador de domínio para o seu domínio gerido.
+    > [!TIP]
+    > Não vê este passo de configuração? Se as definições do servidor DNS na sua rede virtual estiverem atualizadas, não verá as definições no mosaico "Atualizar definições do servidor DNS na sua rede virtual" no separador Descrição geral.
+    >
+    >
 
-3. Para copiar o primeiro endereço IP para a área de transferência, clique no botão Copiar junto ao mesmo. Em seguida, clique no botão **Configurar servidores DNS**.
-
-4. Cole o primeiro endereço IP na caixa de texto **Adicionar servidor DNS** no painel **Servidores DNS**. Desloque-se horizontalmente para a esquerda para copiar o segundo endereço IP e cole-o na caixa de texto **Adicionar servidor DNS**.
-
-    ![Serviços de domínio - atualizar o DNS](./media/getting-started/domain-services-update-dns.png)
-
-5. Clique em **Guardar** quando terminar de atualizar os servidores DNS para a rede virtual.
+2. Clique no botão **Configurar** para atualizar as definições do servidor DNS para a rede virtual.
 
 > [!NOTE]
 > As máquinas virtuais na rede só obtêm as novas definições de DNS após uma reinicialização. Se precisar de atualizar imediatamente as definições do DNS, ative a reinicialização no portal, no PowerShell ou na CLI.

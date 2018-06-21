@@ -1,3 +1,1 @@
-Selecione **Azure AD B2C** na lista de serviços no portal do Azure.
-
-![Selecionar o serviço B2C](media/active-directory-b2c-find-service-settings/select-b2c-service.png)
+Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Já deve estar a utilizar o inquilino que criou no tutorial anterior.

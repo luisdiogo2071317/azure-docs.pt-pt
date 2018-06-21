@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055858"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849996"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](active-directory-aadconnect-get-started-express.md) não satisfaz a sua implementação ou topologia.
@@ -215,12 +216,11 @@ Num computador que tem as ferramentas de gestão de Política de Grupo.
 1.  Abrir as Ferramentas de Gestão da Política de Grupo
 2.  Edite a Política de grupo que será aplicada a todos os utilizadores. Por exemplo, a Política de Domínio Predefinida.
 3.  Navegue até **Configuração de Utilizador\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controlo da Internet\Página de Segurança** e selecione **Site para a Lista de Atribuições de Zona** de acordo com a imagem abaixo.
-4.  Ative a política e introduza os seguintes dois itens na caixa de diálogo.
+4.  Ative a política e introduza os seguintes itens na caixa de diálogo.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  Deve ter um aspeto semelhante ao seguinte:  
 ![Zonas da Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -228,7 +228,7 @@ Num computador que tem as ferramentas de gestão de Política de Grupo.
 6.  Clique em **OK** duas vezes.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurar a federação com o AD FS
-Configurar o AD FS com o Azure AD Connect é simples, bastam apenas alguns cliques. É necessário o seguinte antes da configuração.
+Configurar o AD FS com o Azure AD Connect é simples e exige apenas alguns cliques. É necessário o seguinte antes da configuração.
 
 * Um servidor Windows Server 2012 R2 ou posterior para o servidor de federação com a gestão remota ativada
 * Um servidor Windows Server 2012 R2 ou posterior para o servidor Proxy de Aplicação Web com a gestão remota ativada
@@ -261,8 +261,7 @@ Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou m
 ![Servidores do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### <a name="specify-the-web-application-proxy-servers"></a>Especificar os servidores Proxy de Web Apps
-Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy de Web Apps está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet.
- Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
+Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy da aplicação Web está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
 
 > [!NOTE]
 > <li> Se a conta utilizada não for um administrador local nos servidores WAP, ser-lhe-ão pedidas as credenciais de administrador.</li>
@@ -305,7 +304,7 @@ Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as in
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>Configurar a federação com o PingFederate
-Configurar o PingFederate com o Azure AD Connect é simples, bastam apenas alguns cliques. É necessário o seguinte antes da configuração.  No entanto, são necessários os seguintes pré-requisitos.
+Configurar o PingFederate com o Azure AD Connect é simples e exige apenas alguns cliques. No entanto, são precisos os seguintes pré-requisitos.
 - PingFederate 8.4 ou superior.  Para obter mais informações veja [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - Um certificado SSL para o nome do serviço de federação que pretende utilizar (por exemplo, sts.contoso.com)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359786"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608394"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure a uma aplicação Web do Serviço de Aplicações do Azure
 
@@ -55,6 +55,9 @@ Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTM
 
 Abra um browser e navegue para o [portal do Azure](https://portal.azure.com).
 
+### <a name="dynamic-site-acceleration-optimization"></a>Otimização de aceleração de site dinâmico
+Se quiser otimizar o seu ponto final de CDN para a aceleração de site dinâmica (DSA), deve utilizar o [portal da CDN](cdn-create-new-endpoint.md) para criar o seu perfil e o ponto final. Com [otimização DSA](cdn-dynamic-site-acceleration.md), o desempenho das páginas web com o conteúdos dinâmicos foi consideravelmente melhorado. Para obter instruções sobre como otimizar um ponto final de CDN para DSA a partir do portal de CDN, veja [Configuração do ponto final de CDN para acelerar a entrega de ficheiros dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Caso contrário, se não quiser otimizar o seu novo ponto final, pode utilizar o portal da aplicação Web para criá-lo ao seguir os passos da próxima secção. Note que para os perfis de **CDN do Azure da Verizon**, não pode alterar a otimização de um ponto final de CDN após ter sido criado.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Criar um perfil da CDN e ponto final
 
 No painel de navegação esquerdo, selecione **Serviço de Aplicações** e, em seguida, selecione a aplicação que criou no [início rápido HTML estático](../app-service/app-service-web-get-started-html.md).
@@ -64,9 +67,6 @@ No painel de navegação esquerdo, selecione **Serviço de Aplicações** e, em 
 Na página **Serviço de Aplicações**, na secção **Definições**, selecione **Redes > Configurar a CDN do Azure para a sua aplicação**.
 
 ![Selecione a CDN no portal](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>Otimização de aceleração de site dinâmico
-Se quiser otimizar o seu ponto final de CDN para a aceleração de site dinâmica (DSA), utilize o portal da CDN para criar diretamente o ponto final. Com [otimização DSA](cdn-dynamic-site-acceleration.md), o desempenho das páginas web com o conteúdos dinâmicos foi consideravelmente melhorado. Para mais informações sobre como otimizar um ponto final de CDN para DSA a partir do portal de CDN, veja [Configuração do ponto final de CDN para acelerar a entrega de ficheiros dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Para os perfis de **CDN do Azure da Verizon**, não pode alterar a otimização de um ponto final de CDN após ter sido criado.
 
 Na página **Azure Content Delivery Network**(Rede de Entrega de Conteúdos do Azure), indique as definições **Novo ponto final** conforme especificado na tabela.
 

@@ -1,21 +1,22 @@
 ---
 title: Monitorizar os seus dispositivos no Azure IoT Central | Microsoft Docs
 description: Como operador, utilize a aplicação Azure IoT Central para monitorizar os seus dispositivos.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201392"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235486"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Utilizar o Azure IoT Central para monitorizar os seus dispositivos
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
 Este tutorial mostra-lhe, como operador, como utilizar a aplicação Microsoft Azure IoT Central para monitorizar os seus dispositivos e alterar as definições.
 
@@ -50,11 +51,11 @@ A página **Dispositivo** do **Dispositivo de Ar Condicionado Ligado 1** simulou
 
 Como operador, pode ver informações sobre o dispositivo nas páginas **Medições**, **Definições**, **Propriedades**, **Regras** e **Dashboard**. O construtor personalizou o **Dashboard** para apresentar informações importantes sobre um dispositivo de ar condicionado ligado.
 
-* Escolha a vista **Dashboard** para ver as informações sobre o dispositivo:
+Escolha a vista **Dashboard** para ver as informações sobre o dispositivo.
 
-    ![Dashboard do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
+![Dashboard do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-    O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também pode ver a temperatura ideal atual do dispositivo no mosaico **Definir temperatura ideal**. Decide que a temperatura ideal é demasiado elevada.
+O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também pode ver a temperatura ideal atual do dispositivo no mosaico **Definir temperatura ideal**. Decide que a temperatura ideal é demasiado elevada.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
@@ -64,7 +65,7 @@ Para alterar a temperatura ideal do dispositivo, utilize a página **Definiçõe
 
     ![Atualizar definições](media/tutorial-monitor-devices/change_settings.png)
 
-1. Escolha **Dashboard** e verifique o novo valor de definição:
+2. Escolha **Dashboard** e verifique o novo valor de definição:
 
     ![Dashboard do dispositivo atualizado](media/tutorial-monitor-devices/new_settings.png)
 
@@ -77,4 +78,4 @@ Neste tutorial, ficou a saber como:
 > * Investigar um problema
 > * Resolver um problema
 
-Agora que monitorizou o dispositivo, o próximo passo sugerido consiste em [Adicionar um dispositivo](tutorial-add-device.md).
+Agora que sabe monitorizar o dispositivo, o próximo passo sugerido consiste em [Adicionar um dispositivo](tutorial-add-device.md).

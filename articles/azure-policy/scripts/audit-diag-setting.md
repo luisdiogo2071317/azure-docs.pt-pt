@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 01e5dc3b7c141841dd6dbd44290360b94493b548
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601280"
 ---
 # <a name="audit-diagnostic-setting"></a>Definição de diagnóstico de auditoria
 
@@ -31,11 +32,11 @@ Esta política incorporada audita se as definições de diagnóstico não estão
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `7f89b1eb-583c-429a-8828-af049802c1d9`.
+Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `7f89b1eb-583c-429a-8828-af049802c1d9`.
 
 ## <a name="parameters"></a>Parâmetros
 
-Para passar o valor do parâmetro, utilize o seguinte formato:
+Para transmitir o valor do parâmetro, utilize o seguinte formato:
 
 ```json
 {"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}
@@ -81,4 +82,4 @@ az policy assignment delete --name "Audit diagnostics" --resource-group myResour
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Pode ver exemplos adicionais do modelo do Azure Policy em [Modelos do Azure Policy](../json-samples.md).
+- Veja mais exemplos nas [amostras do Azure Policy](../json-samples.md).

@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626295"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com Kafka no HDInsight
 
@@ -49,9 +50,9 @@ Neste tutorial, ficará a saber como:
 
 * Um cliente SSH (precisa dos comandos `ssh` e `scp`). Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK na sua estação de trabalho de desenvolvimento. No entanto, deve verificar que existem e que contêm os valores corretos para o seu sistema.
+As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK na sua estação de trabalho de desenvolvimento. No entanto, deve certificar-se de que existem e que contêm os valores corretos para o seu sistema.
 
-* `JAVA_HOME` - deve apontar para o diretório em que o JDK está instalado.
+* `JAVA_HOME` - deve apontar para o diretório onde o JDK está instalado.
 * `PATH` - deve conter os seguintes caminhos:
   
     * `JAVA_HOME` (ou o caminho equivalente).
@@ -59,7 +60,7 @@ As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e
     * O diretório onde o Maven está instalado.
 
 > [!IMPORTANT]
-> Os passos neste documento requerem um grupo de recursos do Azure que contém um cluster do Storm no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Spark comunique diretamente com o cluster do Kafka.
+> Os passos neste documento requerem um grupo de recursos do Azure que contém um cluster do Storm no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Storm comunique diretamente com o cluster do Kafka.
 > 
 > Para sua comodidade, este documento tem uma ligação para o modelo que pode criar todos os recursos do Azure necessários. 
 >

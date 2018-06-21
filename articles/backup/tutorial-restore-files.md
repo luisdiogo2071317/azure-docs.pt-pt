@@ -1,26 +1,21 @@
 ---
-title: Restaurar ficheiros para uma VM com o Azure Backup | Microsoft Docs
-description: "Saiba como realizar restauros ao nível do ficheiro numa VM do Azure com Serviços de Cópia de Segurança e de Recuperação."
+title: Restaurar ficheiros para uma VM com o Azure Backup
+description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azure com Serviços de Cópia de Segurança e de Recuperação.
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 2/14/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eff5a292138bca8f443b77ec8e3ce8e3ee15464e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607582"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo dispõe de detalhes sobre como restaurar ficheiros individuais. Neste tutorial, ficará a saber como:
@@ -32,7 +27,7 @@ O Azure Backup cria pontos de recuperação que são armazenados em cofres de re
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.18 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.18 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

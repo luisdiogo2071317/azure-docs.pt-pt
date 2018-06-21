@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361477"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823916"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com o Node.js
 
@@ -32,7 +32,7 @@ Está agora pronto para criar um ambiente de desenvolvimento baseado no Kubernet
 O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do ambiente de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Se já tiver a CLI do Azure instalada, certifique-se de que está a utilizar a versão 2.0.32 ou superior.
+> Se já tiver a CLI do Azure instalada, certifique-se de que está a utilizar a versão 2.0.33 ou superior.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -185,25 +185,25 @@ Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`.
 1. Adicione estas linhas de código no topo de `server.js`:
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. *Substitua* o código para o processador GET `/api`. Ao processar um pedido, ele faz uma chamada para `mywebapi` e, em seguida, devolve os resultados de ambos os serviços.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Tenha em atenção a forma como a deteção do serviço DNS do Kubernetes é utilizada para fazer referência ao serviço como `http://mywebapi`. **O código no seu ambiente de desenvolvimento está a ser executado da mesma forma que será executado na produção**.
-
-O exemplo de código acima utiliza um módulo de programa auxiliar denominado `propagateHeaders`. Este programa auxiliar foi adicionado à sua pasta de código no momento em que executou `azds prep`. A função `propagateHeaders.from()` propaga cabeçalhos específicos a partir de um objeto http.IncomingMessage existente num objeto de cabeçalhos para um pedido de envio. Verá posteriormente como isto ajuda as equipas de desenvolvimento de colaboração.
+O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Verá posteriormente como isto ajuda as equipas de desenvolvimento de colaboração.
 
 ### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
 1. Neste momento, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não for esse o caso, prima F5 no projeto `mywebapi`.
