@@ -1,54 +1,54 @@
 ---
-title: Implementar módulos em dispositivos de IoT limite a utilizar a extensão de IoT para Azure CLI 2.0 | Microsoft Docs
-description: Implementar módulos para um dispositivo de limite de IoT utilizando a extensão de IoT para Azure CLI 2.0
-services: iot-edge
-keywords: ''
+title: Implementar módulos em dispositivos do IoT Edge com a extensão de IoT para a CLI 2.0 do Azure | Microsoft Docs
+description: Implementar módulos num dispositivo do IoT Edge com a extensão de IoT para a CLI 2.0 do Azure
 author: chrissie926
-manager: timlt
+manager: ''
 ms.author: menchi
 ms.date: 03/02/2018
-ms.topic: article
-ms.service: iot-edge
-ms.custom: ''
+ms.topic: tutorial
 ms.reviewer: kgremban
-ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
+ms.openlocfilehash: deee54fe5d11d6d1cf5485357f853b1cb078f96d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631586"
 ---
-# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implementar módulos para um dispositivo de limite de IoT utilizando a extensão de IoT para Azure CLI 2.0
+# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implementar módulos num dispositivo do IoT Edge com a extensão de IoT para a CLI 2.0 do Azure
 
 A [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comandos multiplataformas de código aberto para gerir recursos do Azure, como o IoT Edge. A CLI 2.0 do Azure está disponível para Windows, Linux e MacOS.
 
-A CLI 2.0 do Azure permite-lhe gerir recursos, instâncias do serviço de aprovisionamento de dispositivos e hubs ligados do Hub IoT do Azure. A nova extensão de IoT otimiza Azure CLI 2.0 com funcionalidades como a gestão de dispositivos e a capacidade total do limite de IoT.
+A CLI 2.0 do Azure permite-lhe gerir recursos, instâncias do serviço de aprovisionamento de dispositivos e hubs ligados do Hub IoT do Azure. A nova extensão de IoT otimiza a CLI 2.0 do Azure com funcionalidades como a gestão de dispositivos e a capacidade completa do IoT Edge.
 
-Neste artigo, iremos configurar Azure CLI 2.0 e a extensão de IoT. Em seguida, irá aprender a implementar módulos para um dispositivo de limite de IoT utilizando os comandos da CLI disponíveis.
+Neste artigo, configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, irá aprender a implementar módulos num dispositivo do IoT Edge com os comandos da CLI disponíveis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure. Se ainda não tem uma, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) hoje. 
+* Uma conta do Azure. Se ainda não tiver uma, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?v=17.39a) já hoje. 
 
-* [Python 2.7 x ou Python 3](https://www.python.org/downloads/).
+* [Python 2.7x ou Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
+* [CLI 2.0 do Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
 
-* [A extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
+* [A extensão de IoT para a CLI 2.0 do Azure](https://github.com/Azure/azure-iot-cli-extension):
    1. Execute `az extension add --name azure-cli-iot-ext`. 
    2. Após a instalação, utilize `az extension list` para validar as extensões atualmente instaladas ou `az extension show --name azure-cli-iot-ext` para ver detalhes sobre a extensão de IoT.
    3. Para remover a extensão, utilize `az extension remove --name azure-cli-iot-ext`.
 
 
-## <a name="create-an-iot-edge-device"></a>Criar um dispositivo de limite de IoT
-Este artigo dá instruções para criar uma implementação de limite de IoT. O exemplo mostra como iniciar sessão na sua conta do Azure, criar um grupo de recursos do Azure (um contentor que retém recursos relacionados para uma solução do Azure), criar um IoT Hub, crie três identidade de dispositivos de IoT Edge, etiquetas e em seguida, criar uma implementação de limite de IoT que destina-se esses dispositivos. 
+## <a name="create-an-iot-edge-device"></a>Criar um dispositivo do IoT Edge
+Este artigo aborda instruções para criar uma implementação do IoT Edge. O exemplo mostra como iniciar sessão na sua conta do Azure, criar um Grupo de Recursos do Azure (um contentor com os recursos relacionados para uma solução do Azure), criar um Hub IoT, criar três identidades do dispositivo IoT Edge, definir etiquetas e, em seguida, criar uma implementação do IoT Edge que segmenta esses dispositivos. 
 
-Inicie sessão sua conta do Azure. Depois de introduzir o seguinte comando de início de sessão, é-lhe pedido que utilizem um browser para iniciar sessão com um código Monouso: 
+Inicie sessão na sua conta do Azure. Depois de introduzir o seguinte comando de início de sessão, é-lhe pedido para utilizar um browser para iniciar sessão com um código único: 
 
    ```cli
    az login
    ```
 
-Criar um novo grupo de recursos chamado **IoTHubCLI** na região EUA Leste: 
+Crie um novo grupo de recursos chamado **IoTHubCLI** na região E.U.A Leste: 
 
    ```cli
    az group create -l eastus -n IoTHubCLI
@@ -56,28 +56,28 @@ Criar um novo grupo de recursos chamado **IoTHubCLI** na região EUA Leste:
 
    ![Criar grupo de recursos][2]
 
-Criar um hub IoT chamado **CLIDemoHub** no grupo de recursos criado de novo:
+Crie um hub IoT chamado **CLIDemoHub** no grupo de recursos recém-criado:
 
    ```cli
    az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
    ```
 
    >[!TIP]
-   >Cada subscrição é atribuída um IoT hub gratuito. Para criar um hub gratuito com o comando da CLI, substitua o valor SKU com `--sku F1`. Se já tiver um hub gratuito na sua subscrição, obterá uma mensagem de erro ao tentar criar um segundo. 
+   >Cada subscrição recebe um hub IoT gratuito. Para criar um hub gratuito com o comando da CLI, substitua o valor da SKU por `--sku F1`. Se já tiver um hub gratuito na sua subscrição, irá receber uma mensagem de erro ao tentar criar um segundo. 
 
-Crie um dispositivo de limite de IoT:
+Criar um dispositivo do IoT Edge:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
-   ![Criar dispositivo de limite de IoT][4]
+   ![Criar dispositivo do IoT Edge][4]
 
-## <a name="configure-the-iot-edge-device"></a>Configurar o dispositivo de limite de IoT
+## <a name="configure-the-iot-edge-device"></a>Configurar o dispositivo do IoT Edge
 
-Criar um modelo de implementação de JSON e guardá-lo localmente como um ficheiro txt. Terá do caminho para o ficheiro ao executar o comando de configuração de aplicar.
+Crie um modelo JSON de implementação e guarde-o localmente como um ficheiro txt. Irá precisar do caminho para o ficheiro ao executar o comando apply-configuration.
 
-Modelos de implementação de JSON sempre devem incluir os módulos de sistema dois, edgeAgent e edgeHub. Para além das duas, pode utilizar este ficheiro para implementar módulos adicionais para o dispositivo de limite de IoT. Utilize o seguinte exemplo para configurar o dispositivo de limite de IoT com um módulo de tempSensor:
+Os modelos JSON de implementação devem incluir sempre os dois módulos do sistema, edgeAgent e edgeHub. Para além desses dois, pode utilizar este ficheiro para implementar módulos adicionais no dispositivo do IoT Edge. Utilize o exemplo seguinte para configurar o dispositivo do IoT Edge com um módulo do tempSensor:
 
    ```json
    {
@@ -140,23 +140,23 @@ Modelos de implementação de JSON sempre devem incluir os módulos de sistema d
    }
    ```
 
-Aplicar a configuração para o seu dispositivo de limite de IoT:
+Aplique a configuração no seu dispositivo do IoT Edge:
 
    ```cli
    az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
-Ver os módulos no seu dispositivo de limite de IoT:
+Veja os módulos no seu dispositivo do IoT Edge:
     
    ```cli
    az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
    ```
 
-   ![Lista de módulos][6]
+   ![Listar módulos][6]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [utilizar um dispositivo de limite de IoT como um gateway](how-to-create-transparent-gateway.md)
+* Saiba como [utilizar um dispositivo do IoT Edge como um gateway](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

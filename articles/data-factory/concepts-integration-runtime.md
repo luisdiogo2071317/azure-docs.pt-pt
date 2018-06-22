@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 91225136926427fb22c80bc2e198c153c60614eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298139"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
@@ -91,7 +92,7 @@ Para elevada disponibilidade e escalabilidade, pode aumentar horizontalmente o r
 Para fazer a migração lift and shift de cargas de trabalho do SSIS existentes, pode criar um runtime de integração Azure-SSIS para executar nativamente pacotes do SSIS.
 
 ### <a name="network-environment"></a>Ambiente de rede
-O runtime de integração Azure-SSIS pode ser aprovisionado na rede pública ou numa rede privada.  O acesso aos dados no local é suportado mediante a associação do runtime de integração Azure-SSIS a uma Rede Virtual (VNet) que esteja ligada à sua rede no local.  
+O runtime de integração Azure-SSIS pode ser aprovisionado na rede pública ou numa rede privada.  O acesso aos dados no local é suportado mediante a associação do runtime de integração Azure-SSIS a uma Rede Virtual que esteja ligada à sua rede no local.  
 
 ### <a name="compute-resource-and-scaling"></a>Recurso de computação e dimensionamento
 O runtime de integração Azure-SSIS é um cluster totalmente gerido de VMs do Azure dedicadas à execução dos pacotes do SSIS. Pode utilizar o seu próprio servidor da Base de Dados SQL do Azure ou da Instância Gerida (Pré-visualização) para alojar o catálogo dos projetos/pacotes (SSISDB) do SSIS que vão ser ligados ao mesmo. Pode aumentar verticalmente o poder da computação ao especificar o tamanho do nó e aumentá-lo horizontalmente ao definir o número de nós no cluster. Pode gerir o custo da execução do runtime de integração Azure-SSIS ao pará-lo e iniciá-lo, conforme achar mais adequado.
@@ -101,10 +102,10 @@ Para obter mais informações, veja o artigo “how to create and configure Azur
 Para obter mais informações sobre o runtime Azure-SSIS, veja os artigos seguintes: 
 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma VNet. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma rede virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Monitorizar um IR Azure-SSIS) Este artigo mostra como obter informações sobre um IR Azure-SSIS e descrições dos estados nas informações devolvidas. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
-- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md) (Associar um IR Azure-SSIS a uma VNet). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure (VNet). Também descreve os passos para utilizar o portal do Azure para configurar a VNet, de modo a que o IR Azure-SSIS se possa associar à mesma. 
+- [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também descreve os passos para utilizar o portal do Azure para configurar uma rede virtual, de modo a que o IR Azure-SSIS se possa associar à mesma. 
 
 ## <a name="determining-which-ir-to-use"></a>Determinar o runtime de integração a utilizar
 Cada atividade de transformação tem um Serviço Ligado de destino, que aponta para um runtime de integração. É a partir desta instância de runtime de integração que a atividade de transformação é distribuída.
@@ -179,12 +180,12 @@ Quando é utilizado para realizar o movimento de dados, o runtime de integraçã
 Selecionar a localização certa para o runtime de integração Azure-SSIS é fundamental para obter um elevado desempenho nos seus fluxos de trabalho extract-transform-load (ETL).  As seis localizações estão inicialmente disponíveis para pré-visualização (E.U.A. Leste, E.U.A. Leste 2, E.U.A. Central, Leste da Austrália, Europa do Norte e Europa Ocidental).
 
 - A localização do runtime de integração do Azure-SSIS não tem de ser a mesma da fábrica de dados, mas deve ser a mesma do seu próprio servidor Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) no qual o SSISDB vai ser alojado. Desta forma, o runtime de integração Azure-SSIS pode aceder facilmente ao SSISDB sem incorrer em tráfegos excessivos entre diferentes localizações.
-- Se não tiver um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente para alojar o SSISDB, mas tiver origens/destinos de dados no local, deve criar um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) novo na mesma localização de uma VNet ligada à sua rede no local.  Assim, pode criar o runtime de integração Azure-SSIS com o servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) novo e mediante a associação dessa VNet, tudo na mesma localização, minimizando eficazmente os movimentos de dados para localizações diferentes.
-- Se a localização do seu servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente no qual o SSISDB está alojado não for a mesma de uma VNet ligada à sua rede no local, crie primeiro o runtime de integração Azure-SSIS com um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente e mediante a associação de outra VNet na mesma localização e, em seguida, configure uma ligação VNet a VNet entre diferentes localizações.
+- Se não tiver um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente para alojar o SSISDB, mas tiver origens/destinos de dados no local, deve criar um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) novo na mesma localização de uma rede virtual ligada à sua rede no local.  Assim, pode criar o runtime de integração Azure-SSIS com o servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) novo e mediante a associação dessa rede virtual, tudo na mesma localização, minimizando eficazmente os movimentos de dados para localizações diferentes.
+- Se a localização do seu servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente no qual o SSISDB está alojado não for a mesma de uma rede virtual ligada à sua rede no local, crie primeiro o runtime de integração Azure-SSIS com um servidor de Base de Dados SQL do Azure/Instância Gerida (Pré-visualização) já existente e mediante a associação de outra rede virtual na mesma localização e, em seguida, configure uma ligação rede virtual a rede virtual entre diferentes localizações.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
-- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Criar um runtime de integração Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma VNet. 
+- [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Criar um runtime de integração Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma rede virtual. 

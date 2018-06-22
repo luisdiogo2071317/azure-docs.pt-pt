@@ -1,26 +1,24 @@
 ---
 title: Tutorial de desenvolvimento de aplicações Java utilizando o Azure Cosmos DB | Microsoft Docs
-description: Este tutorial de aplicação web do Java mostra-lhe como utilizar a base de dados do Cosmos do Azure e a API do SQL Server para armazenar e aceder a dados a partir de uma aplicação Java alojada em Web sites do Azure.
-keywords: Desenvolvimento de aplicações, tutorial de base de dados, aplicação java, tutorial de aplicação web java, do azure, do Microsoft azure
+description: Este tutorial de aplicação Web do Java mostra-lhe como utilizar o Azure Cosmos DB e a API de SQL para armazenar e aceder a dados a partir de uma aplicação Java alojada em sites do Azure.
+keywords: Desenvolvimento de aplicações, tutorial sobre bases de dados, aplicação java, tutorial sobre aplicações web java, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: java
 author: dennyglee
 manager: kfile
-ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 4e3fd2fc31bda1dd8172c574fe087d9fcc6068db
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796830"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Criar uma aplicação de web de Java utilizando a base de dados do Azure Cosmos e a API do SQL Server
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Criar uma aplicação Web Java com o Azure Cosmos DB e a API de SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -29,12 +27,12 @@ ms.lasthandoff: 04/06/2018
 > 
 > 
 
-Este tutorial de aplicação web do Java mostra-lhe como utilizar o [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) serviço para armazenar e aceder a dados a partir de uma aplicação Java alojada em Web Apps do Azure App Service. Neste tópico, irá aprender:
+Este tutorial de aplicação Web do Java mostra-lhe como utilizar o serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) para armazenar e aceder a dados a partir de uma aplicação Java alojada em Aplicações Web do Serviço de Aplicações do Azure. Neste artigo, vai aprender:
 
-* Como criar uma aplicação de páginas JavaServer (JSP) básica no Eclipse.
+* Como criar uma aplicação JSP (JavaServer Pages) básica no Eclipse.
 * Como trabalhar com o serviço do Azure Cosmos DB com o [SDK Java do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-java).
 
-Este tutorial de aplicação Java mostra-lhe como criar uma aplicação de gestão de tarefas baseada na Web que lhe permite criar, obter e marcar tarefas como concluídas, conforme mostrado na imagem que se segue. Cada uma das tarefas da ToDo List é armazenada como documentos JSON no Azure Cosmos DB.
+Este tutorial de aplicação Java mostra-lhe como criar uma aplicação de gestão de tarefas baseada na Web que lhe permite criar, obter e marcar tarefas como concluídas, conforme mostrado na imagem que se segue. Cada uma das tarefas da lista ToDo é armazenada como documentos JSON no Azure Cosmos DB.
 
 ![A minha aplicação Java da ToDo List](./media/sql-api-java-application/image1.png)
 
@@ -52,11 +50,11 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 
 * [Kit de desenvolvimento do Java (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [IDE Eclipse para Programadores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-* [Um Site do Azure com um tempo de execução ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
+* [Um site do Azure com um tempo de execução em ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
 
 Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece instruções do processo de instalação na secção Início Rápido do respetivo artigo [Tutorial: Instalar TomCat7 e utilizá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-## <a id="CreateDB"></a>Passo 1: Criar uma conta de base de dados do Azure Cosmos
+## <a id="CreateDB"></a>Passo 1: criar uma conta do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar a aplicação Java JSP](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -75,7 +73,7 @@ Para criar a aplicação JSP:
    
     ![Criar um novo ficheiro JSP - Tutorial de aplicações Web de Java](./media/sql-api-java-application/image11.png)
 5. Na caixa de diálogo **Selecionar modelo de JSP**, no âmbito deste tutorial, selecione **Novo ficheiro JSP (html)**, e, em seguida, clique em **Concluir**.
-6. Quando abrir o ficheiro index.jsp no Eclipse, adicione o texto a apresentar **Olá, Mundo!** dentro do elemento <body> existente. O seu conteúdo <body> atualizado deverá ser semelhante ao seguinte código:
+6. Quando abrir o ficheiro index.jsp no Eclipse, adicione o texto a apresentar **Olá, Mundo!** dentro do elemento <body> existente. O conteúdo <body> atualizado deverá ser semelhante ao seguinte código:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -85,8 +83,8 @@ Para criar a aplicação JSP:
    
     ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Passo 3: Instalar o Java do SQL Server SDK
-A forma mais fácil para obter o SDK Java do SQL Server e as respetivas dependências é através de [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Passo 3: instalar o SDK de SQL Java
+A forma mais fácil para obter o SDK do SQL Java e as respetivas dependências é através do [Apache Maven](http://maven.apache.org/).
 
 Para tal, terá de converter o seu projeto em projeto maven, realizando os seguintes passos:
 
@@ -96,20 +94,20 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
 4. No separador **Dependências**, no painel **Dependências**, clique em **Adicionar**.
 5. Na janela **Selecionar Dependência**, faça o seguinte:
    
-   * No **Id do grupo** box, introduza com.microsoft.azure.
-   * No **Id do artefacto** box, introduza azure documentdb.
-   * No **versão** box, introduza 1.5.1.
+   * Na caixa **Id do Grupo**, introduza com.microsoft.azure.
+   * Na caixa **Id do Artefacto**, Introduza azure-documentdb.
+   * Na caixa **Versão**, introduza 1.5.1.
      
-   ![Instalar a aplicação de Java do SQL Server SDK](./media/sql-api-java-application/image13.png)
+   ![Instalar o SDK da Aplicação de SQL Java](./media/sql-api-java-application/image13.png)
      
-   * Ou adicione a dependência XML para o Id de grupo e o Id do artefacto diretamente no pom.xml através de um editor de texto:
+   * Ou adicione a dependência XML para Id do Grupo e Id do Artefacto diretamente no pom.xml através de um editor de texto:
      
         <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
-6. Clique em **OK** e Maven irá instalar o SDK Java do SQL Server.
+6. Clique em **OK** e o Maven irá instalar o SDK de SQL Java.
 7. Guarde o ficheiro pom.xml.
 
 ## <a id="UseService"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de Java
-1. Em primeiro lugar, definamos o objeto TodoItem no TodoItem.java:
+1. Em primeiro lugar, definamos o objeto TodoItem em TodoItem.java:
    
         @Data
         @Builder
@@ -120,8 +118,8 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
             private String name;
         }
    
-    Neste projeto, utilizamos o [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um construtor. Em alternativa, pode escrever manualmente este código ou pedir a sua geração ao IDE.
-2. Para invocar o serviço do Azure Cosmos DB, tem de instanciar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada pedido subsequente. Podemos reutilizar o cliente envolvendo-o num **DocumentClientFactory**. DocumentClientFactory.java, terá de colar o valor URI e a chave primária que guardou na sua área de transferência no [passo 1](#CreateDB). Substitua o [SEU\_PONTO FINAL\_AQUI] pelo seu URI e substitua a [SUA\_CHAVE\_AQUI] pela sua CHAVE PRIMÁRIA.
+    Neste projeto, está a utilizar o [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um construtor. Em alternativa, pode escrever manualmente este código ou pedir a sua geração ao IDE.
+2. Para invocar o serviço do Azure Cosmos DB, tem de instanciar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada pedido subsequente. Podemos reutilizar o cliente envolvendo-o num **DocumentClientFactory**. Em DocumentClientFactory.java, também terá de colar o valor do URI e a CHAVE PRIMÁRIA que guardou na sua área de transferência no [passo 1](#CreateDB). Substitua o [SEU\_PONTO FINAL\_AQUI] pelo seu URI e substitua a [SUA\_CHAVE\_AQUI] pela sua CHAVE PRIMÁRIA.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -278,7 +276,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
                 return null;
             }
         }
-7. Também podemos utilizar o DocumentClient para obter uma coleção ou uma lista de TodoItems com o SQL Server:
+7. Também podemos utilizar o DocumentClient para obter uma coleção ou uma lista de TodoItems com o SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {
@@ -343,7 +341,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
         }
 
 ## <a id="Wire"></a>Passo 5: fazer a ligação do restante projeto de desenvolvimento de aplicações de Java
-Agora que o diversão bits - tudo o que for deixado consiste em criar uma interface de utilizador rápida e associá-la ao nosso DAO.
+Agora que concluímos a parte divertida - apenas falta criar uma interface de utilizador rápida e associá-la ao nosso DAO.
 
 1. Em primeiro lugar, comecemos por criar um controlador para chamar o nosso DAO:
    
@@ -450,7 +448,7 @@ Agora que o diversão bits - tudo o que for deixado consiste em criar uma interf
                 doGet(request, response);
             }
         }
-3. Vamos precisar de uma interface de utilizador web a apresentar ao utilizador. Vamos escrever novamente o index.jsp que criámos anteriormente:
+3. Precisamos de uma Interface de utilizador Web a apresentar ao utilizador. Vamos escrever novamente o index.jsp que criámos anteriormente:
     ```html
         <html>
         <head>
@@ -539,7 +537,7 @@ Agora que o diversão bits - tudo o que for deixado consiste em criar uma interf
         </body>
         </html>
     ```
-4. E por fim, escreva algum JavaScript do lado do cliente associar em conjunto da interface de utilizador web e a servlet:
+4. E por fim, escreva algum JavaScript do lado do cliente para ligar a interface de utilizador Web e a servlet:
    
         var todoApp = {
           /*
@@ -714,19 +712,19 @@ Agora que o diversão bits - tudo o que for deixado consiste em criar uma interf
 5. Fantástico! Agora, só falta testar a aplicação. Execute localmente a aplicação e adicione alguns itens Todo ao indicar o nome e a categoria do item. De seguida, clique em **Adicionar Tarefa**.
 6. Assim que o item for apresentado, pode atualizar se estiver concluído desativar a caixa de verificação e ao clicar em **Atualizar Tarefas**.
 
-## <a id="Deploy"></a>Passo 6: Implementar a aplicação de Java de Web Sites para Azure
-Web Sites do Azure torna a implementação de aplicações Java tão simples como exportação da sua aplicação como um ficheiro WAR e ao carregá-lo através de controlo de origem (por exemplo, Git) ou FTP.
+## <a id="Deploy"></a>Passo 6: implementar a sua aplicação Java nos Sites do Azure
+Os Sites do Azure tornam a implementação de aplicações Java tão simples como a exportação da sua aplicação com um ficheiro WAR e ao carregá-lo através do controlo de código fonte (por exemplo, Git) ou FTP.
 
-1. Para exportar a sua aplicação como um ficheiro WAR, clique com botão direito no projeto no **Explorador de projeto**, clique em **exportar**e, em seguida, clique em **ficheiro WAR**.
+1. Para exportar a sua aplicação como um ficheiro WAR, clique com o botão direito do rato no seu projeto em **Explorador de Projeto**, clique em **Exportar**, e, em seguida, clique em **Ficheiro WAR**.
 2. Na janela **Exportar WAR**, efetue o seguinte procedimento:
    
    * Na caixa de projeto Web, introduza azure documentdb-java-sample.
    * Na caixa Destino, selecione um destino para guardar o ficheiro WAR.
    * Clique em **Concluir**.
-3. Agora que tem um ficheiro WAR no manualmente, pode simplesmente carregá-lo para o Azure do Web Site **webapps** diretório. Para obter instruções sobre como carregar o ficheiro, consulte [adicionar uma aplicação de Java para Web Apps do Azure App Service](../app-service/web-sites-java-add-app.md).
+3. Agora que tem um ficheiro WAR, pode simplesmente carregá-lo no diretório **webapps** do seu Site do Azure. Para obter instruções sobre o carregamento do ficheiro, veja [Adicionar uma aplicação Java às Aplicações Web do Serviço de Aplicações do Azure](../app-service/web-sites-java-add-app.md).
    
     Depois de o ficheiro WAR ter sido carregado no diretório de webapps, o ambiente de tempo de execução irá detetar que a adição e irá carregá-lo automaticamente.
-4. Para ver o seu produto concluído, navegue para http://YOUR \_SITE\_NAME.azurewebsites.net/azure-java-sample/ e comece a adicionar as suas tarefas!
+4. Para ver o seu produto concluído, navegue para http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ e comece a adicionar as suas tarefas!
 
 ## <a id="GetProject"></a>Obter o projeto a partir do GitHub
 Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) no GitHub. Para importar o projeto todo para o Eclipse, certifique-se de que o software e os recursos estão listados na secção [Pré-requisitos](#Prerequisites) e, de seguida, efetue o seguinte procedimento:
@@ -736,12 +734,12 @@ Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://git
 3. No Eclipse, no menu **Ficheiro**, clique em **Importar**.
 4. Na janela **Importar**, clique em **Git**, clique em **Projetos a partir do Git**, e, em seguida, clique em **Seguinte**.
 5. No ecrã **Selecionar Origem do Repositório**, clique em **Clonar URI**.
-6. No **repositório de Git de origem** no ecrã o **URI** box, introduza https://github.com/Azure-Samples/java-todo-app.gite, em seguida, clique em **seguinte**.
+6. No ecrã **Repositório de Git de Origem**, na caixa **URI**, introduza https://github.com/Azure-Samples/documentdb-java-todo-app.git e, em seguida, clique em **Seguinte**.
 7. No ecrã **Seleção do Ramo**, certifique-se de ter selecionado **principal** e, em seguida, clique em **Seguinte**.
 8. No ecrã **Destino Local**, clique em **Procurar** para selecionar uma pasta em que o repositório pode ser copiado e, em seguida, clique em **Seguinte**.
 9. No ecrã **Selecionar um assistente a utilizar para importar projetos**, certifique-se de ter selecionado **Importar projetos existentes** e, em seguida, clique em **Seguinte**.
-10. No ecrã **Importar Projetos**, anule a seleção do projeto **DocumentDB** e, em seguida, clique em **Concluir**. O projeto DocumentDB contém o Azure Cosmos DB Java SDK, que iremos adicionar como uma dependência em vez disso.
-11. No **Explorador de projeto**, navegue para azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores anfitrião e MASTER_KEY com o URI e a chave primária para a sua BD do Azure do Cosmos conta e, em seguida, guarde o ficheiro. Para obter mais informações, veja o [Passo 1. Criar uma conta de base de dados de base de dados do Azure Cosmos](#CreateDB).
+10. No ecrã **Importar Projetos**, anule a seleção do projeto **DocumentDB** e, em seguida, clique em **Concluir**. O projeto do DocumentDB contém o SDK Java do Azure Cosmos DB, que iremos adicionar como uma dependência.
+11. Em **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores ANFITRIÃO e MASTER_KEY pelo URI e a CHAVE PRIMÁRIA da sua conta do Azure Cosmos DB e, em seguida, guarde o ficheiro. Para obter mais informações, veja o [Passo 1. Crie uma conta de base de dados do Azure Cosmos DB](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do rato em **azure-documentdb-java-sample**, clique em **Criar Caminho**, e, em seguida, clique em **Configurar Criar Caminho**.
 13. No ecrã **Criar Caminho Java**, no painel da direita, selecione o separador **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue para a localização do ficheiro lombok.jar e clique em **Abrir**, e, em seguida, clique em **OK**.
 14. Aplique o passo 12 para abrir novamente a janela **Propriedades** e, em seguida, no painel da esquerda, clique em **Tempos de execução Visados**.
@@ -750,7 +748,7 @@ Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://git
 17. No ecrã **Facetas do Projeto**, selecione **Módulo Web Dinâmico** e **Java** e, em seguida, clique em **OK**.
 18. No separador **Servidores**, na parte inferior do ecrã, clique com o botão direito do rato em **Servidor Tomcat v7.0 no localhost** e, em seguida, clique em **Adicionar e Remover**.
 19. Na janela **Adicionar e Remover**, mover **azure documentdb-java-samples** para a caixa **Configurado** e, em seguida, clique em **Concluir**.
-20. No **servidores** separador, faça duplo clique **servidor Tomcat v 7.0 no localhost**e, em seguida, clique em **reiniciar**.
+20. No separador **Servidores**, clique com o botão direito do rato em **Tomcat v7.0 Server no localhost** e, em seguida, clique em **Reiniciar**.
 21. Num browser, navegue para http://localhost:8080/azure-documentdb-java-sample/ e comece a adicionar à sua lista de tarefas. Tenha em atenção que se tiver alterado os valores de porta predefinidos, altere 8080 para o valor que selecionou.
-22. Para implementar o seu num site Web do Azure, consulte o artigo [Passo 6. Implementar a aplicação de Web Sites para Azure](#Deploy).
+22. Para implementar o seu num site Web do Azure, consulte o artigo [Passo 6. Implemente a sua aplicação existente nos Sites do Azure](#Deploy).
 

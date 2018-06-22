@@ -1,68 +1,79 @@
 ---
-title: Adicionar um modelo de tabela de exemplo para o servidor de Analysis Services do Azure | Microsoft Docs
-description: Saiba como adicionar um modelo de exemplo no Azure Analysis Services.
+title: Tutorial - Adicionar um modelo de exemplo básico ao seu servidor do Azure Analysis Services com o eportal | Microsoft Docs
+description: Nesta aula de tutorial, aprenda a adicionar um modelo de exemplo no Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/12/2018
+ms.service: azure-analysis-services
+ms.topic: tutorial
+ms.date: 05/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 27353ff8c05f44b76304279e09a8a8d817041d78
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f44e33d2b735b6743b2b74760f816442c2cd17fe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596792"
 ---
-# <a name="tutorial-add-a-sample-model"></a>Tutorial: Adicionar um modelo de exemplo
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
-Neste tutorial, adicionar um modelo do exemplo Adventure Works ao seu servidor. O modelo de exemplo é uma versão completa dos dados (1200) Adventure Works Internet vendas modelação tutorial. Um modelo de exemplo é útil para testar a gestão de modelo, ligar-se com ferramentas e aplicações de cliente e consultar os dados do modelo.
+Neste tutorial, irá adicionar uma base de dados de modelo tabular do Adventure Works de exemplo ao seu servidor. O modelo de exemplo é uma versão completa do modelo de dados de exemplo de Vendas do Adventure Works Internet (1200). Um modelo de exemplo é útil para testar a gestão de modelos, ao ligar a ferramentas e aplicações de cliente e consultar dados do modelo. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) para: 
+
+> [!div class="checklist"]
+> * Adicionar um modelo de dados tabular de exemplo concluído para um servidor 
+> * Ligar ao modelo com o SSMS
+
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para concluir este tutorial, precisa de:
 
-- Um servidor de Analysis Services do Azure
-- Permissões de administrador do servidor
+- Um servidor do Azure Analysis Services. Para saber mais, veja [Criar um servidor - portal](analysis-services-create-server.md).
+- Permissões de administrador de servidor
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal](https://portal.azure.com/).
 
-## <a name="create-a-sample-model"></a>Criar um modelo de exemplo
+## <a name="add-a-sample-model"></a>Adicionar um modelo de exemplo
 
-1. No servidor **descrição geral**, clique em **novo modelo**.
+1. No servidor **Descrição geral**, clique em **Novo modelo**.
 
     ![Criar um modelo de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. No **novo modelo** > **escolha uma origem de dados**, certifique-se **dados de exemplo** está selecionada e, em seguida, clique em **adicionar**.
+2. Em **Novo modelo** > **Escolha uma origem de dados**, certifique-se de que os **Dados de exemplo** estão selecionados e, em seguida, clique em **Adicionar**.
 
-    ![Selecione os dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
-3. No **descrição geral**, certifique-se a `adventureworks` exemplo é criado.
+3. Na **Descrição geral**, certifique-se de que o modelo de exemplo `adventureworks` é adicionado.
 
-    ![Selecione os dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+    ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-O modelo de exemplo está a utilizar recursos de memória de cache. Se não estiver a utilizar o seu modelo de exemplo para fins de teste, deve removê-lo a partir do seu servidor.
+O modelo de exemplo está a utilizar recursos de memória de cache. Se não estiver a utilizar o seu modelo de exemplo para fins de teste, deve removê-lo do seu servidor.
 
-> [!NOTE]
-> Estes passos descrevem como eliminar um modelo a partir de um servidor utilizando o SSMS. Também pode eliminar um modelo ao utilizar a funcionalidade Web do estruturador de pré-visualização.
+Estes passos descrevem como eliminar um modelo de um servidor com o SSMS. Também pode eliminar um modelo com a funcionalidade Estruturador Web de pré-visualização.
 
-1. No SSMS > **Object Explorer**, clique em **Connect** > **Analysis Services**.
+1. No SSMS > **Object Explorer**, clique em **Ligar** > **Analysis Services**.
 
-2. No **ligar ao servidor**, no nome do servidor, em seguida, cole no **autenticação**, escolha **do Active Directory - Universal com suporte MFA**, introduza o seu nome de utilizador e, em seguida, clique em **Ligar**.
+2. Em **Ligar ao Servidor**, cole o nome do servidor e, em seguida, na **Autenticação**, escolha **Active Directory - Universal com suporte MFA**, introduza o seu nome de utilizador e clique em **Ligar**.
 
     ![Iniciar sessão](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 
-3. No **Object Explorer**, clique com botão direito do `adventureworks` da base de dados de exemplo e, em seguida, clique em **eliminar**.
+3. No **Object Explorer**, clique com o botão direito do rato na base de dados de amostra `adventureworks` e, em seguida, clique em **Eliminar**.
 
-    ![Eliminar a base de dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
+    ![Eliminar base de dados de amostra](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
-[Ligar no Power BI Desktop](analysis-services-connect-pbi.md)   
-[Gerir utilizadores e funções de base de dados](analysis-services-database-users.md)
+Neste tutorial, aprendeu a adicionar um modelo de exemplo básico ao seu servidor. Agora que tem uma base de dados modelo, pode ligar-se à mesma a partir do SQL Server Management Studio e adicionar funções de utilizador. Para obter mais informações, avance para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Configurar funções de utilizador e de administrador de servidor](analysis-services-database-users.md)
 
 

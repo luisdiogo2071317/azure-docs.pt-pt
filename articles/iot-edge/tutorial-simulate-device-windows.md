@@ -1,61 +1,62 @@
 ---
-title: Simular o limite de IoT do Azure no Windows | Microsoft Docs
-description: Instalar o runtime do Azure IoT Edge num dispositivo simulado no Windows e implementar o seu módulo primeiro
-services: iot-edge
-keywords: ''
+title: Simular o Azure IoT Edge no Windows | Microsoft Docs
+description: Instalar o runtime do Azure IoT Edge num dispositivo simulado no Windows e implementar o seu primeiro módulo
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 11/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 7ad99a49a578de4997a2d76d48da33aba6847f3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631195"
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implementar o Azure IoT Edge num dispositivo simulado Windows – pré-visualização
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implementar o Azure IoT Edge num dispositivo simulado no Windows – pré-visualização
 
-Limite de IoT do Azure permite-lhe efetuar o processamento de dados e de análise nos seus dispositivos, em vez de ter de push de todos os dados para a nuvem. Os tutoriais de limite de IoT demonstram como implementar os diferentes tipos de módulos, criados a partir de serviços do Azure ou código personalizado, mas primeiro tem de um dispositivo para testar. 
+O Azure IoT Edge permite-lhe realizar o processamento de dados e de análise nos seus dispositivos, em vez de ter de solicitar todos os dados para a cloud. Os tutoriais do IoT Edge demonstram como implementar diferentes tipos de módulos, criados a partir de serviços do Azure ou código personalizado, mas primeiro precisa de um dispositivo para testar. 
 
 Neste tutorial, ficará a saber como:
 
 1. Criar um Hub IoT
-2. Registar um dispositivo de limite de IoT
-3. Iniciar o tempo de execução do limite de IoT
+2. Registar um dispositivo do IoT Edge
+3. Iniciar o runtime do IoT Edge
 4. Implementar um módulo
 
 ![Arquitetura do tutorial][2]
 
-O dispositivo simulado que criar neste tutorial é um monitor de um turbine vento que gera temperatura, humidade e pressão dados. Está interessado nestes dados porque os turbines efetuar de diferentes níveis de eficiência consoante as condições de Meteorologia. Os outros tutoriais de limite de IoT do Azure tirar partido de trabalho que fazer aqui implementando módulos analisam os dados de informações empresariais. 
+O dispositivo simulado que criar neste tutorial é um monitor numa turbina eólica que gera dados de temperatura, humidade e pressão. Está interessado nestes dados porque as suas turbinas trabalham em diferentes níveis de eficiência, consoante as condições meteorológicas. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados de informações empresariais. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que está a utilizar um computador ou máquina virtual com o Windows para simular um dispositivo de Internet das coisas. 
+Este tutorial parte do princípio de que está a utilizar um computador ou uma máquina virtual que executa o Windows para simular um dispositivo de Internet das Coisas. 
 
 >[!TIP]
->Se estiver a executar o Windows numa máquina virtual, ative [virtualização aninhada] [ lnk-nested] e atribua, pelo menos, 2 GB de memória. 
+>Se estiver a executar o Windows numa máquina virtual, ative a [virtualização aninhada][lnk-nested] e aloque, pelo menos, 2 GB de memória. 
 
 1. Certifique-se de que está a utilizar uma versão suportada do Windows:
    * Windows 10 
    * Windows Server
-2. Instalar [Docker para Windows] [ lnk-docker] e certifique-se de que está a ser executado.
-3. Instalar [Python no Windows] [ lnk-python] e certifique-se de que pode utilizar o comando do pip. Este tutorial foi testado com versões do Python > = 2.7.9 e > = 3.5.4.  
-4. Execute o seguinte comando para transferir o script de controlo contorno de IoT.
+2. Instale o [Docker para Windows][lnk-docker] e certifique-se de que está a ser executado.
+3. Instale o [Python no Windows] [ lnk-python] e certifique-se de que pode utilizar o comando do pip. Este tutorial foi testado com as versões do Python >=2.7.9 e >=3.5.4.  
+4. Execute o comando seguinte para transferir o script de controlo do IoT Edge.
 
    ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Limite de IoT do Azure pode executar contentores do Windows ou Linux contentores. Se estiver a executar uma das seguintes versões do Windows, pode utilizar contentores do Windows:
->    * Atualizar do Windows 10 criadores de reversão
->    * Windows Server 1709 (criar 16299)
->    * Windows IoT Core (criar 16299) num dispositivo baseado em x64
+> O Azure IoT Edge pode executar contentores do Windows ou do Linux. Se estiver a executar uma das seguintes versões do Windows, pode utilizar contentores do Windows:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Compilação 16299)
+>    * Windows IoT Core (Compilação 16299) num dispositivo baseado em x64
 >
-> Para Windows IoT Core, siga as instruções em [instalar o runtime de limite de IoT no Windows IoT Core][lnk-install-iotcore]. Caso contrário, basta [configurar Docker utilizar contentores Windows][lnk-docker-containers]. Utilize o seguinte comando para validar os pré-requisitos:
+> Para o Windows IoT Core, siga as instruções em [Instalar o runtime do IoT Edge no Windows IoT Core][lnk-install-iotcore]. Caso contrário, basta [configurar o Docker para utilizar contentores do Windows][lnk-docker-containers]. Utilize o seguinte comando para validar os seus pré-requisitos:
 >    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -63,49 +64,49 @@ Este tutorial parte do princípio de que está a utilizar um computador ou máqu
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-O tutorial de início ao criar o seu IoT Hub.
-![Criar o IoT Hub][3]
+Comece o tutorial ao criar o seu Hub IoT.
+![Criar Hub IoT][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
-## <a name="register-an-iot-edge-device"></a>Registar um dispositivo de limite de IoT
+## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
 
-Registe um dispositivo de limite de IoT IoT Hub recentemente criado.
+Registe um dispositivo do IoT Edge no seu Hub IoT recentemente criado.
 ![Registar um dispositivo][4]
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## <a name="configure-the-iot-edge-runtime"></a>Configurar o tempo de execução do limite de IoT
+## <a name="configure-the-iot-edge-runtime"></a>Configurar o runtime do IoT Edge
 
-Instalar e iniciar o tempo de execução do Azure IoT Edge no seu dispositivo. 
+Instalar e iniciar o runtime do Azure IoT Edge no seu dispositivo. 
 ![Registar um dispositivo][5]
 
-O tempo de execução do limite de IoT é implementado em todos os dispositivos de limite de IoT. É composto por dois módulos. O **agente IoT Edge** facilita a implementação e monitorização de módulos no dispositivo de limite de IoT. O **hub IoT Edge** gere as comunicações entre os módulos no dispositivo de limite de IoT e entre o dispositivo e o IoT Hub. Quando configura o tempo de execução no seu dispositivo novo, apenas o agente de limite de IoT começará em primeiro lugar. O hub IoT Edge vem mais tarde quando implementar um módulo. 
+O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. É composto por dois módulos. O **agente do IoT Edge** facilita a implementação e monitorização de módulos no dispositivo do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT. Quando configura o runtime no seu dispositivo novo, ao princípio apenas o agente do IoT Edge irá iniciar. O hub do IoT Edge aparece mais tarde quando implementar um módulo. 
 
 
-Configure o tempo de execução com a cadeia de ligação do dispositivo de limite de IoT da secção anterior.
+Configure o runtime com a cadeia de ligação do dispositivo IoT Edge a partir da secção anterior.
 
 ```cmd
 iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
-Inicie o tempo de execução.
+Inicie o runtime.
 
 ```cmd
 iotedgectl start
 ```
 
-Verifique o Docker para ver que o agente de limite de IoT está em execução como um módulo.
+Verifique o Docker para ver se o agente do IoT Edge está a ser executado como um módulo.
 
 ```cmd
 docker ps
 ```
 
-![Consulte edgeAgent no Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+![Ver o edgeAgent no Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implementar um módulo
 
-Gerir o seu dispositivo de limite de IoT do Azure na nuvem para implementar um módulo que irá enviar dados de telemetria ao IoT Hub.
+Gira o seu dispositivo do Azure IoT Edge a partir da cloud para implementar um módulo que irá enviar dados telemétricos para o Hub IoT.
 ![Registar um dispositivo][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -113,34 +114,34 @@ Gerir o seu dispositivo de limite de IoT do Azure na nuvem para implementar um m
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
-Neste tutorial, criou um novo dispositivo de limite de IoT e instalado o tempo de execução do limite de IoT. Em seguida, utilizou o portal do Azure para emitir um módulo de limite de IoT para ser executada no dispositivo sem ter de efetuar alterações para o dispositivo propriamente dito. Neste caso, o módulo que tiver feito o Push de cria ambientais dados que pode utilizar para os tutoriais. 
+Neste tutorial, criou um novo dispositivo do IoT Edge e instalou o runtime do IoT Edge no mesmo. Em seguida, utilizou o portal do Azure para emitir um módulo do IoT Edge para ser executado no dispositivo, sem ter de realizar alterações no dispositivo propriamente dito. Neste caso, o módulo que emitiu cria dados ambientais que pode utilizar para os tutoriais. 
 
-Abra a linha de comandos no computador com o seu dispositivo simulado novamente. Certifique-se de que o módulo implementado a partir da nuvem está em execução no seu dispositivo de limite de IoT. 
+Abra a linha de comandos no computador com o seu dispositivo simulado novamente. Certifique-se de que o módulo implementado a partir da cloud está em execução no seu dispositivo do IoT Edge. 
 
 ```cmd
 docker ps
 ```
 
-![Ver três módulos no seu dispositivo](./media/tutorial-simulate-device-windows/docker-ps2.png)
+![Veja três módulos no seu dispositivo](./media/tutorial-simulate-device-windows/docker-ps2.png)
 
-Ver as mensagens do módulo tempSensor, que está a ser enviadas para a nuvem. 
+Veja as mensagens que estão a ser enviadas do módulo tempSensor para a cloud. 
 
 ```cmd
 docker logs -f tempSensor
 ```
 
-![Ver os dados a partir do módulo](./media/tutorial-simulate-device-windows/docker-logs.png)
+![Veja os dados a partir do seu módulo](./media/tutorial-simulate-device-windows/docker-logs.png)
 
-Também pode ver a telemetria que o dispositivo está a enviar ao utilizar o [ferramenta do Explorador do IoT Hub][lnk-iothub-explorer]. 
+Também pode ver a telemetria que o dispositivo está a enviar com a [ferramenta do explorador do Hub IoT][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um novo dispositivo de limite de IoT e utilizar a interface de nuvem do Azure IoT Edge para implementar o código no dispositivo. Agora, tem um dispositivo simulado, gerando dados não processados sobre o seu ambiente. 
+Neste tutorial, criou um novo dispositivo do IoT Edge e utilizou a interface da cloud do Azure IoT Edge para implementar código no dispositivo. Agora tem um dispositivo simulado a gerar dados não processados sobre o seu ambiente. 
 
-Este tutorial é o pré-requisito para todos os outros tutoriais de limite de IoT. Pode continuar a sessão em qualquer um dos outros tutoriais para saber como limite de IoT do Azure o pode ajudar ative estes dados em informações empresariais no limite.
+Este tutorial é o pré-requisito para todos os outros tutoriais do IoT Edge. Pode continuar para qualquer um dos outros tutoriais para saber mais sobre como Azure IoT Edge o pode ajudar a transformar estes dados em informações empresariais no Edge.
 
 > [!div class="nextstepaction"]
-> [Desenvolver e implementar código c# como um módulo](tutorial-csharp-module.md)
+> [Programar e implementar código C# como módulo](tutorial-csharp-module.md)
 
 <!-- Images -->
 [2]: ./media/tutorial-install-iot-edge/install-edge-full.png

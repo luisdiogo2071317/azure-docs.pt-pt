@@ -10,58 +10,59 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 96a749c0cb59759e9294f52bd4f631d7fdc2275f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825560"
 ---
-Até ao momento que tiver sido executar código da aplicação como se atualizasse o programador apenas a trabalhar na aplicação. Nesta secção, irá aprender como espaços de programador do Azure simplifica o desenvolvimento de equipa:
-* Ative uma equipa de programadores para funcionar no mesmo ambiente de desenvolvimento.
-* Suporta cada programador iterating no respetivo código no isolamento e sem fear de danificando a outras pessoas.
-* Testar código ponto-a-ponto, antes da consolidação de código, sem ter de criar mocks ou simular dependências.
+Até aqui, tem executado o código da aplicação como se fosse o único programador a trabalhar na aplicação. Nesta secção, irá aprender até que ponto o Azure Dev Spaces simplifica o desenvolvimento em equipa ao:
+* Permita que uma equipa de programadores trabalhe no mesmo ambiente, ao trabalhar num espaço de desenvolvimento partilhado ou em espaços de desenvolvimento distintos, conforme necessário...
+* Suportar que cada programador faça iterações no respetivo código de forma isolada e sem receio de danificar o código de terceiros.
+* Testar o código ponto a ponto, antes de proceder à consolidação do código, sem ter de criar cenários fictícios ou simular dependências.
 
-## <a name="challenges-with-developing-microservices"></a>Desafios com o desenvolvimento micro-serviços
-O exemplo de aplicação não é muito complexo neste momento. Mas de desenvolvimento do mundo real, desafios em breve surgir como adicionar mais serviços e o crescimentos de equipa de desenvolvimento.
+### <a name="challenges-with-developing-microservices"></a>Desafios relativamente ao desenvolvimento de microsserviços
+Este exemplo de aplicação não apresenta índices de complexidade elevados até ao momento. Todavia, num cenário de desenvolvimento real, os desafios começam a surgir à medida que são adicionados mais serviços e a equipa de desenvolvimento começa a aumentar.
 
-Imagem por si trabalhar num serviço que interage com dezenas de outros serviços.
+Imagine que está a trabalhar num serviço que interage com dezenas de outros serviços.
 
-- Pode ficar irreal tudo localmente para o desenvolvimento de executar. A máquina de desenvolvimento pode não ter recursos suficientes para executar a aplicação completa. Ou, talvez a sua aplicação tenha pontos finais que têm de ser publicamente acessível (por exemplo, a aplicação responde a um webhook a partir de uma aplicação SaaS).
+- A execução de todos os elementos para fins de desenvolvimento a nível local pode tornar-se uma perspetiva irrealista. A máquina de desenvolvimento pode não ter recursos suficientes para executar a aplicação completa. Quem sabe, a aplicação tem pontos finais que têm de estar acessíveis publicamente (por exemplo, a aplicação responde a um webhook a partir de uma aplicação SaaS).
 
-- Pode tentar executar apenas os serviços que depende do, mas isto significa que iria precisar de saber o fecho completo das dependências (por exemplo, dependências de dependências). Em alternativa, é um fim de não facilmente saber como criar e executar as suas dependências, porque não funciona nos mesmos.
-- Alguns programadores recorrer a simulando ou mocking cópias de segurança, muitos das respetivas dependências do serviço. Esta abordagem pode ajudar a por vezes, mas gerir esses mocks logo que pode efetuar no seu próprio esforço de programação. Plus, esta abordagem leva ao seu ambiente de desenvolvimento à procura muito diferentes para produção e erros subtis podem creep.
-- Segue que efetuar qualquer tipo de teste de ponto a ponto torna-se difícil. Teste de integração pode acontecer apenas verdade consolidação pós-implementação, o que significa que consulte problemas mais à frente do ciclo de desenvolvimento.
+- Pode tentar executar apenas os serviços de que depende, mas isto significa que teria de conhecer o âmbito completo das dependências (por exemplo, as dependências das dependências). Por outro lado, pode ser uma questão de não saber exatamente como criar e executar as dependências visto não ter estado envolvido no desenvolvimento das mesmas.
+- Alguns programadores recorrem à simulação ou criação de cenários fictícios de muitas das suas dependências de serviço. Esta pode ser uma abordagem útil. No entanto, mais cedo ou mais tarde, a gestão desses cenários fictícios acaba por exigir o seu próprio esforço de desenvolvimento. Além disso, esta abordagem faz com que o seu espaço de desenvolvimento acabe por divergir bastante do da produção, dando azo ao aparecimento de erros subtis.
+- Daqui decorre que se torna difícil levar a cabo qualquer tipo de teste ponto a ponto. Realisticamente, o teste de integração só pode ocorrer após uma consolidação, o que significa que irá ver os problemas numa fase posterior no ciclo de desenvolvimento.
 
 ![](../media/common/microservices-challenges.png)
 
 
-## <a name="work-in-a-shared-development-environment"></a>Trabalhar num ambiente de desenvolvimento partilhado
-Com os espaços de programador do Azure, pode configurar um *partilhado* ambiente de desenvolvimento no Azure. Cada programador pode concentrar-se apenas por parte da aplicação e pode desenvolver iteratively *previamente consolidar o código* num ambiente que já contém todos os outros serviços e recursos de nuvem que os seus cenários dependem. As dependências estão sempre atualizadas e os programadores estão a funcionar de forma que reflete a produção.
+### <a name="work-in-a-shared-dev-space"></a>Trabalhar num espaço de desenvolvimento partilhado
+O Azure Dev Spaces permite-lhe configurar um espaço de desenvolvimento *partilhado* no Azure. Cada programador pode concentrar-se unicamente na respetiva parte da aplicação e, assim, desenvolver o *código de pré-consolidação* de forma iterativa num espaço de desenvolvimento que já contém todos os outros serviços e recursos na cloud de que os respetivos cenários dependem. As dependências estão sempre atualizadas e os programadores trabalham de uma forma que reflete a produção.
 
-## <a name="work-in-your-own-space"></a>No seu próprio espaço de trabalho
-Como desenvolver o código para o seu serviço e antes de está pronto para a verificar no, código, muitas vezes, não será em bom estado. Iteratively ainda está a formação, testá-lo e conseguirmos uma com soluções. Os espaços de programador do Azure fornece o conceito de uma **espaço**, que permite-lhe trabalhar de forma isolada e sem fear de interrompendo os membros do agrupamento.
+### <a name="work-in-your-own-space"></a>Trabalhar no seu próprio espaço
+À medida que desenvolve o código para o seu serviço e até estar preparado para o implementar, é frequente o código não estar em bom estado. A formulação, os testes e as experiências com soluções ao nível do código são um processo iterativo contínuo. O Azure Dev Spaces fornece o conceito de **espaço**, onde pode trabalhar de forma isolada e sem receio de prejudicar os membros da sua equipa.
 
 > [!Note]
-> Antes de continuar, feche todas as janelas de VS Code para ambos os serviços e, em seguida, execute `azds up -d` em cada uma das pastas de raiz do serviço. (Esta é uma limitação de pré-visualização).
+> Antes de continuar, feche todas as janelas do VS Code para ambos os serviços e, em seguida, execute `azds up -d` em cada uma das pastas raiz do serviço. (Esta é uma limitação da Pré-visualização.)
 
-Vamos um olhar onde os serviços estão atualmente a ser executada. Execute o `azds list` comando e, irá ver um resultado semelhante ao seguinte:
+Vamos dar uma vista de olhos nos serviços que estão atualmente a ser executados. Execute o comando `azds list` e verá um resultado semelhante ao seguinte:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------------------
 mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     https://webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
+webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
-A coluna de espaço mostra que ambos os serviços estão em execução num espaço de nome `default`. Qualquer pessoa que abre o URL público e navega para a aplicação web será invocar o caminho de código que escreveu anteriormente, que é executada através de ambos os serviços. Agora suponha que pretende continuar a desenvolver `mywebapi`. Como pode fazer alterações ao código e testá-los e não interrompem outros programadores que estiver a utilizar o ambiente de desenvolvimento? Para tal, configure o seus próprios espaço.
+A coluna do Space mostra que ambos os serviços estão em execução num espaço designado `default`. Qualquer pessoa que abra o URL público e navegue para a aplicação Web irá invocar o caminho do código que escreveu anteriormente que é executado em ambos os serviços. Agora suponha que pretende continuar a desenvolver `mywebapi`. Como pode fazer alterações ao código e testá-las, sem interromper outros programadores que estejam a utilizar o ambiente de desenvolvimento? Para tal, terá de configurar o seu próprio espaço.
 
-## <a name="create-a-space"></a>Criar um espaço
-Para executar a sua própria versão do `mywebapi` num espaço diferente `default`, pode criar o seu próprio espaço usando o seguinte comando:
+### <a name="create-a-space"></a>Criar um espaço
+Para executar a sua própria versão do `mywebapi` num espaço diferente do que `default`, pode criar o seu próprio espaço com o seguinte comando:
 
 ``` 
 azds space create --name scott
 ```
 
-No exemplo acima, posso tiver utilizado o meu nome para o novo espaço para que seja identificável a minha elementos de rede que é o espaço estou a funcionar no, mas pode chamá-lo tudo o que gosta e ser flexível sobre o que significa, como 'sprint4' ou 'demonstração'.
+No exemplo acima, utilizei o meu nome para o novo espaço, para que seja identificável perante os meus colegas de que é o espaço onde estou a trabalhar, mas pode dar o nome que quiser e ser flexível sobre o que significa, como "sprint4" ou "demo."
 
-Execute o `azds space list` comando para ver uma lista de todos os espaços no ambiente de desenvolvimento. Surja um asterisco (*) junto do espaço atualmente selecionado. No seu caso, o espaço de nome 'blogue' foi selecionado automaticamente quando foi criado. Pode selecionar outro espaço em qualquer altura com o `azds space select` comando.
+Execute o comando `azds space list` para ver uma lista de todos os espaços no ambiente de desenvolvimento. Aparece um asterisco (*) junto do espaço atualmente selecionado. No seu caso, o espaço designado "scott" foi selecionado automaticamente quando foi criado. Pode selecionar outro espaço em qualquer altura com o comando `azds space select`.

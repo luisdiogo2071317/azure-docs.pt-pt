@@ -3,23 +3,21 @@ title: 'Tutorial de ASP.NET MVC para Azure Cosmos DB: Programação de Aplicaç�
 description: Tutorial de ASP.NET MVC para criar uma aplicação Web de MVC com o Azure Cosmos DB. Irá armazenar dados de acesso e JSON a partir de uma aplicação de tarefas alojada no em Web Sites do Azure – tutorial ASP NET MVC passo a passo.
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797000"
 ---
 # <a name="_Toc395809351"></a>Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -34,7 +32,7 @@ Para realçar como pode de forma eficiente tirar partido do Azure Cosmos DB para
 
 ![Captura de ecrã da aplicação Web MVC de lista de tarefas criada por este tutorial – tutorial ASP NET MVC passo a passo](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-Esta orientação mostra-lhe como utilizar o serviço de base de dados do Azure Cosmos para armazenar e aceder a dados de uma aplicação web de ASP.NET MVC alojada no Azure. Se estiver à procura de um tutorial que se concentra apenas no Azure Cosmos DB e não nos componentes do ASP.NET MVC, veja [Build an Azure Cosmos DB C# console application](sql-api-get-started.md)(Criar uma aplicação de consola C# do Azure Cosmos DB).
+Esta orientação mostra-lhe como utilizar o serviço do Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Web ASP.NET MVC alojada no Azure. Se estiver à procura de um tutorial que se concentra apenas no Azure Cosmos DB e não nos componentes do ASP.NET MVC, veja [Build an Azure Cosmos DB C# console application](sql-api-get-started.md)(Criar uma aplicação de consola C# do Azure Cosmos DB).
 
 > [!TIP]
 > Este tutorial parte do pressuposto de que tem alguma experiência anterior na utilização do ASP.NET MVC e de Web Sites Azure. Se não estiver familiarizado com o ASP.NET ou com as [ferramentas dos pré-requisitos](#_Toc395637760), recomendamos que transfira todo o projeto de exemplo a partir do [GitHub][GitHub] e que siga as instruções neste exemplo. Assim que o tiver criado, pode rever este artigo para obter conhecimentos aprofundados sobre o código no contexto do projeto.
@@ -49,12 +47,12 @@ Antes de seguir as instruções deste artigo, deve certificar-se de que tem o se
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
-* Microsoft Azure SDK para .NET para Visual Studio 2017, disponível através do programa de instalação do Studio Visual.
+* SDK do Microsoft Azure para .NET para Visual Studio 2017, disponível através do Instalador do Studio Visual.
 
-Todas as capturas de ecrã neste artigo foram executadas ao utilizar o Microsoft Visual Studio Community 2017. Se o sistema está configurado com uma versão diferente, é possível que as opções e ecrãs não coincidam na totalidade, mas se cumpre os pré-requisitos acima esta solução deverá funcionar.
+Todas as capturas de ecrã deste artigo foram tiradas com o Microsoft Visual Studio Community 2017. Se o sistema estiver configurado com uma versão diferente, é possível que as suas opções e ecrãs não coincidam na totalidade, mas se cumpre os pré-requisitos acima, esta solução deverá funcionar.
 
 ## <a name="_Toc395637761"></a>Passo 1: Criar uma conta de base de dados do Azure Cosmos DB
-Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta SQL para a base de dados do Azure Cosmos ou se estiver a utilizar o emulador de BD do Cosmos do Azure para este tutorial, pode avançar para [criar uma nova aplicação ASP.NET MVC](#_Toc395637762).
+Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta SQL para o Azure Cosmos DB ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para [Criar uma aplicação ASP.NET MVC nova](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,9 +72,9 @@ Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a parti
 3. Na caixa **Nome**, escreva o nome do projeto. Este tutorial utiliza o nome “todo” (tarefas). Se optar por utilizar algo que não isto, sempre que este tutorial aborda o espaço de nomes de tarefas, terá de ajustar os exemplos de código fornecidos para utilizar o nome que deu à aplicação. 
 4. Clique em **Procurar** para navegar para a pasta onde pretende criar o projeto e, em seguida, clique em **OK**.
    
-      O **nova aplicação Web do ASP.NET** é apresentada a caixa de diálogo.
+      A caixa de diálogo **Nova aplicação Web do ASP.NET** é apresentada.
    
-    ![Captura de ecrã da caixa de diálogo nova aplicação Web do ASP.NET com o modelo de aplicação MVC realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![Captura de ecrã da caixa de diálogo Nova aplicação Web do ASP.NET com o modelo da aplicação MVC realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. No painel de modelos, selecione **MVC**.
 
 6. Clique em **OK** e permita que o Visual Studio estruture o modelo em branco do ASP.NET MVC. 
@@ -89,16 +87,16 @@ Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a parti
 ## <a name="_Toc395637767"></a>Passo 3: adicionar o Azure Cosmos DB ao seu projeto de aplicação Web MVC
 Agora que temos a maior parte da estrutura do ASP.NET MVC necessária para esta solução, vamos abordar o verdadeiro objetivo deste tutorial: adicionar o Azure Cosmos DB à nossa aplicação Web MVC.
 
-1. O SDK .NET da Azure Cosmos DB é compactado e distribuído como um pacote NuGet. Para colocar o pacote NuGet no Visual Studio, utilize o gestor de pacotes NuGet no Visual Studio ao clicar no projeto no **Explorador de Soluções** e, em seguida, clicar em **Gerir Pacotes NuGet**.
+1. O SDK .NET do Azure Cosmos DB é compactado e distribuído como um pacote NuGet. Para colocar o pacote NuGet no Visual Studio, utilize o gestor de pacotes NuGet no Visual Studio ao clicar no projeto no **Explorador de Soluções** e, em seguida, clicar em **Gerir Pacotes NuGet**.
    
     ![Captura de ecrã das opções de clique com o botão direito do rato para o projeto de aplicações Web no Explorador de Soluções, com Gerir Pacotes NuGet realçado.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     A caixa de diálogo **Gerir Pacotes NuGet** aparece.
-2. Na caixa **Procurar** do NuGet, escreva ***Azure DocumentDB***. (O nome do pacote não foi atualizado para a base de dados do Azure Cosmos.)
+2. Na caixa **Procurar** do NuGet, escreva ***Azure DocumentDB***. (O nome do pacote não foi atualizado para o Azure Cosmos DB.)
    
-    Na lista de resultados, instale o **Microsoft.Azure.DocumentDB pela Microsoft** pacote. Isto irá transferir e instalar o pacote de BD do Cosmos do Azure, bem como todas as dependências, como newtonsoft. Clique em **OK** na janela **Pré-visualizar** e em **Aceito** na janela **Aceitação de Licença** para concluir a instalação.
+    Nos resultados, instale o pacote **Microsoft.Azure.DocumentDB da Microsoft**. É transferido e instalado o pacote do Azure Cosmos DB, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Pré-visualizar** e em **Aceito** na janela **Aceitação de Licença** para concluir a instalação.
    
-    ![Captura de ecrã da janela gerir pacotes NuGet, com o Microsoft Azure Cosmos DB biblioteca de clientes realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Captura de ecrã da janela Gerir Pacotes NuGet, com a Biblioteca de Clientes do Microsoft Azure Cosmos DB realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Em alternativa, pode utilizar a Consola do Gestor de Pacotes para instalar o pacote. Para tal, clique no menu **Ferramentas**, clique em **Gestor do Pacote NuGet** e, em seguida, clique em **Consola do Gestor de Pacotes**. Na linha de comandos, escreva o seguinte.
    
@@ -313,7 +311,7 @@ A primeira coisa a fazer é adicionar uma classe que contém toda a lógica para
         <add key="collection" value="Items"/>
 4. Agora, atualize os valores de *ponto final* e *authKey* no painel Chaves do Portal do Azure. Utilize o **URI** a partir do painel Chaves como o valor da definição do ponto final e utilize a **CHAVE PRIMÁRIA** ou a **CHAVE SECUNDÁRIA** a partir do painel Chaves como o valor da definição authKey.
 
-    Que resolvida de preparar o repositório do Azure Cosmos DB, agora vamos adiciona a nossa lógica da aplicação.
+    A preparação do repositório do Azure Cosmos DB fica assim resolvida. Agora vamos adicionar a lógica da aplicação.
 
 1. A primeira coisa que queremos conseguir fazer com uma aplicação de lista de tarefas é apresentar os itens incompletos.  Copie e cole o seguinte fragmento de código em qualquer lugar dentro da classe **DocumentDBRepository**.
    
@@ -388,7 +386,7 @@ Vamos adicionar algum código ao Azure Cosmos DBRepository e a ItemController pa
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Este método simplesmente pega num objeto transmitido ao mesmo e mantém-do BD Azure Cosmos.
+   Este método simplesmente utiliza um objeto transmitido ao mesmo e mantém-no no Azure Cosmos DB.
 2. Abra o ficheiro ItemController.cs e adicione o seguinte fragmento de código dentro da classe. É desta forma que o ASP.NET MVC sabe o que fazer relativamente à ação **Criar**. Neste caso, basta compor a vista Create.cshtml associada criada anteriormente.
    
         [ActionName("Create")]
@@ -518,33 +516,33 @@ Para testar a aplicação no seu computador local, faça o seguinte:
     ![Captura de ecrã da vista Índice com a caixa de Concluído selecionada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Assim que já tiver testado a aplicação, prima Ctrl+F5 para parar a depuração da aplicação. Está pronto para implementar!
 
-## <a name="_Toc395637774"></a>Passo 7: Implementar a aplicação no App Service do Azure 
-Agora que configurou a aplicação completa funciona corretamente no Azure Cosmos DB iremos implementar esta aplicação web no App Service do Azure.  
+## <a name="_Toc395637774"></a>Passo 7: implementar a aplicação no Serviço de Aplicações do Azure 
+Agora que a sua aplicação completa funciona corretamente no Azure Cosmos DB, iremos implementar esta aplicação Web no Serviço de Aplicações do Azure.  
 
 1. Para publicar esta aplicação tem apenas de clicar com o botão direito do rato no projeto no **Explorador de Soluções** e clicar em **Publicar**.
    
     ![Captura de ecrã da opção Publicar no Explorador de Soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
-2. No **publicar** caixa de diálogo, clique em **App Service do Microsoft Azure**, em seguida, selecione **criar novo** para criar um perfil de serviço de aplicações, ou clique em **selecione existente**  para utilizar um perfil existente.
+2. Na caixa de diálogo **Publicar**, clique em **Serviço de Aplicações do Microsoft Azure** e, em seguida, selecione **Criar Novo** para criar um perfil do Serviço de Aplicações, ou clique em **Selecionar Existente** para utilizar um perfil existente.
 
     ![Caixa de diálogo Publicar no Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
 
-3. Se tiver um perfil existente do App Service do Azure, introduza o nome da sua subscrição. Utilize o **vista** filtrar, ordenar por tipo de recurso ou grupo de recursos, em seguida, selecione o serviço de aplicações do Azure. 
+3. Se tiver um perfil existente do Serviço de Aplicações do Azure, introduza o nome da sua subscrição. Utilize o filtro **Vista** para ordenar por grupo de recursos ou tipo de recurso e, em seguida, selecione o Serviço de Aplicações do Azure. 
    
-    ![Caixa de diálogo de serviço de aplicações no Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+    ![Caixa de diálogo Serviço de Aplicações no Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. Para criar um novo perfil do App Service do Azure, clique em **criar novo** no **publicar** caixa de diálogo. No **criar App Service** caixa de diálogo, introduza o nome da aplicação Web e a subscrição adequada, o grupo de recursos e o plano do App Service, em seguida, clique em **criar**.
+4. Para criar um novo perfil do Serviço de Aplicações do Azure, clique em **Criar Novo** na caixa de diálogo **Publicar**. Na caixa de diálogo **Criar Serviço de Aplicações**, introduza o nome da Aplicação Web e a subscrição adequada, o grupo de recursos e o plano do Serviço de Aplicações e, em seguida, clique em **Criar**.
 
-    ![Criar caixa de diálogo do serviço de aplicações no Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+    ![Caixa de diálogo Criar Serviço de Aplicações no Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-Em alguns segundos, o Visual Studio irá concluir a publicação da sua aplicação web e iniciar um browser, onde poderá ver o seu handiwork em execução no Azure!
+Em alguns segundos, o Visual Studio irá concluir a publicação da sua aplicação Web e iniciar um browser, onde poderá ver o seu trabalho em execução no Azure!
 
 
 
 ## <a name="_Toc395637775"></a>Passos seguintes
-Parabéns! Basta incorporadas do ASP.NET MVC primeira aplicação web através da base de dados do Azure Cosmos e publicada para o Azure. Pode transferir ou clonar a partir do [GitHub][GitHub] o código fonte da aplicação completa, incluindo as funcionalidades de detalhe e eliminação que não foram incluídas neste tutorial. Por isso, se estiver interessado em adicioná-la à sua aplicação, copie o código e adicione-o a esta aplicação.
+Parabéns! Acabou de criar a sua primeira aplicação Web ASP.NET MVC com o Azure Cosmos DB e de a publicar no Azure. Pode transferir ou clonar a partir do [GitHub][GitHub] o código fonte da aplicação completa, incluindo as funcionalidades de detalhe e eliminação que não foram incluídas neste tutorial. Por isso, se estiver interessado em adicioná-la à sua aplicação, copie o código e adicione-o a esta aplicação.
 
-Para adicionar funcionalidades adicionais à sua aplicação, reveja as APIs disponíveis no [biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e à vontade contribuir para a biblioteca .NET do Azure Cosmos DB no [GitHub] [GitHub]. 
+Para adicionar mais funcionalidades à sua aplicação, reveja as APIs disponíveis na [Biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e esteja à vontade para contribuir para a Biblioteca .NET do Azure Cosmos DB no [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

@@ -1,74 +1,75 @@
 ---
-title: Implementar o Azure Machine Learning com limite de IoT do Azure | Microsoft Docs
-description: Implementar o Azure Machine Learning como um módulo para um dispositivo de limite
-services: iot-edge
-keywords: ''
+title: Implementar o Azure Machine Learning com o Azure IoT Edge | Microsoft Docs
+description: Implementar o Azure Machine Learning como um módulo num dispositivo Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/12/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 248bc97c214c013d10f1839201ce2f572cb854ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631178"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementar o Azure Machine Learning como um módulo de limite de IoT – pré-visualização
+# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementar o Azure Machine Learning como um módulo do IoT Edge - pré-visualização
 
-Pode utilizar módulos de limite de IoT para implementar o código que implementa a lógica de negócio diretamente nos seus dispositivos de limite de IoT. Este tutorial explica-lhe implementar um módulo do Azure Machine Learning que prevê quando um dispositivo falha com base nos dados de sensores no dispositivo simulado contorno de IoT que criou no [implementar o Azure IoT Edge num dispositivo simulado no Windows] [ lnk-tutorial1-win] ou [Linux] [ lnk-tutorial1-lin] tutoriais.
+Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial orienta-o ao longo da implementação de um módulo do Azure Machine Learning que prevê quando um dispositivo falha com base nos dados de sensores no dispositivo IoT Edge simulado que criou no tutorial [Deploy Azure IoT Edge on a simulated device Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] (Implementar o Azure IoT Edge num dispositivo simulado do Windows ou Linux).
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um módulo do Azure Machine Learning
 > * Emitir um contentor do módulo para um registo de contentor do Azure
-> * Implementar um módulo do Azure Machine Learning para o seu dispositivo de limite de IoT
+> * Implementar um módulo do Azure Machine Learning no seu dispositivo IoT Edge
 > * Ver os dados gerados
 
-O módulo do Azure Machine Learning que criar neste tutorial lê os dados ambientais gerados pelo seu dispositivo e as mensagens como anómala de etiquetas, ou não.
+O módulo do Azure Machine Learning que cria neste tutorial lê os dados ambientais gerados pelo seu dispositivo e marca as mensagens como anómalas, ou não.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O dispositivo de limite de IoT do Azure que criou no início rápido ou primeiro tutorial.
-* A cadeia de ligação do IoT Hub para o IoT hub que liga o dispositivo de limite de IoT.
-* Uma conta do Azure Machine Learning. Para criar uma conta, siga as instruções em [criar o Azure Machine Learning contas e instalar o Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Não é necessário instalar a aplicação do workbench para este tutorial. 
-* Módulo Gestão do Azure ML no seu computador. Para configurar o ambiente e criar uma conta, siga as instruções em [a configuração de gestão de modelo](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
+* O dispositivo Azure IoT Edge que criou no início rápido ou no primeiro tutorial.
+* A cadeia de ligação do Hub IoT para o hub IoT ao qual o seu dispositivo do hub IoT se liga.
+* Uma conta do Azure Machine Learning. Para criar uma conta, siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Não precisa de instalar a aplicação do workbench para este tutorial. 
+* Gestão do Módulo do Azure ML no seu computador. Para configurar o ambiente e criar uma conta, siga as instruções em [Configuração de gestão de modelo](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
 O módulo do Azure Machine Learning não suporta processadores ARM.
 
 ## <a name="create-the-azure-ml-container"></a>Criar o contentor do Azure ML
-Nesta secção, transferir os ficheiros de modelo treinado e convertê-los para um contentor do Azure ML.
+Nesta secção, irá transferir os ficheiros do modelo que recebeu formação e convertê-los num contentor do Azure ML.
 
-No computador a executar o módulo de gestão do Azure ML, transfira e guarde [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) partir do Toolkit de IoT do Azure ML no GitHub. Estes ficheiros definem o treinado do machine learning modelo que implementa para o seu dispositivo de limite de Iot.
+No computador que executa a Gestão do Módulo do Azure ML, transfira e guarde [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) a partir do Toolkit do IoT do Azure ML no GitHub. Estes ficheiros definem o modelo de aprendizagem automática que recebeu formação, que irá implementar no seu dispositivo do Iot Edge.
 
-Utilize o modelo treinado para criar um contentor que pode ser implementado em dispositivos de limite de IoT. Utilize o seguinte comando para:
+Utilize o modelo que recebeu formação para criar um contentor que possa ser implementado em dispositivos do IoT Edge. Utilize o seguinte comando para:
 
-   * Registe o seu modelo.
+   * Registar o seu modelo.
    * Crie um manifesto.
    * Criar uma imagem de contentor do Docker denominada *machinelearningmodule*.
-   * Implemente a imagem ao cluster do serviço de Kubernetes do Azure (AKS).
+   * Implementar a imagem no seu cluster do Serviço Kubernetes do Azure (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
 
-### <a name="view-the-container-repository"></a>Visualizar o repositório de contentor
+### <a name="view-the-container-repository"></a>Ver o repositório de contentor
 
-Verifique que a imagem do contentor foi criada e armazenada no repositório de contentor do Azure que está associado ao seu ambiente do machine learning com êxito.
+Verifique se a imagem de contentor foi criada e armazenada com êxito no repositório de contentor do Azure que está associado ao seu ambiente de aprendizagem automática.
 
-1. No [portal do Azure](https://portal.azure.com), aceda a **todos os serviços** e selecione **os registos do contentor**.
-2. Selecione o seu registo. O nome deve começar por **mlcr** e pertence a subscrição que utilizou para configurar a gestão de módulo, a localização e o grupo de recursos.
-3. Selecione **chaves de acesso**
-4. Copiar o **servidor de início de sessão**, **Username**, e **palavra-passe**.  É necessário para aceder ao registo de dispositivos de limite.
-5. Selecione **repositórios**
+1. No [portal do Azure](https://portal.azure.com), aceda a **Todos os Serviços** e Selecione **Registos do contentor**.
+2. Selecione o seu registo. O nome deve começar por **mlcr** e pertence ao grupo de subscrições, à localização e à subscrição que utilizou para configurar a Gestão do Módulo.
+3. Selecione **Chaves de acesso**
+4. Copie o **Servidor de início de sessão**, o **Nome de utilizador** e a **Palavra-passe**.  Precisa dos mesmos para aceder ao registo a partir dos dispositivos do Edge.
+5. Selecione **Repositórios**
 6. Selecione **machinelearningmodule**
-7. Tem agora o caminho de imagem completa do contentor. Tome nota deste caminho de imagem para a secção seguinte. Este deve ter o seguinte aspeto: **.azureacr.io/machinelearningmodule:1 < registry_name >**
+7. Tem agora o caminho da imagem completa do contentor. Tome nota deste caminho de imagem para a secção seguinte. Deve ter o seguinte aspeto: **<registry_name>.azureacr.io/machinelearningmodule:1**
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Adicionar as credenciais do registo ao seu dispositivo Edge
 
-Adicione as credenciais do registo ao runtime do Edge no computador onde está a executar o dispositivo Edge. Este comando permite o acesso de tempo de execução para solicitar o contentor.
+Adicione as credenciais do registo ao runtime do Edge no computador onde está a executar o dispositivo Edge. Este comando concede acesso ao runtime para extrair o contentor.
 
 Linux:
    ```cmd
@@ -82,21 +83,21 @@ Windows:
 
 ## <a name="run-the-solution"></a>Executar a solução
 
-1. No [portal do Azure](https://portal.azure.com), navegue até ao seu IoT hub.
+1. No [portal do Azure](https://portal.azure.com), navegue para o seu hub IoT.
 1. Aceda a **IoT Edge (pré-visualização)** e selecione o seu dispositivo IoT Edge.
 1. Selecione **Definir módulos**.
-1. Se anteriormente tiver implementado o módulo de tempSensor para o seu dispositivo de limite de IoT, poderá autopopulate. Se ainda não estiver na sua lista de módulos, adicioná-lo.
+1. Se já implementou o módulo do tempSensor no seu dispositivo IoT Edge, este poderá ser automaticamente populado. Se ainda não estiver na sua lista de módulos, adicione-o.
     1. Selecione **Adicionar módulo do IoT Edge**.
     2. No campo **Nome**, introduza `tempSensor`.
     3. No campo **URI da Imagem**, introduza `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Selecione **Guardar**.
-1. Adicione a máquina que criou o módulo de aprendizagem.
+1. Adicione o módulo de aprendizagem automática criado por si.
     1. Selecione **Adicionar módulo do IoT Edge**.
-    1. No **nome** campo, introduza `machinelearningmodule`
-    1. No **imagem** campo, introduza o seu endereço de imagem; por exemplo `<registry_name>.azurecr.io/machinelearningmodule:1`.
+    1. No campo **Nome**, introduza `machinelearningmodule`
+    1. No campo **Imagem**, introduza o endereço da sua imagem, como, por exemplo, `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Selecione **Guardar**.
 1. Novamente no passo **Adicionar módulos**, selecione **Seguinte**.
-1. No passo **Especificar Rotas**, copie o JSON abaixo para a caixa de texto. A rota primeiro transportes mensagens do sensor de temperatura para o módulo de aprendizagem máquina através de ponto final "amlInput", que é o ponto final que utilizam todos os módulos do Azure Machine Learning. A segunda rota transportes mensagens do módulo machine learning ao IoT Hub. Esta rota, ' amlOutput"é o ponto final que utilizam todos os módulos do Azure Machine Learning para dados de saída e"$upstream"indica o IoT Hub.
+1. No passo **Especificar Rotas**, copie o JSON abaixo para a caixa de texto. A primeira rota transporta mensagens do sensor de temperatura para o módulo de aprendizagem máquina através do ponto final "amlInput", que é o ponto final que utilizam todos os módulos do Azure Machine Learning. A segunda rota transporta mensagens do módulo de aprendizagem automática para o Hub IoT. Nesta rota, o "amlOutput" é o ponto final que todos os módulos do Azure Machine Learning utilizam para dados de saída e "$upstream" indica o Hub IoT.
 
     ```json
     {
@@ -109,29 +110,29 @@ Windows:
 
 1. Selecione **Seguinte**.
 1. No passo **Rever Modelo**, selecione **Submeter**.
-1. Regresse à página de detalhes do dispositivo e selecione **Atualizar**.  Deverá ver o novo **machinelearningmodule** executar juntamente com o **tempSensor** módulo e os módulos de tempo de execução de limite de IoT.
+1. Regresse à página de detalhes do dispositivo e selecione **Atualizar**.  Deverá ver o módulo **machinelearningmodule** novo em execução, juntamente com o módulo **tempSensor** e os módulos do runtime do IoT Edge.
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
-Pode ver as mensagens do dispositivo para a nuvem que o dispositivo de limite de IoT envia utilizando o [Explorador do IoT Hub](https://github.com/azure/iothub-explorer) ou a extensão do Toolkit de IoT do Azure para Visual Studio Code.
+Pode ver as mensagens do dispositivo para cloud que o dispositivo do IoT Edge envia através do [explorador do Hub IoT](https://github.com/azure/iothub-explorer) ou da extensão do Toolkit do Azure IoT para o Visual Studio Code.
 
-1. No Visual Studio Code, selecione **dispositivos do Hub IoT**.
-2. Selecione **...**  , em seguida, selecione **definir a cadeia de ligação do IoT Hub** no menu.
+1. No Visual Studio Code, selecione **Dispositivos do Hub IoT**.
+2. Selecione **...** e, em seguida, selecione **Definir Cadeia de Ligação do Hub IoT** no menu.
 
-   ![Dispositivos do Hub IoT mais menu](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Menu mais Dispositivos do Hub IoT](./media/tutorial-deploy-machine-learning/set-connection.png)
 
-3. Na caixa de texto que se abre no topo da página, introduza a cadeia de ligação de iothubowner para o seu IoT Hub. O dispositivo de limite de IoT deve aparecer na lista de dispositivos do IoT Hub.
-4. Selecione **...**  novamente, em seguida, selecione **iniciar a monitorização de mensagem D2C**.
-5. Observe as mensagens feitos tempSensor cada cinco segundos. O corpo da mensagem contém uma propriedade denominada **anomalias** que fornece o machinelearningmodule com um valor true ou false. O **AzureMLResponse** propriedade contém o valor "OK", se o modelo foi executada com êxito.
+3. Na caixa de texto que se abre na parte superior da página, introduza a cadeia de ligação de iothubowner para o seu Hub IoT. O dispositivo do IoT Edge deve aparecer na lista de Dispositivos do Hub IoT.
+4. Selecione **...** novamente e, em seguida, selecione **Iniciar monitorização da mensagem D2C**.
+5. Observe as mensagens provenientes de tempSensor a cada cinco segundos. O corpo da mensagem contém uma propriedade denominada **anomalia** que o machinelearningmodule apresenta com um valor true ou false. A propriedade **AzureMLResponse** contém o valor "OK", se o modelo for executado com êxito.
 
-   ![Resposta de ML do Azure no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![Resposta do Azure ML no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, implementou um módulo de limite de IoT com tecnologia do Azure Machine Learning. Pode continuar a sessão em qualquer um dos outros tutoriais para saber mais sobre outras formas de limite de IoT do Azure pode ajudar a que ativar dados em informações empresariais no limite.
+Neste tutorial, implementou um módulo do IoT Edge com tecnologia do Azure Machine Learning. Pode continuar para qualquer um dos outros tutoriais para saber mais sobre outras formas em que o Azure IoT Edge o pode ajudar a transformar os dados em informações empresariais no Edge.
 
 > [!div class="nextstepaction"]
-> [Implementar uma função do Azure como um módulo](tutorial-deploy-function.md)
+> [Implementar uma Função do Azure como um módulo](tutorial-deploy-function.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

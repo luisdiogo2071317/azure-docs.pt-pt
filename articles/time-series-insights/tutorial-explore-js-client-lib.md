@@ -1,19 +1,19 @@
 ---
 title: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 description: Saiba mais sobre a biblioteca de cliente JavaScript do Azure Time Series Insights e o modelo de programação associado.
-author: BryanLa
+author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 6bd8b10100f8cdabca5f87addfea1690dc5fac6c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809503"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295400"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 

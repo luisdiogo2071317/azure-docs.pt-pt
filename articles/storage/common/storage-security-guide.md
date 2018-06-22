@@ -6,22 +6,23 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304529"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
-
-## <a name="overview"></a>Descrição geral
 
 Storage do Azure fornece um conjunto completo de capacidades de segurança que em conjunto permitem aos programadores criarem aplicações seguras:
 
 - Todos os dados escritos para armazenamento do Azure são encriptados automaticamente utilizando [encriptação de serviço de armazenamento (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciar encriptação predefinido para Blobs do Azure, ficheiros, tabela e armazenamento de filas](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- A conta de armazenamento em si pode ser protegida utilizando o controlo de acesso baseado em funções e o Azure Active Directory. 
+- Azure Active Directory (Azure AD) e controlo de acesso baseado em funções (RBAC) são suportados para o Storage do Azure para operações de gestão de recursos e operações de dados, da seguinte forma:   
+    - Pode atribuir funções RBAC para a conta de armazenamento principais de segurança e à utilização do Azure AD para operações de gestão de recursos, tais como a gestão de chaves de autorizar um âmbito.
+    - Integração do AD do Azure é suportada na pré-visualização para operações de dados nos serviços de Blob e fila. Pode atribuir funções RBAC no âmbito de uma subscrição, grupo de recursos, conta de armazenamento, ou um contentor individuais ou fila um principal de segurança ou uma identidade de serviço geridas. Para obter mais informações, consulte [autenticar o acesso ao Storage do Azure utilizando o Azure Active Directory (pré-visualização)](storage-auth-aad.md).   
 - Dados podem ser protegidos em trânsito entre uma aplicação e o Azure utilizando [encriptação do lado do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3.0.  
 - SO e discos de dados utilizados por máquinas virtuais do Azure podem ser encriptados utilizando [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Pode ser concedido acesso delegado aos objetos de dados no armazenamento do Azure utilizando [assinaturas de acesso partilhado](../storage-dotnet-shared-access-signature-part-1.md).
@@ -100,7 +101,7 @@ Seguem-se os pontos principais que terá de saber sobre como utilizar o RBAC par
 * [Referência de API de REST de fornecedor de recursos de armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta referência de API descreve as APIs que pode utilizar para gerir a sua conta de armazenamento através de programação.
-* [Guia para programadores para autenticação com a API do Azure Resource Manager](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Utilize o Gestor de recursos autenticação API para subscrições de acesso](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Este artigo mostra como efetuar a autenticação utilizando as APIs do Gestor de recursos.
 * [Controlo de Acesso Baseado em Funções para o Microsoft Azure no Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -160,12 +161,15 @@ Nota: se recomenda utilizar apenas uma das chaves em todas as suas aplicações,
 ## <a name="data-plane-security"></a>Segurança dos dados Plane
 Segurança dos dados Plane refere-se os métodos utilizados para proteger os objetos de dados armazenados no Storage do Azure – os blobs, filas, tabelas e ficheiros. Iremos viu métodos para encriptar os dados e segurança durante trânsito dos dados, mas como deve proceder controlar o acesso aos objetos?
 
-Existem dois métodos para autorizar o acesso aos objetos dados próprios. Estes incluem-se ao controlar o acesso às chaves de conta de armazenamento e utilizar assinaturas de acesso partilhado para conceder acesso a objetos de dados específico durante um período de tempo específico.
+Tem três opções para autorizar o acesso a objetos de dados no armazenamento do Azure, incluindo:
+
+- Utilizar o Azure AD para autorizar o acesso a contentores e filas (pré-visualização). O Azure AD fornece as vantagens relativamente ao outras abordagens para autorização, incluindo a remover a necessidade de armazenar segredos no seu código. Para obter mais informações, consulte [autenticar o acesso ao Storage do Azure utilizando o Azure Active Directory (pré-visualização)](storage-auth-aad.md). 
+- Com as chaves de conta de armazenamento para autorizar o acesso através de chave partilhada. Autorizar através de chave partilhada necessita de armazenar as chaves de conta de armazenamento na sua aplicação, pelo que a Microsoft recomenda a utilização do Azure AD em vez disso, sempre que possível. Para aplicações de produção, ou para autorizar o acesso aos ficheiros e as tabelas do Azure, continue a utilizar a chave partilhada enquanto a integração do Azure AD está em pré-visualização.
+- Utilizar assinaturas de acesso partilhado para conceder permissões controladas para objetos de dados específico durante um período de tempo específico.
 
 Além disso, para o Blob Storage, pode permitir acesso público para os blobs ao definir o nível de acesso para o contentor que retém os blobs em conformidade. Se definir acesso para um contentor de Blob ou contentor, permitirá o acesso de leitura público para os blobs no contentor. Isto significa que qualquer pessoa com um URL a apontar para um blob no contentor pode abrir num browser sem utilizar uma assinatura de acesso partilhado ou ter as chaves de conta de armazenamento.
 
 Para além de limitar o acesso através de autorização, também pode utilizar [Firewalls e redes virtuais](storage-network-security.md) para limitar o acesso à conta de armazenamento com base nas regras de rede.  Permite esta abordagem negar o acesso ao tráfego de internet públicas e para conceder acesso apenas a determinados redes virtuais do Azure ou da internet pública intervalos de endereços IP.
-
 
 ### <a name="storage-account-keys"></a>Chaves de Contas de Armazenamento
 Chaves de conta de armazenamento são criadas pelo Azure que, juntamente com o nome da conta de armazenamento, pode ser utilizado para aceder os objetos de dados armazenados na conta de armazenamento de cadeias de 512 bits.
@@ -205,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Como a assinatura de acesso partilhado é autenticada pelo serviço de armazenamento do Azure
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Como a assinatura de acesso partilhado está autorizada pelo serviço de armazenamento do Azure
 Quando o serviço de armazenamento recebe o pedido, aceita os parâmetros de consulta de entrada e cria uma assinatura utilizando o mesmo método que o programa de chamada. Em seguida, compara as assinaturas de dois. Se estes concordarem, o serviço de armazenamento pode verificar a versão do serviço de armazenamento certificar-se de que é válido, certifique-se de que a data e hora atuais dentro da janela especificada, certifique-se o acesso solicitado corresponde de pedidos efetuados, etc.
 
 Por exemplo, com os nosso URL acima, se o URL foi apontar para um ficheiro em vez de um blob, este pedido iria falhar porque Especifica que a assinatura de acesso partilhado é para um blob. Se o comando REST que está a ser chamado atualizar um blob, irão falhar porque a assinatura de acesso partilhado Especifica que o acesso de leitura apenas é permitido.
@@ -264,21 +268,9 @@ Para que um canal de comunicação segura, deve sempre utilizar HTTPS quando cha
 Pode impor a utilização de HTTPS quando chamar as APIs REST para aceder aos objetos em contas de armazenamento, permitindo [Secure transferência necessária](../storage-require-secure-transfer.md) para a conta de armazenamento. Ligações utilizando HTTP irão recusou-se quando esta estiver ativada.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilizar a encriptação durante trânsito com partilhas de ficheiros do Azure
-Ficheiros do Azure suporta HTTPS ao utilizar a API REST, mas é mais frequentemente utilizado como uma partilha de ficheiros SMB ligado a uma VM. SMB 2.1 não suporta a encriptação, pelo que as ligações só são permitidas na mesma região no Azure. No entanto, o SMB 3.0 suporta a encriptação e está disponível no Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, permitindo que o acesso por várias regiões e acesso no ambiente de trabalho.
+[Ficheiros do Azure](../files/storage-files-introduction.md) suporta encriptação através do SMB 3.0 e com HTTPS ao utilizar a API de REST do ficheiro. Quando é localizado, tal como no local ou na região do Azure outro montar fora a região do Azure a partilha de ficheiros do Azure, o SMB 3.0 com a encriptação é sempre necessária. O SMB 2.1 não suporta a encriptação, por predefinição, as ligações só são permitidas na mesma região no Azure, mas o SMB 3.0 com encriptação pode ser imposto pelo [exigir a transferência segura](../storage-require-secure-transfer.md) para a conta de armazenamento.
 
-Enquanto as partilhas de ficheiros do Azure podem ser utilizadas com o Unix, o cliente Linux SMB ainda não suporta encriptação, para que acesso só é permitido dentro de uma região do Azure. Suporte de encriptação de Linux está no plano de programadores de Linux responsáveis pela funcionalidade SMB. Quando adicionarem estes encriptação, terá a mesma capacidade para aceder a uma partilha de ficheiros do Azure no Linux, tal como para o Windows.
-
-Pode impor a utilização da encriptação com o serviço de ficheiros do Azure, permitindo [Secure transferência necessária](../storage-require-secure-transfer.md) para a conta de armazenamento. Se utilizar as APIs REST, HTTPs é necessário. Para SMB, apenas as ligações de SMB que suportem encriptação que irão estabelecer ligação com êxito.
-
-#### <a name="resources"></a>Recursos
-* [Introdução de ficheiros do Azure](../files/storage-files-introduction.md)
-* [Introdução ao Azure ficheiros no Windows](../files/storage-how-to-use-files-windows.md)
-
-  Este artigo fornece uma descrição geral das partilhas de ficheiros do Azure e como montar e utilizá-los no Windows.
-
-* [How to use Azure Files with Linux (Como utilizar os Ficheiros do Azure com o Linux)](../files/storage-how-to-use-files-linux.md)
-
-  Este artigo mostra como montar uma partilha de ficheiros do Azure nos ficheiros de sistema e de carregamento/transferência de Linux.
+O SMB 3.0 com a encriptação está disponível no [suportados todos os sistemas operativos Windows e Windows Server](../files/storage-how-to-use-files-windows.md) , exceto o Windows 7 e Windows Server 2008 R2, que só suportam o SMB 2.1. Também é suportado o SMB 3.0 [macOS](../files/storage-how-to-use-files-mac.md) e sobre as distribuições de [Linux](../files/storage-how-to-use-files-linux.md) utilizando Linux kernel 4.11 e superior. Suporte de encriptação para SMB 3.0 também foi backported a versões mais antigas do kernel Linux por várias distribuições em Linux, consulte [requisitos do cliente SMB compreender](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Utilizar a encriptação do lado do cliente para proteger os dados que envie para o armazenamento
 Outra opção que o ajuda a garantir que os dados estão seguros durante a transferência entre uma aplicação de cliente e o armazenamento é a encriptação do lado do cliente. Os dados são encriptados antes de serem transferidos para o armazenamento do Azure. Quando a obtenção de dados do Storage do Azure, os dados são desencriptados depois recebido do lado do cliente. Apesar dos dados são encriptados vai através da transmissão, é recomendável que também utilizar HTTPS, porque tem verificações de integridade de dados incorporadas que ajudam a mitigar os erros de rede que afetam a integridade dos dados.
@@ -412,11 +404,11 @@ Não há um artigo listado nos recursos abaixo que fornece a lista das muitos do
 
 ![Instantâneo de campos num ficheiro de registo](./media/storage-security-guide/image3.png)
 
-Estamos interessados em entradas para GetBlob, e a forma como os que são autenticados, por isso, é necessário procure entradas com "Get-BLOBs" de tipo de operação e verifique o estado do pedido (quarta</sup> coluna) e o tipo de autorização (oitavo</sup> coluna).
+Estamos interessados em entradas para GetBlob e de como estiverem autorizadas, pelo que precisamos de procure entradas com "Get-BLOBs" de tipo de operação e verifique o estado do pedido (quarta</sup> coluna) e o tipo de autorização (oitavo</sup> coluna).
 
-Por exemplo, as primeiras linhas na listagem acima, o estado do pedido é "Êxito" e o tipo de autorização é "autenticar". Isto significa que o pedido foi validado com a chave de conta de armazenamento.
+Por exemplo, as primeiras linhas na listagem acima, o estado do pedido é "Êxito" e o tipo de autorização é "autenticar". Isto significa que o pedido foi autorizado a utilizar a chave de conta de armazenamento.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Como são os meus blobs que está a ser autenticados?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Como é o acesso ao meu blobs que está a ser autorizado?
 Temos três cenários que, se estiver interessados em.
 
 1. O blob é público e é acedido através de um URL sem uma assinatura de acesso partilhado. Neste caso, o estado do pedido é "AnonymousSuccess" e o tipo de autorização é "anónimo".
@@ -513,8 +505,7 @@ Para obter mais informações sobre CORS e como ativá-la, consulte estes recurs
 
    Microsoft mantém até cada cliente para decidir se pretende ativar o modo FIPS. Acreditamos que não é não existe nenhuma razão apelativa para os clientes que não são sujeitos a normas government para ativar o modo FIPS por predefinição.
 
-   **Recursos**
-
+### <a name="resources"></a>Recursos
 * [Por que motivo está a não recomendamos "Modo FIPS" já](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Este artigo de blogue fornece uma descrição geral do FIPS e explica por que motivo não ativar modo FIPS por predefinição.

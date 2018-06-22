@@ -3,23 +3,21 @@ title: Tutorial de aplicação Web Python Flask para o Azure Cosmos DB | Microso
 description: Reveja um tutorial de base de dados sobre a utilização do Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Web Python Flask alojada no Azure. Encontre soluções de desenvolvimento de aplicações.
 keywords: Desenvolvimento de aplicações, python flask, aplicação Web python, desenvolvimento Web python
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824222"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Criar uma aplicação Web Python Flask com o Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,18 +28,18 @@ ms.lasthandoff: 04/16/2018
 > 
 > 
 
-Este tutorial mostra como utilizar a base de dados do Azure Cosmos para armazenar e aceder a dados a partir de uma aplicação de web do Python Flask alojada no App Service do Azure. Este tutorial presumes que tem alguma experiência anterior com o Python e Web sites do Azure.
+Este tutorial mostra-lhe como utilizar o Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Web Python Flask alojada no Serviço de Aplicações do Azure. Este tutorial parte do pressuposto de que tem alguma experiência anterior na utilização de Python e de sites do Azure.
 
 Este tutorial de base de dados abrange:
 
-1. Criar e aprovisionar uma conta de base de dados do Azure Cosmos.
-2. Criar uma aplicação Python Flask.
-3. Ligar e utilizar a base de dados do Azure Cosmos da sua aplicação web.
-4. Implementar a aplicação web no App Service do Azure.
+1. A criação e o aprovisionamento de uma conta do Azure Cosmos DB.
+2. A criação de uma aplicação Python Flask.
+3. A ligação e a utilização do Azure Cosmos DB a partir da sua aplicação Web.
+4. A implementação da aplicação Web no Serviço de Aplicações do Azure.
 
 Ao seguir este tutorial, irá criar uma aplicação de voto simples que lhe permite votar num inquérito.
 
-![Captura de ecrã da aplicação de voto criada por este tutorial de base de dados](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Captura de ecrã da aplicação de votação criada pelo tutorial desta base de dados](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Pré-requisitos do tutorial da base de dados
 Antes de seguir as instruções deste artigo, deve certificar-se de que os seguintes elementos estão instalados:
@@ -50,18 +48,18 @@ Antes de seguir as instruções deste artigo, deve certificar-se de que os segui
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) com **programação do Azure** e **desenvolvimento do Python** ativada. Pode verificar se os pré-requisitos estão instalados e instalação-los, abrindo **instalador do Visual Studio** localmente.   
-* [Microsoft Azure SDK para Python 2.7](https://azure.microsoft.com/downloads/). 
-* [Python 2.7](https://www.python.org/downloads/windows/). Pode utilizar a instalação de 32 bits ou 64 bits.
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) com **desenvolvimento do Azure** e **desenvolvimento de Python** ativados. Pode verificar se estes pré-requisitos estão instalados e, se não, instalá-los ao abrir o **Instalador do Visual Studio** localmente.   
+* [SDK do Microsoft Azure para Python 2.7](https://azure.microsoft.com/downloads/). 
+* [Python 2.7](https://www.python.org/downloads/windows/). Pode utilizar a instalação de 32 bits ou de 64 bits.
 
 > [!IMPORTANT]
-> Se estiver a instalar o Python 2.7 pela primeira vez, certifique-se de que no ecrã Personalizar Python 2.7.13, seleciona **adicionar python.exe ao caminho**.
+> Se estiver a instalar o Python 2.7 pela primeira vez, certifique-se de que selecionou **Add python.exe to Path** (Adicionar python.exe ao Caminho) no ecrã Personalizar Python 2.7.13.
 > 
 > ![Captura de ecrã do ecrã Personalizar Python 2.7.11, onde tem de selecionar Adicionar python.exe ao Caminho](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 
-* [Microsoft Visual C++ Compiler para o Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
+* [Microsoft Visual C++ Compiler para Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Passo 1: Criar uma conta de base de dados do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar uma nova aplicação Web Python Flask](#step-2-create-a-new-python-flask-web-application).
@@ -69,7 +67,7 @@ Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se e
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <br/>
-Agora vamos orientá-criar uma nova aplicação de web do Python Flask partir do zero cópias de segurança.
+Agora, vamos guiá-lo pela criação de uma nova aplicação Web Python Flask a partir do zero.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>Passo 2: Criar uma nova aplicação Web Python Flask
 1. No Visual Studio, no menu **Ficheiro**, aponte para **Novo**, e, em seguida, clique em **Projeto**.
@@ -84,7 +82,7 @@ Agora vamos orientá-criar uma nova aplicação de web do Python Flask partir do
 4. Na janela **Ferramentas do Python para o Visual Studio**, clique em **Instalar num ambiente virtual**. 
    
     ![Captura de ecrã do tutorial da base de dados - Janela Ferramentas do Python para o Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
-5. No **adicionar ambiente Virtual** janela, selecione o Python 2.7 ou Python 3.5 em selecionar uma caixa interpretador, aceite as outras predefinições e, em seguida, clique em **criar**. Esta ação configura o ambiente virtual do Python necessário para o seu projeto.
+5. Na janela **Adicionar Ambiente Virtual**, selecione Python 2.7 ou Python 3.5 na caixa “Selecionar um interpretador”, aceite as outras predefinições e clique em **Criar**. Esta ação configura o ambiente virtual do Python necessário para o seu projeto.
    
     ![Captura de ecrã do tutorial da base de dados - Janela Ferramentas do Python para o Visual Studio](./media/sql-api-python-application/image10_A.png)
    
@@ -92,7 +90,7 @@ Agora vamos orientá-criar uma nova aplicação de web do Python Flask partir do
 
 ## <a name="step-3-modify-the-python-flask-web-application"></a>Passo 3: Alterar a aplicação Web Python Flask
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Adicione pacotes do Python Flask ao seu projeto
-Depois de configurar o projeto, terá de adicionar os pacotes Flask necessários ao seu projeto, incluindo o pydocumentdb, o pacote do Python para a API de SQL do Azure Cosmos DB.
+Depois de configurar o seu projeto, terá de adicionar os pacotes Flask necessários ao seu projeto, incluindo o pydocumentdb, o pacote Python para a API para SQL do Azure Cosmos DB.
 
 1. No Explorador de Soluções, abra o ficheiro denominado **requirements.txt** e substitua o conteúdo pelo seguinte:
    
@@ -117,7 +115,7 @@ Depois de configurar o projeto, terá de adicionar os pacotes Flask necessários
         Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
    
    > [!NOTE]
-   > Em casos raros, poderá ver uma falha na janela de saída. Se isto acontecer, verifique se o erro está relacionado com limpar. Por vezes, a limpeza falha, mas a instalação ainda será concluída com êxito (deslocamento para cima na janela de resultados para verificar isto). Pode verificar a sua instalação ao [Verificar o ambiente virtual](#verify-the-virtual-environment). Se a instalação falhou, mas a verificação for bem sucedida, poderá prosseguir.
+   > Em casos raros, poderá ver uma falha na janela de saída. Se isto acontecer, verifique se o erro está relacionado com a limpeza. Por vezes, a limpeza falha, mas a instalação ainda será concluída com êxito (desloque-se para cima na janela da saída para confirmar). Pode verificar a sua instalação ao [Verificar o ambiente virtual](#verify-the-virtual-environment). Se a instalação falhou, mas a verificação for bem sucedida, poderá prosseguir.
    > 
    > 
 
@@ -150,7 +148,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Adicionar as importações requeridas ao views.psy
 1. No Explorador de soluções, expanda a pasta **tutorial** e abra o ficheiro **views.py**. 
-2. Adicione as seguintes instruções de importação à parte superior do ficheiro **views.py** e, em seguida, guarde o ficheiro. Estas ações importam o PythonSDK da BD do Cosmos do Azure e os pacotes Flask.
+2. Adicione as seguintes instruções de importação à parte superior do ficheiro **views.py** e, em seguida, guarde o ficheiro. Estas ações importam os pacotes PythonSDK e Flask do Azure Cosmos DB.
    
     ```python
     from forms import VoteForm
@@ -249,7 +247,7 @@ def vote():
 
 
 ### <a name="create-the-html-files"></a>Criar os ficheiros HTML
-1. No Explorador de soluções, no **tutorial** pasta, faça duplo clique o **modelos** pasta, clique em **adicionar**e, em seguida, clique em **Novo Item**. 
+1. No Explorador de Soluções, na pasta **tutorial**, clique com o botão direito do rato na pasta **modelos**, clique em **Adicionar** e, em seguida, clique em **Novo Item**. 
 2. Selecione **Página HTML** e, em seguida, na caixa de nome, introduza **create.html**. 
 3. Repita os passos 1 e 2 para criar dois ficheiros adicionais de HTML: results.html e vote.html.
 4. Adicione o seguinte código em **create.html** no `<body>` elemento. É apresentada uma mensagem com a informação de que foi criada uma nova base de dados, coleção e documento.
@@ -287,7 +285,7 @@ def vote():
     <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     {% endblock %}
     ```
-6. Adicione o seguinte código ao **vote.html** no `<body`> elemento. Apresenta o inquérito e aceita os votos. Os votos aquando do registo, o controlo é transmitido ao views.py onde a base de dados do Azure Cosmos reconhece a transmissão do voto e acrescenta o documento em conformidade.
+6. Adicione o seguinte código ao **vote.html** no `<body`> elemento. Apresenta o inquérito e aceita os votos. Quando os votos são registados, o controlo é transmitido ao views.py, onde o Azure Cosmos DB reconhece o voto depositado e acrescenta o documento em conformidade.
    
     ```html
     {% extends "layout.html" %}
@@ -313,8 +311,8 @@ def vote():
     ```
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Adicionar um ficheiro de configuração e alterar o \_\_init\_\_.py
-1. No Explorador de soluções, clique com botão direito do **tutorial** do projeto, clique em **adicionar**, clique em **Novo Item**, selecione **ficheiro vazio do Python**e, em seguida, atribua o nome o ficheiro **config_cosmos.py**. Este ficheiro de configuração é necessário para formulários no Flask. Pode ainda utilizá-lo para fornecer uma chave secreta. No entanto, essa chave não é necessária para este tutorial.
-2. Adicione o seguinte código para config_cosmos.py, terá de alterar os valores de **COSMOSDB\_anfitrião** e **COSMOSDB\_chave** no próximo passo.
+1. No Explorador de Soluções, clique com o botão direito do rato no projeto **tutorial**, clique em **Adicionar**, clique em **Novo Item**, selecione **Ficheiro Vazio do Python** e, em seguida, dê o nome **config_cosmos.py** ao ficheiro. Este ficheiro de configuração é necessário para formulários no Flask. Pode ainda utilizá-lo para fornecer uma chave secreta. No entanto, essa chave não é necessária para este tutorial.
+2. Adicione o seguinte código ao config_cosmos.py. No próximo passo, vai ter de alterar os valores de **COSMOSDB\_HOST** e **COSMOSDB\_KEY**.
    
     ```python
     CSRF_ENABLED = True
@@ -327,9 +325,9 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. No [portal do Azure](https://portal.azure.com/), navegue para o **chaves** página clicando **procurar**, **contas de base de dados do Azure Cosmos**, faça duplo clique no nome do conta a utilizar e, em seguida, clique em de **chaves** clique no botão no **Essentials** área. No **chaves** página, copie o **URI** valor e cole-o para o **config.py** ficheiro, como o valor para o **COSMOSDB\_anfitrião**propriedade. 
-4. Crie uma no portal do Azure, do **chaves** página, copie o valor do **chave primária** ou o **chave secundária**e cole-o para o **config_cosmos.py** ficheiro, como o valor para o **COSMOSDB\_chave** propriedade.
-5. No  **\_ \_init\_\_. PY** ficheiro, adicione as seguintes linhas para, incluindo a leitura do ficheiro de configuração e algum registo básico: 
+3. No [portal do Azure](https://portal.azure.com/), navegue para a página **Chaves** ao clicar em **Procurar**, **Contas do Azure Cosmos DB**, faça duplo clique no nome da conta que vai ser utilizada e, em seguida, clique no botão **Chaves**, na área **Essenciais**. Na página **Chaves**, copie o valor de **URI** e cole-o no ficheiro **config.py** como o valor da propriedade **COSMOSDB\_HOST**. 
+4. De regresso ao portal do Azure, na página **Chaves**, copie o valor da **Chave Primária** ou da **Chave Secundária** e cole-o no ficheiro **config_cosmos.py** como o valor da propriedade **COSMOSDB\_KEY**.
+5. No ficheiro **\_\_init\_\_.py**, adicione as seguintes linhas para incluir a leitura do ficheiro de configuração e alguns registos básicos: 
    
         app.config.from_object('config_cosmos')
         logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -367,12 +365,12 @@ def vote():
     ![Captura de ecrã dos Resultados da página de votos apresentada](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Interrompa a depuração do projeto premindo Shift+F5.
 
-## <a name="step-5-deploy-the-web-application-to-azure"></a>Passo 5: Implementar a aplicação web no Azure
-Agora que configurou a aplicação completa funciona corretamente em relação a base de dados do Azure Cosmos localmente, vamos criar um ficheiro Web. config, atualize os ficheiros no servidor para fazer corresponder o ambiente local e, em seguida, ver a aplicação concluída no Azure. Este procedimento é específico para Visual Studio 2017. Se estiver a utilizar uma versão diferente do Visual Studio, consulte o artigo [publicação App Service do Azure](/visualstudio/python/publishing-to-azure.md).
+## <a name="step-5-deploy-the-web-application-to-azure"></a>Passo 5: Implementar a aplicação Web no Azure
+Agora que já tem a aplicação completa a funcionar corretamente no Azure Cosmos DB localmente, vamos criar um ficheiro web.config, atualizar os ficheiros no servidor para que correspondam ao ambiente local e, depois, ver a aplicação concluída no Azure. Este procedimento é específico para o Visual Studio 2017. Se estiver a utilizar uma versão diferente do Visual Studio, veja [Publishing to Azure App Service](/visualstudio/python/publishing-to-azure) (Publicar no Serviço de Aplicações do Azure).
 
-1. No Visual Studio **Explorador de soluções**, clique com o botão direito no projeto e selecione **adicionar > Novo Item...** . Na caixa de diálogo que aparece, selecionando o **Azure Web. config (Fast CGI)** modelo e selecione **OK**. Esta ação cria um `web.config` ficheiro na raiz do projeto. 
+1. No **Explorador de Soluções** do Visual Studio, clique com o botão direito do rato no projeto e selecione **Adicionar > Novo Item...**. Na caixa de diálogo que aparece, selecione o modelo **Azure web.config (Fast CGI)** e selecione **OK**. É criado um ficheiro `web.config` na raiz do projeto. 
 
-2. Modificar o `<system.webServer>` secção `web.config` para que o caminho corresponde a instalação do Python. Por exemplo, para o Python 2.7 x64 a entrada deverá aparecer da seguinte forma:
+2. Modifique a secção `<system.webServer>` em `web.config`, de modo a que o caminho corresponda à instalação de Python. Por exemplo, para Python 2.7 x64, a entrada deverá aparecer da seguinte forma:
     
     ```xml
     <system.webServer>
@@ -382,47 +380,47 @@ Agora que configurou a aplicação completa funciona corretamente em relação a
     </system.webServer>
     ```
 
-3. Definir o `WSGI_HANDLER` entrada no `web.config` como para `tutorial.app` para corresponder ao nome do seu projeto. 
+3. Defina a entrada `WSGI_HANDLER` em `web.config` como `tutorial.app`, de modo a que corresponda ao nome do seu projeto. 
 
     ```xml
     <!-- Flask apps only: change the project name to match your app -->
     <add key="WSGI_HANDLER" value="tutorial.app"/>
     ```
 
-4. No Visual Studio **Explorador de soluções**, expanda o **tutorial** pasta, clique com botão direito do `static` pasta, selecione **adicionar > Novo Item...** , selecione o modelo "Azure estático ficheiros Web. config" e selecione **OK**. Esta ação cria outra `web.config` no `static` pasta que desativa o Python processamento dessa pasta. Esta configuração envia pedidos dos ficheiros estáticos para o servidor de web predefinido, em vez de utilizar a aplicação de Python.
+4. No **Explorador de Soluções** do Visual Studio, expanda a pasta **tutorial**, clique com o botão direito do rato na pasta `static`, selecione **Adicionar > Novo Item...**, selecione o modelo "Azure static files web.config" e selecione **OK**. Esta ação cria outro ficheiro `web.config` na pasta `static` que desativa o processamento de Python na mesma. Esta configuração envia pedidos para ficheiros estáticos ao servidor Web predefinido em vez de utilizar a aplicação Python.
 
-5. Guardar os ficheiros, em seguida, clique com o botão direito no projeto no Explorador de soluções (Certifique-se de que ainda não esteja ainda a executá-lo localmente) e selecione **publicar**.  
+5. Guarde os ficheiros e clique com o botão direito do rato no Explorador de Soluções (confirme que já não está a executá-lo localmente) e selecione **Publicar**.  
    
      ![Captura de ecrã do tutorial selecionado no Explorador de Soluções com a opção Publicar realçada.](./media/sql-api-python-application/image20.png)
-6. No **publicar** caixa de diálogo, selecione **App Service do Microsoft Azure**, selecione **criar novo**e, em seguida, clique em **publicar**.
+6. Na caixa de diálogo **Publicar**, selecione **Serviço de Aplicações do Microsoft Azure**, selecione **Criar nova** e clique em **Publicar**.
    
-    ![Captura de ecrã da janela Publicar na Web com o serviço de aplicações do Microsoft Azure realçadas](./media/sql-api-python-application/cosmos-db-python-publish.png)
-7. No **criar App Service** caixa de diálogo, introduza o nome da sua aplicação web juntamente com o **subscrição**, **grupo de recursos**, e **plano do App Service**, em seguida, clique em **criar**.
+    ![Captura de ecrã da janela Publicar na Web com o Serviço de Aplicações do Microsoft Azure destacado](./media/sql-api-python-application/cosmos-db-python-publish.png)
+7. Na caixa de diálogo **Criar Serviço de Aplicações**, introduza o nome da sua aplicação Web e a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações** e clique em **Criar**.
    
     ![Captura de ecrã da Janela Web das Web Apps do Microsoft Azure](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
-8. Em alguns segundos, o Visual Studio terminar a copiar os ficheiros para o servidor e apresenta "não é possível apresentar a página porque ocorreu um erro interno do servidor." no `http://<your app service>.azurewebsites.net/` página.
+8. Em alguns segundos, o Visual Studio termina a cópia dos ficheiros para o servidor e apresenta “Não é possível apresentar a página porque ocorreu um erro de servidor interno” na página `http://<your app service>.azurewebsites.net/`.
 
-9. No portal do Azure, abra a sua nova conta de serviço de aplicações, em seguida, no menu de navegação, desloque para baixo até o **ferramentas de desenvolvimento** secção, selecione **extensões**, em seguida, clique em **+ adicionar**.
+9. No portal do Azure, abra a sua conta nova do Serviço de Aplicações e, no menu de navegação, desloque-se para baixo para a secção **Ferramentas de programação**, selecione **Extensões** e clique em **+ Adicionar**.
 
-10. No **escolha extensão** página, desloque para baixo para a instalação mais recente do Python 2.7 e selecione a opção de bits x86 ou x64, em seguida, clique em **OK** para aceitar os termos legais.  
+10. Na página **Escolher extensão**, desloque-se para baixo para a instalação mais recente de Python 2.7, selecione a opção de x86 ou x64 bits e clique em **OK** para aceitar os termos legais.  
    
-11. Utilize a consola do Kudu, que pode procurar em `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, para instalar os pacotes listados na sua aplicação `requirements.txt` ficheiro. Para tal, na consola de diagnóstico do Kudu, navegue para a pasta de Python `D:\home\Python27` , em seguida, execute o seguinte comando, tal como descrito no [consola Kudu](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console) secção:
+11. Utilize a consola do Kudu, à qual pode aceder em `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, para instalar os pacotes indicados no ficheiro `requirements.txt` da aplicação. Para tal, na consola de diagnósticos do Kudu, navegue para a pasta de Python, `D:\home\Python27`, e execute o seguinte comando, conforme descrito na secção [Consola do Kudu](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console):
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
     ```          
 
-12. Reinicie o serviço de aplicação no portal do Azure depois de instalar os novos pacotes, premindo o **reiniciar** botão. 
+12. Prima o botão **Reiniciar** para reiniciar o Serviço de Aplicações no portal do Azure depois de instalar os pacotes novos. 
 
     > [!Tip] 
-    > Se efetuar alterações à sua aplicação `requirements.txt` de ficheiros, certifique-se novamente utilizar a consola do Kudu para instalar quaisquer pacotes que são agora listadas nesse ficheiro. 
+    > Se fizer alterações ao ficheiro `requirements.txt` da aplicação, certifique-se de que volta a utilizar a consola do Kudu para instalar eventuais pacotes que não estejam indicados nesse ficheiro. 
 
-13. Depois de configurar o ambiente de servidor completamente, atualize a página no browser e a aplicação web deve aparecer.
+13. Depois de configurar completamente o ambiente do servidor, atualize a página no browser e a aplicação Web deverá aparecer.
 
-    ![Resultados da publicação de aplicações Bottle, Flask e Django no App Service](./media/sql-api-python-application/python-published-app-services.png)
+    ![Resultados da publicação de aplicações Bottle, Flask e Django no Serviço de Aplicações](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Se não for apresentada a página web ou continua a aceder a "a página não pode ser apresentada porque ocorreu um erro de servidor interno." mensagem, abra o ficheiro Web. config na Kudo e adicionar ` <httpErrors errorMode="Detailed"></httpErrors>` para a secção System. webServer, em seguida, atualize a página. Esta será fornecido a saída de erro detalhadas para o browser. 
+    > Se a página Web não for apresentada ou continuar a receber a mensagem “Não foi possível apresentar a página porque ocorreu um erro de servidor interno”, abra o ficheiro web.config no Kudo, adicione ` <httpErrors errorMode="Detailed"></httpErrors>` à secção system.webServer e atualize a página. É enviada uma saída detalhada do erro para o browser. 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se esta for a primeira aplicação de Python que executar no seu computador, certifique-se de que as seguintes pastas (ou as localizações de instalação equivalentes) estão incluídas na sua variável de CAMINHO:
@@ -431,17 +429,11 @@ Se esta for a primeira aplicação de Python que executar no seu computador, cer
 
 Se receber um erro na sua página de voto e se atribuiu outro nome que não **tutorial** ao seu projeto, certifique-se de que o **\_\_init\_\_.py** referencia o nome do projeto correto na linha: `import tutorial.view`.
 
-## <a name="next-steps"></a>Passos Seguintes
-Parabéns! Tem de concluir a sua primeira aplicação web Python com a base de dados do Azure Cosmos e publicada para o Azure.
+## <a name="next-steps"></a>Passos seguintes
+Parabéns! Concluiu a sua primeira aplicação Web Python com o Azure Cosmos DB e publicou-a no Azure.
 
-Para adicionar funcionalidades adicionais à sua aplicação web, reveja as APIs disponíveis no [SDK Python do Azure Cosmos DB](sql-api-sdk-python.md).
+Para adicionar mais funcionalidades à sua aplicação Web, reveja as APIs disponíveis em [Azure Cosmos DB Python SDK](sql-api-sdk-python.md) (SDK de Python para o Azure Cosmos DB).
 
 Para obter mais informações sobre o Azure, o Visual Studio e o Python, consulte o artigo [Centro de Programadores do Python](https://azure.microsoft.com/develop/python/). 
 
 Para tutoriais adicionais do Python Flask, consulte o artigo [Mega Tutorial Flask, Parte I: Olá, Mundo!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com
