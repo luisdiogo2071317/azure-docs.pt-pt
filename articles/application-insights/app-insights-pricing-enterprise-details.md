@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 65307eab0bf1b5f502f11c14c369826cd12e0966
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309835"
 ---
 # <a name="enterprise-plan-details"></a>Detalhes do plano de Enterprise
 
@@ -26,6 +27,9 @@ As informações de aplicação do Azure tem dois planos de preços: Basic e Ent
 O plano de Enterprise tem cobrada uma taxa por nó, e cada nó recebe um allowance dados diários. A empresa preços plano, os dados é cobrados ingeridos acima o allowance incluído. Se estiver a utilizar o Operations Management Suite, deve escolher o plano de empresa. 
 
 Para obter preços atuais na sua moeda e região, consulte [preços do Application Insights](http://azure.microsoft.com/pricing/details/application-insights/).
+
+> [!NOTE]
+> Em Abril de 2018, iremos [introduzida](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitorização do Azure. Este modelo adopts um modelo simples "pay as you go" entre o portefólio completado de monitorização de serviços. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto de mover para este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de utilização, e [como optar ativamente por participar no modelo de novo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
 ## <a name="how-the-enterprise-plan-works"></a>Como funciona o plano de Enterprise
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 86b7d8aa9d1c0d770f7b145377f49c5dc2c694a2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303917"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301204"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento para uma aplicação utilizando uma política de deteção de Realm Inicial
 
@@ -185,7 +185,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 Os utilizadores de auto-acelera da seguinte política para do AD FS início de sessão ecrã há mais de um domínio federado no seu inquilino. Se tiver mais de um domínio federado que autentica utilizadores para aplicações, tem de especificar o domínio para acelerar o automático.
 
 ``` powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Para criar uma política para ativar a autenticação de nome de utilizador/palavra-passe para os utilizadores federados diretamente com o Azure Active Directory para aplicações específicas, execute o seguinte comando:

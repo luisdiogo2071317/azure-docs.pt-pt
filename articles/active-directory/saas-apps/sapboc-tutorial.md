@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220639"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD-início de sessão único com a nuvem de objeto do SA
     ![URLs de página do domínio de nuvem do SAP Business objeto e os URLs](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Os valores existentes nestes URLs são para a demonstração apenas. Atualize os valores com o URL de início de sessão real e o URL de identificador. Para obter o URL de início de sessão, contacte o [equipa de suporte de cliente de Cloud de objeto do SAP Business](https://www.sap.com/product/analytics/cloud-analytics.support.html). Pode obter o URL de identificador ao transferir os metadados de nuvem de objeto do SAP Business a partir da consola de administração. Isto é explicado mais tarde no tutorial. 
+    > Os valores existentes nestes URLs são para a demonstração apenas. Atualize os valores com o URL de início de sessão real e o URL de identificador. Para obter o URL de início de sessão, contacte o [equipa de suporte de cliente de Cloud de objeto do SAP Business](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Pode obter o URL de identificador ao transferir os metadados de nuvem de objeto do SAP Business a partir da consola de administração. Isto é explicado mais tarde no tutorial. 
 
 4. Em **certificado de assinatura de SAML**, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
 

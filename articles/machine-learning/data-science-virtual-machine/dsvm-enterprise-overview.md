@@ -1,6 +1,6 @@
 ---
-title: Introdução para a máquina de Virtual de ciência de dados com base em ambientes de equipa - Azure | Microsoft Docs
-description: Padrões para a implementação de VM de ciência de dados como ambiente de equipas empresarial.
+title: Introdução aos ambientes de equipa baseada na máquina de Virtual de ciência de dados - Azure | Microsoft Docs
+description: Padrões para implementar a VM de ciência de dados num ambiente empresarial equipa.
 keywords: ligação avançada learning AI, ferramentas de ciência de dados, máquina de virtual de ciência de dados, geoespacial análise, o processo de ciência de dados de equipa
 services: machine-learning
 documentationcenter: ''
@@ -15,30 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8486b0be1fb5e1385da3c7ad55f6410a1059df93
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830542"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309253"
 ---
-# <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Máquina de Virtual de ciência de dados com base em equipa de análise e ambiente de AI 
-O [máquinas de virtuais de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na nuvem do Azure com o software previamente concebido para análise AI e os dados. Tradicionalmente foi utilizado o DSVM como ambiente de trabalho de análise individual e cientistas de dados individuais obterem produtividade com este partilhado noção do respetivo ambiente de análise pré-criadas. Como as equipas de análise de grande planear respetivos ambientes de análise para os cientistas de dados e programadores de AI, um de temas periódicos é uma infraestrutura de desenvolvimento e experimentação de análise partilhados que é gerida de acordo com a TI empresariais políticas que também facilita a colaboração e consistência em toda a ciência de dados completo / equipas de análise. Uma infraestrutura partilhada também permite que as TI melhor utilizar o ambiente de análise. A ciência de dados baseada em equipa / infraestrutura análise também é referida por algumas organizações como "Sandbox de análise" que permite as cientistas de dados rapidamente compreender dados, executar experimentações, validar hipótese, criar modelos preditivos de forma segura sem afetar o ambiente de produção ao ter acesso a vários recursos de dados. 
+# <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipa baseado em Máquina Virtual de ciência de dados e de ambiente de AI 
+O [máquinas de virtuais de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na plataforma do Azure com o software prebuilt para artificial intelligence (AI) e a análise de dados. 
 
-Uma vez que o DSVM funciona ao nível da infraestrutura do Azure, os administradores de TI prontamente podem configurar o DSVM para funcionar em conformidade com as políticas de TI de enterprise e ofertas total flexibilidade na implementação de várias arquiteturas partilha com acesso ao recursos de dados empresariais de forma controlada. 
+Tradicionalmente, o DSVM foi utilizado como um ambiente de trabalho de análise individual. Cientistas de dados individuais obtêm produtividade com este partilhado noção do respetivo ambiente prebuilt análise. Como as equipas de análise de grande planear respetivos ambientes de análise para os cientistas de dados e programadores de AI, uma dos temas periódicos é uma infraestrutura de análise partilhado para desenvolvimento e de experimentação. Esta infraestrutura é gerida em linha com TI empresariais políticas que também facilitam a colaboração e consistência entre as equipas de ciência/análise de dados. 
 
-Esta secção descreve alguns padrões e orientações que podem ser utilizadas para implementar o DSVM como uma infraestrutura de ciência de dados baseada em equipa.  Os blocos modulares para estes padrões diretamente são aproveitados do IaaS do Azure (infraestrutura como serviço) e como tal aplicáveis a quaisquer VMs do Azure. O foco específico esta série de artigos é aplicar estas capacidades de infraestrutura do Azure standard para a VM de ciência de dados. 
+Uma infraestrutura partilhada também permite que as TI melhor utilizar o ambiente de análise. Algumas organizações chamar a infraestrutura de ciência/análise de dados baseada em equipa um "sandbox análise". Permite que os cientistas de dados aceder a vários recursos de dados rapidamente, compreender dados, executar experimentações, validar hypotheses e criar modelos preditivos sem afetar o ambiente de produção. 
+
+Porque o DSVM funciona ao nível da infraestrutura do Azure, os administradores de TI podem prontamente configurar DSVM para funcionar em conformidade com as políticas de TI da empresa. O DSVM oferece total flexibilidade na implementação de várias arquiteturas partilha com acesso a recursos de dados empresariais de forma controlada. 
+
+Esta secção descreve alguns padrões e diretrizes que pode utilizar para implementar o DSVM como uma infraestrutura de ciência de dados baseada em equipa. Os blocos modulares para estes padrões vêm da infraestrutura do Azure como um serviço (IaaS), pelo que estas são aplicadas a todas as VMs do Azure. O foco esta série de artigos é aplicar estas capacidades de infraestrutura do Azure standard para a VM de ciência de dados. 
 
 Algumas dos blocos modulares chaves de um ambiente de análise da equipa de empresa são:
 
-* [Agrupamento ampliada automática de máquinas de virtuais de ciência de dados](dsvm-pools.md)
-* [Identidade e acesso à área de trabalho a partir de qualquer um dos DSVMs no agrupamento de comuns](dsvm-common-identity.md)
+* [Dimensionado automaticamente conjunto de máquinas de virtuais de ciência de dados](dsvm-pools.md)
+* [Identidade e acesso a uma área de trabalho a partir de qualquer um dos DSVMs no agrupamento de comuns](dsvm-common-identity.md)
 * [Proteger o acesso a origens de dados](dsvm-secure-access-keys.md)
 
 
-Esta série de artigos, indicadores e documentação de orientação são fornecidas em cada um destes acima aspetos. Obviamente, existem várias considerações adicionais e necessidades quando implementar DSVM nas configurações de grande empresa, que não é ainda diretamente abrangido nesta série de artigos. Seguem-se algumas das outras considerações e apontadores para documentação do Azure geral que podem ser prontamente utilizados ao implementar nas instâncias do DSVM na sua empresa. 
+Esta série de artigos fornece orientações e ponteiros para cada um dos itens anteriores. -Não abrange as considerações e das necessidades da implementação DSVM nas configurações de grande empresa. Segue-se a outra documentação do Azure que pode utilizar ao implementar instâncias DSVM na sua empresa: 
 
-* [Segurança de rede](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Segurança da rede](https://docs.microsoft.com/azure/security/azure-network-security)
 * [Monitorização](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestão](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Registo e auditoria](https://docs.microsoft.com/azure/security/azure-log-audit)
 * [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
@@ -47,4 +51,4 @@ Esta série de artigos, indicadores e documentação de orientação são fornec
 * [Encriptação](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Deteção de dados e governação](https://docs.microsoft.com/azure/data-catalog/)
 
-O [centro da arquitetura do Azure](https://docs.microsoft.com/en-us/azure/architecture/) também é um ótimo recurso que fornece a arquitetura de ponto a ponto detalhada e padrões para criar e gerir a sua infraestrutura de análise com base na nuvem. 
+O [Centro de arquitetura do Azure](https://docs.microsoft.com/en-us/azure/architecture/) proporciona uma arquitetura de ponto a ponto detalhada e padrões para criar e gerir a sua infraestrutura de análise e baseados na nuvem. 

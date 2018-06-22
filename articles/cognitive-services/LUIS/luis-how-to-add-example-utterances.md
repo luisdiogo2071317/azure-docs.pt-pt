@@ -10,21 +10,21 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cbffdbd9ab299d4405aa50c0e49db9c20ab0fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355759"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300643"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar utterances de exemplo e a etiqueta com entidades
 
-Utterances são exemplos de perguntas de utilizador ou de comandos. Para lhe ensinar compreensão de idiomas (LUIS), tem de adicionar [utterances exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
+Utterances de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Para lhe ensinar compreensão de idiomas (LUIS), tem de adicionar [utterances exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
 
-Geralmente, adicione um utterance primeiro e, em seguida, criar entidades e etiqueta utterances na página de intenção. Se em vez disso criaria entidades pela primeira vez, consulte o artigo [adicionar entidades](luis-how-to-add-entities.md).
+Geralmente, adicione primeiro um utterance de exemplo para o objetivo e, em seguida, criar entidades e utterances etiqueta na página de intenção. Se em vez disso criaria entidades pela primeira vez, consulte o artigo [adicionar entidades](luis-how-to-add-entities.md).
 
 ## <a name="add-an-utterance"></a>Adicionar um utterance
-Na página de intenção, introduza um utterance relevante que se espera de utilizadores, tais como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo intenção nome e, em seguida, prima Enter. 
+Na página de intenção, introduza um utterance relevantes de exemplo que se espera de utilizadores, tais como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo intenção nome e, em seguida, prima Enter. 
  
 >[!NOTE]
 >LUIS converte todos os utterances em minúsculas.
@@ -32,6 +32,9 @@ Na página de intenção, introduza um utterance relevante que se espera de util
 ![Página de detalhes de captura de ecrã de pendentes, com utterance realçado](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances são adicionados à lista de utterances para o objetivo atual. 
+
+## <a name="ignoring-words-and-punctuation"></a>A ignorar palavras e de pontuação
+Se pretender ignorar palavras específicas ou pontuação no utterance exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
 
 ## <a name="add-simple-entity-label"></a>Adicione a etiqueta de entidade simples
 No procedimento seguinte, crie e etiqueta personalizadas entidades dentro de utterance seguinte na página de intenção:

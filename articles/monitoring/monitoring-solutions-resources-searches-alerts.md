@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b16c88b5ec45dec7bf0fe40da24e817ae325a3e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887917"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304487"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>A adição de análise de registos guardar pesquisas e os alertas à solução de gestão (pré-visualização)
 
@@ -44,16 +44,13 @@ O nome da área de trabalho é nome cada recurso de análise de registos.  Isto 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 ## <a name="log-analytics-api-version"></a>Versão de API de análise do registo
-Todos os recursos de análise de registos definidos num modelo do Resource Manager tem uma propriedade **apiVersion** que define a versão da API, deve utilizar o recurso.  Esta versão é diferente para recursos que utilizam o [legado e o idioma de consulta atualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
+Todos os recursos de análise de registos definidos num modelo do Resource Manager tem uma propriedade **apiVersion** que define a versão da API, deve utilizar o recurso.   
 
- A seguinte tabela especifica as versões de API de análise do registo para pesquisas guardadas em áreas de trabalho de legado e atualizadas: 
+A tabela seguinte apresenta a versão da API para o recurso utilizado neste exemplo.
 
-| Versão da área de trabalho | Versão de API | Consulta |
+| Tipo de recurso | Versão de API | Consulta |
 |:---|:---|:---|
-| V1 (Legado)   | 2015-11-01-preview | Formato de legado.<br> Exemplo: Escreva = EventLevelName de evento = erro  |
-| v2 (atualizado) | 2015-11-01-preview | Formato de legado.  Converter para formato atualizado na instalação.<br> Exemplo: Escreva = EventLevelName de evento = erro<br>Converter a: eventos &#124; onde EventLevelName = = "Erro"  |
-| v2 (atualizado) | 2017-03-03-preview | Formato de atualização. <br>Exemplo: Evento &#124; onde EventLevelName = = "Erro"  |
-
+| savedSearches | 2017-03-15-preview | Evento &#124; onde EventLevelName = = "Erro"  |
 
 
 ## <a name="saved-searches"></a>Procuras Guardadas
@@ -90,7 +87,7 @@ Cada propriedade de uma procura guardada é descrita na seguinte tabela.
 > Terá de utilizar os carateres de escape da consulta se este incluir carateres que poderão ser interpretados como JSON.  Por exemplo, se a consulta foi **tipo: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, devem ser escrita no ficheiro de solução como **tipo: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertas
-[Alertas de análise de registo](../log-analytics/log-analytics-alerts.md) são criados pelas regras de alertas que executam uma procura guardada num intervalo regular.  Se os resultados de correspondência de consulta aos critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas.  
+[Alertas de registo do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) são criados pelas regras de alertas do Azure que executar consultas de registo especificado em intervalos regulares.  Se os resultados da consulta correspondem aos critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas utilizando [ação grupos](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
 > A partir de 14 de Maio de 2018, todos os alertas na área de trabalho serão iniciada automaticamente expandir no Azure. Um utilizador pode iniciar voluntariamente expandir alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure da OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que expandem alertas para o Azure, as ações são agora controladas em grupos de ação do Azure. Quando uma área de trabalho e as alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [ação grupo - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
@@ -338,11 +335,12 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-03-20",
-    
+          "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
           "MySearch": {
             "displayName": "Error records by hour",
-            "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+            "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
             "category": "Samples",
             "name": "Samples-Count of data"
           },
@@ -350,7 +348,7 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
             "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
             "DisplayName": "My alert rule",
             "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
-            "Severity": "Critical",
+            "Severity": "critical",
             "ThresholdOperator": "gt",
             "ThresholdValue": 3,
             "Schedule": {
@@ -378,7 +376,7 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
             "location": "[parameters('workspaceRegionId')]",
             "tags": { },
             "type": "Microsoft.OperationsManagement/solutions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -406,7 +404,7 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [ ],
             "tags": { },
             "properties": {
@@ -419,7 +417,7 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
             ],
@@ -433,7 +431,7 @@ Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-so
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
             ],

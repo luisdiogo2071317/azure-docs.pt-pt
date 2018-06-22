@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650116"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309618"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
@@ -31,7 +31,6 @@ Este artigo descreve algumas das características principais da BD SQL do Azure 
 - Segurança e conformidade
 - Monitorização de base de dados inteligente e manutenção
 - Movimento de dados
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Recuperação de continuidade e desastre de negócio (BCDR)
 Capacidades de recuperação de continuidade e desastre de negócio permitem-lhe continuar a sua empresa, como habitualmente, em caso de desastre. Desastre pode ser um evento de nível de base de dados (por exemplo, alguém por engano ignora uma tabela fundamental) ou um evento de nível de dados centre (catastrophe regional, por exemplo um multiplex). 
@@ -235,7 +234,7 @@ Base de dados do SQL Server oferece vários escalões de serviço básico, Stand
 
 Para certificar-se de que está no nível de desempenho à direita, pode monitorizar o consumo de recursos de consulta e da base de dados através de uma das formas above-mentioned em "Como posso monitorizar a utilização de recursos e de desempenho na base de dados do SQL Server". Deverá considerar que as consultas/bases de dados estão consistentemente em execução frequente no etc. da CPU/memória que pode considerar como aumentar verticalmente a um nível de desempenho superior. Da mesma forma, se, tenha em atenção que, mesmo durante o horário de pico, poderá parecem não corresponder a utilizar os recursos como muito; Considere dimensionamento do nível de desempenho atual. 
 
-Se tiver um padrão de aplicação SaaS ou um cenário de consolidação de base de dados, considere utilizar um conjunto elástico para otimização de custos. Agrupamento elástico é uma excelente forma de alcançar a consolidação de base de dados e a otimização de custos. Para ler mais sobre como gerir várias bases de dados utilizando o conjunto elástico, consulte: [gerir bases de dados e agrupamentos](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Se tiver um padrão de aplicação SaaS ou um cenário de consolidação de base de dados, considere utilizar um conjunto elástico para otimização de custos. Agrupamento elástico é uma excelente forma de alcançar a consolidação de base de dados e a otimização de custos. Para ler mais sobre como gerir várias bases de dados utilizando o conjunto elástico, consulte: [gerir bases de dados e agrupamentos](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Como muitas vezes, é necessário executar verificações de integridade da base de dados para a minha base de dados?
 Base de dados do SQL Server utiliza algumas inteligentes técnicas que lhe permite processar determinadas classes de danos nos dados sem perda de dados e automaticamente. Estes técnicas estão incorporadas no serviço e são aproveitadas pelo serviço precisar quando for. Regularmente, as cópias de segurança da base de dados em todo o serviço são testadas o restauro e executando DBCC CHECKDB no mesmo. Se existirem problemas, base de dados SQL proativamente endereços-los. [Reparação de página automática](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) é utilizado para corrigir as páginas que estão danificados ou tem problemas de integridade de dados. As páginas de base de dados são verificadas sempre com a definição predefinida da soma de verificação que verifica a integridade da página. Base de dados SQL proativamente monitoriza e analisa a integridade dos dados da base de dados e, se surgir um problema, os endereços-las com a prioridade mais elevada. Além destas, pode optar por executar opcionalmente o seus próprio verificações de integridade à sua vontade.  Para obter mais informações, consulte [integridade dos dados na base de dados do SQL Server](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

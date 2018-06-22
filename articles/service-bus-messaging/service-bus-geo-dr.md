@@ -2,23 +2,18 @@
 title: Recuperação de Georreplicação-desastre do Service Bus do Azure | Microsoft Docs
 description: Como utilizar regiões geográficas a ativação pós-falha e efetuar a recuperação de desastre no Service Bus do Azure
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237350"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301524"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre do Service Bus do Azure
 
@@ -68,7 +63,7 @@ Pode automatizar a ativação pós-falha com a monitorização de sistemas ou co
 
 Se iniciar a ativação pós-falha, os dois passos são necessários:
 
-1. Se ocorrer a falha de outra, pretender ser capaz de ativação pós-falha novamente. Por conseguinte, configurar noutro espaço de nomes passivo e atualize o emparelhamento. 
+1. Se ocorrer a falha de outra, pretende conseguir efetuar a ativação pós-falha novamente. Por conseguinte, configurar noutro espaço de nomes passivo e atualize o emparelhamento. 
 
 2. Solicitar mensagens do espaço de nomes primário anteriores quando estiver disponível novamente. Depois disso, utilizar esse espaço de nomes para as mensagens regular fora da sua configuração de recuperação georreplicação ou eliminar o espaço de nomes primário antigo.
 
@@ -89,7 +84,7 @@ Se tiver um cenário em que não é possível alterar as ligações de produtore
 
 O [exemplos em GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e inicie uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
 
-- Um exemplo de .net e as definições necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus para a configuração e ativar a recuperação após desastre de Georreplicação.
+- Um exemplo de .NET e as definições que são necessárias no Azure Active Directory para utilizar o Azure Resource Manager com o Service Bus, configurar e ativar a recuperação de desastre Georreplicação.
 - Passos necessários para executar o código de exemplo.
 - Como utilizar um espaço de nomes existente como alias.
 - Passos para ativar a recuperação de desastre Georreplicação através do PowerShell ou o CLI em alternativa.
@@ -107,6 +102,17 @@ Tenha em atenção as seguintes considerações a lembrar com esta versão:
 
 4. Sincronizar entidades pode demorar algum tempo, aproximadamente, 50-100 entidades por minuto. Regras e as subscrições também contam como entidades. 
 
+## <a name="availability-zones-preview"></a>Zonas de disponibilidade (pré-visualização)
+
+O SKU de Premium do Service Bus também suporta [disponibilidade zonas](../availability-zones/az-overview.md), que fornecem localizações isoladas de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **EUA Leste 2**, e **França Central** regiões.
+
+Pode ativar zonas de disponibilidade no novo espaço de nomes só, utilizando o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona depois de ativar a no seu espaço de nomes.
+
+![3][]
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a recuperação de desastre Georreplicação [referência da REST API aqui](/rest/api/servicebus/disasterrecoveryconfigs).
@@ -123,3 +129,4 @@ Para mais informações sobre mensagens do Service Bus, consulte os artigos segu
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

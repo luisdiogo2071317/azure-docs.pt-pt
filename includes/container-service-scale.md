@@ -14,7 +14,7 @@ Pode utilizar o portal do Azure ou a CLI 2.0 do Azure para alterar o número de 
 
 ## <a name="scale-with-the-azure-cli-20"></a>Dimensionar com a CLI 2.0 do Azure
 
-Confirme que [instalou](/cli/azure/install-az-cli2) a mais recente CLI 2.0 do Azure e que tem sessão iniciada numa conta do Azure (`az login`).
+Certifique-se de que a [instalado](/cli/azure/install-az-cli2) a CLI do Azure mais recente 2.0 e com sessão iniciada numa conta do Azure (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Ver a contagem de nós atuais
 Para ver o número de agentes atualmente no cluster, execute o comando `az acs show`. É apresentada configuração do cluster. Por exemplo, o comando seguinte mostra a configuração do serviço de contentores com o nome `containerservice-myACSName` no grupo de recursos `myResourceGroup`:
@@ -50,7 +50,7 @@ Para obter mais opções de comandos, execute `az acs scale --help`.
 
 * Atualmente, o dimensionamento automático de nós de agentes em clusters de serviços de contentores não é suportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Veja [mais exemplos](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) da utilização de comandos da CLI 2.0 do Azure com o Azure Container Service.
 * Saiba mais sobre os [conjuntos de agentes do DC/SO](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) no Azure Container Service.
 

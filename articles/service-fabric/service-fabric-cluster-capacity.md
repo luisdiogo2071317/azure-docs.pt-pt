@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641888"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309420"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -46,6 +46,8 @@ O **tipo de nó** podem ser vistos como equivalentes às funções nos serviços
 Cada tipo de nó é uma escala distinta definida e pode ser escalada para cima ou para baixo de forma independente, têm conjuntos diferentes de portas abertas e têm as métricas de capacidade diferentes. Para obter mais informações sobre as relações entre os tipos de nós e os conjuntos de dimensionamento de máquina virtual, como RDP para uma das instâncias, como abrir novas portas e assim sucessivamente, consulte [tipos de nó de cluster do Service Fabric](service-fabric-cluster-nodetypes.md).
 
 Um cluster do Service Fabric pode consistir em mais do que um tipo de nó. Que eventos, o cluster consiste num tipo de nó principal e um ou mais tipos de nó não principal.
+
+Um tipo de nó único simplesmente não pode exceder os 100 nós por conjunto de dimensionamento da máquina virtual. Poderá ter de adicionar conjuntos de dimensionamento de máquina virtual para alcançar a escala de destino e o dimensionamento automático não é possível automagically adicionar conjuntos de dimensionamento de máquina virtual. Adicionar conjuntos de dimensionamento de máquina virtual no local para um cluster em direto é uma tarefa difícil e frequentemente como resultado, os utilizadores aprovisionamento novos clusters com os tipos de nó adequado aprovisionados no momento da criação. 
 
 ### <a name="primary-node-type"></a>Tipo de nó principal
 
@@ -188,7 +190,7 @@ Esta orientação das cargas de trabalho sem monitorização de estado que estej
 
 **Número de instâncias VM:** para produção as cargas de trabalho sem monitorização de estado, o tamanho de tipo de mínimo suportado não - nó principal é 2. Isto permite-lhe executar, duas instâncias sem monitorização de estado da sua aplicação e permitindo que o serviço sobreviver a perda de uma instância VM. 
 
-**SKU de VM:** este é o tipo de nó em que os serviços de aplicação estiver a executar, pelo que o SKU de VM que escolher, deve ter em consideração o pico de carga que pretende colocar em cada nó. As necessidades de capacidade da nodetype, é determinado pela carga de trabalho que pretende executar no cluster, pelo que não é possível fornecemos-lhe qualitativa orientações para a carga de trabalho específica, no entanto esta é a orientação abrangente para o ajudar a começar a utilizar
+**SKU de VM:** este é o tipo de nó em que os serviços de aplicação estiver a executar, pelo que o SKU de VM que escolher, deve ter em consideração o pico de carga que pretende colocar em cada nó. As necessidades de capacidade do tipo de nó é determinado pela carga de trabalho que pretende executar no cluster, pelo que não é possível fornecemos-lhe qualitativa orientações para a carga de trabalho específica, no entanto esta é a orientação abrangente para o ajudar a começar a utilizar
 
 Para cargas de trabalho de produção 
 

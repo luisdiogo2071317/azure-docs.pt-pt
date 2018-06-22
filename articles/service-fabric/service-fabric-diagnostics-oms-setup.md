@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642670"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301041"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar a análise de registos para um cluster
 
@@ -38,20 +38,20 @@ Se pretender adicionar uma área de trabalho de análise de registos, depois de 
 
 3. Selecione **Criar**.
 
-    ![Análise de SF OMS no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+    ![Análise de recursos de infraestrutura de serviço no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
 4. Na janela de criação de análise de recursos de infraestrutura de serviço, selecione **Selecione uma área de trabalho** para o **área de trabalho OMS** campo e, em seguida, **criar uma nova área de trabalho**. Preencha as entradas necessárias. O único requisito aqui é que a subscrição para o cluster do Service Fabric e a área de trabalho é o mesmo. Quando as suas entradas tem sido validadas, inicia a sua área de trabalho implementar. A implementação demora apenas alguns minutos.
 
 5. Quando terminar, selecione **criar** novamente na parte inferior da janela de criação de análise de recursos de infraestrutura de serviço. Certifique-se de que a nova área de trabalho aparece em **área de trabalho OMS**. Esta ação adiciona a solução para a área de trabalho que criou.
 
-Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS à conta do storage onde os eventos de cluster são armazenados. 
+Se estiver a utilizar o Windows, continue com os seguintes passos para estabelecer ligação a análise de registos para a conta do storage onde os eventos de cluster são armazenados. 
 
 >[!NOTE]
 >Ativar esta experiência para os clusters do Linux ainda não está disponível. 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ligar a área de trabalho de análise do registo ao cluster 
 
-1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições da solução, as definições da área de trabalho e acesso a área de trabalho do OMS.
+1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições da solução, as definições da área de trabalho e a área de trabalho de análise do registo de acesso.
 
 2. No menu de navegação esquerdo, em **origens de dados da área de trabalho**, selecione **registos de contas de armazenamento**.
 
@@ -65,16 +65,16 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS
 
 7. Selecione **OK** para ligar a sua área de trabalho para registos do seu cluster.
 
-    ![Adicionar os registos da conta de armazenamento ao OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Adicionar os registos da conta de armazenamento para análise de registos](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 A conta agora apresentado como parte da sua conta do storage registos em origens de dados da sua área de trabalho.
 
-Adicionou a solução de análise de recursos de infraestrutura de serviço numa área de trabalho de análise de registos do OMS que agora está corretamente ligada à plataforma do cluster e a tabela de registo de aplicação. Pode adicionar origens adicionais para a área de trabalho da mesma forma.
+Adicionou a solução de análise de recursos de infraestrutura de serviço numa área de trabalho de análise de registos que agora está corretamente ligada à plataforma do cluster e a tabela de registo de aplicação. Pode adicionar origens adicionais para a área de trabalho da mesma forma.
 
 
-## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Implementar o OMS, utilizando um modelo do Resource Manager
+## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Implementar a análise de registos, utilizando um modelo do Resource Manager
 
-Quando implementar um cluster utilizando um modelo do Resource Manager, o modelo cria uma nova área de trabalho do OMS, adiciona a solução de Service Fabric para a área de trabalho e configura-o para ler os dados das tabelas de armazenamento adequado.
+Quando implementar um cluster utilizando um modelo do Resource Manager, o modelo cria uma nova área de trabalho de análise de registos, adiciona a solução de Service Fabric para a área de trabalho e configura-o para ler os dados das tabelas de armazenamento adequado.
 
 Pode utilizar e modificar [este modelo de exemplo](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) para satisfazer os seus requisitos.
 
@@ -86,7 +86,7 @@ Efetue as seguintes alterações:
         "type": "string",
         "defaultValue": "sfomsworkspace",
         "metadata": {
-            "description": "Name of your OMS Log Analytics Workspace"
+            "description": "Name of your Log Analytics Workspace"
         }
     },
     "omsRegion": {
@@ -98,21 +98,21 @@ Efetue as seguintes alterações:
             "Southeast Asia"
         ],
         "metadata": {
-            "description": "Specify the Azure Region for your OMS workspace"
+            "description": "Specify the Azure Region for your Log Analytics workspace"
         }
     }
     ```
 
     O `omsRegion` valores têm de estar em conformidade com um conjunto específico de valores. Escolha a que esteja mais próximo para a implementação do cluster.
 
-2. Se enviar os registos da aplicação à OMS, confirme primeiro que o `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` são incluídos como parâmetros no modelo. Se não estiver incluídas, adicioná-los para a secção de variáveis e editar os respetivos valores conforme necessário. Também pode inclui-los como parâmetros ao seguir o formato anterior.
+2. Se enviar os registos da aplicação para análise de registos, confirme primeiro que o `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` são incluídos como parâmetros no modelo. Se não estiver incluídas, adicioná-los para a secção de variáveis e editar os respetivos valores conforme necessário. Também pode inclui-los como parâmetros ao seguir o formato anterior.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
     "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
-3. Adicione a solução de Service Fabric OMS variáveis do modelo:
+3. Adicione a solução de Service Fabric para variáveis do modelo:
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
@@ -188,16 +188,16 @@ Efetue as seguintes alterações:
 
     O Azure Resource Manager detetar que este comando é uma atualização para um recurso existente. Processa apenas as alterações entre o modelo de implementação existente a ocasionar e o novo modelo fornecido.
 
-## <a name="deploy-oms-by-using-azure-powershell"></a>Implementar o OMS, utilizando o Azure PowerShell
+## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Implementar a análise de registos com o Azure PowerShell
 
-Também pode implementar o recurso de análise de registos do OMS através do PowerShell, utilizando o `New-AzureRmOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma área de trabalho de análise de registos do OMS novo e adicione-lhe a solução de Service Fabric: 
+Também pode implementar o recurso de análise de registos através do PowerShell, utilizando o `New-AzureRmOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma nova área de trabalho de análise de registos e adicionar-lhe a solução de Service Fabric: 
 
 ```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
-$WorkspaceName = "<OMS Log Analytics workspace name>"
+$WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
@@ -216,11 +216,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Quando tiver terminado, siga os passos na secção anterior para ligar a análise de registos do OMS à conta de armazenamento adequado.
+Quando tiver terminado, siga os passos na secção anterior para ligar a análise de registos para a conta de armazenamento adequado.
 
-Também pode adicionar outras soluções ou efetue modificações adicionais à sua área de trabalho do OMS através do PowerShell. Para obter mais informações, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
+Também pode adicionar outras soluções ou efetue modificações adicionais à sua área de trabalho de análise de registos com o PowerShell. Para obter mais informações, consulte [Gerir análise de registos com o PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Implementar o agente do OMS](service-fabric-diagnostics-oms-agent.md) para os nós para recolher os contadores de desempenho e recolher estatísticas de docker registos e para os contentores
+* [Implementar o agente de análise do registo](service-fabric-diagnostics-oms-agent.md) para os nós para recolher os contadores de desempenho e recolher estatísticas de docker registos e para os contentores
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * [Utilize o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)

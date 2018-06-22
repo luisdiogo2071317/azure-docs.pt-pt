@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: bbd38380370821c749a70d59a819a84ed06458a7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2a71e405c36c632b7c396e2f06564aa4be9d1464
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264804"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313305"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -25,7 +25,7 @@ Pode criar uma base de dados do Azure para o servidor de MySQL dos três diferen
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memória por vCore | 2GB | 5 GB | 10 GB |
-| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 2 TB | 5 GB até 2 TB |
+| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 4 TB | 5 GB até 4 TB |
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção de cópias de segurança de base de dados | 7 para 35 dias | 7 para 35 dias | 7 para 35 dias |
 
@@ -37,7 +37,7 @@ Para escolher um escalão de preço, utilize a tabela seguinte como ponto de par
 | Fins Gerais | A maioria das empresas cargas de trabalho que requerem com balanceamento de computação e memória com débito dimensionável de e/s. Os exemplos incluem servidores para o alojamento web e de aplicações móveis e de outras aplicações da empresa.|
 | Memória Otimizada | Base de dados de elevado desempenho cargas de trabalho que necessitam de desempenho de memória para o processamento de transações mais rápido e simultaneidade superior. Os exemplos incluem servidores para processamento de dados em tempo real e aplicações de analíticas ou transacionais de elevado desempenho.|
 
-Depois de criar um servidor, o número de vCores pode ser alterado ou reduzir verticalmente (dentro do mesmo escalão de preço) dentro de segundos. Também independentemente pode ajustar a quantidade de armazenamento da cópia de segurança e o período de retenção de cópias de segurança ou reduzir verticalmente sem período de indisponibilidade de aplicações. Não é possível alterar o escalão de preço ou o tipo de armazenamento de cópia de segurança depois de um servidor é criado. Para obter mais informações, consulte o [Dimensionar recursos](#scale-resources) secção.
+Depois de criar um servidor, o número de vCores, a geração de hardware e o preço camada (exceto de e para básico) podem ser alteradas ou reduzir verticalmente em segundos. Também independentemente pode ajustar a quantidade de armazenamento da cópia de segurança e o período de retenção de cópias de segurança ou reduzir verticalmente sem período de indisponibilidade de aplicações. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor é criado. Para obter mais informações, consulte o [Dimensionar recursos](#scale-resources) secção.
 
 ## <a name="compute-generations-and-vcores"></a>Gerações e vCores de computação
 
@@ -48,7 +48,7 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | EUA Central | X |  |
 | EUA Leste | X | X |
 | EUA Leste 2 | X | X |
-| EUA Centro-Norte | X |  |
+| EUA Centro-Norte | X | X |
 | EUA Centro-Sul | X | X |
 | EUA Oeste | X | X |
 | EUA Oeste 2 |  | X |
@@ -59,7 +59,7 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | Europa Ocidental |  | X |
 | Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
-| Ásia Oriental | X |  |
+| Ásia Oriental | X | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Sudeste da Austrália |  | X |
@@ -77,9 +77,9 @@ O armazenamento que Aprovisiona é a quantidade da capacidade de armazenamento d
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 2 TB | 5 GB até 2 TB |
+| Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 4 TB | 5 GB até 4 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS | IOPS 3GB<br/>Min 100 IOPS |
+| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS | IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS |
 
 Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornecer uma garantia IOPS. O objetivo geral e escalões de preço de otimização de memória, o IOPS dimensionar com o tamanho de aprovisionamento de armazenamento numa proporção de 3:1.
 
@@ -97,9 +97,9 @@ O serviço demora automaticamente cópias de segurança do seu servidor. O perí
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
-Depois de criar o seu servidor, pode alterar independentemente o vCores, a quantidade de armazenamento e o período de retenção de cópias de segurança. Não é possível alterar o escalão de preço ou o tipo de armazenamento de cópia de segurança depois de um servidor é criado. O número de vCores pode ser escalado para cima ou para baixo dentro do mesmo escalão de preço. O período de retenção de cópias de segurança pode ser escalado para cima ou para baixo do 7 para 35 dias. O tamanho de armazenamento só pode ser aumentado. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. Para obter um exemplo de dimensionamento ao utilizar a CLI do Azure, consulte [monitorizar e dimensionar uma base de dados do Azure para o servidor de MySQL, utilizando a CLI do Azure](scripts/sample-scale-server.md).
+Depois de criar o seu servidor, independentemente pode alterar o vCores, a geração de hardware, o escalão de preço (exceto de e para básico), a quantidade de armazenamento e o período de retenção de cópias de segurança. Não é possível alterar o tipo de armazenamento de cópia de segurança depois de um servidor é criado. O número de vCores pode ser escalado para cima ou para baixo. O período de retenção de cópias de segurança pode ser escalado para cima ou para baixo do 7 para 35 dias. O tamanho de armazenamento só pode ser aumentado. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. Para obter um exemplo de dimensionamento ao utilizar a CLI do Azure, consulte [monitorizar e dimensionar uma base de dados do Azure para o servidor de MySQL, utilizando a CLI do Azure](scripts/sample-scale-server.md).
 
-Quando alterar o número de vCores, é criada uma cópia do servidor original com a nova alocação de computação. Depois do novo servidor está a funcionar, as ligações são mudadas ao longo para o novo servidor. Durante o momento em que quando o sistema passa para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não consolidadas são revertidas. Esta janela varia, mas na maioria dos casos é inferior a um minuto.
+Quando alterar o número de vCores, a geração de hardware ou o escalão de preço, uma cópia do servidor original é criado com a nova alocação de computação. Depois do novo servidor está a funcionar, as ligações são mudadas ao longo para o novo servidor. Durante o momento em que quando o sistema passa para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não consolidadas são revertidas. Esta janela varia, mas na maioria dos casos, é inferior a um minuto.
 
 Dimensionamento do armazenamento e alterar o período de retenção de cópias de segurança são verdadeiras operações online. Não existe nenhum período de indisponibilidade, e a aplicação não é afetada. Como dimensionar IOPS com o tamanho do armazenamento aprovisionado, pode aumentar o IOPS disponível para o servidor ao como aumentar verticalmente armazenamento.
 

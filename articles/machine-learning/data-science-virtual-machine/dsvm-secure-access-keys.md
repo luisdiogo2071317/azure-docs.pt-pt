@@ -15,67 +15,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 9ec734cf456050250396b00aa09b61bace7e9aa0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 30bf0de449596bb749e8f57c63ad056b85396a59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830280"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307779"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>Acesso de armazenar credenciais na máquina de Virtual de ciência de dados de forma segura
 
-Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que têm de estar no código para autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. 
+Um desafio comuns na criação de aplicações em nuvem é como gerir as credenciais que têm de estar no seu código para autenticar a serviços em nuvem. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, que nunca são apresentados em estações de trabalho de programador ou obterem com entrada dada ao controlo de origem. 
 
-[Gerido identidade de serviço (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) torna resolver este problema mais simples, concedendo Azure serviços uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter as credenciais no seu código. Um padrão comum para proteger credenciais consiste em utilizar MSI em combinação com o [Azure Keyvault](https://docs.microsoft.com/azure/key-vault/), um geridos de serviço do Azure para armazenar segredos e as chaves criptográficas de forma segura. Pode aceder ao Cofre de chaves utilizando a identidade de serviço gerida e obter o chaves criptográficas e segredos autorizados do Cofre de chaves. 
+[Gerido identidade de serviço (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) torna resolver este problema mais simples, concedendo Azure serviços uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter as credenciais no seu código. 
 
-A documentação do MSI e o Cofre de chaves é um recurso abrangente para obter informações aprofundadas sobre estes serviços. O resto deste artigo é um manual básico que mostra a utilização básica de MSI e o Cofre de chaves na máquina Virtual de ciência de dados (DSVM). 
+Uma forma de credenciais seguras consiste em utilizar MSI em combinação com [Cofre de chaves do Azure](https://docs.microsoft.com/azure/key-vault/), um geridos de serviço do Azure para armazenar segredos e as chaves criptográficas de forma segura. Pode aceder a um cofre de chaves utilizando a identidade de serviço gerida e obter o chaves criptográficas e segredos autorizados do Cofre de chaves. 
 
-## <a name="walkthrough-of-using-msi-to-securely-access-azure-resources"></a>Instruções de utilização MSI para aceder de forma segura a recursos do Azure
+A documentação do MSI e o Cofre de chaves é um recurso abrangente para obter informações aprofundadas sobre estes serviços. O resto deste artigo explica a utilização básica de MSI e o Cofre de chaves no Máquina Virtual de ciência de dados (DSVM) para aceder aos recursos do Azure. 
 
-## <a name="1-create-msi-on-the-dsvm"></a>1. Criar o DSVM MSI 
+## <a name="create-a-managed-identity-on-the-dsvm"></a>Criar uma identidade gerida no DSVM 
 
 
 ```
-# Pre-requisites: You have already created a Data Science VM in the usual way
+# Prerequisite: You have already created a Data Science VM in the usual way.
 
-# Create identity principal for the VM
+# Create an identity principal for the VM.
 az vm assign-identity -g <Resource Group Name> -n <Name of the VM>
-# Get the principal id of the DSVM
+# Get the principal ID of the DSVM.
 az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 
 
-## <a name="2-assign-keyvault-access-permission-to-vm-principal"></a>2. Atribuir permissão de acesso de Keyvault ao principal da VM
+## <a name="assign-key-vault-access-permission-to-a-vm-principal"></a>Atribuir permissão de acesso do Cofre de chaves para um principal de VM
 ```
-# Pre-requisites: You have already create an empty Key Vault resource on Azure using Portal or Azure CLI 
+# Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI. 
 
-# Assign only get and set permission but not the capability to list the keys
-az keyvault set-policy --object-id <PrincipalID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
+# Assign only get and set permission but not the capability to list the keys.
+az keyvault set-policy --object-id <Principal ID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
 ```
 
-## <a name="3-access-a-secret-in-the-keyvault-from-the-dsvm"></a>3. Aceder a um segredo no Keyvault a partir de DSVM
+## <a name="access-a-secret-in-the-key-vault-from-the-dsvm"></a>Aceder a um segredo no Cofre de chaves a partir de DSVM
 
 ```
-# Get the access token for VM
+# Get the access token for the VM.
 x=`curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true`
 token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
 
-# Access Keyvault using access token. 
+# Access the key vault by using the access token. 
 curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
-## <a name="4-access-storage-keys-from-the-dsvm"></a>4. Chaves de acesso de armazenamento do DSVM
+## <a name="access-storage-keys-from-the-dsvm"></a>Chaves de acesso de armazenamento do DSVM
 
 ```
-# Pre-requisites: You have granted your VM's MSI access to use storage account access keys based on instruction from this article:https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage that describes this process in more detail.
+# Prerequisite: You have granted your VM's MSI access to use storage account access keys based on instructions from the article at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
 
 y=`curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true`
 ytoken=`echo $y | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
 curl https://management.azure.com/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup of Storage account>/providers/Microsoft.Storage/storageAccounts/<Storage Account Name>/listKeys?api-version=2016-12-01 --request POST -d "" -H "Authorization: Bearer $ytoken"
 
-#Now you can access the data in the storage account from the retrieved Storage account keys
+# Now you can access the data in the storage account from the retrieved storage account keys.
 ```
-## <a name="5-access-keyvault-from-python"></a>5. Acesso Keyvault do Python
+## <a name="access-the-key-vault-from-python"></a>O Cofre de chaves de acesso do Python
 
 ```python
 from azure.keyvault import KeyVaultClient
@@ -83,12 +83,12 @@ from msrestazure.azure_active_directory import MSIAuthentication
 
 """MSI Authentication example."""
 
-# Get credentials
+# Get credentials.
 credentials = MSIAuthentication(
     resource='https://vault.azure.net'
 )
 
-# Create a KeyVault client
+# Create a Key Vault client.
 key_vault_client = KeyVaultClient(
 credentials
 )
@@ -96,28 +96,28 @@ credentials
 key_vault_uri = "https://<key Vault Name>.vault.azure.net/"
 
 secret = key_vault_client.get_secret(
-key_vault_uri,  # Your KeyVault URL
-"SQLPasswd",       # Name of your secret that already exists in the Key Vault
-""              # The version of the secret. Empty string for latest
+key_vault_uri,  # Your key vault URL.
+"SQLPasswd",       # The name of your secret that already exists in the key vault.
+""              # The version of the secret; empty string for latest.
 )
 print("My secret value is {}".format(secret.value))
 ```
 
-## <a name="6-azure-cli-access-from-vm"></a>6. Acesso da CLI do Azure da VM
+## <a name="access-the-key-vault-from-azure-cli"></a>O Cofre de chaves de acesso da CLI do Azure
 
 ```
-# With a Managed Service Identity setup on the DSVM, users on the DSVM can execute Azure CLI to perform the authorized functions. Here are commands to access Key Vault from a Azure CLI without having to login to an Azure account. 
-# Pre-requisites: MSI is already setup on the DSVM as indicated earlier and specific permission like accessing storage account keys, reading specific secrets and writing new secrets is provided to the MSI . 
+# With a Managed Service Identity set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. Here are commands to access the key vault from Azure CLI without having to log in to an Azure account. 
+# Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permission, like accessing storage account keys, reading specific secrets, and writing new secrets, is provided to the MSI. 
 
-# Authenticate to Azure CLI without requiring an Azure Account. 
+# Authenticate to Azure CLI without requiring an Azure account. 
 az login --msi
 
-# Retrieve a secret from Key Vault. 
+# Retrieve a secret from the key vault. 
 az keyvault secret show --vault-name <Vault Name> --name SQLPasswd
 
-# Create a new Secret in Key Vault
+# Create a new secret in the key vault.
 az keyvault secret set --name MySecret --vault-name <Vault Name> --value "Helloworld"
 
-# List Storage Account Access Keys
+# List access keys for the storage account.
 az storage account keys list -g <Storage Account Resource Group> -n <Storage Account Name>
 ```

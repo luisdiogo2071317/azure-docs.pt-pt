@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823389"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309236"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guia de AppSource fabricante e do Azure Marketplace  
 
@@ -118,7 +118,7 @@ Cada storefront fornece opções especializadas para o ajudar a maximizar o inve
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Como Publicar na loja no marketplace  
-As secções seguintes ajudam a navegar as opções de publicação no AppSource e Azure Marketplace.  
+As páginas seguintes ajudam-no navegue as opções de publicação no AppSource e Azure Marketplace.  
 
 Tornar-se de um publicador na storefronts no marketplace em três passos fáceis necessários.  
 1.  Visite o [determinar o tipo de lista para a sua solução](./determine-your-listing-type.md) página.  
@@ -135,7 +135,6 @@ Tornar-se de um publicador na storefronts no marketplace em três passos fáceis
 ---  
 
 ## <a name="support"></a>Suporte  
-
 *   Visite o [suporte para AppSource](./support-appsource.md) página.  
 *   Visite o [suporte para o Azure Marketplace](./support-azure-marketplace.md) página.  
 
@@ -147,6 +146,7 @@ Tornar-se de um publicador na storefronts no marketplace em três passos fáceis
 
 ## <a name="guidelines"></a>Diretrizes  
 *   Visite o [diretrizes](./guidelines.md) página.  
+    *   Visite o [diretrizes para criar uma ID da Microsoft para gerir uma conta do marketplace](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) secção.  
 *   Visite o [registar no Dev Center](./register-dev-center.md) página.  
 *   Visite o [adicionar Bank e informações de dedução dos impostos](./add-bank-tax-info.md) página.  
 *   Visite o [ativar a avaliação, utilizar o Azure AD](./enable-trial-using-azure-ad.md) página.  

@@ -1,6 +1,6 @@
 ---
-title: Utilizar a biblioteca BulkExecutor Java para efetuar operações em massa na base de dados do Azure Cosmos | Microsoft Docs
-description: Utilize a biblioteca de BulkExecutor Java da BD do Azure Cosmos em massa importar e atualizar os documentos para coleções de base de dados do Azure Cosmos.
+title: Utilizar a biblioteca de Java de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos | Microsoft Docs
+description: Utilize a biblioteca de Java de executor de em massa da BD do Azure Cosmos em massa importar e atualizar os documentos para coleções de BD do Cosmos do Azure.
 keywords: Executor do Java em massa
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610247"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300718"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca BulkExecutor Java para efetuar operações em massa na base de dados do Azure Cosmos dados
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca de Java de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos dados
 
-Este tutorial fornece instruções sobre como utilizar a biblioteca de Java de executor de em massa do Cosmos BD do Azure para importar e atualizar a base de dados do Azure Cosmos documentos. Para saber mais sobre a biblioteca de BulkExecutor e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de BulkExecutor](bulk-executor-overview.md) artigo. Neste tutorial, criar uma aplicação de Java que gera documentos aleatórios e são em massa importá-lo para uma coleção de BD do Cosmos do Azure. Depois de importar, será em massa algumas propriedades de um documento de atualização. 
+Este tutorial fornece instruções sobre como utilizar a biblioteca de Java de executor de em massa do Cosmos BD do Azure para importar e atualizar a base de dados do Azure Cosmos documentos. Para saber mais sobre a biblioteca de executor em massa e como ajuda a tirar partido do débito intenso e armazenamento, consulte [em massa descrição geral da biblioteca de executor](bulk-executor-overview.md) artigo. Neste tutorial, criar uma aplicação de Java que gera documentos aleatórios e são em massa importá-lo para uma coleção de BD do Cosmos do Azure. Depois de importar, será em massa algumas propriedades de um documento de atualização. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A chave primária é fornecida na [autenticar pedidos](local-emulator.md#authenticating-requests).  
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
@@ -197,7 +197,7 @@ Pode atualizar documentos existentes, utilizando a API de BulkUpdateAsync. Neste
 
 ## <a name="performance-tips"></a>Sugestões de desempenho 
 
-Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de BulkExecutor:
+Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de executor em massa:
 
 * Para melhor desempenho, execute a aplicação a partir de uma VM do Azure na mesma região que a região de escrita da conta de base de dados do Cosmos.  
 * Para alcançar um maior débito:  
@@ -211,6 +211,6 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 
     
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre os detalhes do pacote maven e as notas da biblioteca BulkExecutor Java, consulte[detalhes BulkExecutor SDK](sql-api-sdk-bulk-executor-java.md).
+* Para saber mais sobre os detalhes do pacote maven e as notas da biblioteca de Java de executor em massa, consulte[em massa detalhes do SDK de executor](sql-api-sdk-bulk-executor-java.md).
 
 

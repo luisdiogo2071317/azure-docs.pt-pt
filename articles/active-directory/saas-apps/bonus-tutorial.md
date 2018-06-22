@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231649"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com Bonusly
 
@@ -112,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte Bonusly](https://Bonusly/contact) para obter o valor.
+    > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte Bonusly](https://bonus.ly/contact) para obter o valor.
  
 4. No **certificado de assinatura de SAML** secção, copie o **THUMBPRINT** valor do certificado.
 

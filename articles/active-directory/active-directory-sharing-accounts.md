@@ -14,12 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292281"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308001"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilha de contas com o Azure AD
 ## <a name="overview"></a>Descrição geral
@@ -63,10 +63,10 @@ Funcionalidades do Azure AD que ativar a partilha de conta incluem:
 ## <a name="sharing-an-account"></a>Uma conta de partilha
 Para utilizar o Azure AD para partilhar uma conta, tem de:
 
-* Adicionar uma aplicação [Galeria de aplicações](https://azure.microsoft.com/marketplace/active-directory/) ou [aplicação personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+* Adicionar uma aplicação [Galeria de aplicações](https://azure.microsoft.com/marketplace/active-directory/) ou [aplicação personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurar a aplicação para a palavra-passe único Sign-On (SSO)
 * Utilize [atribuição baseada em grupo](active-directory-accessmanagement-group-saasapps.md) e selecione a opção para introduzir uma credencial partilhada
-* Opcional: em algumas aplicações, tais como o Facebook, Twitter ou LinkedIn, pode ativar a opção para [do Azure AD automatizada palavra-passe roll a ativação pós-falha](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Opcional: em algumas aplicações, tais como o Facebook, Twitter ou LinkedIn, pode ativar a opção para [do Azure AD automatizada palavra-passe roll a ativação pós-falha](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Pode também efetuar a conta partilhada mais segura com o multi-factor Authentication (MFA) (saber mais sobre [proteger aplicações com o Azure AD](authentication/concept-mfa-whichversion.md)) e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando [ Azure AD Self-Service](active-directory-accessmanagement-self-service-group-management.md) gestão de grupo.
 

@@ -7,7 +7,7 @@ Antes de escrever o código de gestão de CDN, é necessário efetuar alguma pre
 
 ### <a name="creating-the-resource-group"></a>Criar o grupo de recursos
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **crie um recurso**.
+2. Clique em **Criar um recurso**.
 3. Procurar **grupo de recursos** e no painel do grupo de recursos, clique em **criar**.
 
     ![Criar um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)

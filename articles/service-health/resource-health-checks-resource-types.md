@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795950"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309601"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas através do Estado de funcionamento de recursos por tipos de recursos.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Verificações executadas|
+|---|
+|<ul><li>O servidor se encontra em execução?</li><li>O servidor ficou sem memória?</li><li>O servidor é iniciar cópia de segurança?</li><li>O servidor de recuperação</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Verificações executadas|
@@ -105,6 +110,11 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 |Verificações executadas|
 |---|
 |<ul><li> Não existe ter sido inícios de sessão na base de dados?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Verificações executadas|
+|---|
+|<ul><li>Pedidos de ler os dados da conta do Storage são falhar devido a problemas de plataforma de armazenamento do Azure?</li><li>Pedidos para escrever dados na conta de armazenamento são falhar devido a problemas de plataforma de armazenamento do Azure?</li><li>O cluster de armazenamento onde reside a conta de armazenamento não está disponível?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Verificações executadas|

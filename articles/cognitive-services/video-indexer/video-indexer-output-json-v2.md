@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6c410b054ba98961d15a4db0ff7eaa2804245cb0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87301e4ce3c5b7db054b3dd86e8ee1ac5d90d3ca
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355873"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309065"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída de vídeo indexador produzida pela v2 API
 
@@ -41,7 +41,7 @@ Este artigo examina o conteúdo JSON devolvido pelo **obter o índice de vídeo*
 |---|---|
 |accountId|VI a lista de reprodução conta ID.|
 |ID|ID de. a lista de reprodução|
-|name|Nome da lista de reprodução.|
+|nome|Nome da lista de reprodução.|
 |descrição|Descrição da lista de reprodução.|
 |userName|O nome de utilizador que criou a lista de reprodução.|
 |criado|Hora de criação de listas de reprodução.|
@@ -79,7 +79,7 @@ Esta secção mostra o resumo de informações do.
 
 |Atributo | Descrição|
 |---|---|
-|name|O nome do vídeo. Por exemplo, o Monitor do Azure.|
+|nome|O nome do vídeo. Por exemplo, o Monitor do Azure.|
 |shortId|O ID do vídeo. Por exemplo, 63c6d532ff.|
 |privacyMode|A divisão pode ter um dos seguintes modos: **privada**, **pública**. **Pública** -o vídeo está visível para todos os utilizadores na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo está visível para todos os utilizadores na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. Duração é em segundos.|
@@ -107,7 +107,7 @@ Esta secção mostra o resumo de informações do.
 |---|---|
 |accountId|VI o vídeo conta ID.|
 |ID|ID de. as vídeo|
-|name|Nome das vídeo.
+|nome|Nome das vídeo.
 |state|Estado das vídeo (carregado, processamento, processados, com falhas, em quarentena).|
 |processingProgress|O progresso de processamento durante o processamento (por exemplo, 20%).|
 |failureCode|O código de falha se processou (por exemplo, ' UnsupportedFileType').|
@@ -329,7 +329,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |ID|O ID de letra.|
-|name|O nome de letra. Pode ser 'Desconhecido #0', uma celebrity identificado ou uma pessoa treinado do cliente.|
+|nome|O nome de letra. Pode ser 'Desconhecido #0', uma celebrity identificado ou uma pessoa treinado do cliente.|
 |confiança|Confiança de identificação de letra.|
 |descrição|Se for um celebrity, poderá ser respetiva descrição: "Satya Nadella nasceu em...". |
 |thumbnalId|O id de miniatura desse tipo de letra.|
@@ -374,7 +374,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |ID|O ID da etiqueta.|
-|name|O nome de etiqueta (por exemplo, 'Computador', 'TV').|
+|nome|O nome de etiqueta (por exemplo, 'Computador', 'TV').|
 |idioma|Idioma de nome etiqueta (quando convertidos). BCP 47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
@@ -492,9 +492,9 @@ Empresas e produtos nomes marca detetados na voz transcript de texto e/ou OCR de
 |Nome|Descrição|
 |---|---|
 |ID|O ID de marca.|
-|name|O nome de marcas.|
-|wikiId | O sufixo do url de wikipedia marca. Por exemplo, "Target_Corporation" é o sufixo de [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
-|wikiUrl | A marca do url de Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|nome|O nome de marcas.|
+|ReferenceId | O sufixo do url de wikipedia marca. Por exemplo, "Target_Corporation" é o sufixo de [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | A marca do url de Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |descrição|A descrição de marcas.|
 |etiquetas|Uma lista de etiquetas predefinidas que se encontravam associadas esta marca.|
 |confiança|O valor de confiança do detector de marca de indexador de vídeo (0-1).|
@@ -522,8 +522,8 @@ Empresas e produtos nomes marca detetados na voz transcript de texto e/ou OCR de
 {
     "id": 1,
     "name": "Microsoft",
-    "wikiId": "Microsoft",
-    "wikiUrl": "http: //en.wikipedia.org/wiki/Microsoft",
+    "referenceId": "Microsoft",
+    "referenceUrl": "http: //en.wikipedia.org/wiki/Microsoft",
     "description": "Microsoft Corporation is...",
     "tags": [
     "competitors",

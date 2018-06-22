@@ -2,7 +2,7 @@
 
 Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implementar o modelo. No entanto, deve primeiro carregar o modelo para a conta de armazenamento para a Shell de nuvem. Se não utilizou o Cloud Shell, consulte a [Descrição Geral do Azure Cloud Shell](../articles/cloud-shell/overview.md) para obter informações sobre como o configurar.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione o grupo de recursos do Cloud Shell. O padrão de nome é `cloud-shell-storage-<region>`.
 

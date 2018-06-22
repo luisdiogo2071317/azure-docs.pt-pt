@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745899"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302118"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperação de Georreplicação-desastre de Event Hubs do Azure
 
@@ -101,7 +101,18 @@ Tenha em atenção as seguintes considerações a lembrar com esta versão:
 
 4. Sincronizar entidades pode demorar algum tempo, aproximadamente, 50-100 entidades por minuto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="availability-zones-preview"></a>Zonas de disponibilidade (pré-visualização)
+
+O SKU de padrão de Hubs de eventos também suporta [disponibilidade zonas](../availability-zones/az-overview.md), que fornecem localizações isoladas de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **EUA Leste 2**, e **França Central** regiões.
+
+Pode ativar zonas de disponibilidade no novo espaço de nomes só, utilizando o portal do Azure. Os Event Hubs não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona depois de ativar a no seu espaço de nomes.
+
+![3][]
+
+## <a name="next-steps"></a>Passos Seguintes
 
 * O [em GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) explica um fluxo de trabalho simple que cria um emparelhamento georreplicação e inicia uma ativação pós-falha para um cenário de recuperação de desastres.
 * O [referência da REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve APIs para efetuar a configuração da recuperação após desastre de Georreplicação.
@@ -114,3 +125,4 @@ Para obter mais informações sobre os Hubs de Eventos, visite as seguintes liga
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

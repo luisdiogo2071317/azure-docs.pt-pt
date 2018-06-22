@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8452708ef6b3d1944495c3c2c152c1e753a9cebf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f237e2b25089e4f89ddda2d37a7aa4019befe0da
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599903"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302081"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Entrada HTTPS no serviço Kubernetes do Azure (AKS)
 
@@ -33,13 +33,19 @@ Utilize Helm para instalar o controlador de entrada NGINX. Consulte o controlado
 Atualize o repositório de gráfico.
 
 ```console
-helm repo update
+$ helm repo update
 ```
 
-Instale o controlador de entrada NGINX. Este exemplo instala o controlador no `kube-system` espaço de nomes, isto pode ser modificado para um espaço de nomes à sua escolha.
+Instale o controlador de entrada NGINX. Este exemplo instala o controlador no `kube-system` espaço de nomes (partindo do princípio de RBAC é *não* ativado), isto pode ser modificado para um espaço de nomes à sua escolha.
 
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
-helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
+**Nota:** se RBAC *é* ativado no seu cluster kubernetes, o comando acima irá tornar o controlador de entrada inacessível. Experimente o seguinte:
+
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=true --set rbac.createRole=true --set rbac.createClusterRole=true
 ```
 
 Durante a instalação, é criado um endereço IP público do Azure para o controlador de entrada. Para obter o endereço IP público, utilize o comando de serviço kubectl get. Pode demorar algum tempo para o endereço IP a ser atribuída para este serviço.

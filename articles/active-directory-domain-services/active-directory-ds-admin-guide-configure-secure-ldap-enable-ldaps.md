@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 81986fdd9cbfbeb41c794e2364bf7bfea1069742
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211259"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300973"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar segura LDAP (LDAPS) para um domínio gerido dos serviços de domínio do Azure AD
 
@@ -131,4 +131,4 @@ Se ainda tiver problemas de ligação ao domínio gerido utilizando LDAP seguro,
 * [Administrar um domínio gerido dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Administrar a política de grupo num domínio gerido dos serviços de domínio do Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Grupos de segurança de rede](../virtual-network/security-overview.md)
-* [Criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Criar um grupo de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)

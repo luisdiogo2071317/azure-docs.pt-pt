@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7809e0b9265ec62bded67d0b0ed851ee0ba98315
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894275"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301704"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio as imagens no Azure
 Com o Visual Studio numa pré-configurada do Azure máquina virtual (VM) é uma forma rápida e fácil fazer a partir nada para um ambiente de desenvolvimento de segurança e executar. Imagens de sistema com configurações diferentes do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -32,8 +32,8 @@ As imagens para as versões mais recentes principais para Visual Studio 2017 e V
 
 | Versão de lançamento                                              | Edições                     |     Versão do produto     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Mais recente (versão 15.7)                    |    Enterprise, da Comunidade     |      Versão 15.7.0     |
-| Visual Studio 2017: De pré-visualização mais recente (versão 15.8, 1 de pré-visualização) |    Enterprise, da Comunidade     |      Versão 15.8.1     |
+| Visual Studio 2017: Mais recente (versão 15.7)                    |    Enterprise, da Comunidade     |      Versão 15.7.3     |
+| Visual Studio 2017: De pré-visualização mais recente (versão 15.8, Preview 2) |    Enterprise, da Comunidade     |      Versão 15.8.2     |
 |         Visual Studio 2017: RTW                              |    Enterprise, da Comunidade     |      Versão 15.0.13    |
 |   Visual Studio 2015: Mais recente (atualização 3)                      |    Enterprise, da Comunidade     |  Versão 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Nenhuma             | (Expirou para a manutenção) |

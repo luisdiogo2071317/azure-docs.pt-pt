@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.reviewer: Dale.Koetke
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309856"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir o volume de preços e os dados no Application Insights
 
@@ -88,7 +90,7 @@ O volume de dados que envie é limitado de três formas diferentes:
 
     Utilize cuidado ao definir o limite diário. A intenção deve ser a *nunca atingiu o limite diário*. Se atingiu o limite diário, perder dados para o resto do dia e não é possível monitorizar a sua aplicação. Para alterar o limite diário, utilize o **diária extremidade de volume** opção. Pode aceder a esta opção no **utilização e os custos estimados** painel (descrito em mais detalhe posteriormente no artigo).
     Removemos a restrição em alguns tipos de subscrição que tem crédito que não foi utilizado para o Application Insights. Anteriormente, se a subscrição tem um limite de gastos, a caixa de diálogo de extremidade diária tem instruções para remover o limite de gastos e ativar a cap diária gerado para além do diário 32.3 MB.
-* **Limitação**: os limites de velocidade de dados para 32,000 eventos por segundo, apresentou uma média de mais de 1 minuto.
+* **Limitação**: os limites de velocidade de dados para 32,000 eventos por segundo, apresentou uma média de mais de 1 minuto por chave de instrumentação.
 
 *O que acontece se a taxa de limitação de exceder a minha aplicação?*
 

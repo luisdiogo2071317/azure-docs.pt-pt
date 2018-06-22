@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212280"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301585"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso no Azure Service Fabric
 Proxy inverso incorporado no Service Fabric do Azure ajuda-o em execução num cluster de Service Fabric micro-serviços detetar e comunicar com outros serviços que tenham pontos finais de http.
@@ -57,8 +57,13 @@ Em vez de configurar a porta de um serviço individual no balanceador de carga, 
 ![Comunicação externa][0]
 
 > [!WARNING]
-> Quando configura a porta do proxy inverso no balanceador de carga, todos os micro-serviços no cluster que expõem um ponto final de HTTP são endereçáveis a partir de fora do cluster.
+> Quando configura a porta do proxy inverso no balanceador de carga, todos os micro-serviços no cluster que expõem um ponto final de HTTP são endereçáveis a partir de fora do cluster. Isto significa que se destinam a ser interno de micro-serviços podem ser Detetáveis por um utilizador mal intencionado determinado. Este potenially apresenta vulnerabilidades graves que podem ser forem exploradas; Por exemplo:
 >
+> * Um utilizador mal intencionado pode iniciar um ataque de recusa de serviço ao chamar repetidamente um serviço interno que não tenha uma superfície de ataque suficientemente protegida.
+> * Um utilizador mal intencionado poderá fornecer pacotes incorretos para um serviço interno que resulta num comportamento indesejado.
+> * Um serviço que se destinam a ser interna pode devolver informações confidenciais ou privadas que não se destina a ser expostos aos serviços fora do cluster, exposição, por conseguinte, estas informações confidenciais para um utilizador mal intencionado. 
+>
+> Certifique-se completamente compreender e mitigar as potencial consequências de segurança para o cluster e as aplicações em execução no mesmo, antes de efetuar a porta de proxy inverso público. 
 >
 
 

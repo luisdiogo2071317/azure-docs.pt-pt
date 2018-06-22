@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218899"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integração do Azure Active Directory com Tangoe comando Premium Mobile
 
@@ -114,7 +114,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-2/) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-us/) para obter estes valores. 
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -128,7 +128,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Secção de configuração de móvel Tangoe comando Premium](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Para obter SSO configurado para a sua aplicação, contacte o seu [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-2/) e fornecer o seguinte:
+7. Para obter SSO configurado para a sua aplicação, contacte o seu [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-us/) e fornecer o seguinte:
 
    - O ficheiro de metadados transferido
    - O **ID de entidade SAML**
@@ -174,7 +174,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 Nesta secção, vai criar um utilizador chamado Britta Simon Tangoe comando Premium Mobile. 
 
-Aplicação Tangoe comando Premium Mobile tem todos os utilizadores a aprovisionar na aplicação antes de efetuar início de sessão único. Por isso, consulte o trabalho com o [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-2/) para aprovisionar estes utilizadores para a aplicação. 
+Aplicação Tangoe comando Premium Mobile tem todos os utilizadores a aprovisionar na aplicação antes de efetuar início de sessão único. Por isso, consulte o trabalho com o [equipa de suporte de cliente de Mobile Tangoe comando Premium](https://www.tangoe.com/contact-us/) para aprovisionar estes utilizadores para a aplicação. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

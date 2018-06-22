@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341011"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308541"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo
 Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores. Esta extensão é necessária para os utilizadores de Internet Explorer que tem de iniciar sessão em aplicações que são configuradas utilizando [baseada em palavra-passe de início de sessão](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -44,7 +44,7 @@ Em primeiro lugar, tem de colocar o pacote de instalador numa localização de r
    
     ![Serviços de armazenamento e de ficheiros abertos](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Concluir o **Assistente de nova partilha** e definir as permissões para se certificar de que pode ser acedido a partir de computadores dos seus utilizadores. [Saiba mais sobre as partilhas.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Transferir o seguinte pacote do Microsoft Windows Installer (ficheiro. msi): [Extension.msi do painel de acesso](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Transferir o seguinte pacote do Microsoft Windows Installer (ficheiro. msi): [Extension.msi do painel de acesso](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copie o pacote de instalador para uma localização pretendida na partilha.
    
     ![Copie o ficheiro. msi para a partilha.](./media/active-directory-saas-ie-group-policy/copy-package.png)

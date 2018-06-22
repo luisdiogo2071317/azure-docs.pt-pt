@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802311"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301721"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para insulating aplicações contra falhas de Service Bus e desastres inesperados
 
-Aplicações fundamentais tem de operar continuamente, mesmo na presença de falhas não planeadas ou desastres inesperados. Este tópico descreve as técnicas que pode utilizar a proteger as aplicações de Service Bus contra um potencial interrupção do serviço ou um desastre.
+Aplicações fundamentais tem de operar continuamente, mesmo na presença de falhas não planeadas ou desastres inesperados. Este artigo descreve as técnicas que pode utilizar a proteger as aplicações de Service Bus contra um potencial interrupção do serviço ou um desastre.
 
 Uma falha é definida como indisponibilidade temporária do Service Bus do Azure. A interrupção pode afetar alguns componentes do Service Bus, como um arquivo de mensagens ou mesmo o todo o datacenter. Depois de corrigir o problema, o barramento de serviço torna-se disponíveis novamente. Normalmente, uma falha não irá causar perda de mensagens ou outros dados. Um exemplo de uma falha de componente é indisponibilidade de um determinado arquivo de mensagens. Um exemplo de uma falha em todo o Centro de dados é uma falha de energia do Centro de dados ou um comutador de rede do datacenter defeituoso. Para alguns dias a uma falha pode última de alguns minutos.
 
@@ -78,6 +78,17 @@ O [georreplicação com o Service Bus as mensagens mediadas] [ Geo-replication w
 
 Service Bus suporta a recuperação de desastres Georreplicação e a georreplicação, ao nível do espaço de nomes. Para obter mais informações, consulte [recuperação Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md). A funcionalidade de recuperação após desastre, disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas, implementa a recuperação após desastre de metadados e baseia-se no espaço de nomes de recuperação de desastre primária e secundária.
 
+## <a name="availability-zones-preview"></a>Zonas de disponibilidade (pré-visualização)
+
+O SKU de Premium do Service Bus suporta [disponibilidade zonas](../availability-zones/az-overview.md), que fornecem localizações isoladas de falhas dentro de uma região do Azure. 
+
+> [!NOTE]
+> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **EUA Leste 2**, e **França Central** regiões.
+
+Pode ativar zonas de disponibilidade no novo espaço de nomes só, utilizando o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona depois de ativar a no seu espaço de nomes.
+
+![1][]
+
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a recuperação após desastre, consulte estes artigos:
 
@@ -93,3 +104,5 @@ Para saber mais sobre a recuperação após desastre, consulte estes artigos:
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

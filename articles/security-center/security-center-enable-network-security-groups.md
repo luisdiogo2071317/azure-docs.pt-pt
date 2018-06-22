@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fe75781629e8d6416405cc9eec9ce14e61a00b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364459"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301432"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Ativar grupos de segurança no Centro de segurança do Azure
 Centro de segurança do Azure recomenda que ative um grupo de segurança de rede (NSG) se uma ainda não estiver ativada. Os NSGs contêm uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM. Para saber mais, consulte [o que é um grupo de segurança de rede (NSG)?](../virtual-network/security-overview.md)
@@ -43,7 +43,7 @@ Se não tiver NSGs ativados, o Centro de segurança apresenta dois recomendaçõ
 
    ![Escolha o grupo de segurança de rede][4]
 
-Se criar um NSG, siga os passos no [como gerir os NSGs no portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para criar um NSG e definir as regras de segurança.
+Se criar um NSG, siga os passos no [gerir um grupo de segurança de rede](../virtual-network/manage-network-security-group.md) para criar um NSG e definir as regras de segurança.
 
 ## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar as recomendações do Centro de segurança "Ativar grupos de segurança" para sub-redes ou máquinas virtuais. Para obter mais informações sobre como ativar os NSGs, consulte o seguinte:

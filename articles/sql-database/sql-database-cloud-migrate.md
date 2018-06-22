@@ -10,12 +10,12 @@ ms.custom: migrate
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 73f7c9ae9a3badd9d9dc3628145132238c8670d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645927"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309386"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração de base de dados do SQL Server a SQL Database do Azure
 
@@ -64,7 +64,7 @@ A lista seguinte contém recomendações para um melhor desempenho durante o pro
 
 ### <a name="method-2-use-transactional-replication"></a>Método 2: Utilizar a Replicação Transacional
 
-Quando não pode remover a base de dados do SQL Server da produção enquanto a migração está a ocorrer, pode utilizar a replicação transacional do SQL Server como a sua solução de migração. Para utilizar este método, a base de dados de origem tem de cumprir os [requisitos para a replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com a Base de Dados SQL do Azure. Para obter informações sobre a replicação do SQL Server com AlwaysOn, consulte [configurar a replicação para grupos de disponibilidade Always (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Quando não pode remover a base de dados do SQL Server da produção enquanto a migração está a ocorrer, pode utilizar a replicação transacional do SQL Server como a sua solução de migração. Para utilizar este método, a base de dados de origem tem de cumprir os [requisitos para a replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com a Base de Dados SQL do Azure. Para obter informações sobre a replicação do SQL Server com o Always On, consulte [configurar a replicação para grupos de disponibilidade Always (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Para utilizar esta solução, configure a Base de Dados SQL do Azure como um subscritor para a instância do SQL Server que pretende migrar. O distribuidor de replicação transacional sincroniza os dados da base de dados a serem sincronizados (o editor) enquanto continuam a ocorrer novas transações. 
 

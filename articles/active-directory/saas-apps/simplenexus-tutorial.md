@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212177"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integração do Azure Active Directory com SimpleNexus
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://simplenexus.com/<companyname>`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente SimpleNexus](https://simplenexus.com/site/contact) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente SimpleNexus](https://simplenexus.com/sn/contact-us/) para obter estes valores. 
  
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **SimpleNexus** lado, terá de enviar o transferido **XML de metadados** para [SimpleNexus suporta equipa](https://simplenexus.com/site/contact). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+6. Para configurar o início de sessão único em **SimpleNexus** lado, terá de enviar o transferido **XML de metadados** para [SimpleNexus suporta equipa](https://simplenexus.com/sn/contact-us/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

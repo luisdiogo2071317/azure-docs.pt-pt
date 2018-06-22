@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839593"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302187"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análise de eventos e visualização de análise de registos
-
-Análise de registos, também conhecido como OMS (Operations Management Suite), é uma coleção de serviços de gestão que ajudam na monitorização e diagnóstico para aplicações e serviços alojados na nuvem. Este artigo descreve como executar consultas na análise de registos para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são resolvidas:
+Análise de registos recolhe e analisa a telemetria de aplicações e serviços alojados na nuvem e fornece ferramentas de análise para ajudar a maximizar a respetiva disponibilidade e desempenho. Este artigo descreve como executar consultas na análise de registos para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são resolvidas:
 
 * Como posso resolver problemas eventos de estado de funcionamento?
 * Como saber quando um nó fica inativo?
@@ -43,9 +42,9 @@ Depois de dados são recebidos pelo análise de registos, o Azure tem vários *s
 
 2. Em resumo, verá os mosaicos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo um para o Service Fabric. Clique em de **Service Fabric** graph (primeira imagem abaixo) para continuar para a solução de análise de recursos de infraestrutura de serviço (segunda imagem abaixo).
 
-    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+    ![Solução de Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+    ![Solução de Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 A imagem acima é a home page da solução de análise de recursos de infraestrutura de serviço. Esta é uma vista de instantâneo do que acontece no seu cluster. Se tiver ativado o diagnóstico após a criação do cluster, pode ver eventos 
 
@@ -60,11 +59,11 @@ A imagem acima é a home page da solução de análise de recursos de infraestru
 
 1. Na página de análise de recursos de infraestrutura de serviço, clique no gráfico para **eventos de recursos de infraestrutura de serviço**.
 
-    ![Canal operacional do OMS SF solução](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+    ![Canal de operacional de solução do Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 2. Clique em **lista** para ver os eventos numa lista. Uma vez aqui, verá todos os eventos de sistema que tenham sido recolhidos. Para referência, estes são de WADServiceFabricSystemEventsTable na conta do Storage do Azure e da mesma forma as reliable services e eventos de atores que consulte junto são destas tabelas correspondentes.
     
-    ![Canal de operacional de consulta do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+    ![Canal operacional de consulta](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Em alternativa, pode clique a Lupa à esquerda e utilize o idioma de consulta Kusto encontrar aquilo que procura. Por exemplo, para localizar todas as ações executadas em nós do cluster, pode utilizar a seguinte consulta. Os IDs de evento utilizados abaixo encontram-se no [referência de eventos operacionais canal](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -79,11 +78,11 @@ Pode consultar o muitos mais campos, tais como os nós específicos (computador)
 
 1. Na página serviço análise de recursos de infraestrutura, clique o gráfico para **Reliable Services**.
 
-    ![OMS SF solução Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+    ![Serviços do Service Fabric solução fiável](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
 2. Clique em **lista** para ver os eventos numa lista. Aqui pode ver eventos a partir dos serviços fiáveis. Pode ver eventos de diferentes para quando o runasync com serviço é iniciada e concluída que normalmente acontece em implementações e atualizações. 
 
-    ![Consultar o OMS Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+    ![Consulta Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Eventos de ator fiável podem ser visualizados de forma semelhante. Para configurar mais detalhado de eventos dos reliable actors, terá de alterar o `scheduledTransferKeywordFilter` na configuração para a extensão de diagnóstico (mostrada abaixo). Obter detalhes sobre os valores para estes estão no [referência de eventos de reliable actors](service-fabric-reliable-actors-diagnostics.md#keywords).
 
@@ -101,12 +100,12 @@ Eventos de ator fiável podem ser visualizados de forma semelhante. Para configu
 
 O idioma de consulta Kusto é poderoso. É outra consulta importante, que pode executar saber quais os nós estão a gerar a maior parte dos eventos. A consulta na captura de ecrã abaixo mostra eventos operacionais de Service Fabric agregados com o serviço específico e o nó.
 
-![Eventos de consulta do OMS por nó](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
+![Eventos de consulta por nó](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para ativar a monitorização, ou seja, os contadores de desempenho da infraestrutura, aceda a [adicionar o agente do OMS](service-fabric-diagnostics-oms-agent.md). O agente recolhe os contadores de desempenho e adiciona-o à sua área de trabalho existente.
-* Para os clusters no local, OMS oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para OMS. Leia mais sobre o que no [ligar os computadores sem acesso à Internet ao OMS utilizando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
-* Configurar OMS configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) para ajudar a deteção e diagnóstico
+* Para ativar a monitorização, ou seja, os contadores de desempenho da infraestrutura, aceda a [adicionar o agente de análise de registos](service-fabric-diagnostics-oms-agent.md). O agente recolhe os contadores de desempenho e adiciona-o à sua área de trabalho existente.
+* Para os clusters no local, a análise de registos oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para análise de registos. Leia mais sobre o que no [ligar os computadores sem acesso à Internet ao Log Analytics utilizando o Gateway do OMS](../log-analytics/log-analytics-oms-gateway.md)
+* Configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) para ajudar a deteção e diagnóstico
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * Obter uma descrição mais detalhada de análise de registos e o que oferece, leia [o que é a análise de registos?](../operations-management-suite/operations-management-suite-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Extensão da máquina virtual do Azure do OMS para Windows | Microsoft Docs
-description: Implemente o agente do OMS na máquina virtual do Windows com uma extensão da máquina virtual.
+title: Extensão de máquina virtual de análise de registos do Azure para Windows | Microsoft Docs
+description: Implemente o agente de análise de registos na máquina virtual do Windows com uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: c365c43eb5abb975bf77e28ad061ff091f5ec627
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942642"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301785"
 ---
-# <a name="oms-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual OMS para Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de análise de registo para o Windows
 
-Operations Management Suite (OMS) fornece capacidades de remediação de monitorização, alertas e alertas na nuvem e no local ativos. A extensão de máquina virtual de agente do OMS para Windows é publicada e suportada pela Microsoft. A extensão instala o agente do OMS em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho existente do OMS. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do OMS para Windows.
+Análise de registos fornece capacidades de monitorização na nuvem e no local ativos. A extensão de máquina virtual do agente de análise do registo para o Windows é publicada e suportada pela Microsoft. A extensão instala o agente de análise de registos em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho de análise de registos existente. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual de análise de registos para o Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente do OMS para o Windows pode ser executado no Windows Server 2008 R2, 2012, 2012 R2 e 2016 versões.
+A extensão de agente de análise do registo para o Windows pode ser executado no Windows Server 2008 R2, 2012, 2012 R2 e 2016 versões.
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-Centro de segurança do Azure Aprovisiona o agente do OMS e liga com a área de trabalho da análise de registos predefinida da subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
+Centro de segurança do Azure Aprovisiona o agente de análise de registos e liga com a área de trabalho da análise de registos predefinida da subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
-A extensão de agente do OMS para o Windows requer que a máquina virtual de destino está ligada à internet. 
+A extensão de agente de análise do registo para o Windows requer que a máquina virtual de destino está ligada à internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão necessita do Id da área de trabalho e a chave de área de trabalho a partir da área de trabalho do OMS de destino, pode encontrá-las no portal do OMS. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON seguinte mostra o esquema para a extensão de agente de análise do registo. A extensão requer o Id da área de trabalho e a chave de área de trabalho da área de trabalho de análise de registos de destino. Estes podem ser encontradas nas definições para a área de trabalho no portal do Azure. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -79,11 +79,11 @@ O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente do OMS durante uma implementação de modelo Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM de agente do OMS pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente de análise do registo durante uma implementação de modelo Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM de agente de análise do registo pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 O JSON para uma extensão da máquina virtual pode ser aninhado o recurso de máquina virtual ou colocado no nível superior de um modelo do Resource Manager JSON ou raiz. O posicionamento de JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-O exemplo seguinte assume que a extensão do OMS é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo seguinte assume que a extensão de análise de registos é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 
 ```json
@@ -138,7 +138,7 @@ Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma 
 
 ## <a name="powershell-deployment"></a>Implementação de PowerShell
 
-O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual de agente do OMS para uma máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela hash do PowerShell. 
+O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual do agente de análise do registo para uma máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela hash do PowerShell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

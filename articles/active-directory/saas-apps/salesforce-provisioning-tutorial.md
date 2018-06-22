@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: be6e5fb83ea88ce30b64f5e1eb53422f0404410f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbf4e2a35667484fea66a1888cdfc0184a806583
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229658"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308321"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática
 
@@ -95,7 +95,7 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 10. Copie o token, vá para a janela do Azure AD e cole-o para o **segredo Token** campo.
 
-11. O **URL de inquilino** deve ser introduzido se a instância do Salesforce no Salesforce Government nuvem. Caso contrário, é opcional. Introduza o URL de inquilino utilizando o formato de https://your-instance.my.salesforce.com, substituindo a instância com o nome da sua instância do Salesforce.
+11. O **URL de inquilino** deve ser introduzido se a instância do Salesforce no Salesforce Government nuvem. Caso contrário, é opcional. Introduza o URL de inquilino utilizando o formato de "https://\<sua instância\>. my.salesforce.com," substituir \<sua instância\> com o nome da sua instância do Salesforce.
 
 12. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação Salesforce.
 

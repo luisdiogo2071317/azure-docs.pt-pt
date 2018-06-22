@@ -3,17 +3,18 @@ title: Pesquisa cognitivos para extração de dados, linguagem natural processam
 description: Extração de dados, processamento de linguagem natural (NLP) e processamento de imagem para criar conteúdo pesquisável na Azure Search utilizando as competências cognitivos de indexação.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641116"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304634"
 ---
 # <a name="what-is-cognitive-search"></a>O que é pesquisa cognitivos?
 
@@ -25,12 +26,12 @@ Integração de AI é efetuada através de *competências cognitivos* que enriqu
 
 Utilizado durante a indexação de competências podem ser personalizado ou predefinido:
 
-+ [Prefined competências](cognitive-search-predefined-skills.md) baseiam os algoritmos de AI mesmos utilizados em APIs de serviços cognitivos: [reconhecimento de entidade com o nome](cognitive-search-skill-named-entity-recognition.md), [extração da expressão de chave](cognitive-search-skill-keyphrases.md), e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
++ [Predefinidas competências](cognitive-search-predefined-skills.md) baseiam os algoritmos de AI mesmos utilizados em APIs de serviços cognitivos: [reconhecimento de entidade com o nome](cognitive-search-skill-named-entity-recognition.md), [extração da expressão de chave](cognitive-search-skill-keyphrases.md), e [OCR](cognitive-search-skill-ocr.md)são apenas alguns. 
 
 + [Competências personalizadas](cognitive-search-create-custom-skill-example.md) podem ser desenvolvidas por si para qualquer processamento especializado que precisa. Exemplos de competências personalizados podem ser um classificador de módulo ou documento de entidade personalizado direcionada para um domínio específico, como o departamento financeiro, publicações científicos ou medicine.
 
 > [!NOTE]
-> A Pesquisa Cognitiva encontra-se em pré-visualização pública e a execução do conjunto de competências é, de momento, disponibilizada gratuitamente. Posteriormente, iremos anunciar os preços desta capacidade.
+> Pesquisa cognitivos está em pré-visualização pública e execução skillset atualmente é oferecida gratuitamente. Posteriormente, iremos anunciar os preços desta capacidade.
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitivos
 

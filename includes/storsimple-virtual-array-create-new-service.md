@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
-1.  Utilizar as credenciais da conta Microsoft, inicie sessão no portal do Azure neste URL: <https://portal.azure.com/>. Se implementar o dispositivo no portal de administração pública, inicie sessão no: <https://portal.azure.us/>
+1.  Utilizar as credenciais da conta Microsoft, inicie sessão no portal do Azure neste URL: <https://portal.azure.com/>. Se implementar o dispositivo no portal de administração pública, inicie sessão em: <https://portal.azure.us/>
 
 2.  No portal do Azure, clique em **+ criar um recurso** &gt; **armazenamento** &gt; **série Virtual StorSimple**.
 

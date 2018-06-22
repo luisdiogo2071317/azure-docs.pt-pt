@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 08b0cd35294a6cd4086fd5640b09d944ed361c41
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba7a13a94d01de9d284282cbed25c873778e46e0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367137"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309569"
 ---
 Este artigo descreve um conjunto de práticas comprovadas para executar máquinas virtuais (VMs) do Linux no Azure, tendo em atenção a escalabilidade, a disponibilidade, a gestão e a segurança. O Azure suporta a execução de várias distribuições Linux populares, incluindo CentOS, Debian, Red Hat Enterprise, Ubuntu e FreeBSD. Para obter mais informações, veja [Azure and Linux (O Azure e o Linux)][azure-linux].
 
@@ -139,7 +139,7 @@ Para desalocar VMs, utilize o comando seguinte da CLI:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-No portal do Azure, o botão **Parar** desaloca a VM. No entanto, se encerrar com o SO enquanto tiver sessão iniciada, a VM é parada, mas *não* desalocada, pelo que continua a ser cobrado.
+No portal do Azure, o botão **Parar** desaloca a VM. No entanto, se encerrar através do SO enquanto tem sessão iniciada, a VM está parada, mas *não* anulada, pelo que, ainda será cobrada.
 
 **Eliminar uma VM.** Se eliminar uma VM, os VHDs não são eliminados. Isto significa que pode eliminar em segurança a VM sem perder dados. No entanto, ainda lhe será cobrado o armazenamento. Para eliminar o VHD, elimine o ficheiro do [Armazenamento de blobs][blob-storage].
 

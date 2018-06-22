@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371274"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313518"
 ---
 Existem várias razões quando não é possível iniciar ou ligar a uma aplicação em execução numa máquina virtual do Azure (VM). Por motivos incluem a aplicação não está em execução ou está a escutar as portas esperadas, a porta de escuta bloqueado ou redes regras correctamente transmissão de tráfego para a aplicação. Este artigo descreve uma abordagem methodical para localizar e corrigir o problema.
 
@@ -32,7 +32,7 @@ Se tiver problemas de ligação a uma aplicação, tente os seguintes passos de 
 
 * Reinicie a máquina virtual
 * Recrie o ponto final / regras de firewall / regras de segurança de grupo (NSG) de rede
-  * [Modelo do Resource Manager - gerir grupos de segurança de rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modelo do Resource Manager - gerir grupos de segurança de rede](../articles/virtual-network/manage-network-security-group.md)
   * [Modelo de clássico - pontos finais de gerir os serviços Cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Ligar a partir de uma localização diferente, tal como uma rede virtual do Azure diferente
 * Volte a implementar a máquina virtual
@@ -93,7 +93,7 @@ Se não conseguir aceder a aplicação, verifique as seguintes definições:
 * Deteção de intrusões ou em execução numa VM de destino do software de monitorização de rede está a permitir o tráfego.
 * Pontos finais de serviços em nuvem ou grupos de segurança de rede estão a permitir o tráfego:
   * [Modelo de clássico - pontos finais de gerir os serviços Cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Modelo do Resource Manager - gerir grupos de segurança de rede](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modelo do Resource Manager - gerir grupos de segurança de rede](../articles/virtual-network/manage-network-security-group.md)
 * Um componente separado em execução na sua VM com o caminho entre o teste de VM e a VM, como um balanceador de carga ou uma firewall, está a permitir o tráfego.
 
 Numa máquina virtual baseado no Windows, utilize a Firewall do Windows com segurança avançada para determinar se as regras de firewall excluir o tráfego de entrada e saída da sua aplicação.

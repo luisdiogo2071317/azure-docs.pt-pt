@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8870c4199d5f24d1e8d07bc97d61a09c07052c1e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598356"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307984"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir utilizadores e funções de base de dados
 
-O nível de base de dados do modelo, todos os utilizadores têm de pertencer a uma função. Funções definem os utilizadores com permissões específicas para a base de dados do modelo. Qualquer utilizador ou grupo de segurança adicionado a uma função, tem de ter uma conta num inquilino do Azure AD na mesma subscrição que o servidor.
+O nível de base de dados do modelo, todos os utilizadores têm de pertencer a uma função. Funções definem os utilizadores com permissões específicas para a base de dados do modelo. Qualquer utilizador ou grupo de segurança adicionado a uma função, tem de ter uma conta num inquilino do Azure AD na mesma subscrição que o servidor. 
 
 Como definir funções é diferente consoante a ferramenta que utilizar, mas o efeito é o mesmo.
 
@@ -27,6 +27,9 @@ Permissões de função incluem:
 *  **Leitura** -os utilizadores podem utilizar uma aplicação de cliente para ligar a e analisar dados de base de dados do modelo.
 
 Ao criar um projeto de modelo de tabela, pode criar funções e adiciona utilizadores ou grupos para essas funções utilizando o Gestor de funções no SSDT. Quando implementada para um servidor, utilize o SSMS, [cmdlets do PowerShell do Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx), ou [a linguagem de Scripting de modelo em tabela](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para adicionar ou remover funções e membros de utilizador.
+
+> [!NOTE]
+> Grupos de segurança tem de ter o `MailEnabled` propriedade definida como `True`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Para adicionar ou gerir funções e os utilizadores no SSDT  
   

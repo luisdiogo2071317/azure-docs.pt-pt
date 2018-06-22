@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684426"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313885"
 ---
 ## <a name="deleting-personal-information"></a>A eliminar informações pessoais
 
@@ -40,7 +40,7 @@ Informações de contacto pessoais podem ser eliminadas das seguintes formas:
 - Dados guardados com a tarefa foi eliminados com a tarefa. Os utilizadores podem eliminar manualmente as tarefas e as tarefas concluídas são eliminadas automaticamente após 90 dias. Pode eliminar manualmente as tarefas através da API REST ou o portal do Azure. Para eliminar a tarefa no portal do Azure, vá para a tarefa importar/exportar e clique em *eliminar* na barra de comando. Para obter detalhes sobre como eliminar uma tarefa de importação/exportação através da REST API, consulte [eliminar uma tarefa de importação/exportação](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - As informações de contacto guardadas nas definições de portais podem ser removidas, eliminando as definições do portal. Pode eliminar as definições do portal, seguindo estes passos:
-  - Inicie sessão no [Portal do Azure](https://portal.azure.com).
+  - Inicie sessão no [portal do Azure](https://portal.azure.com).
   - Clique em de *definições* ícone ![ícone de definições do Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Clique em *exportar todas as definições* (para guardar as definições atuais para um `.json` ficheiro).
   - Clique em *eliminar todas as definições e dashboards privadas* para eliminar todas as definições, incluindo informações de contacto guardadas.

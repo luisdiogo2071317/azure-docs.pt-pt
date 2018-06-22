@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825216"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307490"
 ---
-# <a name="guidelines"></a>Orientações  
+# <a name="guidelines"></a>Diretrizes  
 
 <!--
 ## Guidelines for AppSource  
@@ -35,7 +35,7 @@ Se mais do que uma pessoa necessita de acesso para o mesmo ID Microsoft utilizad
 
 >[!IMPORTANT]
 >Para autorizar vários utilizadores a aceder à sua conta Microsoft Developer Center (Dev Center), a Microsoft recomenda que utilize o Azure Active Directory (Azure AD) para atribuir funções a utilizadores individuais. Cada utilizador têm de aceder a conta ao iniciar sessão com o indivíduo credenciais do Azure AD. Criar o seu ID de Microsoft utilizando um endereço de e-mail num domínio registado para a sua empresa Microsoft sugere que o e-mail não ser atribuídos a uma pessoa. Um exemplo é `windowsapps@fabrikam.com`.  
->*   Para obter mais informações, visite o [problema: ID da Microsoft num Azure AD federado domínio](#issue:-microsoft-id-in-an-azure-ad-federated-domain) secção.  
+>*   Para obter mais informações, visite o [problema: ID da Microsoft num Azure AD federado domínio](#issue-microsoft-id-in-an-azure-ad-federated-domain) secção.  
 
 *   Limitar o acesso para o ID da Microsoft para o menor número possível de programadores. 
 *   Configure uma lista de distribuição de e-mail empresarial (ld) que inclui todas as pessoas que têm a aceder à sua conta do Dev Center. Adicione o endereço de e-mail ld às suas informações de segurança. O ld permite que todos os funcionários na lista para receber os códigos de segurança quando solicitado e para gerir as informações de segurança para a Microsoft ID. Se configurar uma lista de distribuição não for viável, em seguida, o proprietário da conta de e-mail individuais tem de estar disponível para aceder e partilhar o código de segurança quando lhe for pedido.  

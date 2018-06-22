@@ -1,6 +1,6 @@
 ---
-title: Utilizar a biblioteca BulkExecutor .NET para efetuar operações em massa na base de dados do Azure Cosmos | Microsoft Docs
-description: Utilize a biblioteca de BulkExecutor .NET da BD do Azure Cosmos em massa importar e atualizar os documentos para coleções de base de dados do Azure Cosmos.
+title: Utilizar a biblioteca de .NET de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos | Microsoft Docs
+description: Utilize a biblioteca de .NET de executor de em massa da BD do Azure Cosmos em massa importar e atualizar os documentos para coleções de BD do Cosmos do Azure.
 keywords: Executor em massa de .net
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611165"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300776"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizar a biblioteca BulkExecutor .NET para efetuar operações em massa na base de dados do Azure Cosmos
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizar a biblioteca de .NET de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos
 
-Este tutorial fornece instruções sobre como utilizar a biblioteca de BulkExecutor .NET do Cosmos BD do Azure para importar e atualizar os documentos para coleções de base de dados do Azure Cosmos. Para saber mais sobre a biblioteca de BulkExecutor e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de BulkExecutor](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo através de uma aplicação de .NET de exemplo em massa documentos de importações gerados aleatoriamente para uma coleção de BD do Cosmos do Azure. Depois de importar, mostra como pode em massa atualizar os dados importados especificando patches como efetuar nos campos de documentos específico das operações.
+Este tutorial fornece instruções sobre como utilizar o executor de em massa do Cosmos BD do Azure biblioteca .NET para importar e atualizar os documentos para coleções de base de dados do Azure Cosmos. Para saber mais sobre a biblioteca de executor em massa e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de executor em massa](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo através de uma aplicação de .NET de exemplo em massa documentos de importações gerados aleatoriamente para uma coleção de BD do Cosmos do Azure. Depois de importar, mostra como pode em massa atualizar os dados importados especificando patches como efetuar nos campos de documentos específico das operações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Este tutorial fornece instruções sobre como utilizar a biblioteca de BulkExecu
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A chave primária é fornecida na [autenticar pedidos](local-emulator.md#authenticating-requests).
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
 * Criar uma conta de API do SQL Server de base de dados do Azure Cosmos utilizando os passos descritos no [criar conta de base de dados](create-sql-api-dotnet.md#create-a-database-account) secção do artigo de início rápido do .NET. 
 
@@ -166,7 +166,7 @@ Pode atualizar documentos existentes, utilizando a API de BulkUpdateAsync. Neste
     
 ## <a name="performance-tips"></a>Sugestões de desempenho 
 
-Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de BulkExecutor:
+Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de executor em massa:
 
 * Para melhor desempenho, execute a aplicação a partir de uma máquina virtual do Azure que se encontra na mesma região que a região de escrita da conta de base de dados do Cosmos.  
 
@@ -196,4 +196,4 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre os detalhes do pacote Nuget e as notas da biblioteca de BulkExecutor .net, consulte[detalhes BulkExecutor SDK](sql-api-sdk-bulk-executor-dot-net.md). 
+* Para saber mais sobre os detalhes do pacote Nuget e as notas da biblioteca de .net de executor em massa, consulte[em massa detalhes do SDK de executor](sql-api-sdk-bulk-executor-dot-net.md). 

@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802549"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301806"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhorias de desempenho através de mensagens do Service Bus
 
 Este artigo descreve como utilizar o Service Bus do Azure para otimizar o desempenho quando trocar mensagens mediadas. A primeira parte deste artigo descreve os diferentes mecanismos que são fornecidos para o ajudar a melhorar o desempenho. A segunda parte fornece orientações sobre como utilizar o Service Bus de forma a que pode oferecer o melhor desempenho num determinado cenário.
 
-Ao longo deste tópico, o termo "cliente" refere-se a qualquer entidade que acede ao Service Bus. Um cliente pode levar a função de um remetente ou um recetor. O termo "remetente" é utilizado para um cliente de fila ou um tópico de barramento de serviço que envia mensagens a uma subscrição de fila ou um tópico de barramento de serviço. O termo "recetor" refere-se a um cliente de fila ou a subscrição de barramento de serviço que recebe mensagens a partir de uma fila do Service Bus ou uma subscrição.
+Ao longo deste artigo, o termo "cliente" refere-se a qualquer entidade que acede ao Service Bus. Um cliente pode levar a função de um remetente ou um recetor. O termo "remetente" é utilizado para um cliente de fila ou um tópico de barramento de serviço que envia mensagens a uma subscrição de fila ou um tópico de barramento de serviço. O termo "recetor" refere-se a um cliente de fila ou a subscrição de barramento de serviço que recebe mensagens a partir de uma fila do Service Bus ou uma subscrição.
 
 Estas secções apresentam alguns conceitos que o Service Bus utiliza para ajudar o desempenho de aumento.
 
@@ -37,7 +32,7 @@ Service Bus permite que os clientes enviar e receber mensagens através de um do
 2. Mensagens (SBMP) do protocolo do Service Bus
 3. HTTP
 
-AMQP e SBMP são mais eficientes, porque estes mantêm a ligação ao Service Bus, desde que existe a fábrica de mensagens. Também implementa a criação de batches e prefetching. A menos que explicitamente mencionado, todo o conteúdo deste tópico assume que a utilização de AMQP ou SBMP.
+AMQP e SBMP são mais eficientes, porque estes mantêm a ligação ao Service Bus, desde que existe a fábrica de mensagens. Também implementa a criação de batches e prefetching. A menos que explicitamente mencionado, todo o conteúdo neste artigo pressupõe que a utilização de AMQP ou SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizar fábricas e clientes
 
@@ -45,13 +40,13 @@ Cliente do Service Bus objetos, tais como [QueueClient] [ QueueClient] ou [Messa
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 
-Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Neste momento inclui o processamento da operação pelo serviço do Service Bus para além de latência do pedido e a resposta. Para aumentar o número de operações, por hora, operações tem de ser executado em simultâneo. Pode alcançar esta concurrence de várias formas diferentes:
+Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Neste momento inclui o processamento da operação pelo serviço do Service Bus para além de latência do pedido e a resposta. Para aumentar o número de operações, por hora, operações tem de ser executado em simultâneo. 
 
-* **Operações assíncronas**: o cliente agendas operações através de operações assíncronas. O pedido seguinte é iniciado antes do pedido anterior for concluído. O fragmento de código seguinte é um exemplo de uma operação de envio assíncrono:
+O cliente agenda operações simultâneas efetuando operações assíncronas. O pedido seguinte é iniciado antes do pedido anterior for concluído. O fragmento de código seguinte é um exemplo de uma operação de envio assíncrono:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Nes
   Console.WriteLine("All messages sent");
   ```
   
-  O código seguinte é um exemplo de um assíncrona a operação de receção:
+  O código seguinte é um exemplo de um assíncrona a operação de receção. Consulte o programa completo [aqui](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Várias fábricas**: todos os clientes (remetentes além recetores) que são criados pelas fábricas de mesmas partilham uma ligação de TCP. O débito máximo de mensagem está limitado pelo número de operações que pode seguir esta ligação de TCP. O débito que pode ser obtido com uma única fábrica varia bastante com vezes reportadas round-trip TCP e tamanho da mensagem. Para obter taxas de débito superiores, utilize várias fábricas de mensagens.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Receber modo
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Criação de batches não afeta o número de operações de mensagens sujeito a faturação e só está disponível para o protocolo de cliente do Service Bus. O protocolo HTTP não suporta a criação de batches.
+Criação de batches não afeta o número de operações de mensagens sujeito a faturação e só está disponível para o Service Bus cliente protocolo a utilizar o [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) biblioteca. O protocolo HTTP não suporta a criação de batches.
 
 ## <a name="batching-store-access"></a>Acesso à loja de criação de batches
 
@@ -135,7 +119,7 @@ Acesso à loja de batches não afeta o número de operações de mensagens sujei
 
 Quando uma mensagem é prefetched, o serviço bloqueia a mensagem prefetched. Com o bloqueio não é possível receber a mensagem de prefetched por um recetor diferentes. Se o recetor não consegue concluir a mensagem antes do bloqueio expira, a mensagem fica disponível para outros recetores. A cópia da mensagem prefetched permanece na cache. O recetor que consome a cópia em cache expirada irá receber uma exceção ao tentar concluir essa mensagem. Por predefinição, o bloqueio de mensagem expira após 60 segundos. Este valor pode ser expandido para 5 minutos. Para impedir que o consumo de mensagens expiradas, o tamanho da cache deve ser sempre menor do que o número de mensagens que pode ser utilizada por um cliente no intervalo de tempo limite de bloqueio.
 
-Quando utilizar a expiração do bloqueio de predefinição de 60 segundos, o valor é uma boa para [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] é o máximo de 20 vezes taxas de processamento de todos os recetores do factory. Por exemplo, uma fábrica cria três recetores e cada recetor pode processar até 10 mensagens por segundo. A contagem de obtenção prévia não deve exceder 20 X 3, 10 = 600. Por predefinição, [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] está definido como 0, o que significa que não existem mensagens adicionais são obtidas do serviço.
+Quando utilizar a expiração do bloqueio de predefinição de 60 segundos, o valor é uma boa para [PrefetchCount] [ SubscriptionClient.PrefetchCount] é o máximo de 20 vezes taxas de processamento de todos os recetores do factory. Por exemplo, uma fábrica cria três recetores e cada recetor pode processar até 10 mensagens por segundo. A contagem de obtenção prévia não deve exceder 20 X 3, 10 = 600. Por predefinição, [PrefetchCount] [ QueueClient.PrefetchCount] está definido como 0, o que significa que não existem mensagens adicionais são obtidas do serviço.
 
 Prefetching mensagens aumenta o débito global para uma fila ou a subscrição porque esta reduz o número global de operações de mensagem ou ida e volta. Obter a primeira mensagem, no entanto, irá demorar mais tempo (porque o tamanho da mensagem aumentada). Receber mensagens prefetched irá ser mais rápida porque estas mensagens já foram transferidas pelo cliente.
 
@@ -158,12 +142,12 @@ Se é enviada uma mensagem que contém informações críticas que não devem se
 > [!NOTE]
 > Entidades expressas não suporta transações.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Utilização de filas particionadas ou tópicos
+## <a name="partitioned-queues-or-topics"></a>Filas particionadas ou tópicos
 
 Internamente, o Service Bus utiliza o mesmo nó e mensagens do arquivo para processar e armazenar todas as mensagens de uma entidade de mensagens (fila ou um tópico). A [particionada fila ou um tópico](service-bus-partitioning.md), por outro lado, é distribuído por vários nós e arquivos de mensagens. Particionada filas e tópicos não só produzem um débito mais elevado do que o regulares filas e tópicos, estes também apresentem um disponibilidade superior. Para criar uma entidade particionada, defina o [EnablePartitioning] [ EnablePartitioning] propriedade **verdadeiro**, conforme mostrado no exemplo seguinte. Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
 
 > [!NOTE]
-> Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+> Entidades particionadas não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Utilização de várias filas
+## <a name="multiple-queues"></a>Várias filas
 
 Se não é possível utilizar uma fila particionada ou um tópico ou à carga esperada não pode ser processada por um único fila particionada ou um tópico, tem de utilizar várias entidades de mensagens. Ao utilizar várias entidades, crie um cliente dedicado para cada entidade, em vez de utilizar o mesmo cliente para todas as entidades.
 

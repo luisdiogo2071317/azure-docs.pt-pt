@@ -1,65 +1,24 @@
 ---
 title: Serviço de base de dados SQL do Azure - vCore | Microsoft Docs
-description: Saiba mais sobre os escalões de serviço para único e bases de dados de conjunto para fornecer os níveis de desempenho e tamanhos de armazenamento.
+description: O modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648358"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309584"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>modelo de compra baseado em vCore para a SQL Database do Azure (pré-visualização)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço vCore, de computação, memória, armazenamento e recursos de e/s
 
-[Base de dados SQL do Azure](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um modelo de compra baseado em DTU e um modelo de compra baseado em vCore (pré-visualização). A tabela e o gráfico seguinte comparam e contraste estes dois modelos de compras.
-
-> [!IMPORTANT]
-> Para o DTU com base no modelo de compra, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).
-
-
-|**Modelo de compra**|**Descrição**|**Melhor opção para**|
-|---|---|---|
-|Modelo de DTU|Este modelo é baseado numa medida agrupada de computação, armazenamento e recursos de e/s. Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-what-is-a-dtu.md)?|Melhor para os clientes que pretendem simples, pré-configurados opções de recursos.| 
-|com base em vCore modelo|Este modelo permite-lhe uma forma independente, dimensionar recursos de computação e armazenamento - vCores até 80, 4 TB de armazenamento de dados e 200000 IOPS. Também permite-lhe utilizar o benefício de híbrida do Azure para o SQL Server para obter uma redução de custos.|Melhor opção para os clientes que valor flexibilidade, controlo e transparência.|
-||||  
-
-![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>com base em vCore modelo de compra (pré-visualização)
-
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware. O modelo de compra baseado em vCore (pré-visualização) permite a flexibilidade, o controlo, a transparência de consumo de recursos individuais e uma forma simples de traduzir requisitos no local carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No vCore com base no modelo de compra (pré-visualização), os clientes podem optar entre fins gerais e de camadas de serviços críticos de negócio (pré-visualização) para ambos [único bases de dados](sql-database-single-database-resources.md) e [conjuntos elásticos](sql-database-elastic-pool.md). 
-
-Escalões de serviço são diferenciadas por um intervalo de design de elevada disponibilidade, níveis de desempenho, tipos de armazenamento e isolamento de falhas e o intervalo de e/s. O cliente separadamente tem de configurar o período de retenção de armazenamento e necessário para cópias de segurança. Quando utilizar o modelo de vCore, bases de dados individuais e conjuntos elásticos são elegíveis para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-Na com base em vCore compra modelo (pré-visualização) aos clientes pay para:
-- Computação (camada de serviço + número vCores + geração de hardware) *
-- Tipo e a quantidade de armazenamento de dados e de registo 
-- Número de IOs * *
-- Cópia de segurança de armazenamento (RA-GRS) * * 
-
-\* Em pré-visualização pública inicial, as CPUs lógico de 4 Gen baseiam Intel E5-2673 v3 processadores de 2.4 GHz (Haswell)
-
-\*\* Durante a pré-visualização, 7 dias de cópias de segurança e o IOs são gratuitos
-
-> [!IMPORTANT]
-> IOs, dados, de computação e armazenamento de registo são cobrados por base de dados ou o conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância geridos, consulte [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Limitações de região: 
->
-> O modelo de compra baseado em vCore (pré-visualização) ainda não está disponível no Sudeste da Austrália. A pré-visualização não está disponível nas seguintes regiões: Europa Ocidental, França Central, sul do RU e RU oeste.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Escolher o escalão de serviço, computação, memória, armazenamento e de recursos de e/s
-
-Converter para o modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore na camada fins gerais; requer que cada 100 DTU no escalão Standard cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore na camada de negócio crítico.
+Escalões de serviço são diferenciadas por um intervalo de design de elevada disponibilidade, níveis de desempenho, tipos de armazenamento e isolamento de falhas e o intervalo de e/s. O cliente separadamente tem de configurar o período de retenção de armazenamento e necessário para cópias de segurança. Com o modelo de vCore único bases de dados e conjuntos elásticos são elegíveis para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 A tabela seguinte ajuda-o a compreender as diferenças entre estas duas camadas:
 
@@ -79,8 +38,6 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estas duas camadas:
 
 > [!IMPORTANT]
 > Se precisar de menos de um vCore da capacidade de cálculo, utilize o modelo de compra baseado em DTU.
-
-Para obter detalhes sobre as opções de tamanho de armazenamento disponíveis para a base de dados individual e níveis de desempenho específicos, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) e para conjuntos elásticos, consulte [base de dados SQL limites de recursos baseados em vCore para conjuntos elásticos](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 Consulte [FAQ de base de dados do SQL Server](sql-database-faq.md) para obter respostas a perguntas mais frequentes. 
 
@@ -118,7 +75,7 @@ No vCore com base no modelo de compra (pré-visualização), pode trocar as suas
 
 Migrar para o modelo baseado em DTU ao modelo baseado em vCore é semelhante a atualizar ou desatualização as relações de replicação geográfica entre bases de dados Standard e Premium. Não requer a terminar georreplicação, mas o utilizador tem de observar as regras de sequenciação. Ao atualizar, tem primeiro de atualizar a base de dados secundária e, em seguida, atualizar o site primário. Quando desatualização, inverter a ordem: tem de mudar primeiro a base de dados primária e, em seguida, mudar secundário. 
 
-Quando utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se vivamente que designar um conjunto como principal e o outro – como secundário. Nesse caso, migrar conjuntos elásticos devem utilizar a mesma documentação de orientação.  No entanto, é tecnicamente é possível que um conjunto elástico contém bases de dados primários e secundários. Neste caso, migrar corretamente, deve o conjunto com a maior utilização como "primário" e siga as regras de sequenciação em conformidade.  
+Quando utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se que designar um conjunto como principal e o outro – como secundário. Nesse caso, migrar conjuntos elásticos devem utilizar a mesma documentação de orientação.  No entanto, é tecnicamente é possível que um conjunto elástico contém bases de dados primários e secundários. Neste caso, migrar corretamente, deve o conjunto com a maior utilização como "primário" e siga as regras de sequenciação em conformidade.  
 
 A tabela seguinte fornece orientações para cenários de migração específica: 
 
@@ -142,7 +99,7 @@ Migração de grupos de ativação pós-falha com várias bases de dados necessi
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Criação de uma secundária georreplicação
 
-Só pode criar uma com a mesma camada de serviço como principal de georreplicação secundária. Para a base de dados com a taxa de geração de registo elevada, este recomenda-se vivamente que secundário é criado com o mesmo nível de desempenho como principal. Se estiver a criar uma secundária georreplicação no agrupamento elástico de uma única base de dados primária, este recomenda-se vivamente que o conjunto tem o `maxVCore` definição que corresponde ao nível de desempenho de base de dados primária. Se estiver a criar uma secundária georreplicação no agrupamento elástico para um site primário noutro conjunto elástico, é vivamente recomendado que os conjuntos de ter o mesmo `maxVCore` definições
+Só pode criar uma com a mesma camada de serviço como principal de georreplicação secundária. Para a base de dados com a taxa de geração de registo elevada, recomenda-se que secundário é criado com o mesmo nível de desempenho como principal. Se estiver a criar uma secundária georreplicação no agrupamento elástico de uma única base de dados principal, recomenda-se o conjunto tem o `maxVCore` definição que corresponde ao nível de desempenho de base de dados primária. Se estiver a criar uma secundária georreplicação no agrupamento elástico para um site primário noutro conjunto elástico, é recomendado que os conjuntos de ter o mesmo `maxVCore` definições
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Para converter uma base de dados baseada em DTU para uma base de dados baseada em vCore, utilizando a cópia de base de dados.
 
@@ -150,6 +107,5 @@ Pode copiar uma base de dados com um nível de desempenho com base em DTU para u
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre as opções de tamanho de armazenamento disponíveis e níveis de desempenho específicos, consulte [dos limites de DTU de base de dados do SQL Server com base em recursos](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore de base de dados SQL](sql-database-vcore-resource-limits.md).
-- Consulte [FAQ de base de dados do SQL Server](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
-- Saiba mais sobre [subscrição do Azure e limites de serviço, Quotas e restrições](../azure-subscription-service-limits.md)
+- Para obter detalhes sobre as opções de tamanho de armazenamento disponíveis para a base de dados individual e níveis de desempenho específicos, consulte [limites de recursos baseados em vCore de base de dados SQL das bases de dados](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
+- Para obter detalhes sobre o armazenamento e níveis de desempenho específicos Consulte opções de tamanho disponíveis para conjuntos elásticos [limites de recursos baseados em vCore de base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

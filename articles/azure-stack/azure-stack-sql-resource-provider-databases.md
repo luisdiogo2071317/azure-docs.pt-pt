@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264187"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300827"
 ---
 # <a name="create-sql-databases"></a>Criar bases de dados SQL
 
@@ -27,7 +27,7 @@ Pode criar e gerir bases de dados personalizados no portal de utilizador. Um uti
 
 1. Iniciar sessão para o [Azure pilha](azure-stack-poc.md) portal de utilizador.
 
-2. Selecione **+ nova** &gt; **dados + armazenamento "** &gt; **base de dados do SQL Server** &gt; **adicionar**.
+2. Selecione **+ nova** &gt; **dados + armazenamento** &gt; **base de dados do SQL Server** &gt; **adicionar**.
 
 3. Em **Create Database**, introduza as informações necessárias, tais como **nome de base de dados** e **tamanho máximo em MB**.
 

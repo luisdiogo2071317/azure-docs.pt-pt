@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: de85e4295a59c54cb68306bf0cbc516bf5e1f8e2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236404"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313298"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -28,17 +28,25 @@ ms.locfileid: "35236404"
 
     - Uma subscrição do observador de rede ativada
     - Registos de fluxo NSG ativados para os NSGs que pretende monitorizar
-    - Uma conta de armazenamento do Azure, para armazenar em bruto flog registos
+    - Uma conta de armazenamento do Azure, para armazenar os registos de fluxo não processados
     - Uma área de trabalho de análise de registos (OMS), com acesso de escrita e leitura
     - Tem de ser atribuída utilizador com uma das seguintes funções ao nível da subscrição:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.  Tem de ser qualquer um dos seguinte administrador clássico
+    
+        - Administrador de conta
+        - Administrador de serviço 
+        - Coadministrador
+        
+    2.  A conta tem de ter qualquer uma das seguintes funções do RBAC no âmbito da subscrição
+    
+        - Proprietário
+        - Contribuinte
+        - Leitor
+        - Contribuinte de Rede
 
-    Em alternativa, devem ser atribuídos a utilizadores com todas as funções ao nível da subscrição os seguintes: 
-
+    3. A conta tem de ter quaisquer funções RBAC personalizadas com permissão para todas as seguintes ações mencionadas ao nível da subscrição
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
@@ -50,22 +58,22 @@ ms.locfileid: "35236404"
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-Para verificar funções atribuídas a um utilizador para uma subscrição, siga os passos abaixo:
+    Para verificar funções atribuídas a um utilizador para uma subscrição, siga os passos abaixo:
 
-Iniciar sessão no Azure utilizando Login-AzureRmAccount 
+    Inicie sessão no Azure com **Login-AzureRmAccount** 
 
-Selecione a subscrição necessária utilizando Select-AzureRmSubscription 
+    Selecione a subscrição obrigatório utilizando **Select-AzureRmSubscription** 
 
-Agora para listar todas as funções que estão atribuídas a um utilizador especificado, utilize Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators 
+    Agora para listar todas as funções que estão atribuídas a um utilizador especificado, utilize **Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators** 
 
-Se não vir quaisquer dados depois de executar commends, em seguida, volte entrar ao respetivo administrador de subscrição, para obter acesso para executar os comandos.  
+    Se não vir quaisquer dados depois de executar commends, em seguida, volte entrar ao respetivo administrador de subscrição, para obter acesso para executar os comandos.  
 
-Para mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    Para mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Em que regiões do Azure estão disponíveis na análise de tráfego?
 
-    Enquanto está na versão de pré-visualização, pode utilizar a análise de tráfego para NSGs em qualquer um dos seguintes **regiões suportadas**: Central EUA oeste, EUA leste, EUA Leste 2, Norte Central nos, Sul Central nos, EUA Central, EUA oeste, EUA oeste-2, Europa Ocidental, Europa do Norte , RU oeste, RU-Sul, leste da Austrália e Sudeste da Austrália. A área de trabalho de análise de registos tem de existir o Central EUA oeste, EUA leste, Europa Ocidental, Sudeste da Austrália ou a região-sul do RU.
+    Enquanto está na versão de pré-visualização, pode utilizar a análise de tráfego para NSGs em qualquer um dos seguintes **regiões suportadas**: Central EUA oeste, EUA leste, EUA Leste 2, Norte Central nos, Sul Central dos EUA, EUA Central, EUA oeste, EUA oeste 2, Europa Ocidental, Europa do Norte, RU oeste, sul do RU, leste da Austrália, Sudeste da Austrália e Sudeste asiático. A área de trabalho de análise de registos tem de existir o Central EUA oeste, EUA leste, Europa Ocidental, sul do RU, Sudeste da Austrália ou a região Sudeste asiático.
 
 3.  Pode NSGs ativar o fluxo de registos para estar em regiões diferentes a minha área de trabalho do OMS?
 
@@ -127,11 +135,11 @@ Para mais detalhes, consulte [gerir o controlo de acesso baseado em funções co
 
 14. Pode configurar a análise de tráfego utilizando o PowerShell ou um modelo Azure Resource Manager?
 
-Sim, a configuração de análise de tráfego utilizando o windows powershell é suportado a partir da versão 6.2.1 em diante, no entanto não está disponível no suporte de modelo do Azure Resource Manager está presente. Para obter mais informações, como o PowerShell pode ser utilizado para configurar o tráfego de análise Consulte seguintes [documentação](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Como a análise de tráfego tem um preço?
 
-Análise de tráfego é limitado para dados de registo de fluxo, processados pelo serviço e armazenar os registos de avançada resultou numa área de trabalho de análise de registos. Para saber mais sobre os preços plano volte [clique aqui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+        Análise de tráfego é limitado para dados de registo de fluxo, processados pelo serviço e armazenar os registos de avançada resultou numa área de trabalho de análise de registos. Para saber mais sobre os preços plano volte [clique aqui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Como navegar através de teclado na vista de mapa Georreplicação?
 
@@ -162,3 +170,47 @@ Análise de tráfego é limitado para dados de registo de fluxo, processados pel
         - `ESC` Fecha a seleção expandida.
         - O `UP Arrow` chave efetua a mesma ação como `ESC`. O `Down arrow` chave efetua a mesma ação como `Enter`.
         - Utilize `Shift+Plus` para aplicar zoom no, e `Shift+Minus` para reduzir.
+
+17. Como navegar através de teclado na vista de topologia de VNet?
+
+    A página de topologia de redes virtuais contém duas secções principais:
+    
+    - **Faixa**: A faixa colocada na parte superior da topologia de redes virtuais fornece a capacidade para selecionar os filtros de distribuição de tráfego através de botões como ligado VNets/desligado VNets/ativo/inativo/no-no local/Azure região/público IPs / Pesado/média/baixa/permitidos/bloqueado e informações de legenda. Na seleção de botões definidos, o respetivo filtro é aplicado a topologia, como se um utilizador seleciona o botão Filtro "Ativo" na faixa, em seguida, a topologia realça as VNets "Ativas" na sua implementação.
+    - **Topologia**: secção topologia o colocada abaixo a faixa mostra a distribuição de tráfego entre as VNets.
+    
+    **Navegação do teclado na faixa**
+    
+    - Por predefinição, a seleção na página de topologia de redes virtuais para a faixa é o filtro "VNets ligados" botão.
+    - Para navegar para outra botão de filtros, pode utilizar o `Tab` chave para mover seguinte. Para navegar para trás, utilize `Shift+Tab` chave. Precedência de direção de navegação de avanço é esquerda para a direita, seguido de parte superior para parte inferior.
+    - Prima a `Enter` tecla de seta para aplicar o filtro selecionado. Com base na seleção de filtro e a implementação, um ou vários nós (VNet) na secção topologia são realçados.
+        - Alternar entre **faixa** e **topologia**, prima `Ctrl+F6`.
+        
+    **Navegação do teclado na topologia**
+    
+    - Depois de ter selecionado qualquer filtro na faixa e premido `Ctrl+F6`, foco é movido para um de nós realçados (**VNet**) na vista de topologia.
+    - Para navegar para outra realçado nós na vista de topologia, pode utilizar o `Shift+Right arrow` chave para o movimento de reencaminhar. 
+    - Nós realçado, o foco move para o **informações ferramenta caixa** para o nó. Por predefinição, foco move para botão "Obter mais detalhes" o **informações ferramenta caixa**. Para obter mais navegar no interior **caixa** ver, utilize `Right` e `Left arrow` chaves mover reencaminhar e trás, respetivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado no **informações ferramenta caixa**.
+    - Na seleção de quaisquer de nós respetiva todas as ligações podem ser visitadas, um por um, premindo `Shift+Left arrow` chave. Move foco para o **informações ferramenta caixa** dessa ligação. Em qualquer momento, o foco pode desviado novamente para o nó ao premir `Shift+Right arrow` novamente.
+    
+
+18. Como navegar através de teclado na vista de topologia de sub-rede?
+
+    A página de topologia de sub-redes virtuais contém duas secções principais:
+    
+    - **Faixa**: A faixa colocada na parte superior da topologia de sub-redes virtuais fornece a capacidade para selecionar os filtros de distribuição de tráfego através de botões como Active/Inactive/externa ligações/no-no local/Azure região/público IPs/flui do Active Directory / Pesado/média/baixa/maliciosos tráfego/permitidos/bloqueado, as sub-redes de sub-redes/back-end do Gateway e sub-redes de front-end. Na seleção de botões definidos, o respetivo filtro é aplicado a topologia, como se um utilizador seleciona o botão Filtro "Ativo" na faixa, em seguida, a topologia realça as sub-rede Virtual "Ativo" na sua implementação.
+    - **Topologia**: secção topologia o colocada abaixo a faixa mostra a distribuição de tráfego entre sub-redes virtuais.
+    
+    **Navegação do teclado na faixa**
+    
+    - Por predefinição, a seleção na página topologia de sub-redes virtuais para a faixa é o filtro botão "Sub-redes".
+    - Para navegar para outra botão de filtros, pode utilizar o `Tab` chave para mover seguinte. Para navegar para trás, utilize `Shift+Tab` chave. Precedência de direção de navegação de avanço é esquerda para a direita, seguido de parte superior para parte inferior.
+    - Prima a `Enter` tecla de seta para aplicar o filtro selecionado. Com base na seleção de filtro e a implementação, um ou vários nós (sub-rede) na secção topologia são realçados.
+        - Alternar entre **faixa** e **topologia**, prima `Ctrl+F6`.
+        
+    **Navegação do teclado na topologia**
+    
+    - Depois de ter selecionado qualquer filtro na faixa e premido `Ctrl+F6`, foco é movido para um de nós realçados (**sub-rede**) na vista de topologia.
+    - Para navegar para outra realçado nós na vista de topologia, pode utilizar o `Shift+Right arrow` chave para o movimento de reencaminhar. 
+    - Nós realçado, o foco move para o **informações ferramenta caixa** para o nó. Por predefinição, foco move para botão "Obter mais detalhes" o **informações ferramenta caixa**. Para obter mais navegar no interior **caixa** ver, utilize `Right` e `Left arrow` chaves mover reencaminhar e trás, respetivamente. Premir `Enter` tem o mesmo efeito que selecionar o botão focado no **informações ferramenta caixa**.
+    - Na seleção de quaisquer de nós respetiva todas as ligações podem ser visitadas, um por um, premindo `Shift+Left arrow` chave. Move foco para o **informações ferramenta caixa** dessa ligação. Em qualquer momento, o foco pode desviado novamente para o nó ao premir `Shift+Right arrow` novamente.    
+

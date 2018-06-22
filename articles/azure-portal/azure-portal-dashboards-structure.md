@@ -3,7 +3,7 @@ title: A estrutura dos Dashboards do Azure | Microsoft Docs
 description: Este artigo explica a estrutura JSON de um Dashboard do Azure
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2eb9289957968db04b78087413fb9df8ed1b085b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165184"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301677"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento explica a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:

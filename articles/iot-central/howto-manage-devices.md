@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807480"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300599"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -49,7 +49,7 @@ Para adicionar um dispositivo à sua aplicação do Azure IoT Central:
 1. Escolha **Real** ou **Simulated**. Um dispositivo real é para um dispositivo físico se ligar à sua aplicação do Azure IoT Central. Um dispositivo simulado tem dados de exemplo gerados pelo Azure IoT Central. Este exemplo utiliza um dispositivo real. Escolha **Real** para navegar para o **detalhes do dispositivo** página para o novo dispositivo.
 
 
-## <a name="bulk-import-devices"></a>Dispositivos de importação em volume
+## <a name="import-devices"></a>Importar dispositivos
 
 Para ligar o elevado número de dispositivos à sua aplicação do Azure IoT Central ofertas em massa importação dispositivos através de um ficheiro CSV. 
 
@@ -65,9 +65,12 @@ Para registar de em massa dispositivos na sua aplicação:
 
 1. No painel esquerdo, selecione o modelo de dispositivo para o qual pretende em massa criar os dispositivos.
 
-1. Escolha **novo** e selecione **importação em volume**.
+ >   [!NOTE] 
+    Se não tiver um modelo de dispositivo, mas, em seguida, pode importar dispositivos em **não associadas dispositivos** e registe-as sem qualquer modelo. Depois de terem sido importados dispositivos, pode, em seguida, associá-los com um modelo como um passo subsequente.
 
-    [![Ação de importação em volume](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Clique em **importar**.
+
+    [![Ação de importação](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Selecione o ficheiro CSV que tem a lista de IDs de dispositivo para ser importado.
 
@@ -75,9 +78,25 @@ Para registar de em massa dispositivos na sua aplicação:
 
 1. Assim que a importação estiver concluída, é apresentada uma mensagem de êxito na grelha de dispositivo.
 
-    [![Sucesso de importação em volume](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importar com êxito](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Se o dispositivo importar falha da operação, verá uma mensagem de erro na grelha de dispositivo. Um ficheiro de registo capturar todos os erros for gerado, podendo ser transferido clicando a mensagem de erro.
+
+
+**A associação de dispositivos com um modelo**
+
+Se registar dispositivos ao iniciar a importação em **não associadas dispositivos**, em seguida, os dispositivos são criados sem qualquer associação de modelo do dispositivo. Dispositivo tem de estar associado a um modelo para explorar os dados e outros detalhes sobre o dispositivo. Siga estes passos para associar os dispositivos com um modelo:
+1. Escolha **Explorer** no menu de navegação esquerdo.
+1. No painel esquerdo, escolha **não associadas dispositivos**.
+    [![Dispositivos não associados](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Selecione os dispositivos que pretende associar um modelo.
+1. Clique em **associar** opção.
+    [![Associar dispositivos](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Escolha o modelo da lista de modelos disponíveis e clique em **associar** botão.
+1. Os dispositivos selecionados serão movidos sob o modelo do respetivo dispositivo.
+
+ >   [!NOTE] 
+    Depois de um dispositivo foi associado a um modelo não é possível alterar ou associado a outro modelo.
 
 ## <a name="export-devices"></a>Dispositivos de exportação
 
@@ -86,7 +105,7 @@ Para aprovisionar dispositivos liguem à IoT Central, terá da cadeia de ligaç�
 Para efetuar em massa de dispositivos de exportação da sua aplicação:
 1. Escolha **Explorer** no menu de navegação esquerdo.
 
-1. Um painel esquerdo, escolha o modelo de dispositivo para o qual pretende exportar os dispositivos.
+1. No painel esquerdo, escolha o modelo de dispositivo para o qual pretende exportar os dispositivos.
 
 1. Selecione os dispositivos que pretende exportar e, em seguida, clique em de **exportar** ação.
 

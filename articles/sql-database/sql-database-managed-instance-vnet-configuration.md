@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648069"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309338"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para instância gerida de base de dados SQL do Azure
 
 Instância do Azure SQL da base de dados geridos (pré-visualização) tem de ser implementada dentro de um Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Esta implementação permite que os seguintes cenários: 
-- Ligar a uma instância de geridos diretamente formam uma rede no local 
+- Ligar a uma instância geridos diretamente a partir de uma rede no local 
 - Ligar uma instância de gerido para o servidor ligado ou para outro local arquivo de dados 
 - Ligar uma instância gerida nos recursos do Azure  
 

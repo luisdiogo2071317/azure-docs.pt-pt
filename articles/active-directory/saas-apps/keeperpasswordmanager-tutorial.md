@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ef20cdb0f6a7b5afd624a7910495ee784140c48
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219987"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308147"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Azure Active Directory com o Gestor de palavras-passe Keeper & digitais Cofre
 
@@ -133,7 +133,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
-7. Para configurar o início de sessão único em **Gestor de palavras-passe Keeper & digitais cofre configuração** lado, siga as diretrizes fornecidas durante a [Keeper guia de suporte](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf)
+7. Para configurar o início de sessão único em **Gestor de palavras-passe Keeper & digitais cofre configuração** lado, siga as diretrizes fornecidas durante a [guia de suporte de Keeper](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713869"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309863"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713869"
 **P: Posso registado o dispositivo recentemente. Por que motivo não é possível ver o dispositivo nas minhas informações de utilizador no portal do Azure?**
 
 **R:** dispositivos Windows 10 que são híbrida do Azure AD associado não mostrar dos dispositivos dos utilizadores.
-Terá de utilizar o PowerShell para ver todos os dispositivos. 
+Tem de utilizar a vista do todos os dispositivos no portal do Azure. Também pode utilizar o PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Os seguintes dispositivos estão listados dos dispositivos dos utilizadores:
 
@@ -52,25 +52,24 @@ Os seguintes dispositivos estão listados dos dispositivos dos utilizadores:
 - Todos os não - Windows 10 / dispositivos do Windows Server 2016.
 - Todos os dispositivos não Windows 
 
----
-
-**P: por que motivo não posso ver todos os dispositivos registados no Azure Active Directory no portal do Azure?** 
-
-**R:** agora, pode ver-os no diretório do Azure AD -> todos os menu de dispositivos. Também pode utilizar o Azure PowerShell para localizar todos os dispositivos. Para obter mais detalhes, consulte o [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
-
 --- 
 
 **P: como posso saber o que é o estado de registo do dispositivo do cliente?**
 
-**R:** para Windows 10 e Windows Server 2016 ou posterior inscritos, execute dsregcmd.exe /status.
+**R:** pode utilizar o portal do Azure, aceda a todos os dispositivos e procure o dispositivo com o ID de dispositivo. Verifique o valor na coluna de tipo de associação.
 
-Para versões de SO de nível inferior, execute "%programFiles%\Microsoft Join\autoworkplace.exe à área de trabalho"
+Se pretende verificar o estado de registo do dispositivo local de um dispositivo registado:
+
+- Para Windows 10 e Windows Server 2016 ou posterior inscritos, execute dsregcmd.exe /status.
+- Para versões de SO de nível inferior, execute "%programFiles%\Microsoft Join\autoworkplace.exe à área de trabalho"
 
 ---
 
-**P: por que motivo é um dispositivo posso ter eliminado no portal do Azure ou através do Windows PowerShell ainda apresentado na lista como registado?**
+**P: Posso ter eliminado no portal do Azure ou utilizar o Windows PowerShell, mas o estado local no dispositivo a indicar que permanece registado?**
 
-**R:** isto é propositado. O dispositivo não terão acesso aos recursos na nuvem. Se pretender voltar a registar novamente, tem de ser uma ação manual para ser executada no dispositivo. 
+**R:** isto é propositado. O dispositivo não terão acesso aos recursos na nuvem. 
+
+Se pretender voltar a registar novamente, tem de ser uma ação manual para ser executada no dispositivo. 
 
 Para limpar o estado de associação do Windows 10 e Windows Server 2016 que estão no local associados a um domínio do AD:
 
@@ -85,6 +84,13 @@ Para versões de SO Windows de nível inferior que estão no local AD associados
 1.  Abra a linha de comandos como administrador.
 2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+* * P: Como posso anulação da associação a um dispositivo do Azure AD associados localmente no dispositivo?
+**R:** 
+- Para dispositivos do Azure AD associados híbrida, certifique-se desativar o registo automático para que a tarefa agendada não registar o dispositivo novamente. Em seguida, abra a linha de comandos como um administrador e escreva `dsregcmd.exe /debug /leave`. Em alternativa, este comando pode ser executado como um script em vários dispositivos ao desassociar em massa.
+
+- Para puro associados do AD do Azure dispositivos, certifique-se de um administrador local offline conta ou criar um, como não conseguirá iniciar sessão com as credenciais de utilizador do Azure AD. Em seguida, aceda a **definições** > **contas** > **acesso ou escola**. Selecione a sua conta e clique em **desligar**. Siga as instruções e forneça as credenciais de administrador local quando lhe for pedido. Reinicie o dispositivo para concluir o processo de unjoin.
 
 ---
 
@@ -119,7 +125,7 @@ Para versões de SO Windows de nível inferior que estão no local AD associados
 ---
 
 
-**P: Posso ver o registo de dispositivos com as informações de utilizador no portal do Azure e pode ver o estado, tal como registado no cliente. Estou que posso configurar corretamente para utilizar o acesso condicional?**
+**P: Posso ver o registo de dispositivos com as informações de utilizador no portal do Azure e pode ver o estado, tal como registado no dispositivo. Estou que posso configurar corretamente para utilizar o acesso condicional?**
 
 **R:** o estado de associação do dispositivo, refletido pela deviceID, tem de corresponde à que sobre o Azure AD e cumprem os critérios de avaliação para o acesso condicional. Para obter mais detalhes, consulte [introdução ao registo de dispositivos do Azure Active Directory](active-directory-device-registration.md).
 
@@ -137,6 +143,8 @@ Para versões de SO Windows de nível inferior que estão no local AD associados
 
 - Inícios de sessão federados requer o seu servidor de Federação para suportar um ponto final ativo de WS-Trust. 
 
+- Ativou pass-through Authentication e o utilizador tem uma palavra-passe temporária que tem de ser alteradas no início de sessão.
+
 ---
 
 **P: por que motivo consulte o "Oops... Ocorreu um erro!" diálogo ao tentar fazer do Azure AD associe o meu computador?**
@@ -147,7 +155,7 @@ Para versões de SO Windows de nível inferior que estão no local AD associados
 
 **P: por que motivo meu tentativa de associação um PC falharem apesar de não recebi quaisquer informações de erro?**
 
-**R:** uma causa provável é que o utilizador inicia sessão no dispositivo com a conta de administrador incorporada. Crie uma conta local diferente antes de utilizar a associação do Azure Active Directory para concluir a configuração. 
+**R:** uma causa provável é que o utilizador inicia sessão no dispositivo com a conta de administrador incorporada local. Crie uma conta local diferente antes de utilizar a associação do Azure Active Directory para concluir a configuração. 
 
 ---
 

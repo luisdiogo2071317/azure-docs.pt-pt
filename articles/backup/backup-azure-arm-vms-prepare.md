@@ -7,14 +7,14 @@ manager: carmonm
 keywords: cópias de segurança; cópia de segurança;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5aa07d7861413fa0ddc0d5af7aefe828df412b4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606641"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309151"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -34,11 +34,14 @@ Antes de proteger (ou cópia de segurança) uma máquina virtual implementadas n
 Se estas condições já existem no seu ambiente, avance para o [cópia de segurança as suas VMs](backup-azure-arm-vms.md) artigo. Se precisar de configurar ou qualquer um destes pré-requisitos verificar, este artigo orienta-o através dos passos.
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemas operativos suportados para cópia de segurança
- * **Linux**: cópia de segurança do Azure suporta [uma lista das distribuições Azure patrocina](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto CoreOS Linux. 
- 
+
+ * **Linux**: cópia de segurança do Azure suporta [uma lista das distribuições Azure patrocina](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto CoreOS Linux. Para obter a lista dos sistemas operativos Linux que suportam o restauro de ficheiros, consulte [recuperar ficheiros de cópia de segurança da máquina virtual](backup-azure-restore-files-from-vm.md#for-linux).
+
     > [!NOTE] 
     > Outras bring-your-proprietário-as distribuições do Linux podem funcionar, desde que o agente VM está disponível na máquina virtual e suporte para o Python existe. No entanto, essas distribuições não são suportadas.
- * **Windows Server**: não são suportadas as versões mais antigas do que o Windows Server 2008 R2.
+    >
+ * **Windows Server**, **cliente Windows**: as versões anteriores ao Windows Server 2008 R2 ou Windows 7, não são suportadas.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações ao fazer cópias de segurança e restauro de uma VM
 Antes de preparar o seu ambiente, é necessário compreender estas limitações:

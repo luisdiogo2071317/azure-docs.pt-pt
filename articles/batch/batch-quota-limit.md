@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310541"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304452"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -51,14 +51,10 @@ Se criou uma conta do Batch com o modo de atribuição de agrupamento definido c
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 x número de núcleos de nó |
 | [Aplicações](batch-application-packages.md) por conta do Batch |20 |
 | Pacotes de aplicação por aplicação |40 |
-| Tamanho do pacote de aplicação (cada) |Aprox 195GB<sup>1</sup> |
-| Tamanho de tarefa de início máximo | 32768 carateres<sup>2</sup> |
-| Duração máxima de tarefas | 7 dias<sup>3</sup> |
+| Duração máxima de tarefas | 7 dias<sup>1</sup> |
 | Nós de computação num conjunto de comunicação entre nós ativada | 100 |
 
-<sup>1</sup> limite de armazenamento do azure para o tamanho do blob de bloco máximo<br />
-<sup>2</sup> inclui ficheiros de recursos e as variáveis de ambiente<br />
-<sup>3</sup> a duração máxima de uma tarefa, a partir da quando é adicionada à tarefa para quando estiver concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
+<sup>1</sup> a duração máxima de uma tarefa, a partir da quando é adicionada à tarefa para quando estiver concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
 
 ## <a name="view-batch-quotas"></a>Ver as quotas de Batch

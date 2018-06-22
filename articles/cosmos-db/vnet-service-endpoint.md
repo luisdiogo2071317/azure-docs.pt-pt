@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 76387733b1511593280f4a9439f5ddbf12d60975
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294000"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302007"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure
 
@@ -125,15 +125,16 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
 4. Prepare para a ativação da ACL na conta CosmosDB, certificando-se de que a rede virtual e a sub-rede têm ponto final de serviço ativado para a base de dados do Azure Cosmos.
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. Obter propriedades de conta de base de dados do Azure Cosmos executando o seguinte cmdlet:  
 
    ```powershell
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
    $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -152,7 +153,7 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -166,7 +167,7 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
+   Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `

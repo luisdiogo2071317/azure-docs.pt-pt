@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650473"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309219"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Otimização de desempenho na SQL Database do Azure
 
@@ -25,7 +25,7 @@ Em não tem recomendações aplicáveis e continuará a ter problemas de desempe
 - Otimizar a sua aplicação e aplicam-se algumas melhores práticas que podem melhorar o desempenho. 
 - Otimize a base de dados ao alterar índices e consultas de forma mais eficiente trabalhar com dados.
 
-Estes são os métodos manuais porque terá de decidir o que [limites de recurso de modelo baseado em DTU](sql-database-dtu-resource-limits.md) e [limites de recurso de modelo baseado em vCore (pré-visualização)](sql-database-vcore-resource-limits.md) satisfazer as suas necessidades. Caso contrário, terá de reescrever a aplicação ou código base de dados e implementar as alterações.
+Estes são com frequência métodos manuais, porque terá de decidir a quantidade de recursos cumprem às suas necessidades. Caso contrário, terá de reescrever a aplicação ou código base de dados e implementar as alterações.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentar a camada de desempenho da base de dados
 
@@ -271,8 +271,8 @@ Algumas aplicações são escrita intensivas. Por vezes, pode reduzir a carga de
 Algumas aplicações de base de dados têm cargas de trabalho pesado de leitura. Colocação em cache camadas pode reduzir a carga na base de dados e pode, possivelmente, reduzir o nível de desempenho necessário para suportar uma base de dados ao utilizar a SQL Database do Azure. Com [a Cache de Redis do Azure](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho pesado de leitura, pode ler os dados uma vez (ou, talvez, uma vez por máquina de camada de aplicação, dependendo de como estiver configurado) e, em seguida, armazenar esses dados fora da sua base de dados do SQL Server. Esta é uma forma para reduzir a carga de base de dados (CPU e/s de leitura), mas não existe um efeito em consistência transacional porque os dados a ser lidos a partir da cache poderão ser sincronizados com os dados na base de dados. Embora muitas aplicações algum nível de inconsistência é aceitável, que não é true para todas as cargas de trabalho. Deve compreender os requisitos da aplicação antes de implementar uma estratégia de colocação em cache de camada de aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para mais informações sobre os escalões de serviço com base em DTU, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [limites de recurso de modelo baseado em DTU](sql-database-dtu-resource-limits.md)
-* Para mais informações sobre os escalões de serviço com base em vCore, consulte [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md) e [limites de recursos baseados em vCore (pré-visualização)](sql-database-vcore-resource-limits.md)
+* Para obter mais informações sobre os escalões de serviço com base em DTU, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).
+* Para mais informações sobre os escalões de serviço com base em vCore, consulte [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 * Para obter mais informações sobre conjuntos elásticos, consulte [o que é um conjunto elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre agrupamentos de desempenho e elásticos, consulte [quando considerar um conjunto elástico](sql-database-elastic-pool-guidance.md)
 

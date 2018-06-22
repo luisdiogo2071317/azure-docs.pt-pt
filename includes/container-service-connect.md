@@ -19,7 +19,7 @@ Siga estes passos para instalar e configurar `kubectl` no seu computador.
 > 
 
 ### <a name="install-kubectl"></a>Instalar o kubectl
-Uma forma de instalar esta ferramenta é utilizar o comando `az acs kubernetes install-cli` da CLI do Azure 2.0. Para executar este comando, confirme que [instalou](/cli/azure/install-az-cli2) a mais recente CLI do Azure 2.0 e que tem sessão iniciada numa conta do Azure (`az login`).
+Uma forma de instalar esta ferramenta é utilizar o comando `az acs kubernetes install-cli` da CLI do Azure 2.0. Para executar este comando, certifique-se de que a [instalado](/cli/azure/install-az-cli2) a CLI do Azure mais recente 2.0 e com sessão iniciada numa conta do Azure (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -193,7 +193,7 @@ Depois de configurar o túnel para DC/OS, pode aceder ao pontos finais relaciona
 
 Depois de configurar o túnel para Docker Swarm, abra as definições do Windows para configurar uma variável de ambiente do sistema com o nome `DOCKER_HOST` e um valor de `:2375`. Depois, pode aceder ao cluster do Swarm através da CLI do Docker.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Implementar e gerir contentores no seu cluster:
 
 * [Trabalhar com o Azure Container Service e o Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-ui.md)

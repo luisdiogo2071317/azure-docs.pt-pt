@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647345"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308684"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Armazenamento de monitor de memória OLTP
-Quando utilizar [OLTP na memória](sql-database-in-memory.md), dados em tabelas com otimização de memória e variáveis de tabela residem no armazenamento do OLTP dentro da memória. Cada escalão de serviço Premium e críticos de negócio tem um tamanho de armazenamento de OLTP na memória máximo, o que é descrito da [limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md). Depois deste limite for excedido, insira e atualizar operações poderão começam a falhar com o erro 41823 para bases de dados autónomo e o erro 41840 para conjuntos elásticos. Nesse momento é necessário para eliminar dados para reclamar memória, ou Atualize o escalão de desempenho da base de dados.
+Quando utilizar [OLTP na memória](sql-database-in-memory.md), dados em tabelas com otimização de memória e variáveis de tabela residem no armazenamento do OLTP dentro da memória. Cada escalão de serviço Premium e críticos de negócio tem um tamanho de armazenamento máximo do OLTP dentro da memória. Consulte [limites de recursos baseados em DTU - base de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+
+Depois deste limite for excedido, insira e atualizar operações poderão começam a falhar com o erro 41823 para bases de dados autónomo e o erro 41840 para conjuntos elásticos. Nesse momento é necessário para eliminar dados para reclamar memória, ou Atualize o escalão de desempenho da base de dados.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se dados enquadra-se a cobertura de armazenamento OLTP na memória
-Determine os caps de armazenamento das camadas de serviços diferentes. Consulte [limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
+Determine os caps de armazenamento das camadas de serviços diferentes. Consulte [limites de recursos baseados em DTU - base de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Estimar requisitos de memória para funciona de uma tabela com otimização de memória da mesma forma para o SQL Server que se faz na SQL Database do Azure. Demorar alguns minutos para rever esse artigo de [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

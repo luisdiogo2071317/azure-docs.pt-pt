@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725450"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308164"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -280,6 +280,10 @@ Se partilhar uma conta de armazenamento por várias aplicações de função, ce
 ## <a name="retry-behavior"></a>Comportamento de tentativas
 
 Ao contrário do acionador de fila, o acionador de temporizador não repita após a falha de uma função. Quando uma função falha, não é chamado novamente até à próxima vez na agenda.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Para obter informações sobre o que fazer quando o acionador de temporizador não funciona conforme esperado, consulte [Investigating e relatórios de problemas com temporizador acionada funções não acionando](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 58cf30163837f6d3c327b7c0c6c2542ea294e8d6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229000"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com Shmoop para escolas
 
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop para escola suporta duas funções para os utilizadores: **professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para saber como configurar as funções no Azure AD, consulte [controlo de acesso baseado em funções na aplicações em nuvem com o Azure AD](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+    > Shmoop para escola suporta duas funções para os utilizadores: **professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para saber como configurar as funções no Azure AD, consulte [gerir o acesso através do portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
     
 5. No **atributos de utilizador** secção o **de sessão único-** diálogo caixa, configure o atributo de token SAML, conforme mostrado na imagem anterior.  Em seguida, siga os passos seguintes:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e92d1ba948626c05e7b66d2c0d469ac6c6571a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228191"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Azure Active Directory com TimeOffManager
 
@@ -112,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de resposta real. Pode obter este valor de **início de sessão único na página Definições** que é explicada mais tarde no tutorial ou contacte [equipa de suporte de TimeOffManager](http://www.timeoffmanager.com/contact-us.aspx).
+    > Este valor não é real. Atualize este valor com o URL de resposta real. Pode obter este valor de **início de sessão único na página Definições** que é explicada mais tarde no tutorial ou contacte [equipa de suporte de TimeOffManager](https://www.purelyhr.com/contact-us).
  
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825258"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309543"
 ---
 # <a name="grow-your-business-with-appsource"></a>Aumentar a sua empresa com AppSource  
 Utilizar AppSource quando a interagir com os clientes de negócio para localizar, tente e obter a linha de negócio software como serviço (SaaS) aplicações e serviços de implementação para ajudar a resultados de negócios de unidade e reduzir o tempo de valor.  
@@ -32,8 +32,7 @@ Utilizar AppSource quando a interagir com os clientes de negócio para localizar
 | ***Aplicações para ajudar a melhorar a produtividade, eficiência e informações de negócio*** | Fornece as aplicações para as linhas da empresa, incluindo o serviço de cliente, HR, operações e muito mais |  
 | ***Parceiro de experiência de implementação para o ajudar a adaptar aplicações para a situação exclusiva para o seu cliente*** | Fornece um catálogo de ofertas de serviços de consultoria para soluções baseadas no Dynamics 365, Power BI, PowerApps e aplicações de parceiros para ajudar os utilizadores empresariais fornecer previsíveis resultados |  
 
-<!-- # Grow your business with AppSource  -->
-Azure Marketplace e AppSource são pontos de iniciar conjunta mercado aceda atividades com a Microsoft e um flywheel crescimento de negócio. Utilizando a promoção de iniciação, geração a pedido e conjunta venda e marketing, a oferta do marketplace pode ser centerpiece do motor de negócio a nuvem. Não existem não existem taxas para participar. Os clientes Microsoft visitam os storefronts no marketplace diariamente para localizar os direita aplicações e serviços para ajudar a melhorar o negócio para o seu cliente. Objetivo da Microsoft está a ligar organizações com as soluções e serviços da Microsoft e Microsoft parceiros.  
+<!-- # Grow your business with AppSource  --> Azure Marketplace e AppSource são pontos de iniciar conjunta mercado aceda atividades com a Microsoft e um flywheel crescimento de negócio. Utilizando a promoção de iniciação, geração a pedido e conjunta venda e marketing, a oferta do marketplace pode ser centerpiece do motor de negócio a nuvem. Não existem não existem taxas para participar. Os clientes Microsoft visitam os storefronts no marketplace diariamente para localizar os direita aplicações e serviços para ajudar a melhorar o negócio para o seu cliente. Objetivo da Microsoft está a ligar organizações com as soluções e serviços da Microsoft e Microsoft parceiros.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Vantagens de negócio de associação um mercado de nuvem  
 Existem várias razões convincentes pelas quais por que motivo deve aderir storefronts no marketplace. Seguem-se as vantagens especificamente para listar as ofertas no AppSource para o ajudar a aumentar a sua empresa:  
@@ -53,7 +52,7 @@ Existem várias razões convincentes pelas quais por que motivo deve aderir stor
 *   **Lista as ofertas de serviços de consultoria**  
     Os utilizadores empresariais procura experiente parceiros ajudar a começar com confiança por oferta de serviços de consultoria qualidade concebidos para fornecer resultados previsíveis de cliente. As ofertas de serviços de consultoria para ajudar os utilizadores empresariais localizar ofertas para ajudar o cliente começar rapidamente a uma lista.  
 *   **Começar com confiança**  
-    A equipa de Microsoft AppSource está aqui para fornecer uma experiência totalmente integrada de integração. A equipa de AppSource está disponível para o ajudar a cada passo da forma como — se está a funcionar a experiência de unidade versão de avaliação ou de teste, ajudando-o a cumprir os critérios de listagem e muito mais.  
+    A equipa de Microsoft AppSource está aqui para fornecer uma experiência totalmente integrada de integração. A equipa de AppSource está disponível para o ajudar a cada passo da forma como; Se está a funcionar a experiência de unidade versão de avaliação ou de teste, ajudando-o a cumprir os critérios de listagem e muito mais.  
 *   **Personalizar a página de listagem aplicação**  
     Tem a flexibilidade quando se trata de decidir como pretende market as suas aplicações em AppSource. Fornece um vídeo, folhas de dados, documentação e uma descrição detalhada. Microsoft funciona com a presente a sua aplicação no AppSource de forma convincentes.  
 *   **Obter conhecimentos acionáveis**  
@@ -112,7 +111,7 @@ As tabelas seguintes cada passo da preencher a listagem de oferta de detalhe.
 | Definições storefront | Melhores práticas | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Nome da oferta** | O resumo de oferta é apresentada na página de pesquisa de oferta na Galeria de aplicações e Home page do AppSource. Inclua as palavras a procurar na sua resumo de oferta para ajudar a melhorar a classificação da sua aplicação nos resultados do motor de pesquisa. |
-| **Descrição da oferta** | **Forneça uma descrição de boa oferta**<br />Claramente descrevem a proposta de valor de oferta nas frases primeiro alguns dos seus descrição. Tenha em atenção que o primeiro frases alguns podem ser apresentados nos resultados do motor de pesquisa.<br />Não dependem de funções e funcionalidades para vender o produto. Em vez disso, concentre-se no valor que fornecer. Utilize específicos da indústria vocabulário ou baseada em benefício palavras utilizadas quanto possível.<br />Componentes principais do seu proposta de valor devem incluir informações sobre:<br />•What é o produto<br />•Who obtiver a partir do mesmo mais<br />É necessário •What, ou tensão não-endereço.<br />Informe os seus clientes como as respetivas empresas ou a vida profissional pode ser diferente depois que utilizam a sua solução.<br />Incorpore as palavras a procurar e variações de palavra-chave na descrição do seu oferta para ajudar a melhorar a classificação de oferta nos resultados do motor de pesquisa.<br />Forneça a descrição de oferta utilizando simple HTML.<br />Eis um exemplo de uma oferta simple listagem página (conforme ilustrado no exemplo listagem mostrado acima), que fornece um resumo de oferta seguido por uma lista de capacidades principais. O número máximo de carateres é 3,000.<br />_Exemplo HTML_<br /><p>Informações da organização para o Dynamics 365 (online) fornece métricas de utilização e adoção importantes para a sua organização de Dynamics 365 e ferramentas que ajudam a Se antecipar aos problemas de desempenho e suporte.</p> <ul><li><strong>Personalizar dashboards</strong><br /> Configure o seu dashboard para fornecer uma experiência de utilizador avançado e instantâneos dos seus dados importantes.<ul> <li><strong>Monitorizar a adoção e utilizar:</strong> identificar os utilizadores mais ativos, número de pedidos de página, entidades mais utilizados, fluxos de trabalho e muito mais.</li> </ul><p>Mínimo a versão de plataforma suportada: 8.1.1</p> |
+| **Descrição da oferta** | **Forneça uma descrição de boa oferta**<br />Claramente descrevem a proposta de valor de oferta nas frases primeiro alguns dos seus descrição. Tenha em atenção que o primeiro frases alguns podem ser apresentados nos resultados do motor de pesquisa.<br />Não dependem de funções e funcionalidades para vender o produto. Em vez disso, concentre-se no valor que fornecer. Utilize específicos da indústria vocabulário ou baseada em benefício palavras utilizadas quanto possível.<br />Componentes principais do seu proposta de valor devem incluir informações sobre:<ul> <li>O que é o produto</li>  <li>Que obtém a partir do mesmo mais</li> <li>Que é necessário, ou tensão does-lo de endereços.</li> </ul>Informe os seus clientes como as respetivas empresas ou a vida profissional pode ser diferente depois que utilizam a sua solução.<br />Incorpore as palavras a procurar e variações de palavra-chave na descrição do seu oferta para ajudar a melhorar a classificação de oferta nos resultados do motor de pesquisa.<br />Forneça a descrição de oferta utilizando simple HTML.<br />Eis um exemplo de uma oferta simple listagem página (conforme ilustrado no exemplo listagem mostrado acima), que fornece um resumo de oferta seguido por uma lista de capacidades principais. O número máximo de carateres é 3,000.<br />*Exemplo HTML*<br />Informações da organização para o Dynamics 365 (online) fornece métricas de utilização e adoção importantes para a sua organização de Dynamics 365 e ferramentas que ajudam a Se antecipar aos problemas de desempenho e suporte. <ul> <li>**Personalizar dashboards**<br />Configure o seu dashboard para fornecer uma experiência de utilizador avançado e instantâneos dos seus dados importantes.<ul> <li>**Monitorizar a adoção e utilizar**<br />Identificar os utilizadores mais ativos, número de pedidos de página, entidades mais utilizados, fluxos de trabalho e muito mais.</li> </ul></li> </ul>Versão mínima de plataforma suportada: `8.1.1` |
 
 **Detalhes storefront - detalhes de listagem**  
 
@@ -134,7 +133,7 @@ As tabelas seguintes cada passo da preencher a listagem de oferta de detalhe.
 | **Capturas de ecrã** | Adicionar capturas de ecrã até cinco, incorporar palavras de chave de pesquisa dos nomes. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Promover a disponibilidade da sua oferta no AppSource  
-Quando a sua oferta está listada no AppSource, ter resultantes o direito para apresentar o destaque de "Disponível no AppSource" na sua página. 
+Quando a sua oferta está listada no AppSource, ter resultantes o direito de apresentar a ***disponível no AppSource*** destaque na sua página. 
 
  ![AppSource destaque](./media/marketplace-appsource/appsourcebadge.png)
     

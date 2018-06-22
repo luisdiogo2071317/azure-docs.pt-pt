@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265049"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301000"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -107,7 +107,7 @@ Além disso, o NSG também ilustra a bloquear o acesso LDAP seguro através da i
 
 ![Exemplo NSG para proteger o acesso a LDAPS através da internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Obter mais informações** - [criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Obter mais informações** - [criar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Conectividade de rede
@@ -145,4 +145,4 @@ Pode ligar uma rede virtual baseada no Resource Manager para a rede virtual clá
 * [Peering de rede virtual do Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurar uma ligação VNet a VNet para o modelo de implementação clássica](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Grupos de segurança de rede do Azure](../virtual-network/security-overview.md)
-* [Criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Criar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md)

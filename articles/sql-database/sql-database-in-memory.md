@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 89e5497c10f3e24dd84333f095a9bd7c0017ea88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647872"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309304"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias de dentro da memória na base de dados do SQL Server
 
@@ -72,7 +72,7 @@ Vídeos aprofundados sobre as tecnologias de:
 
 OLTP na memória inclui tabelas com otimização de memória, que são utilizadas para armazenar dados de utilizador. Estas tabelas são necessários para caber na memória. Porque a gerir a memória diretamente no serviço de base de dados SQL, temos o conceito de uma quota de dados do utilizador. Esta ideia é referida como *armazenamento OLTP na memória*.
 
-Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. Consulte [limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
+Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. Consulte [limites de recursos baseados em DTU - base de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em vCore - conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Os seguintes itens contam para o limite de armazenamento OLTP na memória:
 

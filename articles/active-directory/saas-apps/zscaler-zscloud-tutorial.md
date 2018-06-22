@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ccd0048eb2f1ab32e9fbf403b65f68b07ada480
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227382"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud
 
@@ -116,7 +116,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
      No **URL de início de sessão** caixa de texto, escreva o URL utilizado por aos utilizadores iniciar sessão na aplicação ZScaler ZSCloud.
     
     > [!NOTE] 
-    > Tem de atualizar este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de ZSCloud Zscaler](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) para obter este valor. 
+    > Tem de atualizar este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de ZSCloud Zscaler](https://help.zscaler.com/zia) para obter este valor. 
  
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

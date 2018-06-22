@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7c2cd84df8f1eccbd30a7c8054ec8d06336cf2dd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264651"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301867"
 ---
 # <a name="utterances-in-luis"></a>Utterances no LUIS
 
@@ -52,6 +52,9 @@ Em cada iteração do modelo, não adicione uma grande quantidade de utterances.
 LUIS baseia-se efetiva modelos com utterances que estão selecionadas cuidadosamente. A adição de utterances demasiados não é útil porque introduz confusões.  
 
 É melhor começar a utilizar alguns utterances, em seguida, [rever utterances de ponto final](label-suggested-utterances.md) para extração correta de predição e a entidade de intenção.
+
+## <a name="ignoring-words-and-punctuation"></a>A ignorar palavras e de pontuação
+Se pretender ignorar palavras específicas ou pontuação no utterance exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
 
 ## <a name="training-utterances"></a>Utterances formação
 Formação não é determinística: a predição de utterance foi variam ligeiramente entre versões ou aplicações.

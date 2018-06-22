@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683054"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313749"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias VM reservados do Azure
 
@@ -24,7 +24,7 @@ Tem de utilizar um dos métodos descritos abaixo para identificar o tamanho da V
 2. Também pode obter informações de tamanho VM exatas relacionadas com o Powershell, do Azure Resource Manager ou a partir de uma VM em detalhe no portal do Azure.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma instância de Máquina Virtual reservada
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione **adicionar** para comprar uma nova instância reservado.
 4. Preencha os campos obrigatórios. Instâncias de VM em execução que corresponda os atributos que selecionar elegíveis para obter o desconto instância reservado. O número real das instâncias de VM que obtenha o desconto depende no âmbito e na quantidade selecionado.

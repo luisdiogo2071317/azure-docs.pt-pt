@@ -11,46 +11,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e7ddbe1235b3957a1e0cb7693ee728bfdbf9db6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295664"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300915"
 ---
-# <a name="maintenance-operations"></a>Operações de manutenção 
-O fornecedor de recursos do SQL Server é um bloqueado para baixo de máquina virtual. A atualização de segurança de recursos fornecedor da máquina virtual pode ser feita o ponto final do PowerShell apenas suficiente administração (JEA) _DBAdapterMaintenance_. Um script é fornecido com o pacote de instalação no RP para facilitar a estas operações.
+# <a name="sql-resource-provider-maintenance-operations"></a>Operações de manutenção de fornecedor de recursos SQL
+
+O fornecedor de recursos do SQL Server é executado numa máquina virtual bloqueada para baixo. Para ativar operações de manutenção, terá de atualizar a segurança da máquina virtual. Para fazê-lo utilizando o princípio do menor privilégio, pode utilizar [PowerShell apenas suficiente administração (JEA)](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint *DBAdapterMaintenance*. O pacote de instalação do fornecedor de recursos inclui um script para esta operação.
 
 ## <a name="patching-and-updating"></a>Aplicação de patches e atualizar
-O fornecedor de recursos do SQL Server não está manutenção como parte da pilha de Azure conforme é um componente de suplemento. Microsoft irá fornecer atualizações para o fornecedor de recursos do SQL Server, conforme necessário. O fornecedor de recursos do SQL Server é instanciado num _utilizador_ máquina virtual sob a subscrição do fornecedor predefinido. Por conseguinte, é necessário fornecer patches do Windows, assinaturas do antivírus, etc. Os Windows update a pacotes que são fornecidos como parte do ciclo de patch e atualização pode ser utilizado para aplicar as atualizações para a VM do Windows. Quando for lançada uma placa de atualizados, é fornecido um script para aplicar a actualização. Este script cria uma nova VM RP e migra qualquer Estado que já tenha.
 
- ## <a name="backuprestoredisaster-recovery"></a>Recuperação de cópia de segurança/restauro/após desastre
- O fornecedor de recursos do SQL Server não é uma cópia de segurança como parte do processo de pilha de Azure BC-DR, dado que é um componente de suplemento. Scripts serão fornecidos para facilitar a:
-- Cópia de segurança de informações de estado necessários (armazenadas numa conta de armazenamento de pilha do Azure)
-- Restaurar o RP em caso de uma recuperação de pilha completa torna-se necessário.
-Servidores de base de dados devem ser recuperadas primeiro (se necessário), antes do recurso de fornecedor é restaurado.
+O fornecedor de recursos do SQL Server não está manutenção como parte da pilha do Azure, porque é um componente de suplemento. A Microsoft fornece atualizações para o fornecedor de recursos do SQL Server, conforme necessário. Quando for lançada uma placa atualizada do SQL Server, é fornecido um script para aplicar a actualização. Este script cria um novo fornecedor de recursos VM, migrar o estado do fornecedor antigo VM para a nova VM. Para obter mais informações, consulte [atualizar o fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-update.md).
+
+### <a name="provider-virtual-machine"></a>Máquina virtual do fornecedor
+
+Porque o fornecedor de recursos é executado num *utilizador* máquina virtual, terá de aplicar os patches necessários e as atualizações quando se está a ser lançados. Pode utilizar os pacotes de atualização do Windows que são fornecidos como parte do ciclo de patch e atualização para aplicar as atualizações para a VM.
+
+## <a name="backuprestoredisaster-recovery"></a>Recuperação de cópia de segurança/restauro/após desastre
+
+ Porque é um componente de suplemento, o fornecedor de recursos do SQL Server não é uma cópia de segurança como parte de um processo de Azure pilha negócio continuidade desastre recuperação (BCDR). Scripts serão fornecidos para as seguintes operações:
+
+- Cópia de segurança de informações de estado (armazenadas numa conta de armazenamento de pilha do Azure).
+- Se uma recuperação de pilha completa é necessária a restaurar o fornecedor de recursos.
+
+>[!NOTE]
+>Se tiver de efetuar uma recuperação, os servidores de base de dados devem ser recuperadas antes do fornecedor de recursos é restaurado.
 
 ## <a name="updating-sql-credentials"></a>Atualizar as credenciais do SQL
-É responsável pela criação e manutenção de contas de administrador de sistema nos seus servidores SQL. O fornecedor de recursos tem uma conta com estas privilégios para gerir bases de dados em nome dos utilizadores - não é necessário acesso aos dados dessas bases de dados. Se precisar de atualizar as palavras-passe de sa nos seus servidores SQL, pode utilizar a capacidade de atualização da interface de administrador do fornecedor de recursos para alterar a palavra-passe armazenadas utilizado pelo fornecedor de recursos. Estas palavras-passe é armazenadas no Cofre de chaves na sua instância de pilha do Azure.
 
-Para modificar as definições, clique em **procurar** &gt; **recursos administrativo** &gt; **SQL que aloja servidores** &gt; **Inícios de sessão do SQL Server** e selecione um nome de início de sessão. A alteração têm de ser efetuada na instância do SQL Server primeiro (e todas as réplicas, se necessário). No **definições** painel, clique em **palavra-passe**.
+Está responsável pela criação e manutenção de contas de administrador do sistema em servidores SQL. O fornecedor de recursos tem uma conta com estas privilégios para gerir bases de dados para os utilizadores, mas não tem acesso a dados dos utilizadores. Se precisar de atualizar as palavras-passe de administrador do sistema em servidores SQL, pode utilizar a interface de administrador do fornecedor de recursos para alterar uma palavra-passe armazenadas. Estas palavras-passe é armazenadas no Cofre de chaves na sua instância de pilha do Azure.
+
+Para modificar as definições, selecione **procurar** &gt; **recursos administrativo** &gt; **SQL que aloja servidores** &gt; **Inícios de sessão do SQL Server** e selecione um nome de utilizador. A alteração têm de ser efetuada na instância do SQL Server primeiro (e todas as réplicas, se necessário.) Em **definições**, selecione **palavra-passe**.
 
 ![Atualizar a palavra-passe de administrador](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
-## <a name="secrets-rotation"></a>Rotação de segredos 
-*Estas instruções aplicam-se apenas ao Azure pilha integrada sistemas versão 1804 e mais tarde. Não tente rotação secreta em versões de pilha do pre-1804 do Azure.*
+## <a name="secrets-rotation"></a>Rotação de segredos
+
+*Estas instruções aplicam-se apenas para Azure pilha integrada sistemas versão 1804 e mais tarde. Não tente rodar os segredos em versões de pilha do pre-1804 do Azure.*
 
 Quando utilizar os fornecedores de recursos do SQL Server e o MySQL com pilha do Azure integrado sistemas, pode rodar os seguintes segredos de infraestrutura (implementação):
+
 - Certificado SSL externo [fornecido durante a implementação](azure-stack-pki-certs.md).
 - O recurso fornecedor VM administrador local conta palavra-passe fornecida durante a implementação.
 - Palavra-passe da utilizador diagnóstico (dbadapterdiag) do fornecedor recursos.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Exemplos do PowerShell para rodar segredos
 
-**Altere todos os segredos em simultâneo**
+**Altere todos os segredos ao mesmo tempo.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
@@ -62,16 +76,18 @@ Quando utilizar os fornecedores de recursos do SQL Server e o MySQL com pilha do
     -VMLocalCredential $localCreds
 ```
 
-**Alterar utilizador diagnóstico palavra-passe apenas**
+**Altere a palavra-passe de utilizador de diagnóstico.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
-    –DiagnosticsUserPassword  $passwd 
+    –DiagnosticsUserPassword  $passwd
 ```
 
-**Alterar a palavra-passe de conta de administrador local VM**
+**Altere a palavra-passe da conta de administrador local de VM.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
@@ -80,14 +96,15 @@ Quando utilizar os fornecedores de recursos do SQL Server e o MySQL com pilha do
     -VMLocalCredential $localCreds
 ```
 
-**Certificado SSL de alteração**
+**Altere a palavra-passe de certificado SSL.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
-    -DefaultSSLCertificatePassword $certPasswd 
+    -DefaultSSLCertificatePassword $certPasswd
 ```
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Parâmetros de SecretRotationSQLProvider.ps1
@@ -97,81 +114,103 @@ Quando utilizar os fornecedores de recursos do SQL Server e o MySQL com pilha do
 |AzCredential|Credencial de conta de administrador de serviços de pilha do Azure.|
 |CloudAdminCredential|Azure pilha nuvem domínio conta credencial de administrador.|
 |PrivilegedEndpoint|Ponto final com privilégios para aceder à Get AzureStackStampInformation.|
-|DiagnosticsUserPassword|Palavra-passe de utilizador de diagnóstico.|
-|VMLocalCredential|A conta de administrador local da MySQLAdapter VM.|
+|DiagnosticsUserPassword|Palavra-passe da conta do utilizador diagnóstico.|
+|VMLocalCredential|Conta de administrador local no MySQLAdapter VM.|
 |DefaultSSLCertificatePassword|Predefinição certificado SSL (* pfx) palavra-passe.|
-|DependencyFilesLocalPath|Caminho Local do ficheiros de dependência.|
+|DependencyFilesLocalPath|Caminho local do ficheiros de dependência.|
 |     |     |
 
 ### <a name="known-issues"></a>Problemas conhecidos
-**Problema**: os registos para rotação de segredos não são recolhidos automaticamente se o script personalizado rotação secreta falhar quando for executada.
 
-**Solução**: Utilize o cmdlet Get-AzsDBAdapterLogs para recolher todos os registos do fornecedor de recursos, incluindo AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, sob C:\Logs.
+**Problema**: registos de rotação de segredos.<br>
+Os registos para rotação de segredos não são recolhidos automaticamente se o script personalizado rotação secreta falhar quando for executada.
+
+**Solução**:<br>
+Utilize o cmdlet Get-AzsDBAdapterLogs para recolher todos os registos do fornecedor de recursos, incluindo AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, guardados no C:\Logs.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>Atualize o sistema operativo da máquina virtual
-Existem várias formas de atualizar a VM do Windows Server:
-- Instalar o pacote mais recente do fornecedor de recursos utilizando uma imagem do Windows Server 2016 Core atualmente patched
-- Instalar um pacote do Windows Update durante a instalação ou atualização no RP
+
+Utilize um dos seguintes métodos para atualizar o sistema operativo da máquina virtual.
+
+- Instale o pacote mais recente do fornecedor de recursos utilizando uma imagem do Windows Server 2016 Core patched atualmente.
+- Instalar um pacote do Windows Update durante a instalação do ou Atualize para o fornecedor de recursos.
 
 ## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Atualizar as definições do Windows Defender de máquina virtual
-Siga estes passos para atualizar as definições de Defender:
+
+Para atualizar as definições do Windows Defender:
 
 1. As definições do Windows Defender update a partir de transferência [Windows Defender definição](https://www.microsoft.com/en-us/wdsi/definitions).
 
-    Nessa página, em "Manualmente, transfira e instale as definições" transferir "Windows Defender antivírus do Windows 10 e Windows 8.1" ficheiro de 64 bits. 
-    
-    Ligação direta: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64.
+   As definições de atualização de página, desloque para baixo para "Manualmente, transfira e instale as definições". Transfira o ficheiro de 64 bits "Windows Defender antivírus para o Windows 10 e Windows 8.1".
 
-2. Criar uma sessão do PowerShell para o ponto final de manutenção do SQL Server RP adaptador da máquina virtual
-3. Copie o ficheiro de atualização de definições para a máquina de placa de base de dados utilizando a sessão de ponto final de manutenção
-4. Sobre a manutenção do PowerShell sessão invocar o _atualização DBAdapterWindowsDefenderDefinitions_ comando
-5. Após a instalação, é recomendado para remover o ficheiro de atualização de definições utilizadas. Podem ser removido a sessão de manutenção utilizando o _remover ItemOnUserDrive)_ comando.
+   Em alternativa, utilize [esta ligação direta](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) para transferência/executar ficheiro fpam fe.exe.
 
+2. Crie uma sessão do PowerShell para o ponto final de manutenção do SQL Server recursos fornecedor adaptador da máquina virtual.
 
-Eis um exemplo de script para atualizar as definições de Defender (substituir o endereço ou o nome da máquina virtual com o valor real):
+3. Copie o ficheiro de atualização de definições para a máquina virtual utilizando a sessão de ponto final de manutenção.
+
+4. Na sessão do PowerShell de manutenção, execute o *atualização DBAdapterWindowsDefenderDefinitions* comando.
+
+5. Depois de instalar as definições, recomendamos que elimine o ficheiro de atualização de definições utilizando o *remover ItemOnUserDrive* comando.
+
+**Exemplo de script do PowerShell para atualizar as definições.**
+
+Pode editar e execute o seguinte script para atualizar as definições de Defender. Substitua os valores no script de valores do seu ambiente.
 
 ```powershell
-# Set credentials for the RP VM local admin user
+# Set credentials for local admin on the resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
 
-# Public IP Address of the DB adapter machine
+# Provide the public IP address for the adapter VM.
 $databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
-# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
+# Download the Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.
 Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
-    -Outfile $localPathToDefenderUpdate 
+    -Outfile $localPathToDefenderUpdate
 
-# Create session to the maintenance endpoint
+# Create a session to the maintenance endpoint.
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
-# Copy defender update file to the db adapter machine
+# Copy the defender update file to the adapter virtual machine.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
-# Install the update file
+# Install the update definitions.
 Invoke-Command -Session $session -ScriptBlock `
     {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
-# Cleanup the definitions package file and session
+# Cleanup the definitions package file and session.
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
-$session | Remove-PSSession 
+$session | Remove-PSSession
 ```
 
-
 ## <a name="collect-diagnostic-logs"></a>Recolher registos de diagnóstico
-O fornecedor de recursos do SQL Server é um bloqueado para baixo de máquina virtual. Se for necessário recolher registos de máquina virtual, um ponto final de PowerShell apenas suficiente administração (JEA) _DBAdapterDiagnostics_ é fornecido para o efeito. Existem dois comandos estão disponíveis através deste ponto final:
 
-- **Get-AzsDBAdapterLog**. Prepara um pacote zip que contém os registos de diagnóstico RP e coloca-o na unidade de utilizador de sessão. O comando pode ser chamado sem parâmetros e irá recolher as últimos quatro horas de registos.
-- **Remover AzsDBAdapterLog**. Limpa os pacotes de registo existentes no fornecedor de recursos VM
+Para recolher registos de máquina virtual bloqueada para baixo, pode utilizar o ponto final do PowerShell apenas suficiente administração (JEA) *DBAdapterDiagnostics*. Este ponto final fornece os seguintes comandos:
 
-Uma conta de utilizador denominada **dbadapterdiag** é criada durante a implementação de RP ou atualização para ligar ao ponto final de diagnóstico para extrair os registos RP. A palavra-passe desta conta é o mesmo que a palavra-passe fornecida para a conta de administrador local durante a implementação/atualização.
+- **Get-AzsDBAdapterLog**. Este comando cria um pacote zip dos registos de diagnóstico do fornecedor de recursos e guarda o ficheiro na unidade de utilizador da sessão. Pode executar este comando sem quaisquer parâmetros e as últimas quatro horas de registos são recolhidas.
+- **Remover AzsDBAdapterLog**. Este comando remove os pacotes de registo existentes no fornecedor de recursos VM.
 
-Para utilizar estes comandos, terá de criar uma sessão remota do PowerShell para a máquina virtual do fornecedor de recursos e invocar o comando. Opcionalmente, pode fornecer parâmetros FromDate e ToDate. Se não especificar um ou ambos, a FromDate quatro horas antes da hora atual, e o ToDate será a hora atual.
+### <a name="endpoint-requirements-and-process"></a>Requisitos de ponto final e processos
 
-Este script de exemplo demonstra a utilização destes comandos:
+Quando um fornecedor de recursos está instalado ou atualizado, o **dbadapterdiag** é criada a conta de utilizador. Irá utilizar esta conta para recolher registos de diagnóstico.
+
+>[!NOTE]
+>A palavra-passe da conta de dbadapterdiag é o mesmo que a palavra-passe utilizada para o administrador local na máquina virtual que é criado durante uma implementação do fornecedor ou a atualização.
+
+Para utilizar o *DBAdapterDiagnostics* comandos, criar uma sessão remota do PowerShell para a máquina virtual do fornecedor de recursos e executar o **Get-AzsDBAdapterLog** comando.
+
+Defina o intervalo de tempo para a coleção de registo utilizando o **FromDate** e **ToDate** parâmetros. Se não especificar um ou ambos estes parâmetros, são utilizadas as seguintes predefinições:
+
+- FromDate corresponde a quatro horas antes da hora atual.
+- ToDate é o tempo atual.
+
+**Exemplo de script do PowerShell para recolher registos.**
+
+O script seguinte mostra como recolher registos de diagnóstico do fornecedor de recursos VM.
 
 ```powershell
 # Create a new diagnostics endpoint session.
@@ -184,22 +223,23 @@ $diagCreds = New-Object System.Management.Automation.PSCredential `
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
-# Sample captures logs from the previous one hour
+# Sample that captures logs from the previous hour.
 $fromDate = (Get-Date).AddHours(-1)
 $dateNow = Get-Date
 $sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
 $logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
 
-# Copy the logs
+# Copy the logs to the user drive.
 $sourcePath = "User:\{0}" -f $logs
 $destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
-# Cleanup logs
+# Cleanup the logs.
 $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
-# Close the session
+# Close the session.
 $session | Remove-PSSession
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 [Adicionar SQL Server que aloja servidores](azure-stack-sql-resource-provider-hosting-servers.md)

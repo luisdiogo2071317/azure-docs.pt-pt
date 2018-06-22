@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ad1c226246bc1523daca84235591afc27a3b132
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: a2962f50258bb3f65f574882ce2ea46ff006aac3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825234"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309355"
 ---
 # <a name="support-for-azure-marketplace"></a>Suporte para o Azure Marketplace  
 As opções de suporte do Azure Marketplace.  
@@ -50,7 +50,7 @@ As opções de suporte do Azure Marketplace.
 |:--- |:--- |  
 | Slack: [join.marketplace.azure.com](https://join.marketplace.azure.com) | Ambiente slack para parceiros com problemas técnicos de suporte. Daí sobre 350 + parceiros atualmente a funcionar neste ambiente. |  
 | Fóruns do MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum do Microsoft Developer Network. |  
-| Capacidade excedida da pilha: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Pilha excedida ambiente para obter soluções e fazer perguntas sobre tudo relacionados com o Azure Marketplace.<ul> <li>Capacidade excedida da pilha: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Capacidade excedida da pilha: O Azure Resource Manager, localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Capacidade excedida da pilha: Máquinas virtuais do Azure localizado em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Contentores no Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
+| Capacidade excedida da pilha: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Pilha excedida ambiente para obter soluções e fazer perguntas sobre tudo relacionados com o Azure Marketplace.<ul> <li>Capacidade excedida da pilha: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Capacidade excedida da pilha: O Azure Resource Manager, localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Capacidade excedida da pilha: máquinas virtuais no Azure localizado em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Capacidade excedida da pilha: Contentores no Azure localizado em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
