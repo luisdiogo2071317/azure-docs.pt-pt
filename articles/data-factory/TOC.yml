@@ -356,6 +356,8 @@
           href: monitor-visually.md
         - name: Monitorizar com o Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Monitorizar com o OMS
+          href: data-factory-monitor-oms.md
         - name: Monitorizar com SDKs
           href: monitor-programmatically.md
         - name: Monitorizar o runtime de integração
