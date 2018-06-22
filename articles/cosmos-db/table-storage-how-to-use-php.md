@@ -1,53 +1,51 @@
 ---
-title: Como utilizar o serviço tabela de armazenamento do Azure ou a API de tabela do Azure Cosmos DB de PHP | Microsoft Docs
-description: Saiba como utilizar a API do serviço de tabela do PHP para criar e eliminar uma tabela e inserir, eliminar e consultar a tabela.
+title: Como utilizar o serviço Tabela de Armazenamento do Azure ou a API de Tabelas do Azure Cosmos DB a partir de PHP | Microsoft Docs
+description: Armazene dados estruturados na cloud com o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797945"
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como utilizar o serviço tabela de armazenamento do Azure ou a API de tabela do Cosmos BD do PHP
+# <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como utilizar o serviço Tabela de Armazenamento do Azure ou a API de Tabelas do Azure Cosmos DB a partir de PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra como efetuar cenários comuns utilizando o serviço de tabela de armazenamento do Azure e a API de tabela de base de dados do Azure Cosmos. Os exemplos são escritos no PHP e a utilização de [biblioteca de clientes do PHP do Azure Storage tabela][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela**, e **inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço de tabelas do Azure, consulte o [passos](#next-steps) secção.
+Este guia mostra como realizar cenários comuns com o serviço Tabela de Armazenamento do Azure e a API de Tabelas do Azure Cosmos DB. Os exemplos são escritos em PHP e utilizam a [Biblioteca de Cliente PHP de Tabela de Armazenamento do Azure ][download]. Os cenários abrangidos incluem **criar e eliminar uma tabela** e **inserir, eliminar e consultar entidades numa tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a secção [Passos seguintes](#next-steps).
 
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta da API de Tabelas do Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>Criar uma aplicação PHP
 
-É o único requisito para criar uma aplicação PHP para aceder ao serviço tabela de armazenamento ou a API de tabela de base de dados do Azure Cosmos referenciar classes na tabela de armazenamento do azure SDK para PHP a partir de dentro do seu código. Pode utilizar as ferramentas de desenvolvimento para criar a sua aplicação, incluindo o bloco de notas.
+O único requisito para criar uma aplicação PHP para aceder ao serviço Tabela de Armazenamento ou à API de Tabelas do Azure Cosmos DB é referenciar classes no SDK azure-storage-table para PHP a partir do seu código. Pode utilizar qualquer ferramenta de desenvolvimento para criar a sua aplicação, incluindo o Notepad.
 
-Neste guia, utiliza o serviço de tabela de armazenamento ou as funcionalidades de base de dados do Azure Cosmos que podem ser chamadas de dentro de uma aplicação PHP localmente, ou no código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
+Neste guia, utilizará as funcionalidades do serviço Tabela de Armazenamento ou do Azure Cosmos DB que podem ser chamadas a partir de uma aplicação PHP localmente ou em código executado numa função da Web, função de trabalho ou site do Azure.
 
-## <a name="get-the-client-library"></a>Obter a biblioteca de clientes
+## <a name="get-the-client-library"></a>Obter a biblioteca de cliente
 
-1. Crie um ficheiro denominado Composer na raiz do projeto e adicione o seguinte código:
+1. Crie um ficheiro chamado composer.json no diretório raiz do seu projeto e adicione o seguinte código ao mesmo:
 ```json
 {
   "require": {
@@ -55,58 +53,58 @@ Neste guia, utiliza o serviço de tabela de armazenamento ou as funcionalidades 
   }
 }
 ```
-2. Transferir [composer.phar](http://getcomposer.org/composer.phar) na sua raiz. 
-3. Abra uma linha de comandos e execute o seguinte comando na raiz do projeto:
+2. Transfira o ficheiro [composer.phar](http://getcomposer.org/composer.phar) no seu diretório raiz. 
+3. Abra uma linha de comandos e execute o seguinte comando no diretório raiz do seu projeto:
 ```
 php composer.phar install
 ```
-Em alternativa, vá para o [biblioteca de clientes do PHP do Azure Storage tabela](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) no GitHub para clonar o código de origem.
+Em alternativa, aceda à [Biblioteca de Cliente PHP de Tabela de Armazenamento do Azure](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) no GitHub para clonar o código fonte.
 
 
-## <a name="add-required-references"></a>Adicione referências necessárias
-Para utilizar o serviço tabela de armazenamento ou APIs de BD do Cosmos do Azure, tem de:
+## <a name="add-required-references"></a>Adicionar as referências necessárias
+Para utilizar o serviço Tabela de Armazenamento ou as APIs do Azure Cosmos DB, tem de:
 
-* Referenciar o ficheiro do Carregador automático utilizando o [require_once] [ require_once] declaração, e
-* Referência a todas as classes que utiliza.
+* Referenciar o ficheiro do carregador automático com a instrução [require_once][require_once].
+* Referenciar todas as classes que utilizar.
 
-O exemplo seguinte mostra como inclui o Carregador automático ficheiros e a referência a **TableRestProxy** classe.
+O seguinte exemplo mostra como incluir o ficheiro do carregador automático e referenciar a classe **TableRestProxy**.
 
 ```php
 require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Table\TableRestProxy;
 ```
 
-Nos exemplos abaixo, o `require_once` instrução sempre é apresentada, mas apenas as classes de necessárias para o exemplo para executar são referenciadas.
+Nos exemplos abaixo, a instrução `require_once` é sempre apresentada, mas só são referenciadas as classes necessárias para executar o exemplo.
 
-## <a name="add-a-storage-table-service-connection"></a>Adicionar uma ligação de serviço tabela de armazenamento
-Ao instanciar um cliente do serviço tabela de armazenamento, primeiro tem de ter uma cadeia de ligação válido. O formato da cadeia de ligação de serviço tabela de armazenamento é:
+## <a name="add-a-storage-table-service-connection"></a>Adicionar uma ligação do serviço Tabela de Armazenamento
+Para instanciar um cliente do serviço Tabela de Armazenamento, primeiro tem de ter uma cadeia de ligação válida. O formato da cadeia de ligação do serviço Tabela de Armazenamento é o seguinte:
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação de base de dados do Azure Cosmos
-Ao instanciar um cliente de tabelas de base de dados do Cosmos do Azure, primeiro tem de ter uma cadeia de ligação válido. O formato de cadeia de ligação de base de dados do Azure Cosmos está:
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
+Para instanciar um cliente de Tabelas do Azure Cosmos DB, primeiro tem de ter uma cadeia de ligação válida. O formato da cadeia de ligação do Azure Cosmos DB é:
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-## <a name="add-a-storage-emulator-connection"></a>Adicionar uma ligação de emulador de armazenamento
-Aceder ao armazenamento de emulador:
+## <a name="add-a-storage-emulator-connection"></a>Adicionar uma ligação do emulador de Armazenamento
+Para aceder ao emulador de armazenamento:
 
 ```php
 UseDevelopmentStorage = true
 ```
 
-Para criar um cliente do serviço de Azure Table ou a base de dados do Azure Cosmos cliente, terá de utilizar o **TableRestProxy** classe. Pode:
+Para criar um cliente do serviço Tabela de Armazenamento ou do Azure Cosmos DB, precisa de utilizar a classe **TableRestProxy**. Pode:
 
-* passar a cadeia de ligação direta ou
-* Utilize o **CloudConfigurationManager (CCM)** para verificar a várias origens externas para a cadeia de ligação:
-  * Por predefinição, este inclui suporte para uma origem externa - variáveis de ambientais.
-  * Pode adicionar novas origens ao alargar o `ConnectionStringSource` classe.
+* Transmitir a cadeia de ligação diretamente para o mesmo ou
+* Utilizar a classe **CloudConfigurationManager (CCM)** para verificar múltiplas origens de dados externas para a cadeia de ligação:
+  * Por predefinição, esta vem com suporte para uma origem de dados externa – variáveis de ambiente.
+  * Pode adicionar novas origem de dados ao expandir a classe `ConnectionStringSource`.
 
-Para os exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
+Nos exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -117,7 +115,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Criar uma tabela
-A **TableRestProxy** objeto permite-lhe criar uma tabela com o **createTable** método. Ao criar uma tabela, pode definir o limite de tempo de serviço tabela. (Para obter mais informações sobre o limite de tempo de serviço tabela, consulte [tempos limite de definição para operações de serviço tabela][table-service-timeouts].)
+Um objeto **TableRestProxy** permite-lhe criar uma tabela com o método **createTable**. Ao criar uma tabela, pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, veja [Setting Timeouts for Table Service Operations][table-service-timeouts] [Definir Tempos Limite para Operações do Serviço Tabela].)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -141,10 +139,10 @@ catch(ServiceException $e){
 }
 ```
 
-Para informações sobre restrições de nomes de tabela, consulte [compreender o modelo de dados do serviço tabela][table-data-model].
+Para obter mais informações sobre as restrições em nomes de tabelas, veja [Understanding the Table Service Data Model][table-data-model] (Compreender o Modelo de Dados do Serviço Tabela).
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
-Para adicionar uma entidade a uma tabela, crie um novo **entidade** de objeto e transmiti-lo para **TableRestProxy -> insertEntity**. Tenha em atenção que quando criar uma entidade, terá de especificar um `PartitionKey` e `RowKey`. Estes são os identificadores exclusivos para uma entidade e são valores que podem ser consultados muito mais rapidamente do que outras propriedades de entidade. O sistema utiliza `PartitionKey` para distribuir automaticamente o entidades da tabela através de vários nós de armazenamento. Entidades com o mesmo `PartitionKey` são armazenados no mesmo nó. (Efetuar operações em várias entidades armazenadas no mesmo nó melhor do que em entidades armazenadas em nós diferentes.) O `RowKey` é o ID exclusivo de uma entidade dentro de uma partição.
+Para adicionar uma entidade a uma tabela, crie um novo objeto de **Entity** e transmita-o para **TableRestProxy->insertEntity**. Tenha em atenção que, quando cria uma entidade, tem de especificar uma `PartitionKey` e uma `RowKey`. Estes são os identificadores exclusivos de uma entidade e os valores que podem ser consultados muito mais rapidamente do que as outras propriedades da entidade. O sistema utiliza a `PartitionKey` para distribuir automaticamente as entidades da tabela através de vários nós de Armazenamento. As entidades com a mesma `PartitionKey` são armazenadas no mesmo nó. (As operações em múltiplas entidades armazenadas no mesmo nó têm um desempenho melhor do que em entidades armazenadas em diferentes nós.) A `RowKey` é o ID exclusivo de uma entidade numa partição.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -178,9 +176,9 @@ catch(ServiceException $e){
 }
 ```
 
-Para obter informações sobre as propriedades de tabela e tipos, consulte [compreender o modelo de dados do serviço tabela][table-data-model].
+Para obter informações sobre os tipos e propriedades da Tabela, veja [Understanding the Table Service Data Model][table-data-model] (Noções Básicas sobre o Modelo de Dados do Serviço Tabela).
 
-O **TableRestProxy** classe fornece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estes métodos, crie um novo **entidade** e transmita-o como um parâmetro para cada método. Cada método de inserir a entidade se não existir. Se a entidade já existir, **insertOrMergeEntity** atualiza os valores de propriedade se as propriedades já existem e adiciona novas propriedades se não existir, enquanto **insertOrReplaceEntity** completamente substitui uma entidade existente. O exemplo seguinte mostra como utilizar **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, será inserido. No entanto, se anteriormente tiver sido introduzida (conforme ilustrado no exemplo acima), o `DueDate` propriedade é atualizada e o `Status` propriedade é adicionada. O `Description` e `Location` propriedades também são atualizadas, mas com valores que efetivamente deixe-os inalterado. Se estas duas propriedades última não foram adicionadas, conforme mostrado no exemplo, mas existiam na entidade de destino, os respetivos valores existentes permanecerá inalterados.
+A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estes métodos, crie uma nova **Entidade** e transfira-a como um parâmetro para um dos métodos. Cada método será inserido na entidade se não existir. Se a entidade já existir, o método **insertOrMergeEntity** atualizará os valores de propriedade se as propriedades já existirem e adicionará novas propriedades se estas não existirem, enquanto o método **insertOrReplaceEntity** substitui totalmente uma entidade existente. O seguinte exemplo mostra como utilizar o método **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, será inserida. No entanto, se tiver sido inserida anteriormente (como apresentado no exemplo acima), a propriedade `DueDate` será atualizada e a propriedade `Status` será adicionada. As propriedades `Description` e `Location` também são atualizadas, mas com valores que as deixam efetivamente inalteradas. Se estas últimas duas propriedades não tiverem sido adicionadas conforme apresentado no exemplo, mas existirem na entidade de destino, os respetivos valores existentes permanecerão inalterados.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -223,7 +221,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Obter uma única entidade
-O **TableRestProxy -> getEntity** método permite-lhe obter uma entidade única através de consultas para o respetivo `PartitionKey` e `RowKey`. No exemplo abaixo, a chave de partição `tasksSeattle` e a chave de linha `1` são transmitidos para o **getEntity** método.
+O método **TableRestProxy->getEntity** permite-lhe obter uma única entidade ao consultar as respetivas `PartitionKey` e `RowKey`. No exemplo abaixo, a chave de partição `tasksSeattle` e a chave de linha `1` são transferidas para o método **getEntity**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -252,7 +250,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Obter todas as entidades numa partição
-Consultas de entidade são construídas utilizando filtros (para obter mais informações, consulte [consultar tabelas e entidades][filters]). Para obter todas as entidades numa partição, utilize o filtro "PartitionKey eq *partition_name*". O exemplo seguinte mostra como obter todas as entidades no `tasksSeattle` partição transferindo um filtro para o **queryEntities** método.
+As consultas de entidades são criadas com filtros (para obter mais informações, veja [Querying Tables and Entities][filters] [Consultar Tabelas e Entidades]). Para obter todas as entidades na partição, utilize o filtro "PartitionKey eq *nome_da_partição*". O seguinte exemplo mostra como obter todas as entidades na partição `tasksSeattle` ao transmitir um filtro para o método **queryEntities**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -285,7 +283,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Obter um subconjunto de entidades numa partição
-O mesmo padrão utilizado no exemplo anterior, pode ser utilizado para obter qualquer subconjunto de entidades numa partição. O subconjunto de entidades é possível obter são determinados pelo filtro de utilizar (para obter mais informações, consulte [consultar tabelas e entidades][filters]). O exemplo seguinte mostra como utilizar um filtro para obter todas as entidades com um específico `Location` e um `DueDate` menor do que uma data especificada.
+O mesmo padrão utilizado no exemplo anterior pode ser utilizado para obter qualquer subconjunto de entidades numa partição. O subconjunto de entidades que obtém é determinado pelo filtro que utiliza (para obter mais informações, veja [Querying Tables and Entities][filters] [Consultar Tabelas e Entidades]). O seguinte exemplo mostra como utilizar um filtro para obter todas as entidades com uma `Location` específica e uma `DueDate` anterior a uma data específica.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -318,7 +316,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Obter um subconjunto de propriedades de entidade
-Uma consulta pode obter um subconjunto de propriedades de entidade. Esta técnica, denominada *projecção*, reduz a largura de banda e pode melhorar o desempenho de consulta, especialmente para entidades grandes. Para especificar uma propriedade para obter, transmitir o nome da propriedade para o **consulta -> addSelectField** método. Pode chamar este método várias vezes para adicionar propriedades. Depois de executar **TableRestProxy -> queryEntities**, as entidades devolvidas só terão das propriedades selecionadas. (Se pretender regressar um subconjunto de entidades de tabela, utilize um filtro conforme mostrado nas consultas acima.)
+Uma consulta pode obter um subconjunto de propriedades de entidade. Esta técnica, denominada *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. Para especificar uma propriedade a obter, transfira o nome da propriedade para o método **Query->addSelectField**. Pode chamar este método várias vezes para adicionar mais propriedades. Após executar o método **TableRestProxy->queryEntities**, as entidades devolvidas terão apenas as propriedades selecionadas. (Se quiser devolver um subconjunto de entidades de Tabela, utilize um filtro conforme apresentado nas consultas acima.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -357,7 +355,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="update-an-entity"></a>Atualizar uma entidade
-Pode atualizar uma entidade existente ao utilizar o **entidade -> setProperty** e **entidade -> addProperty** métodos na entidade e, em seguida, chamar **TableRestProxy -> updateEntity**. O exemplo seguinte obtém uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Tenha em atenção que pode remover uma propriedade, definindo o valor como **nulo**.
+Pode atualizar uma entidade existente ao utilizar os métodos **Entity->setProperty** e **Entity->addProperty** na entidade e, em seguida, chamar o método **TableRestProxy->updateEntity**. O seguinte exemplo obtém uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Tenha em atenção que pode remover uma propriedade ao definir o respetivo valor para **null**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -391,7 +389,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade
-Para eliminar uma entidade, transmitir o nome da tabela e a entidade `PartitionKey` e `RowKey` para o **TableRestProxy -> deleteEntity** método.
+Para eliminar uma entidade, transfira o nome da tabela e as chaves `PartitionKey` e `RowKey` para o método **TableRestProxy->deleteEntity**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -416,10 +414,10 @@ catch(ServiceException $e){
 }
 ```
 
-Para verificações de simultaneidade, pode definir Etag de uma entidade eliminada utilizando o **DeleteEntityOptions -> setEtag** método e transmitir o **DeleteEntityOptions** object  **deleteEntity** como um parâmetro quarto.
+Para as verificações de simultaneidade, pode definir a ETag para que uma entidade seja eliminada ao utilizar o método **DeleteEntityOptions->setEtag** e transmitir o objeto **DeleteEntityOptions** para o método **deleteEntity** como quarto parâmetro.
 
-## <a name="batch-table-operations"></a>Operações de tabela do batch
-O **TableRestProxy -> batch** método permite-lhe executar várias operações num único pedido. O padrão aqui envolve adicionar operações a **BatchRequest** objeto e, em seguida, transmitir o **BatchRequest** de objeto para o **TableRestProxy -> batch** método. Para adicionar uma operação para um **BatchRequest** objeto, pode chamar qualquer um dos seguintes métodos várias vezes:
+## <a name="batch-table-operations"></a>Operações de tabela de lote
+O método **TableRestProxy->batch** permite-lhe executar múltiplas operações num único pedido. Este padrão envolve a adição de operações ao objeto **BatchRequest** e, em seguida, a transmissão do objeto **BatchRequest** para o método **TableRestProxy->batch**. Para adicionar uma operação a um objeto **BatchRequest**, pode chamar qualquer um dos seguintes métodos múltiplas vezes:
 
 * **addInsertEntity** (adiciona uma operação insertEntity)
 * **addUpdateEntity** (adiciona uma operação updateEntity)
@@ -428,7 +426,7 @@ O **TableRestProxy -> batch** método permite-lhe executar várias operações n
 * **addInsertOrMergeEntity** (adiciona uma operação insertOrMergeEntity)
 * **addDeleteEntity** (adiciona uma operação deleteEntity)
 
-O exemplo seguinte mostra como executar **insertEntity** e **deleteEntity** operações num único pedido. 
+O seguinte exemplo mostra como executar as operações **insertEntity** e **deleteEntity** num único pedido. 
 
 ```php
 require_once 'vendor/autoload.php';
@@ -476,10 +474,10 @@ catch(ServiceException $e){
 }
 ```
 
-Para obter mais informações sobre a criação de batches de operações da tabela, consulte [efetuar transações de grupo de entidade][entity-group-transactions].
+Para obter mais informações sobre as operações de Tabela de lote, veja [Performing Entity Group Transactions][entity-group-transactions] (Efetuar Transações de Grupo de Entidades).
 
 ## <a name="delete-a-table"></a>Eliminar uma tabela
-Por fim, para eliminar uma tabela, transmitir o nome de tabela para o **TableRestProxy -> deleteTable** método.
+Por fim, para eliminar uma tabela, transmita o nome da tabela para o método **TableRestProxy->deleteTable**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -504,12 +502,12 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas do serviço de tabelas do Azure e Azure Cosmos DB, siga estas ligações para saber mais.
+## <a name="next-steps"></a>Passos seguintes
+Agora que já tem as noções básicas sobre o serviço Tabela do Azure e o Azure Cosmos DB, siga estas ligações para saber mais.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
-* [Centro para programadores do PHP](/develop/php/).
+* [Centro de Programadores de PHP](/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: http://php.net/require_once

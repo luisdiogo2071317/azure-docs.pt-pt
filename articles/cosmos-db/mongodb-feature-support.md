@@ -1,57 +1,55 @@
 ---
-title: Suporte de funcionalidades do Cosmos BD do Azure para o MongoDB | Microsoft Docs
-description: Saiba mais sobre o suporte de funcionalidades que fornece o API do MongoDB Cosmos BD do Azure para MongoDB 3.4.
+title: Suporte de funcionalidades do Azure Cosmos DB para MongoDB | Microsoft Docs
+description: Saiba mais sobre o suporte de funcionalidades que a API do Azure Cosmos DB MongoDB presta para MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796360"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de API do MongoDB para a sintaxe e funcionalidades do MongoDB
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com MongoDB API a base de dados através de qualquer um cliente open source para MongoDB [controladores](https://docs.mongodb.org/ecosystem/drivers). A API do MongoDB permite a utilização de controladores existentes do cliente para o MongoDB a cumprir os [ligar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API do Mongo DB da base de dados através de algum dos [controladores](https://docs.mongodb.org/ecosystem/drivers) do cliente de MongoDB em código aberto. A API do MongoDB permite a utilização dos controladores existentes do cliente através do respetivo [protocolo de transmissão](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) do MongoDB.
 
-Ao utilizar a API do Azure Cosmos DB MongoDB, possam desfrutar as vantagens das APIs do MongoDB está a ser utilizado, com todas as capacidades de enterprise BD do Cosmos do Azure fornece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e a latência as garantias, automáticas a indexação de cada campo, a encriptação rest, as cópias de segurança e muito mais.
+Ao utilizar a API do Azure Cosmos DB MongoDB, pode desfrutar dos benefícios das API do MongoDB a que está habituado, com todas as capacidades empresariais que o Azure Cosmos DB fornece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e garantias de latência, indexação automática de cada campo, encriptação em inatividade, cópias de segurança, etc.
 
-## <a name="mongodb-query-language-support"></a>Suporte de idioma de consulta do MongoDB
+## <a name="mongodb-query-language-support"></a>Suporte de linguagem de consulta do MongoDB
 
-API de MongoDB de BD do Azure Cosmos fornece suporte abrangente para construções de idioma de consulta do MongoDB. Abaixo pode encontrar a lista detalhada das operações atualmente suportadas, operadores, fases, comandos e as opções.
+A API do Azure Cosmos DB MongoDB presta suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo encontra a lista detalhada de operações, operadores, fases, comandos e opções atualmente suportados.
 
 
-## <a name="database-commands"></a>Comandos de base de dados
+## <a name="database-commands"></a>Comandos da base de dados
 
-BD do Cosmos do Azure suporta os seguintes comandos de base de dados em todas as contas de API do MongoDB. 
+O Azure Cosmos DB suporta os seguintes comandos de base de dados em todas as contas de API do MongoDB. 
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e de escrita
-- eliminar
-- localizar
+- delete
+- find
 - findAndModify
 - getLastError
 - getMore
-- Inserir
-- Atualização
+- insert
+- update
 
 ### <a name="authentication-commands"></a>Comandos de autenticação
-- terminar sessão
-- autenticar
+- logout
+- authenticate
 - getnonce
 
 ### <a name="administration-commands"></a>Comandos de administração
 - dropDatabase
 - listCollections
-- remover
+- drop
 - criar
 - filemd5
 - createIndexes
@@ -72,12 +70,12 @@ BD do Cosmos do Azure suporta os seguintes comandos de base de dados em todas as
 
 ## <a name="aggregation-pipelinea"></a>Pipeline de agregação</a>
 
-BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pública. Consulte o [blogue do Azure](https://aka.ms/mongodb-aggregation) para obter instruções sobre como integrar para a pré-visualização pública.
+O Azure Cosmos DB suporta pipeline de agregação na pré-visualização pública. Consulte o [blogue do Azure](https://aka.ms/mongodb-aggregation) para receber instruções sobre como integrar a pré-visualização pública.
 
 ### <a name="aggregation-commands"></a>Comandos de agregação
-- agregado
-- contagem
-- Distintos
+- aggregate
+- count
+- distinct
 
 ### <a name="aggregation-stages"></a>Fases de agregação
 - $project
@@ -95,12 +93,12 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 
 ### <a name="aggregation-expressions"></a>Expressões de agregação
 
-#### <a name="boolean-expressions"></a>Expressões
-- $e
-- $ou
+#### <a name="boolean-expressions"></a>Expressões booleanas
+- $and
+- $or
 - $not
 
-#### <a name="set-expressions"></a>Expressões de conjunto
+#### <a name="set-expressions"></a>Expressões de definição
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -120,7 +118,7 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 
 #### <a name="arithmetic-expressions"></a>Expressões aritméticas
 - $abs
-- Adicionar $
+- $add
 - $ceil
 - $divide
 - $exp
@@ -129,10 +127,10 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 - $log
 - $log10
 - $mod
-- $multiplicar
+- $multiply
 - $pow
 - $sqrt
-- $subtrair
+- $subtract
 - $trunc
 
 #### <a name="string-expressions"></a>Expressões de cadeia
@@ -159,7 +157,7 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 - $reverseArray
 - $size
 - $slice
-- $no
+- $in
 
 #### <a name="date-expressions"></a>Expressões de data
 - $dayOfYear
@@ -170,7 +168,7 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 - $week
 - $hour
 - $minute
-- $segundo
+- $second
 - $millisecond
 - $isoDayOfWeek
 - $isoWeek
@@ -179,11 +177,11 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 - $cond
 - $ifNull
 
-## <a name="aggregation-accumulators"></a>Accumulators de agregação
+## <a name="aggregation-accumulators"></a>Acumuladores de agregação
 - $sum
 - $avg
-- $primeiro
-- $última
+- $first
+- $last
 - $max
 - $min
 - $push
@@ -191,7 +189,7 @@ BD do Azure do Cosmos suporta pipeline de agregação em pré-visualização pú
 
 ## <a name="operators"></a>Operadores
 
-Operadores seguintes são suportados com correspondentes exemplos da sua utilização. Considere este documento de exemplo utilizado em consultas abaixo:
+Os seguintes operadores são suportados com exemplos correspondentes da respetiva utilização. Considere este documento de exemplo utilizado nas consultas abaixo:
 
 ```json
 {
@@ -220,32 +218,32 @@ $gte | ``` { "Elevation": { $gte: 4392 } } ``` |  | -
 $lt | ``` { "Elevation": { $lt: 5000 } } ``` |  | -
 $lte | ``` { "Elevation": { $lte: 5000 } } ``` | | -
 $ne | ``` { "Elevation": { $ne: 1 } } ``` |  | -
-$no | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
+$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
 $nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` | | -
-$ou | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
-$e | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
 $not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|  | -
-$nem | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
-$existe | ``` { "Status": { $exists: true } } ```|  | -
+$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
+$exists | ``` { "Status": { $exists: true } } ```|  | -
 $type | ``` { "Status": { $type: "string" } } ```|  | -
 $mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |  | -
 $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 ### <a name="notes"></a>Notas
 
-Nas consultas $regex, esquerda-ancorada expressões permitem a pesquisa do índice. No entanto, utilizar 'i' modificador (case-insensitivity) e estou ' modificador (múltiplas) faz com que a análise de coleção em todas as expressões.
-Quando for necessário para incluir '$' ou ' |', é melhor criar consultas de regex dois (ou mais). Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, tem de ser modificados da seguinte forma: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-A primeira parte irá utilizar o índice para restringir a pesquisa a esses documentos a partir ^ abc e a segunda parte irá estabeler correspondência exatas entradas. Barra do operador ' |' funciona como uma função "ou" - a consulta ```find({x:{$regex: /^abc|^def/})``` corresponda os documentos que campo 'x' tem valores que começam por "abc" ou "def". Para utilizar o índice, é recomendado para interromper a consulta duas consultas diferentes associadas pelo operador ou $: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Nas consultas $regex, as expressões ancoradas à esquerda permitem uma pesquisa de índice. No entanto, utilizar o modificador "i" (não sensível a maiúsculas e minúsculas) e o modificador "m" (multinha) faz a análise de coleção em todas as expressões.
+Quando for necessário incluir "$" ou "|", é melhor criar duas (ou mais) consultas de regex. Por exemplo, dada a seguinte consulta original: ```find({x:{$regex: /^abc$/})```, tem de ser modificada como se segue: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+A primeira parte irá utilizar o índice para restringir a pesquisa aos documentos que começam por ^abc e a segunda parte vai fazer a correspondência com as entradas exatas. O operador barra "|" atua como uma função "or" – a consulta ```find({x:{$regex: /^abc|^def/})``` faz a correspondência dos documentos cujo campo "x" tem valores que começam por "abc" ou "def". Para utilizar o índice, é recomendado dividir a consulta em duas consultas diferentes associadas pelo operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Operadores de atualização
 
-#### <a name="field-update-operators"></a>Operadores de atualização do campo
+#### <a name="field-update-operators"></a>Operadores de atualização de campo
 - $inc
 - $mul
 - $rename
 - $setOnInsert
 - $set
-- $
+- $unset
 - $min
 - $max
 - $currentDate
@@ -254,10 +252,10 @@ A primeira parte irá utilizar o índice para restringir a pesquisa a esses docu
 - $addToSet
 - $pop
 - $pullAll
-- $pull (Nota: $pull com a condição não é suportado)
+- $pull (nota: $pull com condição não é suportado)
 - $pushAll
 - $push
-- $cada
+- $each
 - $slice
 - $sort
 - $position
@@ -265,13 +263,13 @@ A primeira parte irá utilizar o índice para restringir a pesquisa a esses docu
 #### <a name="bitwise-update-operator"></a>Operador de atualização bit a bit
 - $bit
 
-### <a name="geospatial-operators"></a>Operadores de Geoespacial
+### <a name="geospatial-operators"></a>Operadores geoespaciais
 
 Operador | Exemplo 
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Sim
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sim
-$quase | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sim
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sim
 $nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Sim
 $geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sim
 $minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Sim
@@ -299,32 +297,32 @@ São suportados os seguintes métodos:
 
 Método | Exemplo | Notas 
 --- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Não são devolvidos documentos sem chave de ordenação
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Os documentos sem chave de ordenação não são devolvidos
 
 ## <a name="unique-indexes"></a>Índices exclusivos
 
-BD do Azure do Cosmos indexa todos os campos em documentos que são escritos na base de dados por predefinição. Índices exclusivos Certifique-se de que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante a exclusividade de forma é preservado na chave predefinido ID". Agora, pode criar índices personalizados do BD Azure Cosmos utilizando o comando createIndex, incluindo a restrição 'exclusiva'.
+O Azure Cosmos DB indexa cada campo nos documentos que são escritos na base de dados por predefinição. Os índices exclusivos garantem que um campo específico não tem valores duplicados em todos os documentos numa coleção, semelhante ao modo de preservação da exclusividade na chave "_id" predefinida. Agora pode criar índices personalizados no Azure Cosmos DB utilizando o comando createIndex, incluindo a restrição "unique".
 
-Índices exclusivos estão disponíveis para todas as contas de API do MongoDB.
+Estão disponíveis índices exclusivos para todas as contas de API do MongoDB.
 
-## <a name="time-to-live-ttl"></a>Time-to-live (TTL)
+## <a name="time-to-live-ttl"></a>TTL
 
-BD do Azure do Cosmos suporta um caminho relativo time-to-live (TTL) com base no timestamp do documento. TTL pode ser ativada para coleções de API do MongoDB através de [portal do Azure](https://portal.azure.com).
+O Azure Cosmos DB suporta um TTL relativo com base no carimbo de data/hora do documento. O TTL pode ser ativado para coleções de API do MongoDB através do [portal do Azure](https://portal.azure.com).
 
-## <a name="user-and-role-management"></a>Gestão e função de utilizador
+## <a name="user-and-role-management"></a>Gestão de funções e utilizadores
 
-BD do Azure do Cosmos ainda não suporte utilizadores e funções. BD do Azure do Cosmos suporta o controlo de acesso baseado em funções (RBAC) e de leitura / escrita só de leitura palavras-passe/chaves e que podem ser obtidas através de [portal do Azure](https://portal.azure.com) (página de cadeia de ligação).
+O Azure Cosmos DB ainda não suporta utilizadores e funções. O Azure Cosmos DB suporta o controlo de acesso baseado em funções (RBAC) e palavras-passe/chave de leitura/escrita e apenas leitura que podem ser obtidas através do [portal do Azure](https://portal.azure.com) (página Cadeia de Ligação).
 
 ## <a name="replication"></a>Replicação
 
-BD do Cosmos do Azure suporta a replicação automática, nativa as camadas mais baixas. Esta lógica é expandida enviados para alcançar, bem como a replicação global, latência baixa. BD do Azure do Cosmos não suporta comandos replicação manual.
+O Azure Cosmos DB suporta a replicação nativa e automática nas camadas inferiores. Esta lógica é expandida para conseguir também a replicação global de latência baixa. O Azure Cosmos DB não suporta comandos de replicação manuais.
 
 ## <a name="sharding"></a>Fragmentação
 
-BD do Azure do Cosmos suporta fragmentação automática, lado do servidor. BD do Azure do Cosmos não suporta comandos de fragmentação manual.
+O Azure Cosmos DB suporta a fragmentação automática do lado do servidor. O Azure Cosmos DB não suporta comandos de fragmentação manuais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com uma API para a base de dados de MongoDB.
-- Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com uma API para a base de dados de MongoDB.
-- Explorar a base de dados do Azure Cosmos com suporte de protocolos para MongoDB [amostras](mongodb-samples.md).
+- Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com uma API para base de dados do MongoDB.
+- Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com uma API para base de dados do MongoDB.
+- Explore o Azure Cosmos DB com suporte de protocolo para [exemplos](mongodb-samples.md) do MongoDB.
