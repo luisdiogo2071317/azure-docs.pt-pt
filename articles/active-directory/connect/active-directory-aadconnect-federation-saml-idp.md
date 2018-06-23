@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 74051ae8ad4ca7065561607feb13a2b98094fffc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801784"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333187"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único na
 
@@ -47,7 +47,7 @@ Este documento contém os requisitos detalhados na mensagem de formatação que 
 
 É recomendado que certifique-se o fornecedor de identidade de SAML 2.0 mensagens de saída ser tão semelhante aos rastreios de exemplo fornecidos quanto possível. Além disso, utilize os valores de atributo específico do fornecido metadados do Azure AD sempre que possível. Quando estiver satisfeito com as mensagens de saída, pode testar com o analisador de conectividade da Microsoft, conforme descrito abaixo.
 
-Os metadados do Azure AD podem ser transferido a partir deste URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Os metadados do Azure AD podem ser transferido a partir deste URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
 Para os clientes na China utilizando a instância de China específicos do Office 365, o seguinte ponto final da Federação deve ser utilizado: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisitos do protocolo SAML

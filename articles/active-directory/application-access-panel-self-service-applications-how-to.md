@@ -3,23 +3,24 @@ title: Como utilizar o acesso de aplicação personalizada | Microsoft Docs
 description: Ativar o acesso de aplicação self-service permitir aos utilizadores localizar as suas próprias aplicações
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 760234d0d36bc140e3b441d7326083407de726b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: da44fb2982c76b849181683f308e414c3d3f0b7a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29383195"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331211"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso de aplicação personalizada
 
@@ -79,7 +80,7 @@ Para ativar o acesso de aplicação personalizada para uma aplicação, siga os 
 
 14. Clique em de **guardar** botão na parte superior do painel para concluir.
 
-Depois de concluir a configuração da aplicação de self-service, os utilizadores podem navegar para as respetivas [painel de acesso de aplicação](https://myapps.microsoft.com/) e clique em de **+ adicionar** botão para encontrar as aplicações a que tiver ativado o acesso de self-service. Aprovadores negócio também veem uma notificação no respetivo [painel de acesso de aplicação](https://myapps.microsoft.com/). Pode ativar uma mensagem de e-mail a indicar quando um utilizador tiver solicitado acesso a uma aplicação que requer a sua aprovação. 
+Depois de concluir a configuração da aplicação de self-service, os utilizadores podem navegar para as respetivas [painel de acesso de aplicação](https://myapps.microsoft.com/) e clique em de **+ adicionar** botão para encontrar as aplicações a que tiver ativado o Self-Service acesso. Aprovadores negócio também veem uma notificação no respetivo [painel de acesso de aplicação](https://myapps.microsoft.com/). Pode ativar uma mensagem de e-mail a indicar quando um utilizador tiver solicitado acesso a uma aplicação que requer a sua aprovação. 
 
 Estas aprovações suportam aprovação único fluxos de trabalho apenas, que significa que, se especificar vários aprovadores, qualquer aprovador único pode aprovar acesso à aplicação.
 

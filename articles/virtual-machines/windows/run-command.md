@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284969"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332719"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar PowerShell scripts numa VM do Windows com o comando executado
 
@@ -23,7 +23,7 @@ Execute utiliza comandos o agente da VM para executar scripts do PowerShell de s
 
 Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute comandos podem ser executados scripts as máquinas virtuais com remotamente o agente da VM. Execução do comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [CLI do Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Esta capacidade é útil em todos os cenários em que pretende executar um script witin uma máquinas virtuais e é uma das formas apenas para resolver problemas e remediar uma máquina virtual que não tem o RDP ou abrir a porta SSH devido a rede incorrecto ou utilizador administrativo configuração.
+Esta capacidade é útil em todos os cenários em que pretende executar um script das máquinas virtuais e é uma das formas apenas para resolver problemas e remediar uma máquina virtual que não tem o RDP ou abrir a porta SSH devido a rede incorrecto ou utilizador administrativo configuração.
 
 ## <a name="restrictions"></a>Restrições
 
@@ -33,9 +33,10 @@ As seguintes restrições aplicam-se ao utilizar a executar o comando:
 * O tempo mínimo para executar um script é cerca de 20 segundos
 * Scripts são executados como sistema no Windows
 * Pode executar um script num momento
-* Scripts que solicitar informações (modo interativo) não são suportadas.
 * Não é possível cancelar um script em execução
 * O tempo máximo que pode executar um script é 90 minutos, após o qual as TI será o tempo limite
+
+**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
 
 ## <a name="run-a-command"></a>Executar um comando
 

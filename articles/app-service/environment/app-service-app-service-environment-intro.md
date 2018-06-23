@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b13f726ada6deba67d5ed484eca769fed354e400
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836785"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318168"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução à aplicação v1 de ambiente de serviço
 
@@ -62,18 +62,18 @@ Por exemplo, isto permite-lhe criar um conjunto de trabalho com menos eficiente 
 
 Para obter mais detalhes sobre a quantidade de recursos de computação disponíveis para os conjuntos de front-end e de trabalho, consulte [como configurar um ambiente de serviço de aplicações][HowToConfigureanAppServiceEnvironment].  
 
-Para obter detalhes sobre os tamanhos de recursos de computação disponíveis suportados num ambiente de serviço de aplicações, consulte o [preços do App Service] [ AppServicePricing] página e rever as opções disponíveis para ambientes do App Service no escalão de preços Premium.
+Para obter detalhes sobre os tamanhos de recursos de computação disponíveis suportados num ambiente de serviço de aplicações, consulte o [preços do App Service] [ AppServicePricing] e rever as opções disponíveis para ambientes do App Service na página de Escalão de preço Premium.
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual
-Um ambiente de serviço de aplicações podem ser criado na **ou** uma rede virtual do Azure Resource Manager, **ou** uma rede virtual do modelo de implementação clássica ([obter mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]).  Uma vez que um ambiente de serviço de aplicações sempre existe uma rede virtual e, mais precisamente dentro de uma sub-rede de uma rede virtual, pode tirar partido das funcionalidades de segurança de redes virtuais para controlar as comunicações de rede de entrada e saída.  
+Um ambiente de serviço de aplicações podem ser criado na **ou** uma rede virtual do Azure Resource Manager, **ou** uma rede virtual do modelo de implementação clássica ([obter mais informações sobre redes virtuais] [MoreInfoOnVirtualNetworks]).  Uma vez que um ambiente de serviço de aplicações sempre existe uma rede virtual e, mais precisamente dentro de uma sub-rede de uma rede virtual, pode tirar partido das funcionalidades de segurança de redes virtuais para controlar as comunicações de rede de entrada e saída.  
 
 Um ambiente de serviço de aplicações pode ser qualquer um dos Internet com um endereço IP público ou interno com acesso com apenas um endereço de Azure Balanceador de carga interno (ILB).
 
 Pode utilizar [grupos de segurança de rede] [ NetworkSecurityGroups] para restringir comunicações de rede de entrada para a sub-rede onde reside um ambiente de serviço de aplicações.  Isto permite-lhe executar aplicações atrás montante dispositivos e serviços, tais como firewalls de aplicação web e fornecedores de SaaS de rede.
 
-Aplicações frequentemente também tem de aceder a recursos empresariais, tais como bases de dados internos e serviços web.  Uma abordagem comum é que estes pontos finais disponíveis apenas para tráfego de rede interno que circulam dentro de uma rede virtual do Azure.  Depois de um ambiente de serviço de aplicações é associado à mesma rede virtual que os serviços internos, aplicações em execução no ambiente podem aceder aos mesmos, incluindo acessíveis através de pontos finais [Site a Site] [ SiteToSite] e [Azure ExpressRoute] [ ExpressRoute] ligações.
+As aplicações também precisam de aceder frequentemente a recursos da empresa, tais como bases de dados internas e serviços Web.  Uma abordagem comum é que estes pontos finais disponíveis apenas para tráfego de rede interno que circulam dentro de uma rede virtual do Azure.  Depois de um ambiente de serviço de aplicações é associado à mesma rede virtual que os serviços internos, aplicações em execução no ambiente podem aceder aos mesmos, incluindo acessíveis através de pontos finais [Site a Site] [ SiteToSite] e [Azure ExpressRoute] [ ExpressRoute] ligações.
 
-Para obter mais detalhes sobre como funcionam os ambientes do App Service com redes virtuais e redes no local Consulte os artigos seguintes no [arquitetura de rede][NetworkArchitectureOverview], [controlar o tráfego de entrada][ControllingInboundTraffic], e [em segurança a ligar ao back-ends][SecurelyConnectingToBackends]. 
+Para obter mais detalhes sobre como funcionam os ambientes do App Service com redes virtuais e redes no local Consulte os artigos seguintes no [arquitetura de rede][NetworkArchitectureOverview], [controlar de entrada Tráfego][ControllingInboundTraffic], e [com segurança ao ligar ao back-ends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Introdução
 Para começar com ambientes do App Service, consulte o artigo [como para criar uma aplicação ambiente de serviço][HowToCreateAnAppServiceEnvironment]
@@ -93,7 +93,7 @@ Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações 
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

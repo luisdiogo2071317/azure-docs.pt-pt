@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fbac725894d01b2dc622d3542f865a66b240743
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631025"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333781"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>A integração contínua e a implementação contínua para limite de IoT do Azure - pré-visualização
 Este tutorial demonstra como pode utilizar a integração contínua e funcionalidades de implementação contínua dos serviços de equipa do Visual Studio (VSTS) e Microsoft Team Foundation Server (TFS) para criar, testar e implementar aplicações de forma rápida e a sua Limite de IoT do Azure. 
@@ -33,7 +33,7 @@ Irá demorar 30 minutos para concluir este tutorial.
 
 Nesta secção, irá criar um exemplo de limite de IoT solução que contém unidade os testes que pode ser executado como parte do processo de compilação. Antes de seguir as orientações nesta secção, concluir os passos [desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Na paleta do comando de VS Code, escreva e execute o comando **Edge: solução de ponta de IoT novo**. Em seguida, selecione a pasta à sua área de trabalho, forneça o nome de solução (o nome predefinido é **EdgeSolution**) e criar um módulo c# (**FilterModule**) como o módulo de utilizador primeiro nesta solução. Também tem de especificar o repositório de imagens do Docker para o seu módulo primeiro. O repositório de imagens predefinido baseia-se um registo de Docker local (`localhost:5000/filtermodule`). Terá de alterá-la no registo de contentor do Azure (`<your container registry address>/filtermodule`) ou o Hub de Docker para obter mais integração contínua.
+1. Na paleta do comando de VS Code, escreva e execute o comando **Edge: solução de ponta de IoT novo**. Em seguida, selecione a pasta à sua área de trabalho, forneça o nome de solução (o nome predefinido é **EdgeSolution**) e criar um módulo c# (**FilterModule**) como o módulo de utilizador primeiro nesta solução. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens predefinido baseia-se um registo de Docker local (`localhost:5000/filtermodule`). Terá de alterá-la no registo de contentor do Azure (`<your container registry address>/filtermodule`) ou o Hub de Docker para obter mais integração contínua.
 
     ![Configuração ACR](./media/how-to-ci-cd/acr.png)
 
@@ -452,7 +452,7 @@ Por isso, ao implementar em dispositivos de IoT Edge, existem três ambientes pr
 Este tutorial demonstra como pode utilizar a integração contínua e a implementação contínua as funcionalidades de VSTS ou TFS. 
 
 * Compreender a implementação de limite de IoT no [implementações de limite de IoT compreender para dispositivos único ou à escala](module-deployment-monitoring.md)
-* Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos de limite de IoT à escala] [how-to-implementar-monitor.md].
+* Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos de limite de IoT à escala](how-to-deploy-monitor.md).
 
 
 

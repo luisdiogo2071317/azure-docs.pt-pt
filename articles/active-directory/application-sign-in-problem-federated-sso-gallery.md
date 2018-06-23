@@ -3,22 +3,24 @@ title: Problemas em iniciar sessão a uma aplicação de galeria configurada par
 description: Orientações para os erros específicos quando iniciar sessão uma aplicação que configurou para baseados em SAML federado-início de sessão único com o Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: f8c17b8c14b63007c3b623e5ffb60c0a2567cb72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29384842"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333654"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas em iniciar sessão a uma aplicação de galeria configurada para federado-início de sessão único
 
@@ -147,7 +149,7 @@ Após um curto período de tempo, os utilizadores que selecionou conseguir inici
 
 **Uma causa possível**
 
-Azure AD não suporta o pedido de SAML enviada pela aplicação para o início de sessão único. Alguns problemas comuns são:
+O Azure AD não suporta o Pedido SAML enviado pela aplicação para Início de Sessão Único. Alguns problemas comuns são:
 
 -   Campos necessários no pedido SAML em falta
 

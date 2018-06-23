@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320759"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações aos recursos de pilha do Azure através da criação de principais de serviço
 
@@ -93,54 +95,7 @@ Se tiver implementado a pilha do Azure através do AD FS como o arquivo de ident
 * Atribua principal de serviço a uma função.
 * Inicie sessão com a identidade de um principal de serviço.
 
-### <a name="before-you-begin"></a>Antes de começar
-
-[Transferir as ferramentas de pilha do Azure necessárias para o seu computador local.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importe o módulo do PowerShell de identidade
-
-Navegue para a pasta de transferência para as ferramentas de pilha do Azure e importar o módulo do PowerShell de identidade, utilizando o seguinte comando:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Quando importar o módulo de identidade, poderá receber esta mensagem de erro: "AzureStack.Connect.psm1 não está assinado digitalmente. O script não executará no sistema".
-
-Para corrigir este problema, tem de configurar a política de execução para permitir a execução do script. Para definir a política de execução, execute o seguinte comando numa sessão do PowerShell elevada:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Criar o principal de serviço
-
-Pode criar um principal de serviço, executando o seguinte comando, certificando-se ao atualizar o **DisplayName** parâmetro:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Atribuir uma função
-
-Depois de criar o principal de serviço, deve [atribuí-la a uma função](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>A iniciar sessão com o PowerShell
-
-Pode iniciar sessão com a pilha do Azure executando o seguinte comando, certificar-se de que atualizar o **EnvironmentName** parâmetro com o nome da sua aplicação:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Para obter mais informações sobre como criar o principal de serviço, consulte [criar serviço principal para o AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Atribuir o principal de serviço a uma função
 

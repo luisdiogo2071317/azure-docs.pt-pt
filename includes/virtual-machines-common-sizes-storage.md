@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 840d3737efe4314359ba3a3bf0f5c4f888f92567
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958729"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329574"
 ---
 Armazenamento oferecem débito elevado de disco e e/s otimizados tamanhos de VM e são ideais para macrodados, NoSQL e SQL, bases de dados. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -31,7 +31,7 @@ ACU: 180-240
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-O débito máximo do disco possível com VMs da série Ls pode estar limitado pelo número, tamanho e repartição de quaisquer discos anexados. Para obter mais detalhes, veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
+O débito de disco máximo possível com as VMs de série Ls poderá ser limitado pelo número, o tamanho e a striping de quaisquer discos ligados. Para obter mais detalhes, veja [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). Série ls VMs são direcionadas para cargas de trabalho com utilização elevada do armazenamento local e que normalmente apenas discos de utilização ligado para carregamento inicial e o registo, como a colocação em cache é ineficaz nestes casos Ls-série não suporta anfitriões a colocação em cache para discos ligados, devem ser ligados a discos no modo uncached. 
 
 <sup>1</sup> instância está isolada para hardware dedicado a um único cliente.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: b297aab75212070aa435c58bf9024bf90e8ffec3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: asteen
+ms.openlocfilehash: 047679b52de1b095112948e869f35811346b846b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590159"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331628"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação de Proxy de aplicações
 
@@ -36,7 +36,7 @@ Para informações sobre como carregar certificados e a utilização de domínio
 
 ## <a name="create-the-applicationsetting-the-urls"></a>Criar a aplicação/definição os URLs
 
-Se estiver a seguir os passos a [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md) tem e a documentação de obter um erro ao criar a aplicação, consulte os detalhes do erro para obter informações e sugestões para saber como corrigir a aplicação. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, certifique-se:
+Se estiver a seguir os passos a [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md) tem e a documentação de obter um erro ao criar a aplicação, consulte os detalhes do erro para obter informações e sugestões para saber como corrigir o aplicação. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, certifique-se:
 
 -   É um administrador com permissão para criar uma aplicação de Proxy de aplicações
 

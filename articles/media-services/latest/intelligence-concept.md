@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788754"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331525"
 ---
 # <a name="media-intelligence"></a>Informações de multimédia
 
@@ -50,8 +50,8 @@ O resultado inclui um ficheiro JSON (insights.json) com as informações que for
 |Nome|Descrição|
 |---|---|
 |ID|O ID de linha.|
-|Texto|O transcript próprio.|
-|idioma|O idioma de transcript. Destina-se suportar transcript onde cada linha pode ter um idioma diferente.|
+|texto|O transcript próprio.|
+|Idioma|O idioma de transcript. Destina-se suportar transcript onde cada linha pode ter um idioma diferente.|
 |instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância for um transcript, terá apenas 1 instância.|
 
 Exemplo:
@@ -87,10 +87,10 @@ Exemplo:
 
 |Nome|Descrição|
 |---|---|
-|ID|O id de linha OCR.|
-|Texto|O texto de OCR.|
-|confiança|Confiança de reconhecimento.|
-|idioma|O idioma de OCR.|
+|ID|O ID de linha OCR.|
+|texto|O texto de OCR.|
+|Confiança|Confiança de reconhecimento.|
+|Idioma|O idioma de OCR.|
 |instâncias|Uma lista de intervalos de tempo em que esta OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
@@ -126,14 +126,14 @@ Exemplo:
   ],
 ```
 
-### <a name="keywords"></a>Palavras-chave
+### <a name="keywords"></a>palavras-chave
 
 |Nome|Descrição|
 |---|---|
-|ID|O id de palavra-chave.|
-|Texto|O texto da palavra-chave.|
-|confiança|Confiança de reconhecimento da palavra-chave.|
-|idioma|O idioma de palavra-chave (quando convertidos).|
+|ID|O ID de palavra-chave.|
+|texto|O texto da palavra-chave.|
+|Confiança|Confiança de reconhecimento da palavra-chave.|
+|Idioma|O idioma de palavra-chave (quando convertidos).|
 |instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
@@ -178,13 +178,13 @@ Exemplo:
 
 |Nome|Descrição|
 |---|---|
-|ID|O id de letra.|
+|ID|O ID de letra.|
 |nome|O nome de letra. Pode ser 'Desconhecido #0', uma celebrity identificado ou uma pessoa treinado do cliente.|
-|confiança|Confiança de identificação de letra.|
-|descrição|Em caso de um celebrity, a respetiva descrição ("Satya Nadella nasceu em..."). |
+|Confiança|Confiança de identificação de letra.|
+|descrição|Em caso de um celebrity, a respetiva descrição. |
 |thumbnalId|O id de miniatura desse tipo de letra.|
-|knownPersonId|Em caso de uma pessoa conhecida, o id interno.|
-|ReferenceId|Em caso de celebrity Bing, o id do Bing.|
+|knownPersonId|Em caso de uma pessoa conhecida, um ID interno.|
+|referenceId|Em caso de um celebrity Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas o Bing.|
 |título|Em caso de um celebrity, o título dele (por exemplo "CEO da Microsoft").|
 |imageUrl|Em caso de um celebrity, o url da imagem.|
@@ -219,13 +219,13 @@ Exemplo:
 }]
 ```
 
-### <a name="labels"></a>Etiquetas
+### <a name="labels"></a>etiquetas
 
 |Nome|Descrição|
 |---|---|
-|ID|o id da etiqueta.|
+|ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, 'Computador', 'TV').|
-|idioma|Idioma de nome etiqueta (quando convertidos). BCP 47|
+|Idioma|Idioma de nome etiqueta (quando convertidos). BCP 47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -282,8 +282,8 @@ Exemplo:
 
 |Nome|Descrição|
 |---|---|
-|ID|O id de captura.|
-|keyFrames|Uma lista de chaves fotogramas dentro de captura (cada um tem um Id e uma lista de intervalos de tempo de instâncias).|
+|ID|O ID de captura.|
+|keyFrames|Uma lista de chaves fotogramas dentro de captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias).|
 |instâncias|Uma lista de intervalos de tempo desta captura (capturas tem apenas 1 instância).|
 
 ```json
@@ -329,33 +329,6 @@ Exemplo:
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|Nome|Descrição|
-|---|---|
-|ID|O ID de áudio em vigor.|
-|tipo|O tipo de áudio efeito (por exemplo, silêncio Clapping, voz,).|
-|instâncias|Uma lista de intervalos de tempo em que este efeito áudio apareceu.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

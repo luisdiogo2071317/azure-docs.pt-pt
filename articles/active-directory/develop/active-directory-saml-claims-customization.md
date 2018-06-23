@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156913"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318425"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory
 Hoje em dia do Azure Active Directory suporta o início de sessão único com a maioria das aplicações da empresa, incluindo ambas as aplicações previamente integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, AD do Azure envia um token para a aplicação (através de um HTTP POST). E, em seguida, a aplicação valida e utiliza o token para iniciar a sessão do utilizador em vez de pedir um nome de utilizador e palavra-passe. Estes tokens SAML contém informações sobre o utilizador ao conhecido como "afirmações".
@@ -73,7 +73,7 @@ Por exemplo, terá de enviar o departamento de que o utilizador pertence a respe
 > Se para um utilizador especificado não existir nenhum valor armazenado para um atributo selecionado, em seguida, esse afirmação não é a ser emitida no token.
 
 > [!TIP]
-> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização dos dados de utilizador no local do Active Directory utilizando o [ferramenta Azure AD Connect](../active-directory-aadconnect.md).
+> O **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** só são suportadas quando a sincronização dos dados de utilizador no local do Active Directory utilizando o [do Azure AD Ligar a ferramenta](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Afirmações restritas
 

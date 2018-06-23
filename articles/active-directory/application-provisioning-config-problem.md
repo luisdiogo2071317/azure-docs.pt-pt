@@ -3,22 +3,24 @@ title: Problema de configuração de aprovisionamento de utilizadores a uma apli
 description: Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 637a2af17cf3b36392e0a694df8c10a55d616675
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30160336"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333028"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração de aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 

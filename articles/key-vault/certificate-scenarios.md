@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333518"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Começar a utilizar certificados de Cofre de chaves
 Os cenários seguintes realçam vários das utilizações de principais de serviço de gestão de certificados do Cofre de chaves, incluindo os passos adicionais necessários para criar o primeiro certificado no seu Cofre de chaves.
@@ -82,8 +83,9 @@ Nota - Este processo, através do passo 3.1, é uma operação onetime.
       -   As informações de renovação - > ex. 90 dias antes da expiração  
 
   - Um processo de criação do certificado é normalmente um processo assíncrono e envolve o seu Cofre de chaves para o estado da operação de certificado a criação de consulta.  
-[Obter o certificado operação](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) -Estado: concluída, falhou com informações de erro ou, cancelada  
-            -Porque de atraso para criar, pode ser iniciada uma operação de cancelamento. A cancelar pode ou não estar em vigor.  
+[Obter a operação de certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Estado: ou foi concluída, falhou com informações de erro, canceladas  
+      -   Devido a atraso para criar, pode ser iniciada uma operação de cancelamento. A cancelar pode ou não estar em vigor.  
 
 ## <a name="import-a-certificate"></a>Importar um certificado  
  Em alternativa – um certificado pode ser importado para o Cofre de chaves – PFX ou PEM.  

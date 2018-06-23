@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 056608e7843c8feab28359de5f2762164287f09d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356143"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322059"
 ---
 # <a name="publish-your-trained-app"></a>Publicar a aplicação preparada
 Quando acabar de criar e testar a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicar mostra todas as associadas HTTP [pontos finais](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e por [chave](Manage-Keys.md), em seguida, estão integradas com qualquer aplicação cliente, chatbot ou back-end. 
 
-Pode sempre [testar](train-test.md) a aplicação antes de a publicar. 
+Pode sempre [testar](interactive-test.md) a aplicação antes de a publicar. 
 
 ## <a name="production-and-staging-slots"></a>De produção e de ranhuras de teste
 Pode publicar a aplicação para o **bloco de transição** ou **ranhura de produção**. Ao utilizar dois ranhuras de publicação, isto permite-lhe ter duas versões diferentes com pontos finais publicadas ou a mesma versão em dois pontos finais diferentes. 
@@ -138,12 +138,12 @@ Os seguintes parâmetros de cadeia de consulta podem ser utilizados com o URL de
 
 |Cadeia de consulta|Tipo|Valor de exemplo|Objetivo|
 |--|--|--|--|
-|Verboso|boolean|true|Incluir [todas as pontuações intenção](#include-all-predicted-intent-scores) para utterance|
-|timezoneOffset|número (unidade é minutos)|60|Definir [desvio de fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) para [datetimeV2 prebuilt entidades](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|verboso|boolean|true|Incluir [todas as pontuações intenção](#include-all-predicted-intent-scores) para utterance|
+|timezoneOffset|número (unidade é minutos)|60|Definir [desvio de fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) para [datetimeV2 prebuilt entidades](luis-reference-prebuilt-datetimev2.md)|
 |spellCheck|boolean|true|[Corrija ortografia](#enable-bing-spell-checker) de utterance – utilizado em conjunto com o parâmetro de cadeia de consulta do bing ortográfica-verifique-subscrição-chave|
 |ortográfica-verifique-subscrição-chave do Bing|ID de subscrição||utilizado em conjunto com o parâmetro de cadeia de consulta spellCheck|
-|Transição|boolean|false|Selecione o ponto final de teste ou de produção|
-|Registo|boolean|true|adicionar a consulta e os resultados para iniciar sessão|
+|teste|boolean|false|Selecione o ponto final de teste ou de produção|
+|registo|boolean|true|adicionar a consulta e os resultados para iniciar sessão|
 
 
 ## <a name="test-your-published-endpoint-in-a-browser"></a>Testar o ponto final publicado num browser
@@ -154,4 +154,4 @@ Testar o ponto final publicado selecionando o URL no **Endpoint** coluna. O brow
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte [gerir chaves](./Manage-Keys.md) para adicionar as chaves para a sua aplicação LUIS e saber mais sobre a forma como as chaves de mapeiam para regiões.
-* Consulte [formação e testar a aplicação](Train-Test.md) para obter instruções sobre como testar as aplicações publicadas na consola de teste.
+* Consulte [formação e testar a aplicação](interactive-test.md) para obter instruções sobre como testar as aplicações publicadas na consola de teste.
