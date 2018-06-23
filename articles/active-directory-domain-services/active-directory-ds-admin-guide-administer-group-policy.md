@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 3f49e4ac0073c81a6e55e6653acc7c6531989379
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212245"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331716"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrar a política de grupo num domínio gerido dos serviços de domínio do Azure AD
 Os serviços de domínio do Active Directory do Azure inclui incorporada objetos de política de grupo (GPOs) para contentores 'AADDC utilizadores' e 'AADDC computadores'. Pode personalizar estes GPOs incorporados para configurar a política de grupo no domínio gerido. Além disso, os membros do grupo 'AAD DC administradores' podem criar os seus próprios UOs personalizados no domínio gerido. Pode também criar GPOs personalizados e ligá-las para estes UOs personalizados. Os utilizadores que pertencem ao grupo de 'AAD DC administradores' são concedidos privilégios de administração de política de grupo no domínio gerido.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas apresentadas neste artigo, tem de:

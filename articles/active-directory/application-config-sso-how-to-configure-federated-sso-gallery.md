@@ -3,21 +3,23 @@ title: Como configurar federado-início de sessão único para uma aplicação d
 description: Como configurar federado único início de sessão para uma aplicação do Azure AD da galeria existente e utilizar tutoriais para começar rapidamente
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331655"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar federado-início de sessão único para uma aplicação de galeria do Azure AD
 
@@ -157,7 +159,7 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
 
-  *  Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todas as aplicações**.
+  *  Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações**.
 
 6.  Selecione a aplicação tiver configurado o início de sessão único.
 
@@ -165,7 +167,7 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 8.  Aceda a **certificado de assinatura de SAML** secção, em seguida, clique em **transferir** valor da coluna. Consoante a aplicação que necessita de configurar o início de sessão único, consulte o a opção para transferir o XML de metadados ou o certificado.
 
-Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser obtidos como um ficheiro XML.
+O Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL de metadados específicos à aplicação: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## <a name="assign-users-to-the-application"></a>Atribuir utilizadores para a aplicação
 

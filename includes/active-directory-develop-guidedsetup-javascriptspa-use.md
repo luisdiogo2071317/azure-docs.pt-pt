@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilizar a biblioteca de autenticação da Microsoft (MSAL) para início de sessão do utilizador
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilize a biblioteca de autenticação da Microsoft (MSAL) para o utilizador iniciar sessão
 
 1.  Crie um ficheiro denominado `app.js`. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito e selecione: `Add`  >  `New Item`  >  `JavaScript File`:
 2.  Adicione o seguinte código no seu `app.js` ficheiro:
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-off button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,16 +119,16 @@ A SPA gerada por este guia não faz utiliza diretamente o token de ID – em vez
 
 #### <a name="getting-a-user-token-interactively"></a>A obter um utilizador token interativamente
 
-Depois do inicial início de sessão, não pretender que a peça aos utilizadores reautenticação sempre que precisam de pedir um token de acesso, para um recurso – *acquireTokenSilent* deve ser utilizada a maioria do tempo para adquirir tokens. Existem no entanto situações que precisa forçar os utilizadores interagem com o ponto final do Azure Active Directory v2 – alguns exemplos incluem:
--   Os utilizadores podem ter de reintroduzir as suas credenciais porque a palavra-passe expirou
--   A aplicação está a solicitar acesso a um recurso que o utilizador tem de autorizar
--   Não é necessária autenticação de dois fatores
+Depois do inicial início de sessão, que não pretende peça aos utilizadores para reautenticação sempre que precisam de pedir um token de acesso, para um recurso – *acquireTokenSilent* deve ser utilizada a maioria do tempo para adquirir tokens. Existem no entanto situações que precisa forçar os utilizadores interajam com o ponto final de v2 do Azure Active Directory – alguns exemplos incluem:
+- Os utilizadores podem ter de reintroduzir as suas credenciais porque a palavra-passe expirou
+- A aplicação está a solicitar acesso a um recurso que o utilizador tem de autorizar
+- Não é necessária autenticação de dois fatores
 
-Chamar o *acquireTokenRedirect(scope)* resultar em redirecionar utilizadores para o ponto final do Azure Active Directory v2 (ou *acquireTokenPopup(scope)* resultado de uma janela de pop-up) onde os utilizadores têm de interagir com por confirmar as suas credenciais, concedendo o consentimento para o recurso necessário ou concluir os dois fator autenticação.
+Chamar o *acquireTokenRedirect(scope)* resultar em redirecionar utilizadores para o ponto final do Azure Active Directory v2 (ou *acquireTokenPopup(scope)* resultado de uma janela de pop-up) onde os utilizadores têm de interagir confirmar as suas credenciais, concedendo o consentimento para o recurso necessário, ou concluir os dois fator de autenticação.
 
 #### <a name="getting-a-user-token-silently"></a>A obter um utilizador token automaticamente
 O ` acquireTokenSilent` método processa aquisições token e a renovação sem qualquer interação do utilizador. Depois de `loginRedirect` (ou `loginPopup`) é executado pela primeira vez, `acquireTokenSilent` é o método costuma ser utilizado para obter os tokens utilizados para aceder a recursos protegidos para chamadas subsequentes - como as chamadas para pedir ou renovar tokens são efetuadas automaticamente.
-`acquireTokenSilent`poderá falhar em alguns casos-por exemplo, palavra-passe o utilizador expirou. A aplicação pode processar esta exceção de duas formas:
+`acquireTokenSilent` poderá falhar em alguns casos-por exemplo, palavra-passe o utilizador expirou. A aplicação pode processar esta exceção de duas formas:
 
 1.  Efetuar uma chamada para `acquireTokenRedirect` imediatamente, o que resulta numa pedir ao utilizador para iniciar sessão. Este padrão é normalmente utilizado em aplicações online em que não existe nenhum conteúdo não autenticado na aplicação disponível para o utilizador. O exemplo gerado por esta configuração orientada utiliza este padrão.
 
@@ -198,13 +198,13 @@ A aplicação de exemplo criado por este guia, o `callWebApiWithToken()` método
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Adicione um método para terminar sessão de utilizador
+## <a name="add-a-method-to-sign-off-the-user"></a>Adicione um método para termine a sessão do utilizador
 
 Adicione o seguinte código no seu `app.js` ficheiro:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign off the user
  */
 function signOut() {
     userAgentApplication.logout();

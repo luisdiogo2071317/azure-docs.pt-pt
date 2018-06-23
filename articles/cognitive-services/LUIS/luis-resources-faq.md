@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: b6b333937e7c88f566fc401967b26cbd31ca158b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301507"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333620"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -127,7 +127,9 @@ Para transferir uma aplicação LUIS para outra subscrição do Azure, a aplica�
 Por predefinição, a aplicação de LUIS regista utterances dos utilizadores. Para transferir um registo de utterances que os utilizadores enviar para a sua aplicação LUIS, visite **aplicações My**e clique nas reticências (***...*** ) na listagem para a sua aplicação. Em seguida, clique em **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como desativar o registo de utterances?
-Pode desativar o registo de utterances do utilizador através da definição `log=false` no URL do ponto final que a aplicação de cliente utiliza para consulta LUIS. No entanto, desativar o registo desativa a capacidade da sua aplicação LUIS sugerir utterances ou melhorar o desempenho baseado em consultas do utilizador. Se definir `log=false` devido a problemas de privacidade de dados, não é possível transferir um registo desses utterances de utilizador do LUIS ou utilizar essas utterances para melhorar a sua aplicação.
+Pode desativar o registo de utterances do utilizador através da definição `log=false` no URL do ponto final que a aplicação de cliente utiliza para consulta LUIS. No entanto, desativar o registo desativa a capacidade da sua aplicação LUIS sugerir utterances ou melhorar o desempenho com base no [learning Active Directory](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se definir `log=false` devido a problemas de privacidade de dados, não é possível transferir um registo desses utterances de utilizador do LUIS ou utilizar essas utterances para melhorar a sua aplicação.
+
+O registo é o armazenamento apenas de utterances. 
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Por que motivo não a pretende todos os meus utterances de ponto final com sessão iniciadas?
 Se estiver a utilizar o início de sessão para análise de predição, não capture utterances de teste no seu registo.
