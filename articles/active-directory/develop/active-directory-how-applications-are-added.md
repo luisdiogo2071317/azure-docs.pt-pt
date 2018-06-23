@@ -16,20 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156175"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316964"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que razão são adicionadas aplicações para o Azure AD
+
 Existem dois representações de aplicações no Azure AD: 
-* [Objetos de aplicação](active-directory-application-objects.md#application-object) – apesar de existirem [exceções](#notes-and-exceptions), estes podem ser considerados como estando a definição de uma aplicação.
-* [Principais de serviço](active-directory-application-objects.md#service-principal-object) -estes podem ser consideradas uma instância de uma aplicação. Principais de serviço geralmente referenciam um objeto de aplicação e um objeto de aplicação pode ser referenciado por várias principais de serviço em diretórios.
+* [Objetos de aplicação](active-directory-application-objects.md#application-object) – apesar de existirem [exceções](#notes-and-exceptions), objetos de aplicação podem ser considerados a definição de uma aplicação.
+* [Principais de serviço](active-directory-application-objects.md#service-principal-object) -pode ser considerada uma instância de uma aplicação. Principais de serviço geralmente referenciam um objeto de aplicação e um objeto de aplicação pode ser referenciado por várias principais de serviço em diretórios.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Quais são os objectos da aplicação e onde vêm da?
-[Objetos de aplicação](active-directory-application-objects.md#application-object) (que pode gerir no portal do Azure através o [registos de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) experiência) descrevem a aplicação para o Azure AD e pode ser considerada a definição da aplicação, permitindo a serviço para saber como emitir tokens para a aplicação com base nas respetivas definições. O objeto de aplicação só existem no respetivo diretório raiz, mesmo se for uma aplicação de multi-inquilino que suporta principais de serviço no outros diretórios. O objeto de aplicação pode incluir qualquer um dos seguintes (como obter informações adicionais, bem como não aqui mencionadas):
+Pode gerir [objectos da aplicação](active-directory-application-objects.md#application-object) no portal do Azure através de [registos de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) experiência. Objetos da aplicação descrevem a aplicação para o Azure AD e podem ser considerados a definição da aplicação, permitindo que o serviço para saber como emitir tokens para a aplicação com base nas respetivas definições. O objeto de aplicação só existem no respetivo diretório raiz, mesmo se for uma aplicação de multi-inquilino que suporta principais de serviço no outros diretórios. O objeto de aplicação pode incluir qualquer um dos seguintes (como obter informações adicionais, bem como não aqui mencionadas):
 * Nome, o logótipo e fabricante
 * URLs de Resposta
 * Segredos (simétricas e/ou assimétricos chaves utilizados para autenticar a aplicação)
@@ -43,12 +45,12 @@ Existem dois representações de aplicações no Azure AD:
 Objetos da aplicação podem ser criados através de vários caminhos, incluindo:
 * Registos de aplicação no portal do Azure
 * Criar uma nova aplicação com o Visual Studio e configurá-lo para utilizar a autenticação do Azure AD
-* Quando o administrador adiciona uma aplicação da Galeria de aplicações (Isto também irá criar um principal de serviço)
+* Quando o administrador adiciona uma aplicação da Galeria de aplicações (que também irá criar um serviço principal)
 * Utilizar o Microsoft Graph API, o AD Graph API do Azure ou o PowerShell para criar uma nova aplicação
 * Muitas outras, incluindo várias experiências do Programador no Azure e nas experiências do Explorador de API em todos os centros de programador
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Quais são os principais de serviço e onde vêm da?
-[Principais de serviço](active-directory-application-objects.md#service-principal-object) (que pode gerir através o [aplicações da empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experiência) são que regem, na verdade, uma aplicação a ligar ao Azure AD e pode ser considerada a instância da aplicação no seu diretório. Para qualquer aplicação específica, pode ter no máximo um objeto de aplicação (que é registado num diretório "raiz") e um ou mais serviço principal objetos que representa as instâncias da aplicação em cada diretório em que este aja. 
+Pode gerir [principais de serviço](active-directory-application-objects.md#service-principal-object) no portal do Azure através de [aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experiência. Principais de serviço são o que regulam uma aplicação a ligar ao Azure AD e podem ser consideradas a instância da aplicação no seu diretório. Para qualquer aplicação específica, pode ter no máximo um objeto de aplicação (que é registado num diretório "raiz") e um ou mais serviço principal objetos que representa as instâncias da aplicação em cada diretório em que este aja. 
 
 O principal de serviço pode incluir:
 
@@ -66,14 +68,14 @@ O principal de serviço pode incluir:
 Como objetos de aplicação, também podem ser criados principais de serviço através de vários caminhos, incluindo:
 
 * Quando os utilizadores iniciarem sessão a uma aplicação de terceiros integrado com o Azure AD
-  * Durante o início de sessão de utilizadores-lhe pedido para conceder permissão para a aplicação para aceder ao respetivo perfil e outras permissões. A primeira pessoa a dar consentimento faz com que um principal de serviço que representa a aplicação a ser adicionado ao diretório.
+  * Durante o início de sessão, é pedido aos utilizadores para conceder permissão para a aplicação para aceder ao respetivo perfil e outras permissões. A primeira pessoa a dar consentimento faz com que um principal de serviço que representa a aplicação a ser adicionado ao diretório.
 * Quando os utilizadores iniciarem sessão Microsoft online Services como [do Office 365](http://products.office.com/)
   * Quando subscreve o Office 365 ou iniciar uma versão de avaliação, uma ou mais principais de serviço são criados no diretório que representa os serviços que são utilizados para fornecer todas as funcionalidades associadas com o Office 365.
   * Alguns serviços do Office 365, como o SharePoint criar principais do serviço de forma contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Quando o administrador adiciona uma aplicação da Galeria de aplicações (Isto vai também criar um objeto subjacente de aplicação)
 * Adicionar uma aplicação para utilizar o [Proxy de aplicações do Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* Ligar uma aplicação para início de sessão único utilizando SAML ou palavra-passe-início de sessão único (SSO)
-* X509securitytokenparameters através do Azure AD Graph API ou o PowerShell
+* Ligar uma aplicação para início de sessão único utilizando SAML ou palavra-passe único início de sessão (SSO)
+* Através de programação através do Azure AD Graph API ou o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como são objetos de aplicação e principais de serviço relacionado com entre si?
 Uma aplicação tem um objeto de aplicação no respetivo diretório raiz que é referenciado por um ou mais principais de serviço em cada um dos diretórios que opera (incluindo o diretório de raiz da aplicação).
@@ -108,7 +110,7 @@ São adicionadas aplicações ao Azure AD para tirar partido de uma ou mais serv
 * Autorização e autenticação de utilizador
 * SSO utilizando a palavra-passe ou Federação
 * Aprovisionamento de utilizador e sincronização
-* Controlo de acesso baseado em funções - utilize o diretório para definir funções da aplicação para executar funções com base em verificações de autorização de uma aplicação
+* Utilize o diretório para definir funções da aplicação para efetuar a autorização baseada em funções de controlo de acesso baseado em Funções - verifica numa aplicação
 * Serviços de autorização do OAuth - utilizados pelo Office 365 e outras aplicações da Microsoft para autorizar o acesso a APIs/recursos
 * Publicação de aplicações e o proxy - publicar uma aplicação de uma rede privada à internet
 
@@ -130,7 +132,8 @@ Se pretender continuar a impedir que os utilizadores no seu diretório, registo 
 * Para impedir que os utilizadores consenting para as aplicações no seu próprio nome:
   1. No portal do Azure, visite o [as definições de utilizador](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) secção em aplicações da empresa.
   2. Alteração **os utilizadores podem autorizar aplicações acedem aos dados da empresa em nome daqueles** para **não**. 
-     *Tenha em atenção que, se optar por desativar o consentimento do utilizador, um administrador será necessário consentimento para qualquer nova aplicação de que um utilizador tem de utilizar.*
+      > [!NOTE]
+      > Se optar por desativar o consentimento do utilizador, um administrador será necessário consentimento para qualquer nova aplicação de que um utilizador tem de utilizar.    
 * Para impedir que os utilizadores registar as suas próprias aplicações:
   1. No portal do Azure, visite o [as definições de utilizador](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) secção no Azure Active Directory
   2. Alteração **os utilizadores podem registar aplicações** para **não**.

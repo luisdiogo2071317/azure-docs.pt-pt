@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
-ms.openlocfilehash: 408d86d2d79e827da654ad71f66972fe76fc2431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2929f85b738171f7fb7f5b66af90e4e2ab54f5d0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212500"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317175"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows utilizando o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Passo 1: Criar uma máquina virtual do Windows
-Para criar uma máquina virtual do Windows que está associada à rede virtual em que ativou a do Azure AD DS, efetue o seguinte:
+Para criar uma máquina virtual do Windows que está associada à rede virtual em que ativou a do Azure AD DS, efetue os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
 2. Na parte superior do painel esquerdo, selecione **novo**.
@@ -68,29 +70,29 @@ Para criar uma máquina virtual do Windows que está associada à rede virtual e
 ## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Passo 2: Ligar à máquina virtual do Windows Server utilizando a conta de administrador local
 Em seguida, ligar à máquina virtual recentemente criada do Windows Server para a associar ao domínio. Utilize as credenciais de administrador local que especificou quando criou a máquina virtual.
 
-Para ligar à máquina virtual, efetue o seguinte:
+Para ligar à máquina virtual, execute os seguintes passos:
 
 1. No **descrição geral** painel, selecione **Connect**.  
     Um ficheiro de protocolo de ambiente de trabalho remoto (RDP) é criado e transferido.
 
     ![Ligar à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for pedido, selecione **Connect**.
-3. Na linha de início de sessão, introduza o **credenciais de administrador local**, que especificou quando criou a máquina virtual (por exemplo, *localhost\mahesh*).
-4. Se receber um aviso de certificado durante o processo de início de sessão, continuar com a ligação selecionando **Sim** ou **continuar**.
+2. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for pedido, selecione **Ligar**.
+3. Introduza o **credenciais de administrador local**, que especificou quando criou a máquina virtual (por exemplo, *localhost\mahesh*).
+4. Se vir um aviso de certificado durante o processo de início de sessão, selecione **Sim** ou **continuar** para estabelecer a ligação.
 
 Neste momento, deve iniciar a sessão para a máquina virtual recentemente criada do Windows com as suas credenciais de administrador local. O passo seguinte é para associar a máquina virtual ao domínio.
 
 
 ## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Passo 3: Associar a máquina virtual do Windows Server para o Azure AD DS geridos por domínio
-Para associar a máquina virtual do Windows Server ao domínio do Azure AD DS-geridos, efetue o seguinte:
+Para associar a máquina virtual do Windows Server para o Azure AD DS-geridos domínio, execute os seguintes passos:
 
 1. Ligar à VM do Windows Server, conforme mostrado no "Passo 2." No **iniciar** ecrã aberto **Gestor de servidor**.
 2. No painel esquerdo do **Gestor de servidor** janela, selecione **servidor Local**.
 
     ![A janela do Gestor de servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Em **propriedades**, selecione **Workgroup**. 
+3. Em **propriedades**, selecione **Workgroup**.
 4. No **propriedades do sistema** janela, selecione **alteração** para aderir ao domínio.
 
     ![A janela de propriedades do sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
@@ -99,7 +101,7 @@ Para associar a máquina virtual do Windows Server ao domínio do Azure AD DS-ge
 
     ![Especifique o domínio a ser associada](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-6. Lhe for pedido para introduzir as suas credenciais para aderir ao domínio. Certifique-se de que especifica as credenciais para um *utilizador que pertence ao grupo de administradores do Azure AD DC*. Apenas os membros deste grupo têm privilégios para associar computadores ao domínio gerido.
+6. Está a pedido para introduzir as suas credenciais para aderir ao domínio. Utilizar as credenciais para um *utilizador que pertence ao grupo de administradores do Azure AD DC*. Apenas os membros deste grupo têm privilégios para associar computadores ao domínio gerido.
 
     ![A janela de segurança do Windows para a especificação de credenciais](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
@@ -115,7 +117,7 @@ Para associar a máquina virtual do Windows Server ao domínio do Azure AD DS-ge
      > Se o prefixo UPN do utilizador é demasiado longo (por exemplo, *joehasareallylongname*), SAMAccountName pode ser gerada automaticamente. Se vários utilizadores têm o mesmo prefixo UPN (por exemplo, *Bernardo*) no seu inquilino do Azure AD, o respetivo formato SAMAccountName pode ser gerada automaticamente pelo serviço. Nestes casos, o formato UPN pode ser utilizado de forma fiável para iniciar sessão no domínio.
      >
 
-8. Depois de associar um domínio, a seguinte mensagem agradece-o ao domínio.
+8. Depois de ter aderiu com êxito ao domínio, a seguinte mensagem agradece, ao domínio.
 
     ![Bem-vindo ao domínio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -123,30 +125,30 @@ Para associar a máquina virtual do Windows Server ao domínio do Azure AD DS-ge
 
 ## <a name="troubleshoot-joining-a-domain"></a>Resolver problemas de associação a um domínio
 ### <a name="connectivity-issues"></a>Problemas de conectividade
-Se a máquina virtual não é possível localizar o domínio, experimente um ou mais dos seguintes procedimentos:
+Se a máquina virtual não é possível localizar o domínio, tente os seguintes passos de resolução de problemas:
 
-* Certifique-se de que a máquina virtual está ligada à mesma rede virtual que já ativou o Azure AD DS no. Se não estiver ligado, a máquina virtual não conseguiu estabelecer ligação ao domínio e, por conseguinte, não é possível associar ao domínio.
+* Certifique-se de que a máquina virtual está ligada à mesma rede virtual do Azure AD DS está ativado no. Caso contrário, a máquina virtual não consegue ligar ou associar ao domínio.
 
-* Certifique-se de que a máquina virtual está numa rede virtual que por sua vez esteja ligada à rede virtual em que ativou a do Azure AD DS.
+* Certifique-se de que a máquina virtual está numa rede virtual que por sua vez esteja ligada à rede virtual do Azure AD DS está ativado no.
 
-* Tente enviar um ping ao domínio utilizando o nome de domínio do domínio gerido (por exemplo, *ping contoso100.com*). Se não for possível para o fazer, tente enviar um ping os endereços IP para o domínio que é apresentado na página onde ativou o Azure AD DS (por exemplo, *ping 10.0.0.4*). Se tiver a capacidade para enviar um ping o endereço IP, mas não o domínio, DNS pode estar incorretamente configurado. Verifique se os endereços IP do domínio estão configurados como servidores DNS para a rede virtual.
+* Tente enviar um ping o nome de domínio DNS do domínio gerido (por exemplo, *ping contoso100.com*). Se não for possível para o fazer, tente enviar um ping os endereços IP para o domínio que é apresentado na página onde ativou o Azure AD DS (por exemplo, *ping 10.0.0.4*). Se consegue enviar pings para o endereço IP, mas não o domínio, DNS pode estar incorretamente configurado. Verifique se os endereços IP do domínio estão configurados como servidores DNS para a rede virtual.
 
 * Tente libertar a cache de resolução DNS na máquina virtual (*ipconfig /flushdns*).
 
 Se uma janela for apresentada que pede-lhe credenciais aderir ao domínio, não tem problemas de conectividade.
 
 ### <a name="credentials-related-issues"></a>Problemas relacionados com as credenciais
-Se tiver problemas com as credenciais e não conseguir aderir ao domínio, experimente um ou mais dos seguintes procedimentos:
+Se tiver problemas com as credenciais e não conseguir aderir ao domínio, tente os seguintes passos de resolução de problemas:
 
-* Tente utilizar o formato UPN para especificar as credenciais. Se existirem vários utilizadores com o mesmo prefixo UPN no seu inquilino, ou se o prefixo UPN é demasiado longo, SAMAccountName para a sua conta pode ser gerada automaticamente. Por conseguinte, o formato de SAMAccountName para a sua conta pode ser diferente das que se espera ou utiliza no seu domínio no local.
+* Tente utilizar o formato UPN para especificar as credenciais. Se existirem muitos utilizadores com o mesmo prefixo UPN no seu inquilino, ou se o prefixo UPN é demasiado longo, SAMAccountName para a sua conta pode ser gerada automaticamente. Nestes casos, o formato de SAMAccountName para a sua conta pode ser diferente da que pode espera ou utiliza no seu domínio no local.
 
 * Tente utilizar as credenciais de uma conta de utilizador que pertence o *AAD DC administradores* grupo.
 
-* Certifique-se de que tem [ativada a sincronização de palavra-passe](active-directory-ds-getting-started-password-sync.md) em conformidade com os passos descritos no guia de introdução ao obter.
+* Verifique se tem [ativada a sincronização de palavra-passe](active-directory-ds-getting-started-password-sync.md) ao seu domínio gerido.
 
-* Certifique-se de que utiliza o UPN do utilizador conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sessão.
+* Verifique se utilizou o UPN do utilizador conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sessão.
 
-* Certifique-se de que tem aguardaram suficientemente longa para a sincronização de palavra-passe ser concluída, conforme especificado no guia de introdução.
+* Aguarde algum tempo suficiente para a sincronização de palavra-passe ser concluída, conforme especificado no guia de introdução.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Azure AD DS guia de introdução](active-directory-ds-getting-started.md)

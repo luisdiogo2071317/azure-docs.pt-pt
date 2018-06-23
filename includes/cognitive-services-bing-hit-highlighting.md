@@ -1,43 +1,43 @@
-Bing supports hit highlighting which marks query terms (or other terms that Bing finds relevant) in the display strings of some of the answers. For example, a webpage's `name`, `displayUrl`, and `snippet` fields may mark the query terms.
+Bing suporta acessos realce que marca a termos de consulta (ou outros termos que o Bing encontra relevantes) nas cadeias de visualização de algumas as respostas. Por exemplo, uma página Web `name`, `displayUrl`, e `snippet` campos podem marcar os termos de consulta.
 
-By default, Bing doesn't include highlighting markers in display strings. To include the markers, include the `textDecorations` query parameter in your request and set it to **true**. Bing marks the query terms using the E000 and E001 Unicode characters to mark the beginning and end of the term. For example, if the query term is Sailing Dinghy and either term exists in the field, the term is enclosed in hit highlighting characters as shown in the following example:  
+Por predefinição, o Bing não inclui realce marcadores nas cadeias de apresentação. Para incluir os marcadores, inclua o `textDecorations` parâmetro do seu pedido de consulta e defina-o como **verdadeiro**. Bing marca os termos de consulta a utilizar os carateres E000 e E001 Unicode para marcar o início e fim do período da. Por exemplo, se o termo de consulta é Sailing Dinghy e o termo existe no campo, o termo é colocado entre acessos carateres realce conforme mostrado no exemplo seguinte:  
   
-![Hit Highlighting](./media/cognitive-services-bing-hit-highlighting/bing-hit-highlighting.PNG) 
+![Detetor de ocorrências](./media/cognitive-services-bing-hit-highlighting/bing-hit-highlighting.PNG) 
 
-Before displaying the string in your user interface, you would replace the Unicode characters with characters that are appropriate for your display format. For example, if you're displaying the text as HTML, you might highlight the query term by replacing E000 with <b\> and E001 with </b\>. If you don't want to apply formatting, remove the markers from the string. 
+Antes de apresentar a cadeia na sua interface de utilizador, seria substitua os carateres Unicode carateres que são adequados para o formato de apresentação. Por exemplo, se estiver a apresentação de texto como HTML, poderá realce o termo de consulta, substituindo E000 com < b\> e E001 com </b\>. Se não pretender aplicar a formatação, remova os marcadores da cadeia. 
 
-Bing provides the option of using Unicode characters or HTML tags as markers. To specify which markers to use, include the `textFormat` query parameter. To mark the content with Unicode characters, set `textFormat` to Raw (the default), and to mark the content with HTML tags, set `textFormat` to HTML. 
+Bing fornece a opção de utilização de carateres Unicode ou tags de HTML como marcadores. Para especificar os marcadores de utilizar, inclua o `textFormat` parâmetro de consulta. Para marcar o conteúdo com carateres Unicode, defina `textFormat` Raw (predefinição) e marcar o conteúdo com tags de HTML, defina `textFormat` em HTML. 
   
-If `textDecorations` is **true**, Bing may include the following markers in display strings of answers. If there is no HTML equivalent, the HTML table cell is empty.
+Se `textDecorations` é **verdadeiro**, Bing pode incluir os seguintes marcadores nas cadeias de visualização de respostas. Se não existir nenhum equivalente HTML, a célula de tabela HTML está vazia.
 
-|Unicode|HTML|Description
+|Unicode|HTML|Descrição
 |-|-|-
-|U+E000|\<b>|Marks the beginning of the query term (hit highlighting)
-|U+E001|\</b>|Marks the end of the query term
-|U+E002|\<i>|Marks the beginning of italicized content 
-|U+E003|\</i>|Marks the end of italicized content
-|U+E004|\<br/>|Marks a line break
-|U+E005||Marks the beginning of a phone number
-|U+E006||Marks the end of a phone number
-|U+E007||Marks the beginning of an address
-|U+E008||Marks the end of an address
-|U+E009|\&nbsp;|Marks a non-breaking space
-|U+E00C|\<strong>|Marks the beginning of bold content
-|U+E00D|\</strong>|Marks the end of bold content
-|U+E00E||Marks the beginning of content whose background should be lighter than its surrounding background
-|U+E00F||Marks the end of content whose background should be lighter than its surrounding background
-|U+E010||Marks the beginning of content whose background should be darker than its surrounding background
-|U+E011||Marks the end of content whose background should be darker than its surrounding background
-|U+E012|\<del>|Marks the beginning of content that should be struck through
-|U+E013|\</del>|Marks the end of content that should be struck through
-|U+E016|\<sub>|Marks the beginning of subscript content
-|U+E017|\</sub>|Marks the end of subscript content
-|U+E018|\<sup>|Marks the beginning of superscript content
-|U+E019|\</sup>|Marks the end of superscript content
+|U + E000|\<b >|Marca o início do período da consulta (realce acessos)
+|U + E001|\</ b >|Marca o fim do período da consulta
+|U + E002|\<posso >|Marca o início de conteúdo em itálico 
+|U + E003|\</ i >|Marca o fim do conteúdo em itálico
+|U + E004|\<br / >|Marca uma quebra de linha
+|U + E005||Marca o início de um número de telefone
+|U + E006||Marca o fim de um número de telefone
+|U + E007||Marca o início de um endereço
+|U + E008||Marca o fim de um endereço
+|U + E009|\&nbsp;|Marca um espaço sem quebra
+|U + E00C|\<strong >|Marca o início do conteúdo negrito
+|U + E00D|\</ strong >|Marca o fim do conteúdo negrito
+|U + E00E||Marca o início do conteúdo cujo em segundo plano deve ser mais ligeira à respetiva surrounding em segundo plano
+|U + E00F||Marca o fim do conteúdo cujo em segundo plano deve ser mais ligeira à respetiva surrounding em segundo plano
+|U + E010||Marca o início do conteúdo cujo em segundo plano deve ser darker ao respetivo surrounding em segundo plano
+|U + E011||Marca o fim do conteúdo cujo em segundo plano deve ser darker ao respetivo surrounding em segundo plano
+|U + E012|\<del >|Marca o início de conteúdo que deve ser struck através do
+|U + E013|\</del >|Marca o fim do conteúdo que deve ser struck através do
+|U + E016|\<Sub >|Marca o início do conteúdo de índice
+|U + E017|\</ sub >|Marca o fim do conteúdo de índice
+|U + E018|\<sup >|Marca o início do conteúdo de expoente
+|U + E019|\</ sup >|Marca o fim do conteúdo de expoente
 
-The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration is **true**.
+O seguinte exemplo mostra um `Computation` resposta que contém os marcadores de índice para um termo de consulta log(2). O `expression` campo contém o marcadores apenas se for `textDecoration` é **verdadeiro**.
 
-![computation markers](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
+![marcadores de computação](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 
-If the request did not request decorations, the expression would be log10(2). 
+Se o pedido não pediu decorações, a expressão será log10(2). 
   

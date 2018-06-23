@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867396"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334674"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação de multi-factor do Azure mais recente
 
@@ -48,21 +48,12 @@ Se estiver a atualizar do v6. x ou anterior v7.x ou mais recente, altere todos o
 
 Se tiver o Portal de utilizador em vários servidores, repita a instalação em todos eles. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Atualizar o serviço Web de aplicação móvel
 
-1. Faça uma cópia de segurança do ficheiro Web. config que se encontra no diretório virtual da localização de instalação do serviço Web da aplicação móvel (por exemplo, C:\inetpub\wwwroot\app ou C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Copie o ficheiro de MultiFactorAuthenticationMobileAppWebServiceSetup64.msi localização da instalação dos servidores de MFA e coloque-o para o servidor de web de registo de aplicação móvel.
-3. Execute o instalador. 
-
-  Se ocorrer um erro a indicar que é necessária o Microsoft Visual C++ Redistributable atualização 2015 1 ou superior, transfira e instale o pacote de atualização mais recente do [Microsoft Download Center](https://www.microsoft.com/download/). Instale versões x86 e x64.
-
-4. Depois de instala o software atualizado do serviço Web da aplicação móvel, compare o ficheiro Web. config que foi feito no passo 1 com o novo ficheiro Web. config. Não se existirem nenhum novos atributos na Web. config novo, pode copiar o Web. config guardado no diretório virtual e substituir novo. Outra opção consiste em copiar/colar os valores de appSettings e o URL de SDK do serviço Web do ficheiro de cópia de segurança para o novo Web. config.
-
-Se tiver o serviço Web da aplicação móvel em vários servidores, repita a instalação em todos eles. 
+> [!NOTE]
+> Ao atualizar de uma versão do servidor do MFA do Azure mais antigos que 8.0 para 8.0 + que o serviço web de aplicação móvel pode ser desinstalado após a atualização
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Atualizar os adaptadores do AD FS
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Se o MFA é executado num servidor diferente do AD FS
 

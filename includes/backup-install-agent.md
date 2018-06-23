@@ -2,9 +2,9 @@
 Depois de criar o Cofre dos serviços de recuperação, instale o agente de cópia de segurança em cada uma das suas máquinas do Windows (Windows Server, cliente Windows, o servidor do System Center Data Protection Manager ou máquina do servidor de cópia de segurança do Azure) utilizado para fazer cópias de segurança de dados do Azure.
 
 1. Abra a sua subscrição a [Portal do Azure](https://ms.portal.azure.com/).
-2. No menu da esquerda, selecione **todos os serviços** e na lista de serviços, escreva **dos serviços de recuperação**. Clique em **cofres dos serviços de recuperação**.
+2. No menu da esquerda, selecione **All services** (Todos os serviços) e, na lista de serviços, escreva **Recovery Services** (Serviços de Recuperação). Clique em **Cofres dos Serviços de Recuperação**.
 
-   ![Abra o Cofre dos serviços de recuperação](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![abrir o cofre dos Serviços de Recuperação](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. Na página início rápido, clique o **cliente para o Windows Server ou o System Center Data Protection Manager ou o Windows** opção em **Transferir agente**. Clique em **guardar** para copiá-lo para o computador local.
    
     ![Guardar o agente](./media/backup-install-agent/agent.png)
@@ -18,7 +18,7 @@ Depois de criar o Cofre dos serviços de recuperação, instale o agente de cóp
    
     ![Credenciais do Cofre](./media/backup-install-agent/vc.png)
    
-    O ficheiro de credenciais do cofre só é válido para 48 horas (após a transferência do portal). Se encontrar qualquer erro este ecrã (por exemplo "ficheiro de credenciais de cofre fornecido expirou"), início de sessão no portal do Azure e transfira o ficheiro de credenciais do cofre novamente.
+    O ficheiro de credenciais do cofre só é válido para 48 horas (após a transferência do portal). Se encontrar qualquer erro este ecrã (por exemplo "as credenciais do cofre ficheiro fornecido expirou"), inicie sessão no portal do Azure e transfira o ficheiro de credenciais do cofre novamente.
    
     Certifique-se de que a aplicação de configuração pode aceder ao ficheiro de credenciais de cofre. Se ocorrerem erros relacionados com o acesso, copie o ficheiro de credenciais do cofre para uma localização temporária no computador local e repita a operação.
    

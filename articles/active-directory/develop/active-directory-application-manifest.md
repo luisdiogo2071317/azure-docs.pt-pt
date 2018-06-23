@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157080"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317400"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Manifesto da aplicação do Azure Active Directory
 As aplicações que se integram com o Azure AD tem de ser registadas com um inquilino do Azure AD. Esta aplicação pode ser configurada com o manifesto da aplicação (sob o painel do Azure AD) no [portal do Azure](https://portal.azure.com).
@@ -38,7 +38,7 @@ As aplicações que se integram com o Azure AD tem de ser registadas com um inqu
 |availableToOtherTenants|boolean|`true`|Se este valor é definido como VERDADEIRO, a aplicação está disponível para outros inquilinos. Se definido como false, a aplicação só está disponível para o inquilino está registado no. Para obter mais informações, consulte: [como iniciar sessão em qualquer utilizador do Azure Active Directory (AD) através do padrão de aplicação multi-inquilino](active-directory-devhowto-multi-tenant-overview.md). |
 |displayName     |cadeia         |`MyRegisteredApp`         |O nome a apresentar para a aplicação. |
 |errorURL     |cadeia         |`http://MyRegisteredAppError`         |O URL de erros encontrados numa aplicação. |
-|GroupMembershipClaims     |    cadeia     |    `1`     |   Uma máscara de bits que configura a afirmação "grupos" emitida num utilizador ou um token de acesso de OAuth 2.0 que espera que a aplicação. Os valores de máscara de bits são: 0: None, 1: grupos de segurança e funções do Azure AD, 2: reservado e 4: reservado. Definir a máscara de bits para 7 obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. |
+|groupMembershipClaims     |    cadeia     |    `1`     |   Uma máscara de bits que configura a afirmação "grupos" emitida num utilizador ou um token de acesso de OAuth 2.0 que espera que a aplicação. Os valores de máscara de bits são: 0: None, 1: grupos de segurança e funções do Azure AD, 2: reservado e 4: reservado. Definir a máscara de bits para 7 obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. |
 |optionalClaims     |  cadeia       |     `null`    |    O [afirmações opcionais](active-directory-optional-claims.md) devolvido no token pelo serviço de token de segurança para esta aplicação específica. |
 |acceptMappedClaims    |      boolean   | `true`        |    Se este valor é definido como VERDADEIRO, permite que uma aplicação para utilizar afirmações de mapeamento sem especificar uma chave de assinatura personalizada.|
 |Home page     |  cadeia       |`http://MyRegistererdApp`         |    O URL para a home page da aplicação. |
@@ -52,7 +52,7 @@ As aplicações que se integram com o Azure AD tem de ser registadas com um inqu
 |oauth2RequiredPostResponse     | boolean        |    `false`     |      Especifica se, como parte de pedidos de token de OAuth 2.0, do Azure AD irá permitir pedidos POST, por oposição a pedidos GET. A predefinição é false, o que especifica que apenas os pedidos GET serão permitidos. 
 |objectId     | Cadeia de identificador        |     ""    |    O identificador exclusivo para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. É utilizador para a referenciar o objeto em consultas de diretório.|
 |passwordCredentials     | Tipo de matriz        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Consulte a descrição para a propriedade keyCredentials. |
-|PublicClient     |  boolean       |      `false`   | Especifica se uma aplicação é um cliente público (por exemplo, uma aplicação instalada em execução num dispositivo móvel). A predefinição é falso. |
+|publicClient     |  boolean       |      `false`   | Especifica se uma aplicação é um cliente público (por exemplo, uma aplicação instalada em execução num dispositivo móvel). A predefinição é falso. |
 |supportsConvergence     |  boolean       |   `false`      | Esta propriedade não deve ser editada. Aceite o valor predefinido. |
 |replyUrls     |  Matriz de cadeia       |   `http://localhost`     |  Esta propriedade de vários valores contém a lista de valores de redirect_uri registados que aceitará do Azure AD como destinos quando regressar tokens. |
 |requiredResourceAccess     |     Tipo de matriz    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Especifica os recursos que esta aplicação requer o acesso e o conjunto de âmbitos de permissões de OAuth e funções da aplicação que necessita em cada um desses recursos. Nesta pré-configuração de acesso a recursos necessários unidades a experiência de consentimento.|

@@ -1,0 +1,333 @@
+---
+title: Utilizar a classificação para apresentar os resultados da pesquisa | Microsoft Docs
+description: Mostra como utilizar a resposta de Bing RankingResponse para apresentar os resultados da pesquisa por ordem de classificação.
+services: cognitive-services
+author: bradumbaugh
+manager: bking
+ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+ms.service: cognitive-services
+ms.component: bing-web-search
+ms.topic: article
+ms.date: 05/08/2017
+ms.author: brumbaug
+ms.openlocfilehash: ec47b8448c0c39cc54e4c79434ce7a2d926df341
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35352441"
+---
+# <a name="build-a-console-app-search-client-in-c"></a>Criar um cliente de pesquisa de aplicação de consola em c#
+
+Este tutorial mostra como criar uma aplicação de consola .NET Core simple que permite aos utilizadores consultar a API de pesquisa do Bing Web e apresentar resultados classificados.
+
+Este tutorial mostra como:
+
+- Se uma consulta simples para a API de pesquisa do Bing Web
+- Apresentar os resultados da consulta por ordem classificado
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para seguir o tutorial, precisa de:
+
+- Visual Studio. Se não o tiver, [transferir e instalar o Visual Studio 2017 Comunidade edição gratuita](https://www.visualstudio.com/downloads/).
+- Uma chave de subscrição para a API de pesquisa do Bing Web. Se não tiver uma, [inscrever-se numa avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+
+## <a name="create-a-new-console-app-project"></a>Criar um novo projeto de aplicação de consola
+
+No Visual Studio, crie um projeto com `Ctrl`+`Shift`+`N`.
+
+No **novo projeto** caixa de diálogo, clique em **Visual c# > ambiente de trabalho clássico do Windows > aplicação de consola (.NET Framework)**.
+
+Atribua um nome de aplicação **MyConsoleSearchApp**e, em seguida, clique em **OK**.
+
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adicione o pacote JSON.net Nuget ao projeto
+
+JSON.net permite-lhe trabalhar com as respostas JSON devolvidas pela API. Adicione o pacote NuGet ao seu projeto:
+
+- No **Explorador de soluções** com o botão direito no projeto e selecione **gerir pacotes NuGet...** . 
+- No **procurar** separador, procure na pesquisa `Newtonsoft.Json`. Selecione a versão mais recente e, em seguida, clique em **instalar**. 
+- Clique em de **OK** botão no **rever alterações** janela.
+- Fechar o separador de Visual Studio intitulado **NuGet: MyConsoleSearchApp**.
+
+## <a name="add-a-reference-to-systemweb"></a>Adicione uma referência para System. Web
+
+Este tutorial depende o `System.Web` assemblagem. Adicione uma referência a esta assemblagem ao seu projeto:
+
+- No **Explorador de soluções**, faça duplo clique no **referências** e selecione **Adicionar referência...**
+- Selecione **assemblagens > Framework**, em seguida, desloque para baixo e verifique **System. Web**
+- Selecione **OK**
+
+## <a name="add-some-necessary-using-statements"></a>Adicione algumas necessárias instruções de utilização
+
+O código deste tutorial requer três adicionais instruções de utilização. Adicione estas instruções abaixo existente `using` declarações na parte superior do **Program.cs**: 
+
+```csharp
+using System.Web;
+using System.Net.Http;
+```
+
+## <a name="ask-the-user-for-a-query"></a>Pedir ao utilizador para uma consulta
+
+No **Explorador de soluções**, abra **Program.cs**. Atualização do `Main()` método:
+
+```csharp
+static void Main()
+{
+    // Get the user's query
+    Console.Write("Enter Bing query: ");
+    string userQuery = Console.ReadLine();
+    Console.WriteLine();
+
+    // Run the query and display the results
+    RunQueryAndDisplayResults(userQuery);
+
+    // Prevent the console window from closing immediately
+    Console.WriteLine("\nHit ENTER to exit...");
+    Console.ReadLine();
+}
+```
+
+Este método:
+
+- Pede ao utilizador para uma consulta
+- Chamadas `RunQueryAndDisplayResults(userQuery)` para executar a consulta e apresentar os resultados
+- Aguarda intervenção do utilizador para impedir que a janela de consola imediatamente a fechar.
+
+## <a name="search-for-query-results-using-the-bing-web-search-api"></a>Procure os resultados da consulta utilizando a API de pesquisa do Bing Web
+
+Em seguida, adicione um método que consulta a API e apresenta os resultados:
+
+```csharp
+static void RunQueryAndDisplayResults(string userQuery)
+{
+    try
+    {
+        // Create a query
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<YOUR_SUBSCRIPTION_KEY_GOES_HERE>");
+        var queryString = HttpUtility.ParseQueryString(string.Empty);
+        queryString["q"] = userQuery;
+        var query = "https://api.cognitive.microsoft.com/bing/v7.0/search?" + queryString;
+
+        // Run the query
+        HttpResponseMessage httpResponseMessage = client.GetAsync(query).Result;
+
+        // Deserialize the response content
+        var responseContentString = httpResponseMessage.Content.ReadAsStringAsync().Result;
+        Newtonsoft.Json.Linq.JObject responseObjects = Newtonsoft.Json.Linq.JObject.Parse(responseContentString);
+
+        // Handle success and error codes
+        if (httpResponseMessage.IsSuccessStatusCode)
+        {
+            DisplayAllRankedResults(responseObjects);
+        }
+        else
+        {
+            Console.WriteLine($"HTTP error status code: {httpResponseMessage.StatusCode.ToString()}");
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
+}
+```
+
+Este método:
+
+- Cria um `HttpClient` consultar a API de pesquisa da Web
+- Define o `Ocp-Apim-Subscription-Key` cabeçalho HTTP, que o Bing utiliza para autenticar o pedido
+- Executa o pedido e utiliza JSON.net para anular a serialização os resultados
+- Chamadas `DisplayAllRankedResults(responseObjects)` para apresentar todos os resultados por ordem classificado
+
+Certifique-se de que define o valor de `Ocp-Apim-Subscription-Key` a sua chave de subscrição.
+
+## <a name="display-ranked-results"></a>Apresentar resultados classificados
+
+Antes de mostrar como apresentar os resultados por ordem classificados, observe uma resposta de pesquisa de web de exemplo: 
+
+```json
+{
+    "_type" : "SearchResponse",
+    "webPages" : {
+        "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=70BE289346...",
+        "totalEstimatedMatches" : 982000,
+        "value" : [{
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
+            "name" : "Contoso Sailing Club - Seattle",
+            "url" : "https:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
+            "displayUrl" : "https:\/\/contososailingsea...",
+            "snippet" : "Come sail with Contoso in Seattle...",
+            "dateLastCrawled" : "2017-04-07T02:25:00"
+        },
+        {
+            "id" : "https:\/\/api.cognitive.microsoft.com\/api\/7\/#WebPages.6",
+            "name" : "Contoso Sailing Lessons - Official Site",
+            "url" : "http:\/\/www.bing.com\/cr?IG=70BE289346ED4594874FE...",
+            "displayUrl" : "https:\/\/www.constososailinglessonsseat...",
+            "snippet" : "Contoso sailing lessons in Seattle...",
+            "dateLastCrawled" : "2017-04-09T14:30:00"
+        },
+
+        ...
+        
+        ],
+        "someResultsRemoved" : true
+    },
+    "relatedSearches" : {
+        "id" : "https:\/\/api.cognitive.microsoft.com\/api\/7\/#RelatedSearches",
+        "value" : [{
+            "text" : "sailing lessons",
+            "displayText" : "sailing lessons",
+            "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=70BE289346E..."
+        }
+
+        ...
+        
+        ]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "WebPages",
+                "resultIndex" : 0,
+                "value" : {
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0"
+                }
+            },
+            {
+                "answerType" : "WebPages",
+                "resultIndex" : 1,
+                "value" : {
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.1"
+                }
+            }
+
+            ...
+
+            ]
+        },
+        "sidebar" : {
+            "items" : [{
+                "answerType" : "RelatedSearches",
+                "value" : {
+                    "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#RelatedSearches"
+                }
+            }]
+        }
+    }
+}
+```
+
+O `rankingResponse` objeto JSON ([documentação](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descreve a ordem de apresentação adequado para os resultados da pesquisa. Inclui um ou mais dos seguintes, prioritários grupos: 
+
+- `pole`: Os resultados da pesquisa ao obter o o tratamento mais visível (por exemplo, é apresentado o mainline acima e barra lateral).
+- `mainline`: Os resultados da pesquisa para apresentar o mainline.
+- `sidebar`: Os resultados da pesquisa a apresentar na barra lateral. Se não houver nenhuma barra lateral, apresenta os resultados de mainline abaixo.
+
+A resposta de classificação JSON pode incluir um ou mais dos grupos.
+
+No **Program.cs**, adicione o seguinte método para apresentar resultados corretamente classificados por ordem:
+
+```csharp
+static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
+{
+    string[] rankingGroups = new string[] { "pole", "mainline", "sidebar" };
+
+    // Loop through the ranking groups in priority order
+    foreach (string rankingName in rankingGroups)
+    {
+        Newtonsoft.Json.Linq.JToken rankingResponseItems = responseObjects.SelectToken($"rankingResponse.{rankingName}.items");
+        if (rankingResponseItems != null)
+        {
+            foreach (Newtonsoft.Json.Linq.JObject rankingResponseItem in rankingResponseItems)
+            {
+                Newtonsoft.Json.Linq.JToken resultIndex;
+                rankingResponseItem.TryGetValue("resultIndex", out resultIndex);
+                var answerType = rankingResponseItem.Value<string>("answerType");
+                switch (answerType)
+                {
+                    case "WebPages":
+                        DisplaySpecificResults(resultIndex, responseObjects.SelectToken("webPages.value"), "WebPage", "name", "url", "displayUrl", "snippet");
+                        break;
+                    case "News":
+                        DisplaySpecificResults(resultIndex, responseObjects.SelectToken("news.value"), "News", "name", "url", "description");
+                        break;
+                    case "Images":
+                        DisplaySpecificResults(resultIndex, responseObjects.SelectToken("images.value"), "Image", "thumbnailUrl");
+                        break;
+                    case "Videos":
+                        DisplaySpecificResults(resultIndex, responseObjects.SelectToken("videos.value"), "Video", "embedHtml");
+                        break;
+                    case "RelatedSearches":
+                        DisplaySpecificResults(resultIndex, responseObjects.SelectToken("relatedSearches.value"), "RelatedSearch", "displayText", "webSearchUrl");
+                        break;
+                }
+            }
+        }
+    }
+}
+```
+
+Este método:
+
+- Repete através de `rankingResponse` grupos que contém a resposta
+- Apresenta os itens em cada grupo chamando `DisplaySpecificResults(...)` 
+
+No **Program.cs**, adicione os seguintes dois métodos:
+
+```csharp
+static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)
+{
+    if (resultIndex == null)
+    {
+        foreach (Newtonsoft.Json.Linq.JToken item in items)
+        {
+            DisplayItem(item, title, fields);
+        }
+    }
+    else
+    {
+        DisplayItem(items.ElementAt((int)resultIndex), title, fields);
+    }
+}
+
+static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[] fields)
+{
+    Console.WriteLine($"{title}: ");
+    foreach( string field in fields )
+    {
+        Console.WriteLine($"- {field}: {item[field]}");
+    }
+    Console.WriteLine();
+}
+```
+
+Estes métodos funcionam em conjunto para enviar os resultados de pesquisa para a consola.
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Execute a aplicação. A saída deve ter um aspeto semelhante ao seguinte:
+
+```
+Enter Bing query: sailing lessons seattle
+
+WebPage:
+- name: Contoso Sailing Club - Seattle
+- url: https://www.bing.com/cr?IG=70BE289346ED4594874FE...
+- displayUrl: https://contososailingsea....
+- snippet: Come sail with Contoso in Seattle...
+
+WebPage:
+- name: Contoso Sailing Lessons Seattle - Official Site
+- url: http://www.bing.com/cr?IG=70BE289346ED4594874FE...
+- displayUrl: https://www.constososailinglessonsseat...
+- snippet: Contoso sailing lessons in Seattle...
+
+...
+```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Leia mais sobre [com a classificação de mensagens em fila para apresentar resultados](rank-results.md).

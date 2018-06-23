@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/21/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261173"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316573"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -41,7 +41,7 @@ Depois de já gerou um token SAS, pode aceder o ficheiros de armazenamento de BL
  
 Por exemplo:
  ```
-https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
+https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
 Para obter mais informações sobre os parâmetros de definição, consulte [considerações de parâmetro SAS](#sas-parameter-considerations) e [parâmetros de assinatura de acesso partilhado](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
@@ -62,7 +62,7 @@ Esta opção é a mais simples e utiliza um único token SAS, o que é transmiti
 
    Por exemplo:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. Otimizar a duração da cache utilizando regras de colocação em cache ou adicionando `Cache-Control` cabeçalhos no servidor de origem. Porque a CDN do Azure trata o token SAS como uma cadeia de consulta simples, como melhor prática, deve configurar uma duração de colocação em cache expira no ou antes da data de expiração de SAS. Caso contrário, se um ficheiro é colocado em cache durante um período de tempo que as SAS está ativa, o ficheiro poderá estar acessível a partir do servidor de origem da CDN do Azure, depois de decorrido o tempo de expiração de SAS. Se esta situação ocorre e pretender que os ficheiros na cache inacessível, tem de efetuar uma operação de remoção do ficheiro para desmarcá-la a partir da cache. Para obter informações sobre como definir a duração da cache na CDN do Azure, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
@@ -80,14 +80,14 @@ Esta opção só está disponível para **CDN do Azure Premium da Verizon** perf
    A seguinte regra de URL Rewrite de exemplo utiliza um padrão de expressão regular com um grupo de captura e um ponto final com o nome *storagedemo*:
    
    Origem:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Destino:   
    ```
-   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![Regra de CDN URL Rewrite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
 2. Depois da nova regra fica ativa, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final de CDN, independentemente se estiver a utilizar um token SAS no URL. Eis o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -118,14 +118,14 @@ Para utilizar a autenticação de token de segurança de CDN do Azure, tem de te
    A seguinte regra de URL Rewrite de exemplo utiliza um padrão de expressão regular com um grupo de captura e um ponto final com o nome *storagedemo*:
    
    Origem:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Destino:   
    ```
-   $1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![Regra de CDN URL Rewrite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
 3. Se renovar a SAS, certifique-se de que atualiza a regra de Url Rewrite com o novo token SAS. 
 
@@ -140,7 +140,10 @@ Porque os parâmetros SAS não estão visíveis para a CDN do Azure, a CDN do Az
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **CDN do Azure da Verizon**, pode definir este parâmetro para os intervalos definidos no [CDN do Azure da Verizon Edge intervalos de IP servidor](https://msdn.microsoft.com/library/mt757330.aspx). Se estiver a utilizar **CDN do Azure da Akamai**, não é possível definir o parâmetro de intervalos IP, porque os endereços IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para um pedido efetuado com a conta SAS. Recomenda-se a definição de HTTPS.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos Seguintes
+
+Para obter mais informações sobre SAS, consulte os artigos seguintes:
 - [Utilizar assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
-- [Proteger recursos de rede de entrega de conteúdos do Azure com a autenticação de token](https://docs.microsoft.com/azure/cdn/cdn-token-auth)
+
+Para obter mais informações sobre como configurar a autenticação com token, consulte [ativos de proteger a rede do Azure conteúdo entrega com autenticação de token](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

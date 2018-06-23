@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d7328ba8403f2415705d049d1fc7947b52aeb5c1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156396"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319564"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v 2.0?
 Quando criar aplicações que se integram com o Azure Active Directory, terá de decidir se os protocolos de autenticação e de ponto final v 2.0 as suas necessidades. Ponto final do Azure do Active Directory original é ainda totalmente suportado e, em alguns aspetos, é mais avançada funcionalidade de v 2.0. No entanto, o ponto final v 2.0 [apresenta as vantagens significativas](active-directory-v2-compare.md) para programadores.

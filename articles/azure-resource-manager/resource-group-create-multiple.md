@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 580ecc98913dc35e2d1e21f1dcfa19936bb59826
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337962"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou a propriedade de modelos Azure Resource Manager
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou a propriedade em modelos do Azure Resource Manager
 Este artigo mostra-lhe como implementar condicionalmente um recurso e como iterar no modelo Azure Resource Manager para criar várias instâncias de um recurso.
 
 ## <a name="conditionally-deploy-resource"></a>Implementar condicionalmente recursos
@@ -127,9 +128,9 @@ Cria estes nomes de:
 * storagefabrikam
 * storagecoho
 
-Por predefinição, o Gestor de recursos cria os recursos em paralelo. Por conseguinte, não é garantida a ordem em que são criados. No entanto, pode pretender especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, poderá pretender escalonar as atualizações, por isso, apenas um determinado número são atualizadas ao mesmo tempo.
+Por predefinição, o Gestor de recursos cria os recursos em paralelo. Por conseguinte, não é garantida a ordem na qual está a criar. No entanto, pode pretender especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, poderá pretender escalonar as atualizações, por isso, apenas um determinado número são atualizadas ao mesmo tempo.
 
-Para implementar serialmente várias instâncias de um recurso, defina `mode` para **série** e `batchSize` para o número de instâncias para implementar cada vez. Com o modo de série, o Gestor de recursos cria uma dependência em instâncias anteriores no ciclo de, pelo que não for iniciado um batch até que o lote anterior seja concluída.
+Para implementar serialmente várias instâncias de um recurso, defina `mode` para **série** e `batchSize` para o número de instâncias para implementar cada vez. Com o modo de série, o Gestor de recursos cria uma dependência em instâncias anteriores no ciclo, para que este não iniciar um batch até que o lote anterior seja concluída.
 
 Por exemplo, para implementar serialmente contas do storage dois num momento, utilize:
 
@@ -191,7 +192,7 @@ O exemplo seguinte mostra como aplicar `copy` para a propriedade dataDisks numa 
       ...
 ```
 
-Repare que, quando utilizar `copyIndex` dentro de uma iteração de propriedade, tem de fornecer o nome da iteração. Não é necessário que fornecer o nome quando utilizado com iteração do recurso.
+Repare que, quando utilizar `copyIndex` dentro de uma iteração de propriedade, tem de fornecer o nome da iteração. Não tem de fornecer o nome quando utilizado com iteração do recurso.
 
 O Resource Manager expande o `copy` matriz durante a implementação. O nome da matriz torna-se o nome da propriedade. Os valores de entrada tornar-se as propriedades do objeto. O modelo implementado torna-se:
 
@@ -220,6 +221,34 @@ O Resource Manager expande o `copy` matriz durante a implementação. O nome da 
           }
       }],
       ...
+```
+
+O elemento de cópia é uma matriz, pelo que pode especificar mais do que uma propriedade para o recurso. Adicione um objeto para cada propriedade criar.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
 ```
 
 Pode utilizar iteração do recurso e a propriedade em conjunto. Referência da iteração de propriedade por nome.
@@ -307,6 +336,27 @@ Para criar várias instâncias de uma variável, utilize o `copy` elemento na se
     }
   }
 }
+```
+
+Com uma abordagem, o elemento de cópia é uma matriz, pelo que pode especificar mais de uma variável. Adicione um objeto para cada variável a criar.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Dependem de recursos num ciclo
@@ -409,7 +459,7 @@ Os exemplos seguintes mostram cenários comuns para criar vários recursos ou pr
 |[VM com um novo ou existente rede Virtual, do armazenamento e um IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Implementa condicionalmente recursos novos ou existentes com uma máquina virtual. |
 |[Implementação da VM com um número de variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa vários discos de dados com uma máquina virtual. |
 |[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterating em variáveis. |
-|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro. |
+|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Se pretender saber mais sobre as secções de um modelo, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).

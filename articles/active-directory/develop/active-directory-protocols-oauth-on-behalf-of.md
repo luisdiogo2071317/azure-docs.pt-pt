@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e8957db002dd6fdeaf6da03b02e518e3e423539d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823871"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317736"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço para chamadas de serviço com o delegado de fluxo em-nome-de identidade do utilizador
 O OAuth 2.0 On-Behalf-Of (OBO) fluxo funciona o caso de utilização onde uma aplicação invoca uma serviço/API web, que por sua vez tem de chamar outro serviço/API web. A ideia é para propagar a identidade do delegado de utilizador e as permissões através da cadeia de pedidos. Para o serviço de camada média fazer pedidos autenticados para o serviço a jusante, tem de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
@@ -83,7 +83,7 @@ Quando utilizar um segredo partilhado, um pedido de token de acesso de serviço 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| Asserção |obrigatório | O valor do token utilizado no pedido. |
+| asserção |obrigatório | O valor do token utilizado no pedido. |
 | client_id |obrigatório | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
 | client_secret |obrigatório | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter foi indicado o momento de registo. |
 | Recurso |obrigatório | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
@@ -115,7 +115,7 @@ Um pedido de token de acesso de serviços com um certificado contém os seguinte
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| Asserção |obrigatório | O valor do token utilizado no pedido. |
+| asserção |obrigatório | O valor do token utilizado no pedido. |
 | client_id |obrigatório | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
 | client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|

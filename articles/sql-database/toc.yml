@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Dimensionar recursos de BD individual
           href: sql-database-single-database-scale.md
-        - name: Conjuntos elásticos e BDs agrupadas
-          items:
-            - name: Conjuntos elásticos e BDs agrupadas
-              href: sql-database-elastic-pool.md
-            - name: Gerir conjuntos e BDs agrupadas
-              href: sql-database-elastic-pool-manage.md
-            - name: Limites dos recursos baseados em vCore
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limites dos recursos baseados em DTU
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Dimensionar recursos de conjuntos elásticos
-          href: sql-database-elastic-pool-scale.md
         - name: Arquitetura de conectividade
           href: sql-database-connectivity-architecture.md
         - name: Diferenças do T-SQL
           href: sql-database-transact-sql-information.md
+    - name: Conjuntos elásticos e BDs agrupadas
+      items:
+        - name: Conjuntos elásticos e BDs agrupadas
+          href: sql-database-elastic-pool.md
+        - name: Gerir conjuntos e BDs agrupadas
+          href: sql-database-elastic-pool-manage.md
+        - name: Limites dos recursos baseados em vCore
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: Limites dos recursos baseados em DTU
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Dimensionar recursos de conjuntos elásticos
+          href: sql-database-elastic-pool-scale.md
     - name: Instâncias Geridas
       items:
         - name: Instâncias Geridas

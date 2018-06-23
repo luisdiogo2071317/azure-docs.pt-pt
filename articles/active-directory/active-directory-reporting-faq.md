@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232453"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335062"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting FAQ
 
@@ -72,7 +72,7 @@ Este artigo inclui as respostas a perguntas mais frequentes sobre o Azure Active
 
 **P: o número de registos posso pode transferir a partir do portal do Azure?**
 
-**R:** pode transferir até 5000 registos do portal do Azure. Os registos são ordenados por *mais recente* e por predefinição, o que obtém os registos de 5000 mais recentes. Para registar os tamanhos superiores a 5000, escolha as condições de filtro e, em seguida, clique em de *Script* botão no portal do Azure. Isto irá transferir um script do PowerShell, que pode executar para gerar um ficheiro CSV de todos os registos correspondentes as condições de filtro. Tem de executar o script do PowerShell *modo de administrador*. Para obter mais informações, consulte [transferir atividades de início de sessão](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**R:** pode transferir até 5000 registos do portal do Azure. Os registos são ordenados por *mais recente* e por predefinição, o que obtém os registos de 5000 mais recentes.
 
 ---
 

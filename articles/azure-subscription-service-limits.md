@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700197"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318967"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -40,8 +40,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 
 > [!NOTE]
 > É importante realçar que as quotas para os recursos em grupos de recursos do Azure estão por regiões acessível através da sua subscrição e não estão por subscrição, como as quotas de gestão de serviço. Vamos utilizar vCPU quotas como exemplo. Se precisar de pedir um aumento de quota com suporte para vCPUs, terá de decidir quantos vCPUs que pretende utilizar em que regiões e, em seguida, efetue um pedido específico para quotas de vCPU do grupo de recursos do Azure para as quantidades e regiões que pretende. Por conseguinte, se precisar de utilizar 30 vCPUs na Europa Ocidental para executar a aplicação não existe, deve pedir especificamente 30 vCPUs na Europa Ocidental. Mas não terá uma quota de vCPU aumentam a qualquer outra região – apenas Europa Ocidental terão a quota de 30 vCPU.
-> <!-- -->
-> Como resultado, pode útil considerar a decidir o que as quotas de grupo de recursos do Azure tem de ser para a carga de trabalho em qualquer região de um e pedir que quantidade em cada região na qual estiver a considerar implementação. Consulte [resolução de problemas de implementação](resource-manager-common-deployment-errors.md) para obter mais ajuda a detetar as quotas atuais para regiões específicas.
+> <!-- --> Como resultado, pode útil considerar a decidir o que as quotas de grupo de recursos do Azure tem de ser para a carga de trabalho em qualquer região de um e pedir que quantidade em cada região na qual estiver a considerar implementação. Consulte [resolução de problemas de implementação](resource-manager-common-deployment-errors.md) para obter mais ajuda a detetar as quotas atuais para regiões específicas.
 >
 >
 
@@ -325,7 +324,7 @@ Para obter mais informações sobre limites de um nível mais granular, tais com
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limites de base de dados SQL
-Para os limites de base de dados SQL, consulte [dos limites de recursos de base de dados do SQL Server](sql-database/sql-database-resource-limits.md).
+Para os limites de base de dados SQL, consulte [dos limites de recursos do SQL Server da base de dados das bases de dados](sql-database/sql-database-vcore-resource-limits-single-databases.md) e [dos limites de recursos de base de dados SQL para conjuntos elásticos e bases de dados agrupados](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para os limites do SQL Data Warehouse, consulte [limites de recursos de armazém de dados SQL](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
