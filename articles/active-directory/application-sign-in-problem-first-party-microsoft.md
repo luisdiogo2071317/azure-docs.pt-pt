@@ -3,22 +3,24 @@ title: Problemas em iniciar sessão para uma aplicação da Microsoft | Microsof
 description: Resolver problemas comuns de deparam quando iniciar sessão no originais Applications Microsoft utilizar o Azure AD (como o Office 365)
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 4053c272fe78647ac646e0feefa884cf014a6b72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29384231"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334229"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas em iniciar sessão para uma aplicação da Microsoft
 
@@ -32,7 +34,7 @@ Existem três formas principais que um utilizador pode aceder a uma aplicação 
 
 -   Para aplicações que a Microsoft ou uma 3rd terceiros publica livremente para qualquer pessoa a utilizar, podem também ser concedido acesso aos utilizadores através de **consentimento administrador**. Isto significa que um administrador determinou que a aplicação pode ser utilizada por todas as pessoas na organização, para que inicie sessão na aplicação com uma conta de Administrador Global e concedem acesso a todas as pessoas na organização.
 
-Para resolver o problema, começar a utilizar o [geral problema áreas com acesso à aplicação a ter em consideração](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o [explicação passo a passo: passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para obter os detalhes.
+Para resolver o problema, começar a utilizar o [geral problema áreas com acesso à aplicação a ter em consideração](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o [explicação passo a passo: passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para colocar no detalhes.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas de problema geral com acesso à aplicação a considerar
 
@@ -76,7 +78,7 @@ Seguem-se alguns problemas comuns utilizadores depare quando os utilizadores nã
 
    * Se a licença for **atribuídos a um** **grupo dinâmico**, certifique-se de que o **regra de filiação dinâmica está definida corretamente**. [Verificar os critérios de associação de um grupo dinâmico](#check-a-dynamic-groups-membership-criteria)
 
-   * Se a licença for **atribuídos a um** **grupo dinâmico**, certifique-se de que o grupo dinâmico tem **terminou o processamento** e que a respetiva associação a **utilizador é membro** (esta operação pode demorar algum tempo). [Verifique as associações de grupo do utilizador](#check-a-users-group-memberships)
+   * Se a licença for **atribuídos a um** **grupo dinâmico**, certifique-se de que o grupo dinâmico tem **terminou o processamento** e que a respetiva associação a **utilizador é membro**  (esta operação pode demorar algum tempo). [Verifique as associações de grupo do utilizador](#check-a-users-group-memberships)
 
    *  Uma vez, certifique-se de que a licença é atribuída, certifique-se a licença **não expirado**.
 
@@ -84,9 +86,9 @@ Seguem-se alguns problemas comuns utilizadores depare quando os utilizadores nã
 
 -   Para **Microsoft** **aplicações que não requerem uma licença**, seguem-se alguns outros aspetos a verificar:
 
-   * Se a aplicação está a solicitar **permissões ao nível do utilizador** (por exemplo "aceder à caixa de correio do utilizador"), certifique-se de que o utilizador tem sessão iniciada para a aplicação e efetuou uma **operação de nível de utilizador consentimento** para permitir que a aplicação de aceder aos seus dados.
+   * Se a aplicação está a solicitar **permissões ao nível do utilizador** (por exemplo "aceder à caixa de correio do utilizador"), certifique-se de que o utilizador tem sessão iniciada para a aplicação e efetuou uma **deoperaçãodeconsentimentodeníveldeutilizador** para permitir que a aplicação de aceder aos seus dados.
 
-   * Se a aplicação está a solicitar **permissões ao nível do administrador** (por exemplo "acesso caixas de correio de todos os utilizadores"), certifique-se de que um Administrador Global efetuou uma **operação de consentimento de nível de administrador em nome de todos os utilizadores** na organização.
+   * Se a aplicação está a solicitar **permissões ao nível do administrador** (por exemplo "acesso caixas de correio de todos os utilizadores"), certifique-se de que um Administrador Global efetuou uma **operação de consentimento de nível de administrador no nome de todos os utilizadores** na organização.
 
 ## <a name="problems-with-the-users-account"></a>Problemas com a conta de utilizador
 
@@ -509,7 +511,7 @@ Acesso de aplicação pode ser bloqueado porque não ocorreu a operação de con
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Efetuar a operação de consentimento de nível de administrador para qualquer aplicação
 
--   Para **apenas as aplicações desenvolvidas com o modelo de aplicação V1**, pode forçar este consentimento ao nível do administrador para ocorrer adicionando "**? perguntar = admin\_consentimento**" até ao fim da sessão de uma aplicação no URL.
+-   Para **apenas as aplicações desenvolvidas com o modelo de aplicação V1**, pode forçar este consentimento ao nível do administrador para ocorrer adicionando "**? perguntar = admin\_consentimento**" ao fim de um início de sessão da aplicação no URL.
 
 -   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V2**, pode impor esta consentimento ao nível do administrador para ocorrer ao seguir as instruções no **pedir as permissões de um administrador da directory** secção [utilizando o ponto final de consentimento de admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -517,7 +519,7 @@ Acesso de aplicação pode ser bloqueado porque não ocorreu a operação de con
 
 -   Para **único inquilino aplicações** que pedir permissões (como as que estiver a desenvolver ou proprietário na sua organização), pode realizar uma **consentimento de nível administrativo** operação em nome de todos os os utilizadores, iniciar sessão como um Administrador Global e clicando no **conceder permissões** na parte superior da parte a **registo da aplicação -&gt; todas as aplicações -&gt; seleciona uma aplicação -&gt; As permissões necessárias** painel.
 
--   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2**, pode impor esta consentimento ao nível do administrador para ocorrer ao seguir as instruções no **pedir as permissões de um administrador da directory** secção [utilizando o ponto final de consentimento de admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2**, pode impor esta consentimento ao nível do administrador para ocorrer ao seguir as instruções no **pedir as permissões de um administrador de diretório**  secção [utilizando o ponto final de consentimento de admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Executar ao nível do administrador consentimento para uma aplicação multi-inquilino
 

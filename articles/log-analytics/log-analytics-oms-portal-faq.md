@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851336"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333637"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para transição do portal do OMS ao portal do Azure para utilizadores de análise de registos
 Análise de registos utilizado inicialmente a suas próprias portal chamado o portal do OMS para gerir a respetiva configuração e analisar os dados recolhidos.  Todas as funcionalidades deste portal foi movida para o portal do Azure onde continuará a ser desenvolvidas.
@@ -39,7 +39,7 @@ Na lista de áreas de trabalho no portal do Azure, clique em **adicionar** na li
 ![Página de descrição geral](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Onde está a minha página de descrição geral?
-O ecrã principal no portal do OMS apresenta os mosaicos para todas as soluções de gestão instalados na sua área de trabalho e todas as vistas personalizadas que criou. No portal do Azure, isto é referido como o **descrição geral** página. A partir da sua área de trabalho no portal do Azure, ou selecione **descrição geral** no menu ou clique o **descrição geral** botão na página principal.
+O ecrã principal no portal do OMS apresenta os mosaicos para todas as soluções de gestão instalados na sua área de trabalho e todas as vistas personalizadas que criou. Esta mesma vista está disponível no portal do Azure. Na área de trabalho, selecione **resumo da área de trabalho**.
 
 ![Página de descrição geral](media/log-analytics-new-portal/overview.png)
 
@@ -87,10 +87,10 @@ Gerir a maioria das definições de dados no **definições avançadas** menu pa
 
 | A definição no portal do OMS | Equivalente no portal do Azure |
 |:---|:---|
-| Registos de eventos do Windows           | **As definições avançadas** menu para a área de trabalho. |
+| Registos de Eventos do Windows           | **As definições avançadas** menu para a área de trabalho. |
 | Contadores de desempenho do Windows | **As definições avançadas** menu para a área de trabalho. |
 | Contadores de desempenho do Linux   | **As definições avançadas** menu para a área de trabalho. |
-| Registos IIS                     | **As definições avançadas** menu para a área de trabalho. |
+| Registos do IIS                     | **As definições avançadas** menu para a área de trabalho. |
 | Campos Personalizados                | **As definições avançadas** menu para a área de trabalho. |
 | Registos Personalizados                  | **As definições avançadas** menu para a área de trabalho. |
 | Syslog                       | **As definições avançadas** menu para a área de trabalho. |

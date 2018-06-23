@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 5cbed14553462d8aff16304e52b66da7ad2652e3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217236"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332916"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Associar uma máquina virtual do Ubuntu no Azure a um domínio gerido
 Este artigo mostra como associar uma máquina virtual do Ubuntu Linux a um domínio gerido dos serviços de domínio do Azure AD.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas apresentadas neste artigo, tem de:  
@@ -122,17 +123,17 @@ Agora que os pacotes necessários são instalados na máquina virtual Linux, a p
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Resolução de problemas:** se *realm detetar* não conseguiu encontrar o seu domínio gerido:
      * Certifique-se de que o domínio é acessível a partir da máquina virtual (ping tente).
      * Certifique-se de que a máquina virtual, de facto, implementada da mesma rede virtual em que o domínio gerido está disponível.
      * Verifique se foi atualizado com as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.
    >
 
-2. Inicializar o Kerberos. No seu terminal SSH, escreva o seguinte comando: 
+2. Inicializar o Kerberos. No seu terminal SSH, escreva o seguinte comando:
 
-    > [!TIP] 
-    > * Certifique-se de que especificou um utilizador que pertença ao grupo de 'AAD DC administradores'. 
+    > [!TIP]
+    > * Certifique-se de que especificou um utilizador que pertença ao grupo de 'AAD DC administradores'.
     > * Especifique o nome de domínio em maiúsculas, kinit pessoa falha.
     >
 
@@ -140,9 +141,9 @@ Agora que os pacotes necessários são instalados na máquina virtual Linux, a p
     kinit bob@CONTOSO100.COM
     ```
 
-3. Associe a máquina ao domínio. No seu terminal SSH, escreva o seguinte comando: 
+3. Associe a máquina ao domínio. No seu terminal SSH, escreva o seguinte comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Utilize a mesma conta de utilizador que especificou no passo anterior ('kinit').
     >
 
@@ -175,7 +176,7 @@ Para permitir a criação automática do diretório raiz após iniciar sessão d
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Adicione a seguinte linha neste ficheiro abaixo da linha 'sessão opcional pam_sss.so' e guarde-o:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
