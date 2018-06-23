@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296177"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335844"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -144,6 +144,9 @@ Para a sincronização de ficheiros do Azure e DFS-R para lado a lado de trabalh
 2. Pontos finais do servidor não devem ser configurados em pastas só de leitura de replicação de DFS-R.
 
 Para obter mais informações, consulte [descrição geral da replicação de DFS](https://technet.microsoft.com/library/jj127250).
+
+### <a name="sysprep"></a>Sysprep
+Utilizar o sysprep num servidor que tem instalado o agente de sincronização de ficheiros do Azure não é suportada e pode originar resultados inesperados. Registo de servidor e a instalação do agente deve ocorrer depois de implementar a imagem de servidor e concluir a mini-configuração do sysprep.
 
 ### <a name="windows-search"></a>Procura do Windows
 Se nuvem camadas está ativado no ponto de final do servidor, os ficheiros que são estão cansados são ignorados e não indexados por procura do Windows. Os ficheiros em camadas não são indexados corretamente.

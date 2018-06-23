@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 280c91d6a871984959d587e9895166853e89cc45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 85c854e697e7178bbdb3429c5384d67731770117
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615687"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335517"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice da Azure Search utilizando o Azure Data Factory
 
@@ -37,7 +37,7 @@ Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de pesquisa do Azure.
 
@@ -176,7 +176,7 @@ A seguinte tabela especifica se um tipo de dados de pesquisa do Azure é suporta
 | Cadeia | S |
 | Int32 | S |
 | Int64 | S |
-| duplo | S |
+| Valor de duplo | S |
 | Booleano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia | N |
