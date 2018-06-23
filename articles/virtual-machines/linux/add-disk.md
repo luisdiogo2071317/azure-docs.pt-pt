@@ -1,93 +1,57 @@
 ---
-title: Adicione um disco à VM com Linux utilizando a CLI do Azure | Microsoft Docs
-description: Saiba como adicionar um disco persistente na VM com Linux com a CLI do Azure 1.0 e 2.0.
-keywords: máquina virtual do Linux, adicionar o disco de recursos
+title: Adicionar um disco de dados para a VM com Linux utilizando a CLI do Azure | Microsoft Docs
+description: Saiba como adicionar um disco de dados persistente na VM com Linux com o Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837011"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331228"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra como ligar um disco persistente à sua VM, de modo a que pode manter os dados -, mesmo se a VM é reaprovisionada devido a manutenção ou redimensionar. 
 
 
-## <a name="use-managed-disks"></a>Utilizar discos geridos
-O Managed Disks do Azure simplifica a gestão de discos das VMs do Azure ao gerir as contas de armazenamento associadas aos discos das VMs. Tem apenas de especificar o tipo (Premium ou Standard) e o tamanho do disco de que precisa. Depois disso, o Azure cria e gere o disco por si. Para obter mais informações, consulte [descrição geral de discos geridos](managed-disks-overview.md).
+## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
-Se tiver apenas um novo disco na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando com o `--new` parâmetro. Se a VM está a ser uma zona de disponibilidade, o disco é criado automaticamente no mesmo horário da VM. Para obter mais informações, consulte [zonas de descrição geral da disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* que *50*tamanho Gb:
+Se pretender adicionar um disco de dados vazio novo na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando com o `--new` parâmetro. Se a VM está a ser uma zona de disponibilidade, o disco é criado automaticamente no mesmo horário da VM. Para obter mais informações, consulte [zonas de descrição geral da disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* que é 50 Gb:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Anexar um disco existente 
-Em muitos casos. Anexe discos que já foram criados. Para anexar um disco existente, localize o ID de disco e passar o ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* no *myResourceGroup*, em seguida, liga-lo para a VM com o nome *myVM*:
+## <a name="attach-an-existing-disk"></a>Anexar um disco existente 
+
+Para anexar um disco existente, localize o ID de disco e passar o ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* no *myResourceGroup*, em seguida, liga-lo para a VM com o nome *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-O resultado é algo semelhante ao seguinte (pode utilizar o `-o table` opção para qualquer comando para formatar a saída no):
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>Utilizar discos não geridos
-Os discos não geridos precisam overhead adicional para criar e gerir as contas de armazenamento subjacente. Os discos não geridos são criados na mesma conta de armazenamento como o disco do SO. Para criar e anexar um disco não gerido, utilize o [az unmanaged-disco da vm ligar](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) comando. O exemplo seguinte anexa um *50*GB disco não gerido para a VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ligar à VM do Linux para montar o disco novo
-A partição, formatar e montar o disco novo para a VM com Linux pode utilizá-lo, SSH para a VM do Azure. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte estabelece ligação a uma VM com a entrada DNS pública do *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
+A partição, formatar e montar o disco novo para a VM com Linux pode utilizá-lo, SSH para a VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte estabelece ligação a uma VM com a entrada DNS pública do *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -115,7 +79,7 @@ Aqui, *sdc* é o disco que queremos. Particionar o disco com `fdisk`, certifique
 sudo fdisk /dev/sdc
 ```
 
-O resultado é semelhante ao seguinte exemplo:
+Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o resto dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -137,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Crie a partição escrevendo `p` na linha de comandos da seguinte forma:
+A tabela de partições de impressão, escrevendo `p` e, em seguida, utilizar `w` ao escrever a tabela para o disco e sair. A saída deve ter um aspeto semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -225,7 +189,7 @@ Em seguida, abra o *etc/fstab* ficheiro num editor de texto da seguinte forma:
 sudo vi /etc/fstab
 ```
 
-Neste exemplo, utilizamos o valor UUID para o */dev/sdc1* dispositivo que foi criado nos passos anteriores e pontodemontagem de */datadrive*. Adicione a seguinte linha ao final do *etc/fstab* ficheiro:
+Neste exemplo, utilize o valor UUID para o */dev/sdc1* dispositivo que foi criado nos passos anteriores e pontodemontagem de */datadrive*. Adicione a seguinte linha ao final do *etc/fstab* ficheiro:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
@@ -266,7 +230,6 @@ Existem duas formas de ativar a limitação suportam na sua VM com Linux. Normal
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Lembre-se que o novo disco não está disponível para a VM se é reiniciado, a menos que escrever essas informações para o [fstab](http://en.wikipedia.org/wiki/Fstab) ficheiro.
 * Para garantir a VM com Linux está configurada corretamente, consulte o [otimizar o desempenho do computador Linux](optimization.md) recomendações.
 * Expandir a capacidade de armazenamento através da adição de discos adicionais e [configurar RAID](configure-raid.md) para um desempenho adicional.
 

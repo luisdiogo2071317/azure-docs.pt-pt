@@ -3,22 +3,24 @@ title: Não estão a ser aprovisionados para uma aplicação de galeria do Azure
 description: Como resolver problemas comuns deparam quando não for apresentada aos utilizadores numa um Azure AD aplicação de galeria que configurou para o aprovisionamento de utilizador com o Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: asteen
-ms.openlocfilehash: a36d60b8915ae0b46226bb2127829a8f1767daba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 394e8642c177312c8990ea211f77fb802d4228fd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26616297"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332414"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Não estão a ser aprovisionados para uma aplicação de galeria do Azure AD
 
@@ -64,6 +66,6 @@ Quando um utilizador aparece como "ignorada" nos registos de auditoria, é muito
 
   * **Mapeamentos de grupos de atributos:** aprovisionamento do nome do grupo e detalhes de grupo, para além de membros, caso seja suportado para algumas aplicações. Pode ativar ou desativar esta funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo apresentados no **aprovisionamento** separador. Se estiver ativado a grupos de aprovisionamento, lembre-se de que reveja os mapeamentos de atributos para garantir que está a ser utilizado um campo adequado para o "ID correspondente". Isto pode ser o alias de apresentação nome ou e-mail), como o grupo e os seus membros não aprovisionadas se a propriedade correspondente está vazio ou não preenchidos para um grupo no Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Sincronização do Azure AD Connect: Noções sobre o aprovisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
 

@@ -3,22 +3,24 @@ title: Aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD
 description: Como saber razão pela qual o aprovisionamento para a aplicação pode estar a demorar mais do que esperado
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: c9ed12569c0adc5ed8625a8d9fc81c9bee874cd4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: dc582ff3dac8f128972f070309d5c8a4ce21fb70
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614070"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335388"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Aprovisionamento de utilizadores a uma aplicação de galeria do Azure AD é colocar horas ou mais
 
@@ -32,6 +34,6 @@ Se a sincronização inicial estiver a demorar mais do que algumas horas, há ú
 
 -   **Filtros de âmbito do utilizador.** Filtros de âmbito permitem-lhe que os dados que o serviço de aprovisionamento extrai do Azure AD por filtrar os utilizadores com base nos valores de atributo específico. Para obter mais informações sobre filtros de âmbito, consulte [aprovisionamento de aplicações baseadas em atributos com filtros de âmbito](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 

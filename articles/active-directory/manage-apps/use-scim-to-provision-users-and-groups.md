@@ -3,7 +3,7 @@ title: Automatizar o aprovisionamento de aplicações a utilizar o SCIM no Azure
 description: Azure Active Directory podem aprovisionar automaticamente os utilizadores e grupos a qualquer arquivo de aplicação ou identidade que é fronted por um serviço web com a interface definida na especificação de protocolo SCIM
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 2bbea8f082e482ec5f5a08ce9978940e05c2325b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35304032"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337969"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -360,12 +360,12 @@ Grupo de recursos é identificados pelo identificador de esquema, http://schemas
 | mail |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
 | mailNickname |externalId |
 | gestor |gestor |
-| Mobile |.value phoneNumbers [eq de tipo "móvel"] |
+| móvel |.value phoneNumbers [eq de tipo "móvel"] |
 | objectId |ID |
 | postalCode |.postalCode endereços [eq "trabalho" do tipo] |
 | Endereços de proxy |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
 | physical-Delivery-OfficeName |endereços [Escreva eq "outro"]. Formatado |
-| StreetAddress |.streetAddress endereços [eq "trabalho" do tipo] |
+| streetAddress |.streetAddress endereços [eq "trabalho" do tipo] |
 | Apelido |name.familyName |
 | Número de telefone |.value phoneNumbers [eq "trabalho" do tipo] |
 | utilizador PrincipalName |userName |
@@ -697,7 +697,7 @@ A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SC
 * [Escrever expressões para mapeamentos de atributos](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento de utilizador](../active-directory-saas-scoping-filters.md)
 * [Notificações de aprovisionamento de contas](../active-directory-saas-app-provisioning.md)
-* [Lista de tutoriais sobre como integrar aplicações SaaS](../active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

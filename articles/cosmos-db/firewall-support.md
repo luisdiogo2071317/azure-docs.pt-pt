@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294742"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317291"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte de firewall do Cosmos BD do Azure
 Para proteger os dados armazenados numa conta de base de dados do Azure Cosmos DB, base de dados do Azure Cosmos tem suporte fornecido para um segredo com base [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) que utiliza um código de autenticação de mensagem com base em Hash seguro (HMAC). Agora, para além do modelo de autorização baseada em segredo BD do Cosmos do Azure suporta a política orientadas por controlos de acesso baseado em IP para o suporte de firewall de entrada. Este modelo é semelhante para as regras de firewall de um sistema de bases de dados tradicionais e fornece um nível adicional de segurança para a conta de base de dados de base de dados do Azure Cosmos. Com este modelo, pode agora configurar uma conta de base de dados de base de dados do Azure Cosmos para ser acessível apenas a partir de um conjunto de máquinas aprovado e/ou serviços em nuvem. Acesso a recursos de base de dados do Azure Cosmos destes conjuntos de serviços e máquinas aprovados ainda requerem o autor da chamada apresentar um token de autorização válida.
@@ -56,10 +56,10 @@ Acesso ao portal do Azure está ativado por predefinição, quando alterar a def
 
 ![Captura de ecrã que mostra como ativar o acesso ao portal do Azure](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Ligações de centros de dados do Azure públicos ou de serviços do Azure PaaS
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Ligações de centros de dados Global do Azure ou de serviços do Azure PaaS
 No Azure, PaaS serviços do Azure Stream analytics, as funções do Azure e App Service do Azure são utilizados em conjunto com a base de dados do Azure Cosmos. Para ativar o acesso à base de dados do Azure Cosmos conta de base de dados a partir destes serviços cujos endereços IP não estejam prontamente disponíveis, adicione o endereço IP do 0.0.0.0 à lista permitida de endereços IP associados a sua conta de base de dados de base de dados do Azure Cosmos através de programação. 
 
-Acesso para as ligações a partir de centros de dados do Azure públicos está ativado por predefinição, quando alterar a definição de Firewall para **selecionado redes** no portal do Azure. 
+Acesso para as ligações a partir de centros de dados global do Azure está ativado por predefinição, quando alterar a definição de Firewall para **selecionado redes** no portal do Azure. 
 
 ![Captura de ecrã que mostra como abrir a página de Firewall no portal do Azure](./media/firewall-support/enable-azure-services.png)
 
@@ -72,14 +72,14 @@ Para ativar o IP atual, selecione **adicionar meu IP atual**, que adiciona o seu
 ![Captura de ecrã que mostra um como para configurar as definições da firewall para o IP atual](./media/firewall-support/enable-current-ip.png)
 
 ## <a name="connections-from-cloud-services"></a>Ligações a partir de serviços cloud
-No Azure, serviços em nuvem são uma forma comum para o alojamento de lógica de serviço de camada média utilizando a BD do Cosmos do Azure. Para ativar o acesso a uma conta de base de dados de base de dados do Azure Cosmos de um serviço em nuvem, o endereço IP público do serviço de nuvem tem de ser adicionado à lista permitida de endereços IP associados à sua conta de base de dados de base de dados do Azure Cosmos por [configurar a política de controlo de acesso IP](#configure-ip-policy). Isto garante que todas as instâncias de função dos serviços em nuvem tem acesso à sua conta de base de dados de base de dados do Azure Cosmos. Pode obter endereços IP para os seus serviços em nuvem no portal do Azure, conforme mostrado na captura de ecrã seguinte:
+No Azure, serviços em nuvem são uma forma comum para o alojamento de lógica de serviço de camada média utilizando a BD do Cosmos do Azure. Para ativar o acesso a uma conta de base de dados de base de dados do Azure Cosmos de um serviço em nuvem, o endereço IP público do serviço de nuvem tem de ser adicionado à lista permitida de endereços IP associados à sua conta de base de dados de base de dados do Azure Cosmos por [configurar o acesso IP controlar política](#configure-ip-policy). Isto garante que todas as instâncias de função dos serviços em nuvem tem acesso à sua conta de base de dados de base de dados do Azure Cosmos. Pode obter endereços IP para os seus serviços em nuvem no portal do Azure, conforme mostrado na captura de ecrã seguinte:
 
 ![Captura de ecrã que mostra o endereço IP público para um serviço em nuvem apresentado no portal do Azure](./media/firewall-support/public-ip-addresses.png)
 
 Quando ampliar o seu serviço em nuvem, adicionando as instâncias de função adicionais, as novas instâncias terão automaticamente acesso à conta de base de dados do Azure Cosmos DB, uma vez que fazem parte do serviço em nuvem do mesmo.
 
 ## <a name="connections-from-virtual-machines"></a>Ligações a partir de máquinas virtuais
-[Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/) ou [conjuntos de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) também podem ser utilizados para alojar os serviços de camada média utilizando a BD do Cosmos do Azure.  Para configurar a conta de base de dados de base de dados do Azure Cosmos para permitir o acesso a partir de máquinas virtuais, os endereços IP públicos de máquina virtual e/ou conjunto de dimensionamento da máquina virtual tem de ser configurados como um dos endereços IP permitidos para a sua conta de base de dados de base de dados do Azure Cosmos por [configurar a política de controlo de acesso IP](#configure-ip-policy). Pode obter endereços IP para máquinas virtuais no portal do Azure, conforme mostrado na captura de ecrã seguinte.
+[Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/) ou [conjuntos de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) também podem ser utilizados para alojar os serviços de camada média utilizando a BD do Cosmos do Azure.  Para configurar a conta de base de dados de base de dados do Azure Cosmos para permitir o acesso a partir de máquinas virtuais, endereços IP públicos de máquina virtual e/ou de máquina virtual conjunto de dimensionamento deve ser configurado como um dos endereços IP permitidos para a sua conta de base de dados de base de dados do Azure Cosmos [configurar a política de controlo de acesso IP](#configure-ip-policy). Pode obter endereços IP para máquinas virtuais no portal do Azure, conforme mostrado na captura de ecrã seguinte.
 
 ![Captura de ecrã com um endereço IP público para uma máquina virtual apresentado no portal do Azure](./media/firewall-support/public-ip-addresses-dns.png)
 
@@ -87,6 +87,25 @@ Quando adicionar as instâncias de máquina virtual adicional para o grupo, são
 
 ## <a name="connections-from-the-internet"></a>Ligações a partir da internet
 Ao aceder a uma conta de base de dados de base de dados do Azure Cosmos de um computador com a internet, o endereço IP do cliente ou um intervalo de endereços IP da máquina tem de ser adicionado à lista de permitidos do endereço IP para a conta de base de dados de base de dados do Azure Cosmos. 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Utilizar o modelo do Azure Resource Manager para configurar o controlo de acesso IP
+
+Adicione o seguinte JSON para o modelo para configurar o controlo de acesso IP. Modelo do Resource Manager para uma conta terá de atributo de ipRangeFilter que é a lista de intervalos IP, o que deve estar na lista de permissões.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>A política de controlo de acesso IP de resolução de problemas
 ### <a name="portal-operations"></a>Operações de portais

@@ -1,6 +1,6 @@
 ---
-title: Escalões de serviço de base de dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre os escalões de serviço para único e bases de dados de conjunto para fornecer os níveis de desempenho e tamanhos de armazenamento.
+title: Base de dados do SQL Azure Compra Modelos | Microsoft Docs
+description: Saiba mais sobre a aquisição de modelo para a SQL Database do Azure.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6ca78596ad6c4ed2e14b127fe55a70bd2f55411a
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0b38054ec623dc34daa3d18612e3356475655f35
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309891"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331330"
 ---
-# <a name="service-tier-purchasing-models-and-resources"></a>A compra de recursos e modelos de camada de serviço 
+# <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure a compra de recursos e modelos 
 
 Servidores lógicas [SQL Database do Azure](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um modelo de compra baseado em DTU e um modelo de compra baseado em vCore (pré-visualização). 
 
@@ -30,8 +30,8 @@ A tabela e o gráfico seguinte comparam e contraste estes dois modelos de compra
 
 |**Modelo de compra**|**Descrição**|**Melhor opção para**|
 |---|---|---|
-|Modelo de DTU|Este modelo é baseado numa medida agrupada de computação, armazenamento e recursos de e/s. Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-what-is-a-dtu.md)?|Melhor para os clientes que pretendem simples, pré-configurados opções de recursos.| 
-|com base em vCore modelo|Este modelo permite-lhe independentemente Dimensionar recursos de computação e armazenamento. Também permite-lhe utilizar o benefício de híbrida do Azure para o SQL Server para obter uma redução de custos.|Melhor opção para os clientes que valor flexibilidade, controlo e transparência.|
+|modelo baseado em DTU|Este modelo é baseado numa medida agrupada de computação, armazenamento e recursos de e/s. Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-what-is-a-dtu.md)?|Melhor para os clientes que pretendem simples, pré-configurados opções de recursos.| 
+|modelo baseado em vCore|Este modelo permite-lhe independentemente Dimensionar recursos de computação e armazenamento. Também permite-lhe utilizar o benefício de híbrida do Azure para o SQL Server para obter uma redução de custos.|Melhor opção para os clientes que valor flexibilidade, controlo e transparência.|
 ||||  
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)

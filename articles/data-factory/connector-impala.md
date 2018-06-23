@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de Impala através da utilização do Azure Data Factory (beta) | Microsoft Docs
+title: Copiar dados de Impala através da utilização do Azure Data Factory (pré-visualização) | Microsoft Docs
 description: Saiba como copiar dados de Impala aos arquivos de dados suportados sink utilizando uma atividade de cópia num pipeline de fábrica de dados.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 73987d03cb96fa421d193504fe6eaf6c3b5ddb18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49e9c338128cc857347bbf052c19dc34dd08f9c6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618774"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337619"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Copiar dados de Impala através da utilização do Azure Data Factory (beta)
+# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados de Impala através da utilização do Azure Data Factory (pré-visualização)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Impala. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
@@ -28,7 +28,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utilizar a versão 1 do Data Factory, o que é geralmente disponível, consulte [atividade de cópia na versão 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Este conector está atualmente na versão beta. Pode experimentar e fornecer comentários. Não utilizá-lo em ambientes de produção.
+> Este conector está atualmente em pré-visualização. Pode experimentar e fornecer comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -38,7 +38,7 @@ Pode copiar dados de Impala para qualquer arquivo de dados suportados sink. Para
 
 ## <a name="get-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector Impala.
 

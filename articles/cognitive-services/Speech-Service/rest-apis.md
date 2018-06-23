@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4be591a15c7ba2c6deaa17f1847233f409179472
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "35356223"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321996"
 ---
 # <a name="speech-service-rest-apis"></a>Serviço de reconhecimento de voz REST APIs
 
@@ -31,11 +31,14 @@ EUA Oeste| `https://westus.stt.speech.microsoft.com/speech/recognition/conversat
 Europa do Norte| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> Se tiver personalizado o modelo acústica ou modelo de linguagem ou pronunciação, utilize o ponto final personalizado em vez disso.
+> Tem de anexar os idiomas necessários no URI para evitar um 401 erro de http. Por isso, para en-US o URI correto, seria: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 Caso contrário, é semelhante de reconhecimento de voz a API de texto a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de reconhecimento de voz anterior.
 
 O reconhecimento de voz para a API de REST de texto suporta apenas utterances curtos. Pedidos podem conter até 10 segundos de áudio e um máximo de segundos 14 gerais da última. A API REST apenas devolve resultados finais, parciais ou provisórias resultados.
+
+> [!NOTE]
+> Se tiver personalizado o modelo acústica ou modelo de linguagem ou pronunciação, utilize o ponto final personalizado em vez disso.
 
 ## <a name="text-to-speech"></a>Conversão de Texto em Voz
 
@@ -143,7 +146,7 @@ O c# classe abaixo ilustra como obter um token de acesso. Transferir a chave de 
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -164,7 +167,6 @@ O c# classe abaixo ilustra como obter um token de acesso. Transferir a chave de 
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -210,7 +212,7 @@ Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à 
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -270,7 +272,6 @@ Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à 
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -279,3 +280,8 @@ Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à 
         }
     }
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como personalizar um modelo de reconhecimento de voz](how-to-customize-speech-models.md)

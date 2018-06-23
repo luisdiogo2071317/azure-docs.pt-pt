@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: 2a71e405c36c632b7c396e2f06564aa4be9d1464
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: c1597f16dda8544908bbefaf39e75e667d38b22c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313305"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316473"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -68,6 +68,7 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
+| Coreia Central |  | X |
 | Coreia do Sul |  | X |
 
 ## <a name="storage"></a>Armazenamento

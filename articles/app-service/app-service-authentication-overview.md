@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: c180dcf5d769245f3fa2485ccee2cbc18ecf5f67
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 9220eb3800cd1b7b46e276bbda5bb88fc06d5e54
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763497"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337829"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -79,11 +79,11 @@ Serviço de aplicações utiliza [identidade federada](https://en.wikipedia.org/
 
 | Fornecedor | Ponto final de início de sessão |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Conta Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Quando ativa a autenticação e autorização com um destes fornecedores, o ponto final início de sessão está disponível para autenticação de utilizador e para a validação de tokens de autenticação do fornecedor. Pode fornecer os seus utilizadores com qualquer número destas opções de início de sessão com facilidade. Também pode integrar outro fornecedor de identidade ou [sua própria solução de identidade personalizada][custom-auth].
 

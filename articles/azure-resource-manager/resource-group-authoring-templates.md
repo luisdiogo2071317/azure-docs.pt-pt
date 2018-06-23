@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603081"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334803"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Apresente as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).
@@ -214,6 +214,7 @@ No seu modelo, pode criar as suas próprias funções. Estas funções estão di
 Ao definir uma função de utilizador, existem algumas restrições:
 
 * A função não é possível aceder a variáveis.
+* A função não é possível chamar outras funções definidas pelo utilizador.
 * A função não é possível utilizar o [referenciar a função](resource-group-template-functions-resource.md#reference).
 * Parâmetros para a função não podem ter valores predefinidos.
 

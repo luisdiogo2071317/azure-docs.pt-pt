@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 01b0717660265b28d4ea7d804a761e7e425c997c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29812657"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319605"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para VMware para a replicação do Azure
 
@@ -30,7 +30,7 @@ O artigo pressupõe que já tem:
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
 
 1. No portal do Azure, visite o **dos serviços de recuperação** painel do cofre e selecione o cofre.
-2. No menu de recurso do cofre, aceda a **introdução** > **recuperação de Site** > **passo 1: preparar a infraestrutura** > **objetivo de proteção**.
+2. No menu de recurso do cofre, aceda a **introdução** > **recuperação de Site** > **passo 1: preparar a infraestrutura**  >  **Objetivo de proteção**.
 
     ![Selecione os objetivos](./media/vmware-azure-set-up-source/choose-goals.png)
 3. No **objetivo de proteção**, selecione **para o Azure**e escolha **Sim, com o VMware vSphere hipervisor**. Em seguida, clique em **OK**.
@@ -39,12 +39,12 @@ O artigo pressupõe que já tem:
 
 ## <a name="set-up-the-configuration-server"></a>Configurar o servidor de configuração
 
-Configurar o servidor de configuração como uma VM de VMware no local, utilizar um modelo de abrir virtualização formato OVF (). [Saiba mais](concepts-vmware-to-azure-architecture.md) sobre os componentes que serão instalados na VM do VMware. 
+Pode configurar o servidor de configuração como uma VM de VMware no local através de um modelo de aplicação de Virtualização abrir (OVA). [Saiba mais](concepts-vmware-to-azure-architecture.md) sobre os componentes que serão instalados na VM do VMware.
 
 1. Saiba mais sobre o [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites) para implementação do servidor de configuração.
 2. [Verifique os números de capacidade](vmware-azure-deploy-configuration-server.md#capacity-planning) para implementação.
-3. [Transferir](vmware-azure-deploy-configuration-server.md#download-the-template) e [importar](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) o modelo OVF (how-to-implementar-configuração-server.md) para configurar uma VM que executa o servidor de configuração de VMware no local.
-4. Ative a VM de VMware, e [registá-lo](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) nos serviços de recuperação do cofre.
+3. [Transferir](vmware-azure-deploy-configuration-server.md#download-the-template) e [importar](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) o modelo de OVA para configurar uma VM que executa o servidor de configuração de VMware no local. O licenciamento fornecido com o modelo é um licenciamento de avaliação e é válido por 180 dias. Post este período, cliente tem de ativar os windows com um procured licenciamento.
+4. Ative a VM de VMware, e [registá-lo](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) nos serviços de recuperação do cofre.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>Adicione a conta de VMware para a deteção automática

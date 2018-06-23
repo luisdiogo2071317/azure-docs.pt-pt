@@ -3,22 +3,24 @@ title: Errado conjunto de utilizadores estão a ser aprovisionado para uma aplic
 description: Saiba como saber por que razão a ser aprovisionados um conjunto diferente de utilizadores a uma aplicação que as que o esperado
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: f984db4c06a98f7d131860f8eb5d76a67a35a483
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29383142"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332556"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Errado conjunto de utilizadores estão a ser aprovisionado para uma aplicação de galeria do Azure AD
 

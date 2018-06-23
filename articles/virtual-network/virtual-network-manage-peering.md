@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 314920d4aae2bd364ea93451fcbda2034a36cc7e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702038"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332104"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -117,7 +117,7 @@ Se pretender que as redes virtuais para comunicar por vezes, mas nem sempre, em 
     - Recursos numa rede virtual não é possível comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual em modo de peering. O Balanceador de carga e os recursos que comunicam com a mesma tem de ser na mesma rede virtual.
     - Não é possível utilizar gateways remotos ou permitir que o trânsito do gateway. Para utilizar gateways remotos ou permitir que o trânsito do gateway, ambas as redes virtuais no peering de tem de existir na mesma região. 
     - Comunicação entre redes virtuais global em modo de peering através dos seguintes tipos VM não é suportada: [computação de elevado desempenho](../virtual-machines/windows/sizes-hpc.md) e [GPU](../virtual-machines/windows/sizes-gpu.md). Isto inclui H, NC, NV, NCv2, NCv3 e ND série VMs.
-- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando as redes virtuais estão em diferentes subscrições, ambas as subscrições tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições que estão associadas ao diferentes inquilinos do Active Directory.
+- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando o elemento redes virtuais em diferentes subscrições, ambas as subscrições tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições que estão associadas ao diferentes inquilinos do Active Directory.
 - As redes virtuais que o elemento tem de ter espaços de endereços IP sem sobreposição.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, consulte o artigo [gerir redes virtuais](manage-virtual-network.md).
 - Pode elemento duas redes virtuais implementadas através do Gestor de recursos ou uma rede virtual implementado através do Resource Manager com uma rede virtual implementada através do modelo de implementação clássica. Não é possível elemento duas redes virtuais criadas através do modelo de implementação clássica. Se não estiver familiarizado com os modelos de implementação do Azure, leia o [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo. Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.

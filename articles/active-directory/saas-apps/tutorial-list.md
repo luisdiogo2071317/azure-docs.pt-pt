@@ -16,12 +16,12 @@ ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9aa060c6f28adb8361fcb9267ea658fda27b442c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 193be37f4c804d087bf404f14bc60e27349038ad
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223455"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319042"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração de aplicações de SaaS no Azure Active Directory
 
@@ -137,7 +137,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Nuvem de Cisco](ciscocloud-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - aprovisionamento de utilizadores](cisco-webex-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - aprovisionamento de utilizadores](clarizen-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Limpar revisão](clearreview-tutorial.md)|
@@ -224,7 +224,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/tutorial-list/active-directory-saas-freshgrade-tutorial.png)| [FreshGrade](freshgrade-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-front-tutorial.png)| [Front](front-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [fuse](fuse-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-fuse-tutorial.png)| [Fuse](fuse-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-fuze-tutorial.png)| [Fuze](fuze-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](google-apps-tutorial.md)|[G Suite - aprovisionamento de utilizadores](google-apps-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-gaggleamp-tutorial.png)| [GaggleAMP](gaggleamp-tutorial.md)|
@@ -302,7 +302,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/tutorial-list/active-directory-saas-kantegassoforjira-tutorial.png)| [Kantega SSO para JIRA](kantegassoforjira-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-keeperpasswordmanager-tutorial.png)| [Gestor de palavras-passe keeper & Digital Cofre](keeperpasswordmanager-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-kindling-tutorial.png)| [Kindling](kindling-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [kintone](kintone-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [Kintone](kintone-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-kiteworks-tutorial.png)| [Kiteworks](kiteworks-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-klue-tutorial.png)| [Klue](klue-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-knowbe4-tutorial.png)| [Formação de deteção de segurança KnowBe4](knowbe4-tutorial.md)|
@@ -403,7 +403,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/tutorial-list/active-directory-saas-pantheon-tutorial.png)| [Pantheon](pantheon-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-patentsquare-tutorial.png)| [PatentSQUARE](patentsquare-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-pegasystems-tutorial.png)| [Pega sistemas](pegasystems-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [Pessoas](people-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [pessoas](people-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-peoplecart-tutorial.png)| [Peoplecart](peoplecart-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-perceptionunitedstates-tutorial.png)| [Perceção dos Estados Unidos (não UltiPro)](perceptionunitedstates-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](performancecentre-tutorial.md)|

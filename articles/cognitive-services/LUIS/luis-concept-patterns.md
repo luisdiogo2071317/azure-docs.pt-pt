@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: f45a9dfaf2863b81083fbfb647f420d9a4baed5a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264668"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318063"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram concebidos para melhorar a precisão quando várias utterances são muito semelhantes. Ao fornecer um padrão para o utterance, LUIS podem ter uma confiança elevada a predição. 
@@ -50,7 +50,9 @@ Tendo em conta suficiente utterances de exemplo, LUIS conseguirão aumentar a co
 Um padrão é correspondido com base em detetar as entidades dentro padrão pela primeira vez, em seguida, validar o resto das palavras e ordem de word do padrão. Entidades são necessários o padrão para um padrão corresponder. 
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrão
-As entidades de padrões são rodeadas por chavetas. Padrões podem incluir entidades e entidades com funções. Pattern.any é uma entidade apenas utilizada em padrões. A sintaxe para cada um destes é explicada nas secções seguintes.
+Sintaxe de padrão é um modelo para um utterance. O modelo deve conter palavras e entidades que pretende corresponder, bem como as palavras e pontuação que pretende ignorar. É **não** uma expressão regular. 
+
+As entidades de padrões são rodeadas por chavetas, `{}`. Padrões podem incluir entidades e entidades com funções. Pattern.any é uma entidade apenas utilizada em padrões. A sintaxe é explicada nas secções seguintes.
 
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade a um modelo padrão
 Para adicionar uma entidade para o modelo de padrão, coloque o nome da entidade com chavetas, tais como `Who does {Employee} manage?`. 
@@ -90,7 +92,7 @@ Por exemplo, suponha que tem um padrão que contenha ambas sintaxe opcional, `[]
 
 Considere o padrão '[encontrar] e-mail sobre {assunto} [{pessoa}]'. No utterances seguintes, o **requerente** e **pessoa** entidade são extraídos corretamente e incorretamente:
 
-|Utterance|Entidade|Extração correta|
+|utterance|Entidade|Extração correta|
 |--|--|:--:|
 |e-mail sobre dogs a partir de Chris|requerente = dogs<br>pessoa = Chris|✔|
 |e-mail sobre man do La Mancha|requerente = de man<br>pessoa = La Mancha|X|
@@ -109,7 +111,7 @@ Marcar opcional texto utterance utilizando a sintaxe de parêntesis Reto de expr
 Sinais de pontuação, tais como `.`, `!`, e `?` podem ser ignoradas utilizando parênteses Retos. Para ignorar estes marcas de escala, cada marca tem de estar num padrão separado. A sintaxe opcional atualmente não suporta a ignorar um item numa lista de vários itens.
 
 ## <a name="patterns-only"></a>Apenas padrões
-LUIS permite que uma aplicação sem qualquer utterances de exemplo na intenção. Isto só é permitido se forem utilizados padrões. Padrões necessitam de pelo menos uma entidade em cada padrão. Para uma aplicação só de padrão, o padrão não deve conter entidades adquiridos por máquina porque esses requisitos requerem utterances de exemplo. 
+LUIS permite que uma aplicação sem qualquer utterances de exemplo na intenção. Esta utilização é permitida apenas se forem utilizados padrões. Padrões necessitam de pelo menos uma entidade em cada padrão. Para uma aplicação só de padrão, o padrão não deve conter entidades adquiridos por máquina porque esses requisitos requerem utterances de exemplo. 
 
 ## <a name="best-practices"></a>Melhores práticas
 Saiba [melhores práticas](luis-concept-best-practices.md).

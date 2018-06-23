@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800742"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332376"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluções de identidade híbrida da Microsoft
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) soluções de identidade híbrida permitem-lhe sincronizar objetos de diretório no local com o Azure AD enquanto ainda gerir os utilizadores no local. A primeira decisão a tomar ao planear a sincronizar o seu no Windows Server Active Directory local com o Azure AD é se pretende utilizar sincronizada identidade ou identidade federada. Identidades sincronizadas e, opcionalmente hashes de palavra-passe, permitem aos utilizadores utilizar a mesma palavra-passe para aceder a recursos organizacionais baseados em nuvem e no local. Para requisitos de cenário mais avançados, tais como single-sign-on (SSO) ou a MFA no local, terá de implementar os serviços de Federação do Active Directory (AD FS) para federar identidades. 
@@ -53,7 +53,7 @@ A autenticação pass-through está configurada com o Azure AD Connect, que util
 - Associado a um domínio na floresta através do qual os utilizadores são validados
 
 ## <a name="federated-identity-ad-fs"></a>Identidade federada (AD FS)
-Para obter mais controlo sobre como os utilizadores acedem do Office 365 e outros serviços em nuvem, pode configurar a sincronização de diretórios com-início de sessão único (SSO) utilizando [serviços de Federação do Active Directory (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federação inícios do utilizador de sessão com o AD FS delega autenticação para um servidor no local que valida as credenciais do utilizador. Neste modelo, as credenciais do Active Directory no local nunca são transmitidas para o Azure AD.
+Para obter mais controlo sobre como os utilizadores acedem do Office 365 e outros serviços em nuvem, pode configurar a sincronização de diretórios com-início de sessão único (SSO) utilizando [serviços de Federação do Active Directory (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federação inícios do utilizador de sessão com o AD FS delega autenticação para um servidor no local que valida as credenciais do utilizador. Neste modelo, as credenciais do Active Directory no local nunca são transmitidas para o Azure AD.
 
 ![Identidade federada](./media/choose-hybrid-identity-solution/federated-identity.png)
 

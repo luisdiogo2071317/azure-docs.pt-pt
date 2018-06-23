@@ -11,12 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684796"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333262"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?
 Microsoft Genomics oferece uma implementação de nuvem de Burrows Wheeler Aligner (BWA) e o Toolkit de análise de Genome (GATK) para análise secundário. O serviço está certificada-ISO e em conformidade com a lei HIPAA e oferece previsão de preços para as suas necessidades de sequenciação genome. Saiba como utilizar o serviço Microsoft Genomics e integrar com a nossa API ao ler a nossa inícios rápidos, tutoriais e documentação.
@@ -30,12 +30,12 @@ Microsoft Genomics oferece um 99,99% de disponibilidade nível contrato de servi
 
 
 ## <a name="secure-your-data"></a>Proteger os dados
-O serviço Microsoft Genomics é ISO 27001, ISO 27018 e ISO 9001 certificado e em conformidade com a lei HIPAA. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) para obter informações sobre a segurança da plataforma do Azure.
+O serviço Microsoft Genomics é ISO 27001, ISO 27018 e ISO 9001 certificado e em conformidade com a lei HIPAA. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já leu uma introdução ao Microsoft Genomics, estará pronto para:
 - Consulte a página de preços para comparações de preços e calculadoras. [Preços](https://azure.microsoft.com/pricing/details/genomics/)
-- Introdução ao executar o fluxo de trabalho primeiro através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Introdução ao executar o fluxo de trabalho primeiro através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
 - Submeter os seus próprios dados para processamento pelo serviço Microsoft Genomics: [emparelhado FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [FASTQ vários ou BAM](quickstart-input-multiple.md) 
 

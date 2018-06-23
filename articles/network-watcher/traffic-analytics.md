@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264995"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333399"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -267,9 +267,9 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 
 **Procurar**
 
-- Distribuição de tráfego por sub-rede, a topologia, origens principais de tráfego para a sub-rede, redes rouge superior uma conversação para a sub-rede e a parte superior de uma conversação protocolos de aplicação.
+- Distribuição por sub-rede, a topologia, origens principais de tráfego para a sub-rede de tráfego redes rogue superior uma conversação para a sub-rede e a parte superior de uma conversação protocolos de aplicação.
     - Saber qual sub-rede é uma conversação que sub-rede. Se vir conversações inesperadas, pode corrigir a configuração.
-    - Se rouge redes são uma conversação com uma sub-rede, conseguir corrigi-lo ao configurar regras NSG para bloquear as redes rogue.
+    - Se rogue redes são uma conversação com uma sub-rede, conseguir corrigi-lo ao configurar regras NSG para bloquear as redes rogue.
 - A topologia de sub-redes mostra o Friso superior para a seleção de parâmetros, tais como Active/Inactive sub-rede, ligações externas, Active Directory fluxos e maliciosos fluxos da sub-rede.
 - A topologia de sub-rede mostra a distribuição de tráfego para uma rede virtual relativamente fluxos (permitidos/bloqueado/entrada/saída/Benign/maliciosos), o protocolo de aplicação e os NSGs, por exemplo:
 
@@ -277,10 +277,10 @@ Algumas das informações pode pretender obter depois de análise de tráfego co
 
 **Procurar**
 
-Distribuição de tráfego por gateway de aplicação & Balanceador de carga, topologia, origens principais de tráfego, superior rouge redes uma conversação para o gateway de aplicação & o Balanceador de carga e a parte superior uma conversação protocolos de aplicação. 
+Distribuição de tráfego por gateway de aplicação & Balanceador de carga, topologia, origens principais de tráfego, superior não autorizados redes uma conversação para o gateway de aplicação & o Balanceador de carga e a parte superior uma conversação protocolos de aplicação. 
     
  - Saber qual sub-rede é uma conversação para o gateway de aplicação ou o Balanceador de carga. Se observar conversações inesperadas, pode corrigir a configuração.
- - Se rouge redes são uma conversação com um gateway de aplicação ou o Balanceador de carga, conseguir corrigi-lo ao configurar regras NSG para bloquear as redes rogue. 
+ - Se rogue redes são uma conversação com um gateway de aplicação ou o Balanceador de carga, conseguir corrigi-lo ao configurar regras NSG para bloquear as redes rogue. 
 
     ![subnet-Topology-showcasing-Traffic-Distribution-to-a-Application-Gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

@@ -11,22 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e60f368115e91cbd8972af8dfa7f0f3d6ea8765b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620345"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337598"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar as fábricas de dados utilizando o Monitor do Azure
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
 
-Monitor do Azure fornece registos e as métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter mais informações, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Os registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. Fábrica de dados produz os registos de diagnóstico no Monitor do Azure. 
+Monitor do Azure fornece registos e as métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter mais informações, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Os registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. Fábrica de dados produz os registos de diagnóstico no Monitor do Azure.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [monitorizar e gerir pipelines na fábrica de dados version1](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="persist-data-factory-data"></a>Manter os dados de fábrica de dados
+Fábrica de dados só armazena pipeline executar dados nos últimos 45 dias. Se pretender manter o pipeline executar dados mais de 45 dias, utilizando o Monitor do Azure, não pode encaminhar apenas os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante a duração da sua chossing.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -101,18 +104,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | storageAccountId |Cadeia | O ID de recurso da conta do storage para o qual pretende enviar registos de diagnóstico |
-| serviceBusRuleId |Cadeia | O service bus ID da regra de espaço de nomes de barramento serviço, na qual gostaria de ter criado para os registos de diagnóstico de transmissão em fluxo do Event Hubs. A regra ID é o formato: {ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}.|
+| serviceBusRuleId |Cadeia | O service bus ID da regra de espaço de nomes de barramento serviço, na qual gostaria de ter criado para os registos de diagnóstico de transmissão em fluxo do Event Hubs. A regra ID é o formato: "{ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}".|
 | workspaceId | Tipo complexo | Matriz de grains de métrica de tempo e as respetivas políticas de retenção. Atualmente, esta propriedade está vazia. |
-|métricas| Os valores dos parâmetros do pipeline de executam a ser transmitido para o pipeline invocado| Um objeto JSON mapear os nomes de parâmetros para valores de argumento | 
+|métricas| Os valores dos parâmetros do pipeline de executam a ser transmitido para o pipeline invocado| Um objeto JSON mapear os nomes de parâmetros para valores de argumento |
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute primeiro uma operação de definições de diagnóstico de GET. |
 | categoria| Cadeia| Matriz de categorias de registo e as respetivas políticas de retenção |
-| Intervalo de agregação | Cadeia | A granularidade de métricas que são capturadas num formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
+| intervalo de agregação | Cadeia | A granularidade de métricas que são capturadas num formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
 | enabled| Booleano | Especifica se a coleção dessa categoria métrica ou de registo está ativada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de registo. Utilizado para apenas opção de conta de armazenamento.|
 | dias| Int| Número de dias a manter as métricas ou os registos. Um valor de 0 mantém os registos indefinidamente. Utilizado para apenas opção de conta de armazenamento. |
@@ -231,14 +234,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Obter mais informações aqui](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[Obter mais informações aqui](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Esquema dos registos & de eventos
 
 ### <a name="activity-run-logs-attributes"></a>Atributos de registos de execução da atividade
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -252,7 +255,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -294,7 +297,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de registos de execução de pipeline
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -307,7 +310,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -340,7 +343,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>Atributos de registos de execução do acionador
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -362,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -388,7 +391,7 @@ Monitor do Azure permite-lhe consumir telemetria ganhar visibilidade sobre o des
 
 ADFV2 emite as métricas seguintes
 
-| **Métricas**           | **Nome a apresentar métrica**         | **unidade** | **Tipo de agregação** | **Descrição**                                       |
+| **Métricas**           | **Nome a apresentar métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Foi concluída com êxito as métricas de execução de pipeline | Contagem    | Total                | Totais de pipelines é executado com êxito dentro de uma janela de minuto |
 | PipelineFailedRuns   | Falha de métricas de execução de pipeline    | Contagem    | Total                | Totais de pipelines executa falhada numa janela minuto    |
@@ -397,7 +400,7 @@ ADFV2 emite as métricas seguintes
 | TriggerSucceededRuns | Foi concluída com êxito as métricas de execuções do acionador  | Contagem    | Total                | Acionador total é executado com êxito dentro de uma janela de minuto   |
 | TriggerFailedRuns    | Falha de métricas de execução do acionador     | Contagem    | Total                | Acionador total é executado falhada dentro de uma janela de minuto      |
 
-Para aceder às métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Para aceder às métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Alertas
 
@@ -417,7 +420,7 @@ Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; aler
 
 1.  Clique em **+ nova regra de alerta** para criar um novo alerta.
 
-    ![nova regra de alerta](media/monitor-using-azure-monitor/alerts_image4.png)
+    ![Nova regra de alerta](media/monitor-using-azure-monitor/alerts_image4.png)
 
 2.  Definir o **condição do alerta**.
 
@@ -445,4 +448,4 @@ Também pode iniciar sessão no portal do Azure e clique em **Monitor -&gt; aler
     ![Grupo de ação, ecrã 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação. 
+Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação.

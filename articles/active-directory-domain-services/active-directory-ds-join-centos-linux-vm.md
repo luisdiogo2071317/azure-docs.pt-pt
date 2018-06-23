@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d570428f3e3ea23302e3cecc6bfa759468419986
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216831"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333586"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual CentOS Linux a um domínio gerido
 Este artigo mostra como associar uma máquina virtual CentOS Linux no Azure a um domínio gerido dos serviços de domínio do Azure AD.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas apresentadas neste artigo, tem de:
@@ -87,7 +89,7 @@ Agora que os pacotes necessários são instalados na máquina virtual Linux, a p
     > [!NOTE]
     > **Resolução de problemas:** se *realm detetar* não conseguiu encontrar o seu domínio gerido:  
       * Certifique-se de que o domínio é acessível a partir da máquina virtual (ping tente).  
-      * Certifique-se de que a máquina virtual, de facto, implementada da mesma rede virtual em que o domínio gerido está disponível. 
+      * Certifique-se de que a máquina virtual, de facto, implementada da mesma rede virtual em que o domínio gerido está disponível.
       * Verifique se foi atualizado com as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.  
       >
 

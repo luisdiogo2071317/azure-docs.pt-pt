@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2334aefdfb442054226ef6d7d55a8c097a433565
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969602"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316328"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos aos Hubs de eventos do Azure na API Management do Azure
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. Os Event Hubs atuam como a "porta da frente" para um pipeline de eventos e, depois dos dados são recolhidos para um hub de eventos, podem ser transformado e armazenados através de qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
 
 Este artigo é um complemento para a [integrar a gestão de API do Azure com os Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) vídeo e descreve como registar eventos de API Management com o Event Hubs do Azure.
 
-## <a name="create-an-azure-event-hub"></a>Criar um Hub de eventos do Azure
+## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure
 
 Para obter passos detalhados sobre como criar um hub de eventos e obter as cadeias de ligação terá de enviar e receber eventos de e para o Hub de eventos, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
@@ -79,7 +79,7 @@ Depois de ter configurado o registo na API Management, pode configurar as polít
 1. Navegue até à sua instância APIM.
 2. Selecione o separador de API.
 3. Selecione a API para o qual pretende adicionar a política. Neste exemplo, estamos a adicionar uma política para o **API eco** no **ilimitada** produto.
-4. Selecione **todas as operações**.
+4. Selecione **Todas as operações**.
 5. Na parte superior do ecrã, selecione o separador Estrutura.
 6. Na janela de processamento de entrada ou de saída, clique em triângulo (junto a lápis).
 7. Selecione o editor de código. Para obter mais informações, consulte [como definir ou editar as políticas](set-edit-policies.md).
@@ -105,7 +105,8 @@ Clique em **guardar** para guardar a configuração de política atualizado. Ass
 * Saiba mais sobre a integração de API Management e do Event Hubs
   * [Referência de entidade de registo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [referência de política de registo para eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitorizar as suas APIs com API Management do Azure, os Event Hubs e Runscope](api-management-log-to-eventhub-sample.md)    
+  * [Monitorizar as suas APIs com API Management do Azure, os Event Hubs e Runscope](api-management-log-to-eventhub-sample.md)  
+* Saiba mais sobre [integração com o Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

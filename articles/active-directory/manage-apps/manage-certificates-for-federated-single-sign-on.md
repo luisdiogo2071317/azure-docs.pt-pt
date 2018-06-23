@@ -3,7 +3,7 @@ title: Gerir certificados de Federação no Azure AD | Microsoft Docs
 description: Saiba como personalizar a data de expiração para os certificados de Federação e como renovar os certificados que irão expirar em breve.
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
-ms.author: jeedes
-ms.openlocfilehash: c4d812db6371a4cd1fcc701f7eae2c913c29fb6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 5b4e2694a9b7e67643cb1e3b3cbc99fab940bd9d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303900"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337801"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir os certificados federado início de sessão no Azure Active Directory
 Este artigo aborda informações relacionadas com os certificados que o Azure Active Directory (Azure AD) cria para estabelecer federado-início de sessão único (SSO) para as aplicações de SaaS e perguntas comuns. Adicione aplicações na Galeria de aplicações do Azure AD ou utilizando um modelo de aplicação não galeria. Configure a aplicação utilizando a opção de SSO federada.
@@ -84,7 +85,7 @@ Os seguintes passos de renovação devem resultar em nenhum período de indispon
     ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](../active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Índice de artigos da gestão de aplicações no Azure Active Directory](../active-directory-apps-index.md)
 * [Acesso a aplicações e início de sessão no Azure Active Directory](what-is-single-sign-on.md)
 * [Resolução de problemas baseados em SAML-início de sessão único](../develop/active-directory-saml-debugging.md)

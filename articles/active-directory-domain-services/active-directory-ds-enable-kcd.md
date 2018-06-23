@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213845"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331034"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurar a delegação restringida de Kerberos (KCD) um domínio gerido
 Muitas aplicações devem ter acesso a recursos no contexto do utilizador. Active Directory suporta um mecanismo de delegação de Kerberos, que permite que este caso de utilização de chamada. Além disso, pode restringir a delegação para que podem ser acedidos apenas os recursos específicos no contexto do utilizador. Domínios geridos de serviços de domínio do AD do Azure são diferentes das tradicionais domínios do Active Directory, uma vez que seja mais segura estejam bloqueados para baixo.
 
 Este artigo mostra como configurar a delegação restringida de Kerberos num domínio gerido dos serviços de domínio do Azure AD.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Delegação restringida de Kerberos (KCD)
 A delegação de Kerberos permite a uma conta para representar outro principal de segurança (por exemplo, um utilizador) para aceder a recursos. Considere uma aplicação web que acede a uma API de web de back-end no contexto de um utilizador. Neste exemplo, a aplicação web (em execução no contexto de uma conta de serviço ou uma conta de computador /) representa o utilizador tem quando aceder ao recurso (web API de back-end). A delegação de Kerberos é inseguras, uma vez que não restringe os recursos que pode aceder a impersonating conta no contexto do utilizador.

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801869"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317831"
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token. 
@@ -113,7 +113,8 @@ Tokens emitidos pelo Azure AD tem sessão iniciados utilizando os algoritmos de 
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Repita este URL num browser!
-> 
-> 
 
 Este documento de metadados é um objeto JSON que contém várias partes útil de informação, como a localização dos vários pontos finais necessários para efetuar a autenticação OpenID Connect. 
 
 Também inclui um `jwks_uri`, que lhe oferece a localização do conjunto de chaves públicas utilizado para assinar os tokens. O documento JSON localizado no `jwks_uri` contém todas as informações de chaves públicas em utilização nesse momento específico. A aplicação pode utilizar o `kid` no cabeçalho de JWT para selecionar qual a chave pública neste documento foi utilizada para assinar um determinado token de afirmação. Em seguida, pode efetuar a validação da assinatura utilizando a chave pública correta e o algoritmo indicado.
+
+> [!NOTE]
+> O ponto final v 1.0 devolve ambos o `x5t` e `kid` afirmações. O `x5t` afirmação está em falta a partir de tokens de v 2.0. O ponto final v 2.0 responde com o `kid` de afirmação. Doravante, recomendamos que utilize o `kid` validar o token de afirmação.
 
 Efetuar a validação da assinatura está fora do âmbito deste documento - existem bibliotecas de open source para muitos disponíveis para ajudar a fazê-lo se for necessário.
 

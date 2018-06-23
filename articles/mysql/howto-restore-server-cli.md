@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266011"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319093"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL utilizando a CLI do Azure
 
@@ -32,32 +32,6 @@ Para concluir este guia de procedimentos, tem de:
 
 > [!IMPORTANT]
 > Este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, a linha de comandos da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, consulte o artigo [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão atualizada de gestão da Base de Dados do Azure para MySQL, com o comando seguinte:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Certifique-se de que tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O JSON de retorno deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se não for devolvida a versão 0.0.5, execute o seguinte para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Configuração do conjunto de cópia de segurança
 
@@ -100,7 +74,7 @@ O `az mysql server restore` comando requer os seguintes parâmetros:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos onde o servidor de origem existe.  |
-| name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2018-03-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
 
@@ -137,7 +111,7 @@ O `az mysql server georestore` requies os seguintes parâmetros de comando:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | O nome do grupo de recursos novo servidor irão pertencer a.|
-|name | mydemoserver-georestored | O nome do novo servidor. |
+|nome | mydemoserver-georestored | O nome do novo servidor. |
 |source-server | mydemoserver | O nome do servidor existente cujas cópias de segurança redundante georreplicação são utilizadas. |
 |localização | eualeste | A localização do novo servidor. |
 |nome do SKU| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para um objetivo geral, o servidor Gen 4 com 8 vCores.|

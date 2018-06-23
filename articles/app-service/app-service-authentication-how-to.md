@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763147"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337857"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e autorização no serviço de aplicações do Azure
 
@@ -89,11 +89,11 @@ Quando o token de acesso do fornecedor expira, terá de reautenticação do util
 
 - **Google**: acrescentar um `access_type=offline` consultar o parâmetro de cadeia para o `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um do `LogicAsync` sobrecargas (consulte [Google atualizar Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: não fornecerem tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração Facebook e extensão de Tokens de acesso de](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: tokens de acesso não expirarem (consulte [Twitter FAQ de OAuth](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: tokens de acesso não expirarem (consulte [Twitter FAQ de OAuth](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: quando [configurar definições de autenticação de conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o `wl.offline_access` âmbito.
 - **Azure Active Directory**: no [ https://resources.azure.com ](https://resources.azure.com), efetue os seguintes passos:
     1. Na parte superior da página, selecione **leitura/escrita**.
-    1. No browser da esquerda, navegue para **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **fornecedores** > **Microsoft** > **sites** > _**\<aplicação \_nome >**_ > **configuração** > **authsettings**. 
+    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. Clique em **Editar**.
     1. Modifique a propriedade seguinte. Substitua  _\<aplicação\_id >_ com o ID de aplicação do Azure Active Directory do serviço pretende aceder.
 
@@ -103,7 +103,7 @@ Quando o token de acesso do fornecedor expira, terá de reautenticação do util
 
     1. Clique em **colocar**. 
 
-Depois do fornecedor está configurado, pode ver se os tokens de atualização são no arquivo de token chamando `/.auth/me`. 
+Depois do fornecedor está configurado, pode [encontrar o token de atualização e a hora de expiração para o token de acesso](#retrieve-tokens-in-app-code) no arquivo de token. 
 
 Para atualizar o seu token de acesso em qualquer altura, chame somente `/.auth/refresh` em qualquer idioma. O fragmento seguinte utiliza jQuery para atualizar os tokens de acesso de um cliente de JavaScript.
 
@@ -140,7 +140,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Azure Active Directory e Account Microsoft permite-lhe iniciar sessão a partir de vários domínios. Por exemplo, permite Account Microsoft _outlook.com_, _live.com_, e _hotmail.com_ contas. Azure Active Directory permite que qualquer número de domínios personalizados para as contas de início de sessão. Este comportamento poderá ser indesejável para uma aplicação interna, o que não pretende que qualquer pessoa com uma _outlook.com_ conta para o acesso. Para limitar o nome de domínio das contas de início de sessão, siga estes passos.
 
-No [ https://resources.azure.com ](https://resources.azure.com), navegue para **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **fornecedores** > **Microsoft** > **sites**  >    _**\<aplicação\_nome >**_ > **configuração** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
 
 Clique em **editar**, modifique a propriedade seguinte e, em seguida, clique em **colocar**. Não se esqueça de substituir  _\<domínio\_nome >_ com o domínio que pretende.
 

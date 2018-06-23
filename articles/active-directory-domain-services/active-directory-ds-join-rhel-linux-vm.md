@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 93c96e71aea98598492ec32f13fddb0b0732196e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217061"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330806"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Red Hat Enterprise Linux 7 a um domínio gerido
 Este artigo mostra como associar uma máquina virtual do Red Hat Enterprise Linux (RHEL) 7 a um domínio gerido dos serviços de domínio do Azure AD.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas apresentadas neste artigo, tem de:  
@@ -84,17 +86,17 @@ Agora que os pacotes necessários são instalados na máquina virtual Linux, a p
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **Resolução de problemas:** se *realm detetar* não conseguiu encontrar o seu domínio gerido:
      * Certifique-se de que o domínio é acessível a partir da máquina virtual (ping tente).
      * Certifique-se de que a máquina virtual, de facto, implementada da mesma rede virtual em que o domínio gerido está disponível.
      * Verifique se foi atualizado com as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.
      >
 
-2. Inicializar o Kerberos. No seu terminal SSH, escreva o seguinte comando: 
+2. Inicializar o Kerberos. No seu terminal SSH, escreva o seguinte comando:
 
-    > [!TIP] 
-    > * Certifique-se de que especificou um utilizador que pertença ao grupo de 'AAD DC administradores'. 
+    > [!TIP]
+    > * Certifique-se de que especificou um utilizador que pertença ao grupo de 'AAD DC administradores'.
     > * Especifique o nome de domínio em maiúsculas, kinit pessoa falha.
     >
 
@@ -102,9 +104,9 @@ Agora que os pacotes necessários são instalados na máquina virtual Linux, a p
     kinit bob@CONTOSO100.COM
     ```
 
-3. Associe a máquina ao domínio. No seu terminal SSH, escreva o seguinte comando: 
+3. Associe a máquina ao domínio. No seu terminal SSH, escreva o seguinte comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Utilize a mesma conta de utilizador que especificou no passo anterior ('kinit').
     >
 

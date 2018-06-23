@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/30/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670171"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329795"
 ---
 ## <a name="provision-the-solution"></a>Aprovisionar a solução
 
 Se ainda não aprovisionou a solução pré-configurada de monitorização remota na sua conta:
 
-1. Inicie sessão em [azureiotsuite.com][lnk-azureiotsuite] com as credenciais da sua conta Azure e clique em **+** para criar uma solução.
+1. Inicie sessão no [azureiotsuite.com] [ lnk-azureiotsuite] utilizando o Azure credenciais de contas e clique em **+** para criar uma solução.
 2. Clique em **Selecionar** no mosaico **Monitorização remota**.
 3. Introduza o **Nome da solução** para sua solução pré-configurada de monitorização remota.
 4. Selecione a **Região** e a **Subscrição** que pretende utilizar para aprovisionar a solução.

@@ -2,11 +2,11 @@
 Para que as Aplicações Móveis giram o processo de autenticação na sua aplicação, tem de registar a aplicação com o seu fornecedor de identidade. Em seguida, no seu Serviço de Aplicações do Azure, tem de configurar o ID da aplicação e o segredo fornecidos pelo seu fornecedor.
 Para obter mais informações, consulte o tutorial [Add authentication to your app (Adicionar autenticação à sua aplicação)](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Depois de registar o seu fornecedor de identidade, chame o método `.login()` com o nome do fornecedor. Por exemplo, para iniciar sessão com o Facebook utilize o seguinte código:
+Depois de registar o seu fornecedor de identidade, chame o método `.login()` com o nome do fornecedor. Por exemplo, iniciar sessão com o Facebook utilize o seguinte código:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -17,7 +17,7 @@ Os valores válidos para o fornecedor são "aad", "facebook", "google", "microso
 > [!NOTE]
 > A Autenticação da Google não funciona atualmente através do Fluxo de Servidor.  Para se autenticar com o Google, tem de utilizar um [método de fluxo de cliente](#client-auth).
 
-Neste caso, o Serviço de Aplicações do Azure gere o fluxo de autenticação OAuth 2.0.  Apresenta a página de início de sessão do fornecedor selecionado e gera um token de autenticação do Serviço de Aplicações após o início de sessão bem-sucedido com o fornecedor de identidade. A função de início de sessão, quando concluída, devolve um objeto JSON que expõe o ID de utilizador e o token de autenticação do Serviço de Aplicações nos campos userId e authenticationToken, respetivamente. Este token pode ser colocado em cache e reutilizado até expirar.
+Neste caso, o Serviço de Aplicações do Azure gere o fluxo de autenticação OAuth 2.0.  Apresenta a página de início de sessão do fornecedor selecionado e gera um token de autenticação do serviço de aplicações após o início de sessão com êxito com o fornecedor de identidade. A função de início de sessão, quando concluída, devolve um objeto JSON que expõe o ID de utilizador e o token de autenticação do Serviço de Aplicações nos campos userId e authenticationToken, respetivamente. Este token pode ser colocado em cache e reutilizado até expirar.
 
 ###<a name="client-auth"></a>Como: autenticar com um fornecedor (Fluxo de Cliente)
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);

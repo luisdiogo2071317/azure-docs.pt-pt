@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363694"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330745"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar uma Firewall da próxima geração no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall da próxima geração (NGFW) de um parceiro da Microsoft para aumentar as proteções de segurança. Este documento explica-lhe como um exemplo de como fazê-lo.
@@ -58,7 +58,7 @@ Volte à **recomendações** painel. Uma nova entrada foi gerada depois adiciono
 Este documento mostrou como implementar a recomendação de centro de segurança "Adicionar uma Firewall da próxima geração." Para saber mais sobre NGFWs e a solução de parceiros do ponto de verificação, consulte o seguinte:
 
 * [Firewall da próxima geração](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Ponto de verificação vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Ponto de verificação vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 

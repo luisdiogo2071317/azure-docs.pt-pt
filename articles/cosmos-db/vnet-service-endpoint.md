@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 76387733b1511593280f4a9439f5ddbf12d60975
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302007"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333917"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure
 
@@ -80,7 +80,7 @@ Depois de pontos finais do serviço de rede Virtual do Azure estão ativados par
 
 Se a conta de base de dados do Azure Cosmos é utilizada por outros serviços do Azure, como pesquisa do Azure ou acedida a partir do Stream analytics ou o Power BI, permitir o acesso ao verificar **permitir o acesso aos serviços do Azure**.
 
-Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métricas do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, consulte [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações a partir de serviços do Azure PaaS](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
+Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métricas do portal, tem de ativar **permitir o acesso ao portal do Azure** opções. Para saber mais sobre estas opções, consulte [ligações a partir do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [ligações a partir de serviços do Azure PaaS](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services) secções. Depois de selecionar o acesso, selecione **guardar** para guardar as definições.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Remover uma rede virtual ou a sub-rede 
 
@@ -145,11 +145,20 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True

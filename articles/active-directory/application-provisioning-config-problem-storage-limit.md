@@ -3,22 +3,24 @@ title: Problema ao guardar as credenciais de administrador ao configurar o aprov
 description: Como resolver problemas comuns deparam quando configurar aprovisionamento de utilizadores a uma aplicação já listados na Galeria de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: asmalser
-ms.openlocfilehash: 8b23ea72a898dc5725c1c82ee2a5cbc06730b5aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 1146df364a08128b5cd191ed1120198ae31b763e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292995"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337794"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores a uma aplicação de galeria do Azure Active Directory 
 
@@ -38,7 +40,7 @@ Qualquer tokens secretos, os URIs, endereços de correio eletrónico de notifica
 
 Existem duas formas possíveis para contornar este problema hoje:
 
-1. **Utilizar a Galeria duas instâncias da aplicação, um para o início de sessão único e outra para o aprovisionamento de utilizadores** -colocar a aplicação de galeria [LinkedIn elevar](active-directory-saas-linkedinelevate-tutorial.md) como exemplo, pode adicionar elevar o LinkedIn da galeria do e configurar -o para o início de sessão único. Para o aprovisionamento, adicione outra instância do LinkedIn elevar da Galeria de aplicações do Azure AD e dê-lhe o nome "LinkedIn Elevate (aprovisionamento)." Esta segunda instância, configurar [aprovisionamento](active-directory-saas-linkedinelevate-provisioning-tutorial.md), mas não único início de sessão. Quando utilizar esta solução, os mesmos utilizadores e grupos têm de ser [atribuído](manage-apps/assign-user-or-group-access-portal.md) para ambas as aplicações. 
+1. **Utilizar a Galeria duas instâncias da aplicação, um para o início de sessão único e outra para o aprovisionamento de utilizadores** -colocar a aplicação de galeria [LinkedIn elevar](saas-apps/linkedinelevate-tutorial.md) como exemplo, pode adicionar elevar o LinkedIn da galeria do e configurar -o para o início de sessão único. Para o aprovisionamento, adicione outra instância do LinkedIn elevar da Galeria de aplicações do Azure AD e dê-lhe o nome "LinkedIn Elevate (aprovisionamento)." Esta segunda instância, configurar [aprovisionamento](saas-apps/linkedinelevate-provisioning-tutorial.md), mas não único início de sessão. Quando utilizar esta solução, os mesmos utilizadores e grupos têm de ser [atribuído](manage-apps/assign-user-or-group-access-portal.md) para ambas as aplicações. 
 
 2. **Reduzir a quantidade de dados de configuração armazenadas** -todos os dados introduzidos no [credenciais de administrador](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) secção do separador de aprovisionamento é armazenada no mesmo local como o certificado SAML. Enquanto pode não ser possível reduzir o período de todos estes dados, alguns campos de configuração opcionais, como o **correio eletrónico de notificação** pode ser removido.
 

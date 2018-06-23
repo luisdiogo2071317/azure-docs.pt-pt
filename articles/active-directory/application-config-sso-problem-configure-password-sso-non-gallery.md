@@ -3,22 +3,23 @@ title: Problema de configuração de palavra-passe-início de sessão único par
 description: Compreender a letra de pessoas problemas comuns quando configurar a palavra-passe-início de sessão único para aplicações não Galeria personalizadas que não estão listados na Galeria de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b671089bfac04b359717874928d6a342c44b3d4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: barbkess
+ms.openlocfilehash: 69a2bf6e622cd2338d57e62ed82951cb2385edd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34069679"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334912"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Configurar a palavra-passe-início de sessão único para uma aplicação não galeria do problema
 
@@ -142,7 +143,7 @@ Verifique o seguinte se tiver algum destes problemas:
 
 -   Se o processo de captura manual parece fique suspensa ou a página de início de sessão não faz nada (caso 3 acima), repita o processo de captura manual. But, desta vez depois de concluir o processo, prima a **F12** botão para abrir a consola de programador do seu browser. Uma vez, abra o **consola** e tipo **window.location= "&lt;introduza o url de início de sessão especificado ao configurar a aplicação&gt;"** e, em seguida, prima **Enter** . Isto força o redirecionamento de página que termina o processo de captura e armazena os campos que tenham sido capturados.
 
-Se nenhuma destas abordagens resolver o problema, pode ajudar o suporte. Abrir um incidente de suporte com os detalhes do que tentou, bem como as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções (se aplicável).
+Se nenhuma destas abordagens resolver o problema, pode ajudar o suporte. Abrir um incidente de suporte com os detalhes do que tentou, bem como as informações recolhidas [como ver os detalhes de uma notificação de portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) secções (se aplicável).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão de Browser do painel de acesso
 

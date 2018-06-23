@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e8e693355fb9b30e1a69b49f20d5044c531e2fcd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol
+ms.openlocfilehash: d7194846dbeab2a5da8a8ceaa5a1040f33e8d515
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155624"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317134"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Aplicação e objetos de principal de serviço no Azure Active Directory (Azure AD)
 Por vezes, o significado da "aplicação" pode ser misunderstood quando utilizados no contexto do Azure AD. O objetivo deste artigo é esclarecer aspetos conceptuais e concretos de integração de aplicações do Azure AD, com uma ilustração de registo e consentimento para um [aplicação multi-inquilino](active-directory-dev-glossary.md#multi-tenant-application).
@@ -68,9 +69,9 @@ No passo 2, quando os administradores de Contoso e Fabrikam concluir consentimen
 No passo 3, os inquilinos de consumidor da HR aplicação (Contoso e Fabrikam) cada tem os seus próprios objeto principal do serviço. Cada representa a utilização de uma instância da aplicação em runtime, regida pelas permissões autorizada pelo administrador do respetivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Objeto de aplicação de uma aplicação pode ser acedido através da AD Graph API do Azure, o [do portal do Azure] [ AZURE-Portal] editor de manifesto de aplicação, ou [cmdlets do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado pelo respetivo OData [entidade aplicação][AAD-Graph-App-Entity].
+Objeto de aplicação de uma aplicação pode ser acedido através da AD Graph API do Azure, o [do portal do Azure] [ AZURE-Portal] editor de manifesto de aplicação, ou [cmdlets do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), como representada pelo respetivo OData [entidade aplicação][AAD-Graph-App-Entity].
 
-Objeto principal do serviço de uma aplicação pode ser acedido através da AD Graph API do Azure ou [cmdlets do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado pelo respetivo OData [ServicePrincipal entidade][AAD-Graph-Sp-Entity].
+Objeto principal do serviço de uma aplicação pode ser acedido através da AD Graph API do Azure ou [cmdlets do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado pelo respetivo OData [ServicePrincipal entidade] [ AAD-Graph-Sp-Entity].
 
 O [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/) é útil para consultar a aplicação e os objetos de principal de serviço.
 

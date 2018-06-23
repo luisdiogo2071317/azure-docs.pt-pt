@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213146"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334331"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -60,6 +60,8 @@ Este aprovisionamento solução de utilizadores do Workday estão atualmente em 
 * As organizações que necessitam de se associar, mover, e deixando os utilizadores sincronizados com uma ou mais florestas do Active Directory, domínios e UOs com base apenas no alterar informações detetadas no módulo Workday HCM (consulte [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * Organizações com o Office 365 para correio eletrónico
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Planeamento da solução
 
@@ -363,15 +365,15 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | **UserID**    |  CN    |   |   Escrito no apenas a criar |
 | **Associar ("@", [UserID], "contoso.com")**   | userPrincipalName     |     | Escrito no apenas a criar 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito no apenas a criar |
-| **Comutador (\[Active Directory\],, "0", "True", "1")** |  AccountDisabled      |     | Criar + atualizar |
+| **Comutador (\[Active Directory\],, "0", "True", "1")** |  accountDisabled      |     | Criar + atualizar |
 | **FirstName**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
-| **Empresa**         | Empresa   |     |  Criar + atualizar |
+| **Empresa**         | empresa   |     |  Criar + atualizar |
 | **SupervisoryOrganization**  | departamento  |     |  Criar + atualizar |
 | **ManagerReference**   | gestor  |     |  Criar + atualizar |
 | **BusinessTitle**   |  título     |     |  Criar + atualizar | 
-| **AddressLineData**    |  StreetAddress  |     |   Criar + atualizar |
+| **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **Municipality**   |   l   |     | Criar + atualizar |
 | **CountryReferenceTwoLetter**      |   Co |     |   Criar + atualizar |
 | **CountryReferenceTwoLetter**    |  c  |     |         Criar + atualizar |
@@ -380,7 +382,7 @@ Nesta secção, irá configurar a forma como fluem de dados de utilizador do Wor
 | **PostalCode**  |   postalCode  |     | Criar + atualizar |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Criar + atualizar |
 | **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualizar |
-| **Mobile**  |    Mobile       |     |       Criar + atualizar |
+| **Mobile**  |    móvel       |     |       Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |                                               
 | **Comutador (\[Municipality\], "UO = utilizadores padrão, UO = utilizadores, UO = predefinido, UO = localizações, DC = contoso, DC = com", "Dallas", "UO = utilizadores padrão, UO = utilizadores, UO = Dallas, UO = localizações, DC = contoso, DC = com", "Austin", "UO = padrão UO dos utilizadores, = Utilizadores, UO = Austin, UO = localizações, DC = contoso, DC = com ","Coimbra"," UO = utilizadores padrão, UO = utilizadores, UO = Seattle, UO = localizações, DC = contoso, DC = com ","Londres"," UO = utilizadores padrão, UO = utilizadores, UO = Londres, UO = localizações, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Criar + atualizar |
   
@@ -543,14 +545,13 @@ As secções seguintes descrevem como configurar uma ligação entre Workday e o
 
    * Se o teste de ligação for bem sucedida, clique em de **guardar** botão na parte superior. Se falhar, verifique que o URL do Workday e as credenciais são válidas no Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Parte 2: Configurar os mapeamentos de atributos 
 
 Nesta secção, irá configurar como os dados de utilizador fluem do Workday para o Azure Active Directory para os utilizadores apenas na nuvem.
 
-1.  No separador de aprovisionamento em **mapeamentos**, clique em **trabalhadores sincronizar com o Azure AD**.
+1. No separador de aprovisionamento em **mapeamentos**, clique em **trabalhadores sincronizar com o Azure AD**.
 
-2.   No **âmbito de objeto de origem** campo, pode selecionar os conjuntos de utilizadores no Workday devem estar no âmbito de aprovisionamento para o Azure AD, ao definir um conjunto de filtros baseadas em atributos. O âmbito de predefinido é "todos os utilizadores no Workday". Filtros de exemplo:
+2. No **âmbito de objeto de origem** campo, pode selecionar os conjuntos de utilizadores no Workday devem estar no âmbito de aprovisionamento para o Azure AD, ao definir um conjunto de filtros baseadas em atributos. O âmbito de predefinido é "todos os utilizadores no Workday". Filtros de exemplo:
 
    * Exemplo: Âmbito para os utilizadores com IDs de trabalho entre 1000000 e 2000000
 
@@ -566,9 +567,9 @@ Nesta secção, irá configurar como os dados de utilizador fluem do Workday par
 
       * Um operador: Não é nula
 
-3.  No **ações de objeto de destino** campo, pode filtrar global que ações podem ser executados no Azure AD. **Criar** e **atualização** são mais comuns.
+3. No **ações de objeto de destino** campo, pode filtrar global que ações podem ser executados no Azure AD. **Criar** e **atualização** são mais comuns.
 
-4.  No **mapeamentos de atributos** secção, pode definir Workday individual como atributos mapeiam para atributos do Active Directory.
+4. No **mapeamentos de atributos** secção, pode definir Workday individual como atributos mapeiam para atributos do Active Directory.
 
 5. Clique num mapeamento de atributos existente para atualizá-lo ou clique em **adicionar novo mapeamento** na parte inferior do ecrã, para adicionar novos mapeamentos. Um mapeamento de atributos individuais suporta estas propriedades:
 
@@ -602,7 +603,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem do Workday par
 ### <a name="part-3-start-the-service"></a>Parte 3: Iniciar o serviço
 Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovisionamento.
 
-1.  No **aprovisionamento** separador, defina o **estado de aprovisionamento** para **no**.
+1. No **aprovisionamento** separador, defina o **estado de aprovisionamento** para **no**.
 
 2. Clique em **Guardar**.
 
@@ -612,7 +613,6 @@ Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovision
 
 5. Uma conclusão, irá escrever um relatório de resumo de auditoria **aprovisionamento** separador, conforme mostrado abaixo.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configurar a repetição de escrita de endereços de e-mail para Workday
 Siga estas instruções para configurar a repetição de escrita de endereços de e-mail do utilizador do Azure Active Directory para Workday.
 
@@ -620,21 +620,21 @@ Siga estas instruções para configurar a repetição de escrita de endereços d
 
 **Para configurar Workday aprovisionamento do Active Directory:**
 
-1.  Ir para <https://portal.azure.com>
+1. Ir para <https://portal.azure.com>
 
-2.  Na barra de navegação esquerdo, selecione **do Azure Active Directory**
+2. Na barra de navegação esquerdo, selecione **do Azure Active Directory**
 
-3.  Selecione **aplicações empresariais**, em seguida, **todas as aplicações**.
+3. Selecione **aplicações empresariais**, em seguida, **todas as aplicações**.
 
-4.  Selecione **adicionar uma aplicação**, em seguida, selecione o **todos os** categoria.
+4. Selecione **adicionar uma aplicação**, em seguida, selecione o **todos os** categoria.
 
-5.  Procurar **repetição de escrita do Workday**e adicione essa aplicação a partir da galeria.
+5. Procurar **repetição de escrita do Workday**e adicione essa aplicação a partir da galeria.
 
-6.  Depois da aplicação é adicionada e do ecrã de detalhes da aplicação é apresentado, selecione **aprovisionamento**
+6. Depois da aplicação é adicionada e do ecrã de detalhes da aplicação é apresentado, selecione **aprovisionamento**
 
-7.  Alterar o **aprovisionamento** **modo** para **automática**
+7. Alterar o **aprovisionamento** **modo** para **automática**
 
-8.  Concluir o **credenciais de administrador** secção da seguinte forma:
+8. Concluir o **credenciais de administrador** secção da seguinte forma:
 
    * **Nome de utilizador de Admin** – introduza o nome de utilizador da conta de sistema de integração do Workday, com o nome de domínio de inquilino anexado. Deverá ter um aspeto semelhante ao seguinte: username@contoso4
 
@@ -646,24 +646,22 @@ Siga estas instruções para configurar a repetição de escrita de endereços d
 
    * Clique em de **Testar ligação** botão. Se o teste de ligação for bem sucedida, clique em de **guardar** botão na parte superior. Se falhar, verifique que o URL do Workday e as credenciais são válidas no Workday.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>Parte 2: Configurar os mapeamentos de atributos 
-
 
 Nesta secção, irá configurar a forma como fluem de dados de utilizador do Workday para o Active Directory.
 
-1.  No separador de aprovisionamento em **mapeamentos**, clique em **sincronizar do Azure AD que os utilizadores Workday**.
+1. No separador de aprovisionamento em **mapeamentos**, clique em **sincronizar do Azure AD que os utilizadores Workday**.
 
-2.  No **âmbito de objeto de origem** campo, pode opcionalmente filtrar os conjuntos de utilizadores no Azure Active Directory devem ter os respetivos endereços de correio eletrónico gravados Workday. O âmbito de predefinido é "todos os utilizadores no Azure AD". 
+2. No **âmbito de objeto de origem** campo, pode opcionalmente filtrar os conjuntos de utilizadores no Azure Active Directory devem ter os respetivos endereços de correio eletrónico gravados Workday. O âmbito de predefinido é "todos os utilizadores no Azure AD". 
 
-3.  No **mapeamentos de atributos** secção, pode definir Workday individual como atributos mapeiam para atributos do Active Directory. Não há um mapeamento para o endereço de e-mail por predefinição. No entanto, o ID de correspondente tem de ser atualizado para corresponder aos utilizadores no Azure AD com as respetivas entradas correspondentes no Workday. É um método de correspondência popular sincronizar o ID de trabalho do Workday ou o ID de empregado para extensionAttribute1-15 no Azure AD e, em seguida, utilize este atributo no Azure AD para corresponder aos utilizadores no Workday.
+3. No **mapeamentos de atributos** secção, pode definir Workday individual como atributos mapeiam para atributos do Active Directory. Não há um mapeamento para o endereço de e-mail por predefinição. No entanto, o ID de correspondente tem de ser atualizado para corresponder aos utilizadores no Azure AD com as respetivas entradas correspondentes no Workday. É um método de correspondência popular sincronizar o ID de trabalho do Workday ou o ID de empregado para extensionAttribute1-15 no Azure AD e, em seguida, utilize este atributo no Azure AD para corresponder aos utilizadores no Workday.
 
-4.  Para guardar os mapeamentos, clique em **guardar** na parte superior da secção de mapeamento de atributos.
+4. Para guardar os mapeamentos, clique em **guardar** na parte superior da secção de mapeamento de atributos.
 
 ### <a name="part-3-start-the-service"></a>Parte 3: Iniciar o serviço
 Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovisionamento.
 
-1.  No **aprovisionamento** separador, defina o **estado de aprovisionamento** para **no**.
+1. No **aprovisionamento** separador, defina o **estado de aprovisionamento** para **no**.
 
 2. Clique em **Guardar**.
 
@@ -672,7 +670,6 @@ Depois de partes 1-2 tem sido concluídas, pode iniciar o serviço de aprovision
 4. Eventos de sincronização individuais podem ser visualizados no **registos de auditoria** separador. **[Consulte o guia de relatórios de aprovisionamento para obter instruções detalhadas sobre como ler os registos de auditoria](../active-directory-saas-provisioning-reporting.md)**
 
 5. Uma conclusão, irá escrever um relatório de resumo de auditoria **aprovisionamento** separador, conforme mostrado abaixo.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Personalizar a lista de atributos de utilizador do Workday
 Aprovisionamento de aplicações para o Active Directory e o Azure AD incluem uma lista predefinida de atributos de utilizador do Workday evidenciam pode selecionar. No entanto, estas listas não são abrangentes. Workday suporta várias centenas de atributos de utilizador possível, o que podem ser exclusivo no seu inquilino do Workday ou padrão. 
@@ -799,15 +796,9 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 * Um problema com os registos de auditoria não são apresentados no inquilinos do Azure AD, localizados na União Europeia anterior foi resolvido. No entanto, a configuração do agente adicionais é necessária para inquilinos do Azure AD no EU. Para obter mais informações, consulte [parte 3: configurar o agente de sincronização no local](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>Gestão de dados pessoais
 
 Workday solução de aprovisionamento do Active Directory requer um agente de sincronização ser instalada num servidor associado a um domínio, e este agente cria registos no registo de eventos do Windows que pode conter informações de identificação pessoal.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  onde a... / referências correspondente a estrutura de hierarquia do seu artigo
-
-> [!NOTE]
-> Se estiver interessado em ver ou eliminar os dados pessoais, reveja a documentação de orientação da Microsoft no [dados do Windows do requerente pedidos para o GDPR](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) site. Se estiver a procurar informações gerais sobre GDPR, consulte o [secção GDPR do Portal do serviço de confiança](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

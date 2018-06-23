@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a4f300666d0ab5345274d69d9ad6ad6871ce85e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617438"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334045"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados de PostgreSQL através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,10 +39,9 @@ Especificamente, este conector PostgreSQL suporta PostgreSQL **versão 7.4 e aci
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector PostgreSQL, tem de:
+Se a base de dados PostgreSQL não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Para saber mais sobre tempos de execução automática alojada integração, consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo. O tempo de execução de integração fornece um controlador PostgreSQL incorporado a partir da versão 3.7, por conseguinte, não precisa de instalar manualmente quaisquer controladores.
 
-- Defina um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instalar o [Ngpsql data provider para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) com a versão entre 2.0.12 e 3.1.9 na máquina de tempo de execução de integração.
+Para a versão de resposta a incidentes Self-hosted menor 3.7, tem de instalar o [Ngpsql data provider para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) com a versão entre 2.0.12 e 3.1.9 na máquina de tempo de execução de integração.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -57,14 +56,36 @@ As seguintes propriedades são suportadas para o serviço de PostgreSQL ligada:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **PostgreSql** | Sim |
-| servidor | Nome do servidor PostgreSQL. |Sim |
-| base de dados | Nome da base de dados PostgreSQL. |Sim |
-| Esquema | Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
-| o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados PostgreSQL. |Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
+| connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+
+Uma cadeia de ligação típico é `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Propriedades que pode ser definidas por seu incidente:
+
+| Propriedade | Descrição | Opções | Necessário |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (IT)| Utiliza o método de controlador para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo, `ValidateServerCertificate=<0/1/6>;`| 0 (sem encriptação) **(predefinida)** / 1 (SSL) / 6 (RequestSSL) | Não |
+| ValidateServerCertificate (VSC) | Determina se o controlador valida o certificado que é enviado pelo servidor de base de dados quando estiver ativada a encriptação SSL (método de encriptação = 1). Por exemplo, `ValidateServerCertificate=<0/1>;`| 0 (desativado) **(predefinida)** / 1 (ativado) | Não |
 
 **Exemplo:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+Se estava a utilizar o serviço PostgreSQL ligado com o seguinte payload, ainda é suportado como-é, enquanto são sugeridos para utilizar um novo passa.
+
+**Payload anterior:**
 
 ```json
 {

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32178241"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335096"
 ---
 # <a name="what-is-appsource"></a>O que é AppSource
 AppSource permite que os parceiros da Microsoft tornar as tecnologias e serviços detetável aos clientes através de um storefront suportada do Microsoft online. Como um publicador AppSource, pode interagir com os utilizadores empresariais no AppSource para localizar, tente e obter aplicações de SaaS de linha de negócio, bem como serviços de implementação para ajudar a resultados de negócios de unidade e reduza o valor de tempo: 
@@ -76,7 +76,7 @@ Algumas aplicações storefront AppSource são necessárias para integrar com o 
 | Aplicações SaaS (anteriormente Web Apps) | Preferencial | Azure AD é uma melhor prática para garantir que um cliente totalmente integrado experiência e a mais alta qualidade servem como de unidades |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabela: As ofertas de AppSource que necessitam de integração do Active Directory do Azure
 
-Inicialmente, recomendamos que **configurar uma subscrição dedicada para a publicação do Azure Marketplace*** permitindo-lhe isolar o trabalho da sua outros iniciativas. Além disso, se já não tiver instalado as ferramentas seguintes, em seguida, recomendamos que as seguintes ferramentas adicionadas ao seu ambiente de desenvolvimento: 
+Inicialmente, recomendamos que **configurar uma subscrição dedicada para a publicação do Azure Marketplace** \* permitindo-lhe isolar o trabalho da sua outros iniciativas. Além disso, se já não tiver instalado as ferramentas seguintes, em seguida, recomendamos que as seguintes ferramentas adicionadas ao seu ambiente de desenvolvimento: 
 *   [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell – Azure")
 *   Reveja as ferramentas disponíveis no [ferramentas de programador do Azure](https://azure.microsoft.com/tools/ "Azure - ferramentas de programador") página

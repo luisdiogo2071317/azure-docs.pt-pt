@@ -1,5 +1,5 @@
 ---
-title: Copiar dados a partir do Marketo utilizando o Azure Data Factory (Beta) | Microsoft Docs
+title: Copiar dados a partir do Marketo utilizando o Azure Data Factory (pré-visualização) | Microsoft Docs
 description: Saiba como copiar dados a partir do Marketo aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: e766cc989c3421b634c9fab1463077f18d4a25c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc49a7b4e0d7fd2330bb8b0ea8ffcd1cfb601f48
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617788"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337815"
 ---
-# <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Copiar dados a partir do Marketo utilizando o Azure Data Factory (Beta)
+# <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados a partir do Marketo utilizando o Azure Data Factory (pré-visualização)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados a partir do Marketo. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
@@ -28,7 +28,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Este conector está atualmente na versão Beta. Pode experimentar e envie-nos comentários. Não utilizá-lo em ambientes de produção.
+> Este conector está atualmente em pré-visualização. Pode experimentar e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -38,7 +38,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do Marketo.
 

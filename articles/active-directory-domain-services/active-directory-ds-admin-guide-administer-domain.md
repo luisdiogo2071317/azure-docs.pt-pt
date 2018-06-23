@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 6a4e25dd3f819ad4f0fee7846e87df2202f5227f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2ee5250147a82199057a3bf6f043627616e7443d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210623"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333691"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrar um domínio gerido pelos Serviços de Domínio do Azure Active Directory
 Este artigo mostra como administrar um domínio gerido dos serviços de domínio do Azure Active Directory (AD).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="before-you-begin"></a>Antes de começar
-Para executar as tarefas apresentadas neste artigo, tem de:
+Para concluir as tarefas apresentadas neste artigo, tem de:
 
 1. Um **subscrição do Azure**.
 2. Um **diretório do Azure AD** -está sincronizada com um diretório no local ou um diretório apenas na nuvem.
@@ -37,7 +39,7 @@ Para executar as tarefas apresentadas neste artigo, tem de:
 <br>
 
 ## <a name="administrative-tasks-you-can-perform-on-a-managed-domain"></a>Tarefas administrativas que pode efetuar um domínio gerido
-Os membros do grupo 'AAD DC administradores' são concedidos privilégios no domínio gerido que ativá-los efetuar tarefas, tais como:
+Os membros do grupo 'AAD DC administradores' são concedidos privilégios no domínio gerido que ativá-las realizar tarefas, tais como:
 
 * Associe computadores ao domínio gerido.
 * Configurar o GPO incorporado para os contentores “Computadores do AAD DC” e “Utilizadores do AAD DC” no domínio gerido.
@@ -46,15 +48,15 @@ Os membros do grupo 'AAD DC administradores' são concedidos privilégios no dom
 * Obter acesso administrativo aos computadores associados ao domínio gerido.
 
 ## <a name="administrative-privileges-you-do-not-have-on-a-managed-domain"></a>Privilégios administrativos não dispõe de um domínio gerido
-O domínio é gerido pela Microsoft, incluindo atividades tais como a aplicação de patches, monitorização e, efetua cópias de segurança. Por conseguinte, o domínio está bloqueado para baixo e não tem privilégios para efetuar determinadas tarefas administrativas no domínio. Alguns exemplos de tarefas que não é possível efetuar são abaixo.
+O domínio é gerido pela Microsoft, incluindo atividades tais como a aplicação de patches, monitorização e, fazer cópias de segurança. O domínio está bloqueado para baixo e não tem privilégios para efetuar determinadas tarefas administrativas no domínio. Alguns exemplos de tarefas que não é possível fazer são abaixo.
 
-* Não são concedidos privilégios de administrador do domínio ou de administrador de empresa para o domínio gerido.
+* Não tem privilégios de administrador do domínio ou de administrador de empresa para o domínio gerido.
 * Não é possível expandir o esquema do domínio gerido.
 * Não é possível ligar aos controladores de domínio para o domínio gerido utilizando o ambiente de trabalho remoto.
 * Não é possível adicionar os controladores de domínio para o domínio gerido.
 
-## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Tarefa 1 - aprovisionar uma máquina de virtual associado a um domínio Windows Server para administrar remotamente o domínio gerido
-Domínios geridos de serviços de domínio do AD do Azure podem ser geridos através do Active Directory administrativas ferramentas familiares, como o Active Directory Centro de administração (ADAC) ou do AD do PowerShell. Os administradores inquilinos não dispõe de privilégios para ligar aos controladores de domínio no domínio gerido através do ambiente de trabalho remoto. Por conseguinte, os membros do grupo 'AAD DC administradores' podem administrar domínios geridos remotamente utilizando ferramentas administrativas do AD de um computador Windows Server/cliente que está associado ao domínio gerido. Ferramentas de administração do AD podem ser instaladas como parte da funcionalidade ferramentas de administração remota de servidor (FARS) opcional no Windows Server e computadores cliente associados a um domínio gerido.
+## <a name="task-1---create-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Tarefa 1 - criar uma máquina de virtual associado a um domínio Windows Server para administrar remotamente o domínio gerido
+Domínios geridos de serviços de domínio do AD do Azure podem ser geridos através do Active Directory administrativas ferramentas familiares, como o Active Directory Centro de administração (ADAC) ou do AD do PowerShell. Os administradores inquilinos não dispõe de privilégios para ligar aos controladores de domínio no domínio gerido através do ambiente de trabalho remoto. Os membros do grupo 'AAD DC administradores' podem administrar domínios geridos remotamente utilizando ferramentas administrativas do AD de um computador Windows Server/cliente que está associado ao domínio gerido. Ferramentas de administração do AD podem ser instaladas como parte da funcionalidade ferramentas de administração remota de servidor (FARS) opcional no Windows Server e computadores cliente associados a um domínio gerido.
 
 É o primeiro passo para configurar uma máquina virtual do Windows Server que está associada ao domínio gerido. Para obter instruções, consulte o artigo intitulado [associar uma máquina virtual do Windows a um domínio gerido dos serviços de domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md).
 
@@ -64,13 +66,13 @@ As instruções no utilize artigo uma máquina virtual do Windows para administr
 Pode [instalar ferramentas de administração remota de servidor (FARS)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) na máquina virtual do cliente Windows ao seguir as instruções no TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Tarefa 2 - ferramentas de administração do Active Directory de instalação na máquina virtual
-Execute os seguintes passos para instalar as ferramentas de administração do Active Directory na máquina virtual associado a um domínio. Consulte o Technet para obter mais informações [informações sobre como instalar e utilizar as ferramentas de administração remota do servidor](https://technet.microsoft.com/library/hh831501.aspx).
+Conclua os seguintes passos para instalar as ferramentas de administração do Active Directory na máquina virtual associado a um domínio. Consulte o Technet para obter mais informações [informações sobre como instalar e utilizar as ferramentas de administração remota do servidor](https://technet.microsoft.com/library/hh831501.aspx).
 
 1. Navegue para o portal do Azure. Clique em **todos os recursos** no painel esquerdo. Localize e clique na máquina virtual que criou na tarefa 1.
 2. Clique em de **Connect** botão no separador de descrição geral. Um ficheiro de protocolo de ambiente de trabalho remoto (RDP) é criado e transferido.
 
     ![Ligar à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for solicitado, clique em **Ligar**. Na linha de início de sessão, utilize as credenciais de utilizadores que pertençam ao grupo de 'AAD DC administradores'. Por exemplo, utilizamos 'bob@domainservicespreview.onmicrosoft.com' no nosso caso. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em Sim ou continuar a prosseguir com a ligação.
+3. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for solicitado, clique em **Ligar**. Utilize as credenciais de utilizadores que pertençam ao grupo de 'AAD DC administradores'. Por exemplo, 'bob@domainservicespreview.onmicrosoft.com'. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em Sim ou continuar a prosseguir com a ligação.
 4. A partir do ecrã Iniciar, abra **Gestor de servidor**. Clique em **para adicionar funções e funcionalidades** no painel central da janela do Gestor de servidor.
 
     ![Inicie o Gestor de servidor numa máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -83,7 +85,7 @@ Execute os seguintes passos para instalar as ferramentas de administração do A
 7. No **seleção de servidor** página, selecione a máquina virtual atual no agrupamento de servidores e clique em **seguinte**.
 
     ![Página de seleção de servidor](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. No **funções de servidor** página, clique em **seguinte**. Vamos ignorar esta página, uma vez que vamos não estiver a instalar quaisquer funções no servidor.
+8. No **funções de servidor** página, clique em **seguinte**.
 9. No **funcionalidades** página, clique para expandir o **ferramentas de administração remota do servidor** nós e, em seguida, clique para expandir o **ferramentas de administração de funções** nó. Selecione **AD DS e AD LDS ferramentas** funcionalidade da lista de ferramentas de administração de funções.
 
     ![Página de funcionalidades](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
@@ -92,7 +94,7 @@ Execute os seguintes passos para instalar as ferramentas de administração do A
     ![Página de confirmação](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 ## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>Tarefa 3 - Ligar a e explorar o domínio gerido
-Agora que estão instaladas as ferramentas de administração do AD no domínio associado a máquina virtual, podemos utilizar estas ferramentas para explorar e administrar o domínio gerido.
+Agora, pode utilizar ferramentas administrativas do Windows Server AD para explorar e administrar o domínio gerido.
 
 > [!NOTE]
 > Tem de ser membro do grupo 'AAD DC administradores', para administrar o domínio gerido.

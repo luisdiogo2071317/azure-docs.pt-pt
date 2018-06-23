@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 01a34eed3ea073deaaf449d28d7f8462f12b5a33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294314"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335286"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>A introdução de análise no Application Insights
 [Análise de](app-insights-analytics.md) é a funcionalidade de pesquisa poderoso de [Application Insights](app-insights-overview.md). Estas páginas descrevem o idioma de consulta de análise de registos.
@@ -180,7 +180,7 @@ Outros exemplos:
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Projeto](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecionar, mudar o nome e colunas de computação
-Utilize [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) escolha enviados apenas as colunas que pretende:
+Utilize [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) escolha enviados apenas as colunas que pretende:
 
 ```AIQL
 

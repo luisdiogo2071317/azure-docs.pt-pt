@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164463"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316673"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -59,8 +59,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 #### <a name="claims-in-id-tokens"></a>Afirmações no ID
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
-| público-alvo |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica o destinatário do token. Tokens de ID, o público-alvo é ID da aplicação da sua aplicação, atribuído à sua aplicação no Portal de registo de aplicações da Microsoft. A aplicação deve validar este valor e rejeitar o token, se o valor não corresponde. |
-| emissor |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica o serviço de token de segurança (STS) que constrói e devolve o token e de inquilino do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém do ponto final v 2.0. Também deverá utilizar a parte do GUID de afirmação para restringir o conjunto de inquilinos que pode iniciar sessão aplicação. O GUID que indica que o utilizador é um utilizador de consumidor de uma conta Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Público-alvo |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica o destinatário do token. Tokens de ID, o público-alvo é ID da aplicação da sua aplicação, atribuído à sua aplicação no Portal de registo de aplicações da Microsoft. A aplicação deve validar este valor e rejeitar o token, se o valor não corresponde. |
+| Emissor |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica o serviço de token de segurança (STS) que constrói e devolve o token e de inquilino do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém do ponto final v 2.0. Também deverá utilizar a parte do GUID de afirmação para restringir o conjunto de inquilinos que pode iniciar sessão aplicação. O GUID que indica que o utilizador é um utilizador de consumidor de uma conta Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | emitido no |`iat` |`1452285331` |A hora em que o token foi emitido, representado na hora de época. |
 | hora de expiração |`exp` |`1452289231` |A hora em que o token passa a ser inválido, representado na hora de época. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | não antes |`nbf` |`1452285331` |A hora em que o token passa a ser válido, representado na hora de época. Normalmente, é o mesmo que o tempo de emissão. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
@@ -95,8 +95,7 @@ Quando resgatar a um token de atualização para um novo token de acesso (e se a
 ## <a name="validating-tokens"></a>Tokens de validação
 Atualmente, a validação de token apenas que as aplicações devem necessitar de efetuar está a ser validada tokens de identidade. Para validar um token de ID, a aplicação deve validar a assinatura do token de ID e as afirmações no token de ID.
 
-<!-- TODO: Link -->
-A Microsoft fornece bibliotecas e exemplos de código mostram-lhe como processar facilmente a validação de token. Nas secções seguintes, vamos descrevem o processo de subjacente. Vários bibliotecas de open source de terceiros também estão disponíveis para a validação de JWT. Há a opção de pelo menos uma biblioteca para quase todas as plataforma e de idioma.
+<!-- TODO: Link --> A Microsoft fornece bibliotecas e exemplos de código mostram-lhe como processar facilmente a validação de token. Nas secções seguintes, vamos descrevem o processo de subjacente. Vários bibliotecas de open source de terceiros também estão disponíveis para a validação de JWT. Há a opção de pelo menos uma biblioteca para quase todas as plataforma e de idioma.
 
 ### <a name="validate-the-signature"></a>Validar a assinatura
 Um JWT contém três segmentos, separados pelo `.` caráter. O primeiro segmento é conhecido como o *cabeçalho*, é o segmento de segundo a *corpo*, e é o terceiro segmento o *assinatura*. O segmento de assinatura pode ser utilizado para validar a autenticidade do token de ID de modo a que pode ser fidedigno pela sua aplicação.
@@ -113,7 +112,7 @@ Tokens de ID são assinados com os algoritmos de encriptação assimétrico de n
 
 O `alg` afirmação indica o algoritmo que foi utilizado para assinar o token. O `kid` afirmação indica que foi utilizado para assinar o token de chave pública.
 
-Em qualquer altura, o ponto final v 2.0 pode assinar um token de ID com qualquer uma de um conjunto específico de pares de chaves públicas-privadas. O ponto final v 2.0 roda periodicamente o conjunto possíveis de chaves, pelo que a sua aplicação deve ser escrita para lidar com essas alterações chaves automaticamente. Uma frequência razoável para procurar atualizações para as chaves públicas utilizadas pelo ponto final v 2.0 é a cada 24 horas.
+O ponto final v 2.0 inicia tokens de acesso e ID através da utilização de qualquer um de um conjunto específico de pares de chaves públicas-privadas. O ponto final v 2.0 roda periodicamente o conjunto possíveis de chaves, pelo que a sua aplicação deve ser escrita para lidar com essas alterações chaves automaticamente. Uma frequência razoável para procurar atualizações para as chaves públicas utilizadas pelo ponto final v 2.0 é a cada 24 horas.
 
 Pode obter os dados de chave de assinatura que é necessário validar a assinatura utilizando o documento de metadados OpenID Connect, localizado em:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Repita o URL num browser!
->
->
 
 Este documento de metadados é um objeto JSON que tem várias partes útil de informações, tais como a localização dos vários pontos finais necessários para a autenticação OpenID Connect. O documento também inclui um *jwks_uri*, que lhe oferece a localização do conjunto de chaves públicas utilizado para assinar os tokens. O documento JSON localizado no jwks_uri tem todas as informações de chaves públicas está atualmente em utilização. A aplicação pode utilizar o `kid` no cabeçalho de JWT para selecionar qual a chave pública neste documento foi utilizada para assinar um token de afirmação. Em seguida, efetua validação da assinatura utilizando a chave pública correta e o algoritmo indicado.
+
+> [!NOTE]
+> O `x5t` afirmação foi preterida no ponto final v 2.0. Recomendamos que utilize o `kid` validar o token de afirmação.
 
 Efetuar a validação da assinatura está fora do âmbito deste documento. Bibliotecas de open source muitos estão disponíveis para ajudá-lo com este.
 
@@ -142,7 +142,7 @@ Para obter uma lista completa de validações de afirmação que deve executar a
 
 Detalhes dos valores esperados para estas afirmações incluídos no [ID tokens](# ID tokens) secção.
 
-## <a name="token-lifetimes"></a>Durações dos tokens
+## <a name="token-lifetimes"></a>Durações de token
 Podemos fornecer as durações de token seguintes apenas para sua informação. As informações podem ajudá-lo como desenvolver e depurar aplicações. As suas aplicações não devem ser escritas esperar qualquer um destes durações permaneça constante. Pode durações do token e mudará em qualquer altura.
 
 | Certificado de | Duração | Descrição |

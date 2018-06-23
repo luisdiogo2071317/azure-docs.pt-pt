@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
-ms.reviewer: dastrock
-ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157610"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319229"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar a partir do serviço de controlo de acesso do Azure
 
@@ -292,7 +292,7 @@ Também pode utilizar o Azure AD para autenticação de servidor para servidor u
 | ---------- | ----------- | ---------------- |
 | Como registar um serviço web | Criar uma entidade confiadora no portal de gestão do controlo de acesso | Criar uma aplicação web do Azure AD no portal do Azure |
 | Como registar um cliente | Criar uma identidade de serviço no portal de gestão do controlo de acesso | Criar outra aplicação web do Azure AD no portal do Azure |
-| Protocolo utilizado |-Protocolo de moldagem OAuth<br />-As credenciais de cliente OAuth 2.0 rascunho 13 conceder | Conceder credenciais de cliente OAuth 2.0 |
+| Protocolo utilizado |-Protocolo de moldagem OAuth<br />-As credenciais de cliente OAuth 2.0 rascunho 13 conceder | Concessão de credenciais de cliente OAuth 2.0 |
 | Métodos de autenticação de cliente |-Palavra-passe simples<br />-SWT assinado<br />-Token SAML de um fornecedor de identidade federada |-Palavra-passe simples<br />-JWT assinado |
 | Formatos de token |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Apenas JWT |
 | Transformação de token |-Adicionar afirmações personalizadas<br />-Lógica de emissão de afirmação simples de depois de se | Adicionar afirmações personalizadas | 

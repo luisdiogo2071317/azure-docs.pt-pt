@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621351"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318398"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -41,7 +41,7 @@ Consulte [página de detalhes de preços de fábrica de dados] [ adf-pricing-det
 * Para um tutorial sobre como **copiar/mover dados** utilizando a atividade de cópia, consulte [copiar dados do Blob Storage do Azure para a SQL Database do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para um tutorial sobre como **transformar dados** utilizando a atividade do ramo de registo do HDInsight. Consulte [processar dados executando o script de ramo de registo num cluster de Hadoop](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>O que é a disponibilidade de região do Data Factory s?
+### <a name="what-is-the-data-factorys-region-availability"></a>O que é a disponibilidade de região de fábrica de dados?
 Fábrica de dados está disponível no **dos EUA oeste** e **Europa do Norte**. Os serviços de computação e armazenamento utilizados pelo fábricas de dados podem ser noutras regiões. Consulte [regiões suportadas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quais são os limites no número de data factories/pipelines/atividades/conjuntos de dados?

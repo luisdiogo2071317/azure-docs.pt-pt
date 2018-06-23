@@ -78,5 +78,5 @@
 Tenha em atenção que o `Post` método agora não enviar uma notificação de alerta. Envia uma notificação em bruto que contém apenas o ID de notificação e não a qualquer conteúdo confidencial. Além disso, certifique-se comente a operação de envio para as plataformas que não tem credenciais configuradas no seu hub de notificação, conforme irá causar erros.
 
 1. Agora iremos novamente implementar esta aplicação para um Web site do Azure para o tornam acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione o Web site do Azure como o destino da publicação. Iniciar sessão com a sua conta do Azure e selecione um Web site existente ou novo e anote o **URL de destino** propriedade no **ligação** separador. Vamos referir-nos a este URL como o *ponto final do seu back-end* mais adiante neste tutorial. Clique em **Publicar**.
+2. Selecione o Web site do Azure como o destino da publicação. Inicie sessão com a sua conta do Azure e selecione um Web site existente ou novo e anote o **URL de destino** propriedade no **ligação** separador. Vamos referir-nos a este URL como o *ponto final do seu back-end* mais adiante neste tutorial. Clique em **Publicar**.
 

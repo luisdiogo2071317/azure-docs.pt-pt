@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212381"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integração do Azure Active Directory com Manabi Pocket
 
@@ -101,35 +100,29 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. No **Manabi Pocket domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. No **Manabi Pocket domínio e os URLs** secção, execute os seguintes passos:
 
     ![Manabi Pocket domínio e os URLs únicos de informações de início de sessão](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://ed-cl.com/`
+
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de cliente de Pocket Manabi](mailto:info-ed-cl@ntt.com) para obter estes valores.
+    > O valor do identificador não é real. Atualize este valor com o identificador real. Contacte [equipa de suporte de cliente de Pocket Manabi](mailto:info-ed-cl@ntt.com) para obter este valor.
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
-
-    ![Manabi Pocket domínio e os URLs únicos de informações de início de sessão](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    No **URL de início de sessão** caixa de texto, escreva o URL: `https://ed-cl.com/`
-
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Clique em **guardar** botão.
+5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Para configurar o início de sessão único em **Manabi Pocket** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Manabi Pocket](mailto:info-ed-cl@ntt.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+6. Para configurar o início de sessão único em **Manabi Pocket** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Manabi Pocket](mailto:info-ed-cl@ntt.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -196,7 +189,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -222,4 +215,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

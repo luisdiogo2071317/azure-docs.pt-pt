@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297874"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331177"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Adicionar e executar código personalizado para aplicações lógicas através das funções do Azure
 
@@ -35,7 +35,7 @@ Para executar fragmentos personalizados de c# ou node.js as logic apps, pode cri
 
 Recomendamos que crie uma função no portal das funções do Azure, a partir de **genérico Webhook - nó** ou **Webhook genérico - c#** modelos. O resultado cria um preenchido automaticamente um modelo que aceita `application/json` de uma aplicação lógica. Funções que criam destes modelos são automaticamente detetadas e aparecer no Designer de aplicação lógica em **das funções do Azure na minha região.**
 
-No portal do Azure, no **integrar** painel para a sua função, o modelo deve mostrar que **modo** definido como **Webhook** e **Webhook tipo** está definido como **JSON genérico**. 
+No portal do Azure, no **integrar** painel para a sua função, o modelo deve mostrar que **modo** definido como **Webhook** e **Webhook tipo**está definido como **JSON genérico**. 
 
 Funções de Webhook aceitar um pedido e transmita-o para o método através de um `data` variável. Pode aceder as propriedades do payload utilizando a notação de pontos como `data.function-name`. Por exemplo, uma função de JavaScript simple que converte um valor DateTime uma cadeia de data aspeto semelhante ao seguinte exemplo:
 
@@ -62,7 +62,7 @@ Pode acionar uma aplicação de lógica de dentro de uma função. Consulte [as 
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Criar uma função a partir do Designer de aplicação lógica
 
-Também pode criar uma função de webhook do node.js a partir do designer. Em primeiro lugar, selecione **das funções do Azure na minha região** e, em seguida, escolha um contentor para a sua função. Se ainda não tiver um contentor, terá de criar um o [portal das funções do Azure](https://functions.azure.com/signin). Em seguida, selecione **criar novo**.  
+Também pode criar uma função de webhook do node.js a partir do designer. Em primeiro lugar, selecione **das funções do Azure na minha região** e, em seguida, escolha um contentor para a sua função. Se ainda não tiver um contentor, terá de criar um o [portal das funções do Azure](https://functions.azure.com/). Em seguida, selecione **criar novo**.  
 
 Para gerar um modelo baseado nos dados que pretende que a computação, especifique o objeto de contexto que pretende passar para uma função. Este objeto tem de ser um objeto JSON. Por exemplo, se passa o conteúdo do ficheiro de uma ação de FTP, o payload de contexto aspeto neste exemplo:
 

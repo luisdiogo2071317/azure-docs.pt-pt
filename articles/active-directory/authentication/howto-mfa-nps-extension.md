@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868335"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331794"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a sua infraestrutura existente do NPS com multi-factor Authentication do Azure
 
@@ -82,7 +82,7 @@ O servidor NPS liga ao Azure Active Directory e autentica os pedidos MFA. Escolh
 1. No seu servidor, abra o **Assistente Adicionar funções e funcionalidades** no menu de início rápido do Gestor de servidor.
 2. Escolha **instalação baseada em funções ou baseada em funcionalidade** para o seu tipo de instalação.
 3. Selecione o **serviços de acesso e política de rede** função de servidor. Pode aparecer uma janela para o informar sobre as funcionalidades necessárias para executar esta função.
-4. Continue com o assistente até a página de confirmação. Selecione **instalar**.
+4. Continue com o assistente até a página de confirmação. Selecione **Instalar**.
 
 Agora que tem um servidor designado para o NPS, também deve configurar este servidor para processar pedidos RADIUS recebidos da solução VPN.
 
@@ -172,7 +172,7 @@ Esta secção inclui as considerações de design e sugestões para implementaç
 ### <a name="configuration-limitations"></a>Limitações de configuração
 
 - A extensão NPS para o MFA do Azure não inclui as ferramentas para migrar utilizadores e as definições do servidor MFA para a nuvem. Por este motivo, sugerimos que utilizando a extensão para novas implementações em vez de implementação existente. Se utilizar a extensão numa implementação existente, os utilizadores têm de efetuar uma prova de segurança novamente para preencher os detalhes MFA na nuvem.  
-- A extensão NPS utiliza o UPN do Active directory no local para identificar o utilizador na MFA do Azure para efetuar a autenticação secundária A extensão pode ser configurada para utilizar um identificador de diferentes, como o ID de início de sessão alternativo ou campos personalizados do Active Directory que não seja o UPN. Consulte [avançado de opções de configuração para a extensão NPS para o multi-factor Authentication](howto-mfaserver-nps-vpn.md) para obter mais informações.
+- A extensão NPS utiliza o UPN do Active directory no local para identificar o utilizador na MFA do Azure para efetuar a autenticação secundária A extensão pode ser configurada para utilizar um identificador de diferentes, como o ID de início de sessão alternativo ou campos personalizados do Active Directory que não seja o UPN. Consulte [avançado de opções de configuração para a extensão NPS para o multi-factor Authentication](howto-mfa-nps-extension-advanced.md) para obter mais informações.
 - Nem todos os protocolos de encriptação suportam todos os métodos de verificação.
    - **PAP** suporta chamada telefónica, mensagem de texto unidirecional, notificação da aplicação móvel e o código de verificação da aplicação móvel
    - **CHAPV2** e **EAP** suportam a chamada telefónica e notificação da aplicação móvel

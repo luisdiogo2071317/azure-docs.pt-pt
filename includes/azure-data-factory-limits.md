@@ -5,36 +5,37 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d65c75a9b4f308ddd1bb6a6bff28c52c946e4f05
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371325"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320037"
 ---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 
 ### <a name="version-2"></a>Versão 2
 
-| Recurso | Limite Predefinido | Limite Máximo | 
-| -------- | ------------- | ------------- | 
-| fábricas de dados numa subscrição do Azure | 50 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| conjuntos de dados dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Acionadores dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Serviços ligados dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Tempos de execução de integração dentro de uma fábrica de dados <sup>4</sup> | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Recurso | Limite Predefinido | Limite Máximo |
+| -------- | ------------- | ------------- |
+| Fábricas de dados numa subscrição do Azure | 50 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Número total de entidades (Pipeline, conjuntos de dados, Acionadores, serviços ligados, integração tempos de execução) dentro de uma fábrica de dados | 5000 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Núcleos de CPU totais para o Azure SSIS integração Runtime(s) sob uma subscrição | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Pipeline em simultâneo é executada por pipeline | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Atividades de máx. por pipeline | 20 | 40 |
-| Parâmetros de máx. por pipeline | 20 | 30 |
+| Pipeline em simultâneo é executada por fábrica de dados | 10,000  | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Atividades de máx. por pipeline (inclui atividades internas de contentores) | 40 | 40 |
+| Parâmetros de máx. por pipeline | 50 | 50 |
+| ForEach itens | 100,000 | 100,000 |
+| ForEach paralelismo | 20 | 50 |
+| Carateres por expressão | 8,192 | 8,192 |
+| Intervalo mínimo do acionador de janela em cascata | 15 min. | 15 min. |
+| Limite de tempo máx. para execuções de atividade do pipeline | 7 dias | 7 dias |
 | Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
 | Unidades de movimento de dados por execução da atividade de nuvem <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Repetir contagem pipeline para execuções de atividade | 1 day(timeout) | 1 dia (tempo limite) |
 | Escrever chamadas de API | 2500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas da API de leitura | 12,500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
@@ -43,10 +44,10 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 
 | **Recurso** | **Limite Predefinido** | **Limite Máximo** |
 | --- | --- | --- |
-| fábricas de dados numa subscrição do Azure |50 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines dentro de uma fábrica de dados |2500 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| conjuntos de dados dentro de uma fábrica de dados |5000 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| setores em simultâneo por conjunto de dados |10 |10 |
+| Fábricas de dados numa subscrição do Azure |50 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Pipelines dentro de uma fábrica de dados |2500 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Conjuntos de dados dentro de uma fábrica de dados |5000 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Setores em simultâneo por conjunto de dados |10 |10 |
 | Bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
 | Núcleos a pedido no cluster de HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |

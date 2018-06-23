@@ -70,7 +70,7 @@ Para implementar uma máquina virtual de exemplo com o diagnóstico de arranque 
 
 Para ativar o diagnóstico de arranque numa máquina virtual existente, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)e, em seguida, selecione a máquina virtual.
+1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, selecione a máquina virtual.
 2. No **suporte + resolução de problemas**, selecione **diagnóstico de arranque** > **definições**, alterar o estado para **no**e, em seguida, Selecione uma conta de armazenamento. 
 4. Certifique-se de que a opção de diagnóstico de arranque está selecionada e, em seguida, guarde a alteração.
 

@@ -3,22 +3,23 @@ title: Como selecionar permissões para uma determinado API | Microsoft Docs
 description: Como localizar os pontos finais de autenticação para uma aplicação personalizada estiver a desenvolver ou registar com o Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 6c8b8bb81e62747b7ab5eaca94d2820d2e0661d2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 203ecc1dd83bebffadf0e85a08cb3ee383b0d412
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26612933"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332012"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma determinado API
 
@@ -34,5 +35,5 @@ Pode encontrar os pontos finais de autenticação para a sua aplicação no [por
 
 -   Utilizar o ponto final específico para o protocolo de autenticação que está a utilizar, em conjunto com o ID de aplicação para craft a autenticação do pedido específicas da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

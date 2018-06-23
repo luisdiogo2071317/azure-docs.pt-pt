@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337563"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Dashboard de descrição geral de informações de aplicação (pré-visualização)
+# <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
 
-Application Insights sempre tiver fornecido um painel de descrição geral de resumo para permitir o rápido, uma leitura avaliação de estado de funcionamento e o desempenho da aplicação. Dashboard da descrição geral de pré-visualização nova fornece uma experiência mais flexível mais rápida.
+Application Insights sempre tiver fornecido um painel de descrição geral de resumo para permitir o rápido, uma leitura avaliação de estado de funcionamento e o desempenho da aplicação. O novo dashboard de descrição geral fornece uma experiência mais flexível mais rápida.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Como testar enviados a nova experiência?
 
- No Application Insights em: _descrição geral_, selecione _tente descrição geral do novo até se tornar a experiência de predefinição_.
+Dashboard de descrição geral do novo inicia-se agora por predefinição:
 
-![Pré-visualização de descrição geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Este procedimento inicia o dashboard de descrição geral do novo predefinido:
-
-![Painel de pré-visualização de descrição geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Painel de pré-visualização de descrição geral](.\media\app-insights-overview-dashboard\overview-0001.png)
 
 ## <a name="better-performance"></a>Melhorar o desempenho
 
@@ -39,7 +36,7 @@ Seleção de intervalo de tempo foi simplificada para uma interface simples de u
 
 ![Intervalo de tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Em geral desempenho foi significativamente aumentado. Cada predefinição atualizar dinamicamente o mosaico KPI está ligada a funcionalidade correspondente do Application Insights. Por exemplo, a seleção de pedidos falhados iniciará o _falhas_ painel:
+Em geral desempenho foi significativamente aumentado. Tem acesso de um clique a funcionalidades populares como **pesquisa** e **análise**. Cada predefinição atualizar dinamicamente o mosaico KPI fornece informações sobre funcionalidades correspondentes do Application Insights. Para obter mais informações sobre a falha pedidos selecione **falhas** sob o **investigar** cabeçalho:
 
 ![Falhas](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -51,11 +48,11 @@ Para aceder a dashboard predefinido, selecione _Dashboard de aplicações_ no ca
 
 ![Vista de dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
-Se esta for a primeira vez ao aceder ao dashboard iniciará uma vista predefinida:
+Se esta for a primeira vez ao aceder ao dashboard, iniciará uma vista predefinida:
 
 ![Vista de dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Enquanto pode manter a vista predefinida se pretendê-lo, também pode adicionar e eliminar a partir do dashboard para se adaptar melhor se ajustar às necessidades da sua equipa.
+Pode manter a vista predefinida se pretendê-lo. Ou, também pode adicionar e eliminar partir do dashboard para caberem melhor as necessidades da sua equipa.
 
 > [!NOTE]
 > Todos os utilizadores com acesso ao recurso do Application Insights partilham a mesma experiência de dashboard de aplicações. As alterações efetuadas por um utilizador vai modificar a vista para todos os utilizadores.
@@ -63,6 +60,12 @@ Enquanto pode manter a vista predefinida se pretendê-lo, também pode adicionar
 Para navegar para a experiência de descrição geral apenas selecione:
 
 ![Botão de descrição geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="access-the-classic-overview-dashboard"></a>Aceder ao Dashboard Geral clássico
+
+Se perder a descrição de geral antiga, escolha **descrição geral do clássico**.
+
+![Descrição geral do clássico](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
