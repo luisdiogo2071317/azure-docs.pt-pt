@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337948"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -207,6 +208,10 @@ As instruções de DBCC sinalizadores que estão ativadas no SQL Server não sã
 - `DBCC TRACEOFF` Não é suportada. Consulte [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` Não é suportada. Consulte [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### <a name="distributed-transactions"></a>Transações distribuídas
+
+Nenhum dos MSDTC nem [transações elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) atualmente são suportadas na instância geridos.
+
 ### <a name="extended-events"></a>Eventos Expandidos 
 
 Alguns destinos específico do Windows para XEvents não são suportados:
@@ -375,12 +380,10 @@ Para obter informações sobre como criar e alterar as tabelas, consulte [CREATE
  
 As seguintes variáveis, funções e vistas devolvem resultados diferentes:  
 - `SERVERPROPERTY('EngineEdition')` Devolve o valor 8. Esta propriedade identifica exclusivamente geridos instância. Consulte [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Devolve o nome de instância pequeno, por exemplo, 'myserver'. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Devolve um valor nulo, porque o conceito de instância conforme existe para o SQL Server não é aplicável a instância geridos. Consulte [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` Devolve nome DNS completo 'conectável', por exemplo, os meus instance.wcus17662feb9ce98.database.windows.net geridos. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -Devolve completa nome DNS de 'conectável', tal como `myinstance.domain.database.windows.net` para propriedades 'name' e 'data_source'. Consulte [SYS. SERVIDORES](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` Devolve completa nome DNS de 'conectável', tal como `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` -Devolve completa nome DNS de 'conectável', tal como `myinstance.domain.database.windows.net` para propriedades 'name' e 'data_source'. Consulte [SYS. SERVIDORES](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` Devolve NULL, como não faz nenhuma sentido num ambiente gerido instância. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` Devolve um valor nulo, porque o conceito de serviço conforme existe para o SQL Server não é aplicável a instância geridos. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` é suportada. Devolve Nulo se o início de sessão do AAD não está a ser sys.syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` Não é suportada. Devolve (temporário problema conhecido) de dados incorreto. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` e outras funções de data/hora incorporada devolve sempre tempo fuso horário UTC. Consulte [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
