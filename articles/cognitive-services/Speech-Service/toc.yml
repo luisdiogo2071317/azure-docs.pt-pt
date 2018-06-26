@@ -1,0 +1,99 @@
+- name: Documentação da API de Serviço de Voz
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é o serviço de Voz?
+      href: overview.md
+      expanded: true
+- name: Inícios rápidos
+  items:
+    - name: Experimente o serviço de Voz gratuitamente
+      href: get-started.md
+    - name: 'Reconhecer voz em C#'
+      href: quickstart-csharp-windows.md
+    - name: Reconhecer voz em C++ para Windows
+      href: cpp-windows.md
+    - name: Reconhecer voz em C++ para Linux
+      href: cpp-linux.md
+    - name: Introdução ao SDK de Dispositivos de Voz
+      href: speech-devices-sdk-qsg.md
+- name: Guias de procedimentos
+  items:
+    - name: Reconhecer voz
+      href: how-to-speech-to-text.md
+    - name: Personalizar modelos de voz
+      href: how-to-customize-speech-models.md
+    - name: Sintetizar voz
+      href: how-to-text-to-speech.md
+    - name: Personalizar tipos de voz
+      href: how-to-customize-voice-font.md
+    - name: Traduzir voz
+      href: how-to-translate-speech.md
+    - name: Preparar transcrições
+      href: prepare-transcription.md
+    - name: Utilizar fluxos de áudio personalizados
+      href: how-to-use-audio-input-streams.md
+    - name: Obter o SDK de Dispositivos de Voz
+      href: get-speech-devices-sdk.md
+    - name: Personalizar a palavra para iniciar a interação do dispositivo
+      href: speech-devices-sdk-create-kws.md
+    - name: Transcrição em lote (call centers)
+      href: batch-transcription.md
+- name: Amostras
+  items:
+    - name: Transferir exemplos
+      href: samples.md
+    - name: Reconhecimento de Voz
+      href: speech-to-text-sample.md
+    - name: Reconhecimento de Intenção
+      href: intent.md
+    - name: Tradução
+      href: translation.md
+- name: Conceitos
+  items:
+    - name: Conversão de Voz em Texto
+      href: speech-to-text.md
+    - name: Conversão de Texto em Voz
+      href: text-to-speech.md
+    - name: Tradução de Voz
+      href: speech-translation.md
+    - name: API de Voz
+      href: speech-sdk.md
+    - name: SDK de Dispositivos de Voz
+      href: speech-devices-sdk.md
+- name: Referência
+  items:
+    - name: Linguagens suportadas
+      href: supported-languages.md
+    - name: APIs REST
+      href: rest-apis.md
+    - name: API do SDK de Voz
+      href: speech-sdk-reference.md
+    - name: Marcação de sintetização de voz
+      href: speech-synthesis-markup.md
+- name: Recursos
+  items:
+    - name: FAQ sobre Conversão de Voz em Texto
+      href: faq-stt.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Privacidade e cookies
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: Resolução de problemas
+      href: troubleshooting.md
+    - name: Enviar a sua aplicação
+      href: ship-application.md
+    - name: Notas de versão
+      href: releasenotes.md
+    - name: Licença do SDK de Voz
+      href: license.md
+    - name: Licença do SDK de Dispositivos de Voz
+      href: speech-devices-sdk-license.md
+    - name: Notificações de terceiros
+      href: third-party-notices.md

@@ -1,0 +1,68 @@
+- name: Documentação do Aprendiz de Conversação
+- name: Descrição geral
+  expanded: true
+  items:
+    - name: O que é o Aprendiz de Conversação?
+      href: overview.md
+    - name: Linguagens suportadas
+      href: languages-supported.md
+- name: Conceitos
+  items:
+    - name: Fluxo de controlo
+      href: control-flow.md
+    - name: Valores predefinidos e limites
+      href: cl-values-and-boundaries.md
+- name: Guias de procedimentos
+  items:
+    - name: Introdução ao Aprendiz de Conversação
+      href: quickstart.md
+    - name: Hello world
+      href: tutorials/1-hello-world.md
+    - name: Ações aguardar versus não aguardar
+      href: tutorials/2-wait-vs-nonwait-actions.md
+    - name: Introdução às entidades
+      href: tutorials/3-introduction-to-entities.md
+    - name: Entidade esperada
+      href: tutorials/4-expected-entity.md
+    - name: Entidades de negação
+      href: tutorials/5-negatable-entities.md
+    - name: Entidades de múltiplos valores
+      href: tutorials/6-multi-value-entities.md
+    - name: Entidades incorporadas
+      href: tutorials/7-built-in-entities.md
+    - name: Entradas alternativas
+      href: tutorials/8-alternative-inputs.md
+    - name: Caixas de diálogo de registo
+      href: tutorials/9-log-dialogs.md
+    - name: Chamada de retorno de deteção de entidade
+      href: tutorials/10-entity-detection-callback.md
+    - name: Chamadas de retorno de sessão
+      href: tutorials/11-session-callbacks.md
+    - name: Chamadas à API
+      href: tutorials/12-api-calls.md
+    - name: Cartões parte 1
+      href: tutorials/13-cards-1.md
+    - name: Cartões parte 2
+      href: tutorials/14-cards-2.md
+    - name: Ramificação e anulação
+      href: tutorials/15-branching-and-undo.md
+    - name: Controlo de versões e etiquetagem
+      href: tutorials/16-versioning-and-tagging.md
+    - name: Demonstração - reposição de palavra-passe
+      href: tutorials/demo-password-reset.md
+    - name: Demonstração - encomenda de piza
+      href: tutorials/demo-pizza-order.md
+    - name: Demonstração - iniciador da aplicação de VR
+      href: tutorials/demo-vr-app-launcher.md
+    - name: Implementar um bot do Aprendiz de Conversação
+      href: deploy-to-bf.md
+    - name: Como ensinar com o Aprendiz de Conversação
+      href: how-to-teach-cl.md
+    - name: Como gerir dados de utilizadores
+      href: managing-data.md
+- name: Recursos
+  items:
+    - name: Bot de exemplo do Aprendiz de Conversação
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -1,0 +1,75 @@
+- name: Documentação da Pesquisa de Entidades do Bing
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é a Pesquisa de Entidades do Bing?
+      href: search-the-web.md
+- name: Inícios Rápidos da API REST
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Inícios Rápidos do SDK
+  items:
+    - name: Descrição geral de exemplos de SDKs
+      href: sdk.md
+    - name: 'Início rápido de C# da Pesquisa de Entidades'
+      href: entity-search-sdk-quickstart.md
+    - name: Início rápido de Node.js da Pesquisa de Entidades
+      href: entity-search-sdk-node-quickstart.md
+    - name: Início rápido de Python da Pesquisa de Entidades
+      href: entity-sdk-python-quickstart.md
+    - name: Início rápido de Java da Pesquisa de Entidades
+      href: entity-sdk-java-quickstart.md
+- name: Tutoriais
+  items:
+    - name: Aplicação Web de página única
+      href: tutorial-bing-entities-search-single-page-app.md
+    - name: Aplicação Web de página única (código fonte)
+      href: tutorial-bing-entities-search-single-page-app-source.md
+- name: Amostras
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
+- name: Guias de procedimentos
+  items:
+    - name: Requisitos de utilização e de apresentação
+      href: use-display-requirements.md
+    - name: Redimensionar e recortar miniaturas
+      href: resize-and-crop-thumbnails.md
+- name: Referência
+  items:
+    - name: API de Pesquisa de Entidades do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference'
+- name: Recursos
+  items:
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+entity+search'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obter chave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api'
+    - name: Experimente!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/'
+    - name: Ponto final da Pesquisa de Entidades do Bing
+      href: entity-search-endpoint.md
+    - name: Análise da API de Pesquisa de Entidades do Bing
+      href: bing-entity-stats.md

@@ -1,0 +1,41 @@
+- name: Documentação dos Serviços Cognitivos do Azure
+  href: index.yml
+- name: Descrição geral
+  expanded: true
+  items:
+    - name: O que são os Serviços Cognitivos?
+      href: Welcome.md
+- name: Inícios rápidos
+  items:
+    - name: Criar uma conta
+      href: cognitive-services-apis-create-account.md
+    - name: Criar um classificador de imagens
+      href: ./custom-vision-service/getting-started-build-a-classifier.md
+    - name: Criar uma aplicação de automatização
+      href: ./luis/luis-get-started-create-app.md
+    - name: Criar uma aplicação de análise de texto .NET
+      href: ./text-analytics/quickstarts/csharp.md
+- name: Tutoriais
+  items:
+    - name: Página Web de pesquisa personalizada
+      href: ./bing-custom-search/tutorials/custom-search-web-page.md
+    - name: Aplicação Language Understanding
+      href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
+    - name: Melhorar a precisão da intenção para comandos
+      href: ./luis/luis-tutorial-batch-testing.md
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Código de conduta
+      href: 'http://go.microsoft.com/fwlink/?LinkId=698895'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase'

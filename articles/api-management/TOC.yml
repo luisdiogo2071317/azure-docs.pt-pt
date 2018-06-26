@@ -177,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Registar eventos nos Hubs de Eventos do Azure
           href: api-management-howto-log-event-hubs.md
+        - name: Registar pedidos com o Azure Application Insights
+          href: api-management-howto-app-insights.md
         - name: Configurar a DR através de cópia de segurança/restauro
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gerir contas de utilizador

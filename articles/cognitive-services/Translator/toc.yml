@@ -1,0 +1,111 @@
+- name: Documentação da API de Texto do Microsoft Translator
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é a API de Texto do Microsoft Translator?
+      href: translator-info-overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: 'C#'
+      items:
+        - name: Traduzir texto
+          href: quickstart-csharp-translate.md
+        - name: Converter o script de texto
+          href: quickstart-csharp-transliterate.md
+        - name: Identificar o idioma do texto
+          href: quickstart-csharp-detect.md
+        - name: Obter traduções alternativas
+          href: quickstart-csharp-dictionary.md
+        - name: Obter idiomas suportados
+          href: quickstart-csharp-languages.md
+        - name: Obter comprimentos de frases no texto
+          href: quickstart-csharp-sentences.md
+    - name: Java
+      items:
+        - name: Traduzir texto
+          href: quickstart-java-translate.md
+        - name: Converter o script de texto
+          href: quickstart-java-transliterate.md
+        - name: Identificar o idioma do texto
+          href: quickstart-java-detect.md
+        - name: Obter traduções alternativas
+          href: quickstart-java-dictionary.md
+        - name: Obter idiomas suportados
+          href: quickstart-java-languages.md
+        - name: Obter comprimentos de frases no texto
+          href: quickstart-java-sentences.md
+- name: Conceitos
+  items:
+    - name: Linguagens suportadas
+      href: languages.md
+    - name: Personalizar e melhorar a conversão de texto
+      href: customization.md
+    - name: Modo de contabilização de carateres da API
+      href: character-counts.md
+- name: Guias de procedimentos
+  items:
+    - name: Inscrição na API de Texto do Microsoft Translator
+      href: translator-text-how-to-signup.md
+    - name: Migrar para a API de Texto V3
+      href: migrate-to-v3.md
+    - name: Adicionar filtragem de linguagem obscena
+      href: profanity-filtering.md
+    - name: Receber informações de alinhamento de palavras
+      href: word-alignment.md
+    - name: Utilizar a funcionalidade de dicionário dinâmico
+      href: dynamic-dictionary.md
+    - name: Utilizar a API de Texto do Microsoft Translator
+      items:
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+        - name: Criar uma aplicação de Texto do Microsoft Translator com o WPF
+          href: tutorial-wpf-translation-csharp.md
+- name: Referência
+  items:
+    - name: Referência da API de Texto do Microsoft Translator v3
+      href: reference/v3-0-reference.md
+      items:
+        - name: Linguagens
+          href: reference/v3-0-languages.md
+        - name: Traduzir
+          href: reference/v3-0-translate.md
+        - name: Transliterar
+          href: reference/v3-0-transliterate.md
+        - name: Detetar
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Pesquisa no Dicionário
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Exemplos do dicionário
+          href: reference/v3-0-dictionary-examples.md
+    - name: Referência da API de Texto do Microsoft Translator v2 (preterido)
+      href: reference/v2-0-reference.md
+      items:
+        - name: Transformar o texto
+          href: transform-text.md
+        - name: Como utilizar os relatórios do Collaborative Translation Framework (CTF)
+          href: ctf-reporting.md
+        - name: Devolver traduções de Melhor N
+          href: return-n-best-translations.md
+- name: Recursos
+  items:
+    - name: FAQ
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: Exemplos de código no GitHub
+      href: 'https://aka.ms/TranslatorGitHub'
