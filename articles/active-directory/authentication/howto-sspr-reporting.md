@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751501"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -53,25 +54,6 @@ A experiência de portal do Azure, podemos tem melhorado da forma que pode ver a
 6. Para filtrar esta vista para ver apenas os eventos relacionados com reposição de palavra-passe, selecione o **filtro** botão na parte superior do painel.
 7. Do **filtro** menu, selecione o **categoria** pendente listar e altere-o para o **gestão de palavras-passe Self-Service** tipo de categoria.
 8. Opcionalmente, continuar a filtrar a lista ao escolher o específicos **atividade** estiver interessado em.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Como obter eventos de gestão de palavra-passe dos relatórios do Azure AD e eventos de API
-
-Os relatórios do Azure AD e eventos API suporta a obtenção de todas as informações incluídas na reposição de palavra-passe e os relatórios de registo de reposição de palavra-passe. Ao utilizar esta API, pode transferir palavras-passe individuais reposição de palavra-passe de reposição do registo eventos e e integrá-las com a tecnologia de relatórios da sua preferência.
-
-> [!IMPORTANT]
-> Atualmente, os relatórios do Azure AD e a API de eventos obtém até *75,000 eventos individuais* do [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) tipos. A API abrange os últimos 30 dias.
-> 
-> Se precisar de obter ou armazenar os dados para além desta janela, sugerimos a persistência-la numa base de dados externo utilizando a API para as diferenças que resultam de consulta. Recomendamos que comece a obter estes dados, quando começar a utilizar SSPR na sua organização. Manter-externamente e, em seguida, continue a controlar as diferenças a partir desse ponto.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Como começar com a API de relatórios
-
-Para aceder a estes dados, terá de escrever uma aplicação de pequena ou script para obtê-lo a partir dos nossos servidores. Para obter mais informações, consulte [começar com o Azure AD API do relatório](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Depois de ter um script de trabalho, poderá ser útil examinar os eventos de registo e reposição de palavra-passe que pode obter para satisfazer os seus cenários:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): apresenta uma lista de colunas disponíveis para eventos de reposição de palavra-passe.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): apresenta uma lista de colunas disponíveis para eventos de registo de reposição de palavra-passe.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
