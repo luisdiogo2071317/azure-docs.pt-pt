@@ -1,7 +1,7 @@
 - name: Documentação do Data Factory V1
   href: null
 - name: Trocar para documentação de versão atual
-  href: ../index.yml
+  href: ../introduction.md
 - name: Descrição geral
   items:
     - name: Introdução ao Azure Data Factory

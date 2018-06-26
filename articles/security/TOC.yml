@@ -65,6 +65,8 @@
       items:
         - name: Selecionar a autenticação do Azure AD
           href: azure-ad-choose-authn.md
+        - name: Lista de verificação de segurança
+          href: azure-ad-secure-steps.md
         - name: Melhores práticas
           href: azure-security-identity-management-best-practices.md
         - name: Impor a MFA aos administradores de subscrição
