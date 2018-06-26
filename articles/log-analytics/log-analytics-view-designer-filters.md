@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23945885"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752780"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros nas vistas de análise de registos
 A **filtro** num [ver análise de registos](log-analytics-view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma propriedade específica sem modificar a vista de si próprio.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um computador específico ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir aos utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma a uma vista personalizada.
 
 ## <a name="using-a-filter"></a>Utilizando um filtro
-Clique em **filtro** para abrir o painel de filtro para uma vista.  Isto permite-lhe selecionar um intervalo de tempo e os valores para quaisquer filtros que estão disponíveis para a vista.  Quando seleciona um filtro, apresenta uma lista de valores disponíveis.  Pode selecionar um ou mais valores ou escreva-las no. A vista é atualizada automaticamente para filtrar os valores que especificar. 
+Clique no intervalo de tempo de dados na parte superior de uma vista para abrir a lista pendente onde pode alterar o intervalo de tempo de dados para a vista.
 
-Se nenhum valor para um filtro, não está aplicado esse filtro para a vista.  Se remover todos os valores para um filtro, esse filtro já não será aplicado.
+![Exemplo de filtro](media/log-analytics-view-designer/filters-example-time.png)
+
+Clique em de **+** para adicionar um filtro utilizando filtros personalizados que estão definidos para a vista. Selecionar um valor para o filtro na lista pendente ou digitar um valor. Continue a adicionar filtros clicando a **+**. 
 
 
-![Exemplo de filtro](media/log-analytics-view-designer/filters-example.png)
+![Exemplo de filtro](media/log-analytics-view-designer/filters-example-custom.png)
+
+Se remover todos os valores para um filtro, esse filtro já não será aplicado.
 
 
 ## <a name="creating-a-filter"></a>Criar um filtro
@@ -43,7 +47,7 @@ A tabela seguinte descreve as definições para um filtro.
 
 | Definição | Descrição |
 |:---|:---|
-| Nome do campo | Nome do campo utilizado para filtragem.  Isto deve corresponder ao campo summarize em **consulta para os valores**. |
+| Nome do Campo | Nome do campo utilizado para filtragem.  Isto deve corresponder ao campo summarize em **consulta para os valores**. |
 | Consulta para os valores | Consulta seja executada para preencher a lista pendente de filtro para o utilizador.  Este tem de utilizar um [resumir](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ou [distintos](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) para fornecer valores exclusivos para um determinado campo e têm de corresponder a **o nome do campo**.  Pode utilizar [ordenação](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) para ordenar os valores que são apresentados ao utilizador. |
 | Etiqueta | Nome para o campo que é utilizado em consultas que suporta o filtro e também é apresentado ao utilizador. |
 
@@ -51,12 +55,12 @@ A tabela seguinte descreve as definições para um filtro.
 
 A tabela seguinte inclui alguns exemplos de filtros comuns.  
 
-| Nome do campo | Consulta para os valores | Etiqueta |
+| Nome do Campo | Consulta para os valores | Etiqueta |
 |:--|:--|:--|
 | Computador   | Heartbeat &#124; computador distinto &#124; ordenar por computador asc | Computadores |
 | EventLevelName | Evento &#124; EventLevelName distinto | Gravidade |
 | Nível de gravidade | Syslog &#124; distinto nível de gravidade | Gravidade |
-| SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
+| SvcChangeType | ConfigurationChange &#124; svcChangeType distinto | ChangeType |
 
 
 ## <a name="modify-view-queries"></a>Modificar consultas de vista

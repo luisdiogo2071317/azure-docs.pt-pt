@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191320"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754571"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito da VPN a uma rede virtual
 
@@ -54,7 +54,7 @@ O diagrama seguinte mostra a conectividade lógica de uma rede no local a uma re
 4.  Determine a largura de banda do fornecedor de serviços Internet (ISP).
 5.  Calcular o débito esperado - menos largura de banda de Internet (ISP VM, Gateway,) * 0.8.
 
-Se o débito calculado não cumpre os requisitos de débito de linha de base da sua aplicação, terá de aumentar a largura de banda do recurso que é identificado como valor. Redimensionar um Gateway de VPN do Azure, consulte [alterar um SKU de gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Redimensionar uma máquina virtual, consulte [redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não ocorrerem esperada largura de banda de Internet, também poderá contactar o seu ISP.
+Se o débito calculado não cumpre os requisitos de débito de linha de base da sua aplicação, terá de aumentar a largura de banda do recurso que é identificado como valor. Redimensionar um Gateway de VPN do Azure, consulte [alterar um SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Redimensionar uma máquina virtual, consulte [redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não ocorrerem esperada largura de banda de Internet, também poderá contactar o seu ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validar o débito de rede utilizando ferramentas de desempenho
 

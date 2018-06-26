@@ -3,8 +3,8 @@ title: Utilizar a solução de mapa de serviço no Azure | Microsoft Docs
 description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-la numa variedade de cenários.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887910"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751433"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução de mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que pensa que deles: como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos, e portas em qualquer arquitetura ligados de TCP, sem qualquer configuração necessária à instalação de um agente.
 
-Este artigo descreve os detalhes de utilização de mapa de serviço. Para obter informações sobre como configurar o mapa de serviço e os agentes de integração, consulte [solução de configurar o mapa de serviço no Azure]( monitoring-service-map-configure.md).
+Este artigo descreve os detalhes de integração e utilizar o mapa de serviço. Para obter informações sobre como configurar o mapa de serviço e os agentes de integração, consulte [solução de configurar o mapa de serviço no Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Ativar o mapa de serviço
+1. No portal do Azure, clique em **+ criar um recurso**.
+2. Na barra de pesquisa, escreva **mapa de serviço** e prima **Enter**.
+3. Na página de resultados de pesquisa do marketplace, selecione **mapa de serviço** da lista.<br><br> ![Selecionar solução de mapa de serviço a partir dos resultados de pesquisa do Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. No **mapa de serviço** painel de descrição geral, consulte os detalhes de solução e, em seguida, clique em **criar** para iniciar o processo de integração para a sua área de trabalho de análise de registos.<br><br> ![Integrar a solução de mapa de serviço](./media/monitoring-service-map/service-map-onboard.png).
+5. No **configurar uma solução** painel, selecione um existente ou crie uma nova área de trabalho de análise de registos.  Para obter mais informações sobre como criar uma nova área de trabalho, consulte [criar uma área de trabalho de análise de registos no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **criar**.  
+
+Enquanto são verificadas as informações e a solução for implementada, pode acompanhar o progresso em **notificações** no menu. 
+
+Mapa de serviço de acesso no portal do Azure da sua área de trabalho de análise de registos e selecione a opção **soluções** no painel esquerdo.<br><br> ![Selecione a opção de soluções na área de trabalho](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e no mapa de serviço solução descrição geral página, clique no mosaico de resumo do mapa de serviço.<br><br> ![Mosaico de resumo de mapa de serviço](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de utilização: tornar o departamento de TI processa dependência com suporte para
 
@@ -44,9 +57,10 @@ Se estiver a utilizar o Azure Site Recovery e tem de definir a sequência de rec
 ### <a name="patch-management"></a>Gestão de correção
 Mapa de serviço melhora a utilização de avaliação da atualização do sistema para mostrar que outras equipas e servidores dependem do seu serviço, pelo que pode notificá-los antecipadamente antes de efetuar para baixo os sistemas para aplicação de patches. Mapa de serviço melhora também a gestão de correção para mostrar se os serviços são disponível e corretamente ligado após estão corrigidos e reiniciados.
 
-
 ## <a name="mapping-overview"></a>Descrição geral de mapeamento
-Agentes de mapa de serviço recolher informações sobre todos os processos de ligação de TCP no servidor onde estão instaladas e detalhes sobre as ligações de entrada e saída para cada processo. Na lista no painel esquerdo, pode selecionar máquinas ou grupos que têm agentes de mapa de serviço para visualizar as respetivas dependências através de um intervalo de tempo especificado. Dependência de máquina mapeia foco num computador específico e mostrarem todas as máquinas que são os clientes TCP diretos ou servidores de que a máquina.  Mapas de grupo máquina mostram conjuntos de servidores e as respetivas dependências.
+Agentes de mapa de serviço recolher informações sobre todos os processos de ligação de TCP no servidor onde estão instaladas e detalhes sobre as ligações de entrada e saída para cada processo.
+
+Na lista no painel esquerdo, pode selecionar máquinas ou grupos que têm agentes de mapa de serviço para visualizar as respetivas dependências através de um intervalo de tempo especificado. Dependência de máquina mapeia foco num computador específico e mostrarem todas as máquinas que são os clientes TCP diretos ou servidores de que a máquina.  Mapas de grupo máquina mostram conjuntos de servidores e as respetivas dependências.
 
 ![Descrição geral do mapa de serviço](media/monitoring-service-map/service-map-overview.png)
 
@@ -143,10 +157,10 @@ Ligações de falha são mostradas no maps de mapa de serviço para os processos
 
 Noções sobre ligações falhadas podem ajudar a resolver problemas, validação de migração, a análise de segurança e a compreensão geral da arquitetura. Falha de ligações, por vezes, são inofensivas, mas são, muitas vezes, ponto diretamente a um problema, tal como num ambiente de ativação pós-falha subitamente a tornar-se inacessível ou duas camadas da aplicação serem incapazes de comunicar com após a migração para a nuvem.
 
-## <a name="client-groups"></a>Grupos de clientes
+## <a name="client-groups"></a>Grupos de Clientes
 Os grupos de cliente são caixas no mapa que representam computadores cliente que não têm agentes de dependência. Um único grupo de cliente representa os clientes para um processo individuais ou a máquina.
 
-![Grupos de clientes](media/monitoring-service-map/client-groups.png)
+![Grupos de Clientes](media/monitoring-service-map/client-groups.png)
 
 Para ver os endereços IP dos servidores de um grupo de cliente, selecione o grupo. O conteúdo do grupo está listado no **propriedades do grupo de cliente** painel.
 
@@ -187,16 +201,13 @@ O **resumo do processo** painel fornece informações adicionais acerca da conet
 ![Painel de resumo do processo](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Integração de alertas
-Mapa de serviço é integrado com alertas na análise de registos a mostrar desencadeadas alertas para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone, se existirem alertas atuais e o **máquina alertas** painel apresenta os alertas.
+Mapa de serviço é integrado com alertas do Azure para mostrar alertas desencadeadas para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone, se existirem alertas atuais e o **máquina alertas** painel apresenta os alertas.
 
 ![Painel de alertas do computador](media/monitoring-service-map/machine-alerts.png)
 
 Para ativar o mapa de serviço apresentar os alertas pertinentes, crie uma regra de alerta é acionado para um computador específico. Para criar alertas adequadas:
 - Incluir uma cláusula ao grupo por computador (por exemplo, **por 1 minuto do intervalo de computador**).
 - Optar por um alerta com base numa métrica medida.
-
-![Configuração de alerta](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Integração de eventos de registo
 Mapa de serviço integra-se a pesquisa de registo para mostrar uma contagem de todos os eventos de registo disponível para o servidor selecionado durante o intervalo de tempo selecionado. Pode clicar em qualquer linha na lista de contagens de eventos para ir para o registo de pesquisa e ver os eventos de registo individuais.
@@ -224,7 +235,7 @@ O **máquina Alterar controlo** painel apresenta uma lista de todas as alteraç�
 
 A imagem seguinte é uma vista detalhada de um evento de ConfigurationChange que poderá ver depois de selecionar **Mostrar na análise de registos**.
 
-![ConfigurationChange eventos](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange eventos](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Integração de desempenho
@@ -255,7 +266,6 @@ O **máquina segurança** painel mostra os dados da solução de segurança e de
 
 ![Painel de segurança da máquina](media/monitoring-service-map/machine-security.png)
 
-
 ## <a name="updates-integration"></a>Integração de atualizações
 Quando ambas as soluções são ativadas e configuradas na sua área de trabalho do registo Anlaytics a integração de mapa de serviço com gestão de atualizações é automática.
 
@@ -285,7 +295,7 @@ Registos com um tipo de *ServiceMapComputer_CL* ter dados de inventário para se
 |:--|:--|
 | Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para o computador da área de trabalho |
+| resourceId | O identificador exclusivo para o computador da área de trabalho |
 | ResourceName_s | O identificador exclusivo para o computador da área de trabalho |
 | ComputerName_s | O FQDN do computador |
 | Ipv4Addresses_s | Endereços de uma lista de IPv4 do servidor |
@@ -312,7 +322,7 @@ Registos com um tipo de *ServiceMapProcess_CL* ter dados de inventário para pro
 |:--|:--|
 | Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador único para um processo na área de trabalho |
+| resourceId | O identificador único para um processo na área de trabalho |
 | ResourceName_s | O identificador único para um processo na máquina em que está a ser executado|
 | MachineResourceName_s | O nome do recurso da máquina |
 | ExecutableName_s | O nome do executável de processo |
@@ -368,7 +378,7 @@ ServiceMapComputer_CL | onde OperatingSystemFullName_s contains_cs "CentOS" | Co
 Todos os dados de servidor, o processo e dependência no mapa de serviço estão disponíveis através de [API de REST do mapa de serviço](https://docs.microsoft.com/rest/api/servicemap/).
 
 
-## <a name="diagnostic-and-usage-data"></a>dados de diagnóstico e utilização
+## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
 A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço de mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer capacidades de resolução de problemas exatas e eficientes, os dados incluem informações sobre a configuração do seu software, tais como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome da estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a recolha de dados e de utilização, consulte o [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

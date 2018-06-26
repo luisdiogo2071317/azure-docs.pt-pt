@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301376"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751843"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
@@ -204,8 +204,8 @@ A instância de SQL Database do Azure utiliza as seguintes medidas de segurança
 
 [Análise de registo](https://azure.microsoft.com/services/log-analytics) pode fornecer o Contoso Webstore com o registo de um vasto conjunto de toda a atividade de utilizador e de sistema, incluem registo de dados de cardholder. As alterações podem ser revistas e podem ser verificadas em termos de exatidão. 
 
-- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.
-- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
+- **Registos de atividade:**[registos de atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas as operações que foram executadas no recursos na sua subscrição.  
+- **Os registos de diagnóstico:**[registos de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos.   Estes registos incluem registos de sistema de eventos do Windows, armazenamento de Blobs do Azure, tabelas e registos de fila.
 - **Registos de firewall:** o Gateway de aplicação fornece completa diagnóstico e aceder a registos. Estão disponíveis recursos de Gateway de aplicação que tenham WAF ativada de registos de firewall.
 - **Arquivo de registo:** todos os registos de diagnóstico são configurados para escrever uma conta de armazenamento do Azure centralizada e encriptados para arquivo com um período de retenção definido (2 dias). Os registos, em seguida, estão ligados ao Log Analytics do Azure para o processamento, armazenamento e dashboarding. [Análise de registo](https://azure.microsoft.com/services/log-analytics) é um serviço que ajuda a recolher e analisar dados gerados pelos recursos na sua nuvem e no local ambientes.
 
@@ -298,7 +298,7 @@ Destina-se a implementação predefinida para fornecer uma linha de base das rec
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-Os componentes para implementar esta solução estão disponíveis no [repositório de código PCI Blueprint] [repositório de código]. A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto for especificado utilizando o `-customHostName` comutador no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
+Os componentes para implementar esta solução estão disponíveis no [repositório de código de PCI Blueprint](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto é especificado através de um pedido de utilizador orientada no script de implementação primário no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
 
 Os scripts de adicionar utilizadores de domínio para o inquilino do Azure AD que especificar. Recomendamos que crie um novo inquilino do Azure AD para utilizar como um teste.
 
@@ -323,19 +323,17 @@ Se ocorrerem problemas durante a implementação, consulte [FAQ e resolução de
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Para obter instruções de utilização detalhada, consulte [instruções de Script – implementar e configurar recursos do Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    Para obter instruções de utilização detalhada, consulte [instruções de Script – implementar e configurar recursos do Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Este script pode ser utilizado para suportar a demonstração de arquivo de Web da Contoso ou testes de implementação nos passos de implementação de um ambiente para suportar a conformidade de PCI iniciais. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Para obter instruções de utilização detalhada para suportar a implementação de demonstração do arquivo de Web da Contoso, consulte [Script instruções - Contoso Web arquivo demonstração Azure recursos](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). Este script pode ser utilizado para implementar a infraestrutura de demonstração do arquivo de Web da Contoso. 
+    
+    Estes scripts destinam-se a ser utilizado independentes entre si. Para compreender melhor a solução, é recomendado para concluir a implementação de demonstração para identificar os recursos do Azure necessários necessários para suportar a solução. 
     
 3. Registo e monitorização. Assim que a solução for implementada, pode ser aberta uma área de trabalho de análise de registos e os modelos de exemplo fornecidos no repositório de solução podem ser utilizados para ilustrar a forma como pode ser configurado um dashboard de monitorização. Para os modelos de exemplo, consulte o [omsDashboards pasta](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Tenha em atenção que os dados devem ser recolhidos na análise de registos para modelos para implementar corretamente. Isto pode demorar até uma hora ou mais, dependendo da atividade do site.
  

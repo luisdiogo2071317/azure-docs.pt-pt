@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771097"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754685"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -205,7 +205,7 @@ Uma das vantagens da utilização do Azure é que pode implementar as aplicaçõ
 
 Embora seja pouco provável, não é a impossibilidade de todo o datacenter fique offline devido a um evento como um desastre natural ou falha de Internet. É uma melhor prática alojam aplicações empresariais vitais no Centro de dados mais do que um para fornecer disponibilidade máxima. Utilizar várias regiões também pode reduzir a latência para utilizadores global e fornecer adicionais oportunidades de flexibilidade ao atualizar as aplicações.
 
-Alguns serviços, tais como Máquina Virtual e os serviços de aplicação, utilizam [Traffic Manager do Azure](../../traffic-manager/traffic-manager-overview.md) para ativar o suporte de multirregião com ativação pós-falha entre regiões para suportar as aplicações empresariais de elevada disponibilidade. Por exemplo, consulte [arquitetura de referência do Azure: aplicação Web com elevada disponibilidade](../../guidance/guidance-web-apps-multi-region.md).
+Alguns serviços, tais como Máquina Virtual e os serviços de aplicação, utilizam [Traffic Manager do Azure](../../traffic-manager/traffic-manager-overview.md) para ativar o suporte de multirregião com ativação pós-falha entre regiões para suportar as aplicações empresariais de elevada disponibilidade. Por exemplo, consulte [arquitetura de referência do Azure: executar uma aplicação web em várias regiões](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Quando utilizar**: Se tiver aplicações empresariais e de elevada disponibilidade que beneficiam da replicação e ativação pós-falha.
 
@@ -263,9 +263,9 @@ Como programadores, iremos como direito aprofundar o código e tente começar a 
 
 Para poder criar ou trabalhar com uma subscrição do Azure, tem de ter uma conta do Azure. Uma conta do Azure é simplesmente uma identidade do utilizador no Azure AD ou num diretório, como uma organização escolar ou profissional, que é considerado fidedigno pelo Azure AD. Se não pertencem essas uma organização, pode criar uma subscrição sempre utilizando o Microsoft Account, que é considerado fidedigno pelo Azure AD. Para saber mais sobre a integração no local Windows Server Active Directory com o Azure AD, consulte [integrar as identidades no local ao Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Para obter mais informações, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Para obter mais informações, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Para além de definir Azure individuais conta identidades, também denominadas *utilizadores*, também pode definir *grupos* no Azure AD. Criar grupos de utilizadores é uma boa forma de gerir o acesso a recursos numa subscrição utilizando o controlo de acesso baseado em funções (RBAC). Para saber como criar grupos, consulte [criar um grupo na pré-visualização do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md). Também pode criar e gerir grupos por [através do PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Para além de definir Azure individuais conta identidades, também denominadas *utilizadores*, também pode definir *grupos* no Azure AD. Criar grupos de utilizadores é uma boa forma de gerir o acesso a recursos numa subscrição utilizando o controlo de acesso baseado em funções (RBAC). Para saber como criar grupos, consulte [criar um grupo na pré-visualização do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Também pode criar e gerir grupos por [através do PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Gerir as suas subscrições
 

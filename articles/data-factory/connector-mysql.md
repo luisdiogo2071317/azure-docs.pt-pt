@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 43a27b98d8b53523bee8694ed3071e65a03355a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 44cab4b5fcdf47b8b7ad958a9377c2919ea56472
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335878"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753017"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados de MySQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço de MySQL ligada:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **MySql** | Sim |
 | connectionString | Especifique as informações necessárias para estabelecer ligação à base de dados do Azure para a instância de MySQL. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar um tempo de execução de Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada) ou o Runtime de integração do Azure. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 Uma cadeia de ligação típico é `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Propriedades que pode ser definidas por seu incidente:
 
@@ -193,13 +193,14 @@ Quando copiar dados de MySQL, os seguintes mapeamentos são utilizados MySQL tip
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit(1)` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

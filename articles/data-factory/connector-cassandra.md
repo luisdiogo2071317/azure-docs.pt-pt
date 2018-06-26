@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bc260c747d5c6f3c4e3f955b1bbd93d22f9234d1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235282"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753341"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,7 +138,7 @@ Para copiar dados de Cassandra, defina o tipo de origem na atividade de cópia p
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **CassandraSource** | Sim |
 | consulta |Utilize a consulta personalizada para ler os dados. |Consulta de SQL 92 ou consulta CQL. Consulte [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se estiverem especificados "tableName" e "keyspace" no conjunto de dados). |
-| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. Consulte [consistência dos dados de configuração](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes.<br/><br/>Valores permitidos são: **um**, **dois**, **três**, **QUÓRUM**, **todos os**, **LOCAL_ QUÓRUM**, **EACH_QUORUM**, e **LOCAL_ONE**. |Não (predefinição é `ONE`) |
+| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. Consulte [consistência dos dados de configuração](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes.<br/><br/>Valores permitidos são: **um**, **dois**, **três**, **QUÓRUM**, **todos os**, **LOCAL_ QUÓRUM**, **EACH_QUORUM**, e **LOCAL_ONE**. |Não (predefinição é `ONE`) |
 
 **Exemplo:**
 
@@ -183,7 +183,7 @@ Quando copiar dados de Cassandra, os seguintes mapeamentos são utilizados Cassa
 | BLOB |Byte[] |
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |duplo |
+| VALOR DE DUPLO |Valor de duplo |
 | NÚMERO DE VÍRGULA FLUTUANTE |Único |
 | INET |Cadeia |
 | INT |Int32 |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 143bbde2da990c146e63b8f0216388c03ddd5852
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307762"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750429"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Escolher uma camada de serviço com base em DTU, nível de desempenho e recursos de armazenamento 
 
@@ -40,7 +40,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites DTU e armazenamento de base de dados individual
 
-Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-what-is-a-dtu.md)?
+Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: | --: |

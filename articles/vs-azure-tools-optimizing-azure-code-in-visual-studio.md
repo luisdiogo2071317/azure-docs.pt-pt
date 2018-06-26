@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23890839"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937562"
 ---
 # <a name="optimizing-your-azure-code"></a>Otimizar o seu código do Azure
 Quando estiver a programação aplicações que utilizam o Microsoft Azure, existem algumas práticas de codificação que deverá seguir para ajudar a evitar problemas com a escalabilidade de aplicação, o comportamento e o desempenho num ambiente de nuvem. A Microsoft fornece uma ferramenta de análise de código do Azure que reconhece e identifica os vários destes problemas normalmente encontrado e ajuda-o a resolvê-los. Pode transferir a ferramenta no Visual Studio através do NuGet.
@@ -99,7 +99,7 @@ Utilize a assinatura de acesso partilhado (SAS) para autenticação. Serviço de
 . Partilhe as suas ideias e comentários em [comentários de análise do Azure código](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Razão
-Para maior segurança, do Azure Active Directory está a substituir a autenticação dos ACS com autenticação SAS. Consulte [do Azure Active Directory é o futuro da ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) para obter informações sobre o plano de transição.
+Para maior segurança, do Azure Active Directory está a substituir a autenticação dos ACS com autenticação SAS. Consulte [do Azure Active Directory é o futuro da ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) para obter informações sobre o plano de transição.
 
 ### <a name="solution"></a>Solução
 Utilize a autenticação de SAS nas suas aplicações. O exemplo seguinte mostra como utilizar um token SAS existente para aceder a um espaço de nomes de barramento de serviço ou de uma entidade.
@@ -364,7 +364,7 @@ O fragmento de código seguinte demonstra a correção de código para este prob
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
-com o
+com
 
 `var settings = CloudConfigurationManager.GetSetting("mySettings");`
 
@@ -465,5 +465,5 @@ public class BlogsController : Controller
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre otimizar e resolução de problemas de aplicações do Azure, consulte [resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).

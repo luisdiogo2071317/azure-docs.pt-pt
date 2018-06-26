@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6cc5ff1c532d67c48beac1a2a10d034f5d9d7501
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355652"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750800"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de reconhecimento de voz
 
@@ -41,7 +41,7 @@ Antes de iniciar o desenvolvimento com o SDK de dispositivos de reconhecimento d
 
 * Se pretender utilizar o reconhecimento de intenção do serviço de reconhecimento de voz, subscrever o [serviço compreensão de idiomas](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [obter uma chave de subscrição](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    O utilizador pode [criar um modelo de LUIS simple](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) ou utilize o exemplo de modelo de LUIS `LUIS-example.json`, disponível a partir do SDK de dispositivos de reconhecimento de voz [transferir site](https://shares.datatransfer.microsoft.com/). Carregar o ficheiro JSON do modelo para o [LUIS portal](https://www.lui.ai/applications) clicando **importação nova aplicação** e escolher o ficheiro JSON.
+    O utilizador pode [criar um modelo de LUIS simple](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) ou utilize o exemplo de modelo de LUIS `LUIS-example.json`, disponível a partir do SDK de dispositivos de reconhecimento de voz [transferir site](https://shares.datatransfer.microsoft.com/). Carregar o ficheiro JSON do modelo para o [LUIS portal](https://www.luis.ai/home) clicando **importação nova aplicação** e escolher o ficheiro JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599327"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937439"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerir a Cache de Redis do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -337,7 +337,7 @@ O seguinte comando atualiza a política de maxmemory para a Cache de Redis com o
 > * Não é possível dimensionar desde um **Premium** colocar em cache até um **padrão** ou um **básico** cache.
 > * Não é possível dimensionar desde um **padrão** colocar em cache até um **básico** cache.
 > * Pode dimensionar desde um **básico** colocar em cache para um **padrão** cache, mas não é possível alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, pode efetuar uma operação de dimensionamento subsequente para o tamanho pretendido.
-> * Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Tem de dimensionar de **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** numa operação de dimensionamento subsequente.
+> * Não é possível dimensionar desde um **básico** cache diretamente para um **Premium** cache. Tem de dimensionar de **básico** para **padrão** numa operação de dimensionamento e, em seguida, **padrão** para **Premium** um subsequentes Dimensionar operação.
 > * Não é possível aumentar a partir de um tamanho maior baixo até o **C0 (250 MB)** tamanho.
 > 
 > Para obter mais informações, consulte [como Cache de Redis do Azure de escala](cache-how-to-scale.md).
@@ -783,7 +783,7 @@ Para obter mais informações sobre como utilizar o Windows PowerShell com o Azu
 * [Documentação de cmdlet de Cache de Redis do Azure no MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Cmdlets do Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765): Saiba como utilizar os cmdlets no módulo do Azure Resource Manager.
 * [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): Saiba como criar e gerir grupos de recursos no portal do Azure.
-* [Blogue do Azure](http://blogs.msdn.com/windowsazure): saber mais sobre as novas funcionalidades no Azure.
+* [Blogue do Azure](https://azure.microsoft.com/en-us/blog/): saber mais sobre as novas funcionalidades no Azure.
 * [Blogue do Windows PowerShell](http://blogs.msdn.com/powershell): saber mais sobre as novas funcionalidades no Windows PowerShell.
 * ["Hei, responsável pelo script!" Blogue](http://blogs.technet.com/b/heyscriptingguy/): obter sugestões de mundo real e truques da Comunidade do Windows PowerShell.
 

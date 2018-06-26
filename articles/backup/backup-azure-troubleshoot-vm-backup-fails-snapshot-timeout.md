@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606363"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754598"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -84,15 +84,15 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ### <a name="the-vm-has-no-internet-access"></a>A VM não tem acesso à internet
 Pelo requisito de implementação, a VM não tem acesso à internet. Em alternativa, poderá ter restrições que impedem o acesso à infraestrutura do Azure.
 
-Para funcionar corretamente, a extensão de cópia de segurança necessita de conectividade para os endereços IP públicos do Azure. A extensão envia comandos para um ponto final de armazenamento do Azure (HTTP URL) de gerir os instantâneos da VM. Se a extensão não tiver acesso à internet pública, cópia de segurança eventualmente falha.
+Para funcionar corretamente, a extensão de cópia de segurança necessita de conectividade para os endereços IP públicos do Azure. A extensão envia comandos para um ponto final de armazenamento do Azure (HTTPs URL) de gerir os instantâneos da VM. Se a extensão não tiver acesso à internet pública, cópia de segurança eventualmente falha.
 
-Se possível implementar um servidor proxy para encaminhar o tráfego da VM.
-##### <a name="create-a-path-for-http-traffic"></a>Criar um caminho para o tráfego HTTP
+É possível implementar um servidor proxy para encaminhar o tráfego da VM.
+##### <a name="create-a-path-for-https-traffic"></a>Criar um caminho para o tráfego HTTPs
 
-1. Se tiver de restrições de rede no local (por exemplo, um grupo de segurança de rede), implemente um servidor de proxy HTTP para encaminhar o tráfego.
-2. Para permitir o acesso à internet do servidor de proxy de HTTP, adicione regras para o grupo de segurança de rede, se tiver uma.
+1. Se tiver de restrições de rede no local (por exemplo, um grupo de segurança de rede), implemente um servidor de proxy de HTTPs para encaminhar o tráfego.
+2. Para permitir o acesso à internet do servidor de proxy de HTTPs, adicione regras para o grupo de segurança de rede, se tiver uma.
 
-Para saber como configurar um proxy HTTP para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Para saber como configurar um proxy de HTTPs para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 A cópia de segurança de VM ou o servidor de proxy através do qual o tráfego é encaminhado requer acesso aos endereços IP públicos do Azure
 
@@ -121,7 +121,7 @@ O agente VM poderá ter sido danificado ou o serviço poderá foram parado. Rein
 2. Se o serviço de agente de convidados do Windows não está visível nos serviços, no painel de controlo, aceda a **programas e funcionalidades** para determinar se o serviço de agente de convidados do Windows está instalado.
 4. Se o agente convidado do Windows é apresentado no **programas e funcionalidades**, desinstale o agente convidado do Windows.
 5. Transfira e instale o [versão mais recente do agente do MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
-6. Certifique-se de que os serviços de agente do Windows convidado aparece nos serviços.
+6. Certifique-se de que os serviços de agente de convidados do Windows aparecem nos serviços.
 7. Execute uma cópia de segurança a pedido: 
     * No portal, selecione **cópia de segurança agora**.
 

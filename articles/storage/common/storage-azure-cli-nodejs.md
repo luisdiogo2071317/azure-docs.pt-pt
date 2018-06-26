@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737474"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936994"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilizar a CLI do Azure 1.0 com o Storage do Azure
 
@@ -41,9 +41,9 @@ Este guia pressupõe que compreende os conceitos básicos do Storage do Azure. O
 ## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Introdução ao Storage do Azure e a CLI do Azure em 5 minutos
 Este guia utiliza Ubuntu para obter exemplos, mas outras plataformas de SO devem efetuar da mesma forma.
 
-**Novo no Azure:** obter uma subscrição do Microsoft Azure e uma conta Microsoft associada essa subscrição. Para obter informações sobre as opções de compra do Azure, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [opções de compra](https://azure.microsoft.com/pricing/purchase-options/), e [ofertas de membros](https://azure.microsoft.com/pricing/member-offers/) (para os membros de MSDN, Microsoft Partner Network, BizSpark e outros programas Microsoft).
+**Novo no Azure:** obter uma subscrição do Microsoft Azure e uma conta Microsoft associada essa subscrição. Para obter informações sobre as opções de compra do Azure, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [opções de compra](https://azure.microsoft.com/pricing/purchase-options/), e [ofertas de membros](https://azure.microsoft.com/pricing/member-offers/) (para os membros da MSDN, Microsoft Partner Network e BizSpark, e outros programas Microsoft).
 
-Consulte [atribuir funções de administrador no Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) para obter mais informações sobre as subscrições do Azure.
+Consulte [atribuir funções de administrador no Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) para obter mais informações sobre as subscrições do Azure.
 
 **Depois de criar uma conta e subscrição do Microsoft Azure:**
 
@@ -138,7 +138,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Existem três níveis de acesso de leitura anónimo: **desativar**, **Blob**, e **contentor**. Para impedir o acesso anónimo para blobs, defina o parâmetro de permissão para **desativar**. Por predefinição, o novo contentor é privado e pode ser acedido apenas por proprietário da conta. Para permitir anónimo o acesso de leitura público para recursos do blob, mas não para metadados do contentor ou à lista de blobs no contentor, defina o parâmetro de permissão para **Blob**. Para permitir acesso de leitura completa público para recursos, os metadados do contentor e a lista de blobs no contentor de BLOBs, defina o parâmetro de permissão **contentor**. Para obter mais informações, consulte [gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md).
+> Existem três níveis de acesso de leitura anónimo: **desativar**, **Blob**, e **contentor**. Para impedir o acesso anónimo para blobs, defina o parâmetro de permissão para **desativar**. Por predefinição, o novo contentor é privado e pode ser acedido apenas por proprietário da conta. Para permitir anónimo o acesso de leitura público para recursos do blob, mas não para metadados do contentor ou à lista de blobs no contentor, defina o parâmetro de permissão para **Blob**. Para permitir acesso de leitura completa público para recursos, os metadados do contentor e a lista de blobs no contentor de BLOBs, defina o parâmetro de permissão **contentor**. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 >
 >
 

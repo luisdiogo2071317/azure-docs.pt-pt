@@ -1,6 +1,6 @@
 ---
-title: Proteger as comunicações de comunicação remota do serviço no Azure Service Fabric | Microsoft Docs
-description: Saiba como proteger a comunicação do serviço de sistema de interação remota com base para fiáveis serviços que estão a executar um cluster do Service Fabric do Azure.
+title: Proteger as comunicações de comunicação remota do serviço com c# no Azure Service Fabric | Microsoft Docs
+description: Saiba como proteger a comunicação do serviço de sistema de interação remota com base em c# fiável serviços que estejam a executar um cluster do Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210278"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753528"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Proteger as comunicações de comunicação remota do serviço para um serviço
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger as comunicações de comunicação remota do serviço no serviço do c#
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java em Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-A segurança é um dos aspetos mais importantes de comunicação. A estrutura da aplicação Reliable Services fornece alguns pilhas de comunicação prebuilt e ferramentas que pode utilizar para melhorar a segurança. Este artigo aborda como melhorar a segurança quando estiver a utilizar a comunicação remota do serviço.
+A segurança é um dos aspetos mais importantes de comunicação. A estrutura da aplicação Reliable Services fornece alguns pilhas de comunicação prebuilt e ferramentas que pode utilizar para melhorar a segurança. Este artigo descreve como melhorar a segurança quando estiver a utilizar a comunicação remota do serviço no serviço do c#. Baseia-se no existente [exemplo](service-fabric-reliable-services-communication-remoting.md) que explica como configurar a gestão remota para serviços fiáveis escrito em c#. 
 
-Estamos a utilizar um existente [exemplo](service-fabric-reliable-services-communication-remoting.md) que explica como configurar a gestão remota para serviços fiáveis. Para ajudar a proteger um serviço quando estiver a utilizar a comunicação remota do serviço, siga estes passos:
+Para ajudar a proteger um serviço quando estiver a utilizar a comunicação remota do serviço com os serviços de c#, siga estes passos:
 
 1. Criar uma interface, `IHelloWorldStateful`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto do seu serviço. O serviço irá utilizar `FabricTransportServiceRemotingListener`, que está declarada no `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` espaço de nomes. Este é um `ICommunicationListener` implementação que oferece funções de sistema de interação remota.
 
@@ -94,7 +94,7 @@ Estamos a utilizar um existente [exemplo](service-fabric-reliable-services-commu
        ```
    2. Fornecê-los utilizando um [o pacote de configuração](service-fabric-application-and-service-manifests.md):
 
-       Adicionar um `TransportSettings` secção no ficheiro settings.xml.
+       Adicionar um nomeado `TransportSettings` secção no ficheiro settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">

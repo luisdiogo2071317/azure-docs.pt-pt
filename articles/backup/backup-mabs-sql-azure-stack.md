@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249401"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751802"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Criar cópias de segurança do SQL Server na pilha do Azure
+# <a name="back-up-sql-server-on-stack"></a>Criar cópias de segurança do SQL Server na pilha
 Utilize este artigo para configurar o Microsoft Azure cópia de segurança do servidor (MABS) para proteger as bases de dados do SQL Server na pilha do Azure.
 
 A gestão da cópia de segurança do SQL Server da base de dados para recuperação a partir do Azure e Azure envolve três passos:
 
-1. Crie uma política de cópia de segurança para proteger as bases de dados do SQL Server para o Azure.
-2. Crie cópias de segurança a pedido para o Azure.
-3. Recupere a base de dados do Azure.
+1. Criar uma política de cópia de segurança para proteger as bases de dados do SQL Server
+2. Criar cópias de segurança a pedido
+3. Recuperar a base de dados de discos e do Azure
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -63,12 +63,6 @@ A gestão da cópia de segurança do SQL Server da base de dados para recuperaç
    >
 
 7. No **rever alocação do disco** ecrã, verifique o espaço de armazenamento geral disponível e o espaço em disco potencial. Clique em **Seguinte**.
-
-    ![Alocação de disco](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Por predefinição, o servidor de cópia de segurança do Azure cria um volume por origem de dados (SQL Server da base de dados), que é utilizado para a cópia de segurança inicial. Através desta abordagem, o Gestor de discos lógicos (LDM) limita a proteção de cópia de segurança do Azure para origens de dados de 300 (bases de dados do SQL Server). Para contornar esta limitação, selecione **colocalizar dados no agrupamento de armazenamento do DPM**. Com a localização conjunta, o servidor de cópia de segurança do Azure utiliza um único volume de várias origens de dados e pode proteger até 2000 bases de dados do SQL Server.
-
-    Se selecionar **aumentar automaticamente os volumes**, contas de servidor de cópia de segurança do Azure para o volume de cópia de segurança maior à medida que aumenta de dados de produção. Se não selecionar a opção, o servidor de cópia de segurança do Azure limita o armazenamento de cópia de segurança utilizado para as origens de dados do grupo de proteção.
 
 8. No **escolher método de criação de réplica**, escolha como pretende criar o primeiro ponto de recuperação. Pode transferir a cópia de segurança inicial manualmente (desativado rede) para evitar congestionamento de largura de banda ou através da rede. Se escolher a aguardar para transferir a primeira cópia de segurança, pode especificar o tempo para a transferência inicial. Clique em **Seguinte**.
 
@@ -111,12 +105,7 @@ A gestão da cópia de segurança do SQL Server da base de dados para recuperaç
     * A cópia de segurança no Sábado às 12:00 são mantidas durante 104 semanas
     * A cópia de segurança no último Sábado às 12:00 são mantidas durante 60 meses
     * A cópia de segurança no último Sábado de Março às 12:00 é mantido para 10 anos
-13. Clique em **seguinte** e selecione a opção adequada para transferir a cópia de segurança inicial para o Azure. Pode escolher **automaticamente através da rede** ou **cópia de segurança Offline**.
-
-    * **Automaticamente através da rede** transfere os dados de cópia de segurança para o Azure, de acordo com a agenda escolhida para cópia de segurança.
-    * **Cópia de segurança offline** é explicado no [fluxo de trabalho de cópia de segurança Offline no Backup do Azure](backup-azure-backup-import-export.md).
-
-    Escolha o mecanismo de transferência relevantes para enviar a cópia de segurança inicial para o Azure e clique em **seguinte**.
+13. Clique em **seguinte** e selecione a opção adequada para transferir a cópia de segurança inicial para o Azure. Pode escolher **automaticamente através da rede**
 
 14. Depois de rever os detalhes da política no **resumo** ecrã, clique em **criar grupo** para concluir o fluxo de trabalho. Pode clicar em **fechar** e monitorizar o progresso da tarefa na área de trabalho de monitorização.
 
@@ -147,11 +136,11 @@ Os seguintes passos são necessários para recuperar uma entidade protegida (bas
 2. O nome de base de dados com o botão direito e clique em **recuperar**.
 
     ![Recuperar a partir do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. O DPM mostra os detalhes dos pontos de recuperação. Clique em **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **recuperar na instância original do SQL Server**. Clique em **Seguinte**.
+3. MABS mostra os detalhes dos pontos de recuperação. Clique em **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **recuperar na instância original do SQL Server**. Clique em **Seguinte**.
 
     ![Recuperar para a localização Original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    Neste exemplo, o DPM recupera a base de dados noutra instância do SQL Server ou para uma pasta de rede autónomo.
+    Neste exemplo, MABS recupera a base de dados noutra instância do SQL Server ou para uma pasta de rede autónomo.
 
 4. No **opções especificar recuperação** ecrã, pode selecionar as opções de recuperação, como a limitação da utilização de largura de banda de rede para limitar a largura de banda utilizada pela recuperação. Clique em **Seguinte**.
 

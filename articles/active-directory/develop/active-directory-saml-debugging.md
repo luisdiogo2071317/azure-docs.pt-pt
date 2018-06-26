@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: d0c006b21e00693fe6c8b35237d4ce55f67c0f75
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320598"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751399"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuração baseados em SAML-início de sessão único para aplicações no Azure Active Directory
 
@@ -45,6 +45,9 @@ Para testar baseados em SAML-início de sessão único entre AAD e uma aplicaç�
 3.  Na lista de aplicações da empresa, clique na aplicação que pretende testar o início de sessão único e, em seguida, as opções do esquerdo, clique em **de sessão único-**.
 4.  Para abrir a baseados em SAML único início de sessão de teste experiência, no **domínios e URLs** secção clique **teste SAML definição**. Se o botão de teste SAML definição está esbatido, terá de preencher o limite e guardar os atributos necessários pela primeira vez.
 5.  No **testar o início de sessão único** painel, utilize as credenciais da sua empresa para iniciar sessão para a aplicação de destino. Pode iniciar sessão como o utilizador atual, ou como um utilizador diferente. Se iniciar sessão como outro utilizador, uma linha de comandos irá pedir autenticar.
+
+    ![Página de SAML do teste](media/active-directory-saml-debugging/testing.png)
+
 
 Se com êxito tem sessão iniciada, o teste foi efectuada com êxito. Neste caso, o Azure AD emitido um token de resposta SAML para a aplicação. A aplicação utilizou o token SAML para iniciar sessão com êxito no.
 

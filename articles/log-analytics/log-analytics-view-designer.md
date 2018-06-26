@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939874"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752044"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas utilizando o estruturador de vistas do Log Analytics
 Ao utilizar o estruturador de vistas no [Log Analytics do Azure](log-analytics-overview.md), pode criar uma variedade de vistas personalizadas no portal do Azure que pode ajudar a visualizar dados da sua área de trabalho de análise de registos. Este artigo apresenta uma descrição geral do estruturador de vistas e procedimentos para criar e editar vistas personalizadas.
@@ -55,13 +55,14 @@ As opções são descritas na tabela seguinte:
 |:--|:--|
 | Atualizar   | Atualiza a vista com os dados mais recentes. | 
 | Análise | Abre o [portal da análise avançadas](log-analytics-log-search-portals.md#advanced-analytics-portal) para analisar dados com pesquisas de registo. |
-| Filtro    | Define um filtro de tempo para os dados que estão incluídos na vista. |
-| Editar      | Abre a vista no estruturador de vistas para editar o respetivo conteúdo e a configuração.  |
-| Clone     | Cria uma nova vista e abre-o no estruturador de vistas. O nome da nova vista é o mesmo que o nome original, mas com *cópia* anexado ao mesmo. |
+| Editar       | Abre a vista no estruturador de vistas para editar o respetivo conteúdo e a configuração.  |
+| Clone      | Cria uma nova vista e abre-o no estruturador de vistas. O nome da nova vista é o mesmo que o nome original, mas com *cópia* anexado ao mesmo. |
+| Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na vista. |
+| +          | Defina um filtro personalizado de que está definido para a vista. |
 
 
 ## <a name="create-a-new-view"></a>Criar uma nova vista
-Pode criar uma nova vista no estruturador de vistas, selecionando o **estruturador de vistas** mosaico a **descrição geral** página da sua área de trabalho de análise de registos.
+Pode criar uma nova vista no estruturador de vistas ao selecionar **estruturador de vistas** no menu da sua área de trabalho de análise de registos.
 
 ![Mosaico de vista de Designer](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -100,11 +101,10 @@ As opções para trabalhar com vistas no modo de edição são descritas na segu
 |:--|:--|
 | Guardar        | Guarda as alterações e fecha a vista. |
 | Cancelar      | Perderá as alterações e fecha a vista. |
-| Eliminar vista | Elimina a vista. |
+| Eliminar Vista | Elimina a vista. |
 | Exportar      | Exporta a vista para um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) que pode importar para outra área de trabalho. O nome do ficheiro é o nome da vista e tem um *omsview* extensão. |
 | Importar      | Importa o *omsview* ficheiro que exportou a partir da área de trabalho de outra. Esta ação substitui a configuração da vista existente. |
 | Clone       | Cria uma nova vista e abre-o no estruturador de vistas. O nome da nova vista é o mesmo que o nome original, mas com *cópia* anexado ao mesmo. |
-| Publicar     | Exporta a vista para um ficheiro JSON que pode inserir um [solução de gestão](../operations-management-suite/operations-management-suite-solutions-resources-views.md). O nome de ficheiro é o mesmo que o nome da vista, mas com um *json* extensão. Um segundo ficheiro, é criado com uma *resjson* extensão, inclui os valores para os recursos que estão definidos no ficheiro de JSON.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Adicionar [mosaicos](log-analytics-view-designer-tiles.md) à vista personalizada.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652843"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937674"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster de Cassandra em Linux no Azure com o Node.js
 
@@ -30,7 +30,7 @@ ms.locfileid: "34652843"
 ## <a name="overview"></a>Descrição geral
 Microsoft Azure é uma plataforma de nuvem aberto que executa o Microsoft e o software de terceiros que inclui os sistemas operativos, servidores de aplicações, mensagens middleware, bem como bases de dados NoSQL e SQL de ambos os modelos de comerciais e abrir a origem. Criação de resilientes serviços em nuvens públicas, incluindo o Azure requer um planeamento cuidadoso e arquitetura deliberate para ambos os servidores de aplicações como camadas de armazenamento bem. Arquitetura de armazenamento distribuído do Cassandra naturalmente ajuda na criação de sistemas elevados tolerante a falhas de cluster de falhas. Cassandra é uma base de dados NoSQL mantido pelo Apache Software Foundation a cassandra.apache.org escala da nuvem. Cassandra é escrito em Java. Por isso, é executada no ambos em plataformas Windows e Linux.
 
-O foco este artigo é para mostrar implementação Cassandra no Ubuntu como um cluster único e vários dados center que utiliza máquinas virtuais do Azure e redes virtuais. A implementação do cluster para cargas de trabalho de produção otimizada está fora do âmbito deste artigo porque requer configuração do nó de disco multi, design de topologia do anel adequado e dados de modelação para suportar a replicação necessária, consistência dos dados, débito e requisitos de elevada disponibilidade.
+O foco este artigo é para mostrar implementação Cassandra no Ubuntu como um cluster único e vários dados center que utiliza máquinas virtuais do Azure e redes virtuais. A implementação do cluster para cargas de trabalho de produção otimizada está fora do âmbito deste artigo porque requer configuração do nó de disco multi, design de topologia do anel adequado e dados de modelação para suportar a replicação necessária, consistência dos dados, débito e alta requisitos de disponibilidade.
 
 Este guia de artigo uma abordagem fundamental para mostrar que esteja envolvida na criação do Cassandra cluster em comparação com Docker, Chef ou Puppet, que pode fazer muito mais fácil a implementação de infraestrutura.  
 
@@ -65,7 +65,7 @@ Tenha em atenção que o do momento desta redação, Azure não permite o mapeam
 
 Cassandra suporta dois tipos de modelos de integridade de dados – consistência e a consistência Eventual; o fator de replicação e o nível de consistência em conjunto determinam se os dados são consistentes, assim que uma operação de escrita é concluída ou eventualmente consistente. Por exemplo, a especificação de QUÓRUM que o nível de consistência sempre garante a consistência de dados ao qualquer nível de consistência, abaixo o número de réplicas para serem escritos conforme necessário para obter um QUÓRUM (por exemplo um) resulta em dados que está a ser eventualmente consistente.
 
-O cluster de nó de 8 mostrado acima, com um fator de replicação de 3 e QUÓRUM (2 nós são lidas ou escritas para consistência) ao nível de consistência de leitura/escrita, pode sobreviver a perda teórico de, mais 1 nó por grupo de replicação antes do início da aplicação dar por isso a falha. Esta parte do princípio de que todos os espaços de chaves também tem balanceamento de leitura/escritam pedidos.  Seguem-se os parâmetros utilizados para o cluster implementado:
+O cluster de nó de 8 mostrado acima, com um fator de replicação de 3 e QUÓRUM (2 nós são lidas ou escritas para consistência) ao nível de consistência de leitura/escrita, pode sobreviver a perda teórico de, mais 1 nó por grupo de replicação antes do início de aplicações dar por isso a Falha. Esta parte do princípio de que todos os espaços de chaves também tem balanceamento de leitura/escritam pedidos.  Seguem-se os parâmetros utilizados para o cluster implementado:
 
 Configuração de cluster de Cassandra única região:
 
@@ -120,7 +120,7 @@ As seguintes versões de software são utilizadas durante a implementação:
 <tr><th>Software</th><th>Origem</th><th>Versão</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -517,7 +517,7 @@ Edite as redes locais para substituir o endereço IP do gateway de marcador de p
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Passo 6: Atualizar a chave partilhada
-Utilize o seguinte script do Powershell para atualizar a chave de IPSec de cada gateway VPN [Utilize a chave de sake para ambas as gateways]: hk-lnet-map-to-west-us de - LocalNetworkSiteName do conjunto AzureVNetGatewayKey - VNetName hk-vnet-Leste-nos - SharedKey hk-lnet-map-to-east-us de - LocalNetworkSiteName do D9E76BKK Set-AzureVNetGatewayKey - VNetName hk-vnet--EUA oeste - SharedKey D9E76BKK
+Utilize o seguinte script do Powershell para atualizar a chave de IPSec de cada gateway VPN [Utilize a chave de sake para ambas as gateways]: hk-lnet-map-to-west-us de - LocalNetworkSiteName do conjunto AzureVNetGatewayKey - VNetName hk-vnet-Leste-nos - SharedKey D9E76BKK Conjunto AzureVNetGatewayKey - VNetName hk-vnet--EUA oeste - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>Passo 7: Estabelecer a ligação de VNET a VNET
 No portal do Azure, utilize o menu de "DASHBOARD" das redes virtuais para estabelecer a ligação de gateway a gateway. Utilize os itens de menu "Ligar" na barra de ferramentas inferior. Após alguns minutos o dashboard deve apresentar os detalhes da ligação graficamente.

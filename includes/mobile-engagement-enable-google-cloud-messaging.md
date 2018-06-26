@@ -5,7 +5,7 @@
 > 
 > 
 
-1. Navegue até à [Consola do Firebase](https://console.firebase.google.com/) e inicie sessão com as suas credenciais da conta Google.
+1. Navegue para o [consola Firebase](https://console.firebase.google.com/) e inicie sessão com as credenciais da conta Google.
 2. Clique no botão **Criar Novo Projeto** para criar um novo projeto. Em alternativa, também pode clicar em **Importar Projeto Google** para importar um projeto existente. 
 3. Se tiver optado por criar um novo projeto, terá de indicar um **Nome do projeto** e escolher um **País/Região**.
 4. Na página do projeto, clique na roda **Definições** na parte superior esquerda. No menu, clique em **Definições do projeto**.  

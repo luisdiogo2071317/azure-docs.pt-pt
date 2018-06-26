@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648273"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751348"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente
 
@@ -235,7 +235,7 @@ Para obter mais informações, consulte [introdução às tabelas com otimizaç�
 
 Neste padrão de desempenho detetável indica uma degradação do desempenho de cargas de trabalho de base de dados atual em comparação comparada a linha de base de sete dias anterior. É devido a falta de DTUs disponíveis no agrupamento elástico da sua subscrição. 
 
-Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](sql-database-what-is-a-dtu.md), que consistem de uma medida combinada de CPU e/s recursos (dados transação registo de e/s). [Recursos do Azure conjunto elástico](sql-database-elastic-pool.md) são utilizadas como agrupamento de recursos eDTU disponíveis partilhado entre várias bases de dados para fins de dimensionamento. Quando os recursos eDTU disponíveis do conjunto elástico não são suficientemente grandes para suportar todas as bases de dados no conjunto, foi detetado um problema de desempenho de falta DTU do conjunto elástico pelo sistema.
+Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), que consistem de uma medida combinada de CPU e/s recursos (dados transação registo de e/s). [Recursos do Azure conjunto elástico](sql-database-elastic-pool.md) são utilizadas como agrupamento de recursos eDTU disponíveis partilhado entre várias bases de dados para fins de dimensionamento. Quando os recursos eDTU disponíveis do conjunto elástico não são suficientemente grandes para suportar todas as bases de dados no conjunto, foi detetado um problema de desempenho de falta DTU do conjunto elástico pelo sistema.
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 

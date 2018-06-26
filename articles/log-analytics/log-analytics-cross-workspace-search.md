@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 52c3914cc1b51bf7c2a6d0fbf28dc0bf7756e749
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517228"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751450"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Efetuar pesquisas de registo de recursos na análise de registos  
 
 Anteriormente com o Log Analytics do Azure, foi apenas analisar dados a partir da área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode apenas pesquisar itens de telemetria recolhidas a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio.  Isto também efetuada-um desafio nativamente analisar operacional e dados da aplicação em conjunto.   
 
-Agora, pode consultar não só em várias áreas de trabalho de análise de registos, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Este procedimento fornece uma vista de todo sistema dos seus dados.  Estes tipos de consultas só pode executar o [portal avançada](log-analytics-log-search-portals.md#advanced-analytics-portal), não no portal do Azure.  
+Agora, pode consultar não só em várias áreas de trabalho de análise de registos, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Este procedimento fornece uma vista de todo sistema dos seus dados.  Estes tipos de consultas só pode executar o [portal avançada](log-analytics-log-search-portals.md#advanced-analytics-portal), não no portal do Azure. O número de recursos (áreas de trabalho de análise de registos e aplicação Application Insights) que pode incluir numa única consulta está limitado a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em áreas de trabalho de análise de registos e do Application Insights
 Para fazer referência a outra área de trabalho na sua consulta, utilize o [ *área de trabalho* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identificador e para uma aplicação do Application Insights, utilize o [ *aplicação* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identificador.  

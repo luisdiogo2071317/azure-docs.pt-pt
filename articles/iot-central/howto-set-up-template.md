@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0bef8722ee51c916652e6964305f324341052341
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261989"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754667"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -38,19 +38,19 @@ Por exemplo, um construtor pode criar um modelo de dispositivo para um ventoinha
 Este modelo de dispositivo, um operador pode criar e ligar dispositivos ventoinha real com nomes como **ventoinha-1** e **ventoinha 2**. Todas estas ventoinhas tem medidas, definições e propriedades, regras e um dashboard que os utilizadores da sua aplicação podem monitorizar e gerir.
 
 > [!NOTE]
-Apenas construtores e os administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos de **Explorador de dispositivo** página a partir de modelos de dispositivos existentes.
+> Apenas construtores e os administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos de **Explorador de dispositivo** página a partir de modelos de dispositivos existentes.
 
 ## <a name="create-a-new-device-template"></a>Criar um novo modelo de dispositivo
 
 1. Navegue para o **aplicação Builder** página.
 
-1. Para criar um modelo em branco, escolha **criar modelo de dispositivo**e, em seguida, escolha **personalizada**.
+2. Para criar um modelo em branco, escolha **criar modelo de dispositivo**e, em seguida, escolha **personalizada**.
 
-1. Introduza um nome para o novo modelo de dispositivo e escolher **criar**.
+3. Introduza um nome para o novo modelo de dispositivo e escolher **criar**.
 
     ![Página de detalhes do dispositivo](./media/howto-set-up-template/devicedetailspage.png)
 
-1. Agora está no **detalhes do dispositivo** página de um novo dispositivo simulado. Um dispositivo simulado é criado automaticamente quando criar um novo modelo de dispositivo. Este relatórios de dados e pode ser controlado, tal como um dispositivo real.
+4. Agora está no **detalhes do dispositivo** página de um novo dispositivo simulado. Um dispositivo simulado é criado automaticamente quando criar um novo modelo de dispositivo. Este relatórios de dados e pode ser controlado, tal como um dispositivo real.
 
 Agora observa cada um dos separadores **detalhes do dispositivo** página.
 
@@ -133,8 +133,7 @@ Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha:
 
 Depois de escolher **guardar**, a **ventoinha velocidade** definição aparece como um mosaico e está pronta para ser utilizado para alterar a velocidade de ventoinha do dispositivo.
 
-> [!NOTE]
-> Depois de criar um novo mosaico, pode experimentar a nova definição. Desactivar em primeiro lugar, o modo de estrutura na parte superior direita do ecrã:
+Depois de criar um novo mosaico, pode experimentar a nova definição. Desactivar em primeiro lugar, o modo de estrutura na parte superior direita do ecrã.
 
 ![Mosaico de definições](./media/howto-set-up-template/settingstile.png)
 
@@ -168,51 +167,70 @@ Existem dois tipos de propriedades de localização, que pode adicionar:
 - **Localização como uma propriedade de aplicação** que serão armazenados puramente na aplicação. O dispositivo não tem conhecimento de propriedades da aplicação.
 - **Localização como uma propriedade de dispositivo** que será reportada pelo dispositivo.
 
-####<a name="adding-location-as-an-application-property"></a>A adição de localização como uma propriedade de aplicação 
+#### <a name="adding-location-as-an-application-property"></a>A adição de localização como uma propriedade de aplicação 
+
 Pode criar uma localização de mapas de propriedades como uma propriedade de aplicação do Azure a utilizar na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar o endereço de instalação do dispositivo. 
 
 1. Navegue até ao separador de propriedade do dispositivo; Certifique-se de que modo de estrutura está ativado.
 
-![Propriedade de localização](./media/howto-set-up-template/locationcloudproperty1.png)
+   ![Propriedade de localização](./media/howto-set-up-template/locationcloudproperty1.png)
 
 2. No separador de propriedade, clique em localização.
 3. Configure opcionalmente o nome a apresentar, nome de campo e o valor inicial da localização. 
 
-![Formulário de propriedade de localização](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Formulário de propriedade de localização](./media/howto-set-up-template/locationcloudproperty2.png)
 
-Existem dois formatos suportados para adicionar uma localização:
-- **Localização como um endereço**
-- **Localização como coordenadas** 
+   Existem dois formatos suportados para adicionar uma localização:
+   - **Localização como um endereço**
+   - **Localização como coordenadas** 
 
-4. Clique em Guardar. 
+4.  Clique em **Guardar**. 
 
-![Campo de propriedade de localização](./media/howto-set-up-template/locationcloudproperty3.png)
+    ![Campo de propriedade de localização](./media/howto-set-up-template/locationcloudproperty3.png)
 
 Agora, um operador pode atualizar o valor de localização sob a forma de campo localização. 
 
-####<a name="adding-location-as-a-device-property"></a>A adição de localização como uma propriedade do dispositivo 
+#### <a name="adding-location-as-a-device-property"></a>A adição de localização como uma propriedade do dispositivo 
 
 Pode criar uma propriedade de localização como uma propriedade de dispositivo que é reportada pelo dispositivo.
 Por exemplo, pretende controlar a localização do dispositivo.
 
 1.  Navegue até ao separador de propriedade do dispositivo; Certifique-se de que modo de estrutura está ativado.
+
 2.  Clique em dispositivos propriedade da biblioteca.
 
-![Campo de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty1.png)
+    ![Campo de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty1.png)
 
 3.  Configurar o nome a apresentar, nome do campo e escolha "localização" como um tipo de dados. 
 
-> [!NOTE]
-O nome do campo deve corresponder exatamente ao nome da propriedade do dispositivo relatórios. 
+    > [!NOTE]
+    > O nome do campo deve corresponder exatamente ao nome da propriedade do dispositivo relatórios. 
 
-![Campo de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Campo de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-![Vista de operador de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
+    ![Vista de operador de propriedade de localização](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Agora que configurou a propriedade de localização, poderá adicionar um mapa para visualizar a localização no Dashboard do dispositivo. Veja como [adicionar localização do mapa do Azure no Dashboard](howto-set-up-template.md).
+Agora que configurou a propriedade de localização, poderá adicionar um mapa para visualizar a localização no Dashboard do dispositivo. Veja como [adicionar localização do mapa do Azure no Dashboard](howto-set-up-template.md#add-location-azure-map-in-dashboard).
 
+## <a name="commands"></a>Comandos
 
+Os comandos são utilizados para gerir remotamente um dispositivo. Permitem que os operadores da sua aplicação instantaneamente executar comandos no dispositivo. Pode adicionar vários comandos para o modelo de dispositivo que são apresentados como mosaicos no **comandos** separador para operadores a utilizar. Como o construtor do dispositivo tem a flexibilidade para definir o comando de acordo com os seus requisitos.
 
+Como é uma **comando** diferente de um **definição**? 
+
+* Definição: Definição é uma configuração que pretende aplicar a um dispositivo e pretende que o dispositivo para manter essa configuração até que alterá-lo. Por exemplo, pretende definir a temperatura do seu freezer e pretender essa definição, mesmo quando o freezer reiniciado. 
+
+* Comando: Utilizar comandos instantaneamente executar um comando no dispositivo remotamente do IoTCentral, se um dispositivo não estiver ligado, em seguida, o limite de tempo do comando e falha. Por exemplo, pretende reiniciar/reiniciar um dispositivo.  
+
+Comandos quando executado podem estar em um de três Estados, dependendo se o dispositivo recebeu o comando. 
+
+Por exemplo, pode adicionar um novo comando eco:
+
+![Formulário de comandos](./media/howto-set-up-template/commandsecho.png)
+
+Depois de escolher **guardar**, a **eco** comandos aparece como um mosaico e está pronto para ser utilizado para o dispositivo de eco.
+
+Depois de criar um novo mosaico, pode experimentar o comando de novo.
 
 ## <a name="rules"></a>Regras
 
@@ -234,28 +252,27 @@ Agora quando um operador vistas do dashboard, pode ver este mosaico que mostra a
 
 ### <a name="add-location-azure-map-in-dashboard"></a>Adicionar localização do mapa do Azure no Dashboard
 
-Se tiver configurado uma propriedade de localização como os passos [criar uma propriedade de localização com tecnologia Maps]((howto-set-up-template.md) do Azure, poderá visualizar a localização, utilizando um mapa diretamente no seu dashboard do dispositivo.
+Se tiver configurado uma propriedade de localização como os passos [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md), será possível visualizar a localização, utilizando um mapa diretamente no seu dashboard do dispositivo.
 
 1.  Navegue até ao separador Dashboard do dispositivo; Certifique-se de que modo de estrutura está ativado.
+
 2.  No Dashboard do dispositivo, selecione o mapa da biblioteca. 
 
-![Selecione de mapa do Azure de localização de dashboard](./media/howto-set-up-template/locationcloudproperty4map.png)
+    ![Selecione de mapa do Azure de localização de dashboard](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 3.  Dê um título e escolha a propriedade de localização que configurou anteriormente como parte da sua propriedade do dispositivo.
 
-![Configurar o Azure mapa de localização de dashboard](./media/howto-set-up-template/locationcloudproperty5map.png)
+    ![Configurar o Azure mapa de localização de dashboard](./media/howto-set-up-template/locationcloudproperty5map.png)
 
 4.  Guardar e irá ver o mapa de mosaico apresenta a localização que selecionou. 
 
-![Localização de dashboard visualizar do mapa do Azure](./media/howto-set-up-template/locationcloudproperty6map.png) 
+    ![Localização de dashboard visualizar do mapa do Azure](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Será possível redimensionar o mapa para o seu tamanho pretendido.
+    Será possível redimensionar o mapa para o seu tamanho pretendido.
 
-Agora quando um operador vistas do dashboard, pode ver estes todos os os Dashboard mosaicos que configurou, incluindo uma mapa de localização!
+    Agora quando um operador vistas do dashboard, pode ver estes todos os os Dashboard mosaicos que configurou, incluindo uma mapa de localização!
 
-![Dashboard de mapa do Azure de localização de dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
-
-
+    ![Dashboard de mapa do Azure de localização de dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529486"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936722"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e repetição nas tarefas do Azure Stream Analytics
 Este artigo descreve os internos ponto de verificação e repetição conceitos no Azure Stream Analytics e o impacto que das tem na recuperação de tarefa. Sempre que é executada uma tarefa de Stream Analytics, informações de estado são mantidas internamente. Essas informações de estado são guardadas num ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são utilizadas para recuperação da tarefa se ocorrer uma falha de tarefa ou a atualização. Noutras circunstâncias, o ponto de verificação não pode ser utilizado para recuperação, não sendo uma repetição necessária.
@@ -48,7 +48,7 @@ Microsoft ocasionalmente atualiza os binários que executam as tarefas do Stream
 
 Atualmente, o formato de ponto de verificação de recuperação não é preservado entre as atualizações. Como resultado, o estado da consulta de transmissão em fluxo deve ser restaurado utilizando inteiramente técnica de reprodução. Para permitir que as tarefas do Stream Analytics reproduzir o exato mesmo de entrada do antes, é importante definir, pelo menos, a política de retenção para a origem de dados para a janela tamanhos na sua consulta. Conseguir fazê-lo poderá resultar em resultados incorretos ou parciais durante a atualização do serviço, uma vez que a origem de dados não pode ser mantidas suficiente novamente para incluir o tamanho da janela completa.
 
-Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicado pela taxa de eventos média. Por exemplo, para uma tarefa com uma taxa de entrada de 1000 eventos por segundo, é considerado um tamanho de janela maior do que uma hora para ter um tamanho de reprodução de grandes dimensões. Para consultas com tamanho grande de reprodução, pode observar saída atrasada (nenhuma saída) para um determinado período expandido. 
+Em geral, a quantidade de repetição necessária é proporcional ao tamanho da janela multiplicado pela taxa de eventos média. Por exemplo, para uma tarefa com uma taxa de entrada de 1000 eventos por segundo, é considerado um tamanho de janela maior do que uma hora para ter um tamanho de reprodução de grandes dimensões. Até uma hora de dados poderá ter de ser novamente processados para inicializar o estado para que este possa produzir completa e os resultados corretos, o que podem causar um atraso de saída (nenhuma saída) para um determinado período expandido. As consultas com sem windows ou outros operadores temporais, como `JOIN` ou `LAG`, teria de reprodução de zero.
 
 ## <a name="estimate-replay-catch-up-time"></a>Tempo de catch-up de reprodução de estimativa
 Para estimar o período de atraso devido a uma atualização de serviço, pode seguir esta técnica:

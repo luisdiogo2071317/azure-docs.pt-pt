@@ -7,7 +7,7 @@ Primeiro tem de ter a versão mais recente [Azure PowerShell](http://msdn.micros
 > 
 > 
 
-Execute o [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet e será apresentada com um início de sessão no ecrã para introduzir as suas credenciais. Utilize as mesmas credenciais que utiliza para iniciar sessão no Portal do Azure.
+Execute o [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet e será apresentado um ecrã de início de sessão para introduzir as suas credenciais. Utilize as mesmas credenciais que utiliza para iniciar sessão no Portal do Azure.
 
     Connect-AzureRmAccount
 

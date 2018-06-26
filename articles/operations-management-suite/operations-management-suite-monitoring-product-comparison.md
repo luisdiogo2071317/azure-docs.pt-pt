@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866318"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753324"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparação de produto de monitorização Microsoft
-Este artigo fornece uma comparação entre o System Center Operations Manager (SCOM) e análise de registos no Operations Management Suite (OMS) em termos da respetiva arquitetura, a lógica de como monitorizam estes recursos e como ele efetuar uma análise de dados que recolher.  Isto é para lhe dar uma compreensão dos seus diferenças e força da codificação relativa fundamental.  
+Este artigo fornece uma comparação entre o System Center Operations Manager (SCOM) e análise de registos no Operations Management Suite (OMS) em termos da respetiva arquitetura, a lógica de como monitorizam estes recursos e como ele efetuar uma análise de dados que recolher .  Isto é para lhe dar uma compreensão dos seus diferenças e força da codificação relativa fundamental.  
 
 ## <a name="basic-architecture"></a>Arquitetura básica
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Todos os componentes SCOM estão instalados no seu centro de dados.  [Os agentes estiverem instalados](http://technet.microsoft.com/library/hh551142.aspx) nas máquinas do Windows e Linux geridos pelo SCOM.  Agentes ligar ao [servidores de gestão](https://technet.microsoft.com/library/hh301922.aspx) que comunicar com o SCOM da base de dados do armazém de dados.  Agentes baseiam-se na autenticação de domínio se ligue aos servidores de gestão.  Aqueles fora de um domínio fidedigno podem efetuar a autenticação de certificado ou ligar a um [servidor de Gateway](https://technet.microsoft.com/library/hh212823.aspx).
+Todos os componentes SCOM estão instalados no seu centro de dados.  [Os agentes estiverem instalados](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) nas máquinas do Windows e Linux geridos pelo SCOM.  Agentes ligar ao [servidores de gestão](https://technet.microsoft.com/library/hh301922.aspx) que comunicar com o SCOM da base de dados do armazém de dados.  Agentes baseiam-se na autenticação de domínio se ligue aos servidores de gestão.  Aqueles fora de um domínio fidedigno podem efetuar a autenticação de certificado ou ligar a um [servidor de Gateway](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM requer duas bases de dados do SQL Server, para dados operacionais e do armazém de dados de outra para suportar a análise de dados e relatórios.  A [servidor de relatórios](https://technet.microsoft.com/library/hh298611.aspx) executa o SQL Server Reporting Services para elaborar relatórios sobre dados do armazém de dados. 
 
@@ -86,7 +86,7 @@ Enquanto SCOM tem muitos fluxos de trabalho detalhados que, normalmente, definem
 #### <a name="solutions"></a>Soluções
 Soluções fornecem lógica adicional para recolha de dados e análise.  Pode selecionar soluções para adicionar à sua subscrição do OMS da Galeria a solução.
 
-![Galeria de soluções](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
+![Galeria de Soluções](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
 
 Soluções principalmente executam na nuvem, fornecendo uma análise de eventos e contadores de desempenho recolhidos no repositório de OMS.  Também pode definem adicionais dados sejam recolhidos que podem ser analisados com consultas de registo ou através da interface de utilizador adicionais fornecida pela solução no dashboard do OMS. 
 
@@ -169,7 +169,7 @@ Além de proporcionarem analysis ad hoc, consultas de análise de registos podem
 
 ![Dashboard do OMS](media/operations-management-suite-monitoring-product-comparison/log-analytics-dashboard.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Implementar [do System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx).
 * Inscrever-se [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics).  
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263495"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752831"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar os registos de diagnóstico do Azure
 
@@ -69,12 +69,12 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| ResourceId |Sim |ID de recurso dos recursos no qual pretende configurar uma definição de diagnóstico. |
+| resourceId |Sim |ID de recurso dos recursos no qual pretende configurar uma definição de diagnóstico. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual os registos de diagnóstico deverá ser guardados. |
 | Categorias |Não |Lista separada por vírgulas das categorias de registo para ativar. |
 | Ativado |Sim |Valor boleano que indica se o diagnóstico está ativado ou desativado neste recurso. |
 | RetentionEnabled |Não |Valor boleano que indica se uma política de retenção estão ativadas neste recurso. |
-| retentionInDays |Não |Número de dias para o qual os eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente. |
+| RetentionInDays |Não |Número de dias para o qual os eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Registos de diagnóstico de arquivo através de 2.0 de CLI do Azure
 
@@ -100,7 +100,7 @@ O `--resource-group` argumento só é necessário se `--storage-account` não é
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Registos de diagnóstico de arquivo através da API REST
 
-[Consulte este documento](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) para obter informações sobre como pode configurar uma definição de diagnóstico utilizando a API de REST de Monitor do Azure.
+[Consulte este documento](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) para obter informações sobre como pode configurar uma definição de diagnóstico utilizando a API de REST de Monitor do Azure.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema dos registos de diagnóstico na conta de armazenamento
 

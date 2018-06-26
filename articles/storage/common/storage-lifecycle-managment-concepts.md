@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248474"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752797"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure (pré-visualização)
 
@@ -190,7 +190,7 @@ Pré-visualização, gestão de ciclo de vida suporta a criação de camadas e e
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporta blobs atualmente na camada de acesso frequente         | Não suportado |
 | tierToArchive | Suporta blobs atualmente em frequente ou esporádica camada | Não suportado |
-| eliminar        | Suportadas                                   | Suportadas     |
+| delete        | Suportadas                                   | Suportadas     |
 
 >[!NOTE] 
 Se está definida mais do que uma ação no mesmo blob, gestão de ciclo de vida aplica-se a ação menos dispendiosa para o blob. (por exemplo, a ação `delete` é mais barata que ação `tierToArchive`. Ação `tierToArchive` é mais barata que ação `tierToCool`.)
@@ -265,7 +265,7 @@ Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem 
 
 ### <a name="expire-data-based-on-age"></a>Expirar os dados com base na duração
 
-Alguns dados deverá expirar dias ou os meses após a criação para reduzir os custos ou estar em conformidade com regulamentos government. Uma política de gestão do ciclo de vida pode ser configurada para expirar data pela eliminação com base na duração de dados. O exemplo seguinte mostra uma política que elimina todos os blobs de blocos (com nenhuma prefixo especificado) anterior a 365 dias.
+Alguns dados deverá expirar dias ou os meses após a criação para reduzir os custos ou estar em conformidade com regulamentos government. Uma política de gestão do ciclo de vida pode ser configurada para expirar os dados com base na duração de dados de eliminação. O exemplo seguinte mostra uma política que elimina todos os blobs de blocos (com nenhuma prefixo especificado) anterior a 365 dias.
 
 ```json
 {

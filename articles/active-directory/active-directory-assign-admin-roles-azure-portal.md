@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260418"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938457"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -29,12 +29,18 @@ Utilizar o Azure Active Directory (Azure AD), pode designar administradores sepa
 O Administrador Global tem acesso a todas as funcionalidades administrativas. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de administrador global para o diretório. Apenas os administradores globais podem atribuir outras funções de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
-Para saber como atribuir funções administrativas a um utilizador no Azure Active Directory, consulte [atribuir um utilizador a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+Para saber como atribuir funções administrativas a um utilizador no Azure Active Directory, consulte [atribuir um utilizador a funções de administrador no Azure Active Directory](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Funções disponíveis
 Estão disponíveis as seguintes funções de administrador:
 
+* **Administrador da aplicação**: os utilizadores nesta função podem criar e gerir todos os aspetos de aplicações da empresa, registos de aplicações e definições de proxy da aplicação. Esta função também concede a capacidade de consentimento para permissões de delegado e permissões de aplicações excluindo Microsoft Graph e o Azure AD Graph. Os membros desta função não são adicionados como proprietários ao criar novos registos de aplicação ou aplicações da empresa.
+
+* **Programador de aplicações**: os utilizadores nesta função podem criar registos de aplicações quando o "Os utilizadores podem registar aplicações" definição está definida como não. Esta função também permite que os membros consentimento no seu próprio nome quando a "Os utilizadores podem autorizar aplicações acedem aos dados da empresa em nome daqueles" definição está definida como não. Os membros desta função são adicionados como proprietários ao criar novos registos de aplicação ou aplicações da empresa.
+
 * **Administrador de faturação**: efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estado de funcionamento do serviço.
+
+* **Administrador da aplicação de nuvem**: os utilizadores nesta função têm as mesmas permissões que a função de administrador da aplicação, excluindo a capacidade de gerir o proxy de aplicações. Esta função concede a capacidade de criar e gerir todos os aspetos de aplicações da empresa e registos de aplicação. Esta função também concede a capacidade de consentimento para permissões de delegado e permissões de aplicações excluindo Microsoft Graph e o Azure AD Graph. Os membros desta função não são adicionados como proprietários ao criar novos registos de aplicação ou aplicações da empresa.
 
 * **Administrador de compatibilidade**: os utilizadores com esta função têm permissões de gestão dentro no Office 365 segurança & do Centro de conformidade e do Centro de administração do Exchange. Obter mais informações em "[sobre as funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
 
@@ -107,11 +113,29 @@ Estão disponíveis as seguintes funções de administrador:
 
 ## <a name="administrator-permissions"></a>Permissões de administrador
 
+### <a name="application-administrator"></a>Administrador de Aplicações
+
+| Pode fazê-lo | Não é possível efetuar |
+| --- | --- |
+| Ler todas as informações de diretório<br>Criar registos de aplicações<br>Atualizar propriedades de registo de aplicação<br>Obter aplicações da empresa<br>Gerir as permissões de registo de aplicação<br>Eliminar registos de aplicações<br>Gerir aplicações único início de sessão definições da empresa<br>Gerir definições de aprovisionamento de aplicações de enterprise<br>Gerir definições de self-service de aplicações na empresa<br>Gerir definições de permissão de aplicação empresarial<br>Gerir o acesso de aplicação<br>Gerir definições de aprovisionamento<br>Eliminar aplicações da empresa<br>Consentimento em nome de todas as pessoas para todos os pedidos de permissão delegado<br>Consentimento em nome de todas as pessoas para todos os pedidos de permissão de aplicação, exceto o Azure AD Graph ou Microsoft Graph<br>Gerir definições de proxy de aplicações<br>Definições dos serviços de acesso<br>Monitorizar estado de funcionamento do serviço<br>Gerir pedidos de suporte<br>Associação ao grupo de leitura, ocultada | Criar, editar e eliminar grupos<br>Gerir licenças de utilizador<br>Utilizar a sincronização de diretórios<br>Ver relatórios de início de sessão e registos de auditoria | 
+
+### <a name="application-developer"></a>Programador de Aplicações
+
+| Pode fazê-lo | Não é possível efetuar |
+| --- | --- |
+| Ler todas as informações de diretório<br>Criar registos de aplicações<br>Consentimento em nome próprio | Ver início de sessão e registos de auditoria<br>Associação ao grupo de leitura, ocultada |
+
 ### <a name="billing-administrator"></a>Administrador de Faturação
 
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
-|<p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Efetuar operações de faturação e compras para produtos do Office</p> |<p>Repor palavras-passe do utilizador</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver registos de auditoria</p>|
+|<p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Efetuar operações de faturação e compras para produtos do Office</p> |<p>Repor palavras-passe do utilizador</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver registos de auditoria</p> |
+
+### <a name="cloud-application-administrator"></a>Administrador da Aplicação Cloud
+
+| Pode fazê-lo | Não é possível efetuar |
+| --- | --- |
+| Ler todas as informações de diretório<br>Criar registos de aplicações<br>Atualizar propriedades de registo de aplicação<br>Obter aplicações da empresa<br>Gerir as permissões de registo de aplicação<br>Eliminar registos de aplicações<br>Gerir aplicações único início de sessão definições da empresa<br>Gerir definições de aprovisionamento de aplicações de enterprise<br>Gerir definições de self-service de aplicações na empresa<br>Gerir definições de permissão de aplicação empresarial<br>Gerir o acesso de aplicação<br>Gerir definições de aprovisionamento<br>Eliminar aplicações da empresa<br>Consentimento em nome de todas as pessoas para todos os pedidos de permissão delegado<br>Consentimento em nome de todas as pessoas para todos os pedidos de permissão de aplicação, exceto o Azure AD Graph ou Microsoft Graph<br>Definições dos serviços de acesso<br>Monitorizar estado de funcionamento do serviço<br>Gerir pedidos de suporte<br>Associação ao grupo de leitura, ocultada | Gerir definições de proxy de aplicações<br>Criar, editar e eliminar grupos<br>Gerir licenças de utilizador<br>Utilizar a sincronização de diretórios<br>Ver relatórios de início de sessão e registos de auditoria |
 
 ### <a name="conditional-access-administrator"></a>Administrador de Acesso Condicional
 
@@ -169,17 +193,19 @@ Vista do Azure AD início de sessão relatórios e registos de auditoria<br>Ver 
 
    ![Abrir o Centro de administração do azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Selecione **utilizadores e grupos &gt; todos os utilizadores**
+2. Selecione **utilizadores** > **todos os utilizadores**.
 
-3. Localize o utilizador que pretende designar como Administrador Global e abrir o painel para esse utilizador.
+3. Abra a página para o utilizador que pretende designar como Administrador Global.
 
-4. No painel de utilizador, selecione **função de diretório**.
- 
-5. No painel de função de diretório, selecione o **Administrador Global** função e guarde.
+4. Na barra de comandos, selecione **função de diretório**.
+
+5. Selecione **Adicionar função**.
+
+6. Na página de função de diretório, selecione o **Administrador Global** função e, em seguida, clique em **selecione** para guardar.
 
 ## <a name="deprecated-roles"></a>Funções preteridas
 
-As seguintes funções não devem ser utilizadas. Estes foi despromovida e será removida do Azure AD no futuro.
+As seguintes funções não devem ser utilizadas. Estes são preteridas e serão removidas do Azure AD no futuro.
 
 * Administrador de Licenças AdHoc
 * Criador de Utilizador Verificado por E-mail
@@ -190,9 +216,9 @@ As seguintes funções não devem ser utilizadas. Estes foi despromovida e será
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
+* Para obter mais informações sobre como alterar os administradores para uma subscrição do Azure, consulte [adicionar ou alterar os administradores da subscrição do Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para obter mais informações sobre como o Azure Active Directory relacionada com a sua subscrição do Azure, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* Para obter mais informações sobre como o Azure Active Directory relacionada com a sua subscrição do Azure, consulte [subscrições do Azure como estão associadas ao Azure Active Directory](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Gerir utilizadores](active-directory-create-users.md)
 * [Gerir palavras-passe](active-directory-manage-passwords.md)
-* [Gerir grupos](active-directory-manage-groups.md)
+* [Gerir grupos](fundamentals/active-directory-manage-groups.md)

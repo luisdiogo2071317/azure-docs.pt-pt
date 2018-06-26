@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260486"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937337"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -25,9 +25,9 @@ Utilize o JSON para criar uma definição de política. A definição de políti
 
 - mode
 - parâmetros
-- Nome a apresentar
+- nome a apresentar
 - descrição
-- Regra de política
+- regra de política
   - avaliação lógica
   - efeito
 
@@ -192,7 +192,8 @@ A condição for avaliada se um **campo** cumpra determinados critérios. As con
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Ao utilizar o **como** e **notLike** condições, pode fornecer um caráter universal (*) no valor. O valor não deve conter mais de 1 caráter universal (*).
+Ao utilizar o **como** e **notLike** condições, pode fornecer um caráter universal `*` no valor.
+O valor não deve conter mais de um caráter universal `*`.
 
 Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` para representar um dígito, `?` para uma letra e quaisquer outros carateres para representar esse caráter real. Para obter exemplos, consulte [permitir várias padrões de nome](scripts/allow-multiple-name-patterns.md).
 
@@ -316,7 +317,7 @@ A lista de aliases sempre está a crescer. Para detetar os aliases são atualmen
 
 ## <a name="initiatives"></a>Iniciativas
 
-Ativar iniciativas agrupar vários relacionadas com definições de política para simplificar a gestão e atribuições porque funciona com um grupo como um único item. Por exemplo, pode agrupar relacionados todas as definições de política de etiquetagem numa iniciativa único. Em vez de atribuir a cada política individualmente, aplique a iniciativa.
+Iniciativas permitem-lhe agrupar várias definições de política relacionada para simplificar a gestão e atribuições porque funciona com um grupo como um único item. Por exemplo, pode agrupar relacionados todas as definições de política de etiquetagem numa iniciativa único. Em vez de atribuir a cada política individualmente, aplique a iniciativa.
 
 O exemplo a seguir ilustra como criar uma iniciativa para processamento de duas etiquetas: `costCenter` e `productName`. Utiliza duas políticas incorporadas para aplicar o valor da etiqueta predefinida.
 
@@ -394,4 +395,4 @@ O exemplo a seguir ilustra como criar uma iniciativa para processamento de duas 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja mais exemplos em [amostras de política do Azure](json-samples.md).
+- Veja mais exemplos nas [amostras do Azure Policy](json-samples.md).

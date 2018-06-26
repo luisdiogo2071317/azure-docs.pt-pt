@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644686"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753455"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da multi-inquilino SQL database do Azure numa aplicação SaaS multi-inquilino
 
 Neste tutorial, são explorou vários cenários de gestão de chave de desempenho utilizados em aplicações SaaS. Utilizar um gerador de carga para simular atividade entre a bases de dados do multi-inquilinos, incorporada de monitorização e alertas funcionalidades da base de dados do SQL Server são demonstrados.
 
-A aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino utiliza um modelo de dados de multi-inquilino fragmentados, onde os dados de venue (inquilino) são distribuídos por ID de inquilino por potencialmente várias bases de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização de base de dados típicas, bases de dados podem ser escalados para cima e para baixo para otimizar o custo de uma solução. Com este tipo de padrão, é importante monitorizar a utilização de recursos de base de dados para se certificar de que carrega razoavelmente é equilibradas entre potencialmente várias bases de dados. Também tem de garantir que as bases de dados individuais tem recursos adequados e não são atingir os seus [DTU](sql-database-what-is-a-dtu.md) limites. Este tutorial explicar formas de monitorizar e gerir bases de dados e como tomar uma ação corretiva em resposta a variações numa carga de trabalho.
+A aplicação de base de dados do Wingtip bilhetes SaaS multi-inquilino utiliza um modelo de dados de multi-inquilino fragmentados, onde os dados de venue (inquilino) são distribuídos por ID de inquilino por potencialmente várias bases de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização de base de dados típicas, bases de dados podem ser escalados para cima e para baixo para otimizar o custo de uma solução. Com este tipo de padrão, é importante monitorizar a utilização de recursos de base de dados para se certificar de que carrega razoavelmente é equilibradas entre potencialmente várias bases de dados. Também tem de garantir que as bases de dados individuais tem recursos adequados e não são atingir os seus [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) limites. Este tutorial explicar formas de monitorizar e gerir bases de dados e como tomar uma ação corretiva em resposta a variações numa carga de trabalho.
 
 Neste tutorial, ficará a saber como:
 

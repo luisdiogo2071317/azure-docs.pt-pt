@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: c1597f16dda8544908bbefaf39e75e667d38b22c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 93665ab075de539f98eebe34c2229870bd5a1a6e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316473"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750243"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -41,7 +41,7 @@ Depois de criar um servidor, o número de vCores, a geração de hardware e o pr
 
 ## <a name="compute-generations-and-vcores"></a>Gerações e vCores de computação
 
-Computação recursos são fornecidos como vCores, que representam a CPU lógica o hardware subjacente. Atualmente, pode escolher entre duas gerações de computação, Gen 4 e Gen 5. Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2.4 GHz processadores. Gen 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores. Gen 4 e Gen 5 estão disponíveis as seguintes regiões ("X" indica disponível). 
+Computação recursos são fornecidos como vCores, que representam a CPU lógica o hardware subjacente. Atualmente, pode escolher entre duas gerações de computação, Gen 4 e Gen 5. Gen 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) 2.4 GHz processadores. Gen 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores. Gen 4 e Gen 5 estão disponíveis as seguintes regiões ("X" indica disponível).
 
 | **Região do Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -80,7 +80,7 @@ O armazenamento que Aprovisiona é a quantidade da capacidade de armazenamento d
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 4 TB | 5 GB até 4 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS | IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS |
+| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 6000 IOPS | IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 6000 IOPS |
 
 Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornecer uma garantia IOPS. O objetivo geral e escalões de preço de otimização de memória, o IOPS dimensionar com o tamanho de aprovisionamento de armazenamento numa proporção de 3:1.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248542"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938014"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de AI do Azure para soluções de manutenção preditiva
 
@@ -255,7 +255,7 @@ Esta secção descreve as técnicas de modelação principal para problemas de P
 > A escolha de etiquetas para cenários de falha e a estratégia de etiquetas  
 > deve ser determinado em consultation com o domínio especialista.
 
-### <a name="binary-classification"></a>classificação binária
+### <a name="binary-classification"></a>Classificação binária
 Classificação binária é utilizada para _prever a probabilidade de um fragmento do equipamento falha num período de tempo futuros_ - chamado o _período horizon futuras X_. X é determinado pelo problema empresarial e em execução, os dados no consultation com o domínio especialista. Os exemplos são:
 - _tempo de antecedência mínimo_ necessário substituir os componentes, implementar recursos de manutenção, efetuar a manutenção para evitar um problema que é provável que ocorrem durante esse período.
 - _contagem mínima de eventos_ que podem ocorrer antes de ocorrer um problema.
@@ -350,7 +350,7 @@ Em problemas de classificação, se existirem mais exemplos de uma classe que do
 Muitos problemas de PdM enfrentam essas imbalanced conjuntos de dados, onde uma classe é gravemente underrepresented em comparação comparados a outra classe, ou classes. Em algumas situações, a classe de minority poderá constituem apenas 0,001% dos total de pontos de dados. Não é exclusivo para PdM desequilíbrio de classe. Outros domínios onde falhas e anomalias são ocorrências raras enfrentam um problema semelhante, para obter exemplos, deteção de fraudes e intrusão de rede. Estas falhas Certifique-se exemplos de classe minority.
 
 Com desequilíbrio de classe nos dados, desempenho de algoritmos de aprendizagem mais padrão for comprometido, uma vez que estes têm como objetivo para minimizar a taxa de erros geral. Para um conjunto de dados com 99% negativo e exemplos de positivo de 1%, um modelo pode ser apresentado com precisão de 99% por etiquetagem todas as instâncias como negativo. Mas o modelo incorrectamente vai classificar todos os exemplos positivos; por isso, mesmo que esteja a precisão elevada, o algoritmo não é útil. Por conseguinte, as métricas de avaliação convencionais, tais como _precisão geral na taxa de erros_ são insuficientes para imbalanced learning. Se deparam com imbalanced conjuntos de dados, outras métricas são utilizadas para avaliação do modelo:
-- precisão
+- Precisão
 - Recuperar
 - F1 pontuações
 - Custo ajustado ROC (características de sistema operativo de recetor)
@@ -434,7 +434,7 @@ O Microsoft Azure oferece conteúdo livre e formação sobre conceitos gerais de
 |:-------------------|--------------|
 | [Programador de AI no Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Microsoft AI escola](http://aischool.microsoft.com/learning-paths) | Público |
-| [Aprendizagem de AI do Azure a partir do GitHub](http://azure.github.io/learnanalytics/public) | Público |
+| [Aprendizagem de AI do Azure a partir do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Microsoft AI Mostrar](http://channel9.msdn.com/Shows/AI-Show) | Público |

@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711149"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754593"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>O Azure Active Directory B2C: Personalizar a interface de utilizador (IU) do Azure AD B2C
 
 Experiência de utilizador é essencial no cliente com acesso à aplicação.  Aumente o seu cliente base por experiências de utilizador com o aspeto e funcionalidade da sua marca de composição. O Azure Active Directory B2C (Azure AD B2C) permite-lhe personalizar a edição do perfil de inscrição, início de sessão, e páginas com controlo de pixel perfeita de reposição de palavra-passe.
 
 > [!NOTE]
-> A funcionalidade da página IU personalização descrita neste artigo não se aplica a política de apenas início de sessão, o associada página de reposição de palavra-passe e verificação e-mails.  Utilizam estas funcionalidades de [corporativa funcionalidade](../active-directory/customize-branding.md) em vez disso.
+> A funcionalidade da página IU personalização descrita neste artigo não se aplica a política de apenas início de sessão, o associada página de reposição de palavra-passe e verificação e-mails.  Utilizam estas funcionalidades de [corporativa funcionalidade](../active-directory/fundamentals/customize-branding.md) em vez disso.
 >
-> Da mesma forma, se um utilizador intiates uma política de perfil de edição *antes* iniciar sessão, o utilizador será redirecionado para uma página que pode ser personalizada utilizando a [corporativa funcionalidade](../active-directory/customize-branding.md).
+> Da mesma forma, se um utilizador intiates uma política de perfil de edição *antes* iniciar sessão, o utilizador será redirecionado para uma página que pode ser personalizada utilizando a [corporativa funcionalidade](../active-directory/fundamentals/customize-branding.md).
 
 Este artigo abrange os seguintes tópicos:
 
@@ -214,7 +214,7 @@ Esta página contém um formulário de inscrição de conta local, com base num 
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragmento inserido "" conta de redes sociais página de inscrição"
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Fragmento inserido "conta de redes sociais página de inscrição"
 
 Nesta página pode aparecer quando inscrever-se com uma conta existente de um fornecedor de identidade de redes sociais, como o Facebook ou Google +.  É utilizado quando têm de ser recolhidas informações adicionais do utilizador final a utilizar um formulário de inscrição. Esta página é semelhante à conta local página de inscrição (mostrada na secção anterior) com a exceção os campos de entrada de palavra-passe.
 
@@ -315,7 +315,7 @@ Nesta página, os utilizadores podem verificar os respetivos números de telefon
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>Fragmento inserido "" página de erro"
+### <a name="fragment-inserted-into-the-error-page"></a>Fragmento inserido na "página de erro"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

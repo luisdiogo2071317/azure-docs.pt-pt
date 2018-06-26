@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/18/2018
 ms.author: kirpas;iainfou;sewhee
 ms.custom: include file
-ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ab4d5326fc06cc8676ea93ed529315cc47651e26
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323804"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943458"
 ---
 ## <a name="overview"></a>Descrição geral
 Quando cria uma nova máquina virtual (VM) num grupo de recursos ao implementar uma imagem de [Azure Marketplace](https://azure.microsoft.com/marketplace/), unidade predefinida do SO, muitas vezes, é de 127 GB (algumas imagens tem tamanhos de disco de SO mais pequenos por predefinição). Embora seja possível adicionar discos de dados na VM (consoante o SKU que escolheu) e além disso é recomendado que instale aplicações e cargas de trabalho intensivas de CPU nestes discos de adenda, é frequente que os clientes precisem de expandir a unidade de SO para suportar determinados cenários, como o seguinte:
@@ -36,7 +36,7 @@ Neste artigo, irá realizar a tarefa de redimensionamento da unidade de SO com o
 
 Abra o ISE do Powershell ou a janela do Powershell no modo administrativo e siga os passos abaixo:
 
-1. Inicie de sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
+1. Inicie sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
    
    ```Powershell
    Connect-AzureRmAccount
@@ -79,7 +79,7 @@ Abra o ISE do Powershell ou a janela do Powershell no modo administrativo e siga
 
 Abra o ISE do Powershell ou a janela do Powershell no modo administrativo e siga os passos abaixo:
 
-1. Inicie de sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
+1. Inicie sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
    
    ```Powershell
    Connect-AzureRmAccount

@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647667"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936807"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância geridos base de dados SQL do Azure
 
@@ -78,7 +78,6 @@ Instância gerida suporta as seguintes opções de migração de base de dados (
 
 - Serviço de migração de base de dados do Azure - migração quase sem período de indisponibilidade
 - Nativo RESTAURO a partir do URL - utiliza cópias de segurança nativas do SQL Server e requer algum período de indisponibilidade
-- Migrar através do ficheiro BACPAC - utiliza BACPAC de ficheiro do SQL Server ou base de dados SQL e requer algum período de indisponibilidade
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -107,10 +106,6 @@ A tabela seguinte fornece mais informações sobre o método que pode utilizar, 
 > Restauro de bases de dados do sistema não é suportado. Para migrar objetos do nível de instância (armazenados nas bases de dados mestra ou msdb), é recomendável criar scripts-los e executar scripts T-SQL na instância de destino.
 
 Para um tutorial completo que inclui a restaurar uma cópia de segurança da base de dados para uma instância geridos utilizando uma credencial SAS, consulte [restaurar a partir de cópia de segurança para uma instância geridos](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Migrar através do ficheiro BACPAC
-
-Pode importar a SQL Database do Azure e geridos por instância de um criar uma cópia da base de dados original, com os dados, num ficheiro BACPAC. Consulte [importar um ficheiro BACPAC para uma nova base de dados do Azure SQL](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Monitorizar aplicações
 

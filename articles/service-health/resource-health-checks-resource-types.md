@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309601"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945878"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas através do Estado de funcionamento de recursos por tipos de recursos.
@@ -62,13 +62,13 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Pode tarefas de envio de utilizadores ao Data Lake Analytics na região?</li><li>Não executar as tarefas básicas e concluir com êxito na região?</li><li>Podem utilizadores listar itens de catálogo na região?</li>|
+|<ul><li>Tem problemas de experiente utilizadores submeter ou listar as tarefas de Data Lake Analytics?</li><li>Tarefas de Data Lake Analytics são não consegue concluir a erros de sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Os utilizadores carregar dados ao Data Lake Store na região</li><li>Os utilizadores transferem dados do Data Lake Store na região</li></ul>|
+|<ul><li>Tem utilizadores teve problemas carregar dados para o Data Lake Store?</li><li>Tem utilizadores teve problemas de transferência de dados do Data Lake Store?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
 

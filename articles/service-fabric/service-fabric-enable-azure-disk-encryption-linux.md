@@ -1,6 +1,6 @@
 ---
 title: Ativar a encriptação de disco para clusters do Linux de recursos de infraestrutura de serviço | Microsoft Docs
-description: Este artigo descreve como ativar a encriptação de disco para a escala de cluster do Service Fabric definida no Azure utilizando o Azure Resource Manager, o Cofre de chaves do Azure.
+description: Este artigo descreve como ativar a encriptação de disco para o Service Fabric conjuntos de dimensionamento de cluster no Azure utilizando o Azure Resource Manager e o Cofre de chaves do Azure.
 services: service-fabric
 documentationcenter: .net
 author: v-viban
@@ -13,71 +13,77 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/24/2018
 ms.author: v-viban
-ms.openlocfilehash: 46f7f88768ab7ae9d84f392f340750865fef3b96
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e5caa3a787ceb1c8828b4a52648a3c74546c217b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655752"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750463"
 ---
-# <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Ativar a encriptação de disco para nós de cluster do service fabric Linux 
+# <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Ativar a encriptação de disco para nós de cluster do Service Fabric Linux 
 > [!div class="op_single_selector"]
 > * [Encriptação de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 > * [Encriptação de disco para o Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
-Siga os passos abaixo para ativar a encriptação de disco em nós de Cluster do Service Fabric Linux. Terá de efetuar estes para cada um dos conjuntos de dimensionamento de máquina virtual/tipos do nó. Para encriptar os nós, iremos tirar partido da capacidade de Azure Disk Encryption em conjuntos de dimensionamento de máquina virtual.
+Utilize os seguintes passos para ativar a encriptação de disco em nós de cluster do Linux do Azure Service Fabric. Terá de efetuar estes para cada um dos tipos de nó ou conjuntos de dimensionamento de máquina virtual. Para encriptar os nós, irá utilizar a capacidade de Azure Disk Encryption em conjuntos de dimensionamento de máquina virtual.
 
 O guia abrange os procedimentos seguintes:
 
-* Conceitos chave que precisa de ter em consideração desativar ativar a encriptação de disco em dimensionamento da máquina virtual de Cluster do Service Fabric Linux definido.
-* Passos de pré-requisitos para ser seguidas antes de ativar a encriptação de disco no conjunto de dimensionamento de máquina virtual de Cluster do Service Fabric Linux.
-* Conjunto de passos ser seguidas para ativar a encriptação de disco em dimensionamento da máquina virtual de Cluster do Service Fabric Linux.
+* Conceitos chave para ativar a encriptação de disco em conjuntos de dimensionamento de máquina virtual para os clusters do Linux de recursos de infraestrutura de serviço.
+* Passos de pré-requisitos a seguir antes de ativar a encriptação de disco na máquina virtual Dimensionar conjuntos para clusters do Linux de recursos de infraestrutura de serviço.
+* Passos para ativar e desativar a encriptação em conjuntos de dimensionamento de máquina virtual para os clusters do Linux de recursos de infraestrutura do serviço de disco.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. **Registo Self** - para utilizar, necessita de pré-visualização do virtual machine escala conjunto disco encriptação registo automática
-2. Self-pode registar a sua subscrição, executando os seguintes passos: 
-```Powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-3. Aguarde cerca de 10 minutos até o estado como "Registada". Pode verificar o estado, executando o seguinte comando: 
-```Powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
-4. **O Cofre de chaves do Azure** -criar um KeyVault na mesma subscrição e região, como o dimensionamento da máquina virtual definido e define a política de acesso 'EnabledForDiskEncryption' no KeyVault utilizando o cmdlet PS. Também pode definir a política utilizando a IU do KeyVault no portal do Azure: 
-```Powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
-```
-5. Instalar a versão mais recente [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) , que tem os novos comandos de encriptação.
-6. Instale a versão mais recente do [SDK do Azure a partir do Azure PowerShell](https://github.com/Azure/azure-powershell/releases) de versão. Seguem-se os cmdlets de VMSS ADE para ativar ([definir](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encriptação, obter ([obter](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) Estado de encriptação e remover ([desativar](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encriptação numa escala definir instância. 
+1. Self-registe a sua subscrição introduzindo o seguinte comando:
 
-| Comando | Versão |  Origem  |
-| ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 ou superior | AzureRM.Compute |
-| Desativar AzureRmVmssDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 ou superior | AzureRM.Compute |
-| Conjunto AzureRmVmssDiskEncryptionExtension   | 3.4.0 ou superior | AzureRM.Compute |
+   ```PowerShell
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+   ```
+   
+   Aguarde cerca de 10 minutos até que o estado é `Registered`. Pode verificar o estado, executando os seguintes comandos: 
+
+   ```PowerShell
+   Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+   ```
+
+2. Crie um cofre de chaves na mesma subscrição e região, como o conjunto de dimensionamento. Definir a política de acesso `EnabledForDiskEncryption` no Cofre de chaves utilizando o cmdlet do PowerShell. Também pode definir a política utilizando a IU de Cofre de chave do Azure no portal do Azure.
+
+   ```PowerShell
+   Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+   ```
+
+3. Instalar [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), que tem os comandos de encriptação mais recentes.
+
+4. Instale a versão mais recente do [SDK do Azure a partir do Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Utilize os seguintes cmdlets para ativar ([definir](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) encriptação, obter ([obter](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) Estado de encriptação e remover ([desativar](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) encriptação numa escala definir instância: 
+
+   | Comando | Versão |  Origem  |
+   | ------------- |-------------| ------------|
+   | Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 ou posterior | AzureRM.Compute |
+   | Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 ou posterior | AzureRM.Compute |
+   | Desativar AzureRmVmssDiskEncryption   | 3.4.0 ou posterior | AzureRM.Compute |
+   | Get-AzureRmVmssDiskEncryption   | 3.4.0 ou posterior | AzureRM.Compute |
+   | Get-AzureRmVmssVMDiskEncryption   | 3.4.0 ou posterior | AzureRM.Compute |
+   | Conjunto AzureRmVmssDiskEncryptionExtension   | 3.4.0 ou posterior | AzureRM.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Cenários suportados para a encriptação de disco
-* Encriptação de conjunto de dimensionamento de máquina virtual só é suportada para conjuntos de dimensionamento criado com discos geridos e não suportadas para conjuntos de dimensionamento de disco nativo (ou não geridos).
-* Encriptação de conjunto de dimensionamento de máquina virtual é suportada para o volume de dados de conjunto de dimensionamento de máquina virtual do Linux. Encriptação de disco de SO não é suportada na pré-visualização atual para Linux.
-* Conjunto de dimensionamento de máquina virtual de VM recriar a imagem e as operações de atualização não são suportadas na pré-visualização atual.
+* Encriptação de conjunto de dimensionamento de máquina virtual só é suportada para conjuntos de dimensionamento criados com discos geridos. Não é suportada para conjuntos de dimensionamento de disco nativo (ou não geridos).
+* Encriptação de conjunto de dimensionamento de máquina virtual é suportada para volumes de dados para conjuntos de dimensionamento de máquina virtual do Linux. Encriptação de disco de SO não é suportada na pré-visualização atual para Linux.
+* Recriação de imagem de VM de conjunto de dimensionamento de máquina virtual e as operações de atualização não são suportadas na pré-visualização atual.
 
 
-### <a name="create-new-linux-cluster-and-enable-disk-encryption"></a>Criar novo cluster de Linux e ativar a encriptação de disco
+## <a name="create-a-linux-cluster"></a>Criar um cluster do Linux
 
-Utilize os seguintes comandos para criar o cluster e ativar a encriptação de disco utilizando o modelo Azure Resource Manager & Self-assinou o certificado.
+Utilize os seguintes comandos para criar um cluster e ativar a encriptação de disco, utilizando um modelo Azure Resource Manager e um certificado autoassinado.
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure  
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
@@ -91,13 +97,13 @@ az account set --subscription $subscriptionId
 
 ```
 
-#### <a name="use-the-custom-template-that-you-already-have"></a>Utilizar o modelo personalizado que já tenha 
+### <a name="use-a-custom-template"></a>Utilizar um modelo personalizado 
 
-Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomenda-se vivamente que comece com um dos modelos que estão disponíveis no [amostras de modelo de recursos de infraestrutura de serviço do azure](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) para o Cluster do Linux. 
+Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomendamos que comece com uma do [amostras de modelo do Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) para clusters do Linux. 
 
-Se já tiver um modelo personalizado, certifique-se de que a verificação de double, que todos os três relacionadas com o certificado parâmetros no modelo e o ficheiro de parâmetros são denominados de forma e os valores são nulas da seguinte forma.
+Se já tiver um modelo personalizado, certifique-se de que todos os parâmetros relacionados com o certificado no modelo e o ficheiro de parâmetros três são com o nome da seguinte forma. Certifique-se também que os valores são nulos.
 
-```Json
+```JSON
    "certificateThumbprint": {
       "value": ""
     },
@@ -109,9 +115,9 @@ Se já tiver um modelo personalizado, certifique-se de que a verificação de do
     },
 ```
 
-Desde de conjunto de dimensionamento de máquina virtual Linux - encriptação de disco de dados só é suportada pelo que precisamos de adicionar o disco de dados utilizando o modelo Azure Resource Manager. Atualize o modelo para aprovisionar de disco de dados como abaixo:
+Para conjuntos de dimensionamento de máquina virtual do Linux, a encriptação de disco de dados só é suportada. Por isso, terá de adicionar um disco de dados utilizando um modelo Azure Resource Manager. Atualize o modelo de dados de disco aprovisionamento da seguinte forma:
 
-```Json
+```JSON
    
    "storageProfile": { 
             "imageReference": { 
@@ -136,7 +142,7 @@ Desde de conjunto de dimensionamento de máquina virtual Linux - encriptação d
 ```
  
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -153,7 +159,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Eis o comando da CLI equivalente para o fazer. Altere os valores nas instruções ' declare para os valores adequados. CLI suporta todos os outros parâmetros que suporta o comando do powershell acima.
+Seguem-se os comandos equivalentes do CLI do Azure para atualizar o modelo. Altere os valores nas instruções ' declare para os valores adequados. CLI do Azure suporta todos os parâmetros que suportam os comandos do PowerShell anteriores.
 
 ```CLI
 
@@ -173,17 +179,20 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-#### <a name="linux-data-disk-mounting"></a>Montagem de disco de dados de Linux
-Vamos continuar com a encriptação no conjunto de dimensionamento de máquina virtual do Linux, é necessário para se certificar de que o disco de dados foi adicionada corretamente se encontra instalado ou não. Início de sessão para a VM de Cluster do Linux e executar comandos LSBLK. O resultado deve mostrar esse disco de dados adicionados na coluna de ponto de montagem.
+### <a name="confirm-that-the-linux-data-disk-is-mounted"></a>Confirme que o disco de dados de Linux está montado
+Antes de continuar com a encriptação no conjunto de dimensionamento de máquina virtual Linux, certifique-se de que o disco de dados foi adicionada corretamente está montado. Inicie sessão para o cluster de Linux VM e execute o comando LSBLK. 
+
+O resultado deve mostrar o disco de dados foi adicionada uma coluna de ponto de montagem.
 
 
-#### <a name="deploy-application-to-linux-service-fabric-cluster"></a>Implementar a aplicação em cluster do Linux Service Fabric
-Siga os passos e a orientação para [implementar a aplicação no cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux)
+### <a name="deploy-an-application-to-the-linux-service-fabric-cluster"></a>Implementar uma aplicação para o cluster do Linux Service Fabric
+Siga os passos e a orientação para [implementar a aplicação no cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers-linux).
 
 
-#### <a name="enable-disk-encryption-for-service-fabric-linux-cluster-virtual-machine-scale-set-created-above"></a>Ativar a encriptação de disco para o conjunto de dimensionamento de máquina virtual de Cluster do Service Fabric Linux criado acima
+## <a name="enable-disk-encryption-for-a-virtual-machine-scale-set"></a>Ativar a encriptação de disco para um conjunto de dimensionamento de máquina virtual
+Ative a encriptação de disco para o conjunto de dimensionamento de máquina virtual que criou anteriormente para o cluster do Service Fabric Linux.
  
-```Powershell
+```PowerShell
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
@@ -201,11 +210,10 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 ```
 
-#### <a name="validate-if-disk-encryption-enabled-for-linux-virtual-machine-scale-set"></a>Confirme se a encriptação de disco ativada para o dimensionamento da máquina virtual Linux definido.
-Obter o estado de um conjunto de dimensionamento de toda a máquina virtual ou qualquer instância VM num conjunto de dimensionamento. Consulte os comandos abaixo.
-Além do utilizador pode iniciar sessão na VM do Linux clusters e execute o comando LSBLK. O resultado deve mostrar esse disco de dados adicionados na coluna de ponto de montagem e a coluna de tipo como Crypt para o disco de dados foi adicionado.
+## <a name="validate-that-disk-encryption-is-enabled-for-a-virtual-machine-scale-set"></a>Validar esse disco encriptação está ativada para um conjunto de dimensionamento de máquina virtual
+Utilize os seguintes comandos para obter o estado de um conjunto de dimensionamento de toda a máquina virtual ou qualquer instância VM num conjunto de dimensionamento. Também pode iniciar sessão para o cluster de Linux VM e execute o comando LSBLK. O resultado deve mostrar o disco de dados adicionados na coluna de ponto de montagem e `Type` coluna como `Crypt`.
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
@@ -223,10 +231,10 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 
 
 
-#### <a name="disable-disk-encryption-for-service-fabric-cluster-virtual-machine-scale-set"></a>Desativar a encriptação de disco de conjunto de dimensionamento de máquina virtual de Cluster do Service Fabric 
-Desativar a encriptação de disco aplica-se ao conjunto de dimensionamento de toda a máquina virtual e não por instância 
+## <a name="disable-disk-encryption-for-a-virtual-machine-scale-set"></a>Desativar a encriptação de disco para um conjunto de dimensionamento de máquina virtual 
+Se tiver de desativar a encriptação de disco para o conjunto para um cluster do Service Fabric Linux de dimensionamento de máquina virtual, utilize os seguintes comandos. A desativação da encriptação de disco aplica-se para o conjunto de dimensionamento de toda a máquina virtual e não por instância. 
 
-```Powershell
+```PowerShell
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
@@ -242,5 +250,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste momento, tiver um cluster seguro com como ativar/desativar a encriptação de disco de conjunto de dimensionamento de máquina virtual de Cluster do Linux Service Fabric. Em seguida, [encriptação para o Windows de disco](service-fabric-enable-azure-disk-encryption-windows.md) 
+Neste momento, tiver um cluster seguro e saber como ativar e desativar a encriptação de disco para um cluster do Service Fabric Linux. Em seguida, saiba mais sobre [encriptação de disco para o Windows](service-fabric-enable-azure-disk-encryption-windows.md). 
 

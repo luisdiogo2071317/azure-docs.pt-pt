@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796721"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751783"
 ---
 # <a name="understanding-policy-effects"></a>Compreender os efeitos da política
 
@@ -90,7 +90,7 @@ Exemplo 3: Único **campo/valor** emparelhe utilizando um [alias](policy-definit
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Exemplo: Avalia bases de dados do SQL Server para determinar se transparentDataE
 
 ## <a name="layering-policies"></a>Dispor políticas
 
-Um recurso pode ser afetado por vários atribuições. Estes atribuições podem estar no mesmo âmbito (recurso específico, grupo de recursos, subscrição ou grupo de gestão) ou em âmbitos diferentes. Cada um destes atribuições também é provável que tenha um efeito diferente definido. Independentemente disso, a condição e o efeito de cada política (atribuído diretamente ou como parte de uma iniciativa) independentemente é avaliada. Por exemplo, se a política 1 tem uma condição que restringe a localização para a subscrição A partir a ser criada no 'westus' com o efeito de negar e a política 2 e que restringe os recursos no recurso grupo B (que está na subscrição A) de que está a ser criada no 'eastus' com a auditoria efeito são ambos atribuídos, o resultado resultante seria:
+Um recurso pode ser afetado por vários atribuições. Estes atribuições podem estar no mesmo âmbito (recurso específico, grupo de recursos, subscrição ou grupo de gestão) ou em âmbitos diferentes. Cada um destes atribuições também é provável que tenha um efeito diferente definido. Independentemente disso, a condição e o efeito de cada política (atribuído diretamente ou como parte de uma iniciativa) independentemente é avaliada. Por exemplo, se a política 1 tem uma condição que restringe a localização do recurso para a subscrição A apenas seja criada no 'westus' com o efeito de negar e política 2 tem uma condição que restringe a localização do recurso para o grupo de recursos B (que está na subscrição A) para apenas ser criada no 'eastus' com o efeito de auditoria são atribuídos, o resultado resultante seria:
 
 - Qualquer recurso já se encontra num grupo de recursos B 'eastus' é compatível com a política de 2, mas marcada como não conforme a política de 1.
 - Qualquer recurso já se encontra num grupo de recursos B não 'eastus' será marcado como não conforme a política de 2 e iria também ser marcado como não compatível com a política 1 se não for 'westus'.
@@ -324,4 +324,4 @@ Como a cada atribuição é avaliada individualmente, não é uma oportunidade p
 
 Agora que tem uma compreensão mais aprofundada efeitos de definição de política, reveja os exemplos de política:
 
-- Reveja mais exemplos em [amostras de política do Azure](json-samples.md).
+- Veja mais exemplos nas [amostras do Azure Policy](json-samples.md).

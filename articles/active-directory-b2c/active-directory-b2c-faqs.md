@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710737"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938445"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -56,7 +56,7 @@ Não, pode alojar a aplicação em qualquer local (na nuvem ou no local). Tudo o
 Antes de o abrir 'Do Azure AD B2C' no menu do lado esquerdo do portal do Azure, tem de mudar para o diretório que pretende gerir.  Comutador diretórios clicando a sua identidade no canto superior direito do portal do Azure, em seguida, escolha um diretório na lista pendente que é apresentada.  Para um passo a passo com imagens, consulte [para navegar até ao Azure AD B2C definições](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Como personalizar mensagens de correio eletrónico de verificação (o conteúdo e a "de:" campo) enviado pelo Azure AD B2C?
-Pode utilizar o [corporativa funcionalidade](../active-directory/customize-branding.md) para personalizar o conteúdo das mensagens de correio eletrónico de verificação. Mais concretamente, podem ser personalizados estes dois elementos do e-mail:
+Pode utilizar o [corporativa funcionalidade](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo das mensagens de correio eletrónico de verificação. Mais concretamente, podem ser personalizados estes dois elementos do e-mail:
 
 * **Logótipo de faixa**: indicado no inferior direito.
 * **Cor de fundo**: indicado no topo.
@@ -86,10 +86,10 @@ Não, do Azure AD Connect não foi concebida para funcionar com o Azure AD B2C. 
 Não, por motivos de segurança, não não possível abrir as páginas do Azure AD B2C numa iFrame.  O nosso serviço comunica com o browser de modo a proibir iFrames.  A Comunidade de segurança em geral e a especificação do OAUTH2, recomenda-se contra a utilização de iFrames para experiências de identidade devido ao risco de jacking de clique.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C funciona com sistemas CRM como Microsoft Dynamics?
-Integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [configurar Portal de 365 Dynamics a utilizar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [configurar o Portal do Dynamics 365 para utilizar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C funcionam com o SharePoint no local 2016 ou anterior?
-O Azure AD B2C não destinam-se o SharePoint externo partilhar de parceiro cenário; consulte [do Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) em vez disso.
+O Azure AD B2C não destinam-se o SharePoint externo partilhar de parceiro cenário; consulte [do Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) em vez disso.
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Posso utilizar Azure AD B2C ou B2B para gerir identidades externas?
 Leia este artigo sobre [identidades externas](../active-directory/active-directory-b2b-compare-external-identities.md) para saber mais sobre a aplicar as funcionalidades adequadas para os cenários de identidade externas.

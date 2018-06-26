@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300599"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937623"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -96,7 +96,7 @@ Se registar dispositivos ao iniciar a importação em **não associadas disposit
 1. Os dispositivos selecionados serão movidos sob o modelo do respetivo dispositivo.
 
  >   [!NOTE] 
-    Depois de um dispositivo foi associado a um modelo não é possível alterar ou associado a outro modelo.
+    Depois de um dispositivo foi associado a um modelo não pode ser não associada ou associado a um modelo diferente.
 
 ## <a name="export-devices"></a>Dispositivos de exportação
 

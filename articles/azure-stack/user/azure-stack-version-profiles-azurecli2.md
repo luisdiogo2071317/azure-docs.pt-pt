@@ -10,22 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 3c80ce6e221acb8905c00e6178dd2fec1f8816af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938448"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utilize perfis de versão de API com o Azure CLI 2.0 na pilha do Azure
 
-Neste artigo, vamos ajudá-lo durante o processo de utilizar a interface de linha de comandos do Azure (CLI) para gerir os recursos do Azure pilha Development Kit do Linux e plataformas de cliente Mac. 
+Pode seguir os passos neste artigo para configurar o a Interface de linha de comandos de Azure (CLI) para gerir recursos do Kit de desenvolvimento de pilha do Azure a partir de plataformas de clientes Linux, Mac e Windows.
 
 ## <a name="install-cli"></a>Instalar CLI
 
-Em seguida, inicie sessão na estação de trabalho de desenvolvimento e instalar a CLI. Pilha do Azure requer a versão 2.0 do CLI do Azure. Pode instalar que utilizando os passos descritos no [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi concluída com êxito, abra um terminal ou uma janela de linha de comandos e execute o seguinte comando:
+Inicie sessão na estação de trabalho de desenvolvimento e instalar a CLI. Pilha do Azure requer a versão 2.0 do CLI do Azure. Pode instalar que utilizando os passos descritos no [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi concluída com êxito, abra um terminal ou uma janela de linha de comandos e execute o seguinte comando:
 
 ```azurecli
 az --version
@@ -35,27 +36,47 @@ Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes que estã
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC de pilha do Azure
 
-Obter o certificado de raiz da AC de pilha do Azure do operador de pilha do Azure e confiar nele. Para confiar no certificado de raiz de AC de pilha do Azure, anexe o certificado existente do Python. Se estiver a executar o CLI de uma máquina de Linux que é criada no ambiente de pilha do Azure, execute o seguinte comando bash:
+1. Obter o certificado de raiz de AC de pilha do Azure de [o operador de pilha do Azure](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC de pilha do Azure, anexe o certificado existente do Python.
+
+2. Localize a localização do certificado no seu computador. A localização pode variar, dependendo de onde instalou o Python. Terá de ter [pip](https://pip.pypa.io) e [certifi](https://pypi.org/project/certifi/) module instalada. Pode utilizar o seguinte comando do Python da linha de bash:
+
+  ```bash  
+    python -c "import certifi; print(certifi.where())"
+  ```
+
+  Tome nota da localização do certificado. Por exemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. O caminho específica dependerá do SO e a versão do Python que tenha instalado.
+
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Definir o caminho para uma máquina de desenvolvimento no interior da nuvem
+
+Se estiver a executar o CLI de uma máquina de Linux que é criada no ambiente de pilha do Azure, execute o seguinte comando de bash com o caminho para o seu certificado.
 
 ```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 ```
 
-Se estiver a executar o CLI de uma máquina fora do ambiente do Azure Sack, tem primeiro de configurar [conectividade VPN do Azure pilha](azure-stack-connect-azure-stack.md). Agora copie o certificado PEM que exportou anteriormente para a estação de trabalho de desenvolvimento e execute os comandos seguintes, dependendo do SO do seu desenvolvimento estação de trabalho.
+### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Definir o caminho para uma máquina de desenvolvimento fora da nuvem
 
-### <a name="linux"></a>Linux
+Se estiver a executar o CLI de uma máquina **fora** o ambiente de pilha do Azure:  
+
+1. Tem de configurar [conectividade VPN do Azure pilha](azure-stack-connect-azure-stack.md).
+
+2. Copie o certificado PEM que recebeu do operador de pilha do Azure e tome nota da localização do ficheiro (PATH_TO_PEM_FILE).
+
+3. Execute os comandos seguintes, dependendo das final no SO do seu desenvolvimento estação de trabalho.
+
+#### <a name="linux"></a>Linux
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="windows"></a>Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,14 +202,14 @@ Se o grupo de recursos é criado com êxito, o comando anterior produz as seguin
 ## <a name="known-issues"></a>Problemas conhecidos
 Existem alguns problemas conhecidos que deve ter em mente quando utilizar a CLI na pilha do Azure:
 
-* Revertidos de modo interativo CLI o `az interactive` comando ainda não é suportado na pilha do Azure.
-* Para obter a lista de imagens da máquina virtual disponíveis na pilha do Azure, utilize o `az vm images list --all` comando, em vez do `az vm image list` comando. Especificar o `--all` opção certifica-se de que a resposta devolve apenas as imagens que estão disponíveis no seu ambiente de pilha do Azure. 
-* Aliases de imagem de máquina virtual que estão disponíveis no Azure podem não ser aplicáveis a pilha do Azure. Quando utilizar imagens da máquina virtual, tem de utilizar o parâmetro URN completo (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) em vez do alias de imagem. Este URN deve corresponder às especificações de imagem derivado o `az vm images list` comando.
-* Por predefinição, o CLI 2.0 utiliza "Standard_DS1_v2" como o tamanho predefinido da imagem de máquina virtual. No entanto, este tamanho não está ainda disponível na pilha do Azure, por isso, tem de especificar o `--size` parâmetro explicitamente quando criar uma máquina virtual. Pode obter a lista de tamanhos de máquinas virtuais que estão disponíveis na pilha do Azure utilizando o `az vm list-sizes --location <locationName>` comando.
-
+ - Revertidos de modo interativo CLI o `az interactive` comando ainda não é suportado na pilha do Azure.
+ - Para obter a lista de imagens da máquina virtual disponíveis na pilha do Azure, utilize o `az vm images list --all` comando, em vez do `az vm image list` comando. Especificar o `--all` opção certifica-se de que a resposta devolve apenas as imagens que estão disponíveis no seu ambiente de pilha do Azure.
+ - Aliases de imagem de máquina virtual que estão disponíveis no Azure podem não ser aplicáveis a pilha do Azure. Quando utilizar imagens da máquina virtual, tem de utilizar o parâmetro URN completo (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) em vez do alias de imagem. Este URN deve corresponder às especificações de imagem derivado o `az vm images list` comando.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
+
+[Ativar o CLI do Azure para utilizadores de pilha do Azure (operador)](..\azure-stack-cli-admin.md)
 
 [Gerir permissões de utilizador](azure-stack-manage-permissions.md)

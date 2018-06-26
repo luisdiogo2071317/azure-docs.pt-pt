@@ -1,5 +1,5 @@
 ---
-title: Fazer uma cópia de segurança de um farm do SharePoint na pilha do Azure para o Azure
+title: Fazer cópias de segurança de um farm do SharePoint na pilha do Azure
 description: Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança e restaurar os dados do SharePoint na pilha do Azure. Este artigo fornece as informações para configurar o farm do SharePoint para que os dados pretendido podem ser armazenados no Azure. Pode restaurar dados de SharePoint protegidos do disco ou a partir do Azure.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249413"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751902"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Fazer uma cópia de segurança de um farm do SharePoint na pilha do Azure para o Azure
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer cópias de segurança de um farm do SharePoint na pilha do Azure
 A cópia de segurança um farm do SharePoint na pilha do Azure para o Microsoft Azure utilizando o servidor de cópia de segurança do Azure (MABS) da Microsoft muito da mesma forma que a cópia de segurança de outras origens de dados. Cópia de segurança do Azure oferece flexibilidade na agenda de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Também fornece a capacidade para armazenar cópias de disco local para rápido objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para a retenção de longo prazo, económica.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões suportadas e relacionadas com cenários de proteção do SharePoint
-O Backup do Azure para o DPM suporta os seguintes cenários:
+Cópia de segurança do Azure para MABS suporta os seguintes cenários:
 
 | Carga de trabalho | Versão | Implementação de SharePoint | Proteção e recuperação |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Para cada 10 milhões de itens no farm, tem de existir pelo menos 2 GB de espaç
 Servidor de cópia de segurança do Azure é executado como uma conta LocalSystem. Fazer cópias de segurança de bases de dados do SQL Server, MABS necessita de privilégios sysadmin nessa conta para o servidor que está a executar o SQL Server. Definir NT AUTHORITY\SYSTEM *sysadmin* no servidor que está a executar o SQL Server antes de faça uma cópia de.
 
 Se o farm do SharePoint tem bases de dados do SQL Server configuradas com aliases do SQL Server, instale os componentes de cliente do SQL Server no servidor Web front-end que MABS irá proteger.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Enquanto o desempenho depende de vários fatores, tais como o tamanho do farm do SharePoint, um MABS pode proteger um farm do SharePoint 25 TB como orientação geral.
 
 ### <a name="whats-not-supported"></a>O que não é suportado
 * MABS que protege um farm do SharePoint não protege os índices de pesquisa ou bases de dados de serviço de aplicações. Terá de configurar a proteção destas bases de dados em separado.

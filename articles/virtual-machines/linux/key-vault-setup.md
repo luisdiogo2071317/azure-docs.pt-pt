@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 6bd039225062ac6010d432b930f601fe4678ed2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eca03a221014aafe89f07842b5ba9cfed0176faf
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907156"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936514"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Como configurar o Cofre de chaves para máquinas virtuais com o 2.0 CLI do Azure
 
-Na pilha do Azure Resource Manager, os segredos/certificados são modelados como recursos que são fornecidos pelo Cofre de chaves. Para saber mais sobre o Cofre de chaves do Azure, consulte o artigo [que é o Cofre de chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que o Cofre de chaves ser utilizado com VMs do Azure Resource Manager, o *EnabledForDeployment* propriedade no Cofre de chaves tem de ser definida como true. Este artigo mostra como configurar o Cofre de chaves para utilização com máquinas virtuais do Azure (VMs) com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Na pilha do Azure Resource Manager, os segredos/certificados são modelados como recursos que são fornecidos pelo Cofre de chaves. Para saber mais sobre o Cofre de chaves do Azure, consulte o artigo [que é o Cofre de chaves do Azure?](../../key-vault/key-vault-whatis.md) Para que o Cofre de chaves ser utilizado com VMs do Azure Resource Manager, o *EnabledForDeployment* propriedade no Cofre de chaves tem de ser definida como true. Este artigo mostra como configurar o Cofre de chaves para utilização com máquinas virtuais do Azure (VMs) com o 2.0 CLI do Azure. 
 
 Para executar estes passos, terá da versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az_login).
 

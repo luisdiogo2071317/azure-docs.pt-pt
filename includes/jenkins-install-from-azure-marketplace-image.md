@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957554"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943475"
 ---
 1. No seu browser, abra o [imagem do Azure Marketplace para Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -33,7 +33,7 @@ ms.locfileid: "29957554"
 1. No **Noções básicas** separador, especifique os valores seguintes:
 
     - **Nome** -introduza `Jenkins`.
-    - **Nome de utilizador** -introduza o nome de utilizador a utilizar quando iniciar sessão na máquina virtual no qual Jenkins está em execução. O nome de utilizador tem de cumprir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Nome de utilizador** -introduza o nome de utilizador a utilizar quando o início de sessão na máquina virtual no qual Jenkins está em execução. O nome de utilizador tem de cumprir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
     - **Tipo de autenticação** - selecione **chave pública SSH**.
     - **A chave pública SSH** -copiar e colar uma chave pública RSA no formato de linha única (começadas `ssh-rsa`) ou o formato PEM com várias linha. Pode gerar chaves SSH utilizando ssh-keygen no Linux e macOS ou PuTTYGen no Windows. Para obter mais informações sobre chaves SSH e o Azure, consulte o artigo [como chaves de utilizar o SSH com o Windows no Azure](/azure/virtual-machines/linux/ssh-from-windows).
     - **Subscrição** -selecionar a subscrição do Azure na qual pretende instalar Jenkins.

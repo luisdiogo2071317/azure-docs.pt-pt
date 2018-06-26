@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c10a6367f07bf66f7a0a8968022881b3c616fb74
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205608"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943560"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
@@ -71,7 +71,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode iniciar sessão sua aplicação
-Por predefinição quando criar a aplicação criada por este guia, a aplicação irá aceitar sessão ins do pessoal contas (incluindo outlook.com, live.com e outros), bem como funcionam contas escolares ou profissionais de qualquer da empresa ou organização que tem integrado com o Azure Active Directory. Esta é uma opção recomendada para aplicações SaaS.
+Por predefinição quando criar a aplicação criada por este guia, a aplicação irá aceitar inícios de sessão de contas pessoais (incluindo outlook.com, live.com e outros), bem como o trabalho contas escolares ou profissionais de qualquer da empresa ou organização que tem integrado com o Azure Active Directory. Esta é uma opção recomendada para aplicações SaaS.
 
 Para restringir o início de sessão de acesso de utilizadores para a sua aplicação, estão disponíveis várias opções:
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c01f986bfe3e6a3162988056a268423e07f429bf
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301155"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750277"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Expandir a alertas de análise de registos para alertas do Azure
-Até recentemente, Log Analytics do Azure incluída as suas próprias funcionalidades de alerta, o que foi proativamente notificá-lo de condições com base nos dados de análise de registos. Gerido regras de alertas no [portal do Microsoft Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). A nova experiência de alertas tem agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** no Monitor do Azure no portal do Azure e suporta a alertas de atividade registos, métricas e registos de análise de registos e Azure Application Insights. 
+Até recentemente, Log Analytics do Azure incluída as suas próprias funcionalidades de alerta, o que foi proativamente notificá-lo de condições com base nos dados de análise de registos. Gerido regras de alertas no portal do Microsoft Operations Management Suite. A nova experiência de alertas tem agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** no Monitor do Azure no portal do Azure e suporta a alertas de atividade registos, métricas e registos de análise de registos e Azure Application Insights. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Vantagens de expandir os alertas
 Existem várias vantagens de criar e gerir alertas no portal do Azure, tais como:

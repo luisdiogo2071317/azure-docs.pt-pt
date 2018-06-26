@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 23ace9f643596c4519014f370cf0142540724be6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7751bd1b309333d5ef40530b0fa499a42a57cd1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635445"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752253"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o escalão de IoT Hub à direita para a sua solução
 
@@ -53,34 +53,34 @@ A diferença no capacidades suportadas entre os escalões básicos e padrão de 
 
 | API | Escalão Basic | Escalão Standard |
 | --- | ---------- | ------------- |
-| [Eliminar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Sim | Sim |
-| [Que o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Sim | Sim |
+| [Eliminar o dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Sim | Sim |
+| [Que o dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Sim | Sim |
 | Eliminar o módulo | Sim | Sim |
 | Obter módulo | Sim | Sim |
-| [Obter estatísticas de registo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Sim | Sim |
-| [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Sim | Sim |
+| [Obter estatísticas de registo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sim | Sim |
+| [Obter estatísticas de serviços](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sim | Sim |
 | [Colocar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sim | Sim |
 | Coloque o módulo | Sim | Sim |
 | [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sim | Sim |
 | Módulos de consulta | Sim | Sim |
-| [Criar o URI de SAS do carregamento de ficheiros](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Sim | Sim |
-| [Receber notificações de dispositivo vinculado](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Sim | Sim |
-| [Enviar o evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Sim | Sim |
+| [Criar o URI de SAS do carregamento de ficheiros](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sim | Sim |
+| [Receber notificações de dispositivo vinculado](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sim | Sim |
+| [Enviar o evento de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Sim | Sim |
 | Enviar eventos de módulo | Sim | Sim |
-| [Atualizar o estado de carregamento de ficheiros](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sim, exceto as capacidades de limite de IoT | Sim | 
-| [Remover da fila de comando](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Sim |
-| [Obter o dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Sim |
+| [Atualizar o estado de carregamento de ficheiros](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Sim | Sim |
+| [Operação de dispositivo em massa](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Sim, exceto as capacidades de limite de IoT | Sim | 
+| [Remover da fila de comando](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Sim |
+| [Obter o dispositivo duplo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Sim |
 | Obter duplo de módulo |   | Sim |
-| [Invocar o método de dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Sim |
-| [Atualizar o dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Sim | 
+| [Invocar o método de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Sim |
+| [Atualizar o dispositivo duplo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Sim | 
 | Atualizar duplo de módulo |   | Sim | 
-| [Abandonar o dispositivo vinculado notificação](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Sim |
-| [Dispositivo vinculado notificação](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Sim |
-| [Cancelar a tarefa](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Sim |
-| [A tarefa de criação](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | Sim |
-| [Obter a tarefa](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | Sim |
-| [Tarefas de consulta](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | Sim |
+| [Abandonar o dispositivo vinculado notificação](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Sim |
+| [Dispositivo vinculado notificação](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Sim |
+| [Cancelar a tarefa](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Sim |
+| [A tarefa de criação](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Sim |
+| [Obter a tarefa](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Sim |
+| [Tarefas de consulta](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Sim |
 
 ## <a name="message-throughput"></a>Débito de mensagem
 

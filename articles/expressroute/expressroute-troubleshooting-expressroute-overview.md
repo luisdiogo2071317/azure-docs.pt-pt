@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185990"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753456"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 O ExpressRoute, que expande uma rede no local para a nuvem da Microsoft através de uma ligação privada que é facilitada por um fornecedor de conectividade, envolve as zonas de rede distintos três seguintes:
 
 -   Rede de cliente
 -   Rede de fornecedor
--   Microsoft Datacenter
+-   Centro de dados do Microsoft
 
 O objetivo deste documento é ajudar o utilizador identifique onde (ou mesmo) existe um problema de conectividade e, em que zona, deste modo, para procurar o ressarcimento de ajuda da equipa adequada para resolver o problema. Se necessitar de suporte da Microsoft para resolver um problema, abra um pedido de suporte com [Microsoft Support][Support].
 
@@ -169,12 +169,12 @@ Para confirmar se um circuito ExpressRoute está operacional, preste especial at
 >
 
 ## <a name="validate-peering-configuration"></a>Validar a configuração do Peering
-Depois do fornecedor de serviços foi concluído o aprovisionamento do circuito do ExpressRoute, uma configuração de encaminhamento é possível criar o circuito de ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito de ExpressRoute pode ter um, dois ou três contextos de encaminhamento ativados: Azure privado peering (o tráfego para redes virtuais privadas no Azure), Azure público peering (para endereços IP públicos no Azure) e o Microsoft peering (tráfego ao Office 365 e Dynamics 365). Para obter mais informações sobre como criar e modificar a configuração de encaminhamento, consulte o artigo [criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].
+Depois do fornecedor de serviços foi concluído o aprovisionamento do circuito do ExpressRoute, uma configuração de encaminhamento é possível criar o circuito de ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito de ExpressRoute pode ter um, dois ou três contextos de encaminhamento ativados: o peering privado do Azure (o tráfego para redes virtuais privadas no Azure), o peering público do Azure (o tráfego para endereços IP públicos no Azure) e peering da Microsoft (o tráfego para o Office 365 e Dynamics 365). Para obter mais informações sobre como criar e modificar a configuração de encaminhamento, consulte o artigo [criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verificação através do portal do Azure
 
 >[!NOTE]
->Se camada 3 é fornecida pelo fornecedor de serviço e os peerings em branco no portal, atualize a configuração do circuito com o botão de atualização no protal. Esta operação será aplicada a configuração de encaminhamento correta no seu circuito. 
+>Se camada 3 é fornecida pelo fornecedor de serviço e os peerings em branco no portal, atualize a configuração do circuito com o botão de atualização no portal. Esta operação será aplicada a configuração de encaminhamento correta no seu circuito. 
 >
 >
 
@@ -301,7 +301,7 @@ Um exemplo de resposta para o comando, no cenário com êxito:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Da mesma forma, pode verificar a tabela de ARP do MSEE no *primário*/*secundário* caminho, para *privada*/*pública*/*Microsoft* peerings.
+Da mesma forma, pode verificar a tabela de ARP do MSEE no *primário*/*secundário* caminho, para *privada*/*público*  / *Microsoft* peerings.
 
 O exemplo seguinte mostra que a resposta do comando para um peering não existe.
 
@@ -359,7 +359,7 @@ Um resultado de êxito de exemplo para o comando é:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Da mesma forma, pode verificar a tabela de encaminhamento do MSEE no *primário*/*secundário* caminho, para *privada*/*pública*/*Microsoft* um contexto de peering.
+Da mesma forma, pode verificar a tabela de encaminhamento do MSEE no *primário*/*secundário* caminho, para *privada* /  *Pública*/*Microsoft* um contexto de peering.
 
 O exemplo seguinte mostra que a resposta do comando para um peering não existe:
 
@@ -388,7 +388,7 @@ Um resultado de exemplo do comando para um peering inexistente é:
 ## <a name="next-steps"></a>Próximos Passos
 Para obter mais informações ou ajuda, consulte as ligações seguintes:
 
-- [Microsoft Support][Support]
+- [Suporte da Microsoft][Support]
 - [Criar e modificar um circuito do ExpressRoute][CreateCircuit]
 - [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering]
 

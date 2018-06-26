@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885273"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752926"
 ---
 # <a name="management-solutions-in-azure"></a>Soluções de gestão no Azure
 As soluções de gestão tirar partido dos serviços do Azure para fornecer informações adicionais sobre a operação de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral das soluções de gestão no Azure e detalhes sobre como utilizar e instalá-los.
@@ -52,21 +52,17 @@ Clique no nome de uma solução para abrir a página de resumo. Esta página apr
 ![Propriedades de solução](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Encontre soluções de gestão
-Pode procurar e instalar as soluções de gestão disponíveis da Microsoft e de parceiros no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace). Efetuar uma [procurar *soluções de gestão* ](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) para filtrar para soluções de gestão e, em seguida, clique em qualquer item para obter mais detalhes.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Instalar uma solução de gestão
+As soluções de gestão da Microsoft e de parceiros estão disponíveis a partir de [Azure Marketplace](https://azuremarketplace.microsoft.com). Pode procurar soluções disponíveis e instalá-los utilizando o procedimento seguinte.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Instalar uma solução de gestão do Azure Marketplace
-Pode utilizar qualquer um dos seguintes métodos para localizar e iniciar a instalação de uma solução de gestão.
+1. Do [lista de soluções para a sua subscrição](#list-installed-management-solutions), clique em **adicionar**. 
+1. À direita do **soluções de gestão**, clique em **mais**. 
+1. Localize a solução de gestão que pretende e leia a descrição.
+1. Clique em **criar** para iniciar o processo de instalação.
+1. Quando é iniciado o processo de instalação, está a pedido para fornecer configuração necessárias que varia de cada solução. Todos eles tem de selecionar uma área de trabalho de análise de registos onde será instalada a solução e onde serão recolhidos os respetivos dados. 
 
-- Clique em **obtê-lo agora** numa solução de gestão no [Azure Marketplace](#find-management-solutions).
-- Do [lista de soluções para a sua subscrição](#list-installed-management-solutions), clique em **adicionar**. À direita do **soluções de gestão**, clique em **mais**. Localize a solução de gestão que pretende e clique em **criar**.
-- No portal do Azure, selecione **crie um recurso** > **monitorização + gestão** > **ver todos os**. À direita do **soluções de gestão**, clique em **mais**. Localize a solução de gestão que pretende e clique em **criar**.
-
-Quando é iniciado o processo de instalação, está a pedido para fornecer configuração necessárias que varia de cada solução. Todos eles tem de selecionar uma área de trabalho de análise de registos onde será instalada a solução e onde serão recolhidos os respetivos dados. Também poderá ter de [especificar uma conta de automatização](#log-analytics-workspace-and-automation-account) se for necessário, a solução.
+![Instalar uma solução](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Instalar uma solução da Comunidade
 Os membros da Comunidade podem submeter soluções de gestão de modelos de início rápido do Azure. Pode instalar estas soluções diretamente ou transferi-los modelos para instalação posterior.

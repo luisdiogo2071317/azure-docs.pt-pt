@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364374"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752293"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Gestão de segurança do Azure e a descrição geral da monitorização
 O Azure oferece mecanismos de segurança para ajudar na gestão e monitorização do cloud services do Azure e máquinas virtuais (VMs). Este artigo fornece uma descrição geral destas funcionalidades de segurança de núcleo e serviços. São fornecidas hiperligações para artigos que fornecer detalhes de cada, pelo que pode saber mais.
@@ -39,7 +39,7 @@ Controlo de acesso baseado em funções (RBAC) permite a gestão de acesso detal
 
 Saiba mais:
 
-* [Blogue de equipa do Active Directory em RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [Blogue de equipa do Active Directory em RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware

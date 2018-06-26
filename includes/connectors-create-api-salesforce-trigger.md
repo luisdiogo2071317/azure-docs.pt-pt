@@ -1,7 +1,7 @@
 Esta passagem, irá aprender a utilizar o **Salesforce - quando é criado um objecto** trigger para iniciar um fluxo de trabalho de aplicação lógica, quando é criado um novo fabrico no Salesforce.
 
 > [!NOTE]
-> Obter-á pedido para iniciar sessão na sua conta do Salesforce, se não tiver já criado uma *ligação* Salesforce.  
+> Obter-á pedido para iniciar sessão sua conta do Salesforce se não tiver já criado uma *ligação* Salesforce.  
 > 
 > 
 

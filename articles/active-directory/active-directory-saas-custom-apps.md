@@ -15,20 +15,20 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: aeb67a73a69684b89609c6b04160357b244f62b7
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293199"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754577"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar início de sessão único para aplicações que não estejam na Galeria de aplicações do Azure Active Directory
 
-Este artigo é sobre uma funcionalidade que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview no 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](active-directory-whatis.md). Se estiver em vez disso, a procurar orientações para programadores sobre como integrar aplicações personalizadas com o Azure AD através do código, consulte o artigo [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
+Este artigo é sobre uma funcionalidade que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview no 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Se estiver em vez disso, a procurar orientações para programadores sobre como integrar aplicações personalizadas com o Azure AD através do código, consulte o artigo [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 
 Galeria de aplicações do Azure Active Directory fornece uma lista de aplicações que se sabe suportarem um formulário de início de sessão no Azure Active Directory, conforme descrito em [neste artigo](manage-apps/what-is-single-sign-on.md). Uma vez (como um IT especialista em integrador na sua organização) encontrar a aplicação que pretende ligar, pode começar a utilizar seguindo as instruções passo a passo apresentadas no portal do Azure para ativar o início de sessão único.
 
-Clientes com [Azure Active Directory Premium](active-directory-whatis.md) licença também obter estas capacidades adicionais:
+Clientes com [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) licença também obter estas capacidades adicionais:
 
 * Integração de self-service de qualquer aplicação que suporta SAML 2.0 fornecedores de identidade (iniciado por SP ou iniciadas por IdP)
 * Integração de self-service de qualquer aplicação web que tem um baseado em HTML página de início de sessão utilizando [SSO baseada em palavra-passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
@@ -37,7 +37,7 @@ Clientes com [Azure Active Directory Premium](active-directory-whatis.md) licen�
 
 Isto pode incluir não apenas aplicações de SaaS que utilizar, mas tem não ainda foi integrada para a Galeria de aplicações do Azure AD, mas as aplicações web de terceiros que tenha implementado organização servidores que controlar, ou na nuvem ou no local.
 
-Estas capacidades, também conhecidas como *modelos de integração de aplicação*, forneça pontos de ligação baseada em normas para aplicações que suportam SAML, SCIM ou autenticação baseada em formulários e incluem opções flexíveis e as definições de compatibilidade com um número abrangente de aplicações. 
+Estas capacidades, também conhecidas como *modelos de integração de aplicação*, forneça pontos de ligação baseada em normas para aplicações que suportam SAML, SCIM ou autenticação baseada em formulários e incluem opções flexíveis e definições para compatibilidade com um número abrangente de aplicações. 
 
 ## <a name="adding-an-unlisted-application"></a>Adicionar uma aplicação não listada
 Para ligar uma aplicação utilizando um modelo de integração de aplicações, inicie sessão no portal do Azure com a sua conta de administrador do Azure Active Directory. Navegue para o **do Active Directory > aplicações da empresa > nova aplicação > aplicação Galeria não** secção, selecione **adicionar**e, em seguida, **adicionar uma aplicação a partir da Galeria** .
@@ -148,18 +148,7 @@ Atribuição de um utilizador irá permitir que o Azure AD para emitir um token 
 
 ### <a name="test-the-saml-application"></a>Testar a aplicação de SAML
 
-Antes de testar a aplicação de SAML, tem de ter configurar a aplicação com o Azure AD e atribuídos a utilizadores ou grupos à aplicação.
-
-  ![Testes](./media/active-directory-saas-custom-apps/testing.png)
-
-Página início de sessão único, clique em **definições de teste SAML** na secção de URLs e domínio. Esta ação abre um painel de conteúdo com instruções sobre como testar a aplicação.
-
-1. Inicie sessão aplicação. Se a aplicação está configurada como serviço iniciadas por fornecedor-início de sessão único, são redirecionados para a URL de início de início de sessão único em que pode iniciar o início de sessão. Se a aplicação está configurada como identidade iniciadas por fornecedor-início de sessão único, em seguida, que é assinados sessão à aplicação.
-2.  Se vir qualquer erro na sua página de início de sessão da empresa, copie o erro e voltar para o Azure AD único início de sessão no painel de conteúdo de teste. Cole o erro para a caixa e clique em **obter os passos de resolução**. Se o erro na página da aplicação, terá de contactar o fornecedor da aplicação e partilhar a sua configuração no Azure AD para validar os valores. 
-3.  Com base sobre o erro, o Azure AD fornece os passos específicos sobre como resolver o problema.
-
-Para obter mais informações, consulte [como depurar baseados em SAML-início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
-
+Antes de testar a aplicação de SAML, tem de ter configurar a aplicação com o Azure AD e atribuídos a utilizadores ou grupos à aplicação. Para testar a aplicação de SAML, consulte [como depurar baseados em SAML-início de sessão único para aplicações no Azure Active Directory](develop/active-directory-saml-debugging.md).
 
 ## <a name="password-single-sign-on"></a>Palavra-passe-início de sessão único
 

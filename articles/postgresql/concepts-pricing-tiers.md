@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: f4fe04b972cdd3d4f78a139ce5554ee7b6774d8a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319321"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753409"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -81,13 +81,13 @@ O armazenamento que Aprovisiona é a quantidade da capacidade de armazenamento d
 | Tipo de armazenamento | Armazenamento padrão do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho de armazenamento | 5 GB até 1 TB | 5 GB até 4 TB | 5 GB até 4 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS | IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 7500 IOPS |
+| IOPS | Variável |IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 6000 IOPS | IOPS 3GB<br/>Min 100 IOPS<br/>Máximo de 6000 IOPS |
 
 Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornecer uma garantia IOPS. O objetivo geral e escalões de preço de otimização de memória, o IOPS dimensionar com o tamanho de aprovisionamento de armazenamento numa proporção de 3:1.
 
 Pode monitorizar o consumo de e/s no portal do Azure ou através da utilização de comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, a percentagem de armazenamento, armazenamento utilizado e percentagem de e/s](concepts-monitoring.md).
 
-### <a name="reaching-the-store-limit"></a>Atingir o limite de arquivo
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
 O servidor está marcado como só de leitura quando a quantidade de espaço de armazenamento livre atingir inferior a 5 GB ou 5% de armazenamento aprovisionado, que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real passa pela 95 GB, o servidor está marcado como só de leitura. Em alternativa, se tiverem aprovisionadas 5 GB de armazenamento, o servidor está marcado como só de leitura quando o espaço de armazenamento livre atinge menos de 250 MB.  
 

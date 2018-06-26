@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248899"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753358"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -42,18 +42,9 @@ Servidor de cópia de segurança do Azure protege as seguintes cargas de trabalh
 | SQL Server 2016 | Base de Dados |
 | SQL Server 2014 | Base de Dados |
 | SQL Server 2012 SP1 | Base de Dados |
+| SharePoint 2016 | Farm, base de dados, front-end, servidor web |
 | SharePoint 2013 | Farm, base de dados, front-end, servidor web |
 | O SharePoint 2010 | Farm, base de dados, front-end, servidor web |
-
-
-### <a name="host-vs-guest-backup"></a>Vs convidado cópia de segurança do anfitrião
-
-Servidor de cópia de segurança do Azure efetua anfitrião ou ao nível do convidado cópias de segurança de máquinas virtuais. Ao nível do anfitrião, o agente do Backup do Azure está instalado na máquina virtual ou cluster e protege a toda a máquina virtual e ficheiros de dados em execução no anfitrião. Ao nível do convidado, o agente do Backup do Azure está instalado em cada máquina virtual e protege a carga de trabalho presente nessa máquina.
-
-Ambos os métodos de ter os respetivos os profissionais de TI e contras:
-
-   * Cópias de segurança ao nível do anfitrião de trabalho, independentemente do SO em execução em máquinas de convidados e não necessitam do agente do Backup do Azure ser instalado em cada VM. Se implementar cópias de segurança ao nível do anfitrião, recuperar uma máquina virtual inteira, ou ficheiros e pastas (recuperação ao nível do item).
-   * Cópia de segurança ao nível do convidado é vantajoso para proteger cargas de trabalho específicas em execução numa máquina virtual. Ao nível do anfitrião, pode recuperar toda a VM ou ficheiros específicos, mas não recuperar os dados no contexto de uma aplicação específica. Por exemplo, para recuperar ficheiros específicos de SharePoint a partir de uma máquina virtual protegida, terá de proteger a VM ao nível do convidado. Se pretender proteger os dados armazenados em discos pass-through, tem de utilizar cópias de segurança ao nível do convidado. Pass-through permite que a máquina virtual para aceder diretamente ao armazenamento e não armazena dados de volumes virtuais num ficheiro VHD.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Pré-requisitos para o ambiente de servidor de cópia de segurança do Azure
 
@@ -84,13 +75,10 @@ Armazenar dados de cópia de segurança no Azure reduz a infraestrutura de cópi
 
 Para armazenar dados de cópia de segurança no Azure, criar ou utilizar um cofre dos serviços de recuperação. Quando preparar a cópia de segurança a carga de trabalho do servidor de cópia de segurança do Azure, [configurar o Cofre dos serviços de recuperação](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Depois de configurar, sempre que é executada uma tarefa de cópia de segurança, é criado um ponto de recuperação no cofre. Cada cofre dos serviços de recuperação contém até 9999 pontos de recuperação. Dependendo do número de pontos de recuperação criados e quanto são mantidos, pode manter os dados de cópia de segurança para muitos anos. Por exemplo, pode criar pontos de recuperação mensal e manter os mesmos cinco anos.
  
-### <a name="using-sql-server"></a>Utilizar o SQL Server
-Se pretender utilizar um SQL Server remoto para a base de dados do servidor de cópia de segurança do Azure, selecione apenas uma VM de pilha do Azure com o SQL Server.
-
 ### <a name="scaling-deployment"></a>Implementação de dimensionamento
 Se pretender dimensionar a sua implantação, tem as seguintes opções:
   - Aumentar verticalmente - aumentar o tamanho da máquina virtual do servidor de cópia de segurança do Azure, de uma série a série de D e aumentar o armazenamento local [pelas instruções de máquina virtual do Azure pilha](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Descarregar dados - envia os dados antigos para servidor de cópia de segurança do Azure e mantém apenas os dados mais recentes no armazenamento ligado ao servidor de cópia de segurança do Azure.
+  - Descarregar dados - envia os dados antigos para o Azure e mantém apenas os dados mais recentes no armazenamento ligado ao servidor de cópia de segurança do Azure.
   - Ampliar - adicionar mais servidores de cópia de segurança do Azure para proteger as cargas de trabalho.
 
 ### <a name="net-framework"></a>.NET framework
@@ -216,7 +204,7 @@ No passo anterior, em que clicou **concluir** para a fase de extração de sair 
 
 ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Servidor de cópia de segurança do Azure partilha código com o Data Protection Manager. Verá referências a Data Protection Manager e o DPM no instalador do servidor de cópia de segurança do Azure. Apesar do servidor de cópia de segurança do Azure e do Data Protection Manager são separados produtos, estes produtos estão estreitamente relacionadas com. Na documentação do servidor de cópia de segurança do Azure, todas as referências ao Data Protection Manager e o DPM se aplicam ao servidor de cópia de segurança do Azure.
+Servidor de cópia de segurança do Azure partilha código com o Data Protection Manager. Verá referências a Data Protection Manager e o DPM no instalador do servidor de cópia de segurança do Azure. Apesar do servidor de cópia de segurança do Azure e do Data Protection Manager são separados produtos, estes produtos estão estreitamente relacionadas com.
 
 1. Para iniciar o Assistente de configuração, clique em **servidor de cópia de segurança do Microsoft Azure**.
 
@@ -322,7 +310,7 @@ Servidor de cópia de segurança do Azure partilha código com o Data Protection
 
 ## <a name="add-backup-storage"></a>Adicionar armazenamento de cópia de segurança
 
-A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre a adição de discos, consulte [configurar agrupamentos de armazenamento e armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
+A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre a adição de discos, consulte [armazenamento de cópia de segurança moderna adicionar](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Terá de adicionar o armazenamento de cópia de segurança mesmo que se pretende enviar dados para o Azure. A arquitetura de servidor de cópia de segurança do Azure, os serviços de recuperação cofre detém o *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança primeiro (e obrigatória).
@@ -372,10 +360,10 @@ Também pode consultar [perguntas mais frequentes relacionadas com a cópia de s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O artigo [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx), contém informações sobre as configurações suportadas do servidor de cópia de segurança do Azure.
+O artigo [preparar o ambiente para o DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contém informações sobre as configurações suportadas do servidor de cópia de segurança do Azure.
 
 Pode utilizar os seguintes artigos para obter uma compreensão mais aprofundada da proteção de carga de trabalho com o servidor de cópia de segurança do Microsoft Azure.
 
-- [Cópia de segurança do SQL Server](backup-azure-backup-sql.md)
-- [Cópia de segurança do SharePoint server](backup-azure-backup-sharepoint.md)
+- [Cópia de segurança do SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Cópia de segurança do SharePoint server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Cópia de segurança do servidor alternativo](backup-azure-alternate-dpm-server.md)

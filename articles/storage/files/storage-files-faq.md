@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294095"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751860"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -227,7 +227,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 
 * <a id="data-compliance-policies"></a>
 **As políticas de conformidade de dados suporta ficheiros do Azure?**  
-   Ficheiros do Azure é executada sobre a mesma arquitetura de armazenamento que é utilizada nos outros serviços de armazenamento no armazenamento do Azure. Ficheiros do Azure aplicam-se as mesmas políticas de conformidade de dados que são utilizadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a compatibilidade de dados do Storage do Azure, pode transferir e consulte o [documento de proteção de dados do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)e vá para o [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Ficheiros do Azure é executada sobre a mesma arquitetura de armazenamento que é utilizada nos outros serviços de armazenamento no armazenamento do Azure. Ficheiros do Azure aplicam-se as mesmas políticas de conformidade de dados que são utilizadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a compatibilidade de dados do Storage do Azure, pode transferir e consulte o [documento de proteção de dados do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>

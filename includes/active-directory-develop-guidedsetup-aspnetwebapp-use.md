@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98f3372b48b004c0067a085bbf130bc4e5144437
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205591"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943594"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Adicionar um controlador para processar pedidos de início de sessão e fim de sessão
 
@@ -78,7 +78,7 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Guide</title>
+        <title>Sign in with Microsoft Guide</title>
     </head>
     <body>
     @if (!Request.IsAuthenticated)
@@ -114,7 +114,7 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais Informações
-> Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Início de sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais início de sessão botões, visite o [nesta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "diretrizes de imagem corporativa").
+> Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Inicie sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais início de sessão botões, visite o [nesta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "diretrizes de imagem corporativa").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para apresentar afirmações do utilizador
@@ -172,7 +172,7 @@ No Visual Studio, crie uma nova vista para apresentar afirmações do utilizador
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Sample</title>
+        <title>Sign in with Microsoft Sample</title>
         <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     </head>
     <body style="padding:50px">

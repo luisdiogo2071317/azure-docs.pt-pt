@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 06/21/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268130"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750490"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o tempo de execução de integração do Azure-SSIS
 
-A interface de configuração personalizada para o tempo de execução de integração de SSIS do Azure fornece uma interface para adicionar os seus próprios passos de configuração durante o aprovisionamento ou a reconfiguração da sua IR. SSIS do Azure Configuração personalizada permite-lhe alterar a predefinição operativo ambiente (por exemplo, para iniciar serviços do Windows adicionais) ou de configuração ou instale componentes adicionais (por exemplo, assemblagens, controladores ou extensões) em cada nó do seu IR. SSIS do Azure
+A interface de configuração personalizada para o tempo de execução de integração de SSIS do Azure fornece uma interface para adicionar os seus próprios passos de configuração durante o aprovisionamento ou a reconfiguração da sua IR. SSIS do Azure Configuração personalizada permite-lhe alterar a predefinição operativo configuração ou o ambiente (por exemplo, para iniciar serviços do Windows adicionais ou manter as credenciais de acesso para partilhas de ficheiros) ou instalar componentes adicionais (por exemplo, assemblagens, controladores ou extensões) em cada nó do seu IR. SSIS do Azure
 
 Configure a sua configuração personalizada ao preparar um script e os ficheiros associados e carregá-los para um contentor de BLOBs na sua conta do Storage do Azure. Forneça uma assinatura de acesso partilhado (SAS) Uniform Resource Identifier (URI) para o contentor quando aprovisionar ou reconfigurar o IR. SSIS do Azure Cada nó do seu IR SSIS do Azure, em seguida, transfere o script e os ficheiros associados do seu contentor e executa o programa de configuração personalizado com privilégios elevados. Quando a configuração personalizada estiver concluída, cada nó carrega a saída padrão de execução e outros registos para o contentor.
 
@@ -87,7 +87,10 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
        ![Obtenha a assinatura de acesso partilhado do contentor](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  Criar o URI de SAS para o contentor com um período de tempo de expiração suficientemente longo e leitura + escrever + lista de permissões. É necessário o URI de SAS para transferir e executar o script de configuração personalizada e os ficheiros associados, sempre que qualquer nó do seu IR SSIS do Azure é recriada. É necessário escrever permissão para carregar os registos de execução do programa de configuração.
+    7.  Criar o URI de SAS para o contentor com um período de tempo de expiração suficientemente longo e leitura + escrever + lista de permissões. É necessário o URI de SAS para transferir e executar o script de configuração personalizada e os ficheiros associados, sempre que qualquer nó do seu IR SSIS do Azure é recriada/reiniciado. É necessário escrever permissão para carregar os registos de execução do programa de configuração.
+
+        > [!IMPORTANT]
+        > Certifique-se de que o URI de SAS não expire e recursos de configuração personalizada estão sempre disponíveis durante o ciclo de vida completo da sua resposta a incidentes SSIS do Azure, da criação a eliminação, especialmente se regularmente parar e iniciar a sua resposta a incidentes Azure SSIS durante este período.
 
        ![Gerar a assinatura de acesso partilhado do contentor](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
@@ -124,7 +127,7 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
     c. Selecione o contentor de pré-visualização pública ligado e faça duplo clique o `CustomSetupScript` pasta. Nesta pasta são os seguintes itens:
 
-       1. A `Sample` pasta, que contém uma configuração personalizada para uma tarefa básica de instalação em cada nó do seu IR. SSIS do Azure A tarefa não produz qualquer efeito mas suspensão por alguns segundos. A pasta também contém um `gacutil` pasta, que contém `gacutil.exe`.
+       1. A `Sample` pasta, que contém uma configuração personalizada para uma tarefa básica de instalação em cada nó do seu IR. SSIS do Azure A tarefa não produz qualquer efeito mas suspensão por alguns segundos. A pasta também contém um `gacutil` pasta, que contém `gacutil.exe`. Além disso, `main.cmd` contém comentários para manter as credenciais de acesso para partilhas de ficheiros.
 
        2. A `UserScenarios` pasta, que contém vários setups personalizados para cenários de utilizador reais.
 
@@ -138,7 +141,7 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
        3. Um `EXCEL` pasta, que contém uma configuração personalizada para instalar as assemblagens de open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu IR. SSIS do Azure
 
-       4. Um `MSDTC` pasta, que contém uma configuração personalizada para modificar as configurações de rede e segurança para a instância do coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu IR. SSIS do Azure
+       4. Um `MSDTC` pasta, que contém uma configuração personalizada para modificar as configurações de rede e segurança para o serviço de coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu IR. SSIS do Azure Para garantir que o MSDTC foi iniciado, adicione executar tarefa de processo no início do fluxo de controlo nos seus pacotes para executar o seguinte comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        5. Um `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação automática (`client.rsp`) para instalar o controlador do OCI do Oracle em cada nó do seu Azure SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, origem e destino. Em primeiro lugar, transfira o cliente mais recente do Oracle - por exemplo, `winx64_12102_client.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e, em seguida, carregá-la em conjunto com `main.cmd` e `client.rsp` para o contentor. Se utilizar TNS para ligar a Oracle, também terá de transferir `tnsnames.ora`, editá-lo e carregue-o para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 

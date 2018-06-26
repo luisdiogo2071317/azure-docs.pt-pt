@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267701"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937959"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração 1.2 de diagnóstico do Azure
 > [!NOTE]
@@ -109,12 +109,12 @@ Define as definições de configuração para os dados de telemetria a ser recol
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Necessário. Atributos opcionais quantos são:<br /><br /> -                     **overallQuotaInMB** -a quantidade máxima de espaço no disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnósticos do Azure. O valor predefinido é 5120MB.<br /><br /> -                     **useProxyServer** -configurar diagnósticos do Azure para utilizar as definições do servidor proxy conforme definido nas definições de i/e.|  
 |**CrashDumps**|Ative a recolha de informações de falhas. Atributos opcionais quantos são:<br /><br /> -                     **containerName** -o nome do contentor do blob na sua conta do Storage do Azure a ser utilizado para armazenar informações de falhas.<br /><br /> -                     **crashDumpType** -configura diagnósticos do Azure para falhas de Mini ou completo de recolher informações de estado.<br /><br /> -                     **directoryQuotaPercentage**-configura a percentagem de **overallQuotaInMB** seja reservado para informações de falhas na VM.|  
-|**DiagnosticInfrastructureLogs**|Ative a recolha dos registos gerados por diagnósticos do Azure. Os registos de diagnóstico de infraestrutura são úteis para resolução de problemas do sistema de diagnóstico. Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configura o nível de gravidade mínima dos registos recolhidos.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Diretórios**|Permite a recolha do conteúdo de um diretório, registos de IIS não conseguiu de pedidos de acesso e/ou os registos IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Ative a recolha dos registos gerados por diagnósticos do Azure. Os registos de diagnóstico de infraestrutura são úteis para resolução de problemas do sistema de diagnóstico. Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configura o nível de gravidade mínima dos registos recolhidos.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Diretórios**|Permite a recolha do conteúdo de um diretório, registos de IIS não conseguiu de pedidos de acesso e/ou os registos IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configura a recolha de eventos do ETW de EventSource de e/ou o manifesto do ETW baseado em fornecedores.|  
 |**Métricas**|Este elemento permite-lhe gerar uma tabela de contador de desempenho que está otimizada para consultas rápidas. Cada contador de desempenho que está definida a **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o Azure Diagnostics. Obter o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos de recursos** -> **< nome\>**. Clique em de **propriedades** mosaico e copie o valor da **ID** campo.|  
-|**performanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**PerformanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Permite a recolha de informações de falhas. A tabela seguinte descreve os elementos subordinados:  
@@ -154,8 +154,8 @@ Define as definições de configuração para os dados de telemetria a ser recol
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir de [EventSource classe](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necessário:<br /><br /> **fornecedor** -o nome da classe do evento de EventSource.<br /><br /> Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Atributo necessário:<br /><br /> **fornecedor** -o GUID do fornecedor de evento<br /><br /> Atributos opcionais quantos são:<br /><br /> - **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir de [EventSource classe](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necessário:<br /><br /> **fornecedor** -o nome da classe do evento de EventSource.<br /><br /> Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Atributo necessário:<br /><br /> **fornecedor** -o GUID do fornecedor de evento<br /><br /> Atributos opcionais quantos são:<br /><br /> - **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
  Configura a recolha de eventos gerados a partir de [EventSource classe](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). A tabela seguinte descreve os elementos subordinados:  
@@ -178,7 +178,7 @@ Define as definições de configuração para os dados de telemetria a ser recol
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**MetricAggregation**|Atributo necessário:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Atributo necessário:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elemento  
  Permite a recolha de contadores de desempenho. A tabela seguinte descreve os elementos subordinados:  
@@ -199,4 +199,4 @@ Define as definições de configuração para os dados de telemetria a ser recol
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|
+|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|

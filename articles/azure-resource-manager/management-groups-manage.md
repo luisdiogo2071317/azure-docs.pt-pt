@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754670"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão 
 Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
 
-A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
+A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar grupos de gestão, inicie sessão no [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
 
 Para efetuar alterações a um grupo de gestão, tem de ter uma função de proprietário ou contribuinte no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).
 
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 Para a CLI do Azure, utilize o comando de atualização. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Eliminação na CLI do Azure
 Com a CLI do Azure, utilize a eliminação do grupo de gestão da conta de az comando. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -105,7 +106,7 @@ Pode ver a qualquer grupo de gestão que tiver uma função RBAC direta ou herda
 ### <a name="view-in-the-portal"></a>Ver no portal
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 2. Selecione **todos os serviços** > **grupos de gestão** 
-3. Hierarquia de grupo de gestão de página onde pode explorar todos os grupos de gestão e subscrições que tem acesso de cargas. Selecionar o nome do grupo leva-o para baixo de um nível na hierarquia. A navegação funciona da mesma forma um Explorador de ficheiros. 
+3. A hierarquia de grupo de gestão página cargas onde pode explorar todos os grupos de gestão e subscrições que tem acesso. Selecionar o nome do grupo leva-o para baixo de um nível na hierarquia. A navegação funciona da mesma forma um Explorador de ficheiros. 
     ![Principal](media/management-groups/main.png)
 4. Para ver os detalhes do grupo de gestão, selecione o **(detalhes)** hiperligação junto o título do grupo de gestão. Se esta ligação não estiver disponível, não tem permissões para ver esse grupo de gestão.  
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Vista da CLI do Azure
 Utilize o comando da lista para obter todos os grupos.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 Para informações de um grupo de gestão único, utilize o comando de mostrar
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Mover subscrições na CLI do Azure
 Para mover uma subscrição na CLI, utilize o comando adicionar. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 Para remover a subscrição do grupo de gestão, utilize o comando de remoção de subscrição.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -209,20 +210,20 @@ Ao mover um grupo de gestão principal, todos os recursos subordinados que inclu
 6. No menu aberto, selecione o **tipo de recurso** do item que está a tentar mover a que é **grupo de gestão**.
 7. Selecione o grupo de gestão com o ID e o nome correto.
 
-    ![Mover](media/management-groups/add_context.png)
+    ![mover](media/management-groups/add_context.png)
 8. Selecione **guardar**
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de gestão no PowerShell
 Utilize o comando de atualização AzureRmManagementGroup no PowerShell para mover um grupo de gestão no outro grupo.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de gestão na CLI do Azure
 Utilize o comando de atualização para mover um grupo de gestão com a CLI do Azure. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---

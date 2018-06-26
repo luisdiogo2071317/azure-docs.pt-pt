@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294164"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936688"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Resolver problemas de Análise no Application Insights
 Problemas com [Application Insights Analytics](app-insights-analytics.md)? Comece aqui. A análise é a ferramenta poderosa pesquisa do Azure Application Insights.
@@ -57,7 +57,7 @@ Ocorreu um erro relacionado com a autenticação (durante a autenticação ou du
 4. Abrir outra janela do browser (comum) e aceda a [Azure](https://portal.azure.com). Termine a sessão. Em seguida, abra a ligação e inicie a sessão com as credenciais corretas.
 5. Os utilizadores do Microsoft Edge ou do Internet Explorer também podem obter este erro quando as definições da zona de confiança não são suportadas.
    
-    Certifique-se ambos [portal da análise](https://analytics.applicationinsights.io) e [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
+    Certifique-se ambos [portal da análise](https://portal.azure.com) e [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
    
    * No Internet Explorer, abra **opções da Internet**, **segurança**, **fidedigna sites**, **Sites**:
      

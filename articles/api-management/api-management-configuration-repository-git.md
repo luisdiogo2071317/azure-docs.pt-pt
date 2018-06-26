@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117542"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938313"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a configuração do serviço de API Management utilizando o Git
 
@@ -95,7 +95,7 @@ Se receber erros, tente modificar o `git clone` comando para incluir o nome de u
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Se esta opção fornece um erro, tente a parte de palavra-passe do comando de codificação do URL. Uma forma rápida para efetuar este procedimento é abra o Visual Studio e emita o comando seguinte no **janela Immediate**. Para abrir o **janela Immediate**, abra qualquer solução ou o projeto no Visual Studio (ou crie uma nova aplicação de consola vazia) e escolha **Windows**, **Immediate** do **depurar** menu.
+Se esta opção fornece um erro, tente a parte de palavra-passe do comando de codificação do URL. Uma forma rápida para efetuar este procedimento é abra o Visual Studio e emita o comando seguinte no **janela Immediate**. Para abrir o **janela Immediate**, abra qualquer solução ou o projeto no Visual Studio (ou crie uma nova aplicação de consola vazia) e escolha **Windows**, **Immediate** do **Depurar** menu.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from the Azure portal")
@@ -149,7 +149,7 @@ Os ficheiros e pastas no repositório de local git contém as informações de c
 
 | Item | Descrição |
 | --- | --- |
-| Pasta raiz de gestão de api |Contém a configuração de nível superior para a instância de serviço |
+| pasta raiz de gestão de api |Contém a configuração de nível superior para a instância de serviço |
 | pasta de APIs |Contém a configuração para as apis numa instância de serviço |
 | pasta de grupos |Contém a configuração para os grupos de instância de serviço |
 | pasta de políticas |Contém as políticas a instância de serviço |
@@ -164,7 +164,7 @@ Cada pasta pode conter um ou mais ficheiros e, em alguns casos uma ou mais pasta
 | json |Informações de configuração sobre a respetiva entidade |
 | HTML |Descrições sobre a entidade, muitas vezes, é apresentada no portal do Programador |
 | xml |Instruções de política |
-| css |Folhas de estilos para personalização do portal de programador |
+| CSS |Folhas de estilos para personalização do portal de programador |
 
 Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema de ficheiros local e as alterações implementadas novamente para a sua instância de serviço de API Management.
 
@@ -219,41 +219,41 @@ A definição final, `$ref-policy`, mapeia para o ficheiro de instruções de po
 ### <a name="apis-folder"></a>pasta de APIs
 O `apis` pasta contém uma pasta para cada API numa instância de serviço que contém os seguintes itens.
 
-* `apis\<api name>\configuration.json`-Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Esta é a mesma informação que teria de ser devolvida se chamar [obter uma API específica](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) com `export=true` no `application/json` formato.
-* `apis\<api name>\api.description.html`-Esta é a descrição da API e corresponde ao `description` propriedade o [entidade API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`-Esta pasta contém `<operation name>.description.html` ficheiros que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma operação única na API que mapeia para o `description` propriedade o [entidade operação](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) na REST API.
+* `apis\<api name>\configuration.json` -Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Esta é a mesma informação que teria de ser devolvida se chamar [obter uma API específica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) com `export=true` no `application/json` formato.
+* `apis\<api name>\api.description.html` -Esta é a descrição da API e corresponde ao `description` propriedade o [entidade API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` ficheiros que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma operação única na API que mapeia para o `description` propriedade o [entidade operação](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) na REST API.
 
 ### <a name="groups-folder"></a>pasta de grupos
 O `groups` pasta contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json`-Esta é a configuração para o grupo. Esta é a mesma informação que teria de ser devolvida se foram chamar o [obter um grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operação.
-* `groups\<group name>\description.html`-Esta é a descrição do grupo e corresponde ao `description` propriedade o [grupo entidade](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` -Esta é a configuração para o grupo. Esta é a mesma informação que teria de ser devolvida se foram chamar o [obter um grupo específico](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operação.
+* `groups\<group name>\description.html` -Esta é a descrição do grupo e corresponde ao `description` propriedade o [grupo entidade](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>pasta de políticas
 O `policies` pasta contém as declarações de política para a instância de serviço.
 
-* `policies\global.xml`-contém as políticas definidas no âmbito global para a instância de serviço.
-* `policies\apis\<api name>\`-Se tiver quaisquer políticas definidas no âmbito de API, estão contidos nesta pasta.
-* `policies\apis\<api name>\<operation name>\`pasta - se tiver quaisquer políticas definidas no âmbito da operação, estão contidos nesta pasta no `<operation name>.xml` ficheiros que mapeiam para as declarações de política para cada operação.
-* `policies\products\`-Se tiver quaisquer políticas definidas no âmbito do produto, estão contidos nesta pasta, que contém `<product name>.xml` ficheiros que mapeiam para as declarações de política para cada produto.
+* `policies\global.xml` -contém as políticas definidas no âmbito global para a instância de serviço.
+* `policies\apis\<api name>\` -Se tiver quaisquer políticas definidas no âmbito de API, estão contidos nesta pasta.
+* `policies\apis\<api name>\<operation name>\` pasta - se tiver quaisquer políticas definidas no âmbito da operação, estão contidos nesta pasta no `<operation name>.xml` ficheiros que mapeiam para as declarações de política para cada operação.
+* `policies\products\` -Se tiver quaisquer políticas definidas no âmbito do produto, estão contidos nesta pasta, que contém `<product name>.xml` ficheiros que mapeiam para as declarações de política para cada produto.
 
 ### <a name="portalstyles-folder"></a>pasta portalStyles
 O `portalStyles` pasta contém folhas de estilo de configuração e para personalizações de portal de programador para a instância de serviço.
 
-* `portalStyles\configuration.json`-contém os nomes das folhas de estilo utilizadas pelo portal do Programador
-* `portalStyles\<style name>.css`-cada `<style name>.css` ficheiro contém estilos para o portal do programador (`Preview.css` e `Production.css` por predefinição).
+* `portalStyles\configuration.json` -contém os nomes das folhas de estilo utilizadas pelo portal do Programador
+* `portalStyles\<style name>.css` -cada `<style name>.css` ficheiro contém estilos para o portal do programador (`Preview.css` e `Production.css` por predefinição).
 
 ### <a name="products-folder"></a>pasta de produtos
 O `products` pasta contém uma pasta para cada produto definido na instância do serviço.
 
-* `products\<product name>\configuration.json`-Esta é a configuração para o produto. Esta é a mesma informação que teria de ser devolvida se foram chamar o [obter um produto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operação.
-* `products\<product name>\product.description.html`-Esta é a descrição do produto e que corresponde à `description` propriedade o [entidade produto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) na REST API.
+* `products\<product name>\configuration.json` -Esta é a configuração para o produto. Esta é a mesma informação que teria de ser devolvida se foram chamar o [obter um produto específico](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operação.
+* `products\<product name>\product.description.html` -Esta é a descrição do produto e que corresponde à `description` propriedade o [entidade produto](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) na REST API.
 
 ### <a name="templates"></a>modelos
 O `templates` contém a pasta de configuração para o [modelos de e-mail](api-management-howto-configure-notifications.md) da instância do serviço.
 
-* `<template name>\configuration.json`-Esta é a configuração para o modelo de correio eletrónico.
-* `<template name>\body.html`-Este é o corpo do modelo de correio eletrónico.
+* `<template name>\configuration.json` -Esta é a configuração para o modelo de correio eletrónico.
+* `<template name>\body.html` -Este é o corpo do modelo de correio eletrónico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:

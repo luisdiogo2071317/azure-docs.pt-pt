@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ca39490174047d83968561da98409ade2832253
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621626"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752620"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 
@@ -30,7 +30,7 @@ Este artigo descreve a infraestrutura de básicos de segurança que utilizam ser
 
 Numa solução do Data Factory, pode criar um ou mais [pipelines](data-factory-create-pipelines.md) de dados. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Estes pipelines de residir na região onde foi criada a fábrica de dados. 
 
-Apesar de fábrica de dados só está disponível em **EUA oeste**, **EUA Leste**, e **Europa do Norte** regiões, o serviço de movimento de dados está disponível [global em várias regiões](data-factory-data-movement-activities.md#global). Serviço de fábrica de dados garante que os dados deixe uma área geográfica / região, a menos que explicitamente a instruir o serviço para utilizar uma região alternativa, se o serviço de movimento de dados ainda não foi implementado nessa região. 
+Apesar de fábrica de dados só está disponível em **EUA oeste**, **EUA Leste**, e **Europa do Norte** regiões, o serviço de movimento de dados está disponível [globalmente no várias regiões](data-factory-data-movement-activities.md#global). Serviço de fábrica de dados garante que os dados deixe uma área geográfica / região, a menos que explicitamente a instruir o serviço para utilizar uma região alternativa, se o serviço de movimento de dados ainda não foi implementado nessa região. 
 
 O Azure Data Factory propriamente dito não armazena quaisquer dados, exceto as credenciais de serviço ligado para os arquivos de dados de nuvem, que são encriptados utilizando certificados. Permite-lhe criar fluxos de trabalho condicionados por dados para orquestrar o movimento dos dados entre [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e o processamento de dados com [serviços de computação](data-factory-compute-linked-services.md) noutras regiões ou num ambiente no local. Também permite [monitorizar e gerir fluxos de trabalho](data-factory-monitor-manage-pipelines.md) com mecanismos programáticos e de IU.
 
@@ -40,7 +40,7 @@ Movimento de dados utilizando o Azure Data Factory foi **certificadas** para:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [ESTRELA DE CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
+Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
 Neste artigo, vamos rever as considerações de segurança nos seguintes cenários de movimento de dados de duas: 
 
@@ -94,7 +94,7 @@ As credenciais para os arquivos de dados no local são armazenadas localmente (n
 - Utilizar **texto simples** (menos seguro) através de HTTPS a partir do Portal do Azure / Assistente para copiar. As credenciais são transmitidas em texto simples para o gateway no local.
 - Utilizar **bibliotecas de criptografia de JavaScript do Assistente para copiar**.
 - Utilizar **clique-uma vez com base na aplicação Gestor de credenciais**. Clique em-assim que executa a aplicação na máquina no local que tenha acesso ao gateway e define as credenciais do arquivo de dados. Esta opção e a outra seguinte são as opções mais seguras. A aplicação do Gestor de credenciais, por predefinição, utiliza a porta 8050 na máquina com o gateway para comunicação segura.  
-- Utilize [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) cmdlet do PowerShell para encriptar as credenciais. O cmdlet utiliza o certificado que gateway está configurado para utilizar para encriptar as credenciais. Pode utilizar as credenciais encriptadas devolvidas por este cmdlet e adicione-o a **EncryptedCredential** elemento do **connectionString** no ficheiro JSON que utiliza com o [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet ou no fragmento JSON no Editor do Data Factory no portal. Esta opção e clique em-assim que a aplicação são as opções mais seguras. 
+- Utilize [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) cmdlet do PowerShell para encriptar as credenciais. O cmdlet utiliza o certificado que gateway está configurado para utilizar para encriptar as credenciais. Pode utilizar as credenciais encriptadas devolvidas por este cmdlet e adicione-o a **EncryptedCredential** elemento do **connectionString** no ficheiro JSON que utiliza com o [ Novo-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet ou no fragmento JSON no Editor do Data Factory no portal. Esta opção e clique em-assim que a aplicação são as opções mais seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Encriptação de baseada em bibliotecas de criptografia de JavaScript
 Pode encriptar as credenciais do arquivo de dados utilizando [bibliotecas de criptografia de JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) do [Assistente para copiar](data-factory-copy-wizard.md). Quando seleciona esta opção, o Assistente para copiar obtém a chave pública do gateway e utiliza-o para encriptar as credenciais do arquivo de dados. As credenciais são desencriptadas pelo computador gateway e protegidas pelo Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).

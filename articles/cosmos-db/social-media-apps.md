@@ -1,7 +1,7 @@
 ---
 title: 'Padrão de conceção do Cosmos BD do Azure: aplicações de redes sociais | Microsoft Docs'
 description: Saiba mais sobre um padrão de conceção para as redes sociais, tirando partido a flexibilidade de armazenamento de base de dados do Azure Cosmos e outros serviços do Azure.
-keywords: Aplicações de redes sociais
+keywords: aplicações de redes sociais
 services: cosmos-db
 author: ealsur
 manager: kfile
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2017
 ms.author: maquaran
-ms.openlocfilehash: f03b2f3d295ed7d3986c45ecb80078190a2cd935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 977ca57fdb2bcc0c9eaaa33eee06c1d8ae8e39ab
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613888"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754601"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Vai sociais com base de dados do Azure Cosmos
 Living num society em massa interligadas significa que, num ponto da vida, passam a fazer parte de um **rede social**. Podemos utilizar redes sociais manter entre em contacto com amigos, colegas, família, ou, por vezes, partilhar o nosso passion com pessoas com interesses comuns.
@@ -150,7 +150,7 @@ Vamos informações de utilizador como um exemplo:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -175,7 +175,7 @@ Por que motivo seria iremos dividir o utilizador e até mesmo armazenar estas in
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 E um pedido Post deverá ter o seguinte aspeto:
@@ -212,7 +212,7 @@ No entanto, o que podemos saber? Alguns exemplos de fácil incluem [análise de 
 
 Agora que tem posso que estabelecer ligação com ele, provavelmente irá considerar terá algumas PhD no ciência de bibliotecas para extrair estes padrões e as informações fora de bases de dados simples e ficheiros, mas seria errado.
 
-[O Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que fazem parte do [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), é o código de um serviço em nuvem completamente gerido que permite-lhe criar fluxos de trabalho utilizando algoritmos numa interface de arrastar e largar simples, os suas próprias algoritmos no [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou utilizar algumas das já criadas e pronta a utilizar APIs como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Moderator conteúdo](https://www.microsoft.com/moderator) ou [recomendações](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[O Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que fazem parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço em nuvem completamente gerido que lhe permite criar fluxos de trabalho utilizando algoritmos numa interface simples de arrastar e largar, os seus próprios algoritmos no decódigo[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou utilizar algumas das já criadas e pronta a utilizar APIs como: [análise de texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Moderator conteúdo](https://www.microsoft.com/moderator) ou [recomendações](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Para alcançar qualquer um destes cenários de Machine Learning, podemos utilizar [do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para incorporar as informações de diferentes origens e utilizar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que podem ser processados pelo Azure Machine Learning.
 
