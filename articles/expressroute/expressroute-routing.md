@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295431"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -66,6 +67,7 @@ Tem de utilizar endereços IP públicos da sua propriedade para configurar as se
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Endereços IP utilizados para peering da Microsoft
 Tem de utilizar endereços IP públicos da sua propriedade para configurar as sessões de BGP. A Microsoft tem de poder verificar a propriedade dos endereços IP através dos Registos de Internet de Encaminhamento e dos Registos de Encaminhamento de Internet.
 
+* Os IPs listados no portal para Prefixos Públicos Anunciados para o Peering da Microsoft irá criar ACLs para os routers de núcleo da Microsoft para permitir tráfego de entrada a partir destes IPs. 
 * Tem de utilizar uma sub-rede /29 (IPv4) ou /125 (IPv6) exclusiva ou duas sub-redes /30 (IPv4) ou /126 (IPv6) sub-redes para configurar o peering de BGP para cada peering por circuito ExpressRoute (se tiver mais do que um).
 * Se for utilizada uma sub-rede /29, está dividida em duas sub-redes /30.
 * A primeira sub-rede /30 é utilizada para a ligação primária e a segunda sub-rede /30 será utilizada para a ligação secundária.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d52691dbec932a3515c90e757863be01ade086cc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: aa6f3560d3939eb448c4193e3b3301073c601904
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715960"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284042"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure noutra região do Azure
 
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="verify-settings"></a>Verificar as definições
 
-Após a tarefa de replicação ser concluída, pode consultar o estado da replicação, modificar as definições de replicação e testar a implementação.
+Após a tarefa de replicação ser concluída, pode ver o estado da replicação, modificar a replicação e testar a implementação.
 
 1. No menu VM, clique em **Recuperação após desastre**.
 2. Pode verificar o estado de funcionamento da replicação, os pontos de recuperação que foram criados e as regiões de origem e destino num mapa.

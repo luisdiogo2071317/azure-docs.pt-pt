@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715042"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293484"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Os acionadores são outra forma de executar uma execução de pipeline. Represen
 
 - Acionador de janela em cascata: um acionador que opera num intervalo periódico, ao mesmo tempo que mantém o estado. Neste momento, o Azure Data Factory não suporta acionadores baseados em eventos. Por exemplo, o acionador para uma execução de pipeline que responde a um evento de chegada de ficheiro não é suportado.
 
+- Acionador baseado em eventos: um acionador que responde a um evento.
+
 Os pipelines e os acionadores têm uma relação muitos para muitos. Vários acionadores podem desencadear um único pipeline ou um só acionador pode desencadear vários pipelines. Na definição de acionador que se segue, a propriedade **pipelines** refere-se a uma lista de pipelines que são acionados pelo acionador especificado. A definição da propriedade inclui valores para os parâmetros do pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definição de acionador básica
@@ -175,11 +177,6 @@ Os pipelines e os acionadores têm uma relação muitos para muitos. Vários aci
 Um acionador de agenda executa pipelines com base numa agenda. Este acionador suporta opções de calendário avançadas e periódicas. Por exemplo, o acionador suporta intervalos como "semanalmente" ou "Segunda-feira às 17:00 e quinta-feira às 21:00". O acionador de agenda é flexível porque o padrão do conjunto de dados é agnóstico e o acionador não distingue entre dados de série de tempo e sem ser de série de tempo.
 
 Para obter mais informações sobre acionadores de agenda e exemplos, veja [Create a schedule trigger](how-to-create-schedule-trigger.md) (Criar um acionador de agenda).
-
-## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
-Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos.
-
-Para obter mais informações sobre acionadores de janela em cascata e exemplos, veja [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md) (Criar um acionador de janela em cascata).
 
 ## <a name="schedule-trigger-definition"></a>Definição de acionador de agenda
 Quando cria um acionador de agenda, o agendamento e a periodicidade são especificados com uma definição JSON. 
@@ -322,6 +319,17 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 | **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não são sensíveis às maiúsculas e minúsculas|
 | **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Matriz de objetos de **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`.<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
+
+## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
+Os acionadores de janela em cascata são um tipo de acionador que é acionado num intervalo de tempo periódico a partir de uma hora de início especificada, mantendo o estado. As janelas em cascata são uma série de intervalos de tempo com tamanho fixo, não sobrepostos e contínuos.
+
+Para obter mais informações sobre acionadores de janela em cascata e exemplos, veja [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md) (Criar um acionador de janela em cascata).
+
+## <a name="event-based-trigger"></a>Acionador baseado em eventos
+
+Um acionador baseado em eventos executa pipelines em resposta a um evento, como a chegada de um ficheiro ou a eliminação de um ficheiro no Armazenamento de Blobs do Azure.
+
+Para obter mais informações sobre acionadores baseados em eventos, veja [Criar um acionador que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendas de periodicidade do acionador
 Esta secção mostra exemplos de agendas de periodicidade. Concentra-se no objeto **schedule** e nos respetivos elementos.

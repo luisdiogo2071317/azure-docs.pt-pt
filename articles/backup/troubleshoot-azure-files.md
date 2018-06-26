@@ -8,31 +8,29 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807419"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287333"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Partilhas de Ficheiros do Azure com as informações listadas nas tabelas seguintes.
 
-## <a name="preview-boundaries"></a>Limites de pré-visualização
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
 A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualização. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
-- Proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação* do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
-- Proteger partilhas de ficheiros do Azure em Contas de Armazenamento que têm Redes Virtuais ou Firewall ativadas.
-- Fazer Cópias de segurança de partilhas de ficheiros do Azure através do PowerShell ou da CLI.
+- Não pode proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação* do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
+- Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
+- Não existe PowerShell ou CLI disponível para proteger Ficheiros do Azure com o Azure Backup.
+- O número máximo de cópias de segurança agendadas por dia é de um.
+- O número máximo de cópias de segurança a pedido por dia é de quatro.
+- Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
+- Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
 
 \*Partilhas de Ficheiros do Azure em Contas de Armazenamento com a função de [replicação* do armazenamento georredundante](../storage/common/storage-redundancy-grs.md) com acesso de leitura (RA-GRS) como GRS e cobrada a preços de GRS
 
 A cópia de segurança de Partilhas de Ficheiros do Azure em Contas de Armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está atualmente disponível apenas nos E.U.A. Central (CUS) e nos E.U.A. Leste 2 (EUS2)
-
-### <a name="limitations"></a>Limitações
-- O #Scheduled-backup máximo por dia é 1.
-- O #On-Demand-backup máximo por dia é 4.
-- Utilize os bloqueios de recursos da Conta de Armazenamento para impedir a eliminação acidental de Cópias de Segurança do seu cofre dos Serviços de Recuperação.
-- Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de Pontos de Recuperação e/ou falhas de Restauro
 
 ## <a name="configuring-backup"></a>Configurar a Cópia de Segurança
 A tabela seguinte apresenta informações para a configuração da cópia de segurança:

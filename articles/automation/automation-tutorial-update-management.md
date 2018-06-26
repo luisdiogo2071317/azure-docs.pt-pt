@@ -1,6 +1,6 @@
 ---
 title: Gerir atualizações e correções para as VMs Windows do Azure
-description: Este artigo apresenta uma descrição geral de como utilizar a Automatização do Azure - Gestão de atualizações para gerir atualizações e correções para as suas VMs Windows do Azure.
+description: Este artigo apresenta uma descrição geral de como utilizar a Gestão de Atualizações da Automatização do Azure para gerir as atualizações e correções das suas VMs Windows do Azure.
 services: automation
 author: zjalexander
 ms.service: automation
@@ -9,24 +9,23 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 84ec2a5852e6aaeb4b9fe6ef11924209d03fb54b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054764"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36216971"
 ---
-# <a name="manage-windows-updates-with-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
+# <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
-A gestão de atualizações permite gerir atualizações e correções para as suas máquinas virtuais.
-Neste tutorial, irá aprender a avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias, rever os resultados de implementação e criar um alerta para verificar se as atualizações são aplicadas com êxito.
+Pode utilizar a solução de Gestão de Atualizações para gerir as atualizações e correções de erros das suas máquinas virtuais. Neste tutorial, irá aprender a avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação das atualizações necessárias, rever os resultados da implementação e criar um alerta para verificar se as atualizações são aplicadas com êxito.
 
-Para obter informações sobre preços, veja [Preços de Automatização para Gestão de atualizações](https://azure.microsoft.com/pricing/details/automation/)
+Para obter informações sobre preços, veja [Preços de Automatização para Gestão de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Carregar uma VM para gestão de atualizações
+> * Carregar uma VM para Gestão de Atualizações
 > * Ver avaliações de atualizações
 > * Configurar alertas
 > * Agendar uma implementação de atualizações
@@ -37,63 +36,61 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa de:
 
 * Uma subscrição do Azure. Se ainda não tiver uma, pode [ativar o crédito do Azure mensal para subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um [conta de Automatização](automation-offering-get-started.md) para reter os runbooks de observador e ação e a Tarefa de Observador.
+* Uma [Conta de Automatização do Azure](automation-offering-get-started.md) para reter os runbooks de observador e ação e a Tarefa de Observador.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="enable-update-management"></a>Ativar a Gestão de atualizações
+## <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
-Primeiro, terá de ativar a Gestão de atualizações na sua VM para este tutorial.
+Primeiro, ative a Gestão de Atualizações na sua VM para este tutorial:
 
-1. No portal do Azure, no menu da esquerda, selecione **Máquinas virtuais** e selecione uma VM da lista.
-2. Na página da VM, clique em **Gestão de atualizações**, na secção **Operações**. A página **Ativar Gestão de Atualizações** abre.
+1. No portal do Azure, no menu esquerdo, selecione **Máquinas virtuais**. Selecione uma VM na lista.
+2. Na página da VM, em **OPERAÇÕES**, selecione **Gestão de atualizações**. O painel **Ativar Gestão de Atualizações** abre.
 
-A validação é executada para determinar se a Gestão de atualizações está ativada para esta VM. Esta validação inclui a verificação da existência de uma área de trabalho do Log Analytics e da conta de Automatização ligada, e se a Solução de gestão de atualizações está na área de trabalho.
+A validação é executada para determinar se a Gestão de Atualizações está ativada para esta VM. Esta validação inclui a verificação da existência de uma área de trabalho do Azure Log Analytics e da conta de Automatização ligada, e se a solução de Gestão de Atualizações está na área de trabalho.
 
-A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados pelas funcionalidades e serviços, tais como a Gestão de atualizações. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
+A área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) serve para recolher dados gerados por funcionalidades e serviços, como a Gestão de Atualizações. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
-O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
-Este agente serve para comunicar com a Automatização do Azure e obter informações sobre o estado de atualização. O agente requer que a porta 443 esteja aberta para comunicar com o serviço de Automatização do Azure e para transferir atualizações.
+O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a Função de Trabalho de Runbook Híbrida de Automatização. Este agente serve para comunicar com a Automatização do Azure e para obter informações sobre o estado de atualização. O agente requer que a porta 443 esteja aberta para comunicar com o serviço de Automatização do Azure e para transferir atualizações.
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
 * Área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Conta de Automatização](./automation-offering-get-started.md)
-* Uma [Função de trabalho de runbook híbrida](./automation-hybrid-runbook-worker.md) está ativada na VM
+* Uma [conta de Automatização](./automation-offering-get-started.md)
+* Uma [Função de Trabalho de Runbook Híbrida](./automation-hybrid-runbook-worker.md) (ativada na VM)
 
-O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+Em **Gestão de Atualizações**, defina a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar. Em seguida, selecione **Ativar**. Se estas opções não estiverem disponíveis, significa que outra solução de automatização está ativada para a VM. Nesse caso, a mesma área de trabalho e conta de Automatização têm de ser utilizadas.
 
-![Janela de ativação da solução de Gestão de atualizações](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
+![Janela Ativar a solução de Gestão de Atualizações](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-A ativação da solução pode demorar alguns minutos. Durante este período, não deve fechar a janela do browser.
-Após a ativação da solução, as informações sobre atualizações em falta na VM são transmitidas ao Log Analytics.
-Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
+A ativação da solução pode demorar alguns minutos. Durante este período, não feche a janela do browser. Após a ativação da solução, as informações sobre atualizações em falta na VM são transmitidas ao Log Analytics. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 ## <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
-Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece.
-Se existirem atualizações em falta, poderá ver uma lista de atualizações em falta no separador **Atualizações em falta**.
+Depois de a Gestão de Atualizações ser ativada, o painel **Gestão de atualizações** abre. Se existirem atualizações em falta, é apresentada uma lista das atualizações em falta no separador **Atualizações em falta**.
 
-Selecione a **LIGAÇÃO PARA INFORMAÇÕES** sobre a atualização para abrir o artigo de suporte para a atualização numa nova janela. Aqui, pode obter informações importantes sobre a atualização.
+Em **LIGAÇÃO PARA INFORMAÇÕES**, selecione a ligação de atualização para abrir o artigo de suporte para a atualização numa nova janela. Pode obter informações importantes sobre a atualização nesta janela.
 
 ![Ver o estado de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Se clicar em qualquer outro local na atualização, abre a janela **Pesquisa de Registos** para a atualização selecionada. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para ver informações detalhadas sobre as atualizações implementadas ou em falta no seu ambiente.
+Clique em qualquer outro local na atualização para abrir o painel **Pesquisa de Registos** para a atualização selecionada. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para ver informações detalhadas sobre as atualizações que foram implementadas ou estão em falta no seu ambiente.
 
 ![Ver o estado de atualização](./media/automation-tutorial-update-management/logsearch.png)
 
-## <a name="configure-alerting"></a>Configurar alertas
+## <a name="configure-alerts"></a>Configurar alertas
 
-Neste passo, vai configurar um alerta para informá-lo quando as atualizações foram implementadas com êxito. O alerta que criar baseia-se numa consulta do Log Analytics. É possível escrever qualquer consulta personalizada para alertas adicionais, de forma a cobrir muitos cenários diferentes. No portal do Azure, navegue até **Monitor** e clique em **Criar Alerta**. Esta ação abre a página **Criar regra**.
+Neste passo, vai definir um alerta para informá-lo quando as atualizações foram implementadas com êxito. O alerta que criar baseia-se numa consulta do Log Analytics. Pode escrever uma consulta personalizada para alertas adicionais, de forma a cobrir muitos cenários diferentes. No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**. 
 
-Em **1. Definir condição do alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Escolha a sua área de trabalho do Log Analytics e clique em **Concluído**.
+Em **Criar regra**, em **1. Definir condição do alerta**, selecione **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
-![criar alerta](./media/automation-tutorial-update-management/create-alert.png)
+![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
 
-Clique no botão **+ Adicionar critérios** para abrir a página **Configurar lógica de sinal**. Escolha **Pesquisa de registos personalizados** na tabela. Introduza a seguinte consulta na caixa de texto **Consulta de pesquisa**. Esta consulta devolve os computadores e o nome da atualização executada que foi concluída no período de tempo especificado.
+Selecione **Adicionar critérios**.
+
+Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de registos personalizada**. Introduza a seguinte consulta na caixa de texto **Consulta de pesquisa**:
 
 ```loganalytics
 UpdateRunProgress
@@ -101,47 +98,46 @@ UpdateRunProgress
 | where TimeGenerated > now(-10m)
 | summarize by UpdateRunName, Computer
 ```
+Esta consulta devolve os computadores e o nome da atualização executada que foi concluída no período de tempo especificado.
 
-Introduza **1** como o **Limiar** para a Lógica de alerta. Quando terminar, clique em **Concluído**.
+Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver terminado, selecione **Concluído**.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/signal-logic.png)
 
-Em **2. Definir detalhes do alerta**, atribua ao alerta um nome amigável e uma descrição. Defina a **Gravidade** como **Informativo (Gravidade 2)**, uma vez que o alerta é para uma execução bem sucedida.
+Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o alerta. Defina a **Gravidade** como **Informativo(Gravidade 2)**, uma vez que o alerta é para uma execução bem sucedida.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Em **3. Definir grupo de ação**, clique em **+ Novo grupo de ação**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. Podem incluir, mas não estão limitados a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md)
+Em **3. Definir grupo de ações**, selecione **Novo grupo de ações**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-Na caixa **Nome do grupo de ação**, atribua um nome amigável e um nome abreviado ao grupo de ação. O nome abreviado é utilizado em vez de um nome de grupo de ação completo quando as notificações são enviadas através deste grupo.
+Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 
-Em **Ações**, atribua à ação um nome amigável como **Notificações por E-Mail** e, em **TIPO DE AÇÃO**, selecione **E-mail/SMS/Push/Voz**. Em **DETALHES**, selecione **Editar detalhes**.
+Em **Ações**, introduza um nome para a ação, como **Notificações por E-mail**. Em **TIPO DE AÇÃO**, selecione **E-Mail/SMS/Push/voz**. Em **DETALHES**, selecione **Editar detalhes**.
 
-Na página **E-mail/SMS/Push/Voz**, atribua um nome. Assinale a caixa **E-mail** e introduza um endereço de e-mail válido a utilizar.
+Na página **E-mail/SMS/Push/Voz**, introduza um nome. Selecione a caixa de verificação **E-mail** e, em seguida, introduza um endereço de e-mail válido.
 
-![Configurar o grupo de ação de e-mail](./media/automation-tutorial-update-management/configure-email-action-group.png)
+![Configurar um grupo de ações de e-mail](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Clique em **OK** na página **E-mail/SMS/Push/Voz** para fechá-la e clique em **OK** para fechar a página **Adicionar grupo de ação**.
+No painel **E-mail/SMS/Push/Voz**, selecione **OK**. No painel **Adicionar grupo de ações**, selecione **OK**.
 
-Pode personalizar o assunto do e-mail enviado ao clicar em **Assunto do e-mail**, em **Personalizar Ações** na página **Criar regra**. Quando terminar, clique em **Criar regra de alerta**. Esta ação cria a regra que o alerta quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização.
+Para personalizar o assunto do e-mail de alerta, em **Criar regra**, em **Personalizar Ações**, selecione **Assunto do e-mail**. Quanto terminar, selecione **Criar regra de alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização.
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implementação de atualizações
 
-Agora que os alertas estão configurados, agende uma implementação que siga o agendamento e o período de administração da sua versão para instalar atualizações.
-Pode escolher quais os tipos de atualização a incluir na implementação.
-Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
+Em seguida, agende uma implementação que siga o seu agendamento e o período de administração da versão para instalar atualizações. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
 > [!WARNING]
 > Quando as atualizações requerem um reinício, a VM é reiniciada automaticamente.
 
-Para agendar uma nova implementação de atualização para a VM, navegue de volta até **Gestão de atualizações** e selecione **Agendar a implementação da atualização** na parte superior do ecrã.
+Para agendar uma nova implementação de atualização para a VM, aceda a **Gestão de atualizações**e, em seguida, selecione **Agendar implementação da atualização**.
 
-No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
+Em **Nova implementação de atualização**, especifique as seguintes informações:
 
-* **Nome** - Indique um nome exclusivo para a implementação da atualização.
+* **Nome**: indique um nome exclusivo para a implementação da atualização.
 
-* **Sistema operativo** - Escolha o SO de destino para a implementação da atualização.
+* **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
 
-* **Classificação da atualização** - Selecione os tipos de software que a implementação da atualização incluiu na implementação. Para este tutorial, deixe todos os tipos selecionados.
+* **Classificação da atualização**: selecione os tipos de software que a implementação da atualização incluiu na implementação. Para este tutorial, deixe todos os tipos selecionados.
 
   Os tipos de classificação são:
 
@@ -152,51 +148,48 @@ No ecrã **Nova implementação de atualização**, especifique as seguintes inf
 
    Para obter uma descrição dos tipos de classificação, veja [Classificações de atualizações](automation-update-management.md#update-classifications).
 
-* **Definições da agenda** - Esta ação abre a página Definições da Agenda. A hora de início predefinida é 30 minutos depois da hora atual. É possível definir qualquer hora a partir de 10 minutos no futuro.
+* **Definições da agenda**: o painel **Definições da Agenda** abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
-   Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico.
-   Selecione **Uma vez** em **Periodicidade**. Deixe a predefinição em 1 dia e clique em **OK**. Esta ação configura uma agenda periódica.
+   Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico. Em **Periodicidade**, selecione **Uma vez**. Deixe a predefinição como 1 dia e selecione **OK**. Esta ação configura uma agenda periódica.
 
-* **Janela de manutenção (minutos)** - Deixe este valor com o valor predefinido. Pode especificar o período de tempo no qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
+* **Janela de manutenção (minutos)**: deixe o valor predefinido. Pode especificar a janela de tempo na qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
-![Ecrã de Definições de Agendamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
+![Painel Definições de Agendamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Depois de concluir a configuração da agenda, clique no botão **Criar**. Volta ao dashboard de estado. Selecione **Implementações de atualização agendadas** para mostrar a agenda de implementação que criou.
+Quando tiver terminado de configurar a agenda, selecione **Criar**. Volta ao dashboard de estado. Selecione **Implementações de atualização agendadas** para mostrar a agenda de implementação que criou.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
-Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** no ecrã **Gestão de atualizações**.
-O estado é apresentado como **Em curso** quando está em execução.
-Depois de concluir, se for bem sucedida, muda para **Com êxito**.
-Quando existirem falhas numa ou mais atualizações na implementação, o estado é **Falha parcial**.
-Clique na implementação da atualização concluída para ver o dashboard relativo a essa implementação de atualização.
+Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** em **Gestão de atualizações**. O estado será **Em curso**, se a implementação estiver em execução. Quando a implementação concluir, se for bem sucedida, o estado muda para **Com êxito**. Quando existirem falhas numa ou mais atualizações na implementação, o estado é **Falha parcial**.
 
-![Dashboard de estado de Implementação de Atualização para uma implementação específica](./media/automation-tutorial-update-management/manageupdates-view-results.png)
+Selecione a implementação da atualização concluída para ver o dashboard relativo a essa implementação de atualização.
 
-No mosaico **Resultados da atualização**, um resumo indica o número total de atualizações e os resultados de implementação da VM.
-A tabela à direita mostra uma divisão detalhada de cada atualização e os resultados da instalação.
+![Dashboard de estado de implementação de atualização para uma implementação específica](./media/automation-tutorial-update-management/manageupdates-view-results.png)
+
+Em **Resultados da atualização**, um resumo indica o número total de atualizações e os resultados de implementação da VM. A tabela à direita mostra uma divisão detalhada de cada atualização e os resultados da instalação.
+
 A lista seguinte mostra os valores disponíveis:
 
-* **Não tentado** - a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Com êxito** - a atualização foi executada com êxito.
-* **Falhou** - a atualização falhou.
+* **Não tentado**: a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Com êxito**: a atualização foi executada com êxito.
+* **Falhou**: a atualização falhou.
 
-Clique em **Todos os registos** para ver todas as entradas de registo que a implementação criou.
+Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 
-Clique no mosaico **Saída** para ver o fluxo de tarefas do runbook responsável pela gestão da implementação da atualização na VM de destino.
+Selecione **Saída** para ver o fluxo de tarefas do runbook responsável pela gestão da implementação da atualização na VM de destino.
 
-Clique em **Erros** para ver informações detalhadas sobre os erros da implementação.
+Selecione **Erros** para ver informações detalhadas sobre os erros da implementação.
 
-Assim que a implementação da atualização for concluída com êxito, é enviado um e-mail semelhante à imagem seguinte para indicar o êxito da implementação.
+Quando a implementação da atualização for concluída com êxito, é enviado um e-mail semelhante ao exemplo seguinte para indicar o êxito da implementação:
 
 ![Configurar o grupo de ação de e-mail](./media/automation-tutorial-update-management/email-notification.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Carregar uma VM para gestão de atualizações
+> * Carregar uma VM para Gestão de Atualizações
 > * Ver avaliações de atualizações
 > * Configurar alertas
 > * Agendar uma implementação de atualizações

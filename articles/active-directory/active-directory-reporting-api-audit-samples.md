@@ -1,46 +1,46 @@
 ---
 title: Exemplos de API de auditoria de relatórios do Azure Active Directory | Microsoft Docs
-description: Como começar com a API do Azure Active Directory Reporting Services
+description: Como começar a utilizar a API de Relatórios do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/30/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 77ecb1f0c4b3614c9692715edae21a09f261b277
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 240095b64f4b7b37a71f84ce8d7a3521e0ab7c03
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588169"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223890"
 ---
-# <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory amostras de auditoria API de relatórios
-Este artigo é parte de uma coleção de artigos sobre o Azure Active Directory API do relatório.  
-Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de auditoria utilizando código ou ferramentas relacionadas.
-O âmbito deste artigo é para lhe fornecer o código de exemplo para o **API de auditoria**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemplos de API de auditoria de relatórios do Azure Active Directory
+Este artigo pertence a uma coleção de artigos sobre a API do relatório do Azure Active Directory.  
+Os relatórios do Azure AD disponibilizam uma API que lhe permite aceder a dados de auditoria através de código ou ferramentas relacionadas.
+O âmbito deste artigo é disponibilizar código de exemplo para a **API de auditoria**.
 
 Veja:
 
 * [Registos de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações concetuais
-* [Começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md) para obter mais informações sobre a API de relatórios.
+* Veja a [Introdução à API de relatórios do Azure Active Directory](active-directory-reporting-api-getting-started.md) para obter mais informações sobre a API de relatórios.
 
-Para perguntas, problemas ou comentários, entre em contacto com [AAD Reporting ajudar](mailto:aadreportinghelp@microsoft.com).
+Para esclarecer dúvidas, resolver problemas ou escrever comentários, entre em contacto com a [Ajuda de Relatórios do AAD](mailto:aadreportinghelp@microsoft.com).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de poder utilizar os exemplos neste artigo, o que precisa para concluir a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md).  
+Antes de poder utilizar os exemplos deste artigo, precisa de concluir os [pré-requisitos para aceder à API dos relatórios do Azure AD](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="known-issue"></a>Problema conhecido
-Autenticação da aplicação não funcionará se o seu inquilino está na região EU. Utilize autenticação de utilizador para aceder a API de auditoria como solução, até que resolva o problema. 
+A Autenticação da Aplicação não funciona se o seu inquilino estiver na região da UE. Utilize a Autenticação de Utilizador para aceder à API de Auditoria como uma solução alternativa, até resolver o problema. 
 
 ## <a name="powershell-script"></a>Script do PowerShell
 
@@ -95,16 +95,16 @@ if ($oauth.access_token -ne $null) {
 ```
 
 ### <a name="executing-the-powershell-script"></a>Executar o script do PowerShell
-Depois de concluir a edição do script, executá-lo e certifique-se de que os dados esperados da auditoria os registos de relatório é devolvido.
+Depois de concluir a edição do script, execute-o e certifique-se de que os dados esperados do relatório de registos de Auditoria é devolvido.
 
-O script devolve o resultado do relatório de auditoria no formato JSON. Também cria um `Audits.json` ficheiro com o mesmo resultado. Pode experimentar ao modificar o script devolver dados a partir de outros relatórios ou comente os formatos de saída que não é necessário.
-
-
+O script devolve o resultado do relatório de auditoria no formato JSON. Também cria um ficheiro `Audits.json` com o mesmo resultado. Pode experimentar ao modificar o script para devolver dados a partir de outros relatórios e comentar os formatos de saída que não precisa.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Gostaria de personalizar os exemplos neste artigo? Veja o [auditoria do Azure Active Directory referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
-* Se pretender ver uma descrição geral completa de utilizar o Azure Active Directory API do relatório, consulte [introdução ao Azure Active Directory API do relatório](active-directory-reporting-api-getting-started.md).
-* Se quiser saber mais sobre os relatórios do Azure Active Directory, consulte o [do Azure Active Directory guia de relatórios](active-directory-reporting-guide.md).  
+
+
+## <a name="next-steps"></a>Passos seguintes
+* Gostaria de personalizar os exemplos neste artigo? Veja a [Referência da API de auditoria do Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
+* Se pretender ver uma descrição geral completa da utilização da API de relatórios do Azure Active Directory, veja [Introdução à API de relatórios do Azure Active Directory](active-directory-reporting-api-getting-started.md).
+* Se gostaria de saber mais sobre os relatórios do Azure Active Directory, veja o [Guia dos Relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312700"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267579"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado
 Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).  Se preferir, também pode ver um [vídeo passo a passo](https://channel9.msdn.com/Events/Connect/2017/E100) deste tutorial.
@@ -49,7 +49,7 @@ Antes de começar este tutorial:
 - [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
-Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataformas que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataforma que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 1. Inicie o Visual Studio como **administrador**.
 
@@ -74,9 +74,21 @@ Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Cor
    ![Explorador de Soluções após a criação da aplicação com o serviço de API Web do ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>Adicionar o AngularJS ao serviço VotingWeb
-Adicione o [AngularJS](http://angularjs.org/) ao seu serviço com o [suporte do Bower](/aspnet/core/client-side/bower). Primeiro, adicione um ficheiro de configuração do Bower ao projeto.  No Explorador de Soluções, clique com o botão direito do rato em **VotingWeb** e selecione **Adicionar->Novo Item**. Selecione **Web** e, em seguida, **Ficheiro de Configuração do Bower**.  O ficheiro *bower.json* é criado.
+Adicione o [AngularJS](http://angularjs.org/) ao seu serviço com o [suporte do Bower](/aspnet/core/client-side/bower). Primeiro, adicione um ficheiro de definições *.bowerrc* ao projeto.  No Explorador de Soluções, clique com o botão direito do rato em **VotingWeb** e selecione **Adicionar->Novo Item**. Selecione **C#** e, em seguida, **Ficheiro JSON**.  Introduza **.bowerrc** no campo *Nome* e clique em **Adicionar**.
 
-Abra o *bower.json* e adicione entradas para o Angular e para o programa de arranque do sistema angular e, em seguida, guarde as alterações.
+Abra *.bowerrc* e substitua o conteúdo pelo seguinte, que indica que o Bower irá instalar os ativos de pacote no diretório *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Guarde as alterações em *.bowerrc*.  É criado um ficheiro *.bowerrc* no projeto.  
+
+Em seguida, adicione um ficheiro de configuração do Bower ao projeto.  No Explorador de Soluções, clique com o botão direito do rato em **VotingWeb** e selecione **Adicionar->Novo Item**. Selecione **C#** e, em seguida, **Ficheiro JSON**.  Introduza **bower.json** no campo *Nome* e clique em **Adicionar**.
+
+Abra o *bower.json* e substitua o conteúdo pelas seguintes entradas para o angular e para o programa de arranque do sistema angular e, em seguida, guarde as alterações.
 
 ```json
 {
@@ -92,7 +104,8 @@ Abra o *bower.json* e adicione entradas para o Angular e para o programa de arra
   }
 }
 ```
-Depois de guardar o ficheiro *bower.json*, o Angular está instalado na pasta *wwwroot/lib* do seu projeto. Além disso, está listado na pasta *Dependências/Bower*.
+
+Depois de guardar o ficheiro *bower.json*, o suporte do bower do Visual Studio irá instalar o Angular na pasta *wwwroot/lib* do seu projeto. Além disso, está listado na pasta *Dependências/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Atualizar o ficheiro site.js
 Abra o ficheiro *wwwroot/js/site.js*.  Substitua o respetivo conteúdo pelo JavaScript utilizado pelas vistas Home:
@@ -334,7 +347,7 @@ Quando o serviço de front-end VotingWeb é criado, o Visual Studio seleciona al
   </Resources>
 ```
 
-Também tem de atualizar o valor da propriedade de URL da Aplicação no projeto Voto para que um browser se abra para a porta correta quando depura com "F5".  No Explorador de Soluções, selecione o projeto **Voto** e atualize a propriedade **URL da Aplicação**.
+Também tem de atualizar o valor da propriedade de URL da Aplicação no projeto Voto para que um browser se abra para a porta correta quando depura com “F5”.  No Explorador de Soluções, selecione o projeto **Voto** e atualize a propriedade **URL da Aplicação**.
 
 ![URL da Aplicação](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 

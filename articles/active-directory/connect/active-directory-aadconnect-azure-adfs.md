@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595204"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212677"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
 O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
@@ -57,7 +57,7 @@ Conforme mencionado acima, pode criar duas sub-redes numa única rede virtual ou
 ![Criar a rede virtual](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 No portal do Azure, selecione “rede virtual” e pode implementar a rede virtual e uma sub-rede imediatamente com um só clique. A sub-rede INT também é definida e está agora pronta para receber as VMs.
-O passo seguinte consiste em adicionar outra sub-rede à rede, por exemplo, a sub-rede de perímetro. Para criar a sub-rede de perímetro, basta
+O passo seguinte consiste em adicionar outra sub-rede à rede, por exemplo, a sub-rede de perímetro. Para criar a sub-rede de perímetro, basta:
 
 * Selecionar a rede acabada de criar
 * Selecionar a sub-rede nas propriedades
@@ -305,7 +305,7 @@ A forma mais fácil é testar o AD FS com a página IdpInitiatedSignon.aspx. Par
 
 1. Execute o cmdlet abaixo no servidor AD FS com o PowerShell, para o definir como ativado.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Acesso a https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx a partir de qualquer máquina externa  
+2. Em qualquer máquina externa, aceda a https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. Deverá ver a página do AD FS, conforme mostrado abaixo:
 
 ![Página de início de sessão de teste](./media/active-directory-aadconnect-azure-adfs/test1.png)

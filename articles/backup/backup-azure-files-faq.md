@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605173"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286405"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ Para analisar rapidamente as secções neste artigo, utilize as ligações à di
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Configurar a tarefa de cópia de segurança dos Ficheiros do Azure
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Por que motivo não vejo algumas das minhas Contas de Armazenamento que quero proteger, que contêm partilhas de ficheiros do Azure válidas? <br/>
-Durante a pré-visualização, a Cópia de Segurança das Partilhas de ficheiros do Azure não suporta todos os tipos de Contas de Armazenamento. Consulte a lista [aqui](troubleshoot-azure-files.md#preview-boundaries) para ver a lista das contas de armazenamento suportadas. Também é possível que a Conta de Armazenamento que procura já esteja protegida ou registada noutro Cofre. [Anular o registo](troubleshoot-azure-files.md#configuring-backup) do cofre para detetar a Conta de Armazenamento noutros Cofres para proteção.
+Durante a pré-visualização, a Cópia de Segurança das Partilhas de ficheiros do Azure não suporta todos os tipos de Contas de Armazenamento. Consulte a lista [aqui](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) para ver a lista das contas de armazenamento suportadas. Também é possível que a Conta de Armazenamento que procura já esteja protegida ou registada noutro Cofre. [Anular o registo](troubleshoot-azure-files.md#configuring-backup) do cofre para detetar a Conta de Armazenamento noutros Cofres para proteção.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Por que motivo não vejo algumas das minhas partilhas de ficheiros do Azure na Conta de Armazenamento quando estou a tentar configurar a cópia de segurança? <br/>
 Verifique se a partilha de ficheiros do Azure já está protegida no mesmo cofre dos Serviços de Recuperação ou se foi eliminada recentemente.
@@ -39,13 +39,13 @@ Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protec
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que área geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure? <br/>
 A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmente em Pré-visualização e está disponível apenas nas seguintes áreas geográficas: 
--   Sudeste da Austrália (ASE) 
+-   Leste da Austrália (AE) 
+- Sudeste da Austrália (ASE) 
 - Sul do Brasil (BRS)
 - Canadá Central (CNC)
 -   Leste do Canadá (CE)
 -   EUA Central (CUS)
 -   Ásia Oriental (EA)
--   Leste da Austrália (AE) 
 -   EUA Leste (EUS)
 -   EUA Leste 2 (EUS2)
 - Leste do Japão (JPE)

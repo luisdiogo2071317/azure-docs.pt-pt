@@ -13,14 +13,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: lili
-ms.openlocfilehash: da5c1181f9c4d311bdeabe837435ae4e0eb3dc1a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 06/18/2018
+ms.author: danlep
+ms.openlocfilehash: 6e80996cb0359e88d2a6d5fae231523a5c69c8ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513253"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295266"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>Executar uma tarefa de preparação CNTK com o SDK Python
 
@@ -32,7 +32,7 @@ Neste exemplo, vai utilizar a base de dados MNIST de imagens manuscritas para pr
 
 * Subscrição do Azure - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* SDK Python do Azure - veja as [instruções de instalação](/python/azure/python-sdk-azure-install)
+* SDK Python do Azure - Veja as [instruções de instalação](/python/azure/python-sdk-azure-install). Este artigo requer, pelo menos, a versão 2.0.0 do pacote azure-mgmt-batchai.
 
 * Conta de armazenamento do Azure - veja [Como criar uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
 
@@ -61,12 +61,15 @@ storage_account_key = 'FILL-IN-HERE'
 # specify the credentials used to remote login your GPU node
 admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
+
+# specify the location in which to create Batch AI resources
+mylocation = 'eastus'
 ```
 
 Tenha em atenção que se a colocação das credenciais no código de origem não for uma boa prática e é feito aqui para tornar o início rápido mais simples.
 Em vez disso, considere utilizar as variáveis de ambiente ou um ficheiro de configuração diferente.
 
-## <a name="create-batch-ai-client"></a>Criar o cliente do Batch AI
+## <a name="create-batch-ai-client"></a>Criar cliente do Batch AI
 
 O código seguinte cria um objeto de credenciais principal de serviço e o cliente do Batch AI:
 
@@ -93,14 +96,14 @@ resource_group_name = 'myresourcegroup'
 resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 resource = resource_management_client.resource_groups.create_or_update(
-        resource_group_name, {'location': 'eastus'})
+        resource_group_name, {'location': mylocation})
 ```
 
 
 ## <a name="prepare-azure-file-share"></a>Preparar a partilha de ficheiros do Azure
 Para efeitos de ilustração, este início rápido utiliza uma partilha de Ficheiros do Azure para alojar os dados e os scripts de preparação da tarefa de formação.
 
-1. Criar uma partilha de ficheiros com o nome `batchaiquickstart`.
+Criar uma partilha de ficheiros com o nome `batchaiquickstart`.
 
 ```Python
 from azure.storage.file import FileService
@@ -109,20 +112,28 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. Crie um diretório na partilha com o nome `mnistcntksample`
+Crie um diretório na partilha com o nome `mnistcntksample`.
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
-service.create_directory(azure_file_share_name, mnist_dataset_directory,
-                         fail_on_exist=False)
+service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-3. Transferir o [pacote exemplo](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) e deszipe para o diretório atual. O seguinte código carrega os ficheiros necessários para a partilha de Ficheiros do Azure:
+Transferir o [pacote exemplo](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) e deszipe para o diretório atual. O seguinte código carrega os ficheiros necessários para a partilha de Ficheiros do Azure:
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
           'ConvNet_MNIST.py']:
      service.create_file_from_path(
              azure_file_share_name, mnist_dataset_directory, f, f)
+```
+
+## <a name="create-batch-ai-workspace"></a>Criar área de trabalho do Batch AI
+
+Uma área de trabalho é uma coleção de nível superior de todos os tipos de recursos do Batch AI. Crie o seu cluster e experimentações do Batch AI numa área de trabalho.
+
+```Python
+workspace_name='myworkspace'
+batchai_client.workspaces.create(resource_group_name, workspace_name, mylocation)
 ```
 
 ## <a name="create-gpu-cluster"></a>Criar cluster de GPU
@@ -135,9 +146,7 @@ cluster_name = 'mycluster'
 relative_mount_point = 'azurefileshare'
 
 parameters = models.ClusterCreateParameters(
-    # Location where the cluster will physically be deployed
-    location='eastus',
-    # VM size. Use NC or NV series for GPU
+    # VM size. Use N-series for GPU
     vm_size='STANDARD_NC6',
     # Configure the ssh users
     user_account_settings=models.UserAccountSettings(
@@ -171,7 +180,7 @@ batchai_client.clusters.create(resource_group_name, cluster_name,
 Monitorize o estado do cluster com o seguinte comando:
 
 ```Python
-cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, workspace_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; Leaving: {7}'.format(
     cluster.allocation_state,
@@ -192,16 +201,18 @@ Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable
 
 O cluster está pronto quando os nós forem alocados e a preparação estiver terminada (veja o atributo `nodeStateCounts`). Se ocorrer um problema, o atributo `errors` contém a descrição do erro.
 
-## <a name="create-training-job"></a>Criar tarefa de preparação
+## <a name="create-experiment-and-training-job"></a>Criar tarefa de preparação e experimentação
 
-Depois do cluster ser criado, configure e submeta a tarefa de aprendizagem:
+Depois de criar o cluster, crie uma experimentação (um contentor lógico para um grupo de tarefas relacionadas). Em seguida, configure e submeta uma tarefa de aprendizagem na experimentação:
 
 ```Python
+experiment_name='myexperiment'
+
+batchai_client.experiments.create(resource_group_name, workspace_name, experiment_name)
+
 job_name = 'myjob'
 
-parameters = models.job_create_parameters.JobCreateParameters(
-    # The job and cluster must be created in the same location
-    location=cluster.location,
+parameters = models.JobCreateParameters(
     # The cluster this job will run on
     cluster=models.ResourceId(id=cluster.id),
     # The number of VMs in the cluster to use
@@ -230,16 +241,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
 )
 
 # Create the job
-batchai_client.jobs.create(resource_group_name, job_name, parameters).result()
+batchai_client.jobs.create(resource_group_name, workspace_name, experiment_name, job_name, parameters).result()
 ```
 
 ## <a name="monitor-job"></a>Monitorizar tarefa
 Pode inspecionar o estado da tarefa com o seguinte código:
 
 ```Python
-job = batchai_client.jobs.get(resource_group_name, job_name)
+job = batchai_client.jobs.get(resource_group_name, workspace_name, experiment_name, job_name)
 
-print('Job state: {0} '.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state))
 ```
 
 O resultado é semelhante a: `Job state: running`.
@@ -254,7 +265,7 @@ Utilize o seguinte código para listar os ficheiros de registo, stdout e stderr 
 
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name, job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="stdouterr"))
 
 for file in (f for f in files if f.download_url):
@@ -265,7 +276,7 @@ for file in (f for f in files if f.download_url):
 Utilize o seguinte código para listar os ficheiros de modelo gerados:
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name,job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="MODEL"))
 
 for file in (f for f in files if f.download_url):
@@ -276,12 +287,12 @@ for file in (f for f in files if f.download_url):
 
 Utilize o seguinte código para eliminar a tarefa:
 ```Python
-batchai_client.jobs.delete(resource_group_name, job_name)
+batchai_client.jobs.delete(resource_group_name, workspace_name, experiment_name, job_name)
 ```
 
 Utilize o seguinte código para eliminar o cluster:
 ```Python
-batchai_client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, workspace_name, cluster_name)
 ```
 
 Utilize o seguinte código para eliminar todos os recursos alocados:

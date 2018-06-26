@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802056"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209821"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 O Log Analytics inclui informações sobre a quantidade de dados recolhidos, as origens que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para rever e analisar a utilização de dados. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
@@ -59,7 +59,9 @@ Esta secção descreve como criar um alerta se:
 - O volume de dados exceder uma determinada quantidade.
 - Se previr que o volume de dados vai exceder uma determinada quantidade.
 
-Os [alertas](log-analytics-alerts-creating.md) do Log Analytics utilizam consultas de pesquisa. A consulta seguinte tem um resultado quando são recolhidos mais de 100 GB de dados nas últimas 24 horas:
+Os Alertas do Azure suportam [registar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) que utilizam consultas de pesquisa. 
+
+A consulta seguinte tem um resultado quando são recolhidos mais de 100 GB de dados nas últimas 24 horas:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ A consulta seguinte utiliza uma fórmula simples para prever quando é que vão 
 
 Para alertar relativamente a volumes de dados diferentes, altere o 100 nas consultas para o número de GB para o qual quer receber o alerta.
 
-Utilize os passos descritos em [Create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) (Criar uma regra de alerta) para ser notificado de quando a recolha de dados for superior ao esperado.
+Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) (criar um novo alerta de registo) para ser notificado de quando a recolha de dados for superior ao esperado.
 
 Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB de dados em 24 horas –, defina:  
-- O **nome** como *Volume de dados maior do que 100 GB em 24 horas*  
-- A **gravidade** como *Aviso*  
-- A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- A **Janela de tempo** como *24 Horas*.
-- A **frequência do alerta** como uma hora, pois os dados de utilização só são atualizados uma vez por hora.
-- **Gerar alerta com base em** como o *número de resultados*
-- O **número de resultados** como *Superior a 0*
 
-Utilize os passos descritos em [Add actions to alert rules](log-analytics-alerts-actions.md) (Adicionar ações a regras de alertas) para configurar uma ação de e-mail, webhook ou runbook para a regra de alerta.
+- **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
+- **Critérios de alerta** especifique o seguinte:
+   - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
+   - A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
+   - **Período de tempo** de *1440* minutos e **Frequência de alertas** a cada *60* minutos, uma vez que os dados de utilização são atualizados apenas uma vez por hora.
+- **Definir detalhes do alerta** especifique o seguinte:
+   - O **nome** como *Volume de dados maior do que 100 GB em 24 horas*
+   - A **gravidade** como *Aviso*
+
+Especifique um existente ou crie um novo [Grupo de Ação](../monitoring-and-diagnostics/monitoring-action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando criar o alerta para a segunda consulta – quando se previr que vai haver mais de 100 GB de dados em 24 horas –, defina:
-- O **nome** como *Previsto volume de dados maior do que 100 GB em 24 horas*
-- A **gravidade** como *Aviso*
-- A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- A **Janela de tempo** como *3 Horas*.
-- A **frequência do alerta** como uma hora, pois os dados de utilização só são atualizados uma vez por hora.
-- **Gerar alerta com base em** como o *número de resultados*
-- O **número de resultados** como *Superior a 0*
+
+- **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
+- **Critérios de alerta** especifique o seguinte:
+   - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
+   - A **consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
+   - **Período de tempo** de *180* minutos e **Frequência de alertas** a cada *60* minutos, uma vez que os dados de utilização são atualizados apenas uma vez por hora.
+- **Definir detalhes do alerta** especifique o seguinte:
+   - O **nome** como *Previsto volume de dados maior do que 100 GB em 24 horas*
+   - A **gravidade** como *Aviso*
+
+Especifique um existente ou crie um novo [Grupo de Ação](../monitoring-and-diagnostics/monitoring-action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
 
@@ -155,12 +165,11 @@ Clique em **Ver todos...** para ver a lista completa dos computadores que estão
 
 Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
-
 ## <a name="next-steps"></a>Passos seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
-* Utilize os passos descritos em [Create an alert rule](log-analytics-alerts-creating.md#create-an-alert-rule) (Criar uma regra de alerta) para ser notificado de quando um critério de pesquisa for cumprido.
-* Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários
-* Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md)
-* Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md)
-* Para modificar as definições da recolha de eventos, veja [configuração do registo de eventos](log-analytics-data-sources-windows-events.md)
-* Para modificar as definições da recolha do syslog, veja [configuração do syslog](log-analytics-data-sources-syslog.md)
+* Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
+* Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
+* Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md).
+* Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md).
+* Para modificar as definições da recolha de eventos, veja [configuração do registo de eventos](log-analytics-data-sources-windows-events.md).
+* Para modificar as definições da recolha do syslog, veja [configuração do syslog](log-analytics-data-sources-syslog.md).

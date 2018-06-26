@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: de8b53756c64867c9b24bcd609e5b994e870da9f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514548"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285588"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -32,7 +32,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. Tem de ter uma conta do Batch para criar conjuntos e trabalhos. Conforme mostrado aqui, pode associar uma conta de armazenamento do Azure à conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real.
 
 
-1. Clique em **Novo** > **Computação** > **Serviço Batch**. 
+1. Selecione **Criar um recurso** > **Computação** > **Serviço do Batch**. 
 
   ![Batch no Marketplace][marketplace_portal]
 
@@ -40,7 +40,7 @@ Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. T
 
 3. Em **Conta de armazenamento**, selecione uma conta de armazenamento existente ou crie uma nova.
 
-4. Nas definições restantes, mantenha as predefinições e clique em **Criar** para criar a conta.
+4. Nas definições restantes, mantenha as predefinições e selecione **Criar** para criar a conta.
 
   ![Criar uma conta do Batch][account_portal]  
 
@@ -51,7 +51,7 @@ Quando for apresentada a mensagem **Implementação concluída com êxito**, vá
 Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computação do Windows para fins de teste. O conjunto deste exemplo rápido é constituído por dois nós a executar uma imagem do Windows Server 2012 R2 do Azure Marketplace.
 
 
-1. Na conta do Batch, clique em **Conjuntos** > **Adicionar**.
+1. Na conta do Batch, selecione **Conjuntos** > **Adicionar**.
 
 2. Introduza um **ID do Conjunto** com o nome *mypool*. 
 
@@ -75,21 +75,21 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
   ![Selecionar um tamanho para o conjunto][pool_size] 
 
-5. Nas definições restantes, mantenha as predefinições e clique em **OK** para criar o conjunto.
+5. Nas definições restantes, mantenha as predefinições e selecione **OK** para criar o conjunto.
 
 O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a iniciar os nós de computação. Durante deste período, o **Estado de alocação** do conjunto é **A Redimensionar**. Pode prosseguir e criar um trabalho e tarefas enquanto o conjunto é redimensionado. 
 
 ![Conjunto no estado A Redimensionar][pool_resizing]
 
-Após alguns minutos, o estado do conjunto passa para **Estável** e o nó é iniciado. Clique em **Nós** para verificar o estado dos nós. Quando o estado de um nó for **Inativo**, o mesmo estará pronto para executar tarefas. 
+Após alguns minutos, o estado do conjunto passa para **Estável** e o nó é iniciado. Selecione **Nós** para verificar o estado dos nós. Quando o estado de um nó for **Inativo**, o mesmo estará pronto para executar tarefas. 
 
 ## <a name="create-a-job"></a>Criar uma tarefa
 
 Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, os trabalhos não têm tarefas. 
 
-1. Na vista de conta do Batch, clique em **Trabalhos** > **Adicionar**. 
+1. Na vista de conta do Batch, selecione **Tarefas** > **Adicionar**. 
 
-2. Introduza um **ID de Trabalho** com o nome *myjob*. Em **Conjunto**, selecione *mypool*. Deixe as predefinições nas restantes definições e clique em **OK**.
+2. Introduza um **ID de Trabalho** com o nome *myjob*. Em **Conjunto**, selecione *mypool*. Mantenha as predefinições nas restantes definições e selecione **OK**.
 
   ![Criar uma tarefa][job_create]
 
@@ -103,11 +103,11 @@ Quando utiliza o Batch, a linha de comandos é onde especifica a aplicação ou 
 
 Para criar a primeira tarefa:
 
-1. Clique em **Adicionar**.
+1. Selecione **Adicionar**.
 
 2. Introduza um **ID de Tarefa** com o nome *mytask*. 
 
-3. Em **Linha de comandos**, introduza `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Deixe as predefinições nas restantes definições e clique em **OK**.
+3. Em **Linha de comandos**, introduza `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenha as predefinições nas restantes definições e selecione **OK**.
 
   ![Criar uma tarefa][task_create]
 
@@ -117,7 +117,7 @@ Para criar uma segunda tarefa, volte ao passo 1. Introduza outro **ID de Tarefa*
 
 ## <a name="view-task-output"></a>Ver o resultado das tarefas
 
-As tarefas de exemplo anteriores são concluídas em poucos minutos. Para ver o resultado de uma tarefa concluída, clique em **Ficheiros no nó** e selecione o ficheiro `stdout.txt`. Este ficheiro mostra o resultado padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
+As tarefas de exemplo anteriores são concluídas em poucos minutos. Para ver o resultado de uma tarefa concluída, selecione **Ficheiros no nó** e selecione o ficheiro `stdout.txt`. Este ficheiro mostra o resultado padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
 
 ![Ver o resultado das tarefas][task_output]
 
@@ -127,9 +127,9 @@ O conteúdo mostra as variáveis de ambiente do Azure Batch que estão definidas
 
 Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do Batch e a conta de armazenamento associada que foi criada neste início rápido. A conta do Batch em si não é cobrada.
 
-É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Na vista da conta, clique em **Conjuntos** e no nome do conjunto. Em seguida, clique em **Eliminar**.  Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
+É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Na vista da conta, selecione **Conjuntos** e o nome do conjunto. Em seguida, selecione **Eliminar**.  Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
-Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
+Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e selecione **Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

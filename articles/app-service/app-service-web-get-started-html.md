@@ -3,8 +3,8 @@ title: Criar uma aplicação Web HTML estática no Azure | Microsoft Docs
 description: Saiba como é fácil executar aplicações Web no Serviço de Aplicações do Azure ao implementar uma aplicação de exemplo HTML estática.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,91 +12,97 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
-ms.author: cephalin
+ms.date: 06/15/2018
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28918782"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294017"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra-lhe como implementar um site HTML+CSS básico nas aplicações Web do Azure. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o Git para implementar o conteúdo HTML de exemplo na aplicação Web.
+[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra-lhe como implementar um site HTML+CSS básico nas aplicações Web do Azure. Este início rápido deverá ser concluído no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
 
 ![Página inicial da aplicação de exemplo](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-Pode seguir os passos abaixo num computador Mac, Windows ou Linux. Depois de instalados os pré-requisitos, demora cerca de cinco minutos a concluir todos os passos.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para concluir este guia de início rápido:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Instalar a extensão da aplicação Web para o Cloud Shell
 
-- <a href="https://git-scm.com/" target="_blank">Instale o Git</a>.
+Para concluir este início rápido, precisa de adicionar a [extensão da aplicação Web az](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se a extensão já estiver instalada, deverá atualizá-la para a versão mais recente. Para atualizar a extensão da aplicação Web, introduza `az extension update -n webapp`.
+
+Para instalar a extensão da aplicação Web, execute o seguinte comando:
+
+```bash
+az extension add -n webapp
+```
+
+Quando a extensão estiver instalada, o Cloud Shell mostra as seguintes informações:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Numa janela do terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+No Cloud Shell, crie um diretório de início rápido e, em seguida, altere-o.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Em seguida, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu diretório de início rápido.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Mude para o diretório que contém o código de exemplo.
+## <a name="create-a-web-app"></a>Criar uma aplicação Web
+
+Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
+
+No comando a seguir, substitua <nome_aplicação> por um nome de aplicação exclusivo.
 
 ```bash
 cd html-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-## <a name="view-the-html"></a>Ver o HTML
+O comando `az webapp up` executa as seguintes ações:
 
-Navegue para o diretório que contém o HTML de exemplo. Abra o ficheiro *index.html* no browser.
+- Cria um grupo de recursos predefinido.
 
-![Home page da aplicação de exemplo](media/app-service-web-get-started-html/hello-world-in-browser.png)
+- Cria um plano do serviço de aplicações predefinido.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Cria uma aplicação com o nome especificado.
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+- [Implementa](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) os ficheiros zip do diretório atual de trabalho para a aplicação Web.
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+Este comando pode demorar alguns minutos a ser executado. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![Página da aplicação Web vazia](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
+  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
 ```
+
+Anote o valor `resourceGroup`. Vai precisar dele na secção [limpar recursos](#clean-up-resources).
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
@@ -110,16 +116,19 @@ A página está a ser executada como uma aplicação Web do Serviço de Aplicaç
 
 ## <a name="update-and-redeploy-the-app"></a>Atualizar e reimplementar a aplicação
 
-Abra o ficheiro *index.html* num editor de texto e faça uma alteração da marcação. Por exemplo, altere o cabeçalho H1 "Serviço de aplicações do Azure – exemplo estático do site HTML" simplesmente para -"serviço de aplicações do Azure".
+No Cloud Shell, escreva `nano index.html` para abrir o editor de texto nano. No cabeçalho H1, altere o "Serviço de Aplicações do Azure –  Site HTML Estático de Exemplo" para -"Serviço de Aplicações do Azure", conforme mostrado abaixo.
 
-Na janela terminal local, consolide as suas alterações no Git e envie as alterações ao código para o Azure.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+
+Guarde as alterações e feche o nano. Utilize o comando `^O` para guardar e `^X` para sair.
+
+Agora irá implementar novamente a aplicação com o mesmo comando `az webapp up`.
 
 ```bash
-git commit -am "updated HTML"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-Depois de concluída a implementação, atualize o browser para ver as alterações.
+Depois de concluída a implementação, volte para a janela do browser aberta que abriu no passo **Navegar para a aplicação** e atualize a página.
 
 ![Página inicial atualizada da aplicação de exemplo](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
@@ -131,13 +140,21 @@ No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da
 
 ![Navegação no portal para a aplicação Web do Azure](./media/app-service-web-get-started-html/portal1.png)
 
-É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
+É apresentada a página de descrição geral da sua aplicação Web. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar.
 
 ![Painel Serviço de Aplicações no portal do Azure](./media/app-service-web-get-started-html/portal2.png)
 
-O menu à esquerda fornece diferentes páginas para configurar a sua aplicação. 
+O menu à esquerda fornece diferentes páginas para configurar a sua aplicação.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se achar que não vai precisar destes recursos no futuro, execute o seguinte comando no Cloud Shell para eliminar o grupo de recursos. Lembre-se de que o nome do grupo de recursos foi gerado automaticamente para si no passo [criar uma aplicação Web](#create-a-web-app).
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+Este comando pode demorar alguns minutos a ser executado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

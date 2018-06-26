@@ -1,41 +1,41 @@
 ---
-title: Exemplos de API do relatório de atividade de início de sessão do Active Directory do Azure | Microsoft Docs
-description: Como começar com a API do Azure Active Directory Reporting Services
+title: Exemplos da API do relatório de atividade de início de sessão do Azure Active Directory | Microsoft Docs
+description: Como começar a utilizar a API de Relatórios do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 466755d7d1cc7fbf4006826ac849b74ba306bae9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 52d49770014a5fb6a5eec644868e702c8a8d9ef3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698582"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36224903"
 ---
-# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Amostras de API do relatório de atividade de início de sessão do Azure Active Directory
-Este artigo é parte de uma coleção de artigos sobre o Azure Active Directory API do relatório.  
-Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de atividade de início de sessão utilizando código ou ferramentas relacionadas.  
-O âmbito deste artigo é para lhe fornecer o código de exemplo para o **início de sessão atividade API**.
+# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Exemplos da API do relatório de atividade de início de sessão do Azure Active Directory
+Este artigo pertence a uma coleção de artigos sobre a API do relatório do Azure Active Directory.  
+Os relatórios do Azure AD disponibilizam uma API que lhe permite aceder a dados de atividade de início de sessão através de código ou ferramentas relacionadas.  
+O âmbito deste Artigo é disponibilizar código de exemplo para a **API de atividade de início de sessão**.
 
 Veja:
 
 * [Registos de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações concetuais
-* [Começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md) para obter mais informações sobre a API de relatórios.
+* Veja a [Introdução à API de relatórios do Azure Active Directory](active-directory-reporting-api-getting-started.md) para obter mais informações sobre a API de relatórios.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de poder utilizar os exemplos neste artigo, o que precisa para concluir a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md).  
+Antes de poder utilizar os exemplos deste artigo, precisa de concluir os [pré-requisitos para aceder à API dos relatórios do Azure AD](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>Script do PowerShell
 
@@ -92,12 +92,12 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="executing-the-script"></a>Executar o script
-Depois de concluir a edição do script, executá-lo e certifique-se de que os dados esperados de início de sessão os registos de relatório é devolvido.
+Depois de concluir a edição do script, execute-o e certifique-se de que os dados esperados do relatório de registos de início de sessão são devolvidos.
 
-O script devolve o resultado do relatório início de sessão no formato JSON. Também cria um `SignIns.json` ficheiro com o mesmo resultado. Pode experimentar ao modificar o script devolver dados a partir de outros relatórios ou comente os formatos de saída que não é necessário.
+O script devolve o resultado do relatório início de sessão no formato JSON. Também cria um ficheiro `SignIns.json` com o mesmo resultado. Pode experimentar ao modificar o script para devolver dados a partir de outros relatórios e comentar os formatos de saída que não precisa.
 
-## <a name="next-steps"></a>Próximos Passos
-* Gostaria de personalizar os exemplos neste artigo? Veja o [do Azure Active Directory início de sessão atividade referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
-* Se pretender ver uma descrição geral completa de utilizar o Azure Active Directory API do relatório, consulte [introdução ao Azure Active Directory API do relatório](active-directory-reporting-api-getting-started.md).
-* Se quiser saber mais sobre os relatórios do Azure Active Directory, consulte o [do Azure Active Directory guia de relatórios](active-directory-reporting-guide.md).  
+## <a name="next-steps"></a>Passos Seguintes
+* Gostaria de personalizar os exemplos neste artigo? Veja a [Referência da API de atividade de início de sessão do Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
+* Se pretender ver uma descrição geral completa da utilização da API de relatórios do Azure Active Directory, veja [Introdução à API de relatórios do Azure Active Directory](active-directory-reporting-api-getting-started.md).
+* Se gostaria de saber mais sobre os relatórios do Azure Active Directory, veja o [Guia dos Relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
 

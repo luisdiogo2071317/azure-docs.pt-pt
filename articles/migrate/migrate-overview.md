@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236370"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285802"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -31,7 +31,7 @@ O Azure Migrate ajuda-o a:
 
 - Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware têm de ser geridas pelo vCenter Server (versão 5.5, 6.0 ou 6.5).
 - O suporte para Hyper-V está no nosso plano. Até lá, recomendamos que utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planear a migração de cargas de trabalho do Hyper-V.
-- Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação.
+- Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação. Se pretender encontrar um ambiente maior, pode dividir a deteção e criar vários projetos, [saiba mais](how-to-scale-assessment.md). O Azure Migrate suporta até 20 projetos por subscrição.
 - Só pode criar um projeto do Azure Migrate na região E.U.A. Centro-Oeste ou Leste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 
@@ -50,7 +50,10 @@ Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local,
 **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>Atualmente, o Azure Migrate suporta 30 regiões, incluindo Alemanha Central, Ásia Oriental, Canadá Central, Coreia Central, EUA Central, EUA Centro-Norte, EUA Centro-Oeste, EUA Centro-Sul, EUA Leste, EUA Leste 2, EUA Oeste, EUA Oeste 2, Europa do Norte, Europa Ocidental, Índia Central, Índia Ocidental, Leste da Austrália, Leste da China, Leste do Canadá, Leste do Japão, Nordeste da Alemanha, Norte da China, Oeste do Japão, Oeste do Reino Unido, Sudeste Asiático, Sudeste da Austrália, Sul da Coreia, Sul da Índia, Sul do Brasil, Sul do Reino Unido, US Gov – Arizona, US Gov – Texas e US Gov – Virginia. Por predefinição, a localização de destino está definida para E.U.A. Oeste 2.
 **Tipo de armazenamento** | Pode especificar o tipo de discos que quer alocar no Azure. Esta propriedade é aplicável quando o critério de dimensionamento é como o dimensionamento no local. Pode especificar o tipo de disco de destino como discos geridos Premium ou discos geridos Standard. O valor predefinido é discos geridos Premium. Para o dimensionamento com base no desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Note que o Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Critérios de dimensionamento** | Os critérios a serem utilizados pelo Azure Migrate para encontrar VMs de tamanho adequado para o Azure. Pode fazer o dimensionamento com base no *histórico de desempenho* das VMs no local ou dimensionar as VMs *como no local* para o Azure, sem considerar o histórico de desempenho. O valor predefinido é como o dimensionamento no local.
-**Planos de preços** | Para cálculos de custo, uma avaliação considera se tem garantia de software e é elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que pode estar inscrito e permite-lhe indicar quaisquer descontos (%) específicos de subscrições, que pode acumular relativamente à oferta.
+**Oferta do Azure** | Pode especificar a [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que está inscrito e o Azure Migrate faz uma estimativa do custo em conformidade.
+**Benefício Híbrido do Azure** | Pode especificar se tem software assurance e se é elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) para usufruir de custos reduzidos.
+**Instâncias Reservadas** |  Também pode especificar se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure e o Azure Migrate fará uma estimativa dos custos em conformidade.
+**Tempo de atividade de VM** | Se as suas VMs não vão ser executadas 24x7 no Azure, pode especificar a duração em que pretende que sejam executadas no mesmo e as estimativas de custo serão realizadas em conformidade.
 **Escalão de preço** | Pode especificar o [escalão de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) para as VMs de destino do Azure. Por exemplo, se estiver a planear a migração de um ambiente de produção, deve considerar o escalão Standard, que oferece baixa latência às VMs, mas pode ser mais dispendioso. Por outro lado, se tiver um ambiente de Dev/Test, deve considerar o escalão Básico que tem VMs com latência superior e custos reduzidos. Por predefinição, é utilizado o escalão [Standard](../virtual-machines/windows/sizes-general.md).
 **Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%. Pode modificar estes valores nas propriedades de avaliação.
 **Série das VMs** | Pode especificar a série das VMs que gostaria de considerar para redimensionamento. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série e o redimensionamento será realizado apenas na série selecionada.  
