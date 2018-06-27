@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836305"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959107"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -403,7 +403,7 @@ Atribuições de tópico de novos artigos no conjunto de dados de notícias Reut
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Estes dados provém do desafio de avaliação de desempenho KDD Cup 2010 estudante (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do estudante</a>). Os dados utilizados são o conjunto de preparação de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, recomeço, Ritter, s., Gordon, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados do desafio de KDD Cup 2010 Educational Data Mining desafio. Encontrá-lo em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Estes dados provém do desafio de avaliação de desempenho KDD Cup 2010 estudante (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do estudante</a>). Os dados utilizados são o conjunto de preparação de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, recomeço, Ritter, s., Gordon, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados do desafio de KDD Cup 2010 Educational Data Mining desafio. Encontrá-lo em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 O conjunto de dados foi transferido e armazenado no Blob storage do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contém ficheiros de registo de um estudante tutoring sistema. As funcionalidades fornecidas incluem o ID do problema e respetiva descrição breve, ID de estudante, timestamp e quantas tentativas estudante efetuada antes de resolver o problema da forma correta. O conjunto de dados original foi 8.9M registos; Este conjunto de dados foi amostragem pendentes para as primeiras linhas de 100K. O conjunto de dados tem 23 colunas separador por vírgulas de vários tipos: numéricos, categórico e timestamp.
   </td>

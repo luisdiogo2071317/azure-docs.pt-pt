@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c8204e204978a9fd7cda2e9c02be0c70722b01bb
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425617"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021365"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence em Máquinas Virtuais do Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Existem duas formas de licença do SQL Server em máquinas virtuais do Microsoft
 1. Vantagens de mobilidade de licenças que fazem parte do Software Assurance. Para obter mais informações, consulte [licença mobilidade através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Paga por taxa de hora de Virtual Machines do Azure com o SQL Server instalada. Consulte a secção "SQL Server" [preços das Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Para obter mais informações sobre as taxas de licenciamento e atuais, consulte [FAQ de licenciamento de máquinas virtuais](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Para obter mais informações sobre as taxas de licenciamento e atuais, consulte [FAQ de licenciamento de máquinas virtuais](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>SQL Server imagens disponíveis na Galeria de Máquina Virtual do Azure
 Galeria da máquina de Virtual do Microsoft Azure inclui várias imagens que contêm o Microsoft SQL Server. O software instalado nas imagens de máquina virtual varia consoante a versão do sistema operativo e a versão do SQL Server. A lista de imagens disponíveis na galeria da máquina virtual do Azure é alterado frequentemente.
@@ -255,7 +255,7 @@ A tabela seguinte resume algumas das opções disponíveis para publicar relató
 Para instalar serviços do SQL Server adicionais, tais como o Analysis Services no modo de tabela, execute o Assistente de configuração do SQL server. Os ficheiros de configuração estiverem num disco local da máquina virtual.
 
 1. Clique em **iniciar** e, em seguida, clique em **todos os programas**.
-2. Clique em **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** ou **Microsoft SQL Server 2012** e, em seguida, clique em **ferramentas de configuração**.
+2. Clique em **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** ou **Microsoft SQL Server 2012** e, em seguida, clique em **ferramentas de configuração** .
 3. Clique em **Centro de instalação do SQL Server**.
 
 Ou execute C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe ou C:\SQLServer_11.0_full\setup.exe
@@ -282,7 +282,7 @@ Os passos nesta secção **resumir** a instalação do modo de tabela do Analysi
 3. No **tipo de instalação** página, selecione **efetuar uma nova instalação do SQL Server** e clique em **seguinte**.
 4. No **função de configuração** página, clique em **instalação de funcionalidades do SQL Server**.
 5. No **a seleção de funcionalidades** página, clique em **Analysis Services**.
-6. No **configuração de instância** página, introduza um nome descritivo, tal como **tabela** para **com o nome de instância** e **Id de instância** caixas de texto.
+6. No **configuração de instância** página, introduza um nome descritivo, tal como **tabela** para **com o nome de instância** e **Id de instância** caixas de texto .
 7. No **Analysis Services Configuration** página, selecione **modo de tabela**. Adicione o utilizador atual à lista de permissões administrativas.
 8. Conclua e fechar o Assistente de instalação do SQL Server.
 
