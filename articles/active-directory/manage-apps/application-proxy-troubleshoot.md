@@ -11,23 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f3c767da249d10896ef1792ce4a5ed72ba3fa418
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8740557471d1cc528e8b7440984c7a3c624ee693
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303911"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017669"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas de Proxy de aplicações e as mensagens de erro
 Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
 
 * Abra a consola de serviços do Windows e certifique-se de que o **conector do Proxy de aplicações do Microsoft AAD** serviço está ativado e em execução. Também poderá consultar a página de propriedades do serviço de Proxy de aplicações, conforme mostrado na imagem seguinte:  
   ![Captura de ecrã de janela de propriedades de conector do Proxy de aplicações do Microsoft AAD](./media/application-proxy-troubleshoot/connectorproperties.png)
-* Abra o Visualizador de eventos e procure eventos do conector de Proxy de aplicações no **registos de serviços e aplicações** > **Microsoft** > **AadApplicationProxy** > **conector** > **Admin**.
+* Abra o Visualizador de eventos e procure eventos do conector de Proxy de aplicações no **registos de serviços e aplicações** > **Microsoft** > **AadApplicationProxy**  >  **Conector** > **Admin**.
 * Se for necessário, registos mais detalhados estão disponíveis por [ativar os registos de sessão do conector de Proxy de aplicações](application-proxy-connectors.md#under-the-hood).
 
 Para obter mais informações sobre a ferramenta de resolução de problemas de AD do Azure, consulte [ferramenta de resolução de problemas para validar a pré-requisitos de rede do conector](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
@@ -41,8 +41,6 @@ Se alterar o caminho para incluir conteúdo referenciado, mas ainda tem dos util
 
 ## <a name="connector-errors"></a>Erros de conector
 
-Utilize o [do Azure AD aplicação Proxy portas teste ferramenta do conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar que o conector pode contactar o serviço de Proxy de aplicações. No mínimo, certifique-se de que a região EUA Central e a região mais próxima têm todas as marcas de verificação verdes. Para além disso, as marcas de verificação verde mais significa maior resiliência. 
-
 Se o registo falhar durante a instalação de assistente do conector, existem duas formas de ver o motivo da falha. O procure no registo de eventos em **aplicações e serviços Logs\Microsoft\AadApplicationProxy\Connector\Admin**, ou execute o seguinte comando do Windows PowerShell:
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
@@ -54,7 +52,7 @@ Depois de localizar o erro do conector do registo de eventos, utilize esta tabel
 | Falha no registo do conector: Certifique-se de que ativou o Proxy da aplicação no Portal de gestão do Azure e se introduziu o nome de utilizador do Active Directory e a palavra-passe corretamente. Erro: 'ocorreram um ou mais erros.' | Se fechar a janela de registo sem início de sessão para o Azure AD, execute novamente o Assistente do conector e registar o conector. <br><br> Se a janela de registo abre e, em seguida, fecha imediatamente sem que permite iniciar sessão, provavelmente, irá obter este erro. Este erro ocorre quando existe um erro de rede no seu sistema. Certifique-se de que é possível ligar a partir de um browser para um Web site público e que as portas são abertas conforme especificado no [pré-requisitos do Proxy de aplicações](application-proxy-enable.md). |
 | Limpar erro é apresentado na janela de registo. Não é possível continuar | Se vir este erro e, em seguida, fecha a janela, introduzir o nome de utilizador errado ou a palavra-passe. Tente novamente. |
 | Falha no registo do conector: Certifique-se de que ativou o Proxy da aplicação no Portal de gestão do Azure e se introduziu o nome de utilizador do Active Directory e a palavra-passe corretamente. Erro: ' AADSTS50059: não existem informações de identificação de inquilino encontrado no pedido ou implícito por qualquer fornecido as credenciais e pesquisa por serviço principal URI falhou. | Está a tentar iniciar sessão com uma Account Microsoft e não um domínio que faz parte do ID de organização do diretório que está a tentar aceder. Certifique-se de que o administrador faz parte do mesmo nome de domínio como o domínio de inquilino, por exemplo, se o domínio do Azure AD for contoso.com, o administrador deve ser admin@contoso.com. |
-| Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, certifique-se certifique-se de que a política de execução do PowerShell não está desativada. <br><br>1. Abra o Editor de políticas de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows** > **do Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **ativado**, certifique-se de que em Opções, a política de execução está definida como **permitir scripts locais e remotos scripts assinados** ou **permitir todos os scripts**. |
+| Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, certifique-se certifique-se de que a política de execução do PowerShell não está desativada. <br><br>1. Abra o Editor de políticas de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **ativado**, certifique-se de que em Opções, a política de execução está definida como **permitir scripts locais e remotos scripts assinados** ou **permitir todos os scripts**. |
 | Não foi possível transferir a configuração do conector. | Certificado de cliente o conector, que é utilizado para autenticação, expirou. Isto pode também ocorrer se tiver o conector instalado atrás de um proxy. Neste caso, o conector não é possível aceder à Internet e não será capaz de fornecer aplicações para os utilizadores remotos. Renovar a confiança manualmente utilizando o `Register-AppProxyConnector` cmdlet no Windows PowerShell. Se o seu conector estiver atrás de um proxy, é necessário conceder acesso à Internet para as contas de conector "serviços de rede" e "sistema local." Isto pode ser conseguido concedendo-lhes acesso ao Proxy ou definindo-los para ignorar o proxy. |
 | Falha no registo do conector: Certifique-se de que um Administrador Global do seu Active Directory para registar o conector. Erro: "o pedido de registo foi negado." | O alias que está a tentar iniciar sessão com não é administrador neste domínio. O conector é sempre instalado para o diretório que detém o domínio do utilizador. Certifique-se de que está a tentar iniciar sessão com a conta de administrador tem as permissões global para o inquilino do Azure AD. |
 
@@ -64,7 +62,7 @@ Esta tabela aborda os erros mais comuns que vêm da configuração de Kerberos e
 
 | Erro | Passos recomendados |
 | ----- | ----------------- |
-| Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, certifique-se certifique-se de que a política de execução do PowerShell não está desativada.<br><br>1. Abra o Editor de políticas de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows** > **do Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **ativado**, certifique-se de que em Opções, a política de execução está definida como **permitir scripts locais e remotos scripts assinados** ou **permitir todos os scripts**. |
+| Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, certifique-se certifique-se de que a política de execução do PowerShell não está desativada.<br><br>1. Abra o Editor de políticas de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **ativado**, certifique-se de que em Opções, a política de execução está definida como **permitir scripts locais e remotos scripts assinados** ou **permitir todos os scripts**. |
 | 12008 - as do azure AD foi excedido o número máximo de tentativas de autenticação do Kerberos permitidos para o servidor de back-end. | Este erro pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicação de back-end, ou um problema na configuração de data e hora em ambas as máquinas. O servidor de back-end recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão configuradas corretamente. Certifique-se de que a configuração de data e o Azure AD e o servidor de aplicação de back-end estão sincronizadas. |
 | 13016 - as do azure AD não é possível obter uma permissão de Kerberos em nome do utilizador, porque não há nenhum UPN no token de limite ou o cookie de acesso. | Não há um problema com a configuração de STS. Corrija a configuração de afirmação UPN STS. |
 | 13019 - as do azure AD não é possível obter uma permissão de Kerberos em nome do utilizador devido ao seguinte erro geral de API. | Este evento pode indicar uma configuração incorreta entre o Azure AD e o servidor de controlador de domínio ou um problema na configuração de data e hora em ambas as máquinas. O controlador de domínio recusado a permissão de Kerberos criada pelo Azure AD. Certifique-se de que o Azure AD e o servidor de aplicação de back-end estão corretamente configurados, especialmente a configuração de SPN. Certifique-se de que o Azure AD domínio associado ao mesmo domínio que o controlador de domínio para se certificar de que o controlador de domínio estabelece a fidedignidade com o Azure AD. Certifique-se de que a configuração de data e o Azure AD e o controlador de domínio estão sincronizadas. |

@@ -1,25 +1,25 @@
 ---
-title: Melhores práticas para a sincronização de dados de SQL do Azure (pré-visualização) | Microsoft Docs
-description: Saiba mais sobre as melhores práticas para configurar e executar a sincronização de dados de SQL do Azure (pré-visualização).
+title: Melhores práticas para a sincronização de dados SQL do Azure | Microsoft Docs
+description: Saiba mais sobre as melhores práticas para configurar e executar a sincronização de dados SQL do Azure.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646012"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025960"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Melhores práticas para a sincronização de dados do SQL Server (pré-visualização) 
+# <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 
-Este artigo descreve as melhores práticas para a sincronização de dados SQL do Azure (pré-visualização).
+Este artigo descreve as melhores práticas para a sincronização de dados SQL do Azure.
 
-Para obter uma descrição geral da sincronização de dados do SQL Server (pré-visualização), consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md).
+Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Segurança e fiabilidade
 
@@ -50,10 +50,10 @@ Base de dados SQL do Azure suporta apenas um único conjunto de credenciais. Par
 
 #### <a name="sql-database-instance-size"></a>Tamanho da instância de base de dados SQL
 
-Quando cria uma nova instância de base de dados do SQL Server, defina o tamanho máximo que sempre é maior do que a base de dados que implementa. Se não definir o tamanho máximo para maior do que a base de dados implementado, a sincronização falha. Embora a sincronização de dados do SQL Server (pré-visualização) não oferecem o aumento automático, pode executar o `ALTER DATABASE` comando para aumentar o tamanho da base de dados depois de terem sido criadas. Certifique-se de que permanecem dentro dos limites de tamanho do instância de base de dados SQL.
+Quando cria uma nova instância de base de dados do SQL Server, defina o tamanho máximo que sempre é maior do que a base de dados que implementa. Se não definir o tamanho máximo para maior do que a base de dados implementado, a sincronização falha. Embora a sincronização de dados do SQL Server não oferecem o aumento automático, pode executar o `ALTER DATABASE` comando para aumentar o tamanho da base de dados depois de terem sido criadas. Certifique-se de que permanecem dentro dos limites de tamanho do instância de base de dados SQL.
 
 > [!IMPORTANT]
-> Sincronização de dados do SQL Server (pré-visualização) armazena os metadados adicionais com cada base de dados. Certifique-se de que tem em conta estes metadados ao calcular o espaço necessário. A quantidade de adicionar a sobrecarga está relacionado com a largura das tabelas (por exemplo, as tabelas estreito requerem mais overhead) e a quantidade de tráfego.
+> Sincronização de dados do SQL Server armazena os metadados adicionais com cada base de dados. Certifique-se de que tem em conta estes metadados ao calcular o espaço necessário. A quantidade de adicionar a sobrecarga está relacionado com a largura das tabelas (por exemplo, as tabelas estreito requerem mais overhead) e a quantidade de tráfego.
 
 ### <a name="table-considerations-and-constraints"></a> Considerações de tabela e restrições
 
@@ -63,19 +63,19 @@ Não tem de incluir todas as tabelas que se encontrem numa base de dados num gru
 
 #### <a name="primary-keys"></a>Chaves primárias
 
-Cada tabela num grupo de sincronização tem de ter uma chave primária. O serviço de sincronização de dados do SQL Server (pré-visualização) não é possível sincronizar uma tabela que não tem uma chave primária.
+Cada tabela num grupo de sincronização tem de ter uma chave primária. O serviço de sincronização de dados do SQL Server não consegue sincronizar a uma tabela que não tem uma chave primária.
 
-Antes de utilizar a sincronização de dados do SQL Server (pré-visualização) na produção, teste o desempenho da sincronização iniciais e contínuas.
+Antes de utilizar a sincronização de dados do SQL Server na produção, teste o desempenho da sincronização iniciais e contínuas.
 
 ### <a name="provisioning-destination-databases"></a> Aprovisionamento de bases de dados de destino
 
-Pré-visualização de sincronização de dados do SQL Server (pré-visualização) fornece autoprovisioning de base de dados básica.
+Sincronização de dados do SQL Server fornece autoprovisioning de base de dados básica.
 
-Esta secção descreve as limitações de aprovisionamento na sincronização de dados do SQL Server (pré-visualização).
+Esta secção descreve as limitações de aprovisionamento na sincronização de dados do SQL Server.
 
 #### <a name="autoprovisioning-limitations"></a>Limitações de Autoprovisioning
 
-Sincronização de dados do SQL Server (pré-visualização) tem as seguintes limitações no autoprovisioning:
+Sincronização de dados do SQL Server tem as seguintes limitações no autoprovisioning:
 
 -   Selecione apenas as colunas que são criadas na tabela de destino.  
     Todas as colunas que não fazem parte do grupo de sincronização não estão aprovisionadas nas tabelas de destino.
@@ -88,7 +88,7 @@ Sincronização de dados do SQL Server (pré-visualização) tem as seguintes li
 
 #### <a name="recommendations"></a>Recomendações
 
--   Utilize a capacidade de autoprovisioning de sincronização de dados do SQL Server (pré-visualização) apenas quando está a tentar terminar o serviço.  
+-   Utilize a capacidade de autoprovisioning de sincronização de dados do SQL Server apenas quando está a tentar terminar o serviço.  
 -   Para produção, Aprovisione o esquema de base de dados.
 
 ### <a name="locate-hub"></a> Onde localizar a base de dados do hub
@@ -114,7 +114,7 @@ Nesta secção, vamos discutir a sincronização inicial de um grupo de sincroni
 
 #### <a name="how-initial-sync-works"></a>Funciona como inicial de sincronização
 
-Quando cria um grupo de sincronização, começar a utilizar dados na base de dados apenas um. Se tiver dados nas bases de dados de vários, sincronização de dados do SQL Server (pré-visualização) trata cada linha como um conflito que tem de ser resolvidos. Esta resolução de conflitos faz com que a sincronização inicial ir lentamente. Se tiver dados em várias bases de dados, a sincronização inicial pode demorar entre vários dias e vários meses, dependendo do tamanho de base de dados.
+Quando cria um grupo de sincronização, começar a utilizar dados na base de dados apenas um. Se tiver dados em várias bases de dados, sincronização de dados do SQL Server processa cada linha como um conflito que tem de ser resolvidos. Esta resolução de conflitos faz com que a sincronização inicial ir lentamente. Se tiver dados em várias bases de dados, a sincronização inicial pode demorar entre vários dias e vários meses, dependendo do tamanho de base de dados.
 
 Se as bases de dados estiverem em datacenters diferentes, cada linha tem de se entre centros de dados diferentes. Isto aumenta o custo de uma sincronização inicial.
 
@@ -209,16 +209,16 @@ Em vez disso, remova primeiro uma base de dados de um grupo de sincronização. 
 Se tentar remover uma base de dados e, em seguida, editar um grupo de sincronização sem primeiro uma implementação de alterações, um ou a outra operação falha. Interface do portal pode ficar inconsistente. Se isto acontecer, atualize a página para restaurar o estado correto.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a sincronização de dados do SQL Server (pré-visualização), consulte:
+Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
 
--   [Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados de SQL do Azure (pré-visualização)](sql-database-sync-data.md)
--   [Configurar a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-get-started-sql-data-sync.md)
--   [Monitor SQL do Azure de sincronização de dados (pré-visualização) análise do registo](sql-database-sync-monitor-oms.md)
--   [Resolver problemas com a sincronização de dados de SQL do Azure (pré-visualização)](sql-database-troubleshoot-data-sync.md)  
--   Conclua os exemplos do PowerShell que mostram como configurar a sincronização de dados do SQL Server (pré-visualização):  
+-   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+-   [Monitorizar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)  
+-   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:  
     -   [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Transferir a documentação da API de REST de sincronização de dados do SQL Server (pré-visualização)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [Transferir a documentação da API REST da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Para obter mais informações sobre a base de dados SQL, consulte:
 

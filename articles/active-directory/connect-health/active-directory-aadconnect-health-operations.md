@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389718"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958730"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações, que pode realizar com o Azure Active Directory (Azure AD) Connect Health.
@@ -101,7 +101,7 @@ O Azure AD Connect Health suporta as seguintes funções incorporadas:
 
 | Função | Permissões |
 | --- | --- |
-| Proprietário |Os proprietários podem *gerir o acesso* (por exemplo, atribua uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar definições* (por exemplo, notificações por correio eletrónico) no Azure AD Connect Health. <br>Por predefinição, os administradores globais do Azure AD são atribuídos esta função e não pode ser alterado. |
+| Proprietário |Os proprietários podem *gerir o acesso* (por exemplo, atribua uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar definições* (para exemplo, as notificações de e-mail) no Azure AD Connect Health. <br>Por predefinição, os administradores globais do Azure AD são atribuídos esta função e não pode ser alterado. |
 | Contribuinte |Os contribuintes podem *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar definições* (por exemplo, notificações por correio eletrónico) no Azure AD Connect Health. |
 | Leitor |Os leitores podem *ver todas as informações* (por exemplo, ver alertas) no portal no Azure AD Connect Health. |
 
@@ -122,7 +122,7 @@ Para permitir um acesso de utilizador no *todas as instâncias de serviço* nív
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Passo 2: Adicionar utilizadores e grupos e atribuir funções
 1. Do **configurar** secção, clique em **utilizadores**.<br>
-   ![Painel, da principal de ligar RBAC de estado de funcionamento de captura de ecrã do Azure AD com utilizadores realçado](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Barra lateral de recursos do captura de ecrã do Azure AD Connect Health](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No **selecionar uma função** painel, selecione uma função (por exemplo, **proprietário**).<br>
    ![Janela de ligar os utilizadores RBAC de estado de funcionamento de captura de ecrã do Azure AD](./media/active-directory-aadconnect-health/RBAC_add.png)

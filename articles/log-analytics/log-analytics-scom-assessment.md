@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018719"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar o seu ambiente com a solução de System Center Operations Manager estado de funcionamento da verificação do sistema (pré-visualização)
 
@@ -212,14 +212,14 @@ Cada recomendação inclui orientações sobre por que motivo é importante. Uti
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Recomendações da área de foco de verificação do Estado de funcionamento de utilização
 
-Antes de poder utilizar uma solução de verificação do Estado de funcionamento na análise de registos, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, consulte [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md). Depois de ser instalado, pode ver o resumo de recomendações através da utilização de mosaico do System Center Operations Manager estado de funcionamento da verificação do sistema na página de descrição geral do portal do OMS.
+Antes de poder utilizar uma solução de verificação do Estado de funcionamento na análise de registos, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, consulte [instalar uma solução de gestão](log-analytics-add-solutions.md). Depois de ser instalado, pode ver o resumo de recomendações, utilizando o mosaico do System Center Operations Manager estado de funcionamento da verificação do sistema de **descrição geral** página para a sua área de trabalho no portal do Azure.
 
 Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em seguida, desagregação em recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
+3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **resumo da área de trabalho** item de menu.  
 4. No **descrição geral** página, clique em de **Center Operations Manager estado de funcionamento da verificação do sistema** mosaico.
 5. No **Center Operations Manager estado de funcionamento da verificação do sistema** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas da área de foco, pode ver as recomendações prioritários efetuadas para o seu ambiente. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre o motivo pelo qual a recomendação é feita.<br><br> ![área de foco](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que pretende ignorar
-1. No portal do Azure na página da área de trabalho de análise de registos para a sua área de trabalho selecionada, clique em de **pesquisa registo** mosaico.
+1. No portal do Azure na página da área de trabalho de análise de registos para a sua área de trabalho selecionada, clique em de **pesquisa registo** item de menu.
 2. Utilize a seguinte consulta para recomendações de lista que falharam para os computadores no seu ambiente.
 
     ```

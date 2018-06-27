@@ -2,19 +2,19 @@
 title: Unidades de pedido e a estimar o débito - base de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre como compreender, especifique e estimar os requisitos da unidade de pedido na base de dados do Azure Cosmos.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823728"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961967"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades do BD Azure Cosmos de pedido
 
@@ -111,7 +111,7 @@ Para utilizar a ferramenta:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utilize o cabeçalho de resposta de encargos de pedido de base de dados do Azure Cosmos
-Cada resposta do serviço de base de dados do Azure Cosmos inclui um cabeçalho personalizado (`x-ms-request-charge`) que contenha as unidades de pedido consumidas para um determinado pedido. Também pode aceder a este cabeçalho através os SDKs do Azure Cosmos DB. SDK .NET, **RequestCharge** é uma propriedade do **ResourceResponse** objeto. Para consultas, o Explorador de dados de base de dados do Azure Cosmos no portal do Azure fornece informações de encargos de pedido para consultas executadas.
+Cada resposta do serviço de base de dados do Azure Cosmos inclui um cabeçalho personalizado (`x-ms-request-charge`) que contenha as unidades de pedido consumidas para um determinado pedido. Também pode aceder a este cabeçalho através os SDKs do Azure Cosmos DB. SDK .NET, **RequestCharge** é uma propriedade do **ResourceResponse** objeto. Para consultas, o Explorador de dados de base de dados do Azure Cosmos no portal do Azure fornece informações de encargos de pedido para consultas executadas. Para saber mais sobre como obter e débito do conjunto, utilizando APIs múltiplos modelo diferentes consulte [definir e obter débito do BD Azure Cosmos](set-throughput.md) artigo.
 
 É um método para estimar a quantidade de débito reservado exigido pela sua aplicação registar os encargos de unidade de pedido associados a execução de operações típicas num item representativo que é utilizado pela sua aplicação. Em seguida, calcule o número de operações que antecipa para efetuar a cada segundo. Lembre-se de que também medir e incluir consultas típicas e a utilização de script de BD do Cosmos do Azure.
 

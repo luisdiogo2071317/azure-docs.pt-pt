@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331794"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018310"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a sua infraestrutura existente do NPS com multi-factor Authentication do Azure
 
@@ -222,7 +222,7 @@ Válido-do e válido-até carimbos, que estão no formato legível por humanos, 
 Este erro pode ser devido a uma das várias razões. Utilize estes passos para ajudar a resolver problemas:
 
 1. Reinicie o servidor NPS.
-2. Certifique-se de que esse certificado de cliente é instalado como esperado.
+2. Verifique se que esse certificado de cliente é instalado como esperado.
 3. Verifique se o certificado associado ao seu inquilino do Azure AD.
 4. Certifique-se de que https://login.microsoftonline.com/ é acessível a partir do servidor que executa a extensão.
 

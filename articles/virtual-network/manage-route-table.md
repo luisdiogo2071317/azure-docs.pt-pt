@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726453"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960013"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rota
 
@@ -95,7 +95,7 @@ Uma sub-rede pode ter zero ou uma tabela de rotas associada ao mesmo. Uma tabela
 4. Selecione a sub-rede que pretende associar a tabela de rotas para.
 5. Selecione **tabela de rotas**, selecione de que pretende associar à sub-rede, em seguida, selecione a tabela de rotas **guardar**.
 
-Se a rede virtual está ligada a um gateway de VPN do Azure, não associe uma tabela de rota para o [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino 0.0.0.0/0. Se o fizer, pode impedir que o gateway de funcionar corretamente. Para obter mais informações sobre como utilizar 0.0.0.0/0 numa rota, consulte [encaminhamento de tráfego de rede Virtual](virtual-networks-udr-overview.md#default-route).
+Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter mais informações sobre como utilizar 0.0.0.0/0 numa rota, consulte [encaminhamento de tráfego de rede Virtual](virtual-networks-udr-overview.md#default-route).
 
 **Comandos**
 
@@ -213,7 +213,7 @@ As rotas em vigor para cada interface de rede ligado a uma máquina virtual são
 **Comandos**
 
 - CLI do Azure: [az nic Mostrar-eficaz--a tabela de rotas de rede](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validar o encaminhamento entre dois pontos finais
 

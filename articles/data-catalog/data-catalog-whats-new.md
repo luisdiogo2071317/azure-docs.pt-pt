@@ -1,25 +1,24 @@
 ---
-title: "Novidades no catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral das novas funcionalidades adicionadas ao catálogo de dados do Azure."
+title: Novidades no catálogo de dados do Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral das novas funcionalidades adicionadas ao catálogo de dados do Azure.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025966"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novidades no catálogo de dados do Azure
 Atualizações **catálogo de dados do Azure** são lançadas regularmente. Não cada versão inclui novas funcionalidades de destinada ao utilizador, como algumas versões são concentra-se nas capacidades do serviço de back-end. Esta página realça as novas capacidades destinada ao utilizador adicionadas para o serviço de catálogo de dados do Azure.
@@ -99,7 +98,7 @@ A partir de Janeiro de 2017, foram adicionadas as seguintes capacidades do Azure
 
 ## <a name="whats-new-for-december-2016"></a>Novidades de Dezembro de 2016
 A partir de Dezembro de 2016, foram adicionadas as seguintes capacidades do Azure no catálogo de dados:
-*   Catálogo de dados do Azure está agora [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) e [EU modelo cláusulas](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) em conformidade.
+*   Catálogo de dados do Azure está agora [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) e [EU modelo cláusulas](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) em conformidade.
 *   Suporte para editar informações de ligação da origem de dados. Os proprietários de recursos de dados e os administradores do catálogo de dados agora podem editar as informações de ligação para origens de dados registados sem ser necessário voltar a registar as origens de dados.
 *   Suporte para as origens de dados em Salesforce.com. Os utilizadores podem agora registar e detete objetos do Salesforce.
 
@@ -169,7 +168,7 @@ A partir de Janeiro de 2016, foram adicionadas as seguintes capacidades do Azure
   * OData - função, o conjunto de entidades e o contentor de entidades
   * HTTP - ficheiro, o ponto final, o relatório e o Site
   * Sistema de ficheiros - ficheiro
-  * SharePoint - List
+  * SharePoint - lista
   * FTP - de ficheiros e diretórios
   * Em Salesforce.com - objeto
   * DB2 - de tabela, vista e base de dados
@@ -246,7 +245,7 @@ A partir de Setembro de 2015, foram adicionadas as seguintes capacidades do Azur
 * Novos dados "Introdução" origem experiência de deteção no portal do catálogo de dados do Azure. Quando os utilizadores introduzem a página "detetar" do portal do catálogo de dados do Azure sem introduzir um termo de pesquisa, são apresentados com uma descrição geral do conteúdo de catálogo, incluindo as etiquetas mais frequentemente utilizadas, especialistas, tipos de origens de dados e os tipos de objeto.
 * Suporte para registar e deteção de objetos do armazém de dados do SQL do Azure e bases de dados. Para obter informações adicionais sobre o Azure SQL Data Warehouse, consulte [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Suporte para registar e deteção de servidores do SQL Server Reporting Services como contentores e modelos de SQL Server Analysis Services. Quando registar objetos SSAS e SSRS, o catálogo de dados do Azure cria uma entrada para o modelo SSAS e o servidor SSRS e para os relatórios e outros objetos. Os contentores podem ser detetados e anotado com o portal do catálogo de dados do Azure. Os utilizadores também podem procurar e filtrar o conteúdo de um modelo ou do servidor para além de pesquisar e filtrar o conteúdo do catálogo.
-* Suporte para registar e deteção de objetos de SQL Server Analysis Services através de HTTP/HTTPS. Os utilizadores agora podem ligar aos servidores SSAS utilizando um URL (por exemplo, https://servername/olap/msmdpump.dll) em vez de um nome de servidor e podem utilizar a autenticação básica e ligações anónimas para além de autenticação do Windows. Para obter informações adicionais sobre as ligações HTTP/HTTPS ao SSAS, consulte [configurar o acesso HTTP ao Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+* Suporte para registar e deteção de objetos de SQL Server Analysis Services através de HTTP/HTTPS. Os utilizadores agora podem ligar para os servidores SSAS através de um URL (tais como https://servername/olap/msmdpump.dll) em vez de um servidor de nome e pode utilizar a autenticação básica e ligações anónimas para além de autenticação do Windows. Para obter informações adicionais sobre as ligações HTTP/HTTPS ao SSAS, consulte [configurar o acesso HTTP ao Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 * Suporte para as origens de dados do Hive no HDInsight. Os utilizadores podem agora registar e detetar as tabelas do Hive para Apache Hive no Hadoop no HDInsight origens de dados. Para obter informações adicionais sobre o Hive no HDInsight, consulte o [Centro de documentação do HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Suporte para registar e deteção de bases de dados Oracle e clusters do HDFS como contentores. Quando registar tabelas Oracle e vistas ou HDFS, o catálogo de dados do Azure cria uma entrada para a base de dados, tabelas e vistas. A base de dados pode ser detetado e anotado com o portal do catálogo de dados do Azure. Os utilizadores também podem procurar e filtrar o conteúdo da base de dados ou num cluster, além de pesquisar e filtrar o conteúdo do catálogo.
 * Suporte para registar manualmente os tipos de origens de dados desconhecido. Os utilizadores podem introduzir manualmente as informações da origem de dados através do portal do catálogo de dados do Azure, para que possam ser anotadas e detetar origens de dados explicitamente não suportadas pela ferramenta de registo da origem de dados.

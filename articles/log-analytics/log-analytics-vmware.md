@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775116"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019298"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização do VMware (pré-visualização) na análise de registos
 
@@ -54,7 +54,7 @@ Crie um VM receba todos os dados de syslog dos anfitriões ESXi do sistema de op
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. Verifique o vSphere consola para verificar que esse syslog está corretamente configurado. Confirme no anfitrião ESXI essa porta **1514** está configurado.
+4. Verifique o vSphere consola para verificar que syslog está corretamente configurado. Confirme no anfitrião ESXI essa porta **1514** está configurado.
 5. Transfira e instale o agente do OMS para Linux no servidor do Linux. Para obter mais informações, consulte o [documentação do agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
 6. Após a instalação do agente do OMS para Linux, vá para o diretório de /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copie o ficheiro de vmware_esxi.conf para o diretório de /etc/opt/microsoft/omsagent/conf/omsagent.d e a alteração de permissões de proprietário/grupo e o ficheiro. Por exemplo:
 
@@ -87,14 +87,14 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 
 A tabela seguinte mostra exemplos de campos de dados recolhidos pela solução de monitorização do VMware:
 
-| Nome do campo | descrição |
+| nome do campo | descrição |
 | --- | --- |
 | Device_s |Dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
 | EventTime_t |tempo quando o evento ocorreu |
 | HostName_s |Nome de anfitrião ESXi |
 | Operation_s |criar a VM ou eliminar VM |
-| ProcessName_s |Nome do evento |
+| ProcessName_s |nome do evento |
 | ResourceId_s |nome do anfitrião do VMware |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
@@ -111,7 +111,7 @@ A tabela seguinte mostra exemplos de campos de dados recolhidos pela solução d
 ## <a name="vmware-monitoring-solution-overview"></a>Descrição geral da solução monitorização de VMware
 O mosaico de VMware aparece na sua área de trabalho de análise de registos. Fornece uma vista de alto nível de eventuais falhas. Quando clica no mosaico, visite numa vista de dashboard.
 
-![Mosaico](./media/log-analytics-vmware/tile.png)
+![mosaico](./media/log-analytics-vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Navegue até a vista do dashboard
 No **VMware** vista do dashboard, painéis estão organizados por:
@@ -155,7 +155,7 @@ A solução inclui outras consultas útil que podem ajudar a gerir os seus anfit
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![consultas de ](./media/log-analytics-vmware/queries.png)
+![consultas de](./media/log-analytics-vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Guardar consultas

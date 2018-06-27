@@ -12,7 +12,7 @@ Os passos para anular o registo de um servidor de processos difere consoante o e
 > [!WARNING]
 > Os passos abaixo devem ser utilizados se não existir nenhuma forma de reativar a máquina virtual em que o Servidor de Processos estava instalado.
 
-1. Inicie sessão no seu servidor de configuração como Administrador.
+1. Inicie sessão no seu servidor de configuração como administrador.
 2. Abra uma linha de comandos Administrativa e procure o diretório `%ProgramData%\ASR\home\svsystems\bin`.
 3. Agora, execute o comando.
 

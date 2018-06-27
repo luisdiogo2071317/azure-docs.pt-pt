@@ -7,7 +7,7 @@
 3. Ser-lhe-á solicitado que escolha o idioma que pretende configurar para o dispositivo. Especifique o idioma e prima Enter. 
    
     ![Configurar e registar o dispositivo 1 do StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
-4. No menu da consola de série apresentado, selecione a opção 1 para iniciar sessão com acesso total. 
+4. No menu da consola de série que é apresentado, selecione a opção 1, **iniciar sessão com acesso total**. 
    
     ![Registar o dispositivo 2 do StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
    

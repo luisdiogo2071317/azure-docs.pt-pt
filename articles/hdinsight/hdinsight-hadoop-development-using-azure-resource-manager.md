@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: b0a73ea89bec67cbf644cce60913981a0533360a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 095205752b8432a741aab16983b175c21b02c0f4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179695"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017875"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager para clusters do HDInsight
 
@@ -224,7 +224,7 @@ Novo comando:
 * [Submeter tarefas Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrar para o novo SDK de .NET do HDInsight
-A gestão de serviço do Azure com base em [SDK do .NET (ASM) HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) agora foi preterido. É encorajados a utilizar a gestão de recursos do Azure com base em [com base no Gestor de recursos do SDK .NET do HDInsight](https://msdn.microsoft.com/library/azure/mt271028.aspx). Os seguintes pacotes do HDInsight baseado em ASM vão ser preteridos.
+A gestão de serviço do Azure com base em [SDK do .NET (ASM) HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) agora foi preterido. É encorajados a utilizar a gestão de recursos do Azure com base em [com base no Gestor de recursos do SDK .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Os seguintes pacotes do HDInsight baseado em ASM vão ser preteridos.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`

@@ -1,35 +1,42 @@
 ---
-title: Configurar um nome de domínio personalizado para o ponto final de armazenamento de Blobs do Azure | Microsoft Docs
-description: Utilize o portal do Azure para mapear o seus próprios nome canónico (CNAME) para o ponto final de armazenamento de BLOBs numa conta do Storage do Azure.
+title: Configurar um nome de domínio personalizado para a sua conta do Storage do Azure | Microsoft Docs
+description: Utilize o portal do Azure para mapear o seus próprios nome canónico (CNAME) para o ponto final de web ou de BLOBs numa conta do Storage do Azure.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29559932"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017925"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para o ponto final do Armazenamento de Blobs
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta do Storage do Azure
 
-Pode configurar um domínio personalizado para aceder aos dados de BLOBs na sua conta do storage do Azure. O ponto final predefinido para o Blob storage é `<storage-account-name>.blob.core.windows.net`. Se mapear um domínio personalizado e o subdomínio como **www.contoso.com** ao ponto final do blob para o armazenamento de conta, pode utilizadores, em seguida, aceder a dados de BLOBs na sua conta do storage utilizar esse domínio.
+Pode configurar um domínio personalizado para aceder aos dados de BLOBs na sua conta do storage do Azure. O ponto final predefinido para o Blob storage é `<storage-account-name>.blob.core.windows.net`. Também pode utilizar o ponto final do web gerado como parte do [os Web sites estáticos funcionalidade (pré-visualização)](storage-blob-static-website.md). Se mapear um domínio personalizado e o subdomínio como **www.contoso.com** ao ponto final do blob ou da web para o armazenamento de conta, pode utilizadores, em seguida, aceder a dados de BLOBs na sua conta do storage utilizar esse domínio.
 
 > [!IMPORTANT]
 > Armazenamento do Azure não ainda nativamente suporta HTTPS com domínios personalizados. Pode atualmente [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Atualmente, as contas do Storage suportam apenas um nome de domínio personalizado por conta. Isto significa que não é possível mapear um nome de domínio personalizado para pontos finais do serviço web e de blob.
+
 A tabela seguinte mostra alguns URLs de exemplo de dados de blob localizados numa conta do storage com o nome **mystorageaccount**. O domínio personalizado registado para a conta de armazenamento é **www.contoso.com**:
 
 | Tipo de Recurso | URL predefinido | URL do domínio personalizado |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blobs |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Recipiente-raiz | http://mystorageaccount.blob.Core.Windows.NET/myblob ou http://mystorageaccount.blob.core.windows.net/$ raiz/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$ raiz/myblob |
+| Recipiente-raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/$web ou http://www.contoso.com/ ou http://www.contoso.com/$web / [indexdoc] ou http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Todos os exemplos para o ponto final de serviço Blob abaixo também se aplicam ao ponto final do serviço web.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Direto vs mapeamento intermédios domínio
 
@@ -81,7 +88,7 @@ O **asverify** subdomínio é um subdomínio especial reconhecido pelo Azure. Po
 1. Na caixa de texto no *domínio personalizado* painel no [portal do Azure](https://portal.azure.com), introduza o nome do seu domínio personalizado, incluindo o subdomínio. Não incluir *asverify*. Por exemplo, se o seu domínio for **contoso.com** e é o seu alias subdomínio **www**, introduza **www.contoso.com**. Se for o subdomínio **fotografias**, introduza **photos.contoso.com**. É necessário o subdomínio.
 1. Selecione o **utilizam a validação de CNAME indireta** caixa de verificação.
 1. Selecione **guardar** no *domínio personalizado* painel para registar o seu domínio personalizado. Se o registo for bem sucedido, verá uma notificação do portal a indicar que a conta de armazenamento foi atualizada com êxito. Neste momento, o domínio personalizado foi verificado pelo Azure, mas o tráfego para o seu domínio ainda não está a ser encaminhado para a sua conta de armazenamento.
-1. Regresse ao Web site do seu fornecedor de DNS e crie outro registo CNAME que mapeia o subdomínio para o ponto de final de serviço Blob. Por exemplo, especifique o subdomínio como **www** ou **fotografias** (sem o *asverify*) e o nome do anfitrião como **mystorageaccount.blob.core.windows.net** (onde **mystorageaccount** é o nome da conta de armazenamento). Neste passo, o registo do seu domínio personalizado está concluído.
+1. Regresse ao Web site do seu fornecedor de DNS e crie outro registo CNAME que mapeia o subdomínio para o ponto de final de serviço Blob. Por exemplo, especifique o subdomínio como **www** ou **fotografias** (sem o *asverify*) e o nome do anfitrião como **mystorageaccount.blob.core.windows.net**  (onde **mystorageaccount** é o nome da conta de armazenamento). Neste passo, o registo do seu domínio personalizado está concluído.
 1. Por fim, pode eliminar o registo CNAME que criou que contém o **asverify** subdomínio, dado que foi necessário apenas como um passo intermediário.
 
 Depois do novo registo CNAME tiver sido propagada através de DNS, os utilizadores podem ver dados de BLOBs, utilizando o seu domínio personalizado, desde que têm as permissões adequadas.
@@ -158,3 +165,4 @@ Utilize o [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azu
 ## <a name="next-steps"></a>Passos Seguintes
 * [Mapear um domínio personalizado para um ponto final do Azure rede de entrega conteúdos (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md)
+* [Alojamento de Web site estático no armazenamento de Blobs do Azure (pré-visualização)](storage-blob-static-website.md)

@@ -12,6 +12,6 @@
      `Start-HcsHotfix` 
 3. Quando lhe for pedido, forneça o caminho para a pasta de rede partilhada que contém os ficheiros de correção.
 4. Será solicitado para confirmação. Tipo **Y** para prosseguir com a instalação de correção.
-5. Depois de ter aplicado a correção num controlador, inicie sessão para o controlador de outro. Aplique a correção, tal como fez para o controlador de anterior.
+5. Depois de ter aplicado a correção num controlador, iniciar sessão para o controlador de outro. Aplique a correção, tal como fez para o controlador de anterior.
 6. Depois das correções são aplicadas, saia do modo de manutenção. Consulte [passo 4: modo de manutenção de saída](../articles/storsimple/storsimple-update-device.md#step4) para obter instruções.
 

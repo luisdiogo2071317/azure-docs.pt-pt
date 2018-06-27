@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: f0241278343ba4383caef5bb52bc4f1ece2bec7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 53ccd4dc40136ada30a0e230d526414b567919c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790532"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960462"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução à entrega de conteúdos a pedido utilizando REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -267,11 +267,9 @@ Um URL SAS tem o seguinte formato:
 
 São aplicáveis algumas considerações:
 
-* Não pode ter mais de cinco localizadores exclusivos associados um determinado elemento de uma só vez. Para obter mais informações, consulte localizador.
+* Não pode ter mais de cinco localizadores exclusivos associados um determinado elemento de uma só vez. 
 * Se precisar de carregar os ficheiros imediatamente, deve definir o valor de StartTime para cinco minutos antes da hora atual. Isto acontece porque poderá haver relógio dissimetrias entre o computador cliente e os Media Services. Além disso, o valor de StartTime tem de estar no seguinte formato DateTime: aaaa-MM-aaaathh (por exemplo, "2014-05-23T17:53:50Z").    
-* Poderá existir um segundo 30-40 atrasar depois de é criado um localizador para quando está disponível para utilização. Este problema aplica-se ao SAS URL e localizadores de origem.
-
-Para obter mais informações sobre SAS localizadores consulte [isto](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogue.
+* Poderá existir um segundo 30-40 atrasar depois de é criado um localizador para quando está disponível para utilização. Este problema aplica-se [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) e localizadores de origem.
 
 O exemplo seguinte mostra como criar um localizador de URL de SAS, tal como definido pela propriedade de tipo no corpo do pedido ("1" para um localizador SAS) e "2" para um localizador de origem no pedido. O **caminho** propriedade devolvida contém o URL que tem de utilizar para carregar o ficheiro.
 
@@ -694,7 +692,7 @@ O código seguinte mostra como pedir o elemento de saída ID.
 
 ## <a id="publish_get_urls"></a>Publicar o elemento e get de transmissão em fluxo e URLs de transferência progressiva com a REST API
 
-Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia. Para obter mais informações sobre SAS localizadores consulte [isto](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogue.
+Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia. 
 
 Depois de criar os localizadores, pode criar os URLs que são utilizados para transmitir ou transferir os ficheiros.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655449"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960360"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rede de membro único Hyperledger recursos de infraestrutura
 
@@ -89,7 +89,7 @@ Em seguida, em **tamanho e o desempenho,** especifique entradas para o tamanho d
 Nome do Parâmetro| Descrição| Valores Permitidos|Valor Predefinido
 ---|---|---|---
 **Número de nós de associação**|O número de nós que executam o serviço de associação. Para obter detalhes adicionais sobre o serviço de associação, observe segurança & associações sob o Hyperledger [documentação](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Este valor é atualmente restrito para 1 nó, mas planeamos suportar de escalamento horizontal através de clustering na revisão seguinte.|1| 1
-**Número de nós de Orderer** |O número de nós de ordem (organizar) transações num bloco.--> Esta instrução é palavras e confuso. Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />Este valor é atualmente restrita para 1 nó. |1 |1
+**Número de nós de Orderer** |O número de nós de ordem (organizar) transações num bloco.--> Esta instrução é palavras e confuso. Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Este valor é atualmente restrita para 1 nó. |1 |1
 **Número de nós de ponto a ponto**| Nós que pertencem ao membros consortium que executar transações e mantém o estado e de uma cópia de ledger.<br /><br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Desempenho de armazenamento**|O tipo de armazenamento de cópia de cada um de nós implementado. Para mais informações sobre o armazenamento, visite [introdução ao Storage do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [armazenamento Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|Standard
 **Tamanho da máquina virtual** |O tamanho de máquina virtual utilizado para todos os nós na rede|A padrão,<br />D padrão,<br />Standard D-v2,<br />Série de F padrão,<br />DS padrão,<br />e FS padrão|D1_v2 padrão

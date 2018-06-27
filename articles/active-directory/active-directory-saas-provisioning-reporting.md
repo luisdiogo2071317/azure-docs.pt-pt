@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293182"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025957"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento da conta de utilizador automáticas
 
 
-Azure Active Directory inclui uma [conta de utilizador do serviço de fornecimento](active-directory-saas-app-provisioning.md) que ajuda a automatizar o aprovisionamento anular o aprovisionamento de contas de utilizador em aplicações SaaS e outros sistemas, para fins de gestão do ciclo de vida de identidade de ponto a ponto. Azure AD suporta utilizador previamente integrada aprovisionamento conectores para todas as aplicações e sistemas na secção "Em destaque" o [Galeria de aplicações do Azure AD](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory inclui uma [conta de utilizador do serviço de fornecimento](active-directory-saas-app-provisioning.md) que ajuda a automatizar o aprovisionamento anular o aprovisionamento de contas de utilizador em aplicações SaaS e outros sistemas, para fins de ciclo de vida de identidade de ponto a ponto gestão. Azure AD suporta utilizador previamente integrada aprovisionamento conectores para todas as aplicações e sistemas na secção "Em destaque" o [Galeria de aplicações do Azure AD](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 Este artigo descreve como verificar o estado de aprovisionamento de tarefas após ter sido definidos cópias de segurança e como resolver problemas de aprovisionamento de utilizadores individuais e grupos.
 
 ## <a name="overview"></a>Descrição geral
 
-Os conectores de aprovisionamento são principalmente configurar e configuradas utilizando a [portal de gestão do Azure](https://portal.azure.com), seguindo o [fornecido documentação](active-directory-saas-tutorial-list.md) para a aplicação onde o aprovisionamento da conta de utilizador for pretendido. Depois de configurada e em execução, o aprovisionamento de tarefas para uma aplicação pode ser comunicado utilizando um dos dois métodos:
+Conectores aprovisionamento configurar e configurados utilizando o [portal do Azure](https://portal.azure.com), seguindo o [fornecido documentação](saas-apps/tutorial-list.md) para a aplicação suportada. Uma vez configurado e em execução, o aprovisionamento de tarefas pode ser comunicado utilizando um dos dois métodos:
 
-* **Portal de gestão do Azure** -este artigo descreve principalmente a obtenção de informações de relatório do [portal de gestão do Azure](https://portal.azure.com), que fornece tanto um relatório de resumo de aprovisionamento, bem como a auditoria de aprovisionamento de detalhado registos para uma determinada aplicação.
+* **Portal de gestão do Azure** -este artigo descreve principalmente a obtenção de informações de relatório do [portal do Azure](https://portal.azure.com), que fornece tanto um relatório de resumo de aprovisionamento, bem como detalhada de aprovisionamento de auditoria registos para um aplicação específica.
 
 * **API de auditoria** -Azure Active Directory também fornece uma API de auditoria que permite a obtenção programática dos registos de auditoria de aprovisionamento detalhadas. Consulte [auditoria do Azure Active Directory referência da API](active-directory-reporting-api-audit-reference.md) para documentação específica para utilizar esta API. Embora este artigo não abrange como utilizar a API especificamente, de detalhe os tipos de eventos que são registados no registo de auditoria de aprovisionamento.
 
@@ -54,23 +54,23 @@ Para obter informações de relatório para uma aplicação específica de aprov
 Aqui, pode aceder ao relatório de resumo de aprovisionamento e os registos de auditoria de aprovisionamento, ambos descrito abaixo.
 
 
-### <a name="provisioning-summary-report"></a>Relatório de resumo de aprovisionamento
+## <a name="provisioning-summary-report"></a>Relatório de resumo de aprovisionamento
 
-O relatório de resumo de aprovisionamento é visível no **aprovisionamento** separador fornecido a aplicação. Está localizado na secção Detalhes de sincronização por baixo **definições**e fornece as seguintes informações:
+O relatório de resumo de aprovisionamento é visível no **aprovisionamento** separador fornecido a aplicação. O mesmo está localizado no **detalhes de sincronização** secção por baixo **definições**e fornece as seguintes informações:
 
-* O número total de utilizadores e / grupos que foram sincronizadas e estão atualmente no âmbito de aprovisionamento entre o sistema de origem e de sistema de destino.
+* O número total de utilizadores e / grupos que foram sincronizadas e estão atualmente no âmbito de aprovisionamento entre o sistema de origem e de sistema de destino
 
-* A última vez em que a sincronização foi executada. As sincronizações ocorram, normalmente, a cada 40 de 20 minutos, depois de uma sincronização completa foi concluída.
+* A última vez em que a sincronização foi executada. As sincronizações ocorram normalmente cada 40 de 20 minutos, após um [inicial sincronização](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) foi concluída.
 
-* Se pretende ou não uma sincronização completa inicial foi concluída.
+* Se pretende ou não um [inicial sincronização](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) foi concluída
 
-* Se o processo de aprovisionamento foi colocado em quarentena, e o motivo para o estado de quarentena Novidades por exemplo, (se não conseguir comunicar com o sistema de destino devido a credenciais de administrador inválido)
+* Se o processo de aprovisionamento foi colocado em quarentena, e o que é o motivo para o estado de quarentena (por exemplo, se não conseguir comunicar com o sistema de destino devido a credenciais de administrador inválido)
 
 O relatório de resumo aprovisionamento deve ser a primeira impressão de administradores local para verificar o estado de funcionamento operacional da tarefa de aprovisionamento.
 
  ![Relatório de resumo](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Aprovisionamento de registos de auditoria
+## <a name="provisioning-audit-logs"></a>Aprovisionamento de registos de auditoria
 Todas as atividades executadas pelo serviço de aprovisionamento são registadas nos registos de auditoria do Azure AD, que podem ser visualizados no **registos de auditoria** separador sob o **aprovisionamento da conta** categoria. Os tipos de eventos de atividade registados incluem:
 
 * **Importar eventos** -um evento de "Importar" é registado sempre que o Azure AD que o serviço de fornecimento obtém informações sobre um grupo ou utilizador individual de um sistema de origem ou o sistema de destino. Durante a sincronização, os utilizadores são obtidos a partir do sistema de origem em primeiro lugar, com os resultados registados como "Importar" eventos. Os IDs correspondentes obtidas utilizadores, em seguida, são consultados contra o sistema de destino para verificar se existirem, com os resultados também registados como "Importar" de eventos. Estes eventos de registo todos os atributos de utilizador mapeada e os respetivos valores que foram vistos pelo Azure AD que o serviço de fornecimento no momento do evento. 
@@ -87,9 +87,9 @@ Quando observar os eventos para um utilizador individual de aprovisionamento, oc
 
 2. Evento de importação: o sistema de destino está a ser consultado para verificar a existência do utilizador obtido.
 
-3. Evento de regra de sincronização: os dados de utilizador de sistemas de origem e de destino são avaliados em comparação com o atributo configurado regras de mapeamento e o âmbito de filtros para determinar a ação, se existirem, deve ser executada.
+3. Evento de regra de sincronização: os dados de utilizador de sistemas de origem e de destino são avaliados em comparação com as regras de mapeamento de atributos configurada e filtros de âmbito para determinar a ação, se existirem, deve ser executada.
 
-4. Exportar eventos: se o evento de regra de sincronização ditado que deve ser uma ação efetuada (por exemplo, adicionar, atualizar, eliminar), em seguida, os resultados da ação são registados num evento de exportação.
+4. Exportar eventos: se o evento de regra de sincronização ditado que deve ser uma ação efetuada (adicionar, atualizar, eliminar), em seguida, os resultados da ação são registados num evento de exportação.
 
 ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 

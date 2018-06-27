@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406035"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018387"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ações de script com o HDInsight
 
 Saiba como personalizar o cluster do HDInsight utilizando scripts de Bash. Ações de script são uma forma de personalizar HDInsight durante ou após a criação do cluster.
 
 > [!IMPORTANT]
-> Os passos neste documento exigem um cluster do HDInsight que utiliza o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+> Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="what-are-script-actions"></a>Quais são as ações de script
 
@@ -41,7 +41,7 @@ Ações de script podem ser aplicadas através os seguintes métodos:
 | Azure PowerShell |✓ |✓ |
 | CLI do Azure 1.0 |&nbsp; |✓ |
 | SDK de .NET do HDInsight |✓ |✓ |
-| Modelo Azure Resource Manager |✓ |&nbsp; |
+| Modelo do Azure Resource Manager |✓ |&nbsp; |
 
 Para obter mais informações sobre como utilizar estes métodos para aplicar ações de script, consulte [HDInsight personalizar clusters com ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -377,5 +377,5 @@ Substitua `INFILE` com o ficheiro que contém o LM. `OUTFILE` deve ser um novo n
 ## <a name="seeAlso"></a>Passos seguintes
 
 * Saiba como [clusters do HDInsight de personalizar através da ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-* Utilize o [referência do SDK .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obter mais informações sobre como criar aplicações de .NET que gerem o HDInsight
+* Utilize o [referência do SDK .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para obter mais informações sobre como criar aplicações de .NET que gerem o HDInsight
 * Utilize o [API de REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a utilizar REST para efetuar ações de gestão nos clusters do HDInsight.

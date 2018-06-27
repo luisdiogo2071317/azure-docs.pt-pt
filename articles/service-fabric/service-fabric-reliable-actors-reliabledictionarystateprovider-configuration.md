@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017900"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurar Reliable Actors – ReliableDictionaryActorStateProvider
 Pode modificar a configuração predefinida ReliableDictionaryActorStateProvider alterando o ficheiro de settings.xml gerado na raiz do pacote Visual Studio sob a pasta de configuração para os atores especificado.
@@ -67,6 +68,10 @@ SharedLogSizeInMB Especifica a quantidade de espaço em disco para prealocar par
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
 Configurações de segurança do replicador são utilizadas para proteger o canal de comunicação que é utilizado durante a replicação. Isto significa que os serviços não podem ver uns dos outros tráfego de replicação, garantindo que os dados que são efetuados elevados também são seguros.
 Por predefinição, uma secção de configuração de segurança vazio impede a segurança da replicação.
+
+> [!IMPORTANT]
+> Em nós do Linux, os certificados devem estar formatados PEM. Para saber mais sobre localizar e configurar certificados para o Linux, consulte [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Nome de secção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

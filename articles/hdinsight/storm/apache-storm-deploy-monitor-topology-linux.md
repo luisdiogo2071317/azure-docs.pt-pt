@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b4584e9ccd17eba385f2068709f5bbaea6df20b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019962"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementar e gerir topologias Apache Storm no HDInsight
 
@@ -40,9 +40,9 @@ Neste documento, aprender as noções básicas de gestão e monitorização topo
 
     Uma das seguintes versões do Visual Studio:
 
-  * Visual Studio 2012 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 com atualização 4
 
-  * Visual Studio 2013 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 atualização 4 ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (qualquer edição)
@@ -64,7 +64,7 @@ As ferramentas do HDInsight pode ser utilizadas para submeter topologias de c# o
 
 3. No **novo projeto** diálogo caixa, expanda **instalada** > **modelos**e, em seguida, selecione **HDInsight**. Na lista de modelos, selecione **exemplo do Storm**. Na parte inferior da caixa de diálogo, escreva um nome para a aplicação.
 
-    ![Imagem](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. No **Explorador de soluções**, clique com o botão direito no projeto e selecione **envio para Storm no HDInsight**.
 

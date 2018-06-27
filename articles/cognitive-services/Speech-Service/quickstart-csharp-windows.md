@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f37547b4b183594410b4e16b872645407ff4a6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356248"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016839"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Início rápido: Reconhecer voz utilizando voz c# SDK de serviços cognitivos
 
@@ -33,7 +33,7 @@ Neste artigo, irá aprender a criar uma aplicação de consola c# no Windows uti
 
     ![Criar Visual c# aplicação de consola (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Criar aplicação de consola Visual c#")
 
-2. Instalar e referencia o pacote NuGet do SDK de reconhecimento de voz. No Explorador de soluções, clique com o botão direito na solução e selecione **gerir pacotes NuGet para solução**.
+2. Instalar e referenciar o [pacote NuGet do SDK de reconhecimento de voz](https://aka.ms/csspeech/nuget). No Explorador de soluções, clique com o botão direito na solução e selecione **gerir pacotes NuGet para solução**.
 
     ![Contexto gerir pacotes NuGet para solução](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "gerir pacotes NuGet para solução")
 

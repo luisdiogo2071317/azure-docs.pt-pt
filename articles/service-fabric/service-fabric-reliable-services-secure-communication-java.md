@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749917"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020818"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Proteger as comunicações de comunicação remota do serviço no serviço de Java
 > [!div class="op_single_selector"]
@@ -55,7 +55,9 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
     ```
 2. Adicione as definições de escuta e credenciais de segurança.
 
-    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço é instalado em todos os nós do cluster. Existem duas formas que pode fornecer as definições de escuta e credenciais de segurança:
+    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço é instalado em todos os nós do cluster. Para serviços em execução no Linux, o certificado tem de estar disponível como um ficheiro PEM formmatted; é um `.pem` ficheiro que contém o certificado e chave privada ou um `.crt` ficheiro que contém o certificado e um `.key` ficheiro que contém a chave privada. Para obter mais informações, consulte [localização e o formato de certificados x. 509 em nós do Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    Existem duas formas que pode fornecer as definições de escuta e credenciais de segurança:
 
    1. Fornecê-los utilizando um [o pacote de configuração](service-fabric-application-and-service-manifests.md):
 

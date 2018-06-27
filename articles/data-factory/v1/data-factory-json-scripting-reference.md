@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d5d085e24efb7008e8275ec51afe00ba18ca9ba0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 32d1504571c16f4aa5ea07bab32820ba10b79d60
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753562"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019469"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -1945,7 +1945,7 @@ Para definir um Oracle serviço ligado, defina o **tipo** do serviço ligado par
 | --- | --- | --- |
 | driverType | Especificar o controlador para utilizar para copiar dados de/para a base de dados Oracle. Valores permitidos são **Microsoft** ou **ODP** (predefinição). Consulte [suportada a instalação e versão](#supported-versions-and-installation) secção nos detalhes do controlador. | Não |
 | connectionString | Especifique as informações necessárias para estabelecer ligação à instância de base de dados Oracle para a propriedade connectionString. | Sim |
-| gatewayName | Nome do gateway que é utilizada para ligar ao servidor Oracle no local |Sim |
+| gatewayName | Nome do gateway que é utilizado para ligar ao servidor Oracle no local |Sim |
 
 #### <a name="example"></a>Exemplo
 ```json

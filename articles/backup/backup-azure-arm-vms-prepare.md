@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 5aa07d7861413fa0ddc0d5af7aefe828df412b4d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309151"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960173"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -35,7 +35,7 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemas operativos suportados para cópia de segurança
 
- * **Linux**: cópia de segurança do Azure suporta [uma lista das distribuições Azure patrocina](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto CoreOS Linux. Para obter a lista dos sistemas operativos Linux que suportam o restauro de ficheiros, consulte [recuperar ficheiros de cópia de segurança da máquina virtual](backup-azure-restore-files-from-vm.md#for-linux).
+ * **Linux**: cópia de segurança do Azure suporta [uma lista das distribuições Azure patrocina](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto CoreOS Linux. Para obter a lista dos sistemas operativos Linux que suportam o restauro de ficheiros, consulte [recuperar ficheiros de cópia de segurança da máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE] 
     > Outras bring-your-proprietário-as distribuições do Linux podem funcionar, desde que o agente VM está disponível na máquina virtual e suporte para o Python existe. No entanto, essas distribuições não são suportadas.

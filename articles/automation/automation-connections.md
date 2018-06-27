@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019317"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de ligação da automatização do Azure
 
@@ -79,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-Poderá utilizar o script para criar o recurso de ligação pois quando criar a sua conta de automatização, automaticamente inclui vários módulos global por predefinição, juntamente com o tipo de ligação **AzurServicePrincipal** para criar o **AzureRunAsConnection** recurso de ligação.  Isto é importante a ter em consideração, porque se tentar criar um novo elemento de ligação para ligar a um serviço ou aplicação com um método de autenticação diferentes, irá falhar porque o tipo de ligação já não está definido na sua conta de automatização.  Para obter mais informações sobre como criar o seu próprio tipo de ligação para o seu personalizado ou o módulo a partir de [galeria do PowerShell](https://www.powershellgallery.com), consulte [módulos de integração](automation-integration-modules.md)
+Poderá utilizar o script para criar o recurso de ligação pois quando criar a sua conta de automatização, automaticamente inclui vários módulos global por predefinição, juntamente com o tipo de ligação **AzureServicePrincipal** para criar o **AzureRunAsConnection** recurso de ligação.  Isto é importante a ter em consideração, porque se tentar criar um novo elemento de ligação para ligar a um serviço ou aplicação com um método de autenticação diferentes, irá falhar porque o tipo de ligação já não está definido na sua conta de automatização.  Para obter mais informações sobre como criar o seu próprio tipo de ligação para o seu personalizado ou o módulo a partir de [galeria do PowerShell](https://www.powershellgallery.com), consulte [módulos de integração](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilizar uma ligação num runbook ou configuração DSC
 

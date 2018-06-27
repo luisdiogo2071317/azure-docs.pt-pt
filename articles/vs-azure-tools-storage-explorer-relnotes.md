@@ -12,55 +12,58 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026017"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão para versão do Explorador de armazenamento do Azure 1.0.0, bem como as notas de versão para versões anteriores.
+Este artigo contém as notas de versão para versão do Explorador de armazenamento do Azure 1.2.0, bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-110"></a>Versão 1.1.0
-05/09/2018
+## <a name="version-120"></a>Versão 1.2.0
+12/06/2018
 
-### <a name="download-azure-storage-explorer-110"></a>Transferir o Explorador de armazenamento do Azure 1.1.0
-- [Explorador de armazenamento do Azure 1.1.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.1.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.1.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-120"></a>Transferir o Explorador de armazenamento do Azure 1.2.0
+- [Explorador de armazenamento do Azure 1.2.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.2.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.2.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
-* Agora, o Explorador de armazenamento suporta a utilização de Azurite. Nota: a ligação ao Azurite é codificado para os pontos finais de desenvolvimento de predefinição.
-* Explorador de armazenamento suporta agora camadas de acesso para apenas de BLOBs e GPV2 contas de armazenamento. Saiba mais sobre as camadas de acesso [aqui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
-* Uma hora de início já não é necessária ao gerar uma SAS.
+* Se o Explorador de armazenamento falhar ao carregar as subscrições de apenas um subconjunto dos seus inquilinos, em seguida, quaisquer subscrições carregadas com êxito serão apresentadas juntamente com uma mensagem de erro especificamente para os inquilinos que falharam. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* No Windows, quando uma atualização se encontra disponível, pode agora optar por "Atualizar no Fechar". Quando esta opção é selecionada, o instalador para a atualização será executado depois de fechar o Explorador de armazenamento. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* Restaurar o instantâneo foi adicionado ao menu de contexto do editor de partilha de ficheiros ao visualizar um instantâneo de partilha de ficheiros. [#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* O botão de fila Limpar agora está sempre ativado. [#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* Suporte para o início de sessão na pilha do ADFS do Azure foi reativado. É necessária a pilha do Azure versão 1804 ou superior. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
 
 ### <a name="fixes"></a>Correções
-* Obtenção das subscrições para contas de US Government foi interrompida. Esta correção. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
-* A hora de expiração para políticas de acesso corretamente não estava a ser guardada. Esta correção. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
-* Ao gerar um URL SAS para um item num contentor, o nome do item não foi que está a ser acrescentado para o URL. Esta correção. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
-* Quando cria um SAS, tempos de expiração que estão no passado, por vezes, seria o valor predefinido. Isto foi devido à utilização do Explorador de armazenamento que a última hora de início e de expiração de utilizadas como valores predefinidos. Agora, sempre que abrir a caixa de diálogo SAS, é gerado um novo conjunto de valores predefinidos. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
-* Quando copiar entre contas de armazenamento, é gerada uma SAS de 24 horas. Se a cópia teve mais de 24 horas, em seguida, a cópia falhará. Aumentámos o SAS a última semana para reduzir a probabilidade de uma cópia a falhar devido a um SAS expirado. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
-* Para algumas atividades clicando em "Cancelar" não sempre funciona. Esta correção. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
-* Para algumas atividades a velocidade de transferência estava incorreta. Esta correção. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
-* A ortografia do "Anterior" no menu Ver estava incorreta. -Lo agora está escrito corretamente. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
-* A página final do Windows installer tinha um botão "Seguinte". Foi alterado para um botão "Concluir". [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
-* Separador foco não foi estará visível para os botões de caixas de diálogo ao utilizar o tema HC negra. Agora está visível. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
-* As maiúsculas e minúsculas de "Resolver automaticamente" para ações no registo de atividade estava incorreta. Agora está correta. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
-* Quando eliminar uma entidade a partir de uma tabela, a caixa de diálogo a pedir-lhe confirmação apresentado um ícone de erro. Agora, a caixa de diálogo utiliza um ícone de aviso. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+* Se visualizar instantâneos para uma partilha de ficheiros cujo nome foi um prefixo de outra partilha de ficheiros na mesma conta de armazenamento, os instantâneos para a partilha de ficheiros também seriam listados. Este problema foi corrigido. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* Quando ligado através de SAS, restaurar um ficheiro a partir de um instantâneo de partilha de ficheiros poderia resultar num erro. Este problema foi corrigido. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* Ao visualizar instantâneos para um blob, a ação de promover o instantâneo foi ativada quando o blob base e um único instantâneo foram selecionados. A ação agora só é ativada se a um único instantâneo estiver selecionado. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* Se uma única tarefa (tais como a transferência de um blob) foi iniciada e de falha mais tarde,-seria automaticamente repete até iniciado outra tarefa do mesmo tipo. Todas as tarefas agora devem automaticamente repetir, independentemente do número de tarefas tem em fila de espera.
+* Editores aberta para recentemente contentores de BLOBs criado no GPV2 e contas de armazenamento de BLOBs não tinha uma coluna de camada de acesso. Este problema foi corrigido. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* Uma coluna de camada de acesso, por vezes, não apareceria quando uma conta de armazenamento ou contentor do blob foi ligado através de SAS. A coluna será agora sempre apresentada, mas com um valor vazio se não houver nenhum conjunto de camada de acesso. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* Definir a camada de acesso de um blob de blocos carregados recentemente foi desativada. Este problema foi corrigido. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* Se o botão "Manter separador abrir" foi invocado utilizando o teclado, em seguida, foco do teclado será perdido. Agora, irá mover o foco para o separador foi mantido aberto. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* Para uma consulta o construtor de consultas, VoiceOver não foi dar uma descrição utilizável do operador atual. Agora é mais descritivo. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* As ligações de paginação para as vários editores não foram descritivas. Estes foram alterados para ser mais descritivo. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* Na caixa de diálogo Adicionar entidade, VoiceOver não foi anunciar que coluna um elemento de entrada fazia parte do. O nome da coluna está agora incluído na descrição do elemento. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Botões de opção e caixas de verificação não tinha um limite visível quando concentra-se. Este problema foi corrigido. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### <a name="known-issues"></a>Problemas conhecidos
+* Quando utilizar emuladores, tais como o emulador do Storage do Azure ou Azurite, terá dos escutar ligações nas suas portas de predefinição. Caso contrário, o Explorador de armazenamento não será capaz de ligar aos mesmos.
 * Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, poderá não ser possível iniciar sessão. Para contornar este problema, elimine o conteúdo da ~ /. IdentityService/AadConfigurations. Se se o fizer, não desbloquear,, comentar [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite ainda não totalmente implementado todos os APIs de armazenamento. Por este motivo, podem existir erros inesperados ou comportamento quando utilizar Azurite para armazenamento de desenvolvimento.
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar todos os.
 * O carregamento da sua pasta do OneDrive não funcionar devido a um erro no NodeJS. Os erros tem sido corrigido, mas ainda não integrado Electron.
 * Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317). 
+* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça de que decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
 * Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
@@ -71,7 +74,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ```
 
 * Para os utilizadores do Linux, terá de instalar [2.0 do .NET Core](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -86,8 +89,16 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
     sudo apt-get install libgconf-2-4
     ```
 
+
+
+
+
+
+
+
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 1.1.0](#version-110)
 * [Versão 1.0.0](#version-100)
 * [Versão 0.9.6](#version-096)
 * [Versão 0.9.5](#version-095)
@@ -112,13 +123,64 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
 
+
+## <a name="version-110"></a>Versão 1.1.0
+05/09/2018
+
+### <a name="new"></a>Novo
+* Agora, o Explorador de armazenamento suporta a utilização de Azurite. Nota: a ligação ao Azurite é codificado para os pontos finais de desenvolvimento de predefinição.
+* Explorador de armazenamento suporta agora camadas de acesso para apenas de BLOBs e GPV2 contas de armazenamento. Saiba mais sobre as camadas de acesso [aqui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Uma hora de início já não é necessária ao gerar uma SAS.
+
+### <a name="fixes"></a>Correções
+* Obtenção das subscrições para contas de US Government foi interrompida. Este problema foi corrigido. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* A hora de expiração para políticas de acesso corretamente não estava a ser guardada. Este problema foi corrigido. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* Ao gerar um URL SAS para um item num contentor, o nome do item não foi que está a ser acrescentado para o URL. Este problema foi corrigido. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* Quando cria um SAS, tempos de expiração que estão no passado, por vezes, seria o valor predefinido. Isto foi devido à utilização do Explorador de armazenamento que a última hora de início e de expiração de utilizadas como valores predefinidos. Agora, sempre que abrir a caixa de diálogo SAS, é gerado um novo conjunto de valores predefinidos. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* Quando copiar entre contas de armazenamento, é gerada uma SAS de 24 horas. Se a cópia teve mais de 24 horas, em seguida, a cópia falhará. Aumentámos o SAS a última semana para reduzir a probabilidade de uma cópia a falhar devido a um SAS expirado. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* Para algumas atividades clicando em "Cancelar" não sempre funciona. Este problema foi corrigido. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* Para algumas atividades a velocidade de transferência estava incorreta. Este problema foi corrigido. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* A ortografia do "Anterior" no menu Ver estava incorreta. -Lo agora está escrito corretamente. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* A página final do Windows installer tinha um botão "Seguinte". Foi alterado para um botão "Concluir". [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Separador foco não foi estará visível para os botões de caixas de diálogo ao utilizar o tema HC negra. Agora está visível. [#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* As maiúsculas e minúsculas de "Resolver automaticamente" para ações no registo de atividade estava incorreta. Agora está correta. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* Quando eliminar uma entidade a partir de uma tabela, a caixa de diálogo a pedir-lhe confirmação apresentado um ícone de erro. Agora, a caixa de diálogo utiliza um ícone de aviso. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, poderá não ser possível iniciar sessão. Para contornar este problema, elimine o conteúdo da ~ /. IdentityService/AadConfigurations. Se se o fizer, não desbloquear,, comentar [este problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ainda não totalmente implementado todos os APIs de armazenamento. Por este motivo, podem existir erros inesperados ou comportamento quando utilizar Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar todos os.
+* O carregamento da sua pasta do OneDrive não funcionar devido a um erro no NodeJS. Os erros tem sido corrigido, mas ainda não integrado Electron.
+* Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita [aqui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça de que decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
+* Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
+* A shell de Electron utilizada pelo Explorador de armazenamento tem problemas com algumas aceleração de hardware da GPU (unidade de processamento de gráficos). Se o Explorador de armazenamento apresenta uma janela de principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento na linha de comandos e desativar a aceleração de GPU adicionando o `--disable-gpu` comutador:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para os utilizadores do Linux, terá de instalar [2.0 do .NET Core](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
 ## <a name="version-100"></a>Versão 1.0.0
 16/04/2018
-
-### <a name="download-azure-storage-explorer-100"></a>Transferir o Explorador de armazenamento do Azure 1.0.0
-- [Explorador de armazenamento do Azure 1.0.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.0.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.0.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 * Autenticação melhorada que permite o Explorador de armazenamento utilizar o mesmo arquivo de conta como 2017 do Visual Studio. Para utilizar esta funcionalidade, terá de re-início de sessão às suas contas e defina novamente as suas subscrições filtradas.
@@ -135,28 +197,28 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 * O método utilizado para encriptar dados confidenciais foi alterada. Isto pode resultar em alguns dos seus itens de acesso rápido que necessita de ser adicionado novamente e/ou ligado alguns dos recursos que necessita de ser novamente ligado.
 
 ### <a name="fixes"></a>Correções
-* Alguns utilizadores atrás proxies teria carregamentos de blob de grupo ou as transferências interrompidas por um 'não é possível resolver' mensagem de erro. Esta correção.
-* Se o início de sessão foi necessária ao utilizar uma ligação direta, clicando no início de sessão na linha de comandos da deverá aparecer uma caixa de diálogo em branco. Esta correção.
+* Alguns utilizadores atrás proxies teria carregamentos de blob de grupo ou as transferências interrompidas por um 'não é possível resolver' mensagem de erro. Este problema foi corrigido.
+* Se o início de sessão foi necessária ao utilizar uma ligação direta, clicando na linha de 'Início de sessão' deverá aparecer uma caixa de diálogo em branco. Este problema foi corrigido.
 * No Linux, caso não consiga iniciar devido a uma falha de processo GPU, Explorador de armazenamento será agora informado da falha, disse para utilizar o ' – desativar gpu' comutador e será Explorador de armazenamento, em seguida, reiniciar automaticamente com o comutador ativado.
 * Políticas de acesso inválido foram difícil de identidade na caixa de diálogo de políticas de acesso. Política de acesso inválido IDs agora descritos vermelho para obter mais visibilidade.
-* O registo de atividade, por vezes, teria grande áreas de espaço em branco entre as diferentes partes de uma atividade. Esta correção.
+* O registo de atividade, por vezes, teria grande áreas de espaço em branco entre as diferentes partes de uma atividade. Este problema foi corrigido.
 * No editor de consultas de tabela, se deixado uma cláusula timestamp num estado inválido e, em seguida, tentou modificar outra cláusula, seria fixar o editor. O editor agora irá restaurar a cláusula timestamp último Estado válido quando é detetada uma alteração na cláusula de outra.
 * Se está em pausa ao escrever a consulta de pesquisa na vista de árvore, seria começar a pesquisa e deverá ser roubado foco da caixa de texto. Agora, tem explicitamente de iniciar a pesquisar ao premir a tecla 'Enter' ou clicando no botão de procura de início.
-* O comando 'Obter assinatura de acesso partilhado', por vezes, seria desativado quando o botão direito do rato ao clicar num ficheiro numa partilha de ficheiros. Esta correção.
+* O comando 'Obter assinatura de acesso partilhado', por vezes, seria desativado quando o botão direito do rato ao clicar num ficheiro numa partilha de ficheiros. Este problema foi corrigido.
 * Se o nó de árvore de recursos com o foco foi filtrado durante a pesquisa, não foi possível separador para a árvore de recursos e utilize as teclas de seta para a árvore de recursos de navegar. Agora, se o nó de árvore do recurso focados está oculta, o primeiro nó na árvore de recursos irão ser automaticamente concentra-se.
-* Um separador adicional, por vezes, seria visível na barra de ferramentas do editor. Esta correção.
-* A caixa de texto trilho, por vezes, seria overflow. Esta correção.
-* Os editores de Blob e partilha de ficheiros, por vezes, constantemente seriam atualizadas ao carregar muitos ficheiros de uma só vez. Esta correção.
+* Um separador adicional, por vezes, seria visível na barra de ferramentas do editor. Este problema foi corrigido.
+* A caixa de texto trilho, por vezes, seria overflow. Este problema foi corrigido.
+* Os editores de Blob e partilha de ficheiros, por vezes, constantemente seriam atualizadas ao carregar muitos ficheiros de uma só vez. Este problema foi corrigido.
 * A funcionalidade 'Pasta estatísticas' não tinha nenhum objetivo na vista de gestão de instantâneos de partilha de ficheiros. Agora foi desativada.
-* No Linux, o menu de ficheiro não apareceu. Esta correção.
+* No Linux, o menu de ficheiro não apareceu. Este problema foi corrigido.
 * Ao carregar uma pasta para uma partilha de ficheiros, por predefinição, apenas o conteúdo da pasta foram carregado. Agora, o comportamento predefinido é de carregar o conteúdo da pasta para uma pasta correspondente na partilha de ficheiros.
-* A ordenação dos botões no várias caixas de diálogo tinha sido anulada. Esta correção.
+* A ordenação dos botões no várias caixas de diálogo tinha sido anulada. Este problema foi corrigido.
 * Segurança de vários relacionadas com as correções.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar todos os.
 * Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
-* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita aqui. 
+* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita aqui.
 * Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça de que decisão.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
 * Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
@@ -167,7 +229,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ```
 
 * Para os utilizadores do Linux, terá de instalar [2.0 do .NET Core](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -185,14 +247,9 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ## <a name="version-096"></a>Versão 0.9.6
 02/28/2018
 
-### <a name="download-azure-storage-explorer-096-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.6 (pré-visualização)
-- [Explorador de armazenamento do Azure 0.9.6 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 0.9.6 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 0.9.6 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
 ### <a name="fixes"></a>Correções
-* Um problema impediu a ser apresentados no editor de ficheiros/blobs esperados. Esta correção.
-* Um problema causado alternar entre as vistas de instantâneo para apresentar os itens incorretamente. Esta correção.
+* Um problema impediu a ser apresentados no editor de ficheiros/blobs esperados. Este problema foi corrigido.
+* Um problema causado alternar entre as vistas de instantâneo para apresentar os itens incorretamente. Este problema foi corrigido.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
@@ -208,7 +265,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -225,11 +282,6 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 
 ## <a name="version-095"></a>Versão 0.9.5
 02/06/2018
-
-### <a name="download-azure-storage-explorer-095-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.5 (pré-visualização)
-- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 0.9.5 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 
@@ -262,7 +314,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -280,11 +332,6 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ## <a name="version-094-and-093"></a>Versão 0.9.4 e 0.9.3
 21/01/2018
 
-### <a name="download-azure-storage-explorer-094-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização)
-* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Novo
 * A janela do Explorador de armazenamento existente será reutilizado quando:
     * Abrir ligações diretas geradas no Explorador de armazenamento.
@@ -295,9 +342,9 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
     * Para Mac, há uma opção 'Nova janela' no Menu de aplicação.
 
 ### <a name="fixes"></a>Correções
-* Corrigido um problema de segurança. Atualize para 0.9.4 em conveniência mais antigo.
+* Corrigido um problema de segurança. Atualize para 0.9.4 convier mais antigo.
 * Atividades antigas não foram adequadamente a ser limpa. Isto afetados o desempenho das tarefas de execução longa. Estes são agora a ser limpa corretamente.
-* Ações que envolvem grandes quantidades de ficheiros e diretórios ocasionalmente causaria Explorador de armazenamento parar. Pedidos para o Azure para partilhas de ficheiros estão agora trottled para limitar a utilização de recursos do sistema.
+* Ações que envolvem grandes quantidades de ficheiros e diretórios ocasionalmente causaria Explorador de armazenamento parar. Pedidos para o Azure para partilhas de ficheiros agora limitados para limitar a utilização de recursos do sistema.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
@@ -312,7 +359,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ```
 ./StorageExplorer --disable-gpu
 ```
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -332,7 +379,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 
 ### <a name="hotfixes"></a>Correções
 * Alterações de dados inesperado foram possíveis ao editar Edm.DateTime valores para as entidades da tabela, consoante o fuso horário local. O editor de utiliza uma caixa de texto simples, dar controlo preciso, consistente Edm.DateTime valores.
-* Um grupo de blobs quando anexada com o nome e a chave de carregamento/transferência não arrancam. Esta correção.
+* Um grupo de blobs quando anexada com o nome e a chave de carregamento/transferência não arrancam. Este problema foi corrigido.
 * Anteriormente, Explorador de armazenamento só iria solicitar-lhe para voltar uma conta obsoleta se um ou mais subscrições da conta foi selecionado. Agora Explorador de armazenamento pedirá, mesmo se a conta é totalmente filtrada.
 * O domínio de pontos finais para o Azure US Government estava incorreto. Foi corrigido.
 * Por vezes, foi difícil de clique no botão aplicar no painel Gerir contas. Já não deverá ocorrer.
@@ -357,7 +404,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 
 ### <a name="fixes"></a>Correções
 * Se tentou abrir ou transferir um blob com um nome de ficheiro inválido do Windows, a operação falhará. Explorador de armazenamento será detetar se um nome de blob é inválido e peça se gostaria de codificá-lo ou ignorar o blob. Explorador de armazenamento também Deteta se um nome de ficheiro parece ser codificados e pedir-lhe se pretende descodificá-lo antes de carregar.
-* Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Esta correção.
+* Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Este problema foi corrigido.
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -374,7 +421,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ```
 ./StorageExplorer --disable-gpu
 ```
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -411,7 +458,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 
 ### <a name="fixes"></a>Correções
 * Se tentou abrir ou transferir um blob com um nome de ficheiro inválido do Windows, a operação falhará. Explorador de armazenamento será detetar se um nome de blob é inválido e peça se gostaria de codificá-lo ou ignorar o blob. Explorador de armazenamento também Deteta se um nome de ficheiro parece ser codificados e pedir-lhe se pretende descodificá-lo antes de carregar.
-* Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Esta correção.
+* Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Este problema foi corrigido.
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
@@ -428,7 +475,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 ```
 ./StorageExplorer --disable-gpu
 ```
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -468,7 +515,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 * O painel de definições de conta pode mostrar que terá de reintroduzir as credenciais para filtrar as subscrições.
 * Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
 * Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
-* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC está atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
     ```
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -521,7 +568,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 #### <a name="fixes"></a>Correções
 
 * Corrigido: O carregamento de ficheiros tinha uma elevada probabilidade de causar um fora de erro de memória
-* Fixo: Pode agora iniciar sessão com PIN/smart card
+* Corrigido: Que pode agora iniciar sessão com o PIN/smart card
 * Corrigido: Abrir no Portal agora funciona com o Azure China, Datacenters do Azure, Azure US Government e pilha do Azure
 * Corrigido: Ao carregar uma pasta para um contentor de blob, um erro de "Operação ilegal", por vezes, ocorreriam
 * Corrigido: Selecionar tudo foi desativado durante a gestão de instantâneos
@@ -601,7 +648,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 * Explorador de armazenamento 0.8.9 irá transferir automaticamente a versão mais recente de atualizações.
 * URI de SAS gerado para anexar uma conta de armazenamento correções: utilizar um portal iria resultar num erro.
 * Agora pode criar, gerir e promover instantâneos do blob.
-* Pode agora iniciar sessão para contas de Azure China, Datacenters do Azure e Azure US Government.
+* Que pode agora iniciar sessão para contas de Azure China, Datacenters do Azure e Azure US Government.
 * Agora, pode alterar o nível de zoom. Utilize as opções no menu da vista para aplicar Zoom no, Zoom Out e repor Zoom.
 * Carateres Unicode já são suportados nos metadados de utilizador para os blobs e de ficheiros.
 * Melhoramentos de acessibilidade.
@@ -896,7 +943,7 @@ Este artigo contém as notas de versão para versão do Explorador de armazename
 #### <a name="new"></a>Novo
 
 * macOS e as versões do Windows
-* Iniciar sessão para ver as contas do Storage – utilizar a sua conta da organização, Account Microsoft, 2FA, etc.
+* Início de sessão para ver as contas do Storage – utilizar a sua conta da organização, Account Microsoft, 2FA, etc.
 * Armazenamento de desenvolvimento local (utilizar o emulador do storage apenas de Windows)
 * Suporte de recursos do Azure Resource Manager e clássico
 * Criar e eliminar blobs, filas ou tabelas

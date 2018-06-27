@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753409"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018344"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -58,6 +58,7 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | Sul do Brasil | X | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
+| Centro de França |  | X |
 | Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
 | Ásia Oriental | X | X |

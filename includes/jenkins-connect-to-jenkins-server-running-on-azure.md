@@ -10,7 +10,7 @@
     ssh -L 127.0.0.1:8080:localhost:8080 <username>@<domain>.eastus.cloudapp.azure.com
     ```
 
-1. Siga o `ssh` pedidos para iniciar sessão na máquina virtual Jenkins.
+1. Siga o `ssh` pedidos para iniciar sessão na máquina de virtual Jenkins.
 
 1. Introduza o seguinte comando para obter a palavra-passe inicial para Jenkins desbloqueio.
 

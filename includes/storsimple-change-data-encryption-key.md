@@ -39,7 +39,7 @@ Este passo é executado no Windows PowerShell para StorSimple interface no dispo
 Se estiver a utilizar a consola de série do dispositivo para ligar a interface do Windows PowerShell, execute os seguintes passos.
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Para iniciar a alteração de chave de encriptação de dados serviço
-1. Selecione a opção 1 para iniciar sessão com acesso total.
+1. Selecione a opção 1, **iniciar sessão com acesso total**.
 2. Na linha de comandos, escreva:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
@@ -60,7 +60,7 @@ Estes passos devem ser executados na interface do Windows PowerShell do disposit
 Execute os seguintes passos para atualizar a encriptação de dados do serviço no seu dispositivo.
 
 #### <a name="to-update-the-service-data-encryption-key"></a>Para atualizar a chave de encriptação de dados do serviço
-1. Utilize o Windows PowerShell para StorSimple para ligar à consola do. Selecione a opção 1 para iniciar sessão com acesso total.
+1. Utilize o Windows PowerShell para StorSimple para ligar à consola do. Selecione a opção 1, **iniciar sessão com acesso total**.
 2. Na linha de comandos, escreva:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`

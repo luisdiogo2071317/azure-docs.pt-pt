@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359867"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018651"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utilize o Gestor de recursos autenticação API para subscrições de acesso
 ## <a name="introduction"></a>Introdução
@@ -88,7 +88,7 @@ Os resultados incluem o AppId, o que precisa de quando a autenticação da aplic
 ### <a name="optional-configuration---certificate-credential"></a>Configuração opcional - credenciais de certificado
 Azure AD também suporta credenciais de certificado para aplicações: criar um certificado autoassinado, mantenha a chave privada e adicione a chave pública para o seu registo de aplicações do Azure AD. Para autenticação, a aplicação envia um payload pequeno para o Azure AD assinado utilizando a chave privada e do Azure AD valida a assinatura utilizando a chave pública que registado.
 
-Para obter informações sobre como criar uma aplicação AD com um certificado, consulte [utilize o Azure PowerShell para criar um principal de serviço para aceder a recursos](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [CLI do Azure de utilização para criar um principal de serviço para aceder a recursos](resource-group-authenticate-service-principal-cli.md).
+Para obter informações sobre como criar uma aplicação AD com um certificado, consulte [utilize o Azure PowerShell para criar um principal de serviço para aceder a recursos](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [CLI do Azure de utilização para criar um principal de serviço para aceder a recursos](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obter ID de inquilino do ID de subscrição
 Para pedir um token que pode ser utilizado para chamar o Gestor de recursos, a aplicação tem de saber o ID de inquilino do inquilino do Azure AD que aloja a subscrição do Azure. Provavelmente, os utilizadores saibam que os respetivos IDs de subscrição, mas poderão não saber respetivo inquilino IDs para o Azure Active Directory. Para obter o ID de inquilino do utilizador, pedir ao utilizador para o ID de subscrição. Fornecer essa subscrição ID ao enviar um pedido acerca da subscrição:
@@ -204,7 +204,7 @@ Um exemplo de resposta para obter as permissões de utilizador na subscrição �
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-As permissões API devolve vários permissões. Cada permissão é composta por ações permitidas (**ações**) e não permitida ações (**notactions**). Se uma ação está presente nas ações permitidas de qualquer permissão e não está presente nas ações não permitidas dessa permissão, o utilizador tem permissão para efetuar essa ação. **Microsoft.Authorization/RoleAssignments/Write** é a ação que concede que acesso de direitos de gestão. A aplicação tem de analisar o resultado de permissões para procurar uma correspondência de regex na cadeia ação no **ações** e **notactions** cada permissão.
+As permissões API devolve vários permissões. Cada permissão é composta por ações permitidas (**ações**) e não permitida ações (**notactions**). Se uma ação está presente nas ações permitidas de qualquer permissão e não está presente nas ações não permitidas dessa permissão, o utilizador tem permissão para efetuar essa ação. **Microsoft.Authorization/RoleAssignments/Write** é a ação que concede direitos de gestão de acesso. A aplicação tem de analisar o resultado de permissões para procurar uma correspondência de regex na cadeia ação no **ações** e **notactions** cada permissão.
 
 ## <a name="get-app-only-access-token"></a>Obtenha o token de acesso só de aplicação
 Agora, sabe se o utilizador pode atribuir acesso à subscrição do Azure. Os passos seguintes são:

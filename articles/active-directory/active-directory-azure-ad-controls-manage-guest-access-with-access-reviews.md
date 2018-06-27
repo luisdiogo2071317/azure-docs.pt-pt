@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 8eb7e4bc79ee50982dae5751968eb732ef39e00d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017785"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD revisões de acesso
 
@@ -42,7 +42,7 @@ Se planeia peça aos utilizadores de convidado para rever os suas próprias aces
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Criar e executar uma revisão do acesso para os convidados
 
-Em primeiro lugar, ative revisões de acesso a aparecer no painel de acesso de um revisor. Como administrador global, aceda à [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Em primeiro lugar, ative revisões de acesso a aparecer no painel de acesso de um revisor. Como um administrador global ou o administrador de conta de utilizador, vá para o [acesso revê página](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
 
 Azure AD permite vários cenários para rever os utilizadores convidados.
 

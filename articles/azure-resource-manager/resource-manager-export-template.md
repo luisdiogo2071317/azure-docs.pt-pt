@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025951"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportar um modelo do Azure Resource Manager a partir de recursos existentes
 Neste artigo, vai aprender a exportar um modelo do Resource Manager a partir de recursos existentes na sua subscrição. Pode utilizar esse modelo gerado para compreender melhor a sintaxe do modelo.
@@ -26,7 +26,7 @@ Neste artigo, vai aprender a exportar um modelo do Resource Manager a partir de 
 Existem duas formas de exportar um modelo:
 
 * Pode exportar o **modelo que foi utilizado para a implementação**. O modelo exportado inclui todos os parâmetros e variáveis exatamente como apareciam no modelo original. Esta abordagem é útil se tiver implementado recursos através do portal e agora pretende ver o modelo para criar esses recursos. Este modelo pode ser utilizado imediatamente. 
-* Pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em qualquer modelo utilizado para implementação. Em vez disso, cria um modelo que é um "instantâneo" ou "cópia de segurança" do grupo de recursos. O modelo exportado tem muitos valores codificados e provavelmente não tantos parâmetros como normalmente seriam definidos. Utilize esta opção para voltar a implementar recursos para o mesmo grupo de recursos. Para utilizar este modelo para outro grupo de recursos, poderá ter de significativamente modificá-lo.
+* Pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em qualquer modelo que utilizou para a implementação. Em vez disso, cria um modelo que é um "instantâneo" ou "cópia de segurança" do grupo de recursos. O modelo exportado tem muitos valores codificados e provavelmente não tantos parâmetros como normalmente seriam definidos. Utilize esta opção para voltar a implementar recursos para o mesmo grupo de recursos. Para utilizar este modelo para outro grupo de recursos, poderá ter de significativamente modificá-lo.
 
 Este artigo mostra ambas as abordagens através do portal.
 
@@ -64,8 +64,7 @@ A implementação pode demorar um minuto. Após a conclusão da implementação,
    
    1. **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
    2. **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
-   3. **CLI** - Um ficheiro de script da interface de linha de comandos do Azure (CLI) que pode utilizar para implementar o modelo.
-   3. **CLI 2.0** - Um ficheiro de script da interface de linha de comandos (CLI) do Azure que pode utilizar para implementar o modelo.
+   3. **CLI** -ficheiro de script de um CLI do Azure que pode utilizar para implementar o modelo.
    4. **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
    5. **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
    6. **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
@@ -93,7 +92,7 @@ Se tiver manualmente alterado os recursos ou adicionou recursos em múltiplas im
    
 3. Tem algumas opções para continuar a trabalhar com este modelo. Pode transferir o modelo e trabalhar no mesmo localmente com um editor JSON. Em alternativa, pode guardar o modelo na sua biblioteca e trabalhar no mesmo através do portal.
    
-     Se estiver familiarizado com um editor JSON, como [Código VS](https://code.visualstudio.com/) ou [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), pode preferir transferir o modelo localmente e utilizar esse editor. Para trabalhar localmente, selecione **Transferir**.
+     Se estiver familiarizado com um editor de JSON como [VS Code](https://code.visualstudio.com/) ou [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), poderá preferir transferir o modelo localmente e utilizar essa editor. Para trabalhar localmente, selecione **Transferir**.
    
       ![Transferir modelo](./media/resource-manager-export-template/download-template.png)
    
@@ -120,7 +119,7 @@ O modelo exportado funciona bem se quiser criar a mesma aplicação Web e a mesm
 2. Selecione o modelo.
    
      ![Editar modelo](./media/resource-manager-export-template/select-added-template.png)
-3. Para poder transmitir os valores que poderá pretender especificar durante a implementação, adicione os dois parâmetro seguintes à secção **parâmetros** do modelo:
+3. Para passar valores que pode pretender especificar durante a implementação, adicione os dois parâmetros seguintes para o **parâmetros** secção no modelo:
 
    ```json
    "administratorLogin": {
@@ -151,7 +150,7 @@ O modelo exportado funciona bem se quiser criar a mesma aplicação Web e a mesm
    },
    ```
 
-6. Selecione **OK** quando terminar de editar o modelo.
+6. Selecione **OK** quando terminar, editar o modelo.
 7. Selecione **Guardar** para guardar as alterações feitas ao modelo.
    
      ![Guardar o modelo](./media/resource-manager-export-template/save-template.png)
@@ -162,12 +161,11 @@ O modelo exportado funciona bem se quiser criar a mesma aplicação Web e a mesm
 
 
 ## <a name="fix-export-issues"></a>Corrigir problemas de exportação
-Nem todos os tipos de recursos suportam a função de modelo de exportação. Para resolver este problema, adicione manualmente os recursos em falta no seu modelo. A mensagem de erro inclui os tipos de recursos que não podem ser exportados. Localize o tipo de recurso na [Referência a modelos](/azure/templates/). Por exemplo, para adicionar manualmente um gateway de rede virtual, veja a [referência ao modelo Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways).
+Nem todos os tipos de recursos suportam a função de modelo de exportação. Vê apenas exportar problemas ao exportar a partir de um grupo de recursos em vez de recorrerem o histórico de implementação. Se a última implementação representar com precisão o estado atual do grupo de recursos, deve exportar o modelo do histórico de implementação em vez do grupo de recursos. Só deve exporte de um grupo de recursos quando foram efetuadas alterações ao grupo de recursos que não estão definidas num único modelo.
 
-> [!NOTE]
-> Só encontra problemas de exportação se exportar a partir de um grupo de recursos em vez do seu histórico de implementação. Se a última implementação representar com precisão o estado atual do grupo de recursos, deve exportar o modelo do histórico de implementação em vez do grupo de recursos. Só deve exportar de um grupo de recursos depois de efetuar alterações ao grupo de recursos que não esteja definido num único modelo.
-> 
-> 
+Para resolver problemas de exportação, adicione manualmente os recursos em falta no seu modelo. A mensagem de erro inclui os tipos de recurso que não não possível exportar. Localize o tipo de recurso na [Referência a modelos](/azure/templates/). Por exemplo, para adicionar manualmente um gateway de rede virtual, veja a [referência ao modelo Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). A referência de modelo dá-lhe o JSON para adicionar o recurso ao seu modelo.
+
+Após obter o formato JSON para o recurso, tem de obter os valores de recursos. Pode ver os valores para o recurso utilizando a operação GET na REST API para o tipo de recurso. Por exemplo, para obter os valores para o gateway de rede virtual, consulte o artigo [Gateways da Virtual Network - obter](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

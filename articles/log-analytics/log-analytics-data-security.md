@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8558b3b1f5a9036f1134ddce3302211b41f57c05
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026095"
 ---
 # <a name="log-analytics-data-security"></a>Registo de segurança de dados de análise
 Este documento destina-se para fornecer informações específicas do Log Analytics do Azure para complementar as informações no [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -27,16 +28,16 @@ Este artigo explica como os dados são recolhidos, processados e protegidos pela
 
 O serviço de análise de registos gere os dados baseados na nuvem em segurança através dos seguintes métodos:
 
-* segregação de dados
+* Segregação de dados
 * Retenção de dados
-* segurança física
+* Segurança física
 * Gestão de incidentes
 * Conformidade
-* certificações de normas de segurança
+* Certificações de normas de segurança
 
 Contacte-nos com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo as nossas políticas de segurança ao [as opções de suporte do Azure](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>segregação de dados
+## <a name="data-segregation"></a>Segregação de dados
 Depois dos dados é ingeridos pelo serviço de análise de registos, os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por área de trabalho. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço. Os dados são armazenados numa base de dados dedicado no cluster de armazenamento na região que selecionou.
 
 ## <a name="data-retention"></a>Retenção de dados
@@ -59,15 +60,15 @@ A tabela seguinte mostra exemplos dos tipos de dados:
 
 | **Tipo de dados** | **Campos** |
 | --- | --- |
-| Alerta |Alerta de nome, descrição do alerta, Timemodified, ID do problema, IsMonitorAlert, RuleId, estado de resolução do, prioridade, gravidade, categoria, proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Alerta |Alerta de nome, descrição do alerta, Timemodified, ID do problema, IsMonitorAlert, RuleId, estado de resolução do, prioridade, gravidade, categoria, proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, RepeatCount TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
 | Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** quando escreve eventos com campos personalizados no registo de eventos do Windows, OMS recolhe-los. |
 | Metadados |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Desempenho |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
-## <a name="physical-security"></a>segurança física
-O serviço de análise de registos é gerido pela equipa da Microsoft e todas as atividades são registadas e podem ser auditadas. Análise de registos é operada como um serviço do Azure e cumpre todos os requisitos de segurança e de conformidade do Azure. Pode ver detalhes sobre a segurança física dos recursos do Azure na página 18 do [descrição geral de segurança do Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Direitos de acesso físico a áreas de proteger são alterados dentro de um dia útil para qualquer pessoa que já não tem responsabilidade para o serviço do OMS, incluindo a transferência e terminação. Pode ler sobre a infraestrutura física global utilizamos em [Microsoft Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
+## <a name="physical-security"></a>Segurança física
+O serviço de análise de registos é gerido pela equipa da Microsoft e todas as atividades são registadas e podem ser auditadas. Análise de registos é operada como um serviço do Azure e cumpre todos os requisitos de segurança e de conformidade do Azure. Pode ver detalhes sobre a segurança física dos recursos do Azure na página 18 do [descrição geral de segurança do Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Direitos de acesso físico a áreas de proteger são alterados dentro de um dia útil para qualquer pessoa que já não tem responsabilidade para o serviço do OMS, incluindo a transferência e terminação. Pode ler sobre a infraestrutura física global utilizamos em [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
 ## <a name="incident-management"></a>Gestão de incidentes
 OMS tem um processo de gestão de incidentes que cumprem todos os serviços Microsoft. Para resumir, iremos:
@@ -91,10 +92,10 @@ OMS tem um processo de gestão de incidentes que cumprem todos os serviços Micr
 
 Se ocorrer a perda de quaisquer dados de cliente, iremos notificá-lo cada cliente dentro de um dia. No entanto, a perda de dados de cliente nunca foi excedido com o serviço. 
 
-Para obter mais informações sobre como o Microsoft responde a incidentes de segurança, consulte [na nuvem do Microsoft Azure Security Response](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
+Para obter mais informações sobre como o Microsoft responde a incidentes de segurança, consulte [na nuvem do Microsoft Azure Security Response](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Conformidade
-Programa de segurança e governação de informações da análise de registos software desenvolvimento e o serviço da equipa suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [ Compatibilidade de centro de confiança do Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como Log Analytics estabelece requisitos de segurança, identifica os controlos de segurança, gere, monitores e riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
+Programa de segurança e governação de informações da análise de registos software desenvolvimento e o serviço da equipa suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [ Compatibilidade de centro de confiança do Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Como Log Analytics estabelece requisitos de segurança, identifica os controlos de segurança, gere, monitores e riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
 
 Cada membro da equipa de desenvolvimento recebe formação de segurança da aplicação formal. Internamente, iremos utilizar um sistema de controlo de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controlo de versão.
 
@@ -112,10 +113,10 @@ Análise de registos do Azure cumpre os seguintes requisitos:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Padrão de segurança do dados da indústria (em conformidade de PCI) de cartão de pagamento (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) por Council de normas de segurança PCI.
 * [O tipo de serviço organização controlos (SOC) 1 1 e certificados SOC 2 tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) em conformidade
-* [HIPAA e HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) para empresas que têm um contrato de associar de negócio para HIPAA
+* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para empresas que têm um contrato de associar de negócio para HIPAA
 * Critérios de engenharia comuns do Windows
 * Informática Fidedigna da Microsoft
-* Como um serviço do Azure, os componentes que utiliza a análise de registos cumprem requisitos de conformidade do Azure. Pode ler mais em [compatibilidade de centro de fidedignidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+* Como um serviço do Azure, os componentes que utiliza a análise de registos cumprem requisitos de conformidade do Azure. Pode ler mais em [compatibilidade de centro de fidedignidade da Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
 > Em alguns certificações/attestations, análise de registos está listado em seu nome anteriores do *das informações operacionais*.
@@ -130,8 +131,8 @@ O diagrama seguinte mostra uma arquitetura de segurança na nuvem como o fluxo d
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Inscreva-se e recolher dados de análise de registo
 Para a sua organização enviar dados para análise de registos, configure um agente de Windows ou Linux em execução em máquinas virtuais do Azure ou nos computadores virtuais ou físicas no seu ambiente ou de outro fornecedor de nuvem.  Se utilizar o Operations Manager, do grupo de gestão, configurar o agente do Operations Manager. Utilizadores (que podem ser, outros utilizadores individuais ou um grupo de pessoas) criam um ou mais áreas de trabalho de análise de registos e registar agentes utilizando um dos seguintes contas:
 
-* [ID organizacional](../active-directory/sign-up-organization.md)
-* [Conta Microsoft - Outlook, Office em direto, MSN](http://www.microsoft.com/account/default.aspx)
+* [ID organizacional](../active-directory/fundamentals/sign-up-organization.md)
+* [Conta Microsoft - Outlook, Office em direto, MSN](https://account.microsoft.com/account)
 
 Uma área de trabalho de análise de registos é onde dados recolhidos, agregados, analisados e apresentados. Uma área de trabalho é principalmente utilizada como um meio para dados de partição e cada área de trabalho é exclusiva. Por exemplo, pode querer ter os seus dados de produção geridos com uma área de trabalho e os dados de teste geridos com outra área de trabalho. Áreas de trabalho também ajudam a um administrador controlar utilizador o acesso aos dados. Cada área de trabalho pode ter várias contas de utilizador associadas à mesma e, cada conta de utilizador pode aceder a várias áreas de trabalho de análise de registos. Criar com base na região de centro de dados de áreas de trabalho. Cada área de trabalho é replicada para outros centros de dados na região, principalmente para disponibilidade do serviço de análise de registos.
 

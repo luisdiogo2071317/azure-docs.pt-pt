@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593717"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960132"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter utilizando o Hive no HDInsight
 Web sites sociais são um da força despertar principais para a adoção de macrodados. APIs públicas fornecidas por sites como Twitter são uma origem de dados para analisar e compreender as tendências populares útil.
@@ -68,7 +68,7 @@ Neste tutorial, irá utilizar o [Twitter APIs de transmissão em fluxo][twitter-
 > [!NOTE]
 > Um ficheiro que contenha 10 000 tweets e o ficheiro de script de ramo de registo (abrangido na secção seguinte) tiverem sido carregados num contentor de Blob público. Pode ignorar esta secção se pretender utilizar os ficheiros carregados.
 
-[Tweets dados](https://dev.twitter.com/docs/platform-objects/tweets) é armazenado num formato JavaScript Object Notation (JSON) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código ao utilizar uma linguagem de programação convencional, pode transformar esta estrutura aninhada numa tabela do Hive, para que podem ser consultada por uma linguagem SQL (Structured Query)-como linguagem denominada HiveQL.
+Dados de tweets são armazenados no formato JavaScript Object Notation (JSON) que contém uma estrutura aninhada complexa. Em vez de escrever várias linhas de código ao utilizar uma linguagem de programação convencional, pode transformar esta estrutura aninhada numa tabela do Hive, para que podem ser consultada por uma linguagem SQL (Structured Query)-como linguagem denominada HiveQL.
 
 Twitter utiliza OAuth para fornecer acesso autorizado à sua API. OAuth é um protocolo de autenticação que permite aos utilizadores aprovar aplicações para agir em nome sem partilha a palavra-passe. Podem encontrar mais informações em [oauth.net](http://oauth.net/) ou o excelente [Guia do Beginner OAuth](http://hueniverse.com/oauth/) de Hueniverse.
 
@@ -536,7 +536,7 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > A tabela de Hive utiliza \001 como o delimitador de campos. O delimitador não é visível na saída.
 
-Depois dos resultados da análise foram colocados no Blob storage do Azure, pode exportar os dados para um servidor de base de dados/SQL do Azure SQL, exportar os dados para o Excel, utilizando o Power Query ou ligar a aplicação para os dados utilizando o controlador ODBC do Hive. Para obter mais informações, consulte [utilize Sqoop com o HDInsight][hdinsight-use-sqoop], [analisar dados de atraso de voo utilizando HDInsight][hdinsight-analyze-flight-delay-data], [ligar o Excel para o HDInsight com o Power Query][hdinsight-power-query], e [ligar o Excel para o HDInsight com o controlador de ODBC do Microsoft Hive][hdinsight-hive-odbc].
+Depois dos resultados da análise foram colocados no Blob storage do Azure, pode exportar os dados para um servidor de base de dados/SQL do Azure SQL, exportar os dados para o Excel, utilizando o Power Query ou ligar a aplicação para os dados utilizando o controlador ODBC do Hive. Para obter mais informações, consulte [utilize Sqoop com o HDInsight][hdinsight-use-sqoop], [analisar dados de atraso de voo utilizando HDInsight][hdinsight-analyze-flight-delay-data], [ Ligar o Excel para o HDInsight com o Power Query][hdinsight-power-query], e [ligar o Excel para o HDInsight com o controlador ODBC do Microsoft Hive][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, iremos ter visto como transformar um conjunto de dados não estruturado JSON para uma tabela do Hive estruturada para consultar, explorar e analisar dados a partir do Twitter com o HDInsight no Azure. Para saber mais, consulte:
@@ -545,7 +545,7 @@ Neste tutorial, iremos ter visto como transformar um conjunto de dados não estr
 * [Analisar dados de atraso de voo utilizar o HDInsight][hdinsight-analyze-flight-delay-data]
 * [Ligar o Excel para o HDInsight com o Power Query][hdinsight-power-query]
 * [Ligar o Excel para o HDInsight com o controlador ODBC do Microsoft Hive][hdinsight-hive-odbc]
-* [Utilizar o Sqoop com o HDInsight][hdinsight-use-sqoop]
+* [Use Sqoop with HDInsight][hdinsight-use-sqoop] (Utilizar o Sqoop com o HDInsight)
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

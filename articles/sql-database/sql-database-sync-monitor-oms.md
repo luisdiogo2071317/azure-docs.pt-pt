@@ -1,26 +1,26 @@
 ---
-title: Monitorizar a sincronização de dados SQL do Azure (pré-visualização) análise do registo | Microsoft Docs
-description: Saiba como monitorizar a sincronização de dados de SQL do Azure (pré-visualização) através da utilização de análise de registos
+title: Monitorizar a sincronização de dados SQL do Azure com a análise de registos | Microsoft Docs
+description: Saiba como monitorizar a sincronização de dados SQL do Azure através da utilização de análise de registos
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650252"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026008"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitor SQL de sincronização de dados (pré-visualização) análise do registo 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Sincronização de dados do SQL monitor com a análise de registos 
 
 Verifique o registo de atividade de sincronização de dados do SQL Server e detetar erros e avisos, que tinha anteriormente verificar a sincronização de dados SQL manualmente no portal do Azure ou utilizar o PowerShell ou a API REST. Siga os passos neste artigo para configurar uma solução personalizada que melhora a experiência de monitorização de sincronização de dados. Pode personalizar esta solução para que se adeque ao seu cenário.
 
-Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](sql-database-sync-data.md).
+Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard de monitorização para todos os grupos de sincronização 
 

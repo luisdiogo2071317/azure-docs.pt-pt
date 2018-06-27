@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: acf30e7aded92c6d07331089fabd02836a8f3e9a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352423"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016570"
 ---
 # <a name="emotion-api-c-quick-start"></a>Emoções API c# início rápido
 
 > [!IMPORTANT]
 > A Pré-visualização da API de Vídeo terminou a 30 de outubro de 2017. Para extrair facilmente insights vídeos, experimente a nova [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Também pode utilizá-lo a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. Para obter mais informações, consulte o [pré-visualização do vídeo indexador](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) descrição geral.
 
-Este artigo fornece informações e um exemplo de código para o ajudar a rapidamente começar, utilizando o [emoções API reconhece o método](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com c#. Pode utilizá-lo para reconhecer os emotions expressados por um ou mais pessoas numa imagem. 
+Este artigo fornece informações e um exemplo de código para o ajudar a rapidamente começar, utilizando o [emoções API reconhece o método](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com c#. Pode utilizá-lo para reconhecer os emotions expressados por um ou mais pessoas numa imagem. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obter os serviços cognitivos [emoções API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).

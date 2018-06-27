@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649691"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018518"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas de só de leitura para carregar saldo de consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -65,6 +65,7 @@ Pode verificar se estiver ligado a uma réplica só de leitura ao executar a con
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
+
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Ativar e desativar leitura Escalamento horizontal com o Azure PowerShell
 
 A gestão de leitura Escalamento horizontal no Azure PowerShell requer o de 2016 Dezembro Azure PowerShell versão ou mais recente. Para a versão mais recente do PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -106,6 +107,14 @@ Body:
 ```
 
 Para obter mais informações, consulte [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Utilizar a leitura de escalamento horizontal com bases de dados de georreplicação
+
+Se o estão a utilizar a leitura de escalamento horizontal carregar saldo só de leitura cargas de trabalho numa base de dados de georreplicação (por exemplo, como um membro de um grupo de ativação pós-falha), certifique-se de que leitura Escalamento horizontal está ativado no principal e as georreplicação secundários bases de dados. Isto irá garantir o efeito de balanceamento de carga de mensagens em fila mesmo quando a aplicação ligar a nova principal após a ativação pós-falha. Se estiver a ligar a georreplicação base de dados secundária com escala leitura ativada, as sessões com `ApplicationIntent=ReadOnly` serão encaminhados para uma das réplicas da mesma forma que iremos encaminhar ligações na base de dados primária.  As sessões sem `ApplicationIntent=ReadOnly` serão encaminhados para a réplica primária do secundário georreplicação, que também é só de leitura. 
+
+> [!NOTE]
+> Durante a pré-visualização, não serão efetuados round robin ou de qualquer outra carga balanceamento de encaminhamento entre as réplicas de base de dados secundária locais. 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

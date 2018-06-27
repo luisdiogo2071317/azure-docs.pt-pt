@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010885"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018419"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
 ### <a name="overview"></a>Descrição geral
-Para ajudá-lo do Azure atual e potencial clientes compreenderem e utilizam as funcionalidades relacionadas com segurança vários disponíveis no e envolvente a plataforma do Azure, Microsoft desenvolveu uma série de documentos técnicos, descrições gerais de segurança, as melhores práticas e listas de verificação.
+Para ajudá-lo do Azure atual e potencial clientes compreenderem e utilizam as funcionalidades relacionadas com segurança vários disponíveis no e envolvente a plataforma do Azure, Microsoft desenvolveu uma série de documentos técnicos, descrições gerais de segurança, as melhores práticas, e Listas de verificação.
 Os tópicos em termos de volume e a profundidade de intervalo e são atualizados periodicamente. Este documento faz parte da série, conforme resumido da seguinte secção abstracta.
 
 ### <a name="azure-platform"></a>Plataforma do Azure
@@ -121,7 +121,7 @@ Serviços empresariais com certificações auditadas, tais como a norma ISO/IEC 
 
 Se eliminar quaisquer dados, o Microsoft Azure elimina os dados, incluindo quaisquer cópias em cache ou cópia de segurança. Para os serviços no âmbito, que irá ocorrer a eliminação no prazo de 90 dias após o fim do período de retenção. (No âmbito de serviços são definidos na secção termos de processamento de dados do nosso [termos de serviço Online](http://aka.ms/Online-Services-Terms).)
 
-Se uma unidade de disco utilizada para armazenamento sofrerá de uma falha de hardware, é segura [apagar ou destruição](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) antes Microsoft devolve-lo para o fabricante de substituição ou a reparação. Os dados na unidade são substituídos para se certificar de que não não possível recuperar os dados por qualquer meio.
+Se uma unidade de disco utilizada para armazenamento sofrerá de uma falha de hardware, é segura [apagar ou destruição](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) antes Microsoft devolve-lo para o fabricante de substituição ou a reparação. Os dados na unidade são substituídos para se certificar de que não não possível recuperar os dados por qualquer meio.
 
 ## <a name="compute-isolation"></a>Isolamento de computação
 O Microsoft Azure oferece vários baseado na nuvem informáticos serviços que incluem uma seleção grande de instâncias de computação e serviços que podem ser dimensionados acima e abaixo automaticamente para satisfazer as necessidades da sua aplicação ou a empresa. Estas instâncias de computação e o serviço oferecem isolamento em vários níveis para proteger os dados sem comprometer a flexibilidade na configuração esse pedido de clientes.
@@ -179,7 +179,7 @@ A comunicação de um controlador de recursos de infraestrutura para um agente �
 Expande o isolamento da VM raiz de VMs de convidado e as VMs de convidado entre si. Também estão isolados de nós de armazenamento para uma maior proteção nós de computação.
 
 
-O hipervisor e o anfitrião de que SO fornece pacotes de rede - os filtros para ajudar a garantir que máquinas virtuais não fidedignas não é possível gerar a denuncia tráfego ou receba tráfego endereçado não aos mesmos, direcionam o tráfego para pontos finais de infraestrutura protegido ou enviar/recebem o tráfego de difusão inadequado.
+O hipervisor e o anfitrião de que SO fornece pacotes de rede - os filtros para ajudar a garantir que máquinas virtuais não fidedignas não é possível gerar a denuncia tráfego ou receba tráfego endereçado não aos mesmos, direcionam o tráfego para pontos finais de infraestrutura protegido ou de envio/receção tráfego de difusão inadequado.
 
 
 ### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>Regras adicionais configuradas pelo agente de controlador de recursos de infraestrutura para isolar VM

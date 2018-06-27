@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293012"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025972"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -92,7 +92,6 @@ Conectores enviam apenas pedidos de saída. O tráfego de saída é enviado para
 
 Para obter mais informações sobre como configurar as regras de firewall de saída, consulte [funcionam com existente no local servidores proxy](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Utilize o [do Azure AD aplicação Proxy portas teste ferramenta do conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) para verificar que o conector pode contactar o serviço de Proxy de aplicações. No mínimo, certifique-se de que a região EUA Central e a região mais próxima têm todas as marcas de verificação verdes. Para além disso, as marcas de verificação verde mais significa maior resiliência. 
 
 ## <a name="performance-and-scalability"></a>Desempenho e escalabilidade
 
@@ -104,7 +103,7 @@ O desempenho do conector está vinculado à CPU e de rede. Desempenho da CPU nec
 
 Em contrapartida, a memória é inferior de um problema de conectores. O serviço online encarrega-se de grande parte do processamento e todo o tráfego não autenticado. Tudo o que pode ser feito na nuvem é efetuado na nuvem. 
 
-O balanceamento de carga ocorre entre os conectores de um grupo de conector indicado. Tal é uma variação de um round robin para determinar o conector no grupo serve um pedido específico. Depois de escolher um conector, vamos manter uma afinidade de sessão entre esse utilizador e a aplicação durante a sessão. Se, por qualquer motivo que conector ou máquina se tornar indisponível, o tráfego começará vai outro conector no grupo. A resiliência está também por que motivo Recomendamos ter vários conectores.
+O balanceamento de carga ocorre entre os conectores de um grupo de conector indicado. Tal é uma variação de um round robin para determinar o conector no grupo serve um pedido específico. Se, por qualquer razão que o conector ou máquina fica indisponível, o tráfego começará vai outro conector no grupo. A resiliência está também por que motivo Recomendamos ter vários conectores.
 
 Outro fator que afeta o desempenho é a qualidade de rede entre os conectores, incluindo: 
 

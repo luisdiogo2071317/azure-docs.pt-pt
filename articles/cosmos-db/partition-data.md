@@ -2,7 +2,7 @@
 title: Criação de partições e o dimensionamento horizontal do BD Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre funciona como criação de partições de BD do Cosmos do Azure, como configurar a criação de partições e chaves de partição e como escolher a chave de partição adequado para a sua aplicação.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261088"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960377"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -55,9 +55,9 @@ A semântica para as chaves de partição é ligeiramente diferente para corresp
 
 | API | Chave de partição | Chave da fila |
 | --- | --- | --- |
-| SQL | caminho da chave de partição personalizado | `id` corrigido | 
-| MongoDB | chave de partição horizontal personalizado  | `_id` corrigido | 
-| Gremlin | propriedade de chave de partição personalizado | `id` corrigido | 
+| SQL | Caminho da chave de partição personalizado | `id` corrigido | 
+| MongoDB | Chave de partição horizontal personalizado  | `_id` corrigido | 
+| Gremlin | Propriedade de chave de partição personalizado | `id` corrigido | 
 | Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
 
 BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. 

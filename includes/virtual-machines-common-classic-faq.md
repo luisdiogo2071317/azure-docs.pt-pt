@@ -48,7 +48,7 @@ Para máquinas de virtuais criadas no modelo de implementação clássico, pode 
 Terá de especificar a rede a que pretende que a máquina virtual pertença quando criar a máquina virtual. Não é possível associar uma máquina virtual existente a uma rede virtual. No entanto, pode contornar este problema ao desanexar o disco rígido virtual (VHD) da máquina virtual existente e, em seguida, utilizá-lo para criar uma nova máquina virtual com a configuração de rede que pretende.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Como posso aceder à minha máquina virtual?
-Tem de estabelecer uma ligação remota para iniciar sessão na máquina virtual, com a Ligação ao Ambiente de Trabalho Remoto para uma VM do Windows ou um Secure Shell (SSH) para uma VM do Linux. Para obter instruções, veja:
+Tem de estabelecer uma ligação remota para iniciar sessão para a máquina virtual utilizando a ligação de ambiente de trabalho remoto para uma VM do Windows ou um Secure Shell (SSH) para uma VM com Linux. Para obter instruções, veja:
 
 * [Como Iniciar Sessão numa Máquina Virtual com o Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Um máximo de 2 ligações simultâneas são suportadas, a menos que o servidor esteja configurado como um anfitrião de sessões de Serviços de Ambiente de Trabalho Remoto.  
 * [Como Iniciar Sessão numa Máquina Virtual com o Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
@@ -78,7 +78,7 @@ Geralmente, a atualização do termo implica mover para uma versão mais recente
 Para obter mais detalhes gerais sobre as ferramentas e os processos para migrar o Windows Server, veja [Migrar Funções e Funcionalidades para o Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Quais são o nome de utilizador e a palavra-passe predefinidos da máquina virtual?
-As imagens fornecidas pelo Azure não têm um nome de utilizador e a palavra-passe pré-configurados. Ao criar a máquina virtual utilizando uma dessas imagens, terá de fornecer um nome de utilizador e palavra-passe, que irá utilizar para iniciar sessão na máquina virtual.
+As imagens fornecidas pelo Azure não têm um nome de utilizador e a palavra-passe pré-configurados. Ao criar a máquina virtual utilizando uma dessas imagens, terá de fornecer um nome de utilizador e palavra-passe, que irá utilizar para iniciar sessão para a máquina virtual.
 
 Caso se tenha esquecido do nome de utilizador ou palavra-passe e tiver instalado o Agente de VM, pode instalar e utilizar a extensão [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para corrigir o problema.
 

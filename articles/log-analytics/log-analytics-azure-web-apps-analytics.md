@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5426c9c5727d76d401c00b6e7338688b8f064ad0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261373"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021242"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
@@ -57,8 +57,7 @@ Ao contrário da maioria dos outros soluções de análise de registos, os dados
 
 Execute os seguintes passos para configurar a solução de análise de aplicações Web do Azure para as áreas de trabalho.
 
-1. Ativar a solução de análise de aplicações Web do Azure de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
-2. [Ativar o registo de métricas de recurso do Azure para análise de registos com o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Ativar o registo de métricas de recurso do Azure para análise de registos com o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 A solução de análise de aplicações Web do Azure recolhe dois conjuntos de métricas do Azure:
 
@@ -89,7 +88,7 @@ Quando adiciona a solução de análise de aplicações Web do Azure a sua área
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Ver informações de análise de aplicações Web do Azure
 
-Clique em de **análise de aplicações Web do Azure** mosaico para abrir o **análise de aplicações Web do Azure** dashboard. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até dez itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
+Clique em de **análise de aplicações Web do Azure** mosaico para abrir o **análise de aplicações Web do Azure** dashboard. O dashboard inclui os painéis na tabela seguinte. Cada painel lista até dez itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
 
 | Coluna | Descrição |
@@ -120,7 +119,7 @@ No dashboard, pode desagregar para obter mais informações sobre as métricas d
 
 No registo pesquisa exemplo imagem seguinte, pode ver que o *anugup3* aplicação web tinha um tempo de resposta muito maior do que as outras aplicações web.
 
-![exemplo de pesquisa de registo](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
+![exemplo de pesquisa de registos](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
 
 ### <a name="app-service-plans"></a>Planos do App Service
 

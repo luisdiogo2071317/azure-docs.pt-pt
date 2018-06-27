@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767972"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021630"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras baseadas em limiares no Azure Stream Analytics configuráveis
 Este artigo descreve como utilizar os dados de referência para alcançar uma solução de alertas que utiliza regras baseadas em limiares configuráveis no Azure Stream Analytics.
@@ -45,7 +45,7 @@ Estes dados de referência de exemplo mostram como uma regra baseadas em limiare
 - A regra de exemplo é utilizada para representar um alerta ajustável quando CPU excede (média é maior que ou igual a) o valor `90` por cento. O `value` campo é configurável conforme necessário.
 - Tenha em atenção de que a regra tem uma **operador** campo, o que é interpretado dinamicamente na sintaxe de consulta mais tarde `AVGGREATEROREQUAL`. 
 - A regra filtra os dados numa determinada chave dimensão `2` com valor `C1`. Outros campos são uma cadeia vazia, que indica que não para filtrar o fluxo de entrada para os campos de eventos. Pode configurar regras de CPU adicionais para filtrar os outros campos correspondentes conforme necessário.
-- Nem todas as colunas são incluídos no evento de alerta de saída. Neste caso, `includedDim` chave número `2` está ativada `TRUE` para representar se de que o número de campo 2 de dados de eventos no fluxo será incluído a elegíveis saída eventos. Os outros campos não estão incluídos no resultado do alerta, mas a lista de campos pode ser ajustada.
+- Nem todas as colunas são incluídos no evento de alerta de saída. Neste caso, `includedDim` chave número `2` está ativada `TRUE` para representar a que o número de campo 2 de dados de eventos no fluxo será incluído os eventos qualificáveis de saída. Os outros campos não estão incluídos no resultado do alerta, mas a lista de campos pode ser ajustada.
 
 
 ```json

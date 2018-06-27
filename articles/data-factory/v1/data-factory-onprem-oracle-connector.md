@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e9ed70de6d72026b8e3469417c53d6923a8a85e
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021479"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar os dados do Oracle no local utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +42,7 @@ Pode copiar dados de arquivos de dados seguintes **para uma base de dados Oracle
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Fábrica de dados suporta a ligar a origens de Oracle no local utilizando o Data Management Gateway. Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para saber mais sobre o Data Management Gateway e [mover os dados no local para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados mover os dados.
+Fábrica de dados suporta a ligar a origens de Oracle no local utilizando o Data Management Gateway. Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para saber mais sobre o Data Management Gateway e [mover os dados no local para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados Mova dados.
 
 É necessário gateway, mesmo que o Oracle estiver alojada numa VM do IaaS do Azure. Pode instalar o gateway na VM do IaaS do mesmo como o arquivo de dados ou numa VM diferente, desde que o gateway consiga estabelecer ligação à base de dados.
 
@@ -57,6 +58,9 @@ Este conector Oracle suportar duas versões de controladores:
     - Oracle 10g R1, R2 (10.1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Não é suportado o servidor de proxy do Oracle.
 
 > [!IMPORTANT]
 > Atualmente o controlador Microsoft Oracle só suporta a cópia de dados da Oracle, mas não escrever Oracle. E tenha em atenção que a capacidade de ligação de teste no separador de diagnóstico do Gateway de gestão de dados não suporta este controlador. Em alternativa, pode utilizar o Assistente para copiar para validar a conectividade.
@@ -75,7 +79,7 @@ Pode criar um pipeline com uma atividade de cópia move os dados de/para uma bas
 
 A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
 
-Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink:
 
@@ -96,7 +100,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | tipo |A propriedade de tipo tem de ser definida: **OnPremisesOracle** |Sim |
 | driverType | Especificar o controlador para utilizar para copiar dados de/para a base de dados Oracle. Valores permitidos são **Microsoft** ou **ODP** (predefinição). Consulte [suportada a instalação e versão](#supported-versions-and-installation) secção nos detalhes do controlador. | Não |
 | connectionString | Especifique as informações necessárias para estabelecer ligação à instância de base de dados Oracle para a propriedade connectionString. | Sim |
-| gatewayName | Nome do gateway que é utilizada para ligar ao servidor Oracle no local |Sim |
+| gatewayName | Nome do gateway que é utilizado para ligar ao servidor Oracle no local |Sim |
 
 **Exemplo: utilizar o controlador Microsoft:**
 ```json
@@ -577,21 +581,21 @@ Quando move os dados da Oracle, são utilizados os seguintes mapeamentos do tipo
 | CLOB |Cadeia |
 | DATA |DateTime |
 | NÚMERO DE VÍRGULA FLUTUANTE |Decimal, cadeia (se precisão > 28) |
-| INTEGER |Decimal, cadeia (se precisão > 28) |
+| NÚMERO INTEIRO |Decimal, cadeia (se precisão > 28) |
 | INTERVALO DE ANO A MÊS |Int32 |
 | DIA DE INTERVALO PARA O SEGUNDO |TimeSpan |
-| LONG |Cadeia |
+| LONGA |Cadeia |
 | PERÍODO DE TEMPO EM BRUTO |Byte[] |
 | NCHAR |Cadeia |
 | NCLOB |Cadeia |
 | NÚMERO |Decimal, cadeia (se precisão > 28) |
 | NVARCHAR2 |Cadeia |
-| RAW |Byte[] |
+| NÃO PROCESSADO |Byte[] |
 | ROWID |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO |DateTime |
-| NÚMERO INTEIRO NÃO ASSINADO |Número |
+| NÚMERO INTEIRO NÃO ASSINADO |Number |
 | VARCHAR2 |Cadeia |
 | XML |Cadeia |
 

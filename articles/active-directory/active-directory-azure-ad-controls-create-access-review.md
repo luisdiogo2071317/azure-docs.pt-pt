@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234078"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020411"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão do acesso dos membros do grupo ou de acesso de aplicação com o Azure AD
 
@@ -26,7 +26,7 @@ Atribuições de acesso tornar-se "obsoletas" quando os utilizadores têm acesso
 
 ## <a name="create-an-access-review"></a>Criar uma revisão de acesso
 
-1. Como administrador global, vá para o [acesso revê página](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)e selecione **programas**.
+1. Como um administrador global ou o administrador de conta de utilizador, vá para o [acesso revê página](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)e selecione **programas**.
 
 2. Seleccione o programa que contém o controlo de revisão de acesso que pretende criar. **Programa predefinido** sempre estiver presente, ou pode criar um programa diferente. Por exemplo, pode optar por ter um programa para cada iniciativa de compatibilidade ou o objetivo de negócio.
 
@@ -38,7 +38,7 @@ Atribuições de acesso tornar-se "obsoletas" quando os utilizadores têm acesso
 
 6. Para tornar o recorrente de revisão de acesso, altere a frequência de uma vez para semanais, mensais, trimestrais ou anual e utilize a caixa de texto ou controlo de deslize para definir quantos dias cada revisão da série periódica será aberta para entrada de revisores. Por exemplo, a duração máxima para pode ser definido para uma revisão mensal é 27 dias, para evitar a sobreposição de revisões. 
 
-7.  A série de revisão periódica do acesso pode terminar formas 3: é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou um determinado número de ocorrências tenha sido concluída. O utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que este termina a essa data.
+7.  A série de revisão periódica do acesso pode terminar formas 3: é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou um determinado número de ocorrências tenha sido concluída. Outro administrador de conta de utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que este termina a essa data.
 
 8. Revisões de acesso podem ser membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso revisão para revisão apenas os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de rever todos os utilizadores que são membros ou que tenham acesso à aplicação.
 

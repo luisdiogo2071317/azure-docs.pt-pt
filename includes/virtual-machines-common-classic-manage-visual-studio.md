@@ -35,7 +35,7 @@ Embora seja possível criar uma máquina virtual no [Azure Management Portal](ht
      Se tiver um subscritor do MSDN com uma subscrição do Visual Studio-nível, pode criar uma máquina de virtual do Azure pré-criadas que contém o Visual Studio, bem como várias outras imagens. Para obter mais informações, consulte [criar uma Máquina Virtual no Visual Studio pela imagem a utilizar imagens Visual Studio 2013 Galeria para subscritores do MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e [subscrições MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
 5. No **definições básicas de Máquina Virtual** página, introduza um nome de máquina e, em seguida, adicionar as especificações para a máquina virtual, incluindo o tamanho e um nome de utilizador e palavra-passe. Quando tiver terminado, clique em **seguinte**.
    
-    Irá utilizar o novo nome e a palavra-passe para iniciar sessão no computador utilizando o ambiente de trabalho remoto, pelo que é uma boa ideia anotá-los caso se esqueça. Depois de criar uma máquina virtual do Azure no Visual Studio, pode alterar o tamanho e outras definições no [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
+    Irá utilizar o novo nome e a palavra-passe para iniciar sessão no computador através do ambiente de trabalho remoto, pelo que é uma boa ideia anotá-los caso se esqueça. Depois de criar uma máquina virtual do Azure no Visual Studio, pode alterar o tamanho e outras definições no [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
    > Se escolher tamanhos maiores para a máquina virtual, podem aplicar encargos adicionais. Consulte [detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para obter mais informações.
@@ -68,7 +68,7 @@ Embora seja possível criar uma máquina virtual no [Azure Management Portal](ht
     
      ![Registo de atividades do virtual machine - foi concluído.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     Se a operação for concluída com êxito, a nova máquina virtual é apresentado sob o **máquinas virtuais** nó no Explorador de servidores. Pode iniciar sessão para a mesma clicando a **estabeleçam ligação através do ambiente de trabalho remoto** atalho.
+     Se a operação for concluída com êxito, a nova máquina virtual é apresentado sob o **máquinas virtuais** nó no Explorador de servidores. Pode iniciar sessão-lo ao clicar no **estabeleçam ligação através do ambiente de trabalho remoto** atalho.
     
      ![Máquina virtual no Explorador de servidores.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 

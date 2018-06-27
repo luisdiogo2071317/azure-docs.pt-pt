@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625326"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017373"
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilizar o Azure Data Lake Store para requisitos de macrodados
 Existem quatro fases principais grande de processamento de dados:
@@ -43,7 +43,7 @@ Representa os conjuntos de dados menores que são utilizados para fazer o protó
 | Blob de armazenamento do Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Ferramenta de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp em execução no cluster do HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dados de transmissão em fluxo
-Representa os dados que podem ser gerados por várias origens, como aplicações, dispositivos, sensores, etc. Estes dados podem ser ingeridos num Data Lake Store pelas ferramentas de várias. Estas ferramentas normalmente capturar e processar os dados numa base em eventos por eventos em tempo real e, em seguida, escrever os eventos em lotes no Data Lake Store para que estes podem ser processados.
+Representa os dados que podem ser gerados por várias origens, como aplicações, dispositivos, sensores, etc. Estes dados podem ser ingeridos num Data Lake Store por uma variedade de ferramentas. Estas ferramentas normalmente capturar e processar os dados numa base em eventos por eventos em tempo real e, em seguida, escrever os eventos em lotes no Data Lake Store para que estes podem ser processados.
 
 Seguem-se as ferramentas que pode utilizar:
 
@@ -65,7 +65,7 @@ Este tipo de conjunto de dados é designado sobretudo porque uma análise de dad
 * [SDK do .NET do Azure Data Lake Store](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
-Para carregar dados de registo do servidor web e também para carregar outros tipos de dados (por exemplo, dados de redes sociais sentiments), é uma boa abordagem para escrever as seus próprios scripts/aplicações personalizadas porque dá-lhe a flexibilidade para incluir os dados ao carregar o componente como parte da sua aplicação de macrodados maior. Em alguns casos, este código poderá demorar a forma de um script ou o utilitário de linha de comandos simples. Noutros casos, o código pode ser utilizado para integrar o processamento de dados de grande uma aplicação empresarial ou uma solução.
+Para carregar dados de registo do servidor web e também para carregar outros tipos de dados (por exemplo, dados de redes sociais sentiments), é uma boa abordagem para escrever as seus próprios scripts/aplicações personalizadas porque dá-lhe a flexibilidade para incluir os dados ao carregar o componente como parte do a aplicação de macrodados maior. Em alguns casos, este código poderá demorar a forma de um script ou o utilitário de linha de comandos simples. Noutros casos, o código pode ser utilizado para integrar o processamento de dados de grande uma aplicação empresarial ou uma solução.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Dados associados a clusters do HDInsight do Azure
 A maioria dos tipos de cluster de HDInsight (Hadoop, HBase, Storm) suportam Data Lake Store, como um repositório de armazenamento de dados. Clusters do HDInsight aceder aos dados de Blobs de armazenamento do Azure (WASB). Para um melhor desempenho, pode copiar os dados de WASB para uma conta do Data Lake Store associada com o cluster. Pode utilizar as ferramentas seguintes para copiar os dados.

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 87045d5dbbc1221a770e44bd9e9cf2451a9ac522
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295541"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021290"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Localizar notícias de última hora com a pesquisa do Bing e Azure Logic Apps 
 
@@ -102,7 +102,7 @@ Na lista de ações, selecione a ação que pretende.
 
    | Propriedade | Necessário | Valor | Descrição | 
    |----------|----------|-------|-------------| 
-   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consultar os resultados de Acionador. Pode selecionar do om campos na lista de conteúdo dinâmica ou crie uma expressão com o construtor de expressão. |
+   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consultar os resultados de Acionador. Pode selecionar os campos na lista de conteúdo dinâmico ou crie uma expressão com o construtor de expressão. |
    | Comercializar | Sim | <*Região*> | A região de pesquisa. A predefinição é "en-US" mas, pode selecionar outro valor. | 
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderada", mas que selecionar outro nível. | 
    | Contagem | Não | <*Contagem de resultados*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. | 
@@ -150,7 +150,7 @@ Na lista de ações, selecione a ação que pretende.
    | Propriedade | Necessário | Valor | Descrição | 
    |----------|----------|-------|-------------| 
    | Nome da Ligação | Sim | <*nome da ligação*> | O nome para criar para a ligação |
-   | Versão de API | Sim | <*Versão de API*> | Por predefinição, a versão da API de pesquisa do Bing está definida para a versão atual. Pode selecionar uma versão anterior, conforme necessário. | 
+   | Versão da API | Sim | <*Versão de API*> | Por predefinição, a versão da API de pesquisa do Bing está definida para a versão atual. Pode selecionar uma versão anterior, conforme necessário. | 
    | Chave de API | Sim | <*Chave de API*> | A chave de API de pesquisa do Bing que obteve anteriormente. Se não tiver uma chave, obter o [agora a chave de API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
@@ -169,6 +169,6 @@ Para obter detalhes técnicos, como acionadores, ações e limites, conforme des
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre outros [conectores Logic Apps](../connectors/apis-list.md)

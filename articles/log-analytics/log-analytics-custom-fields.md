@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030712"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020741"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados na análise de registos
 O **campos personalizados** funcionalidade de análise de registos permite-lhe expandir registos existentes na análise de registos ao adicionar os seus próprios campos pesquisáveis.  Campos personalizados serão preenchidos automaticamente a partir dos dados extraídos de outras propriedades no registo mesmo.
@@ -96,13 +96,13 @@ Queremos que o nome do serviço que aparece no **RenderedDescription** proprieda
 
 O **campo extração assistente** é aberto e o **EventLog** e **EventID** campos estão selecionados no **Main exemplo** coluna.  Isto indica que o campo personalizado será definido para os eventos no registo do sistema com um ID de evento de 7036.  Isto é suficiente para que não temos de selecionar quaisquer outros campos.
 
-![Exemplo de principal](media/log-analytics-custom-fields/main-example.png)
+![Exemplo principal](media/log-analytics-custom-fields/main-example.png)
 
 Iremos realce o nome do serviço no **RenderedDescription** propriedade e utilize **serviço** para identificar o nome do serviço.  O campo personalizado será chamado **Service_CF**.
 
 ![Título do campo](media/log-analytics-custom-fields/field-title.png)
 
-Vemos que é identificado corretamente o nome do serviço para alguns registos mas não para outros utilizadores.   O **os resultados da pesquisa** Mostrar parte do nome de para o **adaptador de desempenho de WMI** não foi selecionado.  O **resumo** mostra quatro regista com **DPRMA** serviço incorretamente incluído um word adicional e duas registos identificados **módulos instalador** em vez de **de módulos do Windows Installer**.  
+Vemos que é identificado corretamente o nome do serviço para alguns registos mas não para outros utilizadores.   O **os resultados da pesquisa** Mostrar parte do nome de para o **adaptador de desempenho de WMI** não foi selecionado.  O **resumo** mostra quatro regista com **DPRMA** serviço incorretamente incluído um word adicional e duas registos identificados **módulos instalador** em vez de **De módulos do Windows Installer**.  
 
 ![Resultados da pesquisa](media/log-analytics-custom-fields/search-results-01.png)
 
@@ -130,7 +130,7 @@ Iremos desloque-se a um registo com o serviço DPMRA e utilizar o mesmo processo
 
 ![Contagem inicial](media/log-analytics-custom-fields/initial-count.png)
 
-Após algum tempo ter passado, por isso, novos eventos são recolhidos, é possível ver que que o **Service_CF** campo está agora a ser adicionado para registos que correspondem aos nossos critérios.
+Após algum tempo ter passado, por isso, novos eventos são recolhidos, é possível ver que o **Service_CF** campo está agora a ser adicionado para registos que correspondem aos nossos critérios.
 
 ![Resultados finais](media/log-analytics-custom-fields/final-results.png)
 

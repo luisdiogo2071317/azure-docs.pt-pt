@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753528"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020024"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger as comunicações de comunicação remota do serviço no serviço do c#
 > [!div class="op_single_selector"]
@@ -57,7 +57,12 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
     ```
 2. Adicione as definições de escuta e credenciais de segurança.
 
-    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço é instalado em todos os nós do cluster. Existem duas formas que pode fornecer as definições de escuta e credenciais de segurança:
+    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço é instalado em todos os nós do cluster. 
+    
+    > [!NOTE]
+    > Em nós do Linux, o certificado tem de existir como ficheiros PEM formatado no */var/lib/sfcerts* diretório. Para obter mais informações, consulte [localização e o formato de certificados x. 509 em nós do Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Existem duas formas que pode fornecer as definições de escuta e credenciais de segurança:
 
    1. Fornecê-los diretamente com o código do serviço:
 
@@ -202,5 +207,6 @@ Para ajudar a proteger um serviço quando estiver a utilizar a comunicação rem
     string message = await client.GetHelloWorld();
 
     ```
+
 
 Como passo seguinte, leia [Web API com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md).

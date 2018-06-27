@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 6f2bf2ae454d5af1bba0c176940db1820268a129
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266282"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021668"
 ---
 # <a name="integrate-speech-service"></a>Integrar o serviço de reconhecimento de voz
 O [serviço de reconhecimento de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar um único pedido a receber de áudio e devolver predição LUIS objetos JSON.
@@ -23,6 +23,9 @@ O [serviço de reconhecimento de voz](https://docs.microsoft.com/azure/cognitive
 Neste artigo, transfira e utilize um projeto c# no Visual Studio para enunciar um utterance para um microfone e receber informações de predição de LUIS. O projeto utiliza o reconhecimento de voz [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pacote, já incluído como uma referência. 
 
 Para este artigo, precisa de um livre [LUIS] [ LUIS] conta de Web site para importar a aplicação.
+
+## <a name="create-luis-endpoint-key"></a>Criar a chave de ponto final de LUIS
+No portal do Azure, [criar](luis-how-to-azure-subscription.md#create-luis-endpoint-key) um **compreensão de idiomas** chave (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar recursos humanos LUIS aplicação
 Utterances para este artigo e de pendentes são da aplicação disponível a partir dos recursos humanos LUIS o [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repositório do Github. Transferir o [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) ficheiro, guarde-o com a extensão de *. JSON e [importar](create-new-app.md#import-new-app) para LUIS. 
@@ -40,11 +43,22 @@ Do I have any paid time off?
 Depois de importar a aplicação, selecione **entidades**, em seguida, **gerir entidades prebuilt**. Adicionar o **KeyPhrase** entidade. A entidade de KeyPhrase extrai chave peritos do utterance.
 
 ## <a name="train-and-publish-the-app"></a>Dar formação e publicar a aplicação
-Dar formação e publicar a aplicação. No **publicar** página, recolher o ID da aplicação, publicar a região e o ID da subscrição. Terá de modificar o código para utilizar estes valores neste artigo. 
+1. Na barra de navegação superior, direita, selecione o **preparar** botão para preparar a aplicação de LUIS.
 
-Estes valores são incluídos no URL do ponto final na parte inferior do **publicar** página. 
+2. Selecione **publicar** para ir para a página de publicar. 
 
-https://**região**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? chave de subscrição =**LUISKEY**& q =
+3. Na parte inferior do **publicar** página, adicione a chave de LUIS criada no [chave de ponto final de criar LUIS](#create-luis-endpoint-key) secção.
+
+4. Publicar a aplicação de LUIS selecionando o **publicar** botão à direita da ranhura de publicar. 
+
+  No **publicar** página, recolher o ID da aplicação, publicar a região e o ID de subscrição da chave LUIS criado no [chave de ponto final de criar LUIS](#create-luis-endpoint-key) secção. Terá de modificar o código para utilizar estes valores neste artigo. 
+
+  Estes valores são incluídos no URL do ponto final na parte inferior do **publicar** página para a chave que criou. Efetue **não** utilizar a chave de arranque livre para este exercício. 
+
+  https://**região**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? chave de subscrição =**LUISKEY**& q =
+
+## <a name="audio-device"></a>Dispositivo de áudio
+Este artigo utiliza o dispositivo de áudio no seu computador. Que pode ser um headset com microfone ou um dispositivo de áudio incorporado. Verifique os níveis de entrada de áudio para ver se deve enunciar louder que faria normalmente com a sua voz detetada pelo dispositivo de áudio. 
 
 ## <a name="download-the-luis-sample-project"></a>Transferir o projeto de exemplo LUIS
  Clonar ou transferir o [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repositório. Abra o [voz ao projeto intenção](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) com o Visual Studio e restaurar os pacotes NuGet. O ficheiro de solução VS é.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
@@ -108,7 +122,7 @@ Recognition done. Your Choice:
 
 ```
 
-A intenção correta, **GetEmployeeOrgChart**, foi encontrado com uma confiança de 61%. A entidade de keyphrase foi devolvida. 
+A intenção correta, **GetEmployeeOrgChart**, foi encontrado com uma confiança de 61%. A entidade de keyPhrase foi devolvida. 
 
 O SDK de reconhecimento de voz devolve a resposta de LUIS completa. 
 

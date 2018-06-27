@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0f6c0e9206d9e056ee0496b6cc515625b08b1e4a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177806"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959921"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Versão canary micro-serviços com Vamp num cluster do serviço de contentor do Azure DC/OS
 
@@ -293,5 +293,5 @@ Podemos também touched algumas funcionalidades poderosas de Vamp: intercalaçã
 
 * Criar scripts de automatização Vamp no Node.js e executá-los como [Vamp fluxos de trabalho](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
-* Consulte adicional [VAMP tutoriais](http://vamp.io/documentation/tutorials/overview/).
+* Consulte adicional [VAMP tutoriais](http://vamp.io/documentation/tutorials/).
 

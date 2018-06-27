@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: recuperação de cópia de segurança e após desastres; serviço de cópia de segurança
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605536"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016493"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente do Azure Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do agente do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -58,7 +58,7 @@ Com certeza. O Backup do Azure fornece uma cópia de segurança ao nível da VM 
 Sim. Instale o agente do Azure Backup no SO Windows convidado e crie uma cópia de segurança de ficheiros e pastas no armazenamento temporário. As tarefas de cópia de segurança falham depois de os dados de armazenamento temporário serem eliminados. Além disso, se os dados de armazenamento temporário tiverem sido eliminados, só pode restaurar para o armazenamento não volátil.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Qual é o requisito de tamanho mínimo para a pasta da cache? <br/>
-O tamanho da pasta cache determina a quantidade de dados para a cópia de segurança. A pasta cache deve ser 5% do espaço necessário para o armazenamento de dados.
+O tamanho da pasta cache determina a quantidade de dados para a cópia de segurança. O volume da sua pasta de cache deve ser, pelo menos, 5-10% livre espaço, quando comparado com o tamanho total dos dados de cópia de segurança. Se o volume tiver menos de 5% de espaço livre, o aumente o tamanho de volume, ou [mover a pasta de cache para um volume com espaço livre suficiente](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Como registar o meu servidor para outro datacenter?<br/>
 Os dados de cópia de segurança são enviados para o datacenter do cofre no qual está registado. A forma mais fácil de alterar o datacenter é desinstalar o agente e reinstalá-lo e registá-lo num cofre novo que pertença ao datacenter pretendido.

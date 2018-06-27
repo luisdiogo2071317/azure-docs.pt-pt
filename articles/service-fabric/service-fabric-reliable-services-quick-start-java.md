@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019700"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -115,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Neste tutorial, iremos focar-se no `runAsync()` o método de ponto de entrada. Este é onde imediatamente pode começar a executar o seu código.
+Este tutorial centra-se no `runAsync()` o método de ponto de entrada. Este é onde imediatamente pode começar a executar o seu código.
 
 ### <a name="runasync"></a>RunAsync
-A plataforma chama este método quando uma instância de um serviço está pronto para executar e colocá-la. Para um serviço sem monitorização de estado, basta que significa quando a instância de serviço é aberta. Um token de cancelamento é fornecido para coordenar quando a instância de serviço tem de ser fechado. No Service Fabric, este ciclo de abertura/fecho de uma instância de serviço pode ocorrer demasiadas vezes ao longo da duração do serviço como um todo. Esta situação pode ocorrer por vários motivos, incluindo:
+A plataforma chama este método quando uma instância de um serviço está pronto para executar e colocá-la. Para um serviço sem monitorização de estado, o que significa quando a instância de serviço é aberta. Um token de cancelamento é fornecido para coordenar quando a instância de serviço tem de ser fechado. No Service Fabric, este ciclo de abertura/fecho de uma instância de serviço pode ocorrer demasiadas vezes ao longo da duração do serviço como um todo. Esta situação pode ocorrer por vários motivos, incluindo:
 
 * O sistema move as instâncias de serviço para balanceamento de recurso.
 * Falhas ocorrerem no seu código.
@@ -200,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que pode utilizar para armazenar o estado da forma fiável no serviço. Com o Service Fabric e Hashmaps fiável, pode armazenar dados diretamente no seu serviço sem a necessidade de um arquivo persistente externo. Hashmaps fiáveis tornar os dados de elevada disponibilidade. Service Fabric executa esta operação através da criação e gestão de vários *réplicas* do seu serviço para si. Também fornece uma API que deduz ausente complexidades de gerir as réplicas e os respetivos transições de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que pode utilizar para armazenar o estado da forma fiável no serviço. Com o Service Fabric e HashMaps fiável, pode armazenar dados diretamente no seu serviço sem a necessidade de um arquivo persistente externo. HashMaps fiáveis tornar os dados de elevada disponibilidade. Service Fabric executa esta operação através da criação e gestão de vários *réplicas* do seu serviço para si. Também fornece uma API que deduz ausente complexidades de gerir as réplicas e os respetivos transições de estado.
 
 Coleções fiáveis podem armazenar qualquer tipo de Java, incluindo os tipos personalizados, com algumas limitações:
 
-* Recursos de infraestrutura de serviço faz com que o seu estado altamente disponível *replicar* Estado em nós e fiável Hashmap armazena os dados para disco local em cada réplica. Isto significa que tudo o que é armazenado no Hashmaps fiável tem de ser *serializável*. 
-* Objetos são replicados para elevada disponibilidade ao consolidar transações em Hashmaps fiável. Objetos armazenados na Hashmaps fiável são mantidos na memória local no seu serviço. Isto significa que tem uma referência local para o objeto.
+* Recursos de infraestrutura de serviço faz com que o seu estado altamente disponível *replicar* Estado em nós e fiável HashMap armazena os dados para disco local em cada réplica. Isto significa que tudo o que é armazenado no HashMaps fiável tem de ser *serializável*. 
+* Objetos são replicados para elevada disponibilidade ao consolidar transações em HashMaps fiável. Objetos armazenados na HashMaps fiável são mantidos na memória local no seu serviço. Isto significa que tem uma referência local para o objeto.
   
-   É importante que não mutate locais instâncias desses objetos sem efetuar uma operação de atualização na coleção de fiável numa transação. Isto acontece porque as alterações ao locais instâncias de objetos não serão replicadas automaticamente. Tem de inserir novamente o objeto no dicionário ou utilize um do *atualizar* os métodos no dicionário.
+   É importante que não mutate locais instâncias desses objetos sem efetuar uma operação de atualização na coleção de fiável numa transação. Isto acontece porque as alterações ao locais instâncias de objetos não serão replicadas automaticamente. Tem de reinsert o objeto no dicionário ou utilize um do *atualizar* os métodos no dicionário.
 
-O Gestor de estado fiável gere Hashmaps fiável para si. Pode simplesmente colocar o Gestor de estado fiável para uma coleção fiável pelo nome em qualquer altura e em qualquer lugar no seu serviço. O Gestor de estado fiável garante que obtém uma referência de volta. Não recomendamos que guarde as referências a instâncias de coleção fiável no membro de classe variáveis ou propriedades. Deve ser dada especial cuidado para garantir que a referência está definida para uma instância de todas as vezes no ciclo de vida do serviço. O Gestor de estado fiável processa este trabalho por si e está otimizado para visitas de repetições.
+O Gestor de estado fiável gere HashMaps fiável para si. Pode colocar o Gestor de estado fiável para uma coleção fiável pelo nome em qualquer altura e em qualquer lugar no seu serviço. O Gestor de estado fiável garante que obtém uma referência de volta. Não recomendamos que guarde as referências a instâncias de coleção fiável em variáveis de membros de classe ou propriedades. Deve ser dada especial cuidado para garantir que a referência está definida para uma instância de todas as vezes no ciclo de vida do serviço. O Gestor de estado fiável processa este trabalho por si e está otimizado para visitas de repetições.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operações transacionais e assíncronas
@@ -230,12 +231,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-As operações Hashmaps fiável são assíncronas. Isto acontece porque as operações de escrita de coleções fiável efetuarem operações de e/s para replicar e manter os dados para o disco.
+As operações HashMaps fiável são assíncronas. Isto acontece porque as operações de escrita de coleções fiável efetuarem operações de e/s para replicar e manter os dados para o disco.
 
-As operações de Hashmap fiável *transacional*, para que pode manter estado consistente em vários Hashmaps fiável e operações. Por exemplo, pode obter um item de trabalho a partir de um dicionário fiável, efetuar uma operação no mesmo e guardar o resultado na anoter Hashmap fiável, tudo dentro de uma única transação. Esta é tratada como uma operação Atómica e garante que será efetuada com êxito a operação de toda ou irá reverter a operação de toda. Se ocorrer um erro depois de anular o item, mas antes de guardar o resultado, toda a transação é revertida e o item permanece na fila para processamento.
+As operações de HashMap fiável *transacional*, para que pode manter estado consistente em vários HashMaps fiável e operações. Por exemplo, pode obter um item de trabalho a partir de um dicionário fiável, efetuar uma operação no mesmo e guardar o resultado na outra HashMap fiável, tudo dentro de uma única transação. Esta é tratada como uma operação Atómica e garante que será efetuada com êxito a operação de toda ou irá reverter a operação de toda. Se ocorrer um erro depois de anular o item, mas antes de guardar o resultado, toda a transação é revertida e o item permanece na fila para processamento.
 
 
-## <a name="run-the-application"></a>Executar a aplicação
+## <a name="build-the-application"></a>Criar a aplicação
 
 O Yeoman andaime inclui um script de gradle para compilar a aplicação e a implementar e remover a aplicação de scripts de bash. Para executar a aplicação, primeiro crie a aplicação com o gradle:
 
@@ -245,13 +246,31 @@ $ gradle
 
 Isto produz um pacote de aplicação de Service Fabric pode ser implementado utilizando a CLI de recursos de infraestrutura de serviço.
 
-### <a name="deploy-with-service-fabric-cli"></a>Implementar com a CLI do Service Fabric
+## <a name="deploy-the-application"></a>Implementar a aplicação
 
-O script de install.sh contém os comandos da CLI de recursos de infraestrutura de serviço necessários para implementar o pacote de aplicação. Execute o script de install.sh para implementar a aplicação.
+Depois de criada a aplicação, pode implementá-la no cluster local.
 
-```bash
-$ ./install.sh
-```
+1. Ligue ao cluster do Service Fabric local.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Execute o script de instalação fornecido no modelo para copiar o pacote de aplicação para o arquivo de imagens do cluster, registar o tipo de aplicação e criar uma instância da mesma.
+
+    ```bash
+    ./install.sh
+    ```
+
+A implementação da aplicação criada é igual à de qualquer outra aplicação do Service Fabric. Veja a documentação sobre como [gerir uma aplicação do Service Fabric com a CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md) para obter instruções detalhadas.
+
+Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pacote de aplicação.
+
+Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
+
+> [!IMPORTANT]
+> Para implementar a aplicação para um cluster com Linux segura no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços Reliable Services comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Passos Seguintes
 

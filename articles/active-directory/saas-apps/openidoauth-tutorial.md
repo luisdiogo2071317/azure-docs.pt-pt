@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225012"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019558"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Passos para configurar uma aplicação de OpenID/OAuth da Galeria de aplicações do Azure AD
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225012"
     ![A adicionar a aplicação](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Para abrir ID Connect e OAuth aplicações adicionar botão está desativado por predefinição. Aqui o administrador inquilino deverá clicar no **inscrição** botão e forneça o consentimento para a aplicação. Com que que a aplicação será adicionada para o inquilino de cliente, sem necessidade de adicionar explicitamente e efetue as configurações.
+    > Para abrir ID Connect e OAuth aplicações adicionar botão está desativado por predefinição. Aqui o administrador inquilino deverá clicar no **inscrição** botão e forneça o consentimento para a aplicação. Com que a aplicação será adicionada para o inquilino de cliente, sem necessidade de adicionar explicitamente e fazer as configurações.
 
     ![Botão Adicionar](./media/openidoauth-tutorial/addbutton.png)
 

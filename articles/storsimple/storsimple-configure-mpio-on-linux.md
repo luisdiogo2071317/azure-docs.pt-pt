@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: df9f53694cd72a700d593550bfde13a4f25180db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779096"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021758"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO num anfitrião StorSimple com CentOS
 Este artigo explica os passos necessários para configurar Multipathing e/s (MPIO) no seu servidor de anfitrião do Centos 6.6. O servidor anfitrião está ligado ao dispositivo Microsoft Azure StorSimple para elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a deteção automática de dispositivos multipath e o programa de configuração específico apenas para os volumes do StorSimple.
@@ -120,7 +120,7 @@ Esta secção fornece detalhes sobre os pré-requisitos de configuração para o
    4. Para garantir que o iniciador iSCSI está ativado durante o tempo de arranque, utilize o `chkconfig` comando para ativar o serviço.
       
        `chkconfig iscsi on`
-   5. Para verificar que a configuração foi corretamente, execute o comando:
+   5. Para verificar que foi corretamente configurada, execute o comando:
       
        `chkconfig --list | grep iscsi`
       
@@ -438,7 +438,7 @@ Para obter mais informações, aceda a [utilizar a resolução de problemas de c
 | &nbsp; |`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y` |Ativar o daemon de multipath iniciar no momento do arranque |
 | &nbsp; |`multipathd –k` |Inicie a consola interativa para resolução de problemas |
 | &nbsp; |`multipath –l` |Lista de ligações multipath e dispositivos |
-| &nbsp; |`mpathconf --enable` |Criar um ficheiro de exemplo mulitpath.conf no`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Criar um ficheiro de exemplo mulitpath.conf no `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Passos Seguintes

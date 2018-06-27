@@ -38,7 +38,7 @@
 
 4. Certifique-se a configuração:
    
-   1. Inicie sessão para o site de Administração Central do SharePoint e navegue para o **configurar adaptador do StorSimple** página.
+   1. Iniciar sessão para o site de Administração Central do SharePoint e navegue para o **configurar adaptador do StorSimple** página.
    2. Verifique os detalhes de configuração para se certificar de que correspondem às definições que introduziu. 
 5. Certifique-se de que RBS funciona corretamente:
    

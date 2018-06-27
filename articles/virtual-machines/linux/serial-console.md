@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425338"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961960"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -32,6 +32,7 @@ A consola de série de máquina virtual no Azure fornece acesso a uma consola ba
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
+* Tem de utilizar o modelo de implementação de gestão de recursos. Não são suportadas implementações clássicas. 
 * Máquina virtual tem de ter [diagnóstico de arranque](boot-diagnostics.md) ativada 
 * A conta utilizando a consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnóstico de arranque](boot-diagnostics.md) conta de armazenamento. 
 * Para as definições específicas do Linux distro, consulte [aceder à consola de série para Linux](#accessing-serial-console-for-linux)
@@ -90,8 +91,8 @@ Interagir com bootloader | Acesso GRUB/BCD através da consola de série | Linux
 ## <a name="accessing-serial-console-for-linux"></a>Aceder à consola de série para Linux
 Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e escrever mensagens de consola para a porta série. A maioria das [aprovadas as distribuições do Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Apenas clicando no portal na secção de consola de série irá fornecer acesso à consola. 
 
-### <a name="access-for-redhat"></a>Acesso de VM de RedHat 
-Imagens de VM de RedHat disponíveis no Azure tem acesso à consola ativado por predefinição. Modo de utilizador único no Red Hat exige raiz utilizador ser ativado, que está desativada por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:
+### <a name="access-for-red-hat"></a>Acesso do Red Hat 
+Red Hat imagens disponíveis no Azure tem acesso à consola ativado por predefinição. Modo de utilizador único no Red Hat exige raiz utilizador ser ativado, que está desativada por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:
 
 1. Inicie sessão no sistema do Red Hat através de SSH
 2. Ativar a palavra-passe do utilizador raiz 

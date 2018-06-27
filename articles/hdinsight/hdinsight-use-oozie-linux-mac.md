@@ -2,24 +2,22 @@
 title: Utilizar o Hadoop Oozie fluxos de trabalho no Azure HDInsight baseado em Linux | Microsoft Docs
 description: Utilize o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019284"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -37,15 +35,13 @@ Também pode utilizar o Oozie para agendar tarefas específicas para um sistema,
 > [!NOTE]
 > Outra opção para definir fluxos de trabalho com o HDInsight é utilizar o Azure Data Factory. Para saber mais sobre o Data Factory, consulte o artigo [Pig de utilização e o Hive com o Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie não está ativado no HDInsight associados a um domínio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster do HDInsight**: consulte [introdução ao HDInsight no Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
-> Os passos neste documento exigem um cluster do HDInsight que utiliza o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+> Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 
@@ -78,7 +74,7 @@ Oozie espera, pode armazenar todos os recursos necessários para uma tarefa no m
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Substitua `sshuser` com o nome de utilizador do SSH para o cluster. Substitua `clustername` com o nome do cluster. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Substitua `sshuser` pelo nome de utilizador do SSH do cluster. Substitua `clustername` com o nome do cluster. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Para criar o diretório, utilize o seguinte comando:
 
@@ -240,7 +236,7 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
 ### <a name="create-the-table"></a>Criar a tabela
 
 > [!NOTE]
-> Existem várias formas de ligar à base de dados do SQL Server para criar uma tabela. Os passos seguintes utilize [FreeTDS](http://www.freetds.org/) do HDInsight cluster.
+> Existem várias formas de ligar à base de dados do SQL Server para criar uma tabela. Os passos seguintes utilizam [FreeTDS](http://www.freetds.org/) do cluster do HDInsight.
 
 
 1. Utilize o seguinte comando para instalar o FreeTDS no cluster do HDInsight:
@@ -263,7 +259,7 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
         Default database being set to oozietest
         1>
 
-3. Na `1>` solicitar, introduza as seguintes linhas:
+3. Na linha de comandos `1>`, introduza as seguintes linhas:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -274,7 +270,7 @@ Para criar uma base de dados do SQL, siga os passos a [criar uma base de dados d
     GO
     ```
 
-    Quando o `GO` instrução é introduzida, são avaliadas as instruções anteriores. As declarações de criar uma tabela, chamada **mobiledata**, que é utilizado pelo fluxo de trabalho.
+    Quando for introduza a declaração `GO`, as instruções anteriores são avaliadas. As declarações de criar uma tabela, chamada **mobiledata**, que é utilizado pelo fluxo de trabalho.
 
     Para verificar que a tabela foi criada, utilize os seguintes comandos:
 
@@ -535,7 +531,7 @@ Para aceder a IU da web do Oozie, conclua os seguintes passos:
 
 3. Do lado esquerdo da página, selecione **Oozie** > **ligações rápidas** > **IU da Web do Oozie**.
 
-    ![imagem de menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Imagem de menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
 4. A IU da web de Oozie predefinições para apresentar as tarefas de fluxo de trabalho em execução. Para ver todas as tarefas de fluxo de trabalho, selecione **todas as tarefas**.
 

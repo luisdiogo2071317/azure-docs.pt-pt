@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593176"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958005"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
@@ -58,7 +58,8 @@ As seguintes definições são configuradas pelo Azure AD Connect e não pode se
 | DeviceWriteback |[O Azure AD Connect: Ativar a repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretórios](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo a ser colocados em quarentena quando é um duplicado de outro objeto em vez de todo o objeto a falhar durante a exportação. |
-| PasswordSync |[Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Sincronização hash de palavra-passe |[Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Autenticação pass-through|[Utilizador inicie sessão com a autenticação pass-through do Active Directory do Azure](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Pré-visualização: Repetição de escrita de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Não é atualmente suportado. |
 

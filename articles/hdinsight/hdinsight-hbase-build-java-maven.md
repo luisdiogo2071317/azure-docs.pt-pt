@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597093"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019328"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Utilizar Maven para criar aplicações de Java que utilizam o HBase com o HDInsight (Hadoop) baseado em Windows
 Saiba como criar e criar um [Apache HBase](http://hbase.apache.org/) aplicação em Java utilizando o Apache Maven. Em seguida, utilize a aplicação com o Azure HDInsight (Hadoop).
 
-[Maven](http://maven.apache.org/) é uma ferramenta de gestão e a compreensão de projeto de software que lhe permite criar software, documentação e relatórios para projetos de Java. Neste artigo, irá aprender a utilizá-la para criar uma aplicação básica de Java que cria, consultas, e elimina uma tabela de HBase num cluster do Azure HDInsight.
+[Maven](http://maven.apache.org/) é uma ferramenta de gestão e a compreensão de projeto de software que lhe permite criar software, documentação e relatórios para projetos de Java. Neste artigo, irá aprender a utilizá-la para criar uma aplicação básica de Java que cria, consultas e elimina uma tabela de HBase num cluster do Azure HDInsight.
 
 > [!IMPORTANT]
 > Os passos neste documento exigem um cluster do HDInsight que utiliza o Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
@@ -135,7 +135,7 @@ Saiba como criar e criar um [Apache HBase](http://hbase.apache.org/) aplicação
     Isto `<plugins>` secção configura o [Plug-in do Maven compilador](http://maven.apache.org/plugins/maven-compiler-plugin/) e [Plug-in do Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/). O compilador de plug-in é utilizado para compilar a topologia. Shade Plug-in é utilizado para evitar a duplicação de licença no pacote JAR que é composta por Maven. O motivo que é utilizado é que os ficheiros de licença duplicado originar um erro em tempo de execução no cluster do HDInsight. Utilizar maven-shade-Plug-in com o `ApacheLicenseResourceTransformer` implementação impede este erro.
 
     O maven-shade-Plug-in também produz um uber jar (ou fat jar) que contém todas as dependências necessárias para a aplicação.
-4. Guardar o **pom.xml** ficheiro.
+4. Guarde o ficheiro **pom.xml**.
 5. Criar um novo diretório designado **conf** no **hbaseapp** diretório. No **conf** directory, crie um ficheiro denominado **hbase site.xml**. Utilize o seguinte como conteúdo do ficheiro:
 
         <?xml version="1.0"?>

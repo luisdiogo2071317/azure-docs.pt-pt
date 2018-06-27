@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159743"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018626"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utilize o PowerShell para gerir recursos do Service Bus
 
@@ -31,7 +31,7 @@ Também pode gerir entidades do Service Bus através de modelos Azure Resource M
 
 Antes de começar, terá os seguintes pré-requisitos:
 
-* Uma subscrição do Azure. Para obter mais informações sobre a obtenção de uma subscrição, consulte [opções de compra][purchase options], [ofertas de membros][member offers], ou [conta gratuita][free account].
+* Uma subscrição do Azure. Para obter mais informações sobre a obtenção de uma subscrição, consulte [opções de compra][purchase options], [ofertas de membros][member offers], ou [livre conta][free account].
 * Um computador com o Azure PowerShell. Para obter instruções, consulte [introdução aos cmdlets do Azure PowerShell](/powershell/azure/get-started-azureps).
 * Uma compreensão geral de scripts do PowerShell, os pacotes de NuGet e o .NET Framework.
 
@@ -41,13 +41,13 @@ O primeiro passo consiste em utilizar o PowerShell para iniciar sessão na sua c
 
 ## <a name="provision-a-service-bus-namespace"></a>Aprovisionar um espaço de nomes do Service Bus
 
-Ao trabalhar com espaços de nomes de barramento de serviço, pode utilizar o [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [remover AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), e [conjunto AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
+Ao trabalhar com espaços de nomes de barramento de serviço, pode utilizar o [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), e [conjunto AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
 
 Este exemplo cria algumas variáveis locais do script; `$Namespace` e `$Location`.
 
-* `$Namespace`é o nome do espaço de nomes de barramento de serviço com o qual podemos pretende trabalhar.
-* `$Location`identifica o Centro de dados na qual iremos aprovisionar o espaço de nomes.
-* `$CurrentNamespace`armazena o espaço de nomes de referência que vamos obter (ou crie).
+* `$Namespace` é o nome do espaço de nomes de barramento de serviço com o qual podemos pretende trabalhar.
+* `$Location` identifica o Centro de dados na qual iremos aprovisionar o espaço de nomes.
+* `$CurrentNamespace` armazena o espaço de nomes de referência que vamos obter (ou crie).
 
 Um script real, `$Namespace` e `$Location` podem ser transmitidos como parâmetros.
 
@@ -81,7 +81,7 @@ Esta parte do script faz o seguinte:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de espaço de nomes
 
-O exemplo seguinte mostra como gerir regras de autorização de espaço de nomes utilizando o [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [conjunto AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), e [remover AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+O exemplo seguinte mostra como gerir regras de autorização de espaço de nomes utilizando o [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Conjunto AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), e [remover AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -96,28 +96,28 @@ else
 {
     Write-Host "The $AuthRule rule does not exist."
     Write-Host "Creating the $AuthRule rule for the $Namespace namespace..."
-    New-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
-    $CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    New-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
+    $CurrentRule = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
     Write-Host "The $AuthRule rule for the $Namespace namespace has been successfully created."
 
     Write-Host "Setting rights on the namespace"
-    $authRuleObj = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $authRuleObj = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
     Write-Host "Remove Send rights"
     $authRuleObj.Rights.Remove("Send")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Add Send and Manage rights to the namespace"
     $authRuleObj.Rights.Add("Send")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
     $authRuleObj.Rights.Add("Manage")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Show value of primary key"
-    $CurrentKey = Get-AzureRmServiceBusNamespaceKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $CurrentKey = Get-AzureRmServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
         
     Write-Host "Remove this authorization rule"
-    Remove-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    Remove-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
 }
 ```
 

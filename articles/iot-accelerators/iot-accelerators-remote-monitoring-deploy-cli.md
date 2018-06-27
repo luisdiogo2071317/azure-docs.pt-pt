@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628128"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017514"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota utilizando a CLI
 
@@ -68,7 +68,7 @@ Criar uma solução básica de resultará nos seguintes serviços do Azure que e
 | Contagem | Recurso                       | Tipo         | Utilizado para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual com Linux](https://azure.microsoft.com/services/virtual-machines/) | D1 padrão V2  | Alojamento micro-serviços |
-| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – o escalão básico | Gestão de dispositivos e comunicação |
+| 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – escalão Standard | Gestão de dispositivos e comunicação |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração e a telemetria do dispositivo, como regras, alarmes e mensagens |  
 | 1     | [Conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e os pontos de verificação de transmissão em fluxo |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Aplicação web front-end de alojamento |
@@ -82,7 +82,7 @@ Criar uma solução padrão resultará nos seguintes serviços do Azure que est�
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Máquinas Virtuais do Linux](https://azure.microsoft.com/services/virtual-machines/)   | D2 padrão V2  | 1 mestre e 3 agentes para o alojamento micro-serviços com redundância |
 | 1     | [Serviço de contentor do Azure](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [IoT Hub do azure] [https://azure.microsoft.com/services/iot-hub/]                     | S1 – o escalão básico | Gestão de dispositivos, o comando e controlo |
+| 1     | [IoT Hub do azure] [https://azure.microsoft.com/services/iot-hub/]                     | S2 – escalão Standard | Gestão de dispositivos, o comando e controlo |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e a telemetria do dispositivo, como regras, alarmes e mensagens |
 | 5     | [Contas do Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento VM e 1 para os pontos de verificação de transmissão em fluxo |
 | 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação através de SSL |
