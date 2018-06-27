@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592413"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do utilizador e do Azure AD totalmente integrada Single Sign-On
 
@@ -27,11 +29,11 @@ ms.lasthandoff: 04/28/2018
 ## <a name="overview"></a>Descrição geral
 
 
-SSO totalmente integrada de AD do Azure cria o tipo de registo seguinte, o que pode conter EUII:
+SSO totalmente integrada de AD do Azure cria o tipo de registo seguinte, o que pode conter dados pessoais: 
 
 - Ficheiros de registo de rastreio do Azure AD Connect.
 
-Compatibilidade de privacidade do utilizador para SSO totalmente integrada pode ser acedida de duas formas:
+Melhorar a privacidade do utilizador para SSO totalmente integrada de duas formas:
 
 1.  Mediante pedido, extrair dados para uma pessoa e remover dados dessa pessoa das instalações.
 2.  Certifique-se de que não existem dados são mantidos para além de 48 horas.

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34658779"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (clássica) com vários NICs com o PowerShell
 
@@ -198,4 +199,10 @@ Agora que transferiu e alterou o script baseia nas suas necessidades, runt o scr
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passo 5 - configurar o encaminhamento dentro do sistema de operativo da VM
 
-Azure DHCP atribui um gateway predefinido para a primeira interface de rede (principal) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Para configurar o encaminhamento para interfaces de rede secundárias, consulte o artigo [encaminhamento dentro de um sistema de operativo da máquina virtual com várias interfaces de rede](virtual-network-network-interface-vm.md).
+Azure DHCP atribui um gateway predefinido para a primeira interface de rede (principal) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Para configurar o encaminhamento para interfaces de rede secundárias, consulte os artigos seguintes:
+
+- [Configurar uma VM do Windows para vários NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Configurar uma VM com Linux para vários NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

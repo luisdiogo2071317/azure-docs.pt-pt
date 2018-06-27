@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34638641"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar ITSM produtos/serviços com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a ligação entre o ITSM produtos/serviços e o conector de gestão do serviço de TI (ITSMC) no Log Analytics para gerir centralmente os itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -85,7 +86,7 @@ Utilize o procedimento seguinte para ligar a instância do System Center Service
 - Pode criar incidentes a partir dos alertas de análise de registos ou registos ou a partir dos alertas do Azure nesta instância do Service Manager.
 
 
-Saiba mais: [itens de trabalho de criar ITSM para alertas de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [itens de trabalho de criar ITSM de registos de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Criar e implementar o serviço de aplicações web do Service Manager
 
@@ -238,7 +239,7 @@ Utilize o procedimento seguinte para criar uma ligação de ServiceNow:
 
 - Pode criar incidentes a partir dos alertas de análise de registos ou registos ou a partir dos alertas do Azure nesta instância do ServiceNow.
 
-Saiba mais: [itens de trabalho de criar ITSM para alertas de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [itens de trabalho de criar ITSM de registos de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Criar função de utilizador de integração na aplicação do ServiceNow
 
@@ -329,7 +330,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 
 - Pode criar incidentes a partir dos alertas de análise de registos ou registos ou a partir dos alertas do Azure nesta instância Provance.
 
-Saiba mais: [itens de trabalho de criar ITSM para alertas de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [itens de trabalho de criar ITSM de registos de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ligar Cherwell ao serviço de TI conector de gestão no Azure
 
@@ -381,7 +382,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 
 - Pode criar incidentes a partir dos alertas de análise de registos ou registos ou a partir dos alertas do Azure nesta instância Cherwell.
 
-Saiba mais: [itens de trabalho de criar ITSM para alertas de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [itens de trabalho de criar ITSM de registos de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) e [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de criar ITSM de alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Geram o ID de cliente para Cherwell
 
@@ -395,6 +396,4 @@ Para gerar o chave/ID de cliente para Cherwell, utilize o seguinte procedimento:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
- - [Criar itens de trabalho ITSM para alertas de análise de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Criar itens de trabalho ITSM do registo de análise de registos de registos de registos](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Criar itens de trabalho ITSM a partir dos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
