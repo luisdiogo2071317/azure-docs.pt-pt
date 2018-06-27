@@ -15,12 +15,23 @@
       href: quickstarts/nodejs.md
     - name: Primeira consulta em Python
       href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+    - name: Descrição geral de exemplos de SDKs
+      href: sdk.md
+    - name: SDK no Python
+      href: visual-search-sdk-python.md
 - name: Tutoriais
   items:
     - name: Aplicação Web de página única
       href: tutorial-bing-visual-search-single-page-app.md
     - name: Aplicação Web de página única (código fonte)
       href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Resultados e área de recorte de imagem do SDK da Pesquisa Visual do Bing
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Resultados e ImageInsightsToken do SDK da Pesquisa Visual do Bing
+      href: tutorial-visual-search-insights-token.md
 - name: Amostras
   items:
     - name: Exemplos de código

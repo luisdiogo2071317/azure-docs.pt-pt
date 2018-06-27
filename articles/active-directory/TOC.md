@@ -250,7 +250,7 @@
 #### [Assinatura de certificado avançada para aplicações SAML](manage-apps/certificate-signing-options.md)
 #### [Ocultar uma aplicação da experiência de um utilizador](manage-apps/hide-application-from-user-portal.md)
 ### [Configurar o Início de Sessão Automático-Acelerado através da Política de HRD](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Migrar aplicações do AD FS para o Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Migrar aplicações do AD FS para o Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Gerir o acesso a aplicações](manage-apps/what-is-access-management.md)
 #### [Acesso SSO](manage-apps/what-is-single-sign-on.md)
 #### [Certificados para SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Delegar o acesso a recursos
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
-#### [Atribuir a função de administrador a um utilizador](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Comparar as permissões de utilizador membro e de convidado](fundamentals/users-default-permissions.md) 
-### [A proteger o acesso privilegiado](admin-roles-best-practices.md)  
-### [Criar as contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Permissões de utilizador predefinidas](fundamentals/users-default-permissions.md)
+#### [Atribuir a função de administrador a um utilizador](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Comparar as permissões de utilizador membro e de convidado](fundamentals/users-default-permissions.md)
+### [Proteger funções de administrador](admin-roles-best-practices.md)  
+#### [Criar contas de administrador de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar durações de token](active-directory-configurable-token-lifetimes.md)
 ### [A proteger as funções privilegiadas](admin-roles-best-practices.md)

@@ -12,31 +12,33 @@
     - name: 'Reconhecer voz em C#'
       href: quickstart-csharp-windows.md
     - name: Reconhecer voz em C++ para Windows
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Reconhecer voz em C++ para Linux
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Introdução ao SDK de Dispositivos de Voz
       href: speech-devices-sdk-qsg.md
-- name: Guias de procedimentos
+- name: Personalização
   items:
-    - name: Reconhecer voz
-      href: how-to-speech-to-text.md
     - name: Personalizar modelos de voz
       href: how-to-customize-speech-models.md
-    - name: Sintetizar voz
-      href: how-to-text-to-speech.md
     - name: Personalizar tipos de voz
       href: how-to-customize-voice-font.md
-    - name: Traduzir voz
-      href: how-to-translate-speech.md
     - name: Preparar transcrições
       href: prepare-transcription.md
     - name: Utilizar fluxos de áudio personalizados
       href: how-to-use-audio-input-streams.md
+    - name: Personalizar a palavra para iniciar a interação do dispositivo (SDK de Dispositivos)
+      href: speech-devices-sdk-create-kws.md
+- name: Guias de procedimentos
+  items:
+    - name: Reconhecer voz
+      href: how-to-speech-to-text.md
+    - name: Sintetizar voz
+      href: how-to-text-to-speech.md
+    - name: Traduzir voz
+      href: how-to-translate-speech.md
     - name: Obter o SDK de Dispositivos de Voz
       href: get-speech-devices-sdk.md
-    - name: Personalizar a palavra para iniciar a interação do dispositivo
-      href: speech-devices-sdk-create-kws.md
     - name: Transcrição em lote (call centers)
       href: batch-transcription.md
 - name: Amostras
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Recursos
   items:
-    - name: FAQ sobre Conversão de Voz em Texto
-      href: faq-stt.md
+    - name: FAQ
+      items:
+        - name: FAQ sobre Conversão de Voz em Texto
+          href: faq-stt.md
+        - name: FAQ sobre Conversão de Texto em Voz
+          href: faq-text-to-speech.md
+        - name: FAQ sobre o Translator
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice
