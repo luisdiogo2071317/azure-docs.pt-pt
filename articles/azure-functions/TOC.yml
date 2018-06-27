@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: Redimensionamento de imagens com o Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Criar uma aplicação web sem servidor com as Funções como API
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: Criar uma aplicação web sem servidor
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: Funções no Linux
       items:
         - name: Imagem personalizada

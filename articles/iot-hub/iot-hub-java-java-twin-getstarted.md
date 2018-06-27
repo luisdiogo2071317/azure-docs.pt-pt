@@ -1,23 +1,20 @@
 ---
 title: Introdução ao duplos de dispositivos do IoT Hub do Azure (Java) | Microsoft Docs
 description: Como utilizar dispositivos duplos do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilizar o dispositivo IoT do Azure SDK para Java para implementar a aplicação de dispositivo e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016704"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar a utilizar dispositivos duplos (Java)
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 Neste tutorial, crie duas aplicações de consola Java:
 
 * **Adicionar-etiquetas-consulta**, uma aplicação de back-end do Java que adiciona as etiquetas e a consulta dispositivos duplos.
-* **simulated-device**, uma aplicação de dispositivo do Java que liga ao seu IoT hub e reporta a conectividade através de uma propriedade que relatados de condição.
+* **simulated-device**, uma aplicação de dispositivo do Java que liga ao seu IoT hub e reporta a condição de conectividade com uma propriedade que relatados.
 
 > [!NOTE]
 > O artigo [SDKs IoT do Azure](iot-hub-devguide-sdks.md) fornece informações sobre os SDKs IoT do Azure que pode utilizar para criar aplicações de dispositivo e o back-end.

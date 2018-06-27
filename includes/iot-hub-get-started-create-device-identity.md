@@ -6,7 +6,7 @@ Nesta secção, utilize uma ferramenta de Node.js chamada [iothub explorer] [ io
 
     `npm install -g iothub-explorer@latest`
 
-1. Em seguida, execute o seguinte comando para iniciar sessão para o seu hub. Substitute `{iot hub connection string}` com a cadeia de ligação do IoT Hub que copiou anteriormente:
+1. Em seguida, execute o seguinte comando para iniciar sessão no seu hub. Substitute `{iot hub connection string}` com a cadeia de ligação do IoT Hub que copiou anteriormente:
 
     `iothub-explorer login "{iot hub connection string}"`
 

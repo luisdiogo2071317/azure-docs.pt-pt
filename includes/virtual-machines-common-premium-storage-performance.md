@@ -14,10 +14,10 @@ Este artigo irá podem ajudar a responder a perguntas comuns sobre a otimizaçã
 
 Fornecemos-estas diretrizes especificamente para o Premium Storage porque as cargas de trabalho em execução no armazenamento Premium altamente confidencial de desempenho. Fornecemos exemplos apropriado. Também pode aplicar algumas destas diretrizes para aplicações em execução em VMs de IaaS com discos de armazenamento Standard.
 
-Antes de começar, se estiver familiarizado com o armazenamento Premium, ler primeiro o [Premium Storage: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](../articles/virtual-machines/windows/premium-storage.md) e [metas de desempenho e escalabilidade do Storage do Azure](../articles/storage/common/storage-scalability-targets.md) artigos.
+Antes de começar, se estiver familiarizado com o armazenamento Premium, ler primeiro o [Premium Storage: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](../articles/virtual-machines/windows/premium-storage.md) e [metas de desempenhoeescalabilidadedoStoragedoAzure](../articles/storage/common/storage-scalability-targets.md)artigos.
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicações
-Iremos avaliar se uma aplicação está a funcionar corretamente ou não a utilizar como indicadores de desempenho, a rapidez uma aplicação está a processar um pedido de utilizador, a quantidade de dados está a processar uma aplicação por pedido, pedidos quantos estar a processar uma aplicação num período específico de tempo, como um utilizador tem de aguardar para obter uma resposta depois de submeter o pedido. Os termos de licenciamento técnicos para estes indicadores de desempenho são IOPS, débito ou largura de banda e latência.
+Iremos avaliar se uma aplicação está a funcionar corretamente ou não a utilizar como indicadores de desempenho, a rapidez uma aplicação está a processar um pedido de utilizador, a quantidade de dados está a processar uma aplicação por pedido, pedidos quantos é uma aplicação em processamento no específico período de tempo, como um utilizador tem de aguardar para obter uma resposta depois de submeter o pedido. Os termos de licenciamento técnicos para estes indicadores de desempenho são IOPS, débito ou largura de banda e latência.
 
 Nesta secção, vamos abordar os indicadores de desempenho comuns no contexto de armazenamento Premium. A secção seguinte, os requisitos de aplicação de recolha, irá aprender a medir estes indicadores de desempenho para a sua aplicação. Mais tarde otimizar o desempenho da aplicação, irá aprender sobre os fatores que afetam estes indicadores de desempenho e recomendações para otimizá-los.
 
@@ -162,7 +162,7 @@ Quando inicia a conceber uma aplicação, um dos primeiros aspetos a fazer é, s
 
 Elevada de dimensionamento de VMs estão disponíveis em diferentes tamanhos com um número diferente de núcleos CPU, memória, SO e tamanho de disco temporário. Cada tamanho da VM também tem o número máximo de discos de dados que pode anexar à VM. Por conseguinte, o tamanho da VM escolhido irão afetar a quantidade de processamento, memória, e a capacidade de armazenamento está disponível para a sua aplicação. Também afeta a capacidade de cálculo e o custo de armazenamento. Por exemplo, seguem-se as especificações do maior tamanho da VM numa série DS, série DSv2 série e uma série GS:
 
-| Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco da VM | Um máximo de discos de dados | Tamanho da cache | IOPS | Limites de Cache e/s de largura de banda |
+| Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco da VM | Um máximo de Discos de dados | Tamanho da cache | IOPS | Limites de Cache e/s de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |SO = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB por segundo |4000 IOPS e 33 MB por segundo |
 | Standard_GS5 |32 |448 GB |SO = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB por segundo |5000 IOPS e 50 MB por segundo |
@@ -239,7 +239,7 @@ Para obter mais informações sobre como funciona o BlobCache, consulte interior
 | **Tipo de disco** | **Definição de Cache predefinida** |
 | --- | --- |
 | Disco do SO |ReadWrite |
-| Disco de dados |Nenhuma |
+| Disco de dados |ReadOnly |
 
 Seguem-se as definições de cache do disco recomendado para discos de dados
 

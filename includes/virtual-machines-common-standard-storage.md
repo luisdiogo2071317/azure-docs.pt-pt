@@ -1,16 +1,33 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806303"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Padrão de armazenamento económico e discos de VM do Azure não geridos e geridos
 
-Armazenamento padrão do Azure fornece suporte de disco fiável, de baixo custo para VMs executar cargas de trabalho insensível à latência. Também suporta blobs, tabelas, filas e os ficheiros. Com o armazenamento Standard, os dados são armazenados em unidades de disco rígido (HDDs). Ao trabalhar com as VMs, pode utilizar discos de armazenamento standard para cenários de desenvolvimento/teste e cargas de trabalho críticas inferior e discos de armazenamento premium para aplicações de produção fundamentais. Armazenamento Standard está disponível em todas as regiões do Azure. 
+Armazenamento padrão do Azure fornece suporte de disco fiável, de baixo custo para VMs executar cargas de trabalho insensível à latência. Também suporta blobs, tabelas, filas e os ficheiros. Com o armazenamento Standard, os dados são armazenados em unidades de disco rígido (HDDs). Ao trabalhar com as VMs, pode utilizar discos SSD e HDD padrão para cenários de desenvolvimento/teste e menos cargas de trabalho críticas e discos SSD premium para aplicações de produção fundamentais. Armazenamento Standard está disponível em todas as regiões do Azure. 
 
-Este artigo foca-se na utilização de armazenamento standard para os discos de VM. Para obter mais informações sobre a utilização de armazenamento com blobs, tabelas, filas e ficheiros, consulte o [introdução ao Storage](../articles/storage/common/storage-introduction.md).
+Este artigo foca-se na utilização de discos SSD e HDD padrão. Para obter mais informações sobre a utilização de armazenamento com blobs, tabelas, filas e ficheiros, consulte [introdução ao Storage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Tipos de disco
 
 Existem duas formas de criar os discos padrão para VMs do Azure:
 
-**Não gerido discos**: Este é o método original onde irá gerir as contas de armazenamento utilizadas para armazenar os ficheiros VHD que correspondem aos discos VM. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento. Discos não geridos podem ser ligados a nenhum tamanho de VM do Azure, incluindo as VMs que utilizam o armazenamento Premium, principalmente, tais como a série de série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo até 256 TB de armazenamento por VM.
+**Não gerido discos**: este tipo de disco é o método original onde irá gerir as contas de armazenamento utilizadas para armazenar os ficheiros VHD que correspondem aos discos VM. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento. Discos não geridos podem ser ligados a nenhum tamanho de VM do Azure, incluindo as VMs que utilizam o armazenamento Premium, principalmente, tais como a série de série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo até 256 TB de armazenamento por VM.
 
-[**Discos do Azure gerida**](../articles/virtual-machines/windows/managed-disks-overview.md): esta funcionalidade gere as contas de armazenamento utilizadas para os discos da VM para si. Especifique o tipo (Premium ou Standard) e o tamanho do disco tem e o Azure cria e gere o disco para si. Não precisa de preocupar com a colocar os discos em várias contas de armazenamento para garantir que permanecem dentro dos limites de escalabilidade para as contas de armazenamento – Azure processa que por si.
+[**Discos do Azure gerida**](../articles/virtual-machines/windows/managed-disks-overview.md): esta funcionalidade gere as contas de armazenamento utilizadas para os discos da VM para si. Especifique o tipo (Premium SSD, SSD padrão ou Standard HDD) e o tamanho do disco tem e o Azure cria e gere o disco para si. Não precisa de preocupar com a colocar os discos em várias contas de armazenamento para garantir que permanecem dentro dos limites de escalabilidade para as contas de armazenamento – Azure processa que por si.
 
 Apesar de ambos os tipos de discos estão disponíveis, recomendamos que utilize discos geridos para tirar partido das respetivas funcionalidades várias.
 
@@ -27,7 +44,9 @@ Vamos ver algumas das funcionalidades de armazenamento Standard. Para obter mais
 
 **Armazenamento Standard**: armazenamento padrão do Azure suporta discos do Azure, Blobs do Azure, ficheiros do Azure, Azure tabelas e filas do Azure. Para utilizar os serviços de armazenamento Standard, comece com [criar uma conta de armazenamento do Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Discos de armazenamento Standard:** discos de armazenamento Standard podem ser anexados a todas as VMs do Azure, incluindo VMs de tamanho da série utilizadas com o Premium Storage, tais como a série de série DSv2 e GS. Só é possível ligar um disco de armazenamento standard para uma VM. No entanto, poderá anexar um ou mais destes discos para uma VM, até a contagem de disco máximo definida para esse tamanho VM. Na secção seguinte no metas de desempenho e escalabilidade do Storage Standard, vamos descrever as especificações mais detalhadamente. 
+**Discos SSD padrão:** discos padrão SSD proporcionar um desempenho mais fiável de discos padrão HDD e está atualmente disponíveis na pré-visualização. Para obter mais informações sobre a disponibilidade de região de discos padrão SSD, consulte [disponibilidade de região de discos padrão SSD (pré-visualização)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Discos padrão de HDD:** discos HDD padrão podem ser anexados a todas as VMs do Azure, incluindo VMs de tamanho da série utilizadas com o Premium Storage, tais como a série de série DSv2 e GS. Um disco de HDD padrão só pode ser anexado a uma VM. No entanto, poderá anexar um ou mais destes discos para uma VM, até a contagem de disco máximo definida para esse tamanho VM. Na secção seguinte no metas de desempenho e escalabilidade do Storage Standard, vamos descrever as especificações mais detalhadamente.
 
 **Blob de páginas padrão**: blobs de páginas padrão são utilizados para armazenar discos persistentes para VMs e também pode ser acedidos diretamente através de REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizado para operações de escrita e leitura aleatória. 
 
@@ -120,9 +139,9 @@ Máquinas virtuais com discos não geridos pode ser feitas através de cópia de
 
 Também pode utilizar o serviço de cópia de segurança do Azure com discos de gerido para criar uma tarefa de cópia de segurança com políticas de retenção de cópias de segurança, fácil restauro de VM e cópias de segurança baseados no tempo. Pode ler mais sobre esta em [serviço utilizando a cópia de segurança do Azure para as VMs com discos geridos](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução ao Storage do Azure](../articles/storage/common/storage-introduction.md)
+* [Introdução ao Armazenamento do Azure](../articles/storage/common/storage-introduction.md)
 
 * [Criar uma conta de armazenamento](../articles/storage/common/storage-create-storage-account.md)
 

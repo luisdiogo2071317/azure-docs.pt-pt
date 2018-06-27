@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806388"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e discos geridos para VMs
 Armazenamento Premium do Azure fornece suporte de disco de elevado desempenho, baixa latência para máquinas virtuais (VMs) com a entrada/saída (e/s)-as cargas de trabalho que consomem muita. Discos VM que utilizam o armazenamento Premium armazenam dados em unidades de estado sólido (SSDs). Para tirar partido da velocidade e o desempenho de discos de armazenamento premium, pode migrar discos VM existentes para o Premium Storage.
 
@@ -61,7 +78,7 @@ Seguem-se algumas das funcionalidades do Premium Storage:
 
 ## <a name="supported-vms"></a>VMs suportadas
 
-Armazenamento Premium suporta B-série,-série DS, série DSv2-série, DSv3-série GS série, série Ls, série M e série Fs VMs. Pode utilizar discos de armazenamento standard e premium com estes tipos VM. Não é possível utilizar discos de armazenamento premium com a série VM que não é Premium compatível com o armazenamento.
+Armazenamento Premium suporta B-série,-série DS, série DSv2-série, série DSv3, série Esv3, série GS, Ls série, série M e série Fs VMs. Pode utilizar discos de armazenamento standard e premium com estes tipos VM. Não é possível utilizar discos de armazenamento premium com a série VM que não é Premium compatível com o armazenamento.
 
 
 Para obter informações sobre os tipos e os tamanhos de VMs no Azure para Windows, veja [Windows VM sizes](../articles/virtual-machines/windows/sizes.md) (Tamanhos de VMs do Windows). Para obter informações sobre os tipos e os tamanhos de VMs no Azure para Linux, veja [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) (Tamanhos de VMs do Linux).
@@ -240,7 +257,7 @@ As seguintes distribuições de Linux tem foi validadas para Premium Storage do 
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| Debian | 7, 8. x | 3.16.7-ckt4-1+ | &nbsp; |
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |

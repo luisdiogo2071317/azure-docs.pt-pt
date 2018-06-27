@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Política de segurança através da política do Azure
           href: security-center-azure-policy.md
+        - name: Visibilidade ao nível do inquilino
+          href: security-center-management-groups.md
     - name: Implementar recomendações de segurança
       href: security-center-recommendations.md
     - name: Monitorizar o estado de funcionamento da segurança

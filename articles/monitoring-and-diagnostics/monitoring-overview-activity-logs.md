@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264573"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018982"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 
@@ -136,7 +136,7 @@ Get-AzureRmLogProfile
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de registo
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Propriedade | Necessário | Descrição |
@@ -144,9 +144,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Nome |Sim |Nome do perfil do registo. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual deverá ser guardado o registo de atividade. |
 | serviceBusRuleId |Não |ID de regra de barramento de serviço para o espaço de nomes do Service Bus que gostaria de ter os event hubs criados no. É uma cadeia com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Localizações |Sim |Lista separada por vírgulas das regiões para as quais pretende recolher eventos de registo de atividade. |
-| retentionInDays |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente (indefinidamente). |
-| Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidas. Os valores possíveis são escrita, a eliminação e a ação. |
+| Localização |Sim |Lista separada por vírgulas das regiões para as quais pretende recolher eventos de registo de atividade. |
+| RetentionInDays |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente (indefinidamente). |
+| Categoria |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidas. Os valores possíveis são escrita, a eliminação e a ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
 ```
