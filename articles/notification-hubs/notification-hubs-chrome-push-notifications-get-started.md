@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029004"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações do Chrome com Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/07/2018
 Este tutorial explica-lhe como criar um hub de notificação e enviar notificações push para uma aplicação do Google Chrome de exemplo através do [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). A aplicação do Chrome é executada no contexto de um browser Google Chrome e registada no hub de notificação. 
 
 > [!NOTE]
-> As notificações push da aplicação do Chrome não são notificações genéricas no browser, são específicas para o modelo de extensibilidade do browser (consulte [Descrição Geral das Aplicações do Chrome] para obter mais detalhes). Para além do browser do ambiente de trabalho, as aplicações do Chrome também podem ser executadas em telemóveis (Android e iOS) através do Apache Cordova. Para obter mais informações, veja [Chrome Apps on Mobile].
+> As notificações push da aplicação do Chrome não são notificações genéricas no browser, são específicas para o modelo de extensibilidade do browser (consulte [Descrição Geral das Aplicações do Chrome] para obter mais detalhes). Para além do browser do ambiente de trabalho, as aplicações do Chrome também podem ser executadas em telemóveis (Android e iOS) através do Apache Cordova. Para obter mais informações, veja [Aplicações do Chrome no Telemóvel].
 
 Neste tutorial, siga os passos seguintes:
 
@@ -88,7 +89,7 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
 O exemplo seguinte baseia-se no [Exemplo de GCM para Aplicações do Chrome] e utiliza o modo recomendado para criar uma Aplicação do Chrome. Esta secção destaca os passos específicos dos Hubs de Notificação do Azure. 
 
 > [!NOTE]
-> Recomendamos que transfira a origem para esta Aplicação do Chrome a partir do [Exemplo de Notification Hub da Aplicação do Chrome]. 
+> Recomendamos que transfira a origem para esta Aplicação do Chrome a partir do [Exemplo do Hub de Notificação da Aplicação do Chrome]. 
 
 A Aplicação do Chrome é criada através de JavaScript e pode utilizar qualquer um dos seus editores de texto preferidos para a sua criação. A imagem seguinte mostra o aspeto da aplicação do Chrome:
 
@@ -363,7 +364,7 @@ A Aplicação do Chrome é criada através de JavaScript e pode utilizar qualque
    * **registerWithNH** é o processador do segundo clique no botão, que regista com Notification Hubs. Obtém `hubName` e `connectionString` (que o utilizador especificou) e cria a chamada da API REST de Registo dos Notification Hubs.
    * **splitConnectionString** e **generateSaSToken** são programas de ajuda que representam a implementação JavaScript de um processo de criação de token SaS, que tem de ser utilizado em todas as chamadas da API REST. Para obter mais informações, consulte [Conceitos Comuns](http://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** é a função que faz uma chamada REST de HTTP para os Hubs de Notificação do Azure.
-   * **registrationPayload** define o payload XML de registo. Para obter mais informações, consulte [Criar API REST dos NH de Registo]. Atualize o ID de registo com o valor recebido do GCM.
+   * **registrationPayload** define o payload XML de registo. Para obter mais informações, consulte [Criar API REST dos HN de Registo]. Atualize o ID de registo com o valor recebido do GCM.
    * **client** é uma instância de **XMLHttpRequest** que a aplicação utiliza para fazer o pedido POST de HTTP. Atualize o cabeçalho `Authorization` com `sasToken`. A conclusão com êxito desta chamada regista esta instância da Aplicação do Chrome nos Hubs de Notificação do Azure.
 
         A estrutura geral das pastas deste projeto deve assemelhar-se à seguinte:    ![Aplicação do Google Chrome – Estrutura de Pastas][21]
@@ -399,7 +400,7 @@ Para efeitos de teste, envie notificações push do Chrome utilizando uma aplica
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   É adicionada automaticamente uma referência ao SDK do Azure Service Bus com o pacote <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet ao projeto.</a>
+   É adicionada automaticamente uma referência ao SDK do Azure Service Bus com o pacote <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet ao projeto.</a>
 4. Abra `Program.cs` e adicione a seguinte instrução `using`:
    
         using Microsoft.Azure.NotificationHubs;
@@ -461,13 +462,13 @@ Neste tutorial, enviou notificações de difusão para todos os clientes regista
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Exemplo de Notification Hub da Aplicação do Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
+[Exemplo do Hub de Notificação da Aplicação do Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Descrição Geral das Aplicações do Chrome]: https://developer.chrome.com/apps/about_apps
 [Exemplo de GCM para Aplicações do Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Chrome Apps on Mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Criar API REST dos NH de Registo]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Aplicações do Chrome no Telemóvel]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[Criar API REST dos HN de Registo]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776836"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331395"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Introdução aos Notification Hubs para Aplicações Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,10 +42,10 @@ Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Obtenha o Android SDK (presumindo que utiliza o Eclipse) no <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>.
-* Siga os passos em <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Configurar o Ambiente de Desenvolvimento</a> para configurar o ambiente de desenvolvimento para o Kindle.
+* Siga os passos em <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Configurar o Ambiente de Desenvolvimento</a> para configurar o ambiente de desenvolvimento para o Kindle.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Adicionar uma nova aplicação ao portal de programador
-1. Primeiro, crie uma aplicação no [Portal de programador da Amazon].
+1. Primeiro, crie uma aplicação no [Portal do programador da Amazon].
    
     ![][0]
 2. Copie a **Chave da Aplicação**.
@@ -293,7 +293,7 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos Kin
 >[Enviar notificações push para dispositivos específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
-[Portal de programador da Amazon]: https://developer.amazon.com/home.html
+[Portal do programador da Amazon]: https://developer.amazon.com/home.html
 [transferir o SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
