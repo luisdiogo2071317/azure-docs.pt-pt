@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e4cc8b399a3d3b1db1c52aafc8a73edb784d13b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: fe6be773988d1889336cdddb54f7886aeb8d4f5f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309917"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051829"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Centro de Aplicações do Visual Studio e o HockeyApp.
@@ -140,7 +140,7 @@ Introdução no momento de programação com:
   * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * As suas sugestões:
-  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+  * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blogue:
   * [Blogue do Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 

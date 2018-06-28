@@ -10,18 +10,18 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: abb7b3bbdbf16760db8595261ea8e543b6ed05f2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825561"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939195"
 ---
 ## <a name="well-done"></a>Já está!
 Concluiu o guia de introdução! Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um ambiente baseado no Kubernetes no Azure otimizado para o desenvolvimento - um _espaço de programação_.
+> * Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
 > * Utilizar o VS Code e a linha de comandos para desenvolver iterativamente código em contentores.
 > * Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
 > * Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.

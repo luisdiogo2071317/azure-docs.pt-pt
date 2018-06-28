@@ -10,17 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180020"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024728"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas mais frequentes do Azure Machine Learning: faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
@@ -74,7 +75,7 @@ Também pode utilizar o livro de exemplo do Microsoft Excel que é criado para s
 
 **Quais são as principais atualizações ao Azure Machine Learning?**
 
-Para saber quais são as atualizações mais recentes, veja [What's new in Azure Machine Learning (Novidades no Azure Machine Learning)](whats-new.md).
+Para saber quais são as atualizações mais recentes, veja [What's new in Azure Machine Learning (Novidades no Azure Machine Learning)](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Perguntas sobre o Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importar e exportar dados para o Machine Learning
@@ -459,11 +460,11 @@ Os serviços que tenham o escalão de preço Dev/Test atribuído são parados at
 
 Para cargas de trabalho de RRS, é-lhe cobrada cada chamada de transação à API que fizer e o tempo de computação associado a esses pedidos. Os custos de transações de API de produção de RRS são calculados como o número total de chamadas à API que realiza multiplicado pelo preço de mil transações (rateado por transação individual). Os custos de hora de computação de API de produção de RRS são calculados como a quantidade de tempo necessária para a execução de cada chamada à API, multiplicada pelo número total de transações de API, multiplicado pelo preço por hora de computação de API de produção.
 
-Por exemplo, numa utilização excedida do escalão Standard S1, 1 000 000 de transações de API com um tempo de execução individual de 0,72 segundos teria um custo de (1 000. 00 * 0,50 $/Mil transações de API) 500 $ em custos de transação de API de produção e (1 000 000 * 0,72 * 2 $/h) 400 $ em horas de computação de API de produção, o que totaliza 900 $.
+Por exemplo, numa utilização excedida do escalão Standard S1, 1 000 000 de transações de API com um tempo de execução individual de 0,72 segundos teria um custo de (1 000. 00 0,50 $/Mil transações de API) 500 $ em custos de transação de API de produção e (1 000 000 0,72 * 2 $/h) 400 $ em horas de computação de API de produção, o que totaliza 900 $.
 
 As cargas de trabalho de BEST são cobradas da mesma forma. No entanto, os custos de transação de API representam o número de tarefas de lote que submeter e os custos de computação representam o tempo de computação associado a essas tarefas de lote. Os custos de transação de API de produção de BES são calculados como o número total de tarefas submetidas multiplicado pelo preço de mil transações (rateado por transação individual). Os custos de hora de computação de API de produção de BES são calculados como a quantidade de tempo necessária para a execução de cada linha na sua tarefa, multiplicada pelo número total de linhas na tarefa, multiplicado pelo preço por hora de computação de API de produção. Quando utiliza a calculadora do Machine Learning, o medidor de transação representa o número de tarefas que planeia submeter e o campo de tempo por transação representa o tempo combinado necessário para a execução de todas as linhas em cada tarefa.
 
-Por exemplo, imaginemos a utilização excedida de Standard S1 e submete 100 tarefas por dia, que cada consistem em 500 linhas que demoram 0,72 segundos cada. Os custos de utilização excedida mensais seriam de (100 tarefas por dia = 3100 tarefas/mês * 0,50 $/1 Mil transações de API) 1,55 $ em custos de transação de API de produção (500 linhas * 0,72 segundos * 3100 Tarefas * 2 $/hr) 620 $ em horas de computação de API de produção, num total de 621,55 $.
+Por exemplo, imaginemos a utilização excedida de Standard S1 e submete 100 tarefas por dia, que cada consistem em 500 linhas que demoram 0,72 segundos cada. Os custos de utilização excedida mensais seriam de (100 tarefas por dia = 3100 tarefas/mês 0,50 $/1 Mil transações de API) 1,55 $ em custos de transação de API de produção (500 linhas 0,72 segundos 3100 Tarefas 2 $/hr) 620 $ em horas de computação de API de produção, num total de 621,55 $.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Serviços Web Clássico do Azure Machine Learning
 **A opção Pay As You Go ainda está disponível?**
@@ -473,7 +474,7 @@ Sim, os Serviços Web Clássicos ainda estão disponíveis no Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Escalão Gratuito e Standard do Azure Machine Learning
 **O que está incluído no escalão Gratuito do Azure Machine Learning?**
 
-O escalão Gratuito do Azure Machine Learning destina-se a fornecer uma introdução aprofundada ao Azure Machine Learning Studio. Tudo o que precisa é uma conta Microsoft para se inscrever. O escalão Gratuito inclui acesso gratuito a uma área de trabalho do Azure Machine Learning Studio por [conta Microsoft](https://www.microsoft.com/account/default.aspx). Neste escalão, pode utilizar até 10 GB de armazenamento e operacionalizar modelos como APIs de teste. As cargas de trabalho do escalão Gratuito não são abrangidas por um SLA e destinam-se apenas ao desenvolvimento e utilização pessoal. 
+O escalão Gratuito do Azure Machine Learning destina-se a fornecer uma introdução aprofundada ao Azure Machine Learning Studio. Tudo o que precisa é uma conta Microsoft para se inscrever. O escalão Gratuito inclui acesso gratuito a uma área de trabalho do Azure Machine Learning Studio por [conta Microsoft](https://account.microsoft.com/account). Neste escalão, pode utilizar até 10 GB de armazenamento e operacionalizar modelos como APIs de teste. As cargas de trabalho do escalão Gratuito não são abrangidas por um SLA e destinam-se apenas ao desenvolvimento e utilização pessoal. 
 
 As áreas de trabalho do escalão gratuito têm as seguintes limitações:
 
