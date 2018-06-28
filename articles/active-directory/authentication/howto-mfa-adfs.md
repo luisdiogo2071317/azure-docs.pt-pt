@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 3f1d6b00652270d143f7df48b0f690c5f33433e9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ce70641d9ccb3c86d1360a0aaf21a4817e2b3c5d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866068"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317866"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
 Se a sua organização estiver federada no Azure Active Directory, utilize o Multi-Factor Authentication do Azure ou os Serviços de Federação do Active Directory (AD FS) para proteger os recursos acedidos pelo Azure AD. Utilize os procedimentos seguintes para proteger os recursos do Azure Active Directory com o Multi-Factor Authentication do Azure ou os Serviços de Federação do Active Directory (AD FS).
@@ -80,7 +80,7 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs Fidedignos do Multi-Factor Authentication do Azure com Utilizadores Federados
 Agora que as afirmações estão implementadas, podemos configurar os IPs fidedignos.
 
-1. Inicie sessão no [portal do Azure](https://portal.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **Acesso Condicional** > **Localizações com Nome**.
 3. No painel **Acesso condicional - Localizações com nome**, selecione **Configurar IPs fidedignos de MFA**
 

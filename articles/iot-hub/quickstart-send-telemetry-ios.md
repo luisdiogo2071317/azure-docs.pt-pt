@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808184"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331562"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT (iOS)
 
@@ -135,9 +135,7 @@ Se obtiver um erro quando executar o comando iothub-explorer, confirme que está
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se planear continuar a testar o Hub IoT com outros artigos, mantenha o grupo de recursos e o hub IoT para reutilizá-los mais tarde.
-
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos que contém o Hub IoT e clique em **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

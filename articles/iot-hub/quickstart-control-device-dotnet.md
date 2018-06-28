@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: c24c311f6ee446122fea7fd7699b34ab2ae8510c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292845"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335480"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (.NET)
 
@@ -67,7 +67,7 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
     Se escolher um nome diferente para o seu dispositivo, atualize o nome do dispositivo em aplicações de exemplo antes de executá-las.
 
-1. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
+2. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,17 +91,17 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Numa janela de terminal, navegue para a pasta raiz do projeto C# de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Abra o ficheiro **SimulatedDevice.cs** num editor de texto à sua escolha.
+2. Abra o ficheiro **SimulatedDevice.cs** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.cs**.
+    Substitua o valor da variável `s_connectionString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.cs**.
 
-1. Na janela de terminal, execute os seguintes comandos para instalar os pacotes necessários para a aplicação de dispositivo simulado:
+3. Na janela de terminal, execute os seguintes comandos para instalar os pacotes necessários para a aplicação de dispositivo simulado:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Na janela de terminal, execute o seguinte comando para compilar e executar a aplicação de dispositivo simulado:
+4. Na janela de terminal, execute o seguinte comando para compilar e executar a aplicação de dispositivo simulado:
 
     ```cmd/sh
     dotnet run
@@ -117,17 +117,17 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 1. Noutra janela de terminal, navegue para a pasta raiz do projeto C# de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\back-end-application**.
 
-1. Abra o ficheiro **BackEndApplication.cs** num editor de texto à sua escolha.
+2. Abra o ficheiro **BackEndApplication.cs** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de ligação do serviço que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **BackEndApplication.cs**.
+    Substitua o valor da variável `s_connectionString` pela cadeia de ligação do serviço que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **BackEndApplication.cs**.
 
-1. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias para a aplicação back-end:
+3. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias para a aplicação back-end:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Na janela de terminal, execute os seguintes comandos para compilar e executar a aplicação back-end:
+4. Na janela de terminal, execute os seguintes comandos para compilar e executar a aplicação back-end:
 
     ```cmd/sh
     dotnet run
