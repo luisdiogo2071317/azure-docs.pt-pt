@@ -195,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: Resolução de problemas
       items:
-        - name: Resolver erros comuns
-          href: automation-troubleshooting-automation-errors.md
-        - name: Resolver problemas de Função de Trabalho de Runbook Híbrida
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Inclusão
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Configuração do Estado Pretendido (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Função de Trabalho de Runbook Híbrida
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Gestão de Atualizações
+          href: troubleshoot/update-management.md
 - name: Referência
   items:
     - name: Azure PowerShell
