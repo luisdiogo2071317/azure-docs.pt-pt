@@ -67,6 +67,8 @@
   items:
     - name: Linguagens suportadas
       href: supported-languages.md
+    - name: Regiões
+      href: regions.md
     - name: APIs REST
       href: rest-apis.md
     - name: API do SDK de Voz
