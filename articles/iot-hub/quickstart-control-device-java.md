@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 5da4248f0b0a72c3614b4c3e5ea042c4341f4e03
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808211"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330548"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT (Java)
 
@@ -75,7 +75,7 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
     Se escolher um nome diferente para o seu dispositivo, atualize o nome do dispositivo em aplicações de exemplo antes de executá-las.
 
-1. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
+2. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -99,17 +99,17 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Numa janela de terminal, navegue para o diretório de raiz do projeto Java de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
+2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
 
     Substitua o valor da variável `connString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.java**.
 
-1. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação de dispositivo simulado:
+3. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação de dispositivo simulado:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Na janela de terminal, execute os seguintes comandos para executar a aplicação de dispositivo simulado:
+4. Na janela de terminal, execute os seguintes comandos para executar a aplicação de dispositivo simulado:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -125,17 +125,17 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 1. Noutra janela de terminal, navegue para o diretório de raiz do projeto Java de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\back-end-application**.
 
-1. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** num editor de texto à sua escolha.
+2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** num editor de texto à sua escolha.
 
     Substitua o valor da variável `iotHubConnectionString` pela cadeia de ligação do serviço que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **BackEndApplication.java**.
 
-1. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação back-end:
+3. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação back-end:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Na janela de terminal, execute os seguintes comandos para executar a aplicação back-end:
+4. Na janela de terminal, execute os seguintes comandos para executar a aplicação back-end:
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -151,9 +151,7 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tencionar avançar para os tutoriais, saia do grupo de recursos e do hub IoT e reutilize-os mais tarde.
-
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos que contém o Hub IoT e clique em **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

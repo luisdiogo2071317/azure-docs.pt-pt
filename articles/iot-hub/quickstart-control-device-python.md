@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: c26f41ce1d3a58b0b3a0fe35823d8dcb04845b6e
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c48faa70154f59bae35045b623d6533c241115bb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808592"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330521"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (Python)
 
@@ -145,9 +145,7 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tencionar avançar para os tutoriais, saia do grupo de recursos e do hub IoT e reutilize-os mais tarde.
-
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos que contém o Hub IoT e clique em **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: fd610af3d1b29b78ef89b8f523ef880696031bf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9cd23b0930accd23ba88be03bfed099aa3fc672e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637655"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333997"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Java)
 
@@ -68,7 +68,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
     Se escolher um nome diferente para o seu dispositivo, atualize o nome do dispositivo em aplicações de exemplo antes de executá-las.
 
-1. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
+2. Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -76,7 +76,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
     Anote a cadeia de ligação do dispositivo, que se parece com `Hostname=...=`. Irá utilizar este valor mais adiante no guia de início rápido.
 
-1. Também precisa do _ponto final compatível com hub de eventos_, do _caminho compatível com hub de eventos_ e da _chave primária iothubowner_ do hub IoT para permitir que a aplicação back-end se ligue ao hub IoT e obtenha as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
+3. Também precisa do _ponto final compatível com hub de eventos_, do _caminho compatível com hub de eventos_ e da _chave primária iothubowner_ do hub IoT para permitir que a aplicação back-end se ligue ao hub IoT e obtenha as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -94,17 +94,17 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Numa janela de terminal, navegue para o diretório de raiz do projeto Java de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device**.
 
-1. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
+2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
 
     Substitua o valor da variável `connString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.java**.
 
-1. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação de dispositivo simulado:
+3. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação de dispositivo simulado:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Na janela de terminal, execute os seguintes comandos para executar a aplicação de dispositivo simulado:
+4. Na janela de terminal, execute os seguintes comandos para executar a aplicação de dispositivo simulado:
 
     ```cmd/sh
     java -jar target/simulated-device-1.0.0-with-deps.jar
@@ -120,21 +120,22 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 1. Noutra janela de terminal, navegue para o diretório de raiz do projeto Java de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** num editor de texto à sua escolha.
+2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** num editor de texto à sua escolha. Atualize as seguintes variáveis e guarde as alterações no ficheiro.
 
-    Substitua o valor da variável `eventHubsCompatibleEndpoint` pelo ponto final compatível com hub de eventos que anotou anteriormente.
+    | Variável | Valor |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com o hub de eventos que anotou anteriormente. |
+    | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com o Hub de Eventos que anotou anteriormente. |
+    | `iotHubSasKey`                | Substitua o valor da variável pela chave primária iothubowner que anotou anteriormente. |
 
-    Substitua o valor da variável `eventHubsCompatiblePath` pelo caminho compatível com Hub de Eventos que anotou anteriormente.
 
-    Substitua o valor da variável `iotHubSasKey` pela chave primária iothubowner que anotou anteriormente. Em seguida, guarde as suas alterações no ficheiro **ReadDeviceToCloudMessages.java**.
-
-1. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação back-end:
+3. Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e criar a aplicação back-end:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Na janela de terminal, execute os seguintes comandos para executar a aplicação back-end:
+4. Na janela de terminal, execute os seguintes comandos para executar a aplicação back-end:
 
     ```cmd/sh
     java -jar target/read-d2c-messages-1.0.0-with-deps.jar
@@ -146,9 +147,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tenciona concluir o guia de início rápido seguinte, saia do grupo de recursos e do hub IoT e reutilize-os mais tarde.
-
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **qs-iot-hub-rg** que contém o seu hub IoT e clique em **Eliminar**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
