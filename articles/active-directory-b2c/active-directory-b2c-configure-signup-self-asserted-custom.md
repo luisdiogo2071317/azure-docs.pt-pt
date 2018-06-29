@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Modificar sessão cópias de segurança de políticas personalizadas e configurar o Self-permitido fornecedor'
+title: Modificar o início de sessão cópias de segurança de políticas personalizadas e configurar o Self-permitido fornecedor | Microsoft Docs
 description: Instruções sobre como adicionar as afirmações a inscrever-se e configurar a intervenção do utilizador
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2017
 ms.author: davidmu
-ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 9d8f644e819ceb83f0b436789d6d8610ed01f6a6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34710802"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Modificar sessão cópias de segurança para adicionar nova afirmações e configurar a intervenção do utilizador.
 

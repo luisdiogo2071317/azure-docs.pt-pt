@@ -1,21 +1,21 @@
 ---
-title: Token de referência - Azure AD B2C | Microsoft Docs
+title: Token referência no Azure Active Directory B2C | Microsoft Docs
 description: Os tipos de tokens emitidos no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e2ca582c9ec767e9b810c574e3efddc6485bb6a0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709313"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -73,7 +73,7 @@ Tenha em atenção que as afirmações no ID não são devolvidas por qualquer o
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
 | Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é o ID da aplicação da sua aplicação, consoante atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. |
-| Emitente |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém de ponto final v 2.0 do Azure Active Directory. |
+| Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém de ponto final v 2.0 do Azure Active Directory. |
 | emitido no |`iat` |`1438535543` |Esta afirmação é o tempo no qual o token foi emitido, representado na hora de época. |
 | Hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token passa a ser inválido, representado na hora de época. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | não antes |`nbf` |`1438535543` |Esta afirmação é a hora em que o token passa a ser representado na hora de época, válido. Isto é normalmente o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
@@ -145,7 +145,7 @@ Quando a sua aplicação ou a API recebe um token de ID, também, deverá efetua
 
 Para obter uma lista completa das validações deve executar a sua aplicação, consulte o [OpenID Connect especificação](https://openid.net). Detalhes dos valores esperados para estas afirmações incluídos no precedente [token secção](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Durações dos tokens
+## <a name="token-lifetimes"></a>Durações de token
 Durações de token seguintes são fornecidas para aproveitarem os seus dados de conhecimento. Estes podem ajudá-lo quando desenvolver e depurar aplicações. Tenha em atenção que as suas aplicações não devem ser escritas esperar qualquer um destes durações permaneça constante. Podem e será alterado. Leia mais sobre o [personalização do token durações](active-directory-b2c-token-session-sso.md) no Azure AD B2C.
 
 | Certificado de | Duração | Descrição |
