@@ -1,21 +1,21 @@
 ---
-title: 'O Azure Active Directory B2C: Integrar trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador'
+title: Integrar trocas de afirmação de REST API da sua viagem do Azure Active Directory B2C utilizador | Microsoft Docs
 description: Integre trocas de afirmação de REST API da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.openlocfilehash: c4a530b3d6b4f6d4f5ec6087adcee839422dd01d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e17647016da0e877bd8f21357a4bd38121820f22
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709364"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar o REST API trocas de afirmações da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador
 
@@ -82,7 +82,7 @@ Os modelos representam as afirmações de entrada e saída de dados no seu servi
 Crie um modelo que representa as afirmações de entrada da seguinte forma:
 
 1. Se o Explorador de soluções ainda não estiver aberto, selecione **vista** > **Explorador de soluções**. 
-2. No Explorador de soluções, clique com botão direito do **modelos** pasta, selecione **adicionar**e, em seguida, selecione **classe**.
+2. No Explorador de Soluções, clique com o botão direito do rato na pasta **Modelos**, selecione **Adicionar** e, em seguida, selecione **Classe**.
 
     ![Adicionar o modelo](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
@@ -136,7 +136,7 @@ Crie um modelo que representa as afirmações de entrada da seguinte forma:
 ### <a name="step-22-add-a-controller"></a>Passo 2.2: Adicionar um controlador
 Na API, web um _controlador_ é um objeto que processa os pedidos HTTP. Devolve o controlador de afirmações de saída ou, se o nome próprio não for válido, emite uma mensagem de erro de HTTP de conflito.
 
-1. No Explorador de soluções, clique com botão direito do **controladores** pasta, selecione **adicionar**e, em seguida, selecione **controlador**.
+1. No Explorador de Soluções, clique com o botão direito do rato na pasta **Controladores**, selecione **Adicionar** e, em seguida, selecione **Controlador**.
 
     ![Adicionar novo controlador](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 

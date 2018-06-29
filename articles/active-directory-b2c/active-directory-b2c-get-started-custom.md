@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Introdução as políticas personalizadas | Microsoft Docs'
-description: Como começar com as políticas personalizadas do Azure Active Directory B2C
+title: Introdução às políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Como começar a utilizar com políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709296"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Introdução as políticas personalizadas
 
@@ -73,8 +73,8 @@ O Azure AD B2C requer a registar duas aplicações adicionais que são utilizada
 
 1. No [portal do Azure](https://portal.azure.com), mudar para o [contexto do seu inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
 2. Abra o **do Azure Active Directory** painel (não o **do Azure AD B2C** painel). Poderá ter de selecionar **mais serviços** a encontrá-lo.
-3. Selecione **registos de aplicação**.
-4. Selecione **novo registo de aplicação**.
+3. Selecione **Registos das aplicações**.
+4. Selecione **Novo registo de aplicação**.
    * Para **nome**, utilize `IdentityExperienceFramework`.
    * Para **tipo de aplicação**, utilize **aplicação/API Web**.
    * Para **URL de início de sessão**, utilize `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o nome de domínio de inquilino do Azure AD B2C.
@@ -85,8 +85,8 @@ O Azure AD B2C requer a registar duas aplicações adicionais que são utilizada
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Criar a aplicação de ProxyIdentityExperienceFramework
 
-1. Selecione **registos de aplicação**.
-1. Selecione **novo registo de aplicação**.
+1. Selecione **Registos das aplicações**.
+1. Selecione **Novo registo de aplicação**.
    * Para **nome**, utilize `ProxyIdentityExperienceFramework`.
    * Para **tipo de aplicação**, utilize **nativo**.
    * Para **URI de redirecionamento**, utilize `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
@@ -99,7 +99,7 @@ O Azure AD B2C requer a registar duas aplicações adicionais que são utilizada
 1. Selecione **selecionar um API**.
 1. Procure o nome IdentityExperienceFramework. Selecione **IdentityExperienceFramework** na resultados e, em seguida, clique em **selecione**.
 1. Selecione a caixa de verificação junto a **acesso IdentityExperienceFramework**e, em seguida, clique em **selecione**.
-1. Selecione **feito**.
+1. Selecione **Done** (Concluído).
 1. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Transferir o pacote de arranque e modificar as políticas
@@ -144,7 +144,7 @@ Cada pacote de arranque contém:
 
 5. Guarde o ficheiro.
 6. Abra TrustFrameworkExtensions.xml. Efetue as alterações de dois mesmas ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C. Efetuar a substituição do mesma no `<TenantId>` elemento para um total de três alterações. Guarde o ficheiro.
-7. Open SignUpOrSignIn.xml. Efetue as alterações mesmas ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C em três locais. Guarde o ficheiro.
+7. Abra SignUpOrSignIn.xml. Efetue as alterações mesmas ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C em três locais. Guarde o ficheiro.
 8. Abra a reposição de palavra-passe e editar ficheiros de perfil. Efetue as alterações mesmas ao substituir `yourtenant.onmicrosoft.com` com o seu inquilino do Azure AD B2C em três locais em cada ficheiro. Guarde os ficheiros.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar os IDs de aplicações na sua política personalizada
@@ -170,7 +170,7 @@ Adicionar os IDs de aplicação para o ficheiro de extensões (`TrustFrameworkEx
 
 1. Carregar TrustFrameworkBase.xml.
 2. Carregar TrustFrameworkExtensions.xml.
-3. Upload SignUpOrSignin.xml.
+3. Carregar SignUpOrSignin.xml.
 4. Carregar os ficheiros de política.
 
 Quando um ficheiro é carregado, o nome do ficheiro de política é prepended com `B2C_1A_`.
