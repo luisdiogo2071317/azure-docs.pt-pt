@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630841"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029100"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Compreender os módulos de limite de IoT do Azure – pré-visualização
+# <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos de limite de IoT do Azure
 
 Limite de IoT do Azure permite-lhe implementar e gerir a lógica de negócio na margem sob a forma de *módulos*. Módulos de limite de IoT do Azure são a unidade de computação gerida pelo IoT Edge menor e podem conter os serviços do Azure (por exemplo, o Azure Stream Analytics) ou o seu próprio código específico da solução. Para compreender como módulos são desenvolvidos, implementados e mantidos, ajuda a pensar de quatro partes conceptuais que compõem um módulo de:
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Capacidades offline
+
+Limite de IoT do Azure suporta operações offline nos seus dispositivos de limite de IoT. Estas capacidades estão limitadas por agora e estão a ser desenvolvidos cenários adicionais. 
+
+Módulos de IoT limite podem ser offline por períodos prolongados, desde que são cumpridos os seguintes requisitos: 
+
+* **Mensagem time-to-live (TTL) expirou não**. O valor predefinido para o TTL da mensagem é duas horas, mas pode ser alterada superior ou inferior no arquivo e reencaminhar configuração no limite IoT definições do hub. 
+* **Não precisam de módulos reautenticação com o hub IoT Edge quando offline**. Módulos só podem autenticar com os hubs de limite que tenham uma ligação ativa um IoT hub. Módulos têm de autenticar novamente se estes forem reiniciados por qualquer motivo. Módulos podem ainda enviar mensagens para o hub de limite depois do respetivo token SAS expirou. Quando sai de conectividade, Edge hub solicita um novo token do módulo e validá-lo com o IoT hub. Se tiver êxito, o hub de limite reencaminha as mensagens do módulo que tem armazenados, mesmo as mensagens que foram enviadas enquanto o token do módulo expirou. 
+* **O módulo que enviadas as mensagens ao offline ainda está funcional quando sai de conectividade**. Após a restabelecer ligação ao IoT Hub, o hub de contorno tem de validar um novo token do módulo (se anterior expirado) antes de pode reencaminhar as mensagens do módulo. Se o módulo não está disponível para fornecer um novo token, o hub de limite não pode agir nas mensagens do módulo de armazenado. 
+* **O hub de contorno tem espaço em disco para armazenar as mensagens**. Por predefinição, as mensagens são armazenadas no sistema de ficheiros no contentor de hub de limite. Há uma opção de configuração para especificar um volume montado para armazenar em vez disso, as mensagens. Em ambos os casos, tem de haver espaço disponível para armazenar as mensagens para a entrega diferida ao IoT Hub.  
 
 ## <a name="next-steps"></a>Passos Seguintes
  - [Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura][lnk-runtime]

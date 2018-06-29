@@ -5,18 +5,20 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/07/2017
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630719"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029762"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementar e monitorizar os módulos de limite de IoT à escala - pré-visualização
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar e monitorizar os módulos de limite de IoT à escala através do portal do Azure
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
 Limite de IoT do Azure permite-lhe mover analytics para o limite e fornece uma interface de nuvem, para que possa gerir e monitorizar os dispositivos de IoT Edge sem ter de aceder fisicamente cada um deles. A capacidade para gerir remotamente os dispositivos é cada vez mais importante como soluções de Internet das coisas estão a crescer maiores e mais complexas. Limite de IoT do Azure foi concebido para suportar os objetivos de negócio, independentemente do quantos dispositivos a adicionar.
 
@@ -24,7 +26,7 @@ Pode gerir os dispositivos individuais e implementá-las módulos um de cada vez
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos utilizando as etiquetas
 
-Antes de poder criar uma implementação, tem de ser capazes de especificar quais os dispositivos que pretende afetar. Limite do Azure IoT identifica dispositivos utilizando **etiquetas** no dispositivo duplo. Cada dispositivo pode ter várias etiquetas e pode defini-las qualquer forma que faz sentido para a sua solução. Por exemplo, se gerir um campus dos edifícios inteligentes, pode adicionar as seguintes etiquetas para um dispositivo:
+Antes de poder criar uma implementação, tem de ser capazes de especificar quais os dispositivos que pretende afetar. Limite do Azure IoT identifica dispositivos utilizando **etiquetas** no dispositivo duplo. Cada dispositivo pode ter várias etiquetas e pode defini-las qualquer forma que faz sentido para a sua solução. Por exemplo, se gerir um campus dos edifícios inteligentes, poderá adicionar as seguintes etiquetas para um dispositivo:
 
 ```json
 "tags":{
@@ -42,14 +44,14 @@ Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [c
 ## <a name="create-a-deployment"></a>Criar uma implementação
 
 1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
-1. Selecione **IoT Edge (pré-visualização)**.
+1. Selecione **IoT Edge**.
 1. Selecione **adicionar implementação de limite de IoT**.
 
 Existem cinco passos para criar uma implementação. As secções seguintes guiá-lo através de cada um deles. 
 
 ### <a name="step-1-name-and-label"></a>Passo 1: Nome e a etiqueta
 
-1. Dê um nome exclusivo de implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
+1. Dê um nome exclusivo que é até 128 minúsculas da implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
 1. Adicione etiquetas para ajudar a monitorizar as implementações. As etiquetas são **nome**, **valor** pares que descrevem a sua implementação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
 1. Selecione **seguinte** mover para o passo dois. 
 
@@ -57,20 +59,24 @@ Existem cinco passos para criar uma implementação. As secções seguintes gui�
 
 Existem dois tipos de módulos que pode adicionar a uma implementação. O primeiro é um módulo baseado num serviço do Azure, como a conta de armazenamento ou o Stream Analytics. O segundo é um módulo baseado nos seu próprio código. Pode adicionar vários módulos de qualquer tipo para uma implementação. 
 
-Se criar uma implementação com nenhuma módulos, remove quaisquer módulos existentes dos dispositivos. 
+Se criar uma implementação com nenhuma módulos, remove quaisquer módulos atuais dos dispositivos. 
 
 >[!NOTE]
 >O Azure Machine Learning e as funções do Azure não suportam a implementação de serviço do Azure automatizada ainda. Utilize a implementação do módulo personalizado para adicionar manualmente esses serviços à sua implementação. 
 
 Para adicionar um módulo do Azure Stream Analytics, siga estes passos:
-1. Selecione **módulo de importação do Azure Stream Analytics IoT Edge**.
-1. Utilize os menus de lista pendente para selecionar as instâncias de serviço do Azure que pretende implementar.
+1. No **módulos de implementação** secção da página, clique em **adicionar**.
+1. Selecione **módulo do Azure Stream Analytics**.
+1. Escolha o **subscrição** no menu pendente.
+1. Escolha o **tarefa Edge** no menu pendente.
 1. Selecione **guardar** para adicionar o módulo para a implementação. 
 
 Para adicionar código personalizado como um módulo ou adicionar manualmente um módulo de serviço do Azure, siga estes passos:
-1. Selecione **Adicionar módulo do IoT Edge**.
+1. No **definições de registo** secção da página, forneça os nomes e as credenciais de quaisquer registos do contentor privada que contêm as imagens do módulo para esta implementação. O agente de limite irá reportar o erro 500 se este não é possível localizar a credencial de registo contrainer para uma imagem de docker.
+1. No **módulos de implementação** secção da página, clique em **adicionar**.
+1. Selecione **IoT Edge módulo**.
 1. Atribua o módulo de um **nome**.
-1. Para o **URI de imagem** campo, introduza a imagem de contentor do Docker para o módulo. 
+1. Para o **URI de imagem** campo, introduza a imagem do contentor para o módulo. 
 1. Especificar qualquer **contentor criar opções** que deve ser transmitido ao contentor. Para obter mais informações, consulte [docker criar][lnk-docker-create].
 1. Utilize o menu pendente para selecionar um **reiniciar política**. Escolha uma das seguintes opções: 
    * **Sempre** -o módulo for reiniciado sempre se encerrar por qualquer motivo.
@@ -81,22 +87,26 @@ Para adicionar código personalizado como um módulo ou adicionar manualmente um
    * **Executar** -esta é a opção predefinida. O módulo iniciará a executar imediatamente depois da implementação.
    * **Parado** -depois da implementação, o módulo permanecerá inativo até chamado após a iniciar por utilizador ou outro módulo.
 1. Selecione **ativar** se pretender adicionar quaisquer etiquetas ou propriedades pretendidas para o duplo de módulo. 
+1. Introduza **variáveis de ambiente** para este módulo. As variáveis de ambiente fornecem informações de suplemento para um módulo facilitar o início do processo de configuração.
 1. Selecione **guardar** para adicionar o módulo para a implementação. 
 
 Depois de ter todos os módulos para uma implementação configurado, selecione **seguinte** mover para o terceiro passo.
 
 ### <a name="step-3-specify-routes-optional"></a>Passo 3: Especificar rotas (opcionais)
 
-Rotas definem como módulos comunicam entre si numa implementação. Especificar as rotas para a sua implementação, em seguida, selecione **seguinte** mover para o quarto passo. 
+Rotas definem como módulos comunicam entre si numa implementação. Por predefinição, o assistente fornece-lhe uma rota chamada **rota** e definidos como **FROM /* para $upstream * *, que significa que todas as mensagens de saída por qualquer módulos são enviadas para o seu IoT hub.  
+
+Adicionar ou atualizar as rotas com as informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **seguinte** para continuar para a secção de revisão.
+
 
 ### <a name="step-4-target-devices"></a>Passo 4: Dispositivos de destino
 
 Utilize a propriedade de etiquetas dos seus dispositivos para os dispositivos específicos que devem receber esta implementação de destino. 
 
-Uma vez que as implementações de vários podem ter como destino o mesmo dispositivo, deverá dar-cada implementação de um número de prioridade. Se alguma vez existir um conflito, a implementação com a prioridade mais alta wins. Se duas implementações com o mesmo número de prioridade, que foi criada mais recentemente wins. 
+Uma vez que as implementações de vários podem ter como destino o mesmo dispositivo, deverá dar-cada implementação de um número de prioridade. Se alguma vez existir um conflito, a implementação com a prioridade mais elevada (valores superiores indicam a prioridade mais alta) wins. Se duas implementações com o mesmo número de prioridade, que foi criada mais recentemente wins. 
 
-1. Introduza um número inteiro positivo para a implementação **prioridade**.
-1. Introduza um **condição de destino** para determinar quais os dispositivos que irão ser segmentados com esta implementação. A condição baseia-se nas etiquetas do dispositivo duplo e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'`. 
+1. Introduza um número inteiro positivo para a implementação **prioridade**. No caso de duas ou mais implementações destinam-se no mesmo dispositivo, será aplicada a implementação com o maior valor numérico de prioridade.
+1. Introduza um **condição de destino** para determinar quais os dispositivos que irão ser segmentados com esta implementação. A condição é baseada em etiquetas do dispositivo duplo ou dispositivo duplo pretendido propriedades e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. 
 1. Selecione **seguinte** para avançar para o passo final.
 
 ### <a name="step-5-review-template"></a>Passo 5: Rever modelo
@@ -108,7 +118,7 @@ Reveja as informações de implementação, em seguida, selecione **submeter**.
 Para ver os detalhes de uma implementação e monitorizar os dispositivos a executá-lo, utilize os seguintes passos:
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT hub. 
-1. Selecione **IoT Edge (pré-visualização)**.
+1. Selecione **IoT Edge**.
 1. Selecione **implementações de limite de IoT**. 
 
    ![Ver as implementações de limite de IoT][1]
@@ -117,16 +127,11 @@ Para ver os detalhes de uma implementação e monitorizar os dispositivos a exec
    * **ID** -o nome da implementação.
    * **Condição de destino** -tag utilizado para definir os dispositivos visados.
    * **Prioridade** -o número de prioridade atribuído à implementação.
-   * **Estado do agente de limite de IoT** -o número de dispositivos que receberam a implementação e os respetivos Estados de funcionamento. 
-   * **Mau estado de funcionamento módulos** -o número de módulos na implementação do relatório de erros. 
+   * **Métricas de sistema** - **direcionadas** Especifica o número de dispositivos duplos no IoT Hub que correspondem à condição filtragem, e **aplicada** Especifica o número de dispositivos que tenham o conteúdo de implementação tinha aplicada aos respetivos duplos módulo no IoT Hub. 
+   * **Métricas de dispositivo** -o número de dispositivos de limite na implementação de relatórios êxito ou erros de tempo de execução do cliente do IoT Edge.
    * **Hora de criação** -timestamp de quando a implementação foi criada. Este timestamp é utilizado para dividir ties quando duas implementações têm a mesma prioridade. 
-1. Selecione a implementação que pretende monitorizar.  
-1. Inspecione os detalhes da implementação. Pode utilizar os separadores para ver detalhes específicos sobre os dispositivos que receberam a implementação: 
-   * **Direcionados** -os dispositivos de limite que correspondem à condição de destino. 
-   * **Aplicar** - direcionados dispositivos de limite que não são visados por outra implementação de maior prioridade. Estes são os dispositivos que, na verdade, recebem a implementação. 
-   * **Relatórios êxito** - aplicadas a dispositivos de limite que comunicou o novamente ao serviço que os módulos foram implementados com êxito. 
-   * **Falha de relatórios** - os dispositivos de limite aplicados que comunicou de volta para o serviço que um ou mais módulos não foram implementados com êxito. Para continuar a investigar o erro, terá de ligar remotamente a esses dispositivos e ver os ficheiros de registo. 
-   * **Relatório de módulos mau estado de funcionamento** - os dispositivos de limite aplicados que comunicou de volta para o serviço que um ou mais módulos foram implementados com êxito, mas agora estiverem a comunicar erros. 
+2. Selecione a implementação que pretende monitorizar.  
+3. Inspecione os detalhes da implementação. Pode utilizar os separadores para rever os detalhes da implementação.
 
 ## <a name="modify-a-deployment"></a>Modificar uma implementação
 
@@ -140,7 +145,7 @@ Se atualizar a condição de destino, ocorrem as seguintes atualizações:
 Para modificar uma implementação, utilize os seguintes passos: 
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT hub. 
-1. Selecione **IoT Edge (pré-visualização)**.
+1. Selecione **IoT Edge**.
 1. Selecione **implementações de limite de IoT**. 
 
    ![Ver as implementações de limite de IoT][1]
@@ -158,14 +163,14 @@ Para modificar uma implementação, utilize os seguintes passos:
 Quando elimina uma implementação, todos os dispositivos de colocar as suas implementações de maior prioridade seguinte. Se os seus dispositivos não cumprem a condição de destino de qualquer outra implementação, os módulos não são removidos quando a implementação é eliminada. 
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT hub. 
-1. Selecione **IoT Edge (pré-visualização)**.
+1. Selecione **IoT Edge**.
 1. Selecione **implementações de limite de IoT**. 
 
    ![Ver as implementações de limite de IoT][1]
 
 1. Utilize a caixa de verificação para selecionar a implementação que pretende eliminar. 
 1. Selecione **Eliminar**.
-1. Uma linha de comandos informar que esta ação irá eliminar esta implementação e reverter o estado anterior para todos os dispositivos.  Isto significa que uma implementação com uma prioridade mais baixa será aplicada.  Não se for aplicada nenhuma outra implementação, sem módulos serão removidos. Se os clientes pretenderem efetuar este procedimento, tem de criar uma implementação com zero módulos e implementá-la nos dispositivos. Selecione **Sim** se pretender continuar. 
+1. Uma linha de comandos informar que esta ação irá eliminar esta implementação e reverter o estado anterior para todos os dispositivos.  Isto significa que uma implementação com uma prioridade mais baixa será aplicada.  Não se for aplicada nenhuma outra implementação, sem módulos serão removidos. Se pretender remover todos os módulos do seu dispositivo, uma implementação com zero módulos e implementá-la nos dispositivos. Selecione **Sim** para continuar. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

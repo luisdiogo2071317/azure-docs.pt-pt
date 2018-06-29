@@ -1,5 +1,5 @@
 ---
-title: Custos de software do Windows de instâncias de reserva do Azure - faturação do Azure | Microsoft Docs
+title: Os custos de software do Windows de instâncias de reserva do Azure | Microsoft Docs
 description: Saiba quais medidores de software do Windows não estejam incluídas nos custos de instância de VM do Azure reservado.
 services: billing
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063914"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Custos de software do Windows não incluídos com instâncias de reservados do Azure
 
@@ -52,11 +53,11 @@ Se não tiver uma vantagem de utilização de híbrida do Azure em máquinas vir
 Pode obter o custo de cada uma destes medidores através do Azure RateCard API. Para obter informações sobre como obter as taxas de uma medição do azure, consulte [obter informações de preços e metadados para os recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre instâncias reservados do Azure, consulte os artigos seguintes:
+Para saber mais sobre instâncias reservadas do Azure, consulte os artigos seguintes:
 
-- [Poupar dinheiro em máquinas virtuais com instâncias de reservados do Azure](billing-save-compute-costs-reservations.md)
-- [Prepay para máquinas virtuais com instâncias reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir instâncias reservadas](billing-manage-reserved-vm-instance.md)
+- [Quais são reservados instâncias de VM do Azure?](billing-save-compute-costs-reservations.md)
+- [Prepay para máquinas virtuais com instâncias VM reservados do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias reservadas no Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender a forma como é aplicado o desconto instância reservado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

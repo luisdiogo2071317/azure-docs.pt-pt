@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 301a1a9934f9d7e76399dfe46a65481351a61e22
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c6751a0432d66aee0ff3056b212dc1b348e333f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621450"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045831"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-on-premises-mongodb-connector.md)
-> * [Versão 2 - Pré-visualização](../connector-mongodb.md)
+> * [Versão 1](data-factory-on-premises-mongodb-connector.md)
+> * [Versão 2 (versão atual)](../connector-mongodb.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conector do MongoDB no V2](../connector-mongodb.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector do MongoDB no V2](../connector-mongodb.md).
 
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados de MongoDB no local. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia.
@@ -50,7 +50,7 @@ Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo d
 
 A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
 
-Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink: 
 
@@ -85,7 +85,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
@@ -299,7 +299,7 @@ Ao mover dados para o MongoDB os seguintes mapeamentos são utilizados dos tipos
 | Binário |Byte[] |
 | Booleano |Booleano |
 | Date |DateTime |
-| NumberDouble |duplo |
+| NumberDouble |Valor de duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
@@ -345,7 +345,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 Tabela "ExampleTable_Invoices":
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| ID | ExampleTable_Invoices_dim1_idx | invoice_id | Item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |

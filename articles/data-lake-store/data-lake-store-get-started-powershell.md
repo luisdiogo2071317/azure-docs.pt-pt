@@ -1,26 +1,23 @@
 ---
-title: Utilizar o PowerShell para começar a utilizar o Azure Data Lake Store | Microsoft Docs
+title: Utilizar o PowerShell para obter uma introdução do Azure Data Lake armazenamento Gen1 | Microsoft Docs
 description: Utilizar o Azure PowerShell para criar uma conta do Data Lake Store e executar operações básicas
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: bf85f369-f9aa-4ca1-9ae7-e03a78eb7290
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 57b7755bda499cd7113f84d9950b1b06175e11b7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: f208722d768e2bccf2e5b4d7b4543f8cbba4f185
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036615"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Introdução ao Azure Data Lake Store utilizando o Azure PowerShell
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introdução ao Azure Data Lake armazenamento Gen1 com o Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,7 +25,9 @@ ms.lasthandoff: 04/19/2018
 >
 >
 
-Aprenda a utilizar o Azure PowerShell para criar uma conta do Azure Data Lake Store e executar operações básicas, tais como criar pastas, carregar e transferir ficheiros de dados, eliminar a conta, entre outras. Para obter mais informações sobre o Data Lake Store, veja [Descrição geral do Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Aprenda a utilizar o Azure PowerShell para criar uma conta do Azure Data Lake Store e executar operações básicas, tais como criar pastas, carregar e transferir ficheiros de dados, eliminar a conta, entre outras. Para obter mais informações sobre o Data Lake Store, consulte [descrição geral do Data Lake armazenamento Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -119,7 +118,7 @@ Utilize o seguinte comando para eliminar a conta do Data Lake Store.
 
 Quando lhe for pedido, introduza **S** para eliminar a conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Guia de sintonização de desempenho para o PowerShell com o Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Utilizar o Azure Data Lake Store para requisitos de macrodados](data-lake-store-data-scenarios.md) 
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f18d6817d3a04ad787888ba058e1251303e575a7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd8b682e073e86bb824d31d6ebab20a80f807730
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622412"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054607"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento da fábrica de dados e execução
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [acionadores e da execução de pipeline](../concepts-pipeline-execution-triggers.md) artigo.
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [acionadores e da execução de pipeline](../concepts-pipeline-execution-triggers.md) artigo.
 
 Este artigo explica os aspetos de agendamento e execução do modelo de aplicação do Azure Data Factory. Este artigo parte do princípio de que compreende Noções básicas dos conceitos de modelo de aplicação de fábrica de dados, incluindo atividades, pipelines, serviços ligados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os artigos seguintes:
 
@@ -271,11 +271,11 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 
 | Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
-| Simultaneidade |Número inteiro <br/><br/>O valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de actividade paralela que pode acontecer em diferentes setores. Por exemplo, se uma atividade tem de passar por um grande conjunto de dados disponíveis, que tenham um valor de concorrência maior acelera o processamento de dados. |
+| simultaneidade |Número inteiro <br/><br/>O valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de actividade paralela que pode acontecer em diferentes setores. Por exemplo, se uma atividade tem de passar por um grande conjunto de dados disponíveis, que tenham um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver setores de 2 (uma acontecer em 4 pm e outra nas 17: 00) e ambos são pendentes execução. Se definir o executionPriorityOrder ser NewestFirst, o setor nas 17: 00 é processado primeiro. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor no 4 PM é processado. |
 | retry |Número inteiro<br/><br/>O valor máximo possível 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade para um setor de dados é repetida até o número especificado de tentativas. Nova tentativa é efetuada logo que possível após a falha. |
 | tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade de mensagens em fila. Exemplo: 00:10:00 (indica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se a hora de processamento de dados de um setor excede o valor de tempo limite, será cancelado e o sistema tenta repetir o processamento. O número de tentativas depende a propriedade de repetição. Quando ocorre a tempo limite, o estado é definido como ServiceHost. |
-| Atraso |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados de é iniciado o setor.<br/><br/>A execução da atividade para um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
+| atraso |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados de é iniciado o setor.<br/><br/>A execução da atividade para um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>O valor máximo: 10 |1 |O número de tentativas de repetição muito antes da execução do setor falhou.<br/><br/>tentativas de longRetry são espaçamento por longRetryInterval. Por isso, se tem de especificar um período de tempo entre as tentativas de repetição, utilize o longRetry. Se repetir e o longRetry forem especificados, cada tentativa de longRetry incluir as tentativas de repetição e o número máximo de tentativas de repetição * longRetry.<br/><br/>Por exemplo, se as seguintes definições na política de atividade:<br/>Repita: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Partem do princípio de houver apenas um setor para executar (estado está a aguardar a) e a execução da atividade falha sempre. Inicialmente seria possível 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Após serem primeiro 3 tentativas sobre, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), seria possível outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não iriam ser tentadas nenhuma mais tentativas. Por conseguinte, global 6 foram efetuadas tentativas.<br/><br/>Se qualquer execução for bem sucedida, o estado do setor seria preparado e não existem mais tentativas estão tentadas.<br/><br/>longRetry pode ser utilizada em situações onde dados dependentes chega vezes não determinística ou o ambiente geral flaky em que o processamento de dados ocorre. Nestes casos, fazer várias tentativas não umas a seguir podem ajudar e se o fizer, após um intervalo de tempo resultados no resultado pretendido.<br/><br/>Palavra de advertência: não definir valores elevados para longRetry ou longRetryInterval. Normalmente, os valores superiores implica outros problemas systemic. |
 | longRetryInterval |TimeSpan |00:00:00 |O atraso entre tentativas de repetição longo |
 

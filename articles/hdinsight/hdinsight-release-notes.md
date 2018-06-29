@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410095"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063262"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão para componentes do Hadoop no Azure HDInsight
 
@@ -27,6 +27,17 @@ Este artigo fornece informações sobre o **mais recente** atualizações de lan
 
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [artigo de controlo de versões do HDInsight](hdinsight-component-versioning.md).
+
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Notas para 27/06/2018 - versão de novas versões de código aberto, etc. de Gen2 de ADLS no HDInsight 3.6
+A versão de Junho de 2018 do HDInsight é formação até ser uma versão significativa com muitos novas atualizações e funcionalidades para os nossos clientes, conforme descrito abaixo. Leia este [publique](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) para obter mais detalhes.
+
+Seguem-se a destaques. Para as notas de versão de detalhado, erros corrigidos, etc., de problemas conhecidos, leia esta [documento](https://aka.ms/hdirelnotes).
+
+- **Atualizar o Hadoop e outros projetos de open source** – além 1000 + correções de erros em 20 + open source projetos, esta atualização contém uma versão nova do Spark (2.3) e Kafka (1.0).
+- **R Server 9.1 da atualização para o Machine Learning serviços 9.3** – com esta versão, estamos a proporcionar cientistas de dados e engenheiros de sistemas com o melhor de open source melhorado com inovações usam e facilidade de operationalization, disponível na respetiva idioma de preferência com a velocidade do Apache Spark. Esta versão expande após as capacidades disponibilizadas no servidor de R com suporte adicionado para o Python, à esquerda para a alteração do nome de cluster do servidor R nos serviços de ML. 
+- **Suporte para o Azure Data Lake armazenamento Gen2** – HDInsight irá suportar a versão de pré-visualização do Azure Data Lake armazenamento Gen2. As regiões disponíveis, os clientes que serão capazes de escolher uma conta ADLS Gen2 como um arquivo para os clusters do HDInsight.
+- **Atualizações de pacote de segurança do HDInsight Enterprise (pré-visualização)** – (pré-visualização) Virtual rede pontos finais de serviço suporte para BLOBs do Azure, armazenamento, ADLS Gen1, base de dados do Cosmos e BD do Azure. 
+
 
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Notas para 20/03/2018 - versão do 2.2 o Spark no HDInsight 3.6
 
@@ -38,10 +49,10 @@ Este artigo fornece informações sobre o **mais recente** atualizações de lan
 | Cargo | Descrição | Área afectada  | Tipo de Cluster  | 
 | --- | --- | --- | --- | --- |
 | Versão do servidor de Microsoft R 9.1 no HDInsight |HDInsight suporta agora o aprovisionamento de clusters de 9.1 de servidor R no HDInsight. Para obter mais informações sobre a versão do Microsoft R Server 9.1, consulte [este blogue](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Serviço |R Server |
-| HDInsight 3.6 inclui agora as versões mais recentes da pilha de Hadoop|<ul><li>Para obter uma lista detalhada das versões atualizadas, consulte [versões de componentes do Hadoop no HDInsight disponíveis](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Para obter uma lista de erros fixo nas versões mais recentes da pilha do Hadoop, consulte [Apache Patch informações](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Para obter uma lista de alterações entre HDP 2.6.1 (que está agora disponível no HDInsight 3.6) de última hora, consulte [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Para obter uma lista dos problemas conhecidos no HDP 2.6.1, consulte [problemas conhecidos](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Serviço |Tudo |N/A |
+| HDInsight 3.6 inclui agora as versões mais recentes da pilha de Hadoop|<ul><li>Para obter uma lista detalhada das versões atualizadas, consulte [versões de componentes do Hadoop no HDInsight disponíveis](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Para obter uma lista de erros fixo nas versões mais recentes da pilha do Hadoop, consulte [Apache Patch informações](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Para obter uma lista de alterações entre HDP 2.6.1 (que está agora disponível no HDInsight 3.6) de última hora, consulte [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Para obter uma lista dos problemas conhecidos no HDP 2.6.1, consulte [problemas conhecidos](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Serviço |Todos |N/A |
 | Atualizações para clusters interativa de ramo de registo (pré-visualização) |<ul><li><b>Melhoramento de funcionalidade.</b> Implementação do metastore em cache que reduz a carga no back-end do SQL Server ao colocar em cache os metadados e melhora o desempenho para todas as operações de metadados.  Este melhoramento é agora uma predefinição em todos os clusters de ramo de registo interativo. Para mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Melhoramento de funcionalidade.</b> Carregamento de partição dinâmica está otimizado. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Melhoramento de funcionalidade.</b> Otimizações de configuração para o HDInsight no Linux.</li><li><b>Correção de erro.</b> `CredentialProviderFactory$getProviders` Não é seguro para thread. Este problema ser corrigido agora. Para mais informações, consulte [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Correção de erro.</b> Utilização elevada da CPU com controlador WASB `liststatus` API resultando num mau desempenho de ATS. Este problema ser corrigido agora. Para mais informações, consulte [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Serviço |Ramo de registo interativo (pré-visualização) |
 | Atualizações para os clusters do Hadoop |Fiabilidade de operação de tarefa Templeton foi melhorada. Para obter mais informações, consulte [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Serviço |Hadoop |
-| YARN atualizações | HDInsight cria agora uma 250 GB Ambari base de dados (sem o custo aumentar), que resulta numa melhor experiência para os clientes. Esta alteração deve impedir que ATS obter preenchidos cópias de segurança e provavelmente têm um melhor desempenho. |Serviço |Tudo |
+| YARN atualizações | HDInsight cria agora uma 250 GB Ambari base de dados (sem o custo aumentar), que resulta numa melhor experiência para os clientes. Esta alteração deve impedir que ATS obter preenchidos cópias de segurança e provavelmente têm um melhor desempenho. |Serviço |Todos |
 | Atualizações do Spark | Versão do Spark 2.1.1. Para obter mais informações, consulte [Spark versão 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Serviço | Spark |
 
   

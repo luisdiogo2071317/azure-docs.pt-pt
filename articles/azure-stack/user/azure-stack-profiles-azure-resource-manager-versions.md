@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010980"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054386"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões do fornecedor da API de recurso suportadas pelos perfis na pilha do Azure
 
@@ -26,7 +26,7 @@ Pode encontrar o fornecedor de recursos e os números de versão para cada perfi
 
 O perfil de API utiliza três convenções de nomenclatura:
  - mais recente
- - Aaaa-mm-dd-híbrida
+ - aaaa-mm-dd-híbrida
  - aaaa-mm-dd-perfil
 
 Para obter uma explicação sobre perfis de API e cadência de lançamento da versão para a pilha do Azure, consulte [perfis de versão de API gerir no Azure pilha](azure-stack-version-profiles.md).
@@ -144,11 +144,14 @@ As APIs de computação do Azure dão-lhe acesso programático para máquinas vi
 
 | Tipos de Recurso | Versões de API |
 |--------------------|--------------------|
-| Regras de Alerta | 2016-03-01 |
-| Categorias de eventos | 2017-03-01-preview |
-| Tipos de Eventos | 2017-03-01-preview |
-| Definições de Métricas | 2016-03-01 |
 | Operações | 2015-04-01 |
+| Tipos de Eventos | 2015-04-01 |
+| Categorias de eventos | 2015-04-01 |
+| Definições de Métricas | 2018-01-01 |
+| Métricas | 2018-01-01 |
+| Definições de diagnóstico | 2017-05-01-preview |
+| Categorias de definições de diagnóstico | 2017-05-01-preview |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 

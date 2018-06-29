@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b287bf8ee80323e61d3550648b0b78a0e1d26cfb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f282bad449383c608444b1cdab2dc925e0aa0d8f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331971"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050272"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar os dados de ou para o File Storage do Azure utilizando o Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de File Storage do Azure (ficheiros do Azure). Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

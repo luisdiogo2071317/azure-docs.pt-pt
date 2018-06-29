@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3a858e3e901f300ce5f0dbc44437106905078375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617720"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051768"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar a atividade de Pipeline no Azure Data Factory
 A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o pipeline de outro.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -65,7 +62,7 @@ A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o
 ## <a name="type-properties"></a>Propriedades do tipo
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do pipeline de execução. | Cadeia | Sim
+nome | Nome da atividade do pipeline de execução. | Cadeia | Sim
 tipo | Tem de ser definido como: **ExecutePipeline**. | Cadeia | Sim
 pipeline | Pipeline de referência para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não

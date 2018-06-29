@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceecdefe644cb5dd1b6038636960cbb5dd9167e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618968"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052312"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até que a atividade no Azure Data Factory
 A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo estrutura fornece linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -58,10 +55,10 @@ A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo est
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome do `Until` atividade. | Cadeia | Sim
+nome | Nome do `Until` atividade. | Cadeia | Sim
 tipo | Tem de ser definido como **até**. | Cadeia | Sim
 expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão.  | Sim
-tempo limite | Ao não-até ciclo tempos limite após o período de tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não
+tempo limite | Ao não-até ciclo tempos limite após o período de tempo especificado aqui. | cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não
 Atividades | Conjunto de atividades que são executadas até que a expressão é avaliada para `true`. | Matriz de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1

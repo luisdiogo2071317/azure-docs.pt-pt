@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "34638641"
+ms.locfileid: "37061714"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar ITSM produtos/serviços com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a ligação entre o ITSM produtos/serviços e o conector de gestão do serviço de TI (ITSMC) no Log Analytics para gerir centralmente os itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -191,7 +191,7 @@ Certifique-se de que são cumpridos os seguintes pré-requisitos:
 **Administradores do ServiceNow tem de fazer o seguinte na sua instância do ServiceNow**:
 - Geram o ID de cliente e o segredo do cliente para o produto de ServiceNow. Para obter informações sobre como gerar ID de cliente e o segredo, consulte as seguintes informações conforme necessário:
 
-    - [Configurar a OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Configurar a OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar a OAuth para Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar a OAuth para Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar a OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

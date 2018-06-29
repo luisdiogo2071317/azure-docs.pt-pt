@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232476"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028953"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controlos de acesso no acesso condicional do Azure Active Directory? 
 
@@ -77,7 +77,7 @@ Utilizar multi-factor authentication ajuda a proteger os recursos de que está a
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de [dispositivos geridos](active-directory-conditional-access-policy-connected-applications.md#managed-devices). A necessidade de um dispositivo com conformidade é uma opção tem de definir é que um dispositivo gerido. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](device-management-introduction.md) para o seu Azure Active Directory e estão marcados como estando em conformidade pela sua solução de MDM.
+Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de [dispositivos geridos](active-directory-conditional-access-policy-connected-applications.md#managed-devices). A necessidade de um dispositivo com conformidade é uma opção tem de definir é que um dispositivo gerido. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](device-management-introduction.md) para o seu Azure Active Directory e estiver marcado como estando em conformidade pelo Intune (para qualquer dispositivo SO) ou por seu sistema MDM de terceiros para dispositivos Windows 10. Não são suportados sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10.
 
 Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

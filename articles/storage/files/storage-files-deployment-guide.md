@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737355"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029786"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo SMB padrão da indústria. Este artigo irá mostrar como implementar praticamente ficheiros do Azure dentro da sua organização.
@@ -83,7 +83,7 @@ Os passos seguintes irão importar dados de uma localização no local para a pa
     
     Consulte [preparar ficheiro CSV driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) para obter mais informações.
 
-6. Utilize o [WAImportExport ferramenta](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar os dados para um ou mais unidades de disco rígido.
+6. Utilize o [WAImportExport ferramenta](https://www.microsoft.com/en-us/download/details.aspx?id=55280) para copiar os dados para um ou mais unidades de disco rígido.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6ec168332d8a655d78c3deffe89f51f7d75a840
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751885"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063515"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -505,39 +505,9 @@ No entanto, atualizar poderá ainda relatório de gestão que a máquina como es
 
 Implementar atualizações de classificação de atualização não funciona em CentOS a box. Para SUSE, selecionar *apenas* 'Outras atualizações' como a classificação pode resultar na segurança de algumas das atualizações também a ser instalada se as atualizações de segurança relacionadas com zypper (Gestor de pacote) ou as respetivas dependências são necessárias pela primeira vez. Esta é uma limitação do zypper. Em alguns casos, poderá ser necessário para executar novamente a implementação de atualização, certifique-se verifique o registo de atualização.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
-Esta secção fornece informações para ajudar a resolver problemas com a solução de gestão de atualizações.
-
-### <a name="windows"></a>Windows
-
-Se ocorrerem problemas ao tentar carregar a solução ou uma máquina virtual, verifique o **aplicação e o Gestor de serviços de Logs\Operations** mensagens de registo de eventos no computador local para eventos com um 4502 de ID de evento e do evento contém **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. A tabela seguinte realça uma resolução possível e as mensagens de erro específica para cada:
-
-| Mensagem | Razão | Solução |
-|----------|----------|----------|
-| Não É Possível Registar a Máquina para Gestão de Patches,<br/>O Registo Falhou com a Exceção<br/>System.InvalidOperationException: {"Message":"a máquina já está<br/>registada numa conta diferente. "} | Computador já está a simplificar a outra área de trabalho para gestão de atualizações. | Executar limpeza de artefactos antigos por [eliminar o grupo de Runbook híbrida](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Não é possível registar a máquina para a gestão de Patch, registo falhou com a exceção<br/>System.Net.Http.HttpRequestException: Ocorreu um erro ao enviar o pedido. ---><br/>System.Net.WebException: A ligação subjacente<br/>foi fechada: Ocorreu um erro inesperado<br/>ao receber. ---> System.ComponentModel.Win32Exception:<br/>O cliente e o servidor não conseguem comunicar,<br/>porque não possuem um algoritmo comum | Gateway de/proxy/firewall está a bloquear comunicação. | [Reveja os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning).|
-| Não É Possível Registar a Máquina para Gestão de Patches,<br/>O Registo Falhou com a Exceção<br/>Newtonsoft.Json.JsonReaderException: Erro ao analisar o valor infinito positivo. | Gateway de/proxy/firewall está a bloquear comunicação. | [Reveja os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning).|
-| O certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com<br/>não foi emitido por uma autoridade de certificação<br/>utilizada para os Serviços Microsoft. Contacto<br/>o administrador da rede para ver se estão a executar um proxy que intercepte<br/>a comunicação TLS/SSL. |Gateway de/proxy/firewall está a bloquear comunicação. | [Reveja os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning).|
-| Não É Possível Registar a Máquina para Gestão de Patches,<br/>O Registo Falhou com a Exceção<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Falha ao criar um certificado autoassinado. ---><br/>System. unauthorizedaccessexception: O acesso é negado. | Falha de geração do certificado autoassinado. | Verifique se a conta do sistema tem<br/>acesso de leitura à pasta:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA**|
-
-### <a name="linux"></a>Linux
-
-Se execuções de atualização falharem ao iniciar um computador Linux, faça uma cópia do ficheiro de registo seguinte e preservá-lo para fins de resolução de problemas:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-Se ocorrerem falhas durante uma atualização executada depois de iniciar com êxito no Linux, consulte a tarefa ao computador afetado na execução de saída. Pode localizar mensagens de erro específicas do Gestor de pacotes da máquina que pode pesquisar e executar ações em. Gestão de atualizações requer o Gestor de pacotes estar em bom estado de funcionamento para implementações de atualização com êxito.
-
-Em alguns casos, as atualizações do pacote podem interferir na gestão atualizar impedir a conclusão de uma implementação de atualização. Se vir que terá que excluir estes pacotes de execuções de atualização futura ou instalá-los manualmente por si.
-
-Se não é possível resolver um problema de aplicação de patches, faça uma cópia do ficheiro de registo seguinte e preservar- **antes** inicia a implementação de atualização seguinte para fins de resolução de problemas:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Para saber como resolver problemas de gestão de atualização, consulte [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

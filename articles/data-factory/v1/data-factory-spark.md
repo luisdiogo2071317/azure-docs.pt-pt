@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622283"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046469"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas de Spark do Azure Data Factory pipelines
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622283"
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão atual do serviço Data Factory, consulte [transformar dados utilizando a atividade do Apache Spark no Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
 A atividade de Spark é uma do [atividades de transformação de dados](data-factory-data-transformation-activities.md) suportada pela fábrica de dados. Esta atividade executa o programa de Spark especificado no cluster do Spark no Azure HDInsight. 
@@ -268,8 +268,7 @@ Neste passo, vai criar um pipeline com uma atividade HDInsightSpark. Atualmente,
 
     ![Resultados de consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Para obter instruções detalhadas, consulte a secção [executar uma consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Para obter instruções detalhadas, consulte a secção [executar uma consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 Porque definida getDebugInfo como **sempre**, verá uma subpasta do registo na pasta pyFiles no contentor de blob. O ficheiro de registo na pasta de registo fornece informações adicionais. Este ficheiro de registo é especialmente útil quando existe um erro. Num ambiente de produção, deverá configurá-lo para **falha**.
@@ -330,14 +329,14 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| name | Nome da atividade no pipeline. | Sim |
+| nome | Nome da atividade no pipeline. | Sim |
 | descrição | Texto que descreve o que faz a atividade. | Não |
 | tipo | Esta propriedade tem de ser definida para HDInsightSpark. | Sim |
 | linkedServiceName | Nome do serviço ligado do HDInsight em que executa o programa de Spark. | Sim |
 | rootPath | O contentor de blob e a pasta que contém o ficheiro de Spark. O nome de ficheiro é sensível às maiúsculas e minúsculas. | Sim |
 | entryFilePath | Caminho relativo para a pasta raiz do Spark/pacote do código. | Sim |
 | className | Classe de principal de Java/Spark da aplicação. | Não |
-| Argumentos | Uma lista de argumentos da linha de comandos para o programa de Spark. | Não |
+| argumentos | Uma lista de argumentos da linha de comandos para o programa de Spark. | Não |
 | proxyUser | A conta de utilizador para representar a execução do programa de Spark. | Não |
 | sparkConfig | Especifique valores para as propriedades de configuração do Spark listados no [configuração Spark: propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica se os ficheiros de registo do Spark são copiados para o armazenamento utilizado pelo cluster do HDInsight (ou) especificado por sparkJobLinkedService. Valores permitidos são None, sempre ou falha. O valor predefinido é nenhum. | Não |

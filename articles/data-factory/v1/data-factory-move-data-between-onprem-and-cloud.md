@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 958b495b2328a981c573447c44585bc7430c1095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621171"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048554"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [copiar dados entre no local e na nuvem utilizando o Data Factory versão 2](../tutorial-hybrid-copy-powershell.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [copiar dados entre no local e na nuvem utilizando o Data Factory](../tutorial-hybrid-copy-powershell.md).
 
 Este artigo fornece uma descrição geral da integração de dados entre os arquivos de dados no local e arquivos de dados de nuvem utilizando o Data Factory. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo e outros artigos de conceitos de núcleos de fábrica de dados: [conjuntos de dados](data-factory-create-datasets.md) e [pipelines](data-factory-create-pipelines.md).
 
@@ -100,7 +100,7 @@ Neste passo, utiliza o portal do Azure para criar uma instância do Azure Data F
    >
    > Se estiver a utilizar o Chrome, aceda à [Web Store do Chrome](https://chrome.google.com/webstore/), pesquise com a palavra-chave "ClickOnce", escolha uma das extensões de ClickOnce e instale-a.
    >
-   > Faça o mesmo para Firefox (instalação suplemento). Clique em **Abrir Menu** botão na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **suplementos**, pesquise com palavra-chave de "ClickOnce", escolha uma das extensões de ClickOnce e instalá-lo.    
+   > Faça o mesmo para Firefox (instalação suplemento). Clique em **Abrir Menu** botão na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **suplementos**, pesquise com palavra-chave de "ClickOnce", escolha uma do Extensões de ClickOnce e instalá-la.    
    >
    >
 
@@ -149,7 +149,7 @@ Neste passo, utiliza o portal do Azure para criar uma instância do Azure Data F
    * Utilize **Testar ligação** secção a uma origem de dados no local utilizando o gateway.
    * Clique em **ver registos** para ver o registo do Data Management Gateway numa janela do Visualizador de eventos.
    * Clique em **enviar registos de** para carregar um ficheiro zip com registos dos últimos sete dias para a Microsoft para facilitar a problemas de resolução de problemas.
-10. No **diagnóstico** separador o **Testar ligação** secção, selecione **SqlServer** para o tipo de dados armazenar, introduza o nome do servidor de base de dados, o nome da base de dados, especifique o tipo de autenticação, introduza o nome de utilizador e palavra-passe e clique em **testar** para testar se o gateway consiga estabelecer ligação à base de dados.
+10. No **diagnóstico** separador o **Testar ligação** secção, selecione **SqlServer** para o tipo de arquivo de dados, introduza o nome do servidor de base de dados, o nome da base de dados, Especifique o tipo de autenticação, introduza o nome de utilizador e palavra-passe e clique em **testar** para testar se o gateway consiga estabelecer ligação à base de dados.
 11. Mudar para o browser e, no **portal do Azure**, clique em **OK** no **configurar** página e, em seguida, no **novo gateway de dados** página.
 12. Deverá ver **adftutorialgateway** em **Gateways dados** na vista de árvore à esquerda.  Se clicá-lo, deverá ver o JSON associado.
 

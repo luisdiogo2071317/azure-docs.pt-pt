@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157395"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048844"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação à pilha do Azure
 
@@ -64,7 +64,7 @@ Atualize o registo com a nova subscrição do cliente. Azure relatórios de util
 3. Na sessão do PowerShell, execute:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Parâmetros do novo AzureRmResource PowerShell
 | Parâmetro | Descrição |
@@ -73,6 +73,7 @@ Atualize o registo com a nova subscrição do cliente. Azure relatórios de util
 | customerSubscriptionID | A subscrição do Azure (não pilha do Azure) que pertencem ao cliente a ser registado. Tem de ser criados na oferta CSP; na prática, isto significa que através do Centro de parceiros. Se um cliente tiver mais do que um inquilino do Azure Active Directory, esta subscrição tem de ser criada no inquilino que será utilizado para iniciar sessão na pilha do Azure.
 | resourceGroup | O grupo de recursos no Azure no qual o seu registo é armazenado. 
 | registrationName | O nome do registo da pilha do Azure. É um objeto armazenado no Azure. | 
+| Propriedades | Especifica as propriedades para o recurso. Utilize este parâmetro para especificar os valores de propriedades que são específicas para o tipo de recurso.
 
 
 > [!Note]  

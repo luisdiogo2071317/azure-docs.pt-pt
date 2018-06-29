@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b7751bd1b309333d5ef40530b0fa499a42a57cd1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752253"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030442"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o escalão de IoT Hub à direita para a sua solução
 
@@ -43,7 +43,7 @@ Depois de criar o seu IoT hub pode atualizar a partir da camada básica para o e
 | [Monitorização e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
 | [Mensagens da nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos módulo](iot-hub-devguide-module-twins.md) e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sim |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sim |
 
 IoT Hub também oferece um escalão gratuito que destina-se para avaliação e teste. Tem todas as funcionalidades do escalão standard, mas allowances mensagens limitados. Não é possível atualizar do escalão gratuito para básico ou padrão. 
 
@@ -59,9 +59,9 @@ A diferença no capacidades suportadas entre os escalões básicos e padrão de 
 | Obter módulo | Sim | Sim |
 | [Obter estatísticas de registo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sim | Sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sim | Sim |
-| [Colocar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sim | Sim |
+| [Criar ou atualizar o dispositivo](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Sim | Sim |
 | Coloque o módulo | Sim | Sim |
-| [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sim | Sim |
+| [Consultar o IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Sim | Sim |
 | Módulos de consulta | Sim | Sim |
 | [Criar o URI de SAS do carregamento de ficheiros](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sim | Sim |
 | [Receber notificações de dispositivo vinculado](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sim | Sim |

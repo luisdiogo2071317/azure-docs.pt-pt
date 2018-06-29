@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c0286f8c21fd127068a3c94856e536accc49bab1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9e769cc436011defe89b12680150e6f9c3b3faf8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619886"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049322"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de Pig do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-pig-activity.md)
-> * [Versão 2 - Pré-visualização](transform-data-using-hadoop-pig.md)
+> * [Versão 1](v1/data-factory-pig-activity.md)
+> * [Versão atual](transform-data-using-hadoop-pig.md)
 
 A atividade do HDInsight Pig numa fábrica de dados [pipeline](concepts-pipelines-activities.md) executa consultas Pig num [os seus próprios](compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportados.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [Pig atividade no V1](v1/data-factory-pig-activity.md).
 
 Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e efetue a [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
@@ -62,14 +59,14 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade            | Descrição                              | Necessário |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nome da atividade                     | Sim      |
+| nome                | Nome da atividade                     | Sim      |
 | descrição         | Texto que descreve o que é utilizada a atividade para | Não       |
 | tipo                | Para a atividade do ramo de registo, o tipo de atividade é HDinsightPig | Sim      |
 | linkedServiceName   | Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | scriptLinkedService | Referência a um serviço ligado do Storage do Azure utilizados para armazenar os scripts de Pig para ser executada. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
 | scriptPath          | Forneça o caminho para o ficheiro de script armazenado no Storage do Azure que referida pelo scriptLinkedService. O nome de ficheiro é maiúsculas e minúsculas. | Não       |
 | getDebugInfo        | Especifica se os ficheiros de registo são copiados para o armazenamento do Azure utilizados pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |
-| Argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
+| argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
 | Define             | Especifique parâmetros como pares chave-valor para referenciar no Pig script. | Não       |
 
 ## <a name="next-steps"></a>Passos Seguintes

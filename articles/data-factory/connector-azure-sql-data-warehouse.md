@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5a7ee7862e102093efa2c203eac2497b025af4e5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337822"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051632"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Versão 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Versão 2: pré-visualização](connector-azure-sql-data-warehouse.md)
+> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versão atual](connector-azure-sql-data-warehouse.md)
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para copiar dados de ou para o Azure SQL Data Warehouse. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se para a versão 2 do Data Factory, atualmente em pré-visualização. Se utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector do Azure SQL Data Warehouse no V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

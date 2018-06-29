@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616948"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049863"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto final de HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-http-connector.md)
-> * [Versão 2 - Pré-visualização](connector-http.md)
+> * [Versão 1](v1/data-factory-http-connector.md)
+> * [Versão atual](connector-http.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de um ponto final de HTTP. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector HTTP no V1](v1/data-factory-http-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -169,9 +166,9 @@ Para copiar dados de HTTP, defina a propriedade de tipo do conjunto de dados par
 | relativeUrl | Um URL relativo para o recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição de serviço ligado. | Não |
 | requestMethod | Método de HTTP.<br/>Valores permitidos são **obter** (predefinição) ou **Post**. | Não |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| RequestBody | Corpo do pedido de HTTP. | Não |
-| formato | Se pretender **obter dados a partir do ponto final de HTTP como-é** sem análise e copiar para um arquivo baseado em ficheiros, ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não |
-| Compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
+| requestBody | Corpo do pedido de HTTP. | Não |
+| Formato | Se pretender **obter dados a partir do ponto final de HTTP como-é** sem análise e copiar para um arquivo baseado em ficheiros, ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não |
+| compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
 
 **Exemplo 1: utilizar o método Get (predefinição)**
 

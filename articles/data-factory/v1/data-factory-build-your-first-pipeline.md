@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0c115cce7659fe1f10e8d3d9c988748151916ce0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620746"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050051"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Criar o seu primeiro pipeline para transformar dados utilizando o cluster de Hadoop
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "34620746"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço Data Factory, que está em pré-visualização, veja o [Início Rápido: criar uma fábrica de dados com a versão 2 do Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [início rápido: criar uma fábrica de dados utilizando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Neste tutorial, pode cria a primeira fábrica de dados do Azure com um pipeline de dados. O pipeline transforma os dados de entrada ao executar o script de ramo de registo num cluster do Azure HDInsight (Hadoop) para produzir os dados de saída.  
 

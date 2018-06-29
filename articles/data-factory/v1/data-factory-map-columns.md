@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1c8ea748297b8fe4052b60f08b8f00b1e41275fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620362"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045889"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). 
+> Este artigo aplica-se a versão 1 do Data Factory. 
 
 Mapeamento de colunas pode ser utilizado para especificar a forma como as colunas especificadas na "estrutura de" do mapa da tabela de origem para colunas especificada na "estrutura de" da tabela do sink. O **columnMapping** propriedade está disponível no **typeProperties** secção a atividade de cópia.
 

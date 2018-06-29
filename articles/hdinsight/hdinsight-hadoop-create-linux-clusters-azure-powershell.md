@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400457"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045216"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight com o Azure PowerShell
 
@@ -63,7 +63,7 @@ Os valores que especificar para o utilizador SSH são utilizados para criar o ut
 > [!IMPORTANT]
 > Se planeia utilizar mais do que 32 nós de trabalho (a durante a criação do cluster ou ao aumentar o cluster após a criação), também tem de especificar um tamanho de nó principal pelo menos 8 núcleos e 14 GB de RAM.
 >
-> Para obter mais informações sobre os tamanhos de nós e os custos associados, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Pode demorar até 20 minutos para criar um cluster.
 
@@ -71,7 +71,7 @@ Pode demorar até 20 minutos para criar um cluster.
 
 Também pode criar um através de objeto de configuração do HDInsight `New-AzureRmHDInsightClusterConfig` cmdlet. Em seguida, pode modificar este objeto de configuração para ativar as opções de configuração adicionais para o cluster. Por último, utilize o `-Config` parâmetro o `New-AzureRmHDInsightCluster` cmdlet para utilizar a configuração.
 
-O script seguinte cria um objeto de configuração para configurar um servidor R no tipo de cluster do HDInsight. A configuração permite que um nó de extremidade, RStudio e uma conta de armazenamento adicional.
+O script seguinte cria um objeto de configuração para configurar os serviços de ML no tipo de cluster do HDInsight. A configuração permite que um nó de extremidade, RStudio e uma conta de armazenamento adicional.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

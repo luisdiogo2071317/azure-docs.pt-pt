@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046991"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-create-datasets.md)
-> * [Versão 2 - Pré-visualização](../concepts-datasets-linked-services.md)
+> * [Versão 1](data-factory-create-datasets.md)
+> * [Versão 2 (versão atual)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conjuntos de dados na V2](../concepts-datasets-linked-services.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conjuntos de dados na V2](../concepts-datasets-linked-services.md).
 
 Este artigo descreve os conjuntos de dados são, como definidos no formato JSON, e como são utilizados no Azure Data Factory pipelines. Fornece detalhes sobre cada secção (por exemplo, estrutura, disponibilidade e política) na definição de JSON do conjunto de dados. O artigo também fornece exemplos para utilizar o **desvio**, **anchorDateTime**, e **estilo** propriedades numa definição de JSON do conjunto de dados.
 
@@ -82,8 +82,8 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
-| tipo |tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
+| nome |Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
+| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para obter mais informações, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
 | externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como verdadeiro. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
@@ -195,10 +195,10 @@ Cada coluna na estrutura de contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
+| nome |Nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
-| Cultura |. Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
-| formato |Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
+| cultura |. Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
+| Formato |Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
 
 As seguintes diretrizes ajudam a determinar quando deve incluir informações de estrutura e o que incluir no **estrutura** secção.
 

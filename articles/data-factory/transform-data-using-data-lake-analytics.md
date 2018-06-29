@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 1bf030d7eaba5c8aa608c504f65c5ebf291eab3d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619699"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046960"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-usql-activity.md)
-> * [Versão 2 - Pré-visualização](transform-data-using-data-lake-analytics.md)
+> * [Versão 1](v1/data-factory-usql-activity.md)
+> * [Versão atual](transform-data-using-data-lake-analytics.md)
 
 Um pipeline de um Azure data factory processa dados nos serviços do storage ligadas utilizando os serviços ligados de computação. Contém uma sequência de atividades em que cada atividade executa uma operação de processamento específico. Este artigo descreve o **atividade de U-SQL de análise do Data Lake** que executa um **U-SQL** script num **Azure Data Lake Analytics** serviço ligado de computação. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [USQL atividade no V1](v1/data-factory-usql-activity.md).
 
 Crie uma conta do Azure Data Lake Analytics antes de criar um pipeline com uma atividade de U-SQL de análise do Data Lake. Para saber mais sobre o Azure Data Lake Analytics, consulte [introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -123,7 +120,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 
 | Propriedade            | Descrição                              | Necessário |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome da atividade no pipeline     | Sim      |
+| nome                | Nome da atividade no pipeline     | Sim      |
 | descrição         | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                | Atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo.  |Sim       |

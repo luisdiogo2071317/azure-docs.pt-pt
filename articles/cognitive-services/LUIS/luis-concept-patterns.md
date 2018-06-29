@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318063"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046263"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram concebidos para melhorar a precisão quando várias utterances são muito semelhantes. Ao fornecer um padrão para o utterance, LUIS podem ter uma confiança elevada a predição. 
@@ -42,6 +42,9 @@ Padrões de utilizam uma combinação de tecnologias de predição. Definir um o
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Padrões não melhorar a deteção de entidade
 Enquanto padrões necessitarem de entidades, um padrão não ajuda a detetar a entidade. Um padrão destina-se apenas para o ajudar a predição com pendentes e as funções.  
+
+## <a name="patterns-use-entity-roles"></a>Padrões utilizam funções de entidade
+Se duas ou mais entidades num padrão reconhecimento do contexto estão relacionadas, padrões de utilizam a entidade [funções](luis-concept-roles.md) para extrair a nível contextual das informações sobre entidades. Isto é equivalente a elementos subordinados de entidade hierárquica, mas é **apenas** disponíveis no padrões. 
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de predição com e sem padrões
 Tendo em conta suficiente utterances de exemplo, LUIS conseguirão aumentar a confiança de predição sem padrões. Padrões de aumentam a classificação de confiança, sem ter de fornecer utterances tantos.  
@@ -92,7 +95,7 @@ Por exemplo, suponha que tem um padrão que contenha ambas sintaxe opcional, `[]
 
 Considere o padrão '[encontrar] e-mail sobre {assunto} [{pessoa}]'. No utterances seguintes, o **requerente** e **pessoa** entidade são extraídos corretamente e incorretamente:
 
-|utterance|Entidade|Extração correta|
+|Expressão|Entidade|Extração correta|
 |--|--|:--:|
 |e-mail sobre dogs a partir de Chris|requerente = dogs<br>pessoa = Chris|✔|
 |e-mail sobre man do La Mancha|requerente = de man<br>pessoa = La Mancha|X|

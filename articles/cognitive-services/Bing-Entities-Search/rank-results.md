@@ -10,16 +10,16 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ff5b004aaa863dbdfc460a774a5dfd658ce52537
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 53354c0f78419a37e8896bb4d00e0d7aebf32203
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351428"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059997"
 ---
 # <a name="using-ranking-to-display-results"></a>Utilizar a classificação de mensagens em fila para apresentar resultados  
 
-Cada resposta de pesquisa de entidade inclui um [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) responder, semelhante à de uma resposta de pesquisa na Web Bing, que especifica como tem de apresentar os resultados da pesquisa. A resposta de classificação agrupa os resultados em pólo, mainline e o conteúdo da barra lateral. O resultado ao pólo é o resultado mais importante ou prominent e deverá ser apresentado pela primeira vez. Se não visualizar os resultados restantes num tradicional mainline e o formato da barra lateral, tem de fornecer a visibilidade superior conteúda mainline que o conteúdo da barra lateral. 
+Cada resposta de pesquisa de entidade inclui um [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) responder, semelhante à de uma resposta de pesquisa na Web Bing, que especifica como tem de apresentar os resultados da pesquisa. A resposta de classificação agrupa os resultados em pólo, mainline e o conteúdo da barra lateral. O resultado ao pólo é o resultado mais importante ou prominent e deverá ser apresentado pela primeira vez. Se não visualizar os resultados restantes num tradicional mainline e o formato da barra lateral, tem de fornecer a visibilidade superior conteúda mainline que o conteúdo da barra lateral. 
   
 Em cada grupo, o [itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matriz identifica a ordem em que o conteúdo tem de aparecer no. Cada item fornece duas formas para identificar o resultado dentro de uma resposta.  
   

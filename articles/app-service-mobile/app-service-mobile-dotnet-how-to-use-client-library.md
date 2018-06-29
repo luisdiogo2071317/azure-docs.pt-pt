@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598458"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050503"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia mostra como efetuar cenários comuns utilizando a biblioteca de cliente gerido para a aplicação do Azure Mobile de serviço de aplicações para Windows e aplicações Xamarin. Se estiver familiarizado com as Mobile Apps, deve considerar primeiro a concluir o [início rápido do Azure Mobile Apps] [ 1] tutorial. Neste guia, iremos focar-se sobre o SDK gerido do lado do cliente. Para saber mais sobre os SDKs do lado do servidor para Mobile Apps, consulte a documentação para o [SDK do .NET Server] [ 2] ou [SDK Node.js do servidor][3].
+Este guia mostra como efetuar cenários comuns utilizando a biblioteca de cliente gerido para a aplicação do Azure Mobile de serviço de aplicações para Windows e aplicações Xamarin. Se estiver familiarizado com as Mobile Apps, deve considerar primeiro a concluir o [início rápido do Azure Mobile Apps] [ 1] tutorial. Neste guia, iremos focar-se sobre o SDK gerido do lado do cliente. Para saber mais sobre os SDKs do lado do servidor para Mobile Apps, consulte a documentação para o [SDK do .NET Server] [ 2] ou [SDK Node.js do servidor] [ 3].
 
 ## <a name="reference-documentation"></a>Documentação de referência
 A documentação de referência para o cliente SDK está localizada aqui: [referência de cliente .NET do Azure Mobile Apps][4].
@@ -36,7 +36,7 @@ A plataforma de .NET suporta as seguintes plataformas:
 
 * Versões de Xamarin Android para a API 19 através de 24 (KitKat através de Nougat)
 * Versões de Xamarin iOS para iOS versões 8.0 e posteriores
-* Plataforma universal do Windows
+* Plataforma Universal do Windows
 * Windows Phone 8.1
 * Windows Phone 8.0, exceto as aplicações Silverlight
 
@@ -520,7 +520,7 @@ Tabelas offline utilizam um arquivo para armazenar dados locais do SQLite para u
    * **Tempo de execução do Windows 8.1:** instalar [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instalar [SQLite para Windows Phone 8.1][4].
    * **Plataforma universal do Windows** instalar [SQLite para o Windows Universal][5].
-3. (Opcional). Para dispositivos Windows, clique em **referências** > **Adicionar referência...** , expanda o **Windows** pasta > **extensões**, em seguida, ative o adequado **SQLite para Windows** SDK juntamente com o **Visual C++ 2013 Runtime para o Windows** SDK.
+3. (Opcional). Para dispositivos Windows, clique em **referências** > **Adicionar referência...** , expanda o **Windows** pasta > **extensões**, em seguida, ative o adequado **SQLite para Windows** SDK juntamente com o **Visual C++ 2013 em tempo de execução para o Windows** SDK.
     Os nomes de SQLite SDK variam ligeiramente com cada plataforma do Windows.
 
 Antes de pode criar uma referência de tabela, o arquivo local tem de ser preparado:
@@ -1121,12 +1121,12 @@ public class MyHandler : DelegatingHandler
 [Ignorar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows Dev Center]: https://dev.windows.com/en-us/overview
+[Windows Dev Center]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx

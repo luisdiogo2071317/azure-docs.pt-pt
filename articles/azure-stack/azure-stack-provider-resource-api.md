@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877284"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052703"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
 O termo *fornecedor* aplica-se para o administrador de serviço e para quaisquer fornecedores de delegado. Operadores de pilha do Azure e os fornecedores de delegado podem utilizar a API de utilização do fornecedor para ver a utilização dos respetivos inquilinos diretas. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o fornecedor de API para obter informações de utilização sobre do P1 e utilização direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.
@@ -34,10 +34,10 @@ Esta utilização API é um fornecedor de API, pelo que o chamador tem de ser at
 
 | **Método** | **URI do pedido** |
 | --- | --- |
-| INTRODUÇÃO |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token value} |
 
 ### <a name="arguments"></a>Argumentos
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Azure ponto final do Gestor de recursos do ambiente de pilha do Azure. A Convenção de pilha do Azure é que o nome do ponto final do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio for *local.azurestack.external*, em seguida, o ponto final do Gestor de recursos é `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID de subscrição do utilizador que efetua a chamada. |
@@ -49,7 +49,7 @@ Esta utilização API é um fornecedor de API, pelo que o chamador tem de ser at
 | *continuationToken* |Obter o token da última chamada para o fornecedor de API de utilização. Este token é necessário quando uma resposta é maior do que 1000 linhas e funciona como um marcador para conhecer o progresso. Se o token não estiver presente, os dados são obtidos a partir do início do dia ou a hora, com base na granularidade transmitido. |
 
 ### <a name="response"></a>Resposta
-GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
+OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diariamente & subscriberId = sub1.1 & api-version = 1.0
 
 ```json
 {
@@ -57,11 +57,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?r
 {
 
 "id":
-"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"/subscriptions/sub1.1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1.1-
 
 meterID1",
 "name": "sub1.1-meterID1",
-"type": "Microsoft.Commerce/UsageAggregate",
+"type": "Microsoft.Commerce.Admin/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1.1",
@@ -78,11 +78,11 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Detalhes de resposta
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *id* |ID exclusivo do agregado de utilização. |
 | *name* |Nome do agregado de utilização. |
-| *type* |Definição do recurso. |
+| *tipo* |Definição do recurso. |
 | *subscriptionId* |Identificador de subscrição de utilizador a pilha do Azure. |
 | *usageStartTime* |UTC hora de início do registo de utilização a que pertence este agregado de utilização.|
 | *usageEndTime* |Hora de fim de UTC do registo de utilização a que pertence este agregado de utilização. |

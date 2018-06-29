@@ -1,6 +1,6 @@
 ---
 title: Como de leitura ou escrita particionada dados no Azure Data Factory | Microsoft Docs
-description: Saiba como ler ou escrever dados particionados no Azure Data Factory versão 2.
+description: Saiba como ler ou escrever dados particionados no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: cdf305e3607d7483186185a014883cff5458b89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619087"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053715"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Como de leitura ou escrita particionada dados no Azure Data Factory versão 2
-Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão 2, pode conseguir este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Como de leitura ou escrita particionada dados no Azure Data Factory
+Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual do Data Factory, pode conseguir este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Utilizar um parâmetro de pipeline 
 Na versão 1, pode utilizar a propriedade partitionedBy e a variável de sistema do SliceStart conforme mostrado no exemplo seguinte: 
@@ -37,7 +37,7 @@ Na versão 1, pode utilizar a propriedade partitionedBy e a variável de sistema
 
 Para obter mais informações sobre a propriedade partitonedBy, consulte [conector de Blob do Azure versão 1](v1/data-factory-azure-blob-connector.md#dataset-properties) artigo. 
 
-Na versão 2, uma forma de alcançar este comportamento é para executar as seguintes ações: 
+Na versão atual do Data Factory, uma forma de alcançar este comportamento é para executar as seguintes ações: 
 
 1. Definir um **pipeline parâmetro** do tipo cadeia. No exemplo seguinte, o nome do parâmetro de pipeline está **windowStartTime**. 
 2. Definir **folderPath** na definição do conjunto de dados para referenciar o valor do parâmetro do pipeline. 

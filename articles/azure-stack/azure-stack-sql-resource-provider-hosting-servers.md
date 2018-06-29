@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 183d9479ae18e557b00d0867cad79600145da7bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265233"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060047"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos SQL
 
@@ -26,20 +26,24 @@ Pode alojar uma instância do SQL Server numa máquina virtual (VM) no [Azure pi
 
 ## <a name="overview"></a>Descrição geral
 
-Os requisitos gerais para servidores de alojamento do SQL Server são:
+Antes de adicionar um servidor de alojamento de SQL, consulte os seguintes requisitos obrigatórios e gerais.
 
-* A instância do SQL Server têm de estar dedicada para utilização pelas cargas de trabalho do utilizador e o fornecedor de recursos. Não é possível utilizar uma instância do SQL Server que está a ser utilizada por quaisquer outros consumidores. Esta restrição aplica-se também nos serviços de aplicação.
-* O fornecedor de recursos VM do SQL Server não está associado a um domínio e só pode ser ligados utilizando a autenticação SQL.
-* Tem de configurar uma conta com privilégios adequados para utilização pelo fornecedor de recursos.
-* O fornecedor de recursos e utilizadores, tais como Web Apps, utilizam a rede de utilizador, pelo que não é necessária conectividade para a instância do SQL Server nesta rede. Este requisito, normalmente, significa que o IP para as instâncias do SQL Server tem de estar numa rede pública.
-* Gestão de instâncias do SQL Server e respetivos anfitriões é até que. Por exemplo, o fornecedor de recursos não aplicar as atualizações, processar as cópias de segurança ou processar rotação de credenciais.
-* Pode utilizar SKUs que suportam diferentes classes de capacidades SQL, tais como desempenho e elevada disponibilidade com AlwaysOn.
+**Requisitos obrigatórios**
+
+* Ative a autenticação do SQL Server na instância do SQL Server. Porque o fornecedor de recursos VM do SQL Server não está associado a um domínio, apenas poderá ligar a um servidor de alojamento utilizando a autenticação SQL.
+* Configure os endereços IP para as instâncias do SQL Server como pública. O fornecedor de recursos e utilizadores, tais como Web Apps, comunicam através da rede de utilizador, pelo que não é necessária conectividade para a instância do SQL Server nesta rede.
+
+**Requisitos gerais**
+
+* Dedique a instância do SQL Server para utilização pelas cargas de trabalho do utilizador e o fornecedor de recursos. Não é possível utilizar uma instância do SQL Server que está a ser utilizada por quaisquer outros consumidores. Esta restrição aplica-se também nos serviços de aplicação.
+* Configure uma conta com os níveis de privilégio adequado para o fornecedor de recursos.
+* Está é responsável por gerir as instâncias do SQL Server e respetivos anfitriões.  Por exemplo, o fornecedor de recursos não aplicar as atualizações, processar as cópias de segurança ou processar rotação de credenciais.
 
 ### <a name="sql-server-virtual-machine-images"></a>Imagens da máquina virtual do SQL Server
 
 Imagens da máquina virtual IaaS do SQL Server estão disponíveis através da funcionalidade de gestão do Marketplace. Estas imagens são os mesmos que as VMs de SQL que estão disponíveis no Azure.
 
-Certifique-se de que sempre transferir a versão mais recente do **SQL IaaS extensão** antes de implementar uma VM com um item do Marketplace.  A extensão de IaaS e o portal correspondente melhorias fornecem funcionalidades adicionais, tais como a aplicação de patches automática e cópia de segurança.
+Certifique-se de que sempre transferir a versão mais recente do **SQL IaaS extensão** antes de implementar uma VM do SQL Server com um item do Marketplace. A extensão de IaaS e o portal correspondente melhorias fornecem funcionalidades adicionais, tais como a aplicação de patches automática e cópia de segurança. Para obter mais informações sobre esta extensão, consulte [automatizar tarefas de gestão em Virtual Machines do Azure com a extensão de agente do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Existem outras opções para implementar as VMs do SQL Server, incluindo modelos no [Galeria de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -48,12 +52,12 @@ Existem outras opções para implementar as VMs do SQL Server, incluindo modelos
 
 ### <a name="required-privileges"></a>Privilégios necessários
 
-Criar um utilizador administrativo com privilégios mais baixos que um sysadmin do SQL Server. O utilizador necessita apenas de permissões para as seguintes operações:
+Pode criar um utilizador administrativo com privilégios mais baixos que um sysadmin do SQL Server. O utilizador necessita apenas de permissões para as seguintes operações:
 
-- Base de dados: Criar, Alter, com Containment (para sempre no apenas), remover, cópia de segurança
-- Grupo de disponibilidade: Alter, associação, adicionar/remover base de dados
-- Início de sessão: Criar, selecione, Alter, Drop, revogar
-- Selecionadas operações: \[mestre\].\[ SYS\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), Databases, \[mestre\].\[ SYS\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[mestre\].\[ SYS\].\[ availability_groups\] (AlwaysOn), sys. master_files
+* Base de dados: Criar, Alter, com Containment (para sempre no apenas), remover, cópia de segurança
+* Grupo de disponibilidade: Alter, associação, adicionar/remover base de dados
+* Início de sessão: Criar, selecione, Alter, Drop, revogar
+* Selecionadas operações: \[mestre\].\[ SYS\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), Databases, \[mestre\].\[ SYS\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[mestre\].\[ SYS\].\[ availability_groups\] (AlwaysOn), sys. master_files
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Fornecem a capacidade de estabelecendo ligação à autónoma alojar o SQL server
 
@@ -71,36 +75,45 @@ Para adicionar um servidor de alojamento autónomo já estiver configurado, siga
 
    ![Dashboard de adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
-3. Preencha o formulário com os detalhes de ligação da sua instância do SQL Server.
+3. No **adicionar um servidor de alojamento de SQL**, forneça os detalhes de ligação para a instância do SQL Server.
 
    ![Adicionar um SQL Server que aloja o servidor](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    Pode, opcionalmente, incluem um nome de instância e especifique um número de porta, se a instância não está atribuída à porta predefinida 1433.
+    Opcionalmente, forneça um nome de instância e especifique um número de porta, se a instância não está atribuída à porta predefinida 1433.
 
    > [!NOTE]
    > A instância do SQL Server pode ser acedida pelo utilizador e administrador do Azure Resource Manager, desde que pode ser colocado sob o controlo do fornecedor de recursos. A instância do SQL __tem__ atribuída exclusivamente para o fornecedor de recursos.
 
-4. Como adicionar servidores, tem de atribuir-lhes um SKU de novo ou existente para diferenciar as ofertas de serviços. Por exemplo, pode ter uma instância do SQL Server Enterprise que fornece:
+4. Como adicionar servidores, deve atribuí-las a um SKU existente ou criar um SKU de novo. Em **adicionar um servidor que aloja**, selecione **SKUs**.
+
+   * Para utilizar um SKU existente, escolha um SKU disponível e, em seguida, selecione **criar**.
+   * Para criar um SKU, selecione **+ criar novo SKU**. No **criar SKU**, introduza as informações necessárias e, em seguida, selecione **OK**.
+
+     > [!IMPORTANT]
+     > Os carateres especiais, incluindo espaços e períodos, não são suportados no **nome** campo. Utilize os exemplos na captura de ecrã seguinte para introduzir os valores para o **família**, **camada**, e **edição** campos.
+
+     ![Criar um SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+
+      SKUs podem demorar até uma hora ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU não ter sido criada.
+
+### <a name="sku-notes"></a>Notas SKU
+
+Pode utilizar os SKUs para diferenciar as ofertas de serviços. Por exemplo, pode ter uma instância do SQL Server Enterprise que tem as seguintes características:
   
-   - capacidade de base de dados
-   - cópia de segurança automática
-   - servidores de elevado desempenho para departamentos individuais de reserva
+* capacidade elevada
+* elevado desempenho
+* Elevada disponibilidade
 
-   Todos os servidores de alojamento um SKU devem ter as mesmas capacidades. O **nome** deve refletir as propriedades do SKU, para que os utilizadores podem implementar as bases de dados a SKU adequado.
+Pode criar um SKU do exemplo anterior, limitar o acesso a grupos específicos que necessitam de uma base de dados de elevado desempenho.
 
-   > [!IMPORTANT]
-   > Os carateres especiais, incluindo espaços e períodos, não são suportados no **família** ou **camada** nomes quando cria um SKU para os fornecedores de recursos do SQL Server e o MySQL.
+>[!TIP]
+>Utilize um nome SKU reflete descreve as funcionalidades dos servidores no SKU, tais como a capacidade e o desempenho. O nome serve como um auxiliar para ajudar os utilizadores a implementar as bases de dados para o SKU adequado.
 
-   Por exemplo:
-
-   ![Criar SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-   >[!NOTE]
-   > SKUs podem demorar até uma hora ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU não ter sido criada.
+Como melhor prática, todos os servidores de alojamento um SKU devem ter as mesmas características de desempenho e de recursos.
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Fornecer elevada disponibilidade utilizando sempre em grupos de disponibilidade SQL
 
-Configurar o SQL Always On instâncias é necessários passos adicionais e requer um mínimo de três VMs (ou máquinas físicas) Este artigo pressupõe que já tem uma compreensão sólida dos grupos de disponibilidade Always On. Para obter mais informações, consulte:
+Configurar o SQL Always On instâncias é necessários passos adicionais e requer três VMs (ou máquinas físicas) Este artigo pressupõe que já tem uma compreensão sólida dos grupos de disponibilidade Always On. Para obter mais informações, veja os artigos seguintes:
 
 * [Introdução ao SQL Server Always On nos grupos de disponibilidade em máquinas virtuais do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Always On nos grupos de disponibilidade (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
@@ -108,7 +121,7 @@ Configurar o SQL Always On instâncias é necessários passos adicionais e reque
 > [!NOTE]
 > O fornecedor de recursos do SQL Server adaptador _apenas_ suporta SP1 Enterprise do SQL Server 2016 ou posterior instâncias Always On. Esta configuração de adaptador requer novas funcionalidades do SQL Server, tais como o seeding automático.
 
-Além da lista de requisitos anterior, tem de ativar [Seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
+Além disso, tem de ativar [Seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
 
 Para ativar o seeding automático em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
 
@@ -132,7 +145,7 @@ Nas instâncias do secundárias, editar e, em seguida, execute o seguinte comand
 
 2. Selecione **procurar** &gt; **recursos administrativos** &gt; **SQL que aloja servidores** &gt; **+ adicionar**.
 
-   Em **SQL que aloja servidores** , pode ligar o fornecedor de recursos do servidor de SQL reais instâncias do SQL Server que servem de back-end do fornecedor de recursos.
+   Em **SQL que aloja servidores**, pode ligar o fornecedor de recursos do servidor de SQL para instâncias reais do SQL Server que servem de back-end do fornecedor de recursos.
 
 3. Preencha o formulário com os detalhes de ligação para a instância do SQL Server. Certifique-se de que utiliza o endereço FQDN do sempre no serviço de escuta (e o número de porta opcional.) Forneça as informações para a conta configurada com privilégios de administrador do sistema.
 

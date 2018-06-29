@@ -4,18 +4,18 @@ description: Saiba mais sobre o tempo de execução do limite de IoT do Azure e 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632079"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030384"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura – pré-visualização
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura
 
 O tempo de execução do limite de IoT é uma coleção de programas que precisam de ser instalada num dispositivo para o mesmo ser considerado um dispositivo de limite de IoT. Coletivamente, os componentes do tempo de execução de limite de IoT permitem que os dispositivos IoT Edge receber o código para executar no limite e comunicam os resultados. 
 
@@ -90,9 +90,9 @@ Para iniciar a execução do agente Edge, execute o comando de início do azure-
 
 Cada item no dicionário de módulos contém informações específicas sobre um módulo e é utilizado pelo agente de contorno para controlar o ciclo de vida do módulo. Algumas das propriedades mais interessantes são: 
 
-* **Settings.Image** – a imagem de contentor que o agente de limite utiliza para iniciar o módulo. O agente de limite deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente de limite, utilize o seguinte comando: `azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – a imagem de contentor que o agente de limite utiliza para iniciar o módulo. O agente de limite deve ser configurado com as credenciais para o registo de contentor, se a imagem estiver protegida por uma palavra-passe. Para configurar o agente de limite, atualize o `config.yaml` ficheiro. No Linux, utilize o seguinte comando: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** – uma cadeia que é transmitida diretamente para o daemon de Docker ao iniciar o contentor de um módulo. A adição de opções de Docker esta propriedade permite opções avançadas, como a porta de reencaminhamento ou montar os volumes num contentor de um módulo.  
-* **estado** – o estado em que o agente de Edge coloca o módulo. Este valor, normalmente, é definido como *executar* como a maioria das pessoas pretende que o agente de contorno para iniciar imediatamente a todos os módulos no dispositivo. No entanto, pode especificar o estado inicial de um módulo para ser interrompida e aguarde uma hora no futuro saber se o agente de contorno para iniciar um módulo. O agente de limite reporta o estado de cada módulo novamente para a nuvem nas propriedades que relatados. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador ou um dispositivo funcionar incorretamente. Os Estados suportados são:
+* **estado** – o estado em que o agente de Edge coloca o módulo. Este valor, normalmente, é definido como *executar* como a maioria das pessoas pretende que o agente de contorno para iniciar imediatamente a todos os módulos no dispositivo. No entanto, pode especificar o estado inicial de um módulo para ser interrompida e aguarde uma hora no futuro saber se o agente de contorno para iniciar um módulo. O agente de limite reporta o estado de cada módulo novamente para a nuvem nas propriedades que relatados. Uma diferença entre a propriedade pretendida e a propriedade comunicada é um indicador de um dispositivo funcionar incorretamente. Os Estados suportados são:
    * A transferir
    * A executar
    * Estado de funcionamento incorreto
@@ -104,7 +104,7 @@ Cada item no dicionário de módulos contém informações específicas sobre um
    * Mau estado de funcionamento - se o módulo de falhas ou é considerado mau estado de funcionamento, o agente de limite reinicia-lo.
    * -Se o módulo falha, é considerado em mau estado de funcionamento ou encerramento de qualquer forma, o agente de limite reinicia sempre-lo. 
 
-Agente de limite de IoT envia a resposta de tempo de execução ao IoT Hub. Aqui está uma lista de possíveis respostas:
+O agente de limite de IoT envia a resposta de tempo de execução ao IoT Hub. Aqui está uma lista de possíveis respostas:
   * 200 - OK
   * 400 - a configuração de implementação está incorreto ou é inválido.
   * 417 - o dispositivo não tem uma configuração de implementação definida.
@@ -114,7 +114,7 @@ Agente de limite de IoT envia a resposta de tempo de execução ao IoT Hub. Aqui
 
 ### <a name="security"></a>Segurança
 
-O agente de limite de IoT desempenha um papel fundamental na segurança de um dispositivo de limite de IoT. Por exemplo, executa ações como verificar a imagem de um módulo antes de iniciá-lo. Estas funcionalidades serão adicionadas na disponibilidade geral das funcionalidades de V2. 
+O agente de limite de IoT desempenha um papel fundamental na segurança de um dispositivo de limite de IoT. Por exemplo, executa ações como verificar a imagem de um módulo antes de iniciá-lo. Estas funcionalidades serão adicionadas na disponibilidade geral. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

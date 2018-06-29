@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d65c75a9b4f308ddd1bb6a6bff28c52c946e4f05
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320037"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066106"
 ---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 
@@ -35,7 +35,7 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Limite de tempo máx. para execuções de atividade do pipeline | 7 dias | 7 dias |
 | Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
-| Unidades de movimento de dados por execução da atividade de nuvem <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de integração de dados por atividade de cópia executar <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Escrever chamadas de API | 2500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas da API de leitura | 12,500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
@@ -51,14 +51,14 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
 | Núcleos a pedido no cluster de HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unidades de movimento de dados por execução da atividade de nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimento de dados por executar de atividade de cópia da nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Repetir contagem pipeline para execuções de atividade |1000 |MaxInt (32 bits) |
 
 <sup>1</sup> pipeline, conjunto de dados e objetos do serviço ligado de representar um agrupamento lógico da carga de trabalho. Os limites para estes objetos não estão relacionadas com a quantidade de dados, pode mover e processar com o serviço do Azure Data Factory. Fábrica de dados foi concebida para dimensionar para processar petabytes de dados.
 
 <sup>2</sup> HDInsight a pedido núcleos alocados fora da subscrição que contém a fábrica de dados. Como resultado, o limite superior é a fábrica de dados imposta limite núcleos núcleos de HDInsight a pedido e é diferente do que o limite de núcleos associado à subscrição do Azure.
 
-<sup>3</sup> unidade de movimento de dados de nuvem (DMU) está a ser utilizada numa operação de cópia da nuvem para a nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade na fábrica de dados. Pode obter um maior débito de cópia utilizando mais DMUs para alguns cenários. Consulte [nuvem unidades de movimento de dados (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) e [nuvem unidades de movimento de dados (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em detalhes.
+<sup>3</sup> unidade de integração de dados (DIU) para v2 ou nuvem dados movimento unidade (DMU) para v1 está a ser utilizado numa operação de cópia da nuvem para a nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade na fábrica de dados. Pode obter um maior débito de cópia utilizando mais DMUs para alguns cenários. Consulte [unidades de integração de dados (V2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) e [nuvem unidades de movimento de dados (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em obter mais detalhes, e [página de preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para tem implicações em termos de faturação.
 
 <sup>4</sup> a integração do tempo de execução (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados entre diferentes ambientes de rede: movimento de dados, distribuição de atividades para serviços de computação execução de pacotes SSIS. Para obter mais informações, consulte [descrição geral de tempo de execução de integração](../articles/data-factory/concepts-integration-runtime.md).
 

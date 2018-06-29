@@ -13,19 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e3c4ec0062b6a155d0f4b11da1c699a0906c442
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 338df0e258f66b6639e59a4fe31b6cfb6c283dd3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318233"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045532"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia de Azure Data Factory funciona o mapeamento de esquema e o mapeamento do tipo de dados a partir dos dados de origem para sink de dados ao efetuar a cópia de dados.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
-
 
 ## <a name="column-mapping"></a>Mapeamento de colunas
 

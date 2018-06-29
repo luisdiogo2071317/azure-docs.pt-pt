@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309618"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061649"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
@@ -170,7 +170,7 @@ Também o Expressroute permite-lhe impulsar 2x até o limite de largura de banda
 - [Fluxos de trabalho](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>É a base de dados SQL em conformidade com os requisitos de regulamentação e forma que o ajuda a conformidade da minha própria organização?
-Base de dados do SQL Server está em conformidade com um intervalo de regulamentação compliances. Para ver o conjunto mais recente de compliances que tiverem sido cumpridos, visite o [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) e desagregar compliances que são importantes para a sua organização para ver se a base de dados SQL está incluído em serviços do Azure em conformidade. É importante ter em atenção que apesar de base de dados SQL pode ser certificada como um serviço em conformidade, que ajuda na conformidade de serviço da sua organização, mas não automaticamente garante-lo.
+Base de dados do SQL Server está em conformidade com um intervalo de regulamentação compliances. Para ver o conjunto mais recente de compliances que tiverem sido cumpridos, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) e desagregar compliances que são importantes para a sua organização para ver se a base de dados SQL está incluído em serviços do Azure em conformidade. É importante ter em atenção que apesar de base de dados SQL pode ser certificada como um serviço em conformidade, que ajuda na conformidade de serviço da sua organização, mas não automaticamente garante-lo.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitorização de base de dados inteligente e manutenção após a migração
 
@@ -245,11 +245,11 @@ Base de dados do SQL Server utiliza algumas inteligentes técnicas que lhe permi
 
 - **Exportar**: pode exportar a base de dados SQL do Azure como um ficheiro BACPAC do portal do Azure
 
-   ![Exportação de base de dados](./media/sql-database-export/database-export.png)
+   ![exportação de base de dados](./media/sql-database-export/database-export.png)
 
 - **Importar**: também pode importar dados como um ficheiro BACPAC para a base de dados no portal do Azure.
 
-   ![Importação de base de dados](./media/sql-database-import/import.png)
+   ![importação de base de dados](./media/sql-database-import/import.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Como devo sincronizar dados entre a base de dados SQL e SQL Server?
 Tem várias formas de alcançar isto: 

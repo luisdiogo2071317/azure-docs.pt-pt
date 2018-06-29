@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657609"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063279"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Cópia de segurança do SO e restauro para o tipo II SKUs
 
-Este documento descreve os passos para efetuar uma cópia de segurança do sistema operativo e o restauro para o **tipo II SKUs** das instâncias grande HANA. 
+Este documento descreve os passos para efetuar uma cópia de nível de ficheiro de sistema operativo e o restauro para o **tipo II SKUs** das instâncias grande HANA. 
 
 >[!NOTE]
 >Os scripts de cópia de segurança de SO utiliza o software de ReaR, que é previamente instalado no servidor.  
 
-Após o aprovisionamento estiver concluído, a equipa de gestão do serviço Microsoft, por predefinição, o servidor está configurado com base numa agenda duas cópias de segurança para criar cópias de segurança completa do sistema operativo. Pode verificar o agendamento da tarefa de cópia de segurança utilizando o seguinte comando:
+Após o aprovisionamento estiver concluído, a equipa de gestão do serviço Microsoft, por predefinição, o servidor está configurado com base numa agenda para fazer cópias de segurança do sistema de ficheiros duas cópias de segurança ao nível do cópia de segurança do sistema operativo. Pode verificar o agendamento da tarefa de cópia de segurança utilizando o seguinte comando:
 ```
 #crontab –l
 ```
@@ -38,14 +38,14 @@ Pode alterar a agenda de cópia de segurança qualquer altura utilizando o segui
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Como efetuar uma cópia de segurança manual?
 
-A cópia de segurança do sistema operativo está agendada utilizando um **cron tarefa** já. No entanto, pode efetuar a cópia de segurança do sistema operativo manualmente, bem como. Para efetuar uma cópia de segurança manual, execute o seguinte comando:
+A cópia de segurança do sistema de ficheiros do sistema operativo está agendada utilizando um **cron tarefa** já. No entanto, pode executar a sistema operativo nível cópia de segurança ficheiros manualmente, bem como. Para efetuar uma cópia de segurança manual, execute o seguinte comando:
 
 ```
 #rear -v mkbackup
 ```
 Mostrar de ecrã seguinte mostra a cópia de segurança manual de exemplo:
 
-![Como](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![como](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Como restaurar uma cópia de segurança?

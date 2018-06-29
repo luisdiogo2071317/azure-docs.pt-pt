@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rayne
-ms.openlocfilehash: 95a33c80b1aeef7fbf8bea0ab760bbd66babdac8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b16f495a21ff0b3da415390877777650a9fbb82
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427239"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048208"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas relacionados com o Hyper-V para o Azure replicação e ativação pós-falha
 
@@ -58,7 +58,7 @@ Resolva problemas com replicação inicial e contínua da seguinte forma:
 5. Verifique se os anfitriões Hyper-V podem ligar para o URL do blob storage do Azure. Para tal, selecione e verifique **cbengine.exe**. Vista **ligações TCP** para verificar a conectividade do anfitrião para o blob storage do Azure.
 6. Verifique os problemas de desempenho, conforme descrito abaixo.
     
-### <a name="performance-issues"></a>problemas de desempenho
+### <a name="performance-issues"></a>Problemas de desempenho
 
 Limitações de largura de banda de rede podem ter impacto na replicação. Resolver problemas da seguinte forma:
 
@@ -116,7 +116,7 @@ Um instantâneo consistentes da aplicação é um instantâneo de ponto no tempo
         - Contador: "escrever Bytes / seg"</br>
         - Esta taxa de alteração de dados terá de aumentar ou manter-se a um nível elevado, dependendo de como ocupado a VM ou o respetivas aplicações são.
         - O fluxo de dados do disco de média de origem é 2 MB/s de armazenamento standard para a recuperação de Site. [Saiba mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Além disso, pode [verificar metas de escalabilidade do armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+    - Além disso, pode [verificar metas de escalabilidade do armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
 8. Execute o [Planeador de implementação](hyper-v-deployment-planner-run.md).
 9. Reveja as recomendações para [rede](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e [armazenamento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

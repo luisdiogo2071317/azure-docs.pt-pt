@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a6d72f2aefa11636653bea5f9e0e17e0e98f421
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332503"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051095"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de ramo de registo utilizando o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Hive. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

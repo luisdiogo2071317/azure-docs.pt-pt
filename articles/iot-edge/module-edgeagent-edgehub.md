@@ -8,18 +8,18 @@ ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632912"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030568"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriedades do agente de limite e duplos de módulo de hub de limite
 
 O agente de limite e o hub de limite são dois módulos que constituem o tempo de execução do limite de IoT. Para obter mais informações sobre os deveres cada módulo realiza, consulte [compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura](iot-edge-runtime.md). 
 
-Este artigo fornece as propriedades pretendidas e reportadas propriedades dos duplos do módulo de tempo de execução. Consulte [implementação e monitorização] [ lnk-deploy] para obter mais informações sobre como implementar módulos em dispositivos de limite de IoT.
+Este artigo fornece as propriedades pretendidas e reportadas propriedades dos duplos do módulo de tempo de execução. Para obter mais informações sobre como implementar módulos em dispositivos de limite de IoT, consulte [implementação e monitorização][lnk-deploy].
 
 ## <a name="edgeagent-desired-properties"></a>Propriedades de EdgeAgent pretendida
 
@@ -31,22 +31,25 @@ O duplo de módulo para o agente de limite é chamado `$edgeAgent` e coordena as
 | Runtime.Type | Tem de ser "docker" | Sim |
 | runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implementação | Sim |
 | runtime.settings.loggingOptions | Um stringified JSON que contém as opções de registo para o contentor de agente de limite. [Opções de registo do docker][lnk-docker-logging-options] | Não |
+| runtime.settings.registryCredentials<br>. .username {registryId} | O nome de utilizador do registo de contentor. Para o registo de contentor do Azure, o nome de utilizador é, normalmente, o nome do registo.<br><br> As credenciais do registo são necessárias para as imagens de módulo que não são públicas. | Não |
+| runtime.settings.registryCredentials<br>. .password {registryId} | A palavra-passe para o registo de contentor. | Não |
+| runtime.settings.registryCredentials<br>. .address {registryId} | O endereço do registo do contentor. Para o registo de contentor do Azure, o endereço é normalmente *{registryname}.azurecr.io*. | Não |  
 | systemModules.edgeAgent.type | Tem de ser "docker" | Sim |
 | systemModules.edgeAgent.settings.image | O URI da imagem do agente do limite. Atualmente, o agente de limite não é possível se Atualize automaticamente. | Sim |
-| systemModules.edgeAgent.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor de agente Edge. [Docker criar opções][lnk-docker-create-options] | Não |
-| systemModules.edgeAgent.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
+| systemModules.edgeAgent.settings<br>.createOptions | Um stringified JSON que contém as opções para a criação do contentor de agente Edge. [Docker criar opções][lnk-docker-create-options] | Não |
+| systemModules.edgeAgent.configuration.id | O ID da implementação que implementado Este módulo. | Esta propriedade é definida pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
 | systemModules.edgeHub.type | Tem de ser "docker" | Sim |
 | systemModules.edgeHub.status | Tem de ser "em execução" | Sim |
 | systemModules.edgeHub.restartPolicy | Tem de ser "sempre" | Sim |
 | systemModules.edgeHub.settings.image | O URI da imagem do Edge hub. | Sim |
-| systemModules.edgeHub.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor de hub de limite. [Docker criar opções][lnk-docker-create-options] | Não |
-| systemModules.edgeHub.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
+| systemModules.edgeHub.settings<br>.createOptions | Um stringified JSON que contém as opções para a criação do contentor de hub de limite. [Docker criar opções][lnk-docker-create-options] | Não |
+| systemModules.edgeHub.configuration.id | O ID da implementação que implementado Este módulo. | Esta propriedade é definida pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
 | módulos. .version {moduleId} | Uma cadeia definida pelo utilizador, que representa a versão deste módulo. | Sim |
 | módulos. .type {moduleId} | Tem de ser "docker" | Sim |
 | modules.{moduleId}.restartPolicy | {"nunca" \| "no-falhou" \| "no-mau estado de funcionamento" \| "sempre"} | Sim |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
 | modules.{moduleId}.settings.createOptions | Um stringified JSON que contém as opções para a criação do contentor do módulo. [Docker criar opções][lnk-docker-create-options] | Não |
-| modules.{moduleId}.configuration.id | O ID da implementação que implementado Este módulo. | Isto é definido pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
+| modules.{moduleId}.configuration.id | O ID da implementação que implementado Este módulo. | Esta propriedade é definida pelo IoT Hub quando este manifesto é aplicado através de uma implementação. Não faz parte de um manifesto de implementação. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent comunicadas propriedades
 
@@ -59,7 +62,7 @@ O agente de limite reportados propriedades incluem as três principais informaç
 Neste último elemento de informação é útil caso as propriedades pretendidas mais recente não são aplicadas com êxito pelo runtime e o dispositivo ainda está em execução um manifesto de implementação anterior.
 
 > [!NOTE]
-> As propriedades do agente Edge comunicadas são úteis como podem ser consultadas com o [idioma de consulta do IoT Hub] [ lnk-iothub-query] para investigar o estado de implementações de escala. Consulte [implementações] [ lnk-deploy] para obter mais informações sobre como utilizar esta funcionalidade.
+> As propriedades do agente Edge comunicadas são úteis como podem ser consultadas com o [idioma de consulta do IoT Hub] [ lnk-iothub-query] para investigar o estado de implementações de escala. Para obter mais informações sobre como utilizar as propriedades de agente do limite para o estado, consulte [implementações de compreender o IoT Edge para dispositivos único ou na escala][lnk-deploy].
 
 A tabela seguinte não inclui as informações que são copiadas a partir das propriedades pretendidas.
 
@@ -68,7 +71,7 @@ A tabela seguinte não inclui as informações que são copiadas a partir das pr
 | lastDesiredVersion | Este número inteiro refere-se para a última versão das propriedades pretendidas processados pelo agente de limite. |
 | lastDesiredStatus.code | Este é o código de estado que faça referência a última propriedades pretendidas vistas pelo agente de limite. Valores permitidos: `200` com êxito, `400` configuração inválida, `412` versão de esquema inválida, `417` as propriedades pretendidas estão vazios, `500` falhou |
 | lastDesiredStatus.description | Descrição de texto do Estado |
-| DeviceHealth | `healthy` Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
+| deviceHealth | `healthy` Se o estado do tempo de execução de todos os módulos `running` ou `stopped`, `unhealthy` caso contrário |
 | configurationHealth.{deploymentId}.health | `healthy` Se o estado do tempo de execução de todos os módulos definido pela implementação {deploymentId} `running` ou `stopped`, `unhealthy` caso contrário |
 | runtime.platform.OS | Relatórios de SO em execução no dispositivo |
 | runtime.platform.architecture | A arquitetura da CPU de relatórios no dispositivo |

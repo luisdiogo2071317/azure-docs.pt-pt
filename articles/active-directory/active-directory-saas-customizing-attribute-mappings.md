@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036449"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de utilizador aprovisionamento mapeamentos de atributos para aplicações de SaaS no Azure Active Directory
-Microsoft Azure AD fornece suporte para o aprovisionamento de utilizadores para aplicações de SaaS de terceiros, tais como o Salesforce, Google Apps e outros. Se tiver utilizadores de aprovisionamento para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de uma configuração denominada "mapeamento de atributos".
+Microsoft Azure AD fornece suporte para o aprovisionamento de utilizadores para aplicações de SaaS de terceiros, tais como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
 
 Não há um conjunto de atributos e os mapeamentos de atributos entre objetos de utilizador do Azure AD e objetos de utilizador de cada aplicação SaaS previamente configurado. Algumas aplicações, gerir outros tipos de objetos, além de utilizadores, tais como grupos. <br> 
- Pode personalizar os mapeamentos de atributos de predefinição consoante as suas necessidades de negócio. Isto significa que pode alterar ou eliminar mapeamentos de atributos existente ou criar novos mapeamentos de atributos.
+ Pode personalizar os mapeamentos de atributos predefinidos consoante as suas necessidades de negócio. Isto significa que pode alterar ou eliminar mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.
  
 ## <a name="editing-user-attribute-mappings"></a>Editar mapeamentos de atributos de utilizador
 
@@ -35,7 +35,7 @@ No portal do Azure AD, pode aceder a esta funcionalidade, clicando num **mapeame
 
 ![Salesforce][5] 
 
-Ao clicar num **mapeamentos** configuração, abre o relacionados **atributo mapeamento** ecrã. Existem mapeamentos de atributos que são necessários para uma aplicação SaaS a funcionar corretamente. Para os atributos necessários, o **eliminar** funcionalidade não está disponível.
+Ao clicar num **mapeamentos** configuração, abre o relacionados **mapeamento de atributos** ecrã. Existem mapeamentos de atributos que são necessários para uma aplicação SaaS a funcionar corretamente. Para os atributos necessários, o **eliminar** funcionalidade não está disponível.
 
 
 ![Salesforce][6]  
@@ -56,7 +56,7 @@ Com mapeamentos de atributos, pode controlar a forma como os atributos são pree
   Para obter mais informações, consulte [escrever expressões para mapeamentos de atributos no Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Nenhum** -o atributo de destino for deixado inalterado. No entanto, se o atributo de destino é alguma vez vazio, é preenchido com o valor predefinido que especificar.
 
-Para além destes quatro tipos de mapeamento de atributo básica, os mapeamentos de atributos personalizados suportam o conceito de opcional **predefinido** valor atribuição. A atribuição de valor predefinido garante que um atributo de destino é preenchido com um valor se não existir nenhuma um valor no Azure AD, nem o objeto de destino. A configuração mais comuns é a deixar isto em branco.
+Para além destes quatro tipos básicos, mapeamentos de atributos personalizados suportam o conceito de opcional **predefinido** valor atribuição. A atribuição de valor predefinido garante que um atributo de destino é preenchido com um valor se não existir nenhuma um valor no Azure AD, nem o objeto de destino. A configuração mais comuns é a deixar isto em branco.
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>Noções sobre as propriedades de mapeamento de atributos
@@ -79,7 +79,7 @@ Um número selecionado de aplicações, como o ServiceNow, a caixa e o Google Ap
 
 ![ServiceNow][8]  
 
-Aprovisionamento de grupo pode ser opcionalmente ativado ou desativado, selecionando o mapeamento de grupo em **mapeamentos**e definição **ativado** para a opção pretendida no **omapeamentodeatributos** ecrã.
+Aprovisionamento de grupo pode ser opcionalmente ativado ou desativado, selecionando o mapeamento de grupo em **mapeamentos**e definição **ativado** para a opção pretendida no **demapeamentodeatributos** ecrã.
 
 Os atributos aprovisionados como parte dos objetos de grupo podem ser personalizados da mesma forma que os objetos de utilizador, descrito anteriormente. 
 
@@ -98,8 +98,7 @@ Aplicações e sistemas que suportam a personalização da lista de atributos in
 * Salesforce
 * ServiceNow
 * Workday
-* Azure Active Directory
-* Active Directory no local (como parte do utilizador Workday aprovisionamento conector)
+* Azure Active Directory ([atributos predefinidos de AD Graph API do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e as extensões de diretórios personalizada são suportadas)
 * As aplicações que suportam [SCIM 2.0](https://tools.ietf.org/html/rfc7643), em que os atributos definidos no [esquema core](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 >[!NOTE]
@@ -145,13 +144,13 @@ A seleção desta opção irá eficazmente forçar uma sincronização de todos 
 * É uma melhor prática recomendada para manter o número de alterações consecutivas para os mapeamentos de atributos no mínimo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Lista de tutoriais sobre como integrar aplicações SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

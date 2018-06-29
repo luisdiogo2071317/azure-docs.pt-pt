@@ -8,14 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632453"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030772"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Configurar e monitorizar dispositivos de IoT à escala – pré-visualização
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configurar e monitorizar dispositivos de IoT à escala através do portal do Azure
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 Gestão de dispositivos automática no IoT Hub do Azure automatiza muitas das tarefas repetitivas e complexas de gerir dispositivos grande fleets através da totalidade da respetiva ciclos de vida. Com a gestão de dispositivos automático, pode um conjunto de dispositivos com base nas respetivas propriedades de destino, definir uma configuração desejada e permitir que o IoT Hub, atualize-os sempre que entram em âmbito.  Este procedimento é efetuado através de uma configuração de dispositivos automático, que também permitirá resumir conclusão e conformidade, identificador de intercalação e entra em conflito e implementar configurações numa abordagem faseada.
 
@@ -28,9 +30,6 @@ Trabalho de configurações automático de dispositivos através da atualizaçã
 * O **destino conteúdo** define as propriedades pretendidas para ser adicionados ou atualizados nos dispositivos visados duplos. O conteúdo inclui um caminho para a secção de propriedades pretendidas para ser alterada.
 
 * O **métricas** definir o número de resumo de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo comunicadas propriedades.  Métricas de sistema são nas métricas predefinidas que medem o estado de atualização de duplo, tais como o número de dispositivos duplos destinadas e o número de duplos foram atualizadas com êxito. 
-
-> [!Note]
-> Durante a pré-visualização, esta funcionalidade não está disponível para os Hubs IoT em regiões EUA leste, EUA oeste, Europa do Norte e Europa Ocidental.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos duplos para configurar dispositivos
 
@@ -52,7 +51,7 @@ Antes de poder criar uma configuração, tem de especificar quais os dispositivo
 ## <a name="create-a-configuration"></a>Criar uma configuração
 
 1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
-1. Selecione **configuração de dispositivos de IoT (pré-visualização)**.
+1. Selecione **configuração do dispositivo IoT**.
 1. Selecione **Adicionar configuração**.
 
 Existem cinco passos para criar uma configuração. As secções seguintes guiá-lo através de cada um deles. 
@@ -96,7 +95,7 @@ Utilize a propriedade de etiquetas dos dispositivos duplos para os dispositivos 
 Uma vez que as configurações com várias podem ter como destino o mesmo dispositivo, deverá dar-cada configuração um número de prioridade. Se alguma vez existir um conflito, a configuração com a prioridade mais alta wins. 
 
 1. Introduza um número inteiro positivo para a configuração **prioridade**. Maior valor numérico é considerado a prioridade mais elevada. Se duas configurações de tem o mesmo número de prioridade, que foi criada mais recentemente wins. 
-1. Introduza um **condição de destino** para determinar quais os dispositivos visados com esta configuração. A condição é baseada em etiquetas do dispositivo duplo ou dispositivo duplo reportados propriedades e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. 
+1. Introduza um **condição de destino** para determinar quais os dispositivos visados com esta configuração. A condição é baseada em etiquetas do dispositivo duplo ou dispositivo duplo reportados propriedades e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. Pode especificar `*` para todos os dispositivos de destino.
 1. Selecione **seguinte** para avançar para o passo final.
 
 ### <a name="step-5-review-configuration"></a>Passo 5: Configuração de revisão
@@ -108,8 +107,8 @@ Reveja as informações de configuração, em seguida, selecione **submeter**.
 Para ver os detalhes de uma configuração e monitorizar os dispositivos a executá-lo, utilize os seguintes passos:
 
 1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
-1. Selecione **configuração de dispositivos de IoT (pré-visualização)**.
-1. Inspecione a lista de configuração. Para cada configuração, pode ver os seguintes detalhes:
+1. Selecione **configuração do dispositivo IoT**.
+2. Inspecione a lista de configuração. Para cada configuração, pode ver os seguintes detalhes:
    * **ID** -o nome da configuração.
    * **Condição de destino** -a consulta utilizada para definir os dispositivos visados.
    * **Prioridade** -o número de prioridade atribuído à configuração.
@@ -136,25 +135,25 @@ Se atualizar a condição de destino, ocorrem as seguintes atualizações:
 Para modificar uma configuração, utilize os seguintes passos: 
 
 1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
-1. Selecione **configuração de dispositivos de IoT (pré-visualização)**. 
-1. Selecione a configuração que pretende modificar. 
-1. Efetue atualizações para os seguintes campos: 
+1. Selecione **configuração do dispositivo IoT**. 
+2. Selecione a configuração que pretende modificar. 
+3. Efetue atualizações para os seguintes campos: 
    * Condição de destino 
    * Etiquetas 
    * Prioridade 
    * Métricas
-1. Selecione **Guardar**.
-1. Siga os passos no [uma configuração de Monitor] [âncora-monitor] para ver as alterações a implementar. 
+4. Selecione **Guardar**.
+5. Siga os passos no [uma configuração de Monitor] [âncora-monitor] para ver as alterações a implementar. 
 
 ## <a name="delete-a-configuration"></a>Eliminar uma configuração
 
 Quando elimina uma configuração, quaisquer dispositivos duplos execute a seguinte configuração de prioridade mais elevada. Se os dispositivos duplos não satisfazem a condição de destino de qualquer outra configuração, não existem outras definições são aplicadas. 
 
 1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
-1. Selecione **configuração de dispositivos de IoT (pré-visualização)**. 
-1. Utilize a caixa de verificação para selecionar a configuração que pretende eliminar. 
-1. Selecione **Eliminar**.
-1. Uma linha de comandos irá pedir-lhe para confirmar.
+1. Selecione **configuração do dispositivo IoT**. 
+2. Utilize a caixa de verificação para selecionar a configuração que pretende eliminar. 
+3. Selecione **Eliminar**.
+4. Uma linha de comandos irá pedir-lhe para confirmar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como configurar e monitorizar dispositivos de IoT à escala. Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:

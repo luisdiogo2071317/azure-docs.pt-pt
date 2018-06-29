@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337976"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063685"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure
 
@@ -393,6 +393,8 @@ Estes são números de volume aproximada que podem diferir ligeiramente com base
 Poderá ser necessário mais armazenamento. Pode adicionar armazenamento, a aquisição de armazenamento adicional em unidades de 1 TB. Este tipo de armazenamento adicional pode ser adicionado como volume adicional. Também pode ser utilizado para expandir um ou mais dos volumes existentes. Não é possível diminuir os tamanhos dos volumes que originalmente implementadas e principalmente documentado tabelas anteriores. É também não é possível alterar os nomes dos volumes ou os nomes de montagem. Os volumes de armazenamento descritos anteriormente estão anexados às unidades instância grande HANA como NFS4 volumes.
 
 Pode utilizar instantâneos de armazenamento para fins de recuperação de cópia de segurança e restauro e após desastre. Para obter mais informações, consulte [SAP HANA (instâncias de grande) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Consulte [HLI suportado cenários](hana-supported-scenario.md) para detalhes de esquema de armazenamento para o seu cenário.
 
 ### <a name="encryption-of-data-at-rest"></a>Encriptação de dados inativos
 O armazenamento utilizado para a instância de grande HANA permite que a encriptação transparente de dados que são armazenadas nos discos. Quando uma unidade de instância grande HANA é implementada, pode ativar este tipo de encriptação. Também pode alterar para volumes encriptados após a implementação ocorre. A movimentação de não encriptados para volumes encriptados é transparente e não necessita de período de indisponibilidade. 

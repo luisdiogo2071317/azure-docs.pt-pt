@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309635"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060388"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -60,7 +60,7 @@ A versão de redundante da zona da arquitetura de elevada disponibilidade é ilu
 ![zona de arquitetura de elevada disponibilidade redundante](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Leitura de escalamento horizontal
-Tal como descrito, Premium e crítico de negócio (pré-visualização) tire partido de camadas quórum-conjuntos e serviço tecnologia Always On para elevada disponibilidade nas única zona e configurações de zona redundante. Uma das vantagens de AlwasyON é que as réplicas sempre estão no estado de uma forma consistente. Porque as réplicas tenham o mesmo nível de desempenho como principais, a aplicação pode tirar partido dessa capacidade extra para a manutenção as cargas de trabalho só de leitura em nenhum extra Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas da carga de trabalho de leitura e escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como a análise e, por conseguinte, foi possível tirar partido desta capacidade adicional sem ligar para o site primário. 
+Tal como descrito, Premium e crítico de negócio (pré-visualização) tire partido de camadas quórum-conjuntos e serviço tecnologia Always On para elevada disponibilidade nas única zona e configurações de zona redundante. Uma das vantagens do AlwaysOn é que as réplicas sempre estão no estado de uma forma consistente. Porque as réplicas tenham o mesmo nível de desempenho como principais, a aplicação pode tirar partido dessa capacidade extra para a manutenção as cargas de trabalho só de leitura em nenhum extra Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas da carga de trabalho de leitura e escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como a análise e, por conseguinte, foi possível tirar partido desta capacidade adicional sem ligar para o site primário. 
 
 Para utilizar a funcionalidade de ampliação de leitura com uma base de dados específica, que tem explicitamente a ativa ao criar a base de dados ou posteriormente alterando a sua configuração através do PowerShell invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou através da API de REST do Azure Resource Manager utilizando o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método.
 

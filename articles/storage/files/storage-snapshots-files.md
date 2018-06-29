@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: cfb1e6810285886da13aa0bf69faee9c65e2b222
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738232"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063922"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure 
 Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilhe instantâneos captura o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
@@ -46,7 +46,7 @@ Capacidade de instantâneos de partilha é fornecida ao nível da partilha de fi
 
 Um instantâneo de partilha de uma partilha de ficheiros é idêntico para a partilha de ficheiros de base. A única diferença é que um **DateTime** valor é acrescentado à partilha de URI para indicar a hora em que a partilha de instantâneo. Por exemplo, se um partilha de ficheiros URI é http://storagesample.core.file.windows.net/myshare, o instantâneo de partilha URI é semelhante a:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Instantâneos de partilha são mantidas até que estes sejam eliminados explicitamente. Um instantâneo de partilha não é possível outlive a partilha de ficheiros de base. Pode enumerar os instantâneos associados a partilha de ficheiros de base para controlar os instantâneos atuais. 

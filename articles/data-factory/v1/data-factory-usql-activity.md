@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a0f4a823d9a484dcae35a2741bf7904eb17a1502
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534fbeaa8ba3c27c8d3f3bbcc59717d8bdb5c654
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622858"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050323"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-usql-activity.md)
-> * [Versão 2 - Pré-visualização](../transform-data-using-data-lake-analytics.md)
+> * [Versão 1](data-factory-usql-activity.md)
+> * [Versão 2 (versão atual)](../transform-data-using-data-lake-analytics.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atividade U-SQL no V2](../transform-data-using-data-lake-analytics.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [atividade U-SQL no V2](../transform-data-using-data-lake-analytics.md).
 
 Um pipeline de um Azure data factory processa dados nos serviços do storage ligadas utilizando os serviços ligados de computação. Contém uma sequência de atividades em que cada atividade executa uma operação de processamento específico. Este artigo descreve o **atividade de U-SQL de análise do Data Lake** que executa um **U-SQL** script num **Azure Data Lake Analytics** serviço ligado de computação. 
 
@@ -213,7 +213,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | linkedServiceName   | Referência para o Azure Data Lake Analytics registado como um serviço ligado no Factory de dados | Sim                                      |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Não (se for utilizar o script)                   |
 | scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados | Não (se for utilizar o script)                   |
-| Script              | Especifique o script inline de em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se for utilizar scriptPath e scriptLinkedService) |
+| script              | Especifique o script inline de em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se for utilizar scriptPath e scriptLinkedService) |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não                                       |
 | prioridade            | Determina quais os que são colocados em fila trabalhos devem ser selecionados para ser executado primeiro. Menor número, maior prioridade. | Não                                       |
 | parâmetros          | Parâmetros para o script U-SQL          | Não                                       |

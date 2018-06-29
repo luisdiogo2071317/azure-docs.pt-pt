@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: cdfc3ceb1ce94c4653a710658c1df991d9ca2c30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8253dfb6525496c78515a9382778a767f7da0771
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294450"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063583"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Algumas das minha telemetria está em falta
@@ -41,7 +41,7 @@ ms.locfileid: "35294450"
 *Quando posso com o botão direito um projeto existente no Explorador de soluções, não vejo qualquer opções do Application Insights.*
 
 * Nem todos os tipos de projeto de .NET são suportados pelas ferramentas de. Projetos Web e WCF são suportados. Para outros tipos de projeto, tais como aplicações de ambiente de trabalho ou serviços, pode ainda [adicionar manualmente um Application Insights SDK ao projeto](app-insights-windows-desktop.md).
-* Certifique-se de que tem [Visual Studio 2013 atualização 3 ou posterior](http://go.microsoft.com/fwlink/?LinkId=397827). Inclui pré-instaladas com as ferramentas de análise de programador, que fornecem o Application Insights SDK.
+* Certifique-se de que tem [Visual Studio 2013 atualização 3 ou posterior](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2013-update3-rtm-vs). Inclui pré-instaladas com as ferramentas de análise de programador, que fornecem o Application Insights SDK.
 * Selecione **ferramentas**, **extensões e atualizações** e verifique se **Developer Analytics Tools** está instalado e ativado. Se assim for, clique em **atualizações** para ver se existe uma atualização disponível.
 * Abra a caixa de diálogo novo projeto e escolha a aplicação ASP.NET Web. Se vir a opção do Application Insights existe, as ferramentas são instaladas. Caso contrário, tente desinstalar e reinstalar o Application Insights Tools.
 
@@ -158,7 +158,7 @@ Os dados provém de scripts nas páginas web.
 Consulte [telemetria de dependência](app-insights-asp-net-dependencies.md) e [telemetria de exceção](app-insights-asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Não existem dados de desempenho
-Dados de desempenho (CPU, velocidade de e/s e assim sucessivamente) está disponível para [serviços web de Java](app-insights-java-collectd.md), [aplicações de ambiente de trabalho do Windows](app-insights-windows-desktop.md), [web IIS aplicações e serviços se instalar o monitor de estado](app-insights-monitor-performance-live-website-now.md), e [Cloud Services do Azure](app-insights-azure.md). Pode encontrá-la em definições, os servidores.
+Dados de desempenho (CPU, velocidade de e/s e assim sucessivamente) está disponível para [serviços web de Java](app-insights-java-collectd.md), [aplicações de ambiente de trabalho do Windows](app-insights-windows-desktop.md), [web IIS aplicações e serviços se instalar o monitor de estado](app-insights-monitor-performance-live-website-now.md), e [Cloud Services do azure](app-insights-azure.md). Pode encontrá-la em definições, os servidores.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Não existem dados (servidor), uma vez que posso publicado a aplicação ao meu servidor
 * Certifique-se de que realmente copiou todos os da Microsoft. DLLs de ApplicationInsights para o servidor, juntamente com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

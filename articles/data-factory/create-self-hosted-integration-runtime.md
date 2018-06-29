@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 6f3259170a1b3fe0bbd33899a74863f5e71a49f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618458"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048793"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o tempo de execução do Self-hosted integração
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter detalhes sobre a resposta a incidentes, consulte [descrição geral de tempo de execução de integração](concepts-integration-runtime.md).
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
 Um tempo de execução automática alojada integração é capaz de executar atividades de cópia entre um dados em nuvem arquivos e um arquivo de dados na rede privada e a distribuição de atividades de transformação contra recursos de computação no local ou de rede Virtual do Azure. Instale necessidades de integração personalizada alojada de tempo de execução de uma máquina no local ou uma máquina virtual no interior de uma rede privada.  
 

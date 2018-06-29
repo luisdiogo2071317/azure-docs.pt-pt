@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621824"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052295"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e compressão codecs no Azure Data Factory
 
@@ -27,9 +27,6 @@ Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (
 * [Formato Avro](#avro-format)
 * [Formato ORC](#orc-format)
 * [Formato de parquet](#parquet-format)
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [suportado os formatos de ficheiro e compressão no Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Saiba como a atividade de cópia mapeia os dados de origem para sink do [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md), incluindo a forma como os metadados é determinado com base nas suas definições do formato de ficheiro e sugestões no quando especificar o [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) secção.
@@ -450,8 +447,8 @@ Tenha em atenção os seguintes pontos:
 | Tipo de dados intermédio de fábrica de dados | Tipos ORC |
 |:--- |:--- |
 | Booleano | Booleano |
-| SByte | Bytes |
-| Bytes | Curto |
+| SByte | Byte |
+| Byte | Curto |
 | Int16 | Curto |
 | UInt16 | Int |
 | Int32 | Int |
@@ -459,7 +456,7 @@ Tenha em atenção os seguintes pontos:
 | Int64 | Longo |
 | UInt64 | Cadeia |
 | Único | Flutuante |
-| duplo | duplo |
+| Valor de duplo | Valor de duplo |
 | Decimal | Decimal |
 | Cadeia | Cadeia |
 | DateTime | Carimbo de data/hora |
@@ -495,7 +492,7 @@ Tenha em atenção os seguintes pontos:
 |:--- |:--- |:--- |:--- |
 | Booleano | Booleano | N/A | N/A |
 | SByte | Int32 | int8 | int8 |
-| Bytes | Int32 | UInt8 | Int16 |
+| Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
 | Int32 | Int32 | Int32 | Int32 |
@@ -503,7 +500,7 @@ Tenha em atenção os seguintes pontos:
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binário | UInt64 | Decimal |
 | Único | Flutuante | N/A | N/A |
-| duplo | duplo | N/A | N/A |
+| Valor de duplo | Valor de duplo | N/A | N/A |
 | Decimal | Binário | Decimal | Decimal |
 | Cadeia | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |

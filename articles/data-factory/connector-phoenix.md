@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d9066607add71e6439d55f2ae329c1da5a75ccb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fc4eb2b717ea9f4c1b2813db7dcf02062948bae0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331760"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048361"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados de Phoenix utilizando o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Phoenix. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

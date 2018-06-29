@@ -4,28 +4,28 @@ description: Descrição geral da integração contínua e a implementação con
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fbac725894d01b2dc622d3542f865a66b240743
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333781"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047460"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>A integração contínua e a implementação contínua para limite de IoT do Azure - pré-visualização
-Este tutorial demonstra como pode utilizar a integração contínua e funcionalidades de implementação contínua dos serviços de equipa do Visual Studio (VSTS) e Microsoft Team Foundation Server (TFS) para criar, testar e implementar aplicações de forma rápida e a sua Limite de IoT do Azure. 
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>A integração contínua e a implementação contínua para limite de IoT do Azure
 
-Neste tutorial, vai aprender a:
-> [!div class="checklist"]
-> * Crie e verificar um exemplo de unidade que contém de solução IoT Edge testes.
-> * Instale a extensão de limite de IoT do Azure para a sua VSTS.
-> * Configure a integração contínua (CI) para compilar a solução e os testes de unidade.
-> * Configure a implementação contínua (CD) para implementar a solução e ver respostas.
+Este artigo demonstra como pode utilizar a integração contínua e funcionalidades de implementação contínua dos serviços de equipa do Visual Studio (VSTS) e Microsoft Team Foundation Server (TFS) para criar, testar e implementar aplicações de forma rápida e para o Azure Limite de IoT. 
 
-Irá demorar 30 minutos para concluir este tutorial.
+Neste artigo, ficará a saber como:
+* Crie e verificar um exemplo de unidade que contém de solução IoT Edge testes.
+* Instale a extensão de limite de IoT do Azure para a sua VSTS.
+* Configure a integração contínua (CI) para compilar a solução e os testes de unidade.
+* Configure a implementação contínua (CD) para implementar a solução e ver respostas.
+
+Irá demorar 30 minutos para concluir os passos neste artigo.
 
 ![CI e do CD](./media/how-to-ci-cd/cd.png)
 
@@ -82,13 +82,7 @@ Nesta secção, irá criar um exemplo de limite de IoT solução que contém uni
 
             static void Main(string[] args)
             {
-                // The Edge runtime gives us the connection string we need -- it is injected as an environment variable
-                string connectionString = Environment.GetEnvironmentVariable("EdgeHubConnectionString");
-
-                // Cert verification is not yet fully functional when using Windows OS for the container
-                bool bypassCertVerification = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-                if (!bypassCertVerification) InstallCert();
-                Init(connectionString, bypassCertVerification).Wait();
+                Init().Wait();
 
                 // Wait until the app unloads or is cancelled
                 var cts = new CancellationTokenSource();
@@ -108,94 +102,55 @@ Nesta secção, irá criar um exemplo de limite de IoT solução que contém uni
             }
 
             /// <summary>
-            /// Add certificate in local cert store for use by client for secure connection to IoT Edge runtime
-            /// </summary>
-            static void InstallCert()
-            {
-                string certPath = Environment.GetEnvironmentVariable("EdgeModuleCACertificateFile");
-                if (string.IsNullOrWhiteSpace(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing path to certificate file.");
-                }
-                else if (!File.Exists(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing certificate file.");
-                }
-                X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadWrite);
-                store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-                Console.WriteLine("Added Cert: " + certPath);
-                store.Close();
-            }
-            /// <summary>
-            /// Initializes the DeviceClient and sets up the callback to receive
+            /// Initializes the ModuleClient and sets up the callback to receive
             /// messages containing temperature information
             /// </summary>
-            static async Task Init(string connectionString, bool bypassCertVerification = false)
+            static async Task Init()
             {
-                Console.WriteLine("Connection String {0}", connectionString);
-
                 MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-                // During dev you might want to bypass the cert verification. It is highly recommended to verify certs systematically in production
-                if (bypassCertVerification)
-                {
-                    mqttSetting.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-                }
                 ITransportSettings[] settings = { mqttSetting };
 
                 // Open a connection to the Edge runtime
-                DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(connectionString, settings);
+                ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
                 await ioTHubModuleClient.OpenAsync();
                 Console.WriteLine("IoT Hub module client initialized.");
 
                 // Register callback to be called when a message is received by the module
-                // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-                // Read TemperatureThreshold from Module Twin Desired Properties
-                var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-                var moduleTwinCollection = moduleTwin.Properties.Desired;
-                try {
-                    temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-                } catch(ArgumentOutOfRangeException) {
-                    Console.WriteLine("Proerty TemperatureThreshold not exist");
-                }
-
-                // Attach callback for Twin desired properties updates
-                await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
-
-                // Register callback to be called when a message is received by the module
-                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessage, ioTHubModuleClient);
             }
 
-            static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+            /// <summary>
+            /// This method is called whenever the module is sent a message from the EdgeHub. 
+            /// It just pipe the messages without any change.
+            /// It prints all the incoming messages.
+            /// </summary>
+            static async Task<MessageResponse> FilterMessage(Message message, object userContext)
             {
-                try
+                int counterValue = Interlocked.Increment(ref counter);
+
+                var moduleClient = userContext as ModuleClient;
+                if (moduleClient == null)
                 {
-                    Console.WriteLine("Desired property change:");
-                    Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-
-                    if (desiredProperties["TemperatureThreshold"] != null)
-                        temperatureThreshold = desiredProperties["TemperatureThreshold"];
-
+                    throw new InvalidOperationException("UserContext doesn't contain " + "expected values");
                 }
-                catch (AggregateException ex)
+
+                byte[] messageBytes = message.GetBytes();
+                string messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+
+                var filteredMessage = filter(message);
+
+                if (filteredMessage != null && !string.IsNullOrEmpty(messageString))
                 {
-                    foreach (Exception exception in ex.InnerExceptions)
+                    var pipeMessage = new Message(messageBytes);
+                    foreach (var prop in message.Properties)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Error when receiving desired property: {0}", exception);
+                        pipeMessage.Properties.Add(prop.Key, prop.Value);
                     }
+                    await moduleClient.SendEventAsync("output1", pipeMessage);
+                    Console.WriteLine("Received message sent");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-                }
-                return Task.CompletedTask;
+                return MessageResponse.Completed;
             }
 
             public static Message filter(Message message)
@@ -223,42 +178,6 @@ Nesta secção, irá criar um exemplo de limite de IoT solução que contém uni
                     return filteredMessage;
                 }
                 return null;
-            }
-
-            static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-            {
-                try
-                {
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-
-                    var filteredMessage = filter(message);
-                    if (filteredMessage != null)
-                    {
-                        await deviceClient.SendEventAsync("output1", filteredMessage);
-                    }
-
-                    // Indicate that the message treatment is completed
-                    return MessageResponse.Completed;
-                }
-                catch (AggregateException ex)
-                {
-                    foreach (Exception exception in ex.InnerExceptions)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Error in sample: {0}", exception);
-                    }
-                    // Indicate that the message treatment is not completed
-                    var deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", ex.Message);
-                    // Indicate that the message treatment is not completed
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
             }
         }
     }
@@ -404,7 +323,7 @@ Nesta secção, irá criar uma definição de compilação que está configurada
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. Na primeira tarefa do Azure IoT Edge, atualize o **nome a apresentar** para **Push e de compilação do módulo**e, no **ação** na lista pendente, selecione **criar e emitir**. No **Module.json ficheiro** caixa de texto, adicione-lhe abaixo do caminho. Em seguida, escolha **o tipo de registo do contentor**, certifique-se de que configura e selecione o mesmo registo no seu código. Esta tarefa de compilação e push de todos os seus módulos na solução e publicar no registo de contentor especificado. 
+1. Na primeira tarefa do Azure IoT Edge, atualize o **nome a apresentar** para **Push e de compilação do módulo**e, no **ação** na lista pendente, selecione **criar e emitir**. No **Module.json ficheiro** caixa de texto, adicione-lhe abaixo do caminho. Em seguida, escolha **o tipo de registo do contentor**, certifique-se de que configura e selecione o mesmo registo no seu código. Esta tarefa de compilação e push de todos os seus módulos na solução e publicar no registo de contentor especificado. Se os módulos serão enviados para os registos de diferentes, pode ter vários **Push e de compilação do módulo** tarefas.
 
     ```
     **/module.json
@@ -449,16 +368,5 @@ Por isso, ao implementar em dispositivos de IoT Edge, existem três ambientes pr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este tutorial demonstra como pode utilizar a integração contínua e a implementação contínua as funcionalidades de VSTS ou TFS. 
-
 * Compreender a implementação de limite de IoT no [implementações de limite de IoT compreender para dispositivos único ou à escala](module-deployment-monitoring.md)
 * Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos de limite de IoT à escala](how-to-deploy-monitor.md).
-
-
-
-
-
-
-
-
-

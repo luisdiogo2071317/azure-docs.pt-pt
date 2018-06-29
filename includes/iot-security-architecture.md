@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814803"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066089"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das coisas
 
@@ -29,7 +29,7 @@ As equipas de desenvolvimento muitos efetuar uma tarefa excelente capturar os re
 
 ### <a name="when-to-threat-model"></a>Quando o modelo de ameaça
 
-[Modelação de ameaça](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) oferece o maior valor quando incorporar a para a fase de conceção. Quando está a conceber, tiver a maior flexibilidade para efetuar alterações ao eliminar a ameaças. Eliminar ameaças por predefinição é o resultado desejado. É muito fácil adicionar mitigações, teste-los e assegurar que permanecem atuais e além disso, essa eliminação não é sempre possível. Torna mais difícil eliminar a ameaças à medida que um produto torna-se mais madura, por sua vez, em última análise requer mais trabalho e muito mais difícil fala que threat modeling numa fase inicial no desenvolvimento.
+[Modelação de ameaça](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o maior valor quando incorporar a para a fase de conceção. Quando está a conceber, tiver a maior flexibilidade para efetuar alterações ao eliminar a ameaças. Eliminar ameaças por predefinição é o resultado desejado. É muito fácil adicionar mitigações, teste-los e assegurar que permanecem atuais e além disso, essa eliminação não é sempre possível. Torna mais difícil eliminar a ameaças à medida que um produto torna-se mais madura, por sua vez, em última análise requer mais trabalho e muito mais difícil fala que threat modeling numa fase inicial no desenvolvimento.
 
 ### <a name="what-to-threat-model"></a>O que o modelo de ameaça
 
@@ -174,7 +174,7 @@ Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemp
 
 **Elevação de privilégio (E)**: pode ser forçado um dispositivo que suporta a função específica para fazer outra coisa. Por exemplo, um valve que programado para abrir a meio de forma pode ser induzido até abrir.
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Threat** | **Atenuação** | **Risco** | **implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Atribuição de identidade para o dispositivo e autenticar o dispositivo |Substituir o dispositivo ou parte do dispositivo com alguns outros dispositivos. Como pode saber que estamos a falar no dispositivo correto? |Autenticar o dispositivo, utilizar IPSec ou o Transport Layer Security (TLS). Infraestrutura deve suportar a utilização de chave pré-partilhada (PSK) nesses dispositivos que não é possível processar a criptografia completa assimétrica. Tirar partido do Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 || TRID |Aplica tamperproof mecanismos para o dispositivo, por exemplo, tornando difícil para impossíveis extrair as chaves e outro material de criptografia do dispositivo. |O risco é se alguém a adulteração é o dispositivo (interferências físicos). Como tem a certeza, esse dispositivo que não foi adulterado. |A mitigação mais eficaz é uma capacidade de module (TPM) fidedigna plataforma que permite armazenar chaves numa especial no chip circuitry, partir da qual as chaves não não possível ler, mas só podem ser utilizadas para operações de criptografia que utilizam a chave, mas nunca divulgar a chave. Encriptação de memória do dispositivo. Gestão de chaves para o dispositivo. O código de assinatura. | |
@@ -217,7 +217,7 @@ Spoofing: Um intruso poderá extrair material de chaves criptográfica de um dis
 
 Ameaças à volta do caminho de comunicação entre dispositivos, dispositivos e gateways de campo e gateway de nuvem e de dispositivos. A tabela seguinte tem algumas orientações à volta de sockets abrir o dispositivo/VPN:
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Threat** | **Atenuação** | **Risco** | **implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo IoT Hub |TID |(D) TLS (PSK/RSA) para encriptar o tráfego |Escutas ou interferir a comunicação entre o dispositivo e o gateway |Segurança ao nível do protocolo. Com protocolos personalizados, tem de descobrir como a protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo ao IoT Hub (dispositivo inicia a ligação). |
 | Dispositivo do dispositivo |TID |(D) TLS (PSK/RSA) para encriptar o tráfego. |Leitura de dados em trânsito entre dispositivos. Adulteração dos dados. A sobrecarga do dispositivo com novas ligações |Segurança ao nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com protocolos personalizados, tem de descobrir como a protegê-los. A mitigação para a ameaça de linha é elemento dispositivos através de um gateway de nuvem ou campo e que act apenas como clientes para a rede. O peering pode resultar numa ligação direta entre os elementos de rede após ter sido mediadas pelo gateway |
@@ -241,7 +241,7 @@ Seguem-se alguns exemplos de ameaças nesta categoria:
 
 Todos os gateway de dispositivo e o campo tem alguma forma de armazenamento (temporário para colocação de dados, armazenamento de imagem do sistema operativo (SO)).
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Threat** | **Atenuação** | **Risco** | **implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo de armazenamento |TRID |Encriptação de armazenamento, os registos de assinatura |Ler dados a partir do armazenamento (dados PII), adulteração dos dados de telemetria. Adulteração colocados em fila ou colocada em cache os dados de controlo de comando. Adulteração dos pacotes de atualização de firmware ou de configuração ao colocar em cache ou colocada em fila localmente pode levar a componentes de SO e/ou sistema que está a ser comprometidos |Encriptação, o código de autenticação de mensagem (MAC) ou assinatura digital. Em que o controlo de acesso segura possível através de acesso a recursos controlar listas (ACLs) ou permissões. |
 | Imagem de SO do dispositivo |TRID | |Adulteração com um SO / substituir os componentes de SO |Partição de SO só de leitura, iniciada a imagem do SO, encriptação |

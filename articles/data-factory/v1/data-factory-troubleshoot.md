@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051870"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). 
+> Este artigo aplica-se a versão 1 do Azure Data Factory. 
 
 Este artigo fornece sugestões de resolução de problemas para problemas ao utilizar o Azure Data Factory. Este artigo não listar todos os possíveis problemas ao utilizar o serviço, mas abrange alguns problemas e sugestões de resolução de problemas gerais.   
 
@@ -67,7 +68,7 @@ Os setores dever-se no **a aguardar** Estado devido a várias razões. Uma das r
 
 Veja o seguinte exemplo para saber como utilizar a propriedade **external**. Pode especificar opcionalmente **externalData*** quando configurar externa como true.
 
-Consulte [conjuntos de dados](data-factory-create-datasets.md) artigo para obter mais detalhes sobre esta propriedade.
+Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter mais detalhes sobre esta propriedade.
 
 ```json
 {

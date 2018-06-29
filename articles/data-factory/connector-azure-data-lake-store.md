@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 78d704bffdae50cefe577dee6fcef120dbde2d2a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332172"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049303"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure Data Lake Store utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-azure-datalake-connector.md)
-> * [Versão 2 - Pré-visualização](connector-azure-data-lake-store.md)
+> * [Versão 1](v1/data-factory-azure-datalake-connector.md)
+> * [Versão atual](connector-azure-data-lake-store.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para o Azure Data Lake Store. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector do Azure Data Lake Store no V1](v1/data-factory-azure-datalake-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

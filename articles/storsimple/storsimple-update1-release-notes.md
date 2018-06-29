@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057966"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061814"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar as notas de versão 1.2 do seu dispositivo de série 8000 do StorSimple
 
@@ -54,7 +54,7 @@ Estas funcionalidades foram lançado pela primeira vez com atualização 1 que f
   * **Continuidade do negócio**, Ativando a migração dos dados existentes no aparelhos de séries 5000 7000 para aplicações da 8000 série.
   * **Melhorado ofertas de funcionalidade de aparelhos da 8000 série**, tais como eficiente gestão centralizada de vários aparelhos através do serviço StorSimple Manager, uma melhor classe de hardware e atualizar o firmware, de aplicações virtuais, mobilidade de dados, as funcionalidades e o plano de futura.
     
-    Consulte o [guia de migração](http://www.microsoft.com/download/details.aspx?id=47322) para obter detalhes sobre como migrar StorSimple série de 5000 7000 num dispositivo da 8000 série. 
+    Consulte o [guia de migração](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) para obter detalhes sobre como migrar StorSimple série de 5000 7000 num dispositivo da 8000 série. 
 * **Disponibilidade no Portal do Azure Government** – StorSimple está agora disponível no portal do Azure Government. Veja como [implementar um dispositivo StorSimple no Portal do Azure Government](storsimple-deployment-walkthrough-gov.md).
 * **Suporte para outros fornecedores de serviços em nuvem** – as outros fornecedores de serviços cloud suportados são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 * **Atualização mais recente APIs de armazenamento** – com esta versão, StorSimple foi atualizado para o serviço de armazenamento do Azure mais recente APIs. Dispositivos de série 8000 do StorSimple que executam versões do software de pré-atualização 1 (versão, 0.1, 0,2 e 0,3) estiver a utilizar versões mais antigas do que 17 de Julho de 2009 as APIs de serviço do Storage do Azure. Conforme indicado na atualização [anúncio sobre a remoção das versões do serviço de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), por 1 de Agosto de 2016, vão ser preteridos estas APIs. É imperativo que aplique 8000 do StorSimple série Update 1 antes de 1 de Agosto de 2016. Se conseguir fazê-lo, dispositivos StorSimple irão parar de funcionar corretamente.

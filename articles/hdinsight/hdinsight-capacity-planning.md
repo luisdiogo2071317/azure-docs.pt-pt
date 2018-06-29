@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: ce8764e79d24d36eb3b162fb5f3f688b3e9fab3f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a8344388e9d31846770d5989d1ddd43fbe15336
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402007"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047484"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -114,5 +114,5 @@ No entanto, existem alguns limites de quota fixos, por exemplo uma única subscr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como configurar clusters no HDInsight com o Hadoop, Spark, Kafka, interativa de ramo de registo, HBase, servidor R ou Storm.
+* [Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como configurar clusters no HDInsight com o Hadoop, Spark, Kafka, interativa de ramo de registo, HBase, serviços de ML ou Storm.
 * [Monitorizar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): saber mais sobre os cenários principais para monitorizar o cluster do HDInsight que pode afetar a capacidade do seu cluster.

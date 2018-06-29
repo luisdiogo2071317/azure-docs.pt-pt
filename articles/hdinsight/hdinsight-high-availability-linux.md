@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404965"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046684"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Hadoop no HDInsight.
 
@@ -38,7 +38,7 @@ Nós no cluster do HDInsight são implementados através de Virtual Machines do 
 > [!NOTE]
 > Nem todos os tipos de nó são utilizados para um tipo de cluster. Por exemplo, um tipo de cluster do Hadoop não tem quaisquer nós Nimbus. Para obter mais informações sobre nós utilizada pelos tipos de cluster do HDInsight, consulte a secção de tipos de Cluster do [clusters do Hadoop baseados em criar Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) documento.
 
-### <a name="head-nodes"></a>Nós de cabeçalho
+### <a name="head-nodes"></a>Nós de cabeça
 
 Para garantir a elevada disponibilidade dos serviços do Hadoop, o HDInsight fornece dois nós principais. Ambos os nós principais são Active Directory e em execução no cluster do HDInsight em simultâneo. Alguns serviços, tais como HDFS ou YARN, apenas são 'active', no nó principal de um determinado momento. Outros serviços, tais como HiveServer2 ou MetaStore do Hive estão ativos em ambos os nós principais ao mesmo tempo.
 
@@ -51,7 +51,7 @@ Nós HEAD (e outros nós do HDInsight) tem um valor numérico como parte do nome
 
 Nós nimbus estão disponíveis com clusters de Storm. Os nós Nimbus fornecem uma funcionalidade semelhante ao JobTracker do Hadoop através de distribuição e monitorização processamento através de nós de trabalho. O HDInsight fornece dois nós Nimbus para Storm clusters
 
-### <a name="zookeeper-nodes"></a>Nós de zookeeper
+### <a name="zookeeper-nodes"></a>Nós do Zookeeper
 
 [ZooKeeper](http://zookeeper.apache.org/) nós são utilizados para eleição leader principal serviços em nós principais. Também são utilizados para assegurar que os serviços, nós de dados (trabalho) e gateways saber que nó principal mestra do serviço está ativo no. Por predefinição, o HDInsight fornece três nós de ZooKeeper.
 
@@ -63,9 +63,9 @@ Nós de trabalho efetuar a análise de dados real, quando uma tarefa for submeti
 
 Um nó de extremidade não participar ativamente na análise de dados do cluster. É utilizado pelos programadores ou cientistas de dados ao trabalhar com o Hadoop. O nó de extremidade se encontra no mesmo Azure Virtual Network dos outros nós do cluster e pode aceder diretamente a todos os outros nós. O nó de extremidade pode ser utilizado sem colocar os recursos na direção oposta ao serviços críticos do Hadoop ou as tarefas de análise.
 
-Atualmente, o servidor R no HDInsight é o único tipo de cluster que fornece um nó de extremidade por predefinição. Para o servidor R no HDInsight, é utilizado o nó de extremidade teste R código localmente no nó antes de submetê-lo para o cluster de processamento distribuído.
+Atualmente, os serviços de ML no HDInsight é o único tipo de cluster que fornece um nó de extremidade por predefinição. Para os serviços de ML no HDInsight, é utilizado o nó de extremidade teste R código localmente no nó antes de submetê-lo para o cluster de processamento distribuído.
 
-Para obter informações sobre a utilização de um nó de extremidade com tipos de cluster que não seja o R Server, consulte o [utilizar nós edge no HDInsight](hdinsight-apps-use-edge-node.md) documento.
+Para obter informações sobre a utilização de um nó de extremidade com outros tipos de cluster, consulte o [utilizar nós edge no HDInsight](hdinsight-apps-use-edge-node.md) documento.
 
 ## <a name="accessing-the-nodes"></a>Aceder a nós
 

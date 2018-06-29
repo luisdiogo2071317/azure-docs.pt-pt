@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655465"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062211"
 ---
-# <a name="integrate-cloud-foundry-with-azure"></a>Integrar Foundry de nuvem com o Azure
+# <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
 [Nuvem Foundry](https://docs.cloudfoundry.org/) é uma plataforma de PaaS em execução em cima da plataforma de IaaS de fornecedores de nuvem. Oferece a experiência de implementação de aplicação consistente através de fornecedores de nuvem. Além disso, também pode integrar com vários serviços do Azure, com o nível de enterprise HA, escalabilidade e reduções de custos.
 Existem [6 subsistemas de nuvem Foundry](https://docs.cloudfoundry.org/concepts/architecture/), que pode ser flexivelmente escala online, incluindo: encaminhamento, a autenticação, gestão de ciclo de vida de aplicações, serviço de gestão, monitorização e de mensagens. Para cada um dos subsistemas, pode configurar a nuvem Foundry utilizar correspondent serviço do Azure. 
@@ -81,7 +81,7 @@ Apesar de série F e D VM foram normalmente recomendado para o ambiente de produ
 #### <a name="managed-standard-disk"></a>Disco gerido de padrão: 
 Os discos Premium foram recomendados para desempenho fiável na produção.  Com [geridos disco](https://azure.microsoft.com/services/managed-disks/), armazenamento standard pode também fornecer fiabilidade semelhante, com um desempenho diferentes. Para a carga de trabalho que não é sensível de desempenho, como o ambiente não críticos ou de programador/teste, discos padrão geridos oferecem uma opção alternativa com custo mais baixo.  
 ### <a name="cost-saving-in-general"></a>Custo guardar em geral 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Custo VM significativas guardar com instâncias reservadas: 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Significativas VM custo guardar com instâncias reservadas: 
 Hoje que todas as VMs de CF são faturadas com preços de "a pedido", apesar dos ambientes, normalmente, manter cópias de segurança indefinidamente. Agora pode reservar capacidade de VM num termo de 1 ou 3 anos e obter descontos de 45 65%. Descontos são aplicados no sistema de faturação, sem alterações ao seu ambiente. Para obter mais informações, consulte [reservado como funciona a instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Gerido Premium disco com o tamanho mais pequeno: 
 Gerido discos suporte disco menor, por exemplo, P4(32 GB) e P6(64 GB) para discos standard e premium. Se tiver pequenas cargas de trabalho, pode poupar custos quando migrar do discos standard premium para os discos premium gerido.

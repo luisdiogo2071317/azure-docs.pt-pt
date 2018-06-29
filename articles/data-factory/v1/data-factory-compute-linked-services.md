@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621756"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053667"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [versão 2 serviços ligados de computação](../compute-linked-services.md).
+> Este artigo aplica-se a versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [serviços ligados de computação](../compute-linked-services.md).
 
 Este artigo explica os ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido versus traga a sua própria) que suporta a fábrica de dados quando configurar serviços ligados com ligação estes computação ambientes para um Azure data factory.
 
@@ -66,7 +66,7 @@ Após a 31 de Julho de 2018:
 - Se estiver a utilizar um serviço de ligado de HDInsight a pedido para executar a versão 1 do Data Factory DotNet personalizada atividade, atualização de definição do JSON de atividade do DotNet personalizada em vez disso, utilizar do Azure Batch ligada serviço. Para obter mais informações, consulte [utilizar atividades personalizadas num pipeline Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Se utilizar existentes, traga a sua própria cluster do HDInsight ligado dispositivo versão 1 de fábrica de dados ou um serviço ligado de HDInsight traga a sua própria e a pedido no Azure Data Factory versão 2, nenhuma ação é necessário. Os cenários, a política de suporte da versão mais recente de clusters do HDInsight já é imposta. 
+> Se utilizar existentes, traga a sua própria cluster do HDInsight ligado dispositivo na versão do Data Factory 1 ou um serviço ligado de HDInsight traga a sua própria e a pedido no Azure Data Factory, nenhuma ação é necessário. Os cenários, a política de suporte da versão mais recente de clusters do HDInsight já é imposta. 
 >
 > 
 
@@ -336,7 +336,7 @@ Pode criar um serviço ligado do Machine Learning para registar um lote de Machi
 | ---------- | ---------------------------------------- | -------- |
 | Tipo       | Defina a propriedade de tipo como **AzureML**. | Sim      |
 | mlEndpoint | O URL de classificação de lote.                   | Sim      |
-| ApiKey     | API o modelo de área de trabalho publicado.     | Sim      |
+| apiKey     | API o modelo de área de trabalho publicado.     | Sim      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço do Azure Data Lake Analytics ligado
 Pode criar um serviço ligado do Data Lake Analytics para ligar um serviço de computação do Data Lake Analytics a um Azure data factory. A atividade U-SQL do Data Lake Analytics no pipeline refere-se a este serviço ligado. 

@@ -1,25 +1,26 @@
 ---
-title: Cenários de dados que envolvem Data Lake Store | Microsoft Docs
-description: Compreender os diferentes cenários e ferramentas com que dados podem ingeridos, processados, transferidas e serão visualizados num Data Lake Store
+title: Cenários de dados que envolvem Gen1 de armazenamento do Data Lake | Microsoft Docs
+description: Compreender os diferentes cenários e ferramentas com que dados podem ingeridos, processados, transferidas e serão visualizados na Gen1 de armazenamento do Data Lake (anteriormente conhecido como Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017373"
+ms.locfileid: "37031044"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilizar o Azure Data Lake Store para requisitos de macrodados
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilizar Gen1 de armazenamento do Azure Data Lake para requisitos de macrodados
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Existem quatro fases principais grande de processamento de dados:
 
 * Ingerir grandes quantidades de dados para um arquivo de dados em tempo real ou em lotes

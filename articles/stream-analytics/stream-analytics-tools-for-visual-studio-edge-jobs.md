@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907763"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030697"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver as tarefas do Stream Analytics Edge utilizando ferramentas do Visual Studio
 
@@ -68,7 +68,7 @@ Tarefas do Stream Analytics implementadas nos ambientes de limite suportam a mai
 
 |**Categoria**  | **Comando**  |
 |---------|---------|
-|Operadores de Geoespacial |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
+|Operadores geoespaciais |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
 |Outros operadores | <ul><li>PARTIÇÃO</li><li>TIMESTAMP ATRAVÉS DA ATIVAÇÃO PÓS-FALHA</li><li>DISTINTOS</li><li>Parâmetro de expressão no operador de CONTAGEM</li><li>Aos microssegundos nas funções de data e hora</li><li>UDA JavaScript (esta funcionalidade ainda está em pré-visualização de tarefas implementada na nuvem)</li></ul>   |
 
 Quando cria uma tarefa de limite no portal, o compilador será automaticamente avisá-lo se não estiver a utilizar um operador suportado.
@@ -123,6 +123,6 @@ A janela de vista de tarefas fornece-lhe operações como atualizar a tarefa, el
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter mais informações sobre o limite de Iot do Azure](../iot-edge/how-iot-edge-works.md)
+* [Obter mais informações sobre o limite de Iot do Azure](../iot-edge/about-iot-edge.md)
 * [ASA tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Enviar comentários à equipa de utilizar este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

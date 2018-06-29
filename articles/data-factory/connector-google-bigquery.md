@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e88d8046e31a43f444193dff91895b474be70d91
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332342"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051115"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados de Google BigQuery através da utilização do Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Google BigQuery. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utilizar a versão 1 do serviço do Data Factory, o que estiver geralmente disponível, consulte [atividade de cópia na versão 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

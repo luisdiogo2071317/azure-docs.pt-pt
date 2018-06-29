@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b71ad5701cfd1f8a274318c69d3464cf4fa34708
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621093"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053121"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorizar e gerir pipelines do Azure Data Factory utilizando a aplicação de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "34621093"
 >
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [monitorizar e gerir pipelines do Data Factory na versão 2](../monitor-visually.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [monitorizar e gerir pipelines do Data Factory no](../monitor-visually.md).
 
 Este artigo descreve como utilizar a aplicação de monitorização e gestão para monitorizar, gerir e depurar pipelines fábrica de dados. Pode começar a utilizar com a utilização da aplicação por ver o vídeo seguinte:
 
@@ -49,7 +49,7 @@ Deverá ver a aplicação de monitorização e gestão abrir numa janela separad
 ![Aplicação de Monitorização e Gestão](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Se vir que o browser é bloqueado no "A autorizar …", desmarque a **bloquear cookies de terceiros e dados do site** caixa de verificação – ou mantenha ainda selecionada, crie uma exceção para **login.microsoftonline.com**e, em seguida, tente abrir novamente a aplicação.
+> Se vir que o browser é bloqueado no "A autorizar …", desmarque a **bloquear cookies de terceiros e dados do site** caixa de verificação – ou mantenha ainda selecionada, crie uma exceção para **login.microsoftonline.com**, e em seguida, tente abrir novamente a aplicação.
 
 
 Na lista de Windows de atividade no painel do meio, verá uma janela de atividade para cada execução de uma atividade. Por exemplo, se tiver a atividade agendada para ser executada de hora a hora de cinco horas, verá cinco windows de atividade associadas com cinco setores de dados. Se não vir windows atividade na lista na parte inferior, efetue o seguinte:
@@ -246,7 +246,7 @@ Pode utilizar o **Script** separador para ver a definição de JSON da entidade 
 ![Separador de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Utilizar vistas de sistema
-A aplicação de monitorização e gestão inclui vistas de sistema pré-criadas (**windows de atividade recente**, **falha windows atividade**, **windows actividade em curso**) que lhe permitem ver janelas de atividade recente/falhou/em curso para a fábrica de dados.
+A aplicação de monitorização e gestão inclui vistas de sistema pré-criadas (**windows de atividade recente**, **falha windows atividade**, **windows actividade em curso**) que permitem -lhe ver janelas de atividade recente/falhou/em curso para a fábrica de dados.
 
 Mudar para o **vistas de monitorização** separador no lado esquerdo clicando nela.
 

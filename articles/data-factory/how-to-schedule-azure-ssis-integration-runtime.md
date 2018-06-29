@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266826"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050612"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o tempo de execução de integração de SSIS do Azure com base numa agenda
 Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, normalmente, pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e parar a resposta a incidentes quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)).
@@ -34,10 +34,6 @@ Eis os passos de alto nível descritos neste artigo:
 3. **Criar dois webhooks para o runbook**, um para a operação de início e outra para a operação de paragem. Utilize os URLs destas webhooks quando configurar atividades web num pipeline fábrica de dados. 
 4. **Criar um pipeline do Data Factory**. O pipeline de que criar é constituído por três atividades. O primeiro **Web** atividade invoca o webhook primeiro iniciar IR. de SSIS do Azure O **procedimento armazenado** atividade executa um script de SQL Server que é executado o pacote SSIS. O segundo **Web** deixa de atividade IR. de SSIS do Azure Para obter mais informações sobre como invocar um pacote de SSIS do pipeline fábrica de dados utilizando a atividade de procedimento armazenado, consulte [invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, crie um acionador de agenda para agendar o pipeline para serem executados quando a cadência que especificar.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [pacotes SSIS invocar utilizando a atividade de procedimento armazenado na versão 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se já que ainda não aprovisionou um tempo de execução de integração de SSIS do Azure, aprovisionar ao seguir as instruções no [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -254,7 +250,7 @@ Depois de criar e testar o pipeline, pode criar um acionador de agenda e associa
       - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
       Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Pré-visualização)** para a **versão**.
+4. Selecione **V2** para o **versão**.
 5. Selecione a **localização** da fábrica de dados. Só são mostradas na lista as localizações que são suportadas para a criação de fábricas de dados.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.

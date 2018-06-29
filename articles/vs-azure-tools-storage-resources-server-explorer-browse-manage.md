@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798582"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061748"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Procurar e gerir recursos de armazenamento utilizando o Explorador de servidores
 
@@ -157,7 +157,7 @@ A imagem seguinte mostra uma fila que contém duas mensagens:
 
 ![Visualizar uma fila](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Para obter mais informações sobre o armazenamento do filas, consulte [introdução ao armazenamento de filas do Azure através do .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obter informações sobre o serviço web para as filas de serviços de armazenamento, consulte o artigo [conceitos do serviço fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para obter informações sobre como enviar mensagens para uma fila de serviços de armazenamento utilizando o Visual Studio, consulte [enviar mensagens para uma fila de serviços de armazenamento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Para obter mais informações sobre o armazenamento do filas, consulte [introdução ao armazenamento de filas do Azure através do .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obter informações sobre o serviço web para as filas de serviços de armazenamento, consulte o artigo [conceitos do serviço fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para obter informações sobre como enviar mensagens para uma fila de serviços de armazenamento utilizando o Visual Studio, consulte [enviar mensagens para uma fila de serviços de armazenamento](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > As filas de serviços de armazenamento são distintas de filas do Service Bus do Azure. Para obter mais informações sobre as filas do Service Bus, consulte [filas do Service Bus, tópicos e subscrições](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).

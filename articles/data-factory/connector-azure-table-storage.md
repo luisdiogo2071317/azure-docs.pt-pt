@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 24954cfc128834313bf13a1917e67d5c1812cf66
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617183"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058992"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o Table storage do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - Disponibilidade geral](v1/data-factory-azure-table-connector.md)
-> * [Versão 2 - Pré-visualização](connector-azure-table-storage.md)
+> * [Versão 1](v1/data-factory-azure-table-connector.md)
+> * [Versão atual](connector-azure-table-storage.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para o Table storage do Azure. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utilizar a versão 1 do Data Factory, o que é geralmente disponível, consulte [conector de armazenamento de tabela na versão 1](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -81,11 +78,11 @@ Também pode criar um serviço ligado do Storage utilizando uma assinatura de ac
 
 Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode utilizá-lo para conceder que um cliente limitada permissões para objetos na sua conta do storage por um período de tempo especificado e com um conjunto especificado de permissões. Não têm de partilhar as chaves de acesso da conta. A assinatura de acesso partilhado é um URI que abrange nos respetivos parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para aceder a recursos de armazenamento com a assinatura de acesso partilhado, o cliente só tem de passar a assinatura de acesso partilhado para o método ou construtor adequado. Para mais informações sobre assinaturas de acesso partilhado, consulte [assinaturas de acesso partilhado: compreender o modelo de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-> [!IMPORTANT]
-> Fábrica de dados agora suporta apenas assinaturas de acesso partilhado do serviço, mas não assinaturas de acesso de conta partilhada. Para obter mais informações sobre estes dois tipos e de como construi-las, consulte [tipos de assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). O acesso partilhado o URL de assinatura gerado a partir do portal do Azure ou no Explorador de armazenamento do Azure é uma assinatura de acesso partilhado de conta, que não é suportada.
+> [!NOTE]
+> Fábrica de dados suporta agora assinaturas de acesso de serviço partilhado e assinaturas de acesso da conta partilhada. Para obter mais informações sobre estes dois tipos e de como construi-las, consulte [tipos de assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
-> Pode executar os seguintes comandos do PowerShell para gerar uma assinatura de acesso partilhado do serviço para a sua conta de armazenamento. Substitua os marcadores de posição e conceder a permissão necessária.
+> Para gerar uma assinatura de acesso partilhado do serviço para a sua conta de armazenamento, pode executar os seguintes comandos do PowerShell. Substitua os marcadores de posição e conceder a permissão necessária.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
@@ -271,7 +268,7 @@ Ao mover dados para e da tabela do Azure, o seguinte [mapeamentos definidos pelo
 | Tipo de dados de tabela do Azure | Tipo de dados intermédio de fábrica de dados | Detalhes |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
-| Edm.Boolean |bool |Valor booleano. |
+| Edm.Boolean |Bool |Valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo de DateTime suportado começa, 1 de Janeiro de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |GUID |Um identificador exclusivo global de 128 bits. |

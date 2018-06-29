@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 24d641247ad9bb0b5e6199952cbde9cb56fcaea7
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809299"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054063"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Versão 2 - Pré-visualização](connector-mongodb.md)
+> * [Versão 1](v1/data-factory-on-premises-mongodb-connector.md)
+> * [Versão atual](connector-mongodb.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados de MongoDB. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector do MongoDB no V1](v1/data-factory-on-premises-mongodb-connector.md).
-
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -102,7 +98,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **MongoDbCollection** | Sim |
-| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -183,7 +179,7 @@ Quando copiar dados de MongoDB, os seguintes mapeamentos são utilizados MongoDB
 | Binário |Byte[] |
 | Booleano |Booleano |
 | Date |DateTime |
-| NumberDouble |duplo |
+| NumberDouble |Valor de duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
@@ -229,7 +225,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 **Tabela "ExampleTable_Invoices":**
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| ID | ExampleTable_Invoices_dim1_idx | invoice_id | Item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |

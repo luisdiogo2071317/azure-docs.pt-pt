@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d28d25b74ce46c0323b01670bfdb639c02b92d8a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335810"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048922"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado integração tempo de execução na versão 2](../create-self-hosted-integration-runtime.md). 
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [autoalojado integração tempo de execução](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > O Data Management Gateway agora tem sido rebranded como o tempo de execução do Self-hosted integração.  
@@ -288,12 +288,12 @@ Pode desativar/ative a funcionalidade de atualização automática, efetuando os
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Para vários nós de elevada disponibilidade e dimensionável gateway (pré-visualização)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Para o gateway de elevada disponibilidade e dimensionável de vários nós](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador gateway.
 2. Mudar para a pasta C:\Program Files\Microsoft integração Runtime\3.0\PowerShellScript\.
 3. Execute o seguinte comando para ativar a atualização automática de funcionalidades DESATIVADO (desativar).   
 
-    Para o gateway com a funcionalidade de elevada disponibilidade (pré-visualização), é necessário um param AuthKey adicional.
+    Para o gateway com a funcionalidade de elevada disponibilidade, é necessário um param AuthKey adicional.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```

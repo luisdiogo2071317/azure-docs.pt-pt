@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754582"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053260"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-data-movement-security-considerations.md)
-> * [Versão 2 - Pré-visualização](data-movement-security-considerations.md)
+> * [Versão 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Versão atual](data-movement-security-considerations.md)
 
 Este artigo descreve a infraestrutura de básicos de segurança que utilizam serviços de movimento de dados no Azure Data Factory para ajudar a proteger os dados. Recursos de gestão de fábrica de dados são criados numa infraestrutura de segurança do Azure e utilizam todas as medidas de segurança possível oferecidas pelo Azure.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte o artigo [considerações de segurança de movimento de dados do Data Factory versão 1](v1/data-factory-data-movement-security-considerations.md).
 
 Numa solução do Data Factory, pode criar um ou mais [pipelines](concepts-pipelines-activities.md) de dados. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Estes pipelines de residir na região onde foi criada a fábrica de dados. 
 

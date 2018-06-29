@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632752"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030738"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Descrição geral da gestão de dispositivos com o Hub IoT
 
@@ -51,16 +51,16 @@ Dentro de cada uma destas cinco fases, existem vários requisitos de operador de
 
 * **Planear**: permitir aos operadores criarem um esquema de metadados de dispositivo que lhes possibilite, de forma fácil e precisa, consultarem e segmentarem um grupo de dispositivos para operações de gestão em massa. Pode utilizar os twins do dispositivo para armazenar metadados deste dispositivo sob a forma de etiquetas e propriedades.
   
-    *Leitura adicional*: [Introdução aos dispositivos duplos][lnk-twins-getstarted], [Compreender os dispositivos duplos][lnk-twins-devguide], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties].
+    *Continuar a ler*: [começar a utilizar dispositivos duplos][lnk-twins-getstarted], [compreender dispositivos duplos][lnk-twins-devguide], [como Utilize as propriedades do dispositivo duplo][lnk-twin-properties], [melhores práticas para a configuração de dispositivo numa solução de IoT][lnk-adm-best-practices].
 * **Aprovisionar**: aprovisionar em segurança dispositivos novos no Hub IoT e permitir aos operadores descobrir imediatamente as capacidades dos dispositivos.  Utilize o registo de dispositivos do Hub para criar identidades e credenciais de dispositivos flexíveis e efetuar esta operação em massa através de uma tarefa. Crie dispositivos para comunicar as respetivas capacidades e condições através de propriedades dos dispositivos no twin do dispositivo.
   
-    *Leitura adicional*: [Gerir identidades de dispositivos][lnk-identity-registry], [Gestão em massa de identidades de dispositivos][lnk-bulk-identity], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure][lnk-dps].
+    *Continuar a ler*: [gerir identidades de dispositivo][lnk-identity-registry], [efetuar a gestão de identidades de dispositivo em massa][lnk-bulk-identity], [Como utilizar as propriedades do dispositivo duplo][lnk-twin-properties], [melhores práticas para a configuração de dispositivo numa solução de IoT][lnk-adm-best-practices], [Service de aprovisionamento de dispositivos de IoT Hub do azure][lnk-dps].
 * **Configurar**: facilitar alterações de configuração e atualizações de firmware em massa nos dispositivos, preservando o estado de funcionamento e as segurança. Efetue estas operações de gestão de dispositivos em massa com as propriedades pretendidas ou com métodos diretos e tarefas de difusão.
   
-    *Leitura adicional*: [Utilizar métodos diretos][lnk-c2d-methods], [Invocar um método direto num dispositivo][lnk-methods-devguide], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Agendar e transmitir tarefas][lnk-jobs], [Agendar tarefas em vários dispositivos][lnk-jobs-devguide].
+    *Continuar a ler*: [como utilizar as propriedades do dispositivo duplo][lnk-twin-properties], [configurar e monitorizar dispositivos de IoT à escala][lnk-adm-how-to], [ Melhores práticas para a configuração de dispositivo numa solução de IoT][lnk-adm-best-practices].
 * **Monitorizar**: monitorizar o estado de funcionamento geral da coleção de dispositivos, o estado de operações contínuas e alertar os operadores relativamente a problemas que possam precisar da atenção deles.  Aplique o twin do dispositivo para permitir aos dispositivos comunicarem as condições de funcionamento em tempo real e o estado das operações de atualização. Crie relatórios de dashboards eficientes que emitem os problemas mais imediatos com consultas twin do dispositivo.
   
-    *Leitura adicional*: [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Linguagem de consulta do Hub IoT para dispositivos duplos, tarefas e encaminhamento de mensagens][lnk-query-language].
+    *Continuar a ler*: [como utilizar as propriedades do dispositivo duplo][lnk-twin-properties], [idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens] [ lnk-query-language], [Configurar e monitorizar dispositivos de IoT à escala][lnk-adm-how-to], [melhores práticas para a configuração de dispositivo numa solução de IoT] [lnk-adm-best-practices].
 * **Extinguir**: substituir ou desativar dispositivos após uma falha, ciclo de atualização ou no fim do ciclo de vida do serviço.  Utilize o twin do dispositivo para manter informações do dispositivo se o dispositivo físico estiver a ser substituído, ou arquivar se estiver a ser retirado. Utilize o registo de identidades do Hub IoT para revogar de forma segura identidades e credenciais de dispositivos.
   
     *Leitura adicional*: [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Gerir identidades dos dispositivos][lnk-identity-registry].
@@ -77,7 +77,7 @@ O Hub IoT permite o conjunto de padrões de gestão de dispositivos seguinte.  O
 * **Configuração** - a aplicação de back-end utiliza as propriedades pretendidas para configurar o software em execução no dispositivo.  O dispositivo utiliza as propriedades reportadas para atualizar o respetivo estado de configuração.
   
     ![Gráfico do padrão de configuração de gestão de dispositivos][img-config_pattern]
-* **Atualização de Firmware** - a aplicação de back-end informa o dispositivo, através de um método direto, de que iniciou uma atualização de firmware.  O dispositivo inicia um processo de vários passos para transferir a imagem de firmware, aplicá-la e, por último, voltar a ligar ao serviço Hub IoT.  Ao longo do processo de vários passos, o dispositivo utiliza as propriedades reportadas para atualizar o respetivo progresso e estado.
+* **Atualização de firmware** -a aplicação de back-end utiliza uma configuração de gestão de dispositivos automático para selecionar os dispositivos para receber a atualização, para saber se os dispositivos onde encontrar a atualização e para monitorizar o processo de atualização. O dispositivo inicia um processo de vários passos para transferir, certifique-se e aplicar a imagem do firmware e, em seguida, reinicie o dispositivo antes da restabelecer ligação para o serviço de IoT Hub.  Ao longo do processo de vários passos, o dispositivo utiliza as propriedades reportadas para atualizar o respetivo progresso e estado.
   
     ![Gráfico do padrão de atualização de firmware de gestão de dispositivos][img-fwupdate_pattern]
 * **Relatório de estado e progresso** - o back-end da solução executa consultas de “device twin”, num conjunto de dispositivos, para comunicar o estado e o progresso das ações em execução nos dispositivos.
@@ -111,3 +111,5 @@ Para continuar a saber mais sobre as funcionalidades de gestão de dispositivos 
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

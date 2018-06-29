@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151013"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030058"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>SO e aplicação de patches de tempo de execução no App Service do Azure
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Versões preteridas
+### <a name="deprecated-versions"></a>Versões preteridas  
 
 Quando uma versão mais antiga foi preterida, a data de remoção é anunciada para que possam planear a atualização de versão do tempo de execução em conformidade. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Como pode consultar estado de atualização de SO e tempo de execução no meu instâncias?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Como pode consultar estado de atualização de SO e tempo de execução no meu instâncias?  
 
 Informações críticas do SO estão bloqueado para baixo de acesso (consulte [funcionalidade do sistema operativo no App Service do Azure](web-sites-available-operating-system-functionality.md)), o [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) permite-lhe consultar a instância de serviço de aplicações sobre o SO versão e versões de tempo de execução. 
 
 A tabela seguinte mostra como as versões do Windows e do tempo de execução de idioma que estão a executar as aplicações:
 
-| Informações | Onde encontrá-la |
+| Informações | Onde encontrá-la | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em informações do sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando na linha de comandos: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versão do .NET core | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando na linha de comandos: <br> `dotnet --version` |
 | Versão de PHP | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando na linha de comandos: <br> `php --version` |
 | Versão do Node.js predefinida | No [nuvem Shell](../cloud-shell/overview.md), execute o seguinte comando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Versão de Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando na linha de comandos: <br> `python --version` |
+| Versão de Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando na linha de comandos: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > Acesso à localização de registo `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, onde obter informações sobre ["KB" patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) é armazenada, está a ser bloqueados.
 >
 >
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Centro de confiança: segurança](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Centro de confiança: segurança](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 bits de núcleo de ASP.NET no App Service do Azure](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

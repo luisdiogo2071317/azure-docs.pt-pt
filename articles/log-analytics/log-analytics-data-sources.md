@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792553"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062784"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados de análise de registos
 Análise de registos recolhe dados do seu origens ligadas e armazena-os na sua área de trabalho de análise de registos.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurar.  Dados de análise de registos são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo, com cada tipo de ter o seu próprio conjunto de propriedades.
@@ -37,9 +37,9 @@ A tabela seguinte lista as origens de dados que estão atualmente disponíveis n
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Registos personalizados](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | sobre chegada |
 | [Registos personalizados](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | sobre chegada |
-| [Registos do IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
-| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Mínimo de 10 segundos, conforme agendado |
-| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Mínimo de 10 segundos, conforme agendado |
+| [Registos do IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depende da definição de Rollover de ficheiro de registo |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |como agendada, no mínimo 10 segundos |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |como agendada, no mínimo 10 segundos |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |storage do Azure: 10 minutos; do agente: sobre chegada |
 | [Registos de eventos do Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | sobre chegada |
 

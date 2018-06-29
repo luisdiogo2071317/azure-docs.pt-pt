@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8363c49c4a52785fb5deacb3ac4998d38aca1430
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593885"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028885"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentication do Azure Active Directory pass-through: Perguntas mais frequentes
 
@@ -66,7 +66,7 @@ Se não tiver configurado a repetição de escrita de palavras-passe para um uti
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Como é que a autenticação pass-through, proteger contra ataques de palavra-passe de força bruta?
 
-Leitura [autenticação pass-through do Active Directory do Azure: bloqueio inteligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) para obter mais informações.
+Leitura [autenticação pass-through do Active Directory do Azure: bloqueio inteligente](../authentication/howto-password-smart-lockout.md) para obter mais informações.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que a agentes de autenticação pass-through a comunicar através das portas 80 e 443?
 
@@ -133,7 +133,7 @@ Se desinstalar um agente de autenticação pass-through a partir de um servidor,
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saber que cenários são suportados e aqueles que não são.
 - [Início Rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): começar a trabalhar na autenticação pass-through do Azure AD.
-- [Bloqueio do smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
+- [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Descrição detalhada da Technical](active-directory-aadconnect-pass-through-authentication-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
 - [Resolver problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.
 - [Descrição detalhada da segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): obter particularmente técnicas informações sobre a funcionalidade de autenticação pass-through.

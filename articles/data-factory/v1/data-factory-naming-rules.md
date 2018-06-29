@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 882b9cbb3cdcba0b574385e6a7ae2c31c24f27a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eb4579c2d94ae610d21b7221c0b410b07268d419
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622429"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051805"
 ---
 # <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - as regras de nomenclatura
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [regras na fábrica de dados versão 2 dos nomes](../naming-rules.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [nomenclatura regras no Data Factory](../naming-rules.md).
 
 A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de dados.
 

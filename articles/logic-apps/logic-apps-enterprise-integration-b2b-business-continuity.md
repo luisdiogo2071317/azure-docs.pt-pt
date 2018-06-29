@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 65c7262916219a74dcd6bdab487306b5bd5f709f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1882207207327214ee6519a98715d06a7e32ab93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299101"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045607"
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperação de desastre por várias regiões lógica B2B de aplicações
 
@@ -85,7 +85,7 @@ Para reverter para a região primária quando estiver disponível, siga estes pa
 Continuidade do negócio para EDI X 12 documentos baseia-se em números de controlo:
 
 > [!TIP]
-> Também pode utilizar o [X12 rápido iniciar modelo](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) para criar as logic apps. Criar contas de automatização primária e secundária são pré-requisitos para utilizar o modelo. O modelo de ajuda a criar as duas logic apps, uma para números de controlo recebido e outra para números de controlo gerado. Respetivos acionadores e ações são criadas nas logic apps, ligar o acionador para a conta do principal de integração e a ação para a conta de integração secundário.
+> Também pode utilizar o [X12 rápido iniciar modelo](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) para criar as logic apps. Criar contas de automatização primária e secundária são pré-requisitos para utilizar o modelo. O modelo de ajuda a criar as duas logic apps, uma para números de controlo recebido e outra para números de controlo gerado. Respetivos acionadores e ações são criadas nas logic apps, ligar o acionador para a conta do principal de integração e a ação para a conta de integração secundário.
 
 **Pré-requisitos**
 

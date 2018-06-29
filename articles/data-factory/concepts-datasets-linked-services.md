@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044981"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-create-datasets.md)
-> * [Versão 2 - Pré-visualização](concepts-datasets-linked-services.md)
+> * [Versão 1](v1/data-factory-create-datasets.md)
+> * [Versão atual](concepts-datasets-linked-services.md)
 
-Este artigo descreve os conjuntos de dados são, como definidos no formato JSON, e como são utilizados no Azure Data Factory V2 pipelines. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conjuntos de dados no Data Factory V1](v1/data-factory-create-datasets.md).
+Este artigo descreve os conjuntos de dados são, como definidos no formato JSON, e como são utilizados no Azure Data Factory pipelines. 
 
 Se estiver familiarizado com o Data Factory, consulte o artigo [introdução ao Azure Data Factory](introduction.md) para uma descrição geral. 
 
@@ -68,7 +65,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do serviço ligado. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
+nome | Nome do serviço ligado. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
 tipo | Tipo de serviço ligado. Por exemplo: AzureStorage (arquivo de dados) ou AzureBatch (computação). Consulte a descrição do typeProperties. | Sim |
 typeProperties | As propriedades de tipo são diferentes para cada arquivo de dados ou de computação. <br/><br/> Para os dados suportados armazenar tipos e as respetivas propriedades de tipo, consulte o [tipo do conjunto de dados](#dataset-type) tabela neste artigo. Navegue para o artigo de conector do arquivo de dados para saber mais sobre as propriedades de tipo específicas para um arquivo de dados. <br/><br/> Para os tipos de computação suportadas e as respetivas propriedades de tipo, consulte [serviços ligados de computação](compute-linked-services.md). | Sim |
 connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados está localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não
@@ -125,8 +122,8 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
-tipo | tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
+nome | Nome do conjunto de dados. Consulte [do Azure Data Factory - as regras de nomenclatura](naming-rules.md). |  Sim |
+tipo | Tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
 estrutura | Esquema do conjunto de dados. Para obter mais informações, consulte [estrutura do conjunto de dados](#dataset-structure). | Não |
 typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#dataset-type). | Sim |
 
@@ -191,10 +188,10 @@ Cada coluna na estrutura de contém as seguintes propriedades:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da coluna. | Sim
+nome | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Fábrica de dados suporta os seguintes tipos de dados provisória como valores permitidos: **Int16, Int32, Int64, único, Double, Decimal, Byte [], booleano, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
-Cultura | . Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não
+cultura | . Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
+Formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não
 
 ### <a name="example"></a>Exemplo
 No seguinte exemplo, suponha que a origem de dados de Blob está num formato CSV e contém três colunas: userid, nome e lastlogindate. São do tipo Int64, cadeia e Datetime com um formato de datetime personalizado utilizando abreviados nomes francês para um dia da semana.
@@ -220,13 +217,13 @@ As seguintes diretrizes ajudam a compreender quando incluir informações de est
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Pode criar conjuntos de dados utilizando um destas ferramentas ou SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e o portal do Azure
 
-## <a name="v1-vs-v2-datasets"></a>V1 vs. Conjuntos de dados v2
+## <a name="current-version-vs-version-1-datasets"></a>Versão atual vs. versão 1 conjuntos de dados
 
-Seguem-se algumas diferenças entre conjuntos de dados de Data Factory, v1 e v2: 
+Seguem-se algumas diferenças entre a fábrica de dados e conjuntos de dados do Data Factory versão 1: 
 
-- A propriedade externa não é suportada na v2. Está a ser substituído por um [acionador](concepts-pipeline-execution-triggers.md).
-- As propriedades de política e a disponibilidade não são suportadas na V2. A hora de início de um pipeline depende [acionadores](concepts-pipeline-execution-triggers.md).
-- Âmbito conjuntos de dados (conjuntos de dados definidos num pipeline) não são suportados na V2. 
+- A propriedade externa não é suportada na versão atual. Está a ser substituído por um [acionador](concepts-pipeline-execution-triggers.md).
+- As propriedades de política e a disponibilidade não são suportadas na versão atual. A hora de início de um pipeline depende [acionadores](concepts-pipeline-execution-triggers.md).
+- Âmbito conjuntos de dados (conjuntos de dados definidos num pipeline) não são suportados na versão atual. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte o tutorial seguinte para obter instruções passo a passo para criar pipelines e conjuntos de dados utilizando um destas ferramentas ou SDKs. 

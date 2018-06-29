@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059204"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>As expressões e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-functions-variables.md)
-> * [Versão 2 - Pré-visualização](control-flow-expression-language-functions.md)
+> * [Versão 1](v1/data-factory-functions-variables.md)
+> * [Versão atual](control-flow-expression-language-functions.md)
 
-Este artigo fornece detalhes sobre expressões e funções suportadas pelo Azure Data Factory (versão 2). 
+Este artigo fornece detalhes sobre expressões e funções suportadas pelo Azure Data Factory. 
 
 ## <a name="introduction"></a>Introdução
 Valores JSON na definição do podem ser literal ou expressões que são avaliadas em tempo de execução. Por exemplo:  
@@ -40,20 +40,15 @@ Valores JSON na definição do podem ser literal ou expressões que são avaliad
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [funções e as variáveis no Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## <a name="expressions"></a>Expressões  
-As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempre resultar no outro valor JSON. Se um valor JSON é uma expressão, o corpo da expressão é extraído ao remover no início de sessão (@). Se necessitar de uma cadeia literal que começa com @, tem de ser escape utilizando@. Os exemplos seguintes mostram como expressões são avaliadas.  
+As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempre resultar no outro valor JSON. Se um valor JSON é uma expressão, o corpo da expressão é extraído ao remover no início de sessão (\@). Se necessitar de uma cadeia literal que começa com @, tem de ser escape utilizando@. Os exemplos seguintes mostram como expressões são avaliadas.  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parâmetros de"|Os carateres 'parameters' são devolvidos.|  
 |"parâmetros de [1]"|Os carateres 'parameters [1]' são devolvidos.|  
-|"@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
-|" @"|Uma cadeia de carateres de 2 que contém ' @' é devolvido.|  
+|"\@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
+|" \@"|Uma cadeia de carateres de 2 que contém ' @' é devolvido.|  
   
  As expressões também pode aparecer dentro de cadeias, através de uma funcionalidade denominada *cadeia interpolação* onde as expressões são moldadas numa `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempr
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
-|"@pipeline(). parameters.myString"| Devolve `foo` como uma cadeia.|  
-|"@{pipeline ().parameters.myString}"| Devolve `foo` como uma cadeia.|  
-|"@pipeline(). parameters.myNumber"| Devolve `42` como um *número*.|  
-|"@{pipeline ().parameters.myNumber}"| Devolve `42` como um *cadeia*.|  
+|"\@pipeline.parameters.myString ()"| Devolve `foo` como uma cadeia.|  
+|"\@{pipeline ().parameters.myString}"| Devolve `foo` como uma cadeia.|  
+|"\@pipeline.parameters.myNumber ()"| Devolve `42` como um *número*.|  
+|"\@{pipeline ().parameters.myNumber}"| Devolve `42` como um *cadeia*.|  
 |"Resposta é: @{pipeline ().parameters.myNumber}"| Devolve a cadeia `Answer is: 42`.|  
-|"@concat(' Resposta é: ', string(pipeline().parameters.myNumber))"| Devolve a cadeia `Answer is: 42`|  
-|"Resposta é: @ @ {pipeline ().parameters.myNumber}"| Devolve a cadeia `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@concat (' resposta é: ', string(pipeline().parameters.myNumber))"| Devolve a cadeia `Answer is: 42`|  
+|"Resposta é: \@@{pipeline ().parameters.myNumber}"| Devolve a cadeia `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exemplos
 
@@ -156,7 +151,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |-------------------|-----------------|  
 |concat|Combina qualquer número de cadeias em conjunto. Por exemplo, se for parameter1 `foo,` a seguinte expressão devolvam `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: cadeia *n*<br /><br /> **Descrição**: necessário. As cadeias de combinar numa cadeia única.|  
 |subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, a seguinte expressão:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> Devolve:<br /><br /> `foo`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: índice inicial<br /><br /> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: comprimento<br /><br /> **Descrição**: necessário. O comprimento da subcadeia.|  
-|Substituir|Substitui uma cadeia com uma determinada cadeia. Por exemplo, a expressão:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> Devolve:<br /><br /> `the new string`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário.  Se não for encontrado 2 de parâmetro no parâmetro 1, a cadeia é procurado para o parâmetro 2 e atualizado com o parâmetro 3.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia antiga<br /><br /> **Descrição**: necessário. A cadeia de substituir pelo parâmetro 3 quando é encontrada uma correspondência no parâmetro 1<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: nova cadeia<br /><br /> **Descrição**: necessário. A cadeia é utilizada para substituir a cadeia no parâmetro 2 quando é encontrada uma correspondência no parâmetro 1.|  
+|substituir|Substitui uma cadeia com uma determinada cadeia. Por exemplo, a expressão:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> Devolve:<br /><br /> `the new string`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário.  Se não for encontrado 2 de parâmetro no parâmetro 1, a cadeia é procurado para o parâmetro 2 e atualizado com o parâmetro 3.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: cadeia antiga<br /><br /> **Descrição**: necessário. A cadeia de substituir pelo parâmetro 3 quando é encontrada uma correspondência no parâmetro 1<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: nova cadeia<br /><br /> **Descrição**: necessário. A cadeia é utilizada para substituir a cadeia no parâmetro 2 quando é encontrada uma correspondência no parâmetro 1.|  
 |GUID| Gera uma cadeia exclusiva global (também conhecido como. GUID). Por exemplo, foi possível gerar o seguinte resultado `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. Um especificador de formato único indica [como formatar o valor deste Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). O parâmetro de formato pode ser "N", "D", "B", "P" ou "X". Se o formato não for fornecido, "D" é utilizada.|  
 |toLower|Converte uma cadeia em minúsculas. Por exemplo, o seguinte devolve `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas inferior. Se um carácter na cadeia de não tiver um equivalente em minúsculas, é incluída inalterados na cadeia devolvida.|  
 |toUpper|Converte uma cadeia em maiúsculas. Por exemplo, a seguinte expressão devolve `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas superior. Se um carácter na cadeia de não tiver um equivalente em maiúsculas, é incluída inalterados na cadeia devolvida.|  
@@ -178,7 +173,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |intersecção|Devolve uma matriz única ou o objeto com os elementos comuns entre as matrizes ou objetos transmitidos ao mesmo. Por exemplo, esta função devolve `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome, o objeto de última com esse nome é apresentado no objeto final.<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: coleção *n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto tem de ser transmitidas nas aparecer nos resultados de todas as coleções.|  
 |União|Devolve uma matriz única ou o objeto com todos os elementos que estão na matriz ou objeto transmitidos ao mesmo. Por exemplo, esta função devolve `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome no resultado final, o objeto de última com esse nome é apresentado no objeto final.<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: coleção *n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto que é apresentado em qualquer uma das coleções é apresentado nos resultados.|  
 |primeiro|Devolve o primeiro elemento da matriz ou a cadeia transmitida. Por exemplo, esta função devolve `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o objeto do primeiro.|  
-|última|Devolve o último elemento na matriz ou cadeia transmitida. Por exemplo, esta função devolve `3`:<br /><br /> `last('0123')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o objeto de última.|  
+|Última|Devolve o último elemento na matriz ou cadeia transmitida. Por exemplo, esta função devolve `3`:<br /><br /> `last('0123')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o objeto de última.|  
 |tirar|Devolve o primeiro **contagem** transmitido elementos da matriz ou de cadeia, por exemplo esta função devolve `[1, 2]`:  `take([1, 2, 3, 4], 2)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o primeiro **contagem** objetos de.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: contagem<br /><br /> **Descrição**: necessário. O número de objetos a demorar entre o **coleção**. Tem de ser um número inteiro positivo.|  
 |Ignorar|Devolve os elementos na matriz que começa no índice **contagem**, por exemplo esta função devolve `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para ignorar a primeira **contagem** objetos de.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: contagem<br /><br /> **Descrição**: necessário. O número de objetos para remover o início de **coleção**. Tem de ser um número inteiro positivo.|  
   
@@ -208,7 +203,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
   
 -   boolean  
   
--   Matrizes  
+-   matrizes  
   
 -   dicionários  
   
@@ -218,7 +213,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |cadeia|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
 |json|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `json('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
-|bool|Converta o parâmetro booleano. Por exemplo, a seguinte expressão devolve `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
+|Bool|Converta o parâmetro booleano. Por exemplo, a seguinte expressão devolve `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
 |Unir|Devolve o objeto não nulo primeiro os argumentos transmitidos. Nota: uma cadeia vazia não é nula. Por exemplo, se não for definidos um parâmetros 1 e 2, esta ação devolve `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: objeto*n*<br /><br /> **Descrição**: necessário. Os objetos para procurar `null`.|  
 |base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, a seguinte expressão devolve `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de cadeia<br /><br /> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  
 |base64ToBinary|Devolve uma representação binária de uma cadeia codificada em base64. Por exemplo, a seguinte expressão devolve a representação binária de algumas cadeia: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia codificada em base64.|  

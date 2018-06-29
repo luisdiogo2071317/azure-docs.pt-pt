@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621263"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050952"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar MapReduce programas da fábrica de dados
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621263"
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade de MapReduce na versão 2 do Data Factory](../transform-data-using-hadoop-map-reduce.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [transformar dados utilizando a atividade de MapReduce fábrica de dados](../transform-data-using-hadoop-map-reduce.md).
 
 
 A atividade de HDInsight MapReduce numa fábrica de dados [pipeline](data-factory-create-pipelines.md) executa programas de MapReduce num [os seus próprios](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight baseado em Windows/Linux. Este artigo baseia-se a [atividades de transformação de dados](data-factory-data-transformation-activities.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportados.
@@ -189,7 +189,7 @@ O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapRe
 | className |É o nome da classe: **wordcount** |
 | jarFilePath |Caminho para o ficheiro jar que contém a classe. Se que copie/cole o seguinte código, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço ligado do Storage do Azure que contém o ficheiro jar. Este serviço ligado refere-se para o armazenamento que estão associado com o cluster do HDInsight. |
-| Argumentos |O programa de wordcount aceita dois argumentos, uma entrada e um resultado. O ficheiro de entrada é o ficheiro de davinci.txt. |
+| argumentos |O programa de wordcount aceita dois argumentos, uma entrada e um resultado. O ficheiro de entrada é o ficheiro de davinci.txt. |
 | frequência/intervalo |Os valores para estas propriedades corresponderem o conjunto de dados de saída. |
 | linkedServiceName |refere-se ao serviço ligado de HDInsight criou anteriormente. |
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8507cf99ea22b24aa3026565cb7c4139e4c3742d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268123"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060243"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -50,7 +50,7 @@ Os requisitos mínimos para um Runbook Worker híbrido Linux são:
 |--------------------- | --------------------- | -------------------|
 |Glibc |Biblioteca de C GNU| 2.5-12 |
 |OpenSSL| Bibliotecas de OpenSSL | 0.9.8E ou 1.0|
-|Curl | cURL web cliente | 7.15.5|
+|curl | cURL web cliente | 7.15.5|
 |Python ctypes | |
 |PAM | Autenticação incorporável|
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
@@ -109,41 +109,9 @@ Os seguintes tipos de runbook não funcionam numa função de trabalho híbrida 
 * Gráfico
 * Fluxo de trabalho do PowerShell gráfico
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
-O Runbook Worker híbrido Linux depende o agente do OMS para Linux comunicar com a sua conta de automatização para registar o trabalho, receber tarefas de runbook e comunicar estado. Se o registo do worker falhar, aqui estão algumas causas possíveis para o erro.
-
-### <a name="the-oms-agent-for-linux-isnt-running"></a>O agente do OMS para Linux não está em execução
-
-Se o agente do OMS para Linux não está em execução, o Runbook Worker híbrido do Linux não consegue comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o comando `ps -ef | grep python`. 
-
-Deverá ver um resultado semelhante ao seguinte (processa o Python com o **nxautomation** conta de utilizador). Se a solução de gestão de atualizações ou de automatização do Azure não estiver ativada, nenhum dos seguintes processos estarão em execução.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-Os seguintes processos são iniciados para um Runbook Worker híbrido do Linux. Todos os estão localizados no `/var/opt/microsoft/omsagent/state/automationworker/` diretório.
-
-* **OMS.Conf**: Este é o processo do Gestor de trabalho. É iniciada diretamente do pretendido Estado Configuration (DSC).
-
-* **Worker.Conf**: Este é o processo de trabalho híbrida de registado automaticamente. É iniciada pelo Gestor de trabalho. Este processo é utilizado pela gestão da atualização e é transparente para o utilizador. Este processo está presente apenas se a solução de gestão de atualizações está ativada na máquina.
-
-* **diy/Worker.Conf**: Este é o processo de trabalho híbrida DIY. O processo de trabalho híbrida DIY é utilizado para executar runbooks do utilizador sobre o Runbook Worker híbrido. Difere do processo de trabalho híbrida de registado automaticamente apenas em que utiliza uma configuração diferente. Este processo está presente apenas se a solução de automatização do Azure está ativada e a função de trabalho híbrida DIY Linux está registada.
-
-Se o agente do OMS para Linux não está em execução, execute o seguinte comando para iniciar o serviço: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="the-specified-class-doesnt-exist"></a>A classe especificada não existe
-
-Se vir o erro "a classe especificada não existe" `/var/opt/microsoft/omsconfig/omsconfig.log`, o agente do OMS para Linux tem de ser atualizado. Execute o seguinte comando para reinstalar o agente do OMS:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-Para obter passos adicionais sobre como resolver problemas com a gestão de atualizações, consulte [gestão de atualizações: Resolução de problemas](automation-update-management.md#troubleshooting).
+Para saber como resolver os Runbook Workers híbridos, consulte [resolução de problemas Linux os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

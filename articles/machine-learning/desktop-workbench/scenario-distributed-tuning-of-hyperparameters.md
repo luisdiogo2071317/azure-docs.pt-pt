@@ -4,19 +4,19 @@ description: Este cenário mostra como efetuar a otimização de distribuídas d
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832752"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036433"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -157,9 +157,9 @@ Depois disso, selecione o contentor de conjunto de dados da lista e clique no bo
 
 Carregamento dos ficheiros demora vários minutos, consoante a ligação à Internet. 
 
-No nosso código, utilizamos [SDK de armazenamento do Azure](https://azure-storage.readthedocs.io/en/latest/) para transferir o conjunto de dados do armazenamento de BLOBs para o ambiente de execução atual. A transferência é efetuada na carga\_função data () do ficheiro de load_data.py. Para utilizar este código, é necessário substituir < nome_conta > e < ACCOUNT_KEY > com o nome e a chave primária da conta de armazenamento que aloja o conjunto de dados. Pode ver o nome da conta no canto superior esquerdo da página do Azure da sua conta de armazenamento. Para obter a conta de chaves de acesso da chave, selecione na página do Azure de armazenamento (consulte a captura de ecrã primeiro na secção de ingestão de dados) da conta e, em seguida, copie a cadeia de comprimento na primeira linha da coluna chave:
+No nosso código, utilizamos [SDK de armazenamento do Azure](https://docs.microsoft.com/en-us/python/azure/) para transferir o conjunto de dados do armazenamento de BLOBs para o ambiente de execução atual. A transferência é efetuada na carga\_função data () do ficheiro de load_data.py. Para utilizar este código, é necessário substituir < nome_conta > e < ACCOUNT_KEY > com o nome e a chave primária da conta de armazenamento que aloja o conjunto de dados. Pode ver o nome da conta no canto superior esquerdo da página do Azure da sua conta de armazenamento. Para obter a conta de chaves de acesso da chave, selecione na página do Azure de armazenamento (consulte a captura de ecrã primeiro na secção de ingestão de dados) da conta e, em seguida, copie a cadeia de comprimento na primeira linha da coluna chave:
  
-![Chave de acesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
+![chave de acesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
 O seguinte código da função de load_data() transfere um ficheiro único:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074835"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060452"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos convidados suportados na pilha do Azure
 
@@ -40,7 +40,7 @@ Pilha do Azure suporta os sistemas de operativos de convidado do Windows listado
 | Windows Server 2008 SP2 | 64 bits |  Traga a sua própria imagem |
 | Windows 10 *(ver nota 1)* | 64 bits, Pro e Enterprise | Traga a sua própria imagem |
 
-***Nota 1:*** *para implementar sistemas de operativos cliente Windows 10 na pilha do Azure, tem de ter [Windows por utilizador licenciamento](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) ou comprar através de um fornecedor de alojamento qualificado do multi-inquilino ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Nota 1:*** *para implementar sistemas de operativos cliente Windows 10 na pilha do Azure, tem de ter [Windows por utilizador licenciamento](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou comprar através de um fornecedor de alojamento qualificado do multi-inquilino ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
 Imagens do Marketplace estão disponíveis para Pay-como-utiliza ou licenciamento BYOL (EA/SPLA). Não é suportada a utilização de ambos numa única instância de pilha do Azure. Durante a implementação, a pilha do Azure injects uma versão adequada do agente convidado para a imagem.
 

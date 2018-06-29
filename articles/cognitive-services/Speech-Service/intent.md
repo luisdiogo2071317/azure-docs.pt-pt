@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 47527087dc008c201949524f193820e636a8744f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356232"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045015"
 ---
 # <a name="sample-for-intent-recognition"></a>Exemplo de reconhecimento de intenção
 
@@ -23,7 +23,7 @@ ms.locfileid: "35356232"
 > Para obter instruções transferir este exemplo e outros utilizadores, consulte [amostras para o SDK de reconhecimento de voz](samples.md).
 
 > [!NOTE]
-> Obtenha primeiro uma chave de subscrição. Ao contrário de outros serviços suportados pelo SDK do reconhecimento de voz cognitivos do serviço, os serviços de reconhecimento de intenção requer uma chave de subscribtion específico. [Aqui](https://www.luis.ai) pode encontrar informações adicionais sobre a tecnologia de reconhecimento intenção, bem como informações sobre como adquirir uma chave de subscrição. Substitua a sua própria chave de subscrição, a região do serviço, bem como o AppId do seu modelo intenção no local adequado nos exemplos.
+> Obtenha primeiro uma chave de subscrição. Ao contrário de outros serviços suportados pelo SDK do reconhecimento de voz cognitivos do serviço, os serviços de reconhecimento de intenção requer uma chave de subscrição específica. [Aqui](https://www.luis.ai) pode encontrar informações adicionais sobre a tecnologia de reconhecimento intenção, bem como informações sobre como adquirir uma chave de subscrição. Substitua a sua própria chave de subscrição, a região do serviço e o AppId do seu modelo intenção no local adequado nos exemplos.
 
 > [!NOTE]
 > Para todos os exemplos abaixo as seguintes declarações de nível superior devem ser implementados:
@@ -54,7 +54,7 @@ O seguinte fragmento de código reconhece intenção de um ficheiro de áudio no
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp?IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
 
 - - -
 
@@ -72,6 +72,6 @@ Para o conjunto mais recente de exemplos, consulte o [repositório cognitivos Gi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Reconhecimento de voz](./speech-to-text-sample.md)
+- [Reconhecimento de Voz](./speech-to-text-sample.md)
 
 - [Tradução](./translation.md)

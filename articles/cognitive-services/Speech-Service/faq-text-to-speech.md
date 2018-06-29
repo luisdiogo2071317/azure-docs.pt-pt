@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: fa25f16d3ef7ee8c7ec4c0c9ee17ccc89e8c52a2
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321856"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045848"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Serviço de reconhecimento de voz personalizadas perguntas mais frequentes
 
@@ -88,7 +88,7 @@ Contacte-nos se necessitar de uma escala maior.
 
 **Pergunta**: O relatório de dados indica que ocorreram utterances falhadas. O que é o problema?
 
-**Resposta**: Falha ao carregar a 100% de utterences num ficheiro não é um problema.
+**Resposta**: Falha ao carregar a 100% de utterances num ficheiro não é um problema.
 Se a vasta maioria das utterances nos dados de um idioma ou acústica definido (por exemplo, > 95%) com êxito são importados, o conjunto de dados pode ser utilizado. No entanto, é recomendado que tentar compreender por que motivo os utterances falha e corrigir os problemas. Problemas mais comuns, tais como de erros, de formatação são fáceis de corrigir. 
 
 ## <a name="creating-am"></a>Criar AM
@@ -148,7 +148,7 @@ Deve procure de beat o modelo de linha de base para fazer a personalização val
 **Pergunta**: pode posso apenas carregar uma lista das palavras?
 
 **Resposta**: carregamento de uma lista das palavras irá obter as palavras para vocabulário, mas não ensinar o sistema como as palavras são normalmente utilizadas.
-Fornecendo utterances total ou parciais (frases ou expressões das ações que os utilizadores se prevê a dizer), o modelo de linguagem pode saber as novas palavras e como, são utilizados. O modelo de idioma personalizado é boa não apenas para obter novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para a sua aplicação. Fornecer utterances completas ajuda-o sistema saiba ebtter. 
+Fornecendo utterances total ou parciais (frases ou expressões das ações que os utilizadores se prevê a dizer), o modelo de linguagem pode saber as novas palavras e como, são utilizados. O modelo de idioma personalizado é boa não apenas para obter novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para a sua aplicação. Fornecer utterances completas ajuda-o sistema saiba melhor. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

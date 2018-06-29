@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de Family utilizando o Azure Data Factory (Beta) | Microsoft Docs
+title: Copiar dados de Family utilizando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados de Family aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 56be714224ccdaf9af1afcb18e24a85bed7522b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4399fd26c4c536f89bb15e16bfc67fb1d0940fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617856"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058979"
 ---
-# <a name="copy-data-from-vertica-using-azure-data-factory-beta"></a>Copiar dados de Family utilizando o Azure Data Factory (Beta)
+# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copiar dados de Family utilizando o Azure Data Factory 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Family. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Este conector está atualmente na versão Beta. Pode experimentar e envie-nos comentários. Não utilizá-lo em ambientes de produção.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

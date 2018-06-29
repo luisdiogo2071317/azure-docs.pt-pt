@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262879"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061286"
 ---
 # <a name="service-health"></a>Service Health
-Estado de funcionamento do serviço fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde utilizá-los. Neste dashboard, pode controlar eventos Active Directory, como problemas de interrupção contínua do serviço, futuros maintence planeada ou advisories de estado de funcionamento relevantes. Quando eventos tornam-se Inativas, estes são colocadas no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando resolver problemas de serviço são que afetam a.
+Estado de funcionamento do serviço fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde utilizá-los. Neste dashboard, pode controlar eventos Active Directory, como problemas de interrupção contínua do serviço, manutenções planeadas ou advisories de estado de funcionamento relevantes. Quando eventos tornam-se Inativas, estes são colocadas no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando resolver problemas de serviço são que afetam a.
 
 ## <a name="service-health-events"></a>Eventos de estado de funcionamento do serviço
 Estado de funcionamento do serviço controla os três tipos de eventos de estado de funcionamento que possam afetar os recursos:

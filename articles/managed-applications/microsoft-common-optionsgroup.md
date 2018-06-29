@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2e0b448b5ab48e7be3429d3d3b5b898b6bf22115
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261853"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061190"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento de IU Microsoft.Common.OptionsGroup
 Um controlo de seleção com uma linha de opções disponíveis.
@@ -44,7 +44,8 @@ Um controlo de seleção com uma linha de opções disponíveis.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -53,8 +54,7 @@ Um controlo de seleção com uma linha de opções disponíveis.
 ## <a name="remarks"></a>Observações
 - A etiqueta de `constraints.allowedValues` é o texto apresentado para um item e respetivo valor é o valor de saída do elemento quando selecionado.
 - Se for especificado, o valor predefinido tem de ser uma etiqueta presente no `constraints.allowedValues`. Se não for especificado, o primeiro item `constraints.allowedValues` está selecionada por predefinição. O valor predefinido é **nulo**.
-- `constraints.allowedValues` tem de conter pelo menos um item.
-- Este elemento não suporta o `constraints.required` propriedade; tem de selecionar um item para validar com êxito.
+- `constraints.allowedValues` tem de ter pelo menos um item.
 
 ## <a name="sample-output"></a>Resultado da amostra
 ```json

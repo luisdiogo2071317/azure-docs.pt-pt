@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 957183e1aad225af6655d0cb65aa62d356f48567
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620396"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045172"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB no Azure SQL Data Warehouse em 15 minutos de carga com o Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [copiar dados de ou para o Azure SQL Data Warehouse, utilizando a versão 2 do Data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [copiar dados de ou para o Azure SQL Data Warehouse, utilizando o Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 [O Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados horizontal, baseada na nuvem, capaz de processar grandes volumes de dados tanto relacionais como não relacionais.  Baseado na arquitetura de processamento paralelo em grande escala (MPP), o SQL Data Warehouse está otimizado para cargas de trabalho de armazém de dados de empresa.  Oferece elasticidade da nuvem com a flexibilidade ao dimensionar o armazenamento e computação de forma independente.
 
-Introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca utilizando **do Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem completamente gerido, que pode ser utilizado para preencher um SQL Data Warehouse com os dados do sistema existente e guardar a importantes tempo ao avaliar o SQL Data Warehouse e criar as suas soluções de análise. Seguem-se as principais vantagens de carregamento dos dados no Azure SQL Data Warehouse, utilizando o Azure Data Factory:
+Introdução ao Azure SQL Data Warehouse agora é mais fácil do que nunca utilizando **do Azure Data Factory**.  O Azure Data Factory é um serviço de integração de dados baseado em nuvem completamente gerido, que pode ser utilizado para preencher um SQL Data Warehouse com os dados do sistema existente e guardar a importantes tempo ao avaliar o SQL Data Warehouse e criar a sua análise soluções. Seguem-se as principais vantagens de carregamento dos dados no Azure SQL Data Warehouse, utilizando o Azure Data Factory:
 
 * **Fácil de configurar**: Assistente intuitivo do passo 5 com nenhuma scripting necessário.
 * **Suporte de arquivo de dados avançados**: suporte incorporado para um conjunto avançado de arquivos de dados baseado na nuvem e no local.

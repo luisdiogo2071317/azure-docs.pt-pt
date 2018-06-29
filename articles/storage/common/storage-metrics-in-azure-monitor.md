@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036316"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -38,7 +39,7 @@ Pode monitorizar as métricas ao longo do tempo no portal do Azure. O exemplo se
 
 ![captura de ecrã de aceder a métricas no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Com base nas métricas que suportam dimensões, tem de filtro com o valor de dimensão pretendido. O exemplo seguinte mostra como ver **transações** ao nível da conta com **êxito** tipo de resposta.
+Com base nas métricas dimensões de suporte, pode filtrar métrica com o valor de dimensão pretendido. O exemplo seguinte mostra como ver **transações** ao nível da conta de uma operação específico ao selecionar os valores para **nome API** dimensão.
 
 ![captura de ecrã de aceder a métrica com dimensão no portal do Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ O seguinte mostra o formato para especificar o ID de recurso para cada um dos se
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * ID de recurso de serviço do ficheiro `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID de recurso no Monitor de Azure REST API
@@ -395,13 +396,19 @@ Storage do Azure suporta os seguintes dimensões com base nas métricas no Monit
 | BlobType | O tipo de blob de métricas de Blob apenas. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
 | ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros de lado do servidor, exceto aqueles descrito </li> <li> ServerBusyError: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: Excedido pedido autenticado que devolveu um código de estado HTTP 500. O tempo limite foi excedido devido a um erro de servidor. </li> <li> AuthorizationError: Pedido autenticado que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li> NetworkError: Pedido autenticado que falhou por erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes de expiração do tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: Excedido pedido autenticado que devolveu um código de estado HTTP 500. Se o tempo limite de rede do cliente ou o limite de tempo do pedido é definido para um valor menor que o esperado pelo serviço de armazenamento, é um limite de tempo esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros de lado do cliente, exceto aqueles descrito. </li> <li> Com êxito: Pedido com êxito|
 | GeoType | Transação de cluster principal ou secundário. Os valores disponíveis incluem principais e secundários. Aplica-se para acesso de leitura Georreplicação redundante Storage(RA-GRS) ao ler objetos do inquilino secundário. |
-| apiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
 Para as dimensões de suporte de métricas, tem de especificar o valor de dimensão para ver os valores de métricas correspondente. Por exemplo, se observar **transações** valor para respostas com êxito, tem de filtrar a **ResponseType** dimensão com **êxito**. Ou se observar **BlobCount** valor para BLOBs de blocos, tem de filtrar a **BlobType** dimensão com **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuidade do serviço de métricas legadas
 
 Métricas de legado estão disponíveis em paralelo com a métrica de Monitor do Azure gerida. O suporte mantém o mesmo até que o armazenamento do Azure termina o serviço de métricas de legado.
+
+## <a name="faq"></a>FAQ
+
+**Storage do Azure suporta métricas para discos geridos ou discos não gerido?**
+
+Não, computação do Azure suporta métricas de discos. Consulte [artigo](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

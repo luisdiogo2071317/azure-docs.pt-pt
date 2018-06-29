@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 436725e54e197e021f088e0fd0cd75fc944983a3
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 6279e088b8abd574bbd8ef6488d986d42c91123c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751382"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046059"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados de PostgreSQL através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-onprem-postgresql-connector.md)
-> * [Versão 2 - Pré-visualização](connector-postgresql.md)
+> * [Versão 1](v1/data-factory-onprem-postgresql-connector.md)
+> * [Versão atual](connector-postgresql.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados PostgreSQL. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector PostgreSQL no V1](v1/data-factory-onprem-postgresql-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

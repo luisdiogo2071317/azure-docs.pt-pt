@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d1d4c847916b76785cbee40a12b59387498fb5c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3eb9f765b5ffe1118b3b25aff8ecdde327021a54
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621222"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046484"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizar Modelos do Azure Machine Learning utilizando a atividade do recurso da atualização
 
@@ -36,7 +36,7 @@ ms.locfileid: "34621222"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atualizar modelos de machine learning na versão 2 do Data Factory](../update-machine-learning-models.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [atualizar modelos de machine learning no Data Factory](../update-machine-learning-models.md).
 
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se ainda não o fez, consulte o artigo principal antes de ler através deste artigo. 
 

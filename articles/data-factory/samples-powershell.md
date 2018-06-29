@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 659005bb01672ea6e63d965f89af23024ba53544
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6daa9288da20c7def04242419fab20efeca52f09
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619495"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052533"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Exemplos do PowerShell do Azure para o Azure Data Factory
 
 A tabela seguinte inclui ligações para os scripts de Azure PowerShell de exemplo para o Azure Data Factory.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [exemplos para a fábrica de dados version1](v1/data-factory-samples.md).
 
 | |  |
 |---|---|

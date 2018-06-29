@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059210"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Manual de comunicação social vehicle solução de análise de telemetria: avançada aprofundar a solução
 Hiperligações este menu a secções deste manual de comunicação social: 
@@ -35,7 +35,7 @@ A solução utiliza duas origens de dados diferentes:
 * Vehicle simulada sinais e conjunto de dados de diagnóstico
 * Catálogo de vehicle
 
-Um simulador de telematics vehicle é incluído como parte desta solução, conforme mostrado na captura de ecrã seguinte. -Emite informações de diagnóstico e sinais que correspondem ao estado do veículo e o padrão despertar num determinado ponto no tempo. Para transferir o Vehicle Telematics simulador solução do Visual Studio para personalizações com base nos seus requisitos, visite o [simulador de telematics Vehicle](http://go.microsoft.com/fwlink/?LinkId=717075) página Web. O catálogo de vehicle contém um conjunto de dados de referência que mapeia os números de identificação vehicle (VINs) para modelos.
+Um simulador de telematics vehicle é incluído como parte desta solução, conforme mostrado na captura de ecrã seguinte. -Emite informações de diagnóstico e sinais que correspondem ao estado do veículo e o padrão despertar num determinado ponto no tempo.  O catálogo de vehicle contém um conjunto de dados de referência que mapeia os números de identificação vehicle (VINs) para modelos. Nota: O conjunto de dados Vehicle Telematics simulador solução do Visual Studio já não está disponível. 
 
 ![Simulador de telematics vehicle](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Uma aplicação é incluída como parte da solução para operacionalizar o mode
 
 Este padrão também é aplicável para cenários em que pretende integrar uma aplicação de linha de negócio com o fluxo de análise em tempo real. Estes cenários incluem alertas, notificações e mensagens.
 
-Para transferir a solução de RealtimeDashboardApp Visual Studio para personalizações, consulte o [RealtimeDashboardApp transferência](http://go.microsoft.com/fwlink/?LinkId=717078) página Web. 
+Nota: se os dados para a solução do Visual Studio de RealtimeDashboardApp já não estão disponíveis.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**Executar a aplicação de dashboard em tempo real**
 1. Extraia o RealtimeDashboardApp e guarde-o localmente.
@@ -669,10 +669,9 @@ Este documento contém uma desagregação detalhada da solução de análise de 
 
 ### <a name="references"></a>Referências
 
-* [Solução do Visual Studio vehicle Telematics simulador](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK de Hubs de eventos do Azure para ingestão da transmissão](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Capacidades de movimento de dados do Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Atividade de .NET de fábrica de dados do Azure](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Capacidades de movimento de dados do Azure Data Factory](../../data-factory/copy-activity-overview.md)
+* [Atividade de .NET de fábrica de dados do Azure](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Atividade de .NET de fábrica de dados do Azure utilizada para preparar os dados de exemplo de solução do Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717077) 

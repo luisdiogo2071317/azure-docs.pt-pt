@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 62b838212f94c48e39daf31877aeb5b344836571
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee2440171b54e1279571ec4fcb0c5be7bec207a1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622565"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045743"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados de Teradata utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-onprem-teradata-connector.md)
-> * [Versão 2 - Pré-visualização](../connector-teradata.md)
+> * [Versão 1](data-factory-onprem-teradata-connector.md)
+> * [Versão 2 (versão atual)](../connector-teradata.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conector Teradata no V2](../connector-teradata.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector Teradata no V2](../connector-teradata.md).
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados de Teradata no local. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia.
 
@@ -48,7 +48,7 @@ Para o Data Management Gateway para ligar à base de dados Teradata, tem de inst
 Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo de dados no local Cassandra utilizando ferramentas diferentes/APIs. 
 
 - A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados. 
-- Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+- Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink:
 
@@ -292,14 +292,14 @@ Ao mover dados para Teradata, os seguintes mapeamentos são utilizados do tipo T
 | VarChar |Cadeia |
 | VarGraphic |Cadeia |
 | Blobs |Byte[] |
-| Bytes |Byte[] |
+| Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| duplo |duplo |
+| Valor de duplo |Valor de duplo |
 | Número inteiro |Int32 |
-| Number |duplo |
+| Number |Valor de duplo |
 | SmallInt |Int16 |
 | Date |DateTime |
 | Hora |TimeSpan |

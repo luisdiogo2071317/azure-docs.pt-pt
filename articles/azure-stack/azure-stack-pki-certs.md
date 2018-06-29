@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234846"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030160"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 
@@ -76,20 +76,6 @@ Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir 
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de filas | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Cofre de Chaves | cofre. &lt;região >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões de pré-1803
-
-|Pasta de implementação|Assunto do certificado necessário e os nomes alternativos do requerente (SAN)|Âmbito (por região)|Espaço de nomes de subdomínios|
-|-----|-----|-----|-----|
-|Portal público|portal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Portal de administração|adminportal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Público de Gestor de recursos do Azure|gestão.  *&lt;região >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Administrador do Gestor de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Um certificado de caráter universal de várias subdomínio com nomes alternativos do requerente para:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Armazenamento|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Cofre de Chaves|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> certificados de ACS o requer três SANs de caráter universal num certificado único. Caráter universal vários SANs num único certificado poderá não ser suportado por todas as autoridades de certificação pública. 
 
 Se implementar pilha do Azure utilizando o modo de implementação do Azure AD, apenas terá de pedir certificados listados na tabela anterior. No entanto, se implementar pilha do Azure utilizando o modo de implementação do AD FS, tem também de pedir certificados descritos na seguinte tabela:
 

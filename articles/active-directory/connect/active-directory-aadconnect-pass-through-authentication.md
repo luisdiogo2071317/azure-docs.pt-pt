@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592165"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031775"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Utilizador inicie sessão com a autenticação pass-through do Active Directory do Azure
 
@@ -49,7 +49,7 @@ Pode combinar autenticação pass-through com o [totalmente integrada Single Sig
 - *Proteger*
   - Palavras-passe no local nunca são armazenadas na nuvem em qualquer outra forma.
   - O agente só permite ligações de saída a partir de dentro da sua rede. Por conseguinte, é necessário para instalar o agente numa rede de perímetro, também conhecida como DMZ.
-  - Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo o multi-factor Authentication (MFA) e pelo [filtrar ataques de palavra-passe de força bruta](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo o multi-factor Authentication (MFA) e pelo [filtrar ataques de palavra-passe de força bruta](../authentication/howto-password-smart-lockout.md).
 - *Elevada disponibilidade*
   - Agentes adicionais podem ser instalados em vários servidores no local para fornecer elevada disponibilidade dos pedidos de início de sessão.
 
@@ -64,12 +64,12 @@ Pode combinar autenticação pass-through com o [totalmente integrada Single Sig
 - Pode ser ativado através de [do Azure AD Connect](active-directory-aadconnect.md).
 - Utiliza um agente de simples no local que escuta e responde a pedidos de validação da palavra-passe.
 - Instalar agentes de vários fornece elevada disponibilidade dos pedidos de início de sessão.
-- - [Protege](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) as contas no local contra força forçar ataques de palavra-passe na nuvem.
+- - [Protege](../authentication/howto-password-smart-lockout.md) as contas no local contra força forçar ataques de palavra-passe na nuvem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [**Início Rápido** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) - obter cópias de segurança e executar a autenticação pass-through do Azure AD.
-- [**Bloqueio do smart** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -capacidade de configurar o bloqueio inteligente no seu inquilino para proteger contas de utilizador.
+- [**Bloqueio do smart** ](../authentication/howto-password-smart-lockout.md) -capacidade de configurar o bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [**Limitações atuais** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -saber quais os cenários que são suportados e aqueles que não são.
 - [**Descrição detalhada da Technical** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -compreender como funciona esta funcionalidade.
 - [**Perguntas mais frequentes** ](active-directory-aadconnect-pass-through-authentication-faq.md) -respostas para as perguntas mais frequentes.

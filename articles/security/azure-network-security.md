@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895644"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061546"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -27,7 +27,7 @@ Sabemos que a segurança está tarefa um na nuvem e como importante é que encon
 
 O Microsoft Azure oferece confidencialidade, integridade e disponibilidade dos dados de cliente, permitindo também accountability transparente. Para ajudar a compreender melhor a coleção de controlos de segurança de rede implementado no Microsoft Azure a partir da perspetiva do cliente, este artigo, "Azure" segurança de rede, é escrito para fornecer uma abrangente vista de olhos a rede controlos de segurança disponível com o Microsoft Azure.
 
-Este documento destina-se para informar sobre a vasta gama de controlos de rede que pode configurar para melhorar a segurança das soluções de que implementar no Azure. Se estiver interessado em que a Microsoft faz a proteger os recursos de infraestrutura de rede da própria plataforma do Azure, consulte a secção de segurança do Azure no [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+Este documento destina-se para informar sobre a vasta gama de controlos de rede que pode configurar para melhorar a segurança das soluções de que implementar no Azure. Se estiver interessado em que a Microsoft faz a proteger os recursos de infraestrutura de rede da própria plataforma do Azure, consulte a secção de segurança do Azure no [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## <a name="azure-platform"></a>Plataforma Azure
 
@@ -537,7 +537,7 @@ Observador de rede [captura de pacotes variável](https://docs.microsoft.com/azu
 
 Captura de pacotes é uma extensão de máquina virtual que esteja iniciada remotamente através do observador de rede. Esta capacidade facilita o fardo de executar uma captura de pacotes manualmente na máquina virtual pretendida, que poupa tempo importante. Captura de pacotes pode ser acionada através do portal, o PowerShell, a CLI ou a REST API. Um exemplo de como pode ser acionada captura de pacotes é com alertas de Máquina Virtual.
 
-#### <a name="ip-flow-verify"></a>Certifique-se de fluxo IP
+#### <a name="ip-flow-verify"></a>Verificação do fluxo de IP
 
 [Certifique-se de fluxos IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) verifica se um pacote é permitido ou negado para ou a partir de uma máquina virtual com base nas informações de 5 cadeias de identificação. Esta informação é constituído por direção, protocolo, local IP, remoto IP, porta local e porta remota. Se o pacote é negado por um grupo de segurança, o nome da regra que negado o pacote é devolvido. Enquanto qualquer IP de origem ou de destino pode ser selecionado, esta funcionalidade ajuda os administradores a Diagnostique rapidamente problemas de conectividade do ou à internet e de ou para o ambiente no local.
 
@@ -549,7 +549,7 @@ Determina o [próximo salto](https://docs.microsoft.com/azure/network-watcher/ne
 
 Também o salto seguinte devolve a tabela de rota associada o salto seguinte. Ao consultar um salto seguinte se a rota é definida como uma rota definida pelo utilizador, será devolvida esse rota. Caso contrário, o próximo salto devolve "Rota de sistema".
 
-#### <a name="security-group-view"></a>vista do grupo de segurança
+#### <a name="security-group-view"></a>Vista do grupo de segurança
 
 Obtém as regras de segurança eficaz e aplicados que são aplicadas numa VM. Grupos de segurança de rede estão associados a um nível de sub-rede ou um nível de NIC. Quando associados a um nível de sub-rede, aplica-se a todas as instâncias VM na sub-rede. Rede [vista do grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) devolve todos os NSGs e regras que estão associadas a um nível NIC e a sub-rede para uma máquina virtual que fornecem informações sobre a configuração configurado. Além disso, as regras de segurança eficaz são devolvidas para cada um dos NICs numa VM. Vista de grupo de segurança de rede a utilizar, pode avaliar uma VM para vulnerabilidades de rede, tais como portas abertas. Também pode validar se o grupo de segurança de rede está a funcionar conforme esperado com base num [comparação entre configurada e as regras de segurança eficaz](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -622,11 +622,11 @@ O [Monitor de desempenho de rede](https://docs.microsoft.com/azure/log-analytics
 
 É utilizado para monitorizar a conectividade entre:
 
--   Nuvem pública e no local
+-   nuvem pública e no local
 
--   Os centros de dados e localizações de utilizador (sucursais)
+-   os centros de dados e localizações de utilizador (sucursais)
 
--   Sub-redes alojar várias camadas de uma aplicação de várias camadas.
+-   sub-redes alojar várias camadas de uma aplicação de várias camadas.
 
 
 #### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Análise de gateway de aplicação do Azure na análise de registos

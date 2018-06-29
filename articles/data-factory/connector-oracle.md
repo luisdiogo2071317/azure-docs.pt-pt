@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a232787793f9f4992a4dece821ae0bcc9059afc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058991"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar os dados de origem e de Oracle através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - Disponibilidade geral](v1/data-factory-onprem-oracle-connector.md)
-> * [Versão 2 - Pré-visualização](connector-oracle.md)
+> * [Versão 1](v1/data-factory-onprem-oracle-connector.md)
+> * [Versão atual](connector-oracle.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de uma base de dados Oracle. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utilizar a versão 1 do Data Factory, o que é geralmente disponível, consulte [conector Oracle na versão 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -40,6 +38,9 @@ Especificamente, este conector Oracle suporta as seguintes versões de uma base 
 - Oracle 10g R1, R2 (10.1, 10.2)
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
+
+> [!Note]
+> Não é suportado o servidor de proxy do Oracle.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida **Oracle**. | Sim |
-| connectionString | Especifica as informações necessárias para estabelecer ligação à instância de base de dados Oracle. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md).<br><br>**Suportada de tipo de ligação**: pode utilizar **Oracle SID** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>-Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sim |
+| connectionString | Especifica as informações necessárias para estabelecer ligação à instância de base de dados Oracle. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md).<br><br>**Suportada de tipo de ligação**: pode utilizar **Oracle SID** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>-Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [integração runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -213,19 +214,19 @@ Quando copiar dados de origem e de Oracle, os seguintes mapeamentos são utiliza
 | CLOB |Cadeia |
 | DATA |DateTime |
 | NÚMERO DE VÍRGULA FLUTUANTE |Decimal, cadeia (se precisão > 28) |
-| INTEGER |Decimal, cadeia (se precisão > 28) |
-| LONG |Cadeia |
+| NÚMERO INTEIRO |Decimal, cadeia (se precisão > 28) |
+| LONGA |Cadeia |
 | PERÍODO DE TEMPO EM BRUTO |Byte[] |
 | NCHAR |Cadeia |
 | NCLOB |Cadeia |
 | NÚMERO |Decimal, cadeia (se precisão > 28) |
 | NVARCHAR2 |Cadeia |
-| RAW |Byte[] |
+| NÃO PROCESSADO |Byte[] |
 | ROWID |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |Cadeia |
 | TIMESTAMP COM O FUSO HORÁRIO |Cadeia |
-| NÚMERO INTEIRO NÃO ASSINADO |Número |
+| NÚMERO INTEIRO NÃO ASSINADO |Number |
 | VARCHAR2 |Cadeia |
 | XML |Cadeia |
 

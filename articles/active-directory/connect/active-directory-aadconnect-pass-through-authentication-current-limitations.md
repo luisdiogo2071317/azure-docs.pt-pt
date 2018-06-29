@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ebfbb972d567963b6c302b7e6151f73165c4a87b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8bdf1e3a46b6b03a7472bd2330b0a97429917122
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028919"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -59,7 +59,7 @@ Ativar a sincronização de hash de palavra-passe dá-lhe a opção de autentica
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Início Rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): começar a trabalhar com a autenticação pass-through do Azure AD.
-- [Bloqueio do smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
+- [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Descrição detalhada da Technical](active-directory-aadconnect-pass-through-authentication-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
 - [Perguntas mais frequentes](active-directory-aadconnect-pass-through-authentication-faq.md): encontre respostas a perguntas mais frequentes sobre a funcionalidade de autenticação pass-through.
 - [Resolver problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.

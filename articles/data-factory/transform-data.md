@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 90089c009d3515df3df2453c710bac143ee7d90f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619753"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050971"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -35,10 +35,6 @@ ms.locfileid: "34619753"
 Este artigo explica as atividades de transformação de dados no Azure Data Factory que pode utilizar para transformar e processa dados não processados para predições e das informações. Executa uma atividade de transformação num ambiente informático, como o Azure HDInsight cluster ou um lote do Azure. Fornece ligações para artigos com informações detalhadas sobre cada atividade de transformação.
 
 Fábrica de dados suporta as atividades de transformação de dados seguintes que podem ser adicionadas a [pipelines](concepts-pipelines-activities.md) o individualmente ou encadeados com outra atividade.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividades de transformação de versão 1 do Data Factory](v1/data-factory-data-transformation-activities.md).
- 
 
 ## <a name="hdinsight-hive-activity"></a>Atividade do ramo de registo do HDInsight
 A atividade do ramo de registo do HDInsight num pipeline Data Factory executa consultas do Hive no seu próprio ou cluster de HDInsight baseado em Windows/Linux a pedido. Consulte [atividade do Hive](transform-data-using-hadoop-hive.md) artigo para obter detalhes sobre esta atividade. 

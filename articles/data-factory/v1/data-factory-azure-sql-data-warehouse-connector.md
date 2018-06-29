@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621739"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047082"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Versão 2 - Pré-visualização](../connector-azure-sql-data-warehouse.md)
+> * [Versão 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versão 2 (versão atual)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conector do Azure SQL Data Warehouse no V2](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector do Azure SQL Data Warehouse no V2](../connector-azure-sql-data-warehouse.md).
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Azure SQL Data Warehouse. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia.  
 
@@ -54,7 +54,7 @@ Pode criar um pipeline com uma atividade de cópia move os dados de/para um Azur
 
 A forma mais fácil para criar um pipeline que copia dados do Azure SQL Data Warehouse é utilizar o Assistente de cópia de dados. Consulte [Tutorial: carregar dados para o SQL Data Warehouse com o Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
 
-Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink:
 
@@ -229,10 +229,10 @@ Se não são cumpridos os requisitos, o Azure Data Factory verifica as definiç�
 Quando os dados de origem não cumprem os critérios introduzidos na secção anterior, pode ativar a cópia de dados através de um provisória transição Blob Storage do Azure (não pode ser armazenamento Premium). Neste caso, do Azure Data Factory efetua automaticamente transformações nos dados para satisfazer os requisitos de formato de dados do PolyBase, em seguida, utilize o PolyBase para carregar dados para o SQL Data Warehouse e em Limpar último os dados temporários o armazenamento de Blobs. Consulte [testado cópia](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados através de um Blob do Azure transição funciona em geral.
 
 > [!NOTE]
-> Quando o arquivo de dados de cópia de um local de dados no Azure SQL Data Warehouse, utilizando o PolyBase e JRE (ambiente de tempo de execução Java) de teste, se a sua versão do Data Management Gateway for inferior 2.4, é necessário no seu computador de gateway que é utilizado para transformar os dados de origem para o formato correto. Sugerimos a que atualizar o gateway para a versão mais recente para evitar esse dependência.
+> Quando o arquivo de dados de cópia de um local de dados no Azure SQL Data Warehouse, utilizando o PolyBase e JRE (ambiente de tempo de execução Java) de teste, se a sua versão do Data Management Gateway for inferior 2.4, é necessário no seu computador de gateway que é utilizado para transformar os seus dados de origem no formato correto. Sugerimos a que atualizar o gateway para a versão mais recente para evitar esse dependência.
 >
 
-Para utilizar esta funcionalidade, crie um [serviço ligado do Storage do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que refere-se a conta de armazenamento do Azure com o armazenamento de BLOBs intermédio, em seguida, especifique o `enableStaging` e `stagingSettings` propriedades para a atividade de cópia, conforme mostrado no seguinte código:
+Para utilizar esta funcionalidade, crie um [serviço ligado do Storage do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que refere-se a conta de armazenamento do Azure com o armazenamento de BLOBs intermédio, em seguida, especifique o `enableStaging` e `stagingSettings` propriedades para a atividade de cópia, conforme mostrado no o seguinte código:
 
 ```json
 "activities":[  
@@ -297,7 +297,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 Valor nulo é um formulário especial de valor predefinido. Se a coluna pode ser nula, os dados de entrada (no blob) para essa coluna pode estar vazios (não pode estar em falta o conjunto de dados de entrada). O PolyBase insere um valor nulo para os mesmos no armazém de dados SQL do Azure.  
 
 ## <a name="auto-table-creation"></a>Criação automática de tabela
-Se estiver a utilizar o Assistente para copiar para copiar dados do SQL Server ou SQL Database do Azure para o Azure SQL Data Warehouse e a tabela que corresponde à tabela de origem não existe no arquivo de destino, fábrica de dados pode criar automaticamente a tabela no armazém de dados, utilizando o esquema de tabela de origem.
+Se estiver a utilizar o Assistente para copiar para copiar dados do SQL Server ou SQL Database do Azure para o Azure SQL Data Warehouse e a tabela que corresponde à tabela de origem não existe no arquivo de destino, fábrica de dados pode criar automaticamente a tabela no armazém de dados por u iniciar sessão o esquema da tabela de origem.
 
 Fábrica de dados cria a tabela no arquivo de destino com o mesmo nome de tabela no arquivo de dados de origem. Os tipos de dados para as colunas são escolhidos com base no mapeamento do tipo seguinte. Se for necessário, realiza conversões de tipo para corrigir quaisquer incompatibilidades entre os arquivos de origem e destino. Também utiliza o Round Robin distribuição de tabela.
 
@@ -356,8 +356,8 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |duplo |
-| Imagem |Byte[] |
+| Flutuante |Valor de duplo |
+| image |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
 | nchar |Cadeia, Char [] |
@@ -373,7 +373,7 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | texto |Cadeia, Char [] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
-| tinyint |Bytes |
+| tinyint |Byte |
 | uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |Cadeia, Char [] |

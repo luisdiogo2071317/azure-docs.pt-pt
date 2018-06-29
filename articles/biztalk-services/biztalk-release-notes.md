@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633821"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063547"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão do BizTalk Services do Azure
 
@@ -66,11 +66,11 @@ Considere as seguintes situações com um projeto dos BizTalk Services numa solu
   Não é possível copiar o ficheiro <Path to DLL> para "bin\Debug\FileName.dll". O processo não é possível aceder ao ficheiro 'bin\Debug\FileName.dll' porque está a ser utilizado por outro processo.  
 
 #### <a name="workaround"></a>Solução
-* Se [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) é instalado, tem duas opções seguintes:
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) é instalado, tem duas opções seguintes:
   
   * Reinicie o Visual Studio, ou
   * Reinicie a solução. Em seguida, execute apenas uma compilação na solução.  
-* Se [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) não está instalado, abra o Gestor de tarefas, clique nos processos de separador, clique o processo de MSBuild.exe e, em seguida, clique no botão de processo do fim.  
+* Se [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) não está instalado, abra o Gestor de tarefas, clique nos processos de separador, clique o processo de MSBuild.exe e, em seguida, clique no botão de processo do fim.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Encaminhamento para pontos finais de BasicHttpRelay não é suportado de pontes e BizTalk Services Portal se carateres não imprimíveis são promovidos como cabeçalhos de HTTP
 Se utilizar carateres não imprimíveis como parte das propriedades promovidas para mensagens, essas mensagens não podem ser encaminhadas para destinos de reencaminhamento que utilizam o enlace BasicHttpRelay. Além disso, as propriedades promovidas que estão disponíveis como parte do controlo com codificação URL para os blobs e anular codificado destinos.  
@@ -108,7 +108,7 @@ Considere um cenário pela seguinte ordem:
 * Feche o ficheiro de .bcs (ao fechar o separador no Visual Studio) sem guardar as alterações.  
 * Abra o ficheiro de .bcs novamente a partir do Explorador de soluções.  
   Vai notar que enquanto o ficheiro de .bridgeconfig associado tem o nome da nova especificado, o nome da entidade na superfície do design ainda é o nome antigo. Se tentar abrir a configuração Bridge fazendo duplo clique no componente de bridge, obterá o erro seguinte:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`Para evitar a execução para este cenário, certifique-se a que guardar as alterações, depois de mudar o nome de entidades de um projeto do BizTalk Service.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Para evitar a execução para este cenário, certifique-se a que guardar as alterações, depois de mudar o nome de entidades de um projeto do BizTalk Service.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Projeto dos BizTalk Services baseia-se com êxito, mesmo se um artefacto foi excluído de um projeto do Visual Studio
 Considere um cenário onde adiciona um artefacto (por exemplo, um ficheiro XSD) para um projeto do BizTalk Service, incluir essa artefactos na configuração Bridge (por exemplo, especificando-lo como um tipo de mensagem de pedido) e, em seguida, exclui-lo do projeto do Visual Studio. Nesse caso, compilar o projeto não fornecerá qualquer erro, desde que o artefacto eliminado está disponível no disco na mesma localização a partir de onde foi incluída no projeto do Visual Studio.

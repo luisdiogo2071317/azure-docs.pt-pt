@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79e77aa067cbb7262a945d94ce8ac1750e80b2d5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656198"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054794"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34656198"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/en-us/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -554,7 +554,7 @@ Pretende colocar um Microsoft ou por terceiros fornecido a imagem do Azure Marke
 #### <a name="deploying-a-vm-with-a-customer-specific-generalized-image"></a>Implementar uma VM com uma imagem de generalizado específicas do cliente
 Devido às necessidades de correção específicos sobre a versão de SO ou DBMS, as imagens fornecidas no Azure Marketplace podem não atender as suas necessidades. Por conseguinte, poderá ter de criar uma VM utilizando a sua própria imagem de VM de SO/DBMS 'private', que pode ser implementada várias vezes posteriormente. Para preparar uma imagem 'private' essa duplicação, o SO deve ser generalizado na VM no local. Consulte o [guia de implementação] [ deployment-guide] para obter detalhes sobre como generalizar uma VM.
 
-Se já tiver instalado o conteúdo SAP na VM no local (especialmente para sistemas de camada 2), pode adaptar as definições do sistema SAP após a implementação da VM do Azure através de instância de mudar o nome de procedimento suportado pelo Gestor de aprovisionamento de Software para SAP (nota SAP [1619720]). Caso contrário, pode instalar o software SAP mais tarde após a implementação da VM do Azure.
+Se já tiver instalado o conteúdo SAP na VM no local (especialmente para sistemas de camada 2), pode adaptar as definições do sistema SAP após a implementação da VM do Azure através de instância de mudar o nome de procedimento suportado pelo SAP Software aprovisionamento Manager (SAP Tenha em atenção [1619720]). Caso contrário, pode instalar o software SAP mais tarde após a implementação da VM do Azure.
 
 Medida de base de dados do conteúdo utilizado pela aplicação SAP, pode optar por gerar o conteúdo raiz por uma instalação de SAP ou pode importar o conteúdo no Azure através de um VHD com uma cópia de segurança de base de dados DBMS ou tirar partido das capacidades do DBMS diretamente fazer cópias de segurança para  Armazenamento do Microsoft Azure. Neste caso, pode também preparar os VHDs com o DBMS dados e registo de ficheiros no local e, em seguida, importar os como discos para o Azure. Mas a transferência de dados DBMS, que está a obter carregados no local para o Azure funciona através de discos VHD que precisem de ser preparado no local.
 
@@ -1363,7 +1363,7 @@ Recomenda-se vivamente a utilização a versão mais recente do Microsoft Window
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do servidor de conteúdo de SAP para SAP instalações em VMs do Azure
 #### <a name="storage-configuration"></a>Configuração do Armazenamento
-Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros na base de dados SAP MaxDB, todo o armazenamento do Azure melhores práticas recomendação mencionada para SAP MaxDB capítulo [configuração de armazenamento] [ dbms-guide-8.4.1] também são válidas para o cenário de servidor de conteúdo de SAP. 
+Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros na base de dados SAP MaxDB, todo o armazenamento do Azure melhores práticas recomendação mencionada para SAP MaxDB capítulo [configuração de armazenamento] [ dbms-guide-8.4.1] também são válidos para o cenário de servidor de conteúdo de SAP. 
 
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros no sistema de ficheiros, recomenda-se para utilizar uma unidade lógica dedicada. Utilizar espaços de armazenamento do Windows permite-lhe aumentar também o tamanho do disco lógico e débito IOPS, conforme descrito em capítulo [RAID de Software][dbms-guide-2.2]. 
 
@@ -1386,7 +1386,7 @@ Aqui tem duas opções:
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Cópia de Segurança / Restauro
-Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros na base de dados SAP MaxDB, as considerações de desempenho e o procedimento de cópia de segurança/restauro já descritas SAP MaxDB capítulo [cópia de segurança e restaurar] [ dbms-guide-8.4.2] e capítulo [considerações de desempenho para cópia de segurança e restauro][dbms-guide-8.4.3]. 
+Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros na base de dados SAP MaxDB, as considerações de desempenho e o procedimento de cópia de segurança/restauro já descritas SAP MaxDB capítulo [cópia de segurança e restaurar] [ dbms-guide-8.4.2]e capítulo [considerações de desempenho para cópia de segurança e restauro][dbms-guide-8.4.3]. 
 
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança/restauro manual da estrutura de ficheiro onde estão localizados os documentos. Semelhante ao SAP MaxDB cópia de segurança/restauro, é recomendado ter um volume de disco dedicado para o objetivo de cópia de segurança. 
 

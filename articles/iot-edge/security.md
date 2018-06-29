@@ -8,23 +8,20 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631433"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030585"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Proteger o limite de IoT do Azure - preview
+# <a name="securing-azure-iot-edge"></a>Proteger o limite de IoT do Azure
 
 Proteger o contorno inteligente é necessário confer confiança na operação de uma solução de IoT ponto a ponto. Limite de IoT do Azure foi concebida para segurança extensível para perfis de risco diferentes, cenários de implementação, e oferece a mesma proteção que se espera de todos os serviços do Azure.
 
 Limite de IoT do Azure é executado em hardware diferente, suporta Linux e Windows e é aplicável a cenários de implementação diversos.  Risco avaliado depende em conta muitos aspetos, incluindo a propriedade de solução, geografia de implementação, confidencialidade de dados, privacidade, requisitos de vertical e de regulamentação de aplicação.  Em vez de oferta concretas soluções para cenários específicos, faz sentido para estruturar uma arquitetura extensível segurança com base no princípios bem grounded concebidos para dimensionamento. 
  
 Este artigo fornece uma descrição geral do framework de segurança. Para obter mais informações, consulte [proteger o contorno inteligente][lnk-edge-blog].
-
->[!NOTE]
->O framework de segurança descrito abaixo é a adicionar ao produto agora e estará disponível na versão de disponibilidade geral do Azure IoT Edge. O produto atualmente em pré-visualização pública, uma versão destina-se permitir o desenvolvimento e fazer o protótipo das soluções de limite, as implementações de produção não completo que têm o framework de segurança completa.   
 
 ## <a name="standards"></a>Normas
 

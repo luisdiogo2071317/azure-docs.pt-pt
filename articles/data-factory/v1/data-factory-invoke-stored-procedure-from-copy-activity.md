@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c06e8c1a64f6f784f106c9b925f698b33c196320
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e75573513f107977e1d5fe62fbae89cb4439e0e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621841"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048956"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar um procedimento armazenado de atividade de cópia no Azure Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade de procedimento armazenado na versão 2 do Data Factory](../transform-data-using-stored-procedure.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [transformar dados utilizando a atividade de procedimento armazenado no Data Factory](../transform-data-using-stored-procedure.md).
 
 
 Ao copiar dados para [do SQL Server](data-factory-sqlserver-connector.md) ou [SQL Database do Azure](data-factory-azure-sql-connector.md), pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado. Poderá pretender utilizar o armazenado é necessário o procedimento para efetuar qualquer processamento adicional (intercalação colunas, procurar valores de inserção em várias tabelas, etc.) antes de inserir os dados na tabela de destino. Esta funcionalidade tira partido da [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb675163.aspx). 

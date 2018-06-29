@@ -11,20 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6d14d84610d97e487e3bf4286267623681c4eb75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 71e89828645cadbbbf60527fca9968fd8ed568ff
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619240"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059222"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade de Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -67,12 +64,12 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de web | Cadeia | Sim
+nome | Nome da atividade de web | Cadeia | Sim
 tipo | Tem de ser definido como **WebActivity**. | Cadeia | Sim
-método | Método de REST API para o ponto final de destino. | Cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
+método | Método de REST API para o ponto final de destino. | cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
 url | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia). A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia (ou expressão com o resultType da cadeia) | Sim, é necessário o cabeçalho Content-type. `"headers":{ "Content-Type":"application/json"}`
-corpo | Representa o payload de que é enviado para o ponto final. Necessário para métodos POST/PUT.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Não
+corpo | Representa o payload de que é enviado para o ponto final.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Necessário para métodos POST/PUT.
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se não for necessária a autenticação, exclua esta propriedade. | Cadeia (ou expressão com o resultType da cadeia) | Não
 Conjuntos de dados | Lista de conjuntos de dados transmitido para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços ligados transmitido para o ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim

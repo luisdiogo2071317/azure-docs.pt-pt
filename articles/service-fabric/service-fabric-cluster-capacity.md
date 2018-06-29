@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309420"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061563"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -27,6 +27,10 @@ Para qualquer implementação de produção, o planeamento de capacidade é um p
 * O número de tipos de nó que do cluster tem de começar a utilizar
 * As propriedades de cada tipo de nó (tamanho, o servidor primário, a internet com número de VMs, etc.)
 * As características de fiabilidade e durabilidade do cluster
+
+> [!NOTE]
+> Minimamente deve rever todos os **não permitido** atualizar os valores de política durante o planeamento. Isto é para garantir que defina os valores adequadamente e a mitigar a gravar para baixo do seu cluster mais tarde devido a definições de configuração do sistema unchangeable. 
+> 
 
 Informe-por breves instantes Reveja cada um destes itens.
 

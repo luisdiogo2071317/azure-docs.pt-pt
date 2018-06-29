@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621625"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052278"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Mover dados a partir de uma origem HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-http-connector.md)
-> * [Versão 2 - Pré-visualização](../connector-http.md)
+> * [Versão 1](data-factory-http-connector.md)
+> * [Versão 2 (versão atual)](../connector-http.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conetor HTTP na V2](../connector-http.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conetor HTTP na V2](../connector-http.md).
 
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para mover dados de um ponto de final HTTP no local/nuvem para um arquivo de dados suportados sink. Este artigo baseia-se a [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo que apresenta uma descrição geral do movimento de dados com a atividade de cópia e a lista de arquivos de dados suportados como sinks/origens.
@@ -43,7 +43,7 @@ Pode criar um pipeline com uma atividade de cópia move dados a partir de uma or
 
 - A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
 
-- Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. Para exemplos JSON copiar dados de origem HTTP para o Blob Storage do Azure, consulte [exemplos JSON](#json-examples) secção este artigo.
+- Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. Para exemplos JSON copiar dados de origem HTTP para o Blob Storage do Azure, consulte [exemplos JSON](#json-examples) secção este artigo.
 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligado
 A tabela seguinte fornece uma descrição para os elementos JSON específicos HTTP serviço ligado.
@@ -156,9 +156,9 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | relativeUrl | Um URL relativo para o recurso que contém os dados. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. <br><br> Para construir o URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema](data-factory-functions-variables.md), por exemplo, "relativeUrl": "$$Text.Format (" os meus/relatório? mês = {0:yyyy}-{0:MM} & fmt = csv', SliceStart) ". | Não |
 | requestMethod | Método de HTTP. Valores permitidos são **obter** ou **POST**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| RequestBody | Corpo do pedido de HTTP. | Não |
-| formato | Se pretender simplesmente **obter os dados do ponto final de HTTP como-é** sem análise-lo, ignore este definições do formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
-| Compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| requestBody | Corpo do pedido de HTTP. | Não |
+| Formato | Se pretender simplesmente **obter os dados do ponto final de HTTP como-é** sem análise-lo, ignore este definições do formato. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. |Não |
+| compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="example-using-the-get-default-method"></a>Exemplo: utilizando o método GET (predefinição)
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801120"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060522"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor do Azure batch
 
@@ -229,7 +229,13 @@ Utilize o `ContainerSettings` propriedade das classes de tarefas para configurar
 
 Se executar tarefas nas imagens de contentor, a [tarefas nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e [tarefa do Gestor de tarefas](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigir definições de contentor. No entanto, o [iniciar a tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), e [tarefa de libertação](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não necessitam de definições de contentor (ou seja, podem ser executados no contexto de um contentor ou diretamente no nó).
 
-Quando configura as definições de contentor, todos os diretórios em modo recursivo abaixo o `AZ_BATCH_NODE_ROOT_DIR` (a raiz de diretórios do Azure Batch no nó) estão mapeadas para o contentor, ambiente de tarefas todas as variáveis são mapeadas para o contentor e a linha de comandos de tarefas é executado no contentor.
+A linha de comandos para uma tarefa de contentor do Azure Batch executa num diretório de trabalho no contentor que é muito semelhante ao ambiente do que batch configura uma tarefa (fora do contentor) regular:
+
+* Todos os diretórios em modo recursivo abaixo o `AZ_BATCH_NODE_ROOT_DIR` (a raiz de diretórios do Azure Batch no nó) estão mapeadas para o contentor
+* Todas as variáveis de ambiente de tarefas estão mapeadas para o contentor
+* O diretório de trabalho de aplicações está definido igual para uma tarefa regular, pelo que pode utilizar funcionalidades como os pacotes de aplicações e ficheiros de recursos
+
+Porque o lote altera o diretório de trabalho predefinido no seu contentor, a tarefa é executada numa localização diferente do ponto de entrada de contentor típico (por exemplo, `c:\` por predefinição no contentor de Windows, ou `/` no Linux). Certifique-se de que o ponto de entrada de linha de comandos ou contentor tarefas Especifica um caminho absoluto, se já não está configurado dessa forma.
 
 O seguinte fragmento de Python mostra uma linha de comandos básica com um contentor de Ubuntu solicitados do Hub de Docker. As opções de contentor executar são argumentos adicionais para o `docker create` comando que a tarefa é executada. Aqui, o `--rm` opção remove o contentor depois de concluída a tarefa.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ O exemplo do c# seguinte mostra as definições de contentor básico de uma tare
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392175"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048508"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning no HDInsight
 
@@ -33,13 +33,13 @@ A biblioteca do Microsoft Machine Learning para Apache Spark está [MMLSpark](ht
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) está atualmente a linguagem de programação análises mais popular do mundo. É uma ferramenta de visualização de dados de código aberto com uma Comunidade de mais 2,5 milhões de utilizadores e a crescer. Com o respetivo utilizador thriving base e mais 8.000 pacotes contribuídos, R é uma opção provável para muitas empresas que necessitam de aprendizagem. Pode criar um cluster do HDInsight com o servidor R pronta para ser utilizada com modelos e conjuntos de dados gigantescos. Esta capacidade fornece cientistas de dados e statisticians com uma interface de R familiar, que pode dimensionar a pedido através do HDInsight, sem a sobrecarga de configuração do cluster e de manutenção.
+[R](https://www.r-project.org/) está atualmente a linguagem de programação análises mais popular do mundo. É uma ferramenta de visualização de dados de código aberto com uma Comunidade de mais 2,5 milhões de utilizadores e a crescer. Com o respetivo utilizador thriving base e mais 8.000 pacotes contribuídos, R é uma opção provável para muitas empresas que necessitam de aprendizagem. Pode criar um cluster do HDInsight com serviços de ML pronta para ser utilizada com modelos e conjuntos de dados gigantescos. Esta capacidade fornece cientistas de dados e statisticians com uma interface de R familiar, que pode dimensionar a pedido através do HDInsight, sem a sobrecarga de configuração do cluster e de manutenção.
 
 ![Formação da predição com o servidor R](./media/hdinsight-machine-learning-overview/r-training.png)
 
 O nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e executar os scripts de R.  Também tem a opção para executar scripts de R em todos os nós do cluster através Hadoop mapa reduzir do ScaleR ou contextos de computação de Spark.
 
-Com o servidor R no HDInsight com o Spark, pode parallelize formação em todos os nós de um cluster utilizando um contexto de computação de Spark. Pode executar scripts de R diretamente no nó de extremidade, utilizando todos os núcleos disponíveis em paralelo, conforme necessário. Em alternativa, pode executar código a partir do nó de extremidade para iniciar o processamento é distribuído por todos os nós do cluster. R Server no HDInsight com o Spark também lhe permite parallelizing funções a partir de pacotes de open source para R, se assim o desejar.
+Com os serviços de ML no HDInsight com o Spark, pode parallelize formação em todos os nós de um cluster utilizando um contexto de computação de Spark. Pode executar scripts de R diretamente no nó de extremidade, utilizando todos os núcleos disponíveis em paralelo, conforme necessário. Em alternativa, pode executar código a partir do nó de extremidade para iniciar o processamento é distribuído por todos os nós do cluster. Serviços de ML no HDInsight com o Spark também lhe permite parallelizing funções a partir de pacotes de open source para R, se assim o desejar.
 
 ## <a name="azure-machine-learning-and-hive"></a>Ramo de registo e de aprendizagem do Azure
 
@@ -49,13 +49,13 @@ O Azure Machine Learning fornece ferramentas para Análise Preditiva modelo, bem
 
 Criar funcionalidades para o cluster de dados num Hadoop do HDInsight utilizando [ramo de registo de consultas](../machine-learning/team-data-science-process/create-features-hive.md). *Engenharia da funcionalidade* tenta aumentar a potência preditiva de algoritmos de aprendizagem através da criação de funcionalidades de dados não processados que facilitam o processo de aprendizagem. Pode executar consultas de HiveQL a partir do Azure ML e aceder a dados processados no ramo de registo e armazenados no blob storage, utilizando o [módulo importar dados](../machine-learning/studio/import-data.md).
 
-## <a name="microsoft-cognitive-toolkit"></a>Conjunto de Ferramentas Cognitivas da Microsoft
+## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
 [Learning profunda](https://www.microsoft.com/en-us/research/group/dltc/) é um ramo de aprendizagem que utiliza as redes neurais, inspiradas pelos processos biological do "humana-brain". Os investigadores muitos Consulte learning profunda como uma abordagem promising otimização artificial intelligence. Exemplos de aprendizagem profunda são por tradutores automáticos de idioma ditas, sistemas de reconhecimento de imagem e raciocínio máquina.
 
 Para ajudar a produzir o seu próprio trabalho no learning profunda, a Microsoft desenvolveu o livre, fácil de utilizar, open source [Toolkit de cognitivos](https://www.microsoft.com/en-us/cognitive-toolkit/). Este toolkit está a ser utilizado por uma vasta gama de produtos Microsoft, empresas em todo o mundo com a necessidade de implementar learning profunda em escala e alunos interessados em técnicas e algoritmos mais recente. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 ### <a name="scenarios"></a>Cenários
 

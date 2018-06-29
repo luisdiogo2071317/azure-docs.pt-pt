@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-ms.translationtype: MT
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215529"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054658"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -66,7 +66,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 |**Segurança e conformidade** | **Gestão**|
 |Ambiente isolado (integração de VNet, service de inquilino único, cálculo dedicado e armazenamento <br>Encriptação de dados em trânsito <br>Autenticação do Azure AD, suporte de início de sessão único <br>Respeite as normas de conformidade mesmo como base de dados SQL do Azure <br>Auditoria do SQL <br>Deteção de ameaças |API de Gestor de recursos do Azure para automatizar o aprovisionamento de serviço e dimensionamento <br>Funcionalidade portal do Azure para o serviço manual de aprovisionamento e dimensionamento <br>Serviço de migração de dados 
 
-![O início de sessão único](./media/sql-database-managed-instance/sso.png) 
+![o início de sessão único](./media/sql-database-managed-instance/sso.png) 
 
 ## <a name="vcore-based-purchasing-model-preview"></a>com base em vCore modelo de compra (pré-visualização)
 
@@ -210,7 +210,8 @@ Gerido vantagens de instância de ser sempre-cópia de segurança-para-data na n
 - Gerido instância não permite a especificação de caminhos físicos completa para todos os cenários correspondentes tem de ser suportado de forma diferente: restaurar a base de dados não suporta com mover, criar a base de dados permite que os caminhos físicos, BULK INSERT funciona com Blobs do Azure apenas, etc. 
 - Gerido suporta instância [autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de nuvem para a autenticação do Windows. 
 - Instância gerida gere automaticamente XTP grupo de ficheiros e ficheiros de bases de dados que contém objetos de OLTP na memória
- 
+- Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena pacotes SSIS, mas são executados num gerido Azure SSIS integração tempo de execução (IR) na fábrica de dados do Azure (ADF), consulte [criar Azure SSIS IR no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas  
 
 Gerido instância ativar administrador de sistema focar-se naquilo que realmente interessa mais para empresas. Muitas atividades de administrador/DBA de sistema não são necessárias, ou estão simples. Por exemplo, SO / RDBMS instalação e a aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, replicação de base de dados (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração de estado de funcionamento e dados de monitorização de desempenho fluxos. 

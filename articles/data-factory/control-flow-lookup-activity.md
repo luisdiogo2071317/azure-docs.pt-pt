@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618662"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059066"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -26,9 +26,6 @@ Atividade de pesquisa pode ser utilizada para obter um conjunto de dados a parti
 - Dinamicamente determinar quais os objetos (ficheiros, tabelas, etc.) a funcionar numa atividade subsequente, em vez de pré-programar o nome do objeto
 
 Atividade de pesquisa pode ler e devolver o conteúdo de um ficheiro de configuração, uma tabela de configuração ou o resultado da execução de uma consulta ou o procedimento armazenado.  A saída da atividade de pesquisa pode ser utilizada uma atividade de transformação ou de cópia subsequente, se for um valor de singleton ou utilizada numa atividade ForEach se se tratar de uma matriz de atributos.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

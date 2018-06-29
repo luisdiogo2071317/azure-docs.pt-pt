@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 038a9be813367d130dd8bb02b24879d1e2e573b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d7ee7050f430efea64d9988adf4f5a603128de2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072254"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053454"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar uma Windows as máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). Azure suporta apenas as VMs de geração 1 que estão no formato de ficheiro VHD e tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração 1 VM a partir do VHDX ficheiro sistema VHD e a partir de um disco de expansão dinâmica para tamanho fixo. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -367,7 +367,7 @@ Se, em vez disso, pretende-se apenas ao criar uma VM a partir de um disco, não 
 Para obter mais informações sobre como criar uma VM a partir de um disco especializado, consulte:
 
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
-- [Criar uma VM a partir de um disco especializado do VHD](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
+- [Criar uma VM a partir de um disco especializado do VHD](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Se pretender criar uma imagem de generalizado, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como Sysprep de utilização: uma introdução](http://technet.microsoft.com/library/bb457073.aspx). 
 
@@ -381,7 +381,7 @@ Nem todas as funções ou aplicação que é instalada num computador baseado em
 1. Iniciar sessão para a VM do Windows.
 2. Executar **linha de comandos** como administrador. 
 3. Altere o diretório para: **%windir%\system32\sysprep**e, em seguida, execute **sysprep.exe**.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
 
     ![Ferramenta de preparação do sistema](media/prepare-for-upload-vhd-image/syspre.png)
 4. No **as opções de encerramento**, selecione **encerramento**.

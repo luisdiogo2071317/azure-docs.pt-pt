@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025957"
+ms.locfileid: "37031734"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento da conta de utilizador automáticas
 
@@ -112,6 +112,9 @@ Quando observar os eventos para um utilizador individual de aprovisionamento, oc
 
 7. Clique em eventos individuais para ver os detalhes expandidos, incluindo todas as propriedades de utilizador que foram obtidas, avaliadas ou escritas como parte do evento.
 
+Para uma demonstração sobre como utilizar os registos de auditoria, veja o vídeo abaixo. Os registos de auditoria são apresentados em torno 5:30 marcar:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Sugestões para ver os registos de auditoria de aprovisionamento
 

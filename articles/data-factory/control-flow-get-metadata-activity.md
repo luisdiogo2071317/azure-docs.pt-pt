@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617985"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049371"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter os metadados atividade no Azure Data Factory
-GetMetadata atividade pode ser utilizada para obter **metadados** de quaisquer dados no Azure Data Factory. Esta atividade é suportada apenas para fábricas de dados da versão 2. Podem ser utilizado nos seguintes cenários:
+GetMetadata atividade pode ser utilizada para obter **metadados** de quaisquer dados no Azure Data Factory. Esta atividade pode ser utilizada nos seguintes cenários:
 
 - Validar as informações de metadados de quaisquer dados
 - Acionar um pipeline, quando os dados pronto / disponíveis
@@ -31,9 +31,6 @@ A seguinte funcionalidade está disponível no fluxo de controlo:
 
 - A saída da atividade de GetMetadata pode ser utilizada em expressões condicionais para efetuar a validação.
 - Um pipeline pode ser acionado quando a condição é satisfeita através de efetue-até ciclo
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -46,14 +43,18 @@ A atividade de GetMetadata demora um conjunto de dados como uma entrada necessá
 
 **Armazenamento de ficheiros:**
 
-| Conector/metadados | itemName<br>(ficheiro/pasta) | ItemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | LastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | existe<br>(ficheiro/pasta) |
+| Conector/metadados | itemName<br>(ficheiro/pasta) | itemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | existe<br>(ficheiro/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Blob do Azure | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
+| Blob do Azure | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento de Ficheiros do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Sistema de Ficheiros | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+- Para o Amazon S3, o `lastModified` aplica-se ao registo e a chave, a pasta não virtual; mas; e o `exists` aplica-se ao registo e chave, mas não para o prefixo ou pasta virtual.
+- Para o Blob do Azure, o `lastModified` aplica-se ao contentor e BLOBs mas pasta não virtual.
 
 **Base de dados relacional:**
 
@@ -70,10 +71,10 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 | Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
-| ItemType | Tipo de ficheiro ou pasta. O valor de saída é `File` ou `Folder`. |
+| itemType | Tipo de ficheiro ou pasta. O valor de saída é `File` ou `Folder`. |
 | tamanho | Tamanho do ficheiro em bytes. Aplicável apenas de ficheiros. |
 | criado | Criado datetime do ficheiro ou pasta. |
-| LastModified | Última modificação datetime do ficheiro ou pasta. |
+| lastModified | Última modificação datetime do ficheiro ou pasta. |
 | childItems | Lista de subpastas e ficheiros nessa pasta especificada. Aplicável apenas a pasta. O valor de saída é uma lista de nome e tipo de cada item subordinado. |
 | contentMD5 | MD5 do ficheiro. Aplicável apenas de ficheiros. |
 | estrutura | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. O valor de saída é uma lista de nomes de coluna e tipo de coluna. |

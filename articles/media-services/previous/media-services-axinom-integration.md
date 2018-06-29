@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 0aaf0eea0414d234c9a24f707df5eed491a61c08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788796"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061159"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Consulte [geração de Token JWT](media-services-axinom-integration.md#jwt-token
 
 ## <a name="azure-media-player-preparation"></a>Preparação de leitor de Media Services do Azure
 AMP v1.4.0 suporta a reprodução do conteúdo de AMS que é empacotado dinâmica com PlayReady e Widevine DRM.
-Se o servidor de licenças Widevine não necessitar de autenticação com token, não há nada adicional que precisa de fazer para testar um conteúdo DASH protegido pelo Widevine. Por exemplo, a equipa de AMP fornece um simples [exemplo](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), onde pode vê-lo a trabalhar num limite e IE11 com PlayReady e o Chrome com Widevine.
+Se o servidor de licenças Widevine não necessitar de autenticação com token, não há nada adicional que precisa de fazer para testar um conteúdo DASH protegido pelo Widevine. Por exemplo, a equipa de AMP fornece um simples [exemplo](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), onde pode vê-lo a trabalhar num limite e IE11 com PlayReady e o Chrome com Widevine.
 O servidor de licenças Widevine fornecido pelo Axinom requer autenticação de token JWT. O token JWT tem de ser submetido com pedido de licença através de um cabeçalho de HTTP "X-AxDRM-mensagem". Para esta finalidade, terá de adicionar o javascript seguinte na página web que aloja AMP antes de definir a origem:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -176,7 +176,7 @@ Obviamente, existem várias formas de espera da chave de ID. Por exemplo, pode a
     }
 
 ## <a name="summary"></a>Resumo
-Com a adição de mais recente do suporte de Widevine na proteção de conteúdos do serviços de suporte de dados do Azure e Azure Media Player, mas é possível implementar a transmissão em fluxo do TRAÇO + várias-native-DRM (PlayReady + Widevine) com ambos os serviço de licença PlayReady do AMS e Widevine servidor de licenças de Axinom para os seguintes browsers modernos:
+Com a adição de mais recente do suporte de Widevine na proteção de conteúdos do serviços de suporte de dados do Azure e Azure Media Player, mas é possível implementar a transmissão em fluxo do TRAÇO + várias-native-DRM (PlayReady + Widevine) com ambos os serviço de licença PlayReady numa licença do AMS e Widevine servidor do Axinom para os seguintes browsers modernos:
 
 * Chrome
 * Microsoft Edge no Windows 10

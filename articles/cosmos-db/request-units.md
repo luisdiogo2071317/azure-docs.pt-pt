@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961967"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053332"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades do BD Azure Cosmos de pedido
 
@@ -41,7 +41,7 @@ BD do Azure do Cosmos rápido, oferece um desempenho previsível ao reservar a r
 
 Com base de dados do Azure Cosmos, débito reservado é especificado em termos de unidade de pedido de processamento por segundo. Pode considerar unidades de pedido como moeda de débito. Reserve um número de unidades de pedido garantida esteja disponível para a aplicação numa base por segundo. Cada operação na BD do Cosmos do Azure, incluindo a escrever um documento, executar uma consulta e atualizar um documento, consome CPU, memória e IOPS. Ou seja, cada operação implica um custo de pedido, que é expresso em unidades de pedido. Quando compreender os fatores que afetam os encargos de unidade de pedido e requisitos de débito da sua aplicação, pode executar a aplicação como custo eficientemente possível. 
 
-Para ajudar a começar, Azure Gestor de programa do Cosmos DB Andrew Liu aborda unidades de pedido no vídeo seguinte: <br /><br />
+Para ajudar a começar, Azure Gestor de programa do Cosmos DB Andrew Liu aborda unidades de pedido no vídeo seguinte (há um erro de digitação secundário no exemplo de unidades de pedido do vídeo. Quando são utilizados 1 KB de dados com 100 000 registos, o armazenamento total é 100 MB e não de 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 

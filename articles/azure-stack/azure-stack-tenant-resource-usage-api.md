@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8472d8ce733c07641a7fa6d53aeb6909cd709990
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29873492"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048395"
 ---
 # <a name="tenant-resource-usage-api"></a>API de utilização de recursos de inquilino
 
@@ -34,10 +34,10 @@ O pedido obtém os detalhes de consumo para as subscrições pedidas e para o in
 
 | **Método** | **URI do pedido** |
 | --- | --- |
-| INTRODUÇÃO |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argumentos
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *Armendpoint* |Azure ponto final do Gestor de recursos do ambiente de pilha do Azure. A Convenção de pilha do Azure é que o nome do ponto final do Gestor de recursos do Azure está no formato `https://management.{domain-name}`. Por exemplo, para o kit de desenvolvimento, o nome de domínio é local.azurestack.external, então, o ponto final do Gestor de recursos é `https://management.local.azurestack.external`. |
 | *subId* |ID de subscrição do utilizador que está a efetuar a chamada. Pode utilizar esta API apenas a consulta para a utilização de uma única subscrição. Fornecedores podem utilizar a API de utilização de recursos do fornecedor para utilização de consulta para todos os inquilinos. |
@@ -75,11 +75,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 ```
 
 ### <a name="response-details"></a>Detalhes de resposta
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *id* |ID exclusivo do agregado de utilização |
 | *name* |Nome do agregado de utilização |
-| *type* |Definição do recurso |
+| *tipo* |Definição do recurso |
 | *subscriptionId* |Identificador de subscrição de utilizador do Azure |
 | *usageStartTime* |Hora UTC do registo de utilização a que pertence este agregado de utilização |
 | *usageEndTime* |Hora de fim de UTC do registo de utilização a que pertence este agregado de utilização |

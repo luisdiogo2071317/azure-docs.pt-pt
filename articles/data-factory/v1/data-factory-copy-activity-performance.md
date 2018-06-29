@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622317"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054297"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-copy-activity-performance.md)
-> * [Versão 2 - Pré-visualização](../copy-activity-performance.md)
+> * [Versão 1](data-factory-copy-activity-performance.md)
+> * [Versão 2 (versão atual)](../copy-activity-performance.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [copiar o desempenho de atividade e o guia de otimização para versão 2 do Data Factory](../copy-activity-performance.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [copiar o guia de Otimização da fábrica de dados e de desempenho de atividade](../copy-activity-performance.md).
 
 Atividade de cópia da fábrica de dados do Azure fornece um primeira classe dados segurados, fiáveis e elevado desempenho ao carregar a solução. Permite-lhe para copiar dezenas de terabytes de dados diariamente através de uma variedade de avançados de nuvem e no local arquivos de dados. Desempenho de carregamento de dados de incrivelmente rápida são importante para Certifique-se de que pode concentrar-se sobre o problema de "macrodados" núcleos: criar soluções de análise avançada e obter conhecimentos aprofundados sobre tudo o que os dados.
 
@@ -133,7 +133,7 @@ Para substituir esta predefinição, especifique um valor para o **cloudDataMove
 > Se precisar de mais nuvem DMUs para um maior débito, contacte [suporte do Azure](https://azure.microsoft.com/support/). Definição de 8 e superior funciona atualmente apenas quando é **copiar vários ficheiros de Blob storage/Data Lake Store/Amazon S3/nuvem SFTP de FTP/nuvem para o Blob storage/Data Lake Store/Azure SQL Database**.
 >
 
-### <a name="parallelcopies"></a>parallelCopies
+### <a name="parallelcopies"></a>ParallelCopies
 Pode utilizar o **parallelCopies** propriedade para indicar o paralelismo que pretende que a atividade de cópia para utilizar. Pode considerar desta propriedade como o número máximo de threads dentro da atividade de cópia que podem ler a partir da sua origem de ou escrever os arquivos de dados de receptores em paralelo.
 
 Para cada cópia de execução da atividade, o Data Factory determina o número de cópias paralelas a utilizar para copiar dados a partir da origem de dados armazenam e para os dados de destino arquivo. O número predefinido de cópias paralelas que utiliza depende do tipo de origem e dependente que está a utilizar.  
@@ -265,10 +265,10 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
      * [Cópia faseada](#staged-copy)
      * [Escalabilidade do Data Management Gateway](data-factory-data-management-gateway-high-availability-scalability.md)
    * [Data Management Gateway](#considerations-for-data-management-gateway)
-   * [origem](#considerations-for-the-source)
-   * [sink](#considerations-for-the-sink)
+   * [Origem](#considerations-for-the-source)
+   * [Sink](#considerations-for-the-sink)
    * [Serialização e a anulação da serialização](#considerations-for-serialization-and-deserialization)
-   * [Compressão](#considerations-for-compression)
+   * [compressão](#considerations-for-compression)
    * [Mapeamento de colunas](#considerations-for-column-mapping)
    * [Outras considerações](#other-considerations)
 3. **Expandir a configuração para o conjunto de dados completo**. Quando estiver satisfeito com os resultados de execução e o desempenho, pode expandir a definição e o período ativo do pipeline para cobrir o conjunto completo de dados.

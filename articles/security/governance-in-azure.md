@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061501"
 ---
 # <a name="governance-in-azure"></a>Governação no Azure
 
@@ -177,21 +178,21 @@ Pode conceder até duas mil atribuições de funções em cada subscrição.
 
 ## <a name="resource-management"></a>Gestão de recursos
 
-O modelo de implementação clássica fornecido originalmente pelo Azure. Neste modelo, cada recurso existia independentemente; não ocorreu nenhuma forma de agrupar os recursos relacionados. Em vez disso, era necessário manualmente controlar quais os recursos que efetuou a sua solução ou uma aplicação e não se esqueça de geri-los numa abordagem coordenada.
+Originalmente, o Azure oferecia apenas o modelo de implementação clássica. Neste modelo, cada recurso existia independentemente; não havia forma de agrupar os recursos relacionados. Em vez disso, tinha de acompanhar manualmente quais os recursos que compunham a sua solução ou aplicação e não se esquecer de geri-los através de uma abordagem coordenada.
 
-Para implementar uma solução, era necessário que criar cada recurso individualmente através do portal do Azure ou criar um script que implementados todos os recursos na ordem correta. Para eliminar uma solução, era necessário eliminar cada recurso individualmente. Facilmente não foi possível aplicar e atualizar as políticas de controlo de acesso para recursos relacionados. Por fim, não é possível aplicar etiquetas a recursos a etiqueta-los com os termos que o ajudam a monitorizar os recursos e gerir a faturação.
+Para implementar uma solução, era necessário que criar cada recurso individualmente através do portal do Azure ou criar um script que implementados todos os recursos na ordem correta. Para eliminar uma solução, era necessário eliminar cada recurso individualmente. Não era possível aplicar e atualizar facilmente políticas de controlo de acesso para os recursos relacionados. Por fim, não podia aplicar etiquetas aos recursos para identificá-los com os termos que o ajudavam a monitorizar os recursos e a gerir a faturação.
 
-Em 2014, o Azure introduzida qual adicionou o conceito de um grupo de recursos do Resource Manager. Um grupo de recursos é um contentor para os recursos que partilham um ciclo de vida comuns. O modelo de implementação Resource Manager oferece várias vantagens:
+Em 2014, o Azure introduziu o Resource Manager, que acrescentou o conceito de grupo de recursos. Os grupos de recursos são um contentor para os recursos que partilham um ciclo de vida comum. O modelo de implementação Resource Manager oferece várias vantagens:
 
-- Pode implementar, gerir e monitorizar todos os serviços para a sua solução como um grupo, em vez de processamento estes serviços individualmente.
+- Pode implementar, gerir e monitorizar todos os serviços da sua solução como um grupo, em vez de os processar individualmente.
 
-- Pode implementar a solução durante todo o ciclo de vida repetidamente e tem confiança em como os recursos são implementados num estado consistente.
+- Pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente.
 
-- Pode aplicar o controlo de acesso a todos os recursos no seu grupo de recursos e as políticas são aplicadas automaticamente quando são adicionados novos recursos ao grupo de recursos.
+- Pode aplicar o controlo de acesso a todos os recursos do seu grupo de recursos e essas políticas são aplicadas automaticamente quando são adicionados recursos novos ao grupo de recursos.
 
 - Pode aplicar etiquetas a recursos para organizar logicamente todos os recursos na sua subscrição.
 
-- Pode utilizar o JavaScript Object Notation (JSON) para definir a infraestrutura para a sua solução. O ficheiro JSON é conhecido como um modelo do Resource Manager.
+- Pode utilizar o JavaScript Object Notation (JSON) para definir a infraestrutura da sua solução. O ficheiro JSON é conhecido como modelo do Resource Manager.
 
 - Pode definir as dependências entre os recursos, de modo a que sejam implementados na ordem correta.
 
@@ -275,7 +276,7 @@ Ao contrário do controlo de acesso baseado em funções, utilize as bloqueios d
 
 Ao aplicar um bloqueio num âmbito principal, todos os recursos desse âmbito herdam o bloqueio do mesmo. Recursos mesmo que adicionar mais tarde herdam o bloqueio do principal. O bloqueio mais restritivo na herança tem precedência.
 
-Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a Microsoft.Authorization/ _ou Microsoft.Authorization/locks/_ ações. Das funções incorporadas, apenas **proprietário** e **administrador de acesso de utilizador** concedidas essas ações.
+Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a Microsoft.Authorization/ _ou Microsoft.Authorization/locks/_ ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="api-access-to-billing-information"></a>Acesso a API para as informações de faturação
 
@@ -387,9 +388,9 @@ O [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-cent
 
 Centro de segurança fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança. Depois de ativar [políticas de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) para recursos de uma subscrição, o Centro de segurança analisa a segurança dos seus recursos para identificar potenciais vulnerabilidades. As informações sobre a configuração da rede estão disponíveis de forma instantânea.
 
-Centro de segurança do Azure representa uma combinação de melhor prática análise e segurança gestão de políticas para todos os recursos dentro de uma subscrição do Azure. Esta ferramenta poderosa e fáceis de utilizar permite que as equipas de segurança e riscos officers evitar, detetar e responder a ameaças de segurança como automaticamente recolhe e analisa os dados de segurança dos seus recursos do Azure, rede e soluções de parceiros, como os programas antimalware e firewalls.
+Centro de segurança do Azure representa uma combinação de melhor prática análise e segurança gestão de políticas para todos os recursos dentro de uma subscrição do Azure. Esta ferramenta poderosa e fáceis de utilizar permite que as equipas de segurança e riscos officers evitar, detetar e responder a ameaças de segurança como automaticamente recolhe e analisa os dados de segurança dos seus recursos do Azure, rede e soluções de parceiros, como o software antimalware programas e as firewalls.
 
-Além disso, o Centro de segurança do Azure aplica análises avançadas, incluindo machine learning e análise comportamental tirando partido de ameaças globais de produtos da Microsoft e serviços, a unidade Microsoft Crimes digitais (DCU), o Microsoft Security Response Center (MSRC) e de feeds externos. [Governação de segurança](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) podem ser aplicadas amplamente ao nível da subscrição ou narrowed requisitos específicos, granulares aplicada a recursos individuais através da definição de política.
+Além disso, o Centro de segurança do Azure aplica análises avançadas, incluindo machine learning e análise comportamental tirando partido de ameaças globais da Microsoft produtos e serviços da Microsoft Crimes digitais unidade (DCU), a Microsoft Security Response Center (MSRC) e de feeds externos. [Governação de segurança](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) podem ser aplicadas amplamente ao nível da subscrição ou narrowed requisitos específicos, granulares aplicada a recursos individuais através da definição de política.
 
 Por fim, o Centro de segurança do Azure analisa o funcionamento de segurança de recursos com base nessas políticas e utiliza-o para fornecer insightful dashboards e os alertas de eventos, tais como a deteção de software maligno ou a ligação de IP maliciosa tentativas.
 
@@ -412,7 +413,7 @@ Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Segurança de informações de análise de registos software desenvolvimento e o serviço da equipa e [programa governação](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [confiança do Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) e [compatibilidade de centro de confiança do Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como análise de registos estabelecer requisitos de segurança, identifica os controlos de segurança, gere e monitoriza riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
+Segurança de informações de análise de registos software desenvolvimento e o serviço da equipa e [programa governação](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [confiança do Microsoft Azure Center](https://azure.microsoft.com/support/trust-center/) e [compatibilidade de centro de confiança do Microsoft](https://microsoft.com/en-us/trustcenter/compliance). Como análise de registos estabelecer requisitos de segurança, identifica os controlos de segurança, gere e monitoriza riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
 
 Cada membro de equipa de desenvolvimento de análise de registos recebe formação de segurança da aplicação formal. Internamente, iremos utilizar um sistema de controlo de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controlo de versão.
 

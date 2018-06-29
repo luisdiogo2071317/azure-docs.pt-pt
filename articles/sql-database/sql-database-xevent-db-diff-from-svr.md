@@ -10,12 +10,12 @@ ms.workload: On Demand
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650048"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028851"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -190,7 +190,7 @@ O **ficheiro eventos** destino pode ocorrer a latência de rede ou falhas ao dad
 ## <a name="related-links"></a>Ligações relacionadas
 
 - [Utilizar o Azure PowerShell com o Storage do Azure](../storage/common/storage-powershell-guide-full.md).
-- [Cmdlets de armazenamento do Azure](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Cmdlets de armazenamento do Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Com o Azure PowerShell com o Storage do Azure](../storage/common/storage-powershell-guide-full.md) -fornece informações abrangentes sobre o PowerShell e o serviço de armazenamento do Azure.
 - [Como utilizar o Blob storage a partir do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)

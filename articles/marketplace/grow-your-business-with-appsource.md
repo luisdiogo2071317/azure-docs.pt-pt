@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309543"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054180"
 ---
 # <a name="grow-your-business-with-appsource"></a>Aumentar a sua empresa com AppSource  
 Utilizar AppSource quando a interagir com os clientes de negócio para localizar, tente e obter a linha de negócio software como serviço (SaaS) aplicações e serviços de implementação para ajudar a resultados de negócios de unidade e reduzir o tempo de valor.  
@@ -67,7 +67,7 @@ A qualidade da sua publicação de aplicações e o compromisso para pedido de c
 Fornece a lista de verificação seguinte melhores práticas de marketing e de recursos a considerar quando criar ofertas a serem publicadas no AppSource:  
 *   **Tenha em atenção Microsoft Trademark & diretrizes de marca.**  
     Quando a aplicação de atribuição de nomes e referenciando marcas comerciais da Microsoft e os nomes de software da Microsoft, produtos e serviços, siga os Microsoft Trademark e diretrizes de marca, bem como relevantes diretrizes de específico do produto.  
-    *   Para obter mais informações sobre marcas registadas da Microsoft e de imagem corporativa, visite o Trademark Microsoft e página marca diretrizes localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Para obter mais informações sobre marcas registadas da Microsoft e de imagem corporativa, visite o Trademark Microsoft e página marca diretrizes localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Ativar uma ação obter agora experiência oferta da avaliação gratuita, ou testar a experiência de unidade para a sua aplicação.**  
     Os utilizadores empresariais pretendem experiência primeiro manualmente a sua aplicação.  
 *   **Crie uma proposta de valor forte.**  
@@ -104,7 +104,7 @@ As tabelas seguintes cada passo da preencher a listagem de oferta de detalhe.
 
 | Definição de oferta | Melhores práticas | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Nome** | **A oferta de nomenclatura**<br />Escolher um nome para a sua aplicação é uma decisão de chave. Com base em benefício nomes são mais eficiente do que os nomes de descritivos. O nome da aplicação deve comunicar que recebem os clientes de valor de núcleos. Incluindo as palavras a procurar na sua título da aplicação também pode ajudar a sua aplicação para classificar superior nos resultados do motor de pesquisa. Siga os Microsoft Trademark e diretrizes de marca, bem como diretrizes de específico do produto relevantes ao fazer referência ao marcas comerciais da Microsoft e os nomes da Microsoft, software, produtos e serviços.<ul> <li>Para obter mais informações sobre marcas registadas da Microsoft e de imagem corporativa, visite o Trademark Microsoft e página marca diretrizes localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nome** | **A oferta de nomenclatura**<br />Escolher um nome para a sua aplicação é uma decisão de chave. Com base em benefício nomes são mais eficiente do que os nomes de descritivos. O nome da aplicação deve comunicar que recebem os clientes de valor de núcleos. Incluindo as palavras a procurar na sua título da aplicação também pode ajudar a sua aplicação para classificar superior nos resultados do motor de pesquisa. Siga os Microsoft Trademark e diretrizes de marca, bem como diretrizes de específico do produto relevantes ao fazer referência ao marcas comerciais da Microsoft e os nomes da Microsoft, software, produtos e serviços.<ul> <li>Para obter mais informações sobre marcas registadas da Microsoft e de imagem corporativa, visite o Trademark Microsoft e página marca diretrizes localizado em [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Detalhes storefront - detalhes da oferta**  
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063600"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory pass-through Authentication segurança detalhada
 
@@ -132,20 +132,21 @@ A autenticação pass-through processa um pedido de início de sessão do utiliz
 1. Um utilizador tenta aceder a uma aplicação, por exemplo, [Outlook Web App](https://outlook.office365.com/owa).
 2. Se o utilizador não está já iniciou sessão, a aplicação redireciona o browser para a página de início de sessão do Azure AD.
 3. O serviço de Azure AD STS responde fazer uma cópia com o **sessão do utilizador** página.
-4. O utilizador introduz o nome de utilizador e palavra-passe para o **sessão do utilizador** página e, em seguida, seleciona o **início de sessão** botão.
-5. O nome de utilizador e palavra-passe são submetidas para o Azure AD STS num pedido POST de HTTPS.
-6. Azure AD STS obtém as chaves públicas para todos os agentes de autenticação registada no seu inquilino da base de dados SQL do Azure e encripta a palavra-passe utilizando-los. 
+4. O utilizador introduz o nome de utilizador para o **sessão do utilizador** página e, em seguida, seleciona o **seguinte** botão.
+5. O utilizador introduz a palavra-passe para o **sessão do utilizador** página e, em seguida, seleciona o **início de sessão** botão.
+6. O nome de utilizador e palavra-passe são submetidas para o Azure AD STS num pedido POST de HTTPS.
+7. Azure AD STS obtém as chaves públicas para todos os agentes de autenticação registada no seu inquilino da base de dados SQL do Azure e encripta a palavra-passe utilizando-los. 
     - Produz os valores de palavra-passe "N" encriptado para agentes "N" autenticação registados no seu inquilino.
-7. Azure AD STS coloca o pedido de validação da palavra-passe, que consiste o nome de utilizador e os valores de palavra-passe encriptada, para a fila do Service Bus específico do seu inquilino.
-8. Porque os agentes de autenticação inicializado estão ligados forma permanente para a fila de barramento de serviço, um dos agentes de autenticação disponíveis obtém o pedido de validação da palavra-passe.
-9. O agente de autenticação localiza o valor de palavra-passe encriptada que é específica para a chave pública, utilizando um identificador e desencripta a mesma, utilizando a respetiva chave privada.
-10. O agente de autenticação tenta validar o nome de utilizador e a palavra-passe contra do Active Directory no local utilizando o [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o **dwLogonType** parâmetro definido como **LOGON32_LOGON_NETWORK**. 
+8. Azure AD STS coloca o pedido de validação da palavra-passe, que consiste o nome de utilizador e os valores de palavra-passe encriptada, para a fila do Service Bus específico do seu inquilino.
+9. Porque os agentes de autenticação inicializado estão ligados forma permanente para a fila de barramento de serviço, um dos agentes de autenticação disponíveis obtém o pedido de validação da palavra-passe.
+10. O agente de autenticação localiza o valor de palavra-passe encriptada que é específica para a chave pública, utilizando um identificador e desencripta a mesma, utilizando a respetiva chave privada.
+11. O agente de autenticação tenta validar o nome de utilizador e a palavra-passe contra do Active Directory no local utilizando o [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o **dwLogonType** parâmetro definido como **LOGON32_LOGON_NETWORK**. 
     - Esta API está a API mesma que é utilizada por serviços de Federação do Active Directory (AD FS) para iniciar sessão dos utilizadores um cenário de início de sessão federado.
     - Esta API baseia-se no processo de resolução padrão no Windows Server para localizar o controlador de domínio.
-11. O agente de autenticação recebe o resultado do Active Directory, tais como êxito, nome de utilizador ou palavra-passe incorreta ou a palavra-passe expirou.
-12. O agente de autenticação reencaminha o resultado para o STS do Azure AD através de um canal HTTPS mutuamente autenticado saído através da porta 443. A autenticação mútua utiliza o certificado emitido anteriormente para o agente de autenticação durante o registo.
-13. Azure AD STS verifica que o resultado deste está correlacionada com o pedido específico início de sessão no seu inquilino.
-14. Azure AD STS continua com o procedimento de início de sessão como configurado. Por exemplo, se a validação da palavra-passe foi concluída com êxito, o utilizador poderá ser solicitado para multi-factor Authentication ou redirecionado novamente para a aplicação.
+12. O agente de autenticação recebe o resultado do Active Directory, tais como êxito, nome de utilizador ou palavra-passe incorreta ou a palavra-passe expirou.
+13. O agente de autenticação reencaminha o resultado para o STS do Azure AD através de um canal HTTPS mutuamente autenticado saído através da porta 443. A autenticação mútua utiliza o certificado emitido anteriormente para o agente de autenticação durante o registo.
+14. Azure AD STS verifica que o resultado deste está correlacionada com o pedido específico início de sessão no seu inquilino.
+15. Azure AD STS continua com o procedimento de início de sessão como configurado. Por exemplo, se a validação da palavra-passe foi concluída com êxito, o utilizador poderá ser solicitado para multi-factor Authentication ou redirecionado novamente para a aplicação.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Segurança operacional dos agentes de autenticação
 
@@ -208,7 +209,7 @@ A atualização de automática um agente de autenticação:
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saber que cenários são suportados e aqueles que não são.
 - [Início Rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): começar a trabalhar na autenticação pass-through do Azure AD.
-- [Bloqueio do smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
+- [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Como funciona](active-directory-aadconnect-pass-through-authentication-how-it-works.md): aprender as noções básicas como funciona a autenticação pass-through do Azure AD.
 - [Perguntas mais frequentes](active-directory-aadconnect-pass-through-authentication-faq.md): encontre respostas a perguntas mais frequentes.
 - [Resolver problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.

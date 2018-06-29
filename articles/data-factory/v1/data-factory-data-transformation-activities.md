@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: aa51073395a1049cd78f13ba185119707a787b29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa00a81738563ec3c5b4b168f533b732c263825
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622300"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045624"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "34622300"
 
 ## <a name="overview"></a>Descrição geral
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atividades de transformação de dados no Data Factory versão 2](../transform-data.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [atividades de transformação de dados no Data Factory](../transform-data.md).
 
 Este artigo explica as atividades de transformação de dados no Azure Data Factory que pode utilizar para transformar e processa dados não processados para predições e das informações. Executa uma atividade de transformação num ambiente informático, como o Azure HDInsight cluster ou um lote do Azure. Fornece ligações para artigos com informações detalhadas sobre cada atividade de transformação.
 

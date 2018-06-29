@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1ed2ee73b32f71d2e1ca34c6de9d1cb2649d7f0c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355645"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045063"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilize "Reconhecimento de voz do texto para" no serviço de reconhecimento de voz
 
@@ -25,14 +25,7 @@ O corpo da mensagem de pedido para reconhecimento de voz do texto para pode ser 
 
 Os pontos finais regional texto conversão em voz são mostrados aqui. Utilize o um adequada à sua subscrição.
 
-Região| Ponto Final
--|-
-EUA Oeste| `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Ásia Oriental| `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Europa do Norte| `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Se tiver criado um tipo de letra de voz personalizadas, utilize o ponto final que criou para o mesmo em vez dos acima.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Especifique uma voz
 

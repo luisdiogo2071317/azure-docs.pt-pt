@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321996"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044825"
 ---
 # <a name="speech-service-rest-apis"></a>Serviço de reconhecimento de voz REST APIs
 
@@ -24,14 +24,7 @@ As APIs REST do serviço de reconhecimento de voz unificado são semelhantes às
 
 No reconhecimento de voz a API de texto, apenas os pontos finais utilizados diferirem do serviço de reconhecimento de voz anterior API de reconhecimento de voz. Os pontos finais novos são apresentados na tabela abaixo. Utilize um que corresponda à sua região de subscrição.
 
-Região| Voz ao ponto final de texto
--|-
-EUA Oeste| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Ásia Oriental| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Europa do Norte| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-
-> [!NOTE]
-> Tem de anexar os idiomas necessários no URI para evitar um 401 erro de http. Por isso, para en-US o URI correto, seria: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+[!include[](includes/endpoints-speech-to-text.md)]
 
 Caso contrário, é semelhante de reconhecimento de voz a API de texto a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de reconhecimento de voz anterior.
 
@@ -62,14 +55,7 @@ pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto 
 
 Seguem-se a pontos finais REST para o unificada serviço texto em voz API. Utilize o ponto final que corresponda à sua região de subscrição.
 
-Região| Ponto final de reconhecimento de voz do texto para
--|-
-EUA Oeste|    `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Ásia Oriental|  `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Europa do Norte|   `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Se tiver criado um tipo de letra de voz personalizadas, utilize o ponto final personalizado em vez disso.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 Manter estas diferenças em mente como tem de referenciar o [documentação da REST API](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de reconhecimento de voz anterior.
 
@@ -77,11 +63,7 @@ Manter estas diferenças em mente como tem de referenciar o [documentação da R
 
 Enviar um pedido para a API de REST do serviço de reconhecimento de voz necessita de um token de acesso. Obter um token ao fornecer a chave de subscrição a um serviço de reconhecimento de voz regional `issueToken` ponto final, mostrado na tabela abaixo. Utilize o ponto final que corresponda à sua região de subscrição.
 
-Região| Ponto final do serviço de token
--|-
-EUA Oeste|    `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Ásia Oriental|  `https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Europa do Norte|   `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+[!include[](includes/endpoints-token-service.md)]
 
 Cada token de acesso é válido durante 10 minutos. Pode obter um novo token em qualquer altura — incluindo, se assim o desejar, apenas antes de cada pedido de API de REST de reconhecimento de voz. Para minimizar o tráfego de rede e a latência, no entanto, recomendamos que utilize o mesmo token para nove minutos.
 

@@ -1,6 +1,6 @@
 ---
-title: Utilizar servidores NPS existentes para fornecer capacidades de MFA do Azure | Microsoft Docs
-description: Adicionar capacidades de vericiation baseado na nuvem em dois passos à sua infraestrutura de autenticação existente
+title: Utilizar servidores NPS existentes para fornecer capacidades de MFA do Azure
+description: Adicionar capacidades de verificação de dois passos baseado na nuvem para a sua infraestrutura de autenticação existente
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018310"
+ms.locfileid: "37031146"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a sua infraestrutura existente do NPS com multi-factor Authentication do Azure
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 ou posterior.
 
 Estas bibliotecas são instaladas automaticamente com a extensão.
 
--   [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure módulo Active Directory para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure módulo Active Directory para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 O Microsoft Azure Active Directory módulo para o Windows PowerShell está instalado, se ainda não estiver presente, através de um script de configuração executado como parte do processo de configuração. Não é necessário para instalar este módulo antecedência se não estiver já instalado.
 
@@ -70,6 +70,13 @@ Todas as pessoas com a extensão NPS devem ser sincronizadas para o Azure Active
 Quando instalar a extensão, tem das credenciais de ID e a administração de diretório para o seu inquilino do Azure AD. Pode encontrar o ID de diretório no [portal do Azure](https://portal.azure.com). Inicie sessão como administrador, selecione o **do Azure Active Directory** ícone à esquerda, em seguida, selecione **propriedades**. Copiar o GUID no **ID de diretório** caixa e guardá-lo. Utilize este GUID como o ID do inquilino quando instalar a extensão NPS.
 
 ![Localizar o ID de diretório em Propriedades do Azure Active Directory](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Requisitos da rede
+
+O servidor NPS deve ser capaz de comunicar com os seguintes URLs através das portas 80 e 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -115,7 +122,7 @@ Pode [desativar métodos de autenticação não suportado](howto-mfa-mfasettings
 
 ### <a name="register-users-for-mfa"></a>Registar utilizadores para a MFA
 
-Antes de implementar e utilizar a extensão NPS, os utilizadores que irão ser necessário efetuar verificação de dois passos têm de estar registado para MFA. Mais imediatamente, para testar a extensão como implementá-lo, precisa de, pelo menos, um teste conta totalmente registado para o multi-factor Authentication.
+Antes de implementar e utilizar a extensão NPS, os utilizadores que são necessários para efetuar a verificação de dois passos têm de estar registado para MFA. Mais imediatamente, para testar a extensão como implementá-lo, precisa de, pelo menos, um teste conta totalmente registado para o multi-factor Authentication.
 
 Utilize estes passos para obter uma conta de teste foi iniciada.
 1. Inicie sessão no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) com uma conta de teste. 
@@ -131,19 +138,19 @@ Os utilizadores também tem de seguir estes passos para inscrever antes de se po
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Transferir e instalar a extensão NPS do MFA do Azure
 
-1.  [Transfira a extensão NPS](https://aka.ms/npsmfa) do Centro de transferências da Microsoft.
-2.  Copie o binário para o servidor de políticas de rede que pretende configurar.
-3.  Executar *setup.exe* e siga as instruções de instalação. Se encontrar erros, verifique se as dois bibliotecas da secção de pré-requisitos foram instaladas com êxito.
+1. [Transfira a extensão NPS](https://aka.ms/npsmfa) do Centro de transferências da Microsoft.
+2. Copie o binário para o servidor de políticas de rede que pretende configurar.
+3. Executar *setup.exe* e siga as instruções de instalação. Se encontrar erros, verifique se as dois bibliotecas da secção de pré-requisitos foram instaladas com êxito.
 
 ### <a name="run-the-powershell-script"></a>Executar o script do PowerShell
 
-O instalador cria um script do PowerShell nesta localização: `C:\Program Files\Microsoft\AzureMfa\Config` (em que C:\ é a unidade de instalação). Este script do PowerShell executa as seguintes ações:
+O instalador cria um script do PowerShell nesta localização: `C:\Program Files\Microsoft\AzureMfa\Config` (em que C:\ é a unidade de instalação). Este script do PowerShell executa as ações seguintes sempre que for executada:
 
--   Crie um certificado autoassinado.
--   Associe a chave pública do certificado para o serviço principal no Azure AD.
--   Armazene o certificado no arquivo de certificados do computador local.
--   Conceder acesso à chave privada do certificado de utilizador de rede.
--   Reinicie o NPS.
+- Crie um certificado autoassinado.
+- Associe a chave pública do certificado para o serviço principal no Azure AD.
+- Armazene o certificado no arquivo de certificados do computador local.
+- Conceder acesso à chave privada do certificado de utilizador de rede.
+- Reinicie o NPS.
 
 A menos que pretenda utilizar os seus próprios certificados (em vez dos certificados autoassinados que gera o script do PowerShell), execute o Script do PowerShell para concluir a instalação. Se instalar a extensão em vários servidores, cada um deles deve ter o seu próprio certificado.
 
@@ -162,8 +169,8 @@ A menos que pretenda utilizar os seus próprios certificados (em vez dos certifi
 
 Repita estes passos em todos os servidores adicionais de NPS que pretende configurar o balanceamento de carga.
 
->[!NOTE]
->Se utilizar os seus próprios certificados em vez da geração de certificados com o script do PowerShell, certifique-se de que estes são alinhados com a Convenção de nomenclatura de NPS. O nome do requerente tem de ser **CN =\<TenantID\>, UO = Microsoft NPS extensão**. 
+> [!NOTE]
+> Se utilizar os seus próprios certificados em vez da geração de certificados com o script do PowerShell, certifique-se de que estes são alinhados com a Convenção de nomenclatura de NPS. O nome do requerente tem de ser **CN =\<TenantID\>, UO = Microsoft NPS extensão**. 
 
 ## <a name="configure-your-nps-extension"></a>Configurar a extensão NPS
 
@@ -172,7 +179,7 @@ Esta secção inclui as considerações de design e sugestões para implementaç
 ### <a name="configuration-limitations"></a>Limitações de configuração
 
 - A extensão NPS para o MFA do Azure não inclui as ferramentas para migrar utilizadores e as definições do servidor MFA para a nuvem. Por este motivo, sugerimos que utilizando a extensão para novas implementações em vez de implementação existente. Se utilizar a extensão numa implementação existente, os utilizadores têm de efetuar uma prova de segurança novamente para preencher os detalhes MFA na nuvem.  
-- A extensão NPS utiliza o UPN do Active directory no local para identificar o utilizador na MFA do Azure para efetuar a autenticação secundária A extensão pode ser configurada para utilizar um identificador de diferentes, como o ID de início de sessão alternativo ou campos personalizados do Active Directory que não seja o UPN. Consulte [avançado de opções de configuração para a extensão NPS para o multi-factor Authentication](howto-mfa-nps-extension-advanced.md) para obter mais informações.
+- A extensão NPS utiliza o UPN do Active directory no local para identificar o utilizador na MFA do Azure para efetuar a autenticação secundária A extensão pode ser configurada para utilizar um identificador de diferentes, como o ID de início de sessão alternativo ou campos personalizados do Active Directory que não seja o UPN. Para obter mais informações, consulte o artigo [avançado de opções de configuração para a extensão NPS para o multi-factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Nem todos os protocolos de encriptação suportam todos os métodos de verificação.
    - **PAP** suporta chamada telefónica, mensagem de texto unidirecional, notificação da aplicação móvel e o código de verificação da aplicação móvel
    - **CHAPV2** e **EAP** suportam a chamada telefónica e notificação da aplicação móvel
@@ -232,12 +239,15 @@ Este erro pode ser devido a uma das várias razões. Utilize estes passos para a
 
 Certifique-se de que o AD Connect está em execução e que o utilizador esteja presente no Active Directory do Windows e do Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Por que razão vejo HTTP ligar erros nos registos com todos os meus autenticações falhar?
 
 Certifique-se de que https://adnotifications.windowsazure.com é acessível a partir do servidor que executa a extensão NPS.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gerir os conjuntos de cifras e protocolos TLS/SSL
+
+Recomenda-se que conjuntos de cifras mais antigas e mais fracos desativados ou removidos se exigido pela sua organização. Informações sobre como para concluir esta tarefa pode ser encontrada no artigo [Gerir protocolos SSL/TLS e conjuntos de cifras para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

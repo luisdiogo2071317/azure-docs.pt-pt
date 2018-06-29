@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a029cb815f7765e6fe4e2fdbf81d437d5ac4ebe3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619053"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047586"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controlo de repetidos no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 As propriedades são descritas neste artigo. A propriedade de itens é uma coleção e cada item na coleção é referido utilizando o `@item()` conforme mostrado na seguinte sintaxe:  
@@ -75,7 +72,7 @@ As propriedades são descritas neste artigo. A propriedade de itens é uma cole�
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade para cada. | Cadeia | Sim
+nome | Nome da atividade para cada. | Cadeia | Sim
 tipo | Tem de ser definido como **ForEach** | Cadeia | Sim
 isSequential | Especifica se o ciclo deve ser executado sequencialmente ou em paralelo.  Máximo de 20 iterações de ciclo pode ser executado em simultâneo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterating através de uma atividade de cópia com 10 diferentes origem e dependente conjuntos de dados com **isSequential** definido como FALSO, todas as cópias são executadas em simultâneo. Predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que não existe uma configuração correta para executar executáveis vários. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar incorrer em conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Booleano | Não. Predefinição é False.
 Itens | Uma expressão que devolve uma matriz JSON para iterated através de mensagens em fila. | Expressão (que devolve uma matriz JSON) | Sim

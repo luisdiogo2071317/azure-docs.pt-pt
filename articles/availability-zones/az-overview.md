@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284809"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063668"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>O que são zonas de disponibilidade no Azure?
 Zonas de disponibilidade é uma oferta que protege as suas aplicações e dados de falhas de centro de dados de elevada disponibilidade. Zonas de disponibilidade estão localizações físicas exclusivas dentro de uma região do Azure. Cada zona é constituída por um ou vários centros de dados equipados com energia independentes, arrefecimento e funcionamento em rede. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege a aplicações e dados de falhas de centro de dados. Zona redundante serviços replicar as suas aplicações e dados em zonas de disponibilidade para proteger contra único pontos de falha. Com zonas de disponibilidade, o Azure oferece SLA de disponibilidade VM da indústria melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -42,7 +42,7 @@ Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquit
 - EUA Central
 - Centro de França
 - E.u. a leste 2 (pré-visualização)
-- Europa Ocidental (pré-visualização)
+- Europa Ocidental
 - Sudeste Asiático (pré-visualização)
 
 
@@ -59,6 +59,8 @@ Os serviços do Azure que suportam zonas de disponibilidade são:
 - SQL Database
 - Event Hubs
 - Service Bus
+- Gateway de VPN
+- ExpressRoute
 
 
 ## <a name="pricing"></a>Preços
@@ -73,6 +75,9 @@ Não há sem custos adicionais para máquinas virtuais implementadas numa zona d
 - [Balanceamento de carga VMs dentro de uma zona com um balanceador de carga padrão zonal front-end](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
 - [Base de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+- [Recuperação de desastre georreplicação de Hubs de eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Recuperação de desastre georreplicação do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de Shopify utilizando o Azure Data Factory (pré-visualização) | Microsoft Docs
+title: Copiar dados de Shopify utilizando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados de Shopify aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c7081de5244501115b595140db3225ff1923191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 21065950a886248dcf3cdbc795d0b77f74eaf808
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337570"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045189"
 ---
-# <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar dados de Shopify utilizando o Azure Data Factory (pré-visualização)
+# <a name="copy-data-from-shopify-using-azure-data-factory"></a>Copiar dados de Shopify utilizando o Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Shopify. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Este conector está atualmente em pré-visualização. Pode experimentar e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).

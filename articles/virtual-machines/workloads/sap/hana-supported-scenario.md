@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b703f6d141005cf3cf29531a0586eebb61693a2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754576"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063634"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados de instâncias de grande HANA
 Este documento descreve os cenários suportados, juntamente com os detalhes de arquitetura para instâncias grande HANA (HLI).
@@ -78,6 +78,22 @@ Se for necessário, pode definir os cartões NIC adicionais na sua própria. No 
 
 >[!NOTE]
 >Pode ainda localizar interfaces adicionais que são interfaces físicas ou bonding. Deve considerar as interfaces above-mentioned do seu incidente utilizado, pode ser ignorado rest / ou não ser tempered com.
+
+A distribuição de unidades com dois endereços IP atribuídos deve ter o seguinte aspeto:
+
+Ethernet "A" deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Este endereço IP deverá ser utilizado para manter de /etc/hosts do SO.
+
+Ethernet "B" deve ter atribuído um endereço IP é utilizado para comunicação com o NFS. Por conseguinte, estes endereços fazer **não** tem de ser mantidos na etc/anfitriões para permitir tráfego de instância para a instância do inquilino.
+
+Para cenários de implementação de replicação do sistema HANA ou HANA Escalamento horizontal, uma configuração de painel com dois endereços IP atribuídos não é adequada. Se ter dois endereços IP atribuídos apenas e que pretenda implementar este tipo de configuração, contacte o SAP HANA na gestão de serviço do Azure para obter um terceiro endereço IP de uma terceira VLAN atribuído. Para unidades de instância grande HANA ter três endereços IP atribuídos em três portas NIC, aplicam as seguintes regras de utilização:
+
+- Ethernet "A" deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Por conseguinte, este endereço IP não deverá ser utilizado para manter de /etc/hosts do SO.
+
+- Ethernet "B" deve ter atribuído um endereço IP é utilizado para comunicação com o armazenamento NFS. Por conseguinte, este tipo de endereços não deve ser mantido nos anfitriões/etc.
+
+- Ethernet "C" deve ser utilizado exclusivamente para ser mantidos na etc/anfitriões para comunicação entre as diferentes instâncias. Estes endereços seria também os endereços IP que precisam de ser mantidos em configurações de HANA de escalamento horizontal como endereços IP que HANA utiliza para a configuração do nó entre.
+
+- Ethernet "D" deve ser utilizado exclusivamente para o dispositivo STONITH acesso para pacemaker. Isto é necessário quando configurar a replicação de sistema HANA (HSR) e pretende alcançar a ativação pós-falha de automático no sistema operativo a utilizar um dispositivo SBD com base.
 
 
 ### <a name="storage"></a>Armazenamento
@@ -221,6 +237,7 @@ As seguintes mountpoints são pré-configuradas:
 - Para MCOS: Distribuição de tamanho de Volume baseia-se desativar o tamanho de base de dados na memória. Consulte o [descrição geral e arquitetura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber que base de dados tamanhos na memória são suportadas com multisid ambiente.
 - Na DR: os volumes e mountpoints estão configurados (marcados como "Necessária para instalação HANA") para a instalação de instância HANA sempre a unidade de DR HLI de produção. 
 - Na DR: os dados, logbackups e volumes partilhados (marcados como "Replicação de armazenamento") são replicados através de instantâneos do site de produção. Estas estão montados durante o período de ativação pós-falha apenas. Consulte [procedimento de ativação pós-falha de recuperação de desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes.
+- Efetuar o arranque de volume para **tipo de SKU posso classe** é replicado para o nó de DR.
 
 
 ## <a name="4-single-node-with-dr-multipurpose"></a>4. Nó único com DR (Multipurpose)
@@ -270,6 +287,7 @@ As seguintes mountpoints são pré-configuradas:
 - Na DR: os volumes e mountpoints estão configurados (marcados como "Necessária para instalação HANA") para a instalação de instância HANA sempre a unidade de DR HLI de produção. 
 - Na DR: os dados, logbackups e volumes partilhados (marcados como "Replicação de armazenamento") são replicados através de instantâneos do site de produção. Estas estão montados durante o período de ativação pós-falha apenas. Consulte [procedimento de ativação pós-falha de recuperação de desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
 - Na DR: os dados, logbackups, registo, volumes partilhados de pergunta e resposta (marcados como "Instalação de instância de pergunta e resposta") estão configurados para a instalação de instância de pergunta e resposta.
+- Efetuar o arranque de volume para **tipo de SKU posso classe** é replicado para o nó de DR.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR com STONITH
  
@@ -378,6 +396,7 @@ As seguintes mountpoints são pré-configuradas:
 - Na DR: os volumes e mountpoints estão configurados (marcados como "Necessária para instalação HANA") para a instalação de instância HANA sempre a unidade de DR HLI de produção. 
 - Na DR: os dados, logbackups e volumes partilhados (marcados como "Replicação de armazenamento") são replicados através de instantâneos do site de produção. Estas estão montados durante o período de ativação pós-falha apenas. Consulte [procedimento de ativação pós-falha de recuperação de desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
 - Na DR: os dados, logbackups, registo, volumes partilhados de pergunta e resposta (marcados como "Instalação de instância de pergunta e resposta") estão configurados para a instalação de instância de pergunta e resposta.
+- Efetuar o arranque de volume para **tipo de SKU posso classe** é replicado para o nó de DR.
 
 
 ## <a name="7-host-auto-failover-11"></a>7. Ativação pós-falha automática de anfitrião (1 + 1)
@@ -540,6 +559,7 @@ As seguintes mountpoints são pré-configuradas:
 - /usr/SAP/SID é uma ligação simbólica para /hana/shared/SID.
 -  Na DR: os volumes e mountpoints estão configurados (marcados como "Necessária para instalação HANA") para a instalação de instância HANA sempre a unidade de DR HLI de produção. 
 - Na DR: os dados, logbackups e volumes partilhados (marcados como "Replicação de armazenamento") são replicados através de instantâneos do site de produção. Estas estão montados durante o período de ativação pós-falha apenas. Consulte [procedimento de ativação pós-falha de recuperação de desastres](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+- Efetuar o arranque de volume para **tipo de SKU posso classe** é replicado para o nó de DR.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

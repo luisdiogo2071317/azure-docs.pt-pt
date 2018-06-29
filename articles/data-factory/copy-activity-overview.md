@@ -11,29 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618492"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059067"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
 ## <a name="overview"></a>Descrição geral
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-data-movement-activities.md)
-> * [Versão 2 - Pré-visualização](copy-activity-overview.md)
+> * [Versão 1](v1/data-factory-data-movement-activities.md)
+> * [Versão atual](copy-activity-overview.md)
 
 No Azure Data Factory, pode utilizar a atividade de cópia para copiar dados entre dados arquivos localizada no local e na nuvem. Depois dos dados são copiados, este pode ser mais transformado e analisado. Também pode utilizar a atividade de cópia de publicação de transformação e resultados de análise para intelligence de negócio (BI) e o consumo de aplicação.
 
 ![Função de atividade de cópia](media/copy-activity-overview/copy-activity.png)
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 Atividade de cópia é executada num [integração Runtime](concepts-integration-runtime.md). Para o cenário de cópia de dados diferentes, pode ser aproveitada versão diferente do tempo de execução de integração:
 
@@ -114,7 +111,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista exaustiva de prop
                 "type": "TabularTranslator",
                 "columnMappings": "<column mapping>"
             },
-            "cloudDataMovementUnits": <number>,
+            "dataIntegrationUnits": <number>,
             "parallelCopies": <number>,
             "enableStaging": true/false,
             "stagingSettings": {
@@ -138,10 +135,10 @@ O modelo seguinte de uma atividade de cópia contém uma lista exaustiva de prop
 | saídas | Especifique o conjunto de dados que criou os pontos de dados sink. Atividade de cópia suporta apenas um único resultado. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
 | source | Especifique o tipo de origem de cópia e as propriedades correspondentes sobre como obter dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
-| sink | Especifique o tipo de sink de cópia e as propriedades correspondentes como escrever dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
-| Tradutor | Especificar mapeamentos de colunas explícita de origem para sink. Aplica-se de que quando o comportamento de cópia predefinido não é possível satisfazer satisfaça as suas necessidades.<br/><br/>Saiba os detalhes da [mapeamento do tipo de esquema e dados](copy-activity-schema-and-type-mapping.md). | Não |
-| cloudDataMovementUnits | Especifique o powerfulness de [Runtime de integração do Azure](concepts-integration-runtime.md) atribuir a cópia de dados.<br/><br/>Saiba os detalhes da [unidades de movimento de dados de nuvem](copy-activity-performance.md). | Não |
-| parallelCopies | Especifique o paralelismo que pretende que a atividade de cópia para utilizar durante a leitura de dados de origem e de escrita de dados para sink.<br/><br/>Saiba os detalhes da [paralela cópia](copy-activity-performance.md#parallel-copy). | Não |
+| Sink | Especifique o tipo de sink de cópia e as propriedades correspondentes como escrever dados.<br/><br/>Saiba os detalhes da secção "Copiar propriedades da atividade" no artigo de conector indicado no [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
+| tradutor | Especificar mapeamentos de colunas explícita de origem para sink. Aplica-se de que quando o comportamento de cópia predefinido não é possível satisfazer satisfaça as suas necessidades.<br/><br/>Saiba os detalhes da [mapeamento do tipo de esquema e dados](copy-activity-schema-and-type-mapping.md). | Não |
+| dataIntegrationUnits | Especifique o powerfulness de [Runtime de integração do Azure](concepts-integration-runtime.md) atribuir a cópia de dados. Anteriormente conhecida como nuvem de unidades de movimento de dados (DMU). <br/><br/>Saiba os detalhes da [unidades de integração de dados](copy-activity-performance.md#data-integration-units). | Não |
+| ParallelCopies | Especifique o paralelismo que pretende que a atividade de cópia para utilizar durante a leitura de dados de origem e de escrita de dados para sink.<br/><br/>Saiba os detalhes da [paralela cópia](copy-activity-performance.md#parallel-copy). | Não |
 | enableStaging<br/>stagingSettings | Escolha esta opção testar os dados no armazenamento de BLOBs de aa em vez de copiar diretamente os dados de origem para sink intermédio.<br/><br/>Saiba os cenários útil e detalhes de configuração da [testado cópia](copy-activity-performance.md#staged-copy). | Não |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Escolha como lidar com linhas incompatíveis ao copiar dados de origem para sink.<br/><br/>Saiba os detalhes da [tolerância a falhas](copy-activity-fault-tolerance.md). | Não |
 
@@ -173,8 +170,8 @@ Detalhes de execução da atividade de cópia e as características de desempenh
 
 | Nome da propriedade  | Descrição | Unidade |
 |:--- |:--- |:--- |
-| DataRead | Tamanho dos dados de leitura de origem | Valor Int64 no **bytes** |
-| DataWritten | Tamanho dos dados escrito sink | Valor Int64 no **bytes** |
+| dataRead | Tamanho dos dados de leitura de origem | Valor Int64 no **bytes** |
+| dataWritten | Tamanho dos dados escrito sink | Valor Int64 no **bytes** |
 | filesRead | Número de ficheiros que está a ser copiado ao copiar dados a partir do armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | filesWritten | Número de ficheiros que está a ser copiado ao copiar dados para armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas que está a ser copiados (não aplicável a cópia binária). | Valor Int64 (nenhuma unidade) |
@@ -185,7 +182,7 @@ Detalhes de execução da atividade de cópia e as características de desempenh
 | redshiftUnload | Se descarregamento é utilizado quando copiar dados de Redshift. | Booleano |
 | hdfsDistcp | Se for utilizado o DistCp ao copiar dados a partir do HDFS. | Booleano |
 | effectiveIntegrationRuntime | Mostrar que Runtime(s) de integração é utilizada para atribuir a atividade executar, no formato de `<IR name> (<region if it's Azure IR>)`. | Texto (cadeia) |
-| usedCloudDataMovementUnits | Unidades movimento de nuvem eficaz dados durante a cópia. | Valor Int32 |
+| usedDataIntegrationUnits | As unidades de integração dados eficazes durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies eficaz durante a cópia. | Valor Int32|
 | redirectRowPath | Caminho para o registo de ignorados linhas incompatíveis no armazenamento de BLOBs que configurou em "redirectIncompatibleRowSettings". Consulte o exemplo abaixo. | Texto (cadeia) |
 | executionDetails | Obter mais detalhes sobre as fases de atividade de cópia realiza, e os passos correspondentes, duração, configurações utilizadas, etc. Não é recomendado para analisar nesta secção, pode alterar. | Array |
@@ -200,7 +197,7 @@ Detalhes de execução da atividade de cópia e as características de desempenh
     "throughput": 467707.344,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedCloudDataMovementUnits": 32,
+    "usedDataIntegrationUnits": 32,
     "usedParallelCopies": 8,
     "executionDetails": [
         {
@@ -213,7 +210,7 @@ Detalhes de execução da atividade de cópia e as características de desempenh
             "status": "Succeeded",
             "start": "2018-01-17T15:13:00.3515165Z",
             "duration": 221,
-            "usedCloudDataMovementUnits": 32,
+            "usedDataIntegrationUnits": 32,
             "usedParallelCopies": 8,
             "detailedDurations": {
                 "queuingDuration": 2,
@@ -237,10 +234,10 @@ Por predefinição, o atividade de cópia para copiar dados e devolve falha quan
 Consulte o [guia Otimização e de desempenho de atividade de cópia](copy-activity-performance.md), que descreve os principais fatores que afetam o desempenho do movimento de dados (atividade de cópia) no Azure Data Factory. Também apresenta uma lista de desempenho durante os testes internos e descreve as várias formas para otimizar o desempenho de atividade de cópia.
 
 ## <a name="incremental-copy"></a>Cópia incremental 
-Fábrica de dados versão 2 suporta cenários de forma incremental copiar dados delta a partir de um arquivo de dados de origem para um arquivo de dados de destino. Consulte [Tutorial: copiar incrementalmente dados](tutorial-incremental-copy-overview.md). 
+Fábrica de dados suporta cenários de forma incremental copiar dados delta a partir de um arquivo de dados de origem para um arquivo de dados de destino. Consulte [Tutorial: copiar incrementalmente dados](tutorial-incremental-copy-overview.md). 
 
 ## <a name="read-and-write-partitioned-data"></a>Ler e escrever dados particionados
-Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão 2, pode conseguir este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. Para obter mais informações, consulte [como de leitura ou escrita particionada dados](how-to-read-write-partitioned-data.md).
+Na versão 1, o Azure Data Factory suportado ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual, que pode realizar este comportamento, utilizando um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. Para obter mais informações, consulte [como de leitura ou escrita particionada dados](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes inícios rápidos, tutoriais e exemplos:

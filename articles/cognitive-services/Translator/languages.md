@@ -6,18 +6,19 @@ author: Jann-Skotdal
 manager: chriswendt1
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f388e9e39809774f307c0d1752e29f34b041ed13
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356400"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37032455"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas suportados na Microsoft tradutor texto API 
-A API de texto do Microsoft tradutor suporta os seguintes idiomas para a conversão de texto para texto. Tradução automática (NMT neuronal) é o novo padrão para alta qualidade com tecnologia AI máquina traduções e está disponível como predefinição V3 da API de texto tradutor a utilizar quando um sistema neuronal está disponível. Tradução neuronal está disponível na V2 utilizando a categoria "generalnn". 
+# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas suportados na Microsoft tradutor texto API
+
+A API de texto do Microsoft tradutor suporta os seguintes idiomas para a conversão de texto para texto. Tradução automática (NMT neuronal) é o novo padrão para alta qualidade com tecnologia AI máquina traduções e está disponível como predefinição V3 da API de texto tradutor a utilizar quando um sistema neuronal está disponível. Tradução neuronal está disponível na V2 utilizando a categoria "generalnn".
 
 [Saiba mais sobre como funciona a tradução automática](https://www.microsoft.com/translator/mt.aspx)
 
@@ -25,6 +26,7 @@ A API de texto do Microsoft tradutor suporta os seguintes idiomas para a convers
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Estatísticas |`af`          |
 | Árabe      | Neuronal | `ar`          |
+| Árabe, Levantine    | Neuronal | `apc`
 | Bangla      | Neuronal |`bn`          |
 | Bósnio (Latim)      | Estatísticas |`bs`          |
 | Búlgaro     |  Neuronal |`bg`          |
@@ -116,7 +118,7 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<>-de-" ind
 
 ## <a name="dictionary"></a>Dicionário
 
-O dicionário suporta os seguintes idiomas de ou para inglês utilizando os métodos de pesquisa e exemplos. 
+O dicionário suporta os seguintes idiomas de ou para inglês utilizando os métodos de pesquisa e exemplos.
 
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|
@@ -173,12 +175,12 @@ O dicionário suporta os seguintes idiomas de ou para inglês utilizando os mét
 
 ## <a name="languages-detected-by-the-detect-method"></a>Idiomas detetados pelo método de deteção
 
-Os seguintes idiomas podem ser detetados pelo método de deteção. Detetar pode detetar os idiomas que não é possível converter Translator Microsoft. 
+Os seguintes idiomas podem ser detetados pelo método de deteção. Detetar pode detetar os idiomas que não é possível converter Translator Microsoft.
 
-| Idioma    | 
+| Idioma    |
 |:----------- |
 | Afrikaans |
-| Albanês | 
+| Albanês |
 | Árabe |
 | Basco (Basco) |
 | Bielorrusso |
@@ -248,7 +250,7 @@ Os seguintes idiomas podem ser detetados pelo método de deteção. Detetar pode
 
 Pode aceder a lista de linguagens de programação utilizando a operação de idiomas da API de texto v 3.0. Pode ver a lista por funcionalidade, o código de idioma, bem como o nome de idioma em inglês ou qualquer outro idioma suportado. Esta lista é atualizada automaticamente pelo serviço Microsoft Translator à novos idiomas ficam disponíveis.
 
-[Ver a documentação de referência de operação de idiomas](/reference/languages.md)
+[Ver a documentação de referência de operação de idiomas](reference/v3-0-languages.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Aceder à lista de no Web site da Microsoft Translator
 

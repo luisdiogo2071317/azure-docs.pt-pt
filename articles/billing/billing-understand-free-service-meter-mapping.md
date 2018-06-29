@@ -1,5 +1,5 @@
 ---
-title: Serviço para medir mapeamento gratuitamente conta - Azure | Microsoft Docs
+title: Serviço para medir o mapeamento conta gratuita do Azure | Microsoft Docs
 description: Compreenda o serviço para medir o mapeamento para os serviços incluídos em conta gratuita.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201050"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061375"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Compreender o serviço gratuito para o mapeamento do medidor
 

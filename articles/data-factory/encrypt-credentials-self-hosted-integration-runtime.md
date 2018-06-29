@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1cadcdd45e648f315e292bbc806abc9337725670
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b577c276627c3a187215cd0da551428fbb32791f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619223"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050911"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Encriptar as credenciais para os arquivos de dados no local no Azure Data Factory
 Pode encriptar e armazenar as credenciais para os arquivos de dados no local (serviços ligados com informações confidenciais) numa máquina com o tempo de execução de integração personalizada alojada. 
 
 Transferir um ficheiro de definição JSON com as credenciais para o <br/>[**Novo AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet para produzir um ficheiro de definição de JSON de saída com as credenciais encriptadas. Em seguida, utilize a definição atualizada de JSON para criar os serviços ligados.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
 ## <a name="author-sql-server-linked-service"></a>Serviço ligado do SQL Server de autor
 Crie um ficheiro JSON com o nome **SqlServerLinkedService.json** em qualquer pasta com o seguinte conteúdo:  

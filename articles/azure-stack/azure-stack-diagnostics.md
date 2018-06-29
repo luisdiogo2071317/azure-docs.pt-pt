@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801658"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063919"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -46,6 +46,35 @@ Seguem-se alguns tipos de registo de exemplo que são recolhidos:
 *   **Registos ETW**
 
 Estes ficheiros são recolhidos e guardados numa partilha pelo Recoletor do rastreio. O **Get-AzureStackLog** cmdlet do PowerShell, em seguida, pode ser utilizado para recolhê-las quando for necessário.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Para executar Get-AzureStackLog na pilha do Azure integrado sistemas 
+Para executar a ferramenta de coleção de registo num sistema integrado, tem de ter acesso ao ponto final com privilégios (PEP). Eis um script de exemplo, pode executar utilizando o PEP para recolher registos num sistema integrado:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são utilizados para carregar os registos para uma pasta partilhada externa.
+- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos para um período de tempo específico. Isto pode ter de útil para cenários como recolher registos depois de aplicar um pacote de atualização num sistema integrado.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar Get-AzureStackLog num sistema Kit de desenvolvimento de pilha do Azure (ASDK)
 1. Inicie sessão como **AzureStack\CloudAdmin** no anfitrião.
@@ -77,65 +106,6 @@ Estes ficheiros são recolhidos e guardados numa partilha pelo Recoletor do rast
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Para executar Get-AzureStackLog na pilha do Azure integrado versão sistemas 1804 e posterior
-
-Para executar a ferramenta de coleção de registo num sistema integrado, tem de ter acesso ao ponto final com privilégios (PEP). Eis um script de exemplo, pode executar utilizando o PEP para recolher registos num sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são utilizados para carregar os registos para uma pasta partilhada externa.
-- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos para um período de tempo específico. Isto pode ter de útil para cenários como recolher registos depois de aplicar um pacote de atualização num sistema integrado.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Para executar Get-AzureStackLog na pilha do Azure integrado versão sistemas 1803 e anterior
-
-Para executar a ferramenta de coleção de registo num sistema integrado, tem de ter acesso ao ponto final com privilégios (PEP). Eis um script de exemplo, pode executar utilizando o PEP para recolher registos num sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Quando recolher os registos a partir de PEP, especifique o **OutputPath** parâmetro seja uma localização no computador anfitrião de ciclo de vida de Hardware (HLH). Certifique-se também de que a localização está encriptada.
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são opcionais e são utilizadas quando carregar os registos para uma pasta partilhada externa. Utilize estes parâmetros *Ademais* para **OutputPath**. Se **OutputPath** não for especificado, a ferramenta de registo de coleção utiliza a unidade de sistema da PEP VM para armazenamento. Isto poderá originar o script falhou porque o espaço de disco é limitado.
-- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos para um período de tempo específico. Isto pode ter de útil para cenários como recolher registos depois de aplicar um pacote de atualização num sistema integrado.
-
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 

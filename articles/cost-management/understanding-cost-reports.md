@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167902"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064123"
 ---
 # <a name="understanding-cost-management-reports"></a>Relatórios de gestão de custo de compreender
 
@@ -121,7 +121,7 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
     -   **Tipo de utilização**
           - Tipo de utilização pode ser taxas única ou taxas periódicas.
 
-5. **filtros**
+5. **Filtros**
 
     Utilize único ou selecionar vários filtros para definir os intervalos para valores selecionados. Para definir um filtro, clique em **adicionar** e, em seguida, selecione as categorias de filtro e valores.
 
@@ -162,7 +162,7 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
 
     A opção de Mostrar/ocultar não tem qualquer efeito nos relatórios.
 
-12.   **formatos de apresentação**
+12.   **Formatos de apresentação**
 
     Utilize os formatos de apresentação para selecionar várias vistas de gráfico ou tabela.
 
@@ -175,6 +175,10 @@ Cada área numerada na imagem anterior está descrita em detalhe nas seguintes i
 14. **Ações**
 
     Utilize ações para guardar, exportar ou agendamento do relatório.
+
+15. **Política**
+
+    Apesar de não ilustrados, alguns relatórios incluem uma política de cálculo do custo prevista. Esses relatórios, o **consolidado** política mostra recomendações para todas as contas e as subscrições sob a entidade atual, tais como a inscrição da Microsoft ou AWS payer. O **autónomo** política mostra recomendações para uma conta ou a subscrição, como se outras subscrições não existem. A política que selecionou varia na estratégia de otimização utilizada pela sua organização. Custos projecções baseiam-se nos últimos 30 dias de utilização.
 
 ## <a name="save-and-schedule-reports"></a>Guarde e agendar relatórios
 
@@ -199,4 +203,5 @@ Quando estiver a visualizar quaisquer relatórios, clique em **ações** e, em s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se ainda não tiver concluído o primeiro tutorial para a gestão de custo, leia-lo no [rever os custos de utilização e](tutorial-review-usage.md).
+- Saiba mais sobre os relatórios que estão incluídos no Cloudyn em [relatórios de gestão de custo de utilização](use-reports.md).
+- Saiba mais sobre como utilizar relatórios para criar [dashboards](dashboards.md).

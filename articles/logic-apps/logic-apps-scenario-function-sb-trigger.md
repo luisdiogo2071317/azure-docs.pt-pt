@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299798"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030958"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Cenário: Acionar uma aplicação lógica com as funções do Azure e o Service Bus do Azure
 
@@ -39,7 +39,7 @@ Neste exemplo, poderá ter uma função em execução para cada aplicação lóg
 ## <a name="build-the-function"></a>A função de compilação
 Em seguida, tem de criar uma função que age como o acionador e escuta para a fila.
 
-1. No [portal das funções do Azure](https://functions.azure.com/signin), selecione **nova função**e, em seguida, selecione o **ServiceBusQueueTrigger - c#** modelo.
+1. No [portal das funções do Azure](https://functions.azure.com/), selecione **nova função**e, em seguida, selecione o **ServiceBusQueueTrigger - c#** modelo.
    
     ![Portal de funções do Azure][2]
 2. Configurar a ligação para a fila de barramento de serviço, que utiliza o SDK do Service Bus `OnMessageReceive()` serviço de escuta.

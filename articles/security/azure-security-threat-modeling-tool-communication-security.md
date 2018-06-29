@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029803"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Moldura de segurança: Segurança de comunicação | Mitigações 
 | Produtos/serviços | Artigo |
@@ -42,10 +42,10 @@ ms.locfileid: "28019488"
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Hub de eventos do Azure | 
+| **Componente**               | Hub de Eventos do Azure | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Event Hubs autenticação e segurança descrição geral do modelo](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Passos** | Proteger as ligações AMQP ou HTTP para o Hub de eventos utilizando SSL/TLS |
 
@@ -56,7 +56,7 @@ ms.locfileid: "28019488"
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | N/A  |
 | **Passos** | Verifique os privilégios de conta de serviço e verifique se as páginas do ASP.NET ou serviços personalizada Respeitamos a segurança do CRM |
 
@@ -67,8 +67,8 @@ ms.locfileid: "28019488"
 | **Componente**               | Azure Data Factory | 
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | Tipos de serviço ligado - do Azure e no local |
-| **Referências**              |[Mover dados entre no local e o Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [o Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **atributos**              | Tipos de serviço ligado - do Azure e no local |
+| **Referências**              |[ Mover dados entre no local e o Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [o Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Passos** | <p>A ferramenta de Gateway de gestão de dados (DMG) é necessária para ligar às origens de dados que estão protegidas por trás da rede empresarial ou uma firewall.</p><ol><li>Bloquear a máquina isola a ferramenta DMG e impede programas malfunctioning prejudiciais ou monitorização na máquina de origem de dados. (Por exemplo as atualizações mais recentes tem de estar instaladas, ativar mínimo necessário portas, controladas contas de aprovisionamento, a auditoria ativada, encriptação de disco ativada etc.)</li><li>Chave do Gateway de dados tem rotação intervalos frequentes ou sempre que a palavra-passe da conta do serviço DMG renova</li><li>Tem de estar encriptados transits dados através da ligação de serviço</li></ol> |
 
 ## <a id="identity-https"></a>Certifique-se de que todo o tráfego para o servidor de identidades através de ligação HTTPS
@@ -78,7 +78,7 @@ ms.locfileid: "28019488"
 | **Componente**               | Servidor de identidades | 
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [IdentityServer3 - e criptografia de chaves, assinaturas](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html), [IdentityServer3 - implementação](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
 | **Passos** | Por predefinição, IdentityServer requer que todas as ligações recebidas fique através de HTTPS. É absolutamente obrigatório que a comunicação com IdentityServer é efetuada através de apenas transportes protegidos. Existem determinados cenários de implementação, como a descarga de SSL, onde pode ser flexibilizado este requisito. Consulte a página de implementação do servidor de identidades em referências para obter mais informações. |
 
@@ -89,7 +89,7 @@ ms.locfileid: "28019488"
 | **Componente**               | Aplicação Web | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | N/A  |
 | **Passos** | <p>As aplicações que utilizam o SSL, TLS ou DTLS totalmente tem de verificar os certificados x. 509 das entidades que se ligam ao. Isto inclui a verificação dos certificados para:</p><ul><li>Nome de domínio</li><li>Datas de validade (datas de início e de expiração)</li><li>Estado de revogação</li><li>Utilização (por exemplo, autenticação de servidor para servidores, autenticação de cliente para clientes)</li><li>Cadeia de fidedignidade. Certificados devem estar encadeados com uma autoridade de certificação de raiz (AC) considerada fidedigna pela plataforma do ou explicitamente configurada pelo administrador</li><li>Comprimento de chave de chave pública do certificado tem de ser > 2048 bits</li><li>Algoritmo hash tem de ser SHA256 e acima |
 
@@ -100,7 +100,7 @@ ms.locfileid: "28019488"
 | **Componente**               | Aplicação Web | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | EnvironmentType - Azure |
+| **atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Ativar HTTPS para uma aplicação no App Service do Azure](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **Passos** | Por predefinição, o Azure já permite HTTPS para todas as aplicações com um certificado de caráter universal para o *. domínio azurewebsites.net. No entanto, como todos os domínios de caráter universal, não é como segura como utilizar um domínio personalizado com certificado próprio [consulte](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). É recomendado ativar SSL para o domínio personalizado que a aplicação implementada irá ser acedida através do|
 
@@ -111,7 +111,7 @@ ms.locfileid: "28019488"
 | **Componente**               | Aplicação Web | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | EnvironmentType - Azure |
+| **atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Impor HTTPS no App Service do Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **Passos** | <p>Embora o Azure permite já HTTPS para os serviços de aplicações do Azure com um certificado de caráter universal para o domínio *. azurewebsites.net, não a impor o HTTPS. Visitantes ainda podem aceder à aplicação a utilizar HTTP, que pode comprometer a segurança da aplicação e, por conseguinte, HTTPS tem de ser imposta explicitamente. Aplicações de ASP.NET MVC devem utilizar o [RequireHttps filtro](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que força um pedido HTTP não segura novamente sejam enviados através de HTTPS.</p><p>Em alternativa, o URL Rewrite module, que está incluído no App Service do Azure pode ser utilizado para impor o HTTPS. Módulo URL Rewrite permite aos programadores definir regras que são aplicadas aos pedidos recebidos antes dos pedidos são entregar à sua aplicação. Estiverem definidas regras de URL Rewrite num ficheiro Web. config armazenado na raiz da aplicação</p>|
 
@@ -135,7 +135,7 @@ O exemplo seguinte contém uma regra de URL Rewrite básica que força a todo o 
   </system.webServer>
 </configuration>
 ```
-Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar permanente) quando o utilizador solicita uma página utilizando HTTP. O 301 redireciona o pedido para o mesmo URL que o visitante solicitado, mas substitui a porção HTTP do pedido por HTTPS. Por exemplo, HTTP://contoso.com poderia ser redirecionado para HTTPS://contoso.com. 
+Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar permanente) quando o utilizador solicita uma página utilizando HTTP. O 301 redireciona o pedido para o mesmo URL que o visitante solicitado, mas substitui a porção HTTP do pedido por HTTPS. Por exemplo, HTTP://contoso.com teria de ser redirecionada para HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Ativar segurança de transporte Strict HTTP (HSTS)
 
@@ -144,9 +144,9 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Aplicação Web | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Segurança de transporte Strict OWASP HTTP Cheat folha](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Passos** | <p>Segurança de transporte Strict da HTTP (HSTS) é uma melhoria de opção de segurança que é especificada por uma aplicação web através da utilização de um cabeçalho de resposta especiais. Depois de um browser suportado recebe este cabeçalho esse browser irá impedir que as comunicações de que está a ser enviados através de HTTP para o domínio especificado e enviará em vez disso, todas as comunicações através de HTTPS. Também impede que clique HTTPS através de pedidos em browsers.</p><p>Para implementar HSTS, o seguinte cabeçalho de resposta tem de ser configurada para um Web site globalmente, no código ou na configuração. Transporte-segurança de Strict: idade máxima = 300; includeSubDomains HSTS aborda as ameaças seguintes:</p><ul><li>Utilizador marcadores ou manualmente tipos http://example.com e está sujeita a um atacante ataques man-in-the-middle: HSTS redireciona automaticamente pedidos HTTP para HTTPS para o domínio de destino</li><li>Aplicação Web que se destina a ser puramente HTTPS inadvertidamente contém ligações HTTP ou serve conteúdo através de HTTP: HSTS redireciona automaticamente pedidos HTTP para HTTPS para o domínio de destino</li><li>Um atacante ataques man-in-the-middle tentativas de tráfego de um utilizador de vítima utilizando um certificado inválido de intercetar e hopes o utilizador irá aceitar o certificado incorreto: HSTS não permitir que um utilizador substituir a mensagem de certificado inválido</li></ul>|
+| **Passos** | <p>Segurança de transporte Strict da HTTP (HSTS) é uma melhoria de opção de segurança que é especificada por uma aplicação web através da utilização de um cabeçalho de resposta especiais. Depois de um browser suportado recebe este cabeçalho esse browser irá impedir que as comunicações de que está a ser enviados através de HTTP para o domínio especificado e enviará em vez disso, todas as comunicações através de HTTPS. Também impede que clique HTTPS através de pedidos em browsers.</p><p>Para implementar HSTS, o seguinte cabeçalho de resposta tem de ser configurada para um Web site globalmente, no código ou na configuração. Transporte-segurança de Strict: idade máxima = 300; includeSubDomains HSTS aborda as ameaças seguintes:</p><ul><li>Os marcadores de utilizador, ou manualmente tipos http://example.com e está sujeita a um atacante ataques man-in-the-middle: HSTS redireciona automaticamente pedidos HTTP para HTTPS para o domínio de destino</li><li>Aplicação Web que se destina a ser puramente HTTPS inadvertidamente contém ligações HTTP ou serve conteúdo através de HTTP: HSTS redireciona automaticamente pedidos HTTP para HTTPS para o domínio de destino</li><li>Um atacante ataques man-in-the-middle tentativas de tráfego de um utilizador de vítima utilizando um certificado inválido de intercetar e hopes o utilizador irá aceitar o certificado incorreto: HSTS não permitir que um utilizador substituir a mensagem de certificado inválido</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Certifique-se o SQL server certificado de encriptação e validação da ligação
 
@@ -155,7 +155,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Base de Dados | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | SQL Azure  |
-| **Atributos**              | Versão do SQL Server - V12 |
+| **atributos**              | Versão do SQL Server - V12 |
 | **Referências**              | [Melhores práticas na escrita proteger cadeias de ligação para base de dados SQL](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Passos** | <p>Todas as comunicações entre a base de dados SQL e uma aplicação de cliente são encriptadas utilizando Secure Sockets Layer (SSL) permanente. Base de dados do SQL Server não suporta ligações não encriptadas. Para validar o certificado com o código da aplicação ou ferramentas, explicitamente pedir uma ligação encriptada e não confiar nos certificados de servidor. Se o código da aplicação ou ferramentas pediu uma ligação encriptada, ainda receberão ligações encriptadas</p><p>No entanto, não pode validar os certificados de servidor e, por conseguinte, irá ser susceptível a ataques "man no meio". Para validar o certificado com o código de aplicação do ADO.NET, defina `Encrypt=True` e `TrustServerCertificate=False` na cadeia de ligação de base de dados. Para validar os certificados através do SQL Server Management Studio, abra o ligar a caixa de diálogo de servidor. Clique em encriptar a ligação no separador de propriedades de ligação</p>|
 
@@ -166,7 +166,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Base de Dados | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | OnPrem |
-| **Atributos**              | SQL Server versão - MsSQL2016, SQL Server versão - MsSQL2012, versão do SQL - MsSQL2014 |
+| **atributos**              | SQL Server versão - MsSQL2016, SQL Server versão - MsSQL2012, versão do SQL - MsSQL2014 |
 | **Referências**              | [Ativar ligações encriptadas para o motor de base de dados](https://msdn.microsoft.com/library/ms191192)  |
 | **Passos** | Ativar SSL encriptação aumenta a segurança dos dados transmitidos através de redes entre instâncias do SQL Server e aplicações. |
 
@@ -177,7 +177,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Storage do Azure | 
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Encriptação de nível de transporte do Storage do Azure – através de HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
 | **Passos** | Para garantir a segurança de armazenamento do Azure dados em do trânsito, utilize sempre o protocolo HTTPS quando chamar as APIs REST ou aceder aos objetos no armazenamento. Além disso, assinaturas de acesso partilhado, que pode ser utilizado para delegar o acesso a objetos de armazenamento do Azure, incluir uma opção para especificar que apenas o protocolo HTTPS pode ser utilizado quando utilizar assinaturas de acesso partilhado, garantindo que qualquer pessoa enviar ligações com SAS tokens irá utilizar o protocolo correto.|
 
@@ -188,7 +188,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Storage do Azure | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | StorageType - Blob |
+| **atributos**              | StorageType - BLOBs |
 | **Referências**              | [Descrição geral do Windows Azure Blob MD5](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
 | **Passos** | <p>Serviço Blob do Windows Azure fornece mecanismos para garantir a integridade dos dados, tanto na aplicação e de camadas de transporte. Se por qualquer motivo, que terá de utilizar HTTP em vez de HTTPS e estiver a trabalhar com blobs de blocos, pode utilizar a verificar o MD5 para ajudar a validar a integridade dos blobs a serem transferidos</p><p>Isto irá ajudar com proteção de erros de camada de transporte/rede, mas não necessariamente com ataques intermediário. Se é possível utilizar HTTPS, que fornece segurança ao nível do transporte, em seguida, a utilização de MD5 a verificação é redundante e desnecessários.</p>|
 
@@ -199,7 +199,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Cliente para dispositivos móveis | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | StorageType - ficheiro |
+| **atributos**              | StorageType - ficheiro |
 | **Referências**              | [File Storage do Azure](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [suporte SMB de armazenamento de ficheiros do Azure para clientes do Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
 | **Passos** | File Storage do Azure suporta HTTPS ao utilizar a API REST, mas é mais frequentemente utilizado como uma partilha de ficheiros SMB ligado a uma VM. SMB 2.1 não suporta a encriptação, pelo que as ligações só são permitidas na mesma região no Azure. No entanto, suporta a encriptação SMB 3.0 e pode ser utilizado com o Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10, permitindo por várias regiões aceder e até mesmo acesso no ambiente de trabalho. |
 
@@ -210,7 +210,7 @@ Esta regra funciona ao devolver um código de estado HTTP de 301 (redirecionar p
 | **Componente**               | Storage do Azure | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, Windows Phone |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Certificado e a afixação de chave pública](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
 | **Passos** | <p>Afixação de certificado defends contra ataques Man-In-The-Middle (MITM). Afixação é o processo de associação de um anfitrião com o respetivo X509 esperado certificado ou chave pública. Assim que um certificado ou chave pública é conhecida ou vista para um anfitrião, o certificado ou chave pública é associada ou 'afixada' para o anfitrião. </p><p>Assim, quando um adversário tenta fazer a ataques SSL MITM, durante o handshake SSL a chave do servidor de acesso do atacante é diferente da chave do certificado afixado e o pedido será eliminado, impedindo MITM certificado afixação pode ser conseguido através da implementação do ServicePointManager `ServerCertificateValidationCallback` delegar.</p>|
 
@@ -287,8 +287,8 @@ namespace CertificatePinningExample
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | NET Framework 3 |
-| **Atributos**              | N/A  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Unido](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **atributos**              | N/A  |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Unido](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Passos** | A configuração da aplicação deve certificar-se de que o HTTPS é utilizado para todo o acesso a informações confidenciais.<ul><li>**EXPLICAÇÃO:** se uma aplicação processa informações confidenciais e não utiliza encriptação de nível da mensagem, em seguida, só deve ser permitido para comunicar através de um canal de transporte encriptados.</li><li>**RECOMENDAÇÕES:** Certifique-se de que o transporte HTTP está desativada e ativar o transporte HTTPS em vez disso. Por exemplo, substitua o `<httpTransport/>` com `<httpsTransport/>` etiquetas. Não confie numa configuração de rede (firewall) para garantir que a aplicação só pode ser acedida através de um canal seguro. Do ponto de vista philosophical, a aplicação não deve depender na rede para a segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis por proteger a rede não sempre controlam os requisitos de segurança da aplicação como estes evoluem.</p>|
 
 ## <a id="message-protection"></a>WCF: Segurança de mensagens de conjunto nível de proteção como EncryptAndSign
@@ -298,7 +298,7 @@ namespace CertificatePinningExample
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET framework 3 |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **Passos** | <ul><li>**EXPLICAÇÃO:** quando proteção nível está definido como "none" irá desativar a proteção de mensagem. Confidencialidade e integridade é conseguido com o nível adequado de definição.</li><li>**RECOMENDAÇÕES:**<ul><li>Quando `Mode=None` -desativa a proteção de mensagem</li><li>Quando `Mode=Sign` -inicia, mas não encriptar a mensagem; deve ser utilizada se a integridade dos dados é importante</li><li>Quando `Mode=EncryptAndSign` -inicia e encripta a mensagem</li></ul></li></ul><p>Considere desativar a encriptação e assinatura apenas a sua mensagem quando apenas precisam de validar a integridade das informações sem preocupações de confidencialidade. Isto poderá ser útil para operações ou serviço contrai que precisa de validar do remetente original, mas não existem dados confidenciais são transmitidos. Ao reduzir o nível de proteção, tenha o cuidado de que a mensagem não contém qualquer informação identificativa (PII).</p>|
 
@@ -327,7 +327,7 @@ string GetData(int value);
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET framework 3 |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
 | **Passos** | <ul><li>**EXPLICAÇÃO:** não executam serviços do WCF em admin ou conta de privilégio elevado. em caso de comprometimento de serviços irá resultar num elevado impacto.</li><li>**RECOMENDAÇÕES:** utilizar uma conta de menor privilégio para alojar o serviço WCF porque irá reduzir a superfície de ataque da sua aplicação e reduzir os potenciais danos se estão a ser atacado. Se a conta de serviço requer direitos de acesso adicionais nos recursos de infraestrutura, tais como o MSMQ, o registo de eventos, contadores de desempenho e o sistema de ficheiros, as permissões adequadas devem ser atribuídas a estes recursos para que o serviço WCF pode ser executado com êxito.</li></ul><p>Se o serviço tem de aceder a recursos específicos em nome do autor da chamada original, utilize a representação e a delegação para fluir a identidade do emissor de uma verificação de autorização a jusante. Num cenário de desenvolvimento, utilize a conta de serviço de rede local, o que é uma conta incorporada especial que tenha reduzido privilégios. Num cenário de produção, crie uma conta de serviço de domínio personalizado de menor privilégio.</p>|
 
@@ -338,7 +338,7 @@ string GetData(int value);
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Impor o SSL num controlador de API Web](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Passos** | Se uma aplicação tiver um HTTPS e um enlace de HTTP, os clientes ainda podem utilizar HTTP para aceder ao site. Para evitar esta situação, utilize um filtro de ação para garantir que os pedidos às APIs protegidos são sempre através de HTTPS.|
 
@@ -379,7 +379,7 @@ public class ValuesController : ApiController
 | **Componente**               | Cache de Redis do Azure | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Suporte de SSL de Redis do Azure](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
 | **Passos** | Redis servidor não suporta SSL a Box, mas não de Cache de Redis do Azure. Se estiver a ligar à Cache de Redis do Azure e o cliente suportar SSL, como stackexchange. redis, em seguida, deve utilizar SSL. Por predefinição a porta não SSL está desativada para novas instâncias de Cache de Redis do Azure. Certifique-se de que as predefinições seguras não são alteradas a menos que exista uma dependência no suporte SSL para clientes de redis. |
 
@@ -392,7 +392,7 @@ Tenha em atenção que o Redis foi concebido para ser acedido por clientes fided
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | N/A  |
 | **Passos** | Para dispositivos IP com base, o protocolo de comunicação, normalmente, pode ser encapsulado num canal SSL/TLS para proteger dados em trânsito. Para outros protocolos que não suportam SSL/TLS investigue se existem versões do protocolo seguras que fornecem segurança na camada de transporte ou da mensagem. |
 
@@ -403,6 +403,6 @@ Tenha em atenção que o Redis foi concebido para ser acedido por clientes fided
 | **Componente**               | Gateway de nuvem do IoT | 
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
-| **Atributos**              | N/A  |
+| **atributos**              | N/A  |
 | **Referências**              | [Escolher o protocolo de comunicação](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **Passos** | Proteja HTTP/AMQP ou protocolos MQTT utilizar SSL/TLS. |

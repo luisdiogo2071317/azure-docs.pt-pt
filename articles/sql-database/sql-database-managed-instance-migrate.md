@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936807"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050132"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância geridos base de dados SQL do Azure
 
@@ -82,6 +82,8 @@ Instância gerida suporta as seguintes opções de migração de base de dados (
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 O [Azure serviço de migração da base de dados (DMS)](../dms/dms-overview.md) é um serviço completamente gerido concebido para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo. Este serviço simplifica as tarefas necessárias para mover terceiros existente e bases de dados do SQL Server para o Azure. Opções de implementação em pré-visualização pública incluem a SQL Database do Azure, geridos instância e do SQL Server uma Máquina Virtual no Azure. O DMS é o método recomendado para migração para as cargas de trabalho da empresa. 
+
+Se utilizar o SQL Server Integration Services (SSIS) no seu SQL Server no local, DMS ainda não suporta migração catálogo SSIS (SSISDB) que armazena pacotes SSIS, mas pode aprovisionar o tempo de execução de integração do Azure-SSIS (IR) na fábrica de dados do Azure (ADF) que irá criar um novo SSISDB na base de dados SQL do Azure/instância gerida e, em seguida, pode voltar a implementar os pacotes ao mesmo, consulte [criar IR SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Para mais informações sobre passos neste cenário e a configuração para o DMS, consulte o artigo [migrar no local da base de dados à instância geridos utilizando o DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 

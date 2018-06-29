@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 170d1d9bca8ffa788560c6a015f41062dd4ed40f
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018668"
+ms.locfileid: "37061424"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -53,12 +53,13 @@ As versões de componente associadas as versões de cluster do HDInsight estão 
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | O Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
 | Apache Livy |0.4 |0,3 |0,3 |0.2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| O controlo de deslize do Apache | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verifique a existência de informações de versão do componente de Hadoop atuais
 
@@ -234,7 +235,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de 
 
 * Regiões todos suportadas exceto sul do Brasil e oeste do Japão:
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Servidor de ML |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: tamanho da VM predefinido |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de 
   | Limite: recomendado tamanho da VM | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sul do Brasil e apenas oeste do Japão (tamanhos de v2):
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Servidor de ML |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: tamanho da VM predefinido |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: recomendado tamanhos de VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

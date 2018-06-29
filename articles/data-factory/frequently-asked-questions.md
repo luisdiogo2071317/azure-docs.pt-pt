@@ -11,44 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: b7f654fb3b24954bb1c9222a4e97dc4b6844411c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619036"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045954"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ do Azure Data Factory
-Este artigo aplica-se a versão 2 do serviço do Azure Data Factory. Fornece respostas às perguntas mais frequentes sobre o Data Factory.  
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [perguntas mais frequentes sobre a versão 1 do Data Factory](v1/data-factory-faq.md).
+Este artigo fornece respostas às perguntas mais frequentes sobre o Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory? 
 Fábrica de dados é um serviço de integração de dados completamente gerido, baseado na nuvem, que automatiza o movimento e a transformação de dados. Como uma fábrica que opera equipamento para transformar raw materiais em bens acabados, do Azure Data Factory orquestra os serviços existentes que recolhem dados não processados e transformação-los em informações prontas a utilizar. 
 
 Ao utilizar o Azure Data Factory, pode criar fluxos de trabalho condicionada por dados para mover dados entre no local e na nuvem arquivos de dados. Pode processar e serviços, tais como o tempo de execução de integração do Azure HDInsight, o Azure Data Lake Analytics e o SQL Server Integration Services (SSIS) de computação de transformação de dados através da utilização. 
 
-Com o Data Factory, pode executar o processamento de dados num serviço em nuvem baseado no Azure ou no seu próprio ambiente de computação personalizada alojada, tais como SSIS, SQL Server ou Oracle. Depois de criar um pipeline que executa a ação que é necessário, pode agendar para executar periodicamente (por exemplo, horário, diário ou semanal) ou acionar o pipeline de uma ocorrência de evento. Para obter mais informações, veja [Introdução ao Azure Data Factory](introduction.md).
-
-## <a name="whats-different-in-version-2"></a>Quais são as diferenças na versão 2?
-A versão 2 do Azure Data Factory tem por base o serviço de movimento e de transformação de dados original do Azure Data Factory, alargando-se para um conjunto mais vasto de cenários de integração de dados cloud-first. O Azure Data Factory versão 2 oferece as seguintes capacidades:
-
-- Fluxos de controlo e escala
-- Implementar e executar pacotes do SSIS no Azure
-
-Após o lançamento da versão 1, iremos reconhecer que os clientes têm de design complexa, cenários de integração de dados de híbridos que necessitem de movimento de dados e processamento na nuvem, no local e em nuvem máquinas de virtuais (VMs). Estes requisitos colocar uma necessidade para transferir e processar os dados dentro de ambientes de rede virtual protegida e para aumentar horizontalmente com a potência de processamento a pedido.
-
-Como pipelines de dados estão a tornar-se uma parte fundamental mais de uma estratégia de análise de negócio, observamos que estas atividades exigem agendamento flexível para suportar cargas de dados incrementais e execuções de evento acionado. À medida que aumenta a complexidade, por isso, demasiado o requisito para o serviço suportar paradigmas comuns do fluxo de trabalho que incluem a ramificação, criar ciclos e processamento condicional.
-
-Com a versão 2, também pode migrar pacotes do SSIS existentes para a cloud. Esta ação lifts e desvia SSIS como um serviço Azure que é gerido dentro do Data Factory, que utiliza uma funcionalidade nova do tempo de execução de integração. Por girar segurança de um tempo de execução de integração de SSIS versão 2, pode executar, gerir, monitorizar e criar pacotes SSIS na nuvem.
+Com o Data Factory, pode executar o processamento de dados num serviço em nuvem baseado no Azure ou no seu próprio ambiente de computação personalizada alojada, tais como SSIS, SQL Server ou Oracle. Depois de criar um pipeline que executa a ação que é necessário, pode agendá-la para executar periodicamente (por exemplo, horário, diário ou semanal), agendamento de janela de tempo ou o pipeline de Acionador de uma ocorrência de evento. Para obter mais informações, veja [Introdução ao Azure Data Factory](introduction.md).
 
 ### <a name="control-flows-and-scale"></a>Fluxos de controlo e escala 
-Para suportar a integração de diversos fluxos e padrões no armazém de dados modernas, fábrica de dados tem de ativar um modelo de pipeline de dados nova e flexível, que já não está associado aos dados de séries de tempo. Com esta versão, pode conditionals, ramo no fluxo de controlo de um pipeline de dados, de modelo e transmita explicitamente parâmetros dentro e entre estes fluxos.
+Para suportar a integração de diversos fluxos e padrões no armazém de dados modernas, fábrica de dados permite modelação de pipeline de dados flexíveis que inclui o fluxo de controlo total paradigmas incluindo condicional execução, de programação de ramificação nos pipelines de dados, e transmita explicitamente parâmetros dentro e entre estes fluxos. Fluxo de controlo também abrange transformar dados através da emissão de atividade de motores de execução externo e capacidades de fluxo de dados, incluindo o movimento de dados à escala, através da atividade de cópia.
 
-Agora, ter a liberdade para modelar qualquer estilo de fluxo que tem necessárias para a integração de dados e que podem ser distribuídos a pedido ou repetidamente numa agenda. Alguns fluxos comuns agora possíveis e que não o eram antes incluem:   
+Data Factory fornece liberdade para modelar qualquer estilo de fluxo que tem necessárias para a integração de dados e que podem ser distribuídos a pedido ou repetidamente numa agenda. Alguns fluxos comuns que este modelo permite são:   
 
 - Fluxos de controlo:
     - Atividades de cadeia numa sequência dentro de um pipeline.
@@ -67,29 +52,49 @@ Agora, ter a liberdade para modelar qualquer estilo de fluxo que tem necessária
 
 Para obter mais informações, consulte [Tutorial: controlar fluxos](tutorial-control-flow.md).
 
+### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformar os seus dados à escala com pipelines livre de código
+A nova experiência de ferramentas baseadas no browser fornece pipeline sem código de criação e implementação com uma experiência de baseada na web moderna, interativa.
+
+Para programadores de dados do elemento visual e engenheiros de dados, a IU da Web de ADF é o ambiente de estrutura sem código que irá utilizar para criar pipelines. Este está totalmente integrado com o Visual Studio Git de Online e fornece integração para CI/CD e desenvolvimento iterativo com opções de depuração.
+
+### <a name="rich-cross-platform-sdks-for-advanced-users"></a>Avançada cruzada SDKs de plataforma para utilizadores avançados
+Se for um utilizador avançado e à procura de uma interface programática, ADF V2 fornece um conjunto avançado de SDKs que pode ser utilizado para criar, gerir, monitorizar pipelines com a sua IDE favorito
+1.  SDK Python
+2.  CLI do PowerShell
+3.  SDK do c# os utilizadores também podem tirar partido as APIs REST documentado a interface com ADF V2
+
+### <a name="iterative-development-and-debugging-using-visual-tools"></a>Desenvolvimento iterativo e depuração utilizando ferramentas do visual
+Ferramentas visual de fábrica de dados (ADF) do Azure permitem-lhe fazer iterativo desenvolvimento e depuração. Pode criar os seus pipelines e teste for executado utilizando a capacidade de depuração na tela pipeline sem ter de escrever uma única linha de código. Pode ver os resultados da sua execuções do teste na janela de saída da sua tela do pipeline. Depois do execução do teste for bem sucedida, pode adicionar mais atividades para o pipeline e continuar a depuração de forma iterativa. Também pode cancelar a execução do teste, assim que estiverem em curso. Não são necessárias para publicar as suas alterações para o serviço fábrica de dados antes de clicar em depuração. Esta ação é útil em cenários em que pretenda Certifique-se de que a nova adições ou alterações conforme esperado antes de atualizar os fluxos de trabalho de fábrica de dados no desenvolvimento, teste, ou prod ambientes. 
+
 ### <a name="deploy-ssis-packages-to-azure"></a>Implementar pacotes do SSIS no Azure 
-Se pretender mover as cargas de trabalho SSIS, pode criar uma fábrica de dados versão 2 e aprovisionar um tempo de execução de integração de SSIS do Azure. O tempo de execução de integração de SSIS do Azure é um cluster completamente gerido de VMs do Azure (nós) que estão dedicados para executar os pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte o [pacotes SSIS implementar no Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
+Se pretender mover as cargas de trabalho SSIS, pode criar uma fábrica de dados e aprovisionar um tempo de execução de integração de SSIS do Azure. O tempo de execução de integração de SSIS do Azure é um cluster completamente gerido de VMs do Azure (nós) que estão dedicados para executar os pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte o [pacotes SSIS implementar no Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
  
-
 ### <a name="sdks"></a>SDKs
-Se for um utilizador avançado e à procura de uma interface programática, versão 2 fornece um conjunto avançado de SDKs que pode utilizar para criar, gerir ou monitorizar pipelines utilizando o IDE favorito.
-
-- **SDK .NET**: oSDK .NET é atualizado para a versão 2. 
-- **PowerShell**: os cmdlets do PowerShell são atualizados para a versão 2. Os cmdlets da versão 2 têm *DataFactoryV2* no nome. Por exemplo, *Get-AzureRmDataFactoryV2*. 
-- **Python SDK**: este SDK é novo na versão 2.
-- **API REST**: a API REST é atualizada para a versão 2.  
-
-Os SDKs que são atualizados para a versão 2 não são compatíveis com versões anteriores com clientes de versão 1. 
+Se for um utilizador avançado e à procura de uma interface programática, ADF fornece um conjunto avançado de SDKs que pode utilizar para criar, gerir ou monitorizar pipelines utilizando o IDE favorito. Suporte de idiomas inclui .NET, o PowerShell, o Python e REST.
 
 ### <a name="monitoring"></a>Monitorização
-Atualmente, a versão 2 suporta monitorização de fábricas de dados com apenas SDKs. O portal ainda não tem o suporte para a monitorização de fábricas de dados de versão 2. 
+Pode monitorizar as fábricas de dados através do PowerShell, SDK ou as ferramentas de monitorização Visual na interface de utilizador do browser. Pode monitorizar e gerir a pedido, acionamento com base e relógio orientadas por fluxos personalizados de forma eficaz e eficiente. Cancelar existentes tarefas, consulte falhas num instante, desagregar para obter mensagens de erro detalhadas e depurar os problemas tudo a partir de um painel único de transparência sem mudar ou navegar novamente e estabelecido entre ecrãs de contexto. 
+
+### <a name="new-features-for-ssis-in-adf"></a>Novas funcionalidades para SSIS no ADF
+Desde a versão pré-visualização pública inicial de 2017, o Data Factory adicionou as seguintes funcionalidades de SSIS:
+
+-   Suporte para três configurações mais/variantes de BD SQL do Azure da base de dados () ao catálogo SSIS do anfitrião dos projetos/pacotes (SSISDB):
+-   BD SQL do Azure com pontos finais do serviço de VNet
+-   Instância gerida (MI)
+-   Conjunto Elástico
+-   Suporte para o Azure Resource Manager rede Virtual (VNet) em cima de uma VNet clássica que vão ser preteridas no futuro – Isto permite-lhe inserir/associação o tempo de execução de integração de SSIS do Azure (IR) para uma VNet que está configurada para a BD SQL do Azure com os pontos finais de serviço de VNet/MI / no local acesso a dados, consulte: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   Suporte para a autenticação do Azure Active Directory (AAD) em cima de autenticação do SQL Server para ligar ao seu SSISDB - Isto permite-lhe utilizar autenticação do AAD com seu ADF geridos serviço de identidade (MSI)
+-   Suporte para colocar a sua própria licença do SQL Server no local para mais significativos beneficiar de reduções de custos significativas de opção do benefício de híbrida do Azure (AHB)
+-   Suporte para o Enterprise Edition do Azure SSIS IR que permite-lhe utilizar funcionalidades avançadas/premium, a configuração personalizada para instalar componentes/extensões adicionais e 3rd ecossistema de terceiros, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
+-   Uma integração mais profunda do SSIS no ADF que lhe permite invocar/acionador primeira classe executar o pacote de SSIS atividades no ADF pipelines e agendá-los através do SSMS, consulte: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
+
 
 ## <a name="what-is-integration-runtime"></a>O que é o tempo de execução de integração?
 Tempo de execução de integração é a infraestrutura de computação que é utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados em vários ambientes de rede:
 
-- **Movimento de dados**: mover dados entre os arquivos de dados num público arquivos de dados e de rede numa rede privada (no local ou rede privada virtual). Oferece suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados dimensionável e de desempenho elevado.
-- **Emitir atividades**: computação de emissão e monitorizar atividades de transformação que estejam a executar numa variedade de serviços, como o Azure HDInsight, do Azure Machine Learning, SQL Database do Azure, SQL Server e muito mais.
-- **Executar pacotes SSIS**: nativamente executa pacotes SSIS num ambiente gerido de computação do Azure.
+- **Movimento de dados**: para o movimento de dados, o tempo de execução de integração move os dados entre os arquivos de dados de origem e destino, ao fornecer suporte para conectores incorporados, conversão do formato, o mapeamento de colunas e performant e transferência de dados dimensionável.
+- **Emitir atividades**: de transformação, tempo de execução de integração fornecem a capacidade para executar nativamente pacotes SSIS.
+- **Executar pacotes SSIS**: nativamente executa pacotes SSIS num ambiente gerido de computação do Azure. O IR também suporta a distribuição e monitorização das atividades de monitorização em execução em vários serviços de computação, com o Azure HDInsight, Azure Machine Learning, Base de Dados SQL do Azure, SQL Server, e mais.
 
 Pode implementar uma ou várias instâncias do tempo de execução de integração conforme necessário para mover e transforme dados. Tempo de execução de integração pode executar numa rede pública do Azure ou numa rede privada (no local, rede Virtual do Azure ou nuvem privada virtual Amazon Web Services [VPC]). 
 
@@ -98,13 +103,7 @@ Para obter mais informações, veja [Integration runtime no Azure Data Factory](
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>O que é o limite no número de tempos de execução de integração?
 Não há nenhum disco rígido limite no número de instâncias de tempo de execução de integração que pode ter uma fábrica de dados. No entanto, há um limite no número de núcleos VM que o tempo de execução de integração, pode utilizar por subscrição para a execução de pacotes SSIS. Para obter mais informações, consulte [limita a fábrica de dados](../azure-subscription-service-limits.md#data-factory-limits).
 
-## <a name="when-should-i-use-version-2-rather-than-version-1"></a>Quando devo utilizar a versão 2 em vez de versão 1? 
-Se estiver familiarizado com o Azure Data Factory, inicie diretamente com a versão 2. Se já estiver a utilizar a versão 1, reconstrua as fábricas de dados na versão 2.
-
-> [!WARNING]
-> Versão 2 do Data Factory está em pré-visualização e não está em geral (DG) de disponibilidade. Por conseguinte, não se encontra sob os mesmo compromissos de (SLA) de contrato de nível de serviço do Azure como versão 1 do Data Factory, o que está a ser depois da disponibilidade geral 
-
-## <a name="what-are-the-top-level-concepts-of-version-2"></a>Quais são os conceitos de nível superior da versão 2?
+## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Quais são os conceitos de nível superior do Azure Data Factory?
 Uma subscrição do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory contém quatro componentes chave que funcionam em conjunto como uma plataforma em que pode compor condicionada por dados fluxos de trabalho com os passos de mover e transforme dados.
 
 ### <a name="pipelines"></a>Pipelines
@@ -113,8 +112,8 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamen
 ### <a name="activity"></a>Atividade
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar um *cópia* atividade para copiar dados de um arquivo de dados para outro arquivo de dados. Da mesma forma, pode utilizar uma atividade do ramo de registo, que executa uma consulta do Hive num cluster do Azure HDInsight para transformar ou analisar os dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
-### <a name="data-sets"></a>Conjuntos de dados
-Conjuntos de dados representam as estruturas de dados dentro de arquivos de dados, o que simplesmente para ou do ponto de referenciam a dados que pretende utilizar nas suas atividades como entradas ou saídas. 
+### <a name="datasets"></a>Conjuntos de dados
+Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
 Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Considerá-lo desta forma: um serviço ligado define a ligação à origem de dados e um conjunto de dados representa a estrutura dos dados. Por exemplo, um serviço ligado do Storage do Azure Especifica a cadeia de ligação para ligar à conta do Storage do Azure. E um conjunto de dados de Blobs do Azure Especifica a pasta que contém os dados e o contentor de blob.
@@ -125,8 +124,7 @@ Serviços ligados tem duas finalidades no Data Factory:
 - Para representar um *recurso de computação* que pode alojar a execução de uma atividade. Por exemplo, a atividade do ramo de registo do HDInsight é executada num cluster do HDInsight Hadoop. Para obter uma lista de atividades de transformação e ambientes de computação suportados, consulte [transformar dados no Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Acionadores
-Acionadores representam unidades de processamento que determinam quando é arrancou uma execução de pipeline. Existem diferentes tipos de acionadores para diferentes tipos de eventos. Para a pré-visualização, suportamos um acionador de programador do relógio do padrão de fundo. 
-
+Acionadores representam unidades de processamento que determinam quando é arrancou uma execução de pipeline. Existem diferentes tipos de acionadores para diferentes tipos de eventos. 
 
 ### <a name="pipeline-runs"></a>Execuções de pipeline
 Um pipeline executar é uma instância de uma execução de pipeline. Normalmente, instanciar um pipeline executar transferindo argumentos para os parâmetros que são definidos no pipeline. Pode passar os argumentos manualmente ou na definição do acionador.
@@ -151,10 +149,7 @@ Para obter mais informações sobre os conceitos do Data Factory, veja os artigo
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>O que é o modelo de preços do Data Factory?
 Para o Azure Data Factory detalhes de preços, consulte [detalhes de preços do Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
-## <a name="what-regions-support-azure-data-factory-version-2"></a>As regiões suportam a versão 2 do Azure Data Factory?
-Atualmente, pode criar fábricas de dados da versão 2 nas regiões EUA leste, EUA Leste 2 e na Europa Ocidental. No entanto, uma fábrica de dados pode utilizar o runtime de integração noutra região para mover dados entre os arquivos de dados, distribuição de atividades contra os serviços de computação ou pacotes SSIS de emissão. Para obter mais informações, consulte [localizações do Data Factory](concepts-integration-runtime.md#integration-runtime-location).
-
-## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso continuar a atualizado com informações sobre o Data Factory?
+## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso permaneça atualizado com informações sobre o Data Factory?
 Para obter as informações mais atualizadas sobre o Azure Data Factory, vá para os seguintes sites:
 
 - [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
@@ -163,23 +158,11 @@ Para obter as informações mais atualizadas sobre o Azure Data Factory, vá par
 
 ## <a name="technical-deep-dive"></a>Descrição detalhada da técnica 
 
-### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>Pode versão 1 e pipelines de versão 2 executadas lado?
-Não. Versão 2 e fábricas de dados de versão 1 não podem conter entidades (por exemplo, serviços ligados, conjuntos de dados ou pipelines) da versão de outro.   
+### <a name="how-can-i-schedule-a-pipeline"></a>Como agendar a um pipeline? 
+Pode utilizar o acionador de programador ou acionador de janela de tempo para agendar um pipeline. O acionador utiliza uma agenda de calendário do relógio de firewall e pode utilizá-la para agendar pipelines periodicamente ou através da utilização baseada em Calendário periódica padrões (por exemplo, semanalmente nos segundas às 18: 00 e às quintas-em 9 PM). Para mais informações, consulte [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
 
-### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>É ainda necessário definir os conjuntos de dados na versão 2?
-Um conjunto de dados já não é uma entidade obrigatória para a maioria das atividades. É necessário para copiar, aprendizagem, pesquisa, validação e atividades personalizadas que utilizam o esquema e outras informações de metadados no conjunto de dados de transformação. O resto das atividades já não necessita de conjuntos de dados.
-
-### <a name="can-i-chain-two-activities-without-a-data-set-in-version-2"></a>Posso encadeiam duas atividades sem um conjunto de dados na versão 2?
-Sim. Pode encadeiam atividades de versão 2 sem necessidade de conjuntos de dados. Cadeia atividades utilizando o **dependsOn** propriedade na definição do JSON do pipeline. 
-
-### <a name="are-all-the-version-1-activities-supported-in-version-2"></a>Todas as versões são atividades 1 suportado na versão 2? 
-Sim, todas as atividades de versão 1 são suportadas na versão 2.
-
-### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Como agendar a um pipeline de versão 2? 
-Pode utilizar o acionador de programador para agendar um pipeline de versão 2. O acionador utiliza uma agenda de calendário do relógio de firewall e pode utilizá-la para agendar pipelines periodicamente ou através da utilização baseada em Calendário periódica padrões (por exemplo, semanalmente nos segundas às 18: 00 e às quintas-em 9 PM). Para mais informações, consulte [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
-
-### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Pode passar parâmetros para um pipeline executar na versão 2?
-Sim, os parâmetros são um conceito de primeira classe, nível superior na versão 2. Pode definir os parâmetros ao nível do pipeline e passar os argumentos como executar o pipeline de executar a pedido ou utilizando um acionador.  
+### <a name="can-i-pass-parameters-to-a-pipeline-run"></a>Pode passar parâmetros para uma execução de pipeline?
+Sim, os parâmetros são um conceito de primeira classe, nível superior na ADF. Pode definir os parâmetros ao nível do pipeline e passar os argumentos como executar o pipeline de executar a pedido ou utilizando um acionador.  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Pode definir os valores predefinidos para os parâmetros de pipeline? 
 Sim. Pode definir os valores predefinidos para os parâmetros nos pipelines. 
@@ -193,12 +176,8 @@ Sim. Uma saída da atividade pode ser utilizada numa atividade subsequente com a
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como posso lidar graciosamente com valores nulos existentes numa saída da atividade? 
 Pode utilizar o `@coalesce` construir em expressões de lidar graciosamente com valores nulos. 
 
-### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>Posso utilizar repetições e tempo limite ao nível de atividade numa versão 2?
-Sim. Para regulamentar a execução de atividades de versão 2, tal como na versão 1, pode configurar a repetição e tempo limite ao nível de atividade. 
-
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter instruções passo a passo Criar uma fábrica de dados da versão 2, consulte os seguintes tutoriais:
+Para obter instruções passo a passo Criar uma fábrica de dados, consulte os seguintes tutoriais:
 
 - [Início rápido: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copiar dados na nuvem](tutorial-copy-data-dot-net.md)
-

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153749"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028902"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utilize um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store
 
@@ -190,7 +190,7 @@ Parabéns!  Tiver de autenticar para o sistema de ficheiros do Data Lake Store u
 - Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](msi-overview.md).
 - Para a gestão de operações Data Lake Store utiliza o Azure Resource Manager.  Para obter mais informações sobre como utilizar um MSI da VM para autenticar para o Gestor de recursos, leia o artigo [utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Saiba mais sobre [autenticação com o Data Lake Store utilizando o Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Saiba mais sobre [operações de sistema de ficheiros no Azure Data Lake Store utilizando a REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou [APIs do sistema de ficheiros de WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Saiba mais sobre [operações de sistema de ficheiros no Azure Data Lake Store utilizando a REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou [APIs do sistema de ficheiros de WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Saiba mais sobre [controlo de acesso no Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.

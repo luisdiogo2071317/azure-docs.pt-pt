@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: e60f368115e91cbd8972af8dfa7f0f3d6ea8765b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337598"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046552"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar as fábricas de dados utilizando o Monitor do Azure
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
 
 Monitor do Azure fornece registos e as métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter mais informações, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Os registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. Fábrica de dados produz os registos de diagnóstico no Monitor do Azure.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [monitorizar e gerir pipelines na fábrica de dados version1](v1/data-factory-monitor-manage-pipelines.md).
 
 ## <a name="persist-data-factory-data"></a>Manter os dados de fábrica de dados
 Fábrica de dados só armazena pipeline executar dados nos últimos 45 dias. Se pretender manter o pipeline executar dados mais de 45 dias, utilizando o Monitor do Azure, não pode encaminhar apenas os registos de diagnóstico para análise, pode mantê-los para uma conta de armazenamento, para que tenha informações de fábrica durante a duração da sua chossing.

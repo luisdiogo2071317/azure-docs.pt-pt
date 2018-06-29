@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e405f99388f699b3f1e88b9e84f52f9a4380228c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d5832f63a3ebe7583d18fcd863c8cc60b9b045d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621977"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048769"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de transmissão em fluxo do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621977"
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados de utilização do Hadoop atividade versão 2 do Factory de dados de transmissão em fluxo](../transform-data-using-hadoop-streaming.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [transformar dados de utilização do Hadoop atividade fábrica de dados de transmissão em fluxo](../transform-data-using-hadoop-streaming.md).
 
 
 Pode utilizar a atividade de HDInsightStreamingActivity invocar uma tarefa de transmissão em fluxo do Hadoop de um pipeline do Azure Data Factory. O fragmento JSON seguinte mostra a sintaxe para utilizar o HDInsightStreamingActivity um ficheiro JSON do pipeline. 

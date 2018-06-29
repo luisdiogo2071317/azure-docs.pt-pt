@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658320"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062246"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA grande instâncias elevada disponibilidade e recuperação após desastre no Azure 
 
@@ -44,10 +44,12 @@ A tabela seguinte mostra as combinações e atualmente elevados disponibilidade 
 | Cenário suportado em instâncias de grande HANA | Opção de elevada disponibilidade | Opção de recuperação de desastre | Comentários |
 | --- | --- | --- | --- |
 | Nó único | Não está disponível. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR. | |
-| Auto-ativação pós-falha do anfitrião: N + m<br /> incluindo 1 + 1 | Possível com o modo de espera colocar a função do Active Directory.<br /> HANA controla o comutador de função. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR.<br /> Sincronização de DR utilizando a replicação de armazenamento. | Conjuntos de volume HANA estão ligados a todos os nós (n + m).<br /> Site de DR tem de ter o mesmo número de nós. |
+| Auto-ativação pós-falha do anfitrião: Escalamento horizontal (com ou sem o modo de espera)<br /> incluindo 1 + 1 | Possível com o modo de espera colocar a função do Active Directory.<br /> HANA controla o comutador de função. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR.<br /> Sincronização de DR utilizando a replicação de armazenamento. | Conjuntos de volume HANA estão ligados a todos os nós.<br /> Site de DR tem de ter o mesmo número de nós. |
 | Replicação do sistema HANA | Possível com a configuração primária ou secundária.<br /> Move secundário para a função primária em caso de ativação pós-falha.<br /> Ativação pós-falha do controlo de replicação do sistema HANA e SO. | Configuração de DR dedicada.<br /> Configuração de Multipurpose DR.<br /> Sincronização de DR utilizando a replicação de armazenamento.<br /> DR utilizando a replicação do sistema HANA ainda não é possível sem componentes de terceiros. | Conjunto separado dos volumes de discos anexados a cada nó.<br /> Apenas os volumes de disco de réplica secundária no site de produção são replicadas para a localização de DR.<br /> É necessário um conjunto de volumes no site de DR. | 
 
 Uma configuração de DR dedicada é onde a unidade de instância grande HANA no site de DR não é utilizada para executar qualquer carga de trabalho ou sistema de não produção. A unidade é passiva e é implementada apenas se for executada uma ativação pós-falha após desastre. No entanto, esta configuração não é uma opção preferencial para muitos clientes.
+
+Consulte [HLI suportado cenários](hana-supported-scenario.md) para saber os detalhes de ethernet e esquema de armazenamento para a arquitetura.
 
 > [!NOTE]
 > [Implementações de SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (várias instâncias de HANA numa unidade) como sobrepor cenários trabalho com o HA e DR métodos listados na tabela. Uma exceção é a utilização de replicação do sistema HANA com um cluster de ativação pós-falha automática com base no Pacemaker. Nesse caso só suporta uma instância HANA por unidade. Para [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) implementações, apenas métodos HA e DR com base no armazenamento funcionam se mais do que um inquilino for implementado. Com um inquilino implementado, todos os métodos listados são válidos.  
@@ -60,7 +62,7 @@ Pode encontrar mais informações sobre a disponibilidade elevada de SAP HANA no
 - [Documento técnico de elevada disponibilidade do SAP HANA](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [Guia de administração do SAP HANA](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [Vídeo de SAP HANA Academy na replicação do sistema de SAP HANA](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [Nota de suporte #1999880 – FAQ na replicação do sistema de SAP HANA de SAP](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [Nota de suporte #1999880 – FAQ na replicação do sistema de SAP HANA de SAP](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP suporte Nota 2165547 # – SAP HANA novamente a cópia de segurança e restaurar o ambiente de SAP HANA sistema replicação](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP suporte Nota #1984882 – utilizando SAP HANA replicação do sistema para o Exchange do Hardware com o período de indisponibilidade mínimo/Zero](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

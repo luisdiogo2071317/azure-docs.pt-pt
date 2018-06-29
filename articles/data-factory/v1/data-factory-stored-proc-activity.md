@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622504"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047393"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento de armazenados do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622504"
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados utilizando a atividade de procedimento armazenado na versão 2 do Data Factory](../transform-data-using-stored-procedure.md).
+> Este artigo aplica-se a versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [transformar dados utilizando a atividade de procedimento armazenado no Data Factory](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Descrição geral
 Utilize atividades de transformação de dados numa fábrica de dados [pipeline](data-factory-create-pipelines.md) para transformar e processar dados não processados para predições e das informações. A atividade de procedimento armazenado é uma das atividades de transformação que suporte a fábrica de dados. Este artigo baseia-se a [atividades de transformação de dados](data-factory-data-transformation-activities.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportado na fábrica de dados.
@@ -311,7 +311,7 @@ A tabela seguinte descreve estas propriedades JSON:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name | Nome da atividade |Sim |
+| nome | Nome da atividade |Sim |
 | descrição |Texto que descreve o que é utilizada a atividade para |Não |
 | tipo | Tem de ser definido como: **SqlServerStoredProcedure** | Sim |
 | entradas | Opcional. Se especificar um conjunto de dados de entrada, tem de estar disponível (no estado "Pronto") para a atividade de procedimento armazenado ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Só é utilizada para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |

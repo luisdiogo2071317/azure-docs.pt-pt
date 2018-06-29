@@ -1,6 +1,6 @@
 ---
-title: Configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory | Microsoft Docs
-description: Saiba como configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory.
+title: Como - exigem geridos os dispositivos de acesso à aplicação de nuvem com o acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory (Azure AD) que necessitam de dispositivos geridos para acesso à aplicação de nuvem.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,38 +13,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: HT
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849530"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036359"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir geridos os dispositivos de acesso à aplicação de nuvem com o acesso condicional
 
-Com [acesso condicional do Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), pode controlar os utilizadores autorizados como pode aceder aos recursos. Por exemplo, pode limitar o acesso a alguns recursos para dispositivos geridos. Uma política de acesso condicional que requer um dispositivo gerido também é conhecido como política de acesso condicional baseado no dispositivo.
+No mundo mobile-primeiro, primeiro de nuvem, o Azure Active Directory (Azure AD) permite início de sessão único para aplicações e serviços em qualquer lugar. Os utilizadores autorizados podem aceder as aplicações na nuvem de uma vasta gama de dispositivos, incluindo mobile bem como dispositivos pessoais. No entanto, muitos ambientes tem, pelo menos, algumas aplicações que só devem ser acedidas pelos dispositivos que cumprem as normas de segurança e conformidade. Estes dispositivos são também conhecidos como os dispositivos geridos. 
 
-Este tópico explica como pode configurar políticas de acesso condicional baseado no dispositivo para aplicações do Azure AD ligados. 
+Este artigo explica como pode configurar políticas de acesso condicional que necessitam de dispositivos geridos para aceder a determinadas aplicações em nuvem no seu ambiente. 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
-Ligações de acesso condicional baseado no dispositivo **acesso condicional do Azure AD** e **em conjunto da gestão de dispositivos do Azure AD**. Se não estiver familiarizado com uma das seguintes áreas ainda, leia os tópicos seguintes, pela primeira vez:
+A necessidade de dispositivos geridos para ligações de acesso de aplicação de nuvem **acesso condicional do Azure AD** e **gestão de dispositivos do Azure AD** em conjunto. Se não estiver familiarizado com uma das seguintes áreas ainda, leia os tópicos seguintes, pela primeira vez:
 
-- **[Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  -este tópico fornece uma descrição geral conceptual do acesso condicional e a terminologia relacionada.
+- **[Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md)**  -este artigo fornece uma descrição geral conceptual do acesso condicional e a terminologia relacionada.
 
-- **[Introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)**  -este tópico fornece uma descrição geral das várias opções de tem de ligar os dispositivos com o Azure AD. 
+- **[Introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)**  -este artigo fornece uma descrição geral das várias opções de tem de inscrever os dispositivos sob controlo organizacional. 
 
+
+## <a name="scenario-description"></a>Descrição do cenário
+
+Envolver-se o equilíbrio entre produtividade e segurança é um desafio. A proliferação de dispositivos suportados para acederem aos recursos da nuvem ajuda a melhorar a produtividade dos utilizadores. No lado flip, provavelmente não quiser certos recursos no seu ambiente para ser acedido por dispositivos com um nível de proteção desconhecido. Para os recursos afetados, deve exigir que os utilizadores só podem aceder-lhes através de um dispositivo gerido. 
+
+Com o acesso condicional do Azure AD, pode resolver este requisito com uma única política que concede acesso:
+
+- Para aplicações em nuvem selecionado
+
+- Para utilizadores e grupos selecionados
+
+- A necessidade de um dispositivo gerido
 
 
 ## <a name="managed-devices"></a>Dispositivos geridos  
 
-No mundo mobile-primeiro, primeiro de nuvem, o Azure Active Directory permite início de sessão único para dispositivos, aplicações e serviços em qualquer lugar. Alguns recursos no seu ambiente, conceder acesso para os utilizadores certos poderão não ser suficientemente boas. Para além dos utilizadores certos, também poderá necessitar de que as tentativas de acesso só podem ser efetuadas através de um dispositivo gerido.
-
-Um dispositivo gerido é um dispositivo que cumpra as normas de segurança e conformidade. Em termos simples, os dispositivos geridos são dispositivos que estão sob *algumas ordenação* do controlo organizacional. No Azure AD, o pré-requisito para um dispositivo gerido é que foi registado com o Azure AD. Registar um dispositivo cria uma identidade para o dispositivo na forma de um objeto de dispositivo. Este objeto é utilizado pelo Azure para monitorizar informações de estado sobre um dispositivo. Como administrador do Azure AD, já pode utilizar este objeto para ativar/desativar (Ativar/desativar), o estado de um dispositivo.
+Em termos simples, os dispositivos geridos são dispositivos que estão sob *algumas ordenação* do controlo organizacional. No Azure AD, o pré-requisito para um dispositivo gerido é que foi registado com o Azure AD. Registar um dispositivo cria uma identidade para o dispositivo na forma de um objeto de dispositivo. Este objeto é utilizado pelo Azure para monitorizar informações de estado sobre um dispositivo. Como administrador do Azure AD, já pode utilizar este objeto para ativar/desativar (Ativar/desativar), o estado de um dispositivo.
   
 ![Condições com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -56,10 +66,9 @@ Para obter um dispositivo registado com o Azure AD, tem três opções:
 
 - **[Dispositivos associados ao Azure AD híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um dispositivo Windows 10 que está associado a um local AD registado com o Azure AD.
 
-Para se tornar um dispositivo gerido, registou um dispositivo pode ser uma versão híbrida do Azure AD associados a um dispositivo ou num dispositivo que foi marcado como compatível.  
+Para tornar-se um dispositivo gerido, um dispositivo registado tem de ser um **híbrida do Azure AD associada ao dispositivo** ou um **dispositivo que foi marcado como compatível**.  
 
 ![Condições com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Exigir híbrida Azure AD dispositivos associados ao
@@ -83,8 +92,8 @@ A opção de *requer um dispositivo ser assinalado como estando em conformidade*
 
 Esta opção requer um dispositivo ser registado com o Azure AD bem como para ser marcado como compatível por:
          
-- Intune 
-- Um dispositivo móvel de terceiros geridos sistema que gere os dispositivos Windows 10 através da integração do Azure AD 
+- Intune.
+- Um sistema de gestão (MDM) de dispositivos móveis de terceiros que gere os dispositivos Windows 10 através da integração do Azure AD. Não são suportados sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10.
  
 ![Condições com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

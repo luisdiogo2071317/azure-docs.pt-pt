@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bace90021d5a786f0b014e617bd0ae8e6043bb36
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301080"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060132"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -113,13 +113,13 @@ Para começar, tem de instalar [CLI do Azure](/cli/azure/install-azure-cli?view=
 Adicionar a extensão de serviço de aplicações mais recente através da execução [Adicionar extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 Se já tiver executado `az extension add` anteriormente, execute [atualização az da extensão](/cli/azure/extension?view=azure-cli-latest#az-extension-update) em vez disso:
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
 Abrir uma ligação remota a sua aplicação ao utilizar o [az webapp remoto-ligação criar](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) comando. Especifique  _\<grupo\_nome >_ e \_< app\_nome > _ para a aplicação e substitua \<porta > com um número de porta local.

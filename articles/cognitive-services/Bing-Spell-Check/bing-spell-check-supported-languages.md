@@ -9,16 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: e33fe5a30d154e8396c17d01487ef4420313527d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354734"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050391"
 ---
 # <a name="supported-language-list-and-status"></a>Lista de idiomas suportados e o Estado
 
-Estes idiomas são suportados pela API de verificação ortográfica do Bing.
+Estes idiomas são suportados pela API de verificação ortográfica do Bing (apenas no `spell` modo). 
+
+Tenha em atenção que para trabalhar com qualquer outro idioma que `en-US`, a `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como tiver sido descrito no [referência da API de verificação ortográfica do v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|

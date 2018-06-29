@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b035141c443c3dad18c3e9bfbc53581a7d180e5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333832"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050306"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregar dados para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 
@@ -35,9 +35,6 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
 
 > [!NOTE]
 > Para obter mais informações, consulte [copiar dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory](connector-azure-sql-data-warehouse.md).
->
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte o artigo [atividade de cópia no Azure Data Factory versão 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -57,7 +54,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
     * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "o nome de factory de dados \"LoadSQLDWDemo\" não está disponível," Introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente, ou selecione o **criar nova** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versão**: selecione **V2 (pré-visualização)**.
+    * **Versão**: selecione **V2**.
     * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Arquivos de dados que são utilizados pela fábrica de dados podem estar nas outras regiões e localizações. Estes arquivos de dados incluem o Azure Data Lake Store, o Storage do Azure, SQL Database do Azure e assim sucessivamente.
 
 3. Selecione **Criar**.
@@ -90,9 +87,9 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
    
     ![Configurar a base de dados SQL do Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Selecione o serviço ligado criado recentemente como origem, em seguida, clique em **seguinte**.
+    d. Selecione o serviço ligado criado recentemente como origem e, em seguida, clique em **Seguinte**.
 
-    ![Selecionar origem ligado serviço](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+    ![Selecionar serviço ligado de origem](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
 4. No **selecione tabelas a partir da qual pretende copiar os dados ou utilizar uma consulta personalizada** página, introduza **SalesLT** para filtrar as tabelas. Escolha o **(Selecionar tudo)** caixa para utilizar todas as tabelas para a cópia e, em seguida, selecione **seguinte**: 
 

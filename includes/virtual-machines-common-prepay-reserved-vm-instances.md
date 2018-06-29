@@ -1,20 +1,20 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313749"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063702"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias VM reservados do Azure
 
-Prepay para máquinas virtuais e a poupar dinheiro com instâncias de Máquina Virtual reservada do Azure (VM). Para obter mais informações, consulte [oferta de instâncias reservado Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prepay para máquinas virtuais e a poupar dinheiro com instâncias de Máquina Virtual reservada do Azure (VM). Para obter mais informações, consulte [oferta de instâncias de VM do Azure reservado](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-Pode comprar instâncias reservados do Azure [portal do Azure](https://portal.azure.com). Para comprar uma instância reservado:
+Pode comprar o Azure instâncias reservadas [portal do Azure](https://portal.azure.com). Para comprar uma instância reservado:
 -   Tem de ser uma função de proprietário para, pelo menos, uma empresa ou de subscrição pay as you go.
 -   Para as subscrições empresariais, instância reservado compras tem de estar ativadas no [EA portal](https://ea.azure.com).
--   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as instâncias reservado.
+-   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as instâncias reservadas.
 
 [!IMPORTANT]
 Tem de utilizar um dos métodos descritos abaixo para identificar o tamanho da VM corretamente para uma compra de reserva.
@@ -50,16 +50,16 @@ Tem de utilizar um dos métodos descritos abaixo para identificar o tamanho da V
 ## <a name="next-steps"></a>Passos Seguintes 
 O desconto instância reservado é aplicado automaticamente para o número de máquinas virtuais que corresponder ao âmbito de instância reservado e atributos em execução. Pode atualizar o âmbito da instância reservado através de [portal do Azure](https://portal.azure.com), PowerShell, CLI ou através da API. 
 
-Para saber como gerir uma instância reservadas, consulte [gerir instâncias reservado da Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para saber como gerir uma instância reservada, consulte [gerir instâncias reservadas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Para saber mais sobre instâncias reservados do Azure, consulte os artigos seguintes:
+Para saber mais sobre instâncias reservadas do Azure, consulte os artigos seguintes:
 
-- [Poupar dinheiro em máquinas virtuais com instâncias reservado](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Gerir instâncias reservadas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Quais são reservados instâncias de VM do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gerir instâncias reservadas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Compreender a forma como é aplicado o desconto instância reservado](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Custos de software do Windows não incluídos com instâncias reservado](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Custos de software do Windows não incluídos com instâncias reservadas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Instâncias reservadas no programa de parceiro Center solução fornecedor Cloud (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte

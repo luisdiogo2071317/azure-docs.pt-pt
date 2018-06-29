@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823310"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35762002"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar tarefas do Pig a partir de uma ligação de ambiente de trabalho remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,6 +78,7 @@ Ativar o ambiente de trabalho remoto para o cluster do HDInsight, em seguida, li
     <td>RESULTADO = ordem frequências por CONTAGEM desc;</td><td>Ordena os níveis de registo por contagem (descendente) e armazena no resultado</td>
     </tr>
 </table>
+
 6. Também pode guardar os resultados de uma transformação utilizando o `STORE` instrução. Por exemplo, o seguinte comando guarda o `RESULT` para o **/example/data/pigout** diretório no contentor de armazenamento predefinido para o cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -86,6 +87,7 @@ Ativar o ambiente de trabalho remoto para o cluster do HDInsight, em seguida, li
    > Os dados são armazenados no diretório especificado em ficheiros com o nome **parte nnnnn**. Se já existe um diretório, receberá uma mensagem de erro.
    >
    >
+   
 7. Para sair da linha de comandos da grunt, introduza a seguinte instrução.
 
         QUIT;

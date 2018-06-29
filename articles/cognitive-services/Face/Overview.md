@@ -9,14 +9,14 @@ ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: bb3ee9431f24a51dfd3877f1c4d621f7ba633b96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352472"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048674"
 ---
-# <a name="what-is-face-api"></a>O que é a letra API?
+# <a name="what-is-face-api"></a>O que é a API Face?
 
 Bem-vindo ao Microsoft enfrentam API, um serviço baseado na nuvem que fornece os algoritmos de rostos em mais avançados. Enfrentam API tem duas funções principais: enfrentam deteção com atributos e enfrentam reconhecimento.
 
@@ -85,6 +85,8 @@ Os tutoriais seguintes demonstram as funcionalidades básicas da API de rostos e
 
 Observe estas aplicações de exemplo que utilizar a API de letra.
 
+- [Microsoft enfrentam API: Biblioteca de cliente do Windows & exemplo](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF aplicação de exemplo que demonstra alguns cenários de deteção de rostos, análise e identificação.
 - [Aplicação FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes)
   - Aplicação de exemplo de plataforma do Windows (UWP) universal, que mostra a utilização de reconhecimento de voz, Cortana, tinta digital e câmara através de uma família tenha em atenção o cenário de partilha.
 - [Exemplo de análise de moldura de vídeo](https://github.com/microsoft/cognitive-samples-videoframeanalysis)

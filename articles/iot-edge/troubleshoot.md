@@ -4,16 +4,16 @@ description: Resolver problemas comuns e conhecer as competências de resoluçã
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad22b0cd1457c1d4146a75047ff18e916c0c7ccd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633541"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029446"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -23,36 +23,135 @@ Se ocorrerem problemas com o Azure IoT Edge no seu ambiente, utilize este artigo
 
 Quando ocorrer um problema, saiba mais sobre o estado do seu dispositivo IoT Edge ao rever as mensagens e registos do contentor que passam de e para o dispositivo. Utilize as ferramentas e comandos nesta secção para recolher informações. 
 
-* Veja os registos dos contentores do docker para detetar problemas. Comece a utilizar os contentores implementados e, em seguida, veja os contentores que compõem o runtime do IoT Edge: Agente do Edge e Hub do Edge. Os registos do Agente do Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos do Hub do Edge dispõem de informações sobre mensagens e encaminhamento. 
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Verifique o estado do Gestor de segurança de IoT Edge e os seus registos:
 
-   ```cmd
-   docker logs <container name>
+No Linux:
+- Para ver o estado do Gestor de segurança de limite de IoT:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* Veja as mensagens que passam pelo Hub do Edge e recolha informações sobre atualizações de propriedades do dispositivo com registos verbosos dos contentores do runtime.
+- Para ver os registos do Gestor de segurança de limite de IoT:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- Para ver mais detalhadas registos do Gestor de segurança de limite de IoT:
+
+   - Edite as definições de daemon de iotedge:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* Ver registos verbosos dos comandos iotedgectl:
+   - Atualize as seguintes linhas:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Reinicie o Daemon de segurança de limite de IoT:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+No Windows:
+- Para ver o estado do Gestor de segurança de limite de IoT:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* Se ocorrerem problemas de conectividade, verifique as variáveis de ambiente de dispositivo do edge, como a cadeia de ligação do dispositivo:
+- Para ver os registos do Gestor de segurança de limite de IoT:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gestor de segurança de limite de IoT não está em execução, certifique-se o ficheiro de configuração yaml
+
+> [!WARNING]
+> Ficheiros YAML não podem conter separadores como identation. Em alternativa, utilize 2 espaços.
+
+No Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+No Windows:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### <a name="check-container-logs-for-issues"></a>Verifique os registos do contentor para problemas
+
+Assim que o Daemon de segurança de limite de IoT está em execução, consulte os registos de contentores para detetar problemas. Comece a utilizar os contentores implementados e, em seguida, veja os contentores que compõem o runtime do IoT Edge: Agente do Edge e Hub do Edge. Os registos do Agente do Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos do Hub do Edge dispõem de informações sobre mensagens e encaminhamento. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Ver as mensagens a ir através do hub de limite
+
+Ver as mensagens a ir através do hub de limite e recolher informações sobre as atualizações de propriedades do dispositivo com os registos verbosos de contentores de tempo de execução edgeAgent e edgeHub. Para ativar registos verbosos nestes contentores, defina o `RuntimeLogLevel` variável de ambiente: 
+
+No Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+No Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
 Também pode verificar as mensagens que são enviadas entre o Hub IoT e os dispositivos do IoT Edge. Veja estas mensagens com a extensão [Toolkit IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para o Visual Studio Code. Para obter mais documentação de orientação, veja [Ferramenta útil ao programar com o Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-Depois de investigar as informações dos registos e das mensagens, também pode tentar reiniciar o runtime do Azure IoT Edge:
+### <a name="restart-containers"></a>Reiniciar contentores
+Depois de investigar os registos e as mensagens de informações, pode tentar reiniciar contentores:
+
+```
+iotedge restart <container name>
+```
+
+Reinicie os contentores de tempo de execução de limite de IoT:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### <a name="restart-the-iot-edge-security-manager"></a>Reinicie o Gestor de segurança de IoT Edge
+
+Se ainda está a persistência de problema, pode tentar reiniciar o Gestor de segurança de IoT Edge.
+
+No Linux:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+No Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>O Agente do Edge para após cerca de um minuto
@@ -100,29 +199,11 @@ A execução de um contentor falha e os registos do Agente mostram um erro 403.
 O Agente do Edge não tem permissões para aceder à imagem de um módulo. 
 
 ### <a name="resolution"></a>Resolução
-Tente executar o comando `iotedgectl login` novamente.
+Certifique-se de que as suas credenciais de registo são especificados corretamente no seu manifesto de implementação
 
-## <a name="iotedgectl-cant-find-docker"></a>O iotedgectl não consegue encontrar o Docker
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>O daemon de segurança de IoT Edge falha com um nome de anfitrião inválido
 
-Os comandos `iotedgectl setup` ou `iotedgectl start` falhar e imprimir a mensagem seguinte nos registos:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### <a name="root-cause"></a>Causa raiz
-O iotedgectl não consegue encontrar o Docker, o que é um pré-requisito.
-
-### <a name="resolution"></a>Resolução
-Instale o Docker, certifique-se de que está em execução e tente novamente.
-
-## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>configuração de iotedgectl falha com um nome de anfitrião inválido
-
-O comando `iotedgectl setup` falhar e imprima a mensagem seguinte: 
+O comando `sudo journalctl -u iotedge` falhar e imprima a mensagem seguinte: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -143,9 +224,17 @@ Quando vir este erro, pode resolvê-lo ao configurar o nome DNS da sua máquina 
 4. Copie o novo nome DNS, o que deve estar no formato  **\<DNSnamelabel\>.\< uma vmlocation\>. cloudapp.azure.com**.
 5. Dentro da máquina virtual, utilize o seguinte comando para configurar o tempo de execução de limite de IoT com o nome de DNS:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - No Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - No Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 Encontrou um erro na plataforma do IoT Edge? [Submeta um problema](https://github.com/Azure/iot-edge/issues) para que possamos continuar a melhorar. 

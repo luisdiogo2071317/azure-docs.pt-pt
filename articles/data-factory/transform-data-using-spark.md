@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700541"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050340"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-spark.md)
-> * [Versão 2 - Pré-visualização](transform-data-using-spark.md)
+> * [Versão 1](v1/data-factory-spark.md)
+> * [Versão atual](transform-data-using-spark.md)
 
 A atividade de Spark numa fábrica de dados [pipeline](concepts-pipelines-activities.md) executa um programa de Spark num [os seus próprios](compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportados. Quando utiliza um serviço de Spark ligado a pedido, o Data Factory cria automaticamente um cluster do Spark para lhe just-in-time processar os dados e, em seguida, elimina o cluster depois do processamento é concluído. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade do Spark no V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Atividade de Spark não suporta clusters do HDInsight Spark que utilizam um Azure Data Lake Store, como armazenamento principal.
@@ -66,7 +63,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 | Propriedade              | Descrição                              | Necessário |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nome da atividade no pipeline.    | Sim      |
+| nome                  | Nome da atividade no pipeline.    | Sim      |
 | descrição           | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                  | Para a atividade do Spark, o tipo de atividade é HDInsightSpark. | Sim      |
 | linkedServiceName     | Nome do serviço ligado de HDInsight Spark em que executa o programa de Spark. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
@@ -74,7 +71,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 | rootPath              | O contentor de Blob do Azure e a pasta que contém o ficheiro de Spark. O nome de ficheiro é maiúsculas e minúsculas. Consulte a estrutura de pastas secção (secção seguinte) para obter detalhes sobre a estrutura desta pasta. | Sim      |
 | entryFilePath         | Caminho relativo para a pasta raiz do Spark/pacote do código. O ficheiro de entrada tem de ser um ficheiro de Python ou um ficheiro. JAR. | Sim      |
 | className             | Classe principal de Java/Spark da aplicação      | Não       |
-| Argumentos             | Uma lista de argumentos da linha de comandos para o programa de Spark. | Não       |
+| argumentos             | Uma lista de argumentos da linha de comandos para o programa de Spark. | Não       |
 | proxyUser             | A conta de utilizador para representar a execução do programa de Spark | Não       |
 | sparkConfig           | Especifique os valores de propriedades de configuração do Spark listados no tópico: [a configuração do Spark – propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não       |
 | getDebugInfo          | Especifica se os ficheiros de registo do Spark são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado por sparkJobLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |

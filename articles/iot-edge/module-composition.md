@@ -1,37 +1,37 @@
 ---
 title: Composição do módulo de limite de IoT do Azure | Microsoft Docs
-description: Saiba o que fica em módulos de limite de IoT do Azure e como pode ser reutilizadas
+description: Saiba como um manifesto de implementação declara que módulos para implementar, como implementá-los e como criar rotas de mensagens entre eles.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 84a0698a61e68c141cc79dbc779f352aab528afa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631688"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031486"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Compreender como módulos de IoT limite podem ser utilizados, configurado e reutilizada - pré-visualização
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Saiba como utilizar os manifestos de implementação para implementar os módulos e rotas
 
-Cada dispositivo de limite de IoT é executado, pelo menos, dois módulos: $edgeAgent e $edgeHub, constituem o tempo de execução do limite de IoT. Para além das duas padrão, qualquer dispositivo de limite de IoT pode executar vários módulos para efetuar qualquer número de processos. Quando implementar em simultâneo todos os estes módulos num dispositivo, terá de uma forma de declarar os módulos são incluídos como eles interagem entre si. 
+Cada dispositivo de limite de IoT é executado, pelo menos, dois módulos: $edgeAgent e $edgeHub, constituem o tempo de execução do limite de IoT. Para além das duas padrão, qualquer dispositivo de limite de IoT pode executar vários módulos para efetuar qualquer número de processos. Quando implementar em simultâneo todos os estes módulos num dispositivo, terá de uma forma de declarar quais os módulos que estão incluídos e como eles interagem entre si. 
 
 O *o manifesto de implementação* é um documento JSON que descreve:
 
-* Os módulos de IoT contorno tem de ser implementado, juntamente com as opções de criação e gestão.
+* A configuração do agente Edge, que inclui a imagem de contentor para cada módulo, as credenciais para os registos do contentor privada acesso e instruções sobre como cada módulo deve ser criado e gerido.
 * A configuração do hub de limite, o que inclui a forma como o fluxo de mensagens entre módulos e, eventualmente, ao IoT Hub.
-* Opcionalmente, os valores para definir nas propriedades pretendidas duplos módulo, para configurar as aplicações de módulo individuais.
+* Opcionalmente, as propriedades pretendidas do duplos módulo.
 
 Todos os dispositivos de IoT contorno tem de ser configurado com um manifesto de implementação. Os relatórios de um tempo de execução de limite de IoT recentemente instalado um código de erro até configurado com um manifesto válido. 
 
-Os tutoriais de limite de IoT do Azure, criar um manifesto de implementação acedendo através de um assistente no portal do Azure IoT Edge. Também pode aplicar um manifesto de implementação utilizando através de programação REST ou o SDK do serviço do IoT Hub. Consulte [implementar e monitorizar] [ lnk-deploy] para obter mais informações sobre implementações de limite de IoT.
+Os tutoriais de limite de IoT do Azure, criar um manifesto de implementação acedendo através de um assistente no portal do Azure IoT Edge. Também pode aplicar um manifesto de implementação utilizando através de programação REST ou o SDK do serviço do IoT Hub. Para obter mais informações, consulte [implementações de limite de IoT compreender][lnk-deploy].
 
 ## <a name="create-a-deployment-manifest"></a>Crie um manifesto de implementação
 
-Um nível elevado, o manifesto de implementação configura propriedades pretendido de um duplo de módulo de módulos de limite de IoT implementados num dispositivo de limite de IoT. Dois destes módulos são sempre presente: o agente de limite e o hub de limite.
+Um nível elevado, o manifesto de implementação configura propriedades pretendido de um duplo de módulo de módulos de limite de IoT implementados num dispositivo de limite de IoT. Dois destes módulos são sempre presente: `$edgeAgent`, e `$edgeHub`.
 
 Um manifesto de implementação que contém apenas o tempo de execução do limite de IoT (agente e hub) é válido.
 
@@ -44,6 +44,7 @@ O manifesto segue esta estrutura:
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ O manifesto segue esta estrutura:
 
 ## <a name="configure-modules"></a>Configurar módulos
 
-Para além de estabelecer as propriedades de quaisquer módulos de que pretende implementar pretendidas, terá de informar o tempo de execução do IoT Edge como instalá-los. As informações de configuração e gestão de todos os módulos ficar no interior do **$edgeAgent** pretendido propriedades. Estas informações incluem os parâmetros de configuração para o próprio agente de limite. 
+Terá de informar o tempo de execução do IoT Edge como instalar os módulos na sua implementação. As informações de configuração e gestão de todos os módulos ficar no interior do **$edgeAgent** pretendido propriedades. Estas informações incluem os parâmetros de configuração para o próprio agente de limite. 
 
 Para obter uma lista completa das propriedades que podem ou tem de ser incluída, consulte [propriedades do agente de limite e Edge hub](module-edgeagent-edgehub.md).
 
@@ -78,6 +79,11 @@ As propriedades de $edgeAgent siga esta estrutura:
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ As propriedades de $edgeAgent siga esta estrutura:
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ O sink define onde as mensagens são enviadas. Pode ser qualquer um dos seguinte
 | `$upstream` | Enviar a mensagem ao IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem de entrada `{input}` do módulo `{moduleId}` |
 
-É importante ter em atenção que Edge hub fornece garantias em-menos-uma vez, que significa que as mensagens são armazenadas localmente no caso de uma rota não é possível entregar a mensagem à respetiva dependente, por exemplo, o hub Edge não é possível ligar ao IoT Hub ou o módulo de destino não está ligado.
+Limite de IoT fornece garantias de em-menos-uma vez. O hub de limite armazena mensagens localmente no caso de uma rota não é possível entregar a mensagem à sua sink. Por exemplo, se o hub Edge não é possível estabelecer ligação ao IoT Hub ou o módulo de destino não está ligado.
 
 Edge hub armazena as mensagens até à hora especificada no `storeAndForwardConfiguration.timeToLiveSecs` propriedade o [Edge hub pretendido propriedades](module-edgeagent-edgehub.md).
 
@@ -168,7 +174,7 @@ O manifesto de implementação pode especificar propriedades pretendidas para o 
 
 Se não especificar propriedades de pretendido de um duplo de módulo no manifesto de implementação, o IoT Hub não irá modificar o duplo de módulo de qualquer forma e conseguirá definir as propriedades de pretendido através de programação.
 
-Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Consulte o [guia para programadores do dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações.   
+Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Para obter mais informações, consulte o [guia para programadores do dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implementação
 
@@ -176,72 +182,79 @@ Este exemplo de um documento JSON manifesto de implementação.
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "microsoft/azureiotedge-agent:1.0-preview",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

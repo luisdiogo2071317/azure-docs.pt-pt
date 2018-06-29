@@ -12,24 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: be925521178bba0ae4ae9820e78042509b2f1741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb7009d0e7f31b2f503ac51d378fd117fff9f9b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621008"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049956"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de MapReduce do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-map-reduce.md)
-> * [Versão 2 - Pré-visualização](transform-data-using-hadoop-map-reduce.md)
-
+> * [Versão 1](v1/data-factory-map-reduce.md)
+> * [Versão atual](transform-data-using-hadoop-map-reduce.md)
 
 A atividade de HDInsight MapReduce numa fábrica de dados [pipeline](concepts-pipelines-activities.md) invoca o programa de MapReduce no [os seus próprios](compute-linked-services.md#azure-hdinsight-linked-service) ou [a pedido](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight. Este artigo baseia-se a [atividades de transformação de dados](transform-data.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportados.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de MapReduce em V1](v1/data-factory-map-reduce.md).
-
 
 Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e efetue o tutorial: [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
@@ -68,7 +63,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nome da atividade                     | Sim      |
+| nome              | Nome da atividade                     | Sim      |
 | descrição       | Texto que descreve o que é utilizada a atividade para | Não       |
 | tipo              | Para a atividade de MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
 | linkedServiceName | Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
@@ -77,7 +72,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 | jarFilePath       | Forneça o caminho para os ficheiros Jar armazenados no Storage do Azure que referida pelo jarLinkedService. O nome de ficheiro é maiúsculas e minúsculas. | Sim      |
 | jarlibs           | Matriz do caminho para os ficheiros da biblioteca Jar referenciada pela tarefa armazenada no Storage do Azure definido no jarLinkedService de cadeia. O nome de ficheiro é maiúsculas e minúsculas. | Não       |
 | getDebugInfo      | Especifica se os ficheiros de registo são copiados para o armazenamento do Azure utilizados pelo cluster do HDInsight (ou) especificado por jarLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |
-| Argumentos         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
+| argumentos         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
 | Define           | Especifique parâmetros como pares chave-valor para referenciar dentro do script de ramo de registo. | Não       |
 
 

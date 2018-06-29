@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 2ca39490174047d83968561da98409ade2832253
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752620"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046906"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [considerações de segurança de movimento de dados para a versão 2 do Data Factory](../data-movement-security-considerations.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [considerações de segurança de movimento de dados do Data Factory](../data-movement-security-considerations.md).
 
 ## <a name="introduction"></a>Introdução
 Este artigo descreve a infraestrutura de básicos de segurança que utilizam serviços de movimento de dados no Azure Data Factory para proteger os seus dados. Recursos de gestão do Azure Data Factory são criados numa infraestrutura de segurança do Azure e utilizam todas as medidas de segurança possível oferecidas pelo Azure.

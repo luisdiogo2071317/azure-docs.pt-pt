@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318398"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046759"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [perguntas mais frequentes pergunta - versão 2 do Data Factory](../frequently-asked-questions.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [perguntas mais frequentes pergunta - Data Factory](../frequently-asked-questions.md).
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?

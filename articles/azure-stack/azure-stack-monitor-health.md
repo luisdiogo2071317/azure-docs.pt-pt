@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640383"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047246"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorizar o estado de funcionamento e alertas na pilha do Azure
 
@@ -32,6 +32,17 @@ Pilha do Azure inclui capacidades que permitem-lhe ver o estado de funcionamento
  ## <a name="understand-health-in-azure-stack"></a>Compreender o estado de funcionamento na pilha do Azure
 
  Estado de funcionamento e alertas são geridos pelo fornecedor de recursos de estado de funcionamento. Componentes de infraestrutura de pilha do Azure de registar o fornecedor de estado de funcionamento de recursos durante a configuração e implementação de pilha do Azure. Este registo permite a visualização de estado de funcionamento e alertas para cada componente. Estado de funcionamento na pilha do Azure é um conceito simple. Se existirem alertas para uma instância de um componente registada, o estado de funcionamento desse componente reflete a gravidade do alerta ativa pior; aviso ou crítico.
+
+## <a name="alert-severity-definition"></a>Definição de gravidade do alerta
+
+Na pilha de Azure os alertas são gerados com apenas dois gravidades: **aviso** e **críticos**.
+
+**Aviso**  
+Um operador pode resolver o alerta de aviso de forma agendada. O alerta, normalmente, não ter impacto nas cargas de trabalho do utilizador.
+
+**Crítico**  
+Um operador deve resolver o alerta crítico com urgência. Estes são problemas que atualmente afetam ou logo que irão afetar os utilizadores de pilha do Azure. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Ver e gerir o estado de funcionamento do componente
  
@@ -71,7 +82,7 @@ Pode clicar em alerta específico para ver os detalhes do alerta. Os detalhes do
 
 Depois da instância de função de infraestrutura está novamente online, este alerta é fechado automaticamente. Alerta de muitas, mas nem todas as é fechada automaticamente quando o problema subjacente for resolvido. Recomendamos que selecione **fechar alerta** depois de efetuar os passos de remediação. Se o problema persistir, a pilha de Azure gera um novo alerta. Se a resolução do problema, o alerta permanece fechado e não requer nenhuma ação adicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Gerir as atualizações na pilha do Azure](azure-stack-updates.md)
 

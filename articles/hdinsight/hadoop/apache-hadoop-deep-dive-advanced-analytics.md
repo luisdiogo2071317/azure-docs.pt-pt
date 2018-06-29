@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400678"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048476"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Descrição detalhada da-análise avançada
 
@@ -48,7 +48,7 @@ Juntamente com a selecionar o algorithm(s) best-fitting, tem de ponderar se pret
 * Reinforcement - o algoritmo utiliza os agentes de software para determinar o comportamento ideal dentro de um contexto específico (frequentemente utilizado no robotics)
 
 
-| Categoria do algoritmo| Usar | Tipo de aprendizagem | Algoritmos |
+| Categoria do algoritmo| Utilizar | Tipo de aprendizagem | Algoritmos |
 | --- | --- | --- | -- |
 | Classificação | Classificar pessoas ou ações em grupos | Supervisionado | Árvores de decisões, regressão logística da, as redes neurais |
 | Clustering | Divisão de um conjunto de exemplos em grupos homogéneo | Não supervisionado | Significa-K clustering |
@@ -61,7 +61,7 @@ Juntamente com a selecionar o algorithm(s) best-fitting, tem de ponderar se pret
 HDInsight tem vários do machine learning opções para um fluxo de trabalho de análise avançada:
 
 * [Machine Learning e Spark](#machine-learning-and-spark)
-* [Servidor r e R](#r-and-r-server)
+* [Serviços de ML e R](#r-and-r-server)
 * [Ramo de registo e de aprendizagem do Azure](#azure-machine-learning-and-hive)
 * [O Spark e aprendizagem profunda](#spark-and-deep-learning)
 
@@ -75,9 +75,9 @@ Existem três bibliotecas de aprendizagem máquina escalável que colocar as cap
 * [**SparkML** ](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML é um pacote mais recente que fornece uma API de nível mais elevada desenvolvida Spark DataFrames para construir os pipelines de ML.
 * [**MMLSpark** ](https://github.com/Azure/mmlspark) - a Microsoft biblioteca de Machine Learning para Apache Spark (MMLSpark) foi concebido para tornar os cientistas de dados mais produtivos no Spark, para aumentar a taxa de experimentação e para tirar partido de aprendizagem inovadores técnicas, incluindo a aprendizagem profunda, muito grandes conjuntos de dados. A biblioteca de MMLSpark simplifica tarefas comuns de modelação para criação de modelos na PySpark. 
 
-### <a name="r-and-r-server"></a>Servidor r e R
+### <a name="r-and-ml-services"></a>Serviços de ML e R
 
-Como parte do HDInsight, pode criar um cluster do HDInsight com [R Server](../r-server/r-server-overview.md) pronta para ser utilizada com modelos e conjuntos de dados gigantescos. Esta nova funcionalidade fornece cientistas de dados e statisticians com uma interface de R familiar, que pode dimensionar a pedido através do HDInsight, sem a sobrecarga de configuração do cluster e de manutenção.
+Como parte do HDInsight, pode criar um cluster do HDInsight com [serviços ML](../r-server/r-server-overview.md) pronta para ser utilizada com modelos e conjuntos de dados gigantescos. Esta nova funcionalidade fornece cientistas de dados e statisticians com uma interface de R familiar, que pode dimensionar a pedido através do HDInsight, sem a sobrecarga de configuração do cluster e de manutenção.
 
 ### <a name="azure-machine-learning-and-hive"></a>Ramo de registo e de aprendizagem do Azure
 

@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631603"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028970"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Como um dispositivo de limite de IoT que pode ser utilizado como um gateway de - de pré-visualização
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo de limite de IoT pode ser utilizado como um gateway
 
 O objetivo de gateways em soluções de IoT é específico para a solução e combinar conectividade do dispositivo com a análise de limite. Limite de IoT do Azure pode ser utilizada para satisfazer todas as necessidades de um gateway de IoT independentemente se estão relacionados com a conectividade, a identidade ou análise de limite. Padrões de gateway neste artigo apenas Consulte características da conectividade do dispositivo a jusante e identidade de dispositivo, não como dados de dispositivo são processados no gateway.
 
@@ -54,7 +54,7 @@ Quando utiliza um padrão de gateway opaco (tradução de protocolos), todos os 
 ## <a name="next-steps"></a>Passos Seguintes
 Utilizar um dispositivo de limite de IoT como uma [gateway transparente][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

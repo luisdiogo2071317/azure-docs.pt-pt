@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b6cfe6ba510f1e7ed1b448d99fb8a71bb94053e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0db357194aa4bd4d01b1d445cb407d983214b32b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620688"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054134"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "34620688"
 > * [Utilizar aplicações de gestão e monitorização](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [monitorizar e gerir pipelines do Data Factory na versão 2](../monitor-visually.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [monitorizar e gerir pipelines do Data Factory no](../monitor-visually.md).
 
 Este artigo descreve como monitorizar, gerir e depurar pipelines com o portal do Azure e o PowerShell.
 

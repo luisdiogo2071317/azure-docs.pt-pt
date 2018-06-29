@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266923"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059894"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de IU Microsoft.Common.FileUpload
 Um controlo que permite ao utilizador especificar um ou mais ficheiros para carregar.
@@ -50,19 +50,19 @@ Um controlo que permite ao utilizador especificar um ou mais ficheiros para carr
 ## <a name="remarks"></a>Observações
 - `constraints.accept` Especifica os tipos de ficheiros que são apresentados na caixa de diálogo de ficheiro do browser. Consulte o [HTML5 especificação](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para os valores permitidos. O valor predefinido é **nulo**.
 - Se `options.multiple` está definido como **verdadeiro**, o utilizador tem permissão para selecionar mais de um ficheiro na caixa de diálogo de ficheiro do browser. O valor predefinido é **falso**.
-- Este elemento suporta o carregamento de ficheiros em dois modos com base no valor de `options.uploadMode`. Se **ficheiro** for especificado, a saída contém os conteúdos do ficheiro como um blob. Se **url** for especificado, o ficheiro é carregado para uma localização temporária e a saída contém o URL do blob. Os blobs temporários serão removidos após 24 horas. O valor predefinido é **ficheiro**.
+- Este elemento suporta o carregamento de ficheiros em dois modos com base no valor de `options.uploadMode`. Se **ficheiro** for especificado, o resultado tem o conteúdo do ficheiro como um blob. Se **url** for especificado, em seguida, o ficheiro é carregado para uma localização temporária e o resultado tem o URL do blob. Os blobs temporários serão removidos após 24 horas. O valor predefinido é **ficheiro**.
 - O valor de `options.openMode` determina como é ler o ficheiro. Se o ficheiro é esperado texto simples, especifique **texto**; pessoa, especifique **binário**. O valor predefinido é **texto**.
 - Se `options.uploadMode` está definido como **ficheiro** e `options.openMode` está definido como **binário**, o resultado é codificado em base64.
 - `options.encoding` Especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**e é utilizado apenas quando `options.openMode` está definido como **texto**.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Se options.multiple está definido como false e options.uploadMode é o ficheiro, a saída contém os conteúdos do ficheiro como uma cadeia JSON:
+Se options.multiple está definido como false e options.uploadMode é o ficheiro, o resultado tem o conteúdo do ficheiro como uma cadeia JSON:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Se options.multiple for verdadeira and'options.uploadMode é o ficheiro, em seguida, a saída contém os conteúdos dos ficheiros, como uma matriz JSON:
+Se options.multiple for verdadeira and'options.uploadMode é o ficheiro, em seguida, o resultado tem o conteúdo dos ficheiros, como uma matriz JSON:
 
 ```json
 [
@@ -73,13 +73,13 @@ Se options.multiple for verdadeira and'options.uploadMode é o ficheiro, em segu
 ]
 ```
 
-Se options.multiple está definido como false e options.uploadMode é o url, em seguida, a saída contém um URL como uma cadeia JSON:
+Se options.multiple está definido como false e options.uploadMode é o url, em seguida, o resultado tem um URL como uma cadeia JSON:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Se options.multiple é verdadeira e options.uploadMode é o url, em seguida, a saída contém uma lista dos URLs como uma matriz JSON:
+Se options.multiple é verdadeira e options.uploadMode é o url, em seguida, o resultado tem uma lista dos URLs como uma matriz JSON:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",

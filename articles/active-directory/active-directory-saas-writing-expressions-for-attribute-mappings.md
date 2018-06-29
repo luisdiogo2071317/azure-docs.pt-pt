@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293165"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036474"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento para uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes, tem de escrever uma expressão de tipo de script que permite-lhe transformar dados dos utilizadores em formatos mais aceitáveis para a aplicação SaaS.
@@ -37,7 +37,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 * Para as constantes string, se precisar de uma barra invertida (\) ou aspas (") na cadeia de-tem de ser caráter de escape correto com o símbolo de barra invertida (\). Por exemplo: "o nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch)
+[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -49,7 +49,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem |
 | **suffix** |Necessário |Cadeia |A cadeia que pretende anexar ao fim do valor de origem. |
 
 - - -
@@ -62,7 +62,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
 | **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
 
@@ -91,12 +91,24 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
 | **start** |Necessário |inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
 | **comprimento** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
 
 - - -
-### <a name="not"></a>não
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**Função:**<br> NormalizeDiacritics(source)
+
+**Descrição:**<br> Requer um argumento de cadeia. Devolve a cadeia, mas com quaisquer carateres diacritical substituída por carateres não diacritical equivalentes. Normalmente, utilizada para converter nomes primeiro e último carateres diacritical (acentos marcas) para valores que podem ser utilizados em vários identificadores de utilizador, tais como nomes de principal de utilizador, nomes de conta do SAM e endereços de correio eletrónico.
+
+**Parâmetros:**<br> 
+
+| Nome | Necessário / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **Origem** |Necessário |Cadeia | Normalmente, um nome do primeiro ou último atributo de nome |
+
+- - -
+### <a name="not"></a>Não
 **Função:**<br> Not(Source)
 
 **Descrição:**<br> Flips o valor de booleano o **origem**. Se **origem** valor é "*verdadeiro*", devolve "*falso*". Caso contrário, devolve "*verdadeiro*".
@@ -105,7 +117,7 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia booleana |Era esperado **origem** os valores são "True" ou "False"... |
+| **Origem** |Necessário |Cadeia booleana |Era esperado **origem** os valores são "True" ou "False"... |
 
 - - -
 ### <a name="replace"></a>Substituir
@@ -129,22 +141,21 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
   * Se **origem** tem um valor, utiliza **regexPattern** e **regexGroupName** para extrair a propriedade com o valor de substituição **replacementPropertyName** . Valor de substituição é devolvido como resultado
 
 **Parâmetros:**<br> 
-
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto de origem. |
 | **oldValue** |Opcional |Cadeia |Valor a ser substituído na **origem** ou **modelo**. |
 | **regexPattern** |Opcional |Cadeia |Padrão de RegEx para o valor a ser substituído na **origem**. Ou, quando é utilizado replacementPropertyName, padrão, a extrair o valor da propriedade de substituição. |
 | **regexGroupName** |Opcional |Cadeia |Nome do grupo no interior **regexPattern**. Apenas quando é utilizado replacementPropertyName, iremos irá extraia o valor deste grupo como replacementValue da propriedade de substituição. |
 | **replacementValue** |Opcional |Cadeia |Novo valor para substituir antiga com. |
 | **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser utilizada para o valor de substituição, quando a origem não tem um valor. |
-| **modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, iremos irá procurar **oldValue** dentro do modelo e substitua-o com o valor de origem. |
+| **Modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, iremos irá procurar **oldValue** dentro do modelo e substitua-o com o valor de origem. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Descrição:**<br> Devolve uma única appRoleAssignment da lista de todos os appRoleAssignments atribuído a um utilizador para uma determinada aplicação. Esta função é necessário para converter o objeto de appRoleAssignments numa cadeia de nome de função única. Tenha em atenção que é a melhor prática para garantir que apenas um appRoleAssignment está atribuída a um utilizador a uma hora e não pode ser previsível se várias funções são atribuídas a cadeia de função devolvida.
+**Descrição:**<br> Requer um argumento de cadeia. Devolve a cadeia, mas com qualquer repalced diacritical carateres com caracteres não diacritical equivalentes.
 
 **Parâmetros:**<br> 
 
@@ -162,7 +173,7 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
+| **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
 
 - - -
 ### <a name="switch"></a>Comutador
@@ -174,10 +185,10 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
+| **Origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
 | **defaultValue** |Opcional |Cadeia |Valor predefinido a ser utilizado quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia vazia (""). |
-| **key** |Necessário |Cadeia |**Chave** para comparar **origem** valor com. |
-| **value** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
+| **chave** |Necessário |Cadeia |**Chave** para comparar **origem** valor com. |
+| **valor** |Necessário |Cadeia |Valor de substituição para o **origem** à chave. |
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa
@@ -215,16 +226,16 @@ Tem de gerar um utilizador alias, efetuando os primeiros 3 letras do nome própr
 * **ENTRADA** (apelido): "Silva"
 * **SAÍDA**: "JohDoe"
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Remover diacritics de uma cadeia e converter em minúsculas
-Terá de remover os carateres especiais de uma cadeia e converter carateres em maiúsculas de minúsculas.
+### <a name="remove-diacritics-from-a-string"></a>Remover diacritics de uma cadeia
+É necessário substituir os carateres que contém a acentos marcas de escala com equivalentes carateres que não contenham a acentos marcas.
 
 **Expressão:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **Entrada/saída de exemplo:** <br>
 
 * **ENTRADA** (givenName): "Zoë"
-* **SAÍDA**: "zoe"
+* **SAÍDA**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia com um formato de determinados
 Pretende enviar datas a uma aplicação SaaS num formato de determinadas. <br>
@@ -259,5 +270,5 @@ Se o código de estado não corresponde a qualquer uma das opções predefinidas
 * [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Notificações de aprovisionamento de contas](active-directory-saas-account-provisioning-notifications.md)
-* [Lista de tutoriais sobre como integrar aplicações SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 

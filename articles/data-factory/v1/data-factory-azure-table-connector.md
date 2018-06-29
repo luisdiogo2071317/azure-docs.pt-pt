@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 996b1e5cbc477bf8a67a8cbb118961aaedf151fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3a24e919f1bbde6188e3655399f1ef843fbec23b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621511"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052995"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados para e da tabela do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](data-factory-azure-table-connector.md)
-> * [Versão 2 - Pré-visualização](../connector-azure-table-storage.md)
+> * [Versão 1](data-factory-azure-table-connector.md)
+> * [Versão 2 (versão atual)](../connector-azure-table-storage.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conector do Table Storage do Azure no V2](../connector-azure-table-storage.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector do Table Storage do Azure no V2](../connector-azure-table-storage.md).
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Table Storage do Azure. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia. 
 
@@ -38,7 +38,7 @@ Pode criar um pipeline com uma atividade de cópia move os dados de um Table Sto
 
 A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados.
 
-Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as ferramentas seguintes para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **.NET API**, e **REST API**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink: 
 
@@ -104,7 +104,7 @@ Se a coluna de tabelas do Azure é do tipo datetime:
 | azureTableDefaultPartitionKeyValue |Partição chave valor predefinido que pode ser utilizado pelo sink. |Um valor de cadeia. |Não |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como chaves de partição. Se não for especificado, AzureTableDefaultPartitionKeyValue é utilizado como a chave de partição. |Um nome de coluna. |Não |
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores da coluna são utilizados como chave de linha. Se não for especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
-| azureTableInsertType |O modo de inserir os dados na tabela do Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com correspondentes chaves de partição e a linha tem os respetivos valores substituído ou intercaladas. <br/><br/>Para saber mais sobre como funcionam estas definições (intercalação e substitua), consulte [inserção ou entidade de intercalação](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) tópicos. <br/><br> Esta definição aplica-se ao nível da linha, não o nível de tabela e nenhuma opção elimina as linhas na tabela de saída que não existem na entrada. |Intercalar (predefinição)<br/>Substituir |Não |
+| azureTableInsertType |O modo de inserir os dados na tabela do Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com correspondentes chaves de partição e a linha tem os respetivos valores substituído ou intercaladas. <br/><br/>Para saber mais sobre como funcionam estas definições (intercalação e substitua), consulte [inserção ou entidade de intercalação](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [inserir ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) tópicos. <br/><br> Esta definição aplica-se ao nível da linha, não o nível de tabela e nenhuma opção elimina as linhas na tabela de saída que não existem na entrada. |intercalação (predefinição)<br/>substituir |Não |
 | writeBatchSize |Insere dados na tabela do Azure quando é atingido o writeBatchSize ou writeBatchTimeout. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | writeBatchTimeout |Insere dados na tabela do Azure, quando é atingido o writeBatchSize ou writeBatchTimeout |TimeSpan<br/><br/>Exemplo: "00: 20:00" (20 minutos) |Não (seg 90 de valor predefinido para o tempo limite de predefinição do cliente armazenamento) |
 
@@ -477,7 +477,7 @@ Quando mover dados para & tabela do Azure, o seguinte [mapeamentos definidos pel
 | Tipo de dados de OData | Tipo .NET | Detalhes |
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
-| Edm.Boolean |bool |Valor booleano. |
+| Edm.Boolean |Bool |Valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). Início do intervalo suportado de DateTime de 12:00, 1 de Janeiro de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |GUID |Um identificador exclusivo global de 128 bits. |
@@ -537,7 +537,7 @@ Tendo em conta o mapeamento do tipo do tipo de OData de tabela do Azure para o t
 | Nome da coluna | Tipo |
 | --- | --- |
 | ID de utilizador |Edm.Int64 |
-| name |Edm.String |
+| nome |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Em seguida, defina o conjunto de dados de tabelas do Azure da seguinte forma. Não é necessário especificar a secção "estrutura" com as informações de tipo uma vez que as informações de tipo já foi especificadas no arquivo de dados subjacente.

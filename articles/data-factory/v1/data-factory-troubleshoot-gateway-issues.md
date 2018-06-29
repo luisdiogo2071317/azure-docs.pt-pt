@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624289"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047569"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre como resolver problemas com a utilização do Data Management Gateway.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado integração tempo de execução na versão 2 do Data Factory](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se a versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [autoalojado tempo de execução de integração no Data Factory](../create-self-hosted-integration-runtime.md).
 
 Consulte o [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter informações detalhadas sobre o gateway. Consulte o [mover dados entre no local e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções de mover dados de uma base de dados do SQL Server no local para armazenamento de Blobs do Microsoft Azure utilizando o gateway.
 

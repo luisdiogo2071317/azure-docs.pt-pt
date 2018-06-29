@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215104"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030714"
 ---
-# <a name="service-endpoint-monitor"></a>Monitor do Ponto Final de Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
-Pode utilizar a capacidade de Monitor de ponto final de serviço no [Monitor de desempenho de rede](log-analytics-network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que possui uma porta TCP aberta. Esses pontos finais incluem sites, aplicações de SaaS, PaaS e bases de dados SQL. 
+Pode utilizar a capacidade de Monitor de conectividade de serviço no [Monitor de desempenho de rede](log-analytics-network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que possui uma porta TCP aberta. Esses pontos finais incluem sites, aplicações de SaaS, PaaS e bases de dados SQL. 
 
-Pode efetuar as seguintes funções com a monitorização do ponto final de serviço: 
+Pode efetuar as seguintes funções com a monitorização de conectividade do serviço: 
 
 - Monitorize a conectividade de rede para as suas aplicações e serviços de rede de várias localizações ou de sucursais. As aplicações e serviços de rede incluem o Office 365, Dynamics CRM, aplicações de linha de negócio internas e bases de dados SQL.
 - Utilize testes incorporados para monitorizar a conectividade de rede para pontos finais do Office 365 e Dynamics 365. 
@@ -34,7 +34,7 @@ Pode efetuar as seguintes funções com a monitorização do ponto final de serv
 - Identifique oportunidades de frequente na rede que poderá estar a causar o desempenho de aplicações fraco visualizando a latência contribuída por cada salto num mapa de topologia.
 
 
-![Monitor do Ponto Final de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Criar testes de Monitor de ponto final de serviço 
+### <a name="create-service-connectivity-monitor-tests"></a>Criar testes de monitorização de conectividade de serviço 
 
 Começar a criar os seus testes para monitorizar a conectividade de rede para os pontos finais de serviço.
 
-1. Selecione o **Monitor de ponto final de serviço** separador.
+1. Selecione o **Monitor de conectividade do serviço** separador.
 2. Selecione **adicionar teste**e introduza o nome do teste e a descrição. 
 3. Selecione o tipo de teste:<br>
 
@@ -84,7 +84,7 @@ Começar a criar os seus testes para monitorizar a conectividade de rede para os
 
 ## <a name="walkthrough"></a>Instruções 
 
-Ir para a vista de dashboard de monitorização de desempenho de rede. Para obter um resumo do Estado de funcionamento dos testes diferentes que criou, observe o **Monitor de ponto final de serviço** página. 
+Ir para a vista de dashboard de monitorização de desempenho de rede. Para obter um resumo do Estado de funcionamento dos testes diferentes que criou, observe o **Monitor de conectividade do serviço** página. 
 
 ![Página de Monitor de ponto final de serviço](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

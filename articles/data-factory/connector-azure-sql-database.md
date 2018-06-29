@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b2acf622f33f5d1748c503ab4765b72c3d921e2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 5287a1d1f09a7057590b455c14aa7f70128ad7fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751583"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053647"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [Versão 1, GA](v1/data-factory-azure-sql-connector.md)
-> * [Versão 2, pré-visualização](connector-azure-sql-database.md)
+> * [Versão 1](v1/data-factory-azure-sql-connector.md)
+> * [Versão atual](connector-azure-sql-database.md)
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para copiar dados de ou para a SQL Database do Azure. Baseia-se no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo, que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se para a versão 2 do Data Factory, atualmente em pré-visualização. Se utilizar a versão 1 do serviço do Data Factory, geralmente disponível (DG), consulte [conector de SQL Database do Azure no V1](v1/data-factory-azure-sql-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bcb0d4e6af00b56d083690439be45379ce4d175
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752814"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062126"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
 Este artigo descreve os acionadores baseada em eventos que podem criar seus pipelines de fábrica de dados.
 
-Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comuns que envolve a produção, deteção e consumo e reação eventos. Cenários de integração de dados requerem, muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos.
+Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comuns que envolve a produção, deteção e consumo e reação eventos. Cenários de integração de dados requerem, muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos. Fábrica de dados está agora integrada [grelha de eventos do Azure](https://azure.microsoft.com/services/event-grid/), pipelines que lhe permite acionar um evento.
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -64,11 +64,20 @@ A tabela seguinte fornece uma descrição geral dos elementos de esquema que est
 Esta secção fornece exemplos das definições de Acionador baseada em eventos.
 
 -   **Caminho do blob começa com**('containername /') – recebe eventos para os BLOBs no contentor.
--   **Caminho do blob começa com**('/ containername/foldername') – recebe eventos para os blobs no contentor de containername e foldername pasta.
--   **Caminho do blob começa com**('/ containername/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no recipiente do containername.
+-   **Caminho do blob começa com**('/ blobs/containername/foldername') – recebe eventos para os blobs no contentor de containername e foldername pasta.
+-   **Caminho do blob começa com**('/ containername/blobs/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no recipiente do containername.
 -   **Caminho do blob termina com**('file.txt') – Receives eventos para um blob com o nome file.txt em qualquer caminho.
--   **Caminho do blob termina com**('/ containername/file.txt') – recebe eventos para um blob com o nome file.txt em containername do contentor.
+-   **Caminho do blob termina com**('/ containername/blobs/file.txt') – recebe eventos para um blob com o nome file.txt em containername do contentor.
 -   **Caminho do blob termina com**('foldername/file.txt') – Receives eventos para um blob com o nome file.txt na pasta de foldername em qualquer contentor.
+
+> [!NOTE]
+> Tem de incluir o `/blobs/` segmento do caminho sempre especificar o contentor e pasta, contentor e pasta de ficheiros ou de contentores e, de ficheiros.
+
+## <a name="using-blob-events-trigger-properties"></a>Utilizar as propriedades de Acionador de eventos de Blob
+
+Quando um acionador de eventos do blob é acionado, disponibiliza duas variáveis para o pipeline: *folderPath* e *fileName*. Para aceder a estas variáveis, utilize o `@triggerBody().fileName` ou `@triggerBody().folderPath` expressões.
+
+Por exemplo, considere um acionador configurado para accionar quando é criado um blob com `.csv` como o valor do `blobPathEndsWith`. Quando um ficheiro. csv é ignorado para a conta de armazenamento, o *folderPath* e *fileName* descrevem a localização do ficheiro. csv. Por exemplo, *folderPath* tem o valor `/containername/foldername/nestedfoldername` e *fileName* tem o valor `filename.csv`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações detalhadas sobre acionadores, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md#triggers).

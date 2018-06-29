@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f53c9e2b21e4758bccb6b0f89eb69501df2a6009
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620253"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051404"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>O Azure Data Factory - registo de alterações de .NET API
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). 
+> Este artigo aplica-se a versão 1 do Data Factory. 
 
 Este artigo fornece informações sobre as alterações ao SDK do Azure Data Factory uma versão específica. Pode encontrar o pacote NuGet mais recente do Azure Data Factory [aqui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -71,7 +71,7 @@ Funcionalidade adições:
 ## <a name="version-480"></a>Versão 4.8.0
 ### <a name="feature-additions"></a>Adições de funcionalidade
 * Foram adicionadas as seguintes propriedades opcionais para o tipo de atividade de cópia para ativar a otimização do desempenho de cópia:
-  * [parallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
   * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>Versão 4.7.0
@@ -184,5 +184,5 @@ As seguintes classes de mudança de nome. Os nomes dos novos foram os nomes das 
 * **Lista** pipeline API devolve apenas o resumo de um pipeline, em vez de detalhes completos. Por exemplo, as atividades num resumo de pipeline só contenham nome e tipo.
 
 ### <a name="feature-additions"></a>Adições de funcionalidade
-* O [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) classe suporta duas novas propriedades **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para suportar idempotent copiar para o Azure SQL Data Warehouse. Consulte o [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) artigo para obter detalhes sobre estas propriedades.
+* O [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) classe suporta duas novas propriedades **SliceIdentifierColumnName** e **SqlWriterCleanupScript**, para suportar idempotent copiar dados de SQL do Azure Armazém. Consulte o [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) artigo para obter detalhes sobre estas propriedades.
 * Agora suportamos a executar o procedimento armazenado em relação a SQL Database do Azure e Azure SQL Data Warehouse origens como parte da atividade de cópia. O [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) as classes têm as seguintes propriedades: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Consulte o [SQL Database do Azure](data-factory-azure-sql-connector.md#sqlsource) e [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) artigos no Azure.com para obter detalhes sobre estas propriedades.  

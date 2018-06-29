@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619104"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058987"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas de atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versão 2 - Pré-visualização](copy-activity-fault-tolerance.md)
+> * [Versão 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Versão atual](copy-activity-fault-tolerance.md)
 
 A atividade de cópia no Azure Data Factory oferece duas formas de lidar com linhas incompatíveis ao copiar dados entre os arquivos de dados de origem e dependente:
 
 - Pode abortar e efetuar a cópia atividade quando os dados incompatíveis encontrado (comportamento predefinido).
 - Pode continuar copiar todos os dados ao adicionar a tolerância a falhas e a ignorar as linhas de dados incompatíveis. Além disso, pode iniciar as linhas incompatíveis no Blob storage do Azure ou do Azure Data Lake Store. Em seguida, pode examinar o registo para obter a causa da falha, corrija os dados na origem de dados e repita a atividade de cópia.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [copiar tolerância a falhas de atividade V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Cenários suportados
+## <a name="supported-scenarios"></a>Cenários suportados
 Atividade de cópia suporta três cenários para detetar, ignorar, dados e registo incompatíveis:
 
 - **Incompatibilidade entre o tipo de dados de origem e o tipo nativo sink**. 

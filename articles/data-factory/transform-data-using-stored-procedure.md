@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 25329d65861dc31e67bba146e15a6446a6449e83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620593"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054029"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de procedimento de armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-stored-proc-activity.md)
-> * [Versão 2 - Pré-visualização](transform-data-using-stored-procedure.md)
-
+> * [Versão 1](v1/data-factory-stored-proc-activity.md)
+> * [Versão atual](transform-data-using-stored-procedure.md)
 
 Utilize atividades de transformação de dados numa fábrica de dados [pipeline](concepts-pipelines-activities.md) para transformar e processar dados não processados para predições e das informações. A atividade de procedimento armazenado é uma das atividades de transformação que suporte a fábrica de dados. Este artigo baseia-se a [transformar dados](transform-data.md) artigo, que apresenta uma descrição geral de transformação de dados e as atividades de transformação suportado na fábrica de dados.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de procedimento armazenado no V1](v1/data-factory-stored-proc-activity.md).
-> 
 > Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](introduction.md) e efetue o tutorial: [Tutorial: transformar dados](tutorial-transform-data-spark-powershell.md) antes de ler este artigo. 
 
 Pode utilizar a atividade de procedimento armazenado para invocar um procedimento armazenado dos arquivos de dados seguintes na sua empresa ou numa máquina virtual do Azure (VM): 
@@ -72,7 +69,7 @@ A tabela seguinte descreve estas propriedades JSON:
 
 | Propriedade                  | Descrição                              | Necessário |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Sim      |
+| nome                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve o que é utilizada a atividade para | Não       |
 | tipo                      | Para a atividade de procedimento armazenados, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
 | linkedServiceName         | Referência para o **SQL Database do Azure** ou **Azure SQL Data Warehouse** ou **do SQL Server** registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |

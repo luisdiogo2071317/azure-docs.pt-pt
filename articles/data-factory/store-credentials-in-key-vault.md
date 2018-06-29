@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620671"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052420"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credenciais no Cofre de chaves do Azure
 
 Pode armazenar credenciais para os arquivos de dados e computações num [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o armazenamento de dados/computação.
 
 Atualmente, todos os tipos de atividade, exceto atividade personalizada suportam esta funcionalidade. Para configuração do conector especificamente, consulte a secção "Propriedades do serviço ligado" [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter mais detalhes.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory version1](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

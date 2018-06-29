@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7003e68fcbceb4e45477f4f13dfa75b920405ace
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df45613105c8fb005fc8ba0c796ef768e293c57e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617659"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052437"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados de nuvem de SAP para o cliente (C4C) utilizando o Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de/para a nuvem de cliente (C4C). Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [atividade de cópia no V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -188,7 +185,7 @@ Para copiar dados para a nuvem de cliente, defina o tipo de sink na atividade de
                 "writeBatchSize": 30
             },
             "parallelCopies": 10,
-            "cloudDataMovementUnits": 4,
+            "dataIntegrationUnits": 4,
             "enableSkipIncompatibleRow": true,
             "redirectIncompatibleRowSettings": {
                 "linkedServiceName": {
@@ -209,11 +206,11 @@ Ao copiar dados de nuvem do SAP para o cliente, são utilizados os seguintes map
 | Tipo de dados de OData do SAP C4C | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | bool |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | duplo |
+| Edm.Double | Valor de duplo |
 | Edm.Single | Único |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

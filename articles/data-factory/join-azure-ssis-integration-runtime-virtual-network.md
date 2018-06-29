@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aca67ceff2650a5470b1c08b20c21d71f00bae62
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751535"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061406"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure nos seguintes cenários: 
@@ -27,10 +27,7 @@ Associe o seu tempo de execução de integração do Azure-SSIS (IR) a uma rede 
 
 - Estão a alojar o SQL Server Integration Services (SSIS) catálogo base de dados na base de dados do Azure SQL com pontos finais do serviço de rede virtual/gerido instância (pré-visualização). 
 
- O Azure Data Factory versão 2 (pré-visualização) permite-lhe associar o seu tempo de execução de integração do Azure SSIS para uma rede virtual criadas através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que se encontra na disponibilidade geral (DG), consulte o [documentação da versão 1 de fábrica de dados](v1/data-factory-introduction.md). 
+ O Azure Data Factory permite-lhe associar o seu tempo de execução de integração do Azure SSIS para uma rede virtual criadas através do modelo de implementação clássica ou o modelo de implementação Azure Resource Manager. 
 
 ## <a name="access-to-on-premises-data-stores"></a>Acesso aos arquivos de dados no local
 Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precisa de associar a resposta a incidentes SSIS do Azure a uma rede virtual. Se acedem a pacotes SSIS arquivos de dados no local, tem de associar a resposta a incidentes SSIS do Azure a uma rede virtual que está ligada à rede no local. 
@@ -114,7 +111,10 @@ Se estiver preocupados com a perder a capacidade de inspecionar o tráfego de In
 Consulte [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Tem de executar o script semanalmente a par da lista de endereços IP de centro de dados do Azure. 
 
 ### <a name="resource-group"></a> Requisitos para o grupo de recursos
-A resposta a incidentes SSIS do Azure tem de criar certos recursos de rede no mesmo grupo de recursos de rede virtual, incluindo um balanceador de carga do Azure, um endereço IP público do Azure e um grupo de segurança de trabalho de rede. 
+-   A resposta a incidentes SSIS do Azure tem de criar certos recursos de rede no mesmo grupo de recursos de rede virtual. Estes recursos incluem o seguinte:
+    -   Um balanceador de carga do Azure, com o nome  *<Guid>- azurebatch cloudserviceloadbalancer*.
+    -   Um Azure endereço IP público, com o nome  *<Guid>- azurebatch cloudservicepublicip*.
+    -   Um grupo de segurança de trabalho de rede, com o nome  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
 
 -   Certifique-se de que não tem qualquer bloqueio de recursos no grupo de recursos ou subscrição à qual pertence a rede virtual. Se configurar um bloqueio de só de leitura ou de um bloqueio de eliminação, iniciar e parar a resposta a incidentes podem falhar ou bloquear. 
 

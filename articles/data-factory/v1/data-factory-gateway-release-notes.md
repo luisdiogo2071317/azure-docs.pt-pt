@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620566"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048619"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [autoalojado tempo de execução de integração na V2](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [autoalojado tempo de execução de integração na V2](../create-self-hosted-integration-runtime.md).
 
 Um dos desafios para integração de dados modernas é mover dados para e no local para a nuvem. Fábrica de dados torna esta integração com o Data Management Gateway, que é um agente que pode instalar no local para ativar o movimento de dados de híbrida.
 
@@ -127,12 +127,12 @@ Vamos manter não mais aqui as notas de versão. Obter notas de versão mais rec
 
     *  Controlos reorganizados e simplificados.
 
-    *  Pode copiar dados a partir de um armazenamento utilizando o [ferramenta de pré-visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Consulte [testado cópia](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre esta funcionalidade em geral.
+    *  Pode copiar dados a partir de um armazenamento utilizando o [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Consulte [testado cópia](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre esta funcionalidade em geral.
 *  Pode utilizar o Data Management Gateway para dados de entrada diretamente a partir de uma base de dados do SQL Server no local para o Azure Machine Learning.
 
 *  Melhorias de desempenho
 
-    * Melhore o desempenho sobre a visualização de esquema/pré-visualização contra do SQL Server na ferramenta de pré-visualização de cópia sem código.
+    * Melhore o desempenho sobre a visualização de esquema/pré-visualização contra do SQL Server na ferramenta de cópia sem código.
 
 ## <a name="11259531"></a>1.12.5953.1
 

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763459"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063935"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias de grande) no Azure
 
@@ -44,7 +44,7 @@ Verifique novamente, especialmente quando estiver a planear instalar HANA 2.0, [
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Primeiro passos após receber o HANA grande de instância de unidades
 
-**Primeiro passo** depois de receber a instância de grande HANA e ter acesso estabelecido e conectividade para as instâncias, está a registar o SO da instância do seu fornecedor de SO. Este passo inclui a registar com o SO Linux SUSE numa instância do SUSE SMT que precisa de ter implementado numa VM no Azure. A unidade de instância grande HANA pode ligar a esta instância SMT (ver mais tarde nesta documentação). Ou, tem de ser registado com o Red Hat subscrição gestor tem de ligar ao seu SO de VM de RedHat. Observações também de Consulte deste [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Este passo também é necessário para poder aplicar o patch do SO. Uma tarefa que está a ser da responsabilidade do cliente. Para SUSE, encontrar documentação para instalar e configurar SMT [aqui](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+**Primeiro passo** depois de receber a instância de grande HANA e ter acesso estabelecido e conectividade para as instâncias, está a registar o SO da instância do seu fornecedor de SO. Este passo inclui a registar com o SO Linux SUSE numa instância do SUSE SMT que precisa de ter implementado numa VM no Azure. A unidade de instância grande HANA pode ligar a esta instância SMT (ver mais tarde nesta documentação). Ou, tem de ser registado com o Red Hat subscrição gestor tem de ligar ao seu SO do Red Hat. Observações também de Consulte deste [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Este passo também é necessário para poder aplicar o patch do SO. Uma tarefa que está a ser da responsabilidade do cliente. Para SUSE, encontrar documentação para instalar e configurar SMT [aqui](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 **Segundo passo** é verificar a existência de novas patches e correções de versão/versão de SO específica. Verifique se o nível de patch da instância grande HANA está sobre o estado mais recente. Com base na temporização na patch de SO/versões e as alterações à imagem do que Microsoft pode implementar, poderão existir casos onde as correções mais recentes não podem ser incluídas. Por conseguinte, é um passo obrigatório após tendo mais de uma unidade de instância grande HANA, para verificar se patches relevantes de segurança, a funcionalidade, disponibilidade e desempenho foram lançadas entretanto pelo fabricante do Linux específica e tem de ser aplicadas.
 
@@ -80,18 +80,7 @@ Iremos partem do princípio de que seguiu as recomendações estruturar as VNets
 
 Existem alguns detalhes vale para mencionar sobre o funcionamento em rede das unidades único. Cada unidade de instância grande HANA inclui duas ou três endereços IP que estão atribuídos a dois ou três portas NIC da unidade. Três endereços IP são utilizados nas configurações de escalamento horizontal de HANA e o cenário de replicação do sistema HANA. Um dos endereços IP atribuídos a NIC da unidade está fora do conjunto IP do servidor que foi descrito no [arquitetura no Azure e descrição geral de SAP HANA (instância grande)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-A distribuição de unidades com dois endereços IP atribuídos deve ter o seguinte aspeto:
-
-- eth0.XX deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Este endereço IP deverá ser utilizado para manter de /etc/hosts do SO.
-- eth1.XX deve ter atribuído um endereço IP é utilizado para comunicação com o NFS. Por conseguinte, estes endereços fazer **não** tem de ser mantidos na etc/anfitriões para permitir tráfego de instância para a instância do inquilino.
-
-Para cenários de implementação de replicação do sistema HANA ou HANA Escalamento horizontal, uma configuração de painel com dois endereços IP atribuídos não é adequada. Se ter dois endereços IP atribuídos apenas e que pretenda implementar este tipo de configuração, contacte o SAP HANA na gestão de serviço do Azure para obter um terceiro endereço IP de uma terceira VLAN atribuído. Para unidades de instância grande HANA ter três endereços IP atribuídos em três portas NIC, aplicam as seguintes regras de utilização:
-
-- eth0.XX deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Por conseguinte, este endereço IP não deverá ser utilizado para manter de /etc/hosts do SO.
-- eth1.XX deve ter atribuído um endereço IP é utilizado para comunicação com o armazenamento NFS. Por conseguinte, este tipo de endereços não deve ser mantido nos anfitriões/etc.
-- eth2.XX deve ser utilizado exclusivamente para ser mantidos na etc/anfitriões para comunicação entre as diferentes instâncias. Estes endereços seria também os endereços IP que precisam de ser mantidos em configurações de HANA de escalamento horizontal como endereços IP que HANA utiliza para a configuração do nó entre.
-
-
+Consulte [HLI suportado cenários](hana-supported-scenario.md) para saber os detalhes da ethernet para sua arquitetura.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -111,7 +100,7 @@ Onde SID = a instância HANA ID de sistema
 
 E de inquilino = uma enumeração interna de operações quando implementar um inquilino.
 
-Como pode ver, HANA partilhados e usr/sap estão a partilhar o mesmo volume. Nomenclature do mountpoints inclui o ID de sistema das instâncias HANA, bem como o número de montagem. Nas implementações de escala de segurança apenas há uma montagem, como mnt00001. Enquanto que a implementação de escalamento horizontal que poderá ver monta tantos, como, terá de nós de trabalho e o mestre. Para o ambiente de escalamento horizontal, dados, registo, os volumes de cópia de segurança de registo são partilhados e ligados a cada nó na configuração de escalamento horizontal. Para configurações com várias instâncias SAP, um conjunto diferente de volumes é criado e ligado à unidade de instância grande HAN.
+Como pode ver, HANA partilhados e usr/sap estão a partilhar o mesmo volume. Nomenclature do mountpoints inclui o ID de sistema das instâncias HANA, bem como o número de montagem. Nas implementações de escala de segurança apenas há uma montagem, como mnt00001. Enquanto que a implementação de escalamento horizontal que poderá ver monta tantos, como, terá de nós de trabalho e o mestre. Para o ambiente de escalamento horizontal, dados, registo, os volumes de cópia de segurança de registo são partilhados e ligados a cada nó na configuração de escalamento horizontal. Para configurações com várias instâncias SAP, um conjunto diferente de volumes é criado e ligado à unidade de instância grande HAN. Consulte [HLI suportado cenários](hana-supported-scenario.md) para detalhes de esquema de armazenamento para o seu cenário.
 
 Como ler o documento e procure uma unidade de instância grande HANA, tenha em atenção que as unidades vêm com o volume de disco em vez disso vantajoso para HANA/dados e que temos um volume HANA / / cópia de segurança. O motivo por que motivo é tamanho HANA/dados grandes, por isso, é que os instantâneos de armazenamento que oferecemos para si, como um cliente estiver a utilizar o mesmo volume de disco. Isto significa que o armazenamento mais instantâneos efetuar, mais espaço é consumido pelo instantâneos nos volumes de armazenamento atribuída. O volume HANA / / cópia de segurança não considerar-se para ser o volume de colocar as cópias de segurança da base de dados. É dimensionados de forma a ser utilizado como volume de cópia de segurança para as cópias de segurança do registo de transações HANA. Nas futuras versões do armazenamento de instantâneos de self-service, que iremos destina-se a este volume específico com instantâneos mais frequentes. E com que mais induzirem frequentes replicações para o site de recuperação de desastres se pretendidos ao nível a opção-para a funcionalidade de recuperação após desastre fornecida pela infraestrutura de instância grande HANA. Consulte os detalhes na [SAP HANA (instâncias de grande) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
@@ -150,6 +139,7 @@ Também pode configurar os parâmetros após a instalação de base de dados SAP
 
 Com o SAP HANA 2.0, a arquitetura de hdbparam foi preterida. Como resultado de parâmetros tem de ser definidos utilizando comandos do SQL Server. Para obter mais informações, consulte [SAP nota #2399079: eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
+Consulte [HLI suportado cenários](hana-supported-scenario.md) para saber o esquema de armazenamento para a arquitetura.
 
 ## <a name="operating-system"></a>Sistema operativo
 
@@ -325,7 +315,7 @@ Uma vez que as unidades de instância grande HANA não tem uma ligação direta 
 
 Para poder transferir os pacotes de instalação HANA, precisa de um utilizador S SAP ou outro utilizador, o que lhe permite aceder às SAP Marketplace. Passar por esta sequência de ecrãs após iniciar sessão:
 
-Aceda a [SAP serviço Marketplace](https://support.sap.com/en/index.html) > clique em Transferir Software > instalações e de atualização > pelo índice alfabética > em H – edição de plataforma do SAP HANA > SAP HANA plataforma edição 2.0 > instalação > transferir os seguintes ficheiros
+Aceda a [SAP serviço Marketplace](https://support.sap.com/en/index.html) > clique em Transferir Software > instalações e de atualização > pelo índice alfabético > em H – SAP HANA plataforma edição > SAP HANA plataforma edição 2.0 > instalação > Transferir o seguintes ficheiros
 
 ![Transferir a instalação de HANA](./media/hana-installation/image16_download_hana.PNG)
 
@@ -400,7 +390,7 @@ No próximo passo, também terá de obter dados que forneceu para a Microsoft qu
 > [!Important]
 > Tem de fornecer o mesmo ID de utilizador do sistema e ID do grupo de utilizadores como fornecida Microsoft como ordem de implementação de unidade. Se falhar dar os IDs muito mesmos, a instalação de SAP HANA na unidade instância grande HANA falha.
 
-Os seguinte dois ecrãs, o que podemos são não é possível mostrar nesta documentação, tem de fornecer a palavra-passe para o utilizador do sistema da base de dados SAP HANA e a palavra-passe para o utilizador sapadm, que é utilizada para o agente de anfitrião de SAP obtém instalado como parte da instância de base de dados SAP HANA.
+Os seguinte dois ecrãs, o que podemos são não é possível mostrar nesta documentação, tem de fornecer a palavra-passe para o utilizador do sistema da base de dados SAP HANA e a palavra-passe para o utilizador sapadm, que é utilizada para o agente de anfitrião de SAP obtém instalado como parte de SAP HANA datab instância de ase.
 
 Depois de definir a palavra-passe, um ecrã de confirmação está ser apresentado. Verifique todos os dados apresentados e continuar a instalação. Contactar um ecrã de progresso documentos o progresso da instalação, como o abaixo
 

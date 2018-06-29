@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300973"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061050"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar segura LDAP (LDAPS) para um domínio gerido dos serviços de domínio do Azure AD
 
@@ -48,7 +48,7 @@ Para ativar o LDAP segura, execute os seguintes passos de configuração:
 4. Por predefinição, o acesso LDAP seguro ao seu domínio gerido está desativado. Ativar/desativar **LDAP seguro** para **ativar**.
 
     ![Ativar LDAP seguro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Por predefinição, o acesso LDAP seguro ao seu domínio gerido através da internet está desativado. Ativar/desativar **permitir acesso LDAP seguro através da internet** para **ativar**, se assim o desejar. 
+5. Por predefinição, o acesso LDAP seguro ao seu domínio gerido através da internet está desativado. Ativar/desativar **permitir acesso LDAP seguro através da internet** para **ativar**, se assim o desejar.
 
     > [!WARNING]
     > Quando ativar o acesso LDAP seguro através da internet, o domínio é suscetível a ataques de força bruta de palavra-passe através da internet. Por conseguinte, é recomendável configurar um NSG para bloquear o acesso aos intervalos de endereços IP de origem necessários. Consulte as instruções para [bloqueio para baixo de acesso LDAPS ao seu domínio gerido através da internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -111,6 +111,23 @@ A tabela seguinte ilustra um exemplo NSG, pode configurar, para bloquear o acess
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Vincular ao domínio gerido através de LDAP com LDP.exe
+Pode utilizar a ferramenta de LDP.exe que está incluída no pacote de ferramentas de administração remota do servidor a vincular e procurar através de LDAP.
+
+Em primeiro lugar, abrir o LDP e ligar ao domínio gerido. Clique em **ligação** e clique em **ligar...**  no menu. Especifique o nome de domínio DNS do domínio gerido. Especifique a porta a utilizar para ligações. Para ligações de LDAP, utilize a porta 389. Para ligações de LDAPS utilizar a porta 636. Clique em **OK** botão para ligar ao domínio gerido.
+
+Em seguida, vincule ao domínio gerido. Clique em **ligação** e clique em **vincular...**  no menu. Forneça as credenciais de uma conta de utilizador que pertencem ao grupo de 'AAD DC administradores'.
+
+Selecione **vista**e, em seguida, selecione **árvore** no menu. Deixar o campo de Base DN em branco e clique em OK. Navegue para o contentor que pretende pesquisar, o contentor com o botão direito e selecione a pesquisa.
+
+> [!TIP]
+> - Os utilizadores e grupos sincronizados a partir do Azure AD são armazenados no **AADDC utilizadores** contentor. O caminho de pesquisa para este contentor aspeto ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Contas de computador para computadores associados ao domínio gerido são armazenadas no **AADDC computadores** contentor. O caminho de pesquisa para este contentor aspeto ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Obter mais informações - [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se tiver problemas de ligação ao domínio gerido utilizando LDAP segura, execute os seguintes passos de resolução de problemas:
@@ -129,6 +146,7 @@ Se ainda tiver problemas de ligação ao domínio gerido utilizando LDAP seguro,
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de domínio do Azure AD - guia de introdução](active-directory-ds-getting-started.md)
 * [Administrar um domínio gerido dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
+* [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
 * [Administrar a política de grupo num domínio gerido dos serviços de domínio do Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Grupos de segurança de rede](../virtual-network/security-overview.md)
 * [Criar um grupo de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)

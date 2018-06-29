@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618002"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048089"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados de SAP HANA utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-sap-hana-connector.md)
-> * [Versão 2 - Pré-visualização](connector-sap-hana.md)
+> * [Versão 1](v1/data-factory-sap-hana-connector.md)
+> * [Versão atual](connector-sap-hana.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados SAP HANA. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector de SAP HANA no V1](v1/data-factory-sap-hana-connector.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -169,7 +166,7 @@ Quando copiar dados de SAP HANA, os seguintes mapeamentos são utilizados SAP HA
 | ALPHANUM | Cadeia |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| VALOR BOOLEANO | Bytes |
+| VALOR BOOLEANO | Byte |
 | CLOB | Byte[] |
 | DATA | DateTime |
 | DECIMAL | Decimal |
@@ -181,7 +178,7 @@ Quando copiar dados de SAP HANA, os seguintes mapeamentos são utilizados SAP HA
 | SMALLINT | Int16 |
 | HORA | TimeSpan |
 | TIMESTAMP | DateTime |
-| TINYINT | Bytes |
+| TINYINT | Byte |
 | VARCHAR | Cadeia |
 
 ## <a name="known-limitations"></a>Limitações conhecidas

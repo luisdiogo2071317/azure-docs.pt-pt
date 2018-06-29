@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258686"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029021"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Roda os segredos na pilha do Azure
 
@@ -84,11 +84,12 @@ Executar rotação secreta utilizando as instruções abaixo irá remediar estes
     > [!note]  
     > Os passos seguintes aplicam-se apenas quando a rotação dos segredos externos pilha do Azure.
 
-2.  Prepare um novo conjunto de substituição certificados externos. O novo conjunto corresponde as especificações de certificado descritas no [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Armazene uma cópia de segurança nos certificados utilizados para rotação numa localização segura cópia de segurança. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
-3.  Crie uma partilha de ficheiros que pode aceder a partir de VMs ERCS. A partilha de ficheiros tem de ser legível e gravável para o **CloudAdmin** identidade.
-4.  Abra uma consola do ISE do PowerShell a partir de um computador onde tenha acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
-5.  Executar **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
+2. Certifique-se de rotação secreta ainda não foi executada com êxito no seu ambiente no mês passado. Neste ponto no tempo a pilha do Azure suporta apenas a rotação secreta uma vez por mês. 
+3. Prepare um novo conjunto de substituição certificados externos. O novo conjunto corresponde as especificações de certificado descritas no [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Armazene uma cópia de segurança nos certificados utilizados para rotação numa localização segura cópia de segurança. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
+5.  Crie uma partilha de ficheiros que pode aceder a partir de VMs ERCS. A partilha de ficheiros tem de ser legível e gravável para o **CloudAdmin** identidade.
+6.  Abra uma consola do ISE do PowerShell a partir de um computador onde tenha acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
+7.  Executar **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rodar segredos internos e externos
 
@@ -157,8 +158,8 @@ O cmdlet Start-SecretRotation roda os segredos de infraestrutura de um sistema d
 
 | Parâmetro | Tipo | Necessário | Posição | Predefinição | Descrição |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Cadeia  | Falso  | com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Só é necessário quando a rotação dos segredos internos e externos. Diretório de fim tem de estar **\Certificates**. |
-| CertificatePassword | SecureString | Falso  | com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecidas - PfXFilesPath. Valor necessário se PfxFilesPath é fornecida quando rodam segredos internos e externos. |
+| PfxFilesPath | Cadeia  | Falso  | Com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Só é necessário quando a rotação dos segredos internos e externos. Diretório de fim tem de estar **\Certificates**. |
+| CertificatePassword | SecureString | Falso  | Com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecidas - PfXFilesPath. Valor necessário se PfxFilesPath é fornecida quando rodam segredos internos e externos. |
 |
 
 ### <a name="examples"></a>Exemplos

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021668"
+ms.locfileid: "37031792"
 ---
 # <a name="integrate-speech-service"></a>Integrar o serviço de reconhecimento de voz
 O [serviço de reconhecimento de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar um único pedido a receber de áudio e devolver predição LUIS objetos JSON.
@@ -53,7 +53,9 @@ Depois de importar a aplicação, selecione **entidades**, em seguida, **gerir e
 
   No **publicar** página, recolher o ID da aplicação, publicar a região e o ID de subscrição da chave LUIS criado no [chave de ponto final de criar LUIS](#create-luis-endpoint-key) secção. Terá de modificar o código para utilizar estes valores neste artigo. 
 
-  Estes valores são incluídos no URL do ponto final na parte inferior do **publicar** página para a chave que criou. Efetue **não** utilizar a chave de arranque livre para este exercício. 
+  Estes valores são incluídos no URL do ponto final na parte inferior do **publicar** página para a chave que criou. 
+  
+  Efetue **não** utilizar a chave de arranque livre para este exercício. Apenas um **compreensão de idiomas** chave criada no portal do Azure irá funcionar para este exercício. 
 
   https://**região**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? chave de subscrição =**LUISKEY**& q =
 
@@ -84,22 +86,13 @@ O ficheiro já tem os pendentes de recursos humanos mapeados.
 
 Crie e execute a aplicação. 
 
-![Captura de ecrã da linha de comandos a executar o programa](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
-
 ## <a name="test-code-with-utterance"></a>Código de teste com utterance
-Selecione **8** e enunciar para microfone "Que é o Gestor de João Silva".
+Selecione **1** e enunciar para microfone "Que é o Gestor de João Silva".
 
 ```cmd
-1. Speech recognition with microphone input.
-2. Speech recognition in the specified language.
-3. Speech recognition with file input.
-4. Speech recognition using customized model.
-5. Speech continuous recognition using events.
-6. Translation with microphone input.
-7. Translation with file input.
-8. Speech recognition of LUIS intent.
+1. Speech recognition of LUIS intent.
 0. Stop.
-Your choice: 8
+Your choice: 1
 LUIS...
 Say something...
 ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
@@ -127,7 +120,7 @@ A intenção correta, **GetEmployeeOrgChart**, foi encontrado com uma confiança
 O SDK de reconhecimento de voz devolve a resposta de LUIS completa. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não é necessário elimine a aplicação de LUIS RecursosHumanos. Para tal, selecione o menu de três ponto (. …) para a direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **eliminar aplicação?**, selecione **Ok**.
+Quando já não é necessário elimine a aplicação de LUIS RecursosHumanos. Para tal, selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Delete** (Eliminar). Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 Lembre-se ao eliminar o diretório de exemplos LUIS quando tiver terminado com o código de exemplo.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364238"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061304"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Descrição geral de segurança de máquinas virtuais do Azure
 Pode utilizar máquinas virtuais do Azure para implementar uma vasta gama de soluções de informáticas de uma forma seja ágil. O serviço suporta o Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e BizTalk Services do Azure. Por isso, pode implementar qualquer linguagem em praticamente qualquer sistema operativo e qualquer carga de trabalho.
@@ -142,5 +142,5 @@ Máquinas virtuais do Azure está certificado para FISMA, FedRAMP, HIPAA, PCI DS
 
 Saiba mais:
 
-* [Centro de fidedignidade da Microsoft: conformidade](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Centro de fidedignidade da Microsoft: conformidade](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Nuvem fidedigna: Segurança do Microsoft Azure, privacidade e conformidade](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

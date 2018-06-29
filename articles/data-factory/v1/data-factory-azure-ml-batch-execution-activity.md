@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 62ee13c4e756e41558adcb5b98081e24d683e01a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62712a201e8f9717f3e0215c4c29130d3bddcdf2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620379"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050216"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory
 
@@ -37,7 +37,7 @@ ms.locfileid: "34620379"
 
 ## <a name="introduction"></a>Introdução
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [transformar dados através de aprendizagem na versão 2 do Data Factory](../transform-data-using-machine-learning.md).
+> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [transformar dados através de aprendizagem fábrica de dados](../transform-data-using-machine-learning.md).
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -83,7 +83,7 @@ Neste cenário, o serviço Web do Azure Machine Learning torna predições utili
 > [!IMPORTANT]
 > Se o serviço web tem várias entradas, utilize o **webServiceInputs** propriedade em vez de utilizar **webServiceInput**. Consulte o [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) secção para obter um exemplo de utilização da propriedade webServiceInputs.
 >
-> Conjuntos de dados que são referenciados pelo **webServiceInput**/**webServiceInputs** e **webServiceOutputs** propriedades (no **typeProperties**) também têm de ser incluídos na atividade **entradas** e **produz**.
+> Conjuntos de dados que são referenciados pelo **webServiceInput**/**webServiceInputs** e **webServiceOutputs** propriedades (no  **typeProperties**) também têm de ser incluídos na atividade **entradas** e **produz**.
 >
 > Na sua experimentação do Azure ML, entrada de serviço web e portas de saída e parâmetros globais têm nomes predefinidos ("input1", "input2") que pode personalizar. Os nomes a que utilizar para webServiceInputs, webServiceOutputs e definições de globalParameters devem corresponder exatamente os nomes de experimentações. Pode ver o payload de pedido de exemplo na página de ajuda de execução de Batch para o ponto de final do Azure ML verificar o mapeamento esperado.
 >

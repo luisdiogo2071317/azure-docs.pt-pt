@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852715"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061340"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicação para o SQL Server em máquinas virtuais do Azure (clássica) de patches automatizada
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Para utilizar a aplicação de patches automatizada, considere os seguintes pré
 * SQL Server 2014
 * SQL Server 2016
 
-**Azure PowerShell**:
+**O Azure PowerShell**:
 
 * [Instalar os comandos do Azure PowerShell mais recentes](/powershell/azure/overview).
 
@@ -86,7 +86,7 @@ Com base neste exemplo, a tabela seguinte descreve o efeito prático no destino 
 | --- | --- |
 | **DayOfWeek** |Patches instalados cada Quinta-feira. |
 | **MaintenanceWindowStartingHour** |Atualizações de begin às 11:00. |
-| **MaintenanceWindowsDuration** |Correções de erros tem de ser instaladas em 120 minutos. Com base na hora de início, tem de concluir por 1:00 pm. |
+| **MaintenanceWindowDuration** |Correções de erros tem de ser instaladas em 120 minutos. Com base na hora de início, tem de concluir por 1:00 pm. |
 | **PatchCategory** |A definição apenas possível para este parâmetro é "Importante". |
 
 Pode demorar alguns minutos para instalar e configurar o agente do SQL Server IaaS.

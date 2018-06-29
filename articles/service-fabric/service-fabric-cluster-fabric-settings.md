@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642653"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062284"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>Descrição das políticas de atualização diferentes
+
+- **Dinâmica** – alterações a uma configuração dinâmica não fazer com que os reinícios do processo de processos do Service Fabric ou os processos de anfitrião do serviço. 
+- **Estático** – alterações a uma configuração estática fará com que o nó de Service Fabric reiniciar para poder consumir a alteração. Serviços em nós serão reiniciados.
+- **NotAllowed** – estas definições não podem ser modificadas. Alterar estas definições requer que o cluster ser destruída e um novo cluster que criou. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
 Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
 
@@ -80,7 +86,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
-|MinReplicaSetSize|Int, a predefinição é 0|Estático|MinReplicaSetSize para BackupRestoreService |
+|MinReplicaSetSize|int, a predefinição é 0|Estático|MinReplicaSetSize para BackupRestoreService |
 |PlacementConstraints|wstring, a predefinição é L""|Estático| PlacementConstraints BackupRestore serviço |
 |SecretEncryptionCertThumbprint|wstring, a predefinição é L""|Dinâmica|Thumbprint do certificado de encriptação secreta X509 |
 |SecretEncryptionCertX509StoreName|wstring, a predefinição é L "Os meus"|  Dinâmica|    Isto indica que o certificado a utilizar para encriptação e desencriptação do arquivo de certificados de nome de x. 509 de credenciais é utilizado para encriptar as credenciais do arquivo desencriptar utilizadas pelo serviço de restaurar a cópia de segurança |
@@ -207,9 +213,9 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica|Especifique timespan em segundos. O limite de tempo para a criação de uma réplica de monitorização de estado após o qual será iniciado a um relatório de estado de funcionamento de aviso |
-|ClusterPauseThreshold|Int, a predefinição é 1|Dinâmica|Se o número de nós no sistema ficarem abaixo este valor, em seguida, Colocação; carregar balanceamento; e parar a ativação pós-falha. |
+|ClusterPauseThreshold|int, a predefinição é 1|Dinâmica|Se o número de nós no sistema ficarem abaixo este valor, em seguida, Colocação; carregar balanceamento; e parar a ativação pós-falha. |
 |CreateInstanceTimeLimit|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(300)|Dinâmica|Especifique timespan em segundos. O limite de tempo para criar uma instância sem monitorização de estado; após o qual será iniciado a um relatório de estado de funcionamento de aviso |
-|ExpectedClusterSize|Int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente iniciado; o FM espera que isto nós muitos relatórios próprios cópias de segurança antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster de arranque; mas impede os nós precoce de se tornar sobrecarregado e também a move adicional que irá ser necessário como mais nós fique online. Este valor, geralmente, deve ser definido como algumas pequena fração do tamanho do cluster inicial. |
+|ExpectedClusterSize|int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente iniciado; o FM espera que isto nós muitos relatórios próprios cópias de segurança antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster de arranque; mas impede os nós precoce de se tornar sobrecarregado e também a move adicional que irá ser necessário como mais nós fique online. Este valor, geralmente, deve ser definido como algumas pequena fração do tamanho do cluster inicial. |
 |ExpectedNodeDeactivationDuration|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique timespan em segundos. Esta é a duração esperada para um nó concluir a desativação de no. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique timespan em segundos. Esta é a duração esperada para um nó a ser atualizado durante a atualização do Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique timespan em segundos. Esta é a duração esperada para todas as réplicas ser actualizado num nó durante a atualização da aplicação. |
@@ -231,7 +237,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, a predefinição é 604800 |Estático| Isto é aproximadamente quanto a manter as ações que estão num Estado terminal. Isto também depende da StoredActionCleanupIntervalInSeconds; uma vez que o trabalho a limpeza só é feito desse intervalo. 604800 é de 7 dias. |
 |DataLossCheckPollIntervalInSeconds|int, a predefinição é 5|Estático|Este é o tempo entre as verificações que do sistema executa ao aguardar a perda de dados ocorrer. O número de vezes que o número de perda de dados será verificado por iteração interna é DataLossCheckWaitDurationInSeconds este. |
-|DataLossCheckWaitDurationInSeconds|Int, a predefinição é 25|Estático|A quantidade total de tempo; em segundos; Se o sistema irá aguardar perda de dados ocorrer. Isto é utilizado internamente quando a api de StartPartitionDataLossAsync() é chamado. |
+|DataLossCheckWaitDurationInSeconds|int, a predefinição é 25|Estático|A quantidade total de tempo; em segundos; Se o sistema irá aguardar perda de dados ocorrer. Isto é utilizado internamente quando a api de StartPartitionDataLossAsync() é chamado. |
 |MinReplicaSetSize |Int, a predefinição é 0 |Estático|MinReplicaSetSize para FaultAnalysisService. |
 |PlacementConstraints | cadeia, a predefinição é ""|Estático| PlacementConstraints para FaultAnalysisService. |
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Estático|Especifique timespan em segundos. QuorumLossWaitDuration para FaultAnalysisService. |
@@ -298,7 +304,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de nós de mau estado de funcionamento de diferenças permitido para o cluster ser bom estado de funcionamento |
-|MaxPercentUpgradeDomainDeltaUnhealthyNodes|Int, a predefinição é 15|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de diferenças de nós mau estado de funcionamento de um domínio de atualização permitido para o cluster ser bom estado de funcionamento |
+|MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, a predefinição é 15|Estático|Política de avaliação do Estado de funcionamento de atualização do cluster: percentagem de máxima de diferenças de nós mau estado de funcionamento de um domínio de atualização permitido para o cluster ser bom estado de funcionamento |
 
 ## <a name="hosting"></a>Alojamento
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
@@ -379,7 +385,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, a predefinição é 5000 |Dinâmica|O número máximo de ligações simultâneas do armazenamento do azure. |
-|AzureStorageMaxWorkerThreads | Int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
+|AzureStorageMaxWorkerThreads | int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, a predefinição é 6000 |Dinâmica|Especifique timespan em segundos. Tempo limite xstore conclusão da operação. |
 |CleanupApplicationPackageOnProvisionSuccess|booleana, a predefinição é FALSE |Dinâmica|Esta configuração ativa ou desativa a limpeza automática do pacote de aplicação no aprovisionamento com êxito. |
 |DisableChecksumValidation | Booleana, a predefinição é false |Estático| Esta configuração permite-nos ativar ou desativar a validação de soma de verificação durante o aprovisionamento de aplicações. |
@@ -469,9 +475,9 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ConstraintFixPartialDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique timespan em segundos. Fazê-lo não as violações de restrição FaultDomain corrigir e UpgradeDomain durante este período após um nó para baixo de eventos. |
 |ConstraintViolationHealthReportLimit | Int, predefinido é 50 |Dinâmica| Define o número de vezes que uma réplica de violação de restrição tem de ser forma permanente não corrigidos antes de diagnóstico é efetuado e relatórios de estado de funcionamento são emitidos. |
 |DetailedConstraintViolationHealthReportLimit | Int, a predefinição é 200 |Dinâmica| Define o número de vezes que uma réplica de violação de restrição tem de ser forma permanente não corrigidos antes de diagnóstico é a realização de um e detalhadas de estado de funcionamento relatórios são emitidos. |
-|DetailedDiagnosticsInfoListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de entradas de diagnóstico (com informações detalhadas) por restrição para incluir antes de truncagem no Diagnostics.|
-|DetailedNodeListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes de truncagem nos relatórios de réplica Unplaced. |
-|DetailedPartitionListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes de truncagem no Diagnostics. |
+|DetailedDiagnosticsInfoListLimit | int, a predefinição é 15 |Dinâmica| Define o número de entradas de diagnóstico (com informações detalhadas) por restrição para incluir antes de truncagem no Diagnostics.|
+|DetailedNodeListLimit | int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes de truncagem nos relatórios de réplica Unplaced. |
+|DetailedPartitionListLimit | int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes de truncagem no Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, a predefinição é 200 | Dinâmica|Define o número de vezes que uma réplica unplaced tem de ser unplaced de forma permanente antes de relatórios de estado de funcionamento detalhadas são emitidos. |
 |FaultDomainConstraintPriority | Int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: rígido; 1: recuperável; negativo: Ignorar. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, a predefinição é 600 |Estático| Especifique timespan em segundos. Indica o comprimento do intervalo passado para o qual controlar por Movimentos de réplica de domínio (utilizados juntamente com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar completamente a limitação global. |
@@ -527,10 +533,10 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 | **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou breve descrição** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, a predefinição é Common::TimeSpan::FromMilliseconds(15)|Estático|Especifique timespan em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de devolver uma confirmação. Outras operações recebidas durante este período de tempo terão as respetivas confirmações enviadas novamente numa única mensagem -> reduzir o tráfego de rede, mas reduzindo potencialmente o débito do replicador.|
-|MaxCopyQueueSize|Uint, a predefinição é 1024|Estático|Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se o crescimentos durante o tempo de execução para esta operação de tamanho de fila serão limitadas entre os de replicadores primários e secundários.|
+|MaxCopyQueueSize|uint, a predefinição é 1024|Estático|Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se o crescimentos durante o tempo de execução para esta operação de tamanho de fila serão limitadas entre os de replicadores primários e secundários.|
 |MaxPrimaryReplicationQueueMemorySize|Uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação primária em bytes.|
-|MaxPrimaryReplicationQueueSize|Uint, a predefinição é 1024|Estático|Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2.|
-|MaxReplicationMessageSize|Uint, a predefinição é 52428800|Estático|Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB.|
+|MaxPrimaryReplicationQueueSize|uint, a predefinição é 1024|Estático|Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2.|
+|MaxReplicationMessageSize|uint, a predefinição é 52428800|Estático|Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação secundária em bytes.|
 |MaxSecondaryReplicationQueueSize|uint, a predefinição é de 2048|Estático|Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(30)|Estático|Especifique timespan em segundos. Este valor determina o período de tempo utilizado pelo replicador para monitorizar os eventos de estado de funcionamento de aviso/erro nas filas de operação de replicação. Um valor de '0' desativa a monitorização de estado de funcionamento |
@@ -538,7 +544,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |ReplicatorAddress|cadeia, a predefinição é L "localhost:0"|Estático|O ponto final na forma de uma cadeia, 'IP:Port', que é utilizado pelo Windows Fabric replicador para estabelecer ligações com outras réplicas para operações de envio/receção.|
 |ReplicatorListenAddress|cadeia, a predefinição é L "localhost:0"|Estático|O ponto final na forma de uma cadeia, 'IP:Port', que é utilizado pelo Windows Fabric replicador para receber as operações de outras réplicas.|
 |ReplicatorPublishAddress|cadeia, a predefinição é L "localhost:0"|Estático|O ponto final na forma de uma cadeia, 'IP:Port', que é utilizada pelo replicador de recursos de infraestrutura do Windows para enviar operações para outras réplicas.|
-|RetryInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique timespan em segundos. Quando uma operação é perdida ou rejeitado este temporizador determina com que frequência o replicador tentará enviar novamente a operação.|
+|retryInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique timespan em segundos. Quando uma operação é perdida ou rejeitado este temporizador determina com que frequência o replicador tentará enviar novamente a operação.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou breve descrição** |
@@ -765,7 +771,7 @@ Segue-se uma lista de recursos de infraestrutura, as definições que pode perso
 |MaxCopyQueueSize |Uint, a predefinição é 16384 | Estático |Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se o crescimentos durante o tempo de execução para esta operação de tamanho de fila serão limitadas entre os de replicadores primários e secundários. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, a predefinição é 0 | Estático |Este é o valor máximo da fila de replicação primária em bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, a predefinição é 8192 | Estático |Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2. |
-|MaxReplicationMessageSize |Uint, a predefinição é 52428800 | Estático | Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB. |
+|MaxReplicationMessageSize |uint, a predefinição é 52428800 | Estático | Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, a predefinição é 0 | Estático |Este é o valor máximo da fila de replicação secundária em bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, a predefinição é 16384 | Estático |Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2. |
 |ReplicatorAddress |cadeia, a predefinição é "localhost:0" | Estático | O ponto final na forma de uma cadeia, 'IP:Port', que é utilizado pelo Windows Fabric replicador para estabelecer ligações com outras réplicas para operações de envio/receção. |

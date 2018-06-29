@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 5b7b473bdc411e11d6d1c90c63c4f05c6dac3280
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045787"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Através de programação monitorizar um Azure data factory
 Este artigo descreve como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs). 
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [monitorizar e gerir pipelines na fábrica de dados version1](v1/data-factory-monitor-manage-pipelines.md).
 
 ## <a name="data-range"></a>Intervalo de dados
 

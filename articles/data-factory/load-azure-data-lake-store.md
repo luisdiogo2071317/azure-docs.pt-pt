@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619631"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37058988"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carregar dados para o Azure Data Lake Store utilizando o Azure Data Factory
 
@@ -35,9 +35,6 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
 
 > [!NOTE]
 > Para obter mais informações, consulte [copiar dados de ou para o Azure Data Lake Store utilizando o Azure Data Factory](connector-azure-data-lake-store.md).
->
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte o artigo [atividade de cópia no Azure Data Factory versão 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -56,7 +53,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
     * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "o nome de factory de dados \"LoadADLSDemo\" não está disponível," Introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente, ou selecione o **criar nova** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versão**: selecione **V2 (pré-visualização)**.
+    * **Versão**: selecione **V2**.
     * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Arquivos de dados que são utilizados pela fábrica de dados podem estar nas outras regiões e localizações. Estes arquivos de dados incluem o Azure Data Lake Store, o Storage do Azure, SQL Database do Azure e assim sucessivamente.
 
 3. Selecione **Criar**.
@@ -74,35 +71,45 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica
 2. No **propriedades** página, especifique **CopyFromAmazonS3ToADLS** para o **nome da tarefa** campo e selecione **seguinte**:
 
     ![Página Propriedades](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. No **arquivo de dados de origem** página, selecione **Amazon S3**e selecione **seguinte**:
+3. No **arquivo de dados de origem** página, clique em **+ criar nova ligação**:
 
     ![Página de arquivo de dados de origem](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    Selecione **Amazon S3**e selecione **continuar**
+    
+    ![Página de s3 de arquivo de dados de origem](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. No **especificar Amazon S3 ligação** página, efetue os seguintes passos: 
    1. Especifique o **ID da chave de acesso** valor.
    2. Especifique o **chave de acesso secreta** valor.
-   3. Selecione **Seguinte**.
+   3. Selecione **Concluir**.
    
    ![Especifique a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. Verá uma nova ligação. Selecione **Seguinte**.
+   
+   ![Especifique a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. No **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende copiar a ativação pós-falha. Selecione o pasta/ficheiro, selecione **escolha**e, em seguida, selecione **seguinte**:
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. No **arquivo de dados de destino** página, selecione **Azure Data Lake Store**e selecione **seguinte**:
-
-    ![Página arquivo de dados de destino](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Escolher o comportamento de copiar selecionando o **copiar os ficheiros em modo recursivo** e **cópia binária** (copiar ficheiros como-é) opções. Selecione **seguinte**:
+6. Escolher o comportamento de copiar selecionando o **copiar os ficheiros em modo recursivo** e **cópia binária** (copiar ficheiros como-é) opções. Selecione **seguinte**:
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. No **arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Azure Data Lake Store**e selecione **continuar**:
+
+    ![Página arquivo de dados de destino](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. No **ligação especifique Data Lake Store** página, efetue os seguintes passos: 
 
    1. Selecione o Data Lake Store para o **nome da conta do Data Lake Store**.
-   2. Especifique as informações de principal de serviço: **inquilino**, **ID de principal de serviço**, e **chave principal do serviço**.
+   2. Especifique o **inquilino**e selecione a concluir.
    3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Esta explicação passo a passo, utiliza um _principal de serviço_ para autenticar o Data Lake Store. Certifique-se de conceder o principal de serviço as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > Esta explicação passo a passo, utiliza um _identidade do serviço gerido_ para autenticar o Data Lake Store. Certifique-se de conceder o principal de serviço as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Especifique a conta do Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. No **escolha a pasta ou ficheiro de saída** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 

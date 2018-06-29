@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618927"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054358"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
 Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
 
 Ao criar um acionador de agendamento, especifique uma agenda (data, periodicidade de início, terminar data etc.) para o acionador e associar com um pipeline. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, atualmente disponível em modo de pré-visualização. Se estiver a utilizar o Azure Data Factory versão 1, que é geralmente disponível (DG), consulte [introdução ao Azure Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 As secções seguintes fornecem passos para criar um acionador de agenda de formas diferentes. 
 
@@ -249,7 +246,7 @@ Para monitorizar o acionador é executado e o pipeline é executado no portal do
 Pode utilizar um modelo Azure Resource Manager para criar um acionador. Para obter instruções passo a passo, consulte [criar um Azure data factory utilizando um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>A hora de início de Acionador de passar para um pipeline
-O Azure Data Factory versão 1 suporta ler ou escrever dados particionados utilizando as variáveis de sistema: **SliceStart**, **SliceEnd**, **WindowStart**e **WindowEnd**. No Azure Data Factory versão 2, pode conseguir este comportamento, utilizando um parâmetro de pipeline. A hora de início e a hora agendada para o acionador estão definidas como o valor para o parâmetro de pipeline. No exemplo seguinte, a hora agendada para o acionador é transmitida como um valor para o pipeline **scheduledRunTime** parâmetro:
+O Azure Data Factory versão 1 suporta ler ou escrever dados particionados utilizando as variáveis de sistema: **SliceStart**, **SliceEnd**, **WindowStart**e **WindowEnd**. Na versão atual do Azure Data Factory, pode conseguir este comportamento, utilizando um parâmetro de pipeline. A hora de início e a hora agendada para o acionador estão definidas como o valor para o parâmetro de pipeline. No exemplo seguinte, a hora agendada para o acionador é transmitida como um valor para o pipeline **scheduledRunTime** parâmetro:
 
 ```json
 "parameters": {

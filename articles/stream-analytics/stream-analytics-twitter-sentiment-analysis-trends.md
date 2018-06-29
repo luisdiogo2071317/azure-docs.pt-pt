@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910531"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030619"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de dados de sentimento do Twitter em tempo real no Azure Stream Analytics
 
@@ -90,7 +90,7 @@ Antes de um processo pode enviar dados para um hub de eventos, o hub de eventos 
     
     ![Copiar a chave de cadeia de ligação principal da política de acesso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
-7.  Cole a cadeia de ligação no editor de texto. Precisa desta cadeia de ligação para a secção seguinte, depois de efetuar algumas edições pequenas ao mesmo.
+7.  Cole a cadeia de ligação num editor de texto. Precisa desta cadeia de ligação para a secção seguinte, depois de efetuar algumas edições pequenas ao mesmo.
 
     A cadeia de ligação tem o seguinte aspeto:
 
@@ -251,7 +251,7 @@ Para comparar o número de menciona suportadas entre tópicos, pode utilizar um 
 
     Azure amostras de visão de 3 minutos de dados a partir do fluxo de entrada e notifica-o quando os dados de exemplo estão prontos. (Esta ação demora algum.) 
 
-    Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto tiver de abrir a janela de consulta. Se fechar a janela de consulta, os dados de exemplo são rejeitados e tem de criar um novo conjunto de dados de exemplo. 
+    Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são rejeitados e tem de criar um novo conjunto de dados de exemplo. 
 
 5. Altere a consulta no editor de código para o seguinte:
 
@@ -278,7 +278,7 @@ A tabela seguinte lista os campos que fazem parte de transmissão em fluxo de da
 
 |Propriedade JSON | Definição|
 |--- | ---|
-|createdAt | A hora em que foi criado o tweet|
+|CreatedAt | A hora em que foi criado o tweet|
 |Tópico | O tópico que corresponda a palavra-chave especificada|
 |SentimentScore | A classificação de dados de sentimento do Sentiment140|
 |Autor | O identificador do Twitter que enviou o tweet|
@@ -338,7 +338,7 @@ Uma entrada da tarefa, consulta e saída estão especificados. Está pronto para
 
 Depois da tarefa foi iniciada em execução e está a processar o fluxo em tempo real do Twitter, pode ver o resultado para análise de dados de sentimento.
 
-Pode utilizar uma ferramenta como o [Explorador de armazenamento do Azure](https://http://storageexplorer.com/) ou [Explorador do Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver o resultado da tarefa em tempo real. Aqui, pode utilizar [Power BI](https://powerbi.com/) para expandir a sua aplicação para incluir um dashboard personalizado, como o mostrado na captura de ecrã seguinte:
+Pode utilizar uma ferramenta como o [Explorador de armazenamento do Azure](https://storageexplorer.com/) ou [Explorador do Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver o resultado da tarefa em tempo real. Aqui, pode utilizar [Power BI](https://powerbi.com/) para expandir a sua aplicação para incluir um dashboard personalizado, como o mostrado na captura de ecrã seguinte:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

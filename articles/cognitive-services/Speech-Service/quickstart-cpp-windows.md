@@ -10,19 +10,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 37228ca2f887f0993f707a2b10a2b5dcd888b1b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753688"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049235"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Início rápido para C++ e o Windows
 
 A versão atual do SDK de reconhecimento de voz serviços cognitivos `0.4.0`.
 
 Iremos descrevem como criar uma aplicação de consola baseada na C++ para ambiente de trabalho do Windows que utiliza o SDK de reconhecimento de voz.
-A aplicação é baseada no [Microsoft cognitivos serviços SDK NuGet pacote](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) e Microsoft VisualStudio 2017.
+A aplicação é baseada no [Microsoft cognitivos serviços SDK NuGet pacote](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) e Microsoft Visual Studio 2017.
 
 > [!NOTE]
 > Se estiver à procura de um guia de introdução para C++ e Linux, vá [aqui](quickstart-cpp-linux.md).<br>

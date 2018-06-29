@@ -10,15 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e04853e0044e045158642fea51c225378eb3ad6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319059"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061969"
 ---
-# <a name="prebuilt-domain-reference"></a>Referência de domínio prebuilt
-Esta referência fornece informações sobre os domínios prebuilt, que são prebuilt coleções de entidades que oferece LUIS e pendentes.
+# <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
+Esta referência fornece informações sobre o [domínios prebuilt](luis-how-to-use-prebuilt-domains.md), que são prebuilt coleções de entidades que oferece LUIS e pendentes.
+
+[Domínios personalizados](create-new-app.md), por outro lado, iniciar sem pendentes e modelos. Pode adicionar qualquer pendentes domínio prebuilt e entidades para um modelo personalizado.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista de domínios prebuilt
 LUIS oferece 20 domínios prebuilt. 
@@ -442,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | Critérios para evitar rotas específicas, como evitando podem ocorrer acidentes que, construções ou tolls | Tolls <br/>Construções<br/>Rota 11|
 | ServiceProvided | Este é o serviço fornecido uma empresa ou local como haircut, snow plowing, landscaping. | haircut<br/>mechanic<br/>plumber|
 | TransportationCompany | O nome de um fornecedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | O tipo de transportes.|Barramento<br/>Formação<br/>Driving|
+| TransportationType | O tipo de transportes.|Barramento<br/>Preparar<br/>Driving|
 
 ## <a name="reminder"></a>Lembrete 
 O domínio lembrete fornece pendentes e entidades para criar, editar e localizar lembretes.
@@ -523,7 +525,7 @@ Cancel my Uber
 | PlaceName | Nome do negócio local, restaurante, da atração pública ou instituição. |Central Park<br/>Safeway<br/>Walmart|
 | PlaceType| O tipo do local num pedido para o livro um taxi.|Restaurante<br/>Opera<br/>cinema|
 | TransportationCompany | O nome de um fornecedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | O tipo de transportes.|Barramento<br/>Formação<br/>Driving|
+| TransportationType | O tipo de transportes.|Barramento<br/>Preparar<br/>Driving|
 
 ## <a name="translate"></a>Traduzir 
 O domínio Translate fornece pendentes e entidades relacionadas com traduzir texto para um idioma de destino.
