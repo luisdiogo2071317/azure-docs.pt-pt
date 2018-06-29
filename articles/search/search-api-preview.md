@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/17/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 2e000628ebec393147328125a04d5d6f55afd3c6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655729"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100492"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Versão da api de REST do serviço de pesquisa do Azure de 2017-11-11-Preview
 Este artigo descreve o `api-version=2017-11-11-Preview` versão do serviço da Azure Search API REST, oferta experimental funcionalidades ainda não geralmente está disponíveis.
@@ -27,11 +27,11 @@ Este artigo descreve o `api-version=2017-11-11-Preview` versão do serviço da A
 
 ## <a name="new-in-2017-11-11-preview"></a>Novo no 2017-11-11-Preview
 
-[Pesquisa cognitivos](cognitive-search-concept-intro.md), uma nova capacidade de sem causa na Azure Search localiza informações latentes em origens não sejam de texto e texto undifferentiated, transformá-lo para conteúdo pesquisável de texto completo na Azure Search.
+[**A conclusão automática** ](search-autocomplete-tutorial.md) associa existente [sugestões API](https://docs.microsoft.com/rest/api/searchservice/suggestions) adicionar experiências complementares antecipada para a barra de pesquisa. A conclusão automática devolve candidato termos de consulta, um utilizador pode escolher como a cadeia de consulta para uma pesquisa subsequente. Sugestões devolve documentos reais em resposta às entradas parciais: os resultados da pesquisa são imediatos e alterar dinamicamente à medida que aumenta a entrada do termo de pesquisa no comprimento e a especificidade.
 
-As seguintes reources são introduzidas ou modificados na pré-visualização REST API. Todas as outras APIs REST são os mesmos se chamar geralmente disponível ou a versão de pré-visualização.
+[**Pesquisa cognitivos**](cognitive-search-concept-intro.md), uma nova capacidade de sem causa na Azure Search localiza informações latentes em origens não sejam de texto e texto undifferentiated, transformá-lo para conteúdo pesquisável de texto completo na Azure Search. Os seguintes recursos são introduzidos ou modificados na pré-visualização REST API. Todas as outras APIs REST são os mesmos se chamar geralmente disponível ou a versão de pré-visualização.
 
-+ [Criar Skillset (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Skillset operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [Criar indexador (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

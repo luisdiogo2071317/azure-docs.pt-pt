@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800729"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084727"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
 O primeiro passo para conceber uma solução de identidade híbrido consiste em determinar os requisitos da organização de negócio que irá tirar partido desta solução.  Identidade híbrida é iniciada como uma função de suporte (suporta todas as outras soluções de nuvem, fornecer autenticação) e entra para fornecer capacidades novas e interessantes que desbloquear novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que pretende que adotar para os seus utilizadores vai ditar os requisitos para a estrutura de identidade híbrida.  Estes serviços e cargas de trabalho necessário tirar partido de identidade híbrida no local e na nuvem.  
@@ -58,7 +58,7 @@ Terá também de ter em consideração os serviços em nuvem que poderão ter a 
 * É esta integração atualmente na produção ou é um piloto?
 
 > [!NOTE]
-> Se não tiver um mapeamento exata de todas as suas aplicações e serviços em nuvem, pode utilizar a ferramenta de Cloud App Discovery. Esta ferramenta pode fornecer o seu departamento de TI com visibilidade para empresa todos os seus da sua e aplicações em nuvem de consumidor. É assim mais simples do que nunca descobrir a sombra de TI na sua empresa, incluindo detalhes sobre padrões de utilização e quaisquer utilizadores que acedam às suas aplicações na cloud. Para obter consulte [o Cloud app discovery](manage-apps/cloud-app-discovery.md).
+> A cloud Discovery analisam os seus registos de tráfego contra o catálogo de aplicações da Microsoft Cloud App Security nuvem da nuvem mais 16,000 aplicações que são classificadas e pontuadas com base em mais de 70 fatores de risco, para fornecer com visibilidade em curso para a nuvem de utilizar, Shadow IT e os riscos Cópias sombra utilizadores constitui IT na sua organização. Para obter consulte [configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

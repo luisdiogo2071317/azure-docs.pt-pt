@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 69a27a2a75eb2a08a93b8b70648733673eac36db
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a83b1b32bc7c1ba8dcfb0e96b11540253903a01f
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260051"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085152"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisitos da subscrição do Azure Active Directory Privileged Identity Management
 
@@ -53,7 +54,7 @@ Já não estará disponível no seu inquilino do Azure AD Privileged Identity Ma
 Quando uma subscrição do Azure AD Premium P2 ou EMS E5 subscrição expira, ou de uma organização que estava a utilizar o Azure AD Privileged Identity Management pré-visualização não obter a subscrição do Azure AD Premium P2 ou do EMS E5:
 
 - Atribuições de função permanente para funções do Azure AD será afetadas.
-- A extensão do Azure AD Privileged Identity Management no portal do Azure, bem como os cmdlets de Graph API e PowerShell interfaces do Azure AD Privileged Identity Management, deixará de estar disponível para os utilizadores ativarem funções com privilégios, gerir o acesso privilegiado ou efetuar revisões de acesso de funções com privilégios.
+- A extensão do Azure AD Privileged Identity Management no portal do Azure, bem como os cmdlets de Graph API e PowerShell interfaces do Azure AD Privileged Identity Management, deixará de estar disponível para os utilizadores ativarem funções com privilégios, gerir com privilégios aceder ou execute revisões de acesso de funções com privilégios.
 - Atribuições de função elegível das funções do Azure AD serão removidas, como os utilizadores já não será possível ativar funções com privilégios.
 - Quaisquer revisões de acesso em curso das funções do Azure AD irão terminar e as definições de configuração do Azure AD Privileged Identity Management serão removidas.
 - O Azure AD Privileged Identity Management já não irá enviar mensagens de correio eletrónico no alterações à atribuição de função.

@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030384"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096972"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura
 
@@ -40,12 +40,12 @@ O agente de limite e o hub de limite são módulos, tal como qualquer outro mód
 O hub de limite é um dos dois módulos que constituem o tempo de execução do limite de IoT do Azure. Atua como um proxy local para o IoT Hub resultariam da exposição pontos finais de protocolo mesmo como o IoT Hub. Este consistência significa que os clientes (se dispositivos ou os módulos) pode ligar para o tempo de execução do IoT Edge como fariam ao IoT Hub. 
 
 >[!NOTE]
-> Durante a pré-visualização pública Edge Hub só suporta clientes que se ligam utilizando MQTT.
+>Hub de limite suporta clientes que se ligam através de MQTT ou AMQP. Não suporta clientes que utilizem HTTP. 
 
 O limite do hub não é uma versão completa do IoT Hub executar localmente. Existem alguns aspetos silenciosamente delega o hub de limite ao IoT Hub. Por exemplo, o Edge hub reencaminha os pedidos de autenticação ao IoT Hub quando um dispositivo primeiro tenta ligar. Após a primeira ligação for estabelecida, as informações de segurança é colocado em cache localmente pelo Edge hub. As ligações subsequentes partir desse dispositivo são permitidas sem terem de autenticar para a nuvem. 
 
 >[!NOTE]
-> Durante a pré-visualização pública o tempo de execução deve estar ligado sempre que tentar autenticar um dispositivo.
+>O tempo de execução deve estar ligado sempre que tentar autenticar um dispositivo.
 
 Para reduzir a largura de banda da sua solução de IoT Edge utiliza, o hub de limite otimiza o número de ligações efetivas são efetuadas para a nuvem. Hub de contorno leva lógicas ligações de clientes, como módulos ou dispositivos de folha e combina-los para uma única ligação física para a nuvem. Os detalhes deste processo são transparentes para o resto da solução. Os clientes pensar têm as seus próprios ligação para a nuvem, apesar de serem todas a ser enviados através da ligação do mesma. 
 

@@ -151,6 +151,7 @@
 ### [SSPR - Personalização](authentication/concept-sspr-customization.md)
 ### [SSPR - Requisitos de dados](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR - Relatórios](authentication/howto-sspr-reporting.md)
+### [Bloqueio inteligente](authentication/howto-password-smart-lockout.md)
 ### [Eliminar palavras-passe fracas](authentication/concept-password-ban-bad.md)
 ### [Configurar a lista de palavras-passe banidas](authentication/howto-password-ban-bad.md)
 ### [Integração no local](authentication/concept-password-ban-bad-on-premises.md)
@@ -388,11 +389,10 @@
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Atribuir a função de administrador a um utilizador](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparar as permissões de utilizador membro e de convidado](fundamentals/users-default-permissions.md)
-### [Proteger funções de administrador](admin-roles-best-practices.md)  
+### [Aumentar a segurança da função de administrador](admin-roles-best-practices.md)  
 #### [Criar contas de administrador de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar durações de token](active-directory-configurable-token-lifetimes.md)
-### [A proteger as funções privilegiadas](admin-roles-best-practices.md)
 
 ## Revisões de acesso
 ### [Descrição geral da revisão de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)

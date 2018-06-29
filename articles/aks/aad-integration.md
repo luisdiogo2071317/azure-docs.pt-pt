@@ -2,19 +2,19 @@
 title: Integrar do Azure Active Directory com o serviço de Kubernetes do Azure
 description: Como criar clusters do serviço de Kubernetes Azure ativado o Azure Active Directory.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 6/17/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7d157d50bbcd25edd9cd6693a71fb04535cbeb79
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 272d98613e13c1bb76c75befd6bd5e0115c32610
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937386"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097245"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrar o AKS - pré-visualização do Azure Active Directory
 

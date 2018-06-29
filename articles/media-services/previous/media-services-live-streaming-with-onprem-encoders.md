@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943217"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098822"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Em direto com codificadores no local que criar fluxos de transmissão múltipla transmissão em fluxo
 
@@ -146,7 +146,7 @@ Canais de fornecem um ponto final de pré-visualização (URL de pré-visualiza�
 
 Pode obter o URL de pré-visualização quando criar o canal. Para que possa obter o URL, o canal não tem de ser o **executar** estado. Depois do canal iniciado ingestão de dados, pode pré-visualizar a transmissão.
 
-Atualmente, o fluxo de pré-visualização pode ser fornecido apenas em MP4 fragmentados formato (transmissão em fluxo uniforme), independentemente do tipo de entrada especificado. Pode utilizar o [Monitor de estado de funcionamento de transmissão em fluxo uniforme](http://smf.cloudapp.net/healthmonitor) leitor para testar a transmissão em fluxo uniforme. Também pode utilizar um leitor de que está alojado no portal do Azure para ver a sua transmissão em fluxo.
+Atualmente, o fluxo de pré-visualização pode ser fornecido apenas em MP4 fragmentados formato (transmissão em fluxo uniforme), independentemente do tipo de entrada especificado. Pode utilizar o [Monitor de estado de funcionamento de transmissão em fluxo uniforme](http://playready.directtaps.net/smoothstreaming/) leitor para testar a transmissão em fluxo uniforme. Também pode utilizar um leitor de que está alojado no portal do Azure para ver a sua transmissão em fluxo.
 
 #### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
 Pode definir os endereços IP que estão autorizados a ligar ao ponto final de pré-visualização. Se não houver endereços IP forem especificados, é permitido qualquer endereço IP. Pode ser especificado um endereço IP permitido como um dos seguintes:

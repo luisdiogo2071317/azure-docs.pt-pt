@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060091"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100458"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Mover circuitos ExpressRoute do clássico para o modelo de implementação do Resource Manager com o PowerShell
 
@@ -97,9 +97,7 @@ Para mover o seu circuito, modificar e execute o seguinte fragmento:
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> No modo clássico, um circuito ExpressRoute não tem o conceito de que está a ser associado a uma região. No Resource Manager (ARM), cada recurso tem de ser mapeada para uma região do Azure. A região especificada no cmdlet Move-AzureRmExpressRouteCircuit tecnicamente pode ser qualquer região. Para efeitos de organizacionais, poderá pretender escolher uma região que estritamente representa a localização de peering.
-> 
+No modo clássico, um circuito ExpressRoute não tem o conceito de que está a ser associado a uma região. No entanto, no Gestor de recursos, cada recurso tem de ser mapeada para uma região do Azure. A região especificada no cmdlet Move-AzureRmExpressRouteCircuit tecnicamente pode ser qualquer região. Para efeitos de organizacionais, poderá pretender escolher uma região que estritamente representa a localização de peering.
 
 > [!NOTE]
 > Após concluir a movimentação, o nome do novo que está listado no cmdlet anterior será utilizado para resolver o recurso. O circuito, essencialmente, será possível mudar o nome.

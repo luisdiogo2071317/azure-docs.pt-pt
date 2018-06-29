@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628288"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097085"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados SIM na solução de monitorização remota
 
@@ -33,9 +33,9 @@ Neste tutorial, ficará a saber como:
 
 Esta funcionalidade adicional de monitorização remota está atualmente em pré-visualização. Para sincronizar os dados de conectividade na solução de monitorização remota do Azure, siga estes passos:
 
-1. Preencher um pedido no [site da Telefónica](https://iot.Telefónica.com/contact), selecione a opção **monitorização remota do Azure**, incluindo os dados de contactos.
+1. Preencher um pedido no [site da Telefónica](https://iot.telefonica.com/contact), selecione a opção **monitorização remota do Azure**, incluindo os dados de contactos.
 2. Telefónica ativa a sua conta.
-3. Se não for um cliente Telefónica ainda e pretender desfrutar isto ou outros serviços IoT conectividade nuvem pronto, visite [site da Telefónica](https://iot.Telefónica.com/contact) e selecione a opção **conectividade**.
+3. Se não for um cliente Telefónica ainda e pretender desfrutar isto ou outros serviços IoT conectividade nuvem pronto, visite [site da Telefónica](https://iot.telefonica.com/) e selecione a opção **conectividade**.
 
 ### <a name="telefnica-sim-setup"></a>Configuração de telefónica SIM
 Associação de ID de dispositivo telefónica SIM & duplo Azure baseia-se na propriedade de "alias" Telefónica IoT SIM. 

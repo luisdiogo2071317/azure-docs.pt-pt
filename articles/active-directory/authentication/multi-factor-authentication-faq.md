@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869874"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096497"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o multi-factor Authentication do Azure
 
@@ -131,7 +131,7 @@ Para impedir o acesso não autorizado, elimine palavras-passe de aplicação do 
 
 **P: E se um utilizador não é possível iniciar sessão em aplicações não baseadas no browser?**
 
-Se a organização ainda utilizar clientes legados e [permitida a utilização de palavras-passe de aplicação](howto-mfa-mfasettings.md#app-passwords), em seguida, os utilizadores não é possível iniciar sessão para estes clientes legados com o respetivo nome de utilizador e palavra-passe. Em vez disso, precisam de [configurar palavras-passe de aplicação](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Os utilizadores tem de limpar (delete) as suas informações de início de sessão, reiniciar a aplicação e, em seguida, inicie sessão com o nome de utilizador e *palavra-passe de aplicação* em vez da palavra-passe normal.
+Se a organização ainda utilizar clientes legados e [permitida a utilização de palavras-passe de aplicação](howto-mfa-mfasettings.md#app-passwords), em seguida, os utilizadores não é possível iniciar sessão para estes clientes legados com o respetivo nome de utilizador e palavra-passe. Em vez disso, precisam de [configurar palavras-passe de aplicação](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Os utilizadores tem de limpar (delete) as suas informações de início de sessão, reiniciar a aplicação e, em seguida, inicie sessão com o nome de utilizador e *palavra-passe de aplicação* em vez da palavra-passe normal.
 
 Se a sua organização não tiver clientes legados, não deve permitir que os utilizadores criem palavras-passe de aplicação.
 

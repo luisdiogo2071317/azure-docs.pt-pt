@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292842"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088642"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integrar o Azure Active Directory com aplicações de introdução
 ## <a name="overview"></a>Descrição geral
@@ -61,8 +61,8 @@ Talvez não tiver as respostas para todas estas perguntas adiantado mas que okay
 * Uma subscrição do Azure e um diretório do Azure Active Directory.  Se ainda não tiver uma subscrição do Azure, pode experimentar o Azure gratuitamente durante 30 dias. [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integração de aplicações com o Azure AD
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>Localizar não sancionadas aplicações em nuvem com o Cloud App Discovery
-Tal como mencionado acima, poderão existir aplicações que ainda não foram geridas pela sua organização até agora.  Como parte do processo de inventário, é possível localizar aplicações na nuvem não sancionadas. Consulte [localizar aplicações na nuvem não sancionadas com o Cloud App Discovery](cloud-app-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Aplicações de nuvem não sancionada a localizar com a Cloud Discovery
+Tal como mencionado acima, poderão existir aplicações que ainda não foram geridas pela sua organização até agora.  Como parte do processo de inventário, é possível localizar aplicações na nuvem não sancionadas. Consulte [configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### <a name="authentication-types"></a>Tipos de autenticação
 Cada uma das suas aplicações pode ter requisitos de autenticação diferente. Com o Azure AD, podem ser utilizados certificados de assinatura com as aplicações que utilizam SAML 2.0, WS-Federation, ou OpenID Connect protocolos, bem como palavra-passe de início de sessão único. Para obter mais informações sobre a aplicação veja os tipos de autenticação para utilização com o Azure AD [gestão de certificados para federado Single Sign-On no Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [palavra-passe de início de sessão único com base no](what-is-single-sign-on.md).
@@ -73,9 +73,9 @@ Com o Proxy de aplicações do Microsoft Azure AD, pode fornecer acesso a aplica
 ### <a name="integrating-applications-with-azure-ad"></a>Integrar aplicações com o Azure AD
 Os seguintes artigos abordam as diferentes formas de aplicações integram com o Azure AD e fornecem algumas orientações.
 
-* [Determinar que do Active Directory a utilizar](../active-directory-administer.md)
+* [Determinar que do Active Directory a utilizar](../fundamentals/active-directory-administer.md)
 * [Utilizar as aplicações na Galeria de aplicações do Azure](what-is-single-sign-on.md)
-* [Integrar a lista de tutoriais de aplicações SaaS](../active-directory-saas-tutorial-list.md)
+* [Integrar a lista de tutoriais de aplicações SaaS](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Gerir o acesso a aplicações
 Os artigos seguintes descrevem formas pode gerir o acesso a aplicações depois de ter sido integrados com o Azure AD através do Azure AD conectores e o Azure AD.

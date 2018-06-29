@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 769d530d85199e3f38890589e3719ba35f7cf5d6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261564"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097976"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -70,7 +70,7 @@ Sim, pode inscrever-uma conta de tempo limitado, sem encargos, sem compromissos.
 
 Se estiver familiarizado com o Azure, pode inscrever-se para obter um [conta gratuita do Azure](https://azure.microsoft.com/free/), que lhe oferece 30 dias e e um crédito para experimentar todos os serviços do Azure. Se tiver uma subscrição do Visual Studio, também são elegíveis para [livre créditos do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para utilizar em qualquer serviço Azure. 
 
-Também pode utilizar o [emulador de BD do Azure Cosmos](local-emulator.md) para desenvolver e testar a aplicação localmente para gratuitamente, sem criar uma subscrição do Azure. Quando estiver satisfeito com a forma como a aplicação está a funcionar no emulador de BD do Cosmos do Azure, pode mudar para utilizar uma conta de base de dados do Azure Cosmos na nuvem.
+Também pode utilizar o [emulador de BD do Azure Cosmos](local-emulator.md) para desenvolver e testar a aplicação localmente para gratuitamente, sem criar uma subscrição do Azure. Quando estiver satisfeito com o funcionamento da sua aplicação no Emulador do Azure Cosmos DB, pode mudar e começar a utilizar uma conta do Azure Cosmos DB na cloud.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Como posso obter ajuda adicional com o Azure Cosmos DB?
 
@@ -80,7 +80,7 @@ Para fazer uma pergunta técnica, pode publicar um destes dois pergunta e respon
 
 Para pedir novas funcionalidades, crie um novo pedido no [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
-Para corrigir um problema com a sua conta, ficheiro um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 
 Outras perguntas podem ser submetidas para a equipa, [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); no entanto, isto não é um alias de suporte técnico. 
 
@@ -201,7 +201,7 @@ Para além de códigos de erro comuns do MongoDB, a API do MongoDB tem os seus p
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de pedido consumido excedeu a taxa de aprovisionamento de unidade de pedido para a coleção e foi limitado. | Considere aumentar o débito atribuído a um contentor ou um conjunto de contentores do Azure portal ou tentar novamente. |
-| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {nome: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {idade: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {nome: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {idade: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Desenvolver com a tabela de API
 
@@ -280,9 +280,6 @@ Pode utilizar o portal do Azure para procurar os dados. Também pode utilizar o 
 Pode utilizar o [Explorador de armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 Ferramentas com a flexibilidade de tirar uma cadeia de ligação no formato especificado anteriormente podem suportar a nova API de tabela. É fornecida uma lista das ferramentas de tabela no [ferramentas de cliente de armazenamento do Azure](../storage/common/storage-explorers.md) página. 
-
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell ou a CLI do Azure funcionam com a API de tabela?
-Não há suporte para [PowerShell](table-powershell.md). Suporte da CLI do Azure não está atualmente disponível.
 
 ### <a name="is-the-concurrency-on-operations-controlled"></a>É a simultaneidade operações controlada?
 Sim, a simultaneidade otimista é fornecida através da utilização de mecanismo a ETag. 
@@ -410,7 +407,7 @@ Nenhum. Não há nenhuma alteração no preço para clientes de armazenamento de
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Como é o preço calculado para a API de tabela? 
 O preço depende o TableThroughput alocado. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Como processar qualquer limitação em tabelas oferta de API de tabela? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Como processar qualquer limitação de taxa em tabelas oferta de API de tabela? 
 Se a velocidade do pedido excede a capacidade do débito aprovisionado para o contentor subjacente ou um conjunto de contentores, receberá um erro e o SDK repete a chamada por aplicar a política de repetição.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Por que motivo é necessário escolher um débito para além dos PartitionKey e RowKey para tirar partido da oferta de API de tabela da base de dados do Azure Cosmos?

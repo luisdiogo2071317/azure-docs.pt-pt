@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628264"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088649"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -41,7 +41,7 @@ A tabela seguinte mostra os dados que a lightbulb relatórios para a nuvem como 
 | ------ | ----------- |
 | Estado | 'em", 'off' |
 | Temperatura | Graus F |
-| online | TRUE, false |
+| Online | TRUE, false |
 
 > [!NOTE]
 > O **online** valor de telemetria é obrigatório para tipos de todas as simulada.
@@ -174,7 +174,7 @@ O tutorial, trabalhar com a solução do Visual Studio que estabelece ligação 
     sudo grep STORAGEADAPTER_DOCUMENTDB /app/env-vars
     ```
 
-    Tome nota da cadeia de ligação. Utilize este valor mais tarde no tutorial.
+    Tome nota da cadeia de ligação. Vai utilizar este valor mais tarde no tutorial.
 
 1. Para localizar a cadeia de ligação do IoT Hub, execute o seguinte comando na sessão SSH ligado à máquina virtual:
 
@@ -182,7 +182,7 @@ O tutorial, trabalhar com a solução do Visual Studio que estabelece ligação 
     sudo grep IOTHUB_CONNSTRING /app/env-vars
     ```
 
-    Tome nota da cadeia de ligação. Utilize este valor mais tarde no tutorial.
+    Tome nota da cadeia de ligação. Vai utilizar este valor mais tarde no tutorial.
 
 > [!NOTE]
 > Também pode encontrar estas cadeias de ligação no portal do Azure ou utilizando o `az` comando.
@@ -191,15 +191,15 @@ O tutorial, trabalhar com a solução do Visual Studio que estabelece ligação 
 
 Quando modifica o serviço de simulação de dispositivos, pode executar localmente para testar as suas alterações. Antes de executar o serviço de simulação de dispositivo localmente, terá de parar a instância em execução na máquina virtual da seguinte forma:
 
-1. Para localizar o **ID de contentor** do **simulação de dispositivo** serviço, execute o comando seguinte numa sessão SSH ligado à máquina virtual:
+1. Para localizar o **ID de contentor** do **simulação-dispositivo-dotnet** serviço, execute o comando seguinte numa sessão SSH ligado à máquina virtual:
 
     ```sh
     docker ps
     ```
 
-    Anote o ID de contentor do **simulação de dispositivo** serviço.
+    Anote o ID de contentor do **simulação-dispositivo-dotnet** serviço.
 
-1. Para parar o **simulação de dispositivo** contentor, execute o seguinte comando:
+1. Para parar o **simulação-dispositivo-dotnet** contentor, execute o seguinte comando:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Tem agora tudo no local e estiver pronto para começar a adicionar um novo tipo 
 ## <a name="create-a-simulated-device-type"></a>Criar um tipo de dispositivo simulada
 
 É a forma mais fácil de criar um novo tipo de dispositivo no serviço de simulação de dispositivo para copiar e modificar um tipo existente. Os passos seguintes mostram como copiar incorporada **Chiller** dispositivo para criar uma nova **Lightbulb** dispositivo:
-
-1. No Visual Studio, abra o **dispositivo simulation.sln** ficheiro de solução no seu local clone do **simulação de dispositivo** repositório.
-
-1. No Explorador de soluções, clique com botão direito do **SimulationAgent** do projeto, escolha **propriedades**e, em seguida, escolha **depurar**.
-
-1. No **variáveis de ambiente** secção, edite o valor da **PCS\_IOTHUB\_CONNSTRING** variável para ser a cadeia de ligação do IoT Hub que anotou anteriormente. Em seguida, guarde as alterações.
 
 1. No Explorador de soluções, clique com botão direito do **WebService** do projeto, escolha **propriedades**e, em seguida, escolha **depurar**.
 
@@ -385,18 +379,21 @@ O **scripts/lightbulb-01-state.js** ficheiro define o comportamento de simulaç�
 1. Editar o **principal** função para implementar o comportamento, conforme mostrado no seguinte fragmento:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ Os seguintes passos assumem que tem um repositório denominado **lightbulb** na 
 
     Os scripts adicionados o **testar** tag de imagem.
 
-1. Utilize o SSH para ligar à máquina virtual da sua solução no Azure. Em seguida, navegue para o **aplicação** pasta e editar o **docker compose.yaml** ficheiro:
+1. Utilize o SSH para ligar à máquina virtual da sua solução no Azure. Em seguida, navegue para o **aplicação** pasta e editar o **docker-Compose.yml** ficheiro:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Edite a entrada para o serviço de simulação de dispositivos para utilizar a sua imagem docker:
@@ -605,7 +602,7 @@ Esta secção descreve como modificar um tipo de dispositivo simulado existente 
 
 Os passos seguintes mostram como encontrar os ficheiros que definem incorporada **Chiller** dispositivo:
 
-1. Se ainda não o tiver feito, utilize o seguinte comando para clonar o **simulação de dispositivo** repositório do GitHub para o computador local:
+1. Se ainda não o tiver feito, utilize o seguinte comando para clonar o **simulação-dispositivo-dotnet** repositório do GitHub para o computador local:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ Os passos seguintes mostram como adicionar um novo **temperatura interno** escre
 
 ### <a name="test-the-chiller-device-type"></a>O tipo de dispositivo Chiller de teste
 
-Para testar a atualização **Chiller** tipo de dispositivo, executado uma cópia local do primeiro o **simulação de dispositivo** serviço para testar o seu tipo de dispositivo funciona conforme esperado. Se tiver testado e debugged localmente o seu tipo de dispositivo atualizado, pode recriar o contentor e voltar a implementar o **simulação de dispositivo** serviço para o Azure.
+Para testar a atualização **Chiller** tipo de dispositivo, executado uma cópia local do primeiro o **simulação-dispositivo-dotnet** serviço para testar o seu tipo de dispositivo funciona conforme esperado. Se tiver testado e debugged localmente o seu tipo de dispositivo atualizado, pode recriar o contentor e voltar a implementar o **simulação-dispositivo-dotnet** serviço para o Azure.
 
-Quando executa o **simulação de dispositivo** serviço localmente, envia telemetria à sua solução de monitorização remota. No **dispositivos** página, pode aprovisionar instâncias do seu tipo atualizado.
+Quando executa o **simulação-dispositivo-dotnet** serviço localmente, envia telemetria à sua solução de monitorização remota. No **dispositivos** página, pode aprovisionar instâncias do seu tipo atualizado.
 
 Para testar e depurar as suas alterações localmente, consulte a secção anterior [testar localmente o tipo de dispositivo Lightbulb](#test-the-lightbulb-device-type-locally).
 

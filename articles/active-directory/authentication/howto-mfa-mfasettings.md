@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869806"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097500"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar definições de multi-factor Authentication do Azure
 
@@ -292,7 +292,7 @@ Por predefinição, os utilizadores não é possível criar palavras-passe de ap
 
 Os utilizadores podem criar palavras-passe de aplicação durante o respetivo registo inicial. O utilizador tem a opção de criar palavras-passe de aplicação no final do processo de registo.
 
-Os utilizadores também podem criar palavras-passe de aplicação após o registo. As palavras-passe de aplicação podem ser alteradas via as definições no portal do Azure ou no portal do Office 365. Para obter mais informações e os passos detalhados para os seus utilizadores, consulte [quais são as palavras-passe de aplicação no Azure multi-factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Os utilizadores também podem criar palavras-passe de aplicação após o registo. As palavras-passe de aplicação podem ser alteradas via as definições no portal do Azure ou no portal do Office 365. Para obter mais informações e os passos detalhados para os seus utilizadores, consulte [quais são as palavras-passe de aplicação no Azure multi-factor Authentication?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Lembre-se de multi-factor Authentication para dispositivos fidedignos
@@ -301,7 +301,7 @@ O _não se esqueça de multi-factor Authentication_ funcionalidade para disposit
 >[!IMPORTANT]
 >Se um dispositivo ou a conta for comprometido, tendo em conta multi-factor Authentication para dispositivos fidedignos pode afetar a segurança. Se uma conta de empresa fica comprometida ou se um dispositivo fidedigno é perdido ou roubado, deve [restaurar o multi-factor Authentication em todos os dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->A acção de restauro revoga o estado de todos os dispositivos fidedigno e o utilizador é necessário para executar novamente a verificação de dois passos. Também pode instruir os utilizadores para restaurar o multi-factor Authentication nos respetivos dispositivos com as instruções em [gerir as definições de verificação em dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>A acção de restauro revoga o estado de todos os dispositivos fidedigno e o utilizador é necessário para executar novamente a verificação de dois passos. Também pode instruir os utilizadores para restaurar o multi-factor Authentication nos respetivos dispositivos com as instruções em [gerir as definições de verificação em dois passos](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Como funciona a funcionalidade
@@ -341,7 +341,7 @@ Depois de ativar a funcionalidade de multi-factor Authentication de lembrar, os 
 
 Pode escolher os métodos de verificação que estão disponíveis para os seus utilizadores utilizando o _métodos de verificação selecionável_ funcionalidade. A tabela seguinte fornece uma breve descrição geral dos métodos.
 
-Quando os utilizadores inscrevem das respetivas contas de Azure multi-factor Authentication, o método de verificação preferida que escolherem entre as opções que tiver ativado. É fornecida orientação para o processo de inscrição de utilizador no [configurar a minha conta para a verificação de dois passos](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+Quando os utilizadores inscrevem das respetivas contas de Azure multi-factor Authentication, o método de verificação preferida que escolherem entre as opções que tiver ativado. É fornecida orientação para o processo de inscrição de utilizador no [configurar a minha conta para a verificação de dois passos](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Método | Descrição |
 |:--- |:--- |

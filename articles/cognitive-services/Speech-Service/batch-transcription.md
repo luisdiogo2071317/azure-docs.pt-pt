@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054828"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084087"
 ---
 # <a name="batch-transcription"></a>Transcription do batch
 
@@ -40,7 +40,7 @@ WAV |  Stereo  |
 
 Para fluxos de áudio stereo, Batch transcription irá dividir o canal esquerdo e direito durante o transcription. Os dois ficheiros JSON com o resultado cada criados a partir de um canal único. Os carimbos por utterance ativar o programador criar um transcript final ordenada. O exemplo JSON seguinte mostra a saída de um canal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,7 +53,7 @@ Para fluxos de áudio stereo, Batch transcription irá dividir o canal esquerdo 
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
 > A API de transcription Batch está a utilizar um serviço REST para pedir transcriptions, respetivo estado e resultados associados. Este é baseada no .NET e não tem quaisquer dependências externas. A seguinte secção descreve como são utilizadas.
@@ -77,7 +77,24 @@ Como com todas as funcionalidades do serviço de reconhecimento de voz unificado
 
 ## <a name="sample-code"></a>Código de exemplo
 
-Efetuar a utilizar a API é bastante diretamente reencaminhar. O código de exemplo abaixo tem de ser personalizadas com uma chave de subscrição e uma chave de API.
+Efetuar a utilizar a API é bastante diretamente reencaminhar. Tem de ser personalizadas com uma chave de subscrição e uma chave de API que activa permite ao programador obter um token de portador, como o código seguinte fragmento de código mostra o código de exemplo abaixo:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Depois do token é obtido o programador tem de especificar o Uri de SAS que apontam para o ficheiro de áudio exigir transcription. O resto do código simplesmente itera através de estado e apresenta os resultados.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ Efetuar a utilizar a API é bastante diretamente reencaminhar. O código de exem
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -146,7 +163,7 @@ O código de exemplo atual não especifique quaisquer modelos personalizados. O 
 Se um não pretende utilizar a linha de base, um tem de passar os Ids de modelo para modelos acústica e idiomas.
 
 > [!NOTE]
-> Para a linha de base transcription o utilizador não tem de declarar os pontos finais dos modelos de linha de base. Se o utilizador pretenda utilizar modelos personalizados ele teria de fornecer os respetivos IDs de pontos finais, como o [exemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Se o utilizador pretenda utilizar uma linha de base acústica com um modelo de linguagem de linha de base, em seguida, ele só teria de declarar o ID de ponto final. o modelo personalizado Internamente o nosso sistema descobrir o modelo de linha de base de parceiro (ser acústica-lo ou idioma) e utilize-a para fullfill o pedido de transcription.
+> Para a linha de base transcription o utilizador não tem de declarar os pontos finais dos modelos de linha de base. Se o utilizador pretenda utilizar modelos personalizados ele teria de fornecer os respetivos IDs de pontos finais, como o [exemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Se o utilizador pretenda utilizar uma linha de base acústica com um modelo de linguagem de linha de base, em seguida, ele só teria de declarar o ID de ponto final. o modelo personalizado Internamente o nosso sistema descobrir o modelo de linha de base de parceiro (ser acústica-idioma ou) e utilize-a para satisfazer o pedido de transcription.
 
 ### <a name="supported-storage"></a>Armazenamento suportadas
 

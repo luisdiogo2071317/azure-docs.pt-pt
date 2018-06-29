@@ -12,20 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 8926955d5e0260b5971e07b6988bb21df9980847
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f54481fe59df21b500ee860d1e9a202ed32bdd87
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388588"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097153"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamento da capacidade para funções de servidor do App Service do Azure na pilha do Azure
+
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Para Aprovisionar uma implementação de pronto de produção do serviço de aplicações do Azure na pilha do Azure, terá de planear a capacidade de que espera que o sistema para suportar.  Eis as orientações sobre o número mínimo de instâncias e computação SKUs deve utilizar para qualquer implementação de produção.
+Para configurar uma implementação de pronto de produção do serviço de aplicações do Azure na pilha do Azure, terá de planear a capacidade de que espera que o sistema para suportar.  
+
+Este artigo fornece orientação para o número mínimo de instâncias de computação e de computação SKUs deve utilizar para qualquer implementação de produção.
 
 Planear a estratégia de capacidade do serviço de aplicações, utilizando estas diretrizes. Versões futuras do pilha do Azure irão fornecer opções de elevada disponibilidade para o App Service.
 
@@ -40,35 +43,36 @@ Planear a estratégia de capacidade do serviço de aplicações, utilizando esta
 
 ## <a name="controller-role"></a>Função de controlador
 
-**Mínimo recomendado**: duas instâncias do padrão de A1
+**Mínimo recomendado**: duas instâncias do A1 Standard
 
 O controlador de serviço de aplicações do Azure normalmente ocorre com baixo consumo de CPU, memória e recursos de rede. No entanto, para elevada disponibilidade, tem de ter dois controladores. Dois controladores são também o número máximo de controladores permitido. Pode criar o controlador de Web Sites segundo direta do programa de instalação durante a implementação.
 
 ## <a name="front-end-role"></a>Função do Front-End
 
-**Mínimo recomendado**: duas instâncias do padrão de A1
+**Mínimo recomendado**: duas instâncias do A1 Standard
 
 O Front-End encaminha os pedidos Web Workers, dependendo da disponibilidade do trabalho Web. Para elevada disponibilidade, deve ter mais do que um Front-End e pode ter mais de dois. Para efeitos de planeamento da capacidade, considere a que cada principal consegue processar aproximadamente 100 pedidos por segundo.
 
 ## <a name="management-role"></a>Função de gestão
 
-**Mínimo recomendado**: duas instâncias do A3
+**Mínimo recomendado**: duas instâncias do padrão de A3
 
 A função de gestão do serviço de aplicações do Azure é responsável pelo App Service do Azure Resource Manager e pontos finais da API, extensões portais (administrador inquilino, portal das funções) e o serviço de dados. A função de servidor de gestão requer, normalmente, apenas sobre 4 GB de RAM num ambiente de produção. No entanto, podem ter elevados níveis de CPU quando forem efetuadas muitas tarefas de gestão (por exemplo, a criação de web site). Para elevada disponibilidade, deve ter mais de um servidor atribuído a esta função e, pelo menos dois núcleos por servidor.
 
 ## <a name="publisher-role"></a>Função de editor
 
-**Mínimo recomendado**: duas instâncias do A1
+**Mínimo recomendado**: duas instâncias do A1 Standard
 
-Se o número de utilizadores que estiverem a publicar em simultâneo, a função de fabricante pode ter pesada de utilização da CPU. Para elevada disponibilidade, disponibilize mais de uma função de editor.  O publicador processa apenas o tráfego FTP/FTPS.
+Se o número de utilizadores que estiverem a publicar em simultâneo, a função de fabricante pode ter pesada utilização da CPU. Para elevada disponibilidade, disponibilize mais de uma função de editor.  O publicador processa apenas o tráfego FTP/FTPS.
 
 ## <a name="web-worker-role"></a>Função de trabalho Web
 
-**Mínimo recomendado**: duas instâncias do A1
+**Mínimo recomendado**: duas instâncias do A1 Standard
 
-Para elevada disponibilidade, deve ter, pelo menos, quatro funções de trabalho Web, dois para o modo de web sites partilhados e dois para cada camada de trabalho dedicado que planeia disponibilizar. Os modos de cálculo dedicado e partilhados fornecem diferentes níveis de serviço aos inquilinos. Se tiver muitos clientes, poderá ser necessário mais trabalhadores da Web:
- - utilização de camadas de trabalho de modo de cálculo dedicado (que são intensivas em recursos)
- - em execução no modo de computação partilhados.
+Para elevada disponibilidade, deve ter, pelo menos, quatro funções de trabalho Web, dois para o modo de web sites partilhados e dois para cada camada de trabalho dedicado que planeia disponibilizar. Os modos de cálculo dedicado e partilhados fornecem diferentes níveis de serviço aos inquilinos. Poderá ter mais de Web de trabalhadores se muitos dos seus clientes são:
+
+- Utilização de camadas de trabalho de modo de cálculo dedicado (que são intensivas em recursos).
+- Em execução no modo de computação partilhados.
 
 Depois de um utilizador ter criado um plano do App Service para o modo de cálculo dedicado de SKU e o número de Worker(s) Web especificado em que o plano do App Service deixará de estar disponível para os utilizadores.
 
@@ -78,8 +82,8 @@ Quando decidir sobre o número de funções de trabalho Web partilhadas a utiliz
 
 - **Memória**: memória é o recurso mais crítico, para uma função de trabalho Web. Memória insuficiente tem impacto no desempenho do web site quando a memória virtual é alternada do disco. Cada servidor necessita de cerca de 1.2 GB de RAM para o sistema operativo. RAM acima deste limiar pode ser utilizado para executar web sites.
 - **Percentagem de web sites Active Directory**: normalmente, cerca de 5 por cento das aplicações num serviço de aplicações do Azure na implementação de pilha do Azure estão ativos. No entanto, a percentagem de aplicações que estão ativos a qualquer momento de determinado pode ser superior ou inferior. Com uma velocidade de aplicação ativa de 5 porcento, o número máximo de aplicações para colocar um serviço de aplicações do Azure na implementação de pilha do Azure deve ser inferior a:
-    - 20 vezes o número de ativos web sites (5 x 20 = 100).
-- **Requisitos de espaço de memória médio**: os requisitos de espaço de memória médio para aplicações observados em ambientes de produção está prestes a 70 MB. Por conseguinte, a memória alocada em todos os computadores de função de trabalho Web ou VMs pode ser calculada da seguinte forma:
+  - 20 vezes o número de ativos web sites (5 x 20 = 100).
+- **Requisitos de espaço de memória médio**: os requisitos de espaço de memória médio para aplicações observados em ambientes de produção está prestes a 70 MB. Utilizar este requisitos de espaço, a memória alocada em todos os computadores de função de trabalho Web ou VMs pode ser calculada da seguinte forma:
 
     *Número de aplicações aprovisionado * 70 MB * 5% - (número de funções de trabalho Web * 1044 MB)*
 
@@ -91,14 +95,17 @@ Quando decidir sobre o número de funções de trabalho Web partilhadas a utiliz
 
 ## <a name="file-server-role"></a>Função de servidor de ficheiros
 
-Para a função de servidor de ficheiros, pode utilizar um servidor de ficheiros autónomo para desenvolvimento e teste, por exemplo, quando implementar o serviço de aplicações do Azure no Kit de desenvolvimento de pilha do Azure pode utilizar este modelo - https://aka.ms/appsvconmasdkfstemplate. Para fins de produção, deve utilizar um servidor de ficheiros pré-configurada do Windows ou um servidor de ficheiros do Windows não previamente configurada.
+Para a função de servidor de ficheiros, pode utilizar um servidor de ficheiros autónomo para desenvolvimento e teste, por exemplo, quando implementar o serviço de aplicações do Azure no Kit de desenvolvimento de pilha do Azure pode utilizar este modelo - <https://aka.ms/appsvconmasdkfstemplate>. Para fins de produção, deve utilizar um servidor de ficheiros pré-configurada do Windows ou um servidor de ficheiros do Windows não previamente configurada.
 
 Em ambientes de produção, a função de servidor de ficheiros ocorre com e/s de disco intensiva. Porque que aloja todos os ficheiros de conteúdo e de aplicações de utilizador web sites, deve configurar um dos seguintes para esta função previamente:
+
 - um servidor de ficheiros do Windows
-- Cluster de servidor de ficheiros
+- um Cluster de servidor de ficheiros do Windows
 - um servidor de ficheiros não sejam Windows
-- cluster de servidor de ficheiros
-- Dispositivo NAS (armazenamento de ligação de rede) para obter mais informações, consulte [aprovisionar um servidor de ficheiros](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+- um cluster de servidores de ficheiros do Windows não
+- um dispositivo NAS (armazenamento de ligação de rede)
+
+Para obter mais informações, consulte [aprovisionar um servidor de ficheiros](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

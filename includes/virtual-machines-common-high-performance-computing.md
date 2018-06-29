@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: b8bbcf81f48e82417a0d51e29f7dd8ce76681fed
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34152228"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37095340"
 ---
 As organizações têm necessidades de computação em grande escala. Estas cargas de trabalho de Macrocomputação incluem design engenharia e análise, cálculos de riscos financeiros, composição de imagem, modelação complexa, simulações Monte Carlo e muito mais. 
 
@@ -40,7 +40,7 @@ Utilize a nuvem do Azure para executar com eficiência intensivas de computaçã
     * Execute soluções de engenharia e simulação ativado o Azure a partir de fornecedores, incluindo [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/), e [computação](https://cyclecomputing.com/) (agora [associado Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
     * Utilize um [Cray supercomputer](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) como um serviço alojado no Azure.
 * **Soluções de Marketplace**
-    * Utilizar a escala de [aplicações HPC](#hpc-applications) e [soluções](#marketplace-solutions) oferecido no [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
+    * Utilizar a escala de [aplicações HPC](#hpc-applications) e [soluções](#marketplace-solutions) oferecido no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). 
     
 
 
@@ -64,7 +64,7 @@ Visite o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/
  
 ## <a name="hpc-applications"></a>Aplicações de HPC
 
-Execute personalizadas ou comerciais aplicações HPC no Azure. São vários os exemplos nesta secção são benchmarked dimensionamento de forma eficiente com VMs adicionais ou núcleos de computação. Visite o [Azure Marketplace](https://marketplace.azure.com) pronto para implementar soluções.
+Execute personalizadas ou comerciais aplicações HPC no Azure. São vários os exemplos nesta secção são benchmarked dimensionamento de forma eficiente com VMs adicionais ou núcleos de computação. Visite o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) pronto para implementar soluções.
 
 > [!NOTE]
 > Consulte o fornecedor de qualquer aplicação comercial para restrições de licenciamento, ou outras para executar na nuvem. Nem todos os fornecedores oferecem licenciamento pay as you go. Poderá precisar de um servidor de licenciamento na nuvem para a sua solução ou ligar a um servidor de licenças no local.

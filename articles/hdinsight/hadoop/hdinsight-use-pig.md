@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169613"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081172"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Utilizar o Pig com o Hadoop no HDInsight
 
@@ -55,7 +55,7 @@ O idioma de Pig Latin permite-lhe descrever o fluxo de dados de entrada não pro
 
 PIg Latin também suporta as funções definidas pelo utilizador (UDF), que lhe permite invocar componentes externos que implementam a lógica que é difícil de modelo de Pig Latin.
 
-Para mais informações sobre o Pig Latin, consulte [Pig Latin referência Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) e [Pig Latin referência Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Para mais informações sobre o Pig Latin, consulte [Pig Latin referência Manual 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) e [Pig Latin referência Manual 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Para obter um exemplo de utilização UDFs com Pig, consulte os seguintes documentos:
 
@@ -99,7 +99,7 @@ HDInsight pode executar tarefas do Pig Latin, utilizando uma variedade de métod
 | **Utilize esta opção** se pretender que... | … .an **interativa** shell | ... **batch** processamento | … .with isto **sistema de operativo de cluster** | … .from isto **cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
-| [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux ou do Windows |Linux, Unix, Mac OS X ou Windows |
+| [curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux ou do Windows |Linux, Unix, Mac OS X ou Windows |
 | [.NET SDK para Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux ou do Windows |Windows (por agora) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou do Windows |Windows |
 

@@ -13,74 +13,71 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: meirm
+ms.openlocfilehash: 97e36c624e865010ada67f5163af6d7f03de079f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593054"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096575"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funcionalidades de análise do registo para fornecedores de serviços
 Análise de registos pode ajudar os fornecedores de serviços geridos (MSPs), as grandes empresas, os fabricantes independentes de software (ISV) e fornecedores de serviços de alojamento gerir e monitorizar os servidores de infraestrutura de nuvem ou no local do cliente. 
 
 As grandes empresas partilham diversas semelhanças com fornecedores de serviços, especialmente quando existe uma equipa de TI centralizada que é responsável pela gestão IT para muitas unidades empresariais diferentes. Simplicidade, este documento utiliza o termo *fornecedor de serviços* , mas a mesma funcionalidade também está disponível para as empresas e outros clientes.
 
-## <a name="cloud-solution-provider"></a>Fornecedor de Soluções Cloud
 Parceiros e fornecedores de serviço que fazem parte do [fornecedor de solução em nuvem (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programa, análise de registos é um dos serviços do Azure disponíveis no [subscrição Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-Para análise de registos, as seguintes funcionalidades estão ativadas em *provedor de soluções de nuvem* subscrições.
+## <a name="architectures-for-service-providers"></a>Arquiteturas de fornecedores de serviços
 
-Como um *provedor de soluções de nuvem* , pode:
+Áreas de trabalho de análise de registo fornecem um método para o administrador pode controlar o fluxo e o isolamento dos registos e criar uma arquitetura de registo que abrange as necessidades comerciais específicas. [Este artigo](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) explica as considerações gerais em torno da gestão de área de trabalho. Fornecedores de serviços tem considerações adicionais.
 
-* Crie áreas de trabalho de análise de registos na subscrição de um inquilino (cliente).
-* Áreas de trabalho de acesso criadas pelos inquilinos. 
-* Adicionar e remover utilizador acesso à área de trabalho utilizando a gestão de utilizadores do Azure. Quando na área de trabalho de um inquilino no portal do OMS, a gestão de utilizadores página em definições não está disponível
-  * Análise de registos não suporta o acesso baseado em funções ainda - dar um utilizador `reader` permissão no portal do Azure permite-los efetuar alterações de configuração no portal do OMS
+Existem três arquiteturas possíveis para fornecedores de serviços sobre áreas de trabalho de análise de registos:
 
-Para iniciar sessão subscrição do inquilino, tem de especificar o identificador de inquilino. O identificador de inquilino é muitas vezes, essa última parte do endereço de correio electrónico utilizado para iniciar sessão.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuída - os registos são armazenados em áreas de trabalho localizadas no inquilino do cliente 
 
-* No portal do OMS, adicionar `?tenant=contoso.com` no URL para o portal. Por exemplo, `mms.microsoft.com/?tenant=contoso.com`
-* No PowerShell, utilize o `-Tenant contoso.com` parâmetro ao utilizar `Connect-AzureRmAccount` cmdlet
-* O identificador de inquilino é adicionado automaticamente ao utilizar o `OMS portal` ligação a partir do portal do Azure para abra e inicie sessão portal do OMS para a área de trabalho selecionado
+Nesta arquitetura, a área de trabalho é implementada no inquilino do cliente que é utilizado para todos os registos desse cliente. Os administradores do fornecedor de serviço são concedidos o acesso a esta área de trabalho utilizando [utilizadores convidados do Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). O administrador do fornecedor de serviço tem de mudar no portal do Azure para o diretório do seu cliente para poder aceder a estas áreas de trabalho.
 
-Como um *cliente* de um fornecedor de solução em nuvem, pode:
+As vantagens colateral desta arquitetura são:
+* O cliente pode gerir o acesso aos registos utilizando os seus próprios [acesso baseado em funções](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Cada cliente pode ter definições diferentes para a sua área de trabalho, tais como a retenção e capping de dados.
+* Isolamento entre os clientes de regulamentação e conformidade era.
+* A taxa cada área de trabalho será revertida para a subscrição do cliente.
+* Os registos podem ser recolhidos de todos os tipos de recursos, não apenas agente baseado em. Por exemplo, a auditoria do Azure.
 
-* Criar registo de áreas de trabalho de análise numa subscrição CSP
-* Áreas de trabalho de acesso criadas pelo CSP
-  * Utilize o `OMS portal` ligação a partir do portal do Azure para abra e inicie sessão portal do OMS para a área de trabalho selecionado
-* Ver e utilizar a página de gestão de utilizadores em definições no portal do OMS
+As desvantagens colateral desta arquitetura são:
+* É mais difícil para o fornecedor de serviço gerir o elevado número de inquilinos do cliente em simultâneo.
+* Os administradores do fornecedor de serviço tem de ser aprovisionado no diretório de cliente.
+* O fornecedor de serviços não é possível analisar os dados em que os seus clientes.
 
-> [!NOTE]
-> As soluções de cópia de segurança e recuperação de sites incluídas para análise de registos não são possível estabelecer ligação com um cofre dos serviços de recuperação e não podem ser configuradas numa subscrição do CSP. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. Central - registos são armazenados na área de trabalho localizada no inquilino do fornecedor de serviço
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Gerir vários clientes através da análise do registo
-Recomenda-se que crie uma área de trabalho de análise de registos de cada cliente, que gere. Fornece uma área de trabalho de análise de registos:
+Nesta arquitetura, os registos não são armazenados em inquilinos do cliente, mas apenas numa localização central dentro de uma das subscrições do fornecedor de serviços. Os agentes que estão instalados em VMs do cliente estão configurados para enviar os registos para esta área de trabalho com o ID da área de trabalho e a chave secreta.
 
-* Uma localização geográfica para os dados armazenados. 
-* Granularidade para faturação 
-* Isolamento de dados 
-* Configuração exclusiva
+As vantagens colateral desta arquitetura são:
+* É fácil de gerir elevado número de clientes e integrá-los para vários sistemas de back-end.
+* O fornecedor de serviços tem propriedade completa sobre os registos e os vários artefactos, tais como as funções e guardar consultas.
+* O fornecedor de serviços pode efetuar análises em todos os clientes.
 
-Ao criar uma área de trabalho por cliente, que é possível manter os dados de cada cliente separados e também controlar a utilização de cada cliente.
+As desvantagens colateral desta arquitetura são:
+* Será difícil de separar os dados entre os clientes. O método única para o fazer consiste em utilizar o nome de domínio do computador.
+* Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e a configuração.
+* Recursos de infraestrutura do Azure e PaaS serviços, tais como diagnóstico do Azure e a auditoria do Azure requer a área de trabalho estar no mesmo inquilino como o recurso, por conseguinte, não poderem enviar os registos para a área de trabalho central.
 
-Obter mais detalhes sobre quando e Porquê criar várias áreas de trabalho está descrita em [gerir o acesso a análise de registo](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Híbrida - registos são armazenados na área de trabalho localizada no inquilino do cliente e alguns deles são solicitados para uma localização central.
 
-Criação e configuração de áreas de trabalho do cliente podem ser automatizadas utilizando [PowerShell](log-analytics-powershell-workspace-configuration.md), [modelos do Resource Manager](log-analytics-template-workspace-configuration.md), ou utilizando o [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+Combinar a arquitetura terceira entre as duas opções. Baseia-se na arquitetura distribuída primeiro onde os registos são locais para cada cliente, mas utilizar algum mecanismo para criar um repositório central de registos. Uma parte dos registos é solicitada para uma localização central para análises e relatórios. Esta parte pode ser pequeno número de tipos de dados ou um resumo da atividade como estatística diária.
 
-A utilização de modelos do Resource Manager para a configuração de área de trabalho permite-lhe ter uma configuração principal que pode ser utilizada para criar e configurar áreas de trabalho. Pode ter a certeza de que como áreas de trabalho são criadas para os clientes são automaticamente configurados para os seus requisitos. Quando atualizar os seus requisitos, o modelo é atualizado e, em seguida, reaplicada as áreas de trabalho existentes. Este processo garante que o mesmo existentes áreas de trabalho cumpram as normas de novo.    
+Existem duas opções para implementar a localização central na análise de registos:
 
-Quando gerir várias áreas de trabalho de análise de registos, recomendamos a integração de cada área de trabalho com o seu sistema de emissão de permissões existente / utilizando a consola de operações a [alertas](log-analytics-alerts.md) funcionalidade. Através da integração com os sistemas existentes, pessoal de suporte pode continuar a seguir os processos familiares. Análise de registos regularmente verifica cada área de trabalho contra os critérios de alerta que especificar e gera um alerta quando for necessária ação.
+1. Área de trabalho central: O fornecedor de serviço pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza o [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](log-analytics-data-collector-api.md) para colocar os dados de áreas de trabalho vários Isto localização central. Outra opção que não seja o script está a utilizar [aplicação de lógica de Azure](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-Para personalizado vistas de dados, utilize o [dashboard](../azure-portal/azure-portal-dashboards.md) capacidade no portal do Azure.  
+2. Power BI como uma localização central: Power BI pode atuar como a localização central, quando as várias áreas de trabalho exportar dados para-la utilizando a integração entre o análise de registos e [Power BI](log-analytics-powerbi.md). 
 
-Para os relatórios de nível executivos resumir os dados em áreas de trabalho pode utilizar a integração entre o análise de registos e [PowerBI](log-analytics-powerbi.md). Se precisar de integrar com outro sistema de relatórios, pode utilizar a API de pesquisa (através do PowerShell ou [REST](log-analytics-log-search-api.md)) para executar consultas e exportar os resultados da pesquisa.
 
 ## <a name="next-steps"></a>Próximos Passos
 * Automatizar a criação e a configuração de áreas de trabalho utilizando [modelos do Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatizar a criação de áreas de trabalho utilizando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Utilize [alertas](log-analytics-alerts.md) para integrar com sistemas existentes
-* Gerar relatórios de resumo utilizando [PowerBI](log-analytics-powerbi.md)
+* Gerar relatórios de resumo utilizando [Power BI](log-analytics-powerbi.md)
 

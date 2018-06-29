@@ -3,7 +3,7 @@ title: Guia de operadores de TI do Azure de introdução | Microsoft Docs
 description: Guia de introdução para operadores de TI do Azure
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361660"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099498"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à informática em nuvem e o Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS é software que está alojada e gerido centralmente. Normalmente, com base 
 
 Microsoft Office 365 é um bom exemplo de uma oferta de SaaS. Os subscritores pagar uma taxa de subscrição mensais ou anuais e obtêm Microsoft Exchange, Microsoft OneDrive e o resto do conjunto de aplicações Microsoft Office, como um serviço. Os subscritores obter sempre a versão mais recente e o Exchange server for gerido por si. Em comparação com a instalar e atualizar todos os anos o Office, este é menos dispendioso e requer menos esforço.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Plataforma como serviço 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Plataforma como serviço
 
 Com o PaaS, implementar a aplicação num ambiente que fornece o fornecedor do serviço em nuvem. O fornecedor efetua todas a gestão da infraestrutura, pelo que pode concentrar-se no desenvolvimento de aplicações.
 
@@ -381,11 +381,11 @@ As contas do storage do Azure podem ser configuradas com diferentes níveis de r
 
 -   **Armazenamento georredundante com acesso de leitura** é armazenamento georredundante e a capacidade para ler os dados na região secundária. Esta capacidade torna adequada recuperação de desastres parcial. Se existir um problema com a região primária, pode alterar a sua aplicação para ter acesso só de leitura para a região emparelhada.
 
-### <a name="use-cases"></a>Casos de utilização 
+### <a name="use-cases"></a>Casos de utilização
 
 Cada tipo de armazenamento tem um caso de utilização diferentes.
 
-**Armazenamento de blobs** 
+**Armazenamento de blobs**
 
 A palavra *blob* é um acrónimo para *binário objeto grande*. Os BLOBs são ficheiros não estruturados, como aqueles que armazena no seu computador. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. Armazenamento de Blobs do Azure também contém discos de dados de máquinas virtuais do Azure.
 
@@ -445,7 +445,7 @@ Da mesma forma, pode utilizar a CLI do Azure para implementar um modelo Azure Re
 
 ### <a name="access-and-security-for-azure-storage"></a>Acesso e a segurança para armazenamento do Azure
 
-Armazenamento do Azure é acedido de várias formas, incluindo apesar do portal do Azure, durante a criação da VM e a operação e de bibliotecas de cliente de armazenamento. 
+Armazenamento do Azure é acedido de várias formas, incluindo apesar do portal do Azure, durante a criação da VM e a operação e de bibliotecas de cliente de armazenamento.
 
 **Discos de máquinas virtuais**
 

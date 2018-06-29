@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292546"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084070"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -44,6 +44,8 @@ Numa implementação RDS, a função da Web de RD e a função de Gateway de RD 
 >Se ainda não implementado o RDS antes, ou se pretender obter mais informações antes de começar, saiba como [perfeitamente implementar RDS com o Azure Resource Manager e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisitos
+
+- Utilize um cliente que não seja o cliente de web de ambiente de trabalho remoto, uma vez que o cliente web não suporta o Proxy de aplicações.
 
 - Pontos finais de Web de RD e Gateway de RD tem de estar localizados no mesmo computador e com uma raiz comuns. Web de RD e Gateway de RD são publicados como uma única aplicação com o Proxy da aplicação para que pode ter uma experiência único início de sessão entre as duas aplicações.
 

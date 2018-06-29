@@ -2,7 +2,7 @@
 title: Azure Active Directory Identity Protection manual de comunicação social | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection lhe permite limitar a capacidade de um atacante para explora um dispositivo ou identidade comprometida e para proteger uma identidade ou um dispositivo que anteriormente era suspeito ou conhecido for comprometida.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+keywords: proteção de identidade do Azure Active Directory, a cloud discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 566748d7d7a2ec89c69ab706700583a9db1f5246
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714311"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083962"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection manual de comunicação social
 
@@ -104,7 +104,7 @@ O início de sessão aparece no dashboard do Identity Protection dentro de 2 a 4
 Vulnerabilidades são fragilidades num ambiente do Azure AD que podem ser forem exploradas por um ator incorretos. Atualmente 3 tipos de vulnerabilidades estão anexados no Azure AD Identity Protection que tiram partido de outras funcionalidades do Azure AD. Estas vulnerabilidades serão apresentadas no dashboard do Identity Protection automaticamente depois destas funcionalidades estão configuradas.
 
 * Azure AD [multi-factor Authentication](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 

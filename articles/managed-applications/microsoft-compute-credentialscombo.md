@@ -11,22 +11,35 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 183075f7407b0a0ca6ea53871e239ab8c2d89490
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098625"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de IU Microsoft.Compute.CredentialsCombo
 Um grupo de controlos com validação incorporadas para palavras-passe do Windows e Linux e das chaves públicas SSH.
 
 ## <a name="ui-sample"></a>Exemplo de IU
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+Para o Windows, utilizadores, consulte:
+
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+Para Linux com palavra-passe selecionada, os utilizadores veem:
+
+![Palavra-passe do Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+Para Linux com a chave pública SSH selecionada, os utilizadores veem:
+
+![Chave de Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Esquema
-Se `osPlatform` é **Windows**, será utilizado o esquema seguinte:
+Para o Windows, utilize o esquema seguinte:
+
 ```json
 {
   "name": "element1",
@@ -51,7 +64,8 @@ Se `osPlatform` é **Windows**, será utilizado o esquema seguinte:
 }
 ```
 
-Se `osPlatform` é **Linux**, será utilizado o esquema seguinte:
+Para **Linux**, utilize o esquema seguinte:
+
 ```json
 {
   "name": "element1",
@@ -83,13 +97,13 @@ Se `osPlatform` é **Linux**, será utilizado o esquema seguinte:
 
 ## <a name="remarks"></a>Observações
 - `osPlatform` tem de ser especificado e pode ser **Windows** ou **Linux**.
-- Se `constraints.required` está definido como **verdadeiro**, em seguida, a palavra-passe ou as caixas de texto de chave pública SSH tem de conter valores para validar com êxito. O valor predefinido é **verdadeiro**.
+- Se `constraints.required` está definido como **verdadeiro**, em seguida, a palavra-passe ou as caixas de texto de chave pública SSH tem de ter valores para validar com êxito. O valor predefinido é **verdadeiro**.
 - Se `options.hideConfirmation` está definido como **verdadeiro**, em seguida, a segunda caixa de texto para confirmar a palavra-passe do utilizador está oculto. O valor predefinido é **falso**.
 - Se `options.hidePassword` está definido como **verdadeiro**, em seguida, a opção para utilizar a autenticação de palavra-passe está oculto. Pode ser utilizado apenas quando `osPlatform` é **Linux**. O valor predefinido é **falso**.
 - Restrições adicionais nas palavras-passe permitidas podem ser implementadas utilizando o `customPasswordRegex` propriedade. A cadeia de `customValidationMessage` é apresentada quando uma palavra-passe falha, uma validação personalizada. O valor predefinido para ambas as propriedades é **nulo**.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Se `osPlatform` é **Windows**, ou o utilizador forneceu uma palavra-passe em vez de uma chave pública SSH, em seguida, é esperado o seguinte resultado:
+Se `osPlatform` é **Windows**, ou `osPlatform` é **Linux** e o utilizador forneceu uma palavra-passe em vez de uma chave pública SSH, o controlo devolve o resultado seguinte:
 
 ```json
 {
@@ -98,7 +112,8 @@ Se `osPlatform` é **Windows**, ou o utilizador forneceu uma palavra-passe em ve
 }
 ```
 
-Se o utilizador forneceu uma chave pública SSH, em seguida, é esperado o seguinte resultado:
+Se `osPlatform` é **Linux** e o utilizador forneceu uma chave pública SSH, o controlo devolve o resultado seguinte:
+
 ```json
 {
   "authenticationType": "sshPublicKey",

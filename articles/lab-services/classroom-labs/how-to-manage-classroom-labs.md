@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304522"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082528"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aulas nos serviços de laboratório do Azure 
 Este artigo descreve como criar e configurar um laboratório de sala de aula, ver todos os laboratórios de sala de aula ou eliminar um laboratório de sala de aula.
@@ -86,8 +86,8 @@ Quando publicar um modelo, serviços de laboratório do Azure cria VMs no labora
 2. Agora, selecione o **publicar** botão. Este processo poderá demorar algum tempo consoante quantas VMs está a ser criado, que é igual ao número de utilizadores permitido para o laboratório.
     
     > [!IMPORTANT]
-    > Depois de um modelo estar disponível publicamente, não é possível alterar o acesso para privado. 
-4. Mudar para o **máquinas virtuais** e confirme que vê cinco máquinas virtuais que estão na página **não atribuídos** estado. Estas VMs não estão atribuídos a estudantes ainda. 
+    > Assim que for publicado um modelo, não pode ser anulada. 
+4. Mudar para o **máquinas virtuais** e confirme que vê as máquinas virtuais que estão na página **não atribuídos** estado. Estas VMs não estão atribuídos a estudantes ainda. 
 
     ![Máquinas virtuais](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Aguarde até que as VMs que são criadas. Devem ser na **parado** estado. Pode iniciar um VM do estudante, ligar à VM, pare a VM e elimine a VM nesta página. Pode iniciá-los nesta página ou permitir que o seu estudantes iniciar as VMs. 

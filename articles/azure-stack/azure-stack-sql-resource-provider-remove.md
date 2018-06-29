@@ -11,19 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301903"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083045"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Remover o fornecedor de recursos SQL
 
 Antes de remover o fornecedor de recursos do SQL Server, tem de remover todas as dependências de fornecedor. Terá também uma cópia do pacote de implementação que foi utilizado para instalar o fornecedor de recursos.
+
+Existem várias tarefas de limpeza para o fazer antes de executar o _DeploySqlProvider.ps1_ script para remover o fornecedor de recursos.
+Os inquilinos são responsáveis pelas seguintes tarefas de limpeza:
+
+* Elimine todas as bases de dados do fornecedor de recursos. (A eliminar as bases de dados do inquilino não elimina os dados.)
+* Anular o registo do espaço de nomes de fornecedor de recursos.
+
+O administrador é responsável pelas seguintes tarefas de limpeza:
+
+* Elimina os servidores de alojamento do fornecedor de recursos do SQL Server.
+* Elimina quaisquer planos que referenciam o fornecedor de recursos do SQL Server.
+* Elimina quaisquer quotas que estão associados com o fornecedor de recursos do SQL Server.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Para remover o fornecedor de recursos SQL
 
@@ -38,10 +50,10 @@ Antes de remover o fornecedor de recursos do SQL Server, tem de remover todas as
 
 4. Execute o script de DeploySqlProvider.ps1 utilizando os seguintes parâmetros:
 
-    - **Desinstalar**. Remove o fornecedor de recursos e recursos todos os associados.
-    - **PrivilegedEndpoint**. O endereço IP ou nome DNS do ponto final com privilégios.
-    - **CloudAdminCredential**. A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios.
-    - **AzCredential**. A credencial para a conta de administrador do serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure.
+    * **Desinstalar**. Remove o fornecedor de recursos e recursos todos os associados.
+    * **PrivilegedEndpoint**. O endereço IP ou nome DNS do ponto final com privilégios.
+    * **CloudAdminCredential**. A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios.
+    * **AzCredential**. A credencial para a conta de administrador do serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

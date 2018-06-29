@@ -2,18 +2,19 @@
 title: Use e rascunho com AKS e registo de contentor do Azure
 description: Use e rascunho com AKS e registo de contentor do Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2caf8e14407546d8a2ec7c9d18765dd10e575144
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099347"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Use e rascunho com o serviço de Kubernetes (AKS) do Azure
 

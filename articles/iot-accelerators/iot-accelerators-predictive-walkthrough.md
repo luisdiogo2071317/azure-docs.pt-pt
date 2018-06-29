@@ -1,6 +1,6 @@
 ---
-title: Instruções do acelerador de soluções de Manutenção Preditiva - Azure | Microsoft Docs
-description: Instruções sobre o acelerador de soluções de Manutenção Preditiva do Azure IoT.
+title: Descrição geral do acelerador de soluções de Manutenção Preditiva - Azure | Microsoft Docs
+description: Uma descrição geral do acelerador de solução da manutenção preditiva do IoT do Azure.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e29975558801b4ffccd38d4485306d25ecaec0aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bd61f301fa4468ef1d308d4da275c760ee09dc0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655504"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088638"
 ---
-# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Instruções do acelerador de soluções de Manutenção Preditiva
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Manutenção Preditiva
 
 O acelerador de soluções de Manutenção Preditiva é uma solução ponto a ponto para um cenário de negócio que prevê o momento em que poderá ocorrer uma falha. Pode utilizar, de forma pró-ativa, este acelerador de soluções para atividades como a otimização da manutenção. A solução combina os serviços de aceleradores de soluções principais do Azure IoT, como o Hub IoT, o Stream Analytics e uma área de trabalho do [Azure Machine Learning][lnk-machine-learning]. Esta área de trabalho contém um modelo, com base num conjunto de dados de exemplo público, para prever a Vida Útil Remanescente (RUL) de um motor de aeronave. A solução implementa completamente o cenário empresarial IoT como um ponto de partida para que possa planear e implementar uma solução que satisfaça os seus próprios requisitos de negócio.
 
@@ -76,5 +76,5 @@ Também pode explorar algumas das outras funcionalidades e capacidades dos acele
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

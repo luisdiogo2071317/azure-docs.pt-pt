@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751048"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081460"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -62,20 +62,18 @@ Uma política de auditoria pode ser definida para uma base de dados específica 
 A secção seguinte descreve a configuração de auditoria no portal do Azure.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
-2. Vá para o **definições** painel do SQL Server da base de dados/SQL server que pretende de auditoria. No **definições** painel, selecione **deteção de ameaças e auditoria**.
+2. Navegue para **auditoria** sob o cabeçalho de segurança no painel de servidor/base de dados do SQL Server.
 
     <a id="auditing-screenshot"></a> ![Painel de navegação][1]
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o **ver definições do servidor** ligação no painel de auditoria da base de dados. Pode ver ou modificar o definições de auditoria do servidor. Políticas de auditoria do servidor aplicam-se às bases de dados recentemente criados e todas as existentes neste servidor.
 
     ![Painel de navegação][2]
-4. Se preferir ativar a auditoria de blob no nível da base de dados, para **auditoria**, selecione **ON**e para **auditoria tipo**, selecione **Blob**.
+4. Se preferir ativar a auditoria ao nível da base de dados, mudar **auditoria** para **ON**.
 
-    Se estiver ativada a auditoria de blob de servidor, a auditoria da base de dados configurada existirá side by side with a auditoria de blob do servidor.
+    Se estiver ativada a auditoria do servidor, a auditoria da base de dados configurada existirá lado lado a lado com a auditoria do servidor.
 
     ![Painel de navegação][3]
 5. Para abrir o **armazenamento de registos de auditoria** painel, selecione **detalhes armazenamento**. Selecione a conta de armazenamento do Azure onde serão guardados os registos e, em seguida, selecione o período de retenção. Os registos antigos serão eliminados. Em seguida, clique em **OK**.
-    >[!TIP]
-    >Para tirar o máximo partido os modelos de relatórios de auditoria, utilize a mesma conta de armazenamento para todas as bases de dados auditadas.
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
 6. Se pretender personalizar os eventos auditados, isto pode ser feito através de [cmdlets do PowerShell](#subheading-7) ou [REST API](#subheading-9).
@@ -102,7 +100,8 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
     Um **registos de auditoria** é aberto o painel, partir do qual poderá ver os registos.
 
     - Pode ver as datas específicas clicando **filtro** na parte superior do **registos de auditoria** painel.
-    - Pode alternar entre os registos de auditoria que foram criados por uma auditoria de política de política ou a base de dados do servidor.
+    - Pode alternar entre os registos de auditoria que foram criados pelo *política de auditoria do servidor* e *política de auditoria de base de dados* por ativando ou desativando **auditoria origem**.
+    - Pode ver apenas a injeção de SQL relacionadas com registos de auditoria verificando **Mostrar apenas auditoria registos para SQL injections** caixa de verificação.
 
        ![Painel de navegação][8]
 
@@ -147,8 +146,8 @@ Com georreplicação bases de dados, quando ativar a auditoria na base de dados 
 * Ao nível do servidor (**recomendado**): Ativar a auditoria em ambos os **servidor primário** , bem como o **servidor secundário** -as bases de dados primários e secundários serão cada auditados independentemente com base na respetiva respetiva política de ao nível do servidor.
 
 * Ao nível da base de dados: Só pode ser configurado auditoria de bases de dados secundárias de nível de base de dados da base de dados primária, definições de auditoria.
-   * Auditoria de blob tem de estar ativada no *base de dados primária próprio*, não o servidor.
-   * Depois de ativar a auditoria de blob na base de dados primária, também irá tornar-se ativada na base de dados secundária.
+   * Auditoria tem de ser ativada no *base de dados primária próprio*, não o servidor.
+   * Depois de auditoria estiver ativada na base de dados primária, também irá tornar-se ativada na base de dados secundária.
 
     >[!IMPORTANT]
     >Com a auditoria a nível de base de dados, as definições de armazenamento para a base de dados secundária será idênticas de base de dados primária, fazendo com que o tráfego entre regionais. Recomendamos que ativar a auditoria apenas ao nível do servidor e deixe o nível de base de dados de auditoria desativada para todas as bases de dados.
@@ -204,7 +203,6 @@ Para obter um exemplo de script, consulte [configurar a auditoria e deteção de
 * [Criar ou atualizar a política de auditoria de Blob de servidor](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Obter a política de auditoria de Blob de base de dados](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Obter a política de auditoria de Blob de servidor](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Obter o resultado da operação de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Política expandida com onde suporta a cláusula para filtragem adicionais:
 * [Criar ou atualizar a base de dados *expandido* política de auditoria de Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

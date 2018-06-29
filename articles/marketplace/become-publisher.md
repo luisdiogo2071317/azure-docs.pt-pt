@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825249"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083166"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Tornar-se de um publicador na storefronts no marketplace  
 Os passos seguintes ajudá-lo a registar como publicador na storefronts no marketplace. Com base no engagement existente com a Microsoft e selecionado o tipo de lista, alguns dos passos seguintes podem não ser necessária.  
@@ -30,7 +30,6 @@ Os passos seguintes ajudá-lo a registar como publicador na storefronts no marke
 | 2 | Criar uma ID da Microsoft | 15 minutos | [Criar uma ID da Microsoft](#create-a-microsoft-id) |  
 | 3 | Submeter o formulário de nomination do marketplace | 1 a 3 dias | [Submeter o formulário de nomination do marketplace](#submit-the-marketplace-nomination-form) |  
 | 4 | Registar no Centro de programadores do Microsoft (Dev Center) | 5-10 dias | [Registar no Dev Center](#register-in-dev-center) |  
-| 5 | Inicie sessão em AppSource | 15 minutos | [Inicie sessão em AppSource](#sign-into-appSource) |  
 | 5 |  Inicie sessão no Portal de parceiros de nuvem | 15 minutos | [Inicie sessão no Portal de parceiros de nuvem](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Registar-se numa rede de parceiro da Microsoft  
@@ -81,18 +80,6 @@ A aplicação ou a oferta é revista e validar depois de submeter o formulário.
 >[!Important]
 >Antes de tentar criar uma conta do Dev Center, certifique-se de que a empresa ainda não tiver uma conta do Dev Center. 
 >*   Para obter mais informações, visite o [como registar no Dev Center](#how-to-register-in-dev-center) secção.  
-
----  
-
-## <a name="sign-into-appsource"></a>Inicie sessão em AppSource  
-| 15 minutos |  
-Depois do Nomination for aprovada e que registou no MPN e Dev Center, é criada a conta do marketplace com acesso ao AppSource. Tempo de primeiro início de sessão credenciais é enviados no seu e-mail de aprovação Nomination. 
-*   Para aceder a competência MPN, visite a página de associação, localizada em [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Para aceder ao centro de desenvolvimento, aceda ao Windows Dev Center página localizada em [dev.windows.com](https://dev.windows.com).  
-*   Para aceder à AppSource, visite a página de AppSource localizada em [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Para aceder ao Portal de parceiros do Microsoft Cloud, visitar o Portal de parceiros de nuvem página localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Para obter mais informações sobre como utilizar o Portal de parceiros de nuvem, visite a secção de saiba localizada em [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Para obter documentação sobre o Portal de parceiros de nuvem, visite a secção de documentação localizada em [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 

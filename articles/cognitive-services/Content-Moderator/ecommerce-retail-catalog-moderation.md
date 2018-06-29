@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351757"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095756"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Moderação de interrupção do eCommerce catálogo com machine learning
 
@@ -158,7 +158,7 @@ No nosso caso, iremos definir estas etiquetas personalizadas (**celebrity**, **s
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Classificar sinalizadores, toys e pens
 
-1. [Inicie sessão no](https://www.customvision.ai/account/signin) para o [pré-visualização de API de visão personalizada](https://www.customvision.ai/).
+1. [Inicie sessão no](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) para o [pré-visualização de API de visão personalizada](https://www.customvision.ai/).
 2. Utilize o [início rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar o classificador personalizado para detetar a presença de sinalizadores, toys e pens potencial.
    ![Imagens de formação de visão personalizada](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obter o URL de ponto final de predição](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) para sua classificador personalizado.

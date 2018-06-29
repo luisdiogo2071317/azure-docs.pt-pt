@@ -7,36 +7,41 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1eb3768f5a5c5a27a45dde3f62f862f36fa3e8ac
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055007"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098503"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Regiões e os pontos finais do serviço de reconhecimento de voz
+# <a name="regions-of-the-speech-service"></a>Regiões do serviço de reconhecimento de voz
 
-> [!NOTE]
-> Os nomes de região no [SDK de reconhecimento de voz](speech-sdk.md) corresponde à primeira parte do domínio dos pontos finais indicados abaixo.
-> Por exemplo, utilizar `westus` para especificar a região EUA oeste no SDK do reconhecimento de voz.
+O serviço de reconhecimento de voz está disponível em regiões diferentes.
+Quando cria uma subscrição pode escolher uma região disponível, consoante as suas necessidades.
 
-## <a name="speech-to-text"></a>Conversão de Voz em Texto
+Quando utilizar a sua subscrição tem em conta a região que é selecionado.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>API REST
 
-## <a name="text-to-speech"></a>Conversão de Texto em Voz
+Utilizando a API REST, escolha os pontos finais direito específico da região.
+Consulte [REST APIs](rest-apis.md) para obter mais detalhes.
 
-[!include[](includes/endpoints-text-to-speech.md)]
 
-## <a name="authentication"></a>Autenticação
 
-[!include[](includes/endpoints-token-service.md)]
+## <a name="speech-sdk"></a>API de Voz
 
-Consulte [aqui](rest-apis.md#authentication) para detalhes de obtenção e atualização de tokens de autorização.
+No [SDK de reconhecimento de voz](speech-sdk.md), regiões são especificadas como uma cadeia (por exemplo, como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK do reconhecimento de voz para c#).
 
-## <a name="language-understanding-speech-sdk-only"></a>Compreensão de idiomas (apenas SDK de reconhecimento de voz)
+A tabela abaixo lista as regiões para reconhecimento de voz e tradução disponíveis:
 
-São listadas regiões para o serviço de compreensão de idiomas [aqui](/azure/cognitive-services/luis/luis-reference-regions).
-O SDK de reconhecimento de voz, especificar estas regiões, a primeira parte do nome de domínio do ponto final (por exemplo, `westus`).
+Região| Valor do parâmetro de região no SDK do reconhecimento de voz
+-|-
+EUA Oeste| `westus`
+Ásia Oriental| `eastasia`
+Europa do Norte| `northeurope`
+
+São listadas regiões disponíveis para intenção reconhecimento através do SDK de reconhecimento de voz no [página de região de serviço de compreensão de idiomas](/azure/cognitive-services/luis/luis-reference-regions).
+Para cada região publicação listado, o parâmetro de região do SDK de reconhecimento de voz correspondente é determinado como a primeira parte do nome de domínio do ponto final.
+Por exemplo, utilizar `westus` para especificar a região de publicação de EUA oeste.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751675"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083996"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Base de dados do SQL do Azure a compra de recursos e modelos 
 
@@ -40,7 +40,7 @@ A tabela e o gráfico seguinte comparam e contraste estes dois modelos de compra
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware. O modelo de compra baseado em vCore (pré-visualização) permite a flexibilidade, o controlo, a transparência de consumo de recursos individuais e uma forma simples de traduzir requisitos no local carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No vCore com base no modelo de compra (pré-visualização), os clientes podem optar entre fins gerais e de camadas de serviços críticos de negócio (pré-visualização) para ambos [único bases de dados](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). 
 
-putador vCore com base no modelo de compra (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore na camada fins gerais; requer que cada 100 DTU no escalão Standard cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore na camada de negócio crítico.
+O modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore na camada fins gerais; requer que cada 100 DTU no escalão Standard cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore na camada de negócio crítico.
 
 No vCore com base no modelo de compra (pré-visualização), os clientes pagar para:
 - Computação (camada de serviço + número vCores + geração de hardware) *

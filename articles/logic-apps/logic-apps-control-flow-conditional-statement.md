@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298173"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096381"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar instruções condicionais que controlam ações de fluxo de trabalho no Azure Logic Apps
 
@@ -50,32 +50,27 @@ Por exemplo, suponha que tem uma aplicação lógica que envia mensagens de corr
 
    1. Na caixa de esquerda, especifique os dados ou o campo que pretende comparar.
 
-      Do **adicionar conteúdo dinâmico** lista, pode selecionar existentes campos da sua aplicação lógica.
+      Ao clicar dentro da caixa à esquerda, é apresentada a lista de conteúdo dinâmica pelo que pode selecionar saídas dos passos anteriores na sua aplicação lógica. 
+      Neste exemplo, selecione o resumo de RSS feed.
+
+      ![Criar a condição](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Na lista de média, selecione a operação a realizar. 
-   3. Na caixa de direita, especifique um valor ou o campo como os critérios.
+   Para este exemplo, selecione "**contém**". 
 
-   Por exemplo:
-
-   ![Editar condição no modo básico](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Na caixa de direita, especifique um valor ou o campo como os critérios. 
+   Neste exemplo, especifique esta cadeia: **Microsoft**
 
    Segue-se a condição concluída:
 
-   ![Concluir condição](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Concluir condição](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Em **se for verdadeiro** e **se for FALSO**, adicionar os passos para efetuar com base em se a condição é cumprida. Por exemplo:
+
+   ![Condição com "se for verdadeiro" e os caminhos de "se for falsos"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Para criar uma condição mais avançada ou utilizar expressões, escolha **editar no modo avançado**. Pode utilizar expressões definidas pelo [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Por exemplo:
-   >
-   > ![Editar condição no código](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Em **se Sim** e **não se**, adicionar os passos para efetuar com base em se a condição é cumprida. Por exemplo:
-
-   ![Condição com Sim e não existem caminhos](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Pode arrastar ações existentes para o **se Sim** e **não se** caminhos.
+   > Pode arrastar ações existentes para o **se for verdadeiro** e **se for FALSO** caminhos.
 
 6. Guarde a aplicação lógica.
 
@@ -87,14 +82,21 @@ Vamos ver agora que criou uma aplicação lógica, utilizando uma instrução co
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

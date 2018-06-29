@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ramkris
-ms.openlocfilehash: 47abd2f3534a0f3418bc09e19a61e222093e7099
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: e115c7e18b32630b7331e22a6bdc33338d753fde
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960479"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083299"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de macrodados em tempo real com o Spark para o conector Azure Cosmos DB
 
@@ -24,8 +24,6 @@ O Spark para o conector de BD do Cosmos Azure permite a BD do Azure Cosmos agir 
 Saiba mais neste vídeo com Nogueira Denny do Gestor de programa do Cosmos BD Principal do Azure. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
-
-Para trabalhar com o Spark GraphX e o gráfico de Gremlin BD do Cosmos APIs do Azure, consulte [efetuar análises de gráfico com o Spark e o Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## <a name="download"></a>Transferência
 

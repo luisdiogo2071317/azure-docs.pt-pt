@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ms.openlocfilehash: f0a2ec617c71f9e86610017d3b6fa961bbd14322
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016839"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083091"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Início rápido: Reconhecer voz utilizando voz c# SDK de serviços cognitivos
 
@@ -101,4 +101,5 @@ Para o conjunto mais recente de exemplos, consulte o [repositório cognitivos Gi
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Converter o reconhecimento de voz](how-to-translate-speech.md)
-- [Personalizar os modelos de reconhecimento de voz](how-to-customize-speech-models.md)
+- [Personalizar modelos acústica](how-to-customize-acoustic-models.md)
+- [Personalizar os modelos de idioma](how-to-customize-language-model.md)

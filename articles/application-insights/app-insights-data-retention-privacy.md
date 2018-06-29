@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294071"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099801"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -128,22 +128,9 @@ Todos os dados são encriptados são transmitidos entre centros de dados.
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são encriptados em trânsito da minha aplicação para servidores do Application Insights?
 Sim, iremos utilizar https para enviar dados para o portal de quase todos os SDKs, incluindo servidores web, dispositivos e páginas web HTTPS. A única exceção é os dados enviados a partir de páginas de web HTTP simples. 
 
-## <a name="personally-identifiable-information"></a>Informações de identificação pessoal
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>Foi possível enviar informação identificativa (PII) para o Application Insights?
-Sim, é possível. 
+## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados no Application Insights
 
-Como orientação geral:
-
-* Telemetria mais standard (ou seja, telemetria enviada sem que escrever qualquer código) não inclui PII explícita. No entanto, poderá ser possível identificar os indivíduos ao inferência de uma coleção de eventos.
-* Mensagens de exceção e rastreio podem conter PII
-* Telemetria personalizada - ou seja, chamadas como TrackEvent escreve no código utilizando os rastreios de registo ou a API - pode conter quaisquer dados que escolher.
-
-A tabela no final deste documento contém descrições mais detalhadas dos dados recolhidos.
-
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>Pude responsável por complying com as leis e regulamentos in regard to PII?
-Sim. É da responsabilidade do cliente, certifique-se de que a recolha e utilização de dados está em conformidade com as leis e regulamentos e com os termos do Microsoft Online Services.
-
-Deve informar os seus clientes adequadamente sobre os dados que da aplicação recolhe e a forma como os dados são utilizados.
+A nossa [artigo de dados pessoais do Application Insights](app-insights-customer-data.md) aborda este tópico aprofundado.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Podem os meus utilizadores desativar Application Insights?
 Não diretamente. Não, fornecemos um comutador que os utilizadores podem operar para desativar o Application Insights.
@@ -154,7 +141,7 @@ No entanto, pode implementar este tipo uma funcionalidade na sua aplicação. To
 Application Insights não filtrar ou eliminar os seus dados. Deve gerir corretamente os dados e evitar o envio desses dados para o Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Dados enviados pelo Application Insights
-Os SDKs variam entre plataformas e existem tem vários componentes que podem instalar. (Consulte [Application Insights - descrição geral][start].) Cada componente envia dados diferentes.
+Os SDKs variam entre plataformas e, existem vários componentes que podem instalar. (Consulte [Application Insights - descrição geral][start].) Cada componente envia dados diferentes.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de dados enviados em cenários diferentes
 | A acção | Classes de dados recolhidos (consulte a tabela seguinte) |

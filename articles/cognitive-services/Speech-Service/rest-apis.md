@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 53560fd4f8240c4446898f58992a9319e5177435
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044825"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085376"
 ---
 # <a name="speech-service-rest-apis"></a>Serviço de reconhecimento de voz REST APIs
 
@@ -265,5 +265,7 @@ Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como personalizar um modelo de reconhecimento de voz](how-to-customize-speech-models.md)
+- [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Personalizar modelos acústica](how-to-customize-acoustic-models.md)
+- [Personalizar os modelos de idioma](how-to-customize-language-model.md)
+

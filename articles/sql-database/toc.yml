@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: 2 - Conceber BD com .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 3 - Migrar para a BD do SQL Server com o DMS
+    - name: 3 - Migrar para a BD do SQL Server com o DMA
       href: sql-database-migrate-your-sql-server-database.md
     - name: 4 - Proteger a sua BD SQL
       href: sql-database-security-tutorial.md

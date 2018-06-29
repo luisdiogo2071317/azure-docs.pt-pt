@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724779"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085577"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para as funções do Azure
 
@@ -82,7 +82,7 @@ O enlace de entrada de token de autenticação obtém um Azure AD token para um 
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#auth-token---example)
-* [Atributos](#auth-token---attributes)
+* [atributos](#auth-token---attributes)
 * [Configuração](#auth-token---configuration)
 * [Utilização](#auth-token---usage)
 
@@ -238,7 +238,7 @@ O enlace de entrada de tabela de Excel lê os conteúdos de uma tabela de Excel 
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#excel-input---example)
-* [Atributos](#excel-input---attributes)
+* [atributos](#excel-input---attributes)
 * [Configuração](#excel-input---configuration)
 * [Utilização](#excel-input---usage)
 
@@ -385,7 +385,7 @@ O Excel enlace de saída modifica o conteúdo de uma tabela de Excel armazenados
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#excel-output---example)
-* [Atributos](#excel-output---attributes)
+* [atributos](#excel-output---attributes)
 * [Configuração](#excel-output---configuration)
 * [Utilização](#excel-output---usage)
 
@@ -542,7 +542,7 @@ O enlace de entrada do ficheiro do OneDrive lê os conteúdos de um ficheiro arm
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#file-input---example)
-* [Atributos](#file-input---attributes)
+* [atributos](#file-input---attributes)
 * [Configuração](#file-input---configuration)
 * [Utilização](#file-input---usage)
 
@@ -684,7 +684,7 @@ O ficheiro do OneDrive enlace de saída modifica o conteúdo de um ficheiro arma
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#file-output---example)
-* [Atributos](#file-output---attributes)
+* [atributos](#file-output---attributes)
 * [Configuração](#file-output---configuration)
 * [Utilização](#file-output---usage)
 
@@ -828,7 +828,7 @@ A mensagem do Outlook saída enlace envia uma mensagem de correio através do Ou
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#outlook-output---example)
-* [Atributos](#outlook-output---attributes)
+* [atributos](#outlook-output---attributes)
 * [Configuração](#outlook-output---configuration)
 * [Utilização](#outlook-outnput---usage)
 
@@ -976,7 +976,7 @@ Webhooks permitem-lhe reagir a eventos na Microsoft Graph. Para suportar webhook
 - A [enlace de entrada de subscrição do Microsoft Graph webhook](#webhook-input) permite-lhe a lista de subscrições existentes e, opcionalmente, atualize-los.
 - A [vínculo de saída de subscrição do Microsoft Graph webhook](#webhook-output) permite-lhe criar ou eliminar subscrições de webhook.
 
-Os enlaces próprios necessita de permissões do Azure AD, mas é necessário solicitar permissões relevantes para o tipo de recurso que pretende reagir a. Para obter uma lista que são necessárias permissões para cada tipo de recurso, consulte [permissões de subscrição](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Os enlaces próprios necessita de permissões do Azure AD, mas é necessário solicitar permissões relevantes para o tipo de recurso que pretende reagir a. Para obter uma lista que são necessárias permissões para cada tipo de recurso, consulte [permissões de subscrição](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 Para mais informações sobre webhooks, consulte [trabalhar com webhooks no Microsoft Graph].
 
@@ -991,7 +991,7 @@ O acionador de webhook Microsoft Graph permite que uma função de reagir a um w
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#webhook-trigger---example)
-* [Atributos](#webhook-trigger---attributes)
+* [atributos](#webhook-trigger---attributes)
 * [Configuração](#webhook-trigger---configuration)
 * [Utilização](#webhook-trigger---usage)
 
@@ -1109,7 +1109,7 @@ O enlace de entrada de webhook Microsoft Graph permite-lhe obter a lista de subs
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#webhook-input---example)
-* [Atributos](#webhook-input---attributes)
+* [atributos](#webhook-input---attributes)
 * [Configuração](#webhook-input---configuration)
 * [Utilização](#webhook-input---usage)
 
@@ -1238,7 +1238,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**name**||Necessário - o nome da variável utilizado no código de função para a mensagem de correio. Consulte [através de uma mensagem do Outlook enlace a partir do código de saída](#outlook-output-code).|
 |**tipo**||Necessário - tem de ser definido como `graphWebhookSubscription`.|
 |**direção**||Necessário - tem de ser definido como `in`.|
-|**filter**|**filtro**| Se definido como `userFromRequest`, em seguida, o enlace só irá obter subscrições pertencentes ao utilizador chamado (apenas válida com [acionador HTTP]).| 
+|**filter**|**Filtro**| Se definido como `userFromRequest`, em seguida, o enlace só irá obter subscrições pertencentes ao utilizador chamado (apenas válida com [acionador HTTP]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook de entrada - utilização
 
@@ -1259,7 +1259,7 @@ A subscrição de webhook enlace de saída permite-lhe criar, eliminar e atualiz
 Esta secção contém as seguintes subsecções:
 
 * [Exemplo](#webhook-output---example)
-* [Atributos](#webhook-output---attributes)
+* [atributos](#webhook-output---attributes)
 * [Configuração](#webhook-output---configuration)
 * [Utilização](#webhook-output---usage)
 

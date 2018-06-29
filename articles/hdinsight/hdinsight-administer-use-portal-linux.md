@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627028"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097789"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o portal do Azure
 
@@ -105,7 +105,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
     * **Monitorização**: monitorizar o cluster no Log Analytics do Azure.
     * **Propriedades**: ver as propriedades de cluster.
     * **As contas do Storage**: ver as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
-    * **Acesso de data Lake Store**: configurar o acesso armazena do Data Lake.  Consulte [criar clusters do HDInsight com o Data Lake Store utilizando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Acesso de data Lake Store**: configurar o acesso armazena do Data Lake.  Consulte [início rápido: configurar clusters de HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Estado de funcionamento do recurso**: consulte [descrição geral do Estado de funcionamento de recursos do Azure](../service-health/resource-health-overview.md).
     * **Novo pedido de suporte**: permite-lhe criar um pedido de suporte com o suporte da Microsoft.
     

@@ -9,20 +9,18 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352724"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085764"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
-Utilize a moderação de interrupção do Moderator de conteúdo texto assistida por máquina e [humanos no ciclo](Review-Tool-User-Guide/human-in-the-loop.md) capacidades para moderada de conteúdos de texto.
+Utilize a moderação de interrupção do Moderator de conteúdo texto assistida por máquina e [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) capacidades para moderada de conteúdos de texto.
 
-As empresas utilizam o serviço de moderação interrupção de texto para bloquear, aprovar ou revisar o conteúdo com base nas respetivas políticas e limiares. O serviço de moderação interrupção de texto pode ser utilizado para melhorar a moderação de interrupção humana dos ambientes que necessitam de parceiros, funcionários e os consumidores gerar o conteúdo de texto. Estes incluem gabinetes de chat, quadros de debate, chatbots, eCommerce catálogos, documentos e muito mais. 
-
-A API analisa o texto de entrada (máximo 1024 carateres) para profanity, classifica para texto indesejado possíveis (pré-visualização), autocorrects texto e Deteta potenciais informação identificativa (PII). Também corresponde à contra listas personalizadas dos termos de licenciamento. A funcionalidade de autocorrection ajuda a detetar palavras deliberadamente com erros ortográficos. Depois do conteúdo é processado, o serviço devolve uma resposta de detalhado. Utilize a resposta para criar uma revisão humana na ferramenta de revisão ou tirá-lo, etc.
+Se bloquear, aprova ou revisar o conteúdo com base nos limiares e políticas. Utilizá-la para aumentar a moderação de interrupção humana dos ambientes onde parceiros, funcionários e os consumidores geram conteúdo de texto. Estes incluem gabinetes de chat, quadros de debate, chatbots, eCommerce catálogos e documentos. 
 
 A resposta do serviço inclui as seguintes informações:
 
@@ -52,12 +50,9 @@ Se a API Deteta quaisquer termos profanas em nenhum do [idiomas suportados](Text
 
 ## <a name="classification"></a>Classificação
 
-Moderator conteúdo da máquina assistida **funcionalidade de classificação de texto** suporta **apenas inglês**, e ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser considerado como inapropriado, dependendo de contexto. Para além de conveying a probabilidade de cada categoria, este poderá recomendar uma revisão humana do conteúdo. A funcionalidade utiliza um modelo preparado para identificar possíveis idioma abusivo, derogatory ou discriminatory. Isto inclui slang, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
+Moderator conteúdo da máquina assistida **funcionalidade de classificação de texto** suporta **apenas inglês**, e ajuda a detetar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequadas, dependendo de contexto. Transmite a probabilidade de cada categoria e poderá recomendar uma revisão humana. A funcionalidade utiliza um modelo preparado para identificar possíveis idioma abusivo, derogatory ou discriminatory. Isto inclui slang, abreviadas palavras, palavras ofensivas e intencionalmente com erros ortográficos para revisão. 
 
 O extrair no extrair JSON seguinte mostra um exemplo de saída:
-
-> [!NOTE]
-> A funcionalidade de 'Classificação' assistida por máquina está em pré-visualização.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ O extrair no extrair JSON seguinte mostra um exemplo de saída:
 
 ### <a name="explanation"></a>Explicação
 
-- `Category1` representa a presença potencial de idioma que pode ser considerada sexually explícita ou para adultos em determinadas situações.
-- `Category2` representa a presença potencial de idioma que pode ser considerada sexually suggestive ou madura em determinadas situações.
-- `Category3` representa a presença potencial de idioma que pode ser considerada ofensiva em determinadas situações.
+- `Category1` refere-se à presença de potencial de idioma que pode ser considerada sexually explícita ou para adultos em determinadas situações.
+- `Category2` refere-se à presença de potencial de idioma que pode ser considerada sexually suggestive ou madura em determinadas situações.
+- `Category3` refere-se à presença de potencial de idioma que pode ser considerada ofensiva em determinadas situações.
 - `Score` está entre 0 e 1. Quanto maior for a classificação, quanto maior for o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo de análises, em vez de resultados manualmente codificados. Recomendamos que teste com o seus próprios conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
 - `ReviewRecommended` é true ou false, dependendo do modelo de pontuação interno limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base nas políticas os respetivos conteúdas.
 
@@ -151,7 +146,7 @@ Se lhe pedir correção automática, a resposta contém a versão corrigida do t
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Criar e gerir a sua listas personalizadas dos termos de licenciamento
 
-Apesar do predefinido, uma lista global dos termos funciona muito bem para a maioria dos casos, poderá querer ecrã contra termos específicos para as suas necessidades de negócio. Por exemplo, poderá filtrar quaisquer competitivos nomes de marca de publicações pelos utilizadores. O limiar de conteúdo permitido texto pode ser diferente da lista predefinida.
+Apesar do predefinido, uma lista global dos termos funciona muito bem para a maioria dos casos, poderá querer ecrã contra termos específicos para as suas necessidades de negócio. Por exemplo, poderá filtrar quaisquer competitivos nomes de marca de publicações pelos utilizadores.
 
 > [!NOTE]
 > Há um limite máximo de **apresenta uma lista de 5 termo** com cada lista para **não pode exceder 10 000 termos**.

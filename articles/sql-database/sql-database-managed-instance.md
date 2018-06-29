@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054658"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082510"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -210,7 +210,7 @@ Gerido vantagens de instância de ser sempre-cópia de segurança-para-data na n
 - Gerido instância não permite a especificação de caminhos físicos completa para todos os cenários correspondentes tem de ser suportado de forma diferente: restaurar a base de dados não suporta com mover, criar a base de dados permite que os caminhos físicos, BULK INSERT funciona com Blobs do Azure apenas, etc. 
 - Gerido suporta instância [autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de nuvem para a autenticação do Windows. 
 - Instância gerida gere automaticamente XTP grupo de ficheiros e ficheiros de bases de dados que contém objetos de OLTP na memória
-- Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena pacotes SSIS, mas são executados num gerido Azure SSIS integração tempo de execução (IR) na fábrica de dados do Azure (ADF), consulte [criar Azure SSIS IR no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena pacotes SSIS, mas são executados num gerido Azure SSIS integração tempo de execução (IR) na fábrica de dados do Azure (ADF), consulte [criar Azure SSIS IR no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar as funcionalidades SSIS na base de dados do SQL Server e instância geridos, consulte [comparar a base de dados do SQL Server e instância geridos (pré-visualização)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas  
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 806ebe80ad49f2f908bf46549bb4abc533a6d516
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936705"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085094"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Fluxo registos de diagnóstico do Azure para um hub de eventos
 **[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportar para os Event Hubs" incorporada no Portal ou ativar o ID da regra de autorização de Hub de eventos na definição de diagnóstico através do Azure Cmdlets do PowerShell ou do Azure CLI 2.0.
@@ -41,7 +41,7 @@ Seguem-se apenas algumas formas poderá utilizar a capacidade de transmissão em
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Ative a transmissão em fluxo de registos de diagnóstico
 
-Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou um espaço de nomes de Event Hubs e as categorias de registo e métricas que pretende enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativar. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
+Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou um espaço de nomes de Event Hubs e as categorias de registo e métricas que pretende enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativar. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
 
 > [!WARNING]
 > Ativar e os registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou Service Fabric) de transmissão em fluxo [requer um conjunto diferente de passos](../event-hubs/event-hubs-streaming-azure-diags-data.md).

@@ -1,27 +1,27 @@
 ---
-title: Resolver problemas de verificação em dois passos | Microsoft Docs
+title: Resolver problemas de verificação de dois passos - do Azure AD | Microsoft Docs
 description: Este documento irá fornecer as aos utilizadores informações sobre o que fazer se executam para um problema com o Azure multi-factor Authentication.
 services: multi-factor-authentication
 keywords: cliente de autenticação multifator, problema de autenticação, ID de correlação
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e207a51b06563b38a85df47b0bac75293cccf040
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792264"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102554"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda para a verificação de dois passos
 Este artigo responde as perguntas mais comuns que pessoas colocar sobre verificação de dois passos.
@@ -46,7 +46,7 @@ Alguns dias a manter o telemóvel em casa, mas ainda tem de iniciar sessão no t
 3. Selecione a opção de verificação que pretende utilizar.
 4. Continue com a verificação de dois passos.
 
-Se não vir o **utilizar outra opção de verificação** ligar, em seguida, o que significa que não foi configurado a métodos alternativos quando se registou primeiro para a verificação de dois passos. Contacte o suporte da empresa para obter ajuda o início de sessão na sua conta. Assim que tem sessão iniciada, certifique-se de que [gerir as suas definições](multi-factor-authentication-end-user-manage-settings.md) para adicionar métodos de verificação adicional para a próxima vez.
+Se não vir o **utilizar outra opção de verificação** ligar, em seguida, o que significa que não foi configurado a métodos alternativos quando se registou primeiro para a verificação de dois passos. Contacte o suporte da empresa para obter ajuda o início de sessão na sua conta. Assim que tem sessão iniciada, certifique-se de que [gerir as suas definições](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) para adicionar métodos de verificação adicional para a próxima vez.
 
 Se vir o **utilizar outra opção de verificação** ligação, mas não tem acesso às suas métodos alternativos ambos, contacte o suporte da sua empresa para obter ajuda o início de sessão na sua conta.
 
@@ -66,10 +66,10 @@ Para iniciar sessão utilizando o número de telefone alternativo, siga estes pa
    ![Verificação diferente](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Selecione o número de telefone ou dispositivo que tenha acesso.
-4. Depois de estiver novamente na sua conta, [gerir as suas definições](multi-factor-authentication-end-user-manage-settings.md) para alterar o número de telefone de autenticação.
+4. Depois de estiver novamente na sua conta, [gerir as suas definições](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) para alterar o número de telefone de autenticação.
 
 ### <a name="clear-your-settings"></a>Limpar as definições
-Se não tiver configurado um número de telefone de autenticação secundária, terá de contactar o suporte da empresa para obter ajuda. Limpar este que as definições da próxima vez que iniciar sessão, será solicitado para [registar para a verificação de dois passos](multi-factor-authentication-end-user-first-time.md) novamente.
+Se não tiver configurado um número de telefone de autenticação secundária, terá de contactar o suporte da empresa para obter ajuda. Limpar este que as definições da próxima vez que iniciar sessão, será solicitado para [registar para a verificação de dois passos](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) novamente.
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Posso não estou a receber um texto ou chamada no meu telefone
 Existem vários motivos por que razão pode tentar iniciar sessão, mas não receber o texto ou chamada telefónica. Se tiver recebido com êxito textos ou chamadas telefónicas para o seu telefone no passado, em seguida, isto é provavelmente um problema com o fornecedor de telefone, não a sua conta. Certifique-se de que tem o sinal de célula bom e, se estiver a tentar receber uma mensagem de texto certifique-se de que é capaz de receber mensagens de texto. Peça um friend para chamar o texto ou utilizador, como um teste.
@@ -83,16 +83,16 @@ Se tiver aguardaram alguns minutos até um texto ou chamada, é a forma mais rá
 
     Se recebeu vários códigos de verificação, utilize o mais recente.
 
-Se não tiver outro método configurado, contacte o suporte da empresa e peça-lhes para limpar as definições. Da próxima vez que iniciar sessão, será solicitado para [configurar a autenticação multifator](multi-factor-authentication-end-user-first-time.md) novamente.
+Se não tiver outro método configurado, contacte o suporte da empresa e peça-lhes para limpar as definições. Da próxima vez que iniciar sessão, será solicitado para [configurar a autenticação multifator](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) novamente.
 
-Se tiver, muitas vezes, os atrasos devido a sinal de célula incorreto, recomendamos que utilize o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) no smartphone. A aplicação pode gerar códigos de segurança aleatório que utiliza para iniciar sessão e estes códigos não requerem qualquer ligação de sinal ou de internet de célula.
+Se tiver, muitas vezes, os atrasos devido a sinal de célula incorreto, recomendamos que utilize o [aplicação Microsoft Authenticator](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md) no smartphone. A aplicação pode gerar códigos de segurança aleatório que utiliza para iniciar sessão e estes códigos não requerem qualquer ligação de sinal ou de internet de célula.
 
 ## <a name="app-passwords-are-not-working"></a>As palavras-passe de aplicação não estão a funcionar
-Em primeiro lugar, certifique-se de que introduziu a palavra-passe de aplicação corretamente. A palavra-passe de aplicação gerados substitui o normal palavra-passe, mas apenas aplicações de ambiente de trabalho mais antigas que não suportam a verificação em dois passos. Se esta ainda não está a funcionar, experimente iniciar sessão e [criar uma nova palavra-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md).  Se ainda não funciona, contacte o suporte da empresa e os [eliminar as palavras-passe de aplicação existentes](../../active-directory/authentication/howto-mfa-userdevicesettings.md) e, em seguida, pode criar um novo.
+Em primeiro lugar, certifique-se de que introduziu a palavra-passe de aplicação corretamente. A palavra-passe de aplicação gerados substitui o normal palavra-passe, mas apenas aplicações de ambiente de trabalho mais antigas que não suportam a verificação em dois passos. Se esta ainda não está a funcionar, experimente iniciar sessão e [criar uma nova palavra-passe de aplicação](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md).  Se ainda não funciona, contacte o suporte da empresa e os [eliminar as palavras-passe de aplicação existentes](../../active-directory/authentication/howto-mfa-userdevicesettings.md) e, em seguida, pode criar um novo.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrar o meu problema uma resposta.
 Se tiver já tentou estes passos de resolução de problemas, mas é continuam a executar para problemas, contacte o suporte da empresa. Poderão ajudá-lo.
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Gerir as definições de verificação em dois passos](multi-factor-authentication-end-user-manage-settings.md)  
-* [FAQ acerca da aplicação Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [Gerir as definições de verificação em dois passos](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md)  
+* [FAQ acerca da aplicação Microsoft Authenticator](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md)

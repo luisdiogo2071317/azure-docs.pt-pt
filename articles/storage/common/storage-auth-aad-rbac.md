@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661014"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082235"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerir direitos de acesso aos dados de armazenamento do Azure com o RBAC (pré-visualização)
 
@@ -61,7 +61,7 @@ As secções seguintes mostram como atribuir uma função no âmbito da conta de
 
 Para atribuir uma função incorporada conceder acesso a todos os contentores ou filas na conta do storage no portal do Azure:
 
-1. No [portal do Azure](https://azure.portal.com/), navegue até à sua conta de armazenamento.
+1. No [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento.
 2. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Clique em de **adicionar** botão para adicionar uma nova função.
 
     ![Captura de ecrã que mostra as definições de controlo de acesso de armazenamento](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Para atribuir uma função incorporada conceder acesso a todos os contentores ou
 
 Os passos para atribuir uma função incorporada no âmbito para um contentor ou para uma fila são semelhantes. O procedimento apresentado aqui atribui uma função no âmbito de um contentor, mas pode seguir os mesmos passos para atribuir uma função no âmbito de uma fila: 
 
-1. No [portal do Azure](https://azure.portal.com/), navegue até à sua conta de armazenamento e apresentar o **descrição geral** para a conta.
+1. No [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento e apresentar o **descrição geral** para a conta.
 2. Em serviço Blob, selecione **procurar Blobs**. 
 3. Localize o contentor para o qual pretende atribuir uma função e visualizar as configurações do contentor. 
 4. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor.

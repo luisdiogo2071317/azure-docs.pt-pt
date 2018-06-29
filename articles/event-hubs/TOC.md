@@ -36,6 +36,8 @@
 ### [Utilizar o Apache Flink com os Hubs de Eventos para o ecossistema Kafka](event-hubs-kafka-flink-tutorial.md)
 ### [Utilizar o Akka Streams com os Hubs de Eventos para o ecossistema Kafka](event-hubs-kafka-akka-streams-tutorial.md)
 ## Programar
+### [Filtros de ligação do IP](event-hubs-ip-filtering.md)
+### [Pontos finais de serviço de Rede Virtual](event-hubs-service-endpoints.md)
 ### [Enviar eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receber eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [APIs disponíveis](event-hubs-api-overview.md)

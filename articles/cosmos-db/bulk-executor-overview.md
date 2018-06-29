@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304431"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096181"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB em massa executor descrição geral da biblioteca
  
@@ -33,7 +33,7 @@ A biblioteca de executor em massa ajuda-o a tirar partido do débito intenso e o
  
 * Esta opção reduz significativamente os recursos de computação do lado do cliente necessários para sob saturar ao débito atribuído a um contentor. Uma única aplicação threading escreve dados utilizando que a API de importação em massa distribui 10 vezes o débito de escrita superior quando comparado com uma aplicação multi-thread que escreve dados em paralelo, ao saturating o cliente de CPU da máquina.  
 
-* Deduz, ausente, as tarefas tedious de escrever a lógica de aplicação para processar o pedido de limitação, tempos limite de pedido e outras exceções transitórias pelo processamento-los de forma eficiente na biblioteca.  
+* Deduz, ausente, as tarefas tedious de escrever a lógica de aplicação para processar a limitação de taxa de pedidos, tempos limite de pedido e outras exceções transitórias pelo processamento-los de forma eficiente na biblioteca.  
 
 * Fornece um mecanismo simplificado para aplicações efetuar operações em massa aumentar horizontalmente. Uma instância de executor em massa única em execução numa VM do Azure pode consumir maior do que 500 mil RU/s e pode conseguir uma taxa de débito superior, adicionando instâncias adicionais no cliente individuais VMs.  
  
@@ -47,7 +47,7 @@ Quando é acionada uma operação em massa para importar ou atualizar documentos
 
 ![Arquitetura de executor em massa](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-A biblioteca de Executor em massa certifica-se utilizar maximally o débito atribuído a uma coleção. Utiliza um [mecanismo de controlo de congestionamento do estilo AIMD](https://tools.ietf.org/html/rfc5681) para cada base de dados do Azure Cosmos particionar o intervalo de chaves de forma eficiente processar limitação e tempos limite. 
+A biblioteca de Executor em massa certifica-se utilizar maximally o débito atribuído a uma coleção. Utiliza um [mecanismo de controlo de congestionamento do estilo AIMD](https://tools.ietf.org/html/rfc5681) para cada base de dados do Azure Cosmos intervalo de chaves para processar de forma eficiente limitação de taxa e tempos limite de partição. 
 
 ## <a name="next-steps"></a>Próximos Passos 
   

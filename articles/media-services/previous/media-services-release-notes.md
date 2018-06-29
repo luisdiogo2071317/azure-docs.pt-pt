@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1a874e31c05d287522810782f743d389c86dbe27
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018543"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098928"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.
@@ -366,7 +366,7 @@ Foram efetuadas as seguintes correções de erros para a Packager de serviços d
 
 ## <a id="may_changes_14"></a>Versão de Maio de 2014
 ### <a id="may_14_changes"></a>Serviços de suporte de dados gerais de atualizações
-Agora, pode utilizar [empacotamento dinâmico] fluxo HLS versão 3. Para HLS versão de fluxo de 3, adicione o seguinte formato para o caminho de localização de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, consulte [este blogue](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+Agora, pode utilizar [empacotamento dinâmico] fluxo HLS versão 3. Para HLS versão de fluxo de 3, adicione o seguinte formato para o caminho de localização de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, consulte [neste fórum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Empacotamento dinâmico agora também suporta HLS (versão 3 e versão 4) encriptado com PlayReady com base na transmissão em fluxo uniforme estaticamente encriptado com PlayReady de entrega. Para obter informações sobre como encriptar a transmissão em fluxo uniforme com PlayReady, consulte [proteger transmissão em fluxo uniforme com PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 

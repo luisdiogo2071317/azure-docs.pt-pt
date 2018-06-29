@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308460"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084965"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -40,7 +40,7 @@ A tabela seguinte compara as ERT e o RPO para cada camada de serviço para os tr
 
 Base de dados do SQL Server efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanal, numa base horária cópias de segurança de base de dados diferencial e transações no registo de cópias de segurança de todos os cinco - dez minutos para proteger a sua empresa contra perda de dados. Se estiver a utilizar o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md), em seguida, estas cópias de segurança são armazenadas no armazenamento RA-GRS para 35 dias para bases de dados nos escalões de serviço Standard e Premium e para as bases de dados na camada de serviço básico de 7 dias. Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-single-database-scale.md). Se estiver a utilizar o [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md), a retenção de cópias de segurança é configurável cópias de segurança para 35 dias nos escalões de crítico de negócio e fins gerais. As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
 
-Se o período de retenção PITR suportado máximo não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (imediatamente disponíveis) longo prazo para as bases de dados. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
+Se o máximo suportado ponto no tempo restaurar (PITR) período de retenção não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (imediatamente disponíveis) longo prazo para as bases de dados. Para obter mais informações, consulte [cópias de segurança automatizada](sql-database-automated-backups.md) e [retenção de cópias de segurança de longa duração](sql-database-long-term-retention.md).
 
 Pode utilizar estas cópias de segurança automáticas da base de dados para recuperar uma base de dados após vários eventos problemáticos, tanto no seu centro de dados como para outro centro de dados. Ao utilizar cópias de segurança automáticas de bases de dados, o tempo estimado de recuperação depende de vários fatores, incluindo o número total de bases de dados a recuperar na mesma região ao mesmo tempo, o tamanho da base de dados, o tamanho do registo de transações e a largura de banda de rede. O tempo de recuperação é, normalmente, menos de 12 horas. Pode demorar mais longo para recuperar uma base de dados muito grande ou Active Directory. Para obter mais detalhes sobre a hora da recuperação, consulte [hora da recuperação de base de dados](sql-database-recovery-using-backups.md#recovery-time). Ao recuperar para outra região de dados, a potencial perda de dados está limitada a 1 hora pelo armazenamento georredundante de cópias de segurança de bases de dados diferenciais de hora a hora.
 

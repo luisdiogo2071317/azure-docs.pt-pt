@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062284"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083197"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Descrição das políticas de atualização diferentes
-
-- **Dinâmica** – alterações a uma configuração dinâmica não fazer com que os reinícios do processo de processos do Service Fabric ou os processos de anfitrião do serviço. 
-- **Estático** – alterações a uma configuração estática fará com que o nó de Service Fabric reiniciar para poder consumir a alteração. Serviços em nós serão reiniciados.
-- **NotAllowed** – estas definições não podem ser modificadas. Alterar estas definições requer que o cluster ser destruída e um novo cluster que criou. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
 Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
 
 > [!NOTE]
 > Nem todas as definições estão disponíveis no portal. No caso de uma definição listada abaixo não está disponível através do portal de personalizá-lo a utilizar um modelo Azure Resource Manager.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Descrição das políticas de atualização diferentes
+
+- **Dinâmica** – alterações a uma configuração dinâmica não fazer com que os reinícios do processo de processos do Service Fabric ou os processos de anfitrião do serviço. 
+- **Estático** – alterações a uma configuração estática fará com que o nó de Service Fabric reiniciar para poder consumir a alteração. Serviços em nós serão reiniciados.
+- **NotAllowed** – estas definições não podem ser modificadas. Alterar estas definições requer que o cluster ser destruída e um novo cluster que criou. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalizar as definições de cluster através de modelos do Resource Manager
 Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção.

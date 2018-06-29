@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 634cecb247686afd8c5c749d6e28b301d7e07c4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263512"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083979"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmitir os registos de diagnóstico do Azure ao Log Analytics
 
@@ -30,7 +30,7 @@ Análise de registos do Azure é uma ferramenta de pesquisa e a análise de regi
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Ative a transmissão em fluxo de registos de diagnóstico ao Log Analytics
 
-Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou uma área de trabalho de análise de registos e as categorias de registo e métricas que pretende enviar para essa área de trabalho. Um diagnóstico **categoria de registo** é um tipo de registo que pode fornecer um recurso.
+Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou uma área de trabalho de análise de registos e as categorias de registo e métricas que pretende enviar para essa área de trabalho. Um diagnóstico **categoria de registo** é um tipo de registo que pode fornecer um recurso.
 
 A área de trabalho de análise de registos não tem de estar na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 

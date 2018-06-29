@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613987"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102475"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
 3. **Otimização ConnectionPolicy**
 
-    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST ao utilizar o SDK de Java Async e estão sujeitos ao tamanho predefinido do conjunto de ligação máximo (1000). Este valor predefinido deve ser o ideal para a maioria dos casos de utilização. No entanto, no caso de ter uma coleção com várias partições muito grande, pode definir o tamanho do conjunto de ligação máximo para um grande número (indiquem, 1500) utilizando setMaxPoolSize.
+    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST ao utilizar o SDK de Java Async e estão sujeitos ao tamanho predefinido do conjunto de ligação máximo (1000). Este valor predefinido deve ser o ideal para a maioria dos casos de utilização. No entanto, no caso de ter uma coleção grande com várias partições, que pode definir o tamanho do conjunto de ligação máximo para um grande número (indiquem, 1500) utilizando setMaxPoolSize.
 
 4. **Otimizar as consultas paralelas para coleções particionadas**
 
@@ -83,11 +83,11 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Também pode definir o tamanho de página utilizando o método setMaxItemCount.
     
-9. **Utilizar o programador adequado (evite roubarem os threads Eventloop Netty de e/s)**
+9. **Utilizar o programador adequado (evite roubarem os threads Netty de e/s do ciclo de eventos)**
 
-    Utiliza o SDK de Java Async [netty](https://netty.io/) para e/s não bloquear. O SDK utiliza um número fixo de threads de netty eventloop de e/s (tantos núcleos de CPU sua máquina ter) para executar operações de e/s. Observable devolvido pela API emite o resultado do partilhado e/s eventloop netty de threads. Por isso, é importante não bloqueia o partilhado e/s eventloop netty de threads. Efetuar o trabalho intensiva de CPU ou bloquear a operação no thread netty eventloop de e/s pode causar um impasse ou reduzir significativamente o débito SDK.
+    Utiliza o SDK de Java Async [netty](https://netty.io/) para e/s não bloquear. O SDK utiliza um número fixo de threads de ciclo de eventos netty de e/s (tantos núcleos de CPU sua máquina ter) para executar operações de e/s. Observable devolvido pela API emite o resultado dos partilhado e/s eventos ciclo netty threads. Por isso, é importante bloquear não partilhados e/s eventos ciclo netty threads. Efetuar o trabalho intensiva de CPU ou bloquear a operação no thread de netty do ciclo de eventos de e/s pode causar um impasse ou reduzir significativamente o débito SDK.
 
-    Por exemplo o código seguinte executa um trabalho exigente em termos de cpu num thread netty eventloop de e/s:
+    Por exemplo o código seguinte executa um trabalho exigente em termos de cpu num thread netty de e/s no ciclo de eventos:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
       });
     ```
 
-    Depois do resultado é recebido, se pretender realizar o trabalho intensiva de CPU no resultado que deve evitar a fazer outros eventloop e/s netty thread. Em vez disso, pode fornecer o suas próprias programador para fornecer a suas próprias thread para executar o seu trabalho.
+    Depois do resultado é recebido, se pretender fazer consumo intensivo da CPU de trabalho no resultado deve evitar fazer thread netty de e/s do ciclo de eventos de outros. Em vez disso, pode fornecer o suas próprias programador para fornecer a suas próprias thread para executar o seu trabalho.
 
     ```java
     import rx.schedulers;
@@ -132,7 +132,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **Abra OS ficheiros de limite de recursos** sistemas Linux algumas (por exemplo, a VM de Redhat) tem um limite superior no número de abrir ficheiros e, para o número total de ligações. Execute o seguinte para ver os limites atuais:
+11. **Abra OS ficheiros de limite de recursos** sistemas Linux algumas (como Red Hat) tem um limite superior no número de abrir ficheiros e, para o número total de ligações. Execute o seguinte para ver os limites atuais:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     </dependency>
     ```
 
-Para outras plataformas (VM de Redhat, Windows, Mac, etc.), consulte a estas instruções https://netty.io/wiki/forked-tomcat-native.html
+Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte a estas instruções https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Política de Indexação
  
@@ -209,7 +209,7 @@ Para outras plataformas (VM de Redhat, Windows, Mac, etc.), consulte a estas ins
     response.getRequestCharge();
     ```             
 
-    A taxa de pedido devolvida neste cabeçalho é fração do seu débito aprovisionado. Por exemplo, se tiver 2000 RU/s aprovisionada e se a consulta anterior devolve 1000 1KB-documentos, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes dos pedidos subsequentes de limitação. Para obter mais informações, consulte [unidades de pedido](request-units.md) e [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
+    A taxa de pedido devolvida neste cabeçalho é fração do seu débito aprovisionado. Por exemplo, se tiver 2000 RU/s aprovisionada e se a consulta anterior devolve 1000 1KB-documentos, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes de taxa de limitação de pedidos subsequentes. Para obter mais informações, consulte [unidades de pedido](request-units.md) e [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Taxa de pedidos/limitação de taxa de identificador demasiado grande**
 

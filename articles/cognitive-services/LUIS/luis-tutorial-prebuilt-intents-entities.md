@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266384"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085502"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Utilizar pendentes prebuilt e entidades para processar dados e pendentes comuns
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Adicionar intenções e entidades pré-concebidas
 Adicione pendentes prebuilt e entidades para a aplicação de início rápido de recursos humanos para obter rapidamente intenção extração de dados e de predição. 
 
 Neste tutorial, ficará a saber como:
@@ -28,16 +28,16 @@ Neste tutorial, ficará a saber como:
 * Consultar LUIS e receber a resposta de predição
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de recursos humanos do [domínio personalizado](luis-quickstart-intents-only.md) início rápido, [importar](create-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS] [ LUIS] Web site , do [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) repositório do Github.
+Se não tiver o [recursos humanos](luis-quickstart-intents-only.md) aplicação a partir do tutorial anterior, [importar](create-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site, do [LUIS-Samples ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Repositório do Github.
 
-Se pretender manter a aplicação de recursos humanos original, clonar a versão no [definições](luis-how-to-manage-versions.md#clone-a-version) página e dê-lhe nome `prebuilts`. A clonagem é uma excelente forma de reproduzir com várias funcionalidades LUIS sem afetar a versão original. 
+Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `prebuilts`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="add-prebuilt-intents"></a>Adicionar prebuilt pendentes
 LUIS fornece várias pendentes prebuilt para o ajudar com intenções comum do utilizador.  
 
-1. Certifique-se a aplicação fica no **criar** secção LUIS. Pode alterar para esta secção selecionando **criar** na parte superior, com o botão direito barra de menus. 
+1. Certifique-se a aplicação fica no **criar** secção LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
 
-    [ ![Aplicação de captura de ecrã de LUIS com hightlighted de compilação na barra de navegação superior, à direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selecione **adicionar intenção de domínio prebuilt**. 
 
@@ -71,20 +71,20 @@ LUIS fornece várias entidades prebuilt para extração de dados comuns.
     ![Captura de ecrã do selecione número na caixa de diálogo de entidades prebuilt](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Dar formação e publicar a aplicação
-1. No lado direito superior do Web site LUIS, selecione o **formação** botão. 
+1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar). 
 
     ![Botão de formação](./media/luis-quickstart-intents-only/train-button.png)
 
-    Formação está concluída quando for apresentada a barra de estado verde na parte superior do Web site confirmar o êxito.
+    A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
     ![Na barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
 
-2. Na parte superior, lado direito do Web site LUIS, selecione o **publicar** botão para abrir a página de publicar. A ranhura de produção está selecionada por predefinição. Selecione o **publicar** botão pela escolha da ranhura de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do Web site confirmar o êxito.
+2. Na parte superior, lado direito do Web site LUIS, selecione o **publicar** botão para abrir a página de publicar. A ranhura de produção está selecionada por predefinição. Selecione o **publicar** botão pela escolha da ranhura de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
     Não é necessário que criar uma chave de LUIS no portal do Azure antes de publicar ou antes de testar o URL de ponto final. Todas as aplicações de LUIS tem uma chave de arranque livre para a criação. Proporciona a criação ilimitados e um [alguns pedidos de ponto final](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Ponto final de consulta com um utterance
-No **publicar** página, selecione o **endpoint** ligação na parte inferior da página. Esta ação abre outra janela do browser com o URL de ponto final na barra de endereço. Vá para o final do URL o endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, o utterance **consulta**. 
+Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, o utterance **consulta**. 
 
 O resultado prever a intenção de Utilities.Cancel e extraiu a data 3 de Março e o número 3. 
 
@@ -165,10 +165,8 @@ O resultado prever a intenção de Utilities.Cancel e extraiu a data 3 de Março
 
 Adicionando mais rápida e facilmente pendentes prebuilt e entidades, a aplicação cliente pode adicionar a gestão de conversação e extrair os tipos de dados comuns. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre entidades](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Adicionar uma entidade de expressão regular para a aplicação](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

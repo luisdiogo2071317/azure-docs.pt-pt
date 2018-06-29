@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098010"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto utilizando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -94,7 +95,7 @@ Siga os passos no [introdução ao Azure multi-factor Authentication na nuvem](h
 ### <a name="configure-accounts-for-two-step-verification"></a>Configurar contas para verificação de dois passos
 Depois de uma conta tiver sido ativada para a MFA, não é possível iniciar sessão no recursos regidos pela política da MFA, até que configurou com êxito um dispositivo fidedigno para utilizar para o segundo fator de autenticação e ter autenticado utilizando a verificação de dois passos.
 
-Siga os passos no [que Azure multi-factor Authentication significa para mim?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) para compreender e configurar corretamente os seus dispositivos para a MFA com a sua conta de utilizador.
+Siga os passos no [que Azure multi-factor Authentication significa para mim?](end-user/current/multi-factor-authentication-end-user.md) para compreender e configurar corretamente os seus dispositivos para a MFA com a sua conta de utilizador.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalar e configurar a extensão NPS
 Esta secção fornece instruções para configurar a infraestrutura RDS para utilizar o MFA do Azure para a autenticação de cliente com o Gateway de ambiente de trabalho remoto.

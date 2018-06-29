@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6cdcfbf16f77525d6cee2085fdde9fdd630027e3
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018460"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096684"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para o processamento em segundo plano condicionada por eventos
 
@@ -48,6 +48,9 @@ public static void Run(
 
 As instruções indicam como criar um projeto de 2. x do SDK de WebJobs versão, com notas sobre o que é diferente para 3 (em pré-visualização). A alteração principal que foi introduzida pela 3 é a utilização do .NET Core em vez do .NET Framework.
 
+> [!NOTE]
+> 3 está em pré-visualização e está em desenvolvimento e as instruções de 3 neste artigo estão Desatualizadas. Para informações mais recentes, consulte os problemas do GitHub na parte inferior da página.
+
 ### <a name="azure-functions"></a>Funções do Azure
 
 [As funções do Azure](../azure-functions/functions-overview.md) baseiam o SDK de WebJobs e é uma opção quando não precisa de utilizar o SDK de WebJobs diretamente. Azure funções 1. x utiliza o SDK de WebJobs 2. x. Para obter mais informações, consulte [comparação entre as funções do Azure e o SDK de WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
@@ -68,7 +71,7 @@ Este artigo pressupõe que tem [uma conta do Azure](https://azure.microsoft.com/
    Para criar um projeto de 3, selecione **.NET Core > aplicação de consola (.NET Core)**.
    
    > [!NOTE]
-   > 3 ainda está em pré-visualização e está em desenvolvimento. As instruções de 3 neste artigo estão incompletas; Para informações mais recentes, consulte os problemas do GitHub na parte inferior da página.
+   > 3 está em pré-visualização e está em desenvolvimento e as instruções de 3 neste artigo estão Desatualizadas. Para informações mais recentes, consulte os problemas do GitHub na parte inferior da página.
 
 3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **OK**.
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 26b9271744d7be45c2a879fde3bb3fb5d6049a3b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054726"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083790"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade para executar o pacote de SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS num pipeline do Azure Data Factory através da utilização de uma atividade de executar o pacote de SSIS. 
@@ -174,7 +174,7 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Atualmente, o Data Factory permite-lhe criar fábricas de dados apenas na EUA leste, US2 leste, Europa Ocidental e Sudeste asiático regiões. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure na qual a fábrica de dados está atualmente disponível, selecione as regiões que o seu interesse na página seguinte e, em seguida, expanda **análise** localizar **Data Factory**: [ Os produtos por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Criar um pipeline com uma atividade SSIS 
 Neste passo, vai criar um pipeline com uma atividade SSIS. A atividade é executado o pacote SSIS. 

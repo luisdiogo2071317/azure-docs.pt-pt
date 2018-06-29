@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715025"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096938"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -200,7 +200,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
          }
     ```             
 
-    A taxa de pedido devolvida neste cabeçalho é fração do seu débito aprovisionado (ou seja, de 2000 RUs / segundo). Por exemplo, se a consulta anterior devolve 1000 1KB-documentos, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes dos pedidos subsequentes de limitação. Para obter mais informações, consulte [unidades de pedido](request-units.md) e [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
+    A taxa de pedido devolvida neste cabeçalho é fração do seu débito aprovisionado (ou seja, de 2000 RUs / segundo). Por exemplo, se a consulta anterior devolve 1000 1KB-documentos, o custo da operação é 1000. Como tal, dentro de um segundo, o servidor honra apenas dois esses pedidos antes de taxa de limitação de pedidos subsequentes. Para obter mais informações, consulte [unidades de pedido](request-units.md) e [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Taxa de pedidos/limitação de taxa de identificador demasiado grande**
 

@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 135c789dc6e41e07bb939ece679756c8c42de2d1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261020"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085288"
 ---
 # <a name="approvals"></a>Aprovações
 
@@ -44,23 +45,23 @@ A pré-visualização privada suporta os seguintes cenários:
 
 -   [Especifique o aprovador utilizadores e/ou grupos para aprovar pedidos](#specify-approver-users-and/or-groups-to-approve-requests)
 
--   [Ver o histórico do pedido e aprovação para funções com todos os privilégios](#view-request-and-approval-history-for-all-privileged-roles)
+-   [ver o histórico do pedido e aprovação para funções com todos os privilégios](#view-request-and-approval-history-for-all-privileged-roles)
 
 **Como um aprovador designado, pode:**
 
 -   [Ver pendentes aprovações (pedidos)](#view-pending-approvals-requests)
 
--   [Aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [aprovar ou rejeitar pedidos de elevação de função (único e/ou em massa)](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [Fornecer a justificação para os meus aprovação/rejeição](#provide-justification-for-my-approval/rejection) 
+-   [fornecer a justificação para os meus aprovação/rejeição](#provide-justification-for-my-approval/rejection) 
 
 **Como função de utilizador elegível, pode:**
 
--   [Ativação de uma função que requeira a aprovação do pedido](#request-activation-of-a-role-that-requires-approval)
+-   [pedir a ativação de uma função que necessita de aprovação](#request-activation-of-a-role-that-requires-approval)
 
--   [Ver o estado do seu pedido para ativar](#view-the-status-of-your-request-to-activate)
+-   [ver o estado do seu pedido para ativar](#view-the-status-of-your-request-to-activate)
 
--   [Concluir a tarefa no Azure AD, se foi aprovada a ativação](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [concluir a tarefa no Azure AD, se foi aprovada a ativação](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Navegação
 

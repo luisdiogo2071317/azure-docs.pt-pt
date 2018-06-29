@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 11335079373b627bab923f63eda148b0a74307ea
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938445"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100526"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -97,9 +97,9 @@ Leia este artigo sobre [identidades externas](../active-directory/active-directo
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Os relatórios e funcionalidades de auditoria do Azure AD B2C fornece? São os mesmos que no Azure AD Premium?
 Não, o Azure AD B2C não suporta o mesmo conjunto de relatórios como o Azure AD Premium. No entanto, existem muitas commonalities:
 
-* **Início de sessão relatórios** só estão disponíveis no portal do Azure (Azure Active Directory > atividade > inícios de sessão) e não estão disponíveis através da API de gráfico. Fornecem um registo de cada início de sessão com detalhes reduzidos.
-* **Relatórios de auditoria** só estão disponíveis no portal do Azure (Azure Active Directory > atividade > registos de auditoria) e não estão disponíveis através da API de gráfico. Incluem de atividade de administrador, bem como a atividade das aplicações. 
-* **Relatórios de utilização** só estão disponíveis através do [API de relatórios de utilização](active-directory-b2c-reference-usage-reporting-api.md) e não estão disponíveis através do portal do Azure. Estes incluem-se ao número de utilizadores, número de inícios de sessão e o volume do MFA. 
+* **Início de sessão relatórios** fornecer um registo de cada início de sessão com detalhes reduzidos.
+* **Relatórios de auditoria** incluir tanto atividade de administrador, bem como a atividade das aplicações. 
+* **Relatórios de utilização** incluem o número de utilizadores, número de inícios de sessão e o volume do MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a IU de páginas servidos pelo Azure AD B2C? Que idiomas são suportados?
 Sim!  Leia sobre [personalização de idioma](active-directory-b2c-reference-language-customization.md), que se encontra na pré-visualização pública.  Fornecemos traduções para 36 idiomas e pode substituir qualquer cadeia de acordo com as suas necessidades.

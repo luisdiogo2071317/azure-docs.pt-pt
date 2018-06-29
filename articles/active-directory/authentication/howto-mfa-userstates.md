@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866896"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099614"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Como requerer a verificação de dois passos para um utilizador ou grupo
 
@@ -71,7 +71,7 @@ Utilize os seguintes passos para aceder à página onde pode ver e gerir os Esta
 
 5. Confirme a sua selecção na janela de pop-up que é aberta. 
 
-Depois de ativar os utilizadores, notificá-los por correio eletrónico. Informe-o de que irá ser pedidos para registar da próxima vez que iniciar sessão. Além disso, se a organização utilizar aplicações não baseadas no browser que não suportem a autenticação moderna, precisam de criar palavras-passe de aplicação. Também pode incluir uma ligação para o [Guia do utilizador final do MFA do Azure](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) para ajudar a começar a utilizar.
+Depois de ativar os utilizadores, notificá-los por correio eletrónico. Informe-o de que irá ser pedidos para registar da próxima vez que iniciar sessão. Além disso, se a organização utilizar aplicações não baseadas no browser que não suportem a autenticação moderna, precisam de criar palavras-passe de aplicação. Também pode incluir uma ligação para o [Guia do utilizador final do MFA do Azure](end-user/current/multi-factor-authentication-end-user.md) para ajudar a começar a utilizar.
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 Para alterar o estado do utilizador utilizando [Azure AD PowerShell](/powershell/azure/overview), alterar `$st.State`. Existem três Estados possíveis:

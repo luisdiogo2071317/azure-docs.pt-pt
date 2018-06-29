@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725096"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096514"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI com o controlador ODBC
 
@@ -63,7 +63,7 @@ Permite agora começar com o controlador ODBC.
 4. Clique em de **teste** botão para se certificar de que pode ligar à sua conta de base de dados do Azure Cosmos. 
 5. Clique em **opções avançadas** e defina os seguintes valores:
     - **Consultar consistência**: selecione a [nível de consistência](consistency-levels.md) para as operações. A predefinição é de sessão.
-    - **Número de tentativas**: introduza o número de vezes para tentar uma operação se o pedido inicial não for concluída devido à limitação do serviço.
+    - **Número de tentativas**: introduza o número de vezes para tentar uma operação se o pedido inicial não for concluída devido a limitação de taxa de serviço.
     - **Ficheiro de esquema**: tiver um número de opções aqui.
         - Por predefinição, deixar esta entrada é (em branco), o controlador analisa os dados de página primeiro para todas as coleções determinar o esquema de cada coleção. Isto é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controladores e pode resultar num tempo de arranque superior de uma aplicação utilizando o DSN. Recomendamos que associa sempre um ficheiro de esquema para um DSN.
         - Se já tiver um ficheiro de esquema (possivelmente uma que criou utilizando o [Editor de esquema](#schema-editor)), pode clicar em **procurar**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
@@ -196,4 +196,4 @@ Se receber o erro seguinte, certifique-se a **anfitrião** e **chave de acesso**
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a BD do Cosmos do Azure, consulte [bem-vindo ao Azure Cosmos DB](introduction.md).
+Para saber mais sobre o Azure Cosmos DB, veja [Bem-vindo ao Azure Cosmos DB](introduction.md).

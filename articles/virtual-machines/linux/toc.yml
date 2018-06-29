@@ -177,7 +177,7 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Gerir VMs
       items:
-        - name: Pré-pagamento de VMs - Instâncias Reservadas
+        - name: Pré-pagamento de VMs - instâncias reservadas
           href: prepay-reserved-vm-instances.md
         - name: Utilização de VM
           href: vm-usage.md

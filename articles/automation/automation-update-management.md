@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063515"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097449"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -35,9 +35,9 @@ O diagrama seguinte mostra uma vista concetual do comportamento e ligados de flu
 
 ![Atualizar o fluxo de processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Depois de um computador efetua uma análise de compatibilidade de atualização, o agente reencaminha as informações em massa ao Log Analytics do Azure. Num computador Windows, é efetuada a verificação de compatibilidade cada 12 horas, por predefinição. 
+Depois de um computador efetua uma análise de compatibilidade de atualização, o agente reencaminha as informações em massa ao Log Analytics do Azure. Num computador Windows, é efetuada a verificação de compatibilidade cada 12 horas, por predefinição.
 
-Para além do agendamento da análise, a análise da compatibilidade da atualização é iniciada em 15 minutos, se o MMA for reiniciado, antes da instalação da atualização e, após a instalação da atualização. 
+Para além do agendamento da análise, a análise da compatibilidade da atualização é iniciada em 15 minutos, se o MMA for reiniciado, antes da instalação da atualização e, após a instalação da atualização.
 
 Para um computador com Linux, a análise de conformidade é executada a cada 3 horas por predefinição. Se o agente MMA for reiniciado, uma análise de compatibilidade é iniciada em 15 minutos.
 
@@ -86,7 +86,7 @@ Agentes do Windows tem de ser configurados para comunicar com um servidor WSUS o
 
 #### <a name="linux"></a>Linux
 
-Para Linux, a máquina tem de ter acesso a um repositório de atualização. O repositório de atualização pode ser privado ou público. Um agente do Operations Management Suite (OMS) para o Linux que está configurado para o relatório para várias áreas de trabalho de análise de registos não é suportado com esta solução.
+Para Linux, a máquina tem de ter acesso a um repositório de atualização. O repositório de atualização pode ser privado ou público. É necessário TLS 1.1 ou TLS 1.2 para interagir com a gestão de atualizações. Um agente do Operations Management Suite (OMS) para o Linux que está configurado para o relatório para várias áreas de trabalho de análise de registos não é suportado com esta solução.
 
 Para obter informações sobre como instalar o agente do OMS para Linux e para transferir a versão mais recente, consulte [agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o agente do OMS para Windows, consulte [Operations Management Suite agente do Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -157,7 +157,7 @@ Para confirmar que um grupo de gestão do Operations Manager está a comunicar c
 
 A tabela seguinte descreve as origens de ligado que são suportadas por esta solução:
 
-| Origem ligada | Suportadas | Descrição |
+| Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução recolhe informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução recolhe informações sobre atualizações do sistema de agentes Linux e, em seguida, inicia a instalação de atualizações necessárias no distribuições suportadas. |
@@ -214,8 +214,8 @@ Para criar uma nova implementação de atualização, selecione **implementaçã
 |Sistema Operativo| Selecione **Linux** ou **Windows**.|
 |Máquinas de atualização |Selecione uma procura guardada ou selecione **máquina** na lista pendente e, em seguida, selecione máquinas individuais. |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta a box.|
-|Atualizações a excluir|Introduza as atualizações para excluir. Para o Windows, introduza o artigo KB sem o **KB** prefixo. Para Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
-|Definições da agenda|Selecione a hora para iniciar e, em seguida, selecione **uma vez** ou **periódica** para a periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
+|Atualizações para excluir|Introduza as atualizações para excluir. Para o Windows, introduza o artigo KB sem o **KB** prefixo. Para Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
+|Definições de agendamento|Selecione a hora para iniciar e, em seguida, selecione **uma vez** ou **periódica** para a periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
@@ -268,7 +268,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode efetuar pesquisa
 Também pode aprender como personalizar as consultas ou utilizá-las de diferentes clientes e mais, visitando: [documentação seach API de análise de registos](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Amostras de consultas
+### <a name="sample-queries"></a>Consultas de exemplo
 
 As secções seguintes fornecem exemplos de consultas de registo para os registos de atualização que são recolhidos por esta solução:
 
@@ -509,7 +509,7 @@ Implementar atualizações de classificação de atualização não funciona em 
 
 Para saber como resolver problemas de gestão de atualização, consulte [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Continue para o tutorial para saber como gerir atualizações para as máquinas virtuais do Windows.
 

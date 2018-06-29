@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14cb59487788f272533fd7ec7eccf313654bf857
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824936"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082812"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -106,7 +106,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 | linkedServiceName            | Serviço ligado do Storage do Azure a ser utilizado pelo cluster a pedido para armazenar e processar dados. O cluster do HDInsight é criado na mesma região que esta conta de armazenamento do Azure. O Azure HDInsight tem limitação do número total de núcleos que pode utilizar em cada região do Azure que suporta. Certifique-se que tem suficiente quotas de núcleos nessa região do Azure para satisfazer o clusterSize necessária. Para obter detalhes, consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Azure Data Lake Store, como o armazenamento. Se pretende armazenar os dados de resultado do HDInsight em processamento no Azure Data Lake Store, utilize uma atividade de cópia para copiar os dados de armazenamento de Blobs do Azure para o Azure Data Lake Store. </p> | Sim      |
 | clusterResourceGroup         | O cluster do HDInsight é criado neste grupo de recursos. | Sim      |
 | TimeToLive                   | O tempo de inatividade permitido para o cluster do HDInsight a pedido. Especifica o tempo durante o qual o cluster do HDInsight a pedido permanece alive após a conclusão de uma atividade executar se existirem outras tarefas ativas no cluster. Permitido o valor mínimo é 5 minutos (00: 05:00).<br/><br/>Por exemplo, se executar uma atividade demora 6 minutos e timetolive está definido para 5 minutos, o cluster permanece ativo durante 5 minutos após a execução de 6 minutos de atividade de processamento. Se executar de outra atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso, utilize esta definição como necessários para melhorar o desempenho de uma fábrica de dados através da reutilização de um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado, assim que concluir a execução de atividade. Enquanto que, se definir um valor elevado, o cluster pode permanecer inativo para que possa iniciar sessão para algumas resolução de problemas objetivo, mas pode resultar em custos elevados. Por conseguinte, é importante que defina o valor adequado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive adequadamente estiver definido, pipelines vários podem partilhar a instância de cluster do HDInsight a pedido. | Sim      |
-| clusterType                  | O tipo de cluster do HDInsight a ser criado. Valores permitidos são "hadoop" e "spark". Se não for especificado, o valor predefinido é hadoop. | Não       |
+| clusterType                  | O tipo de cluster do HDInsight a ser criado. Valores permitidos são "hadoop" e "spark". Se não for especificado, o valor predefinido é hadoop. Cluster de pacote de segurança empresarial ativada não é atualmente suportado | Não       |
 | versão                      | Versão do cluster do HDInsight. Se não for especificado, está a utilizar a versão atual do HDInsight definido. | Não       |
 | hostSubscriptionId           | O ID de subscrição do Azure utilizado para criar cluster do HDInsight. Se não for especificado, utiliza o ID de subscrição do contexto de início de sessão do Azure. | Não       |
 | clusterNamePrefix           | O prefixo do nome do cluster HDI, um timestamp será acrescentado automaticamente no fim do nome do cluster| Não       |
@@ -123,6 +123,10 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 
 > [!IMPORTANT]
 > HDInsight suporta várias versões de cluster de Hadoop que podem ser implementadas. Cada opção de versão cria uma versão específica da distribuição Hortonworks Data Platform (HDP) e um conjunto de componentes que estão contidas dentro dessa distribuição. A lista de versões suportadas do HDInsight mantém a ser atualizada para fornecer mais recentes componentes ecossistema do Hadoop e correções. Certifique-se de que sempre referir-se a informações mais recentes do [suportado HDInsight versão e tipo de SO](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) para se certificar de que está a utilizar uma versão suportada do HDInsight. 
+>
+> 
+> [!IMPORTANT]
+> Atualmente, o HDInsight serviços ligados não suporta HBase, Storm e consulta interativa (LLAP ramo de registo), Enterprise segurança ativada (associados a um domínio) clusters. 
 >
 > 
 
@@ -295,6 +299,10 @@ Pode criar um serviço ligado do Azure HDInsight para registar o seu próprio cl
 > [!IMPORTANT]
 > HDInsight suporta várias versões de cluster de Hadoop que podem ser implementadas. Cada opção de versão cria uma versão específica da distribuição Hortonworks Data Platform (HDP) e um conjunto de componentes que estão contidas dentro dessa distribuição. A lista de versões suportadas do HDInsight mantém a ser atualizada para fornecer mais recentes componentes ecossistema do Hadoop e correções. Certifique-se de que sempre referir-se a informações mais recentes do [suportado HDInsight versão e tipo de SO](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) para se certificar de que está a utilizar uma versão suportada do HDInsight. 
 >
+> [!IMPORTANT]
+> Atualmente, o HDInsight serviços ligados não suporta HBase, Storm e consulta interativa (LLAP ramo de registo), Enterprise segurança ativada (associados a um domínio) clusters. 
+>
+> 
 
 ## <a name="azure-batch-linked-service"></a>Serviço de Batch ligado do Azure
 
@@ -376,7 +384,7 @@ Criar um serviço ligado do Azure Machine Learning para registar um lote de Mach
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | A propriedade de tipo deve ser definida como: **AzureML**. | Sim                                      |
 | mlEndpoint             | O URL de classificação de lote.                   | Sim                                      |
-| ApiKey                 | API o modelo de área de trabalho publicado.     | Sim                                      |
+| apiKey                 | API o modelo de área de trabalho publicado.     | Sim                                      |
 | updateResourceEndpoint | O URL de recurso atualizar para um ponto final de serviço Web do Azure ML utilizado para atualizar o serviço Web Preditiva com o ficheiro de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique o ID de cliente. da aplicação     | Necessário se updateResourceEndpoint for especificado |
 | servicePrincipalKey    | Especifique a chave da aplicação.           | Necessário se updateResourceEndpoint for especificado |
@@ -477,11 +485,11 @@ Pode criar **serviço ligado do Azure Databricks** registar Databricks área de 
 
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| name                 | Nome do serviço ligado               | Sim   |
+| nome                 | Nome do serviço ligado               | Sim   |
 | tipo                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
 | domínio               | Especifique a região do Azure em conformidade com base na região da área de trabalho Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
 | accessToken          | Token de acesso é necessário para a fábrica de dados para se autenticar Databricks do Azure. Token de acesso tem de ser gerado a partir da área de trabalho databricks. Mais passos para localizar o token de acesso pode ser encontrado [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |
-| existingClusterId    | ID de cluster de um cluster existente para executar todas as tarefas neste. Deve ser um Cluster interativa já criou. Terá de reiniciar manualmente o cluster se deixa de responder. Databricks sugerimos tarefas em execução no novos clusters para maior fiabilidade. Pode encontrar o ID de Cluster de um Cluster no Databricks -> área de trabalho interativa Clusters -> nome do Cluster interativa -> configuração -> etiquetas. [obter mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
+| existingClusterId    | ID de cluster de um cluster existente para executar todas as tarefas neste. Deve ser um Cluster interativa já criou. Terá de reiniciar manualmente o cluster se deixa de responder. Databricks sugerimos tarefas em execução no novos clusters para maior fiabilidade. Pode encontrar o ID de Cluster de um Cluster no Databricks -> área de trabalho interativa Clusters -> nome do Cluster interativa -> configuração -> etiquetas. [Obter mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | newClusterVersion    | A versão do cluster do Spark. Será criado um cluster de tarefa na databricks. | Não  |
 | newClusterNumOfWorker| Número de nós de trabalho que deve ter este cluster. Um cluster tem um controlador de Spark e num_workers executor para um total de num_workers + 1 nós de Spark. Uma cadeia formatada Int32, como "1" significa numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como min e 10 como máximo.  | Não                |
 | newClusterNodeType   | Este campo codifica, através de um valor único, os recursos disponíveis para cada um de nós neste cluster Spark. Por exemplo, o Spark nós podem ser aprovisionados e otimizados para cargas de trabalho que consomem muita memória ou processamento este campo é obrigatório para o novo cluster                | Não               |

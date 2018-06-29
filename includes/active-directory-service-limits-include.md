@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5529a4510b6d9f005dc46165e1be799585e5a153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296537"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100849"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço para o serviço do Azure Active Directory.
 
 | Categoria | Limites |
 | --- | --- |
-| Diretórios |Um único utilizador pode ser associado com um máximo de 20 diretórios do Azure Active Directory.<br />Exemplos de combinações possíveis: <ul> <li>Um único utilizador cria 20 diretórios.</li><li>Um único utilizador é adicionado a 20 diretórios como membro.</li><li>Um único utilizador cria 10 diretórios e mais tarde, é adicionado por outros para 10 diretórios diferentes.</li></ul> |
+| Diretórios |Um único utilizador pode ser associado com um máximo de 500 diretórios do Azure Active Directory.<br />Exemplos de combinações possíveis: <ul> <li>Um único utilizador cria 500 diretórios.</li><li>Um único utilizador é adicionado ao 500 diretórios como membro.</li><li>Um único utilizador cria 250 diretórios e mais tarde é adicionado por outras pessoas para 250 diretórios diferentes.</li></ul> |
 | Domínios | Pode adicionar mais do que 900 nomes de domínio geridos. Se estiver a configurar todos os seus domínios para federação com o Active Directory no local, pode adicionar mais do que 450 nomes de domínio de cada diretório. |
 | Objetos |<ul><li>Um máximo de 500 000 objetos pode ser criado num único diretório pelos utilizadores de edição gratuita do Azure Active Directory.</li><li>Um utilizador não-administrador não pode criar mais do que 250 objetos.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões de tipo de cadeia podem ter até 256 carateres. </li><li>As extensões do tipo binário estão limitadas a 256 bytes.</li><li>100 valores de extensão (em TODOS os tipos e TODAS as aplicações) podem ser escritos para qualquer objeto único.</li><li>Apenas as entidades "Utilizador", "Grupo", "TenantDetail", "Dispositivo", "Aplicação" e "ServicePrincipal" podem ser expandidas com os atributos de valor único do tipo "Cadeia" ou "Binário".</li><li>As extensões de esquema estão disponíveis apenas na pré-visualização da versão 1.21 da Graph API. A aplicação tem de ter acesso de escrita para registar uma extensão.</li></ul> |

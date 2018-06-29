@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401966"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100509"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight com o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Utilizar o m
 
     * Clique em **Seguinte**.
 
-4. Para **armazenamento**, especifique se pretende que armazenamento do Azure (WASB) ou de Data Lake Store como o armazenamento de predefinido. Observe a tabela abaixo para obter mais informações.
+4. Para **armazenamento**, especifique se pretende que armazenamento do Azure (WASB) ou armazenamento do Data Lake como o armazenamento de predefinido. Observe a tabela abaixo para obter mais informações.
 
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "criar um novo cluster no portal do Azure")
 
     | Armazenamento                                      | Descrição |
     |----------------------------------------------|-------------|
-    | **Blobs de armazenamento do Azure como armazenamento de predefinido**   | <ul><li>Para **tipo de armazenamento primário**, selecione **Storage do Azure**. Depois disso, para **método de seleção**, pode escolher **minhas subscrições** se pretender especificar uma conta de armazenamento que faz parte da sua subscrição do Azure e, em seguida, selecione a conta de armazenamento. Caso contrário, clique em **chave de acesso** e forneça as informações da conta de armazenamento que pretende escolher a partir de fora da sua subscrição do Azure.</li><li>Para **contentor predefinido**, pode optar por voltar com o nome do contentor predefinido sugerido pelo portal ou especificar a sua própria.</li><li>Se estiver a utilizar WASB como armazenamento de predefinido, pode clicar (opcionalmente) **contas de armazenamento adicionais** especificar contas de armazenamento adicional para associar o cluster. Para **chaves de armazenamento do Azure**, clique em **adicionar uma chave de armazenamento**, e, em seguida, pode fornecer uma conta de armazenamento de subscrições do Azure ou de outras subscrições (fornecendo a chave de acesso da conta de armazenamento).</li><li>Se estiver a utilizar WASB como armazenamento de predefinido, pode clicar (opcionalmente) **acesso de Data Lake Store** para especificar o Azure Data Lake Store como armazenamento adicional. Para obter mais informações, consulte [criar um cluster do HDInsight com o Data Lake Store utilizando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Como armazenamento de predefinido do Azure Data Lake Store** | Para **tipo de armazenamento primário**, selecione **Data Lake Store** e, em seguida, consulte o artigo [criar um cluster do HDInsight com o Data Lake Store utilizando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) para obter instruções. |
+    | **Blobs de armazenamento do Azure como armazenamento de predefinido**   | <ul><li>Para **tipo de armazenamento primário**, selecione **Storage do Azure**. Depois disso, para **método de seleção**, pode escolher **minhas subscrições** se pretender especificar uma conta de armazenamento que faz parte da sua subscrição do Azure e, em seguida, selecione a conta de armazenamento. Caso contrário, clique em **chave de acesso** e forneça as informações da conta de armazenamento que pretende escolher a partir de fora da sua subscrição do Azure.</li><li>Para **contentor predefinido**, pode optar por voltar com o nome do contentor predefinido sugerido pelo portal ou especificar a sua própria.</li><li>Se estiver a utilizar WASB como armazenamento de predefinido, pode clicar (opcionalmente) **contas de armazenamento adicionais** especificar contas de armazenamento adicional para associar o cluster. Para **chaves de armazenamento do Azure**, clique em **adicionar uma chave de armazenamento**, e, em seguida, pode fornecer uma conta de armazenamento de subscrições do Azure ou de outras subscrições (fornecendo a chave de acesso da conta de armazenamento).</li><li>Se estiver a utilizar WASB como armazenamento de predefinido, pode clicar (opcionalmente) **acesso de Data Lake Store** para especificar o armazenamento do Azure Data Lake como armazenamento adicional. Para obter mais informações, consulte [início rápido: configurar clusters de HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Armazenamento do Azure Data Lake como armazenamento de predefinido** | Para **tipo de armazenamento primário**, selecione **Gen1 de armazenamento do Azure Data Lake** ou **Gen2 de armazenamento do Azure Data Lake (pré-visualização)** e, em seguida, consulte o artigo [início rápido : Configurar clusters de HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para obter instruções. |
     | **Metastores externas**                      | Opcionalmente, pode especificar uma base de dados do SQL Server para guardar os metadados do Hive e Oozie associados com o cluster. Para **selecionar uma base de dados do SQL Server para o ramo de registo** Selecione uma base de dados do SQL Server e, em seguida, forneça o nome de utilizador/palavra-passe para a base de dados. Repita estes passos para metadados do Oozie.<br><br>Algumas considerações ao utilizar a SQL database do Azure para metastores. <ul><li>A base de dados SQL do Azure utilizado para o metastore têm de permitir conectividade a outros serviços do Azure, incluindo o Azure HDInsight. No dashboard de base de dados SQL do Azure, no lado direito, clique no nome do servidor. Este é o servidor no qual a instância de base de dados do SQL Server está em execução. Assim que estiver na vista de servidores, clique em **configurar**e, em seguida, para **serviços do Azure**, clique em **Sim**e, em seguida, clique em **guardar**.</li><li>Ao criar um metastore, não utilize um nome de base de dados que contém traços ou hífenes, como isto pode provocar a falha no processo de criação de cluster.</li></ul> |
 
     Clique em **Seguinte**. 
@@ -99,7 +99,7 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Utilizar o m
    > [!IMPORTANT]
    > Se pretender mais do que 32 nós de trabalho, durante a criação do cluster ou ao aumentar o cluster após a criação, tem de selecionar um tamanho de nó principal pelo menos 8 núcleos e 14 GB de RAM.
    > 
-   > Para obter mais informações sobre os tamanhos de nós e os custos associados, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+   > Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    > 
    > 
    

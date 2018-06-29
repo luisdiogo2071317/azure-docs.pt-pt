@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f6852de2c09e3de9375a2cb5d73f052ac68f039
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615646"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100577"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e a depuração com métricas do BD Azure Cosmos
 
@@ -33,7 +33,7 @@ Este artigo explica os casos de utilização comuns e como métricas de BD do Co
 
 Para começar, dirija-se ao [portal do Azure](https://portal.azure.com) e navegue para o **métricas** painel. No painel, localizar o **excedido o número de pedidos de capacidade por 1 minuto** gráfico. Este gráfico mostra um minuto por minuto total de pedidos segmentados pelo código de estado. Para obter mais informações sobre códigos de estado HTTP, consulte [códigos de estado de HTTP para a base de dados do Azure Cosmos](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-O código de estado de erro mais comuns é 429 (otimização), o que significa que os pedidos à base de dados do Azure Cosmos estão a exceder o débito aprovisionado. A solução mais comuns para isto é [aumentar verticalmente os RUs](./set-throughput.md) para a coleção especificada.
+O código de estado de erro mais comuns é a 429 (limitação/limitação de velocidade), que significa que os pedidos à base de dados do Azure Cosmos estão a exceder o débito aprovisionado. A solução mais comuns para isto é [aumentar verticalmente os RUs](./set-throughput.md) para a coleção especificada.
 
 ![Número de pedidos por minuto](media/use-metrics/metrics-12.png)
 

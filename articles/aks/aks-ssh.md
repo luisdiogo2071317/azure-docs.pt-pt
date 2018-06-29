@@ -2,19 +2,19 @@
 title: SSH para nós de cluster do serviço de Kubernetes do Azure (AKS)
 description: Criar uma ligação SSH com um cluster do serviço de Kubernetes do Azure (AKS) nós
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 8f4c70814566a963d86c119044f9ed3ef3238483
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164327"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099403"
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH para nós de cluster do serviço de Kubernetes do Azure (AKS)
 

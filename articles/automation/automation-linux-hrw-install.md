@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 0c677b88228097efcaa30399160dfdafa1c01788
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060243"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096347"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -49,7 +49,7 @@ Os requisitos mínimos para um Runbook Worker híbrido Linux são:
 | **Pacote necessário** | **Descrição** | **Versão mínima**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |Biblioteca de C GNU| 2.5-12 |
-|OpenSSL| Bibliotecas de OpenSSL | 0.9.8E ou 1.0|
+|OpenSSL| Bibliotecas de OpenSSL | 1.0 (TLS 1.1 e TLS 1.2 são suportados|
 |curl | cURL web cliente | 7.15.5|
 |Python ctypes | |
 |PAM | Autenticação incorporável|

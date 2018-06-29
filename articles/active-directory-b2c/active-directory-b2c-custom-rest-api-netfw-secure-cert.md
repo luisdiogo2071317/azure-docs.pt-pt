@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 004577ead56befce02771b82ace088706e8f0c3c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: fc95974fb7db856d0a255d4a5d1d754649b71eca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709211"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098452"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger o seu serviço RESTful utilizando certificados de cliente
 
@@ -38,21 +38,13 @@ Detalhes deste artigo como:
 * Obter um certificado válido (um ficheiro. pfx com uma chave privada).
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Passo 1: Configurar uma aplicação web para autenticação de certificados de cliente
-Para configurar **App Service do Azure** para exigir certificados de cliente, definir a aplicação web `clientCertEnabled` definição do site *verdadeiro*. Para efetuar esta alteração, tem de utilizar a API REST. A definição está disponível através de experiência de gestão no portal do Azure. Para localizar a definição na sua aplicação RESTful **definições** menu, em **ferramentas de desenvolvimento**, selecione **Explorador de recursos**.
+Para configurar **App Service do Azure** para exigir certificados de cliente, definir a aplicação web `clientCertEnabled` definição do site *verdadeiro*. Para efetuar esta alteração, no portal do Azure, abra a página da aplicação web. No painel de navegação esquerdo, em **definições** selecione **as definições de SSL**. No **certificados de cliente** secção, ative o **certificado de cliente recebidos** opção.
 
 >[!NOTE]
 >Certifique-se de que o plano do App Service do Azure Standard ou superior. Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
-
-Utilize [Explorador de recursos do Azure (pré-visualização)](https://resources.azure.com) para definir o **clientCertEnabled** propriedade *verdadeiro*, conforme mostrado na imagem seguinte:
-
-![Definição clientCertEnabled através do Explorador de recursos do Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
-
 >[!NOTE]
 >Para obter mais informações sobre a definição de **clientCertEnabled** propriedade, consulte [autenticação mútua do TLS configurar para aplicações web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
-
->[!TIP]
->Em alternativa, para facilitar o craft a chamada de REST API, pode utilizar o [ARMClient](https://github.com/projectkudu/ARMClient) ferramenta.
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Passo 2: Carregue o certificado para as chaves de política do Azure AD B2C
 Depois de definir `clientCertEnabled` para *verdadeiro*, a comunicação com a API RESTful requer um certificado de cliente. Para obter, carregar e armazenar o certificado de cliente no seu inquilino do Azure AD B2C, efetue o seguinte: 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 305f7a54e290b8628401c21f033f8be7017d4a91
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061358"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083870"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 
@@ -37,62 +37,6 @@ Acionadores e enlaces permitem-lhe evitar codificar os detalhes dos serviços de
 Quando desenvolver as funções utilizando o portal do Azure, acionadores e enlaces estão configurados num *function.json* ficheiro. O portal fornece uma IU para esta configuração, mas pode editar o ficheiro diretamente pela alteração para o **editor avançada**.
 
 Quando desenvolver as funções utilizando o Visual Studio para criar uma biblioteca de classe, configure acionadores e enlaces ao decorating métodos e os parâmetros com atributos.
-
-## <a name="supported-bindings"></a>Enlaces suportados
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-Para obter informações sobre os quais os enlaces estão na pré-visualização ou estão aprovados para utilização em produção, consulte [idiomas suportados](supported-languages.md).
-
-## <a name="register-binding-extensions"></a>Registar as extensões de enlace
-
-Em alguns ambientes de desenvolvimento, tem de explicitamente *registar* um enlace que pretende utilizar. Extensões de enlace são fornecidas na pacotes NuGet e para registar uma extensão é instalar um pacote. A tabela seguinte indica quando e como registar as extensões de enlace.
-
-|Ambiente de programação |Registo<br/> nas funções de 1. x  |Registo<br/> nas funções de 2. x  |
-|---------|---------|---------|
-|Portal do Azure|Automático|[Automático com linha de comandos](#azure-portal-development)|
-|Local utilizando as ferramentas de núcleos de funções do Azure|Automático|[Utilizar comandos da CLI de ferramentas de núcleo](#local-development-azure-functions-core-tools)|
-|Biblioteca de classes do c# utilizando o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
-|Biblioteca de classes do c# utilizando o Visual Studio Code|N/A|[Utilize o .NET Core CLI](#c-class-library-with-visual-studio-code)|
-
-Os seguintes tipos de enlace são exceções que não necessitam de registo explícito porque estão registados automaticamente em todas as versões e ambientes de: HTTP, temporizador e armazenamento do Azure (blobs, filas e tabelas). 
-
-### <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
-
-Quando criar uma função ou adicionar um enlace, serão apresentadas quando a extensão de enlace de Acionador ou necessita de registo. Responder ao pedido clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos um plano de consumo.
-
-Só é necessário instalar cada extensão de uma vez para uma aplicação de função especificada. 
-
-### <a name="local-development-azure-functions-core-tools"></a>Azure funções principais ferramentas de desenvolvimento local
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes c# com o Visual Studio 2017
-
-No **Visual Studio 2017**, é possível instalar pacotes a partir da consola do Gestor de pacotes a utilizar o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, conforme mostrado no exemplo seguinte:
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
-
-Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
-
-### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes c# com o Visual Studio Code
-
-No **Visual Studio Code**, poderá instalar pacotes a partir da linha de comandos utilizando a [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na .NET Core CLI, conforme mostrado no exemplo seguinte:
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-Só pode ser utilizada a CLI do .NET Core para o desenvolvimento de 2. x das funções do Azure.
-
-O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
-
-Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
 
 ## <a name="example-trigger-and-binding"></a>Acionador de exemplo e enlace
 
@@ -202,6 +146,66 @@ Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; pa
      public string MobileNumber { get; set; }
  }
 ```
+
+## <a name="supported-bindings"></a>Enlaces suportados
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Para obter informações sobre os quais os enlaces estão na pré-visualização ou estão aprovados para utilização em produção, consulte [idiomas suportados](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registar as extensões de enlace
+
+Em alguns ambientes de desenvolvimento, tem de explicitamente *registar* um enlace que pretende utilizar. Extensões de enlace são fornecidas na pacotes NuGet e para registar uma extensão é instalar um pacote. A tabela seguinte indica quando e como registar as extensões de enlace.
+
+|Ambiente de programação |Registo<br/> nas funções de 1. x  |Registo<br/> nas funções de 2. x  |
+|---------|---------|---------|
+|Portal do Azure|Automático|[Automático com linha de comandos](#azure-portal-development)|
+|Local utilizando as ferramentas de núcleos de funções do Azure|Automático|[Utilizar comandos da CLI de ferramentas de núcleo](#local-development-azure-functions-core-tools)|
+|Biblioteca de classes do c# utilizando o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
+|Biblioteca de classes do c# utilizando o Visual Studio Code|N/A|[Utilize o .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+Os seguintes tipos de enlace são exceções que não necessitam de registo explícito porque estão registados automaticamente em todas as versões e ambientes de: HTTP, temporizador e armazenamento do Azure (blobs, filas e tabelas). 
+
+### <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
+
+Esta secção aplica-se apenas às funções de 2. x. Extensões de enlace não têm de ser explicitamente registado nas funções de 1. x.
+
+Quando criar uma função ou adicionar um enlace, serão apresentadas quando a extensão de enlace de Acionador ou necessita de registo. Responder ao pedido clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos um plano de consumo.
+
+Só é necessário instalar cada extensão de uma vez para uma aplicação de função especificada. 
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure funções principais ferramentas de desenvolvimento local
+
+Esta secção aplica-se apenas às funções de 2. x. Extensões de enlace não têm de ser explicitamente registado nas funções de 1. x.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes c# com o Visual Studio 2017
+
+No **Visual Studio 2017**, é possível instalar pacotes a partir da consola do Gestor de pacotes a utilizar o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, conforme mostrado no exemplo seguinte:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes c# com o Visual Studio Code
+
+No **Visual Studio Code**, poderá instalar pacotes a partir da linha de comandos utilizando a [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na .NET Core CLI, conforme mostrado no exemplo seguinte:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+Só pode ser utilizada a CLI do .NET Core para o desenvolvimento de 2. x das funções do Azure.
+
+O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+
+Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
 
 ## <a name="binding-direction"></a>Direção de enlace
 

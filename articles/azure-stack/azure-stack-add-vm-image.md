@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 8dd77dd3431f1be2b8edd8b51929c21b1d5bcd88
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287709"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081355"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual na pilha do Azure
 
@@ -54,7 +54,7 @@ As imagens devem ser capazes de ser referenciado por um URI de armazenamento de 
 
    ![Acesso de blob de conjunto para público](./media/azure-stack-add-vm-image/image2.png)
 
-2. Inicie sessão no Azure pilha como operador. No menu, selecione **mais serviços** > **fornecedores de recursos**. Em seguida, selecione **computação** > **imagens da VM** > **adicionar**.
+2. Inicie sessão no Azure pilha como operador. No menu, selecione **mais serviços**. Em seguida, selecione **computação** > **imagens da VM** > **adicionar**.
 
 3. Em **adicionar uma imagem de VM**, introduza o publicador, oferta, SKU e versão da imagem de máquina virtual. Consulte estes segmentos de nome para a imagem VM em modelos do Resource Manager. Certifique-se de que seleciona o **osType** valor corretamente. Para **URI de Blob do disco de SO**, introduza o URI de Blob onde a imagem foi carregada. Em seguida, selecione **criar** para começar a criar a imagem de VM.
 

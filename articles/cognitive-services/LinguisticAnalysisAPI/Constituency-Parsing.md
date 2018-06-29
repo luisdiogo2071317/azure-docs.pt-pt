@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: 1cd5ac3eceb9b36654f1b012bce482c5151c4462
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351752"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082177"
 ---
 # <a name="constituency-parsing"></a>Constituency análise
 
@@ -92,4 +92,4 @@ Existem várias essas expressões: *posso*, *um automóvel híbrida nova*, *Blue
 
 ## <a name="specification"></a>especificação
 
-Árvores aqui utilizam expressões de S partir o [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+Árvores aqui utilizam expressões de S partir o [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

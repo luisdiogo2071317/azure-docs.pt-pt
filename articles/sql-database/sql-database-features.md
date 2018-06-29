@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: c48a0f078da8e56038ec74ee398bd26fe1dc2718
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dea3affa06da47f22a3e7cca6c48e6c7a288b1d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054760"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083367"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure versus do SQL Server 
 
@@ -121,7 +121,7 @@ A tabela seguinte lista as principais funcionalidades do SQL Server e fornece in
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não - consulte [do Analysis Services do Azure](https://azure.microsoft.com/services/analysis-services/) | Não - consulte [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditoria do SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não - consulte [auditoria de base de dados SQL](sql-database-auditing.md) | Sim - consulte [diferenças de auditoria](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sim | Sim |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerido no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados nos SSISDB alojadas pelo SQL Database do Azure e executado no tempo de execução de integração de SSIS do Azure (IR), consulte [criar IR SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). | Sim, com um SSIS gerido no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados nos SSISDB alojadas pela instância geridos e executado no tempo de execução de integração de SSIS do Azure (IR), consulte [criar IR SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerido no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados nos SSISDB alojadas pelo SQL Database do Azure e executado no tempo de execução de integração de SSIS do Azure (IR), consulte [criar IR SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar as funcionalidades SSIS na base de dados do SQL Server e instância geridos, consulte [comparar a base de dados do SQL Server e instância geridos (pré-visualização)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). | Sim, com um SSIS gerido no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados nos SSISDB alojadas pela instância geridos e executado no tempo de execução de integração de SSIS do Azure (IR), consulte [criar IR SSIS do Azure no ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar as funcionalidades SSIS na base de dados do SQL Server e instância geridos, consulte [comparar a base de dados do SQL Server e instância geridos (pré-visualização)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [SQL Server do PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [O gerador de perfis do SQL Server](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - consulte [alargadas de eventos](sql-database-xevent-db-diff-from-svr.md) | Sim |

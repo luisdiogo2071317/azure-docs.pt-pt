@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 36cbf9249664af1cd469d7e27c617a4810d0e74f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754679"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098962"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -428,7 +428,7 @@ Hora para concluído aproximada: 10 minutos
 ### <a name="considerations"></a>Considerações
 
 1. Os passos de PoC este bloco modular explicitamente a definição de MFA um utilizador em todos os inícios de sessão. Existem outras ferramentas, como o acesso condicional e a proteção de identidade que interagir com a MFA em mais direcionado cenários. Este será algo a considerar quando mover de POC para produção.
-2. Os passos de PoC este bloco modular explicitamente estiver a utilizar as chamadas telefónicas como o método MFA para expedience. Como efetuar a transição de POC produção, recomendamos a utilização aplicações como o [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) como o segundo fator sempre que possível.
+2. Os passos de PoC este bloco modular explicitamente estiver a utilizar as chamadas telefónicas como o método MFA para expedience. Como efetuar a transição de POC produção, recomendamos a utilização aplicações como o [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) como o segundo fator sempre que possível.
 Saiba mais: [rascunho publicação especial do NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Acesso condicional do MFA para aplicações SaaS
@@ -553,7 +553,7 @@ Aproximada do tempo para concluir: 20 minutos
 | --- | --- |
 | Dispositivos com o certificado de utilizador aprovisionado (Windows, iOS ou Android) da PKI de empresa | [Implementar certificados de utilizador](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domínio do Azure AD federadas com o AD FS | [Azure AD Connect e a federação](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Descrição geral de serviços de certificados do Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS ter a aplicação Microsoft Authenticator instalada | [Começar a utilizar a aplicação Authenticator da Microsoft](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS ter a aplicação Microsoft Authenticator instalada | [Começar a utilizar a aplicação Authenticator da Microsoft](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passos
 

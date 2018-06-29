@@ -1,6 +1,6 @@
 ---
-title: Desenvolver e executar as funções do Azure localmente | Microsoft Docs
-description: Saiba como code e testar as funções do Azure no seu computador local antes de executar em funções do Azure.
+title: Trabalhar com as funções do Azure Core ferramentas | Microsoft Docs
+description: Saiba como code e testar as funções do Azure a partir da linha de comandos ou terminal no seu computador local antes de executar em funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -12,30 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294502"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083074"
 ---
-# <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
+# <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, ferramentas de núcleo
 
-Enquanto o [portal do Azure] fornece um completo conjunto de ferramentas para o desenvolvimento e teste das funções do Azure, os programadores muitos preferir uma experiência de desenvolvimento local. As funções do Azure torna mais fácil de utilizar o seu editor favorito de código e ferramentas de desenvolvimento local para desenvolver e testar as suas funções no seu computador local. As suas funções podem acionar eventos no Azure e pode depurar o c# e JavaScript funções no seu computador local. 
+Ferramentas de núcleos de funções do Azure permite-lhe desenvolver e testar as suas funções no seu computador local a partir da linha de comandos ou terminal. As suas funções locais podem ligar a serviços do Azure live e pode depurar as suas funções no seu computador local utilizando o tempo de execução de funções completo. Ainda pode implementar uma aplicação de função para a sua subscrição do Azure.
 
-Se for um programador Visual Studio c#, as funções do Azure também [integra-se com o Visual Studio 2017](functions-develop-vs.md).
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
->[!IMPORTANT]  
-> Não misture desenvolvimento local com o desenvolvimento portal na mesma aplicação de função. Quando criar e publicar as funções de um projeto local, não deve tentar manter ou modificar o código de projeto no portal.
+## <a name="core-tools-versions"></a>Versões de ferramentas de núcleo
+
+Existem duas versões das ferramentas de núcleos de funções do Azure. A versão que utilizar depende do seu ambiente de desenvolvimento local, a escolha de idioma e o nível de suporte necessário:
+
++ [Versão 1. x](#v1): suporta a versão 1. x do tempo de execução, o que é geralmente disponível (GA). Esta versão das ferramentas só é suportada em computadores com o Windows e está instalada uma [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm). Com esta versão, pode criar funções experimental idiomas que não são suportados oficialmente. Para obter mais informações, consulte [idiomas suportados das funções do Azure](supported-languages.md)
+
++ [Versão 2. x](#v2): suporta a versão 2 do tempo de execução. Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacote específico da plataforma ou npm para instalação. Como o tempo de execução de 2. x, esta versão das ferramentas core está atualmente em pré-visualização.
+
+Exceto indicação em contrário, os exemplos neste artigo destinam-se a versão 2. x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
-[Ferramentas de núcleos de funções do Azure] é uma versão local do tempo de execução das funções do Azure que pode executar no seu computador de desenvolvimento local. Não é um emulador ou simulador. É o mesmo runtime powers funciona no Azure. Existem duas versões das ferramentas de núcleos de funções do Azure:
-
-+ [Versão 1. x](#v1): suporta a versão 1. x do tempo de execução. Esta versão é suportada apenas em computadores Windows e está instalada uma [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Versão 2. x](#v2): suporta a versão 2 do tempo de execução. Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacote específico da plataforma ou npm para instalação. 
+[Ferramentas de núcleos de funções do Azure] inclui uma versão do tempo de execução mesma que está na base de tempo de execução das funções do Azure que pode executar no seu computador de desenvolvimento local. Fornece também comandos para criar funções, ligar ao Azure e implementar projetos de função.
 
 ### <a name="v1"></a>Versão 1. x
 
@@ -115,23 +119,11 @@ Os passos seguintes utilize [APT](https://wiki.debian.org/Apt) para instalar fer
     sudo apt-get install azure-functions-core-tools
     ```
 
-## <a name="run-azure-functions-core-tools"></a>Executar as ferramentas de núcleos de funções do Azure
-
-Ferramentas de núcleos de funções do Azure adiciona os aliases de comando seguinte:
-
-+ **func**
-+ **azfun**
-+ **azurefunctions**
-
-Qualquer uma destes aliases podem ser utilizadas onde `func` é ilustrado nos exemplos.
-
-```bash
-func init MyFunctionProj
-```
-
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
-Ao executar localmente, um projeto de funções é um diretório com os ficheiros [host.json](functions-host-json.md) e [local.settings.json](#local-settings-file). Este diretório é o equivalente a uma aplicação de função no Azure. Para saber mais sobre a estrutura de pastas de funções do Azure, consulte o [guia de programadores das funções do Azure](functions-reference.md#folder-structure).
+Um diretório de projeto funções contém os ficheiros [host.json](functions-host-json.md) e [local.settings.json](#local-settings-file), ao longo de subpastas que contêm o código para funções individuais. Este diretório é o equivalente a uma aplicação de função no Azure. Para saber mais sobre a estrutura de pastas de funções, consulte o [guia de programadores das funções do Azure](functions-reference.md#folder-structure).
+
+Versão 2. x necessita de selecionar um idioma predefinido para o seu projeto quando é inicializado e todas as funções adicionadas modelos de idiomas predefinidos de utilização. Na versão 1. x, especificar a linguagem de cada vez que criar uma função.
 
 Na janela de terminal ou numa linha de comandos, execute o seguinte comando para criar o projeto e o repositório de Git local:
 
@@ -139,14 +131,23 @@ Na janela de terminal ou numa linha de comandos, execute o seguinte comando para
 func init MyFunctionProj
 ```
 
-Procura o resultado semelhante ao seguinte exemplo:
+Versão 2, quando executar o comando tem de escolher um tempo de execução para o seu projeto. Se planeia desenvolver funções JavaScript, escolha **nó**:
 
 ```output
+Select a worker runtime:
+dotnet
+node
+```
+
+Utilize a cópia de segurança/para baixo teclas de seta para escolher um idioma, em seguida, prima Enter. Procura o resultado semelhante ao seguinte exemplo para um projeto de JavaScript:
+
+```output
+Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Created launch.json
-Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
+Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
+Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Para criar o projeto sem um repositório de Git local, utilize o `--no-source-control [-n]` opção.
@@ -165,15 +166,15 @@ O ficheiro local.settings.json armazena as definições de aplicação, cadeias 
 
 ```json
 {
-  "IsEncrypted": false,   
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
-    "LocalHttpPort": 7071, 
-    "CORS": "*" 
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -184,7 +185,7 @@ O ficheiro local.settings.json armazena as definições de aplicação, cadeias 
 | Definição      | Descrição                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Quando definido como **verdadeiro**, todos os valores são encriptados utilizando uma chave de computador local. Utilizado com `func settings` comandos. Valor predefinido é **falso**. |
-| **Valores** | Coleção de definições da aplicação e cadeias de ligação utilizadas ao executar localmente. Estes correspondem às definições de aplicação na sua aplicação de função no Azure, tais como **AzureWebJobsStorage** e **AzureWebJobsDashboard**. Muitos acionadores e enlaces tem uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, tal como **ligação** para o [acionador de armazenamento de BLOBs](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, precisa de uma definição de aplicação definida no **valores** matriz. <br/>**AzureWebJobsStorage** é uma definição de aplicação necessária para acionadores diferentes de HTTP. Se tiver o [emulador do storage do Azure](../storage/common/storage-use-emulator.md) instalado localmente, pode definir **AzureWebJobsStorage** para `UseDevelopmentStorage=true` e ferramentas principais utiliza o emulador. Isto é útil durante o desenvolvimento, mas deverá testar com uma ligação de armazenamento real antes da implementação. |
+| **Valores** | Coleção de definições da aplicação e cadeias de ligação utilizadas ao executar localmente. Estes valores correspondem às definições de aplicação na sua aplicação de função no Azure, tais como **AzureWebJobsStorage** e **AzureWebJobsDashboard**. Muitos acionadores e enlaces tem uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, tal como **ligação** para o [acionador de armazenamento de BLOBs](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, precisa de uma definição de aplicação definida no **valores** matriz. <br/>**AzureWebJobsStorage** é uma definição de aplicação necessária para acionadores diferentes de HTTP. Se tiver o [emulador do storage do Azure](../storage/common/storage-use-emulator.md) instalado localmente, pode definir **AzureWebJobsStorage** para `UseDevelopmentStorage=true` e ferramentas principais utiliza o emulador. Isto é útil durante o desenvolvimento, mas deverá testar com uma ligação de armazenamento real antes da implementação. |
 | **Anfitrião** | As definições nesta secção personalizar o processo de anfitrião de funções ao executar localmente. |
 | **LocalHttpPort** | Define a porta predefinida utilizada ao executar o anfitrião de funções local (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |
 | **CORS** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista de valores separados por vírgulas de mensagens em fila sem espaços. O valor de caráter universal (\*) é suportada, que permite que os pedidos de qualquer origem. |
@@ -229,39 +230,65 @@ Mesmo quando utilizar o emulador do storage para o desenvolvimento, poderá ser 
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
-    Ambos os comandos exigem que para primeiro início de sessão para o Azure.
+    Quando lhe não já têm sessão iniciada Azure, lhe for pedido para fazê-lo.
 
-<a name="create-func"></a>
-## <a name="create-a-function"></a>Criar uma função
+## <a name="create-func"></a>Criar uma função
 
 Para criar uma função, execute o seguinte comando:
 
 ```bash
 func new
-``` 
-`func new` suporta os seguintes argumentos opcionais:
-
-| Argumento     | Descrição                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | O modelo de programação idioma, como c#, F # ou JavaScript. |
-| **`--template -t`** | O nome do modelo. |
-| **`--name -n`** | O nome da função. |
-
-Por exemplo, para criar um acionador de HTTP de JavaScript, execute:
-
-```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
-Para criar uma função acionada pela fila, execute:
+Versão 2, quando executa `func new` lhe for pedido para escolher um modelo no idioma predefinido da sua aplicação de função, em seguida, também lhe para escolher um nome para a sua função. Na versão 1. x, também lhe para escolher o idioma.
+
+```output
+Select a language: Select a template:
+Blob trigger
+Cosmos DB trigger
+Event Grid trigger
+HTTP trigger
+Queue trigger
+SendGrid
+Service Bus Queue trigger
+Service Bus Topic trigger
+Timer trigger
+```
+
+Código de função é gerado numa subpasta com o nome de função fornecidos, como pode ver no resultado de Acionador de fila do seguinte:
+
+```output
+Select a language: Select a template: Queue trigger
+Function name: [QueueTriggerJS] MyQueueTrigger
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
+```
+
+Também pode especificar estas opções no comando utilizando os argumentos seguintes:
+
+| Argumento     | Descrição                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| O modelo de programação idioma, como c#, F # ou JavaScript. Esta opção é necessária na versão 1. x. Versão 2, não utilize esta opção ou escolha o idioma predefinido do seu projeto. |
+| **`--template -t`** | O nome do modelo, que pode ser um dos valores:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--name -n`** | O nome da função. |
+
+Por exemplo, para criar um acionador de HTTP de JavaScript num comando único, execute:
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```bash
-<a name="start"></a>
-## Run functions locally
+func new --template "Http Trigger" --name MyHttpTrigger
+```
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+Para criar uma função acionada pela fila de um comando único, execute:
+
+```bash
+func new --template "Queue Trigger" --name QueueTriggerJS
+```
+
+## <a name="start"></a>Executar funções localmente
+
+Para executar um projeto de funções, execute o anfitrião de funções. O anfitrião permite acionadores para todas as funções no projeto:
 
 ```bash
 func host start
@@ -272,13 +299,13 @@ func host start
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | A porta local a escutar. Valor predefinido: 7071. |
-| **`--debug <type>`** | As opções são `VSCode` e `VS`. |
+| **`--debug <type>`** | Inicia o anfitrião com a porta de depuração abrir, de modo a que pode anexar ao **func.exe** processos de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ou [Visual Studio 2017](functions-dotnet-class-library.md). O *\<tipo\>* opções são `VSCode` e `VS`.  |
 | **`--cors`** | Uma lista separada por vírgulas de origens CORS, sem espaços. |
 | **`--nodeDebugPort -n`** | A porta para o depurador do nó utilizar. : Um valor predefinido De launch.json ou 5858. |
 | **`--debugLevel -d`** | O nível de rastreio de consola (desativado, verboso, info, warning ou error). Predefinição: as informações.|
 | **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
-| **`--useHttps`** | Vincular ao https://localhost:{port} em vez da http://localhost:{port}. Por predefinição, esta opção cria um certificado fidedigno no computador.|
-| **`--pause-on-error`** | Colocar em pausa para a entrada adicional antes de sair do processo. Útil quando iniciar ferramentas de núcleos de funções do Azure a partir de um ambiente de desenvolvimento integrado (IDE).|
+| **`--useHttps`** | Vincular ao `https://localhost:{port}` em vez da `http://localhost:{port}`. Por predefinição, esta opção cria um certificado fidedigno no computador.|
+| **`--pause-on-error`** | Colocar em pausa para a entrada adicional antes de sair do processo. Utilizado quando iniciar ferramentas de núcleos a partir do Visual Studio ou o VS Code.|
 
 Quando o anfitrião de funções é iniciado, produz as funções acionadas por URL de HTTP:
 
@@ -290,28 +317,9 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="vs-debug"></a>Depurar no VS Code ou no Visual Studio
-
-Para anexar um depurador, transmitir o `--debug` argumento. Para depurar funções JavaScript, utilize o Visual Studio Code. C# funciona, para utilizar o Visual Studio.
-
-Para depurar as funções de c#, utilize `--debug vs`. Também pode utilizar [Azure funções Visual Studio 2017 ferramentas](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
-
-Para iniciar o anfitrião e configurar a depuração de JavaScript, execute:
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> Para depuração, apenas o Node.js 8. x é suportada. NODE.js 9.x não é suportada. 
-
-Em seguida, no Visual Studio Code, no **depurar** visualizar, selecione **anexar para as funções do Azure**. Pode ligar a pontos de interrupção, Inspecione variáveis e siga os passos código.
-
-![JavaScript depuração com o Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
-
 ### <a name="passing-test-data-to-a-function"></a>Transmissão de dados de teste para uma função
 
-Para testar as suas funções localmente, [iniciar o anfitrião de funções](#start) e chame pontos finais no servidor local através de pedidos de HTTP. O ponto final que tem de chamar depende da função. 
+Para testar as suas funções localmente, [iniciar o anfitrião de funções](#start) e chame pontos finais no servidor local através de pedidos de HTTP. O ponto final que tem de chamar depende da função.
 
 >[!NOTE]  
 > Os exemplos neste tópico utilizam a ferramenta de cURL para enviar pedidos de HTTP de terminal ou uma linha de comandos. Pode utilizar uma ferramenta de sua escolha para enviar pedidos HTTP para o servidor local. A ferramenta de cURL está disponível por predefinição em sistemas baseados em Linux. No Windows, tem primeiro de transferir e instalar o [cURL ferramenta](https://curl.haxx.se/).
@@ -340,6 +348,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 Pode efetuar pedidos de obtenção de um browser passar dados na cadeia de consulta. Para todos os outros métodos HTTP, tem de utilizar cURL, Fiddler, Postman ou uma ferramenta de teste HTTP semelhante.  
 
 #### <a name="non-http-triggered-functions"></a>Não HTTP acionada funções
+
 Para todos os tipos de funções que não sejam acionadores HTTP e webhooks, pode testar as suas funções localmente ao chamar um ponto final de administração. Este ponto final com um pedido POST de HTTP ao chamar no servidor local aciona a função. Opcionalmente, pode passar dados de teste para a execução no corpo do pedido POST. Esta funcionalidade é semelhante para o **teste** separador no portal do Azure.  
 
 Chamar o seguinte ponto final do administrador para acionar não HTTP funções:
@@ -352,8 +361,9 @@ Para transmitir dados de teste para o ponto final de administrador de uma funç�
 {
     "input": "<trigger_input>"
 }
-```` 
-O `<trigger_input>` valor contém dados num formato esperado pela função. O seguinte exemplo de cURL é um pedido POST para um `QueueTriggerJS` função. Neste caso, a entrada é uma cadeia que é equivalente à mensagem deve ser encontrada na fila.      
+````
+
+O `<trigger_input>` valor contém dados num formato esperado pela função. O seguinte exemplo de cURL é um pedido POST para um `QueueTriggerJS` função. Neste caso, a entrada é uma cadeia que é equivalente à mensagem deve ser encontrada na fila.
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -407,17 +417,18 @@ O `publish` comando carrega o conteúdo do diretório do projeto de funções. S
 
 >[!IMPORTANT]  
 > Quando cria uma aplicação de função no Azure, este utilizará a versão 1. x do tempo de execução de função, por predefinição. Para tornar a versão de utilização da aplicação de função 2 do tempo de execução, adicione a definição de aplicação `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Utilize o seguinte código para a CLI do Azure para adicionar esta definição para a sua aplicação de função: 
+Utilize o seguinte código para a CLI do Azure para adicionar esta definição para a sua aplicação de função:
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Ferramentas de núcleos de funções do Azure é [abrir a origem e está lojado no GitHub](https://github.com/azure/azure-functions-cli).  
-No ficheiro de um pedido de erros ou funcionalidade, [abrir um problema no GitHub](https://github.com/azure/azure-functions-cli/issues). 
+No ficheiro de um pedido de erros ou funcionalidade, [abrir um problema no GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 

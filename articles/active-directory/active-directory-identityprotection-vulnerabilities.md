@@ -2,7 +2,7 @@
 title: Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection | Microsoft Docs
 description: Descrição geral de vulnerabilidades detetadas pelo Azure Active Directory Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+keywords: proteção de identidade do Azure Active Directory, a cloud discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 534384f8e8fde17c2330831b346d87c50ea24183
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713699"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084013"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são fragilidades no seu ambiente que podem ser forem exploradas por um atacante. Recomendamos que resolver estas vulnerabilidades para melhorar a postura de segurança da sua organização e impedir que os atacantes a explorá-los.
@@ -47,9 +47,9 @@ Este vulnerabilidade ajuda-o a identificar aplicações na nuvem não geridos na
 
 As empresas modernas, departamentos de TI são frequentemente não tem conhecimento de todas as aplicações em nuvem que os utilizadores na sua organização estiver a utilizar para trabalhar. É fácil ver a razão pela qual os administradores teria preocupações acesso não autorizado a dados empresariais, fugas de dados e outros riscos de segurança. 
 
-Recomendamos que para implementar o Cloud App Discovery para detetar aplicações na nuvem não geridos e para gerir estas aplicações com o Azure Active Directory.
+Recomendamos a implementação da Cloud Discovery para detetar aplicações na nuvem não geridos e para gerir estas aplicações com o Azure Active Directory.
 
-Para obter mais informações, consulte [localizar aplicações da nuvem não geridos com o Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+Para obter mais informações, consulte [da Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de Segurança do Privileged Identity Management
 Este vulnerabilidade ajuda a detetar e resolver alertas sobre as identidades privilegiadas na sua organização.  

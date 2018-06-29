@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 74a660f7240b9ae6138c402dbbb418bbc665dc3c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867670"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098707"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão do NPS para o multi-factor Authentication do Azure
 
@@ -52,14 +52,14 @@ Se encontrar erros com a extensão NPS para o Azure multi-factor Authentication,
 | Código de erro | Mensagem de erro | Passos de resolução de problemas |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Inquilino do autor da chamada não tem permissões de acesso para efetuar a autenticação para o utilizador | Verifique se o domínio de inquilino e o domínio do nome principal de utilizador (UPN) são as mesmas. Por exemplo, certifique-se de que user@contoso.com está a tentar autenticar para o inquilino Contoso. O UPN representa um utilizador válido para o inquilino no Azure. |
-| **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o utilizador | Tem do utilizador adicione ou verifique se os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o utilizador | Tem do utilizador adicione ou verifique se os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Método de autenticação especificado não é suportado. | Recolher todos os seus registos que incluem este erro, e [contacte o suporte](#contact-microsoft-support). Quando contactar o suporte, forneça o nome de utilizador e o método de verificação secundário que acionou o erro. |
-| **BecAccessDenied** | Chamada no MSODS Bec devolveu acesso negado, provavelmente, o nome de utilizador não está definido no inquilino do | O utilizador está presente no Active Directory no local, mas não está sincronizado para o Azure AD por AD Connect. Em alternativa, o utilizador está em falta para o inquilino. Adicionar o utilizador para o Azure AD e os adicionar os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | Chamada no MSODS Bec devolveu acesso negado, provavelmente, o nome de utilizador não está definido no inquilino do | O utilizador está presente no Active Directory no local, mas não está sincronizado para o Azure AD por AD Connect. Em alternativa, o utilizador está em falta para o inquilino. Adicionar o utilizador para o Azure AD e os adicionar os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** ou **StrongAuthenticationServiceInvalidParameter** | O número de telefone está num formato irreconhecível | Tem de corrigir os respetivos números de telefone de verificação de utilizador. |
 | **InvalidSession** | A sessão especificada é inválida ou pode ter expirado | A sessão demorou mais do que três minutos a concluir. Certifique-se de que o utilizador é introduzir o código de verificação ou a responder à notificação da aplicação, com três minutos de iniciar o pedido de autenticação. Se que não corrigir o problema, verifique que não existem nenhum latências de rede entre o cliente, o servidor de NAS, o servidor NPS e o ponto final do MFA do Azure.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Não foi configurado nenhum método de autenticação predefinido para o utilizador | Tem do utilizador adicione ou verifique se os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Certifique-se de que o utilizador tem escolhido um método de autenticação predefinido e configurar este método para a conta. |
+| **NoDefaultAuthenticationMethodIsConfigured** | Não foi configurado nenhum método de autenticação predefinido para o utilizador | Tem do utilizador adicione ou verifique se os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Certifique-se de que o utilizador tem escolhido um método de autenticação predefinido e configurar este método para a conta. |
 | **OathCodePinIncorrect** | Código errado e pin introduzido. | Este erro não é esperado na extensão do NPS. Se o utilizador detetar, [contacte o suporte](#contact-microsoft-support) para resolução de problemas de ajuda. |
-| **ProofDataNotFound** | Dados de prova não foi configurados para o método de autenticação especificado. | Tem do utilizador tente um método de verificação diferente ou adicione um novo métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Se o utilizador continuar a ver este erro depois de confirmar a que o método de verificação está corretamente configurado, [contacte o suporte](#contact-microsoft-support). |
+| **ProofDataNotFound** | Dados de prova não foi configurados para o método de autenticação especificado. | Tem do utilizador tente um método de verificação diferente ou adicione um novo métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Se o utilizador continuar a ver este erro depois de confirmar a que o método de verificação está corretamente configurado, [contacte o suporte](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Código errado e pin introduzido. (OneWaySMS) | Este erro não é esperado na extensão do NPS. Se o utilizador detetar, [contacte o suporte](#contact-microsoft-support) para resolução de problemas de ajuda. |
 | **TenantIsBlocked** | Inquilino está bloqueado | [Contacte o suporte](#contact-microsoft-support) com o ID de diretório da página de propriedades do Azure AD no portal do Azure. |
 | **UserNotFound** | O utilizador especificado não foi encontrado | O inquilino já não é visível como o Active Directory no Azure AD. Verifique se a sua subscrição está ativa e tiver necessários primeiro as aplicações de terceiros. Certifique-se também o inquilino no requerente do certificado é conforme esperado e o certificado é ainda válido e registados no principal de serviço. |
@@ -98,7 +98,7 @@ Se encontrar um destes erros, recomendamos que lhe [contacte o suporte](#contact
 
 Se os utilizadores são [problemas com verificação de dois passos](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), ajudar a problemas de Self-diagnosticá-las. 
 
-### <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
+### <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
 Se precisar de mais ajuda, contacte um técnico de suporte através de [suporte de servidor do Azure multi-factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir a maior quantidade informações sobre o problema quanto possível. Pode fornecer as informações incluem a página onde vimos o erro, o código de erro específico, o ID de sessão específico, o ID do utilizador que vimos o erro e registos de depuração.
 

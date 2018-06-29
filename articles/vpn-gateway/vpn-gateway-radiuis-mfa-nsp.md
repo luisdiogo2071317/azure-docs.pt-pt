@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: 665e1914f44d7c5e650a1b632d8b11c6d8a5931a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9985f6ad8721460e973d3c43f1f035506ae697c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793278"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100079"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar autenticação RADIUS do gateway de VPN do Azure com o servidor NPS para multi-factor Authentication 
 
@@ -28,7 +28,7 @@ O artigo descreve como integrar o servidor de políticas de rede (NPS) com a aut
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure AD), que tem de ser sincronizados a partir no local ou ambiente de nuvem. Além disso, o utilizador tem de ter já concluído o processo de inscrição automática para a MFA.  Para obter mais informações, consulte [configurar a minha conta para a verificação de dois passos](../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure AD), que tem de ser sincronizados a partir no local ou ambiente de nuvem. Além disso, o utilizador tem de ter já concluído o processo de inscrição automática para a MFA.  Para obter mais informações, consulte [configurar a minha conta para a verificação de dois passos](../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="detailed-steps"></a>Passos detalhados
 

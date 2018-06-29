@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23950288"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097051"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 do StorSimple: uma solução de armazenamento de nuvem híbrida
 ## <a name="overview"></a>Descrição geral
@@ -56,7 +56,7 @@ A solução do Microsoft Azure StorSimple inclui os seguintes componentes:
 * **Dispositivo do Microsoft Azure StorSimple** – uma matriz de armazenamento híbrida no local que contém SSDs e HDDs, juntamente com os controladores de redundantes e capacidades de ativação pós-falha automática. Os controladores de gerir o armazenamento em camadas, colocando atualmente utilizados (ou quentes) dados no armazenamento local (por dispositivo ou no local servidores), ao mover dados menos utilizados com frequência para a nuvem.
 * **Aplicação de nuvem do StorSimple** – também conhecido como o dispositivo Virtual StorSimple, esta é uma versão de software do dispositivo StorSimple que replica a arquitetura e a maioria das capacidades do dispositivo de armazenamento físico híbrida. A aplicação de nuvem do StorSimple é executado num único nó numa máquina virtual do Azure. Dispositivos virtuais Premium que tirar partido do armazenamento premium do Azure, estão disponíveis na atualização 2 e versões posteriores.
 * **Serviço do Gestor de dispositivos do StorSimple** – uma extensão do portal do Azure permite-lhe gerir um dispositivo StorSimple ou um dispositivo de nuvem do StorSimple a partir de uma interface web único. Pode utilizar o serviço do Gestor de dispositivos do StorSimple para criar e gerir serviços, ver e gerir dispositivos, ver alertas, gira volumes e ver e gerir políticas de cópia de segurança e o catálogo de cópias de segurança.
-* **O Windows PowerShell para StorSimple** – uma interface de linha de comandos que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para StorSimple tem funcionalidades que lhe permitem registar o dispositivo StorSimple, configure a interface de rede no seu dispositivo, instalar determinados tipos de atualizações, resolver problemas relacionados com o seu dispositivo acedendo a sessão de suporte e alteram o estado do dispositivo. Pode aceder a do Windows PowerShell para StorSimple estabelecendo ligação à consola de série ou ao utilizar a comunicação remota do Windows PowerShell.
+* **O Windows PowerShell para StorSimple** – uma interface de linha de comandos que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para StorSimple tem funcionalidades que lhe permitem registar o dispositivo StorSimple, configure a interface de rede no seu dispositivo, instalar determinados tipos de atualizações, resolver problemas relacionados com o seu dispositivo acedendo a sessão de suporte e alterar o dispositivo Estado. Pode aceder a do Windows PowerShell para StorSimple estabelecendo ligação à consola de série ou ao utilizar a comunicação remota do Windows PowerShell.
 * **Cmdlets do Azure PowerShell StorSimple** – uma coleção de cmdlets do Windows PowerShell que permitem-lhe automatizar tarefas de nível de serviço e a migração a partir da linha de comandos. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para o [referência de cmdlet](/powershell/module/azure/?view=azuresmps-3.7.0#azure).
 * **Snapshot Manager do StorSimple** – um snap-in da MMC, que utiliza grupos de volume e o serviço de cópia de sombra de Volume do Windows para gerar as cópias de segurança consistentes com aplicações. Além disso, pode utilizar o Snapshot Manager do StorSimple para criar as agendas de cópia de segurança e clone ou restauro de volumes.
 * **Placa StorSimple para SharePoint** – farms de uma ferramenta de forma transparente expande a proteção de dados e de armazenamento do Microsoft Azure StorSimple para SharePoint Server, ao tornar o armazenamento StorSimple podem ser visualizados e gerível do Central do SharePoint Portal de administração.
@@ -249,7 +249,7 @@ Segue-se uma lista de outro software que são utilizadas com StorSimple para cri
 | Destino de cópia de segurança |Veeam |Veeam v 9 e posterior |[StorSimple como destino de cópia de segurança com Veaam](storsimple-configure-backup-target-veeam.md)|
 | Destino de cópia de segurança |Exec VERITAS cópia de segurança |Cópia de segurança Exec 16 e posterior |[StorSimple como destino de cópia de segurança com Exec cópia de segurança](storsimple-configure-backup-target-using-backup-exec.md)|
 | Destino de cópia de segurança |VERITAS NetBackup |NetBackup 7.7.x e posterior  |[StorSimple como destino de cópia de segurança com NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Partilha de ficheiros global <br></br> Colaboração |Talon  |[StorSimple com Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Partilha de ficheiros global <br></br> Colaboração |Talon  |[StorSimple com Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>Terminologia do StorSimple
 Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos que reveja os seguintes termos de licenciamento e definições.
@@ -261,7 +261,7 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | AES-256 |Um algoritmo de encriptação AES (Advanced Standard) 256 bits para encriptar os dados são transmitidos para e da nuvem. |
 | tamanho da unidade de alocação (AUS) |A mais pequena quantidade de espaço em disco que pode ser atribuída a conter um ficheiro no seu Windows sistemas de ficheiros. Se um tamanho de ficheiro não é um múltiplo par do tamanho do cluster, espaço adicional tem de ser utilizado para conter o ficheiro (até o seguinte múltiplo do tamanho do cluster) resultando em perda de espaço e a fragmentação do disco rígido. <br>O AUS recomendadas para volumes de Azure StorSimple é 64 KB porque funciona bem com os algoritmos de eliminação de duplicados. |
 | a criação de camadas de armazenamento automático |Mover automaticamente os dados menos ativos de SSDs em HDDs e, em seguida, para um escalão na nuvem e, em seguida, ativar a gestão de todo o armazenamento de uma interface de utilizador central. |
-| Catálogo de cópias de segurança |Uma coleção de cópias de segurança, normalmente, relacionados pelo tipo de aplicação que foi utilizado. Esta coleção é apresentada no painel do catálogo de cópia de segurança do serviço Gestor de dispositivos do StorSimple da IU. |
+| catálogo de cópias de segurança |Uma coleção de cópias de segurança, normalmente, relacionados pelo tipo de aplicação que foi utilizado. Esta coleção é apresentada no painel do catálogo de cópia de segurança do serviço Gestor de dispositivos do StorSimple da IU. |
 | ficheiro de cópia de segurança de catálogo |Um ficheiro que contém uma lista de instantâneos disponíveis atualmente armazenados na base de dados cópia de segurança do Snapshot Manager do StorSimple. |
 | política de cópia de segurança |Uma seleção de volumes, tipo de cópia de segurança e um timetable que permite-lhe criar cópias de segurança numa agenda predefinida. |
 | objetos de grandes dimensões binários (BLOBs) |Uma coleção de dados binários armazenados como uma única entidade no sistema de gestão da base de dados. Os bLOBs são, normalmente, imagens, áudio ou outros objetos multimedia, embora código executável binário, por vezes, é armazenado como um BLOB. |
@@ -270,7 +270,7 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | Nuvem como uma camada (CaaT) |Nuvem de armazenamento integrado como uma camada na arquitetura de armazenamento para que todo o armazenamento é apresentado como parte da rede de armazenamento de uma empresa. |
 | fornecedor de serviço em nuvem (CSP) |Um fornecedor de serviços de computação na nuvem. |
 | instantâneo na nuvem |Uma cópia de ponto no tempo dos dados do volume que são armazenadas na nuvem. Um instantâneo na nuvem é equivalente a um instantâneo replicado num sistema de armazenamento diferentes, fora das instalações. Os instantâneos de nuvem são particularmente útil em cenários de recuperação após desastre. |
-| Chave de encriptação de armazenamento na nuvem |Uma palavra-passe ou uma chave utilizados pelo seu dispositivo StorSimple para aceder aos dados encriptados enviados pelo seu dispositivo para a nuvem. |
+| chave de encriptação de armazenamento na nuvem |Uma palavra-passe ou uma chave utilizados pelo seu dispositivo StorSimple para aceder aos dados encriptados enviados pelo seu dispositivo para a nuvem. |
 | atualização com suporte para cluster |Gerir atualizações de software em servidores num cluster de ativação pós-falha para que as atualizações tenham mínima ou sem qualquer efeito na disponibilidade do serviço. |
 | DataPath |Uma coleção de unidades funcionais que efetuar operações de processamento de dados entre ligado. |
 | desativar |Uma ação permanente que interrompe a ligação entre o dispositivo StorSimple e o serviço de nuvem associada. Instantâneos de nuvem do dispositivo permanecem após este processo e podem ser clonados ou utilizados para recuperação após desastre. |
@@ -290,11 +290,11 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | instantâneo local |Uma cópia de ponto no tempo dos dados do volume que são armazenados no dispositivo Microsoft Azure StorSimple. |
 | Microsoft Azure StorSimple |Uma solução poderosa constituída por um dispositivo de armazenamento do Centro de dados e o software que permite que as organizações de TI tirar partido do armazenamento na nuvem como se fosse o armazenamento do Centro de dados. StorSimple simplifica a gestão de dados e proteção de dados ao reduzir os custos. A solução consolida primária armazenamento, arquivo, cópia de segurança e recuperação após desastre (DR) através da integração totalmente integrada com a nuvem. Ao combinar a gestão de dados de armazenamento e da nuvem SAN uma plataforma de classe empresarial, os dispositivos StorSimple ativar velocidade, simplicidade e fiabilidade para todas as necessidades relacionadas com o armazenamento. |
 | Energia e arrefecimento módulo (PCM) |Componentes de hardware do dispositivo StorSimple constituída por fontes de alimentação e arrefecimento ventoinha, por conseguinte, o nome de energia e arrefecimento módulo. A inclusão principal do dispositivo tem dois 764W PCMs ao passo que o bastidor EBOD tem dois 580W PCMs. |
-| Inclusão principal |Inclusão principal do dispositivo StorSimple que contém os controladores de plataforma da aplicação. |
-| Objetivo de tempo de recuperação (RTO) |A quantidade máxima de tempo que deve ser expended antes de um processo empresarial ou o sistema está totalmente restaurada depois de um desastre. |
+| inclusão principal |Inclusão principal do dispositivo StorSimple que contém os controladores de plataforma da aplicação. |
+| objetivo de tempo de recuperação (RTO) |A quantidade máxima de tempo que deve ser expended antes de um processo empresarial ou o sistema está totalmente restaurada depois de um desastre. |
 | série attached SCSI (SAS) |Um tipo de unidade de disco rígido (HDD). |
 | chave de encriptação de dados do serviço |Uma chave disponibilizada para qualquer novo dispositivo StorSimple que regista com o serviço do Gestor de dispositivos do StorSimple. Os dados de configuração transferidos entre o serviço do Gestor de dispositivos do StorSimple e o dispositivo são encriptados utilizando uma chave pública e, em seguida, podem ser desencriptados apenas no dispositivo com uma chave privada. Chave de encriptação de dados do serviço permite que o serviço obter esta chave privada para desencriptação. |
-| Chave de registo do serviço |Uma chave que ajuda a registar o dispositivo StorSimple com o serviço do Gestor de dispositivos do StorSimple, para que seja apresentado no portal do Azure para obter ações de gestão. |
+| chave de registo do serviço |Uma chave que ajuda a registar o dispositivo StorSimple com o serviço do Gestor de dispositivos do StorSimple, para que seja apresentado no portal do Azure para obter ações de gestão. |
 | Small Computer System Interface (SCSI) |Um conjunto de normas de fisicamente ligação de computadores e passar dados entre eles. |
 | unidade de estado sólido (SSD) |Um disco que não contém as peças; Por exemplo, uma unidade flash. |
 | conta de armazenamento |Um conjunto de credenciais de acesso ligado à sua conta de armazenamento para um fornecedor de serviços de nuvem especificada. |
@@ -303,8 +303,8 @@ Antes de implementar a sua solução do Microsoft Azure StorSimple, recomendamos
 | Snapshot Manager do StorSimple |Snap-in uma consola de gestão da Microsoft (MMC) para gerir as operações de cópia de segurança e restauro no Microsoft Azure StorSimple. |
 | Efetuar cópia de segurança |Uma funcionalidade que permite ao utilizador efetuar uma cópia de segurança interativa de um volume. É uma maneira alternativa de fazer uma cópia de segurança manual de um volume, por oposição a fazer uma cópia de segurança automatizada através de uma política definida. |
 | Aprovisionamento dinâmico |Método de otimizar a eficiência com que o espaço de armazenamento disponível é utilizado em sistemas de armazenamento. No aprovisionamento dinâmico, o armazenamento é alocado entre vários utilizadores com base no espaço mínimo necessário para cada utilizador em qualquer momento. Consulte também *aprovisionamento fat*. |
-| Criação de camadas |Arranging dados em agrupamentos lógicos com base na utilização atual, a idade e a relação a outros dados. StorSimple dispõe automaticamente os dados em camadas. |
-| Volume |Áreas de armazenamento lógica apresentadas sob a forma de unidades. Volumes do StorSimple correspondem aos volumes montados pelo anfitrião, incluindo as que são detetados através da utilização de iSCSI e um dispositivo StorSimple. |
+| criação de camadas |Arranging dados em agrupamentos lógicos com base na utilização atual, a idade e a relação a outros dados. StorSimple dispõe automaticamente os dados em camadas. |
+| volume |Áreas de armazenamento lógica apresentadas sob a forma de unidades. Volumes do StorSimple correspondem aos volumes montados pelo anfitrião, incluindo as que são detetados através da utilização de iSCSI e um dispositivo StorSimple. |
 | contentor de volume |Um agrupamento de volumes e as definições que se aplicam aos mesmos. Todos os volumes no dispositivo StorSimple estão agrupados em contentores de volume. Definições de contentor de volume incluem as contas de armazenamento, as definições de encriptação de dados enviados para a nuvem com as chaves de encriptação associado e largura de banda consumida para operações que envolve a nuvem. |
 | grupo de volume |No Snapshot Manager do StorSimple, um grupo de volume é uma coleção de volumes configurados para facilitar o processamento de cópia de segurança. |
 | Serviço de cópia sombra de volumes (VSS) |Um serviço de sistema operativo Windows Server que facilita a consistência da aplicação ao comunicar com aplicações com suporte para VSS para coordenar a criação de instantâneos incrementais. VSS assegura que as aplicações estão temporariamente Inativas, quando são tirados instantâneos. |

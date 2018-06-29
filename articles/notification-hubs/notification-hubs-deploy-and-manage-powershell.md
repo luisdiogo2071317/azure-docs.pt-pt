@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776911"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084353"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementar e Gerir Hubs de Notificação com o PowerShell
 ## <a name="overview"></a>Descrição geral
@@ -35,7 +35,7 @@ Hubs de notificações de gestão não é suportado diretamente pelos cmdlets in
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Azure é uma plataforma baseado na subscrição. Para obter mais informações sobre a obtenção de uma subscrição, consulte [opções de compra], [ofertas de membros], ou [avaliação gratuita].
-* Um computador com o Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell].
+* Um computador com o Azure PowerShell. Para obter instruções, consulte [Instale e configure o Azure PowerShell].
 * Uma compreensão geral de scripts do PowerShell, os pacotes de NuGet e o .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inclusão de uma referência à assemblagem .NET do Service Bus
@@ -154,11 +154,11 @@ Alguns scripts pronta a utilizar também estão disponíveis para transferência
 
 * [Scripts do PowerShell de Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
-[ofertas de membros]: http://azure.microsoft.com/pricing/member-offers/
-[avaliação gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[instalar e configurar o Azure PowerShell]: /powershell/azureps-cmdlets-docs.
-[API .NET para os Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[Opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
+[Ofertas de membros]: http://azure.microsoft.com/pricing/member-offers/
+[Avaliação gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[Instale e configure o Azure PowerShell]: /powershell/azureps-cmdlets-docs.
+[API .NET para os Notification Hubs]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

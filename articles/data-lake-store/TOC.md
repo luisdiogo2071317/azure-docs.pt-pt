@@ -1,11 +1,11 @@
-# [Documentação do Data Lake Store](index.md)
+# [Documentação de Armazenamento do Data Lake Ger1](index.md)
 
 # Descrição geral
-## [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
-## [Comparar o Azure Data Lake Store com o Armazenamento do Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store para o processamento de macrodados](data-lake-store-data-scenarios.md)
-## [Abrir aplicações de origem que funcionem com o Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
-## [As melhores práticas para utilizar o Data Lake Store](data-lake-store-best-practices.md)
+## [Descrição Geral do Armazenamento do Data Lake Ger1](data-lake-store-overview.md)
+## [Comparar o Armazenamento do Data Lake Ger1 com o Armazenamento do Azure](data-lake-store-comparison-with-blob-storage.md)
+## [Armazenamento do Data Lake Ger1 para o processamento de macrodados](data-lake-store-data-scenarios.md)
+## [Abrir aplicações de origem que funcionem com o Armazenamento do Data Lake Ger1](data-lake-store-compatible-oss-other-applications.md)
+## [As melhores práticas para utilizar o Armazenamento do Data Lake Ger1](data-lake-store-best-practices.md)
 
 # Introdução
 ## [Utilizar o Portal](data-lake-store-get-started-portal.md)
@@ -21,15 +21,15 @@
 ### [Utilizar o DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilizar o Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Carregar dados a partir de origens offline](data-lake-store-offline-bulk-data-upload.md)
-### [Migrar o Azure Data Lake Store entre regiões](data-lake-store-migration-cross-region.md)
+### [Migrar o data lake store entre regiões](data-lake-store-migration-cross-region.md)
 
 ## Proteger dados
 ### [Descrição geral da segurança](data-lake-store-security-overview.md)
-### [Controlo de acesso no Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
+### [Controlo de acesso no Armazenamento do Data Lake Ger1](data-lake-store-access-control.md)
+### [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 ### [Encriptação](data-lake-store-encryption.md)
 
-## Autenticar com o Data Lake Store
+## Autenticar com o Armazenamento do Data Lake Ger1
 ### [Opções de autenticação](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Autenticação de utilizador final](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
 
-## Trabalhar com o Data Lake Store
+## Trabalhar com o Armazenamento do Data Lake Ger1
 ### Operações de gestão de conta
 #### [Utilizar o SDK .NET](data-lake-store-get-started-net-sdk.md)
 #### [Utilizar a API REST](data-lake-store-get-started-rest-api.md)
@@ -54,12 +54,12 @@
 #### [Utilizar o Python](data-lake-store-data-operations-python.md)
 
 ## Desempenho
-### [Guia de sintonização de desempenho para o Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
-### [Guia de sintonização de desempenho para o PowerShell com o Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-### [Guia de sintonização de desempenho para o Spark no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
-### [Guia de sintonização de desempenho para o Hive no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-### [Guia de sintonização de desempenho para o MapReduce no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
-### [Guia de sintonização de desempenho para o Storm no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+### [Guia de sintonização de desempenho para o Armazenamento do Azure Data Lake Ger1](data-lake-store-performance-tuning-guidance.md)
+### [Guia de sintonização de desempenho para o PowerShell com o Armazenamento do Azure Data Lake Ger1](data-lake-store-performance-tuning-powershell.md)
+### [Guia de sintonização de desempenho para o Spark no HDInsight e Armazenamento do Data Lake Ger1](data-lake-store-performance-tuning-spark.md)
+### [Guia de sintonização de desempenho para o Hive no HDInsight e Armazenamento do Data Lake Ger1](data-lake-store-performance-tuning-hive.md)
+### [Guia de sintonização de desempenho para o MapReduce no HDInsight e Armazenamento do Data Lake Ger1](data-lake-store-performance-tuning-mapreduce.md)
+### [Guia de sintonização de desempenho para o Storm no HDInsight e Armazenamento do Data Lake Ger1](data-lake-store-performance-tuning-storm.md)
 
 ## Integrar nos Serviços do Azure
 ### Com o HDInsight

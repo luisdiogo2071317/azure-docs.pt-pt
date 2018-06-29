@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: cfdb89ae833dc2450a4670a84af305f1caa10591
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869517"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098877"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar a sua infraestrutura de VPN com a MFA do Azure utilizando a extensão de servidor de políticas de rede do Azure
 
@@ -305,7 +305,7 @@ Para resolver estes problemas, um local ideal para começar, é examinar os regi
  
 ## <a name="configure-multi-factor-authentication"></a>Configurar a autenticação Multifator
 
-Para obter ajuda a configurar utilizadores de multi-factor Authentication, consulte os artigos [como requerer a verificação de dois passos para um utilizador ou grupo](howto-mfa-userstates.md) e [configurar a minha conta para a verificação de dois passos](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+Para obter ajuda a configurar utilizadores de multi-factor Authentication, consulte os artigos [como requerer a verificação de dois passos para um utilizador ou grupo](howto-mfa-userstates.md) e [configurar a minha conta para a verificação de dois passos](end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalar e configurar a extensão NPS
 
@@ -393,7 +393,7 @@ Para utilizar o script, forneça a extensão com as credenciais administrativas 
 
 6. Reinicie o servidor.
 
-### <a name="verify-the-configuration"></a>Verificar a configuração
+### <a name="verify-the-configuration"></a>Verifique a configuração
 Para verificar a configuração, tem de estabelecer uma nova ligação de VPN com o servidor VPN. Depois de introduzir com êxito as suas credenciais para autenticação primária, a ligação VPN aguarda que a autenticação secundária com êxito antes da ligação for estabelecida, conforme mostrado abaixo. 
 
 ![A janela de VPN de definições do Windows](./media/howto-mfa-nps-extension-vpn/image42.png)

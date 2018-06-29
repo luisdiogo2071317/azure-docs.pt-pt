@@ -2,18 +2,18 @@
 title: Utilize instâncias de contentor do Azure como um Jenkins Criar agente
 description: Saiba como utilizar as instâncias de contentor do Azure como um Jenkins Criar agente.
 services: container-instances
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nepeters
-ms.openlocfilehash: 4df230c8306a3876e94a5e9ada5e7408f134ba26
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: 7d1fa80b6d9b76a37ff29db42c5119389b3aad2a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359550"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096439"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Utilize instâncias de contentor do Azure como um Jenkins Criar agente
 

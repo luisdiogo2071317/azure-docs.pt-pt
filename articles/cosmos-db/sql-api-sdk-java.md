@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62555d3ba3513ce7183e24506530edcf78368247
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 352fa562a09d343d4a01b94343a60e3f6610c73f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798632"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097170"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ O SDK de Java de API do SQL Server suporta operações síncronas. Para obter su
 * IPartitionResolver preterido com a base de código personalizado de criação de partições. Utilize coleções particionadas para superior armazenamento e débito.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* Suporte de política de repetição adicionado para limitação.  
+* Suporte de política de repetição adicionado para limitação de taxa.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Tempo adicionado ao suporte (TTL) em direto para documentos.

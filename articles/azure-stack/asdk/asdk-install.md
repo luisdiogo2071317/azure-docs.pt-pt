@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 74a81901c8ad38a84357a9f3c2e1d948aa81e8bc
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171201"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084336"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalar o Kit de desenvolvimento de pilha do Azure (ASDK)
 Depois de [preparar o computador de anfitrião ASDK](asdk-prepare-host.md), o ASDK pode ser implementado para a imagem de CloudBuilder.vhdx utilizando os seguintes passos neste artigo.
@@ -58,7 +58,7 @@ Os passos neste artigo mostram como implementar o ASDK utilizando uma interface 
     - Escreva um **tempo IP do servidor** endereço. Este requisito necessário campo define o servidor de tempo a ser utilizado pelo kit de desenvolvimento. Este parâmetro tem de ser fornecido como um endereço IP do servidor de hora válido. Os nomes dos servidores não são suportadas.
 
       > [!TIP]
-      > Para localizar um servidor de tempo de endereço IP, visite [pool.ntp.org](http:\\pool.ntp.org) ou ping time.windows.com. 
+      > Para localizar um servidor de tempo de endereço IP, visite [pool.ntp.org](http://pool.ntp.org) ou ping time.windows.com. 
 
     - **Opcionalmente,**, defina os seguintes valores:
         - **ID de VLAN**: define o ID de VLAN. Utilize esta opção apenas se o anfitrião e AzS BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e a internet). 

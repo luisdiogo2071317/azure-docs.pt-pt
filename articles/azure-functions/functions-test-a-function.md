@@ -3,7 +3,7 @@ title: Testar as funções do Azure | Microsoft Docs
 description: Teste as suas funções do Azure utilizando o Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23838955"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083262"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código das funções do Azure
 
@@ -189,7 +189,7 @@ Pode testar uma função de Acionador de blob utilizando [Explorador de armazena
 1. No [portal do Azure] para a sua aplicação de função, criar uma função de Acionador de blob c#, F # ou JavaScript. Defina o caminho para monitorizar com o nome do contentor de blob. Por exemplo:
 
         files
-2. Clique em de  **+**  botão para selecionar ou criar a conta de armazenamento que pretende utilizar. Em seguida, clique em **Criar**.
+2. Clique em de **+** botão para selecionar ou criar a conta de armazenamento que pretende utilizar. Em seguida, clique em **Criar**.
 3. Crie um ficheiro de texto com o seguinte texto e guarde-o:
 
         A text file for blob trigger function testing.
@@ -244,7 +244,7 @@ Para mais informações aprofundadas sobre a utilização de enlaces com as fun�
 Para demonstrar esta abordagem, iremos criar primeiro uma função de Acionador de fila que queremos testá para uma fila com o nome `queue-newusers`. Esta função processa as informações de nome e endereço largadas no armazenamento de filas para um novo utilizador.
 
 > [!NOTE]
-> Se utilizar um nome de fila diferente, certifique-se o nome que utiliza está em conformidade com a [nomenclatura de filas e metadados](https://msdn.microsoft.com/library/dd179349.aspx) regras. Caso contrário, receberá um erro.
+> Se utilizar um nome de fila diferente, certifique-se o nome que utiliza está em conformidade com a [nomenclatura de filas e metadados](https://msdn.microsoft.com/library/dd179349.aspx) regras. Caso contrário, recebe um erro.
 >
 >
 
@@ -252,7 +252,7 @@ Para demonstrar esta abordagem, iremos criar primeiro uma função de Acionador 
 2. Introduza o nome da fila para ser monitorizada pela função fila:
 
         queue-newusers
-3. Clique em de  **+**  botão para selecionar ou criar a conta de armazenamento que pretende utilizar. Em seguida, clique em **Criar**.
+3. Clique em de **+** botão para selecionar ou criar a conta de armazenamento que pretende utilizar. Em seguida, clique em **Criar**.
 4. Deixe esta janela do portal browser aberta, pelo que pode monitorizar as entradas de registo para o código de modelo de função de fila de predefinição.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Criar um acionador de temporizador para remover uma mensagem na fila
@@ -268,7 +268,7 @@ Para demonstrar esta abordagem, iremos criar primeiro uma função de Acionador 
 6. Introduza o nome da fila onde a mensagem é enviada:
 
         queue-newusers
-7. Clique em de  **+**  botão para selecionar a conta de armazenamento que utilizou anteriormente com o acionador de fila. Em seguida, clique em **Guardar**.
+7. Clique em de **+** botão para selecionar a conta de armazenamento que utilizou anteriormente com o acionador de fila. Em seguida, clique em **Guardar**.
 8. Clique em de **desenvolver** separador para o acionador de temporizador.
 9. Pode utilizar o seguinte código para a função c# temporizador, desde que tenha utilizado o mesmo nome de objeto de mensagem fila apresentado anteriormente. Em seguida, clique em **Guardar**.
 
@@ -443,4 +443,4 @@ Na janela do browser para a função de fila, pode ver cada mensagem a ser proce
 
 <!-- URLs. -->
 
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
