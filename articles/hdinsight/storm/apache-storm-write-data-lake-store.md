@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412633"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131740"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escrever HDFS do Apache Storm no HDInsight
 
-Saiba como utilizar o Storm para escrever dados no armazenamento compatível com HDFS utilizado pelo Apache Storm no HDInsight. HDInsight pode utilizar ambas Storage do Azure e do Azure Data Lake armazenam como armazenamento compatível com HDFS. Storm fornece um [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) componente que escreve dados para o HDFS. Este documento fornece informações sobre como escrever para o tipo de armazenamento do HdfsBolt. 
+Saiba como utilizar o Storm para escrever dados no armazenamento compatível com HDFS utilizado pelo Apache Storm no HDInsight. HDInsight pode utilizar ambas Storage do Azure e do Azure Data Lake armazenam como armazenamento compatível com HDFS. Storm fornece um [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) componente que escreve dados para o HDFS. Este documento fornece informações sobre como escrever para o tipo de armazenamento do HdfsBolt. 
 
 > [!IMPORTANT]
 > A topologia de exemplo utilizada neste documento baseia-se nos componentes que estão incluídos com o Storm no HDInsight. Pode necessitar de modificações para trabalhar com o Azure Data Lake Store quando utilizado com outros clusters do Apache Storm.
@@ -33,18 +33,18 @@ O projeto que contém esta topologia está disponível como uma transferência a
 
 Para compilar a este projeto, terá da seguinte configuração para o seu ambiente de desenvolvimento:
 
-* [1.8 do Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou superior. HDInsight 3.5 ou superior necessário Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou superior. O HDInsight 3.5 ou superior requer o Java 8.
 
-* [Maven 3](https://maven.apache.org/download.cgi)
+* [Maven 3.x](https://maven.apache.org/download.cgi)
 
-As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK na sua estação de trabalho de desenvolvimento. No entanto, deve verificar que existe e que contêm os valores corretos para o seu sistema.
+As variáveis de ambiente que se seguem podem ser definidas quando instala o Java e o JDK na sua estação de trabalho de desenvolvimento. No entanto, deve certificar-se de que existem e que contêm os valores corretos para o seu sistema.
 
-* `JAVA_HOME` -devem apontar para o diretório onde está instalado o JDK.
-* `PATH` -deve conter os seguintes caminhos:
+* `JAVA_HOME` - deve apontar para o diretório onde o JDK está instalado.
+* `PATH` - deve conter os seguintes caminhos:
   
     * `JAVA_HOME` (ou o caminho equivalente).
     * `JAVA_HOME\bin` (ou o caminho equivalente).
-    * O diretório onde está instalado o Maven.
+    * O diretório onde o Maven está instalado.
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Como utilizar o HdfsBolt com o HDInsight
 
@@ -65,7 +65,7 @@ A tabela seguinte fornece exemplos de como utilizar o esquema do ficheiro para d
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Uma conta do storage do Azure (adicionais) de não predefinidas associada com o cluster. |
 | `adl://STORENAME/` | A raiz do Data Lake Store utilizados pelo cluster. Este esquema permite-lhe aceder aos dados que estão localizados fora do diretório que contém o sistema de ficheiros do cluster. |
 
-Para obter mais informações, consulte o [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) referência em Apache.org.
+Para obter mais informações, consulte o [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) referência em Apache.org.
 
 ### <a name="example-configuration"></a>Configuração de exemplo
 
@@ -164,7 +164,7 @@ Para obter informações sobre como utilizar este script com o cluster, consulte
     Quando lhe for pedido, introduza a palavra-passe utilizada quando o utilizador do SSH para o cluster. Se tiver utilizado uma chave pública em vez de uma palavra-passe, poderá ter de utilizar o `-i` parâmetro para especificar o caminho para a chave privada correspondente.
    
    > [!NOTE]
-   > Para obter mais informações sobre como utilizar `scp` com o HDInsight, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+   > Para obter mais informações sobre como utilizar `scp` com o HDInsight, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Após a conclusão do carregamento, utilize o seguinte para ligar ao cluster do HDInsight através de SSH. Substitua **utilizador** com o nome de utilizador SSH que utilizou quando criar o cluster. Substitua **CLUSTERNAME** pelo nome do cluster.
    

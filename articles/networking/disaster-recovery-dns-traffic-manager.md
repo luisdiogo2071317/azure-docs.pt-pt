@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249416"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112991"
 ---
-# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com DNS do Azure e o Gestor de tráfego
+# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
 
 Recuperação após desastre centra-se no recuperar a partir de uma perda grave de funcionalidade da aplicação. Para escolher uma solução de recuperação após desastre, empresariais e tecnológicas proprietários primeiro devem determinar o nível de funcionalidade que é necessária durante um desastre, tais como -, indisponível, parcialmente disponível através de funcionalidade reduzida ou disponibilidade atrasada, ou totalmente disponível.
 A maioria dos clientes empresariais são escolher uma arquitetura de multirregião para resiliência contra uma aplicação ou a ativação pós-falha de nível de infraestrutura. Os clientes podem optar várias abordagens no vação para alcançar a ativação pós-falha e a elevada disponibilidade através de arquitetura redundante. Seguem-se algumas das abordagens mais populares:
@@ -59,7 +59,7 @@ O DNS é um dos mecanismos mais eficientes para divert tráfego de rede porque o
 
 É importante compreender alguns conceitos no DNS que são amplamente utilizado para discutir as soluções fornecidas neste artigo:
 - **Registo a DNS** – registos são indicadores que apontam um domínio para um endereço IPv4. 
-- **Nome de CNAME ou Canonical** -este tipo de registo é utilizado para apontar para outro registo DNS. CNAME não responde com uma resposta IP, mas em vez disso, o ponteiro para o registo que contém o endereço IP. 
+- **Nome de CNAME ou Canonical** -este tipo de registo é utilizado para apontar para outro registo DNS. CNAME não responde com um endereço IP, mas em vez disso, o ponteiro para o registo que contém o endereço IP. 
 - **Ponderado encaminhamento** – um pode optar por associar uma ponderação de pontos finais de serviço e, em seguida, distribui o tráfego com base em ponderações atribuídas. Este método de encaminhamento é um dos quatro tráfego encaminhamento mecanismos disponíveis dentro do Gestor de tráfego. Para obter mais informações, consulte [ponderado método de encaminhamento](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Encaminhamento de prioridade** – prioridade encaminhamento baseia-se nas verificações de estado de funcionamento dos pontos finais. Por predefinição, o Gestor de tráfego do Azure envia todo o tráfego para o ponto final de prioridade mais elevado e, após uma falha ou desastre, o Gestor de tráfego encaminha o tráfego para o ponto final secundário. Para obter mais informações, consulte [método de encaminhamento de prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

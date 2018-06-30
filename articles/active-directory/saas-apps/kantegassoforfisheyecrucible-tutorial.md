@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215714"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Azure Active Directory com o SSO Kantega para FishEye/Crucible
 
@@ -133,7 +133,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. Numa janela do browser web diferente, inicie sessão no seu FishEye Crucible no servidor no local como um administrador.
+7. Numa janela do browser web diferente, inicie sessão na sua FishEye/Crucible server local como administrador.
 
 8. Paire o rato sobre o ícone e clique em de **suplementos**.
 
@@ -222,7 +222,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     c. Clique em **Guardar**.  
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de  **Configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -261,7 +261,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos FishEye/Crucib
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu Crucible no servidor no local como um administrador.
+1. Inicie sessão na sua Crucible server local como administrador.
 
 2. Paire o rato sobre o ícone e clique em de **utilizadores**.
 

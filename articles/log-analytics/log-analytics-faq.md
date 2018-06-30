@@ -3,7 +3,7 @@ title: Iniciar análise FAQ | Microsoft Docs
 description: Respostas a perguntas mais frequentes sobre o serviço de análise de registos do Azure.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221549"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128535"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 Estas FAQ Microsoft é uma lista de perguntas mais comuns sobre a análise de registos no Microsoft Azure. Se tiver alguma questão adicional sobre a análise de registos, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e publique as suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que possam ser localizada forma rápida e fácil.
@@ -79,13 +80,13 @@ R: utilizar os passos descritos no [criar um novo alerta de registo](../monitori
 
 Quando criar o alerta para quando interrompe a recolha de dados, defina o:
 
-- **Definir a condição de alerta** especificar a sua área de trabalho de análise de registos como o destino de recursos.
+- **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Assinalar nome** selecione **pesquisa de registo personalizado**.
    - A **consulta de pesquisa** como `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - **Alerta lógica** é **com base no** *número de resultados* e **condição** é *maior* um **limiar**  de *0*
+   - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
    - **Período de tempo** de *30* minutos e **frequência do alerta** a cada *10* minutos
-- **Definir os detalhes do alerta** especifique o seguinte:
+- **Definir detalhes do alerta** especifique o seguinte:
    - **Nome** para *parada a recolha de dados*
    - A **gravidade** como *Aviso*
 

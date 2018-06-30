@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1326e4a84938c46a9e7acc10dd8ed94db708f62a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23877224"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113090"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de cópia de segurança com Exec cópia de segurança
 
@@ -158,7 +158,7 @@ Implementar a solução requer três passos:
 
 Cada passo é abordado em detalhe nas secções seguintes.
 
-### <a name="set-up-the-network"></a>Configure a rede
+### <a name="set-up-the-network"></a>Configurar a rede
 
 Uma vez StorSimple é uma solução que está integrada com a nuvem do Azure, StorSimple requer uma ligação de trabalho para a nuvem do Azure e Active Directory. Esta ligação é utilizada para operações como instantâneos de nuvem, gestão e a transferência de metadados e à camada mais antiga, menos os dados acedidos para armazenamento na nuvem do Azure.
 
@@ -173,7 +173,7 @@ Para uma orientação de implementação do StorSimple passo a passo, consulte [
 
 ### <a name="deploy-backup-exec"></a>Implementar Exec cópia de segurança
 
-Para cópia de segurança Exec melhores práticas de instalação, consulte [melhores práticas para a instalação de cópia de segurança Exec](https://www.veritas.com/support/en_US/article.000068207).
+Para cópia de segurança Exec melhores práticas de instalação, consulte [melhores práticas para a instalação de cópia de segurança Exec](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## <a name="set-up-the-solution"></a>Configurar a solução
 
@@ -265,7 +265,7 @@ Com base em suposições de anteriores, cria um 26-TiB StorSimple camadas volume
 
 ### <a name="to-set-up-backup-exec-storage"></a>Para configurar o armazenamento de cópia de segurança Exec
 
-1.  Na consola de gestão Exec de cópia de segurança, selecione **armazenamento** > **configurar o armazenamento** > **armazenamento baseado em disco** > **seguinte**.
+1.  Na consola de gestão Exec de cópia de segurança, selecione **armazenamento** > **configurar o armazenamento** > **armazenamento baseado em disco**  >   **Seguinte**.
 
     ![Consola de gestão de Exec de cópia de segurança, configurar a página de armazenamento](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 

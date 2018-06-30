@@ -1,9 +1,9 @@
 ---
 title: Solução de análise de SQL do Azure no Log Analytics | Microsoft Docs
-description: A solução de análise do SQL Azure ajuda-o a gerir as bases de dados SQL do Azure.
+description: Solução de análise de SQL do Azure ajuda-o a gerir as bases de dados SQL do Azure
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133030"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitorizar bases de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
 ![Símbolo de análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-A solução de análise de SQL do Azure no Log Analytics do Azure recolhe e visualiza importantes métricas de desempenho de SQL Azure. Ao utilizar as métricas que recolher com a solução, pode criar regras personalizadas de monitorização e alertas. Pode monitorizar a SQL Database do Azure e métricas de conjunto elástico em vários subscrições do Azure e elástico agrupamentos e visualizá-los. A solução também ajuda a identificar problemas em cada camada de pilha de aplicação.  Utiliza [métricas de diagnóstico do Azure](log-analytics-azure-storage.md) juntamente com as vistas de análise de registos para apresentar dados sobre todas as suas bases de dados SQL do Azure e conjuntos elásticos numa única área de trabalho do Log Analytics.
+Análise de SQL do Azure é uma solução para monitorização do desempenho de bases de dados do Azure SQL na escala em vários conjuntos elásticos e subscrições de monitorização de nuvem. Este recolhe e visualiza importantes métricas de desempenho de SQL Database do Azure com intelligence incorporado para resolução de problemas na parte superior do desempenho. 
+
+Ao utilizar as métricas que recolher com a solução, pode criar regras personalizadas de monitorização e alertas. A solução ajuda-o a identificar problemas em cada camada de pilha de aplicação. Utiliza a métrica do diagnóstico do Azure, juntamente com as vistas de análise de registos para apresentar dados sobre todas as suas bases de dados SQL do Azure e conjuntos elásticos numa única área de trabalho do Log Analytics. Análise de registos ajuda-o a recolher, correlacionar e visualizar dados estruturados e não estruturados.
 
 Atualmente, esta solução de pré-visualização suporta até 150.000 bases de dados de SQL do Azure e 5000 conjuntos elásticos SQL por área de trabalho.
-
-A solução de análise de SQL do Azure, tal como outros disponível para análise de registos, ajuda a monitorizar e receber notificações sobre o estado de funcionamento dos seus recursos do Azure, neste caso, SQL Database do Azure. Base de dados do Microsoft Azure SQL é um serviço de base de dados relacional dimensionável, que fornece capacidades de SQL Server-semelhantes familiares para aplicações em execução na nuvem do Azure. Análise de registos ajuda-o a recolher, correlacionar e visualizar dados estruturados e não estruturados.
 
 Para obter uma descrição prática utilizando a solução de análise de SQL do Azure e para cenários de utilização normal, veja o vídeo incorporado:
 
@@ -37,39 +39,34 @@ Para obter uma descrição prática utilizando a solução de análise de SQL do
 
 ## <a name="connected-sources"></a>Origens ligadas
 
-A solução de análise do Azure SQL não utilize agentes para ligar ao serviço análise de registos.
-
-A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
+Análise de SQL do Azure é uma solução suporte de transmissão em fluxo de telemetria de diagnóstico para bases de dados do Azure SQL e conjuntos elásticos de monitorização de nuvem. Como utilizar os agentes para ligar ao serviço análise de registos, a solução não suporta a conectividade com o Windows, Linux ou recursos do SCOM, consulte a tabela de compatibilidade abaixo.
 
 | Origem Ligada | Suporte | Descrição |
 | --- | --- | --- |
+| **[Diagnóstico do Azure](log-analytics-azure-storage.md)** | **Sim** | Dados de métricas e registo do Azure são enviados para análise de registos diretamente pelo Azure. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | Análise de registos não ler os dados a partir de uma conta de armazenamento. |
 | [Agentes do Windows](log-analytics-windows-agent.md) | Não | Agentes diretos do Windows não são utilizados pela solução. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | Direcionar os agentes não são utilizados pela solução de Linux. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | Uma ligação direta do agente do SCOM para análise de registos não é utilizada pela solução. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | Análise de registos não ler os dados a partir de uma conta de armazenamento. |
-| [Diagnóstico do Azure](log-analytics-azure-storage.md) | Sim | Dados de métricas e registo do Azure são enviados para análise de registos diretamente pelo Azure. |
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-- Uma subscrição do Azure. Se não tiver uma, pode criar um para [livre](https://azure.microsoft.com/free/).
-- Uma área de trabalho de análise de registos. Pode utilizar um existente ou pode [criar um novo](log-analytics-quick-create-workspace.md) antes de começar a utilizar esta solução.
-- Ativar o diagnóstico do Azure para as bases de dados SQL do Azure e os conjuntos elásticos e [configurá-los para enviar os seus dados para análise de registos](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configuração
 
 Execute os seguintes passos para adicionar a solução de análise de SQL do Azure a sua área de trabalho.
 
-1. Adicionar a solução de análise de SQL do Azure a sua área de trabalho de [do Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
-2. No portal do Azure, clique em **crie um recurso** > **monitorização + gestão**.  
+1. Adicionar a solução de análise de SQL do Azure a sua área de trabalho de [do Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. No portal do Azure, clique em **+ criar um recurso**, em seguida, procure **análise do Azure SQL**.  
     ![Monitorização + Gestão](./media/log-analytics-azure-sql/monitoring-management.png)
-3. No **monitorização + gestão** lista clique **ver todos os**.
-4. No **recomendado** lista, clique em **mais**e, em seguida, na lista nova, localizar **análise de SQL do Azure (pré-visualização)** e, em seguida, selecioná-lo.  
-    ![Solução de análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. No **análise de SQL do Azure (pré-visualização)** área, clique em **criar**.  
+3. Selecione **análise de SQL do Azure (pré-visualização)** da lista
+4. No **análise de SQL do Azure (pré-visualização)** área, clique em **criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-6. No **criar nova solução** área, selecione a área de trabalho que pretende adicionar a solução para e, em seguida, clique em **criar**.  
+5. No **criar nova solução** área, crie uma nova ou selecione uma área de trabalho existente que pretende adicionar a solução para e, em seguida, clique em **criar**.  
     ![Adicione a área de trabalho](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Configurar bases de dados do Azure SQL e conjuntos elásticos a telemetria de diagnóstico de fluxo
+
+Assim que tiver criado a solução de análise de SQL do Azure na sua área de trabalho, para monitorizar o desempenho de bases de dados do Azure SQL e/ou conjuntos elásticos, é necessário para **configurar cada** da SQL Database do Azure e pretende de recursos de agrupamento elástico para monitorizar a transmitir a telemetria de diagnóstico para a solução.
+
+- Ativar o diagnóstico do Azure para as bases de dados SQL do Azure e os conjuntos elásticos e [configurá-los para enviar os seus dados para análise de registos](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Para configurar várias subscrições do Azure
 
@@ -109,10 +106,10 @@ Cada perspetiva fornece resumos na subscrição, o servidor, o conjunto elástic
 | Informações | Fornece hierárquica desagregar para Insights inteligente. Saiba mais sobre as informações inteligentes. |
 | Erros | Fornece desagregar hierárquica erros de SQL que ocorreram nas bases de dados. |
 | Tempos limite | Fornece hierárquica desagregar para tempos limite SQL que ocorreram nas bases de dados. |
-| Blockings | Fornece hierárquica desagregar para blockings SQL que ocorreram nas bases de dados. |
-| Tem de aguardar de base de dados | Fornece hierárquica desagregar para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |
-| duração de consulta | Fornece hierárquica desagregar para as estatísticas de execução da consulta como a utilização da CPU, duração de consulta, utilização de registo e/s e utilização de dados e/s. |
-| Tem de aguardar de consulta | Fornece hierárquica desagregar para as estatísticas de espera de consulta por categoria de espera. |
+| Bloqueios | Fornece hierárquica desagregar para blockings SQL que ocorreram nas bases de dados. |
+| Esperas de base de dados | Fornece hierárquica desagregar para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |
+| Duração de consulta | Fornece hierárquica desagregar para as estatísticas de execução da consulta como a utilização da CPU, duração de consulta, utilização de registo e/s e utilização de dados e/s. |
+| Esperas de consulta | Fornece hierárquica desagregar para as estatísticas de espera de consulta por categoria de espera. |
 
 ### <a name="intelligent-insights-report"></a>Relatório de Insights inteligente
 

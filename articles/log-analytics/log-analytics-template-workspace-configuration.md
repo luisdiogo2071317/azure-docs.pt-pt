@@ -3,22 +3,24 @@ title: Utilizar modelos Azure Resource Manager para criar e configurar uma área
 description: Pode utilizar os modelos Azure Resource Manager para criar e configurar áreas de trabalho de análise de registos.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133053"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir a análise de registo com modelos Azure Resource Manager
 Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho de análise de registos. Exemplos de tarefas que pode efetuar com modelos incluem:
@@ -35,6 +37,16 @@ Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resourc
 * Configurar a análise de registos para dados do índice recolhidos através de diagnóstico do Azure
 
 Este artigo fornece exemplos de modelo que ilustram alguns da configuração que pode realizar com modelos.
+
+## <a name="api-versions"></a>Versões da API
+A tabela seguinte apresenta a versão da API para os recursos utilizados neste exemplo.
+
+| Recurso | Tipo de recurso | Versão de API |
+|:---|:---|:---|:---|
+| Área de trabalho   | áreas de trabalho    | 2017-03-15-preview |
+| Pesquisa      | savedSearches | 2017-03-15-preview |
+| Origem de dados | origens de dados   | 2015-11-01-preview |
+| Solução    | soluções     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho de análise de registos
 O exemplo seguinte cria uma área de trabalho utilizando um modelo a partir do seu computador local. O modelo JSON está configurado para solicitar-lhe apenas para o nome da área de trabalho e especifica um valor predefinido para os outros parâmetros que, provavelmente, seria utilizada como uma configuração padrão no seu ambiente.  

@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4dea1209548fb3bb4f846cdf7eaf82751f938bea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049235"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108849"
 ---
 # <a name="quickstart-for-c-and-windows"></a>Início rápido para C++ e o Windows
 
@@ -78,8 +78,8 @@ Substitua o código de arranque predefinido pelo seguinte:
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
-> Substitua um que obteve a chave de subscrição. <br>
-> Substitua a região com a região do [API de REST do serviço de reconhecimento de voz](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), por exemplo, substitua 'westus'.
+> Substitua a chave de subscrição que obteve. <br>
+> Substitua o [região](regions.md) pelo associadas à subscrição, por exemplo, substitua `westus` para a subscrição de avaliação gratuita.
 
 ![Adicionar a chave de subscrição](media/sdk/sub-key-recognize-speech-cpp.png)
 

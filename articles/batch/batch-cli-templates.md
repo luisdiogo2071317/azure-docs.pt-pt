@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608652"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130857"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utilizar os Modelos da CLI do Batch e a Transferência de Ficheiros (Pré-visualização)
 
@@ -258,7 +258,7 @@ Os modelos de conjunto e tarefa permitem ficheiros armazenados nos grupos de fic
 
 Suporte de transferência de ficheiros e modelo atualmente foram adicionadas apenas para a CLI do Azure. O objetivo é para expandir o público-alvo que pode utilizar o Batch para os utilizadores que não é necessário para desenvolver código utilizando as APIs do Batch, como os investigadores, utilizadores de TI e assim sucessivamente. Sem codificação, os utilizadores com dados de conhecimento do Azure, o Batch e as aplicações a ser executadas pelo Batch podem criar modelos para a criação do conjunto e tarefa. Com os parâmetros do modelo, os utilizadores sem conhecimentos detalhados do Batch e as aplicações podem utilizar os modelos.
 
-Experimentar a extensão de Batch para a CLI do Azure e forneça quaisquer comentários ou sugestões, nos comentários para este artigo ou através de [fórum do Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Experimentar a extensão de Batch para a CLI do Azure e forneça quaisquer comentários ou sugestões, nos comentários para este artigo ou através de [repositório de Comunidade do Batch](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

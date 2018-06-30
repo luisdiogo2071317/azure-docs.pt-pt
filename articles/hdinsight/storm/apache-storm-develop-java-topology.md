@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 105c10423a9688300ba74874769b162e29572185
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418497"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128610"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Cria uma topologia do Apache Storm em Java
 
@@ -41,7 +41,7 @@ Depois de concluir os passos neste documento, pode implementar a topologia ao Ap
 
 ## <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
-As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK. No entanto, deve verificar que existe e que contêm os valores corretos para o seu sistema.
+As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e o JDK. No entanto, deve certificar-se de que existem e que contêm os valores corretos para o seu sistema.
 
 * **JAVA_HOME** -devem apontar para o diretório onde o ambiente de tempo de execução Java (JRE) está instalado. Por exemplo, uma distribuição Unix ou Linux, deve ter um valor semelhante a `/usr/lib/jvm/java-8-oracle`. No Windows, terá um valor semelhante a `c:\Program Files (x86)\Java\jre1.8`
 
@@ -600,7 +600,7 @@ O ficheiro YAML define os componentes a utilizar para a topologia e os dados de 
 Para obter mais informações sobre Flux, consulte [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Devido a um [erros (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1, poderá ter de instalar um [ambiente de desenvolvimento do Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) executar topologias Flux localmente.
+> Devido a um [erros (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1, poderá ter de instalar um [ambiente de desenvolvimento do Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html) executar topologias Flux localmente.
 
 1. Mover o `WordCountTopology.java` ficheiro fora do projeto. Anteriormente, este ficheiro definida a topologia, mas não é necessário, com Flux.
 
@@ -719,9 +719,9 @@ Para obter mais informações sobre Flux, consulte [Flux framework (https://stor
     ```
 
     > [!WARNING]
-    > Se a sua topologia utiliza bits de Storm 1.0.1, este comando irá falhar. Esta falha é causada por [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instalar Storm no seu ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e utilize os seguintes passos:
+    > Se a sua topologia utiliza bits de Storm 1.0.1, este comando irá falhar. Esta falha é causada por [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instalar Storm no seu ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html) e utilize os seguintes passos:
     >
-    > Se tiver [instalado Storm no seu ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), pode utilizar em vez disso, os seguintes comandos:
+    > Se tiver [instalado Storm no seu ambiente de desenvolvimento](http://storm.apache.org/releases/current/Setting-up-development-environment.html), pode utilizar em vez disso, os seguintes comandos:
     >
     > ```bash
     > mvn compile package

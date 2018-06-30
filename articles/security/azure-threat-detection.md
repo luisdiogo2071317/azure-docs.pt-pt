@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895336"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113032"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançadas do Azure
 ## <a name="introduction"></a>Introdução
@@ -61,7 +61,7 @@ O Identity Protection utiliza algoritmos de machine learning adaptáveis e heur�
 
 Mas o Azure Active Directory Identity Protection é maior do que uma ferramenta de monitorização e relatórios. Com base em eventos de risco, Identity Protection calcula um nível de risco de utilizador para cada utilizador, permitindo-lhe configurar as políticas baseadas em risco para proteger automaticamente as identidades da sua organização.
 
-Estas políticas baseadas em risco, além de outros [controlos de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) fornecidos pelo Azure Active Directory e [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), automaticamente pode bloquear ou oferecem ações de remediação adaptável que incluem reposições de palavra-passe e a imposição de autenticação multifator.
+Estas políticas baseadas em risco, além de outros [controlos de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) fornecidos pelo Azure Active Directory e [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), automaticamente pode bloquear ou oferecem ações de remediação adaptável que incluem reposição de palavra-passe e imposição de autenticação multifator.
 
 ### <a name="identity-protections-capabilities"></a>Funcionalidades de Identity Protection
 
@@ -139,7 +139,7 @@ Os dados são recolhidos no repositório a partir de origens ligadas mediante a 
 As origens de dados e as soluções criarão, cada uma, diferentes tipos de registos que têm os seus próprios conjuntos de propriedades, mas que podem ser analisados em conjunto em consultas feitas no repositório. Desta forma, pode utilizar as mesmas ferramentas e métodos para trabalhar com diversos tipos de dados recolhidos por diferentes origens.
 
 
-A maior parte da sua interação com a análise de registos é através do portal do OMS, que é executado em qualquer browser e fornece-lhe acesso a definições de configuração e várias ferramentas para analisar e atuar sobre dados recolhidos. No portal, pode utilizar [pesquisas de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) onde construir consultas para analisar os dados recolhidos, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que pode personalizar com vistas gráficas da sua pesquisas mais importantes, e [soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidades adicionais.
+A maior parte da sua interação com a análise de registos é através do portal do OMS, que é executado em qualquer browser e fornece-lhe acesso a definições de configuração e várias ferramentas para analisar e atuar sobre dados recolhidos. No portal, pode utilizar [pesquisas de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) onde construir consultas para analisar os dados recolhidos, [dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que pode personalizar com vistas gráficas da sua pesquisas mais valiosas e [soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidades adicionais.
 
 ![ferramentas de análise](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
@@ -272,7 +272,7 @@ Officers de segurança ou outros administradores designados podem obter uma noti
 
 Atualmente, a deteção de ameaças de base de dados de SQL do Azure Deteta potenciais vulnerabilidades e ataques de injeção de SQL e padrões de acesso de base de dados anómalas.
 
-Após receber a notificação de correio eletrónico de deteção de ameaças, os utilizadores são capazes de navegar e ver os registos de auditoria relevantes utilizando a ligação avançada no correio que abre um Visualizador de auditoria e/ou pré-configurada auditoria modelo do Excel que mostra os registos de auditoria relevantes à volta da hora do evento suspeita, de acordo com o seguinte:
+Ao receber a notificação de correio eletrónico de deteção de ameaças, os utilizadores são capazes de navegar e ver os registos de auditoria relevantes utilizando a ligação avançada no correio que abre um Visualizador de auditoria e/ou pré-configurada para o modelo do Excel que mostra os registos de auditoria relevantes à volta de auditoria a hora do evento suspeita, de acordo com o seguinte:
 -   Armazenamento de auditoria para o base de dados do servidor com as atividades de base de dados anómalas
 
 -   Tabela de armazenamento de auditoria relevantes que foi utilizada no momento do evento para escrever o registo de auditoria
@@ -420,7 +420,7 @@ Firewall de aplicações Web inspeciona carregamentos de software maligno de blo
 
 Exemplo de firewalls de aplicação Web disponíveis no Azure Marketplace seguem-se:
 
-[Firewall de aplicações Web barracuda, Firewall de aplicação de Web Virtual do Brocade (Brocade vWAF), Imperva SecureSphere e a Firewall do IP ThreatSTOP.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Firewall de aplicações Web barracuda, Firewall de aplicação de Web Virtual do Brocade (Brocade vWAF), Imperva SecureSphere e a Firewall do IP ThreatSTOP.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>Próximos Passos
 

@@ -2,19 +2,19 @@
 title: Recursos baseados em DTU de base de dados SQL do Azure limita conjuntos elásticos | Microsoft Docs
 description: Esta página descreve alguns limites de recursos baseados em DTU comuns para conjuntos elásticos na SQL Database do Azure.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131893"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para conjuntos elásticos utilizando o modelo de compra baseado em DTU 
 
@@ -105,7 +105,7 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 ||||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: norte do RU Central EUA oeste, RU South2, leste da China, USDoDCentral, Datacenters Central, USDoDEast, GOV us Southwest, nos us Sul Central, Nordeste da Alemanha, China Norte, US de e.u. a leste Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: Central EUA oeste, leste da China, USDoDCentral, Datacenters Central, USDoDEast, GOV us SouthWest, Nordeste da Alemanha, Norte Governo dos E.u.a. Iowa, China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
 

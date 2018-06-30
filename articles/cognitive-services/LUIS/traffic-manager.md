@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 513d4395b1d3e631855c2f6e132d54331b3ddf8d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266350"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110318"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
 Compreensão de idiomas (LUIS) oferece a capacidade de aumentar a quota de pedido de ponto final para além da quota de uma chave única. Isto é feito através da criação de chaves mais para LUIS e adicioná-los para a aplicação de LUIS no **publicar** página no **recursos e as chaves** secção. 
@@ -48,13 +48,13 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Portal de captura de ecrã de LUIS com duas chaves LUIS na página de publicar](./media/traffic-manager/luis-keys-in-luis.png)
 
-    O URL de exemplo no **endpoint** coluna utiliza um pedido GET com a chave de subscrição como um parâmetro de consulta. Copie o URL de ponto final de duas novas chaves. São utilizados como parte da configuração do Gestor de tráfego neste artigo.
+    O URL de exemplo no **endpoint** coluna utiliza um pedido GET com a chave de ponto final como um parâmetro de consulta. Copie o URL de ponto final de duas novas chaves. São utilizados como parte da configuração do Gestor de tráfego neste artigo.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>Gerir pedidos de ponto final de LUIS através de chaves com o Gestor de tráfego
 Gestor de tráfego cria um novo ponto de acesso DNS para os pontos finais. Se não atuar como gateway ou proxy, mas estritamente ao nível do DNS. Este exemplo não irá alterar os registos DNS. Utiliza uma biblioteca DNS para comunicar com o Gestor de tráfego para obter o ponto final correto para esse pedido específico. _Cada_ pedido pretendido para LUIS primeiro requer um pedido de Gestor de tráfego para determinar o ponto final de LUIS a utilizar. 
 
 ### <a name="polling-uses-luis-endpoint"></a>Consulta utiliza o ponto final de LUIS
-Gestor de tráfego consulta os pontos finais periodicamente para se certificar de que o ponto final ainda está disponível. O URL do Gestor de tráfego consultados tem de estar acessível com um pedido GET e devolver um 200. O URL de ponto final no **publicar** página efetua este procedimento. Uma vez que cada chave de subscrição tem uma rota diferentes e os parâmetros de cadeia de consulta, cada chave de subscrição tem um caminho de consulta diferentes. Sempre que consulta o Gestor de tráfego, custo um pedido de quota. O parâmetro de cadeia de consulta **q** o LUIS ponto final é utterance enviado para LUIS. Este parâmetro, em vez de enviarem uma utterance, é utilizado para adicionar Gestor de tráfego consulta o registo do ponto final de LUIS como técnica de depuração ao obter o Gestor de tráfego configurado.
+Gestor de tráfego consulta os pontos finais periodicamente para se certificar de que o ponto final ainda está disponível. O URL do Gestor de tráfego consultados tem de estar acessível com um pedido GET e devolver um 200. O URL de ponto final no **publicar** página efetua este procedimento. Uma vez que cada chave de ponto final tiver uma rota diferentes e os parâmetros de cadeia de consulta, cada chave de ponto final necessita de um caminho de consulta diferentes. Sempre que consulta o Gestor de tráfego, custo um pedido de quota. O parâmetro de cadeia de consulta **q** o LUIS ponto final é utterance enviado para LUIS. Este parâmetro, em vez de enviarem uma utterance, é utilizado para adicionar Gestor de tráfego consulta o registo do ponto final de LUIS como técnica de depuração ao obter o Gestor de tráfego configurado.
 
 Porque cada ponto final LUIS tem o suas próprias caminho, tem a suas próprias perfil do Traffic Manager. Para poder gerir através de perfis, criar um [ _aninhada_ Gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) arquitetura. Um perfil de principal aponta para os perfis de elementos subordinados e gerir o tráfego entre eles.
 
@@ -64,11 +64,11 @@ Depois de ter configurado o Gestor de tráfego, não se esqueça de alterar o ca
 As secções seguintes criar dois perfis de subordinados, um para a chave do Leste LUIS e outro para a chave de LUIS oeste. Em seguida, é criado um perfil de principal e os perfis de dois subordinados são adicionados ao perfil de principal. 
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Criar o perfil do Gestor de tráfego de EUA Leste com o PowerShell
-Para criar o perfil do Gestor de tráfego de EUA leste, existem vários passos: criar o perfil, adicionar o ponto final e definir o ponto final. Um perfil de Gestor de tráfego pode ter vários pontos finais, mas cada ponto final não tem o mesmo caminho de validação. Porque os URL de ponto final de LUIS para as subscrições orientais e ocidentais estão diferente devido a chave de subscrição e região, cada ponto final LUIS tem de ser um único ponto final do perfil. 
+Para criar o perfil do Gestor de tráfego de EUA leste, existem vários passos: criar o perfil, adicionar o ponto final e definir o ponto final. Um perfil de Gestor de tráfego pode ter vários pontos finais, mas cada ponto final não tem o mesmo caminho de validação. Porque os URL de ponto final de LUIS para as subscrições orientais e ocidentais estão diferente devido a região e o ponto final da chave, cada ponto final LUIS tem de ser um único ponto final do perfil. 
 
 1. Criar perfil com **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet
 
-    Utilize o cmdlet seguinte para criar o perfil. Certifique-se de que altera o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste dos EUA. Se o caminho é não está correto, incluindo o LUIS ID e a subscrição chave da aplicação, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedidos com êxito o ponto final LUIS. Certifique-se de que o valor de `q` é `traffic-manager-east` para que possa ver este valor nos registos de ponto final LUIS.
+    Utilize o cmdlet seguinte para criar o perfil. Certifique-se de que altera o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste dos EUA. Se o caminho é não está correto, incluindo o LUIS ID e o ponto final de chave da aplicação, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedidos com êxito o ponto final LUIS. Certifique-se de que o valor de `q` é `traffic-manager-east` para que possa ver este valor nos registos de ponto final LUIS.
 
     ```PowerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -136,7 +136,7 @@ Para criar o perfil do Gestor de tráfego de EUA oeste, siga os mesmos passos: c
 
 1. Criar perfil com **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet
 
-    Utilize o cmdlet seguinte para criar o perfil. Certifique-se de que altera o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste dos EUA. Se o caminho não é correto, incluindo a chave de ID e a subscrição de aplicação LUIS, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedidos com êxito o ponto final LUIS. Certifique-se de que o valor de `q` é `traffic-manager-west` para que possa ver este valor nos registos de ponto final LUIS.
+    Utilize o cmdlet seguinte para criar o perfil. Certifique-se de que altera o `appIdLuis` e `subscriptionKeyLuis`. O subscriptionKey destina-se a chave de LUIS do Leste dos EUA. Se o caminho não é correto, incluindo a chave de ID e o ponto final da aplicação de LUIS, a consulta do Gestor de tráfego é um Estado de `degraded` porque não é possível gerir o tráfego de pedidos com êxito o ponto final LUIS. Certifique-se de que o valor de `q` é `traffic-manager-west` para que possa ver este valor nos registos de ponto final LUIS.
 
     ```PowerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -152,7 +152,7 @@ Para criar o perfil do Gestor de tráfego de EUA oeste, siga os mesmos passos: c
     |-RelativeDnsName|Luis-dns-westus|Este é o subdomínio para o serviço: luis-dns-westus.trafficmanager.net|
     |-O valor de Ttl|30|Intervalo de consulta, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Protocolo para LUIS e a porta é HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Substitua <appId> e <subscriptionKey> com os seus próprios valores. Lembre-se de que esta chave de subscrição é diferente da chave de subscrição do leste|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Substitua <appId> e <subscriptionKey> com os seus próprios valores. Lembre-se de que esta chave de ponto final é diferente da chave de ponto final do leste|
     
     Um pedido com êxito tem sem resposta.
 
@@ -364,7 +364,7 @@ Para gerir o tráfego entre pontos finais, tem de inserir uma chamada para o Ges
 
 
 ## <a name="clean-up"></a>Limpeza
-Remova duas chaves de subscrição de LUIS, três perfis do Traffic Manager e o grupo de recursos que continha estes cinco recursos. Isto é feito a partir do portal do Azure. Eliminar os recursos de cinco na lista de recursos. Em seguida, elimine o grupo de recursos. 
+Remova duas chaves de ponto final de LUIS, três perfis do Traffic Manager e o grupo de recursos que continha estes cinco recursos. Isto é feito a partir do portal do Azure. Eliminar os recursos de cinco na lista de recursos. Em seguida, elimine o grupo de recursos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

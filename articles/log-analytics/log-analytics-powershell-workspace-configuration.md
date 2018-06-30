@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179094"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129341"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell de análise do registo](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para efetuar várias funções na análise de registos, numa linha de comandos ou como parte de um script.  Exemplos de tarefas que pode realizar com o PowerShell incluem:
@@ -192,7 +193,7 @@ Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o
 
 | Tipo de Recurso | Registos | Métricas |
 | --- | --- | --- |
-| Gateways da Aplicação    | Sim | Sim |
+| Gateways de Aplicação    | Sim | Sim |
 | Contas de Automatização     | Sim | |
 | Contas de Batch          | Sim | Sim |
 | Análise do Data Lake     | Sim | | 

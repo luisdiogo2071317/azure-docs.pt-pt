@@ -1,11 +1,11 @@
 ---
 title: App Service do Azure no Linux FAQ | Microsoft Docs
 description: App Service do Azure no Linux FAQ.
-keywords: serviço de aplicações do Azure, aplicação web, faq, linux, oss
+keywords: serviço de aplicações do Azure, aplicação web, faq, linux, oss, aplicação web para contentores, contentor multi, multicontainer
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: a35f3d428674c3398497cd43465e0bd501f5c3fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222982"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131497"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>App Service do Azure no Linux FAQ
 
@@ -144,6 +144,35 @@ Temos de deteção automática de porta. Também pode especificar uma aplicaçã
 **É necessário implementar HTTPS no meu contentor personalizado?**
 
 Não, a plataforma processa a terminação HTTPS, as extremidades de front-partilhadas.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Multi contentor com o Docker Compose e Kubernetes
+
+**Como configurar o registo de contentor do Azure (ACR) para utilizar com o contentor multi?**
+
+Para utilizar o ACR com multi contentor, **todas as imagens de contentor** tem de ser alojado no servidor de registo do mesmo ACR. Assim que estiverem no mesmo servidor de registo, terá de criar as definições da aplicação e, em seguida, atualize o ficheiro de configuração do Docker Compose ou Kubernetes para incluir o nome da imagem ACR.
+
+Crie as seguintes definições de aplicação:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (total de URL, por ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (ativar administrador de acesso nas definições de ACR)
+
+No ficheiro de configuração, referencia a imagem ACR semelhante ao seguinte exemplo:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**Como saber qual contentor é acessível internet?**
+
+- Apenas um contentor pode ser aberto para acesso
+- Só suporta a porta 80 e 8080 está acessíveis (expostas portas)
+
+Seguem-se as regras para determinar o contentor está acessível - por ordem de precedência:
+
+- Definição de aplicação `WEBSITES_WEB_CONTAINER_NAME` definido como o nome do contentor
+- O contentor primeiro para definir a porta 80 ou 8080
+- Se nenhuma das respostas anteriores for verdadeira, o primeiro contentor definido no ficheiro estará acessível (expostos)
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 

@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 084b8fa0addbe2ddeee699b58c9b0de1a6f27d99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: na
+ms.openlocfilehash: 54f2af60751ed0d9c64e71efad6fa9aa3ef06589
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33938697"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129120"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure
 Este artigo mostra como utilizar o portal do Azure para eliminar uma área de trabalho de análise de registos que poderá deixar de necessitar. 
@@ -38,7 +38,7 @@ Quando elimina uma área de trabalho de análise de registos, todos os dados rel
 
 Quaisquer agentes e grupos de gestão do System Center Operations Manager configurados para o relatório para a área de trabalho continuam a num Estado órfão.  Os agentes, soluções, de inventário e outros serviços do Azure estão integrados com a área de trabalho antes de continuar.   
  
-Se for um administrador e existirem vários utilizadores associados à área de trabalho, a associação entre esses utilizadores e a área de trabalho é interrompida. Se os utilizadores estão associados a outras áreas de trabalho, em seguida, podem continuar a utilizar a análise de registos com as outras áreas de trabalho. No entanto, se não estão associados com outras áreas de trabalho, em seguida, precisam de criar uma área de trabalho para utilizar a análise de registos. 
+Se for um administrador e existirem vários utilizadores associados à área de trabalho, a associação entre esses utilizadores e a área de trabalho é interrompida. Se os utilizadores estiverem associados a outras áreas de trabalho, podem continuar a utilizar o Log Analytics com essas áreas de trabalho. No entanto, se não estão associados com outras áreas de trabalho, em seguida, precisam de criar uma área de trabalho para utilizar a análise de registos. 
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com). 
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.

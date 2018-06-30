@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 656ba21abf06ad0f079e3ce425d3221724d195d4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063634"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113583"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados de instâncias de grande HANA
 Este documento descreve os cenários suportados, juntamente com os detalhes de arquitetura para instâncias grande HANA (HLI).
@@ -81,17 +81,17 @@ Se for necessário, pode definir os cartões NIC adicionais na sua própria. No 
 
 A distribuição de unidades com dois endereços IP atribuídos deve ter o seguinte aspeto:
 
-Ethernet "A" deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Este endereço IP deverá ser utilizado para manter de /etc/hosts do SO.
+- Ethernet "A" deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Este endereço IP deverá ser utilizado para manter de /etc/hosts do SO.
 
-Ethernet "B" deve ter atribuído um endereço IP é utilizado para comunicação com o NFS. Por conseguinte, estes endereços fazer **não** tem de ser mantidos na etc/anfitriões para permitir tráfego de instância para a instância do inquilino.
+- Ethernet "C" deve ter atribuído um endereço IP é utilizado para comunicação com o NFS. Por conseguinte, estes endereços fazer **não** tem de ser mantidos na etc/anfitriões para permitir tráfego de instância para a instância do inquilino.
 
 Para cenários de implementação de replicação do sistema HANA ou HANA Escalamento horizontal, uma configuração de painel com dois endereços IP atribuídos não é adequada. Se ter dois endereços IP atribuídos apenas e que pretenda implementar este tipo de configuração, contacte o SAP HANA na gestão de serviço do Azure para obter um terceiro endereço IP de uma terceira VLAN atribuído. Para unidades de instância grande HANA ter três endereços IP atribuídos em três portas NIC, aplicam as seguintes regras de utilização:
 
 - Ethernet "A" deve ter um endereço IP atribuído que está fora do intervalo de endereços do conjunto de IP do servidor que submetido para a Microsoft. Por conseguinte, este endereço IP não deverá ser utilizado para manter de /etc/hosts do SO.
 
-- Ethernet "B" deve ter atribuído um endereço IP é utilizado para comunicação com o armazenamento NFS. Por conseguinte, este tipo de endereços não deve ser mantido nos anfitriões/etc.
+- Ethernet "B" deve ser utilizado exclusivamente para ser mantidos na etc/anfitriões para comunicação entre as diferentes instâncias. Estes endereços seria também os endereços IP que precisam de ser mantidos em configurações de HANA de escalamento horizontal como endereços IP que HANA utiliza para a configuração do nó entre.
 
-- Ethernet "C" deve ser utilizado exclusivamente para ser mantidos na etc/anfitriões para comunicação entre as diferentes instâncias. Estes endereços seria também os endereços IP que precisam de ser mantidos em configurações de HANA de escalamento horizontal como endereços IP que HANA utiliza para a configuração do nó entre.
+- Ethernet "C" deve ter atribuído um endereço IP é utilizado para comunicação com o armazenamento NFS. Por conseguinte, este tipo de endereços não deve ser mantido nos anfitriões/etc.
 
 - Ethernet "D" deve ser utilizado exclusivamente para o dispositivo STONITH acesso para pacemaker. Isto é necessário quando configurar a replicação de sistema HANA (HSR) e pretende alcançar a ativação pós-falha de automático no sistema operativo a utilizar um dispositivo SBD com base.
 

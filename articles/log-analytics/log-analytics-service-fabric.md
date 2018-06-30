@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: 282b610aeb75010108a63dafe037c09180a247a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595060"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131689"
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Avalie as aplicações do Azure Service Fabric e microserviços com o PowerShell
 > [!div class="op_single_selector"]
@@ -300,7 +301,7 @@ $storageAccount = Select-StorageAccount
 
 Depois de configurar a área de trabalho de análise de registos para ler a partir de tabelas do Azure na sua conta do storage, inicie sessão no portal do Azure. Selecione a área de trabalho de análise de registos de **todos os recursos**. O número de registos de conta de armazenamento ligado à área de trabalho é apresentado. Selecione o **os registos da conta de armazenamento** mosaico. Reveja a lista de registos de conta de armazenamento para confirmar que a sua conta de armazenamento está ligada à área de trabalho correta.
 
-![Registos da conta de armazenamento](./media/log-analytics-service-fabric/sf1.png)
+![Registos de contas de armazenamento](./media/log-analytics-service-fabric/sf1.png)
 
 ## <a name="enable-the-service-fabric-solution"></a>Ativar a solução de Service Fabric
 Utilize o script seguinte para adicionar a solução para a sua área de trabalho de análise de registos. Execute o script do PowerShell, com a subscrição do Azure que está associada a área de trabalho de análise de registos que pretende ativar a solução de Service Fabric no.
@@ -375,7 +376,7 @@ Clique em de **Service Fabric** mosaico para abrir o dashboard de Service Fabric
 
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Service Fabric:
 
-| Plataforma | Direcionar o agente | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência de recolha |
+| Plataforma | Agente Direto | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minutos |
 

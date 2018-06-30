@@ -7,12 +7,12 @@ author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5d313bda6a1067e6d023f62fb26704f9aee5c7bf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26364475"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114477"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 
@@ -39,9 +39,9 @@ Terraform fornece uma interface de linha de comandos (CLI) que permite aos utili
 
 ## <a name="deploy-infrastructure-to-multiple-clouds"></a>Implementar a infraestrutura para várias nuvens
 
-Terraform é uma opção de ferramenta popular para cenários de cloud multi, onde está implementada infraestrutura semelhante do Azure e fornecedores adicionais em nuvem ou em centros de dados no local. Permite aos programadores utilizar o mesmas ferramentas e os ficheiros de configuração para gerir a infraestrutura de vários fornecedores de nuvem.
+Terraform é uma opção de ferramenta popular para cenários de cloud multi, onde é implementada infraestrutura semelhante do Azure e fornecedores adicionais em nuvem ou em centros de dados no local. Permite aos programadores utilizar o mesmas ferramentas e os ficheiros de configuração para gerir a infraestrutura de vários fornecedores de nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma descrição geral do Terraform e os respetivos benefícios, Eis os passos sugeridos:
 

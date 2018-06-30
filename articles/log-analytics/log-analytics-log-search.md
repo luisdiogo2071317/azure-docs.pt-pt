@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: d1cd4f938092c6a1312bd0c0ec9240d459d67e83
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29953316"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131292"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Noções sobre pesquisas de registo na análise de registos
 
@@ -82,7 +83,7 @@ Também pode consultar dados nas áreas de trabalho de análise de registos na s
 
 Para obter documentação completa sobre o idioma de consulta de análise de registos do Azure, incluindo tutoriais e referência de linguagem, consulte o [documentação de idioma de consulta de análise de registos do Azure](https://docs.loganalytics.io/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [portais que utilizar para criar e editar registo pesquisas](log-analytics-log-search-portals.md).
 - Veja uma [tutorial sobre como escrever consultas](log-analytics-tutorial-viewdata.md) utilizando a linguagem de consulta de novo.

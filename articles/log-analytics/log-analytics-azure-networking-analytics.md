@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263535"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127897"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de análise de registos de monitorização da rede do Azure
 
@@ -31,15 +32,15 @@ Análise de registos oferece as seguintes soluções para monitorização as red
  * Métricas de Gateway de aplicação do Azure
 * Atividade na sua rede de nuvem de rede de soluções para monitorizar e de auditoria
 * [Análise de tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Análise de grupo de segurança de rede do Azure
+* Análise do Grupo de Segurança de Rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de desempenho de rede (NPM)
 
 O [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) solução de gestão é uma solução, que monitoriza o estado de funcionamento, a disponibilidade e acessibilidade de redes de monitorização de rede.  É utilizado para monitorizar a conectividade entre:
 
-* Nuvem pública e no local
-* Os centros de dados e localizações de utilizador (sucursais)
-* Sub-redes alojar várias camadas de uma aplicação de várias camadas.
+* nuvem pública e no local
+* os centros de dados e localizações de utilizador (sucursais)
+* sub-redes alojar várias camadas de uma aplicação de várias camadas.
 
 Para obter mais informações, consulte [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
@@ -77,7 +78,8 @@ Os seguintes registos são suportados para Gateways de aplicação:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-As métricas seguintes são suportadas para Gateways de aplicação:
+As métricas seguintes são suportadas para Gateways de aplicação: novamente
+
 
 * débito de 5 minutos
 
@@ -140,6 +142,12 @@ Em qualquer uma das páginas de pesquisa de registo, pode ver os resultados por 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solução de análise do grupo de segurança de rede do Azure na análise de registos
 
 ![Símbolo de análise do grupo de segurança de rede do Azure](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> A solução de análise do grupo de segurança de rede está a mover suporte da Comunidade, uma vez que a sua funcionalidade foi substituída por [análise de tráfego](../network-watcher/traffic-analytics.md).
+> - A solução está agora disponível nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e logo que deixará de estar disponível no Azure Marketplace.
+> - Para os clientes existentes que já adicionado a solução para a sua área de trabalho, continuará a funcionar sem alterações.
+> - A Microsoft irá continuar a enviar registos de diagnóstico de NSG à sua área de trabalho utilizando as definições de diagnóstico de suporte.
 
 Os seguintes registos são suportados para grupos de segurança de rede:
 
@@ -213,9 +221,9 @@ Para utilizar as soluções atualizadas:
 
     | Em vez de: | Utilização: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType = = "APPLICATIONGATEWAYS" e OperationName = ApplicationGatewayPerformance |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; onde ResourceType = = "NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que têm um sufixo de \_s, \_d, ou \_g no nome, altere o primeiro caráter caso inferior
    + Para qualquer campo que têm um sufixo de \_o nome e os dados está dividido em campos individuais com base nos nomes de campo aninhada.

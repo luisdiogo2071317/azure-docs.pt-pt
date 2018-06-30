@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855209"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127701"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de CollectD nos agentes Linux na análise de registos
 [CollectD](https://collectd.org/) é um daemon de Linux de código aberto periodicamente recolhe métricas de desempenho de aplicações e informações de nível do sistema. Aplicações de exemplo incluem a Máquina Virtual de Java (JVM), servidor MySQL e Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho de CollectD na análise de registos.
@@ -113,14 +114,14 @@ Para manter um modelo familiar entre as métricas de infraestrutura recolhidas p
 |:--|:--|
 | anfitrião | Computador |
 | Plug-in | Nenhuma |
-| plugin_instance | Nome da instância<br>Se **plugin_instance** é *nulo* , em seguida, InstanceName = "*total*" |
+| plugin_instance | Nome da Instância<br>Se **plugin_instance** é *nulo* , em seguida, InstanceName = "*total*" |
 | tipo | ObjectName |
 | type_instance | CounterName<br>Se **type_instance** é *nulo* , em seguida, CounterName =**em branco** |
 | dsnames [] | CounterName |
 | dstypes | Nenhuma |
 | os valores] | CounterValue |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 * Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
 

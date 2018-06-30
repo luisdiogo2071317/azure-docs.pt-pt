@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dcc77d9826d91c57dc15b1abed83c2b640e73906
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062579"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110706"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução num Runbook Worker híbrido
 
@@ -77,7 +77,7 @@ Utilize o procedimento seguinte para especificar uma conta RunAs para um grupo d
 
 ### <a name="automation-run-as-account"></a>Conta Run As de automatização
 
-Como parte do processo de compilação automatizada para a implementação de recursos no Azure, pode necessitar de acesso a sistemas para suportar uma tarefa ou o conjunto de passos numa sequência de implementação no local. Para suportar a autenticação no Azure utilizando a conta Run As, tem de instalar o certificado da conta Run As.
+Como parte do processo de compilação automatizada para a implementação de recursos no Azure, pode necessitar de acesso a sistemas no local para suportar uma tarefa ou o conjunto de passos numa sequência de implementação. Para suportar a autenticação no Azure utilizando a conta Run As, tem de instalar o certificado da conta Run As.
 
 O runbook do PowerShell seguinte, *exportação RunAsCertificateToHybridWorker*, exporta o certificado Run As da conta de automatização do Azure e transfere e importa-os para o arquivo de certificados do computador local numa versão híbrida trabalho ligado para a mesma conta. Depois de concluído este passo, verifica que o worker pode autenticar com êxito para o Azure utilizando a conta Run As.
 

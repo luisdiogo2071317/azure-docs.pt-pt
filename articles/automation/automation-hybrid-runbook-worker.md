@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 54b2cab2ad6b1a22d35fcf0755f257063573e58b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063930"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128627"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizar recursos no seu centro de dados ou na nuvem utilizando o Runbook Worker híbrido
 
@@ -95,7 +95,7 @@ Para remover um grupo, terá primeiro de remover o Runbook Worker híbrido cada 
 
 ### <a name="hybrid-worker-role"></a>Função de trabalho híbrida
 
-Para o Runbook Worker híbrido ligar a e registar a análise de registos, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Este acesso é, para além de [portas e URLs necessários para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) para ligar ao Log Analytics.
+Para o Runbook Worker híbrido ligar a e registar a análise de registos, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Este acesso é, para além de [portas e URLs necessários para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) para ligar ao Log Analytics. 
 
 Se utilizar um servidor proxy para comunicação entre o agente e o serviço de análise de registos, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso.
 
@@ -105,6 +105,8 @@ A porta e URLs seguintes são necessários para a função Runbook Worker híbri
 * Global URL: *.azure-automation.net
 * URL global da E.U.A. us Virginia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Recomenda-se para utilizar os endereços listados quando se definem exceções. Para endereços IP pode transferir o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos de implementado e as alterações futuras para os intervalos de IP.
 
 Se tiver uma conta de automatização que esteja definida para uma região específica, pode restringir a comunicação para esse datacenter regional. A tabela seguinte fornece o registo DNS para cada região:
 

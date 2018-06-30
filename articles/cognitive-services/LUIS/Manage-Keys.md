@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e6e363649a0bdab5525de7b8e7abe9a53d14573
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 1fdf0f21697e48fd5cb9eca4212596059a9519cb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266027"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127122"
 ---
 # <a name="manage-your-luis-keys"></a>Gerir as chaves de LUIS
 Uma chave permite-lhe criar e publicar a aplicação de LUIS ou consultar o ponto final. 
@@ -34,7 +34,7 @@ Consulte [chaves na LUIS](luis-concept-keys.md) compreender conceitos chave LUIS
 ## <a name="assign-endpoint-key"></a>Atribuir a chave de ponto final
 No **publicar aplicação** página, se já houver uma chave a **recursos e as chaves** tabela. Esta é a chave de criação (arranque). 
 
-1. Criar uma chave de LUIS no [portal do Azure](https://portal.azure.com). Para obter instruções, consulte [criar uma chave de subscrição utilizando o Azure](luis-how-to-azure-subscription.md).
+1. Criar uma chave de LUIS no [portal do Azure](https://portal.azure.com). Para obter instruções, consulte [criar uma chave de ponto final a utilizar o Azure](luis-how-to-azure-subscription.md).
  
 2. Para poder adicionar a chave de LUIS criada no passo anterior, clique em de **Adicionar chave** botão para abrir o **atribuir uma chave para a sua aplicação** caixa de diálogo. 
 

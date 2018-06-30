@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045015"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111172"
 ---
 # <a name="sample-for-intent-recognition"></a>Exemplo de reconhecimento de intenção
 
@@ -23,7 +23,7 @@ ms.locfileid: "37045015"
 > Para obter instruções transferir este exemplo e outros utilizadores, consulte [amostras para o SDK de reconhecimento de voz](samples.md).
 
 > [!NOTE]
-> Obtenha primeiro uma chave de subscrição. Ao contrário de outros serviços suportados pelo SDK do reconhecimento de voz cognitivos do serviço, os serviços de reconhecimento de intenção requer uma chave de subscrição específica. [Aqui](https://www.luis.ai) pode encontrar informações adicionais sobre a tecnologia de reconhecimento intenção, bem como informações sobre como adquirir uma chave de subscrição. Substitua a sua própria chave de subscrição, a região do serviço e o AppId do seu modelo intenção no local adequado nos exemplos.
+> Obtenha primeiro uma chave de subscrição. Ao contrário de outros serviços suportados pelo SDK do reconhecimento de voz cognitivos do serviço, os serviços de reconhecimento de intenção requer uma chave de subscrição específica. [Aqui](https://www.luis.ai) pode encontrar informações adicionais sobre a tecnologia de reconhecimento intenção, bem como informações sobre como adquirir uma chave de subscrição. Substitua a sua própria chave de subscrição, o [região da sua subscrição](regions.md)e o AppId do seu modelo intenção nos locais adequados nos exemplos.
 
 > [!NOTE]
 > Para todos os exemplos abaixo as seguintes declarações de nível superior devem ser implementados:

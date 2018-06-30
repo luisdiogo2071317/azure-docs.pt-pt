@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
-ms.openlocfilehash: b792d090d037ef180258a1634d4bd063c0a71b9a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7249cb8d8cff29f419412025c69e3b2b76b49d1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353318"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110662"
 ---
 # <a name="cortana-prebuilt-app"></a>Aplicação Prebuilt Cortana
 
@@ -46,7 +46,7 @@ Pode aceder a aplicação de prebuilt Cortana utilizando os seguintes pontos fin
 > O ponto final de URLs também estão disponíveis a partir de [aplicações - obter pessoal assistente aplicações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
 
 ## <a name="try-out-the-personal-assistant-app"></a>Experimentar a aplicação de assistente pessoal
-Para chamar o ponto final, pode acrescentar a sua subscrição argumento e a consulta de cadeia de chave para o ponto final. 
+Para chamar o ponto final, pode acrescentar o ponto final argumento e a consulta de cadeia de chave para o ponto final. 
 
 Por exemplo, se o utterance pretender interpretar é "Criar uma sessão de reunião de equipa", em seguida, pode acrescentar esse utterance para o URL de ponto final. 
 
@@ -54,7 +54,7 @@ Por exemplo, se o utterance pretender interpretar é "Criar uma sessão de reuni
 https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key={YOUR-SUBSCRIPTION-KEY}&q=create an appointment for team meeting
 ```
 
-Pode colar o URL para um web browser e substituir a chave de subscrição para o `{YOUR-SUBSCRIPTION-KEY}` campo.
+Pode colar o URL para um web browser e substituir a chave de ponto final para o `{YOUR-SUBSCRIPTION-KEY}` campo.
 
 No browser, pode ver que a aplicação prebuilt Cortana identifica `builtin.intent.calendar.create_calendar_entry` como a intenção, e `builtin.calendar.title` como tipo de entidade e para o utterance `create an appointment for team meeting`.
 

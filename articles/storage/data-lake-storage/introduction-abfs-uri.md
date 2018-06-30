@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060064"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114297"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize o Gen2 Lake armazenamento de dados do Azure URI
 
@@ -25,15 +25,7 @@ O [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) controlador compatí
 
 A sintaxe URI para Gen2 de armazenamento do Data Lake está dependente de ou não a conta de armazenamento é configurada para ter Gen2 de armazenamento do Data Lake como sistema de ficheiros predefinido.
 
-Se a conta de com capacidade de Gen2 de armazenamento do Data Lake que pretende endereço está definida como o sistema de ficheiros durante a criação de conta, a expressão compacta sintaxe URI é:
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **Caminho**: uma barra delimitada (`/`) representação da estrutura de diretório.
-
-2. **Nome de ficheiro**: O nome do ficheiro individual.
-
-Se a conta com capacidade de Gen2 de armazenamento do Data Lake pretende endereço *não* o sistema de ficheiros, a sintaxe URI é:
+Se a conta com capacidade de Gen2 de armazenamento do Data Lake pretende endereço **não é** definido como o sistema de ficheiros durante a criação de conta, em seguida, a expressão compacta sintaxe URI é:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Se a conta com capacidade de Gen2 de armazenamento do Data Lake pretende endere�
 4. **Caminhos**: uma barra delimitada (`/`) representação da estrutura de diretório.
 
 5. **Nome de ficheiro**: O nome do ficheiro individual. Este parâmetro é opcional se envolvido um diretório.
+
+No entanto, se a conta que pretende endereço está definida como o sistema de ficheiros durante a criação de conta, em seguida, a expressão compacta sintaxe URI é:
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **Caminho**: uma barra delimitada (`/`) representação da estrutura de diretório.
+
+2. **Nome de ficheiro**: O nome do ficheiro individual.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

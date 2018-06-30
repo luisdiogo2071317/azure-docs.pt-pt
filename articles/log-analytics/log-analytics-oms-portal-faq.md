@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.component: na
+ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333637"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128644"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para transição do portal do OMS ao portal do Azure para utilizadores de análise de registos
 Análise de registos utilizado inicialmente a suas próprias portal chamado o portal do OMS para gerir a respetiva configuração e analisar os dados recolhidos.  Todas as funcionalidades deste portal foi movida para o portal do Azure onde continuará a ser desenvolvidas.

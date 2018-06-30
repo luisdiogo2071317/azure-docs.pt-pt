@@ -19,7 +19,7 @@ Quando utilizar definições básicas e selecione apenas uma subscrição, Shell
 Monta a partilha de ficheiros como `clouddrive` no seu `$Home` diretório. Esta é uma ação única e a partilha de ficheiros automaticamente monta nas sessões subsequentes. 
 
 > [!NOTE]
-> Para segurança, cada utilizador deve aprovisionar os seus próprios armazenamento.  Para o controlo de acesso baseado em funções (RBAC), os utilizadores devem ter acesso de contribuinte ou superior.
+> Para segurança, cada utilizador deve aprovisionar a sua própria conta de armazenamento.  Para controlo de acesso baseado em funções (RBAC), os utilizadores tem de ter acesso de contribuinte ou acima do armazenamento conta nível.
 
 Bash, a partilha de ficheiros também contém uma imagem de 5 GB é criada para si que automaticamente mantém os dados no seu `$Home` diretório. 
 

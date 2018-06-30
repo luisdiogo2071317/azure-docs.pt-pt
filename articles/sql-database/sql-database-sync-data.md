@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/28/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ab4e8a41cff854cb1f60a7de32c0db164d5721f0
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017440"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114212"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados do SQL Server
 
@@ -110,6 +110,14 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 -   XMLSchemaCollection (XML suportado)
 
 -   Cursor, Timestamp, Hierarchyid
+
+#### <a name="unsupported-column-types"></a>Tipos de coluna não suportado
+
+Sincronização de dados não é possível sincronizar colunas só de leitura ou gerado pelo sistema. Por exemplo:
+
+-   Colunas calculadas.
+
+-   Colunas gerado pelo sistema para tabelas temporais.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitações sobre dimensões de serviço e a base de dados
 

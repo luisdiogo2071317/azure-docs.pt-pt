@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937313"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113957"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Depois de concluir o passo 1, [conta criação e registo][link-acct-creation], iremos orientado na criação de um modelo de solução do Azure compatível em [pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora iremos irá guiá-lo através dos passos para criar um modelo de solução para várias VMs no [Portal publicação] [ link-pubportal] para o Azure Marketplace.
@@ -40,7 +40,7 @@ Um modelo de solução é um "elemento principal" para todas as suas topologias.
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Portal do Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Adicione uma nova versão.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Obter as versões de topologia certificadas
@@ -60,7 +60,7 @@ Agora que criou o seu modelo de solução e carregado o ficheiro zip, siga as in
 Poderá também estar interessado nestes artigos relacionados:
 
 * Imagens VM: [sobre imagens de Máquina Virtual no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* Extensões VM: [agente da VM e descrição geral de extensões de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [extensões de VM do Azure e funcionalidades](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* Extensões VM: [agente da VM e descrição geral de extensões de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [extensões de VM do Azure e funcionalidades](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * O Azure Resource Manager: [criação de modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [exemplos de modelo simples](https://github.com/rjmax/ArmExamples)
 * Conta de armazenamento acelera: [como monitorizar para limitação de conta de armazenamento de](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

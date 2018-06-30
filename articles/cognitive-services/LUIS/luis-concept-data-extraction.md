@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8d8620a1c53037be6f1a33083f41964655a04921
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265257"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112121"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter as informações da utterances de linguagem natural de um utilizador. As informações são extraídas de forma a que pode ser utilizado por um programa, aplicação ou chatbot qualquer ação.
@@ -26,7 +26,7 @@ LUIS fornece os dados da publicado [endpoint](luis-glossary.md#endpoint). O **pe
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-O `appID` está disponível na **definições** página do seu LUIS aplicações, bem como parte do URL (depois de `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Apesar de poder utilizar a chave de criação livre/starter. enquanto estiver a aprender LUIS, é importante alterar a chave de subscrição para uma chave que suporte o [esperado utilização LUIS](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
+O `appID` está disponível na **definições** página do seu LUIS aplicações, bem como parte do URL (depois de `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Apesar de poder utilizar a chave de criação livre/starter. enquanto estiver a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporte o [esperado utilização LUIS](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
 
 O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar, com base no modelo publicado atual do ponto final do teste ou de produção. O ponto final do URL for encontrado no [LUIS] [ LUIS] Web site **publicar** página. 
 

@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293779"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130585"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorizar e a mitigar a limitação para reduzir a latência de informações de séries de tempo do Azure
 Quando a quantidade de dados recebidos excede a configuração do seu ambiente, pode deparar-se latência ou limitação de informações de séries de tempo do Azure.
@@ -52,15 +52,15 @@ A partir daí, pode configurar alertas utilizando as métricas seguintes:
 |**Entrada recebidas mensagens**   | Contagem de mensagens de leitura de todos os Event Hubs ou os Hubs IoT origens de eventos.        |
 |**Entrada armazenados Bytes**     | Total de tamanho de eventos armazenados e disponíveis para consulta. O tamanho é calculado apenas com o valor de propriedade.        |
 |**Entrada armazenados eventos**     |   Contagem de eventos simplificadas armazenados e disponíveis para consulta.      |
-|**Intervalo de tempo de Recieved mensagem de entrada**    |  Diferença entre a hora em que a mensagem é colocados em fila na origem de evento e o tempo que foi processado na entrada.      |
-|**Atraso de contagem de mensagens de Recieved de entrada**    |  Diferença entre o número de sequência da última mensagem colocados em fila de eventos da origem de número de partição e a sequência de mensagem a ser processado na entrada.      |
+|**Intervalo de tempo de mensagem recebida de entrada**    |  Diferença em segundos, entre o momento em que a mensagem é colocados em fila de eventos de origem e a hora em que foi processado na entrada.      |
+|**Entrada recebida desfasamento de contagem de mensagens**    |  Diferença entre o número de sequência da última mensagem colocados em fila de eventos da origem de número de partição e a sequência de mensagem a ser processado na entrada.      |
 
 
 ![Latência](media/environment-mitigate-latency/latency.png)
 
-Se de que está a ser limitada, verá um valor para o *entrada Recieved mensagem desfasamento*, informando-o número de minutos atrás TSI é desde o momento real, a mensagem chega a origem do evento (excluindo o tempo de indexação de appx. 30-60 segundos).  *Contagem de mensagens de Recieved entrada desfasamento* também deve ter um valor, permitindo-lhe determinar a quantidade de mensagens atrás é.  A forma mais fácil de obter processadas é aumentar a capacidade do seu ambiente para um tamanho que vai permitir-lhe ultrapassar a diferença.  
+Se de que está a ser limitada, verá um valor para o *desfasamento de tempo de mensagem recebida entrada*, que o informa da quantos segundos protegido por TSI é relativamente ao momento real, a mensagem chega a origem do evento (excluindo o tempo de indexação de appx. 30-60 segundos).  *Entrada desfasamento de contagem de mensagens recebidas* também deve ter um valor, permitindo-lhe determinar a quantidade de mensagens atrás é.  A forma mais fácil de obter processadas é aumentar a capacidade do seu ambiente para um tamanho que vai permitir-lhe ultrapassar a diferença.  
 
-Por exemplo, se tiver um ambiente única unidade S1 e vê que existe um desfasamento de mensagem de milhões de cinco, foi possível aumentar o tamanho do seu ambiente para seis unidades para em torno de um dia para obter processadas.  Foi aumenta mesmo further to catch cópias de segurança mais rapidamente.  Este é um occurance comum quando aprovisionar inicialmente o ambiente, especialmente quando ligar a uma origem de evento que já tenha eventos na mesma ou quando efetuar em massa muitos de carregamento de dados históricos.
+Por exemplo, se tiver um ambiente única unidade S1 e vê que existe um desfasamento de mensagem de milhões de cinco, foi possível aumentar o tamanho do seu ambiente para seis unidades para em torno de um dia para obter processadas.  Foi aumenta mesmo further to catch cópias de segurança mais rapidamente.  O período de catch-up é uma ocorrência comum quando aprovisionar inicialmente o ambiente, especialmente quando ligar a uma origem de evento que já tenha eventos na mesma ou quando efetuar em massa muitos de carregamento de dados históricos.
 
 Outra técnica consiste em definir uma **eventos armazenados de entrada** alerta > = um limiar ligeiramente inferior a capacidade total do ambiente durante um período de duas horas.  Este alerta pode ajudá-lo a compreender se constantemente estão capacidade, o que indica uma elevada probabilidade de latência.  
 

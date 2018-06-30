@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637774"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131556"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Recolher alertas da Nagios e da Zabbix na análise de registos do agente do OMS para Linux 
 [Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de fonte aberta ferramentas de monitorização. Pode recolher alertas destas ferramentas para análise de registos para poder analisá-las juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
@@ -91,7 +92,7 @@ Alerta registos recolhidos da Nagios tem um **tipo** de **alerta** e um **Source
 | AlertName |Nome do alerta. |
 | AlertDescription | Descrição do alerta. |
 | AlertState | Estado do serviço ou anfitrião.<br><br>OK<br>AVISO<br>CÓPIA DE SEGURANÇA<br>PARA BAIXO |
-| Nome de anfitrião | Nome do anfitrião que criou o alerta. |
+| nome de anfitrião | Nome do anfitrião que criou o alerta. |
 | PriorityNumber | Nível de prioridade do alerta. |
 | StateType | O tipo de estado do alerta.<br><br>Configuração SOFT - problema que não tenha sido novamente-verificado.<br>RÍGIDO - problema que foi novamente verificados um número de vezes especificado.  |
 | TimeGenerated |Data e hora em que o alerta foi criado. |
@@ -105,11 +106,11 @@ Alerta registos recolhidos da Zabbix tem um **tipo** de **alerta** e um **Source
 | Tipo |*Alerta* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome do alerta. |
-| AlertPriority | Gravidade do alerta.<br><br>Não foi classificado<br>informações<br>aviso<br>média<br>Elevada<br>após desastre  |
+| AlertPriority | Gravidade do alerta.<br><br>Não foi classificado<br>informações<br>Aviso<br>média<br>elevada<br>após desastre  |
 | AlertState | Estado do alerta.<br><br>0 - o estado está atualizado.<br>1 - estado for desconhecido.  |
 | AlertTypeNumber | Especifica se o alerta pode gerar vários eventos de problema.<br><br>0 - o estado está atualizado.<br>1 - estado for desconhecido.    |
 | Comentários | Comentários adicionais para o alerta. |
-| Nome de anfitrião | Nome do anfitrião que criou o alerta. |
+| nome de anfitrião | Nome do anfitrião que criou o alerta. |
 | PriorityNumber | Valor que indica a gravidade do alerta.<br><br>0 - não classificado<br>1 - informações<br>2 - aviso<br>3 – média<br>4 - elevada<br>5 - desastre |
 | TimeGenerated |Data e hora em que o alerta foi criado. |
 | TimeLastModified |Data e hora em que o estado do alerta foi alterado pela última vez. |

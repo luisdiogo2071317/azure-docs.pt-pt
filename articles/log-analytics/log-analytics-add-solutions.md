@@ -3,7 +3,7 @@ title: Adicione as soluções de gestão do Log Analytics do Azure | Microsoft D
 description: Soluções de gestão no Azure são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 0cffdbcaa128dce52758e4b618b93dd763961361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29395467"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131480"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicione as soluções de gestão do Log Analytics do Azure à sua área de trabalho
 
@@ -74,40 +74,40 @@ Todas as soluções na tabela seguinte são disponíveis a partir do portal do A
 
 | Solução de gestão                                                                       | Oferta                                                                     | Escalões de preço<sup>1</sup>                                                 | Notas |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
-| [Log Analytics da Atividade](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | 90 dias de dados estão disponíveis gratuitamente<br>Dados não sujeitos a extremidade do escalão gratuito |
-| [Avaliação do AD](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Estado de Replicação do AD](log-analytics-ad-replication-status.md)                           | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Agente de Funcionamento de Agente](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Dados não sujeitos a extremidade do escalão gratuito<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Gestão de Alertas](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Conector do Application Insights (pré-visualização)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Log Analytics da Atividade](log-analytics-activity.md)                                                                   | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | 90 dias de dados estão disponíveis gratuitamente<br>Dados não sujeitos a extremidade do escalão gratuito |
+| [Avaliação do AD](log-analytics-ad-assessment.md)                                           | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Estado de Replicação do AD](log-analytics-ad-replication-status.md)                           | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Agente de Funcionamento de Agente](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Dados não sujeitos a extremidade do escalão gratuito<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Gestão de Alertas](log-analytics-solution-alert-management.md)                            | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Conector do Application Insights (pré-visualização)](log-analytics-app-insights-connector.md)                                               | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Automatização de trabalho híbrida](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automatização e Controlo</li></ul>                                  | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
-| [Análise de Gateway de aplicação do Azure](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Análise de grupo de segurança de rede do Azure](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Análise de SQL do Azure (pré-visualização)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br>Por&nbsp;nó&nbsp;(OMS)                                                                          | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização|
-| [Análise de Aplicações Web do Azure](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise de Gateway de aplicação do Azure](log-analytics-azure-networking-analytics.md)    | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise de grupo de segurança de rede do Azure](log-analytics-azure-networking-analytics.md)     | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise de SQL do Azure (pré-visualização)](log-analytics-azure-sql.md)                                                       | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br>Por&nbsp;nó&nbsp;(OMS)                                                                          | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização|
+| [Análise de Aplicações Web do Azure](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 |[Cópia de segurança](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Conhecimentos aprofundados e análise</li></ul>                                   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)                                                                       | Necessita de um cofre de cópia de segurança clássico.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Capacidade e o desempenho (pré-visualização)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Capacidade e o desempenho (pré-visualização)](log-analytics-capacity.md)                                                   | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Monitorização de Alterações](log-analytics-change-tracking.md)                                       | <ul><li>Automatização e Controlo</li></ul>                                  | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
-| [Contentores](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Conector da Gestão de Serviços de TI](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)     | |
-| Monitorização de HBase do HDInsight <br>(Pré-visualização)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Análise do Cofre de Chaves](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Contentores](log-analytics-containers.md)                                                 | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Conector da Gestão de Serviços de TI](log-analytics-itsmc-overview.md)                                                | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)     | |
+| Monitorização de HBase do HDInsight <br>(Pré-visualização)                                                  | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise do Cofre de Chaves](log-analytics-azure-key-vault.md)                   | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
 | [Avaliação de Software Maligno](log-analytics-malware.md)                                            | <ul><li>Segurança e Conformidade</li></ul>                                 | Gratuito<br> Autónomo<br>Por&nbsp;nó&nbsp;(OMS)                                                                           | Se adicionar as soluções de segurança e conformidade depois 19 de Junho de 2017 [faturação seja por nó](https://azure.microsoft.com/pricing/details/security-compliance/), independentemente da área de trabalho de escalão de preço. Os primeiro 60 dias são gratuitos.  |
 | [Monitor de Desempenho da Rede](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Conhecimentos aprofundados e análise</li></ul>                                   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | |
-| [Análise do Office 365 (pré-visualização)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise do Office 365 (pré-visualização)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Auditoria e segurança](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>Segurança&nbsp;e&nbsp;conformidade</li></ul>                       | Gratuito<br> Autónomo<br>Por&nbsp;nó&nbsp;(OMS)                                                                           | Recolher registos de eventos de segurança requer que esta solução<br>Se adicionar as soluções de segurança e conformidade depois 19 de Junho de 2017 [faturação seja por nó](https://azure.microsoft.com/pricing/details/security-compliance/), independentemente da área de trabalho de escalão de preço. Os primeiro 60 dias são gratuitos. |
-| [Análise de recursos de infraestrutura de serviço (pré-visualização)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Análise de recursos de infraestrutura de serviço (pré-visualização)](log-analytics-service-fabric.md)                     | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Mapa de serviço (pré-visualização)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Conhecimentos aprofundados e análise</li></ul>                      | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Disponível nos EUA leste, Europa Ocidental e EUA Centro Oeste    |
 | [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Conhecimentos aprofundados e análise</li></ul>                                   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)                                                                       | Necessita de um cofre de recuperação de Site clássico.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Avaliação do SQL](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
-| Iniciar/Parar VMs durante horas de inatividade<br>(Pré-visualização)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
-| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Avaliação do SQL](log-analytics-sql-assessment.md)                                         | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| Iniciar/Parar VMs durante horas de inatividade<br>(Pré-visualização)                                              | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Não está disponível para adicionar a partir do portal do Azure/marketplace. |
 | [O System Center Operations Manager Assessment (pré-visualização)](log-analytics-scom-assessment.md)  | <ul><li>Conhecimentos aprofundados e análise</li><li>Log Analytics</li></ul>        | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Gestão de Atualizações](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automatização e Controlo</li></ul>                                  | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
-| [Conformidade de atualização (pré-visualização)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Sem encargos de dados ou nós<br>Dados não sujeitos a extremidade do escalão gratuito.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [Atualizar Preparação](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Sem encargos de dados ou nós<br>Dados não sujeitos a extremidade do escalão gratuito.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
-| [VMware monitorização (pré-visualização)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
+| [Conformidade de atualização (pré-visualização)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Sem encargos de dados ou nós<br>Dados não sujeitos a extremidade do escalão gratuito.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [Atualizar Preparação](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | Sem encargos de dados ou nós<br>Dados não sujeitos a extremidade do escalão gratuito.<br> Não está disponível para adicionar a partir do portal do Azure/marketplace. |
+| [VMware monitorização (pré-visualização)](log-analytics-vmware.md)                                | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(autónomo)<br> Por&nbsp;nó&nbsp;(OMS)   | |
 | [Dados por fio 2.0 (pré-visualização)](log-analytics-wire-data.md)                                                                 | <ul><li>Conhecimentos aprofundados e análise</li></ul>                                   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)                                                                         | Disponível nos EUA leste, Europa Ocidental e EUA Centro Oeste |
 
 <sup>1</sup> o *padrão* e *Premium (OMS)* escalões de preço só estão disponível para os clientes que criou a sua área de trabalho de análise de registos antes de 21 de Setembro de 2016.
@@ -118,7 +118,7 @@ Soluções de Comunidade fornecida estão disponíveis a partir de [Galeria de m
 
 | Solução de gestão               | Oferta                                                                     | Escalões de preço                         | Notas |
 | ---                               | ---                                                                       | ---                                   | ---   |
-| Todas as soluções de Comunidade fornecida  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)     |   Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
+| Todas as soluções de Comunidade fornecida  | <ul><li>Conhecimentos aprofundados&nbsp;e&nbsp;análise</li><li>Log Analytics</li></ul>   | Gratuito<br> Por&nbsp;nó&nbsp;(OMS)     |   Requer a sua área de trabalho de análise de registos para ser ligada a uma conta de automatização |
 
 
 
@@ -142,34 +142,34 @@ O agente de Windows de análise do registo e o agente do System Center Operation
 | Log Analytics de Atividades | Azure |   |   |   |   |   | na notificação |
 | Avaliação do AD |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dias |
 | Estado de Replicação do AD |Windows |&#8226; |&#8226; |  |  |&#8226; |5 dias |
-| Estado de Funcionamento do Agente | Windows e Linux | &#8226; | &#8226; |   |   | &#8226; | um minuto |
+| Estado de Funcionamento do Agente | Windows e Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minuto |
 | Gestão de alertas (da Nagios) |Linux |&#8226; |  |  |  |  |sobre chegada |
-| Gestão de alertas (da Zabbix) |Linux |&#8226; |  |  |  |  |um minuto |
+| Gestão de alertas (da Zabbix) |Linux |&#8226; |  |  |  |  |1 minuto |
 | Gestão de alertas (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minutos |
-| Conector do Application Insights (pré-visualização) | Azure |   |   |   |   |   | na notificação |
-| Análise de Gateway de aplicação do Azure | Azure |   |   |   |   |   | na notificação |
-| Análise de grupo de segurança de rede do Azure | Azure |   |   |   |   |   | na notificação |
-| Análise de SQL do Azure (pré-visualização) |Windows |  |  |  |  |  | 10 minutos |
+| Conector do Application Insights (Pré-visualização) | Azure |   |   |   |   |   | na notificação |
+| Análise do Gateway de Aplicação do Azure | Azure |   |   |   |   |   | na notificação |
+| Análise do Grupo de Segurança de Rede do Azure | Azure |   |   |   |   |   | na notificação |
+| Análise SQL do Azure (Pré-visualização) |Windows |  |  |  |  |  | 10 minutos |
 | Gestão de Capacidade |Windows |&#8226; |&#8226; |  |  |&#8226; |sobre chegada |
 | Contentores | Windows e Linux | &#8226; | &#8226; |   |   |   | 3 minutos |
-| Análise do Cofre de chaves |Windows |  |  |  |  |  |na notificação |
+| Análise do Key Vault |Windows |  |  |  |  |  |na notificação |
 | Monitor de Desempenho da Rede | Windows | &#8226; | &#8226; |   |   |   | TCP handshakes a cada cinco segundos, dados enviados a cada 3 minutos |
-| Análise do Office 365 (pré-visualização) |Windows |  |  |  |  |  |na notificação |
-| Análise de recursos de infraestrutura de serviço |Windows |  |  |&#8226; |  |  |5 minutos |
+| Office 365 Analytics (Pré-visualização) |Windows |  |  |  |  |  |na notificação |
+| Análise do Service Fabric |Windows |  |  |&#8226; |  |  |5 minutos |
 | Mapa de Serviços | Windows e Linux | &#8226; | &#8226; |   |   |   | 15 segundos |
 | Avaliação do SQL |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dias |
 | SurfaceHub |Windows |&#8226; |  |  |  |  |sobre chegada |
 | O System Center Operations Manager Assessment (pré-visualização) | Windows | &#8226; | &#8226; |   |   | &#8226; | sete dias |
-| Análise de atualização (pré-visualização) | Windows | &#8226; |   |   |   |   | 2 dias |
-| VMware monitorização (pré-visualização) | Linux | &#8226; |   |   |   |   | 3 minutos |
-| Ligar Dados |Windows (2012 R2 / 8.1 ou posterior) |&#8226; |&#8226; |  |  |  | um minuto |
+| Análise de Atualização (Pré-visualização) | Windows | &#8226; |   |   |   |   | 2 dias |
+| Monitorização de VMware (Pré-visualização) | Linux | &#8226; |   |   |   |   | 3 minutos |
+| Ligar Dados |Windows (2012 R2 / 8.1 ou posterior) |&#8226; |&#8226; |  |  |  | 1 minuto |
 
 
 ### <a name="automation--control"></a>Automatização e controlo
 
 | Solução de gestão | Plataforma | Agente de monitorização da Microsoft | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Automatização de trabalho híbrida | Windows | &#8226; | &#8226; |   |   |   | n/d |
+| Função de Trabalho Híbrida de Automatização | Windows | &#8226; | &#8226; |   |   |   | n/d |
 | Monitorização de Alterações |Windows |&#8226; |&#8226; |  |  |&#8226; |hora a hora |
 | Monitorização de Alterações |Linux |&#8226; |  |  |  |  |hora a hora |
 | Gestão de Atualizações | Windows |&#8226; |&#8226; |  |  |&#8226; |pelo menos 2 vezes por dia e 15 minutos depois de instalar uma atualização |
@@ -178,7 +178,7 @@ O agente de Windows de análise do registo e o agente do System Center Operation
 
 | Solução de gestão | Plataforma | Agente de monitorização da Microsoft | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Avaliação de antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |hora a hora |
+| Avaliação de Antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |hora a hora |
 | Auditoria e segurança<sup>1</sup> | Windows e Linux | parcial | parcial | parcial |   | parcial | vários |
 
 <sup>1</sup> solução de segurança e de auditoria pode recolher registos de agentes do Windows, o Operations Manager e o Linux. Consulte [origens de dados](#data-sources) para obter informações de recolha de dados sobre:
@@ -207,9 +207,9 @@ O agente de Windows de análise do registo e o agente do System Center Operation
 | Registos de diagnóstico do Azure |Windows |  |  |  |  |  |na notificação |
 | Métricas de diagnóstico do Azure |Windows |  |  |  |  |  |na notificação |
 | ETW |Windows |  |  |&#8226; |  |  |5 minutos |
-| Registos de IIS |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
-| Contadores de Desempenho |Windows |&#8226; |&#8226; |  |  |  |Mínimo de 10 segundos, conforme agendado |
-| Contadores de Desempenho |Linux |&#8226; |  |  |  |  |Mínimo de 10 segundos, conforme agendado |
+| Registos do IIS |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
+| Contadores de Desempenho |Windows |&#8226; |&#8226; |  |  |  |como agendada, no mínimo 10 segundos |
+| Contadores de Desempenho |Linux |&#8226; |  |  |  |  |como agendada, no mínimo 10 segundos |
 | Syslog |Linux |&#8226; |  |  |  |  |storage do Azure: 10 minutos; do agente: sobre chegada |
 | Registos de eventos de segurança do Windows |Windows |&#8226; |&#8226; |&#8226; |  |  |armazenamento do Azure: 10 min; para o agente: sobre chegada |
 | Registos de firewall do Windows |Windows |&#8226; |&#8226; |  |  |  |sobre chegada |

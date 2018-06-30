@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762375"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109591"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Ligações de conta LinkedIn para serviços e aplicações da Microsoft
 Neste artigo, pode saber como gerir LinkedIn ligações de conta para o seu inquilino no Centro de administração do Azure Active Directory (Azure AD). 
@@ -53,7 +53,7 @@ Funcionalidade de ligações do LinkedIn conta está ativada por predefinição 
 4. Em **ligações de conta LinkedIn**:
   * Selecione **Sim** para ativar as ligações de conta do LinkedIn para todos os utilizadores no seu inquilino
   * Selecione **selecionados** para ativar o LinkedIn conta ligações para apenas inquilino selecionado utilizadores
-  * Selecione **não** desativar LinkedIn ligações de conta para todos os utilizadores ![LinkedIn ativar ligações de conta](./media/linkedin-integration/LinkedIn-integration.png)
+  * Selecione **não** desativar LinkedIn ligações de conta para todos os utilizadores ![LinkedIn ativar ligações de conta](./media/linkedin-integration/linkedin-integration.png)
 5. Guardar as definições, quando tiver terminado, selecionando **guardar**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Ativar ou desativar LinkedIn conta ligações para aplicações do Office 2016 da sua organização através da política de grupo
@@ -64,7 +64,7 @@ Funcionalidade de ligações do LinkedIn conta está ativada por predefinição 
 4. Criar um objeto de política de grupo com a seguinte definição: **configuração do utilizador** > **modelos administrativos** > **Microsoft Office 2016**  >  **Diversos** > **Mostrar LinkedIn funcionalidades nas aplicações do Office**.
 5. Selecione **ativada** ou **desativado**.
   * Quando a política é **ativado**, a **Mostrar LinkedIn funcionalidades nas aplicações do Office** definição localizada na caixa de diálogo Opções do Office 2016 está ativada. Isto também significa que os utilizadores na sua organização podem utilizar funcionalidades de LinkedIn nas aplicações do Office.
-  * Quando a política é **desativada**, a **Mostrar LinkedIn funcionalidades nas aplicações do Office** encontrada nas opções do 2016 do Office caixa de diálogo está definida para o estado desativado e os utilizadores finais não é possível alterar esta definição. Os utilizadores na sua organização não é possível utilizar funcionalidades LinkedIn nas respetivas aplicações do Office 2016. 
+  * Quando a política é **desativada**, a **Mostrar LinkedIn funcionalidades nas aplicações do Office** encontrada nas opções do 2016 do Office caixa de diálogo está definida para o estado desativado e os utilizadores finais não é possível alterar esta definição. Os utilizadores na sua organização não é possível utilizar funcionalidades LinkedIn nas respetivas aplicações do Office 2016.
 
 Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Os utilizadores podem ver LinkedIn funcionalidades em cartões de perfil ao longo do Office 365, mesmo que elas desativam LinkedIn nas suas aplicações do Office 2016. 
 

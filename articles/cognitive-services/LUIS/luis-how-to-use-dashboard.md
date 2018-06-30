@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355778"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110053"
 ---
 # <a name="application-dashboard"></a>Dashboard de aplicações
 O dashboard de aplicações permite-lhe monitorizar a aplicação num instante único. O **Dashboard** apresenta quando abrir uma aplicação ao clicar no nome de aplicação no **aplicações My** em seguida, selecione de página **Dashboard** do painel superior. 
@@ -69,7 +69,7 @@ Para selecionar um período de ver no gráfico:
 2. Selecione um período da lista e, em seguida, clique na seta de fundo ![Fazer uma cópia de seta](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para apresentar o gráfico.
 
 ### <a name="key-usage"></a>Utilização de chaves
-O número de pedidos consumido da chave de subscrição da aplicação. Para obter mais informações sobre chaves de subscrição, consulte [chaves na LUIS](luis-concept-keys.md). 
+O número de pedidos consumido da chave de ponto final da aplicação. Para obter mais informações sobre chaves de ponto final, consulte [chaves na LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Divisão intenção
 O **intenção repartição** apresenta uma divisão de pendentes com base no utterances identificados ou pedidos de ponto final. Este gráfico de resumo mostra a importância relativa de cada intenção de na aplicação. Quando paira o rato o ponteiro do rato sobre um setor, consulte o nome da intenção e a percentagem representa da contagem total de pedidos de identificados utterances/ponto final. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649232"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128519"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir retenção de cópias de segurança de longa duração de SQL Database do Azure
 
@@ -83,8 +83,10 @@ Ver as cópias de segurança que são mantidas para uma base de dados específic
 As secções seguintes mostram como utilizar o PowerShell para configurar a retenção de cópias de segurança de longa duração, ver as cópias de segurança no armazenamento de SQL do Azure e o restauro a partir de uma cópia de segurança no armazenamento de SQL do Azure.
 
 > [!IMPORTANT]
-> Tem de utilizar o powershell AzureRM mais recente para configurar políticas de V2 imediatamente disponíveis. A versão atual é [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), esta é uma versão de pré-visualização, por isso, utilize este comando para instalá-la: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Para obter orientações sobre como instalar a versão de pré-lançamento, consulte [PowerShellGet obter módulo](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). O powershell AzureRM versão de Maio de 2018 estará disponível dentro de alguns dias (deve ser 18/5/2018), pode ignorar o comutador - AllowPrelease quando instalar a versão de lançamento quando ficar disponível e utilize o seguinte comando " `Install-Module -Name AzureRM.Sql -Force`.
+> Imediatamente disponíveis V2 API é suportado nas versões do PowerShell seguintes:
+- [AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
+- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
+> 
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política de imediatamente disponíveis
 

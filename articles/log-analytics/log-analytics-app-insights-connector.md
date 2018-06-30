@@ -3,7 +3,7 @@ title: Ver dados de aplicações do Azure Application Insights | Microsoft Docs
 description: Pode utilizar a solução de conector do Application Insights para diagnosticar problemas de desempenho e compreender o que fazem os utilizadores com a sua aplicação quando monitorizadas com o Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186238"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131631"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão do Application Insights conector (pré-visualização)
 
 ![Símbolo do Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Com o suporte dos [recursos entre consultas](log-analytics-cross-workspace-search.md), a solução de gestão do conector de Application Insights já não é necessária e vão ser preterida. A partir de Julho, não será capaz de ligar novos recursos do Application Insights para áreas de trabalho de análise de registos. As ligações existentes e dashboards vão continuar a funcionar até Novembro de 2018. Para obter mais informações, consulte [portal do OMS mover para o Azure](log-analytics-oms-portal-transition.md).
 
 A solução de conector das informações de aplicações ajuda-o a diagnosticar problemas de desempenho e compreenda que os utilizadores fazem com a aplicação quando está a ser monitorizado com [Application Insights](../application-insights/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os programadores ver no Application Insights estão disponíveis na análise de registos. No entanto, quando integrar as suas aplicações do Application Insights a análise de registos, visibilidade das suas aplicações é aumentada, fazendo com que a operação e dados de aplicações num único local. Ter as mesmas vistas ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudá-lo a reduzir o tempo para detetar e resolver a aplicação e problemas de plataforma.
 
@@ -83,7 +87,7 @@ Clique em de **Application Insights** mosaico para abrir o **Application Insight
 
 ![Dashboard de conhecimentos de aplicação](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-O dashboard inclui os painéis mostrados na tabela. Cada painel lista até 10 itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos quando clicar em **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
+O dashboard inclui os painéis mostrados na tabela. Cada painel apresenta uma lista com um máximo de 10 itens que correspondem aos critérios do âmbito e do intervalo de tempo especificados. Pode executar uma pesquisa de registo que devolve todos os registos quando clicar em **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -175,7 +179,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | --- | --- |
 | Tipo | ApplicationInsights |
 | ClientIP |   |
-| TimeGenerated | Tempo do registo |
+| TimeGenerated | Hora do registo |
 | ApplicationId | Chave de instrumentação da aplicação Application Insights |
 | ApplicationName | Nome do Application Insights aplicação |
 | RoleInstance | ID de anfitrião do servidor |
@@ -191,7 +195,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | IsAuthenticated | Verdadeiro ou falso |
 | OperationID | Itens que tenham a mesma operação ID são apresentadas como itens relacionados no portal. Normalmente, o ID do pedido |
 | ParentOperationID | ID da operação principal |
-| OperationName |   |
+| operationName |   |
 | SessionId | GUID para identificar exclusivamente a sessão em que o pedido foi criado |
 | SourceSystem | ApplicationInsights |
 
@@ -252,7 +256,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | Anfitrião | Anfitrião do servidor Web |
 | URLBase | URL completo do pedido |
 | ApplicationProtocol | Tipo de protocolo utilizado pela aplicação |
-| requestCount | 100 /(Sampling Rate). Por exemplo, 4 =&gt; 25% |
+| RequestCount | 100 /(Sampling Rate). Por exemplo, 4 =&gt; 25% |
 | RequestDurationCount | 100 /(Sampling Rate). Por exemplo, 4 =&gt; 25% |
 | RequestDurationMin | Para registos de amostras, este campo mostra a duração mínima de pedido (milissegundos) para os pontos de dados representado. |
 | RequestDurationMax | Para registos de amostras, este campo mostra a duração máxima de pedido (milissegundos) para os pontos de dados representado |

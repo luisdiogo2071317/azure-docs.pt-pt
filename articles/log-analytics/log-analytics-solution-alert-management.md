@@ -4,22 +4,23 @@ description: A solução de gestão de alertas no Log Analytics ajuda a analisar
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181202"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131052"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
@@ -68,9 +69,9 @@ Clique em de **gestão de alertas** mosaico para abrir o **gestão de alertas** 
 
 | Coluna | Descrição |
 |:--- |:--- |
-| Alertas críticos |Todos os alertas com uma gravidade de crítico agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
-| Alertas de aviso |Todos os alertas com uma gravidade de aviso agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
-| Alertas ativos do SCOM |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
+| Alertas Críticos |Todos os alertas com uma gravidade de crítico agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
+| Alertas de Aviso |Todos os alertas com uma gravidade de aviso agrupado por nome do alerta.  Clique num nome do alerta para executar uma pesquisa de registo devolver todos os registos para esse alerta. |
+| Alertas SCOM Ativos |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Incluir apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
 
 Se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar um [pesquisa registo](log-analytics-log-searches.md) para dados de alertas.
@@ -116,8 +117,8 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos alertas 
 | Alerta &#124; onde SourceSystem = = "OpsManager" e AlertState! = "Fechado" e TimeRaised > ago(24h) &#124; resumir contagem = existente pelo SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
 | Alerta &#124; onde SourceSystem = = "OpsManager" e AlertSeverity = = "error" e TimeRaised > ago(24h) e AlertState! = "Fechado" |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
 | Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(24h) e AlertState = = "Fechado" |Alertas gerados nas últimas 24 horas que agora estão fechadas |
-| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = existente pelo AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
-| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; resumir contagem = existente pelo AlertSeverity |Alertas gerados durante o último dia, agrupados pelo respetivo grau de gravidade |
+| Alerta &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo seu valor de contagem de repetição |
 
 
 

@@ -3,7 +3,7 @@ title: Monitorizar o estado de replicação do Active Directory com o Log Analyt
 description: O pacote de solução de estado de replicação do Active Directory monitoriza regularmente o ambiente do Active Directory para o eventuais falhas de replicação.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7707c4a1afdc42ef44a7b6f761ceb03b7e7da2f0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: 0ccd457295584f871088bc20864ef103648f1654
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29179339"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128729"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com a análise de registos
 
@@ -39,7 +39,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o estado de replicação do AD.
 
-| Plataforma | Direcionar o agente | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
+| Plataforma | Agente Direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco dias |
 
@@ -132,7 +132,7 @@ R: não, apenas um único controlador de domínio tem de ser adicionado. Se tive
 R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Consulte [para permitir que um controlador de domínio enviar dados de AD para análise de registos](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **P: qual é o nome do processo de que a recolha de dados?**
-A: AdvisorAssessment.exe
+R: AdvisorAssessment.exe
 
 **P: quanto tempo demora para dados a serem recolhidos?**
 R: hora de recolha de dados de depende do tamanho do ambiente do Active Directory, mas normalmente demora menos de 15 minutos.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e1bcae85c7078d817e30ec578ac12b2be13342c7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097449"
+ms.locfileid: "37129028"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -157,7 +157,7 @@ Para confirmar que um grupo de gestão do Operations Manager está a comunicar c
 
 A tabela seguinte descreve as origens de ligado que são suportadas por esta solução:
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução recolhe informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução recolhe informações sobre atualizações do sistema de agentes Linux e, em seguida, inicia a instalação de atualizações necessárias no distribuições suportadas. |
@@ -214,8 +214,8 @@ Para criar uma nova implementação de atualização, selecione **implementaçã
 |Sistema Operativo| Selecione **Linux** ou **Windows**.|
 |Máquinas de atualização |Selecione uma procura guardada ou selecione **máquina** na lista pendente e, em seguida, selecione máquinas individuais. |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta a box.|
-|Atualizações para excluir|Introduza as atualizações para excluir. Para o Windows, introduza o artigo KB sem o **KB** prefixo. Para Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
-|Definições de agendamento|Selecione a hora para iniciar e, em seguida, selecione **uma vez** ou **periódica** para a periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
+|Atualizações a excluir|Introduza as atualizações para excluir. Para o Windows, introduza o artigo KB sem o **KB** prefixo. Para Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
+|Definições da agenda|Selecione a hora para iniciar e, em seguida, selecione **uma vez** ou **periódica** para a periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
@@ -261,6 +261,8 @@ Os seguintes endereços são necessários especificamente para a gestão de atua
 
 Para obter mais informações sobre as portas que requer que o Runbook Worker híbrido, consulte [portas de função de Worker híbrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
+Recomenda-se para utilizar os endereços listados quando se definem exceções. Para endereços IP pode transferir o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos de implementado e as alterações futuras para os intervalos de IP.
+
 ## <a name="search-logs"></a>Registos de pesquisa
 
 Além dos detalhes que são fornecidos no portal do Azure, pode efetuar pesquisas contra os registos. Nas páginas solução, selecione **Log Analytics**. O **pesquisa registo** abre o painel.
@@ -268,7 +270,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode efetuar pesquisa
 Também pode aprender como personalizar as consultas ou utilizá-las de diferentes clientes e mais, visitando: [documentação seach API de análise de registos](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-queries"></a>Amostras de consultas
 
 As secções seguintes fornecem exemplos de consultas de registo para os registos de atualização que são recolhidos por esta solução:
 
@@ -509,7 +511,7 @@ Implementar atualizações de classificação de atualização não funciona em 
 
 Para saber como resolver problemas de gestão de atualização, consulte [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Continue para o tutorial para saber como gerir atualizações para as máquinas virtuais do Windows.
 

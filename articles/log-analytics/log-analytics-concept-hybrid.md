@@ -3,7 +3,7 @@ title: Recolher dados do seu ambiente com o Log Analytics do Azure | Microsoft D
 description: Este tópico ajuda-o a compreender como recolher dados e monitorizar computadores alojados no local ou outro ambiente de nuvem com a análise de registos.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235945"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133048"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -96,7 +97,7 @@ Para o agente do Linux, o servidor proxy é especificado durante a instalação 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se utilizar carateres especiais, tais como "@" na sua palavra-passe, receberá um erro de ligação de proxy porque o valor é analisado incorretamente.  Para contornar este problema, codificar a palavra-passe no URL utilizando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
+> Se utilizar carateres especiais, tais como "\@" na sua palavra-passe, receberá um erro de ligação de proxy porque o valor é analisado incorretamente.  Para contornar este problema, codificar a palavra-passe no URL utilizando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Instalar e configurar o agente 
 Ligar os computadores no local diretamente com a análise de registos pode ser conseguido através de métodos diferentes consoante as suas necessidades. A tabela seguinte realça cada método para determinar que funciona melhor na sua organização.

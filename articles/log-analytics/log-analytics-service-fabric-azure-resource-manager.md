@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 10c5394935c59b21139c0e141c348ce20a7c0800
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.component: na
+ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932686"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128018"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avalie as aplicações de Service Fabric e microserviços com o portal do Azure
 
@@ -33,7 +34,7 @@ ms.locfileid: "28932686"
 
 Este artigo descreve como utilizar a solução de Service Fabric na análise de registos para ajudar a identificar e resolver problemas no seu cluster de Service Fabric.
 
-A solução de Service Fabric utiliza dados de diagnóstico do Azure da sua VMs de recursos de infraestrutura de serviço, através da recolha de dados de tabelas do Azure WAD. Análise de registos, em seguida, lê os eventos de estrutura de Service Fabric, incluindo **fiável de serviço de eventos**, **eventos de Ator**, **eventos operacionais**, e **Eventos ETW personalizada**. Com o dashboard de solução, que é possível ver problemas relevantes e eventos relevantes no seu ambiente do Service Fabric.
+A solução de Service Fabric utiliza dados de diagnóstico do Azure da sua VMs de recursos de infraestrutura de serviço, através da recolha de dados de tabelas do Azure WAD. Análise de registos, em seguida, lê os eventos de estrutura de Service Fabric, incluindo **fiável de serviço de eventos**, **eventos de Ator**, **eventos operacionais**, e **personalizada Eventos ETW**. Com o dashboard de solução, que é possível ver problemas relevantes e eventos relevantes no seu ambiente do Service Fabric.
 
 Para começar a utilizar com a solução, terá de ligar o seu cluster do Service Fabric para uma área de trabalho de análise de registos. Seguem-se três cenários a ter em consideração:
 
@@ -139,7 +140,7 @@ Depois de implementar este modelo, será capaz de ver a conta de armazenamento l
 
 Depois de concluídas as implementações e a solução de Service Fabric foi ativada na sua área de trabalho, selecione o **Service Fabric** mosaico no portal do Log Analytics para iniciar o dashboard de Service Fabric. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os eventos principais de 10 por contagem correspondentes aos critérios dessa coluna para o intervalo de tempo especificado. Pode executar uma pesquisa de registo que fornece a lista completa clicando **ver todos os** na parte inferior direita de cada coluna ou ao clicar no cabeçalho da coluna.
 
-| **Evento de Service Fabric** | **description** |
+| **Evento de Service Fabric** | **Descrição** |
 | --- | --- |
 | Problemas Relevantes |Uma apresentação de problemas, tais como RunAsyncFailures RunAsynCancellations e nó pendentes. |
 | Eventos operacionais |Eventos operacionais relevantes, tais como a atualização da aplicação e implementações. |
@@ -153,7 +154,7 @@ Depois de concluídas as implementações e a solução de Service Fabric foi at
 
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Service Fabric.
 
-| Plataforma | Direcionar o agente | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência de recolha |
+| Plataforma | Agente Direto | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minutos |
 

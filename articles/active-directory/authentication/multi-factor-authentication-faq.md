@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096497"
+ms.locfileid: "37128695"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o multi-factor Authentication do Azure
 
@@ -118,7 +118,7 @@ Azure Active Directory é necessário para o modelo de licença porque licenças
 
 Hopefully todos os seus utilizadores configurado mais do que um método de verificação. Diga-lhes que selecionem um método de verificação diferente na página de início de sessão e que tentem iniciar sessão novamente.
 
-Pode apontar os seus utilizadores para o [guia de resolução de problemas do utilizador final](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Pode apontar os seus utilizadores para o [guia de resolução de problemas do utilizador final](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **P: o que posso fazer se um dos meus utilizadores não é possível obter a conta?**

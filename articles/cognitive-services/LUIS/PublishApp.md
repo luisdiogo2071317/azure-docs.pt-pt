@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad5ef58536bb6cc7f2c754f2e5c4487a3ffe96f2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322059"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112831"
 ---
 # <a name="publish-your-trained-app"></a>Publicar a aplicação preparada
 Quando acabar de criar e testar a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicar mostra todas as associadas HTTP [pontos finais](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e por [chave](Manage-Keys.md), em seguida, estão integradas com qualquer aplicação cliente, chatbot ou back-end. 
@@ -48,7 +48,7 @@ No **as definições de serviços externos**, a **ativar Priming de reconhecimen
 Depois desta funcionalidade está ativada, publica a aplicação. Quando publicar a aplicação de LUIS, o seu modelo de aplicação é enviado para o seu próprio serviço de reconhecimento de voz para prime o serviço de reconhecimento de voz. As informações de modelo são **não** utilizada fora do seu próprio serviço. 
 
 Para concluir a utilização de priming de reconhecimento de voz, terá as seguintes informações para utilizar o [SDK de reconhecimento de voz](../speech-service/speech-sdk-reference.md):
-* Uma chave de subscrição de LUIS.
+* Uma chave de ponto final de LUIS.
 * O ID de aplicação LUIS.
 * Um domínio de ponto final, referido como "Nome do anfitrião" no SDK de reconhecimento de voz, tais como "westus.api.cognitive.microsoft.com", em que o primeiro subdomínio é a região onde a aplicação publicada.
 
@@ -129,7 +129,7 @@ Esta tabela comodamente reflete a configuração de publicação no ponto final 
 
 A rota de URL está construída com a região e o ID de aplicação. Se está a publicar noutras regiões ou com outras aplicações, o URL de ponto final pode ser construído, alterando os valores de ID de região e aplicações. 
 
-* Selecione a ranhura de produção e o **publicar** botão. Quando a publicação for bem sucedida, utilize o URL de ponto final apresentadas para aceder à sua aplicação LUIS. 
+* Selecione o bloco Production (Produção) e o botão **Publish** (Publicar). Quando a publicação for bem sucedida, utilize o URL de ponto final apresentadas para aceder à sua aplicação LUIS. 
 
 ### <a name="optional-query-string-parameters"></a>Parâmetros de cadeia de consulta opcional
 Os seguintes parâmetros de cadeia de consulta podem ser utilizados com o URL de ponto final:

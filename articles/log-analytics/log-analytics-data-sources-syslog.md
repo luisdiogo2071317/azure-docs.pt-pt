@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011099"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131791"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origens de dados de syslog no Log Analytics
 Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicações vai enviar mensagens que podem ser armazenadas no computador local ou entregar para um coletor Syslog.  Quando é instalado o agente do OMS para Linux, configura o daemon de Syslog local para reencaminhar mensagens para o agente.  O agente, em seguida, envia a mensagem para análise de registos em que é criado um registo correspondente no repositório de OMS.  
@@ -51,7 +52,7 @@ Quando o [agente do OMS está instalado num cliente Linux](log-analytics-linux-a
 >
 >
 
-#### <a name="rsyslog"></a>Rsyslog
+#### <a name="rsyslog"></a>rsyslog
 O ficheiro de configuração para rsyslog está localizado em **/etc/rsyslog.d/95-omsagent.conf**.  O seu conteúdo predefinido é mostrado abaixo.  Este recolhe as mensagens syslog enviadas do agente local para todas as instalações com um nível de aviso ou superior.
 
     kern.warning       @127.0.0.1:25224
@@ -77,7 +78,7 @@ Pode remover uma função ao remover a secção do ficheiro de configuração.  
     user.error    @127.0.0.1:25224
 
 
-#### <a name="syslog-ng"></a>Syslog ng
+#### <a name="syslog-ng"></a>syslog ng
 O ficheiro de configuração para syslog ng é a localização em **/etc/syslog-ng/syslog-ng.conf**.  O seu conteúdo predefinido é mostrado abaixo.  Este recolhe as mensagens syslog enviadas do agente local para todas as instalações e todas as gravidades.   
 
     #
@@ -189,11 +190,11 @@ Registos de syslog tem um tipo de **Syslog** e ter as propriedades na tabela seg
 | Computador |Computador que o evento foi recolhido a partir de. |
 | Instalações |Define a parte do sistema que gerou a mensagem. |
 | HostIP |Endereço IP do sistema enviar a mensagem. |
-| Nome de anfitrião |Nome do sistema enviar a mensagem. |
+| nome de anfitrião |Nome do sistema enviar a mensagem. |
 | Nível de gravidade |Nível de gravidade do evento. |
 | SyslogMessage |Texto da mensagem. |
-| ID do processo |ID do processo que gerou a mensagem. |
-| eventTime |Data e hora em que o evento foi gerado. |
+| ProcessID |ID do processo que gerou a mensagem. |
+| EventTime |Data e hora em que o evento foi gerado. |
 
 ## <a name="log-queries-with-syslog-records"></a>Consultas de registo com registos de Syslog
 A tabela seguinte fornece exemplos diferentes de consultas de registo que obter registos de Syslog.

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 52bda6a13422ce8f759c40bd454a6b15e92d7a5d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266809"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110301"
 ---
 # <a name="luis-boundaries"></a>Limites de LUIS
 LUIS tem várias áreas de limites. O primeiro é o [limites de modelo](#model-boundaries), que controla o pendentes, as entidades e funcionalidades no LUIS. A área do segundo [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área de limites a [combinação de teclado](#keyboard-controls) para controlar o Web site LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -35,11 +35,11 @@ LUIS tem várias áreas de limites. O primeiro é o [limites de modelo](#model-b
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>Comprimento máximo de padrão é de 400 carateres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicação, 3 entidades pattern.any por padrão |
 | [Lista de expressão][phrase-list]|10 frase listas, 5000 itens por lista|
-| [Entidades prebuilt](./Pre-builtEntities.md) | Sem limite|
+| [Entidades prebuilt](./Pre-builtEntities.md) | sem limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>máximo de 500 carateres. Por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicação. 10 funções por entidade|
 | **[Simples](./luis-concept-entity-types.md)| 100 entidades|
-| [Utterance][utterances] | 500 carateres|
+| [utterance][utterances] | 500 carateres|
 | [Utterances][utterances] | 15 000 por aplicação|
 | [Nome da versão][luis-how-to-manage-versions] | 10 carateres de restringida ao período e alfanuméricos (.) |
 
@@ -56,17 +56,17 @@ Não utilize os seguintes carateres em nomes de intenção e entidade:
 |`}`|À direita chaveta de abertura|
 |`[`|Reto esquerdo|
 |`]`|Parêntesis Reto direito|
-|`\`|barra invertida|
+|`\`|Barra invertida|
 
 ## <a name="key-limits"></a>Limites de chaves
-A chave de criação tem limites diferentes para a criação e o ponto final. A chave de subscrição de serviço LUIS só é válida para consultas de ponto final.
+A chave de criação tem limites diferentes para a criação e o ponto final. A chave de ponto final de serviço LUIS só é válida para consultas de ponto final.
 
 |Chave|Criação de conteúdos|Ponto Final|Objetivo|
 |--|--|--|--|
 |Criação/arranque|milhões de 1/mês, 5/segundo|1 thousand/mês, 5/segundo|A aplicação de LUIS de criação|
 |[Subscrição] [ pricing] escalão gratuito - F0 - |inválido|10 thousand/mês, 5/segundo|Consultar o ponto final LUIS|
 |[Subscrição] [ pricing] - S0 - o escalão básico|inválido|50 por segundo|Consultar o ponto final LUIS|
-|[Integração de análise de dados de sentimento](publishapp.md#enable-sentiment-analysis)|inválido|Sem qualquer encargo|Adicionar informações de sentimento, incluindo a extração de dados de expressão de chave |
+|[Integração de análise de dados de sentimento](publishapp.md#enable-sentiment-analysis)|inválido|sem qualquer encargo|Adicionar informações de sentimento, incluindo a extração de dados de expressão de chave |
 |Integração de reconhecimento de voz|inválido|Pedidos de ponto final de milhares $5.50 EUR/1|Converter utterance ditas utterance de texto e devolver LUIS resultados|
 
 ## <a name="keyboard-controls"></a>Controlos de teclado

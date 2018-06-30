@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316754"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128865"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utilizar modelos de projeto do Visual Studio para iniciar os soluções do Batch
 
@@ -439,10 +439,7 @@ Parameters. JSON e se encontrar esta carrega-o como o dicionário de parâmetros
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Manter a saída de tarefas e ao armazenamento do Azure
 Outra ferramenta útil no desenvolvimento de solução do Batch é [convenções de ficheiro do Azure Batch][nuget_package]. Utilize esta biblioteca de classe de .NET (atualmente em pré-visualização) nas suas aplicações de .NET do Batch para facilmente armazenam e obtêm saídas de tarefas para e do armazenamento do Azure. [Manter a saída de tarefas e do Azure Batch](batch-task-output.md) contém um debate completo de biblioteca e respetiva utilização.
 
-### <a name="batch-forum"></a>Fórum do batch
-O [fórum do Azure Batch] [ forum] no MSDN é um excelente local para discutir Batch e de fazer perguntas sobre o serviço. HEAD na ativação pós-falha para mensagens "temporária" úteis e publique as suas perguntas que possam surgir ao criar as soluções do Batch.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

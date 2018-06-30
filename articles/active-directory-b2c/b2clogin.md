@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c41c02acaeffa170d55f3c59f34a4b1ecae1c523
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c4b3122984cdcb324f7b86e44a62e111d6ca0a29
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712458"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131597"
 ---
 # <a name="using-b2clogincom"></a>Utilizar b2clogin.com
 
@@ -24,8 +24,8 @@ ms.locfileid: "34712458"
 >
 
 Tem agora a opção para utilizar o serviço do Azure AD B2C com `<YourTenantName>.b2clogin.com` em vez de utilizar `login.microsoftonline.com`.  Isto tem várias vantagens:
-* Já não vai partilhar o mesmo limite de tamanho de cabeçalho de cookie com outros produtos da Microsoft
-* Pode remover todas as referências para a Microsoft no seu URL (pode substituir `<YourTenantName>.onmicrosoft.com` com o ID de inquilino)
+* Já não partilham o mesmo limite de tamanho de cabeçalho de cookie com outros produtos da Microsoft.
+* Pode remover todas as referências para a Microsoft no seu URL (pode substituir `<YourTenantName>.onmicrosoft.com` com o ID de inquilino). Por exemplo: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
 
  Para tirar partido das b2clogin.com, tem de definir alguns dos seguintes procedimentos:
 

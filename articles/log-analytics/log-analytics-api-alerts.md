@@ -4,23 +4,23 @@ description: A API de REST de alerta de análise do registo permite-lhe criar e 
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178532"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128899"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alertas na análise de registos com a REST API
 A API de REST de alerta de análise do registo permite-lhe criar e gerir alertas no Operations Management Suite (OMS).  Este artigo fornece detalhes sobre a API e vários exemplos para efetuar operações diferentes.
@@ -188,7 +188,7 @@ Análise de registos permite-lhe classificar os alertas em categorias, para perm
 |Nível de gravidade de análise do registo  |Nível de gravidade de alertas do Azure  |
 |---------|---------|
 |Crítico |Gravidade 0|
-|aviso |Gravidade 1|
+|Aviso |Gravidade 1|
 |Informativo | Gravidade 2|
 
 Segue-se uma resposta de amostra de uma ação com apenas um limiar e a gravidade. 

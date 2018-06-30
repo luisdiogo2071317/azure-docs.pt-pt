@@ -3,7 +3,7 @@ title: Solução Wire Data no Log Analytics | Microsoft Docs
 description: Os dados por fio são compostos pela rede consolidada e pelos dados de desempenho dos computadores com agentes do OMS, incluindo o Operations Manager e agentes ligados ao Windows. Os dados de rede são combinados com os seus dados de registo para ajudá-lo a correlacionar os dados.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011446"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129011"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Pré-visualização) no Log Analytics
 
@@ -449,6 +450,6 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | RemoteIPLatitude | Valor da latitude do IP |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Registos de pesquisa](log-analytics-log-searches.md) para ver registos detalhados da pesquisa dos dados por fio.

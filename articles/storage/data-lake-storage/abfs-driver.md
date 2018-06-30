@@ -10,12 +10,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a726779e731be2534e457ba595d93fe51c023601
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036281"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114338"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de sistema de ficheiros do Azure Blob (ABFS): um controlador de armazenamento do Azure dedicado para o Hadoop
 
@@ -29,7 +29,7 @@ Assim, a ultrapassar o objetivo de design inerente de WASB, o novo serviço de a
 
 ## <a name="the-azure-blob-file-system-driver"></a>O controlador de sistema de ficheiros de Blob do Azure
 
-O [interface REST de armazenamento do Azure Data Lake](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) foi concebido para suportar a semântica de sistema de ficheiros ao longo do Blob Storage do Azure. Uma vez que o sistema de ficheiros Hadoop também foi concebido para suportar a mesma semântica não é necessário para um mapeamento de complexo, o controlador. Assim, o controlador de sistema de ficheiros de Blob do Azure (ou ABFS) é um shim de cliente mere para a API REST.
+O [interface REST de armazenamento do Azure Data Lake](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) foi concebido para suportar a semântica de sistema de ficheiros ao longo do Blob Storage do Azure. Uma vez que o sistema de ficheiros Hadoop também foi concebido para suportar a mesma semântica não é necessário para um mapeamento de complexo, o controlador. Assim, o controlador de sistema de ficheiros de Blob do Azure (ou ABFS) é um shim de cliente mere para a API REST.
 
 No entanto, existem algumas funções de que o controlador tem ainda de efetuar:
 

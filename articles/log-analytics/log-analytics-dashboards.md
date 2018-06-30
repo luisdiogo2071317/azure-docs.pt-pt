@@ -3,7 +3,7 @@ title: Criar um dashboard personalizado no Log Analytics do Azure | Microsoft Do
 description: Este guia ajuda-o a compreender como dashboards de análise de registos podem visualizar a todas as pesquisas de registo guardado, dando-lhe uma lente única para ver o seu ambiente.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129317"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Criar um dashboard personalizado para ser utilizado na análise de registos
 
@@ -68,11 +68,11 @@ Na vista de My Dashboard, basta clicar em **personalizar** introduzir modo de pe
 ### <a name="tile-visualizations"></a>Visualizações de mosaico
 Existem três tipos de visualizações de mosaico para escolher entre:
 
-| tipo de gráfico | o que faz |
+| tipo de gráfico | O que faz |
 | --- | --- |
 | ![Gráfico de barras](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Apresenta uma linha cronológica de resultados da sua pesquisa de registo guardado como um gráfico de barras ou uma lista de resultados por um campo, dependendo de se a sua pesquisa de registo agrega os resultados por um campo ou não. |
 | ![Métrica](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Apresenta os pedidos de resultado de pesquisa do total do registo como um número num mosaico. Métricos mosaicos permitem-lhe definir um limiar que será realce o mosaico quando o limiar for atingido. |
-| ![linha](./media/log-analytics-dashboards/oms-dashboards-line.png) |Apresenta uma linha cronológica os pedidos de resultado de pesquisa de registo guardado com valores de como um gráfico de linhas. |
+| ![Linha](./media/log-analytics-dashboards/oms-dashboards-line.png) |Apresenta uma linha cronológica os pedidos de resultado de pesquisa de registo guardado com valores de como um gráfico de linhas. |
 
 ### <a name="threshold"></a>Limiar
 Pode criar um limiar num mosaico utilizando a visualização de métrica. Selecione em criar um valor de limiar no mosaico. Escolha se pretende realçar o mosaico quando o valor é sobre ou abaixo do limiar escolhido, em seguida, defina o valor de limiar abaixo.

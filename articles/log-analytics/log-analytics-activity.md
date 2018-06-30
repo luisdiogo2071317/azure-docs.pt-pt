@@ -3,7 +3,7 @@ title: Recolher e analisar registos de atividade do Azure no Log Analytics | Mic
 description: Pode utilizar a solução de registos de atividade do Azure para analisar e procurar o registo de atividade do Azure nas suas subscrições do Azure.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283389"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130331"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividade do Azure na análise de registos
 
@@ -66,7 +67,7 @@ Ao contrário da maioria das outras soluções de análise de registos, os dados
 
 Execute os seguintes passos para configurar a solução de análise de registos de atividade para as áreas de trabalho.
 
-1. Ativar a solução de análise de registos de atividade do [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
+1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).
 2. Configure os registos de atividade para aceder à sua área de trabalho de análise de registos.
     1. No portal do Azure, selecione a sua área de trabalho e, em seguida, clique em **registo de atividade do Azure**.
     2. Para cada subscrição, clique no nome da subscrição.  
@@ -85,7 +86,7 @@ Quando adiciona a solução de análise de registos de atividade a sua área de 
 
 ### <a name="view-azure-activity-logs"></a>Regista a atividade do Azure de vista
 
-Clique em de **registos de atividade do Azure** mosaico para abrir o **registos de atividade do Azure** dashboard. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até 10 itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
+Clique em de **registos de atividade do Azure** mosaico para abrir o **registos de atividade do Azure** dashboard. O dashboard inclui os painéis na tabela seguinte. Cada painel apresenta uma lista com um máximo de 10 itens que correspondem aos critérios do âmbito e do intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
 Dados de registo de atividade só é apresentada *depois* que configurou os registos de atividade para ir para a solução de, pelo que não é possível ver os dados antes.
 

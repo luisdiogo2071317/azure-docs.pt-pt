@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647192"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130265"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar e restaurar a partir de base de dados do Azure SQL cópia de segurança retenção de longo prazo com o Cofre de serviços de recuperação do Azure
 
@@ -265,6 +265,55 @@ $restoredDb
 
 > [!NOTE]
 > Aqui, pode ligar à base de dados restaurada, utilizando o SQL Server Management Studio para efetuar tarefas de necessárias, como juntar extrair um bits de dados da base de dados restaurada para copiar para a base de dados existente ou elimine o existente da base de dados e mudar o nome de restaurada base de dados para o nome de base de dados existente. Consulte [ponto de restauro de tempo](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Como as cópias de segurança de limpeza no Cofre de serviços de recuperação
+
+A partir de 1 de Julho de 2018 a API de V1 imediatamente disponíveis foi preterida e todas as suas cópias de segurança existentes no serviço de recuperação cofres terem sido migradas para os contentores de armazenamento imediatamente disponíveis geridos pela base de dados do SQL Server. Para se certificar de que já não são cobradas para as cópias de segurança originais, estes foram removidas dos cofres após a migração. No entanto, se colocar um bloqueio no seu Cofre de cópias de segurança permanecerá não existe. Para evitar os custos desnecessários, pode remover manualmente as cópias de segurança antigas do cofre do serviço de recuperação utilizando o seguinte script. 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

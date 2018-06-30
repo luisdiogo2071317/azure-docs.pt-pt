@@ -16,15 +16,15 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 25a51cf534afaabd6fd540d70152659fc2478e11
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 81c2323dd65ee18d42a231306840eeb65bd09313
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102608"
+ms.locfileid: "37127463"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerir as definições de verificação em dois passos
-Este artigo responde a questões sobre como atualizar as definições de autenticação em dois passos de verificação ou multifator. Se estiver a ter problemas de início de sessão na sua conta, consulte [problemas com verificação de dois passos](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.
+Este artigo responde a questões sobre como atualizar as definições de autenticação em dois passos de verificação ou multifator. Se estiver a ter problemas de início de sessão na sua conta, consulte [problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.
 
 ## <a name="where-to-find-the-settings-page"></a>Onde encontrar a página de definições
 Dependendo da forma como a sua empresa configurada da multi-factor Authentication do Azure, existem alguns locais onde pode alterar as definições, como o número de telefone.
@@ -55,7 +55,7 @@ Se clicar nessa ligação não resolver o problema, pode também aceder ao **ver
 É importante configurar um número de telefone de autenticação secundária.  Porque o número de telefone principal e a sua aplicação móvel estão provavelmente no mesmo telefone, o número de telefone secundário é a única forma que vão conseguir aceder novamente à sua conta caso o seu telefone for perdido ou roubado.
 
 > [!NOTE]
-> Se não tiver acesso para o seu número de telefone principal e precisar de ajuda para obter sua conta, consulte o [problemas com verificação de dois passos](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) artigo para obter mais ajuda.  
+> Se não tiver acesso para o seu número de telefone principal e precisar de ajuda para obter sua conta, consulte o [problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) artigo para obter mais ajuda.  
 
 **Para alterar o número de telefone principal:**  
 
@@ -80,5 +80,5 @@ Dependendo das suas definições de organização, pode ter uma caixa de verific
 Quando desinstalar a aplicação do seu dispositivo ou repor o dispositivo, não remove a ativação no back-end. Para obter mais informações, consulte [Microsoft Authenticator](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Obter sugestões de resolução de problemas e ajuda na [problemas com verificação de dois passos](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)
+* Obter sugestões de resolução de problemas e ajuda na [problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md)
 * Configurar [palavras-passe de aplicação](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md) para todas as aplicações que não suportam a verificação de dois passos.

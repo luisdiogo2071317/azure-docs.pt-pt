@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225794"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
 
@@ -67,7 +67,7 @@ Para configurar a integração de Riskware com o Azure AD, terá de adicionar Ri
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![O painel de aplicações da empresa][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![O novo botão de aplicação][3]
@@ -101,7 +101,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. No **Riskware domínio e os URLs** secção, execute os seguintes passos:
@@ -113,7 +113,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. No **identificador (ID de entidade)** caixa de texto, escreva um URL:
@@ -121,10 +121,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > O início de sessão no valor de URL não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Riskware](mailto:support@pansoftware.com.au) para obter o valor.
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
@@ -137,11 +137,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **Riskware configuração** secção, clique em **configurar Riskware** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
 7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Riskware como administrador.
 
-8. No canto superior direito, clique em **manutenção** para abrir a página de manutenção. 
+8. No canto superior direito, clique em **manutenção** para abrir a página de manutenção.
 
     ![Configurações de Riskware manter](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **Descrição** caixa de texto, digite a descrição do seu, como a configuração do AZURE para SSO.
 
-    d. No **início de sessão único na página** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+    d. No **início de sessão único na página** caixa de texto, cole o **único início de sessão no URL do serviço SAML** valor que copiou do portal do Azure.
 
-    e. No **terminar página sessão** caixa de texto, cole o valor de **Sign-Out URL**, que copiou do portal do Azure.
+    e. No **terminar página sessão** caixa de texto, cole o **Sign-Out URL** valor que copiou do portal do Azure.
 
-    f. No **campo de formulário Post** caixa de texto, escreva o nome do campo presente na resposta Post que contém SAML como SamlResponse
+    f. No **campo de formulário Post** caixa de texto, escreva o nome do campo presente na resposta Post que contém SAML como SAMLResponse
 
     g. No **nome da Tag XML identidade** caixa de texto, o atributo tipo, que contém o identificador exclusivo na resposta SAML como NameID.
 
     h. Abra o transferido **Xml de metadados** no portal do Azure no bloco de notas, copie o certificado do ficheiro de metadados e cole-o para o **certificado** caixa de texto
-    
+
     i. No **URL de consumidor** caixa de texto, colar o valor de **URL de resposta**, que pode aproveitar a equipa de suporte.
 
     j. No **emissor** caixa de texto, cole o valor de **identificador**, que pode aproveitar a equipa de suporte.
@@ -176,9 +176,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!Note]
     > Contacte [equipa de suporte de cliente Riskware](mailto:support@pansoftware.com.au) para obter estes valores
 
-    k. Selecione **após a utilização** para passar o pedido de SAML como um parâmetro de post.
+    k. Selecione **utilize POST** caixa de verificação.
 
-    l. Selecione **utilize SAML pedido** passar SSO permitir pedidos de SAML para SP2 iniciada.
+    l. Selecione **utilize SAML pedido** caixa de verificação.
 
     m. Clique em **Guardar**.
 
@@ -213,10 +213,10 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Criar um utilizador de teste Riskware
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos Riskware, têm de ser aprovisionados para Riskware. No Riskware, o aprovisionamento é uma tarefa manual.
+Para ativar o Azure AD aos utilizadores iniciar sessão Riskware, têm de ser aprovisionados para Riskware. No Riskware, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
@@ -230,8 +230,8 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Riskware, têm
 
     ![Pessoas Riskware configuração](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. No **detalhes** separador, execute os seguintes passos:
-    
+4. Selecione **detalhes** separador e execute os seguintes passos:
+
     ![Detalhes de configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Selecione **pessoa tipo** como aos empregados.
@@ -240,7 +240,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Riskware, têm
 
     c. No **Apelido** caixa de texto, introduza o apelido do utilizador, como **Simon**.
 
-5. No **segurança** separador, execute os seguintes passos:    
+5. No **segurança** separador, execute os seguintes passos:
 
     ![Segurança de configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,12 +250,12 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Riskware, têm
 
     c. No **palavra-passe** caixa de texto, introduza a palavra-passe do utilizador.
 
-6. No **informático** separador, execute os seguintes passos:
+6. No **organização** separador, execute os seguintes passos:
 
     ![Configuração de Riskware org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Em **informático** secção, selecione o informático como **Level1** informático.
-    
+    a. Selecione a opção como **Level1** organização.
+
     b. Em **à área de trabalho principal da pessoa** na secção de **localização** caixa de texto, escreva a localização.
 
     c. Em **empregado** secção, selecione **empregado estado** como casuais.
@@ -266,7 +266,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Riskware, têm
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Riskware.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Riskware, execute os seguintes passos:**
 

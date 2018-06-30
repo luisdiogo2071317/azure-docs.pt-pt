@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: f5d1cf61ca7b8d8eeaed52fc3f45f8d4847ddda9
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263758"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108693"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias de empresa para uma aplicação LUIS
 Reveja estes estratégias de design para a sua aplicação da empresa.
@@ -32,7 +32,7 @@ Designe uma única aplicação especificada como mestre. Qualquer utterances que
 Agendar um periódica [revisão de utterances de ponto final](label-suggested-utterances.md) de aprendizagem Active Directory, tais como a cada duas semanas, reparametrização dos e voltar a publicar. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Atribuir LUIS várias chaves a mesma aplicação
-Se a sua aplicação LUIS recebe mais ponto final que permite que a quota da sua chave único, criar e atribuir mais chaves para a aplicação de LUIS. Criar um tráfego manager ou gerir as consultas de ponto final entre as chaves de subscrição balanceadores de carga. 
+Se a sua aplicação LUIS recebe mais ponto final que permite que a quota da sua chave único, criar e atribuir mais chaves para a aplicação de LUIS. Criar um tráfego manager ou gerir as consultas de ponto final entre as chaves de ponto final balanceadores de carga. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Quando a sua aplicação monolithic devolve intenção errada
 Se a aplicação se destinar a prever uma ampla variedade de utterances de utilizador, considere implementar o [modelo de emissão](#dispatch-tool-and-model). Dividi uma aplicação monolithic permite LUIS para deteção de foco entre pendentes com êxito em vez de introdução confundido entre pendentes em toda a aplicação principal e subordinado de aplicações. 

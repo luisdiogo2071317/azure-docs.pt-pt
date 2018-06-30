@@ -3,23 +3,24 @@ title: Resolver problemas com a extensão de VM de análise de registos do Azure
 description: Descrevem os sintomas, faz com que e resolução de problemas mais comuns com a extensão de VM de análise do registo para o Windows e as VMs do Linux do Azure.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394991"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128831"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>A extensão de VM de análise do registo de resolução de problemas
 Este artigo fornece erros podem ocorrer com a extensão de VM de análise do registo para o Windows e Linux máquinas de virtuais em execução no Microsoft Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
@@ -27,7 +28,7 @@ Este artigo fornece erros podem ocorrer com a extensão de VM de análise do reg
 Para verificar o estado da extensão, execute os seguintes passos no portal do Azure.
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com).
-2. No portal do Azure, clique em **todos os serviços**. Na lista de recursos, escreva **máquinas virtuais**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **máquinas virtuais**.
+2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **máquinas virtuais**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **máquinas virtuais**.
 3. Na lista de máquinas virtuais, localize e selecione-o.
 3. Na máquina virtual, clique em **extensões**.
 4. Na lista, verifique se a extensão de análise de registos está ativada ou não.  Para Linux, o agente está listado como **OMSAgentforLinux** e para o Windows, o agente está listado como **MicrosoftMonitoringAgent**.

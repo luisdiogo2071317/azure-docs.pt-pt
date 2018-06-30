@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: ebba28e72b3b27729318956bad07b6b6df3f14ac
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823551"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130840"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDKs de grelha de eventos para gestão e de publicação
 
@@ -43,6 +43,7 @@ O plane dados SDKs permitem-lhe publicar eventos de tópicos, tendo cuidado de a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* Por exemplo aplicações, consulte [exemplos de código de evento grelha](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * Para uma introdução à grelha de eventos, consulte [Novidades grelha de evento?](overview.md)
 * Para comandos de grelha de evento na CLI do Azure, consulte [CLI do Azure](/cli/azure/eventgrid).
 * Para comandos de grelha de eventos no PowerShell, consulte [PowerShell](/powershell/module/azurerm.eventgrid).

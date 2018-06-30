@@ -3,7 +3,7 @@ title: IT Service conector de gestão na análise de registos do Azure | Microso
 description: Este artigo fornece uma descrição geral de TI serviço de gestão. o conector (ITSMC) e informações sobre como utilizar esta solução para monitorizar e gerir o ITSM centralmente itens de trabalho no Log Analytics do Azure e resolva os problemas rapidamente.
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637621"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131723"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -250,9 +251,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  Breve descrição |
 | Description_s|  Notas |
 | CreatedDate_t|  Aberturas |
-| ClosedDate_t| Fechado|
+| ClosedDate_t| fechado|
 | ResolvedDate_t|Resolvido|
-| Computador  | item de configuração |
+| Computador  | Item de configuração |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Pedido de alteração de dados de saída para um ServiceNow
 

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 6/29/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 89a1df607c220e5dc12bc6263955d6e445e529bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235418"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116297"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Criar cópias de segurança da base de dados do SQL Server no Azure
 
@@ -251,7 +251,7 @@ Quando utiliza o **detetar DBs** ferramenta de cópia de segurança do Azure exe
 
 - instala o **AzureBackupWindowsWorkload** extensão na máquina virtual. Cópia de segurança de uma base de dados do SQL Server é uma solução sem agente, ou seja, com a extensão instalada na máquina virtual, está instalado nenhum agente na base de dados do SQL Server.
 
-- cria a conta de serviço, **NT Service\AzureWLBackupPluginSvc**, na máquina virtual. Todas as operações de cópia de segurança e restauro utilizam a conta de serviço. **NT Server\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL Server. Todas as máquinas virtuais do SQL Server Marketplace vêm com SqlIaaSExtension instalado e AzureBackupWindowsWorkload utiliza SQLIaaSExtension automaticamente obter as permissões necessárias. Se a máquina virtual não tem SqlIaaSExtension instalado, a operação de detetar DB falhar e receberá a mensagem de erro, **UserErrorSQLNoSysAdminMembership**. Para adicionar a permissão de administrador do sistema para cópia de segurança, siga as instruções em [configurar permissões de cópia de segurança do Azure para as VMs do SQL Server de tipo não mercado](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- cria a conta de serviço, **NT Service\AzureWLBackupPluginSvc**, na máquina virtual. Todas as operações de cópia de segurança e restauro utilizam a conta de serviço. **NT Service\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL Server. Todas as máquinas virtuais do SQL Server Marketplace vêm com SqlIaaSExtension instalado e AzureBackupWindowsWorkload utiliza SQLIaaSExtension automaticamente obter as permissões necessárias. Se a máquina virtual não tem SqlIaaSExtension instalado, a operação de detetar DB falhar e receberá a mensagem de erro, **UserErrorSQLNoSysAdminMembership**. Para adicionar a permissão de administrador do sistema para cópia de segurança, siga as instruções em [configurar permissões de cópia de segurança do Azure para as VMs do SQL Server de tipo não mercado](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
 
     ![Selecione a vm e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -443,6 +443,10 @@ Para restaurar uma base de dados
 
 Este procedimento explica restaurar os dados para uma localização alternativa. Se pretender substituir a base de dados ao restaurar, avance para a secção [restaurar e substituir a base de dados](backup-azure-sql-database.md#restore-and-overwrite-the-database). Este procedimento assume que tem o seu Cofre de serviços de recuperação aberto e está no menu de restauro da configuração. Se não, comece pela secção, [restaurar uma base de dados do SQL Server](backup-azure-sql-database.md#restore-a-sql-database).
 
+> [!NOTE]
+> Pode restaurar a base de dados para um SQL Server na mesma região do Azure e o servidor de destino tem de ser registado no Cofre de serviços de recuperação. 
+>
+
 O **servidor** menu pendente mostra apenas os SQL servers registados no Cofre de serviços de recuperação. Se o servidor que pretende não se encontra no **servidor** lista, consulte a secção [detetar bases de dados](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de base de dados de deteção, todos os novos servidores registados no Cofre de serviços de recuperação.
 
 1. No **restauro da configuração** menu:
@@ -607,10 +611,40 @@ Esta secção fornece informações sobre as várias cópia de segurança do Azu
 * Anular o registo do SQL server
 
 ### <a name="monitor-jobs"></a>Monitorizar Tarefas
+O Backup do Azure que está a ser uma solução de classe empresarial fornece avançadas alertas de cópia de segurança e notificação de eventuais falhas (consulte a secção alertas de cópia de segurança abaixo). Se pretender continuar a monitorizar tarefas específicas pode utilizar qualquer uma das seguintes opções, com base nos seus requisitos:
 
-Cópia de segurança do Azure utiliza as APIs nativas da SQL Server para todas as operações de cópia de segurança. Utilizar as APIs nativas, pode obter todas as informações de tarefa do [tabela do SQL backupset](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) na base de dados msdb. Além disso, a cópia de segurança do Azure mostra todos os manualmente accionada ou adhoc, as tarefas no portal de tarefas de cópia de segurança. As tarefas disponíveis na inclusão de portal: todos os configurar operações de cópia de segurança, as operações de restauro, registo e operações de base de dados de detetar e parar as operações de cópia de segurança. Todas as tarefas agendadas também podem ser monitorizadas com a análise de registos do OMS. Através da análise do registo remove clutter de tarefas e proporciona flexibilidade granular para monitorização ou filtrar tarefas específicas.
-
+#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Através do portal do Azure -> cofre dos serviços de recuperação para todas as operações de ad-hoc
+Azure mostra de cópia de segurança acionada todos os manualmente ou adhoc, tarefas no portal de tarefas de cópia de segurança. As tarefas disponíveis na inclusão de portal: todos os configurar operações de cópia de segurança, manualmente acionada operações de cópia de segurança, as operações de restauro, registo operações de base de dados de detetar e parar as operações de cópia de segurança. 
 ![menu Configuração avançada](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Todas as cópias de segurança tarefas agendadas, incluindo completo, o valor diferencial e registo de cópia de segurança não será apresentada no portal e pode ser monitorizada com SQL Server Management Studio, conforme descrito abaixo.
+>
+
+#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Utilizar o SQL Server Management Studio (SSMS) para as tarefas de cópia de segurança
+Cópia de segurança do Azure utiliza as APIs nativas da SQL Server para todas as operações de cópia de segurança. Utilizar as APIs nativas, pode obter todas as informações de tarefa do [tabela do SQL backupset](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) na base de dados msdb. 
+
+Pode utilizar o abaixo consulta como um exemplo para obter todas as tarefas de cópia de segurança para uma base de dados específica com o nome "DB1". Pode personalizar a abaixo da consulta para obter mais informações avançadas de monitorização.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Alertas de cópias de segurança
 

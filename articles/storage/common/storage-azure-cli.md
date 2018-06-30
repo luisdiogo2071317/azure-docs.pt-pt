@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737373"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131876"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilizar a CLI do Azure 2.0 com o Storage do Azure
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Definir variáveis de ambiente de conta do storage do Azure predefinida
+
 Pode ter várias contas de armazenamento na sua subscrição do Azure. Para selecionar um para utilizar para todos os comandos de armazenamento subsequentes, pode definir estas variáveis de ambiente:
+
+Em primeiro lugar, apresente as chaves da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#list):
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Agora que tem a chave, pode definir e o nome da conta como variáveis de ambiente:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Todos os exemplos das secções seguintes deste artigo partem do princípio de que definiu o `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` variáveis de ambiente.
->
 
 ## <a name="create-and-manage-blobs"></a>Criar e gerir os blobs
 Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, tais como texto ou dados binários, que podem ser acedidos de qualquer local no mundo através de HTTP ou HTTPS. Esta secção assume que já estiver familiarizado com conceitos de armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [introdução ao Blob storage do Azure através do .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [conceitos do serviço Blob](/rest/api/storageservices/blob-service-concepts).
@@ -241,7 +251,7 @@ Pode definir um de três níveis de acesso de leitura para um novo contentor, es
 * `blob`: Público acesso de leitura de blobs.
 * `container`: Lista de leitura e acesso público para o contentor inteiro.
 
-Para obter mais informações, consulte [gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md).
+Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
 ### <a name="upload-a-blob-to-a-container"></a>Carregar um blob para um contentor
 Blob storage do Azure suporta bloco, de acréscimo e blobs de páginas. Carregar os blobs para um contentor utilizando o `blob upload` comando:

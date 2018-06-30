@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 060baa6578f8a31234a1a667e2d591b92c39a06f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 45b6c2eda77668616a7e49ecd5ea2715af3cd3ce
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264289"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111591"
 ---
 # <a name="api-v2-migration-guide"></a>Guia de migração de v2 API
 A versão 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [endpoint](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -104,14 +104,14 @@ resposta de êxito de ponto final de v2:
 ```
 
 ## <a name="key-management-no-longer-in-api"></a>Gestão de chaves já não está na API
-A chave de subscrição que foram preteridas APIs, 410 GONE a devolver.
+A chave de ponto final de subscrição APIs foram preteridos 410 GONE a devolver.
 
 | versão | rota |
 |--|--|
 |1|/Luis/v1.0/Prog/subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [chaves de subscrição](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação LUIS no **[publicar](manage-keys.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para efetuar a atribuição. 
+Azure [chaves de ponto final](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação LUIS no **[publicar](manage-keys.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para efetuar a atribuição. 
 
 ## <a name="new-versioning-route"></a>Nova rota do controlo de versões
 O modelo v2 agora faz uma [versão](luis-how-to-manage-versions.md). Um nome de versão é de 10 carateres da rota. A versão predefinida é "0.1".

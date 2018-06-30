@@ -3,22 +3,23 @@ title: Recolher Registos de Atividades do Azure no Log Analytics entre subscriç
 description: Utilize os Hubs de Eventos e o Logic Apps para recolher dados a partir do Registo de Atividades do Azure e envie-os para uma área de trabalho do Azure Log Analytics noutro inquilino.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.component: na
+ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636975"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127446"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -338,7 +339,7 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 
 ![testar a aplicação lógica](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou uma aplicação lógica para ler os Registos de Atividades do Azure a partir de um hub de eventos e enviá-los para análise no Log Analytics. Para saber mais sobre como visualizar dados no Log Analytics, incluindo criar dashboards, veja o tutorial Visualize data (Visualizar dados).
 

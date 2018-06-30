@@ -8,19 +8,19 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802270"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109525"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
-Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para gerais informações de preços e suporte do Azure.
+Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para gerais informações de preços e suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Service Bus do Azure
-### <a name="what-is-azure-service-bus"></a>O que é o Service Bus do Azure?
+### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 [Service Bus do Azure](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncronas que lhe permite enviar dados entre sistemas desassociados. A Microsoft disponibiliza esta funcionalidade, como um serviço, o que significa que não é necessário alojar algum do seu próprio hardware para poder utilizá-lo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>O que é um espaço de nomes do Service Bus?
@@ -56,7 +56,7 @@ Esta secção responde a algumas perguntas mais frequentes sobre a estrutura de 
 
 O [Service Bus preços e faturação](service-bus-pricing-billing.md) artigo explica as faturação medidores no Service Bus. Para obter informações específicas sobre os preços de opções do Service Bus, consulte [detalhes de preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Também pode visitar o [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para o Azure geral obter informações sobre preços. 
+Também pode visitar o [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para o Azure geral obter informações sobre preços. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobram do Service Bus?
 Para obter informações completas sobre preços do Service Bus, consulte [detalhes de preços do Service Bus][Pricing overview]. Para além de que os preços indicação em contrário, são-lhe cobrados para transferências de dados associados de saída fora do Centro de dados na qual a aplicação está aprovisionada.

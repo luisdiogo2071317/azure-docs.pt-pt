@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.component: na
+ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304662"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130002"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -205,7 +206,7 @@ Depois de ativar a solução de Monitor de desempenho de rede, a solução de mo
 
  
 
-### <a name="drill-down-for-depth"></a>desagregar profundidade 
+### <a name="drill-down-for-depth"></a>Desagregar profundidade 
 
 Pode selecionar várias ligações no dashboard da solução para desagregar baixo mais aprofundado para qualquer área de interesse. Por exemplo, quando for apresentada uma ligação de rede danificado apareça no dashboard ou de um alerta, selecione-o para investigação mais aprofundada. Uma página apresenta uma lista de todas as ligações de sub-rede para a ligação de rede específico. Pode ver a perda, a latência e o estado de funcionamento de cada ligação de sub-rede. Pode rapidamente descobrir qual ligação sub-rede provoca problemas. Selecione **ver ligações de nó** para ver todas as ligações de nó para a ligação de sub-rede mau estado de funcionamento. Em seguida, pode ver ligações de nó para nó individuais e localizar as ligações de nó mau estado de funcionamento. 
 

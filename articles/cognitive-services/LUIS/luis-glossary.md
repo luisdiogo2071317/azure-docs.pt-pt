@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265392"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128403"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -66,11 +66,11 @@ Não é um funcionário o [proprietário](#owner) da aplicação, mas tem as mes
 
 Igual ao [versão Active Directory](#active-version)
 
-## <a name="domain"></a>domínio
+## <a name="domain"></a>Domínio
 
 No contexto LUIS, um **domínio** é uma área de dados de conhecimento. O domínio é específico para a sua área de aplicação de dados de conhecimento. Isto pode ser uma área geral, tais como a aplicação levar agente. Uma aplicação de agente levar também pode ser específica para apenas as áreas de informações da sua empresa, como localizações geográficas específicas, idiomas e serviços. 
 
-## <a name="endpoint"></a>ponto final
+## <a name="endpoint"></a>Ponto final
 
 O [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL é onde pode submete consultas LUIS após o [LUIS aplicação](#luis-app) é criados e publicados. O URL de ponto final contém a região da aplicação publicada, bem como o ID de aplicação. Pode encontrar o ponto final no **[publicar](publishapp.md)** página da sua aplicação, na tabela de recursos e as chaves ou pode obter o URL do ponto final do [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
@@ -82,7 +82,7 @@ Um ponto final de exemplo que se pareça com:
 |--|--|
 |Região| [região publicada](luis-reference-regions.md#publishing-regions) |
 |appID | ID da aplicação LUIS |
-|SubscriptionID | Chave de subscrição de LUIS criada no portal do Azure |
+|subscriptionID | Chave de ponto final (subscrição) LUIS criada no portal do Azure |
 |Q | utterance |
 |timezoneOffset| minutes|
 
@@ -110,7 +110,7 @@ No machine learning, um [funcionalidade](luis-concept-feature.md) é um trait di
 
 Um [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o utilizador pretende efetuar. É um objetivo ou objetivo expressado na entrada de um utilizador, tais como booking um voo, prestando uma fatura ou ao localizar um artigo de notícias de última hora. Nos LUIS, a intenção predição é baseada no utterance completo. As entidades, por comparação, são peças de uma utterance.
 
-## <a name="labeling"></a>etiquetagem
+## <a name="labeling"></a>Etiquetagem
 
 Etiquetagem é o processo de associar uma palavra ou frase numa intenção [utterance](#utterance) com um [entidade](#entity) (tipo de dados). 
 
@@ -137,7 +137,7 @@ A [domínio prebuilt](luis-how-to-use-prebuilt-domains.md) é uma aplicação de
 
 A [entidade prebuilt](pre-builtentities.md) é uma entidade LUIS fornece para tipos comuns de informações como o número, o URL e o e-mail. Optar por adicionar uma entidade prebuilt à sua aplicação. 
 
-## <a name="precision"></a>precisão
+## <a name="precision"></a>Precisão
 No [batch testar][batch-testing], precisão (também denominada positivo preditivo) é a fração do utterances relevantes entre os utterances obtidos.
 
 ## <a name="programmatic-key"></a>Chave programático
@@ -173,9 +173,9 @@ Na página de publicar, ative [Verificador de ortográfica do Bing](publishapp.m
 
 Igual ao [chave programático](#programmatic-key), cujo nome foi alterado a chave de criação.
 
-## <a name="subscription-key"></a>Chave de subscrição
+## <a name="subscription-key"></a>chave de subscrição
 
-A chave de subscrição é a chave associada ao serviço LUIS [criada no Azure](luis-how-to-azure-subscription.md). Esta chave não estiver a [criação chave](#programmatic-key). Se tiver uma chave de subscrição, deve ser utilizada para quaisquer pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de subscrição atual no interior do URL de ponto final na parte inferior [ **publicar aplicação** página](publishapp.md) no [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** nome/valor par. 
+A chave de subscrição é o **endpoint** chave associado ao serviço LUIS [criada no Azure](luis-how-to-azure-subscription.md). Esta chave não estiver a [criação chave](#programmatic-key). Se tiver uma chave de ponto final, deve ser utilizada para quaisquer pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual no interior do URL de ponto final na parte inferior [ **publicar aplicação** página](publishapp.md) no [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** nome/valor par. 
 
 ## <a name="test"></a>Teste
 
@@ -202,7 +202,7 @@ No [batch testar][batch-testing], os pontos de dados representam utterances na q
 
 No [batch testar][batch-testing], os pontos de dados representam utterances na qual a aplicação corretamente prever a existência de intenção/entidade de destino.
 
-## <a name="utterance"></a>Utterance
+## <a name="utterance"></a>utterance
 
 Um utterance é uma expressão de linguagem natural como "permissões de livro 2 para Seattle seguinte Terça-feira". Utterances de exemplo são adicionadas para o objetivo. 
 

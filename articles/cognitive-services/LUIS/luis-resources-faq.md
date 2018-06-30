@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f192c2f71208f3caf8a01a18a7023763f8de63c3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333620"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113141"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -65,9 +65,9 @@ LUIS [tokenizes](luis-glossary.md#token) o utterance com base no [cultura](luis-
 O sistema deve utilizar a intenção de classificação mais elevada, independentemente do respetivo valor. Por exemplo, uma pontuação abaixo 0,5 (inferior a 50%) não significa necessariamente que LUIS tem confiança em como baixa. Fornecer os dados de formação mais pode ajudar a aumentar a pontuação da intenção mais provável.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo os meus pedidos de ponto final no Dashboard da minha aplicação?
-Os pedidos de ponto final total no Dashboard da aplicação são atualizados periodicamente, mas as métricas associadas à sua chave de subscrição de LUIS no portal do Azure são atualizadas mais frequentemente. 
+Os pedidos de ponto final total no Dashboard da aplicação são atualizados periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas mais frequentemente. 
 
-Se não vir pedidos de ponto final atualizadas no Dashboard, inicie sessão no portal do Azure, localizar o recurso associado à sua chave de subscrição LUIS e abrir **métricas** para selecionar o **Total de chamadas** métrica. Se a chave de subscrição é utilizada para a mais do que uma aplicação de LUIS, a métrica no portal do Azure mostra o número de agregação de chamadas de todas as aplicações de LUIS utilização-lo.
+Se não vir pedidos de ponto final atualizadas no Dashboard, inicie sessão no portal do Azure, localizar o recurso associado à sua chave de ponto final LUIS e abrir **métricas** para selecionar o **Total de chamadas** métrica. Se a chave de ponto final é utilizada para a mais do que uma aplicação de LUIS, a métrica no portal do Azure mostra o número de agregação de chamadas de todas as aplicações de LUIS utilização-lo.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava a funcionar ontem mas hoje posso estou obter 403 erros. Não alterar a aplicação. Como corrigi-lo? 
 Seguir o [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas FAQ do seguintes para criar uma chave de ponto final LUIS e atribua-a para a aplicação. Em seguida, tem de alterar os pedidos de HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +115,9 @@ No Azure, um inquilino representa a organização que está associada um serviç
 
 ![ID do inquilino no portal do Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Por que razão são existe mais chaves de subscrição na minha aplicação publicar página que posso atribuídos à aplicação? 
-Cada aplicação LUIS tem a chave de criação/arranque. As chaves de subscrição de LUIS criadas durante o período de tempo GA estão visíveis na sua página de publicar, independentemente se adicionou a aplicação. Isto foi feito para facilitar a migração de GA. As chaves de subscrição LUIS novas não aparecem na página de publicar. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Por que razão são existe mais chaves de ponto final na minha aplicação publicar página que posso atribuídos à aplicação? 
+Cada aplicação LUIS tem a chave de criação/arranque. As chaves de ponto final de LUIS criadas durante o período de tempo GA estão visíveis na sua página de publicar, independentemente se adicionou a aplicação. Isto foi feito para facilitar a migração de GA. As chaves de ponto final de LUIS novas não aparecem na página de publicar. 
 
 ## <a name="app-management"></a>Gestão de aplicações
 
@@ -153,7 +154,7 @@ Se estiver a utilizar o início de sessão para análise de predição, não cap
 ## <a name="app-notification"></a>Notificação da aplicação
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Por que motivo obtiveram uma mensagem de e-mail a indicar que quase sou fora da quota
-A chave de criação/arranque só é permitida 1000 consulta o ponto final de um mês. Criar uma chave de subscrição LUIS (gratuita ou paga) e utilizar essa chave quando efetuar consultas de ponto final. Se estiver a efetuar consultas de ponto final de um bot ou outra aplicação de cliente, terá de alterar a chave de ponto final de LUIS não existe. 
+A chave de criação/arranque só é permitida 1000 consulta o ponto final de um mês. Criar uma chave de ponto final LUIS (gratuita ou paga) e utilizar essa chave quando efetuar consultas de ponto final. Se estiver a efetuar consultas de ponto final de um bot ou outra aplicação de cliente, terá de alterar a chave de ponto final de LUIS não existe. 
 
 ## <a name="integrating-luis"></a>Integrar LUIS
 
@@ -167,7 +168,7 @@ Se selecionar um modelo de LUIS e selecione o **selecione** botão no painel de 
 
 ## <a name="luis-service"></a>Serviço de LUIS 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>É LUIS disponível no local ou na nuvem privada?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>É LUIS disponível no local ou na nuvem privada?
 Não. 
 
 ## <a name="changes-to-the-docs"></a>Alterações para os Docs
@@ -201,7 +202,7 @@ Criação adicionais [API rotas](https://github.com/Microsoft/LUIS-Samples/blob/
 Vídeos: 
 * [Azure sexta-feira na compilação 2018: Serviços cognitivos-Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Compilação 2018 AI Mostrar - Novidades com o serviço de compreensão de idiomas](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Compilação 2018 sessão - intelligence Bot, capacidades de reconhecimento de voz e NLU melhores práticas](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Sessão do Build 2018 - Inteligência de bots, Capacidades de Voz e melhores práticas do NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [2018 compilação - LUIS atualizações](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projetos: 

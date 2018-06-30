@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 272d98613e13c1bb76c75befd6bd5e0115c32610
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: ff9f107b8cd10cdab71ba13a1925403d2d144984
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097245"
+ms.locfileid: "37128501"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrar o AKS - pré-visualização do Azure Active Directory
 
@@ -59,19 +59,21 @@ A primeira aplicação do Azure AD é utilizada para obter uma associação do g
 
 4. Regressar à aplicação do Azure AD, selecione **definições** > **as permissões necessárias** > **adicionar**  >   **Selecione uma API** > **Microsoft Graph** > **selecione**.
 
-  Em **PERMISSÕES de aplicação** coloque uma marca junto a **ler os dados de diretório**.
+  ![Selecionar a graph API](media/aad-integration/graph-api.png)
+
+5. Em **PERMISSÕES de aplicação** coloque uma marca junto a **ler os dados de diretório**.
 
   ![Definir as permissões de gráfico de aplicação](media/aad-integration/read-directory.png)
 
-5. Em **PERMISSÕES DELEGADAS**, coloque uma marca junto a **iniciar sessão e ler o perfil de utilizador** e **ler os dados de diretório**. Guarde as atualizações uma vez concluídas.
+6. Em **PERMISSÕES DELEGADAS**, coloque uma marca junto a **iniciar sessão e ler o perfil de utilizador** e **ler os dados de diretório**. Guarde as atualizações uma vez concluídas.
 
   ![Definir as permissões de gráfico de aplicação](media/aad-integration/delegated-permissions.png)
 
-6. Selecione **feito** e **conceder permissões** para concluir este passo. Este passo irá falhar se a conta atual não é um administrador inquilino.
+7. Selecione **feito**, escolha *Microsoft Graph* da lista de APIs, em seguida, selecione **conceder permissões**. Este passo irá falhar se a conta atual não é um administrador inquilino.
 
   ![Definir as permissões de gráfico de aplicação](media/aad-integration/grant-permissions.png)
 
-7. Voltar à aplicação e tome nota do **ID da aplicação**. Quando implementar um cluster do Azure AKS preparados no AD, este valor é referido como o `Server application ID`.
+8. Voltar à aplicação e tome nota do **ID da aplicação**. Quando implementar um cluster do Azure AKS preparados no AD, este valor é referido como o `Server application ID`.
 
   ![Obter ID da aplicação](media/aad-integration/application-id.png)
 
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 Depois de concluído, o token de autenticação é colocado em cache. Apenas são reprompted para iniciar sessão quando o token expirou ou o ficheiro de configuração de Kubernetes recriado.
+
+Se vir uma mensagem de erro de autorização depois de iniciar sessão com êxito, certifique-se de que o utilizador iniciar sessão como é não um convidado no Azure AD (isto é normalmente o caso se estiver a utilizar um início de sessão federado a partir de um diretório diferente).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>Próximos Passos
 

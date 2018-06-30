@@ -1,23 +1,25 @@
 ---
-title: "Portais para criação e edição de consultas de registo no Log Analytics do Azure | Microsoft Docs"
-description: "Este artigo descreve os portais que pode utilizar pesquisas de registo de análise de registos do Azure para criar e editar."
+title: Portais para criação e edição de consultas de registo no Log Analytics do Azure | Microsoft Docs
+description: Este artigo descreve os portais que pode utilizar pesquisas de registo de análise de registos do Azure para criar e editar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133027"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portais para criação e edição de consultas de registo no Log Analytics do Azure
 
@@ -32,17 +34,24 @@ Pesquisa de registo fornece várias funcionalidades para editar a consulta sem t
 ![Página de pesquisa de registo](media/log-analytics-log-search-portals/log-search-portal.png)
 
 ## <a name="advanced-analytics-portal"></a>Portal da análise avançada
-O portal de análise avançada é um portal dedicado que fornece funcionalidade avançada não está disponível no registo de pesquisa do portal do Azure.  As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, seletivamente executar código, o Intellisense context confidencial e análise inteligente.  O portal de análise avançadas é mais adequado para conceber consultas complexas que estão a guardar como uma pesquisa de registo ou copiadas e coladas outros elementos de análise de registos.  Inicie o portal de análise avançadas de uma ligação na página de pesquisa de registo.
+O portal de análise avançada é um portal dedicado que fornece funcionalidade avançada não está disponível no registo de pesquisa do portal do Azure.  As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente.  O portal de análise avançadas é mais adequado para conceber consultas complexas que estão a guardar como uma pesquisa de registo ou copiadas e coladas outros elementos de análise de registos.  Inicie o portal de análise avançadas de uma ligação na página de pesquisa de registo.
 
 ![Portal da análise avançada](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Devido ao respetivas funcionalidades avançadas, normalmente, irá utilizar o portal de análise avançadas como a principal ferramenta para criação e edição de consultas.  Uma vez que tenha determinado que a consulta funciona conforme esperado, em seguida, irá copiar e colá-lo noutro local, como a página de pesquisa de registo ou o estruturador de vistas.  Porque o portal de análise avançadas suporta consultas com várias linhas, embora, precisa de tomar em consideração o seguinte quando copiar uma consulta de neste portal.
+Devido ao respetivas funcionalidades avançadas, normalmente, irá utilizar o portal de análise avançadas como a principal ferramenta para criação e edição de consultas.  Uma vez que tenha determinado que a consulta funciona conforme esperado, em seguida, irá copiar e colá-lo noutro local, como a página de pesquisa de registo ou o estruturador de vistas.  
 
-- Comentários tem de ser removidos da consulta antes tem copiados e colados para outra localização.  Pode comente uma linha por precedente-lo com duas barras (/ /).  Quando cole uma consulta de linha vários uma única linha, as quebras de linha são removidas.  Se os comentários são incluídos, todos os carateres após o primeiro comentário são considerados parte o comentário.
+### <a name="firewall-requirements"></a>Requisitos da firewall
+O browser necessita de acesso para os seguintes endereços para aceder ao portal de análise avançadas.  Se o seu browser está a aceder ao portal do Azure através de uma firewall, tem de ativar o acesso a estes endereços.
+
+| Uri | IP | Portas |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinâmica | 80,443 |
+| api.loganalytics.io    | Dinâmica | 80,443 |
+| docs.loganalytics.io   | Dinâmica | 80,443 |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Percorrer um tutorial sobre como utilizar [pesquisa registo](log-analytics-tutorial-viewdata.md) para saber como criar consultas utilizando a linguagem de consulta
 - Veja o [portal da análise avançadas](https://go.microsoft.com/fwlink/?linkid=856587) para criar consultas sofisticadas e utilizar como ambiente de desenvolvimento para as suas pesquisas de registo.

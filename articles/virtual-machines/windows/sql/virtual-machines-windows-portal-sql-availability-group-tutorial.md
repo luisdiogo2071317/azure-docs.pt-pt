@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287808"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114614"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar sempre no grupo de disponibilidade na VM do Azure manualmente
 
@@ -86,7 +86,7 @@ Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Clus
 
    ![Propriedades do cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecione **endereço IP estático** e especifique um endereço disponível a partir do intervalo de endereçamento IP privado automática (APIPA): 169.254.0.1 para 169.254.255.254 na caixa de texto de endereço. Para este exemplo, pode utilizar qualquer endereço nesse intervalo. Por exemplo, `169.254.0.1`. Em seguida, clique em **OK**.
+3. Selecione **endereço IP estático** e especifique um endereço disponível a partir da mesma sub-rede que as máquinas virtuais.
 
 4. No **recursos principais do Cluster** secção, clique no nome do cluster e clique em **colocar Online**. Em seguida, aguarde até que ambos os recursos estão online. Quando o recurso de nome de cluster estiver online, atualiza o servidor DC com uma nova conta de computador do AD. Utilize esta conta do AD para executar o serviço de grupo de disponibilidade em cluster mais tarde.
 
@@ -341,7 +341,7 @@ Neste momento, tem um grupo de disponibilidade com réplicas em duas instâncias
 
 ## <a name="create-an-azure-load-balancer"></a>Criar um balanceador de carga do Azure
 
-Máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server necessita de um balanceador de carga. O Balanceador de carga se o endereço IP para o serviço de escuta do grupo de disponibilidade. Esta secção resume como criar o Balanceador de carga no portal do Azure.
+Máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server necessita de um balanceador de carga. O Balanceador de carga se os endereços IP para os serviços de escuta do grupo de disponibilidade e o Cluster de ativação pós-falha do Windows Server. Esta secção resume como criar o Balanceador de carga no portal do Azure.
 
 1. No portal do Azure, vá para o grupo de recursos em que os servidores do SQL Server estão e clique em **+ adicionar**.
 2. Procurar **Balanceador de carga**. Escolha o Balanceador de carga publicado pela Microsoft.
@@ -370,7 +370,7 @@ Máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server necessita
 
 Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, uma pesquisa e definir a regras de balanceamento de carga. Efetue estes no portal do Azure.
 
-### <a name="add-backend-pool"></a>Adicionar o conjunto de back-end
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Adicionar o conjunto back-end para o serviço de escuta do grupo de disponibilidade
 
 1. No portal do Azure, aceda ao seu grupo de disponibilidade. Poderá ter de atualizar a vista para ver o Balanceador de carga criado recentemente.
 
@@ -416,6 +416,46 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1435 |
    | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 1435 |
    | **Sonda** |O nome especificado para a sonda | SQLAlwaysOnEndPointProbe |
+   | **Persistência da sessão** | Na lista pendente | **Nenhum** |
+   | **Tempo limite de inatividade** | Minutos para manter uma ligação de TCP aberta | 4 |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
+
+   > [!WARNING]
+   > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
+
+1. Clique em **OK** para definir a regras de balanceamento de carga.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Adicione o endereço IP de front-end para o WSFC
+
+O endereço IP do WSFC também tem de estar no balanceador de carga. 
+
+1. No portal, adicione uma nova configuração de IP de front-end para o WSFC. Utilize o endereço IP que configurou para o WSFC nos recursos de núcleo de cluster. Defina o endereço IP estático como. 
+
+1. Clique o Balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
+
+1. Defina a sonda de estado de funcionamento da seguinte forma:
+
+   | Definição | Descrição | Exemplo
+   | --- | --- |---
+   | **Nome** | Texto | WSFCEndPointProbe |
+   | **Protocolo** | Escolha TCP | TCP |
+   | **Porta** | Qualquer porta não utilizada | 58888 |
+   | **Intervalo**  | A quantidade de tempo entre tentativas da sonda em segundos |5 |
+   | **Limiar de mau estado de funcionamento** | O número de falhas consecutivas da sonda que têm de ocorrer para uma máquina virtual para ser considerado em mau estado de funcionamento  | 2 |
+
+1. Clique em **OK** para definir a sonda de estado de funcionamento.
+
+1. Defina a regras de balanceamento de carga. Clique em **as regras de balanceamento de carga**e clique em **+ adicionar**.
+
+1. Defina a forma de regras de balanceamento de carga.
+   | Definição | Descrição | Exemplo
+   | --- | --- |---
+   | **Nome** | Texto | WSFCPointListener |
+   | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. |
+   | **Protocolo** | Escolha TCP |TCP |
+   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 58888 |
+   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definido para direta do servidor retorno | 58888 |
+   | **Sonda** |O nome especificado para a sonda | WSFCEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma ligação de TCP aberta | 4 |
    | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |

@@ -15,12 +15,12 @@ ms.date: 03/08/2018
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 9aea8060d9b3a5314d4c6f42197bb78586d5ad00
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 9027b09c186dfb7661fc63f200f4d2e5da96a70a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102490"
+ms.locfileid: "37130106"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplicação de autenticação do Microsoft FAQ
 
@@ -119,5 +119,5 @@ Se a sua pergunta não foi respondida aqui, Queremos ouvi do utilizador. Vá par
 
 ### <a name="related-topics"></a>Tópicos relacionados
 * [Sobre a verificação de dois passos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) para contas Microsoft
-* [Problemas com verificação de dois passos](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) para a sua conta escolar ou profissional?
+* [Problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para a sua conta escolar ou profissional?
 * [Utilizar o Microsoft Authenticator para iniciar sessão a partir do seu telemóvel](microsoft-authenticator-app-phone-signin-faq.md)

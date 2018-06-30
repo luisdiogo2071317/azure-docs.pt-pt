@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 96de05eb8ebae85b73eaa012efdfb38ac074abf8
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850013"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110925"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
@@ -119,7 +119,7 @@ Para mais do que um decade, muitas organizações utilizou a associação a um d
 
 - Aos utilizadores iniciar sessão para os seus dispositivos com o respetivo Active Directory escolar ou profissional contas. 
 
-Normalmente, as organizações com um requisitos de espaço no local dependem imaging métodos para aprovisionar dispositivos e geralmente utilizam **System Center Configuration Manager (SCCM)** ou **(GP) de política de grupo** geri-los.
+Normalmente, as organizações com um requisitos de espaço no local dependem imaging métodos para aprovisionar dispositivos e geralmente utilizam **System Center Configuration Manager (SCCM)** ou **(GP) de política de grupo** para gerir -los.
 
 Se no local para o seu ambiente tem requisitos de espaço do AD e também queira benefício as capacidades fornecidas pelo Azure Active Directory, pode implementar híbrida do Azure AD associado dispositivos. Estes são os dispositivos que estejam ambos, associado ao seu no local do Active Directory e o Azure Active Directory.
 

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: 8183258ddde335b09293c72368ad3bf58a69334a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782035"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129358"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos de Windows na análise de registos
 Registos de eventos do Windows são uma das mais comuns [origens de dados](log-analytics-data-sources.md) para recolher dados com agentes do Windows, uma vez que muitas aplicações escrevem o registo de eventos do Windows.  Pode recolher eventos a partir de registos de padrão, tais como o sistema e de aplicações, além de especificar quaisquer registos personalizados criados pelas aplicações que precisar de monitorizar.
@@ -29,7 +30,7 @@ Registos de eventos do Windows são uma das mais comuns [origens de dados](log-a
 ## <a name="configuring-windows-event-logs"></a>Os registos de eventos do Windows configurar
 Configurar os registos de eventos do Windows do [menu dados nas definições de análise do registo](log-analytics-data-sources.md#configuring-data-sources).
 
-Análise de registos só recolhe os eventos dos registos de eventos do Windows que são especificados nas definições.  Pode adicionar um registo de eventos, escrevendo o nome do registo e clicando em  **+** .  Para cada registo, apenas os eventos com as gravidades selecionados são recolhidos.  Verifique as gravidades para o registo específico que pretende recolher.  Não é possível fornecer quaisquer critérios adicionais para filtrar eventos.
+Análise de registos só recolhe os eventos dos registos de eventos do Windows que são especificados nas definições.  Pode adicionar um registo de eventos, escrevendo o nome do registo e clicando em **+**.  Para cada registo, apenas os eventos com as gravidades selecionados são recolhidos.  Verifique as gravidades para o registo específico que pretende recolher.  Não é possível fornecer quaisquer critérios adicionais para filtrar eventos.
 
 À medida que escreve o nome de um registo de eventos, análise de registos fornece sugestões de nomes comuns de registo de eventos. Se o registo de que pretende adicionar não aparecer na lista, ainda pode adicioná-lo ao escrever o nome completo do registo. Pode encontrar o nome completo do registo utilizando o Visualizador de eventos. No Visualizador de eventos, abra o *propriedades* página para o registo e copie a cadeia do *nome completo* campo.
 
@@ -51,7 +52,7 @@ Registos de eventos do Windows têm um tipo de **eventos** e ter as propriedades
 | EventCategory |Categoria do evento. |
 | EventData |Todos os dados de eventos em formato não processado. |
 | EventID |Número de evento. |
-| eventLevel |Gravidade do evento no formato numérico. |
+| EventLevel |Gravidade do evento no formato numérico. |
 | EventLevelName |Gravidade do evento no formato de texto. |
 | Registo de eventos |Nome do registo de eventos a partir do foi recolhido o evento. |
 | ParameterXml |Valores de parâmetro de eventos no formato XML. |

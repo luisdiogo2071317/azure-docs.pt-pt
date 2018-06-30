@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783167"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128780"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho na análise de registos
 Os contadores de desempenho do Windows e Linux fornecem informações aprofundadas o desempenho dos componentes de hardware, sistemas operativos e aplicações.  Análise de registos pode recolher contadores de desempenho em intervalos frequentes para análise de quase em Tempo Real (NRT) para além de relatórios e agregar dados de desempenho para uma análise mais longo prazo.
@@ -37,7 +38,7 @@ Para contadores de desempenho do Windows, pode escolher uma instância específi
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
-| (/ &#124; / var) |Corresponde a instâncias com o nome: / ou /var |
+| (/&#124;/var) |Corresponde a instâncias com o nome: / ou /var |
 
 ### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 
@@ -49,7 +50,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Windows 
 
     Aquando da recolha de contadores de desempenho de SQL Server de instâncias nomeadas, todos os com o nome início de contadores de instância com *MSSQL$* e seguido do nome da instância.  Por exemplo, para recolher o contador de rácio de acertos na Cache de registo para todas as bases de dados do objeto de desempenho da base de dados SQL com o nome da instância INST2, especificar `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Clique em  **+**  ou prima **Enter** para adicionar o contador à lista.
+2. Clique em **+** ou prima **Enter** para adicionar o contador à lista.
 3. Quando adiciona um contador, utiliza a predefinição de 10 segundos para o respetivo **intervalo de amostra**.  Pode alterar isto para um valor mais alto de segundos até 1800 (30 minutos) se quiser reduzir os requisitos de armazenamento dos dados de desempenho recolhidos.
 4. Quando tiver terminado a adição de contadores, clique em de **guardar** botão na parte superior do ecrã, para guardar a configuração.
 
@@ -61,7 +62,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Linux pa
 
 1. Por predefinição, todas as alterações de configuração são automaticamente enviadas por push para todos os agentes.  Para agentes Linux, é enviado um ficheiro de configuração para o recoletor de dados Fluentd.  Se pretender modificar este ficheiro manualmente em cada agente do Linux, em seguida, desmarque a caixa *aplicar configuração abaixo aos meus computadores Linux* e siga as instruções abaixo.
 2. Escreva o nome do contador na caixa de texto no formato *objeto (instância) \counter*.  Quando começar a escrever, é-lhe apresentada uma lista dos contadores comuns correspondente.  Pode selecionar um contador na lista ou escreva um dos seus.  
-3. Clique em  **+**  ou prima **Enter** para adicionar o contador para a lista de outros contadores para o objeto.
+3. Clique em **+** ou prima **Enter** para adicionar o contador para a lista de outros contadores para o objeto.
 4. Todos os contadores para um objeto de utilizar a mesma **intervalo de amostra**.  A predefinição é 10 segundos.  Alterar isto para um valor mais alto de segundos até 1800 (30 minutos) se quiser reduzir os requisitos de armazenamento dos dados de desempenho recolhidos.
 5. Quando tiver terminado a adição de contadores, clique em de **guardar** botão na parte superior do ecrã, para guardar a configuração.
 
@@ -84,14 +85,14 @@ Os parâmetros neste elemento são descritos na seguinte tabela.
 | Parâmetros | Descrição |
 |:--|:--|
 | objeto\_nome | Nome do objeto para a coleção. |
-| instância\_regex |  A *expressão regular* definir as instâncias para recolher. O valor: `.*` Especifica todas as instâncias. Para recolher a métrica de processador para apenas o \_Total instância, pode especificar `_Total`. Para recolher a métrica de processo para apenas as instâncias crond ou sshd, pode especificar: ' (crond\|sshd)'. |
-| contador\_nome\_regex | A *expressão regular* definir que contadores (para o objeto) para recolher. Para recolher todos os contadores para o objeto, especifique: `.*`. Para recolher contadores para espaço de comutação apenas para o objeto de memória, por exemplo, pode especificar:`.+Swap.+` |
+| instância\_regex |  A *expressão regular* definir as instâncias para recolher. O valor: `.*` Especifica todas as instâncias. Para recolher a métrica de processador para apenas o \_Total instância, pode especificar `_Total`. Para recolher a métrica de processo para apenas as instâncias crond ou sshd, pode especificar: `(crond\|sshd)`. |
+| contador\_nome\_regex | A *expressão regular* definir que contadores (para o objeto) para recolher. Para recolher todos os contadores para o objeto, especifique: `.*`. Para recolher contadores para espaço de comutação apenas para o objeto de memória, por exemplo, pode especificar: `.+Swap.+` |
 | intervalo | Frequência com que são recolhidos contadores do objeto. |
 
 
 A tabela seguinte lista os objetos e os contadores que pode especificar no ficheiro de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux na análise de registos](log-analytics-data-sources-linux-applications.md).
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Disco lógico | % De Inodes livres |
 | Disco lógico | % De espaço livre |
@@ -212,13 +213,13 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter 
 | Desempenho |Todos os dados de desempenho |
 | Desempenho &#124; onde computador = = "MyComputer" |Todos os dados de desempenho de um computador específico |
 | Desempenho &#124; onde CounterName = = "Comprimento de fila de disco atual" |Todos os dados de desempenho para um determinado contador |
-| Desempenho &#124; onde ObjectName = = "Processador" e CounterName = = "% tempo do processador" e InstanceName = = total"&#124; resumir AVGCPU = avg(Average) por computador |Utilização média da CPU em todos os computadores |
-| Desempenho &#124; onde CounterName = = "% tempo do processador" &#124; resumir AggregatedValue = max(Max) por computador |Máximo de utilização da CPU em todos os computadores |
+| Desempenho &#124; onde ObjectName = = "Processador" e CounterName = = "% de tempo do processador" e InstanceName = = total" &#124; resumir AVGCPU = avg(Average) por computador |Utilização média da CPU em todos os computadores |
+| Desempenho &#124; onde CounterName = = "% de tempo do processador" &#124; resumir AggregatedValue = max(Max) por computador |Máximo de utilização da CPU em todos os computadores |
 | Desempenho &#124; onde ObjectName = = "Disco lógico" e CounterName = = "Comprimento de fila de disco atual" e o computador = = "MyComputerName" &#124; resumir AggregatedValue = avg(Average) por InstanceName |Duração média da fila de disco atual em todas as instâncias de um computador específico |
 | Desempenho &#124; onde CounterName = = "DiskTransfers/seg" &#124; resumir AggregatedValue = percentil (médio, 95) por computador |95th percentil de transferências de disco/seg em todos os computadores |
-| Desempenho &#124; onde CounterName = = "% tempo do processador" e InstanceName = = total"&#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), do computador |Média de hora a hora de utilização da CPU em todos os computadores |
-| Desempenho &#124; onde computador = = "MyComputer" e CounterName startswith_cs "%" e InstanceName = = total"&#124; resumir AggregatedValue = percentil (CounterValue, 70) por bin (TimeGenerated, 1h), CounterName | Percentil 70 por hora de cada contador de percentagem de % para um computador específico |
-| Desempenho &#124; onde CounterName = = "% tempo do processador" e InstanceName = = total"e o computador = ="MyComputer"&#124; resumir ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentil (CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) por bin (TimeGenerated, 1h), do computador |Hora a hora média, mínimo, máxima e 75 percentil utilização da CPU para um computador específico |
+| Desempenho &#124; onde CounterName = = "% de tempo do processador" e InstanceName = = total" &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1h), do computador |Média de hora a hora de utilização da CPU em todos os computadores |
+| Desempenho &#124; onde computador = = "MyComputer" e CounterName startswith_cs "%" e InstanceName = = total" &#124; resumir AggregatedValue = percentil (CounterValue, 70) por bin (TimeGenerated, 1h), CounterName | Percentil 70 por hora de cada contador de percentagem de % para um computador específico |
+| Desempenho &#124; onde CounterName = = "% de tempo do processador" e InstanceName = = total"e o computador = ="MyComputer" &#124; resumir ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentil (CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) por bin (TimeGenerated, 1h), do computador |Hora a hora média, mínimo, máxima e 75 percentil utilização da CPU para um computador específico |
 | Desempenho &#124; onde ObjectName = = "MSSQL$ INST2: bases de dados" e InstanceName = = "principal" | Todos os dados de desempenho do objeto de desempenho da base de dados para a base de dados mestra do SQL Server com o nome de instância INST2.  
 
 

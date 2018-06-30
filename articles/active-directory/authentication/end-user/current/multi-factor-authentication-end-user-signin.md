@@ -16,16 +16,16 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 5df4af49a6c0251161d619c358ae68eaad3c3660
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2cb29d61de43bcd2fc6f9bfb3a94af309b1c3f55
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102457"
+ms.locfileid: "37128484"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o multi-factor Authentication do Azure
 > [!NOTE]
-> O objetivo deste artigo é a guiá-lo através de uma experiência de início de sessão normal. Para obter ajuda com início de sessão ou a resolver problemas, consulte [problemas com o Azure multi-factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+> O objetivo deste artigo é a guiá-lo através de uma experiência de início de sessão normal. Para obter ajuda com início de sessão ou a resolver problemas, consulte [problemas com o Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>O que será a experiência de início de sessão?
 A experiência de início de sessão é diferente consoante aquilo que escolher utilizar como o segundo fator: uma chamada telefónica, uma aplicação de autenticação ou textos. Escolha a opção que descreve melhor que estão a fazer:
@@ -86,7 +86,7 @@ Por vezes, não tem o telefone ou dispositivo que configurou como método de ver
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se tiver problemas em iniciar sessão com a verificação de dois passos, obter mais informações em [problemas com o Azure multi-factor Authentication](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Se tiver problemas em iniciar sessão com a verificação de dois passos, obter mais informações em [problemas com o Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 Saiba como [gerir as definições da verificação de dois passos](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
 

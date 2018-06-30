@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114321"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 Azure Service Fabric introduz um modelo de estado de funcionamento que fornece a avaliação de estado de funcionamento extensíveis, avançado e flexível e de relatórios. O modelo permite quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Além disso, pode facilmente obter informações de estado de funcionamento e corrigir problemas de potencial antes de serem cascade e causam falhas em grande escala. No modelo de típico, os serviços de enviar relatórios com base na respetiva vistas locais e que informações são agregadas para fornecer um geral do cluster ao nível do Vista.
@@ -116,7 +117,7 @@ O exemplo seguinte é um excerpt do manifesto do cluster. Para definir as entrad
 O [política de estado de funcionamento da aplicação](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) descreve como a avaliação de agregação de eventos e Estados de subordinado é efetuada para aplicações e os respetivos subordinados. Pode ser definido no manifesto da aplicação, **ApplicationManifest.xml**, no pacote de aplicação. Se não existem políticas forem especificadas, Service Fabric parte do princípio de que a entidade é mau estado de funcionamento se tiver um relatório de estado de funcionamento ou um subordinado, o estado de funcionamento de aviso ou erro.
 As políticas configuráveis são:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica se tratar de estado de funcionamento de aviso relatórios como erros durante a avaliação de estado de funcionamento. Predefinição: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se tratar de estado de funcionamento de aviso relatórios como erros durante a avaliação de estado de funcionamento. Predefinição: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica a percentagem máxima de tolerated de aplicações que podem ser mau estado de funcionamento antes da aplicação for considerada no erro. Esta percentagem é calculada dividindo o número de mau estado de funcionamento aplicações implementadas através do número de nós que as aplicações atualmente são implementadas no cluster. O cálculo Arredonda por excesso para tolerar uma falha num pequeno número de nós. Percentagem de predefinido: zero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica a serviço tipo estado de funcionamento política predefinida, que substitui a política de estado de funcionamento predefinida para todos os tipos de serviço na aplicação.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fornece um mapa de políticas de estado de funcionamento do serviço por tipo de serviço. Estas políticas substituem as políticas de estado de funcionamento do tipo de serviço predefinido para cada tipo de serviço especificado. Por exemplo, se uma aplicação tem um tipo de serviço de gateway sem monitorização de estado e um tipo de serviço do motor com monitorização de estado, pode configurar as políticas de estado de funcionamento para a respetiva avaliação de forma diferente. Quando especificar política de cada tipo de serviço, pode obter um controlo mais granular do Estado de funcionamento do serviço.
@@ -201,7 +202,7 @@ O [relatórios de estado de funcionamento](https://docs.microsoft.com/dotnet/api
   
   * Cluster. Nenhum.
   * Nó. Nome do nó (cadeia).
-  * aplicação. Nome da aplicação (URI). Representa o nome da instância de aplicação implementado no cluster.
+  * Aplicação. Nome da aplicação (URI). Representa o nome da instância de aplicação implementado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implementado no cluster.
   * Partição. ID de partição (GUID). Representa o identificador exclusivo da partição.
   * Réplica. O ID de réplica de monitorização de estado do serviço ou o ID de instância de serviço sem estado (INT64).

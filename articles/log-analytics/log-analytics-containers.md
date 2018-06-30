@@ -3,7 +3,7 @@ title: Solução de monitorização do contentor no Log Analytics do Azure | Mic
 description: A solução de monitorização do contentor de mensagens em fila na análise de registos ajuda-o a ver e gerir os seus Docker e o Windows anfitriões contentor numa única localização.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 584e7a211cde83d7785c7fa0962c004af2b76968
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638352"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128916"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -314,7 +315,7 @@ Pode optar por criar omsagent DaemonSets com ou sem segredos.
 
 1. Para utilizar DaemonSet de agente do OMS utilizando as informações secretas, crie primeiro os segredos.
     1. Copie o script e o ficheiro de modelo secreta e certifique-se de que estão no mesmo diretório.
-        - segredo gerar script - gen.sh segredo
+        - Segredo gerar script - gen.sh segredo
         - modelo secreto - template.yaml segredo
     2. Execute o script, semelhante ao seguinte exemplo. O script pede-lhe o ID de área de trabalho de análise do registo e a chave primária e depois de introduzi-los, o script cria um ficheiro de yaml secreta pelo pode executá-lo.   
 
@@ -397,7 +398,7 @@ Para Windows Kubernetes, utilizar um script para gerar o ficheiro de yaml segred
 
 1. Para utilizar DaemonSet de agente do OMS utilizando as informações secretas no mestre de nó, inicie sessão e crie primeiro os segredos.
     1. Copie o script e o ficheiro de modelo secreta e certifique-se de que estão no mesmo diretório.
-        - segredo gerar script - gen.sh segredo
+        - Segredo gerar script - gen.sh segredo
         - modelo secreto - template.yaml segredo
 
     2. Execute o script, semelhante ao seguinte exemplo. O script pede-lhe o ID da área de trabalho OMS e a chave primária e depois de introduzi-los, o script cria um ficheiro de yaml secreta pelo pode executá-lo.   

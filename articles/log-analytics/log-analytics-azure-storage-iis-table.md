@@ -3,7 +3,7 @@ title: Utilizar o blob storage para o armazenamento IIS e a tabela de eventos no
 description: Análise de registos pode ler os registos de serviços do Azure que escrever diagnósticos para armazenamento de tabelas ou escritos para o armazenamento de BLOBs de registos de IIS.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855447"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128746"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com a análise de registos
 
@@ -45,7 +45,7 @@ Para análise de registos recolher estes registos de diagnóstico do Azure, os r
 | Eventos operacionais de recursos de infraestrutura de serviço |Nós de Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos de Ator fiável de recursos de infraestrutura de serviço |Nós de Service Fabric |WADServiceFabricReliableActorEventTable |
 | Eventos do serviço fiável de recursos de infraestrutura de serviço |Nós de Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registos de eventos do Windows |Nós de Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
+| Registos de Eventos do Windows |Nós de Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
 | Registos de ETW do Windows |Nós de Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Depois da configuração de diagnóstico atualizada é aplicada ao seu serviço 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utilizar o portal do Azure para recolher registos de armazenamento do Azure
 Pode utilizar o portal do Azure para configurar a análise de registos para recolher os registos para os seguintes serviços do Azure:
 
-* Clusters de Service Fabric
+* Clusters do Service Fabric
 * Virtual Machines
 * Funções da Web/trabalho
 
@@ -192,7 +192,7 @@ Reveja o seguinte script de exemplo, copie-o, modifique-o conforme necessário, 
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Recolher os registos e as métricas para serviços do Azure](log-analytics-azure-storage.md) suportam serviços do Azure.
 * [Permitir soluções](log-analytics-add-solutions.md) para obter informações sobre os dados.
 * [Utilizar consultas de pesquisa](log-analytics-log-searches.md) para analisar os dados.

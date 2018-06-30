@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 05/17/2018
 ms.author: sethm
-ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802792"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131360"
 ---
 # <a name="event-hubs-samples"></a>Exemplos de Hubs de eventos 
 
@@ -46,7 +46,7 @@ O [começar a enviar](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 O [começar a receber com o anfitrião do processador de eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) exemplo é uma aplicação de consola .NET Core que recebe mensagens do hub de eventos utilizando o anfitrião do processador de eventos.
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET framework   
 
 Estes exemplos demonstram várias outras funcionalidades do Event Hubs do Azure, como objetivo o [biblioteca .NET Framework](/dotnet/framework/index).
  

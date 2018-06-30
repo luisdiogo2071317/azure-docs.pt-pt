@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0ab70de83c36ec3048d9bbf74e5a315026f02b85
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036736"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112624"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalar o runtime de limite de IoT do Azure no Windows para utilizar com contentores do Windows
 
@@ -89,15 +89,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurar o Daemon de segurança do Azure IoT Edge
 
-O daemon de pode ser configurado utilizando o ficheiro de configuração em `C:\ProgramData\iotedge\config.yaml` o dispositivo de limite pode ser configurado <!--[automatically via Device Provisioning Service][lnk-dps] or--> manualmente utilizando um [a cadeia de ligação do dispositivo][lnk-dcs].
+O daemon de pode ser configurado utilizando o ficheiro de configuração em `C:\ProgramData\iotedge\config.yaml`.
 
-Para a configuração manual, introduza a cadeia de ligação do dispositivo no **aprovisionamento:** secção **config.yaml**
+O dispositivo de limite pode ser configurado manualmente utilizando um [a cadeia de ligação do dispositivo] [ lnk-dcs] ou [automaticamente através do serviço de aprovisionamento de dispositivos] [ lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* Para a configuração manual, anule os comentários do **manual** modo de aprovisionamento. Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo de limite de IoT.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Para a configuração automática, anule os comentários do **dps** modo de aprovisionamento. Atualize os valores de **scope_id** e **registration_id** com os valores da sua instância de DPS do IoT Hub e o dispositivo de limite de IoT com TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Obter o nome da utilização do dispositivo de limite `hostname` comando do PowerShell e defina-o como o valor de **hostname:** no yaml a configuração. Por exemplo:
 
@@ -158,6 +180,8 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 
+Se utilizou o **configuração manual** passos na secção anterior, o tempo de execução do IoT limite deve ser aprovisionado e em execução no seu dispositivo com êxito. Se utilizou o **configuração automática** passos, em seguida, o que é necessário executar alguns passos adicionais para que o tempo de execução pode registar o seu dispositivo com o seu IoT hub em seu nome. Para os passos seguintes, consulte [criar e aprovisionar um dispositivo simulado do limite do TPM no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 Pode verificar o estado do serviço IoT limite por: 
 
 ```powershell
@@ -193,8 +217,8 @@ Se estiver a ter problemas com o tempo de execução de limite instalar corretam
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

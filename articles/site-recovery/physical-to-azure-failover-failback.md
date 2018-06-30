@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2610a331ef8ef17b319da99eb89288b59532be9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111503"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Ativação pós-falha e falhar novamente físicas replicadas para o Azure
 
@@ -114,7 +114,7 @@ Execute a ativação pós-falha da seguinte forma:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Voltar a proteger máquinas no local para o Azure
 
-Os dados devem estar agora outra vez no site no local, mas não estão a ser replicados para o Azure. Pode iniciar a replicação para o Azure novamente da seguinte forma:
+Dados devem agora estar novamente no seu site no local, mas não está a replicar para o Azure. Pode iniciar a replicação para o Azure novamente da seguinte forma:
 
 1. Em cofre > **Definições** >**Itens Replicados**, selecione as VMs das quais foi feita reativação pós-falha e clique em **Voltar a Proteger**.
 2. Selecione o servidor de processos que é utilizado para enviar os dados replicados para o Azure e clique em **OK**.

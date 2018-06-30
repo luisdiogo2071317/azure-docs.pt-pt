@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168287"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127356"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux na análise de registos 
 Este artigo fornece detalhes para configurar o [agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho para aplicações específicas.  As aplicações incluídas neste artigo são:  
@@ -116,7 +117,7 @@ Podem ser concedidos esses privilégios executando os seguintes comandos de conc
 
 Depois de configurar o agente do OMS para Linux enviar dados para análise de registos, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento no [Windows e Linux origens de dados de desempenho na análise de registos](log-analytics-data-sources-windows-events.md) com os contadores na seguinte tabela.
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -152,7 +153,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente do OMS para Linux enviar dados para análise de registos, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento no [Windows e Linux origens de dados de desempenho na análise de registos](log-analytics-data-sources-windows-events.md) com os contadores na seguinte tabela.
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Apache HTTP Server | Trabalhadores ocupados |
 | Apache HTTP Server | Trabalhadores Inativos |

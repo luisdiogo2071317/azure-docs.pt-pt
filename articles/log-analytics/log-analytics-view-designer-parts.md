@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949536"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129137"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para as partes de visualização do estruturador de vistas na análise de registos
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho de análise de registos. Este artigo é um guia de referência para as definições para as peças de visualização estão disponíveis no seu vistas personalizadas.
@@ -55,8 +56,8 @@ A lista de parte de consultas apresenta uma lista de consultas de pesquisa de re
 |:--- |:--- |
 | **Geral** | |
 | Cargo |O texto que é apresentado na parte superior da vista. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
-| Filtros previamente selecionados |Uma lista delimitada por vírgulas de propriedades para incluir no painel esquerdo do filtro ao selecionar uma consulta. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Filtros pré-selecionados |Uma lista delimitada por vírgulas de propriedades para incluir no painel esquerdo do filtro ao selecionar uma consulta. |
 | Modo de composição |A vista inicial que é apresentada quando a consulta está selecionada. Pode selecionar qualquer vistas disponíveis após abrirem a consulta. |
 | **Consultas** | |
 | Consulta de pesquisa |A consulta para ser executada. |
@@ -71,25 +72,25 @@ O cabeçalho apresenta um número único que mostra uma contagem de registos por
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior da vista. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta para o cabeçalho. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. São apresentadas as primeiras duas propriedades dos registos primeiro dez nos resultados da. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Barras são criadas automaticamente que são baseadas no valor da coluna numérica relativo.<br><br>Utilize o `Sort` comando da consulta para ordenar os registos na lista. Para executar a consulta e devolver todos os registos, pode selecionar **ver todos os**. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Cor |A cor de barras ou sparklines. |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
 O cabeçalho tem dois números que mostra uma contagem de registos de consultas de pesquisa de registo separados. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo.
@@ -100,15 +101,15 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior da vista. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Navegação de título** | |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta para o cabeçalho. É apresentada a contagem de registos que são devolvidos pela consulta. |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. São apresentadas as primeiras duas propriedades dos registos primeiro dez nos resultados da. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Barras são automaticamente criadas com base no valor da coluna numérica relativo.<br><br>Utilize o `Sort` comando da consulta para ordenar os registos na lista. Para executar a consulta e devolver todos os registos, pode selecionar **ver todos os**. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
@@ -116,11 +117,11 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Parte da lista e de anel
 O cabeçalho apresenta um número único que resume uma coluna de valor de uma consulta de registo. O anel graficamente apresenta resultados dos registos de três principais.
@@ -131,25 +132,25 @@ O cabeçalho apresenta um número único que resume uma coluna de valor de uma c
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Cabeçalho** | |
 | Cargo |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
-| **anel** | |
+| **Anel** | |
 | Consulta |A consulta para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **anel** |**> Center** |
+| **Anel** |**> Center** |
 | Texto |O texto que é apresentado sob o valor de anel. |
 | Operação |A operação para efetuar a propriedade de valor para resumi-lo como um valor único.<ul><li>Soma: Adiciona os valores de todos os registos.</li><li>Percentagem: O rácio dos registos devolvido pelos valores na **resultar valores utilizados na operação de center** para o total de registos na consulta.</li></ul> |
-| Valores de resultado utilizados na operação do System center |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta estão limitados a registos com os valores de propriedade que especificar. Se não existem valores são adicionados, todos os registos estão incluídos na consulta. |
+| Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta estão limitados a registos com os valores de propriedade que especificar. Se não existem valores são adicionados, todos os registos estão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor para cada um dos valores que são apresentados no anel. |
 | **Opções adicionais** |**> Mapeamento de cor avançadas** |
 | Valor do campo |Escreva o nome de um campo para apresentá-la como uma cor diferente se está incluído no anel. |
 | Cor |Selecione a cor para o campo exclusivo. |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
@@ -157,11 +158,11 @@ O cabeçalho apresenta um número único que resume uma coluna de valor de uma c
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Dois parte linhas cronológicas e lista
 O cabeçalho apresenta os resultados das duas consultas de registo ao longo do tempo como gráficos de colunas, com uma chamada que apresenta um número único que resume uma coluna de valor de uma consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo.
@@ -172,9 +173,9 @@ O cabeçalho apresenta os resultados das duas consultas de registo ao longo do t
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Navegação de título** | |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Primeiro gráfico<br>segundo gráfico** | |
@@ -182,18 +183,18 @@ O cabeçalho apresenta os resultados das duas consultas de registo ao longo do t
 | Cor |A cor a utilizar para as colunas da série. |
 | Consulta |A consulta para ser executada para a série primeiro. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas de gráfico. |
 | Operação |A operação para efetuar a propriedade de valor para resumi-lo como um valor único para a chamada.<ul><li>Soma: A soma dos valores de todos os registos.</li><li>Média: A média dos valores de todos os registos.</li><li>Última de exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Primeiro exemplo: O valor do primeiro intervalo de que está incluído no gráfico.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li></ul> |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Cor |A cor de barras ou sparklines. |
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="information-part"></a>Parte de informações
 Apresenta o cabeçalho de texto estático e uma ligação opcional. A lista apresenta um ou mais itens com um título estático e texto.
@@ -204,12 +205,12 @@ Apresenta o cabeçalho de texto estático e uma ligação opcional. A lista apre
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Cor |A cor de fundo do cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O ficheiro de imagem que é apresentado no cabeçalho. |
 | Etiqueta |O texto que é apresentado no cabeçalho. |
-| **Cabeçalho** |**> Link** |
+| **Cabeçalho** |**> Ligação de** |
 | Etiqueta |O texto da ligação. |
 | Url |O Url para a ligação. |
 | **Itens de informações** | |
@@ -225,9 +226,9 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Cabeçalho** | |
 | Cargo |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
@@ -236,13 +237,13 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Gráfico de linhas** |**> Chamada** |
 | Título da chamada |O texto que é apresentado acima o valor da chamada. |
-| Nome da série |Valor da propriedade para a série a utilizar para o valor da chamada. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
+| Nome da Série |Valor da propriedade para a série a utilizar para o valor da chamada. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
 | Operação |A operação para efetuar a propriedade de valor para resumi-lo como um valor único para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo de intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
 | **Gráfico de linhas** |**> Eixo y** |
-| Utilizar escala logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
+| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto a etiqueta para o *unidade* tipo. Não se for especificada nenhuma etiqueta, apenas o *unidade* tipo é apresentado. |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
@@ -250,11 +251,11 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Parte de lista e gráfico de linha
 O cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta de registo ao longo do tempo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou respetivas alterações ao longo do tempo.
@@ -265,9 +266,9 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| Ícone de utilização |Selecione esta hiperligação para o ícone de apresentação. |
+| Utilizar Ícone |Selecione esta hiperligação para o ícone de apresentação. |
 | **Cabeçalho** | |
 | Cargo |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
@@ -275,10 +276,10 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Consulta |A consulta para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
 | **Gráfico de linhas** |**> Eixo y** |
-| Utilizar escala logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
+| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto a etiqueta para o *unidade* tipo. Não se for especificada nenhuma etiqueta, apenas o *unidade* tipo é apresentado. |
-| **List** | |
+| **Lista** | |
 | Consulta |A consulta para a lista. É apresentada a contagem de registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta hiperligação para desativar o gráfico no lado direito da coluna numérica. |
 | Ativar sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. Para obter mais informações, consulte [definições comuns](#sparklines). |
@@ -286,22 +287,22 @@ O cabeçalho apresenta um gráfico de linhas com várias séries por uma consult
 | Operação |A operação de efetuar para o gráfico sparkline. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Nome e valor de separação |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [definições comuns](#sparklines). |
 | Clique em através da navegação | Ação tomada quando clica no item na lista.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **List** |**> Títulos de coluna** |
+| **Lista** |**> Títulos de coluna** |
 | Nome |O texto que é apresentado na parte superior da coluna primeiro. |
 | Valor |O texto que é apresentado na parte superior da segunda coluna. |
-| **List** |**> Limiares** |
-| Ativar os limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
+| **Lista** |**> Limiares** |
+| Ativar Limiares |Selecione esta ligação para ativar os limiares. Para obter mais informações, consulte [definições comuns](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Pilha da peça de gráficos de linha
 A pilha do gráfico de linhas apresenta os três separado gráficos, com várias séries por uma consulta de registo ao longo do tempo, conforme mostrado aqui:
 
-![Pilha de gráficos de linha](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Pilha de gráficos de linhas](media/log-analytics-view-designer/view-stack-line-charts.png)
 
 | Definição | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é apresentado na parte superior do mosaico. |
-| Novo grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
+| Novo Grupo |Selecione esta hiperligação para criar um novo grupo na vista, a partir da vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | **Gráfico 1<br>gráfico 2<br>gráfico 3** |**> Cabeçalho** |
 | Cargo |O texto que é apresentado na parte superior do gráfico. |
@@ -309,8 +310,8 @@ A pilha do gráfico de linhas apresenta os três separado gráficos, com várias
 | **Gráfico 1<br>gráfico 2<br>gráfico 3** |**Gráfico de linhas** |
 | Consulta |A consulta para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza o *medidas* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui o *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | Clique em através da navegação | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [definições comuns](#click-through-navigation). |
-| **Chart** |**> Eixo y** |
-| Utilizar escala logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
+| **Gráfico** |**> Eixo y** |
+| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devem ser devolvidos pela consulta. Estas informações são utilizadas para apresentar gráfico rótulos que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos do *unidade atual* escreva para a *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto a etiqueta para o *unidade* tipo. Não se for especificada nenhuma etiqueta, apenas o *unidade* tipo é apresentado. |
 
@@ -329,7 +330,7 @@ A tabela seguinte descreve as definições de navegação clique-through.
 
 | Definição           | Descrição |
 |:--|:--|
-| Pesquisa de registo (automático) | Pesquisa de registo para ser executada quando selecciona um item de cabeçalho.  Este é a mesmo pesquisa de registo, o item com base no.
+| Pesquisa de registos (Automático) | Pesquisa de registo para ser executada quando selecciona um item de cabeçalho.  Este é a mesmo pesquisa de registo, o item com base no.
 | Pesquisa de Registos        | Pesquisa de registo para ser executada quando selecciona um item numa lista.  Escreva a consulta para o **consulta navegação** caixa.   Utilize *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionado.  Por exemplo, se a consulta tem uma coluna chamada *computador* e a consulta de navegação *{item selecionado}*, uma consulta, tais como *computador = "MyComputer"* é executado quando seleciona um computador. Se a consulta de navegação é *tipo = eventos {item selecionado}*, a consulta *tipo = evento computador = "MyComputer"* é executado. |
 | Vista              | Vista abrir ao selecionar um item de cabeçalho ou de um item numa lista.  Selecione o nome de uma vista na sua área de trabalho a **nome da vista** caixa. |
 
@@ -342,7 +343,7 @@ A tabela seguinte descreve as definições para sparklines:
 
 | Definição | Descrição |
 |:--- |:--- |
-| Ativar Sparklines |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. |
+| Ativar Gráficos Sparkline |Selecione esta hiperligação para apresentar um gráfico sparkline em vez de uma barra horizontal. |
 | Operação |Se sparklines estiver ativada, esta é a efetuar em cada propriedade na lista para calcular os valores para o gráfico sparkline da operação.<ul><li>Última de exemplo: O último valor para a série ao longo do intervalo de tempo.</li><li>Máx.: O valor máximo para a série ao longo do intervalo de tempo.</li><li>Mínimo: O valor mínimo para a série ao longo do intervalo de tempo.</li><li>Soma: A soma dos valores para a série ao longo do intervalo de tempo.</li><li>Resumo: Utiliza o mesmo `measure` comando como a consulta no cabeçalho.</li></ul> |
 
 ### <a name="thresholds"></a>Limiares
@@ -356,7 +357,7 @@ A tabela seguinte descreve as definições de limiares:
 
 | Definição | Descrição |
 |:--- |:--- |
-| Ativar os limiares |Selecione esta hiperligação para apresentar um ícone cor à esquerda de cada valor. O ícone indica o estado de funcionamento do valor em relação ao limiares especificados. |
+| Ativar Limiares |Selecione esta hiperligação para apresentar um ícone cor à esquerda de cada valor. O ícone indica o estado de funcionamento do valor em relação ao limiares especificados. |
 | Nome |O nome do valor de limiar. |
 | Limiar |O valor do limiar de. A cor do Estado de funcionamento para cada item de lista está definida para a cor do valor de limiar mais elevado, que é excedido pelo valor do item. Se não existem valores de limiar for excedidos, é utilizada uma cor predefinida. |
 | Cor |A cor que indica o valor de limiar. |

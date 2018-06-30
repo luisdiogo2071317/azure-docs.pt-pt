@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d22b2ba332996d31b1db4ef4d095f0a4b443ba16
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263823"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109363"
 ---
 # <a name="keys-in-luis"></a>Chaves na LUIS
 LUIS utiliza duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta LUIS. Quando estiver pronto para publicar a aplicação de LUIS, terá de [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](Manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -22,7 +22,7 @@ LUIS utiliza duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-
 |Chave|Objetivo|
 |--|--|
 |[Chave de criação](#programmatic-key)|Criação, a publicação, gestão de colaboradores, controlo de versões|
-|[Chave de ponto final](#endpoint-key)| Consultar|
+|[chave de ponto final](#endpoint-key)| Consultar|
 
 É importante criar aplicações LUIS [regiões](luis-reference-regions.md#publishing-regions) também para onde pretende publicar e consultar.
 
@@ -40,7 +40,7 @@ Quando pretender tornar **consultas de ponto final de produção**, criar um Azu
 > [!CAUTION]
 > Para sua comodidade, muitos dos exemplos de utilizam a chave de criação de conteúdos, uma vez que fornece algumas chamadas de ponto final no respetivo [quota](luis-boundaries.md#key-limits).  
 
-## <a name="endpoint-key"></a>Chave de ponto final
+## <a name="endpoint-key"></a>chave de ponto final
  Quando tiver **consultas de ponto final de produção**, crie um [chave LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) no portal do Azure. Lembre-se o nome utilizado para criar a chave, apenas quando adicionar a chave para a aplicação..
 
 Quando o processo de subscrição LUIS estiver concluído, [adicionar a chave](Manage-keys.md#assign-endpoint-key) para a aplicação no **publicar** página. 
@@ -62,10 +62,10 @@ O ponto final LUIS aceita dois estilos da consulta, ambos utilizam mas de chave,
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Utilização da API de Ocp-Apim-Subscription-Key
 As APIs de LUIS utilizam o cabeçalho, `Ocp-Apim-Subscription-Key`. O nome do cabeçalho não se altera com base nas quais chave e o conjunto de APIs que está a utilizar. Defina o cabeçalho para a chave de criação para criação de APIs. Se estiver a utilizar o ponto final, defina o cabeçalho para a chave de ponto final. 
 
-Não é possível transmitir a chave de ponto final para a criação de APIs. Se o fizer, receberá um erro 401 - acesso negado devido a chave de subscrição inválido. 
+Não é possível transmitir a chave de ponto final para a criação de APIs. Se o fizer, receberá um erro 401 - acesso negado devido a chave de ponto final inválido. 
 
 ## <a name="key-limits"></a>Limites de chaves
-Consulte [chave limites](luis-boundaries.md#key-limits) e [regiões do Azure](luis-reference-regions.md). A chave de criação está livre e utilizado para a criação. A chave de subscrição LUIS tem um escalão gratuito, mas tem de ser criada por si e associada com a sua aplicação LUIS no **publicar** página. Não pode ser utilizado para criação, mas apenas consultas de ponto final.
+Consulte [chave limites](luis-boundaries.md#key-limits) e [regiões do Azure](luis-reference-regions.md). A chave de criação está livre e utilizado para a criação. A chave de ponto final LUIS tem um escalão gratuito, mas tem de ser criada por si e associada com a sua aplicação LUIS no **publicar** página. Não pode ser utilizado para criação, mas apenas consultas de ponto final.
 
 Publicação de regiões forem diferentes das regiões de criação. Certifique-se que criar uma aplicação na região criação correspondente à região de publicação que pretende.
 

@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a212a595c02a048721f1a8753b437f74f2fc4973
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308959"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114406"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 
@@ -124,7 +124,7 @@ Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA 
 
 **A instância de gerido da base de dados do SQL Server** simplifica bastante a migração de aplicações existentes para a SQL Database do Azure, permitindo-lhe trazer uma base de dados migrado aplicações colocação no mercado no Azure rapidamente.
 
-**SQL Server em execução em VMs do Azure** é perfeito se as suas aplicações existentes ou novas necessitam de bases de dados grandes ou aceder a todas as funcionalidades no SQL Server ou o Windows/Linux, e evitar a hora e a despesa dos adquirir novo hardware no local. Também é uma boa opção quando pretender migrar existente no local e bases de dados do Azure como de aplicações-for - em casos onde a base de dados geridas por instância de SQL do Azure não é uma boa opção. Uma vez que não precisa de alterar as camadas de apresentação, de aplicação e de dados, poupa tempo e orçamento na reformulação da sua solução existente. Em vez disso, pode concentrar-se na migração de todas as suas soluções para o Azure e na execução de algumas otimizações de desempenho que possam ser exigidas pela plataforma do Azure. Para obter mais informações, consulte o artigo [Melhores Práticas de Desempenho para o SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**SQL Server em execução em VMs do Azure** é perfeito se as suas aplicações existentes ou novas necessitam de bases de dados grandes ou aceder a todas as funcionalidades no SQL Server ou o Windows/Linux e pretender evitar para o tempo e despesa dos adquirir novo hardware no local. Também é uma boa opção quando pretender migrar existente no local e bases de dados do Azure como de aplicações-for - em casos onde a base de dados geridas por instância de SQL do Azure não é uma boa opção. Uma vez que não precisa de alterar as camadas de apresentação, de aplicação e de dados, poupa tempo e orçamento na reformulação da sua solução existente. Em vez disso, pode concentrar-se na migração de todas as suas soluções para o Azure e na execução de algumas otimizações de desempenho que possam ser exigidas pela plataforma do Azure. Para obter mais informações, consulte o artigo [Melhores Práticas de Desempenho para o SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="summary"></a>Resumo
 Este artigo explorou a Base de Dados SQL e o SQL Server em Máquinas Virtuais (VMs) do Azure e abordou os motivadores de negócio comuns que poderão influenciar a sua decisão. Segue-se um resumo das sugestões que deve considerar:

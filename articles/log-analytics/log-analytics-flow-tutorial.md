@@ -3,21 +3,22 @@ title: Automatizar processos de análise de registos do Azure com o Microsoft Fl
 description: Saiba como pode utilizar o Microsoft Flow rapidamente automatizar processos repetíveis, utilizando o conector do Log Analytics do Azure.
 services: log-analytics
 documentationcenter: ''
-author: CFreemanwa
+author: mgoedtel
 manager: carmonm
 ms.service: log-analytics
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.component: na
+ms.openlocfilehash: 21cf7cf3d12902b02fcbf650a1623e78004d28b4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
-ms.locfileid: "23889509"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131705"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de análise de registos com o conector Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) permite-lhe criar fluxos de trabalho automatizados através de centenas de ações para uma variedade de serviços. Resultado de uma ação pode ser utilizado como entrada para outro, permitindo-lhe criar integração entre os diferentes serviços.  O conector do Log Analytics do Azure para a Microsoft Flow permitem-lhe criar fluxos de trabalho que incluem dados obtidos através de pesquisas de registo na análise de registos.
@@ -76,7 +77,7 @@ O tutorial este artigo mostra como criar um fluxo que envia automaticamente os r
 3. Quando o fluxo é concluída, verifique o correio de destinatário que especificou.  Deve ter recebido uma mensagem com um corpo semelhante ao seguinte:<br><br>![E-mail de exemplo](media/log-analytics-flow-tutorial/flow08.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [pesquisas de registo na análise de registos](log-analytics-log-search-new.md).
 - Saiba mais sobre [Microsoft Flow](https://ms.flow.microsoft.com).

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268331"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113058"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Criar uma aplicação de LUIS através de programação utilizando Node.js
 
@@ -111,7 +111,7 @@ Instale as dependências do Node.js a partir de NPM na linha de comando/terminal
 ````
 
 ### <a name="change-configuration-settings"></a>Alterar as definições de configuração
-Para utilizar esta aplicação, terá de alterar os valores no ficheiro index.js a sua própria chave de subscrição e forneça o nome que pretende que a aplicação ter. Também pode definir o idioma da aplicação ou alterar o número de versão.
+Para utilizar esta aplicação, terá de alterar os valores no ficheiro index.js a sua própria chave de ponto final e forneça o nome que pretende que a aplicação ter. Também pode definir o idioma da aplicação ou alterar o número de versão.
 
 Abra o ficheiro de index.js e alterar estes valores na parte superior do ficheiro.
 
@@ -178,7 +178,7 @@ Após a conclusão do script, pode iniciar sessão [LUIS] [ LUIS] e ver a aplica
 Esta aplicação de exemplo utiliza os APIs de LUIS seguintes:
 - [Criar aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [Adicionar pendentes](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [Adicionar entidades](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [adicionar entidades](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [Adicionar utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

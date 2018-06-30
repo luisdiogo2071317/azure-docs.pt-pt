@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b3024b451ddf08b6b7ab171238ae45edbafc58a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110967"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizar o Azure para alojar e executar cenários de carga de trabalho SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -301,7 +301,7 @@ Para além de cenários do SAP NetWeaver com o DBMS diferentes no Azure de aloja
 
 O Azure tem nativo ofertas de Máquina Virtual do Azure que nunca estão a crescer num tamanho de recursos de CPU e memória para cobrir SAP a carga de trabalho tira partido do SAP HANA. Para obter mais informações sobre esta área, procure os documentos na secção em Azure Virtual Machines do SAP HANA."
 
-A exclusividade do Azure para SAP HANA é uma oferta exclusiva que define o Azure para além dos concorrência. Para poder ativar o alojamento mais recursos de CPU e memória SAP pedir o seu trabalho cenários que envolvem SAP HANA, o Azure oferece a utilização do cliente dedicada hardware bare-metal para fins de estiverem a executar implementações de SAP HANA que necessitam de até 20 TB (escalável 60 TB) de memória de S/4HANA ou outras cargas de trabalho de SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias de grande) permite-lhe executar SAP HANA no hardware dedicado bare-metal com o SAP aplicação camada ou carga de trabalho meio-ware maligno alojado no nativo máquinas virtuais do Azure. Esta solução é descrita em vários documentos na secção "SAP HANA no Azure (instâncias de grande)".   
+A exclusividade do Azure para SAP HANA é uma oferta exclusiva que define o Azure para além dos concorrência. Para poder ativar o alojamento mais memória e recursos de CPU pedir o seu trabalho cenários SAP que envolvem SAP HANA, ofertas do Azure a utilização do cliente dedicado hardware bare-metal para fins de implementações de SAP HANA que necessitam de até 20 TB (escalável 60 TB) de memória para em execução S/4HANA ou outras cargas de trabalho de SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias de grande) permite-lhe executar SAP HANA no hardware dedicado bare-metal com o SAP aplicação camada ou carga de trabalho meio-ware maligno alojado no nativo máquinas virtuais do Azure. Esta solução é descrita em vários documentos na secção "SAP HANA no Azure (instâncias de grande)".   
 
 Cenários de carga de trabalho SAP no Azure de alojamento também podem criar requisitos de integração de identidade e Single-Sign-On com o diretório de atividade do Azure para os diferentes componentes SAP e SAP SaaS ou PaaS oferece. Uma lista de integração e a Single-Sign-On cenários com o Azure Active Directory (AAD) e SAP entidades é descrita e documentada na secção "integração de identidade do AAD SAP e Single-Sign-On."
 
@@ -444,7 +444,7 @@ Atualizadas: Junho de 2017
 ### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>Elevada disponibilidade as configurações do SAP NetWeaver em VMs do Azure
 Título: Máquinas virtuais do Azure elevada disponibilidade para SAP NetWeaver
 
-Resumo: Neste documento, vamos abordar os passos que pode efetuar para implementar sistemas SAP de elevada disponibilidade no Azure utilizando o modelo de implementação Azure Resource Manager. Vamos guiá-lo estas tarefas principais. O documento, vamos descrevem como único-ponto-de-falhas componentes, como o Advanced negócio Application Programming (ABAP) SAP Central serviços (ASCS) / SAP Central serviços (SCS) e sistemas de gestão de base de dados (DBMS) e os componentes redundantes, como o servidor de aplicações SAP que vão ser protegidos quando em execução em VMs do Azure. Um exemplo passo a passo de uma instalação e configuração de um sistema SAP de elevada disponibilidade num cluster de Clustering de ativação pós-falha do Windows Server e SUSE Linux Enterprise Server Cluster Framework no Azure é demonstrado e apresentado neste documento.
+Resumo: Neste documento, vamos abordar os passos que pode efetuar para implementar sistemas SAP de elevada disponibilidade no Azure utilizando o modelo de implementação Azure Resource Manager. Vamos guiá-lo estas tarefas principais. O documento, vamos descrevem como único-ponto-de-falhas componentes, como o Advanced negócio Application Programming (ABAP) SAP Central serviços (ASCS) / SAP Central serviços (SCS) e sistemas de gestão de base de dados (DBMS) e os componentes redundantes como o SAP Servidor de aplicações que vão ser protegidos quando em execução em VMs do Azure. Um exemplo passo a passo de uma instalação e configuração de um sistema SAP de elevada disponibilidade num cluster de Clustering de ativação pós-falha do Windows Server e SUSE Linux Enterprise Server Cluster Framework no Azure é demonstrado e apresentado neste documento.
 
 Atualizada: De Outubro de 2017
 

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177004"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127098"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>As alterações de preço para o Monitor de desempenho de rede do Azure
 
@@ -107,8 +108,8 @@ Os clientes nos percentiles superiores (na tabela anterior), normalmente, monito
 **Quais são os custos de utilização do Monitor de ponto final de serviço?**
 
 Custos de utilização do Monitor de ponto final de serviço são calculados com base em:
-* número de ligações
-* volume de dados
+* Número de ligações
+* Volume de dados
 
 **O que é uma ligação?**
 

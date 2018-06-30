@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: bwren
-ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636737"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133024"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)
 Este artigo mostra como utilizar a API de Recoletor de dados de HTTP para enviar dados para análise de registos de um cliente de REST API.  Descreve como formatou os dados recolhidos pelo seu script ou aplicação, inclua-o num pedido e tem esse pedido autorizado através da análise de registos.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -60,7 +61,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | Autorização |A assinatura de autorização. O artigo, pode ler sobre como criar um cabeçalho de HMAC SHA256. |
 | Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Atualmente, o tipo de registo suporta apenas carateres alfanuméricos. Não suporta números ou carateres especiais. O limite de tamanho para este parâmetro é 100 carateres. |
 | x-ms-date |A data em que o pedido foi processado, no formato RFC 1123. |
-| campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Não pode ser nulo e tem de conter um período de datas válido. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
+| campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
 
 ## <a name="authorization"></a>Autorização
 Qualquer pedido de API de Recoletor de dados de HTTP de análise de registo tem de incluir um cabeçalho de autorização. Para autenticar um pedido, tem de iniciar o pedido com o site primário ou a chave secundária para a área de trabalho que está a efetuar o pedido. Em seguida, passe esse assinatura como parte do pedido.   
@@ -101,29 +102,33 @@ Os exemplos nas secções seguintes tem o código de exemplo para ajudar a criar
 O corpo da mensagem tem de estar no JSON. Tem de incluir um ou mais registos com os pares de nome e valor de propriedade neste formato:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 Pode batch vários registos num único pedido utilizando o formato seguinte. Todos os registos tem de ser o mesmo tipo de registo.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Tipo de registo e as propriedades
@@ -137,7 +142,7 @@ Para identificar o tipo de dados de uma propriedade, análise de registos adicio
 |:--- |:--- |
 | Cadeia |_s |
 | Booleano |_b |
-| duplo |_d |
+| Valor de duplo |_d |
 | Data/hora |_t |
 | GUID |_g |
 
@@ -382,7 +387,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Exemplo de Python
+### <a name="python-2-sample"></a>Exemplo 2 do Python
 ```
 import json
 import requests

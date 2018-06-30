@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd1bb6117c0360e67783434c980c56b5f6ae7f9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636611"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110242"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre certificados, chaves e segredos
 O Cofre de chaves do Azure permite aos utilizadores armazenar e utilizar as chaves criptográficas dentro do ambiente do Microsoft Azure. O Cofre de chaves suporta vários tipos de chave e algoritmos e permite a utilização de módulos de segurança de Hardware (HSM) para chaves de valor superior. Além disso, o Cofre de chaves permite aos utilizadores armazenar segredos com segurança. Segredos são objetos de octeto tamanho limitado com nenhuma semântica específico. O Cofre de chaves também suporta certificados, que são criados sobre chaves e segredos e adicione uma funcionalidade de renovação automática.
@@ -172,7 +172,7 @@ O Cofre de chaves do Azure suporta as seguintes operações nos objetos da chave
 -   **Cópia de segurança**: exporta uma chave de um formato protegido.  
 -   **Restaurar**: importa uma chave anteriormente cópia de segurança.  
 
-Para obter mais informações, consulte [operações de chaves](/rest/api/keyvault/key-operations.md)  
+Para obter mais informações, consulte [chave operações](/rest/api/keyvault/key-operations).  
 
 Quando tiver sido criada uma chave no Cofre de chaves do Azure, as operações criptográficas seguintes podem ser efetuadas utilizando a chave:  
 
@@ -281,7 +281,7 @@ As seguintes permissões podem ser utilizadas numa base por principal, na entrad
 -   *eliminar*: eliminar o segredo  
 -   *todos os*: todas as permissões  
 
-Para obter mais informações sobre como trabalhar com segredos, consulte [operações de segredo](/rest/api/keyvault/secret-operations.md).  
+Para obter mais informações sobre como trabalhar com segredos, consulte [operações de segredo](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Etiquetas secretas  
 Pode especificar os metadados específicos da aplicação adicionais sob a forma de etiquetas. O Cofre de chaves do Azure suporta até 15 etiquetas, cada um dos quais pode ter um nome de 256 carateres e um valor de 256 carateres.  
@@ -376,7 +376,7 @@ A tabela seguinte representa o mapeamento de x509 política de utilização de c
 |**X509 sinalizadores de utilização de chave**|**Ops chaves do Cofre de chaves**|**Comportamento predefinido**|
 |----------|--------|--------|
 |DataEncipherment|encriptar, desencriptar| N/A |
-|DecipherOnly|Desencriptar| N/A  |
+|DecipherOnly|desencriptar| N/A  |
 |Bits DigitalSignature|iniciar sessão, certifique-se| Predefinição de Cofre de chaves sem uma especificação de utilização no momento de criação do certificado | 
 |EncipherOnly|encrypt| N/A |
 |KeyCertSign|iniciar sessão, certifique-se|N/A|
@@ -443,9 +443,9 @@ Se a política de um certificado está definida como auto-renovação, em seguid
 
 ## <a name="additional-information-for-certificates"></a>Informações adicionais de certificados
 
-- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies.md)
-- [Emissores de certificados](/rest/api/keyvault/certificate-issuers.md)
-- [Contactos de certificado](/rest/api/keyvault/certificate-contacts.md)
+- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies)
+- [Emissores de certificados](/rest/api/keyvault/certificate-issuers)
+- [Contactos de certificado](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Consultar Também
 

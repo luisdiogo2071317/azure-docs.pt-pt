@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
-ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316475"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133036"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizador no Batch
 
@@ -173,8 +173,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -332,8 +332,6 @@ A versão do serviço Batch 2017-01-01.4.0 introduz uma alteração inovadora, s
 | `run_elevated` Não foi especificado | Não existe nenhuma atualização necessária                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="batch-forum"></a>Fórum do batch
-
-O [fórum do Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) no MSDN é um excelente local para discutir Batch e de fazer perguntas sobre o serviço. HEAD na ativação pós-falha para publicações afixadas úteis e publique as suas perguntas que possam surgir ao criar as soluções do Batch.
+* Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).

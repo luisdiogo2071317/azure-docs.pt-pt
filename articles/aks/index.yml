@@ -14,13 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: b67814bc2dd622758ade1fc76f1fade99f718bd6
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 081e54a6ed04fa74f96b327b2c9e9e63c9fc01cb
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132630"
 abstract:
-  description: O Azure Kubernetes Service (AKS) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.<div class="IMPORTANT alert"><p>Importante</p><p>O Azure Kubernetes Service (AKS) está atualmente em <strong>pré-visualização</strong>. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">termos suplementares de utilização</a>. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).</p></div>
+  description: O Azure Kubernetes Service (AKS) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
 sections:
 - title: Inícios rápidos de cinco minutos
   items:
@@ -30,9 +31,13 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/media/index/ContainerService.svg
-      text: Criar um cluster do AKS (Create an AKS cluster)
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: CLI do Azure
       href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portal do Azure
+      href: /azure/aks/kubernetes-walkthrough-portal
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -46,7 +51,6 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Executar as imagens de contentor no Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Dimensionar uma aplicação e a infraestrutura do Kubernetes</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Atualizar uma aplicação em execução no Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorizar o Kubernetes com o Log Analytics (Monitor Kubernetes with Log Analytics)</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Atualizar um cluster do AKS (Upgrade AKS cluster)</a>
 - title: Referência
   items:
@@ -56,5 +60,7 @@ sections:
     items:
     - title: Linha de comandos
       html: <p><a href="/cli/azure/aks">CLI do Azure</a></p>
+    - title: Linguagens
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">API REST</a></p>

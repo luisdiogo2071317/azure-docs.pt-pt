@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677364"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138182"
 ---
 **Documente última atualização**: 21 de Maio de 2018 3:00 PM PST.
 
@@ -28,7 +28,7 @@ No dia 21 de Maio de 2018, Zero de projeto Google e a Microsoft anunciou uma nov
 >
 > No enlace tardio de Fevereiro de 2018 Intel Corporation publicados atualizado [orientações de revisão Microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) no estado dos respetivos versões microcode, que melhorar estabilidade e mitigar contra as vulnerabilidades recentes das divulgados por [Projeto Google Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). As mitigações colocar no local pelo Azure em [3 de Janeiro de 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) não são afetados pela atualização de microcode da Intel. Microsoft colocar já mitigações seguras no local para proteger os clientes do Azure a partir de outras máquinas virtuais do Azure.  
 >
-> Microcode da Intel endereços variante 2 Spectre ([Exposures-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) ou injeção de destino da sucursal) para proteger contra ataques que apenas seriam aplicável onde executar cargas de trabalho partilhadas ou não fidedignas dentro as suas VMs no Azure. A nossa engenheiros estiver a testar a estabilidade para minimizar os impactos no desempenho de microcode, antes de efetuar disponível para clientes do Azure.  Como os clientes muito poucos executam cargas de trabalho não fidedignas nas respetivas VMs, maioria dos clientes não terá de ativar esta capacidade, uma vez lançada. 
+> Microcode da Intel endereços variante 2 Spectre - [Exposures-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) ou injeção de destino da sucursal - para proteger contra ataques que apenas seriam aplicável onde executar cargas de trabalho partilhadas ou não fidedignas dentro as suas VMs no Azure. A nossa engenheiros estiver a testar a estabilidade para minimizar os impactos no desempenho de microcode, antes de efetuar disponível para clientes do Azure.  Como os clientes muito poucos executam cargas de trabalho não fidedignas nas respetivas VMs, maioria dos clientes não terá de ativar esta capacidade, uma vez lançada. 
 >
 > Esta página será atualizada como estão disponíveis mais informações.  
 

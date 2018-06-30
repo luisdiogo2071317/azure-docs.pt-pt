@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912020"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113899"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerações de ordem de eventos do Azure Stream Analytics
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912020"
 
 Um fluxo de dados temporal de eventos, cada evento é atribuído a um carimbo de data / hora. O Azure Stream Analytics atribui um carimbo de hora para cada evento utilizando o tempo de chegada ou a hora da aplicação. O **Timestamp** coluna tem o carimbo de hora atribuído ao evento. 
 
-Hora da chegada é atribuída na origem de entrada quando o evento chega a origem. Pode aceder a hora da chegada ao utilizar o **EventEnqueuedTime** propriedade de entrada do hub de eventos e utilizar o [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) propriedade para a entrada de blob. 
+Hora da chegada é atribuída na origem de entrada quando o evento chega a origem. Pode aceder a hora da chegada ao utilizar o **EventEnqueuedUtcTime** propriedade entradas de Event Hubs, **IoTHub.EnqueuedTime** propriedade para o IoT Hub e a utilizar o [BlobProperties.LastModified ](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) propriedade para a entrada de blob. 
 
 Hora da aplicação é atribuída quando o evento é gerado e faz parte do payload. Para processar os eventos por hora da aplicação, utilize o **Timestamp por** cláusula na consulta select. Se o **Timestamp por** cláusula está ausente, são processados eventos por hora da chegada. 
 
@@ -111,7 +111,7 @@ A consulta não tem um **partição por PartitionId** cláusula, e existem, pelo
 
 A configuração é igual ao exemplo 2. No entanto, a ausência de uma das partições de dados pode atrasar a saída por um período de tolerância de chegada enlace tardio adicionais.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Produtores de eventos de processamento com linhas cronológicas diferentes
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Produtores de eventos de processamento com linhas cronológicas diferentes com "substreams"
 Um fluxo de eventos de entrada único frequentemente contém eventos provenientes de vários produtores de evento, tais como os dispositivos individuais. Estes eventos poderão chegarem fora de ordem devido a razões debatidas anteriormente. Nestes cenários, embora disorder em produtores de evento poderá ser grande, disorder dentro de eventos a partir de um produtor único é pequeno (ou mesmo atribui).
 
 O Azure Stream Analytics fornece gerais mecanismos para lidar com eventos fora de ordem. Resultado desses mecanismos atrasos de processamento (enquanto aguardava a existência de eventos straggling alcançar o sistema), remover ou ajustado, ou ambos.

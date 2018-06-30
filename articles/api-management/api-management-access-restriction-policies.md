@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1b6aea5152e9eb5152b400d74d834e31eb883458
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515354"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110244"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -40,7 +40,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -277,7 +277,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |nome|O nome da API ou operação para o qual se aplica a quota.|Sim|N/A|  
-|Largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
+|largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/A|  
   
@@ -335,7 +335,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|Largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
+|largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |Counter-chave|A chave a utilizar para a política de quota.|Sim|N/A|  
 |condição de incremento|Expressão booleana especificar se o pedido deve ser contabilizado para a quota (`true`)|Não|N/A|  
@@ -505,10 +505,10 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |ID|O `id` atributo no `key` elemento permite-lhe especificar a cadeia que irá ser comparada com `kid` de afirmação no token (caso exista) localizar a chave a utilizar para a validação da assinatura adequada.|Não|N/A|  
 |Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all` -cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any` -valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|all|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
-|exigir expiração-tempo|valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
+|exigir expiração-tempo|Valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
 |esquema de exigir|O nome do token de esquema, por exemplo "Portador". Quando este atributo for definido, a política irá garantir que esquema especificada encontra-se no valor de cabeçalho de autorização.|Não|N/A|
-|exigir-assinado-tokens|valor booleano. Especifica se um token é necessário para ser iniciada.|Não|true|  
-|separador|Cadeia. Especifica um separador (por exemplo, ",") para ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
+|exigir-assinado-tokens|Valor booleano. Especifica se um token é necessário para ser iniciada.|Não|true|  
+|separador|cadeia. Especifica um separador (por exemplo, ",") para ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
 |url|Abra o URL de ponto final de configuração de ID de onde podem obter metadados de configuração de ID aberta. A resposta deve ser de acordo com especificações conforme definido no URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  

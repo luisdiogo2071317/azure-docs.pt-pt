@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937422"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113722"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937422"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="stable-builds"></a>Estáveis compilações
+### <a name="v2-builds"></a>compilações v2
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Adicionar mais registo.
-* Corrigido uma fuga de DocumentClient ao chamar a estimativa de trabalho pendentes várias vezes.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Correções de estimativa de trabalho pendentes.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Melhoramentos de estabilidade.
-  * Correção para processamento de problema de cancelada tarefas que pode originar parado observadores em algumas partições.
-* Suporte para o ponto de verificação manual.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21 e superior.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Adiciona suporte para .NET 2.0 padrão. O pacote agora suporta `netstandard2.0` e `net451` os monikers do framework.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.17.0 e superior.
-* Compatível com [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versões 1.5.1 e superior.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrige um problema com o cálculo de estimativa do trabalho restantes quando o Feed de alteração foi vazio ou não trabalho estava pendente.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Adicionar um método para obter uma estimativa do trabalho restantes para ser processado no Feed de alteração.
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK
-* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.14.1 e abaixo.
-
-### <a name="pre-release-builds"></a>Versão de pré-lançamento compilações
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Foram corrigidos os problemas seguintes:
@@ -108,6 +79,39 @@ ms.locfileid: "36937422"
 * 100% compatível com versões anteriores com a API de v1.
 * Novo código base.
 * Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21.1 e superior.
+
+### <a name="v1-builds"></a>compilações v1
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Adicionar mais registo.
+* Corrigido uma fuga de DocumentClient ao chamar a estimativa de trabalho pendentes várias vezes.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correções de estimativa de trabalho pendentes.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Melhoramentos de estabilidade.
+  * Correção para processamento de problema de cancelada tarefas que pode originar parado observadores em algumas partições.
+* Suporte para o ponto de verificação manual.
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21 e superior.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Adiciona suporte para .NET 2.0 padrão. O pacote agora suporta `netstandard2.0` e `net451` os monikers do framework.
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.17.0 e superior.
+* Compatível com [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versões 1.5.1 e superior.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Corrige um problema com o cálculo de estimativa do trabalho restantes quando o Feed de alteração foi vazio ou não trabalho estava pendente.
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Adicionar um método para obter uma estimativa do trabalho restantes para ser processado no Feed de alteração.
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e superior.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA SDK
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.14.1 e abaixo.
+
 
 ## <a name="release--retirement-dates"></a>Versão & extinção datas
 A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.

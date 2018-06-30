@@ -2,25 +2,22 @@
 title: 'Azure Active Directory Connect: Resolver totalmente integrada Single Sign-On | Microsoft Docs'
 description: Este tópico descreve como resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 services: active-directory
-keywords: o que é o Azure AD Connect, a instalação do Active Directory, os componentes necessários para o Azure AD, SSO, o início de sessão único
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592233"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110894"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 
@@ -61,7 +58,7 @@ Navegue até à **do Azure Active Directory** > **inícios de sessão** no [Cent
 
 |Código de erro de início de sessão|Motivo da falha de início de sessão|Resolução
 | --- | --- | ---
-| 81001 | A permissão do Kerberos do utilizador é demasiado grande. | Reduza as associações de grupo do utilizador e tente novamente.
+| 81001 | A permissão do Kerberos do utilizador é demasiado grande. | Reduza as adesões a grupos do utilizador e tente novamente.
 | 81002 | Não é possível validar a permissão de Kerberos do utilizador. | Consulte o [resolução de problemas de lista de verificação](#troubleshooting-checklist).
 | 81003 | Não é possível validar a permissão de Kerberos do utilizador. | Consulte o [resolução de problemas de lista de verificação](#troubleshooting-checklist).
 | 81004 | Falha ao tentar a autenticação do Kerberos. | Consulte o [resolução de problemas de lista de verificação](#troubleshooting-checklist).
@@ -84,6 +81,7 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 - Certifique-se de que a conta de utilizador numa floresta do Active Directory onde SSO totalmente integrado tiver sido configurada.
 - Certifique-se de que o dispositivo está ligado à rede empresarial.
 - Certifique-se de que a hora do dispositivo está sincronizada com a hora no Active Directory e os controladores de domínio e que estão dentro de cinco minutos.
+- Certifique-se de que o `AZUREADSSOACCT` conta de computador está presente e ativada em cada floresta do AD que pretende que o SSO totalmente integrada ativada. 
 - Lista de permissões de Kerberos existentes no dispositivo utilizando o `klist` comando numa linha de comandos. Certifique-se de que as permissões emitidas para o `AZUREADSSOACCT` conta de computador estão presentes. Permissões de Kerberos dos utilizadores são normalmente válidos para 10 horas. Poderá ter definições diferentes no Active Directory.
 - Se desativado e reativada SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão único até as respetivas permissões de Kerberos em cache tem expirado.
 - Remover permissões Kerberos existentes são do dispositivo utilizando o `klist purge` comando e tente novamente.

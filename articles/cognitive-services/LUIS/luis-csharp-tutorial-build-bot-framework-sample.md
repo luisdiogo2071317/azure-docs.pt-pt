@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b3283880ebb116e5397c38d722a0790cff414f38
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263885"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111927"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot de aplicação Web utilizando o modelo de LUIS para c#
 
@@ -72,7 +72,7 @@ O bot responde ao indicar "atingiu a saudação. Que consiga aceder tal: Olá ".
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Ligar a aplicação de LUIS para o bot
 
-Abra **definições da aplicação** e editar o **LuisAppId** campo para conter o ID da sua aplicação LUIS. Se tiver criado a sua aplicação HomeAutomation LUIS numa região diferente EUA oeste, terá de alterar o **LuisAPIHostName** bem. O **LuisAPIKey** está atualmente configurado para a chave de criação. Alterar isto para a chave de subscrição quando o tráfego excede a quota do escalão gratuito. 
+Abra **definições da aplicação** e editar o **LuisAppId** campo para conter o ID da sua aplicação LUIS. Se tiver criado a sua aplicação HomeAutomation LUIS numa região diferente EUA oeste, terá de alterar o **LuisAPIHostName** bem. O **LuisAPIKey** está atualmente configurado para a chave de criação. Alterar isto para a chave de ponto final ao seu tráfego excede a quota do escalão gratuito. 
 
   ![Atualizar o ID da aplicação LUIS no Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 

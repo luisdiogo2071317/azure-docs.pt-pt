@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 59adc0bccd523818aad1feca2d0cf260f45d899c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809680"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110372"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA no guia de operações do Azure
 Este documento fornece orientações para o funcionamento sistemas de SAP HANA que são implementados em máquinas de virtuais (VMs) nativas do Azure. Este documento destina-se não substitui a documentação do SAP padrão, que inclui o seguinte conteúdo:
@@ -79,7 +79,7 @@ Para obter uma lista de tipos de armazenamento e os respetivos SLAs no débito d
 
 ### <a name="configuring-the-storage-for-azure-virtual-machines"></a>Configurar o armazenamento para máquinas virtuais do Azure
 
-Far que comprou a aplicações de SAP HANA para o local, nunca teve de se preocupar com subsistemas de e/s e das respetivas funções porque o fornecedor da aplicação tem de certificar-se de que são cumpridos os requisitos de armazenamento mínima para SAP HANA. À medida que cria a infraestrutura do Azure por si, também deve ter conhecimento de algumas esses requisitos também compreender os requisitos de configuração, que sugerimos nas secções seguintes. Ou nos casos em que estiver a configurar as máquinas virtuais que pretende executar SAP HANA. Algumas das características feitas são causando a necessidade de:
+Far que comprou a aplicações de SAP HANA para no local, nunca teve de se preocupar com subsistemas de e/s e das respetivas funções porque o fornecedor da aplicação tem de certificar-se de que são cumpridos os requisitos de armazenamento mínima para SAP HANA. À medida que cria a infraestrutura do Azure por si, também deve ter conhecimento de algumas esses requisitos também compreender os requisitos de configuração, que sugerimos nas secções seguintes. Ou nos casos em que estiver a configurar as máquinas virtuais que pretende executar SAP HANA. Algumas das características feitas são causando a necessidade de:
 
 - Ativar o volume de leitura/escrita no /hana/log de 250 MB/seg no mínimo com tamanhos de e/s de 1 MB
 - Permitir leitura à atividade de, pelo menos, 400MB/seg para /hana/data para tamanhos de e/s de 16 MB e 64 MB

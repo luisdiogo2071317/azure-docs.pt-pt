@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 37f44538d94ed78509bbcb09e726dc34a9e92e95
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030948"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113532"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utilizar a autenticação de novo para do StorSimple
 
@@ -60,9 +60,9 @@ Se utilizar um dispositivo de série 8000 do StorSimple, utilize a tabela seguin
 
 | Se o dispositivo estiver em execução| Execute a ação seguinte                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Atualização 5 ou posterior e o dispositivo está offline. <br> Verá um alerta se o URL não está na lista de permissões.| Modificar as regras de firewall para incluir o URL de autenticação.<br> Consulte [URLs de autenticação](#url-changes-for-aad-authentication). |
+| Atualização 5 ou posterior e o dispositivo está offline. <br> Verá um alerta se o URL não está na lista de permissões.|1. Modificar as regras de firewall para incluir o URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication).<br>2. [Obter a chave de registo do AAD do serviço de](#aad-based-registration-keys).<br>3. [Ligar a interface do Windows PowerShell do dispositivo de série 8000 do StorSimple](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Utilize `Redo-DeviceRegistration` cmdlet para registar o dispositivo através do Windows PowerShell. Forneça a chave que obteve no passo anterior.|
 | Atualização 5 ou posterior e o dispositivo online.| É necessária nenhuma ação.                                       |
-| Atualização 4 ou anterior e o dispositivo está offline. | Modificar as regras de firewall para incluir o URL de autenticação.<br>[Transferir a atualização 5 através do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Aplicar a atualização 5 através do método de correção](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Obter a chave de registo do AAD do serviço de](#aad-based-registration-keys). <br> [Ligar a interface do Windows PowerShell do dispositivo de série 8000 do StorSimple](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Utilize `Redo-DeviceRegistration` cmdlet para registar o dispositivo através do Windows PowerShell. Forneça a chave que obteve no passo anterior.|
+| Atualização 4 ou anterior e o dispositivo está offline. |1. Modificar as regras de firewall para incluir o URL de autenticação.<br>2. [Transferir a atualização 5 através do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Aplicar a atualização 5 através do método de correção](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Obter a chave de registo do AAD do serviço de](#aad-based-registration-keys).<br>5. [Ligar a interface do Windows PowerShell do dispositivo de série 8000 do StorSimple](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Utilize `Redo-DeviceRegistration` cmdlet para registar o dispositivo através do Windows PowerShell. Forneça a chave que obteve no passo anterior.|
 | Atualização 4 ou anterior e o dispositivo está online. |Modificar as regras de firewall para incluir o URL de autenticação.<br> Instale a atualização 5 através do portal do Azure.              |
 | Repor definições de fábrica para uma versão antes da atualização 5.      |O portal mostra uma chave de registo com base do AAD, enquanto o dispositivo está a executar o software mais antigo. Siga os passos do cenário anterior para quando o dispositivo está em execução atualização 4 ou anterior.              |
 

@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: d05d6d4a8bfc4450de4881e704b0e9f7b7b4716d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414574"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138148"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre os discos de VM do IaaS do Azure e os discos premium geridas e não geridas
 
@@ -102,7 +102,7 @@ Os clientes podem tirar um instantâneo os respetivos discos geridos e, em segui
 Sim, são suportados discos de não geridos e geridos. Recomendamos que utilize discos geridos para novas cargas de trabalho e migre as cargas de trabalho atuais para discos geridos.
 
 
-**Se criar um disco de 128 GB e, em seguida, aumentar o tamanho da 130 GB, será posso cobrado para o próximo tamanho de disco (GB de 512)?**
+**Se criar um disco de 128 GB e, em seguida, aumentar o tamanho da 130 GB, será posso cobrado para o próximo tamanho de disco (GB de 256)?**
 
 Sim.
 
@@ -209,11 +209,11 @@ Não.
 
 **Encriptação do serviço de armazenamento só está disponível em regiões específicas?**
 
-Não. Está disponível em todas as regiões onde discos geridos estão disponíveis. Discos geridos está disponível em todas as regiões públicas e na Alemanha.
+Não. Está disponível em todas as regiões onde discos geridos estão disponíveis. Discos geridos está disponível em todas as regiões públicas e na Alemanha. Também está disponível na China, no entanto, apenas para a Microsoft geridos chaves, não cliente chaves geridas.
 
 **Como posso saber se se o meu disco gerido é encriptado?**
 
-Pode encontrar a hora quando um disco gerido foi criado a partir do portal do Azure, a CLI do Azure e o PowerShell. Se a hora de 9 de Junho de 2017, o disco está encriptado. 
+Pode encontrar a hora quando um disco gerido foi criado a partir do portal do Azure, a CLI do Azure e o PowerShell. Se a hora de 9 de Junho de 2017, o disco está encriptado.
 
 **Como encriptar o meu discos existentes que foram criados antes de 10 de Junho de 2017?**
 

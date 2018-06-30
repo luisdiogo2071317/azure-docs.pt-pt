@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060047"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128712"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos SQL
 
@@ -121,7 +121,8 @@ Configurar o SQL Always On instâncias é necessários passos adicionais e reque
 > [!NOTE]
 > O fornecedor de recursos do SQL Server adaptador _apenas_ suporta SP1 Enterprise do SQL Server 2016 ou posterior instâncias Always On. Esta configuração de adaptador requer novas funcionalidades do SQL Server, tais como o seeding automático.
 
-Além disso, tem de ativar [Seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
+### <a name="automatic-seeding"></a>Automático seeding
+Tem de ativar [Seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
 
 Para ativar o seeding automático em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
 
@@ -136,6 +137,18 @@ Nas instâncias do secundárias, editar e, em seguida, execute o seguinte comand
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Configurar a autenticação de base de dados contida
+Antes de adicionar uma base de dados contida a um grupo de disponibilidade, certifique-se de que a opção de servidor de autenticação de base de dados contida está definida para 1 em todas as instâncias de servidor que aloja uma réplica de disponibilidade para o grupo de disponibilidade. Para obter mais informações, consulte [incluído a opção de configuração do servidor de autenticação de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Utilize estes comandos para definir a opção de servidor de autenticação de base de dados contida para cada instância:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

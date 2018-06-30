@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637740"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116184"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de imagem com o Azure Machine Learning
 
@@ -34,7 +34,7 @@ Quando criar e implementar este modelo com AMLPCV, leia os seguintes passos:
 7. Implementação de serviço Web
 8. Serviço Web do teste de carga
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) é utilizado como o framework de aprendizagem profunda, formação é executada localmente numa máquina GPU ligada, tal como a ([profunda de VM de ciência de dados de aprendizagem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), e a implementação utilizar a CLI do Azure ML Operationalization.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) é utilizado como o framework de aprendizagem profunda, formação é executada localmente numa máquina GPU ligada, tal como a ([profunda de VM de ciência de dados de aprendizagem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), e a implementação utilizar a CLI do Azure ML Operationalization.
 
 Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para a referência de detalhado para cada módulo e uma classe.
 
@@ -433,7 +433,7 @@ Operationalization é o processo de publicação modelos e código como serviço
 
 Depois do seu modelo está preparado, pode implementar este modelo como um serviço web para utilizar o consumo [CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Os modelos podem ser implementados para o computador local ou o cluster do serviço de contentor do Azure (ACS). Utilizar ACS, pode dimensionar o seu serviço web manualmente ou utilizar a funcionalidade de dimensionamento automático.
 
-**Iniciar sessão com a CLI do Azure**
+**Inicie sessão com a CLI do Azure**
 
 Utilizar um [Azure](https://azure.microsoft.com/) conta com uma subscrição válida, inicie sessão com o seguinte comando da CLI:
 <br>`az login`

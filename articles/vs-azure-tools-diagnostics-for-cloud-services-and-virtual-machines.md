@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292545"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110492"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure
 Quando precisar de resolver problemas de uma máquina virtual ou serviço em nuvem do Azure, pode utilizar o Visual Studio para configurar mais facilmente o diagnóstico do Azure. Diagnóstico de captura de dados de sistema e dados de registo em máquinas virtuais e instâncias de máquina virtual com o seu serviço em nuvem. Dados de diagnóstico são transferidos para uma conta de armazenamento que escolher. Para obter mais informações sobre diagnósticos registo no Azure, consulte o artigo [ativar o registo de diagnóstico para Web Apps no App Service do Azure](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ No Visual Studio, pode recolher dados de diagnóstico para funções que são ex
    * Se selecionar **sua subscrição**, pode selecionar a subscrição do Azure que pretende utilizar e introduza um nome de conta. Para gerir as subscrições do Azure, selecione **gerir contas**.
    * Se selecionar **introduzir manualmente as credenciais**, introduza o nome e a chave da conta do Azure que pretende utilizar.
 5. Para ver o **configuração de diagnósticos** caixa de diálogo, selecione **configurar**. Com exceção do **geral** e **registo diretórios**, cada separador Representa uma origem de dados de diagnóstico que pode recolher. A predefinição **geral** separador oferece o diagnóstico seguinte opções de recolha de dados: **apenas erros**, **todas as informações**, e **plano personalizada**. A predefinição **apenas erros** opção utiliza o mínimo de armazenamento, porque não transferir avisos ou mensagens de rastreio. O **todas as informações** opção transfere mais informações, utiliza mais armazenamento e, por conseguinte, é a opção mais dispendiosa.
-   
+
+   > [!NOTE]
+   > Tamanho mínimo de suportado de "Disco Quota nas MB" é 4GB. No entanto, se está a recolher Estados da memória, aumente este para um valor superior, como 10GB.
+   >
+  
     ![Ativar o diagnóstico do Azure e a configuração](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Para este exemplo, selecione o **plano personalizada** opção, pelo que pode personalizar os dados recolhidos.
 7. No **Quota de disco em MB** caixa, pode definir a quantidade de espaço em alocar na sua conta de armazenamento para dados de diagnóstico. Pode alterar ou aceite o valor predefinido.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655675"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110425"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>V3 de Media Services do Azure (pré-visualização) perguntas mais frequentes
 
@@ -30,7 +30,7 @@ Ainda não. Pode utilizar uma dos SDKs suportados. Consulte os tutoriais e exemp
 
 A equipa de serviços de suporte de dados é eliminando RUs na v3. No entanto o trabalho de serviço necessárias não está concluído. Até lá, os clientes têm de utilizar o portal do Azure ou APIs do AMS v2 para definir RUs (conforme descrito em [dimensionamento de processamento de suporte de dados](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs são necessários para o **VideoAnalyzerPreset** e **AudioAnalyzerPreset** V3 predefinições.
+Quando utilizar **VideoAnalyzerPreset** e/ou **AudioAnalyzerPreset**, defina a sua conta de Media Services para 10 unidades reservadas de multimédia S3.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>A V3 Asset tem nenhum conceito AssetFile?
 
@@ -56,7 +56,7 @@ Para obter mais informações, consulte [filtragem, ordenação, paginação](as
 
 ## <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Como obter uma entidade em Media Services v3?
 
-v3 baseia-se numa superfície de API unificada que expõe uma funcionalidade de gestão e operações incorporada no **do Azure Resource Manager**. Em conformidade com **do Azure Resource Manager**, os nomes de recursos são sempre de ser exclusivos. Assim, pode utilizar todas as cadeias de identificador exclusivo (por exemplo, GUIDs) para os nomes de recursos. 
+v3 baseia-se numa superfície de API unificada que expõe uma funcionalidade de gestão e operações incorporada no **do Azure Resource Manager**. Em conformidade com **do Azure Resource Manager**, os nomes de recursos são sempre de ser exclusivos. Desta forma, pode utilizar todas as cadeias de identificador exclusivo (por exemplo, GUIDs) para os nomes de recursos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

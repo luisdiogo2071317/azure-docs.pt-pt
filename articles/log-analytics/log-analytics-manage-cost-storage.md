@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637519"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130933"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção na análise de registos
 Análise de registos está concebido para escala e a recolha de suporte, a indexação e armazenar as quantidades enormes de dados por dia de uma origem na sua empresa ou implementado no Azure.  Apesar de este número pode ser um controlador primário para a sua organização, eficiência de custos é basicamente o controlador subjacente. Para esse fim importante compreender que o custo de uma área de trabalho do registo Analytisc não se encontra apenas com base no volume dos dados recolhidos, também está dependente do plano selecionado e o período de tempo que escolheu armazenar dados gerados a partir de origens de ligado.  

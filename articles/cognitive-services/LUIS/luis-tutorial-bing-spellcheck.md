@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 96b23146e726b7fee86b7e449c81d7efc0073e8d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356120"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127674"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras com erros ortográficos corretas com verificação de ortográfica do Bing
 
@@ -26,8 +26,9 @@ O [primeira chave de v7 a API de verificação ortográfica do Bing](https://azu
 
 ![Criar chave livre](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Criar a chave de subscrição
-Se a sua chave livre expirado, crie uma chave de subscrição.
+< uma nome "criar subscrição-chave" ></a>
+## <a name="create-endpoint-key"></a>Criar a chave de ponto final
+Se a sua chave livre expirado, crie uma chave de ponto final.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Se a sua chave livre expirado, crie uma chave de subscrição.
 10. Copie a chave primeiro. Só precisa de uma das duas chaves. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Utilizando a chave no painel de teste de LUIS
-Existem dois locais LUIS para utilizar a chave. Está a ser o primeiro o [painel de teste](train-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é guardada na LUIS mas em vez disso, é uma variável de sessão. Tem de definir a chave sempre que pretender que o painel de teste para aplicar o serviço de v7 a API de verificação ortográfica do Bing para o utterance. Consulte [instruções](train-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para definir a chave.
+Existem dois locais LUIS para utilizar a chave. Está a ser o primeiro o [painel de teste](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é guardada na LUIS mas em vez disso, é uma variável de sessão. Tem de definir a chave sempre que pretender que o painel de teste para aplicar o serviço de v7 a API de verificação ortográfica do Bing para o utterance. Consulte [instruções](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para definir a chave.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Adicione a chave para o URL de ponto final
 A consulta de ponto final tem da chave transmitida os parâmetros de cadeia de consulta para cada consulta que pretende aplicar a correção de ortografia. Pode ter um chatbot que chama LUIS ou pode chamar o API do ponto final do LUIS diretamente. Independentemente da forma como se chama o ponto final, todas as chamadas tem de incluir as informações necessárias para as correções ortografia funcione corretamente.

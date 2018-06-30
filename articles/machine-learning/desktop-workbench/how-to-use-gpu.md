@@ -7,16 +7,16 @@ ms.author: roastala
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: db0cfa1d91681d48a21ac160706dc4e8c72f81c2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 852f514a36ea640f478c5cc5ebbb137ca962703a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830916"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116190"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Como utilizar GPU no Azure Machine Learning
 Unidade de processamento gráfico (GPU) em grande escala é utilizada para processar tarefas viáveis intensivas que, normalmente, podem acontecer quando se prepara determinados modelos de rede neuronal profundo. Ao utilizar GPUs, pode reduzir o tempo de preparação dos modelos significativamente. Neste documento, irá aprender a configurar o Azure ML Workbench utilizar [DSVM (máquina de Virtual de ciência de dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipados com GPUs como destino de execução. 
@@ -41,8 +41,8 @@ Neste caso, não existem nenhuma configuração especial necessária no Azure ML
 REM install latest TensorFlow with GPU support
 C:\MyProj> pip install tensorflow-gpu
 
-REM install Microsoft Cognitive Toolkit 2.1 (1-bit SGD) with GPU support on Windows
-C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-win_amd64.whl
+REM install Microsoft Cognitive Toolkit 2.5 with GPU support on Windows
+C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.5.1-cp35-cp35m-win_amd64.whl
 ```
 
 3. Escreva código Python, que tira partido do avançada bibliotecas de aprendizagem.
@@ -117,19 +117,8 @@ name: project_environment
 dependencies:
   - python=3.5.2
   - pip: 
-    # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
-```
-
-Também pode utilizar a versão de bits SGD 1 do Toolkit cognitivos Microsoft que fornece melhorias de desempenho em GPU de várias VMs. Tenha em atenção [o requisito de licença para 1 bit-SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
-
-```yaml
-name: project_environment
-dependencies:
-  - python=3.5.2
-  - pip:    
-    # use the Linux build of the Microsoft Cognitive Toolkit 2.1 with 1-bit SGD and GPU support
-    - https://cntk.ai/PythonWheel/GPU-1bit-SGD/cntk-2.1-cp35-cp35m-linux_x86_64.whl
+    # use the Linux build of Microsoft Cognitive Toolkit 2.5 with GPU support
+    - https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.5.1-cp35-cp35m-win_amd64.whl
 ```
 
 ### <a name="execute"></a>Executar

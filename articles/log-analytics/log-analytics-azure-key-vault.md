@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30238397"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127047"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluções de análise do Cofre de chaves do Azure na análise de registos
 
@@ -113,12 +114,12 @@ A solução Cofre de chaves do Azure analisa os registos que tenham um tipo de *
 | httpStatusCode_d |Código de estado HTTP devolvido por pedido (por exemplo, *200*) |
 | id_s |ID exclusivo do pedido |
 | identity_claim_appid_g | GUID para o id da aplicação |
-| OperationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../key-vault/key-vault-logging.md) |
+| operationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../key-vault/key-vault-logging.md) |
 | OperationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
 | requestUri_s |URI do pedido |
 | Recurso |Nome do Cofre de chaves |
 | ResourceGroup |Grupo de recursos do Cofre de chaves |
-| ResourceId |ID do Recurso do Azure Resource Manager Para os registos do Cofre de chaves, este é o ID de recurso do Cofre de chaves. |
+| resourceId |ID do Recurso do Azure Resource Manager Para os registos do Cofre de chaves, este é o ID de recurso do Cofre de chaves. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |Estado de HTTP (por exemplo, *OK*) |

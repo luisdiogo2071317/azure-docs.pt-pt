@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f447378816f137517a3d542a27841d0cab351473
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838481"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112685"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos de equipa de ciência de dados
 
-A Microsoft fornece um espetro completo de dados e serviços de análise e os recursos de nuvem ou plataformas no local. Estes podem ser implementados para tornar a execução dos seus projetos de ciência de dados eficientes e dimensionáveis. Orientações para implementar projetos de ciência de dados num trackable de equipas, versão controladas e forma colaboração é fornecida pelo [o processo de ciência de dados de equipa](overview.md) (TDSP).  Para uma descrição das funções de técnicos e das respetivas tarefas associadas são processados por um dados ciência equipa uniformizar neste processo, consulte [funções do processo de ciência de dados de equipa e tarefas](roles-tasks.md).
+A Microsoft fornece um espetro completo de dados e análise de serviços e recursos para as plataformas de cloud ou no local. Estes podem ser implementados para tornar a execução dos seus projetos de ciência de dados eficientes e dimensionáveis. Orientações para implementar projetos de ciência de dados num trackable de equipas, versão controladas e forma colaboração é fornecida pelo [o processo de ciência de dados de equipa](overview.md) (TDSP).  Para uma descrição das funções de técnicos e das respetivas tarefas associadas são processados por um dados ciência equipa uniformizar neste processo, consulte [funções do processo de ciência de dados de equipa e tarefas](roles-tasks.md).
 
 Os serviços de dados e análise disponíveis para as equipas de ciência de dados utilizando o TDSP incluem:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 3058678032989d71886311073513a23ac19d18f8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a81c23d6acb79e42157ac7d804dac259723b3b0e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34838865"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114355"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -45,7 +45,7 @@ Os modelos que utilizamos incluem regressão linear e logística da, florestas a
 * [Florestas aleatórias](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são ensembles de árvores de decisões.  Se combinam várias árvores de decisões para reduzir o risco de overfitting. Florestas aleatórias são utilizadas para regressão e classificação e podem processar funcionalidades categórico e podem ser expandidas para a definição de classificação de várias classes. Estes não necessitam de dimensionamento de funcionalidade e são capazes de captura não linearities e interações de funcionalidade. Florestas aleatórias são um do mais bem-sucedida modelos de machine learning para classificação e regressão.
 * [Gradação elevada árvores](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são ensembles de árvores de decisões. GBTs preparar árvores de decisões iteratively para minimizar a uma função de perda. GBTs são utilizadas para regressão e classificação pode processar categórico funcionalidades, não necessitam de dimensionamento de funcionalidade e são capazes de captura não linearities e interações de funcionalidade. Também pode ser utilizados uma definição de classificação de várias classes.
 
-Modelação de exemplos utilizando CV e Hyperparameter paramétrico são apresentadas para o problema de classificação binária. Exemplos mais simples (sem o parâmetro sweeps) são apresentados no tópico principal para tarefas de regressão. Mas no anexo, validação utilizando net elástico para regressão linear e CV com a utilização do parâmetro paramétrico para regressão de floresta aleatório é também apresentada. O **elástico net** é um método de regressão regularized para modelos de regressão linear de ajuste que forma linear combina as métricas L1 e L2 como penalidades do [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) métodos.   
+Modelação de exemplos utilizando CV e Hyperparameter paramétrico são apresentadas para o problema de classificação binária. Exemplos mais simples (sem o parâmetro sweeps) são apresentados no tópico principal para tarefas de regressão. Mas no anexo, validação utilizando net elástico para regressão linear e CV com a utilização do parâmetro paramétrico para regressão de floresta aleatório é também apresentada. O **elástico net** é um método de regressão regularized para modelos de regressão linear de ajuste que forma linear combina as métricas L1 e L2 como penalidades do [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization)métodos.   
 
 > [!NOTE]
 > Embora o toolkit de Spark MLlib foi concebido para funcionar no grandes conjuntos de dados, uma amostra relativamente pequena (Mb de ~ 30 utilizando 170K linhas, cerca de 0.1% do conjunto de dados original NYC) é utilizada aqui para sua comodidade. Exercício fornecido aqui executa forma eficiente (em cerca de 10 minutos) num cluster do HDInsight com 2 nós de trabalho. O mesmo código, com pequenas alterações, pode ser utilizado para processar conjuntos de dados maiores, com as alterações adequadas para a colocação em cache dados na memória e alterar o tamanho do cluster.
@@ -668,7 +668,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de re
 
 **SAÍDA**
 
-Coefficients: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e - 05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921, - 0.664263411392-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercept:-0.0111216486893
 
@@ -1057,7 +1057,7 @@ O código nesta secção mostra como utilizar funcionalidades dimensionadas para
 
 **SAÍDA**
 
-Coefficients: [0.0141707753435,-0.0252930927087,-0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092,-0.00456498588241,-0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632,-0.00289545676449,-0.00791124681938, 0.54396316518,-0.536293513569, 0.0119076553369,-0.0173039244582, 0.0119632796147, 0.00146764882502]
+Coefficients: [0.0141707753435-0.0252930927087,-0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092,-0.00456498588241,-0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632,-0.00289545676449,- 0.00791124681938 0.54396316518,-0.536293513569, 0.0119076553369,-0.0173039244582, 0.0119632796147, 0.00146764882502]
 
 Intercetar: 0.854507624459
 
@@ -1126,7 +1126,7 @@ Tempo decorrido para executar acima célula: 25.98 segundos
 ### <a name="gradient-boosting-trees-regression"></a>Regressão de árvores de aumento gradação
 O código nesta secção mostra como preparar, avaliar e guardar um modelo de árvores de aumento gradação que prevê a quantidade de sugestão de dados NYC taxi viagem.
 
-* * Dar formação e avaliar * *
+**Dar formação e avaliar**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

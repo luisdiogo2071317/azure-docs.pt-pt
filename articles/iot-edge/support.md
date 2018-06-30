@@ -8,17 +8,17 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081759"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130714"
 ---
 # <a name="azure-iot-edge-support"></a>Suporte de limite de IoT do Azure
 Existem várias formas para procurar o ressarcimento de suporte para o produto de limite de IoT do Azure.
 
-**Relatório de erros** – a maioria das desenvolvimento entra no produto Azure IoT Edge acontece no projeto de open source do limite de IoT. Erros podem ser comunicados no [página problemas](https://github.com/azure/iot-edge/issues) do projeto. Correções tornar rapidamente os seus forma do projeto em atualizações de produto.
+**Relatório de erros** – a maioria das desenvolvimento entra no produto Azure IoT Edge acontece no projeto de open source do limite de IoT. Erros podem ser comunicados no [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções tornar rapidamente os seus forma do projeto em atualizações de produto.
 
 **Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode interagir com a equipa de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir de [portal do Azure]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

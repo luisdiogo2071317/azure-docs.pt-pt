@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 3c3fde3aefe02dd3919378d39afeff7cded763fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215567"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Azure Active Directory com Coupa
 
@@ -60,14 +60,14 @@ Para configurar a integração de Coupa com o Azure AD, terá de adicionar Coupa
 
 **Para adicionar Coupa a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
     ![O painel de aplicações da empresa][2]
-    
+
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
     ![O novo botão de aplicação][3]
@@ -103,21 +103,33 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. No **Coupa domínio e os URLs** secção, execute os seguintes passos:
 
     ![Domínio Coupa e os URLs únicos de informações de início de sessão](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `http://<companyname>.Coupa.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.coupahost.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `<companyname>.coupahost.com`
+    > [!NOTE]
+    > O valor do URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter este valor.
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.coupahost.com/sp/ACS.saml2`
+    b. No **identificador** caixa de texto, escreva o URL:
 
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter estes valores. irá obter o valor do URL de resposta dos metadados, que é explicado mais tarde no tutorial.
+    | Ambiente  | do IdP |
+    |:-------------|----|
+    | Sandbox | `devsso35.coupahost.com`|
+    | Produção | `prdsso40.coupahost.com`|
+    | | |
+
+    c. No **URL de resposta** caixa de texto, escreva o URL:
+
+    | Ambiente | do IdP |
+    |------------- |----|
+    | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | Produção | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -130,24 +142,18 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 6. Inicie sessão site da sua empresa Coupa como administrador.
 
 7. Aceda a **configuração \> controlo de segurança**.
-   
+
    ![Controlos de segurança](./media/coupa-tutorial/ic791900.png "controlos de segurança")
 
 8. No **inicie sessão com credenciais de Coupa** secção, execute os seguintes passos:
 
     ![Metadados Coupa SP](./media/coupa-tutorial/ic791901.png "Coupa SP metadados")
-    
-    a. Selecione **iniciar sessão utilizando SAML**.
-    
-    b. Para transferir o ficheiro de metadados Coupa para o seu computador, clique em **transferir e importar metadados de SP**. Abra os metadados e copiar a **AssertionConsumerService índice/URL** valor, cole o valor para o **URL de resposta** textbox no **Coupa domínio e os URLs** secção. 
-    
-    c. Clique em **procurar** para carregar os metadados transferido a partir do portal do Azure.
-    
-    d. Clique em **Guardar**.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Selecione **iniciar sessão utilizando SAML**.
+
+    b. Clique em **procurar** para carregar os metadados transferido a partir do portal do Azure.
+
+    c. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -180,7 +186,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-coupa-test-user"></a>Criar um utilizador de teste Coupa
 
 Para permitir que os utilizadores do Azure AD sessão Coupa, têm de ser aprovisionados para Coupa.  
@@ -192,39 +198,39 @@ Para permitir que os utilizadores do Azure AD sessão Coupa, têm de ser aprovis
 1. Inicie sessão no seu **Coupa** site da empresa como administrador.
 
 2. No menu na parte superior, clique em **configuração**e, em seguida, clique em **utilizadores**.
-   
+
    ![Os utilizadores](./media/coupa-tutorial/ic791908.png "utilizadores")
 
 3. Clique em **Criar**.
-   
+
    ![Criar utilizadores](./media/coupa-tutorial/ic791909.png "criar utilizadores")
 
 4. No **criar utilizador** secção, execute os seguintes passos:
-   
+
    ![Detalhes de utilizador](./media/coupa-tutorial/ic791910.png "detalhes de utilizador")
-   
+
    a. Tipo de **início de sessão**, **nome próprio**, **Apelido**, **ID de início de sessão único**, **E-Mail** atributos de um conta válida do Azure Active Directory que pretende aprovisionar num relacionados caixas de texto.
 
-   b. Clique em **Criar**.   
-   
+   b. Clique em **Criar**.
+
    >[!NOTE]
-   >O marcador de posição de conta do Azure Active Directory irá receber um e-mail com uma ligação para confirmar a conta para ficar ativa. 
-   > 
+   >O marcador de posição de conta do Azure Active Directory irá receber um e-mail com uma ligação para confirmar a conta para ficar ativa.
+   >
 
 >[!NOTE]
->Pode utilizar quaisquer outras Coupa utilizador conta criação ferramentas ou APIs fornecidas pelo Coupa para aprovisionar contas de utilizador do AAD. 
+>Pode utilizar quaisquer outras Coupa utilizador conta criação ferramentas ou APIs fornecidas pelo Coupa para aprovisionar contas de utilizador do AAD.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Coupa.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Coupa, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Coupa**.
 
@@ -243,13 +249,13 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico Coupa no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Coupa.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -269,4 +275,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-

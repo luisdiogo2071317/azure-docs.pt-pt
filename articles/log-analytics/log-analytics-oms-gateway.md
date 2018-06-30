@@ -3,7 +3,7 @@ title: Ligar a computadores utilizando o Gateway do OMS | Microsoft Docs
 description: Ligar os seus dispositivos e computadores monitorizados de Operations Manager com o Gateway do OMS para enviar dados para a automatização do Azure e o serviço de análise de registos quando não têm acesso à Internet.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: na
+ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271654"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129045"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet através do Gateway do OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e análise de registos com o Gateway do OMS quando direta ligado ou computadores monitorizados do Operations Manager não têm acesso à Internet.  O Gateway do OMS, que é um proxy de reencaminhamento de HTTP que suporte o HTTP de túnel utilizando o comando HTTP ligar, pode recolher dados e envia-as à automatização do Azure e análise de registos em nome daqueles.  
@@ -157,7 +158,7 @@ Para utilizar o Gateway para suportar o Operations Manager, tem de ter:
 > Se não especificar um valor para o gateway, os valores em branco são enviadas por push para todos os agentes.
 > 
 
-Se esta for a primeira vez que o grupo de gestão do Operations Manager está a registar com uma área de trabalho de análise de registos, a opção de especificar a configuração de proxy para o grupo de gestão não está disponível na consola de operações.  O grupo de gestão tem de ser registado com êxito com o serviço antes desta opção está disponível.  Tem de atualizar a configuração de proxy do sistema utilizando Netsh no sistema a executar a consola de operações do, para configurar a integração e todos os servidores de gestão no grupo de gestão.  
+Se esta for a primeira vez que o grupo de gestão do Operations Manager está a registar com uma área de trabalho de análise de registos, a opção de especificar a configuração de proxy para o grupo de gestão não está disponível na consola de operações.  O grupo de gestão tem de ser registado com êxito no serviço para esta opção ficar disponível.  Tem de atualizar a configuração do proxy do sistema através do Netsh no sistema no qual está a executar a Consola de operações para configurar a integração e todos os servidores de gestão no grupo de gestão.  
 
 1. Abra uma linha de comandos elevada.
    a. Aceda a **iniciar** e tipo **cmd**.
@@ -182,7 +183,7 @@ Para ambientes de grandes ou complexas, só poderá servidores específicos (ou 
 1. Abra a consola do Operations Manager e selecione o **criação** área de trabalho.  
 2. Na área de trabalho de criação de conteúdos, selecione **regras** e clique em de **âmbito** botão na barra de ferramentas do Operations Manager. Se este botão não estiver disponível, certifique-se certificar de que tem um objeto, não uma pasta, selecionado no painel de monitorização. O **objetos de pacote de gestão do âmbito** caixa de diálogo apresenta uma lista de classes de destino comuns, grupos ou objetos. 
 3. Tipo **serviço de integridade** no **procure** campo e selecione-a partir da lista.  Clique em **OK**.  
-4. Procure a regra **regra de definição de Proxy do Advisor** e na barra de ferramentas da consola de operações, clique em **substitui** e, em seguida, aponte para **o Rule\For um objeto específico da classe de substituição: serviço de integridade** e selecione um objeto específico da lista.  Opcionalmente, pode criar um grupo personalizado que contém o objeto de serviço do Estado de funcionamento dos servidores que pretende aplicar esta substituição para e, em seguida, aplicar a substituição para esse grupo.
+4. Procure a regra **regra de definição de Proxy do Advisor** e na barra de ferramentas da consola de operações, clique em **substitui** e, em seguida, aponte para **o Rule\For um objeto específico da classe de substituição: serviço de integridade**  e selecione um objeto específico da lista.  Opcionalmente, pode criar um grupo personalizado que contém o objeto de serviço do Estado de funcionamento dos servidores que pretende aplicar esta substituição para e, em seguida, aplicar a substituição para esse grupo.
 5. No **propriedades da substituição** caixa de diálogo, clique para colocar uma marca de verificação no **substituir** coluna seguinte para o **WebProxyAddress** parâmetro.  No **valor de substituição** campo, introduza o URL do servidor de Gateway do OMS garantir que comece com o `http://` prefixo.  
 
     >[!NOTE]
@@ -252,7 +253,7 @@ Os cmdlets podem ajudar a concluir as tarefas que são necessárias para atualiz
 1. Instale o Gateway do OMS (MSI).
 2. Abra uma janela da consola do PowerShell.
 3. Para importar o módulo, escreva este comando: `Import-Module OMSGateway`
-4. Se nenhum erro no passo anterior, o módulo foi importado com êxito e os cmdlets podem ser utilizados. tipo `Get-Module OMSGateway`
+4. Se nenhum erro no passo anterior, o módulo foi importado com êxito e os cmdlets podem ser utilizados. Tipo `Get-Module OMSGateway`
 5. Depois de efetuar alterações ao utilizar os cmdlets, certifique-se de que reinicie o serviço de Gateway.
 
 Se obtiver um erro no passo 3, o módulo não foi importado. O erro pode ocorrer quando não consegue localizar o módulo PowerShell. Pode encontrá-lo no caminho de instalação do Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.

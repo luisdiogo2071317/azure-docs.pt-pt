@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8f3c0e4dec05b2ed968a3493a7cc560231e7331
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b57522933647c9d1d5518740d41b624b199a020e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215696"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com Confluence SAML SSO pela Microsoft
 
@@ -167,7 +167,7 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     a. No **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique em de **resolver** botão. Lê o URL de metadados do IdP e preenche a todas as informações de campos.
 
-    b. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os no **identificador, o URL de resposta e o URL de início de sessão** caixas de texto em respetivamente **Confluence SAML SSO ao Microsoft Domain e URLs** secção no portal do Azure.
+    b. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os no **identificador, o URL de resposta e o URL de início de sessão** caixas de texto em respetivamente **Confluence SAML SSO Domain Microsoft e os URLs**  secção no portal do Azure.
 
     c. No **nome do botão de início de sessão** escreva o nome do botão para a organização quer que os utilizadores vejam no ecrã de início de sessão.
 
@@ -222,11 +222,11 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>Criar um Confluence SAML SSO pelo utilizador de teste da Microsoft
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos Confluence no servidor no local, estes têm de ser aprovisionados para Confluence SAML SSO pela Microsoft. Confluence SAML SSO pela Microsoft, o aprovisionamento é uma tarefa manual.
+Para permitir que os utilizadores do Azure AD iniciar sessão no servidor no local de Confluence, estes têm de ser aprovisionados para Confluence SAML SSO pela Microsoft. Confluence SAML SSO pela Microsoft, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu Confluence no servidor no local como administrador.
+1. Inicie sessão na sua Confluence server local como administrador.
 
 2. Paire o rato sobre o ícone e clique em de **gestão de utilizadores**.
 

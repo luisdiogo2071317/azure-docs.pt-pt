@@ -4,21 +4,23 @@ description: Grupos de computadores na análise de registos permitem-lhe para pe
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: 23ac75b4afb07c3f8d5f0d90755a5cf2087087e1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130680"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registo de grupos de computadores na análise de registos
 
@@ -68,7 +70,7 @@ Configurar a análise de registos para importar os grupos de segurança do Activ
 
 Quando os grupos foram importados, o menu de lista o número de computadores com associações a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para devolver o **grupo de computador** registos com estas informações.
 
-### <a name="windows-server-update-service"></a>Windows Server Update Service
+### <a name="windows-server-update-service"></a>Serviço de Atualização do Windows Server
 Quando configura a análise de registos para importar associações a grupos WSUS, analisa as associações a filtragem de todos os computadores com o agente do OMS.  Se estiver a utilizar o lado do cliente a filtragem, qualquer computador que está ligada à análise de registos e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para análise de registos. Se estiver a utilizar o lado do servidor como objetivo, o OMS agente deve ser instalado no servidor WSUS para que as informações de associação de grupo para serem importados para análise de registos.  Esta associação é constantemente atualizada a cada 4 horas. 
 
 Configurar a análise de registos para importar os grupos do WSUS da análise de registos **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **WSUS**e, em seguida, **associações a grupos WSUS de importação**.  Não há nenhuma configuração adicional.
@@ -77,7 +79,7 @@ Configurar a análise de registos para importar os grupos do WSUS da análise de
 
 Quando os grupos foram importados, o menu de lista o número de computadores com associações a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para devolver o **grupo de computador** registos com estas informações.
 
-### <a name="system-center-configuration-manager"></a>O System Center Configuration Manager
+### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Quando configura a análise de registos para importar associações a coleção do Configuration Manager, cria um grupo de computadores para cada coleção.  As informações de associação da coleção são obtidas todos os 3 horas para manter os grupos de computador atual. 
 
 Antes de importar coleções do Configuration Manager, tem [ligar o Configuration Manager ao Log Analytics](log-analytics-sccm.md).  Em seguida, pode configurar a importação da análise de registos **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **SCCM**e, em seguida, **associações de coleção do Gestor de configuração da importação**.  Não há nenhuma configuração adicional.

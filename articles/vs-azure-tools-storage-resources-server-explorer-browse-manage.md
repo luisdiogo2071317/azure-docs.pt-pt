@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061748"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112325"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Procurar e gerir recursos de armazenamento utilizando o Explorador de servidores
 
@@ -219,7 +219,7 @@ Pode personalizar o conjunto de entidades que são apresentados numa tabela, se 
 1. Quando estiver pronto a construir a consulta, feche a caixa de diálogo. O formato de texto resultante da consulta é apresentado numa caixa de texto como um filtro de WCF Data Services.
 1. Para executar a consulta, selecione o ícone de triângulo verde.
 
-Também pode filtrar os dados de entidade que aparece no estruturador de tabela se introduzir uma cadeia de filtro do WCF Data Services diretamente na caixa de texto de filtro. Este tipo de cadeia é semelhante a uma cláusula onde SQL, mas é enviado para o servidor como um pedido de HTTP. Para obter informações sobre como construir as cadeias de filtro, consulte [construir cadeias de filtro para o estruturador de tabela](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Também pode filtrar os dados de entidade que aparece no estruturador de tabela se introduzir uma cadeia de filtro do WCF Data Services diretamente na caixa de texto de filtro. Este tipo de cadeia é semelhante a uma cláusula onde SQL, mas é enviado para o servidor como um pedido de HTTP. Para obter informações sobre como construir as cadeias de filtro, consulte [Constructing cadeias de filtro para o estruturador de tabela](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 A ilustração seguinte mostra um exemplo de uma cadeia de filtro válida:
 

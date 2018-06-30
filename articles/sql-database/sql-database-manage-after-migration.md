@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061649"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110617"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na nuvem – gerir a sua base de dados SQL Database do Azure
 
@@ -254,7 +254,7 @@ Base de dados do SQL Server utiliza algumas inteligentes técnicas que lhe permi
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Como devo sincronizar dados entre a base de dados SQL e SQL Server?
 Tem várias formas de alcançar isto: 
 - **[Sincronização de dados](sql-database-sync-data.md)**  – esta funcionalidade ajuda-o a sincronizar dados bidirecional entre várias bases de dados no local do SQL Server e base de dados SQL. Para sincronizar com bases de dados no local do SQL Server, terá de instalar e configurar o agente de sincronização num computador local, abra a porta de saída de TCP 1433.
-- **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações que pode sincronizar os dados do local para a BD SQL do Azure com o local que está a ser o publicador e a BD SQL do Azure que está a ser o subscritor. Por agora, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os dados do local para o Azure SQL com o período de indisponibilidade mínimo, consulte: [replicação de transações de utilização](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações que pode sincronizar os dados no local para a BD SQL do Azure com no local que está a ser o publicador e a BD SQL do Azure que está a ser o subscritor. Por agora, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os dados no local para o Azure SQL com o período de indisponibilidade mínimo, consulte: [replicação de transações de utilização](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [base de dados SQL](sql-database-technical-overview.md).

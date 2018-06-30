@@ -3,7 +3,7 @@ title: Ligar a computadores com o Windows ao Log Analytics do Azure | Microsoft 
 description: Este artigo descreve como ligar a computadores com o Windows alojados em outras nuvens ou no local para análise de registos com o Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637417"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131391"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows para o serviço de análise de registos do Azure
 
@@ -34,7 +35,7 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais com Windows no local na pilha do Azure.  
 
-Para compreender a configuração suportada, reveja [suportados sistemas operativos Windows](log-analytics-concept-hybrid.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](log-analytics-concept-hybrid.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da chave da área de trabalho do Log Analytics.  Esta informação é necessária durante a configuração de cada método de instalação para corretamente configurar o agente e certifique-se de que consegue comunicar com êxito com a análise de registos no Azure comercial e nuvem de US Government.  

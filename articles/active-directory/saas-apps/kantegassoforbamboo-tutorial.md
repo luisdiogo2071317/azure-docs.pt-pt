@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c31d1162c41ddb6d4728f74d91061f38dcfa68d8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 01b07529765a7fe68a30cfae754829fe8dbd6264
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228327"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory com o SSO Kantega para Bamboo
 
@@ -133,7 +133,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
     
-7. Numa janela do browser web diferente, inicie sessão no seu Bamboo no servidor no local como um administrador.
+7. Numa janela do browser web diferente, inicie sessão na sua Bamboo server local como administrador.
 
 8. Paire o rato sobre o ícone e clique em de **suplementos**.
 
@@ -218,7 +218,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     c. Clique em **Guardar**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de  **Configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -257,7 +257,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Bamboo, têm d
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu Bamboo no servidor no local como um administrador.
+1. Inicie sessão na sua Bamboo server local como administrador.
 
 2. Paire o rato sobre o ícone e clique em de **gestão de utilizadores**.
 

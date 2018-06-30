@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 8b4584e9ccd17eba385f2068709f5bbaea6df20b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019962"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129290"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementar e gerir topologias Apache Storm no HDInsight
 
@@ -212,7 +212,7 @@ Selecionar um spout do **Spouts** ou **Bolts** secções apresenta as seguintes 
 
 A IU do Storm é desenvolvida com a API REST, pelo que pode efetuar a gestão e semelhantes funcionalidades de monitorização, utilizando a API REST. Pode utilizar a API REST para criar personalizadas ferramentas de gestão e monitorização topologias do Storm.
 
-Para obter mais informações, consulte [API de REST de IU do Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). As seguintes informações são específicas para utilizar a API REST com Apache Storm no HDInsight.
+Para obter mais informações, consulte [API de REST de IU do Storm](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). As seguintes informações são específicas para utilizar a API REST com Apache Storm no HDInsight.
 
 > [!IMPORTANT]
 > A API de REST do Storm não está disponível publicamente através da internet e tem de ser acedida através de um túnel SSH ao nó principal do cluster do HDInsight. Para obter informações sobre como criar e utilizar um túnel SSH, consulte [utilize túnel SSH para aceder à IU da web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras web UIs](../hdinsight-linux-ambari-ssh-tunnel.md).

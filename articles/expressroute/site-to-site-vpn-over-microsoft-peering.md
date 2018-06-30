@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: cherylmc
-ms.openlocfilehash: 64203e2cbac1206224f0e0ad8b7d364f19ad0332
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26357735"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110859"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN de site a site através de peering da Microsoft do ExpressRoute
 
@@ -47,7 +47,7 @@ Túneis VPN através de peering da Microsoft podem ser terminadas com gateway de
 >
 >
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Workflow
 
 1. Configure o peering da Microsoft para o seu circuito do ExpressRoute.
 2. Anuncie selecionados Azure regionais prefixos públicos à sua rede no local através do peering da Microsoft.
@@ -57,7 +57,7 @@ Túneis VPN através de peering da Microsoft podem ser terminadas com gateway de
 6. (Opcional) Configure firewalls/filtragem no dispositivo VPN no local.
 7. Testar e validar a comunicação de IPsec do circuito ExpressRoute.
 
-## <a name="peering"></a>1. configurar o peering da Microsoft
+## <a name="peering"></a>1. Configurar o peering da Microsoft
 
 Para configurar uma ligação de VPN de site a site através do ExpressRoute, terá de tirar partido de peering da Microsoft do ExpressRoute.
 
@@ -167,7 +167,7 @@ Neste exemplo, as declarações de variável de corresponder à rede de exemplo.
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises
@@ -711,7 +711,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 2
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](how-to-npm.md)
 
