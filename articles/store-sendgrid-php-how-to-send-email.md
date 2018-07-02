@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23874032"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como utilizar o serviço de E-Mail do SendGrid do PHP
@@ -35,7 +35,7 @@ SendGrid é um [serviço baseado na nuvem e-mail] que fornece fiável [entrega d
 * Pedidos de cliente de reencaminhamento
 * Notificações de correio eletrónico da sua aplicação
 
-Para obter mais informações, consulte [https://sendgrid.com][https://sendgrid.com].
+Para obter mais informações, consulte [ https://sendgrid.com ] [ https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -47,7 +47,7 @@ A utilização de SendGrid numa aplicação PHP do Azure não requer nenhum espe
 Pode enviar correio eletrónico através de SMTP ou a API Web fornecidos pelo SendGrid.
 
 ### <a name="smtp-api"></a>API DE SMTP
-Para enviar correio eletrónico através da API de SMTP do SendGrid, utilize *Swift Mailer*, uma biblioteca baseado em componentes para enviar e-mails de aplicações PHP. Pode transferir o *Swift Mailer* biblioteca a partir de [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (utilizar [compositor] instalar Swift Mailer). Enviar mensagem de e-mail com a biblioteca implica a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span>, e <span class="auto-style2">Swift\_mensagem</span> classes, definir as propriedades adequadas e, ao chamar o <span class="auto-style2">Swift\_Mailer::send</span> método.
+Para enviar correio eletrónico através da API de SMTP do SendGrid, utilize *Swift Mailer*, uma biblioteca baseado em componentes para enviar e-mails de aplicações PHP. Pode transferir o *Swift Mailer* biblioteca a partir de [ http://swiftmailer.org/download ] [ http://swiftmailer.org/download] v5.3.0 (utilizar [compositor] instalar Swift Mailer). Enviar mensagem de e-mail com a biblioteca implica a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span>, e <span class="auto-style2">Swift\_mensagem </span> classes, definir as propriedades adequadas e, ao chamar o <span class="auto-style2">Swift\_Mailer::send</span> método.
 
     <?php
      include_once "vendor/autoload.php";
@@ -280,7 +280,7 @@ Exemplo:
 SendGrid fornece funcionalidades de e-mail adicionais através da utilização de 'filtros'. Estas são as definições que podem ser adicionadas a uma mensagem de e-mail para ativar a funcionalidade específica, como ativar o controlo de clique, do Google analytics, subscrição de controlo e assim sucessivamente.
 
 Os filtros podem ser aplicados a uma mensagem utilizando a propriedade de filtros. Cada filtro especificado por um hash que contém definições específicas do filtro. O exemplo seguinte ativa o filtro de rodapé e especifica uma mensagem de texto que será acrescentada a parte inferior da mensagem de e-mail.
-Neste exemplo utilizaremos [sendgrid php biblioteca].
+Neste exemplo utilizaremos [Biblioteca do sendgrid php].
 Utilize [compositor] para instalar a biblioteca:
 
     php composer.phar require sendgrid/sendgrid 2.1.1
@@ -380,7 +380,7 @@ Exemplo:
 
      print_r($response);
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga estas ligações para saber mais.
 
 * Documentação do SendGrid: <https://sendgrid.com/docs>
@@ -397,5 +397,5 @@ Para obter mais informações, consulte também o [Centro para programadores do 
 [curl function]: http://php.net/curl
 [serviço baseado na nuvem e-mail]: https://sendgrid.com/email-solutions
 [entrega de correio eletrónico transacional]: https://sendgrid.com/transactional-email
-[sendgrid php biblioteca]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
-[compositor]: https://getcomposer.org/download/
+[Biblioteca do sendgrid php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+[Compositor]: https://getcomposer.org/download/

@@ -9,36 +9,8 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar modelo de aplicação
-      items:
-        - name: Utilizar domínio pré-concebido
-          href: luis-get-started-create-app.md
-        - name: Utilizar domínio personalizado
-          href: luis-quickstart-intents-only.md
-- name: Tutoriais
-  items:
-    - name: Adicionar intenções e entidades pré-concebidas
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Obter dados da entidade
-      items:
-        - name: Entidade simples
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: Entidade hierárquica
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entidade de expressão regular
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Entidade de lista
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Entidade KeyPhrase
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: Análise de sentimentos
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Melhorar a predição
-      items:
-        - name: Com padrões
-          href: luis-tutorial-pattern.md
-        - name: Com uma lista de expressões
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Criar uma aplicação de domínio pré-concebida
+      href: luis-get-started-create-app.md
     - name: Utilizar APIs
       items:
         - name: Obter predição de pronunciação com consulta de ponto final
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: Tutoriais
+  items:
+    - name: Criar aplicação
+      items:
+        - name: 1. Com o domínio personalizado
+          href: luis-quickstart-intents-only.md
+        - name: 2. Adicionar intenções e entidades pré-concebidas
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. Adicionar entidade de expressão regular
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. Adicionar entidade de lista
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. Adicionar entidade hierárquica
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. Adicionar entidade simples e lista de expressões
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. Adicionar a entidade KeyPhrase
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. Adicionar análise de sentimentos
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Melhorar a predição
+      items:
+        - name: Com padrões
+          href: luis-tutorial-pattern.md
+        - name: Com uma lista de expressões
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Amostras
   items:
     - name: Exemplos de código

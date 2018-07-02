@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Utilizar o controlo de antiguidade
           href: basic-age-gating.md
+        - name: Início de sessão direto
+          href: direct-signin.md
     - name: Estrutura de Experiência de Identidade
       items:
         - name: Políticas personalizadas

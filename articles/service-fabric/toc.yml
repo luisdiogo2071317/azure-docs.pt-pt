@@ -460,6 +460,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: Monitorizar e diagnosticar localmente
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Trabalhar num ambiente VS Code
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'Desenvolva aplicações do Service Fabric em C# com o VS Code'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: Desenvolva aplicações do Service Fabric em Java com o VS Code
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Migrar a partir dos Serviços Cloud
       items:
         - name: Comparar os Serviços em Nuvem com o Service Fabric
@@ -534,10 +541,6 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster com o nome comum do certificado
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Ativar a Encriptação de Disco para o Windows
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Ativar a Encriptação de Disco para o Linux
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: Escala
               items:
                 - name: Aumentar horizontalmente manualmente

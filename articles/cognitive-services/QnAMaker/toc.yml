@@ -1,7 +1,9 @@
-- name: O que é o Criador de FAQ?
-  href: Overview/overview.md
+- name: Documentação do Criador de FAQ
+  href: index.yml
 - name: Descrição geral
   items:
+    - name: O que é o Criador de FAQ?
+      href: Overview/overview.md
     - name: Linguagens suportadas
       href: Overview/languages-supported.md
 - name: Inícios rápidos

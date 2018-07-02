@@ -178,8 +178,8 @@
   items:
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum do Batch
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Comunidade em Lote
+      href: 'https://github.com/Azure/Batch'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blogue

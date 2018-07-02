@@ -47,6 +47,8 @@
       href: search-semi-structured-data.md
     - name: Adicionar sinónimos em .NET
       href: search-synonyms-tutorial-sdk.md
+    - name: Adicionar a conclusão automática em .NET
+      href: search-autocomplete-tutorial.md
     - name: Instruções do portal
       href: search-get-started-portal.md
 - name: Amostras

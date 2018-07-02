@@ -1,11 +1,11 @@
 - name: Documentação sobre a Imagem Digitalizada
   href: index.yml
 - name: Descrição geral
+  expanded: true
   items:
     - name: O que é a Imagem Digitalizada?
       href: Home.md
-- name: Inícios rápidos
-  expanded: true
+- name: Inícios Rápidos da API
   items:
     - name: Resumo
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Extrair texto impresso
           href: QuickStarts/ruby-print-text.md
+- name: Inícios Rápidos do SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analisar uma imagem
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Gerar uma miniatura
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extrair texto manuscrito
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Guias de procedimentos
   items:
     - name: Primeiras aplicações de Imagem Digitalizada

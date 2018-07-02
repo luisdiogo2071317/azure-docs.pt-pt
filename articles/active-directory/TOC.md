@@ -186,12 +186,6 @@
 ### [Introdução](manage-apps/plan-an-application-integration.md)
 ### [Tutoriais de integração de aplicação SaaS](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Criar relatórios de instantâneos](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configurar os relatórios contínuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Utilizar um analisador de registos personalizados](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [Aprovisionamento e desaprovisionamento de utilizadores para aplicações SaaS](active-directory-saas-app-provisioning.md) 
 #### [Tutoriais de integração em aplicação](saas-apps/tutorial-list.md) 
 #### [Automatizar o aprovisionamento de aplicações com SCIM ativado](manage-apps/use-scim-to-provision-users-and-groups.md) 

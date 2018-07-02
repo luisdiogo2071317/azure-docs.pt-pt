@@ -1,0 +1,215 @@
+- name: Noções básicas do IoT do Azure
+  href: ../iot-fundamentals/index.yml
+- name: Documentação dos aceleradores de soluções de IoT
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que são os aceleradores de soluções IoT
+      href: about-iot-accelerators.md
+- name: Inícios rápidos
+  items:
+    - name: Implementar uma solução de monitorização remota
+      href: quickstart-remote-monitoring-deploy.md
+- name: Tutoriais
+  items:
+    - name: Monitorizar dispositivos IoT
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Detetar problemas de dispositivo
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configurar e gerir dispositivos
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Utilizar alertas e corrigir problemas de dispositivo
+      href: iot-accelerators-remote-monitoring-maintain.md
+- name: Conceitos
+  items:
+    - name: Monitorização Remota
+      href: iot-accelerators-remote-monitoring-sample-walkthrough.md
+      items:
+        - name: Opções de arquitetura
+          href: iot-accelerators-remote-monitoring-architectural-choices.md
+        - name: Esquema do modelo de dispositivo
+          href: iot-accelerators-remote-monitoring-device-schema.md
+        - name: Comportamento do modelo de dispositivo
+          href: iot-accelerators-remote-monitoring-device-behavior.md
+    - name: Manutenção Preditiva
+      href: iot-accelerators-predictive-walkthrough.md
+    - name: Fábrica Ligada
+      href: iot-accelerators-connected-factory-features.md
+      items:
+        - name: Arquitetura
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Permissões em azureiotsolutions.com
+      href: iot-accelerators-permissions.md
+- name: Guias de procedimentos
+  items:
+    - name: Monitorização Remota
+      items:
+        - name: Ligar um dispositivo físico
+          items:
+            - name: C no Windows
+              href: iot-accelerators-connecting-devices.md
+            - name: C no Linux
+              href: iot-accelerators-connecting-devices-linux.md
+            - name: Node.js (genérico)
+              href: iot-accelerators-connecting-devices-node.md
+            - name: Node.js no Raspberry Pi
+              href: iot-accelerators-connecting-pi-node.md
+            - name: C no Raspberry Pi
+              href: iot-accelerators-connecting-pi-c.md
+            - name: MX Chip AZ3166 DevKit
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+        - name: Integrar dados SIM
+          href: iot-accelerators-remote-monitoring-telefonica-sim.md
+        - name: Criar um dispositivo simulado
+          href: iot-accelerators-remote-monitoring-test.md
+        - name: Personalizar a IU
+          href: iot-accelerators-remote-monitoring-customize.md
+        - name: Personalizar e reimplementar um microsserviço
+          href: iot-accelerators-microservices-example.md
+        - name: Implementar com a CLI
+          href: iot-accelerators-remote-monitoring-deploy-cli.md
+        - name: Implementar localmente
+          href: iot-accelerators-remote-monitoring-deploy-local.md
+        - name: Visualizar telemetria com o PowerBI
+          href: iot-accelerators-integrate-data-powerbi.md
+        - name: Visualizar telemetria com o Time Series Insights
+          href: iot-accelerators-time-series-insights.md
+        - name: Analisar telemetria com o Data Lake
+          href: iot-accelerators-integrate-data-lake.md
+    - name: Monitorização Remota (versão anterior)
+      items:
+        - name: O que são as soluções pré-configuradas?
+          href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
+        - name: FAQ
+          href: ../iot-suite/iot-suite-v1-faq.md
+        - name: Introdução
+          items:
+            - name: Introdução às soluções pré-configuradas
+              href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
+            - name: Permissões em azureiotsuite.com
+              href: ../iot-suite/iot-suite-v1-permissions.md
+            - name: Instruções da solução de Monitorização Remota
+              href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
+            - name: Ligar o seu Raspberry Pi
+              href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
+              items:
+                - name: Utilizar C
+                  items:
+                    - name: Dados simulados
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
+                    - name: Utilizar sensores reais
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
+                    - name: Implementar atualização de firmware
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
+                - name: Utilizar Node.js
+                  items:
+                    - name: Dados simulados
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
+                    - name: Utilizar sensores reais
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
+                    - name: Implementar atualização de firmware
+                      href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
+            - name: Ligar o seu MXChip IoT DevKit
+              href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
+        - name: Guias de procedimentos
+          items:
+            - name: Ligar um dispositivo simulado
+              items:
+                - name: C no Windows
+                  href: ../iot-suite/iot-suite-v1-connecting-devices.md
+                - name: C no Linux
+                  href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
+                - name: Node.js
+                  href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
+            - name: Ligar uma Aplicação Lógica à solução de Monitorização Remota
+              href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
+            - name: Personalizar um acelerador de soluções
+              href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+            - name: Utilizar telemetria dinâmica com a solução de Monitorização Remota
+              href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
+            - name: Criar uma regra personalizada na solução de Monitorização Remota
+              href: ../iot-suite/iot-suite-v1-custom-rule.md
+            - name: Informação do dispositivo na solução de Monitorização Remota
+              href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
+    - name: Manutenção Preditiva
+      items:
+        - name: Implementar um acelerador de soluções
+          href: iot-accelerators-predictive-overview.md
+    - name: Fábrica Ligada
+      items:
+        - name: Implementar um acelerador de soluções
+          href: iot-accelerators-connected-factory-overview.md
+        - name: Implementar um gateway
+          href: iot-accelerators-connected-factory-gateway-deployment.md
+        - name: Utilizar o publicador OPC
+          href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
+        - name: Configurar o acelerador de soluções
+          href: iot-accelerators-connected-factory-configure.md
+        - name: Personalizar o acelerador de soluções
+          href: iot-accelerators-connected-factory-customize.md
+    - name: Simulação do Dispositivo
+      items:
+        - name: Implementar um acelerador de soluções
+          href: iot-accelerators-device-simulation-deploy.md
+        - name: Executar uma simulação
+          href: iot-accelerators-device-simulation-explore.md
+- name: Referência
+  items:
+    - name: Guia de Referência para Programadores
+      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+    - name: Guia de Resolução de Problemas para Programadores
+      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+    - name: Arquitetura de segurança
+      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+    - name: Melhores práticas de segurança
+      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+    - name: Proteger a sua implementação de IoT
+      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+    - name: Segurança desde o início
+      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
+- name: Relacionado
+  items:
+    - name: Soluções
+      items:
+        - name: Aceleradores de soluções IoT
+          href: /azure/iot-suite
+        - name: Centro de IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de Plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: SDKs do Serviço de IoT
+          href: /azure/iot-hub/iot-hub-devguide-sdks  azure-iot-service-sdks
+        - name: Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do Dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Stream Analytics
+      href: /azure/stream-analytics/
+    - name: Event Hubs
+      href: /azure/event-hubs/
+    - name: Machine Learning
+      href: /azure/machine-learning/
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: FAQ
+      href: iot-accelerators-faq.md
+    - name: FAQ de Monitorização Remota
+      href: iot-accelerators-faq-rm-v2.md
+    - name: FAQ de Fábrica Ligada
+      href: iot-accelerators-faq-cf.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
+    - name: Percurso de aprendizagem dos aceleradores de soluções de IoT
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-suite/'

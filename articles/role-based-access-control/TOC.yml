@@ -1,4 +1,4 @@
-- name: Documentação do Controlo de Acesso Baseado em Funções
+- name: Documentação do controlo de acesso baseado em funções
   href: index.yml
   items: null
 - name: Descrição geral
@@ -25,16 +25,11 @@
   items:
     - name: Compreender as definições de função
       href: role-definitions.md
-    - name: Funções incorporadas
-      href: built-in-roles.md
-    - name: Operações do fornecedor de recursos
-      href: resource-provider-operations.md
     - name: Privileged Identity Management (PIM) para o Azure
       href: pim-azure-resource.md
     - name: Acesso condicional para a gestão do Azure
       href: conditional-access-azure-management.md
 - name: Guias de procedimentos
-  expanded: true
   items:
     - name: Gerir o acesso
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: Resolução de problemas
       href: troubleshooting.md
+- name: Referência
+  items:
+    - name: Funções incorporadas
+      href: built-in-roles.md
+    - name: Operações do fornecedor de recursos
+      href: resource-provider-operations.md
+    - name: Limites do RBAC
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: CLI do Azure
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: API REST
+      href: /rest/api/authorization/
