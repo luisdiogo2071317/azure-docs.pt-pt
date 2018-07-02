@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "27534860"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar E-mails utilizando SendGrid com o Azure
@@ -34,7 +34,7 @@ SendGrid é um [serviço baseado na nuvem e-mail] que fornece fiável [entrega d
 * Pedidos de cliente de reencaminhamento.
 * Processamento de mensagens de correio eletrónico recebidas.
 
-Para obter mais informações, visite [https://sendgrid.com](https://sendgrid.com) ou do SendGrid [c# biblioteca] [ sendgrid-csharp] repositório do GitHub.
+Para obter mais informações, visite [ https://sendgrid.com ](https://sendgrid.com) ou do SendGrid [c# biblioteca] [ sendgrid-csharp] repositório do GitHub.
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ Para obter mais informações, visite [https://sendgrid.com](https://sendgrid.co
 O [pacote NuGet do SendGrid](https://www.nuget.org/packages/Sendgrid) é a forma mais fácil de obter a API do SendGrid e para configurar a sua aplicação com todas as dependências. É uma extensão do Visual Studio incluída com o Microsoft Visual Studio 2015 com NuGet e acima que torna mais fácil instalar e bibliotecas e ferramentas de atualização.
 
 > [!NOTE]
-> Para instalar NuGet, se estiver a executar uma versão do Visual Studio anterior ao Visual Studio 2015, visite [http://www.nuget.org](http://www.nuget.org)e clique em de **instalar NuGet** botão.
+> Para instalar NuGet, se estiver a executar uma versão do Visual Studio anterior ao Visual Studio 2015, visite [ http://www.nuget.org ](http://www.nuget.org)e clique em de **instalar NuGet** botão.
 >
 >
 
@@ -278,6 +278,6 @@ Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga 
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
 
-[serviço de e-mail baseado na nuvem]: https://sendgrid.com/solutions
+[serviço baseado na nuvem e-mail]: https://sendgrid.com/solutions
 [entrega de correio eletrónico transacional]: https://sendgrid.com/use-cases/transactional-email
 
