@@ -1,6 +1,6 @@
 ---
-title: Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure | Microsoft Docs
-description: Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de recuperação (DR) após desastre.
+title: Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure | Documentos da Microsoft
+description: Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery de máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de (DR recuperação) após desastre.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,36 +9,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321200"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342536"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outro
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
 
 
-Este artigo resume as configurações suportadas e componentes quando se replica e recuperar máquinas virtuais do Azure a partir de uma região noutra região, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo resume as configurações suportadas e componentes ao replicar e recuperar máquinas virtuais do Azure a partir de uma região para outra região, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
 ## <a name="user-interface-options"></a>Opções de interface de utilizador
 
-**Interface de utilizador** |  **Suportado / não suportado**
+**Interface do usuário** |  **Suportado / não suportado**
 --- | ---
 **Portal do Azure** | Suportadas
 **Portal clássico** | Não suportado
 **PowerShell** | [Replicação do Azure para o Azure com o PowerShell](azure-to-azure-powershell.md)
-**API REST** | Não é atualmente suportado
-**CLI** | Não é atualmente suportado
+**API REST** | Não são atualmente suportados
+**CLI** | Não são atualmente suportados
 
 
-## <a name="resource-move-support"></a>Suporte de movimentação de recursos
+## <a name="resource-move-support"></a>Suporte de movimentação do recurso
 
-**Tipo de movimentação de recurso** | **Suportado / não suportado** | **Observações**  
+**Tipo de movimentação do recurso** | **Suportado / não suportado** | **Observações**  
 --- | --- | ---
-**Mover o Cofre entre grupos de recursos** | Não suportado |Não é possível mover o Cofre de serviços de recuperação em grupos de recursos.
-**Mover computação, armazenamento e de rede entre grupos de recursos** | Não suportado |Se mover uma máquina virtual (ou os respetivos componentes, tais como o armazenamento e de rede associados) depois de ativar a replicação, terá de desativar a replicação e ativar a replicação da máquina virtual novamente.
+**Mover o Cofre entre grupos de recursos** | Não suportado |Não é possível mover o Cofre dos serviços de recuperação entre grupos de recursos.
+**Mover a computação, armazenamento e rede entre grupos de recursos** | Não suportado |Se mover uma máquina virtual (ou seus componentes associados, como o armazenamento e rede) depois de ativar a replicação, terá de desativar a replicação e ative novamente a replicação para a máquina virtual.
 
 
 
@@ -46,26 +46,26 @@ Este artigo resume as configurações suportadas e componentes quando se replica
 
 **Deployment model** (Modelo de implementação) | **Suportado / não suportado** | **Observações**  
 --- | --- | ---
-**Clássico** | Suportadas | Apenas pode replicar uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina virtual do Gestor de recursos. Se implementar uma VM clássica sem uma rede virtual e diretamente a uma região do Azure, não é suportada.
+**Clássico** | Suportadas | Apenas pode replicar uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina virtual do Resource Manager. Se implementar uma VM clássica sem uma rede virtual e diretamente para uma região do Azure, não é suportada.
 **Resource Manager** | Suportadas |
 
 >[!NOTE]
 >
 > 1. Replicar máquinas virtuais do Azure a partir de uma subscrição para outro para cenários de recuperação após desastre não é suportada.
-> 2. Azure migrar máquinas virtuais entre subscrições não é suportada.
+> 2. Azure migrar máquinas virtuais em várias subscrições não é suportada.
 > 3. Azure migrar máquinas virtuais na mesma região não é suportada.
-> 4. Migrar máquinas virtuais do Azure do modelo de implementação clássica para o recurso de modelo de implementação manager não é suportado.
+> 4. Migrar máquinas virtuais do Azure do modelo de implementação clássica para Resource manager modelo de implementação não é suportado.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões de SO da máquina replicada
 
-O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sistema operativo mencionados.
+O abaixo o suporte se aplica a qualquer carga de trabalho em execução no sistema operacional mencionado.
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2016 (servidor principal, servidor com experiência de utilização) *
+- Windows Server 2016 (Server Core, servidor com experiência de área de trabalho) *
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 com, pelo menos, SP1
+- Windows Server 2008 R2 com no SP1, pelo menos,
 
 >[!NOTE]
 >
@@ -73,24 +73,24 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1 e 7.2, 7.3,7.4
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
-- Ubuntu 14.04 LTS Server [ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Ubuntu 16.04 LTS Server [ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Debian 7 [ (versões de kernel suportado)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- Debian 8 [ (versões de kernel suportado)](#supported-debian-kernel-versions-for-azure-virtual-machines)
-- SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel suportado)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-- SP3 do SUSE Linux Enterprise Server 11
+- Ubuntu 14.04 LTS Server [ (versões de kernel de suportadas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Ubuntu 16.04 LTS Server [ (versões de kernel de suportadas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Debian 7 [ (versões de kernel de suportadas)](#supported-debian-kernel-versions-for-azure-virtual-machines)
+- Debian 8 [ (versões de kernel de suportadas)](#supported-debian-kernel-versions-for-azure-virtual-machines)
+- SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+- SUSE Linux Enterprise Server 11 SP3
 - SP4 do SUSE Linux Enterprise Server 11
-- Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3)
+- Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3)
 
-(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger o computador novamente post a atualização.)
+(Atualização de replicar as máquinas de SLES 11 SP3 para SLES 11 SP4 não é suportada. Se uma máquina replicada foi atualizada de SLES 11SP3 para SP4 de 11 de SLES, terá de desativar a replicação e proteger a máquina novamente após a atualização.)
 
 >[!NOTE]
 >
-> Ubuntu servidores utilizando a autenticação baseada em palavra-passe e de início de sessão e utilizar o pacote de nuvem init para configurar máquinas virtuais na nuvem, podem ter início de sessão baseada em palavra-passe desativado após a ativação pós-falha (dependendo da configuração de cloudinit.) Início de sessão baseada em palavra-passe pode ser novamente ativado na máquina virtual ao repor a palavra-passe no menu de definições (sob a suporte + a resolução de problemas de secção) da máquina virtual no portal do Azure de ativação pós-falha.
+> Ubuntu servidores usando a autenticação baseada em palavra-passe e o início de sessão e utilizar o pacote de cloud-init para configurar máquinas de virtuais de cloud, podem ter início de sessão baseada em palavra-passe desabilitado aquando da ativação pós-falha (dependendo da configuração de cloudinit.) Início de sessão baseada em palavra-passe pode ser novamente ativado na máquina virtual ao repor a palavra-passe no menu definições (sob o suporte + resolução de problemas de secção) da máquina virtual no portal do Azure com ativação pós-falha.
 
-### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel Ubuntu máquinas virtuais do Azure
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de Ubuntu para máquinas virtuais do Azure
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
@@ -105,7 +105,7 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 16.04 LTS | 9.14 | 4.4.0-21-Generic para 4.4.0-112-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-32-generic,<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1009-azure |
 
 
-### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões de Debian kernel para máquinas virtuais do Azure
+### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões do Debian kernel com suporte para máquinas virtuais do Azure
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
@@ -115,13 +115,13 @@ Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-AMD64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-a
 Debian 8 | 9.17 | 3.16.0-4-AMD64 para 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.14, 9.15, 9.16 | 3.16.0-4-AMD64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.5-amd64 |
 
-### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel do SUSE Linux Enterprise Server 12 suportadas máquinas virtuais do Azure
+### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de 12 do SUSE Linux Enterprise Server para máquinas virtuais do Azure
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.73-5-default SP3 para 4.4.126-94.22-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.73-5-default SP3 para 4.4.126-94.22-default |
 
-## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de ficheiro suportados e configurações de armazenamento de convidado em máquinas virtuais do Azure com o SO Linux
+## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de ficheiro suportados e configurações de armazenamento de convidado em máquinas virtuais do Azure, executar o SO Linux
 
 * Sistemas de ficheiros: ext3 ext4, ReiserFS (Suse Linux Enterprise Server apenas), XFS
 * Gestor de volumes: LVM2
@@ -129,90 +129,90 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.17 | SP1 3.12.49-11-default p
 
 ## <a name="region-support"></a>Suporte de região
 
-Pode replicar e recuperar VMs entre as duas regiões do mesmo cluster geográfica.
+Pode replicar e recuperar VMs entre quaisquer duas regiões dentro do mesmo cluster geográfico.
 
 **Cluster geográfica** | **Regiões do Azure**
 -- | --
-América do | Canadá leste, EUA Central Canadá Central, -Sul, EUA Centro Oeste, EUA leste, EUA Leste 2, EUA oeste, EUA oeste, 2, EUA Central, EUA Centro-Norte
-Europa | RU oeste, RU Sul, Europa do Norte, Europa Ocidental, Sul de Central, França França
-Ásia | Sul da Índia, Índia Central, Sudeste asiático, leste do Japão, Ásia Oriental, oeste do Japão, Coreia Central, Coreia South
+América | Leste do Canadá, Canadá Central, Centro-Sul dos E.U.A., EUA Centro-Oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Centro-Norte
+Europa | Oeste do Reino Unido, sul do Reino Unido, Europa do Norte, Europa Ocidental, França, Sul de França
+Ásia | Sul da Índia, Índia Central, Sudeste asiático, leste do Japão, Ásia Oriental, oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália
-Azure Government    | E.u. a US Virginia, E.U.A. us Iowa, E.U.A. us Arizona, E.U.A. us Texas, DOD de e.u. a leste, DOD de e.u. a Central
+Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD leste, US DOD Centro
 Alemanha | Alemanha Central, Alemanha Nordeste
 China | Leste da China, Norte da China
 
 >[!NOTE]
 >
-> Região sul do Brasil, pode apenas replicar e efetuar a ativação pós-falha para um dos Sul Central nos, Central EUA oeste, EUA leste, EUA Leste 2, EUA oeste, EUA oeste, 2 e regiões Norte Central-nos e voltar a falhar.
+> Para a região sul do Brasil, pode apenas replicar e efetuar a ativação pós-falha para um dos Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e regiões Centro-Norte e a reativação pós-falha.
 
 
 ## <a name="support-for-compute-configuration"></a>Suporte para a configuração de computação
 
 **Configuração** | **Suportado/não suportado** | **Observações**
 --- | --- | ---
-Tamanho | Nenhum tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e de 1 GB de RAM | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Conjuntos de disponibilidade | Suportadas | Se utilizar a opção predefinida durante 'Ativar a replicação' passo no portal, o conjunto de disponibilidade é automaticamente criada com base na configuração da região de origem. Pode alterar a disponibilidade de destino definida em ' replicados item > Definições > computação e rede > do conjunto de disponibilidade ' qualquer altura.
-VMs do híbrida utilize benefício (CONCENTRADOR) | Suportadas | Se a VM de origem tiver licenças HUB ativada, a ativação pós-falha de teste ou de uma VM de ativação pós-falha também utiliza a licença do HUB.
+Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
+Conjuntos de disponibilidade | Suportadas | Se utilizar a opção predefinida durante o passo de "Ativar replicação" no portal, o conjunto de disponibilidade é automaticamente criada com base na configuração da região de origem. Pode alterar a destino conjunto de disponibilidade no "item replicado > Definições > computação e rede > conjunto de disponibilidade" qualquer altura.
+VMs de benefício (HUB) de utilização híbrida | Suportadas | Se a VM de origem tiver uma licença HUB ativada, a ativação pós-falha de teste ou de uma VM de ativação pós-falha também utiliza a licença HUB.
 Conjuntos de dimensionamento de máquinas virtuais | Não suportado |
-Imagens de galeria do Azure - Microsoft publicado | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pela recuperação de sites
-Imagens de galeria do Azure - terceiros publicadas | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pela recuperação de sites.
-Personalizar imagens - terceiros publicadas | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pela recuperação de sites.
-VMs migrada utilizando a recuperação de sites | Suportadas | Se estiver a que migrar uma máquina de VMware/físico para o Azure utilizando a recuperação de sites, terá de desinstalar a versão mais antiga do serviço de mobilidade e reinicie a máquina antes de replicar-o para outra região do Azure.
+Imagens da galeria do Azure - Microsoft publicado | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pelo Site Recovery
+Imagens da galeria do Azure - publicado de terceiros | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pelo Site Recovery.
+Imagens personalizadas - publicado de terceiros | Suportadas | Suportado, desde que a VM é executado num sistema operativo suportado pelo Site Recovery.
+VMs migradas com o Site Recovery | Suportadas | Se estiver a que migrar uma máquina de VMware/físico para Azure com o Site Recovery, terá de desinstalar a versão mais antiga do serviço de mobilidade e reinicie a máquina antes de replicá-los para outra região do Azure.
 
 ## <a name="support-for-storage-configuration"></a>Suporte para a configuração de armazenamento
 
 **Configuração** | **Suportado/não suportado** | **Observações**
 --- | --- | ---
 Tamanho máximo de disco do SO | 2048 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Tamanho do disco de dados | 4095 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Número de discos de dados | Até 64 como suportado por um tamanho de VM do Azure específico | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
-Disco temporário | Sempre excluídos da replicação | Disco temporário foi excluído da replicação sempre. Não deve colocar todos os dados persistentes em disco temporário de acordo com a documentação de orientação do Azure. Consulte [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
-Taxa de alteração de dados no disco | Máximo de 10 por disco para o Premium storage e 2 MBps por disco de armazenamento Standard | Se a taxa de alteração de média de dados no disco para além dos 10 (para Premium) e 2 MBps (para Standard) continuamente, a replicação não irá detetar cópias de segurança. No entanto, se for uma rajada ocasionais dados e a taxa de alteração de dados é maior que 10 (para Premium) e 2 MBps (para Standard) durante algum tempo e ficar, a replicação será acompanhar. Neste caso, poderá ver pontos de recuperação ligeiramente atrasado.
-Discos em contas de armazenamento standard | Suportadas |
-Discos em contas de armazenamento premium | Suportadas | Se uma VM tem discos distribuídos por contas do standard storage e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco garantir que têm a mesma configuração de armazenamento na região de destino
-Discos gerida padrão | Suportados nas regiões do Azure na qual o Azure Site Recovery é suportado. Nuvens de Government não são atualmente suportadas.  |  
-Discos Premium gerido | Suportados nas regiões do Azure na qual o Azure Site Recovery é suportado. Nuvens de Government não são atualmente suportadas. |
+Tamanho do disco de dados máximo | 4095 GB | Consulte [discos utilizados por VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Número de discos de dados | Até 64 como suportados por um tamanho de VM do Azure específico | Consulte [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
+Disco temporário | Sempre excluídos da replicação | Disco temporário é excluído da replicação sempre. Não, deve colocar todos os dados persistentes no disco temporário de acordo com a orientação do Azure. Consulte a [disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
+Taxa de alteração de dados no disco | Máximo de 10 MBps por disco para armazenamento Premium e 2 MBps por disco de armazenamento Standard | Se a taxa de alteração de dados de média no disco para além dos 10 (para Premium) e 2 MBps (por padrão) continuamente, a replicação não irá acompanhar. No entanto, se for uma explosão de dados ocasionais e a taxa de alteração de dados for superior a 10 (para Premium) e 2 MBps (por padrão) há algum tempo e se resume, replicação será acompanhar. Neste caso, poderá ver pontos de recuperação um pouco atrasado.
+Discos nas contas de armazenamento standard | Suportadas |
+Discos nas contas de armazenamento premium | Suportadas | Se uma VM tem discos espalhadas em contas de armazenamento standard e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco garantir que tem a mesma configuração de armazenamento na região de destino
+Discos geridos Standard | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |  
+Discos geridos Premium | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
 Espaços de armazenamento | Suportadas |         
-Encriptação de Inativos (SSE) | Suportadas | SSE é a predefinição em contas de armazenamento.   
-Encriptação de disco do Azure (ADE) | Não suportado |
-Disco frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ativar a replicação novamente para a VM.
+Encriptação em repouso (SSE) | Suportadas | O SSE é a predefinição nas contas de armazenamento.   
+Azure Disk Encryption (ADE) | Não suportado |
+Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
 Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
-Direto de espaços de armazenamento  | Não suportado|
+Espaços de armazenamento direto  | Não suportado|
 Servidor de ficheiros de escalamento horizontal  | Não suportado|
 LRS | Suportadas |
 GRS | Suportadas |
 RA-GRS | Suportadas |
 ZRS | Não suportado |  
-Armazenamento de acesso frequente e esporádico | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso frequente e esporádico
-Firewalls de armazenamento do Azure para redes virtuais  | Não | Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
-Contas de armazenamento de V2 para fins gerais (camada ambos frequente e esporádico) | Não | Aumentar os custos de transação substancialmente em comparação com para fins gerais V1 contas de armazenamento
+Armazenamento de acesso esporádico e frequente | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso esporádico e frequente
+Firewalls de armazenamento do Azure para redes virtuais  | Não | Não é suportada a permissão de acesso a redes virtuais do Azure específicas em contas de armazenamento de cache utilizadas para armazenar dados replicados.
+Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou esporádico) | Não | Aumento dos custos de transação substancialmente em comparação com fins gerais V1 contas de armazenamento
 
 >[!IMPORTANT]
-> Certifique-se de que observar os destinos de desempenho e escalabilidade do disco VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) máquinas virtuais para evitar quaisquer problemas de desempenho. Se seguir as predefinições, a recuperação de sites irá criar as contas de armazenamento com base na configuração da origem e discos necessários. Se personalizar e selecione as suas próprias definições, certifique-se de que segue os destinos de escalabilidade e desempenho de disco para as VMs de origem.
+> Certifique-se de que observar que os destinos de escalabilidade e desempenho disco VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) máquinas virtuais para evitar quaisquer problemas de desempenho. Se seguir as configurações padrão, o Site Recovery irá criar os discos necessários e as contas de armazenamento com base na configuração da origem. Se personaliza e selecionar suas próprias definições, certifique-se de que segue os destinos de escalabilidade e desempenho de disco para as VMs de origem.
 
 ## <a name="support-for-network-configuration"></a>Suporte para a configuração de rede
 **Configuração** | **Suportado/não suportado** | **Observações**
 --- | --- | ---
-Interface de rede (NIC) | Até o número máximo de NICs suportado por um tamanho de VM do Azure específico | NICs são criados quando é criada a VM como parte da ativação pós-falha de teste ou de operação de ativação pós-falha. O número de NICs a ativação pós-falha da VM depende do número de NICs a VM tem no momento da ativação da replicação de origem. Se lhe adicionar/remover NIC depois de ativar a replicação, não afeta a contagem NIC na ativação pós-falha da VM.
-Balanceador de Carga de Externo | Suportadas | Precisa de associar o Balanceador de carga previamente configurada utilizando um script de automatização do azure num plano de recuperação.
-Balanceador de carga interno | Suportadas | Precisa de associar o Balanceador de carga previamente configurada utilizando um script de automatização do azure num plano de recuperação.
-IP público| Suportadas | Tem de associar um IP público já existente para o NIC ou crie um e associe a NIC utilizando um script de automatização do azure num plano de recuperação.
-NSG no NIC (Resource Manager)| Suportadas | Precisa de associar o NSG para o NIC utilizando um script de automatização do azure num plano de recuperação.  
-NSG na sub-rede (Resource Manager e clássico)| Suportadas | Precisa de associar o NSG para sub-rede a utilizar um script de automatização do azure num plano de recuperação.
-NSG na VM (clássica)| Suportadas | Precisa de associar o NSG para o NIC utilizando um script de automatização do azure num plano de recuperação.
-(IP estático) do IP reservado / manter o IP de origem | Suportadas | Se a NIC na VM de origem tiver uma configuração de IP estático e a sub-rede de destino tiver o mesmo IP disponível, é atribuída para a ativação pós-falha da VM. Se a sub-rede de destino não tem o mesmo IP disponível, uma dos IPs disponíveis na sub-rede é reservada para esta VM. Pode especificar um IP fixo da sua preferência em ' item replicados > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.
-IP dinâmico| Suportadas | Se a NIC na VM de origem tiver uma configuração de IP dinâmica, o NIC a ativação pós-falha de VM também é dinâmica por predefinição. Pode especificar um IP fixo da sua preferência em ' item replicados > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.
-Integração do Gestor de Tráfego | Suportadas | Pode pré-configurar o Gestor de tráfego de forma a que o tráfego é encaminhado para o ponto final na região de origem regulares e para o ponto final na região de destino em caso de ativação pós-falha.
-Azure geridos DNS | Suportadas |
+Interface de rede (NIC) | Número máximo de NICs suportado por um tamanho de VM do Azure específico | NICs são criados quando a VM é criada como parte da ativação pós-falha de teste ou operação de ativação pós-falha. O número de NICs na VM de ativação pós-falha depende o número de NICs a VM tem no momento da ativação da replicação de origem. Se adicionar/remover NIC depois de ativar a replicação, não afeta a contagem de NIC na VM de ativação pós-falha.
+Balanceador de Carga de Externo | Suportadas | Precisa associar o Balanceador de carga previamente configurada com um script de automatização do azure num plano de recuperação.
+Balanceador de carga interno | Suportadas | Precisa associar o Balanceador de carga previamente configurada com um script de automatização do azure num plano de recuperação.
+IP público| Suportadas | Tem de associar um IP público já existente para a NIC ou criar uma e associar a NIC usando um script de automatização do azure num plano de recuperação.
+NSG em NIC (Resource Manager)| Suportadas | Tem de associar o NSG à NIC usando um script de automatização do azure num plano de recuperação.  
+NSG na sub-rede (Resource Manager e clássica)| Suportadas | Tem de associar o NSG à sub-rede usando um script de automatização do azure num plano de recuperação.
+NSG na VM (clássico)| Suportadas | Tem de associar o NSG à NIC usando um script de automatização do azure num plano de recuperação.
+Reservado de IP (IP estático) / manter o IP de origem | Suportadas | Se a NIC na VM de origem tem uma configuração de IP estático e a sub-rede de destino tem o mesmo IP disponível, é atribuído à VM de ativação pós-falha. Se a sub-rede de destino não tem o mesmo IP disponível, um dos IPs disponíveis na sub-rede está reservado para esta VM. Pode especificar um IP fixo à sua escolha em "item replicado > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.
+IP dinâmico| Suportadas | Se a NIC na VM de origem tem uma configuração de IP dinâmico, a NIC a ativação pós-falha de VM também é dinâmica por padrão. Pode especificar um IP fixo à sua escolha em "item replicado > Definições > computação e rede > interfaces de rede. Pode selecionar a NIC e especifique a sub-rede e o IP da sua preferência.
+Integração do Gestor de Tráfego | Suportadas | Pode configurar previamente o seu Gestor de tráfego de forma que o tráfego é encaminhado para o ponto final na região de origem regularmente e para o ponto final na região de destino em caso de ativação pós-falha.
+DNS de geridas do Azure | Suportadas |
 DNS Personalizado  | Suportadas |    
-Proxy não autenticados | Suportadas | Consulte [documento de orientação na rede.](site-recovery-azure-to-azure-networking-guidance.md)    
-Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não é possível replicar utilizando o Azure Site Recovery.    
-VPN de site a Site no local (com ou sem ExpressRoute)| Suportadas | Certifique-se de que o UDRs e NSGs estão configurados de forma a que o tráfego de recuperação do Site não for encaminhado para o local. Consulte [documento de orientação na rede.](site-recovery-azure-to-azure-networking-guidance.md)  
-Ligação VNET a VNET | Suportadas | Consulte [documento de orientação na rede.](site-recovery-azure-to-azure-networking-guidance.md)  
-Pontos Finais de Serviço de Rede Virtual | Suportadas | Firewalls de armazenamento do Azure para as redes virtuais não são suportadas. Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
-Redes Aceleradas | Não suportado | Pode ser replicada uma VM com acelerados rede ativada, mas a ativação pós-falha de VM não terão acelerados de rede ativada. Serão também desativadas na melhoria de redes de VM de origem na reativação pós-falha.
+Proxy não autenticados | Suportadas | Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)    
+Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não podem ser replicada com o Azure Site Recovery.    
+VPN site a Site no local (com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego de recuperação de Site não é encaminhado para o local. Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Ligação VNET a VNET | Suportadas | Consulte [documento de orientação para funcionamento em rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Pontos Finais de Serviço de Rede Virtual | Suportadas | Firewalls de armazenamento do Azure para redes virtuais não são suportadas. Não é suportada a permissão de acesso a redes virtuais do Azure específicas em contas de armazenamento de cache utilizadas para armazenar dados replicados.
+Redes Aceleradas | Não suportado | Uma VM com Accelerated Networking ativada pode ser replicada, mas a ativação pós-falha de VM não estarão disponíveis redes aceleradas ativada. Funcionamento em rede acelerado também será desativado para VM de origem na reativação pós-falha.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [redes orientações para replicar as VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md)
-- Começar a proteger as cargas de trabalho por [replicar as VMs do Azure](site-recovery-azure-to-azure.md)
+- Saiba mais sobre [redes orientações para replicar VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md)
+- Começar a proteger as cargas de trabalho por [replicar VMs do Azure](site-recovery-azure-to-azure.md)

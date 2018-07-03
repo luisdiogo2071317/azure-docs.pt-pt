@@ -1,9 +1,9 @@
 ---
-title: Monitorização e a depuração com métricas do BD Azure Cosmos | Microsoft Docs
-description: Utilize métricas do BD Azure Cosmos para depurar problemas comuns e monitorizar a base de dados.
+title: Monitorização e depuração com métricas na Azure Cosmos DB | Documentos da Microsoft
+description: Utilize métricas no Azure Cosmos DB para depurar problemas comuns e monitorizar a base de dados.
 keywords: métricas
 services: cosmos-db
-author: gnot
+author: kanshiG
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -11,65 +11,65 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 5f6852de2c09e3de9375a2cb5d73f052ac68f039
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 9b9f72812b1a1f0e30379c32e10d316fcbf71d3b
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100577"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345594"
 ---
-# <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e a depuração com métricas do BD Azure Cosmos
+# <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e depuração com métricas na Azure Cosmos DB
 
-BD do Azure do Cosmos fornece métricas de débito, armazenamento, consistência, disponibilidade e latência. O [portal do Azure](https://portal.azure.com) fornece uma vista de agregados destas métricas; mais granulares com base nas métricas, o SDK de cliente e o [os registos de diagnóstico](./logging.md) estão disponíveis.
+O Azure Cosmos DB fornece as métricas de débito, armazenamento, consistência, disponibilidade e latência. O [portal do Azure](https://portal.azure.com) fornece uma exibição agregada estas métricas; para métricas mais granulares, o SDK de cliente e o [registos de diagnóstico](./logging.md) estão disponíveis.
 
-Para obter uma descrição geral das métricas novo e saiba localizar partições frequente na base de dados, veja o seguinte vídeo de sexta-feira do Azure:
+Para obter uma descrição geral das métricas de novo e aprender a localizar partições muito ativas na sua base de dados, veja o seguinte vídeo de sexta-feira do Azure:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
 > 
 
-Este artigo explica os casos de utilização comuns e como métricas de BD do Cosmos Azure podem ser utilizadas para analisar e estes problemas de depuração. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
+Este artigo explica-casos de utilização comuns e como as métricas do Azure Cosmos DB podem ser usadas para analisar e depurar esses problemas. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
 
-## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Noções sobre o número de pedidos está a ter êxito ou a causar erros
+## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Noções básicas sobre o número de pedidos está a ter êxito ou a que está causando erros
 
-Para começar, dirija-se ao [portal do Azure](https://portal.azure.com) e navegue para o **métricas** painel. No painel, localizar o **excedido o número de pedidos de capacidade por 1 minuto** gráfico. Este gráfico mostra um minuto por minuto total de pedidos segmentados pelo código de estado. Para obter mais informações sobre códigos de estado HTTP, consulte [códigos de estado de HTTP para a base de dados do Azure Cosmos](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para começar, vá para o [portal do Azure](https://portal.azure.com) e navegue para o **métricas** painel. No painel, localize a **número de pedidos excedeu a capacidade por 1 minuto** gráfico. Este gráfico mostra um minuto a minuto total de pedidos segmentados pelo código de estado. Para obter mais informações sobre códigos de estado HTTP, consulte [códigos de estado de HTTP para o Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-O código de estado de erro mais comuns é a 429 (limitação/limitação de velocidade), que significa que os pedidos à base de dados do Azure Cosmos estão a exceder o débito aprovisionado. A solução mais comuns para isto é [aumentar verticalmente os RUs](./set-throughput.md) para a coleção especificada.
+O código de estado de erro mais comuns é 429 (limitação/limitação de velocidade), que significa que pedidos ao Azure Cosmos DB estão a exceder o débito aprovisionado. A solução mais comuns para isto é [aumentar verticalmente o RUs](./set-throughput.md) para determinada coleção.
 
 ![Número de pedidos por minuto](media/use-metrics/metrics-12.png)
 
-## <a name="determining-the-throughput-distribution-across-partitions"></a>Determinar a distribuição de débito em partições
+## <a name="determining-the-throughput-distribution-across-partitions"></a>Determinar a distribuição de débito entre partições
 
-Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação escalável. Para determinar a distribuição de débito de qualquer coleção particionada dividida por partição, navegue para o **painel métricas** no [portal do Azure](https://portal.azure.com). No **débito** separador, é apresentada a repartição de armazenamento na **máximo consumido RU por segundo por cada partição física** gráfico. O gráfico seguinte ilustra um exemplo de uma distribuição fraco de dados como evidenced para a partição distorcida na extremidade esquerda. 
+Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer coleção particionada dividida por partições, navegue para o **painel de métricas** no [portal do Azure](https://portal.azure.com). Na **débito** separador, a divisão de armazenamento é mostrada na **RU/segundo máximos consumidos por cada partição física** gráfico. O gráfico seguinte ilustra um exemplo de uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
 
-![Ver utilização intensa às 15:05 de partições únicas](media/use-metrics/metrics-17.png)
+![Ver o uso intenso às 15:00: 05 de partição única](media/use-metrics/metrics-17.png)
 
-Pode provocar uma distribuição desigual débito *frequente* partições, que podem resultar em pedidos otimizados e podem necessitar de repartição. Para obter mais informações sobre a criação de partições do BD Azure Cosmos, consulte [partição e o dimensionamento do BD Azure Cosmos](./partition-data.md).
+Pode fazer com que uma distribuição desigual de débito *frequente* partições, que podem resultar em pedidos limitados e podem exigir a repartição. Para obter mais informações sobre a criação de partições no Azure Cosmos DB, consulte [particionar e dimensionar no Azure Cosmos DB](./partition-data.md).
 
-## <a name="determining-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento em partições
+## <a name="determining-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento em várias partições
 
-Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação escalável. Para determinar a distribuição de débito de qualquer coleção particionada dividida por partição, aceda ao painel de métricas no [portal do Azure](https://portal.azure.com). No separador de débito, a repartição de armazenamento é apresentada no máximo consumido RU por segundo gráfico cada partição física. O gráfico seguinte ilustra uma distribuição fraca de dados como evidenced para a partição distorcida na extremidade esquerda. 
+Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer coleção particionada dividida por partições, vá para o painel de métricas no [portal do Azure](https://portal.azure.com). No separador de débito, a divisão de armazenamento é mostrada no RU/segundo máximos consumidos por cada gráfico de partição física. O gráfico seguinte ilustra uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
 
-![Exemplo de distribuição de dados fraco](media/use-metrics/metrics-07.png)
+![Exemplo de distribuição de dados fraca](media/use-metrics/metrics-07.png)
 
-Pode raiz causa que a chave de partição é skewing a distribuição clicando na partição no gráfico. 
+Pode causa ao qual chave de partição é a inclinação a distribuição clicando numa partição no gráfico. 
 
-![Chave de partição é skewing de distribuição](media/use-metrics/metrics-05.png)
+![Chave de partição é a inclinação de distribuição](media/use-metrics/metrics-05.png)
 
-Depois de identificar que a chave de partição está a causar o desfasamento de distribuição, poderá ter de reparticionar a coleção com uma chave de partição mais distribuída. Para obter mais informações sobre a criação de partições do BD Azure Cosmos, consulte [partição e o dimensionamento do BD Azure Cosmos](./partition-data.md).
+Depois de identificar qual chave de partição está a causar a distorção na distribuição, poderá ter de criar novas partições de sua coleção com uma chave de partição mais distribuída. Para obter mais informações sobre a criação de partições no Azure Cosmos DB, consulte [particionar e dimensionar no Azure Cosmos DB](./partition-data.md).
 
-## <a name="comparing-data-size-against-index-size"></a>Comparar o tamanho dos dados contra o tamanho de índice
+## <a name="comparing-data-size-against-index-size"></a>Comparar o tamanho dos dados contra o tamanho do índice
 
-Na base de dados do Azure Cosmos, o armazenamento consumido total é a combinação do tamanho de dados e o tamanho do índice. Normalmente, o tamanho do índice é fração do tamanho dos dados. No painel do métricas no [portal do Azure](https://portal.azure.com), no separador de armazenamento showcases a repartição de consumo de armazenamento com base nos dados e índice. Imagem (talvez) em alternativa, do SDK, pode encontrar a utilização de armazenamento atual através de uma coleção de leitura.
+No Azure Cosmos DB, o armazenamento total consumido é a combinação do tamanho dos dados e o tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. No painel de métricas a [portal do Azure](https://portal.azure.com), separador armazenamento demonstra a divisão do consumo de armazenamento com base nos dados e índice. Imagem (talvez) em alternativa, do SDK, pode encontrar a utilização do armazenamento atual por meio de uma coleção de leitura.
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 
  Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 ``` 
-Se quiser poupar espaço de índice, pode ajustar o [política de indexação](./indexing-policies.md).
+Se desejar conservar espaço de índice, pode ajustar os [política de indexação](./indexing-policies.md).
 
-## <a name="debugging-why-queries-are-running-slow"></a>Depurar a razão pela qual as consultas em execução lenta
+## <a name="debugging-why-queries-are-running-slow"></a>Depuração, por isso que consultas estão lentas
 
-Os SDKs de API do SQL Server, base de dados do Azure Cosmos fornece estatísticas de execução da consulta. 
+Os SDKs de API de SQL do Azure Cosmos DB fornece estatísticas de execução de consulta. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -88,11 +88,11 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
-*QueryMetrics* fornece detalhes sobre cada componente da consulta de quanto tempo demorou a execução. A causa mais comum para execução longa consultas são análises (a consulta não foi possível tirar partido dos índices), que podem ser resolvidos com uma condição de filtro melhor.
+*QueryMetrics* fornece detalhes sobre cada componente da consulta de quanto tempo demorou a execução. A causa mais comum de execução prolongada consultas são verificações (a consulta não foi possível ao tirar partido dos índices), que podem ser resolvidas com uma condição de filtro melhor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como monitorizar e problemas de depuração utilizando as métricas fornecidas no portal do Azure, pode pretender obter mais informações sobre como melhorar o desempenho da base de dados ao ler os artigos seguintes:
+Agora que já aprendeu a monitorizar e problemas de depuração com as métricas fornecidas no portal do Azure, pode querer saber mais sobre como melhorar o desempenho da base de dados ao ler os artigos seguintes:
 
-* [Desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md)
-* [Sugestões de desempenho para a base de dados do Azure Cosmos](performance-tips.md)
+* [Desempenho e dimensionamento testes com o Azure Cosmos DB](performance-testing.md)
+* [Sugestões de desempenho para o Azure Cosmos DB](performance-tips.md)

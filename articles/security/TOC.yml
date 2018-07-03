@@ -10,6 +10,8 @@
       href: azure-log-audit.md
     - name: Segurança de rede do Azure
       href: azure-network-security.md
+    - name: Segurança da plataforma sem servidor do Azure
+      href: abstract-serverless-platform-security.md
     - name: Ativar a segurança operacional
       href: azure-operational-security.md
     - name: Governação no Azure

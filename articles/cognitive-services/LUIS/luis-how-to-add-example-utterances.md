@@ -1,7 +1,7 @@
 ---
-title: Adicionar utterances de exemplo em aplicações LUIS | Microsoft Docs
+title: Adicionar expressões de exemplo em aplicativos de LUIS | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como adicionar utterances em aplicações de compreensão de idiomas (LUIS).
+description: Saiba como adicionar expressões em aplicativos de compreensão de idiomas (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,175 +10,175 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 80ccedc7299836cae689edd8a277a7c6d23befa7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300643"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345061"
 ---
-# <a name="add-example-utterances-and-label-with-entities"></a>Adicionar utterances de exemplo e a etiqueta com entidades
+# <a name="add-example-utterances-and-label-with-entities"></a>Adicionar expressões de exemplo e a etiqueta com entidades
 
-Utterances de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Para lhe ensinar compreensão de idiomas (LUIS), tem de adicionar [utterances exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
+Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), precisa adicionar [expressões de exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
 
-Geralmente, adicione primeiro um utterance de exemplo para o objetivo e, em seguida, criar entidades e utterances etiqueta na página de intenção. Se em vez disso criaria entidades pela primeira vez, consulte o artigo [adicionar entidades](luis-how-to-add-entities.md).
+Em geral, adicionar uma expressão de exemplo para um objetivo pela primeira vez e, em seguida, criar entidades e expressões de etiqueta na página de intenção. Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
 
-## <a name="add-an-utterance"></a>Adicionar um utterance
-Na página de intenção, introduza um utterance relevantes de exemplo que se espera de utilizadores, tais como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo intenção nome e, em seguida, prima Enter. 
+## <a name="add-an-utterance"></a>Adicionar uma expressão
+Numa página de intenção, introduza uma expressão de exemplo relevantes que se espera de seus usuários, como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo do nome intenção e, em seguida, prima Enter. 
  
 >[!NOTE]
->LUIS converte todos os utterances em minúsculas.
+>LUIS converte todas as expressões de com em minúsculas.
 
-![Página de detalhes de captura de ecrã de pendentes, com utterance realçado](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
+![Página de detalhes de captura de ecrã de objetivos, com a expressão realçado](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
-Utterances são adicionados à lista de utterances para o objetivo atual. 
+Expressões com são adicionados à lista de expressões com para o objetivo atual. 
 
-## <a name="ignoring-words-and-punctuation"></a>A ignorar palavras e de pontuação
-Se pretender ignorar palavras específicas ou pontuação no utterance exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
+## <a name="ignoring-words-and-punctuation"></a>A ignorar a palavras e pontuação
+Se pretender ignorar palavras específicas ou pontuação na expressão de exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
 
-## <a name="add-simple-entity-label"></a>Adicione a etiqueta de entidade simples
-No procedimento seguinte, crie e etiqueta personalizadas entidades dentro de utterance seguinte na página de intenção:
+## <a name="add-simple-entity-label"></a>Adicionar etiqueta de entidade
+O procedimento seguinte, cria e entidades personalizadas dentro da expressão seguinte na página da intenção da etiqueta:
 
 ```
 book me 2 adult business tickets to Paris tomorrow on Air France
 ```
 
-1. Selecione "França ondas Eletromagnéticas" utterance para identificá-lo como uma entidade simple.
+1. Selecione "Ar França" na expressão que identifique-la como uma entidade.
 
     > [!NOTE]
-    > Quando selecionar palavras etiquetá-los como entidades:
+    > Quando selecionar as palavras que identifique-los como entidades:
     > * Para uma única palavra, basta selecioná-lo. 
-    > * Para um conjunto de dois ou mais palavras, selecione no início e, em seguida, no final do conjunto.
+    > * Para um conjunto de duas ou mais palavras, selecione no início e, em seguida, no final do conjunto.
 
-2. Na caixa de lista pendente de entidade apresentada, pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, escreva o respetivo nome na caixa de texto e, em seguida, selecione **criar nova entidade**. 
+2. Na caixa de lista pendente de entidade que aparece, pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, digite seu nome na caixa de texto e, em seguida, selecione **criar nova entidade**. 
  
-    ![Página de detalhes de captura de ecrã de pendentes, com entidade simple etiquetagem opção realçada](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
+    ![Página de detalhes de captura de ecrã de objetivos, com a entidade simple etiquetagem opção realçada](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
 
-3. No **que tipo de entidade que pretende criar?** caixa de diálogo de pop-up, verifique o nome da entidade e selecione o tipo de entidade simples e, em seguida, selecione **feito**.
+3. Na **o tipo de entidade que pretende criar?** caixa de diálogo pop-up, verifique se o nome da entidade e selecione o tipo de entidade simples e, em seguida, selecione **feito**.
 
     ![Imagem da caixa de diálogo de confirmação](./media/luis-how-to-add-example-utterances/create-simple-airline-entity.png)
 
-    Consulte [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a extrair a entidade simple do ponto final de uma resposta à consulta JSON. Tente a entidade simple [início rápido](luis-quickstart-primary-and-secondary-data.md) para obter mais informações sobre como utilizar uma entidade simple.
+    Ver [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a entidade simple a extração do ponto de extremidade de resposta da consulta JSON. Experimente a entidade simple [guia de introdução](luis-quickstart-primary-and-secondary-data.md) para saber mais sobre como utilizar uma entidade.
 
 
-## <a name="add-list-entity-and-label"></a>Adicionar a entidade de lista e a etiqueta
-Lista de entidades representam um conjunto fixo, fechado (texto exato corresponde) das palavras relacionados no seu sistema. 
+## <a name="add-list-entity-and-label"></a>Adicionar entidade de lista e etiqueta
+Lista de entidades representam um conjunto fixo, fechado (corresponde a texto exato) de palavras relacionadas no seu sistema. 
 
-Para uma entidade de lista drinks, pode ter dois valores normalizados: máximo e soda pop. Cada nome normalizado tem sinónimos. Para os níveis máximos, os sinónimos são H20, gás, flat. Para o pop do soda, os sinónimos são acessíveis, cola, ginger. Não tem de conhecer todos os valores quando criar a entidade. Pode adicionar mais depois de rever utterances de utilizador reais com sinónimos.
+Para uma entidade de lista drinks, pode ter dois valores normalizados: água e soda pop. Cada nome normalizado tem sinónimos. Para água, os sinónimos são H20, gás, fixa. Para soda pop, os sinónimos são frutos, cola, ginger. Não precisa saber todos os valores quando criar a entidade. Pode adicionar mais depois de rever as expressões de utilizador real com sinónimos.
 
 |Nome normalizado|Sinónimos|
 |--|--|
-|Água|H20, gás, plana|
-|Soda pop|Acessíveis, cola, ginger|
+|Água|H20, gás, fixa|
+|Pop da soda|Frutos, cola, ginger|
 
-Ao criar uma nova entidade na lista da página de intenção, estão a fazer duas coisas que podem não ser óbvias. Em primeiro lugar, está a criar uma nova lista através da adição do primeiro item da lista. Segundo, o primeiro item de lista é denominado com a palavra ou expressão que tiver escolhido o utterance. Enquanto pode alterá-las mais tarde a partir da página de entidade, poderá ser mais rápida selecionar um utterance que tenha o word que pretende para o nome do item da lista.
+Ao criar uma nova entidade de lista a partir da página de intenção, estão a fazer duas coisas que talvez não sejam óbvias. Em primeiro lugar, está a criar uma nova lista ao adicionar o primeiro item da lista. Em segundo lugar, o primeiro item da lista com o nome com a palavra ou frase que tiver escolhido a expressão. Enquanto pode alterá-las mais tarde a partir da página de entidade, pode ser mais rápido selecionar uma expressão com a palavra que pretende para o nome do item da lista.
 
-Por exemplo, se pretender criar uma lista de tipos de drink e selecionado o word `h2o` de utterance para criar a entidade, a lista teria um item, cujo nome foi h20. Se quisesse um nome mais genérico, deve escolher um utterance que utiliza o nome mais genérico. 
+Por exemplo, se quiser criar uma lista de tipos de bebida e é selecionada a palavra `h2o` da expressão para criar a entidade, a lista teria um item, cujo nome foi h20. Se quisesse um nome mais genérico, deve escolher uma expressão que utiliza o nome mais genérico. 
 
-1. No utterance, selecione o word que é o primeiro item na lista, e, em seguida, introduza o nome da lista na caixa de texto, em seguida, selecione **criar nova entidade**.   
+1. Na expressão, selecione a palavra que é o primeiro item na lista, e, em seguida, introduza o nome da lista na caixa de texto, em seguida, selecione **criar nova entidade**.   
 
-    ![Página de detalhes de captura de ecrã de pendentes, com criar nova entidade realçada](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
+    ![Página de detalhes de captura de ecrã de objetivos, com a nova entidade de criar realçada](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
 
-2. No **que tipo de entidade que pretende criar?** diálogo caixa, adicionar sinónimos deste item de lista. Para o item máximo numa lista drink, adicionar `h20`, `perrier`, e `waters`e selecione **feito**. Tenha em atenção que "waters" foi adicionadas porque os sinónimos de lista são correspondidos ao nível do token. Na cultura inglês, se o nível é ao nível do word, por isso, "waters" seria não corresponder à "nível máximo", a menos que estava na lista. 
+2. Na **o tipo de entidade que pretende criar?** diálogo caixa, adicionar sinónimos deste item de lista. Para o item de água numa lista de bebida, adicione `h20`, `perrier`, e `waters`e selecione **feito**. Tenha em atenção que "coisas" são adicionadas uma vez que correspondem os sinónimos de lista no nível do token. Não seriam possível corresponder na cultura inglês, que nível está no nível do word tão "coisas" para "água", a menos que ele estava na lista. 
 
-    ![Captura de ecrã do tipo de entidade pretende criar a caixa de diálogo](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
+    ![Captura de ecrã do tipo de entidade fazer que pretende criar a caixa de diálogo](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
 
-    Esta lista de drinks tem drink apenas um tipo, máximo. Pode adicionar mais tipos de drink por etiquetagem outros utterances ou ao editar a entidade do **entidades** no painel de navegação esquerdo. [Editar](luis-how-to-add-entities.md#add-list-entities) as entidades dá-lhe as opções da introdução de itens adicionais com sinónimos correspondentes ou [importar](luis-how-to-add-entities.md#import-list-entity-values) uma lista. 
+    Esta lista de drinks tem o tipo de bebida apenas uma, água. Pode adicionar mais tipos de bebida por etiquetagem outras expressões ou ao editar a entidade a partir da **entidades** na navegação à esquerda. [Edição](luis-how-to-add-entities.md#add-list-entities) as entidades dá-lhe as opções da introdução itens adicionais com sinónimos correspondentes ou [importar](luis-how-to-add-entities.md#import-list-entity-values) uma lista. 
 
-    Consulte [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista o ponto final de uma resposta à consulta JSON. Repita o [início rápido](luis-quickstart-intent-and-list-entity.md) para obter mais informações sobre como utilizar uma entidade de lista.
+    Ver [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intent-and-list-entity.md) para saber mais sobre como utilizar uma entidade de lista.
 
 ## <a name="add-synonyms-to-the-list-entity"></a>Adicionar sinónimos para a entidade de lista 
-Adicione um sinónimo para a entidade de lista, selecionando a palavra ou frase no utterance. Se tiver um Drink lista entidade e pretende adicionar `agua` como um sinónimo de níveis máximos, siga os passos:
+Adicione um sinónimos para a entidade de lista ao selecionar a palavra ou frase na expressão. Se tiver uma bebida lista entidade e quiser adicionar `agua` como sinônimo de água, siga os passos:
 
-Utterance, selecione como o word synonymous, `aqua` para máximo, em seguida, selecione o nome da entidade lista na lista pendente, tais como **Drink**, em seguida, selecione **definido como sinónimo**, em seguida, selecione na lista o item é synonymous com, tal como **máximo**.
+Na expressão, selecione a palavra sinônimos, tal como `aqua` de água, em seguida, selecione o nome da entidade de lista na lista pendente, tais como **beber**, em seguida, selecione **definir como sinónimos**, em seguida, selecione a lista item é sinônimo, tal como **água**.
 
-![Página de detalhes de captura de ecrã de pendentes, com a criar um novo sinónimo realçado](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Página de detalhes de captura de ecrã de objetivos, com criar um novo sinónimo realçado](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
-## <a name="create-new-item-for-list-entity"></a>Criar um novo item para a entidade de lista
-Crie um novo item de uma entidade de lista existentes, selecionando a palavra ou frase no utterance. Se tiver um Drink lista e pretende adicionar `tea` como um novo item, siga os passos:
+## <a name="create-new-item-for-list-entity"></a>Criar novo item para a entidade de lista
+Crie um novo item de uma entidade de lista existentes ao selecionar a palavra ou frase na expressão. Se tiver uma bebida, listar e quiser adicionar `tea` como um novo item, siga os passos:
 
-Utterance, selecione como o word para o novo item da lista, `tea`, em seguida, selecione o nome da entidade lista na lista pendente, tais como **Drink**, em seguida, selecione **criar um novo sinónimo**. 
+A expressão, selecione como o word para o novo item de lista, `tea`, em seguida, selecione o nome da entidade de lista na lista pendente, tais como **beber**, em seguida, selecione **criar um novo sinónimos**. 
 
-![Captura de ecrã do adicionar novo item da lista](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
+![Captura de ecrã de adicionar novo item da lista](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 
-A palavra está agora realçada azul. Se paira o rato sobre o word, uma tag mostra o nome do item de lista, tais como tea.
+A palavra agora é realçada em azul. Se passar o mouse sobre a palavra, uma etiqueta mostra o que mostra o nome do item de lista, como o chá.
 
 ![Captura de ecrã da nova etiqueta de item de lista](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
 
-## <a name="wrap-entities-in-composite-label"></a>Moldar entidades na etiqueta composta
-Entidades compostas criadas a partir de **entidades**. Não é possível criar uma entidade composta a partir da página de intenção. Assim que a entidade composta for criada, pode encapsular as entidades num utterance na página de intenção. 
+## <a name="wrap-entities-in-composite-label"></a>Encapsular as entidades na etiqueta composta
+Entidades compostas são criadas a partir **entidades**. Não é possível criar uma entidade composta da página de intenção. Depois de criar a entidade composta, pode encapsular as entidades numa expressão na página de intenção. 
 
-Partindo do princípio de utterance, `book 2 tickets from Seattle to Cairo`, um utterance composto pode devolver informações de entidade do número de pedidos de suporte (2), a origem (Seattle) e o destino de localizações (Cairo) na entidade de um único elemento principal. 
+Supondo que a expressão, `book 2 tickets from Seattle to Cairo`, uma expressão composta pode retornar informações da entidade de contagem de pedidos de suporte (2), a origem (Seattle) e o destino localizações (Cairo) numa entidade único elemento principal. 
 
-Siga estes [passos](luis-how-to-add-entities.md#add-prebuilt-entity) para adicionar o **número** prebuilt entidade. Depois de criar a entidade, o `2` o utterance é azul, indicando que é uma entidade com nome. Entidades prebuilt são etiquetadas pelo LUIS. Não é possível adicionar ou remover a etiqueta de entidade prebuilt um utterance único. Só pode adicionar ou remover todas as etiquetas prebuilt adicionando ou removendo a entidade prebuilt da aplicação.
+Siga estes [passos](luis-how-to-add-entities.md#add-prebuilt-entity) para adicionar o **número** entidade pré-criados. Depois da entidade é criada, o `2` a expressão é azul, que indica que é uma entidade com nome. Entidades pré-concebidas são etiquetadas pelo LUIS. Não é possível adicionar ou remover a etiqueta de entidade pré-criados de uma única expressão. Apenas pode adicionar ou remover todas as etiquetas pré-criados adicionando ou removendo a entidade pré-criados do aplicativo.
 
-Siga estes [passos](#add-hierarchical-entity-and-label) para criar um **localização** entidade hierárquica. Etiqueta as localizações de origem e de destino na utterance de exemplo. 
+Siga estes [passos](#add-hierarchical-entity-and-label) para criar um **localização** entidades hierárquicas. As localizações de origem e de destino a expressão de exemplo da etiqueta. 
 
-Antes de moldar as entidades a uma entidade composto, certifique-se todas as entidades de subordinados são realçadas azul, o que significa que tem sido etiqueta no utterance.
+Antes de moldar as entidades numa entidade composta, certifique-se todas as entidades subordinadas são realçadas em azul, o que significa que ter foram rotuladas na expressão.
 
-1. Moldar as entidades individuais para um compostos, selecione a entidade identificada primeiro utterance para a entidade composta. No utterance exemplo, `book 2 tickets from Seattle to Cairo`, a primeira entidade é o número de 2. É apresentada uma lista de lista pendente que mostra as opções para esta seleção.
+1. Encapsular as entidades individuais numa composição, selecione a primeira entidade etiquetada a expressão para a entidade composta. Na expressão de exemplo, `book 2 tickets from Seattle to Cairo`, a primeira entidade é o número 2. É apresentada uma lista de lista pendente que mostra as opções para esta seleção.
 
-    ![Captura de ecrã do número selecionado e as opções de lista pendente realçadas](./media/luis-how-to-add-example-utterances/wrap-1.png)
+    ![Captura de ecrã do número selecionado e opções de menu pendente realçadas](./media/luis-how-to-add-example-utterances/wrap-1.png)
 
-2. Selecione **moldar entidade composta** na lista pendente. 
+2. Selecione **encapsular entidade composta** na lista pendente. 
 
-    ![Captura de ecrã das opções de lista pendente de moldagem entidade composta com moldagem na entidade composta realçada](./media/luis-how-to-add-example-utterances/wrap-2.png)
+    ![Captura de ecrã das opções de menu pendente para encapsulamento entidade composta com moldagem na entidade composta realçada](./media/luis-how-to-add-example-utterances/wrap-2.png)
 
-3. Selecione o word último da entidade composta. No utterance deste exemplo, selecione "Location::Destination" (que representa Cairo). A linha de verde é agora em todas as palavras, incluindo palavras não entidade, no utterance que estão o compostos.
+3. Selecione a última palavra da entidade composta. Na ocorrência de pronunciação de neste exemplo, selecione "Location::Destination" (representando Cairo). A linha verde está agora em todas as palavras, incluindo palavras não entidade, na expressão que estão a composição.
 
-    ![Página de captura de ecrã da intenção BookFlight, com o número de realçado](./media/luis-how-to-add-example-utterances/wrap-composite.png)
+    ![Página de captura de ecrã de BookFlight intenção, com o número de realçado](./media/luis-how-to-add-example-utterances/wrap-composite.png)
 
-4. Selecione o nome da entidade composto da lista pendente. Neste exemplo, que é **TicketOrder**.
+4. Selecione o nome da entidade composta na lista pendente. Neste exemplo, que é **TicketOrder**.
 
-    ![Captura de ecrã da palavras com composto entidade, de encapsulamento de aplicações com o nome da entidade composto realçado na lista pendente](./media/luis-how-to-add-example-utterances/wrap-4.png)
+    ![Captura de ecrã do encapsulamento palavras com entidade composta, com o nome da entidade compostos realçado na lista pendente](./media/luis-how-to-add-example-utterances/wrap-4.png)
 
-    Quando moldar as entidades corretamente, uma linha verde está sob o frase completo.
+    Quando encapsula as entidades corretamente, uma linha verde está sob a frase inteira.
 
-    ![Captura de ecrã do utterance com entidade composta realçada](./media/luis-how-to-add-example-utterances/wrap-5.png)
+    ![Captura de ecrã da expressão com entidade composta realçada](./media/luis-how-to-add-example-utterances/wrap-5.png)
 
-    Consulte [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto final de uma resposta à consulta JSON. Tente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para obter mais informações sobre como utilizar uma entidade composta.
+    Ver [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto de extremidade de resposta da consulta JSON. Experimente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para saber mais sobre como utilizar uma entidade composta.
 
-## <a name="add-hierarchical-entity-and-label"></a>Adicionar entidade hierárquica e etiqueta
-Uma entidade hierárquica é uma categoria de entidades, essencialmente, relacionadas e reconhecimento do contexto adquiridas. No exemplo seguinte, a entidade contém localizações de origem e de destino. 
+## <a name="add-hierarchical-entity-and-label"></a>Adicionar entidades hierárquicas e etiqueta
+Uma entidade hierárquica é uma categoria de entidades contextualmente aprendidas e conceitualmente relacionadas. No exemplo seguinte, a entidade contém localizações de origem e de destino. 
 
-No utterance `Book 2 tickets from Seattle to Cairo`, Seattle é a localização de origem e Cairo é a localização de destino. Cada localização é reconhecimento do contexto diferente e adquiridas da ordem de word e escolha word no utterance.
+Na expressão `Book 2 tickets from Seattle to Cairo`, Seattle é a localização de origem e Cairo é a localização de destino. Cada localização é diferente e aprendidas contextualmente de ordem das palavras e a escolha do word na expressão.
 
-1. Na página de intenção, de utterance, selecione "Seattle", em seguida, introduza o nome da entidade ' localização e, em seguida, selecione **criar nova entidade**.
+1. Na página de intenção, na expressão, selecione "Seattle", em seguida, introduza o nome da entidade "local e, em seguida, selecione **criar nova entidade**.
 
-    ![Captura de ecrã de criar hierárquica entidade etiquetagem caixa de diálogo](./media/luis-how-to-add-example-utterances/create-hier-ent-1.png)
+    ![Caixa de diálogo de captura de ecrã de criar hierárquica entidade etiquetagem](./media/luis-how-to-add-example-utterances/create-hier-ent-1.png)
 
-2. Na caixa de diálogo de pop-up, selecione hierárquica para **tipo de entidade**, em seguida, adicione `Origin` e `Destination` como elementos subordinados e, em seguida, selecione **feito**.
+2. Na caixa de diálogo pop-up, selecione hierárquica para **tipo de entidade**, em seguida, adicione `Origin` e `Destination` como filhos e, em seguida, selecione **feito**.
 
-    ![Página de detalhes de captura de ecrã de pendentes, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
+    ![Página de detalhes de captura de ecrã de objetivos, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-3. A palavra no utterance foi etiquetada com a entidade hierárquica principal. Terá de atribuir a palavra a entidade subordinada. Regressar ao utterance na página de intenção. Selecione o word, em seguida, na lista pendente, escolha o nome da entidade que criou e siga o menu à direita para escolher a entidade subordinado correto.
+3. A palavra a expressão foi identificada com a entidade de hierárquica do principal. Terá de atribuir a palavra a entidade subordinada. Voltar para a expressão na página de intenção. Selecione o word, em seguida, na lista pendente, escolha o nome da entidade que criou e siga o menu à direita para escolher a entidade de filho correta.
 
-    ![Página de detalhes de captura de ecrã de pendentes, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/label-tolocation.png)
+    ![Página de detalhes de captura de ecrã de objetivos, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/label-tolocation.png)
 
     >[!CAUTION]
-    >Os nomes das entidades do subordinado devem ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinado com o mesmo nome. 
+    >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
 
-    Consulte [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto final de uma resposta à consulta JSON. Tente a entidade hierárquica [início rápido](luis-quickstart-intent-and-hier-entity.md) para obter mais informações sobre como utilizar uma entidade hierárquica.
+    Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
 
-## <a name="remove-entity-labels-from-utterances"></a>Remover etiquetas de entidade utterances
-Pode remover etiquetas de entidade adquiridos a máquina a um utterance na página de intenção. Se a entidade não é adquiridos por máquina, não é possível remover de um utterance. Se precisar de remover uma entidade não aprendidas máquina o utterance, terá de eliminar a entidade da aplicação completa. 
+## <a name="remove-entity-labels-from-utterances"></a>Remover etiquetas de entidade de expressões
+Pode remover as etiquetas de entidade aprendidas de máquina de uma expressão na página de intenção. Se a entidade não ficou a saber de máquina, não pode ser removido de uma expressão. Se precisar de remover a expressão a uma entidade não aprendidas máquina, terá de eliminar a entidade de todo o aplicativo. 
 
-Para remover uma etiqueta de entidade adquiridos a máquina de um utterance, selecione a entidade de utterance. Em seguida, selecione **remover etiqueta** na caixa de lista pendente de entidade que é apresentada.
+Para remover uma etiqueta de entidade aprendidas de máquina de uma expressão, selecione a entidade a expressão. Em seguida, selecione **remover etiqueta** na caixa de lista pendente de entidade é apresentada.
 
-![Página de detalhes de captura de ecrã de pendentes, com remover etiqueta realçada](./media/luis-how-to-add-example-utterances/remove-label.png) 
+![Página de detalhes de captura de ecrã de objetivos, com remover etiqueta realçada](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
-## <a name="add-prebuilt-entity-label"></a>Adicione a etiqueta de entidade prebuilt
-Se adicionar as entidades prebuilt à sua aplicação LUIS, não terá utterances de etiqueta com estas entidades. Para saber mais sobre entidades prebuilt e como adicioná-las, consulte o artigo [adicionar entidades](luis-how-to-add-entities.md#add-prebuilt-entity).
+## <a name="add-prebuilt-entity-label"></a>Adicionar etiqueta de entidade predefinidos
+Se adicionar as entidades previamente concebidas para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades previamente concebidas e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-## <a name="add-regular-expression-entity-label"></a>Adicione a etiqueta de entidade de expressão regular
-Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não terá utterances de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, consulte o artigo [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities).
+## <a name="add-regular-expression-entity-label"></a>Adicionar etiqueta de entidade de expressão regular
+Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities).
 
-## <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de um utterance
-Consulte [adicionar padrão do utterance existente na página de intenção ou entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+## <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de uma expressão
+Ver [adicionar padrão de expressão existente na página de intenção ou a entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## <a name="add-patternany-entity-label"></a>Adicionar pattern.any entidade etiqueta
-Se adicionar as entidades de pattern.any à sua aplicação LUIS, não é possível etiqueta utterances com estas entidades. Só são válidos em padrões. Para saber mais sobre entidades pattern.any e como adicioná-las, consulte [adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities).
+## <a name="add-patternany-entity-label"></a>Adicionar etiqueta de entidade pattern.any
+Se adicionar as entidades de pattern.any à sua aplicação LUIS, não é possível Etiquetar expressões com estas entidades. Apenas são válidas em padrões. Para saber mais sobre entidades pattern.any e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities).
 
 <!--
 Fix this - moved to luis-how-to-add-intents.md - how ?
@@ -193,9 +193,9 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 ## Reassign utterances
 
 -->
-## <a name="train-your-app-after-changing-model-with-utterances"></a>Preparar a sua aplicação depois de alterar o modelo com utterances
-Depois de adicionar, editar ou remover utterances, [preparar](luis-how-to-train.md) e [publicar](PublishApp.md) a aplicação para as suas alterações afetar a consultas de ponto final. 
+## <a name="train-your-app-after-changing-model-with-utterances"></a>Preparar a sua aplicação depois de alterar o modelo com expressões com
+Depois de adicionar, editar ou remover expressões, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de etiquetagem utterances no seu pendentes, pode agora criar um [entidade composta](luis-how-to-add-entities.md).
+Depois de etiquetagem discursos em suas intenções, agora, pode criar uma [entidade composta](luis-how-to-add-entities.md).

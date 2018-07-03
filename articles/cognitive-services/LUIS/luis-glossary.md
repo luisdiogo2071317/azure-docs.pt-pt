@@ -1,6 +1,6 @@
 ---
-title: Glossário para o serviço de API do idioma compreender (LUIS) | Microsoft Docs
-description: O glossário explica certos termos que podem surgir à medida que trabalha com o serviço de API LUIS.
+title: Glossário para o serviço de API de compreensão (LUIS) idioma | Documentos da Microsoft
+description: O glossário de termos de explica que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,30 +9,30 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3016d1318d031494057f4a8ce61af37576a7c4f2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128403"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346812"
 ---
 # <a name="glossary"></a>Glossário
 
 ## <a name="active-version"></a>Versão do Active Directory
 
-A versão de LUIS Active Directory é a versão que recebe todas as alterações ao modelo. No [LUIS](luis-reference-regions.md) Web site, se pretender efetuar alterações a uma versão que não é a versão do Active Directory, terá de definir primeiro essa versão como o Active Directory. 
+A versão de LUIS Active Directory é a versão que recebe todas as alterações ao modelo. Na [LUIS](luis-reference-regions.md) Web site, se pretender efetuar alterações a uma versão que não é a versão do Active Directory, precisa primeiro definir essa versão como ativa. 
 
 ## <a name="authoring"></a>Criação
 
-Criação é a capacidade de criar, gerir e implementar uma [LUIS aplicação](#luis-app), ou utilizando o [LUIS](luis-reference-regions.md) Web site ou a [criação APIs](https://aka.ms/luis-authoring-api). 
+A criação é a capacidade de criar, gerir e implementar um [aplicação LUIS](#luis-app), usando o [LUIS](luis-reference-regions.md) Web site ou o [APIs de criação](https://aka.ms/luis-authoring-api). 
 
 ## <a name="authoring-key"></a>Chave de criação
 
-Anteriormente denominado "Programmatic" chave. Utilizado para criar a aplicação. Não é utilizado para consultas de ponto final de nível de produção. Para obter mais informações, consulte [chave limites](luis-boundaries.md#key-limits).   
+Anteriormente denominado "Programmatic" chave. Usada para criar a aplicação. Não é utilizado para consultas de ponto final de nível de produção. Para obter mais informações, consulte [limites de chaves](luis-boundaries.md#key-limits).   
 
-## <a name="batch-test-json-file"></a>Ficheiro JSON de texto do batch
+## <a name="batch-test-json-file"></a>Ficheiro JSON de texto de batch
 
-O ficheiro batch é uma matriz JSON. Cada elemento da matriz tem três propriedades: `text`, `intent`, e `entities`. O `entities` propriedade é uma matriz. A matriz pode estar vazia. Se o `entities` matriz não está vazia, tem de identificar com precisão as entidades.
+O ficheiro de batch é uma matriz JSON. Cada elemento na matriz tem três propriedades: `text`, `intent`, e `entities`. O `entities` propriedade é uma matriz. A matriz pode estar vazia. Se o `entities` matriz não está vazia, esta tem de identificar com precisão as entidades.
 
 ```JSON
 [
@@ -58,156 +58,156 @@ O ficheiro batch é uma matriz JSON. Cada elemento da matriz tem três proprieda
 ```
 
 
-## <a name="collaborator"></a>Colaborador
+## <a name="collaborator"></a>Funcionário
 
-Não é um funcionário o [proprietário](#owner) da aplicação, mas tem as mesmas permissões para adicionar, editar e eliminar o pendentes, entidades, utterances.
+Não é um colaborador a [proprietário](#owner) da aplicação, mas tem as mesmas permissões para adicionar, editar e eliminar os objetivos, entidades, expressões com.
 
 ## <a name="currently-editing"></a>Atualmente a editar
 
-Igual ao [versão Active Directory](#active-version)
+Mesmo que [versão Active Directory](#active-version)
 
 ## <a name="domain"></a>Domínio
 
-No contexto LUIS, um **domínio** é uma área de dados de conhecimento. O domínio é específico para a sua área de aplicação de dados de conhecimento. Isto pode ser uma área geral, tais como a aplicação levar agente. Uma aplicação de agente levar também pode ser específica para apenas as áreas de informações da sua empresa, como localizações geográficas específicas, idiomas e serviços. 
+No contexto do LUIS, um **domínio** é uma área de dados de conhecimento. O domínio é específico para a sua área de aplicação de dados de conhecimento. Isso pode ser uma área geral como a aplicação de agente de viagens. Uma aplicação de agente de viagens também pode ser específica para apenas as áreas de informações da sua empresa, tais como locais geográficos específicos de linguagens e serviços. 
 
 ## <a name="endpoint"></a>Ponto final
 
-O [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL é onde pode submete consultas LUIS após o [LUIS aplicação](#luis-app) é criados e publicados. O URL de ponto final contém a região da aplicação publicada, bem como o ID de aplicação. Pode encontrar o ponto final no **[publicar](publishapp.md)** página da sua aplicação, na tabela de recursos e as chaves ou pode obter o URL do ponto final do [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[publicar](luis-how-to-publish-app.md)** página da sua aplicação, na tabela de recursos e as chaves ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
-Um ponto final de exemplo que se pareça com:
+Um ponto de extremidade de exemplo é semelhante a:
 
 `https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
 
 |Parâmetro de cadeia de consulta|descrição|
 |--|--|
-|Região| [região publicada](luis-reference-regions.md#publishing-regions) |
+|Região| [região publicado](luis-reference-regions.md#publishing-regions) |
 |appID | ID da aplicação LUIS |
-|subscriptionID | Chave de ponto final (subscrição) LUIS criada no portal do Azure |
-|Q | utterance |
+|subscriptionID | Chave de ponto final (subscrição) do LUIS criada no portal do Azure |
+|p | Expressão |
 |timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entidade
 
-[Entidades](luis-concept-entity-types.md) são importantes palavras no [utterances](luis-concept-utterance.md) descrevem que informações relevantes para o [intenção](luis-concept-intent.md), e, por vezes, são essenciais para a mesma. Uma entidade é, essencialmente, um tipo de dados no LUIS. 
+[Entidades](luis-concept-entity-types.md) são palavras importantes [expressões com](luis-concept-utterance.md) que descrevem informações relevantes para o [intenção](luis-concept-intent.md), e, às vezes, são essenciais para ele. Uma entidade é essencialmente um tipo de dados no LUIS. 
 
 ## <a name="f-measure"></a>Medida de F
 
-No [batch testar][batch-testing], uma medida de precisão o teste.
+Na [testes de lote][batch-testing], uma medida de precisão do teste.
 
-## <a name="false-negative"></a>Falso negativo (TW)
+## <a name="false-negative"></a>Falso negativo (TN)
 
-No [batch testar][batch-testing], os pontos de dados representam utterances na qual a aplicação incorretamente prever a ausência de intenção/entidade de destino.
+Na [testes de lote][batch-testing], os pontos de dados representam expressões em que a aplicação previsto incorretamente a ausência da intenção/entidade de destino.
 
-## <a name="false-positive"></a>Falsos positivos (TP)
+## <a name="false-positive"></a>Falso positivo (TP)
 
-No [batch testar][batch-testing], os pontos de dados representam utterances na qual a aplicação incorretamente prever a existência de intenção/entidade de destino.
+Na [testes de lote][batch-testing], os pontos de dados representam expressões em que a aplicação previsto incorretamente a existência da intenção/entidade de destino.
 
 ## <a name="features"></a>Funcionalidades
 
-No machine learning, um [funcionalidade](luis-concept-feature.md) é um trait distintivo ou um atributo de dados situa do seu sistema.
+No machine learning, um [funcionalidade](luis-concept-feature.md) é uma distinção característica ou atributo de dados que observa o seu sistema.
 
-## <a name="intent"></a>Objetivo
+## <a name="intent"></a>Intenção
 
-Um [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o utilizador pretende efetuar. É um objetivo ou objetivo expressado na entrada de um utilizador, tais como booking um voo, prestando uma fatura ou ao localizar um artigo de notícias de última hora. Nos LUIS, a intenção predição é baseada no utterance completo. As entidades, por comparação, são peças de uma utterance.
+Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o usuário quer executar. É um objetivo ou objetivo expressado numa entrada de usuário, como reserva um vôo, pagando uma fatura ou localizar um artigo de notícias. No LUIS, a predição de intenção baseia-se a expressão inteira. As entidades, por comparação, são partes de uma expressão.
 
 ## <a name="labeling"></a>Etiquetagem
 
-Etiquetagem é o processo de associar uma palavra ou frase numa intenção [utterance](#utterance) com um [entidade](#entity) (tipo de dados). 
+Etiquetagem é o processo de associação de uma palavra ou frase numa intenção [expressão](#utterance) com um [entidade](#entity) (tipo de dados). 
 
-## <a name="luis-app"></a>Aplicação de LUIS
+## <a name="luis-app"></a>Aplicação LUIS
 
-Uma aplicação de LUIS é um modelo de dados de formação para processamento de linguagem natural incluindo [pendentes](#intent), [entidades](#entity)e identificados [utterances](#utterance).
+Uma aplicação do LUIS é um modelo de dados treinados para processamento de linguagem natural, incluindo [intenções](#intent), [entidades](#entity)e etiquetados [expressões com](#utterance).
 
 ## <a name="owner"></a>Proprietário
 
-Cada aplicação tem um proprietário que seja a pessoa que criou a aplicação. O proprietário pode adicioná [colaboradores](#collaborator).
+Cada aplicação tem um proprietário que é a pessoa que criou a aplicação. Pode adicionar o proprietário [colaboradores](#collaborator).
 
-## <a name="pattern"></a>Padrões
-A funcionalidade de padrão anterior é substituída por [padrões](luis-concept-patterns.md). Utilize padrões para melhorar a exatidão da previsão fornecendo menos exemplos de formação. 
+## <a name="pattern"></a>Padrões de
+A funcionalidade de padrão anterior é substituída pela [padrões](luis-concept-patterns.md). Utilize padrões para melhorar a exatidão da previsão, fornecendo exemplos de treinamento menos. 
 
-## <a name="phrase-list"></a>Lista de expressão
+## <a name="phrase-list"></a>Lista de frase
 
-A [lista frase](luis-concept-feature.md#what-is-a-phrase-list-feature) inclui um grupo de valores (palavras ou frases reconhecíveis) que pertencem à mesma classe e tem de ser tratados da mesma forma (por exemplo, nomes de cidades ou produtos). Uma lista de permutáveis é tratada como sinónimos. 
+R [lista de frase](luis-concept-feature.md#what-is-a-phrase-list-feature) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratado de maneira semelhante (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinónimos. 
 
-## <a name="prebuilt-domains"></a>Domínio prebuilt
+## <a name="prebuilt-domains"></a>Domínio pré-criado
 
-A [domínio prebuilt](luis-how-to-use-prebuilt-domains.md) é uma aplicação de LUIS configurada para um domínio específico, como automatização inicial (HomeAutomation) ou reservas restaurante (RestaurantReservation). O pendentes, utterances e entidades estão configuradas para este domínio. 
+R [domínio pré-criado](luis-how-to-use-prebuilt-domains.md) é uma aplicação do LUIS configurada para um domínio específico, como automação residencial (HomeAutomation) ou reservas de restaurante (RestaurantReservation). Os objetivos, expressões e entidades estão configuradas para este domínio. 
 
-## <a name="prebuilt-entity"></a>Entidade prebuilt
+## <a name="prebuilt-entity"></a>Entidade pré-criados
 
-A [entidade prebuilt](pre-builtentities.md) é uma entidade LUIS fornece para tipos comuns de informações como o número, o URL e o e-mail. Optar por adicionar uma entidade prebuilt à sua aplicação. 
+R [criados previamente entidade](luis-prebuilt-entities.md) é uma entidade, LUIS, fornece para tipos comuns de informações como número, o URL e o e-mail. Optar por adicionar uma entidade pré-criados à sua aplicação. 
 
 ## <a name="precision"></a>Precisão
-No [batch testar][batch-testing], precisão (também denominada positivo preditivo) é a fração do utterances relevantes entre os utterances obtidos.
+Na [testes de lote][batch-testing], precisão (também chamado de valor de previsão positivo) é a fração de expressões com relevantes entre as expressões obtidas.
 
-## <a name="programmatic-key"></a>Chave programático
+## <a name="programmatic-key"></a>Chave programática
 
-Cujo nome foi alterado para [criação chave](#authoring-key). 
+Nome mudado para [chave de criação](#authoring-key). 
 
 ## <a name="publish"></a>Publicar
 
-Publicar significa efetuar um LUIS [versão Active Directory](#active-version) disponível no teste ou de produção [endpoint](#endpoint).  
+Publicar significa fazer um LUIS [versão active](#active-version) disponível no teste ou produção [endpoint](#endpoint).  
 
-## <a name="quota"></a>quota
+## <a name="quota"></a>Quota
 
-Quota de LUIS é a limitação do [camada de subscrição do Azure](https://aka.ms/luis-price-tier). A quota de LUIS pode ser limitada por ambos os pedidos por segundo (429 de estado de HTTP) e o total de pedidos num mês (estado de HTTP 403). 
+Quota de LUIS é a limitação do [escalão de subscrição do Azure](https://aka.ms/luis-price-tier). A quota de LUIS pode ser limitada por ambos os pedidos por segundo (estado de HTTP 429) e o total de pedidos por mês (estado de HTTP 403). 
 
-## <a name="recall"></a>Recuperar
-No [batch testar][batch-testing], recuperar (também conhecido como sensibilidade), que é a capacidade de LUIS generalizar. 
+## <a name="recall"></a>Lembre-se
+Na [testes de lote][batch-testing], lembre-se (também conhecido como sensibilidade), que é a capacidade de LUIS generalizar. 
 
-## <a name="semantic-dictionary"></a>Dicionário de semântico
-Um dicionário semântico é fornecido na página de entidade de lista, bem como a página de lista de expressão. O dicionário semântico fornece sugestões de palavras com base no âmbito atual.
+## <a name="semantic-dictionary"></a>Dicionário semântico
+Um dicionário semântico é fornecido a página de lista de entidades, bem como a página de lista de frase. O dicionário semântico fornece sugestões de palavras com base no âmbito atual.
 
-## <a name="sentiment-analysis"></a>Análise de dados de sentimento
-Análise de dados de sentimento fornece valores positivos ou negativos de utterances fornecidas pelo [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+## <a name="sentiment-analysis"></a>Análise de sentimentos
+Análise de sentimentos fornece valores positivos ou negativos de expressões fornecidas pela [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
 
-## <a name="speech-priming"></a>Priming de reconhecimento de voz
+## <a name="speech-priming"></a>Priming de voz
 
-Priming de reconhecimento de voz permite que o serviço de reconhecimento de voz primed com o seu modelo LUIS. Consulte [ativar priming de reconhecimento de voz ](publishapp.md#enable-speech-priming).
+Priming de fala permite que o seu serviço de voz para ser preparados com o seu modelo do LUIS. Ver [ativar priming de voz ](luis-how-to-publish-app.md#enable-speech-priming).
 
-## <a name="spelling-correction"></a>Correção de ortografia
+## <a name="spelling-correction"></a>Correção ortográfica
 
-Na página de publicar, ative [Verificador de ortográfica do Bing](publishapp.md#enable-bing-spell-checker) para corrigir com erros ortográficos palavras no utterances antes de predição. 
+Na página de publicação, ative [corretor ortográfico Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) para corrigir palavras com erros ortográficos nas expressões antes de predição. 
 
 ## <a name="starter-key"></a>Chave de arranque
 
-Igual ao [chave programático](#programmatic-key), cujo nome foi alterado a chave de criação.
+Mesmo que [chave programática](#programmatic-key), nome mudado para a chave de criação de conteúdos.
 
-## <a name="subscription-key"></a>chave de subscrição
+## <a name="subscription-key"></a>Chave de subscrição
 
-A chave de subscrição é o **endpoint** chave associado ao serviço LUIS [criada no Azure](luis-how-to-azure-subscription.md). Esta chave não estiver a [criação chave](#programmatic-key). Se tiver uma chave de ponto final, deve ser utilizada para quaisquer pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual no interior do URL de ponto final na parte inferior [ **publicar aplicação** página](publishapp.md) no [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** nome/valor par. 
+A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS [que criou no Azure](luis-how-to-azure-subscription.md). Esta chave não é o [chave de criação](#programmatic-key). Se tiver uma chave de ponto de extremidade, ele deve ser usado para todos os pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual dentro do URL do ponto final na parte inferior [ **publicar aplicação** página](luis-how-to-publish-app.md) na [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** par de nome/valor. 
 
 ## <a name="test"></a>Teste
 
-[Testar](interactive-test.md#test-your-app) uma aplicação LUIS significa resulta de transmitir um utterance ao LUIS e visualizar o JSON.
+[Teste](interactive-test.md#test-your-app) aplicação LUIS significa passar uma expressão para LUIS e ver o JSON de resultados.
 
 ## <a name="timezoneoffset"></a>Desvio de fuso horário
 
-O ponto final inclui timezoneOffset. Este é o número em minutos que pretende adicionar ou remover o datetimeV2 prebuilt entidade. Por exemplo, se for o utterance "altura é agora?", datetimeV2 devolvido é o tempo atual para o pedido de cliente. Se o pedido de cliente é proveniente de um bot ou outra aplicação que não é o mesmo que o utilizador do seu bot, deverá passar no desvio entre o bot e o utilizador. 
+O ponto final inclui timezoneOffset. Este é o número de minutos que pretende adicionar ou remover o datetimeV2 entidade pré-criados. Por exemplo, se a expressão for "que altura é agora?", datetimeV2 devolvido é a hora atual para o pedido do cliente. Se o seu pedido de cliente é proveniente de um bot ou outro aplicativo que não é o mesmo como usuário de seu bot, deve passar o deslocamento entre o bot e o utilizador. 
 
-Consulte [alteração fuso horário da entidade prebuilt datetimeV2](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
+Ver [altere o fuso horário da entidade de datetimeV2 pré-criados](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Token
-Um token é a unidade de menor que pode ser assinalada como uma entidade. Atomização baseia-se a aplicação [cultura](luis-supported-languages.md#tokenization).
+Um token é a menor unidade que pode ser identificada numa entidade. Atomização baseia-se o aplicativo [cultura](luis-supported-languages.md#tokenization).
 
-## <a name="train"></a>Formação
+## <a name="train"></a>Train
 
-Formação é o processo de teaching LUIS sobre as alterações para o [versão Active Directory](#active-version) desde a última formação.
+Treinamento é o processo de ensinar o LUIS sobre quaisquer alterações feitas a [Active Directory versão](#active-version) desde o último treinamento.
 
-## <a name="true-negative"></a>Verdadeiro negativo (TW)
+## <a name="true-negative"></a>Verdadeiro negativo (TN)
 
-No [batch testar][batch-testing], os pontos de dados representam utterances na qual a aplicação corretamente prever a ausência de intenção/entidade de destino.
+Na [testes de lote][batch-testing], os pontos de dados representam expressões em que a aplicação previsto corretamente a ausência da intenção/entidade de destino.
 
-## <a name="true-positive"></a>Verdadeiro positivo (TP)
+## <a name="true-positive"></a>Positivo verdadeiro (TP)
 
-No [batch testar][batch-testing], os pontos de dados representam utterances na qual a aplicação corretamente prever a existência de intenção/entidade de destino.
+Na [testes de lote][batch-testing], os pontos de dados representam expressões em que a aplicação previsto corretamente a existência da intenção/entidade de destino.
 
-## <a name="utterance"></a>utterance
+## <a name="utterance"></a>Expressão
 
-Um utterance é uma expressão de linguagem natural como "permissões de livro 2 para Seattle seguinte Terça-feira". Utterances de exemplo são adicionadas para o objetivo. 
+Uma expressão é uma expressão de linguagem natural, como "permissões de livro 2 para Seattle Terça-feira seguinte". Expressões com de exemplo são adicionados à intenção. 
 
 ## <a name="version"></a>Versão
 
-Um LUIS [versão](luis-how-to-manage-versions.md) é um modelo de dados específicos associado a um ID de aplicação LUIS e o ponto final publicado. Todas as aplicações de LUIS tem, pelo menos, uma versão.
+Um LUIS [versão](luis-how-to-manage-versions.md) é um modelo de dados específicos associado a um ID de aplicação do LUIS e o ponto de extremidade publicado. Todas as aplicações de LUIS têm, pelo menos, uma versão.
 
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

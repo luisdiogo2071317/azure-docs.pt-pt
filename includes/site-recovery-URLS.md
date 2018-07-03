@@ -1,11 +1,28 @@
-``*.accesscontrol.windows.net``. Utilizado para controlo de acesso e gestão de identidades. (Autenticação de ACS com base será preterida de 2017 Dezembro) <br/>
-``https://login.microsoftonline.com`` Utilizado para gestão de identidade e controlo de acesso a utilizar o AAD
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 06/28/2018
+ms.author: raynew
+ms.openlocfilehash: f7d6c3f68618fec839ccff06b73ba44d106999d2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342827"
+---
+| Nome | URL comercial | URL de Governo | Descrição |
+|---|---|---|---|
+| Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Utilizado para gestão de identidades e controlo de acesso através do AAD |
+| Cópia de segurança | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Utilizado para transferência de dados de replicação e coordenação |
+| Replicação | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Utilizado para operações de gestão de replicação e coordenação |
+| Armazenamento | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Utilizado para acesso à conta de armazenamento que armazena dados replicados |
+| Telemetria (opcional) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Utilizado para a telemetria |
 
-``*.backup.windowsazure.com``. Utilizado para transferência de dados de replicação e orquestração. <br/> ``*.blob.core.windows.net``. Utilizado para acesso à conta de armazenamento que armazena os dados replicados.<br/> ``*.hypervrecoverymanager.windowsazure.com``. Utilizado para operações e coordenação de gestão de replicações.<br/>
-``dc.services.visualstudio.com`` -Utilizada para a telemetria. <br>
-``time.nist.gov`` e ``time.windows.com``. Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
-<br/><br/>
-URLs para a nuvem do Azure Government:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
-https://login.microsoftonline.us<br/>-
-https://login.microsoftonline.com<br/>
+``time.nist.gov`` e ``time.windows.com`` são utilizados para verificar a sincronização de hora entre o sistema e a hora global em todas as implementações.
+
 

@@ -1,28 +1,28 @@
-## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testar a consultar o Microsoft Graph API da sua aplicação iOS
+## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testar a consultar o Microsoft Graph API a partir da sua aplicação iOS
 
-Para executar o código no simulador do, prima **comando** + **R**.
+Para executar o código no simulador, prima **comando** + **R**.
 
-![Testar a aplicação no simulador do](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
+![Testar a sua aplicação no simulador](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
 
-Quando estiver pronto para testar, selecione **chamar Microsoft Graph API**. Quando lhe for pedido, introduza o seu nome de utilizador e palavra-passe.
+Quando estiver pronto para testar, selecione **chamar o Microsoft Graph API**. Quando lhe for pedido, introduza o seu nome de utilizador e palavra-passe.
 
-### <a name="provide-consent-for-application-access"></a>Fornecer consentimento de acesso à aplicação
-Na primeira vez que iniciar sessão na sua aplicação, é-lhe pedido que forneça o seu consentimento para permitir que a aplicação para aceder ao seu perfil e iniciar sessão no:
+### <a name="provide-consent-for-application-access"></a>Forneça o consentimento para acesso à aplicação
+A primeira vez que iniciar sessão na sua aplicação, lhe for pedido para fornecer o seu consentimento para permitir que a aplicação para aceder ao seu perfil e para o início de sessão:
 
-![Forneça o seu consentimento para acesso de aplicação](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
+![Forneça o seu consentimento para acesso à aplicação](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
-### <a name="view-application-results"></a>Ver os resultados da aplicação
-Depois de iniciar sessão, deverá ver as informações do perfil de utilizador devolvidas pela chamada Microsoft Graph API no **registo** secção. 
+### <a name="view-application-results"></a>Ver resultados da aplicação
+Depois de iniciar sessão, deverá ver as informações do perfil de utilizador devolvidas pela chamada no Microsoft Graph API a **registo** secção. 
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e as permissões delegadas
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Obter mais informações sobre âmbitos e permissões delegadas
 
-Requer o Microsoft Graph API do **user.read** âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todas as aplicações que está registada no portal de registo. Outras APIs para o Microsoft Graph, bem como as APIs personalizadas para o servidor de back-end, poderá necessitar de âmbitos adicionais. Requer o Microsoft Graph API do **Calendars.Read** âmbito lista de calendários do utilizador.
+O Microsoft Graph API requer a **user.read** âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todos os aplicativos que está registado no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor de back-end, pode necessitar de âmbitos adicionais. O Microsoft Graph API requer a **Calendars.Read** âmbito para listar calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione o **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione o **Calendars.Read** âmbito para o **acquireTokenSilent** chamada. 
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione a **Calendars.Read** definir o âmbito para o **acquireTokenSilent** chamar. 
 
 >[!NOTE]
->O utilizador pode ser pedido para consents adicionais como aumentar o número de âmbitos.
+>O utilizador pode ser pedido para consentimentos adicionais à medida que aumenta o número de âmbitos.
 
 <!--end-collapse-->
 

@@ -1,6 +1,6 @@
 ---
 title: Singletons para funções duráveis - Azure
-description: Como utilizar singletons na extensão do Functons durável para as funções do Azure.
+description: Como utilizar singletons na extensão Functons durável para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 71c0cebf676d29308fe9f4942350ae96d3bedcf6
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972556"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340836"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrators singleton nas funções durável (funções do Azure)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores de singleton nas funções durável (funções do Azure)
 
-Para tarefas em segundo plano ou orchestrations de estilo de ator, muitas vezes, é necessitam garantir que apenas uma instância de um determinado orchestrator executa cada vez. Isto pode ser feito [funções durável](durable-functions-overview.md) atribuindo específico ID de instância para um orchestrator quando criar.
+Para tarefas em segundo plano ou orquestrações de estilo de ator, muitas vezes, precisam garantir que apenas uma instância de um orquestrador específico é executado cada vez. Isso pode ser feito [funções duráveis](durable-functions-overview.md) atribuindo específicas de uma ID de instância para um orquestrador durante a criação.
 
 ## <a name="singleton-example"></a>Exemplo de singleton
 
@@ -58,11 +58,14 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Por predefinição, a instância IDs aleatoriamente são gerados GUIDs. Mas neste caso, o ID de instância é transmitido nos dados de rota do URL. As chamadas de código [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) para verificar se uma instância com o ID especificado já está em execução. Se não, é criada uma instância com esse ID.
+Por predefinição, a instância IDs são aleatoriamente gerado GUIDs. Mas, neste caso, o ID de instância é passado encaminhar os dados da URL. O código chama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) para verificar se uma instância com o ID especificado já está em execução. Se não for, é criada uma instância com esse ID.
 
-Os detalhes de implementação da função do orchestrator, na verdade, é importante. Pode ser uma função do regular orchestrator que é iniciada e concluída ou pode ser um que é executada indefinidamente (ou seja, um [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). O ponto importante é o que há alguma vez apenas uma instância em execução num momento.
+> [!NOTE]
+> Neste exemplo, existe uma condição de corrida potencial. Se duas instâncias da **HttpStartSingle** executadas simultaneamente, o resultado foi possível dois diferentes criar instâncias de singleton, que substitui o outro. Dependendo dos requisitos, isso pode ter efeitos de colaterais indesejáveis. Por esse motivo, é importante certificar-se de que não existem dois pedidos podem executar esta função de Acionador em simultâneo.
+
+Os detalhes da implementação da função de orquestrador, na verdade, não importa. Pode ser uma função de orquestrador regular que é iniciada e concluída, ou pode ser que seja executado Eternamente (ou seja, uma [orquestração externas](durable-functions-eternal-orchestrations.md)). O ponto importante é que há apenas nunca uma instância em execução ao mesmo tempo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como chamar orchestrations secundárias](durable-functions-sub-orchestrations.md)
+> [Saiba como chamar orquestrações secundárias](durable-functions-sub-orchestrations.md)

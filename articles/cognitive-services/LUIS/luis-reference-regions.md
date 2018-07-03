@@ -1,7 +1,7 @@
 ---
-title: Regiões do idioma compreender (LUIS) | Microsoft Docs
+title: Regiões do Language Understanding (LUIS) | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém apresenta uma lista das regiões do LUIS para o Web site LUIS, as subscrições do Azure e regiões do mundo.
+description: Este artigo contém listas de regiões do LUIS, para o Web site LUIS, as subscrições do Azure e regiões do mundo.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,19 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237291"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346460"
 ---
-# <a name="regions-and-keys"></a>Regiões e chaves
+# <a name="regions-and-keys"></a>Regiões e as chaves
 
-A região na qual pode publica a aplicação de LUIS corresponde à região ou localização que especificar no portal do Azure quando cria uma chave de ponto final LUIS do Azure. Quando lhe [publicar uma aplicação](./PublishApp.md), LUIS gera automaticamente um URL de ponto final para a região associado à chave. Para publicar uma aplicação LUIS mais de uma região, é necessário, pelo menos, uma chave por região. 
+A região em que publique a sua aplicação LUIS corresponde à região ou localização que especificar no portal do Azure ao criar uma chave de ponto final do Azure LUIS. Quando [publicar uma aplicação](./luis-how-to-publish-app.md), LUIS gera automaticamente um URL de ponto final para a região associada à chave. Para publicar uma aplicação do LUIS mais do que uma região, tem pelo menos uma chave por região. 
 
-## <a name="luis-website"></a>Web site de LUIS
-Existem três LUIS os Web sites, com base na região. Tem de criar e publicar na mesma região. 
+## <a name="luis-website"></a>Web site do LUIS
+Existem três Web sites do LUIS, com base na região. Tem de criar e publicar na mesma região. 
 
 |LUIS|Região|
 |--|--|
@@ -31,13 +31,13 @@ Existem três LUIS os Web sites, com base na região. Tem de criar e publicar na
 |[eu.Luis.ai][eu.luis.ai]|Europa|
 
 
-## <a name="publishing-regions"></a>Publicação de regiões
+## <a name="publishing-regions"></a>Regiões de publicação
 
-Aplicações de LUIS criadas no https://www.luis.ai pode ser publicado para todos os pontos finais, exceto o [Europeia](#publishing-to-europe) e [australiana](#publishing-to-australia) regiões. 
+Aplicações de LUIS criadas em https://www.luis.ai pode ser publicado para todos os pontos finais, exceto o [Europeia](#publishing-to-europe) e [australiana](#publishing-to-australia) regiões. 
 
-A aplicação de região de criação só pode ser publicada para uma correspondente publicar região. Se a aplicação está atualmente a região errada de criação, exportar a aplicação e importe-o para a região de criação correta para a sua região publicação. 
+Só pode ser publicada a aplicação de região de criação para odpovídající publicar região. Se a aplicação está atualmente na região errada de criação, exportar a aplicação e importe-o para a região de criação correta para a sua região de publicação. 
 
- Região global | Criação de região | Publicar & consultar região   |   Web site de LUIS | Formato de URL de ponto final   |
+ Região global | Região de criação | Publicar & consulta de região   |   Web site do LUIS | Formato de URL de ponto final   |
 |-----|------|------|------|------|
 | Ásia | EUA Oeste| Ásia Oriental     | [www.Luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Ásia | EUA Oeste| Sudeste Asiático     | [www.Luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
@@ -52,18 +52,18 @@ A aplicação de região de criação só pode ser publicada para uma correspond
 | América do Norte | EUA Oeste | EUA Oeste 2    | [www.Luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
 | América do Sul | EUA Oeste | Sul do Brasil     | [www.Luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
-## <a name="publishing-to-europe"></a>Publicação Europa
+## <a name="publishing-to-europe"></a>Publicação para a Europa
 
-Para publicar as regiões da Europa, criar LUIS aplicações em https://eu.luis.ai apenas. Se tentar publicar em qualquer local ou utilizar uma chave na região Europa, LUIS apresenta uma mensagem de aviso. Em alternativa, utilize https://eu.luis.ai. Aplicações de LUIS criadas em [ https://eu.luis.ai ] [ eu.luis.ai] não migra automaticamente a outras regiões. Exportar e, em seguida, importar a aplicação de LUIS para a migração.
+Para publicar as regiões da Europa, crie LUIS aplicações à https://eu.luis.ai apenas. Se tentar publicar em qualquer lugar que outra com uma chave na região da Europa, LUIS exibe uma mensagem de aviso. Em alternativa, utilize https://eu.luis.ai. Aplicações de LUIS criadas às [ https://eu.luis.ai ] [ eu.luis.ai] não migram para outras regiões. Exportar e, em seguida, importe a aplicação do LUIS para migrá-la.
 
 ## <a name="publishing-to-australia"></a>Publicação da Austrália
 
-Para publicar as regiões australiana, criar LUIS aplicações em https://au.luis.ai apenas. Se tentar publicar em qualquer local ou utilizar uma chave na região australiana, LUIS apresenta uma mensagem de aviso. Em alternativa, utilize https://au.luis.ai. Aplicações de LUIS criadas em [ https://au.luis.ai ] [ au.luis.ai] não migra automaticamente a outras regiões. Exportar e, em seguida, importar a aplicação de LUIS para a migração.
+Para publicar as regiões australianas, crie LUIS aplicações em https://au.luis.ai apenas. Se tentar publicar em qualquer lugar que outra com uma chave na região australiano, LUIS exibe uma mensagem de aviso. Em alternativa, utilize https://au.luis.ai. Aplicações de LUIS criadas às [ https://au.luis.ai ] [ au.luis.ai] não migram para outras regiões. Exportar e, em seguida, importe a aplicação do LUIS para migrá-la.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência de entidades prebuilt](./luis-reference-prebuilt-entities.md)
+> [Referência de entidades pré-concebidas](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
  [au.luis.ai]: https://au.luis.ai

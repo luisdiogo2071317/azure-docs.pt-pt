@@ -3,36 +3,41 @@ title: Investigar Incidentes e Alertas no Centro de Segurança do Azure | Micros
 description: Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776487"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340795"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar Incidentes e Alertas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação no Centro de Segurança?
 A funcionalidade Investigação do Centro de Segurança permite-lhe triar, compreender o âmbito e acompanhar a origem de potenciais [incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 O objetivo é facilitar o processo de investigação ao ligar todas as entidades ([alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), utilizadores, computadores e incidentes) que estão envolvidos no incidente que está a investigar.  O Centro de Segurança fá-lo ao correlacionar os dados relevantes às entidades envolvidas e ao expor essa correlação através de um gráfico em direto que o ajuda a navegar pelos objetos e a visualizar as informações importantes.
+
+> [!NOTE]
+> [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Como funciona a Investigação?
 A Investigação é composta por um gráfico que ocupa a área central do dashboard de investigação. O gráfico está sempre focado numa entidade específica e apresenta as entidades que lhe estão associadas. Uma entidade pode ser um alerta de segurança, um utilizador, um computador ou um incidente.
- 
+
 ![Mapa](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 O utilizador pode clicar numa entidade no gráfico para navegar de entidade em entidade. O gráfico centra-se automaticamente na entidade selecionada e nas respetivas entidades associadas. As entidades que já não são relevantes podem ser removidas do gráfico.
@@ -43,7 +48,7 @@ Enquanto o utilizador navega para entidades diferentes, o caminho da investigaç
 ![Caminho](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informações gerais
-Quando uma entidade é apresentada no gráfico, os separadores mostram informações adicionais sobre a mesma. O separador **Informações** apresenta informações gerais sobre a entidade a partir de várias origens de informações disponíveis. 
+Quando uma entidade é apresentada no gráfico, os separadores mostram informações adicionais sobre a mesma. O separador **Informações** apresenta informações gerais sobre a entidade a partir de várias origens de informações disponíveis.
 
 ![Informações gerais](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ O separador **Exploração** permite ao investigador examinar os dados associado
 
 ### <a name="timeline"></a>Linha cronológica
 
-A maioria dos dados que são apresentados no gráfico e nos vários separadores é relevante para períodos de tempo específicos. Este âmbito de tempo é definido com o seletor de âmbito de tempo, no canto superior esquerdo do gráfico. O investigador tem à disposição vários métodos para selecionar o âmbito de tempo. 
+A maioria dos dados que são apresentados no gráfico e nos vários separadores é relevante para períodos de tempo específicos. Este âmbito de tempo é definido com o seletor de âmbito de tempo, no canto superior esquerdo do gráfico. O investigador tem à disposição vários métodos para selecionar o âmbito de tempo.
 
 ![Linha cronológica](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Pode começar a investigação a partir de um incidente de segurança ou a parti
 
     ![Dashboard Investigação](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-A partir daqui, pode explorar as entidades que estiveram envolvidas neste incidente e explorar mais detalhes sobre cada uma. 
+A partir daqui, pode explorar as entidades que estiveram envolvidas neste incidente e explorar mais detalhes sobre cada uma.
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu a utilizar a funcionalidade Investigação do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
@@ -111,7 +116,6 @@ Neste documento, aprendeu a utilizar a funcionalidade Investigação do Centro d
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança. 
+* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 * [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
-

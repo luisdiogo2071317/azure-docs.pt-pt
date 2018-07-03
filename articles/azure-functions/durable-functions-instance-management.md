@@ -1,6 +1,6 @@
 ---
-title: Gerir instâncias nas funções durável - Azure
-description: Saiba como gerir instâncias na extensão do durável funções para as funções do Azure.
+title: Gerir instâncias de funções duráveis - Azure
+description: Saiba como gerir instâncias na extensão de funções duráveis para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287753"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341097"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
+# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias de funções durável (funções do Azure)
 
-[Funções duráveis](durable-functions-overview.md) instâncias de orquestração podem ser iniciadas, terminadas, consultar e enviar eventos de notificação. Toda a gestão de instância é feita utilizando o [cliente orchestration enlace](durable-functions-bindings.md). Este artigo entra os detalhes de cada operação de gestão de instância.
+[Funções duráveis](durable-functions-overview.md) instâncias de orquestração podem ser iniciadas, terminadas, consultadas e enviadas eventos de notificação. Todo o gerenciamento de instância é feito com o [ligação do cliente de orquestração](durable-functions-bindings.md). Este artigo vai os detalhes de cada operação de gestão de instância.
 
-## <a name="starting-instances"></a>A partir de instâncias
+## <a name="starting-instances"></a>A iniciar as instâncias
 
-O [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) inicia uma nova instância de uma função do orchestrator. As instâncias desta classe podem ser adquiridas utilizando o `orchestrationClient` enlace. Internamente, este método enqueues uma mensagem na fila de controlo, em seguida, aciona o início de uma função com o nome especificado que utiliza o `orchestrationTrigger` acionar o enlace. 
+O [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) inicia uma nova instância de uma função de orquestrador. Instâncias desta classe podem ser adquiridas utilizando o `orchestrationClient` enlace. Internamente, esse método coloca em fila uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado, que utiliza o `orchestrationTrigger` acionar a ligação. 
 
-A tarefa estiver concluída quando iniciar o processo de orquestração. Deve começar o processo de orquestração dentro de 30 segundos. Se este demora mais tempo, um `TimeoutException` é emitida. 
+A tarefa é concluída quando o processo de orquestração é iniciado. O processo de orquestração deverá ser iniciado dentro de 30 segundos. Se demorar mais tempo, um `TimeoutException` é lançada. 
 
-Os parâmetros de [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) são os seguintes:
+Os parâmetros a serem [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) são os seguintes:
 
-* **Nome**: O nome da função do orchestrator a agendar.
-* **Entrada**: quaisquer dados JSON serializável que devem ser transmitidos como entrada para a função do orchestrator.
+* **Nome**: O nome da função de orquestrador para agendar.
+* **Entrada**: todos os dados JSON serializável que devem ser passados como entrada para a função de orquestrador.
 * **InstanceId**: (opcional) o exclusivo ID da instância. Se não for especificado, será gerado um ID de instância aleatório.
 
-Eis um exemplo simples c#:
+Eis um exemplo do c# simples:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-Para idiomas não .NET, a função de enlace de saída pode ser utilizado para iniciar, bem como novas instâncias. Neste caso, pode ser utilizado qualquer objeto serializável para o JSON que tem os parâmetros de três acima como campos. Por exemplo, considere a função de JavaScript seguinte:
+Para ambientes não .NET idiomas, a função de enlace de saída pode ser utilizado para iniciar novas instâncias também. Neste caso, pode ser utilizado qualquer objeto serializável para o JSON que tenha os três parâmetros acima como campos. Por exemplo, considere a seguinte função de JavaScript:
 
 ```js
 module.exports = function (context, input) {
@@ -67,28 +67,29 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> Recomendamos que utilize um identificador aleatório para o ID de instância. Isto irá ajudar a assegurar uma distribuição de carga igual quando dimensionamento funções do orchestrator em várias VMs. O tempo adequado para utilizar os IDs de instância não aleatórias é quando o ID tem de ser de uma origem externa ou quando implementar o [singleton orchestrator](durable-functions-singletons.md) padrão.
+> Recomendamos que utilize um identificador aleatório para o ID de instância. Isto ajudará a garantir uma distribuição de carga igual ao dimensionar as funções do orchestrator em várias VMs. O tempo adequado para utilizar os IDs de instância não aleatórios é quando o ID tem de ser uma origem externa ou ao implementar o [singleton orchestrator](durable-functions-singletons.md) padrão.
 
-## <a name="querying-instances"></a>Consulta de instâncias
+## <a name="querying-instances"></a>Consultando instâncias
 
-O [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe consulta o estado de uma instância de orquestração. Demora um `instanceId` (obrigatório), `showHistory` (opcional), e `showHistoryOutput` (opcional) como parâmetros. Se `showHistory` está definido como `true`, a resposta irá conter o histórico de execução. Se `showHistoryOutput` está definido como `true` bem, o histórico de execução irá conter saídas da atividade. O método devolve um objeto com as seguintes propriedades:
+O [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe consulta o estado de uma instância de orquestração. É necessário um `instanceId` (obrigatório), `showHistory` (opcional), e `showHistoryOutput` (opcional) como parâmetros. Se `showHistory` está definido como `true`, a resposta irá conter o histórico de execução. Se `showHistoryOutput` está definido como `true` além disso, o histórico de execução irá conter as saídas de atividade. O método retorna um objeto com as seguintes propriedades:
 
-* **Nome**: O nome da função do orchestrator.
-* **InstanceId**: O ID de instância do orchestration (deve ser o mesmo que o `instanceId` entrada).
-* **CreatedTime**: A hora em que a função do orchestrator começou a ser executada.
-* **LastUpdatedTime**: A hora em que o orchestration último checkpointed.
+* **Nome**: O nome da função de orquestrador.
+* **InstanceId**: O ID de instância da orquestração (deve ser o mesmo que o `instanceId` entrada).
+* **CreatedTime**: A hora em que a função de orquestrador iniciou a execução.
+* **LastUpdatedTime**: A hora em que a orquestração último foi efetuada a verificação.
 * **Entrada**: A entrada da função como um valor JSON.
 * **CustomStatus**: Estado de orquestração personalizado no formato JSON. 
-* **Saída**: O resultado da função como um valor JSON (se a função foi concluída). Se a função do orchestrator falhou, esta propriedade incluirá os detalhes da falha. Se a função do orchestrator foi terminada, esta propriedade incluirá o motivo fornecido para a terminação (se aplicável).
+* **Saída**: A saída da função como um valor JSON (se a função foi concluída). Se a função de orquestrador falhou, esta propriedade incluirá os detalhes da falha. Se a função de orquestrador foi terminada, esta propriedade irá incluir o motivo fornecido para a finalização (se houver).
 * **RuntimeStatus**: um dos seguintes valores:
-    * **Executar**: A instância começar a ser executada.
-    * **Concluir**: A instância concluída normalmente.
+    * **Pendente**: A instância foi agendada, mas ainda não foi iniciada em execução.
+    * **Executar**: A instância foi iniciada em execução.
+    * **Concluído**: A instância foi concluída normalmente.
     * **ContinuedAsNew**: A instância reiniciou-se com um histórico de novo. Este é um estado transitório.
-    * **Não foi possível**: A instância falhou com um erro.
+    * **Falha ao**: A instância falhou com um erro.
     * **Terminada**: A instância abruptamente foi terminada.
-* **Histórico**: O histórico de execução da orquestração. Este campo só está povoado se `showHistory` está definido como `true`.
+* **Histórico de**: O histórico de execução da orquestração. Este campo só é preenchido caso `showHistory` está definido como `true`.
     
-Este método devolve `null` se a instância não existe ou ainda não foi iniciado em execução.
+Este método devolve `null` se a instância não existe ou ainda não foi iniciada em execução.
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -102,7 +103,7 @@ public static async Task Run(
 ```
 ## <a name="querying-all-instances"></a>Consultar todas as instâncias
 
-Pode utilizar o `GetStatusAsync` método para consultar os Estados de todas as instâncias de orquestração. Não assume quaisquer parâmetros, ou pode passar uma `CancellationToken` objeto no caso de que pretende cancelar. O método devolve os objetos com as mesmas propriedades de `GetStatusAsync` método com parâmetros, exceto não devolve histórico. 
+Pode utilizar o `GetStatusAsync` método para consultar os Estados de todas as instâncias de orquestração. Ele não tem nenhum parâmetro, ou pode passar um `CancellationToken` objeto caso queira cancelá-lo. O método retorna objetos com as mesmas propriedades como o `GetStatusAsync` método com parâmetros, exceto que não retorna o histórico. 
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -121,7 +122,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Instâncias de terminação
 
-Uma instância de orquestração em execução pode ser terminada utilizando o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Os dois parâmetros são um `instanceId` e um `reason` cadeia, que será escrita nos registos e o estado de instância. Uma instância terminada deixa de ser executado assim que chegar a próxima `await` ponto ou terminará imediatamente se já está ativada uma `await`. 
+Uma instância em execução da orquestração pode ser terminada com o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Os dois parâmetros são um `instanceId` e um `reason` cadeia de caracteres, que será escrita nos registos e para o estado de instância. Uma instância terminada deixa de ser executado assim que atingir o próximo `await` ponto ou encerrar imediatamente se já está ativada uma `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -135,13 +136,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Terminação de instância não propagar atualmente. Funções de atividade e orchestrations secundárias serão executada para conclusão independentemente se a instância de orquestração chamado-los foi terminada.
+> Terminação de instância não propaga atualmente. Funções de atividade e orquestrações secundárias serão executado para conclusão, independentemente se a instância de orquestração que os chamou foi terminada.
 
 ## <a name="sending-events-to-instances"></a>Envio de eventos para instâncias
 
-As notificações de eventos podem ser enviadas para executar instâncias utilizando o [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. As instâncias que podem processar estes eventos são aqueles que estão a aguardar uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+Notificações de eventos podem ser enviadas para a executar instâncias com o [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Instâncias que podem lidar com esses eventos são aqueles que estão aguardando uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
 
-Os parâmetros de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) são os seguintes:
+Os parâmetros a serem [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) são os seguintes:
 
 * **InstanceId**: O ID exclusivo da instância.
 * **EventName**: O nome do evento para enviar.
@@ -161,11 +162,11 @@ public static Task Run(
 ```
 
 > [!WARNING]
-> Se não houver nenhuma instância de orquestração com especificado *ID de instância* ou se a instância não está à espera que o especificado na *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte o [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Se não existir nenhuma instância de orquestração com especificado *ID da instância* ou se a instância não está à espera no especificado *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="wait-for-orchestration-completion"></a>Aguarde pela conclusão de orquestração
+## <a name="wait-for-orchestration-completion"></a>Aguardar pela conclusão de orquestração
 
-O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe expõe um [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API que pode ser utilizado para obter de forma síncrona a saída real de uma instância de orquestração. O método utiliza o valor predefinido de 10 segundos para `timeout` e 1 segundo para `retryInterval` quando não estão definidos.  
+O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe expõe um [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API que pode ser utilizada para obter o resultado real de forma síncrona de uma instância de orquestração. O método usa o valor predefinido de 10 segundos para `timeout` e 1 segundo para `retryInterval` quando não estão definidos.  
 
 Eis um exemplo de função de Acionador de HTTP que demonstra como utilizar esta API:
 
@@ -177,9 +178,9 @@ A função pode ser chamada com a seguinte linha com o tempo limite de 2 segundo
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Consoante o tempo necessário para obter a resposta da instância de orquestração, existem dois cenários:
+Dependendo do tempo necessário para obter a resposta da instância de orquestração, existem dois casos:
 
-1. As instâncias de orquestração concluída dentro do tempo limite definido (neste caso 2 segundos), a resposta é o resultado de instância de orquestração real fornecido de forma síncrona:
+1. As instâncias de orquestração concluída no tempo limite definido (neste caso 2 segundos), a resposta é a saída de instância da orquestração real entregue de forma síncrona:
 
     ```http
         HTTP/1.1 200 OK
@@ -195,7 +196,7 @@ Consoante o tempo necessário para obter a resposta da instância de orquestraç
         ]
     ```
 
-2. As instâncias de orquestração não é possível concluir dentro do tempo limite definido (neste caso 2 segundos), a resposta é a predefinição um descrito **deteção de URL de HTTP da API**:
+2. As instâncias de orquestração não é possível concluir no tempo limite definido (neste caso 2 segundos), a resposta é a predefinição um descrito em **deteção de URL da API HTTP**:
 
     ```http
         HTTP/1.1 202 Accepted
@@ -215,24 +216,24 @@ Consoante o tempo necessário para obter a resposta da instância de orquestraç
     ```
 
 > [!NOTE]
-> O formato do URL do webhook pode divergir, consoante a versão de anfitrião das funções do Azure está a executar. O exemplo anterior é para o anfitrião 2.0 de funções do Azure.
+> O formato dos URLs de webhook poderá ser diferente dependendo de qual versão do anfitrião de funções do Azure está a executar. No exemplo anterior é para o anfitrião do 2.0 de funções do Azure.
 
 ## <a name="retrieving-http-management-webhook-urls"></a>Obter URLs de Webhook de gestão de HTTP
 
-Sistemas externos podem comunicar com funções duráveis através de URLs webhook que fazem parte da resposta predefinidas descrita no [deteção de URL de HTTP da API](durable-functions-http-api.md). No entanto, os URLs de webhook também podem ser acedidos através de programação no cliente do orchestration ou numa função de atividade através de [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)classe. 
+Sistemas externos podem comunicar com funções duráveis por meio dos URLs de webhook que fazem parte da resposta padrão descrita em [deteção de URL da API HTTP](durable-functions-http-api.md). No entanto, os URLs de webhook também podem ser acessados por meio de programação no cliente de orquestração ou numa função de atividade através de [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) método da [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)classe. 
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) tem um parâmetro:
 
-* **InstanceId**: O ID exclusivo da instância.
+* **instanceId**: O ID exclusivo da instância.
 
-O método devolve uma instância do [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) com as seguintes propriedades de cadeia:
+O método retorna uma instância do [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) com as seguintes propriedades de cadeia de caracteres:
 
-* **ID**: O ID de instância do orchestration (deve ser o mesmo que o `InstanceId` entrada).
+* **ID**: O ID de instância da orquestração (deve ser o mesmo que o `InstanceId` entrada).
 * **StatusQueryGetUri**: O URL de estado da instância de orquestração.
 * **SendEventPostUri**: O URL de "emitir um evento" da instância de orquestração.
-* **TerminatePostUri**: O URL da instância do orchestration "fechado".
+* **TerminatePostUri**: O URL "terminar" da instância de orquestração.
 
-Funções de atividade podem enviar uma instância de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) para sistemas externos para monitorizar ou eventos para um orchestration:
+Funções de atividade podem enviar uma instância do [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) a sistemas externos para monitorizar ou acionem eventos para uma orquestração:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -255,4 +256,4 @@ public static void SendInstanceInfo(
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como utilizar as APIs de HTTP para a instância de gestão](durable-functions-http-api.md)
+> [Saiba como utilizar as APIs de HTTP por exemplo, gestão](durable-functions-http-api.md)

@@ -1,6 +1,6 @@
 ---
-title: Orchestrations eternal nas funções durável - Azure
-description: Saiba como implementar eternal orchestrations utilizando a extensão de funções durável para as funções do Azure.
+title: Orquestrações externas nas funções duráveis - Azure
+description: Saiba como implementar orquestrações externas com a extensão de funções duráveis para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0af61ec3b22692402697df5331df80ca044759b5
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763755"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340666"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations eternal nas funções durável (funções do Azure)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações externas nas funções durável (funções do Azure)
 
-*Eternal orchestrations* são as funções do orchestrator que nunca terminar. São úteis quando pretender utilizar [funções durável](durable-functions-overview.md) para o agregador e qualquer cenário que requeira um ciclo infinito.
+*Orquestrações externas* são as funções do orchestrator que nunca terminam. Eles são úteis quando desejar usar [funções duráveis](durable-functions-overview.md) para agregadores e qualquer cenário que requeira um loop infinito.
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-Conforme explicado no [pontos de verificação e repetição](durable-functions-checkpointing-and-replay.md), a estrutura de tarefas durável mantém um registo do histórico de orquestração cada função. Este histórico cresce continuamente desde que a função do orchestrator continua a agendar novo trabalho. Se a função do orchestrator entra no ciclo infinito e continuamente as agendas de trabalho, este histórico foi possível crescer extremamente grande e causar problemas de desempenho significativas. O *eternal orchestration* conceito foi concebido para mitigar estes tipos de problemas para as aplicações que precisam de ciclos de infinito.
+Conforme explicado [pontos de verificação e repetição](durable-functions-checkpointing-and-replay.md), a estrutura de tarefa durável mantém um registro de histórico de orquestração de cada função. Esse histórico que aumenta continuamente, desde que a função de orquestrador continua a agendar trabalho novo. Se a função de orquestrador entra num loop infinito e continuamente as agendas de trabalho, esse histórico poderia aumentar extremamente grande e causar problemas de desempenho significativo. O *orquestração externas* conceito foi projetado para atenuar esses tipos de problemas para aplicativos que precisam de loops infinitos.
 
 ## <a name="resetting-and-restarting"></a>A repor e reiniciar
 
-Em vez de utilizar ciclos infinito, as funções do orchestrator repor o respetivo estado ao chamar o [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) método. Este método aceita um único parâmetro JSON serializável, que torna-se a nova entrada para a próxima geração de função do orchestrator.
+Em vez de usar loops infinitos, as funções do orchestrator repor o seu estado chamando o [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) método. Esse método obtém um único parâmetro JSON serializável, que se torna a nova entrada para a próxima geração de função do orchestrator.
 
-Quando `ContinueAsNew` denomina-se, a instância enqueues uma mensagem a próprio antes de que sai. A mensagem de reinicia a instância com o valor de entrada novo. O mesmo ID de instância é mantido, mas o histórico da função do orchestrator eficazmente é truncado.
+Quando `ContinueAsNew` é chamado, a instância coloca em fila uma mensagem para si mesmo antes de ele sai. A mensagem reinicia a instância com o novo valor de entrada. O mesmo ID de instância é mantido, mas o histórico da função de orquestrador efetivamente é truncado.
 
 > [!NOTE]
-> A estrutura de tarefas durável mantém o mesmo ID de instância, mas internamente cria uma nova *ID de execução* para a função do orchestrator que obtém repor por `ContinueAsNew`. Este ID de execução, geralmente, não está exposta externamente, mas poderá ser útil de saber sobre quando a depuração de execução de orquestração.
+> A estrutura de tarefa durável mantém o mesmo ID de instância, mas internamente cria uma nova *ID de execução* para a função de orquestrador que é reposta pela `ContinueAsNew`. Este ID de execução em geral, não é exposto externamente, mas poderá ser útil saber sobre a execução de orquestração de depuração.
 
 > [!NOTE]
 > O `ContinueAsNew` método ainda não está disponível em JavaScript.
 
 ## <a name="periodic-work-example"></a>Exemplo de trabalho periódica
 
-Um caso de utilização para eternal orchestrations é o código que necessita para realizar o trabalho periódico indefinidamente.
+Um caso de uso para orquestrações externas é o código que precisa para fazer o trabalho periódico indefinidamente.
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -60,41 +60,15 @@ public static async Task Run(
 }
 ```
 
-A diferença entre este exemplo e uma função acionada por temporizador é que os tempos de Acionador de limpeza aqui não se baseiam com base numa agenda. Por exemplo, uma agenda CRON que executa uma função de cada hora será executá-lo em 1:00, 2:00, 3:00 etc. e potencialmente foi depare com problemas de sobreposição. Neste exemplo, no entanto, se a limpeza demora 30 minutos, em seguida, este será agendada às 1:00, 2:30, 4:00, etc. e não existe nenhuma oportunidade de sobreposição.
+A diferença entre esse exemplo e uma função acionada por temporizador é que os tempos de Acionador de limpeza aqui não se baseiam numa agenda. Por exemplo, uma agenda CRON que executa uma função a cada hora irá executá-lo à 1:00, 2:00, 3:00 etc. e potencialmente pode se deparar com problemas de sobreposição. Neste exemplo, no entanto, se a limpeza demorar 30 minutos, em seguida, ele será agendado com prioridade às 1:00, 2 minutos e 30, 4:00, etc. e não há nenhuma chance de sobreposição.
 
-## <a name="counter-example"></a>Exemplo de contador
+## <a name="exit-from-an-eternal-orchestration"></a>Sair de uma orquestração externas
 
-Eis um exemplo simplificado de um *contador* função escuta *incremento* e *diminuir* eternally eventos.
+Se uma função de orquestrador tem de concluir, eventualmente, então, tudo o que precisa fazer é *não* chamar `ContinueAsNew` e deixar que a função de saída.
 
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
-
-## <a name="exit-from-an-eternal-orchestration"></a>Sair de uma orquestração eternal
-
-Se uma função do orchestrator tem de concluir, eventualmente, em seguida, tudo o que precisa de fazer é *não* chamar `ContinueAsNew` e permitir que a função de sair.
-
-Se tiver uma função do orchestrator um ciclo infinito e tem de ser parado, utilize o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método para a interromper. Para obter mais informações, consulte [instância gestão](durable-functions-instance-management.md).
+Se uma função de orquestrador for num loop infinito e tem de ser parado, utilize o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método interrompê-lo. Para obter mais informações, consulte [gerenciamento de instância](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como implementar singleton orchestrations](durable-functions-singletons.md)
+> [Aprenda a implementar orquestrações singleton](durable-functions-singletons.md)

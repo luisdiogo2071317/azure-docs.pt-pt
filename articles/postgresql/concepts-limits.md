@@ -1,26 +1,26 @@
 ---
 title: Limitações na base de dados do Azure para PostgreSQL
-description: Este artigo descreve limitações na base de dados do Azure para PostgreSQL, tais como o número de ligação e as opções do motor de armazenamento.
+description: Este artigo descreve as limitações na base de dados do Azure para PostgreSQL, como o número de ligação e opções de motor de armazenamento.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757421"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342994"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
 
 ## <a name="maximum-connections"></a>Número máximo de ligações
-O número máximo de ligações por vCores e escalão de preço é os seguintes: 
+Seguem-se o número máximo de ligações por vCores e escalão de preço: 
 
 |**Escalão de Preço**| **vCore(s)**| **Máx. ligações** |
 |---|---|---|
@@ -36,27 +36,30 @@ O número máximo de ligações por vCores e escalão de preço é os seguintes:
 |Memória Otimizada| 8| 480|
 |Memória Otimizada| 16| 950|
 
-Quando as ligações excedem o limite, poderá receber o erro seguinte:
-> FATAL: Lamentamos, mas já demasiados clientes
+Quando as ligações excederem o limite, poderá receber o erro seguinte:
+> FATAL: Desculpe, muitos clientes já
 
-O sistema do Azure requer ligações de cinco para monitorizar a base de dados do Azure para o servidor de PostgreSQL. 
+O sistema do Azure requer cinco ligações para monitorizar a base de dados do Azure para o servidor PostgreSQL. 
 
 ## <a name="functional-limitations"></a>Limitações funcionais
 ### <a name="scale-operations"></a>Operações de dimensionamento
-1.  Dimensionamento dinâmico de servidores em escalões de preço não é atualmente suportada. Ou seja, alternar entre escalões básico, fins gerais ou com otimização de memória.
-2.  Diminuir o tamanho de armazenamento do servidor não é atualmente suportada.
+- Dimensionamento dinâmico de e para os escalões de preços básicos não é atualmente suportada.
+- Diminuir o tamanho de armazenamento do servidor não é atualmente suportada.
 
 ### <a name="server-version-upgrades"></a>Atualização de versão do servidor
-- Automatizar a migração entre versões do motor de base de dados principal não é atualmente suportada.
+- Migração automatizada entre as versões do motor de base de dados principal não é atualmente suportada.
 
 ### <a name="subscription-management"></a>Gestão de subscrições
-- Mover dinamicamente servidores entre subscrições e grupos de recursos não é atualmente suportada.
+- Dinamicamente a movimentação de servidores em subscrições e grupos de recursos não é atualmente suportada.
 
-### <a name="point-in-time-restore-pitr"></a>Ponto-na-tempo-restauro (PITR)
-1.  Quando utilizar a funcionalidade PITR, é criado o novo servidor com as configurações que o servidor que se baseia no mesmas.
-2.  Não é suportado restaurar um servidor eliminado.
+### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
+- Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
+
+### <a name="point-in-time-restore-pitr"></a>Ponto de restauro anterior no tempo-(PITR)
+- Quando utilizar a funcionalidade PITR, é criado o novo servidor com as mesmas configurações que o servidor que baseia-se.
+- Não é suportado restaurar um servidor foi eliminado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Compreender [que está disponível em cada escalão de preço](concepts-pricing-tiers.md)
-- Saiba mais sobre [versões de base de dados PostgreSQL](concepts-supported-versions.md)
-- Reveja [como fazer cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL no portal do Azure](howto-restore-server-portal.md)
+- Compreender [o que está disponível em cada escalão de preço](concepts-pricing-tiers.md)
+- Saiba mais sobre [base de dados PostgreSQL versões suportadas](concepts-supported-versions.md)
+- Revisão [como fazer cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com o portal do Azure](howto-restore-server-portal.md)

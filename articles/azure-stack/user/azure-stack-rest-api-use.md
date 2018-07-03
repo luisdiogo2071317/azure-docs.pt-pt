@@ -1,44 +1,44 @@
 ---
-title: Utilize a pilha de Azure API | Microsoft Docs
-description: Saiba como obter uma autenticação do Azure para tornar os pedidos de API de pilha do Azure.
+title: Utilizar a API do Azure Stack | Documentos da Microsoft
+description: Saiba como obter uma autenticação do Azure para efetuar pedidos da API para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359116"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346795"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Utilize a API de pilha do Azure
+# <a name="use-the-azure-stack-api"></a>Utilizar a API do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Pode utilizar a API do Azure pilha Application Programming Interface () para automatizar operações como syndicating itens do marketplace.
+Pode utilizar o Application Programming Interface (API) para automatizar as operações como adicionar uma VM para a cloud do Azure Stack.
 
-A API requer que o cliente autenticar relativamente ao ponto de final de início de sessão do Microsoft Azure. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API de pilha do Azure. Microsoft Azure utiliza o Oauth 2.0.
+A API requer que seu cliente autenticar para o ponto de final de início de sessão do Microsoft Azure. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API do Azure Stack. Microsoft Azure utiliza o Oauth 2.0.
 
-Este artigo fornece exemplos que utilizam o **cURL** utilitário para criar pedidos de pilha do Azure. A aplicação, cURL, é uma ferramenta da linha de comandos com uma biblioteca para transferência de dados. Estes exemplos guiá-lo durante o processo de obtenção de um token para aceder à API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que tem robustas tarefas de gestão e o identificador de token essa atualização do token.
+Este artigo fornece exemplos que utilizam o **cURL** utilitário para criar pedidos do Azure Stack. O aplicativo, o cURL, é uma ferramenta de linha de comando com uma biblioteca para a transferência de dados. Estes exemplos percorrer o processo de obtenção de um token para aceder à API do Azure Stack. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que têm tarefas robustas de gestão e o identificador de token esse tipo de atualização do token.
 
-Reveja a todo o processo de utilizar a API de REST de pilha do Azure com um cliente REST genérico, como **cURL**, para ajudar a compreender o subjacente pedidos e mostra o que pode esperar receber num payload resposta.
+Reveja a todo o processo de usar a API de REST do Azure Stack com um cliente REST genérico, como **cURL**, para ajudar a compreender subjacentes solicitam e mostra o que pode esperar que vai receber um payload de resposta.
 
-Este artigo não explorar todas as opções disponíveis para obter os tokens, tais como o início de sessão interativo ou criar dedicado IDs de aplicações. Para obter informações sobre estes tópicos, consulte o artigo [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
+Este artigo não explore todas as opções disponíveis para obtenção de tokens, como o início de sessão interativo ou a criação de IDs de aplicações dedicado. Para obter informações sobre estes tópicos, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
 
-## <a name="get-a-token-from-azure"></a>Obter um token a partir do Azure
+## <a name="get-a-token-from-azure"></a>Obter um token do Azure
 
-Crie um corpo do pedido formatado utilizando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. APÓS o seu pedido para o ponto final de início de sessão e autenticação de REST do Azure.
+Crie um corpo de pedido formatado utilizando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. PUBLICA o seu pedido para o ponto final de início de sessão e autenticação de REST do Azure.
 
 ### <a name="uri"></a>URI
 
@@ -46,11 +46,11 @@ Crie um corpo do pedido formatado utilizando o tipo de conteúdo x-www-form-urle
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
-**ID de inquilino** encontra-se:
+**ID do inquilino** é:
 
- - O domínio de inquilino, tais como `fabrikam.onmicrosoft.com`
- - ID do inquilino, tais como `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
- - Valor predefinido para chaves de inquilino independente: `common`
+ - O domínio de inquilino, por exemplo, `fabrikam.onmicrosoft.com`
+ - ID do seu inquilino, por exemplo `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - Valor predefinido para chaves de inquilino independentes: `common`
 
 ### <a name="post-body"></a>Corpo da mensagem
 
@@ -69,17 +69,17 @@ Para cada valor:
     O tipo de esquema de autenticação que irá utilizar. Neste exemplo, o valor é: `password`
 
  - **resource**  
-    O recurso acede ao token. Pode encontrar o recurso consultando o ponto de final de metadados da gestão de pilha do Azure. Observe o **audiências** secção
+    O recurso o token acessa. Pode encontrar o recurso consultando o ponto de final de metadados de gestão do Azure Stack. Examinar os **audiências** secção
 
- - **Ponto final de gestão de pilha do Azure**  
+ - **Ponto final de gestão do Azure Stack**  
     ```
     https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
     ```
 
   > [!NOTE]  
-  > Se for um administrador tenta aceder o API de inquilinos, em seguida, tem de se certificar a utilizar o ponto final de inquilino, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Se for um administrador a tentar aceder à API de inquilinos, em seguida, tem de certificar-se de que a utilizar o ponto final de inquilino, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
-  Por exemplo, com o Azure pilha Development Kit como um ponto final:
+  Por exemplo, com o Azure Stack Development Kit como um ponto final:
 
     ```bash
     curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -107,13 +107,13 @@ Para cada valor:
 
   **client_id**
 
-  Este valor é codificado para um valor predefinido:
+  Este valor é inserido no código para um valor predefinido:
 
   ```
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
-  Alternativas opções estão disponíveis para cenários específicos:
+  Opções alternativas estão disponíveis para cenários específicos:
 
   
   | Aplicação | ApplicationID |
@@ -126,7 +126,7 @@ Para cada valor:
 
   **username**
 
-  Por exemplo, a conta do AAD de pilha do Azure:
+  Por exemplo, a conta do AAD do Azure Stack:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -134,7 +134,7 @@ Para cada valor:
 
   **password**
 
-  A palavra-passe de administrador de Azure pilha AAD.
+  A senha de administrador do AAD de pilha do Azure.
 
 ### <a name="example"></a>Exemplo
 
@@ -167,7 +167,7 @@ Resposta:
 
 ## <a name="api-queries"></a>Consultas de API
 
-Depois de obter o token de acesso, terá de adicioná-lo como um cabeçalho para cada um dos seus pedidos de API. Para tal, terá de criar um cabeçalho **autorização** com o valor: `Bearer <access token>`. Por exemplo:
+Depois de obter o token de acesso, tem de adicioná-lo como um cabeçalho para cada um dos seus pedidos de API. Para fazer isso, precisa criar um cabeçalho **autorização** com o valor: `Bearer <access token>`. Por exemplo:
 
 Pedido:
 
@@ -187,37 +187,37 @@ state : Enabled
 subscriptionPolicies : @{locationPlacementId=AzureStack}
 ```
 
-### <a name="url-structure-and-query-syntax"></a>Sintaxe de estrutura e a consulta de URL
+### <a name="url-structure-and-query-syntax"></a>Sintaxe de consulta e estrutura do URL
 
-Pedido de genérico URI, é composta por: {esquema de URI} :// {URI-host} / {caminho do recurso}? {query-string}
+Pedido de genérico URI, é composta por: {esquema de URI} :// {anfitrião do URI} / {caminho de recurso}? {query-string}
 
-- **O esquema de URI**:  
+- **Esquema de URI**:  
 O URI indica o protocolo utilizado para enviar o pedido. Por exemplo, `http` ou `https`.
-- **Anfitrião URI**:  
-O anfitrião Especifica o nome de domínio ou endereço IP do servidor onde o ponto final de serviço REST está alojado, tais como `graph.microsoft.com` ou `adminmanagement.local.azurestack.external`.
+- **Anfitrião do URI**:  
+O anfitrião Especifica o nome de domínio ou endereço IP do servidor onde o ponto de extremidade do serviço REST está alojado, tal como `graph.microsoft.com` ou `adminmanagement.local.azurestack.external`.
 - **Caminho do recurso**:  
-Especifica o caminho do recurso ou coleção de recursos, o que pode incluir vários segmentos utilizados pelo serviço de determinar a seleção desses recursos. Por exemplo: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` podem ser utilizadas para consultar a lista de proprietários de uma aplicação específica dentro da coleção de aplicações.
+O caminho Especifica o recurso ou coleção de recursos, o que pode incluir vários segmentos utilizados pelo serviço para determinar a seleção desses recursos. Por exemplo: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` pode ser usado para consultar a lista de proprietários de um aplicativo específico dentro da coleção de aplicações.
 - **Cadeia de consulta**:  
-A cadeia fornece parâmetros simples adicionais, tais como os critérios de seleção de recurso ou a versão da API.
+A cadeia de caracteres fornece parâmetros simples adicionais, tais como os critérios de seleção de versão ou recurso da API.
 
-## <a name="azure-stack-request-uri-construct"></a>Construção URI de pedido de pilha do Azure
+## <a name="azure-stack-request-uri-construct"></a>Construção URI de pedido do Azure Stack
 
 ```
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
-### <a name="uri-syntax"></a>Sintaxe URI
+### <a name="uri-syntax"></a>Sintaxe de URI
 
 ```
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
-### <a name="query-uri-example"></a>Exemplo URI de consulta
+### <a name="query-uri-example"></a>Exemplo de consulta de URI
 
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como utilizar os pontos finais RESTful do Azure, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
+Para obter mais informações sobre como utilizar os pontos de extremidade RESTful do Azure, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).

@@ -1,76 +1,77 @@
 ---
-title: Descrição geral de limites de recursos de base de dados SQL do Azure | Microsoft Docs
-description: Esta página descreve alguns limites de recursos baseados em DTU comuns das bases de dados na base de dados do Azure SQL.
+title: Descrição geral de limites de recursos de base de dados SQL do Azure | Documentos da Microsoft
+description: Esta página descreve alguns limites comuns do recurso baseado em DTU para bases de dados individuais na base de dados do Azure SQL.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750956"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345724"
 ---
-# <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de SQL Database do Azure de descrição geral 
+# <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de base de dados do Azure SQL de descrição geral 
 
-Este artigo fornece uma descrição geral do recurso SQL Database do Azure limita e fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
+Este artigo fornece uma descrição geral do recurso de base de dados do Azure SQL limita e fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>O que é o número máximo de servidores e bases de dados?
 
 | Máximo | Valor |
 | :--- | :--- |
 | Bases de dados por servidor | 5000 |
-| Número predefinido de servidores por subscrição em qualquer região | 20 |
+| Número de servidores por subscrição em qualquer região predefinido | 20 |
 | Número máx. de servidores por subscrição em qualquer região | 200 |
+| DTU / quota de eDTU por servidor | 54,000 |
 |||
 
 > [!NOTE]
-> Para obter mais quota do servidor que o período predefinido, um novo pedido de suporte pode ser submetido no portal do Azure para a subscrição com o tipo de problema "A Quota de".
+> Para obter mais quota de /eDTU DTU ou mais servidores que o valor predefinido, pode ser submetido um novo pedido de suporte no portal do Azure para a subscrição com o tipo de problema "Quota". As DTU / limite de quota e base de dados de eDTU por servidor restringe o número de conjuntos elásticos por servidor. 
 
 > [!IMPORTANT]
-> Como o número de bases de dados se aproxima o valor limite por servidor, pode ocorrer o seguinte:
-> - Aumentar a latência na execução de consultas na base de dados mestra.  Isto inclui a vistas de estatísticas de utilização de recursos, tais como resource_stats.
-> - Aumentar a latência das operações de gestão e compor viewpoints portais que envolvam a enumerar as bases de dados no servidor.
+> Como o número de bases de dados se aproxima do limite por servidor, pode ocorrer o seguinte:
+> - A aumentar a latência em execução de consultas na base de dados mestra.  Isto inclui as vistas de estatísticas de utilização de recursos, tais como resource_stats.
+> - Aumentar a latência nas operações de gestão e composição de pontos de vista portais que envolvem a enumerar as bases de dados no servidor.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos de base de dados são atingidos?
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando atingir os limites de recursos da base de dados?
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Computação (DTUs e eDTUs / vCores)
 
-Quando a utilização de computação de base de dados (medida por DTUs e eDTUs ou vCores) se tornar elevada, consultar aumentos de latência e pode, mesmo que o limite de tempo. Nas seguintes condições, as consultas podem ser colocados em fila pelo serviço e são fornecidas os recursos para execução como recurso ficar livres.
-Quando encontrar a utilização de computação de elevado, as opções de mitigação incluem:
+Quando a utilização de computação de base de dados (medida por DTUs e eDTUs ou vCores) se tornar elevada, aumentos de latência de consulta e pode até mesmo limite de tempo. Nestas condições, consultas podem ser colocados em fila pelo serviço e são fornecidas a recursos para execução como recurso estar livres.
+Quando se deparar com a utilização de computação de alto, as opções de atenuação incluem:
 
-- Aumentar o nível de desempenho da base de dados ou do conjunto elástico para fornecer a base de dados com mais recursos de computação. Consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [Dimensionar recursos de agrupamento elástico](sql-database-elastic-pool-scale.md).
-- Otimizar as consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [consulta Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Aumentar o nível de desempenho da base de dados ou conjunto elástico para fornecer a base de dados com mais recursos de computação. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
+- Otimizar as consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Armazenamento
 
-Quando utilizado de espaço de base de dados atinge o limite de tamanho máximo, insere a base de dados e as atualizações que aumentam o tamanho de dados falharem e os clientes recebem um [mensagem de erro](sql-database-develop-error-messages.md). SELECIONA a base de dados e eliminações continuam a ter êxito.
+Quando utilizado de espaço de base de dados atinge o limite de tamanho máximo, insere a base de dados e as atualizações que aumentam o tamanho de dados falharem e os clientes recebem um [mensagem de erro](sql-database-develop-error-messages.md). SELECIONA de base de dados e eliminações continuam a ter êxito.
 
-Quando encontrar a utilização do espaço elevada, opções de mitigação incluem:
+Quando se deparar com utilização elevada de espaço, as opções de atenuação incluem:
 
-- Aumentar o tamanho máximo da base de dados ou elástico agrupamento, ou adicione mais armazenamento. Consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [Dimensionar recursos de agrupamento elástico](sql-database-elastic-pool-scale.md).
-- Se a base de dados está num conjunto elástico, em seguida, em alternativa a base de dados pode ser movido fora do conjunto para que o espaço de armazenamento não está partilhado com outras bases de dados.
+- Aumentar o tamanho máximo da base de dados ou elástica do agrupamento ou adicionar mais armazenamento. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
+- Se a base de dados num conjunto elástico, em seguida, em alternativa a base de dados pode ser movida fora do conjunto, para que o seu espaço de armazenamento não é partilhado com outras bases de dados.
 
-### <a name="sessions-and-workers-requests"></a>Sessões e funcionários (pedidos) 
+### <a name="sessions-and-workers-requests"></a>Sessões e funções de trabalho (pedidos) 
 
-O número máximo de sessões e funcionários é determinado pelo desempenho e a camada de nível de serviço (DTUs e eDTUs). Novos pedidos são rejeitados quando são atingidos os limites de sessão ou de trabalho e os clientes recebem uma mensagem de erro. Enquanto o número de ligações disponíveis pode ser controlado através da aplicação, o número de funcionários em simultâneo, muitas vezes, é mais difícil estimar e controlar. Isto é particularmente verdadeiro durante períodos de carga máxima quando os limites de recursos de base de dados são atingidos e trabalhadores pile cópias de segurança devido a tempo consultas em execução. 
+O número máximo de sessões e funções de trabalho é determinado pelo desempenho e a camada de nível de serviço (DTUs e eDTUs). Novos pedidos são rejeitados quando atingir os limites de sessão ou de trabalho e os clientes recebem uma mensagem de erro. Embora o número de ligações disponíveis pode ser controlado pelo aplicativo, o número de trabalhadores simultâneos, muitas vezes, é mais difícil de fazer uma estimativa e controle. Isso é especialmente verdadeiro durante períodos de carga de pico quando atingir os limites de recursos da base de dados e funções de trabalho acumuladas devido a consultas mais tempo de execução. 
 
-Quando encontrar elevada utilização de sessão ou de trabalho, opções de mitigação incluem:
-- Aumentar o nível de desempenho ou camada de serviço do agrupamento de base de dados ou elástico. Consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [Dimensionar recursos de agrupamento elástico](sql-database-elastic-pool-scale.md).
-- Otimizar as consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização de trabalho maior se dever a contenção de recursos de computação. Para obter mais informações, consulte [consulta Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+Quando se deparar com alta utilização de sessão ou de trabalho, as opções de atenuação incluem:
+- Aumentar o nível de desempenho ou camada de serviço do conjunto elástico ou base de dados. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
+- Otimização de consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização da função de trabalho maior é devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-Quando encontrar elevada utilização de sessão ou de trabalho, opções de mitigação incluem:
-- Aumentar o nível de desempenho ou camada de serviço da base de dados. Consulte [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [Dimensionar recursos de agrupamento elástico](sql-database-elastic-pool-scale.md).
-- Otimizar as consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização de trabalho maior se dever a contenção de recursos de computação. Para obter mais informações, consulte [consulta Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+Quando se deparar com alta utilização de sessão ou de trabalho, as opções de atenuação incluem:
+- Aumentar o nível de desempenho ou de camada de serviço da base de dados. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
+- Otimização de consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização da função de trabalho maior é devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte [FAQ de base de dados do SQL Server](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
-- Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
-- Para obter informações sobre as DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
+- Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
+- Para obter informações sobre DTUs e eDTUs, veja [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

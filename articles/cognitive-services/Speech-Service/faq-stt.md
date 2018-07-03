@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes para reconhecimento de voz ao serviço de texto no Azure | Microsoft Docs
-description: Seguem-se as respostas às perguntas sobre o reconhecimento de voz para texto mais populares.
+title: Perguntas mais frequentes sobre conversão de voz em texto de serviço no Azure | Documentos da Microsoft
+description: Seguem-se as respostas às perguntas mais populares sobre a conversão de voz em texto.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,146 +9,136 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: db57e0bd0f7afcfa836ef6446cdfd74e5d61c440
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054992"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345265"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Serviço de reconhecimento de voz personalizadas perguntas mais frequentes
+# <a name="custom-speech-service-frequently-asked-questions"></a>Perguntas mais frequentes sobre o serviço de voz personalizada
 
-Se não conseguir encontrar respostas às suas perguntas neste FAQ, tente pedir a Comunidade do serviço de reconhecimento de voz personalizadas no [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
+Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de serviço de voz personalizada no [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>Geral
 
-**Pergunta**: qual é a diferença entre a linha de base e de reconhecimento de voz personalizadas para modelos de texto?
+**Pergunta**: qual é a diferença entre a linha de base e de voz personalizada para modelos de texto?
 
-**Resposta**: já estão implementados na nuvem e ter sido preparados com a propriedade de dados do Microsoft de modelos de linha de base. Modelos personalizados permitem ao utilizador para se adaptar a um modelo para melhor satisfazer um ambiente específico com ruído ambiente específico ou o idioma. Floors de fábrica, carros, streets desnecessárias, seriam necessários adaptado modelo acústica enquanto tópicos específicos, tais como biology, physics, radiology, nomes de produtos e utilização de acrónimos personalizada precisaria que um modelo de linguagem.
+**Resposta**: modelos de linha de base foram treinados com a Microsoft dados de propriedade e já estão implementados na nuvem. Modelos personalizados que o utilizador para se adaptar um modelo para se adequar melhor um ambiente particular com ruído do específico ou linguagem. Chão de fábrica, carros, streets ruidosos exigiria um modelo acústico adaptado ao passo que os tópicos específicos, como a biologia, física, radiology, nomes de produtos e acrônimos personalizados requer um modelo de idioma adaptado.
 
-**Pergunta**: onde começar se pretender utilizar um modelo de linha de base?
+**Pergunta**: por onde começar se eu quiser usar um modelo de linha de base?
 
-**Resposta**: tem primeiro de obter um [chave de subscrição](get-started.md). Se pretender efetuar chamadas REST para os modelos de linha de base predeployed, consulte o [os detalhes aqui](rest-apis.md). Se pretender utilizar a transferência de WebSockets o [SDK](speech-sdk.md)
+**Resposta**: primeiro tem de obter um [chave de subscrição](get-started.md). Se quiser fazer chamadas REST para os modelos de linha de base predeployed, consulte a [detalhes aqui](rest-apis.md). Se quiser usar o download de WebSockets o [SDK](speech-sdk.md)
 
-**Pergunta**: fazer I sempre tem de criar um modelo de reconhecimento de voz personalizadas?
+**Pergunta**: faço sempre tem de criar um modelo de voz personalizada?
 
-**Resposta**: não, se a aplicação estiver a utilizar o genérico diário idioma sem vocabulário personalizado ou -lo que, em seguida, raro maybe não é necessário personalizar um modelo. Além disso, se a aplicação está a ser utilizada num ambiente onde há pouca ou nenhuma ruído de fundo, em seguida, que não necessita de personalizar um. O portal permite aos utilizadores implementar a linha de base e modelos personalizados e executar testes de precisão contra eles. Os utilizadores podem utilizar esta funcionalidade para medir a precisão das vs linha de base de um modelo personalizado.
+**Resposta**: não, se seu aplicativo está usando linguagem genérica do dia a dia, em seguida, não é necessário personalizar um modelo. Além disso, se seu aplicativo é usado num ambiente em que há pouco ou nenhum barulho de fundo, em seguida, não é necessário personalizar qualquer um. O portal permite aos utilizadores implementar a linha de base e modelos personalizados e executar testes de precisão contra eles. Os utilizadores podem utilizar esta funcionalidade para medir a precisão do vs linha de base de um modelo personalizado.
 
-**Pergunta**: como posso saber quando o processamento do meu conjunto de dados ou o modelo estiver concluído?
+**Pergunta**: como posso saber quando o processamento de meu conjunto de dados ou o modelo for concluído?
 
-**Resposta**: atualmente, o estado do modelo ou do conjunto de dados na tabela é pretender apenas de conhecer.
-Quando o processamento estiver concluído, o estado será "Pronto".
+**Resposta**: atualmente, o estado do modelo ou do conjunto de dados na tabela é o só quer saber.
+Quando o processamento estiver concluído, o estado irá ser "com êxito".
 
-**Pergunta**: pode criar mais de um modelo num momento?
+**Pergunta**: pode criar mais de um modelo?
 
-**Resposta**: não existe nenhum limite para quantas modelos são na sua coleção mas só pode ser criado numa altura em cada página.
-Por exemplo, não é possível iniciar um processo de criação de modelo de linguagem se não existir atualmente um modelo de idioma na fase do processo.
-No entanto, pode ter um modelo acústica e um modelo de linguagem processar ao mesmo tempo. 
+**Resposta**: não há limite para quantas modelos estão em sua coleção.
 
-**Pergunta**: Posso realizados posso efetuadas um erro. Como cancelar a minha importação de dados ou que está em curso a criação do modelo? 
+**Pergunta**: percebi que cometi um erro. Como cancelar a minha importação de dados ou modelo de criação está em curso? 
 
-**Resposta**: atualmente, não é possível reverter um processo de adaptation acústica ou idioma.
-Dados importados podem ser eliminados após a importação foi concluída
+**Resposta**: atualmente, não é possível reverter um processo de adaptação acústicos ou linguagem. Modelos e dados importados podem ser eliminados após eles estão num Estado terminal.
 
-**Pergunta**: qual é a diferença entre a pesquisa & ditado modelos e os modelos Conversational?
+**Pergunta**: qual é a diferença entre a pesquisa e modelos de ditado e os modelos de conversação?
 
-**Resposta**: Existem dois Base acústica & idioma modelos à sua escolha no serviço de reconhecimento de voz personalizadas.
-consultas de pesquisa ou ditado. O Conversational Microsoft AM é adequado para reconhecer o reconhecimento de voz ditas um estilo conversational.
-Este tipo de reconhecimento de voz, normalmente, é direcionado em outra pessoa, tal como em centros de chamada ou reuniões.
+**Resposta**: há mais do que um modelos de linha de base à sua escolha no serviço de voz. O modelo de conversação é adequado para reconhecimento de Voz falada num estilo de conversação. Esse modelo seria o ideal para chamadas de trnascribing durante a pesquisa e ditado é ideal para aplicações de acionadas por voz. Universal é um novo modelo que pretende resolver ambos os cenários.
 
 **Pergunta**: posso atualizar o meu modelo existente (empilhamento de modelo)?
 
-**Resposta**: não não possível atualizar os modelos existentes. Como um trabalho em torno de combinar o conjunto de dados antigo com o novo e readapt.
+**Resposta**: não não possível atualizar modelos existentes. Como solução alternativa combinar o conjunto de dados antigo com o novo e readapt.
 
-Os conjuntos de dados antigos e novos tem de ser combinados num único. zip (se for dados acústica) ou um ficheiro. txt se se tratar de dados de idioma. Uma vez adaptation é feito as necessidades de modelo atualizado novo ser anular implementado para obter um novo ponto final
+Os conjuntos de dados antigos e novos deve ser combinados num único. zip (se for dados acústicos) ou um arquivo. txt, caso se trate de dados de idioma. Uma vez adaptação é feita as necessidades de modelo atualizado novo ser anular implementado para obter um novo ponto final
 
-**Pergunta**: E se necessário simultaneidade superior que o valor predefinido ou o que é fornecido no portal. 
+**Pergunta**: E se eu precisar uma simultaneidade mais elevada para meu modelo de deloyed que o que está disponível no portal. 
 
-**Resposta**: pode dimensionar o seu modelo em incrementos de 20 pedidos em simultâneo. 
+**Resposta**: pode aumentar verticalmente o seu modelo em incrementos de 20 pedidos simultâneos. 
 
 Contacte-nos se necessitar de uma escala maior.
 
-**Pergunta**: Posso transferir o meu modelo e executá-la localmente?
+**Pergunta**: Posso transferir o meu modelo e executá-lo localmente?
 
-**Resposta**: modelos não podem ser transferidos e executados localmente.
+**Resposta**: modelos não podem ser baixados e executados localmente.
 
-**Pergunta**: são os meus pedidos registados?
+**Pergunta**: são os meus pedidos com sessão iniciados?
 
-**Resposta**: têm uma opção durante a criação de uma implementação para desactivar o rastreio, altura em que nenhum áudio ou transcriptions serão registados. Caso contrário pedidos normalmente iniciados no Azure no armazenamento seguro. Se ainda tiver problemas de privacidade proíbem tem de utilizar o serviço de reconhecimento de voz personalizadas, contacte um dos canais de suporte.
+**Resposta**: tem uma opção durante a criação de uma implementação de optar por desativar o rastreio, altura em que não existem áudio ou transcrições serão registadas. Caso contrário, pedidos, normalmente, são registados no Azure no armazenamento seguro. Se tiver mais questões de privacidade que proíbem a utilização do serviço de voz personalizada, entre em contato com um dos canais de suporte.
 
 ## <a name="importing-data"></a>Importar dados
 
 **Pergunta**: o que é o limite no tamanho do conjunto de dados? Porquê? 
 
-**Resposta**: O limite atual de um conjunto de dados é de 2 GB, devido à lista de restrições no tamanho de um ficheiro para o carregamento HTTP. 
+**Resposta**: O limite atual para um conjunto de dados é de 2 GB, devido à restrição no tamanho de um ficheiro para o upload HTTP. 
 
-**Pergunta**: pode zip os meus ficheiros de texto para carregar um ficheiro de texto maior? 
+**Pergunta**: pode zip meus arquivos de texto para carregar um ficheiro de texto maior? 
 
-**Resposta**: não, atualmente só os ficheiros de texto descomprimidos são permitidos.
+**Resposta**: não, atualmente só os ficheiros de texto não comprimidos são permitidos.
 
-**Pergunta**: O relatório de dados indica que ocorreram utterances falhadas. O que é o problema?
+**Pergunta**: O relatório de dados diz havia expressões com falha. O que é o problema?
 
-**Resposta**: Falha ao carregar a 100% de utterances num ficheiro não é um problema.
-Se a vasta maioria das utterances nos dados de um idioma ou acústica definido (por exemplo, > 95%) com êxito são importados, o conjunto de dados pode ser utilizado. No entanto, é recomendado que tentar compreender por que motivo os utterances falha e corrigir os problemas. Problemas mais comuns, tais como de erros, de formatação são fáceis de corrigir. 
+**Resposta**: Falha ao carregar a 100% das expressões num arquivo não é um problema.
+Se a grande maioria das expressões num dados acústicos ou idioma definido (por exemplo, > 95%) com êxito são importados, o conjunto de dados pode ser utilizado. No entanto, é recomendável que tente compreender por que as expressões com falha e corrigir os problemas. Problemas mais comuns, como formatação de erros, são fáceis de corrigir. 
 
-## <a name="creating-am"></a>Criar AM
+## <a name="creating-am"></a>Criação de AM
 
-**Pergunta**: quantidade de dados acústica preciso?
+**Pergunta**: A quantidade de dados acústico é necessário?
 
-**Resposta**: Recomendamos que comece com 30 minutos para uma hora dos dados acústica
+**Resposta**: Recomendamos que comece com 30 minutos a uma hora de dados acústicos
 
-**Pergunta**: os dados que posso recolher?
+**Pergunta**: os dados que posso coletar?
 
-**Resposta**: recolher dados que são tão próximos o cenário de aplicação e utilizar as maiúsculas e minúsculas quanto possível.
-A recolha de dados deve corresponder à aplicação de destino e os utilizadores em termos de dispositivo ou dispositivos, ambientes e tipos de speakers. Em geral, deve recolher os dados de abrangentes como um intervalo de speakers quanto possível. 
+**Resposta**: recolher dados que é o mais próximo o cenário de aplicação e utilizar as maiúsculas e minúsculas possível.
+A recolha de dados deve corresponder a aplicação de destino e os utilizadores em termos de dispositivo ou dispositivos, ambientes e tipos de oradores. Em geral, deve recolher dados a partir de mais amplo um intervalo de oradores possível. 
 
 **Pergunta**: como deve recolher? 
 
-**Resposta**: pode criar uma aplicação de recolha de dados autónoma ou utilizar algumas desativar o software de gravação de áudio shelf.
-Também pode criar uma versão da aplicação que regista os dados de áudio e que utiliza. 
+**Resposta**: pode criar uma aplicação de recolha de dados autónoma ou usar alguns desativar o software de gravação de áudio de prateleira.
+Também pode criar uma versão do seu aplicativo que registra os dados de áudio e usa. 
 
-**Pergunta**: É necessário transcribe dados adaptation myself? 
+**Pergunta**: É necessário de dados de adaptação de transcrever eu mesmo? 
 
-**Resposta**: os dados têm de ser transcribed. Pode transcribe por si ou utilizar um serviço transcription profissionais. Alguns destes transcribers profissionais de utilização e outros utilizam crowdsourcing.
+**Resposta**: Sim! Pode transcrever por conta própria ou utilizar um serviço de transcrição profissional. Alguns usuários prefiram transcribers profissionais, enquanto outros utilizam crowdsourcing ou fazer as transcrições propriamente ditas.
 
-**Pergunta**: quanto tempo demora para criar um modelo de acústica personalizado?
+## <a name="accuracy-testing"></a>Testes de precisão
 
-**Resposta**: é o tempo de processamento para criar um modelo de acústica personalizado sobre o mesmo que o comprimento do conjunto de dados acústica.
-Por isso, um modelo acústica personalizado criado a partir de um conjunto de dados de cinco horas irá demorar cerca de cinco horas ao processo. 
+**Pergunta**: Posso executar testes offline de meu modelo acústico personalizado usando um modelo de idioma personalizado?
 
-## <a name="offline-testing"></a>Testes Offline
+**Resposta**: Sim, basta selecionar o modelo de idioma personalizado na lista suspensa quando configurou o teste offline
 
-**Pergunta**: posso efetuar testes offline do meu modelo acústica personalizado utilizando um modelo de idioma personalizado?
+**Pergunta**: Posso executar testes offline de meu modelo de idioma personalizado usando um modelo acústico personalizado?
 
-**Resposta**: Sim, apenas selecionar o modelo de idioma personalizado na lista pendente quando configurou o teste offline
+**Resposta**: Sim, basta selecionar o modelo acústico personalizado no menu pendente quando configurou o teste offline.
 
-**Pergunta**: posso efetuar testes offline do meu modelo de idioma personalizado utilizando um modelo de acústica personalizado?
+**Pergunta**: o que é a taxa de erros do Word e como é calculada?
 
-**Resposta**: Sim, apenas selecionar o modelo acústica personalizado no menu pendente ao configurar o teste offline.
+**Resposta**: taxa de erros do Word é a métrica de avaliação de reconhecimento de fala. A VM é contabilizada como o número total de erros, que inclui inserções, eliminações e substituições, divididas pelo número total de palavras na transcrição de referência. Detalhes de modo [aqui](https://en.wikipedia.org/wiki/Word_error_rate)
 
-**Pergunta**: qual é a taxa de erros do Word e como é calculada?
+**Pergunta**: como posso determinar se os resultados de um teste de precisão é bom?
 
-**Resposta**: taxa de erros do Word é a métrica de avaliação de reconhecimento de voz. Este é contabilizado como o número total de erros, que inclui inserções, eliminações e substituições, divididas pelo número total de palavras no transcription de referência.
+**Resposta**: os resultados mostram uma comparação entre o modelo de linha de base e a personalizou.
+Tente atacar o modelo de linha de base para fazer a personalização que vale a pena
 
-**Pergunta**: como posso determinar se os resultados de um teste de precisão é boa?
+**Pergunta**: como posso calcular o WER dos modelos de bases, para que eu possa ver se havia melhoria? 
 
-**Resposta**: os resultados mostram uma comparação entre o modelo de linha de base e aquele que personalizada.
-Deve procure de beat o modelo de linha de base para fazer a personalização valer a pena
+**Resposta**: os resultados do teste offline mostrarem a precisão de precisão de linha de base do modelo personalizado com a melhoria ao longo da linha de base
 
-**Pergunta**: como posso descobrir o WER dos modelos de base, para que posso ver se ocorreu melhoramento? 
+## <a name="creating-lm"></a>Criação de LM
 
-**Resposta**: os resultados do teste offline mostram precisão de precisão de linha de base do modelo personalizado bem como a melhoria através da linha de base
+**Pergunta**: quantos dados de texto é necessário carregar?
 
-## <a name="creating-lm"></a>Criar LM
+**Resposta**: depende de como diferente o vocabulário e expressões usados em seu aplicativo são provenientes os modelos de linguagem de partida. Para todas as novas palavras, é útil fornecer exemplos tantos possível da utilização dessas palavras. Para expressões comuns que são utilizados na sua aplicação, incluindo expressões nos dados de idioma também é útil à medida que informa ao sistema para escutar também estes termos. É comum ter pelo menos um hudrend e, normalmente, várias centenas expressões com o conjunto de dados de idioma ou mais. Também se determinados tipos de consultas devem ser mais comuns do que outras pessoas, pode inserir várias cópias das consultas comuns no conjunto de dados.
 
-**Pergunta**: quanto dados de texto se é necessário carregar?
+**Pergunta**: Posso apenas carregar uma lista de palavras?
 
-**Resposta**: depende de forma diferente vocabulário e expressões utilizados na sua aplicação são de modelos de idioma de partida. Para todas as palavras novo, é útil fornecer exemplos tantas quanto possível da utilização desses palavras. Para as expressões comuns que são utilizadas na sua aplicação, incluindo expressões nos dados de idioma também é útil como indica o sistema para escutar bem estes termos. É comum para 100, pelo menos, um e normalmente várias centenas utterances em conjunto de dados de idioma ou mais. Também se determinados tipos de consultas são esperados para ser mais comuns a outras pessoas, pode inserir várias cópias das consultas comuns no conjunto de dados.
-
-**Pergunta**: pode posso apenas carregar uma lista das palavras?
-
-**Resposta**: carregamento de uma lista das palavras irá obter as palavras para vocabulário, mas não ensinar o sistema como as palavras são normalmente utilizadas.
-Fornecendo utterances total ou parciais (frases ou expressões das ações que os utilizadores se prevê a dizer), o modelo de linguagem pode saber as novas palavras e como, são utilizados. O modelo de idioma personalizado é boa não apenas para obter novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para a sua aplicação. Fornecer utterances completas ajuda-o sistema saiba melhor. 
+**Resposta**: carregar uma lista de palavras irá obter as palavras em para vocabulário mas ensina o sistema como as palavras são normalmente utilizadas.
+Ao fornecer expressões com total ou parciais (frases ou expressões de coisas que os usuários são provavelmente diria), o modelo de idioma pode aprender novas palavras e como, elas são usadas. O modelo de idioma personalizado é bom, não apenas para a introdução de novas palavras no sistema, mas também para ajustar a probabilidade de palavras conhecidas para a sua aplicação. Fornecimento de expressões completo com ajuda o sistema saiba a melhor. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

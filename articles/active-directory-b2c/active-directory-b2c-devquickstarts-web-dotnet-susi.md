@@ -1,6 +1,6 @@
 ---
-title: A autenticação, inscrição, reposição palavra-passe no Azure Active Directory B2C | Microsoft Docs
-description: Como criar uma aplicação web que tem sessão-up/início de sessão, Editar perfil e palavra-passe reposição através do Azure Active Directory B2C.
+title: Autenticação, inscreva-se, reposição palavra-passe no Azure Active Directory B2C | Documentos da Microsoft
+description: Como criar uma aplicação web que tem sessão-inscrição/início de sessão, edição de perfil e reposição através do Azure Active Directory B2C palavra-passe.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,54 +10,56 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 090e85df2f4315e6a31d5f9da38483f7ec00be22
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710411"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345010"
 ---
-# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com o Azure Active Directory B2C perfil de inscrição, início de sessão, editar e reposição de palavra-passe
+# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com a edição de perfil de inscrição, início de sessão, do Azure Active Directory B2C e reposição de palavra-passe
 
 Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
-> * Adicionar as funcionalidades de identidade do Azure AD B2C à sua aplicação web
+> * Adicionar funcionalidades de identidade do Azure AD B2C à sua aplicação web
 > * Registar a sua aplicação web no seu diretório do Azure AD B2C
-> * Criar um utilizador sessão-up/início de sessão, a edição de perfil e a política de reposição de palavra-passe para a sua aplicação web
+> * Criar um utilizador inscrever-inscrição/início de sessão, a edição de perfil e a política de reposição de palavra-passe para a sua aplicação web
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ligar o seu inquilino do B2C para uma conta do Azure. Pode criar uma conta do Azure gratuita [aqui](https://azure.microsoft.com/).
-- Terá de [Microsoft Visual Studio](https://www.visualstudio.com/) ou programa semelhante para ver e modificar o código de exemplo.
+- Tem de ligar o seu inquilino de B2C para uma conta do Azure. Pode criar uma conta do Azure gratuita [aqui](https://azure.microsoft.com/).
+- Precisa [Microsoft Visual Studio](https://www.visualstudio.com/) ou um programa semelhante para ver e modificar o código de exemplo.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Criar um diretório do Azure AD B2C
+## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um inquilino do Azure AD B2C
 
-Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino. Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos e muito mais. Se ainda não tiver uma, crie um diretório do B2C antes de prosseguir neste guia.
+Antes de poder utilizar o Azure AD B2C, terá de criar um inquilino. Um inquilino é um contentor para todos os seus utilizadores, aplicações, grupos e muito mais. Se ainda não tiver uma, crie um inquilino de B2C antes de continuar neste guia.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Terá de ligar o inquilino do B2C à sua subscrição do Azure. Depois de selecionar **criar**, selecione o **inquilino de ligação do Azure AD B2C existente, a minha subscrição do Azure** opção e, em seguida, no **inquilino do Azure AD B2C** pendente, selecione o inquilino que pretende associar.
+> Tem de se ligar inquilino do Azure AD B2C à sua subscrição do Azure. Depois de selecionar **Create**, selecione a **inquilino de ligação do Azure AD B2C existente, a minha subscrição do Azure** opção e, em seguida, no **inquilino do Azure AD B2C** lista pendente, selecione o inquilino que pretende associar.
 
 ## <a name="create-and-register-an-application"></a>Criar e registar uma aplicação
 
-Em seguida, terá de criar e registar a aplicação no diretório do B2C. Este artigo fornece informações que necessita de comunicar de forma segura com a sua aplicação do Azure AD B2C. 
+Em seguida, terá de criar e registar a aplicação no seu inquilino do Azure AD B2C. Esta opção fornece informações que precisam de comunicar de forma segura com a sua aplicação do Azure AD B2C. 
+
+Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Deve agora ser usando o inquilino que criou anteriormente.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
-Quando tiver terminado, terá uma API e uma aplicação nativa nas definições da aplicação.
+Quando tiver terminado, terá uma API e um aplicativo nativo nas definições da aplicação.
 
 ## <a name="create-policies-on-your-b2c-tenant"></a>Criar políticas no seu inquilino do B2C
 
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: **inscrição & início de sessão**, **perfil editar**, e **reposição de palavra-passe**.  Tem de criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Para cada política, lembre-se de que selecione o atributo de nome de apresentação ou afirmação e copie o nome da sua política para utilização posterior.
+No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: **Inscreva-se e iniciar sessão**, **edição de perfil**, e **palavra-passe reposta**.  Tem de criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Para cada política, certifique-se de que para selecionar o atributo de nome de exibição ou afirmação e copie o nome da política para utilização posterior.
 
-### <a name="add-your-identity-providers"></a>Adicionar os seus fornecedores de identidade
+### <a name="add-your-identity-providers"></a>Adicionar os fornecedores de identidade
 
-A partir do seu definições, selecione **fornecedores de identidade** e escolha o nome de utilizador inscrição ou inscrição de correio eletrónico.
+A partir das definições, selecione **fornecedores de identidade** e escolha o nome de utilizador inscrição ou inscrição de E-Mail.
 
-### <a name="create-a-sign-up-and-sign-in-policy"></a>Criar uma política de inscrição e o início de sessão
+### <a name="create-a-sign-up-and-sign-in-policy"></a>Criar uma política de inscrição e início de sessão
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -69,9 +71,9 @@ A partir do seu definições, selecione **fornecedores de identidade** e escolha
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-Depois de criar as políticas, está pronto para criar a sua aplicação.
+Depois de criar as suas políticas, está pronto para criar a sua aplicação.
 
-## <a name="download-the-sample-code"></a>Transferir o código de exemplo
+## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 
 O código deste tutorial é mantido no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Pode clonar o exemplo ao executar:
 
@@ -79,11 +81,11 @@ O código deste tutorial é mantido no [GitHub](https://github.com/Azure-Samples
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é a aplicação de web MVC que o utilizador interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo só cobre a aplicação `TaskWebApp`. Para saber como criar `TaskService` utilizando o Azure AD B2C, consulte [nosso tutorial de api web do .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
+Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é o aplicativo da web MVC que o usuário interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo só cobre a aplicação `TaskWebApp`. Para saber como criar `TaskService` com o Azure AD B2C, consulte [nosso tutorial de api web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Código de atualização para utilizar o seu inquilino e políticas
+## <a name="update-code-to-use-your-tenant-and-policies"></a>Atualizar o código para utilizar as políticas e de inquilino
 
-O nosso exemplo está configurado para utilizar as políticas e o ID de cliente do nosso inquilino de demonstração. A ligá-lo para o seu inquilino, terá de abrir `web.config` no `TaskWebApp` projeto e substitua os valores seguintes:
+O nosso exemplo está configurado para utilizar as políticas e o ID de cliente do nosso inquilino de demonstração. Para ligá-lo para o seu inquilino, precisa abrir `web.config` no `TaskWebApp` do projeto e substitua os valores seguintes:
 
 * `ida:Tenant` pelo nome do seu inquilino
 * `ida:ClientId` pelo ID da sua aplicação Web
@@ -93,35 +95,35 @@ O nosso exemplo está configurado para utilizar as políticas e o ID de cliente 
 * `ida:ResetPasswordPolicyId` pelo nome da sua política de “Repor Palavras-Passe”
 
 ## <a name="launch-the-app"></a>Inicie a aplicação
-Do Visual Studio, inicie a aplicação. Navegue até ao separador lista de tarefas e anote o URl é: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+De dentro do Visual Studio, inicie a aplicação. Navegue até ao separador de lista de tarefas e anote o URl é: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
-Inscreva-se a aplicação utilizando o seu nome de utilizador ou endereço de correio eletrónico. Terminar sessão, em seguida, voltar a iniciar sessão e editar o perfil ou repor a palavra-passe. Terminar sessão e inicie sessão como outro utilizador. 
+Inscrever-se a aplicação com o nome de utilizador ou endereço de correio electrónico. Terminar sessão, em seguida, inicie sessão novamente e editar o perfil ou repor a palavra-passe. Terminar sessão e inicie sessão como um utilizador diferente. 
 
-## <a name="add-social-idps"></a>Adicionar IDPs redes sociais
+## <a name="add-social-idps"></a>Adicionar IDPs sociais
 
-Atualmente, a aplicação suporta apenas o utilizador, inscrição e o início de sessão utilizando **contas locais**; contas armazenadas no diretório do B2C que utilizam um nome de utilizador e palavra-passe. Ao utilizar o Azure AD B2C, pode adicionar suporte para outros **fornecedores de identidade** (IDPs) sem alterar qualquer do seu código.
+Atualmente, a aplicação suporta apenas o utilizador, inscrição e início de sessão utilizando **contas locais**; contas armazenadas no diretório do B2C que utilizam um nome de utilizador e palavra-passe. Ao utilizar o Azure AD B2C, pode adicionar suporte para outros **fornecedores de identidade** (IDPs) sem alterar nenhum código.
 
-Para adicionar redes sociais IDPs à sua aplicação, comece por seguir as instruções detalhadas nestes artigos. Para cada IDP que pretende suportar, tem de registar uma aplicação nesse sistema e obter um ID de cliente.
+Para adicionar IDPs sociais para a sua aplicação, comece por seguir as instruções detalhadas nestes artigos. Para cada IDP pretende oferecer apoio técnico, terá de registar uma aplicação no sistema e obter um ID de cliente.
 
 * [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
 * [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
 * [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
-* [Configurar LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
+* [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
-Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, editar cada um dos seus três políticas para incluir IDPs novo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de guardar as suas políticas, execute novamente a aplicação.  Deverá ver os novo IDPs adicionados como início de sessão e as experiências de opções de inscrição em cada de identidade.
+Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, editar cada um dos seus três políticas para incluir os IDPs novo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de guardar as suas políticas, execute novamente a aplicação.  Deverá ver os novo IDPs adicionados como o início de sessão e experiências de opções de inscrição em cada uma das sua identidade.
 
-Pode experimentar com as políticas e observar o efeito na sua aplicação de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou altere os atributos de inscrição. Experimentação até que pode ver como políticas, pedidos de autenticação e OWIN associar em conjunto.
+Pode experimentar com as suas políticas e observar o efeito na sua aplicação de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou alterar os atributos de inscrição. Experimentação até que pode ver como as políticas, os pedidos de autenticação e OWIN ligarem.
 
 ## <a name="sample-code-walkthrough"></a>Instruções de código de exemplo
-As secções seguintes mostram como o código de aplicação de exemplo está configurado. Pode utilizar isto como um guia no seu desenvolvimento de aplicações futuros.
+As secções seguintes mostram como o código de aplicativo de exemplo está configurado. Pode utilizá-la como um guia no seu desenvolvimento de aplicações futuros.
 
 ### <a name="add-authentication-support"></a>Adicionar suporte de autenticação
 
-Agora pode configurar a sua aplicação para utilizar o Azure AD B2C. A aplicação comunica com o Azure AD B2C, enviando pedidos de autenticação OpenID Connect. Os pedidos que estipulam a experiência de utilizador a aplicação que pretende executar especificando a política. Pode utilizar a biblioteca OWIN da Microsoft para enviar estes pedidos, executar políticas, gerir sessões de utilizador e muito mais.
+Agora pode configurar a sua aplicação para utilizar o Azure AD B2C. Seu aplicativo se comunica com o Azure AD B2C através do envio de pedidos de autenticação OpenID Connect. Os pedidos determinam a experiência do usuário que seu aplicativo deseja executar, especificando a política. Pode utilizar a biblioteca do OWIN da Microsoft para enviar essas solicitações, políticas de executar, gerir sessões de utilizador e muito mais.
 
 #### <a name="install-owin"></a>Instalar OWIN
 
-Para começar, adicione os pacotes de NuGet middleware OWIN para o projeto utilizando a consola do Gestor de pacotes do Visual Studio.
+Para começar, adicione os pacotes de NuGet de middleware do OWIN para o projeto, utilizando a consola do Gestor de pacotes do Visual Studio.
 
 ```Console
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -149,11 +151,11 @@ public partial class Startup
 }
 ```
 
-#### <a name="configure-the-authentication-middleware"></a>Configure o middleware de autenticação
+#### <a name="configure-the-authentication-middleware"></a>Configurar o middleware de autenticação
 
-Abra o ficheiro `App_Start\Startup.Auth.cs` e implementar o `ConfigureAuth(...)` método. Os parâmetros que fornece `OpenIdConnectAuthenticationOptions` servir como coordenadas para a sua aplicação para comunicar com o Azure AD B2C. Se não especificar determinados parâmetros, irá utilizar o valor predefinido. Por exemplo, não especificamos o `ResponseType` no exemplo, o valor predefinido `code id_token` vão ser utilizados em cada pedido de envio para o Azure AD B2C.
+Abra o ficheiro `App_Start\Startup.Auth.cs` e implemente o `ConfigureAuth(...)` método. Os parâmetros que fornecer no `OpenIdConnectAuthenticationOptions` servir de coordenadas para a sua aplicação para comunicar com o Azure AD B2C. Se não especificar determinados parâmetros, irá utilizar o valor predefinido. Por exemplo, não especificamos o `ResponseType` no exemplo, então, o valor predefinido `code id_token` será utilizado em cada pedido de saída para o Azure AD B2C.
 
-Terá também de configurar a autenticação de cookie. O middleware OpenID Connect utiliza cookies para manter as sessões de utilizador, entre outros.
+Terá também de configurar a autenticação de cookie. O middleware de OpenID Connect usa cookies para manter as sessões de utilizador, entre outras coisas.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -203,20 +205,20 @@ public partial class Startup
 }
 ```
 
-No `OpenIdConnectAuthenticationOptions` acima, iremos definir um conjunto de funções de chamada de retorno para notificações específicas que são recebidas pelo middleware OpenID Connect. Destes comportamentos são definidos utilizando um `OpenIdConnectAuthenticationNotifications` de objeto e armazenadas para o `Notifications` variável. No nosso exemplo, iremos definir três chamadas de retorno diferentes consoante o evento.
+No `OpenIdConnectAuthenticationOptions` acima, vamos definir um conjunto de funções de retorno de chamada para notificações específicas que são recebidas pelo middleware OpenID Connect. Esses comportamentos são definidos usando um `OpenIdConnectAuthenticationNotifications` de objeto e armazenadas no `Notifications` variável. Em nosso exemplo, podemos definir três chamadas de retorno diferentes consoante o evento.
 
-### <a name="using-different-policies"></a>Utilizar políticas diferentes
+### <a name="using-different-policies"></a>Através de políticas diferentes
 
-O `RedirectToIdentityProvider` notificação é acionada sempre que é efetuado um pedido para o Azure AD B2C. Na função de chamada de retorno `OnRedirectToIdentityProvider`, verificamos na chamada de saída, se de que pretende utilizar uma política diferente. Para fazer uma reposição de palavra-passe ou editar um perfil, terá de utilizar a política correspondente, tais como a política em vez da política predefinida de "Inscrição ou o início de sessão" de repor a palavra-passe.
+O `RedirectToIdentityProvider` notificação é acionada sempre que é efetuado um pedido para o Azure AD B2C. A função de retorno de chamada `OnRedirectToIdentityProvider`, verificamos na chamada de saída para utilizar uma política diferente. Para fazer uma reposição de palavra-passe ou editar um perfil, terá de utilizar a política correspondente como política, em vez da política predefinida de "Inscrição ou início de sessão" de reposição de palavra-passe.
 
-No nosso exemplo, quando um utilizador pretende repor a palavra-passe ou editar o perfil, iremos adicionar a política que preferir para utilizar no contexto de OWIN. Que pode ser feita através da seguinte forma:
+Em nosso exemplo, quando um utilizador pretende repor a palavra-passe ou editar o perfil, podemos adicionar a política que preferimos usar para o contexto do OWIN. Isso pode ser feito, fazendo o seguinte:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
     HttpContext.GetOwinContext().Set("Policy", EditProfilePolicyId);
 ```
 
-E que pode implementar a função de chamada de retorno `OnRedirectToIdentityProvider` efetuando o seguinte procedimento:
+E pode implementar a função de retorno de chamada `OnRedirectToIdentityProvider` ao fazer o seguinte:
 
 ```CSharp
 /*
@@ -238,13 +240,13 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 }
 ```
 
-### <a name="handling-authorization-codes"></a>Códigos de autorização de processamento
+### <a name="handling-authorization-codes"></a>Códigos de autorização de tratamento
 
-O `AuthorizationCodeReceived` notificação é acionada quando é recebido um código de autorização. O middleware OpenID Connect não suporta troca códigos para tokens de acesso. Pode trocar manualmente o código para o token de uma função de chamada de retorno. Para obter mais informações, consulte o [documentação](active-directory-b2c-devquickstarts-web-api-dotnet.md) que explica como.
+O `AuthorizationCodeReceived` notificação é acionada quando é recebido um código de autorização. O middleware de OpenID Connect não suporta trocas de códigos para tokens de acesso. Pode trocar manualmente o código para o token numa função de retorno de chamada. Para obter mais informações, consulte a [documentação](active-directory-b2c-devquickstarts-web-api-dotnet.md) que explica como.
 
-### <a name="handling-errors"></a>Processamento de erros
+### <a name="handling-errors"></a>Tratamento de erros
 
-O `AuthenticationFailed` notificação é acionada quando ocorre uma falha de autenticação. O método de chamada de retorno, pode processar os erros queira. No entanto, deve adicionar uma verificação para o código de erro `AADB2C90118`. Durante a execução da política de "Inscrição ou o início de sessão", o utilizador tem a oportunidade de selecionar um **esqueceu a palavra-passe?** ligação. Neste caso, o Azure AD B2C envia a aplicação esse código de erro que indica que a aplicação deve efetuar um pedido de através da política de reposição de palavra-passe em vez disso.
+O `AuthenticationFailed` notificação é acionada quando ocorre uma falha de autenticação. Em seu método de retorno de chamada, pode manipular os erros como desejar. No entanto, deve adicionar uma verificação para o código de erro `AADB2C90118`. Durante a execução da política de "Inscrição ou início de sessão", o utilizador tem a oportunidade de selecionar uma **Esqueceu-se a sua palavra-passe?** ligação. Neste evento, o Azure AD B2C envia seu aplicativo esse código de erro indicando que a aplicação deve fazer uma solicitação usando a política de reposição de palavra-passe em vez disso.
 
 ```CSharp
 /*
@@ -276,9 +278,9 @@ private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConne
 
 ### <a name="send-authentication-requests-to-azure-ad"></a>Enviar pedidos de autenticação para o Azure AD
 
-A aplicação agora está corretamente configurada para comunicar com o Azure AD B2C, utilizando o protocolo de autenticação OpenID Connect. OWIN gere os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD B2C e manter a sessão do utilizador. Tudo o que resta é para iniciar o fluxo de cada utilizador.
+A aplicação está agora corretamente configurada para comunicar com o Azure AD B2C ao utilizar o protocolo de autenticação OpenID Connect. OWIN gere os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD B2C e manutenção de sessão do utilizador. Tudo o que resta é iniciar o fluxo de cada utilizador.
 
-Quando seleciona um utilizador **início de sessão de segurança/início de sessão**, **Editar perfil**, ou **Repor palavra-passe** na aplicação web, a ação associada é invocada no `Controllers\AccountController.cs`:
+Quando um utilizador seleciona **início de sessão de segurança/início de sessão**, **Editar perfil**, ou **Repor palavra-passe** na aplicação web, a ação associada é invocada na `Controllers\AccountController.cs`:
 
 ```CSharp
 // Controllers\AccountController.cs
@@ -335,7 +337,7 @@ public void ResetPassword()
 }
 ```
 
-Também pode utilizar OWIN para terminar sessão de utilizador da aplicação. No `Controllers\AccountController.cs` temos:
+Também pode utilizar o OWIN para terminar sessão do utilizador a partir da aplicação. No `Controllers\AccountController.cs` temos:
 
 ```CSharp
 // Controllers\AccountController.cs
@@ -355,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Além de invocar explicitamente uma política, pode utilizar um `[Authorize]` tag em controladores de que executa uma política, se o utilizador não tem sessão iniciado. Abra `Controllers\HomeController.cs` e adicione o `[Authorize]` etiquetas para o controlador de afirmações.  Seleciona OWIN a política de último configurada quando o `[Authorize]` etiquetas é atingida.
+Além de invocar explicitamente uma política, pode utilizar um `[Authorize]` marca em seus controladores de que executa uma política, se o utilizador não tem sessão iniciado. Open `Controllers\HomeController.cs` e adicione o `[Authorize]` etiqueta para o controlador de afirmações.  Seleciona OWIN a política de última configurada quando o `[Authorize]` etiqueta for atingida.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -367,11 +369,11 @@ public ActionResult Claims()
   ...
 ```
 
-### <a name="display-user-information"></a>Apresentar informações de utilizador
+### <a name="display-user-information"></a>Apresentar informações do utilizador
 
-Quando se autentica utilizadores utilizando o OpenID Connect, o Azure AD B2C devolve um token de ID para a aplicação que contém **afirmações**. Estes são asserções sobre o utilizador. Pode utilizar afirmações para personalizar a sua aplicação.
+Quando se autentica os utilizadores com o OpenID Connect, o Azure AD B2C devolve um token de ID para a aplicação que contém **afirmações**. Estes são asserções sobre o utilizador. Pode utilizar declarações para personalizar seu aplicativo.
 
-Abra o ficheiro `Controllers\HomeController.cs`. Pode aceder às afirmações de utilizador na sua controladores através de `ClaimsPrincipal.Current` objeto principal de segurança.
+Abra o ficheiro `Controllers\HomeController.cs`. Pode acessar afirmações de utilizador em seus controladores via o `ClaimsPrincipal.Current` objeto de entidade de segurança.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -385,4 +387,4 @@ public ActionResult Claims()
 }
 ```
 
-Pode aceder a quaisquer afirmações que a aplicação recebe da mesma forma.  Uma lista de todas as afirmações a aplicação recebe está disponível para si no **afirmações** página.
+Pode acessar qualquer reclamação de que seu aplicativo receba da mesma forma.  Está disponível para numa lista de todas as declarações de que a aplicação recebe a **afirmações** página.

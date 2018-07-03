@@ -1,6 +1,6 @@
 ---
-title: Como instalar o Azure IoT Edge no Windows com contentores do Windows | Microsoft Docs
-description: Azure IoT Edge as instruções de instalação no Windows com contentores do Windows
+title: Como instalar o Azure IoT Edge no Windows com contentores do Windows | Documentos da Microsoft
+description: O Azure IoT Edge as instruções de instalação no Windows com contentores do Windows
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,41 +9,41 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b2878f9d7aa32b2502487cdc081896e5ba306af1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112624"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346381"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalar o runtime de limite de IoT do Azure no Windows para utilizar com contentores do Windows
+# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalar o runtime do Azure IoT Edge no Windows para utilização com contentores do Windows
 
-O tempo de execução do Azure IoT Edge é implementado em todos os dispositivos de limite de IoT. Tem três componentes. O **daemon de segurança de IoT Edge** fornece e mantém as normas de segurança do dispositivo de limite. O daemon de inicia a cada arranque e bootstraps o dispositivo ao iniciar o agente de limite de IoT. O **agente IoT Edge** facilita a implementação e monitorização dos módulos do dispositivo de limite, incluindo o hub IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é implementado em todos os dispositivos do IoT Edge. Ele tem três componentes. O **daemon de segurança de IoT Edge** fornece e mantém as normas de segurança no dispositivo Edge. O daemon começa em cada inicialização e inicializa o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e monitorização de módulos no dispositivo do Edge, incluindo o hub IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
 
-Este artigo apresenta os passos para instalar o runtime de limite de IoT do Azure no seu Windows x64 (AMD/Intel) sistema. 
+Este artigo lista os passos para instalar o runtime do Azure IoT Edge no seu Windows x64 (AMD/Intel) system. 
 
 Suporte do Windows está atualmente em pré-visualização.
 
 ## <a name="supported-windows-versions"></a>Versões suportadas do Windows
-Limite de IoT do Azure com contentores do Windows pode ser utilizado com:
-  * Windows 10/IoT empresarial/Core IoT com de 2018 de Abril de atualização (criar 17134).
-  * Windows Server 1803
+O Azure IoT Edge com contentores do Windows pode ser utilizado com:
+  * Windows 10/IoT Enterprise/atualizar o IoT Core com Abril de 2018 (17134 criar).
+  * Windows Server versão 1803
 
-## <a name="install-the-container-runtime"></a>Instalar o runtime do contentor 
-
->[!NOTE]
->Para a instalação do motor de contentor no Windows IoT Core, siga os passos da [aprovisionar um artigo do dispositivo IoT Core] [ lnk-iot-core] e, em seguida, prossiga com as instruções abaixo.
-
-Limite de IoT do Azure baseia-se num [OCI compatível] [ lnk-oci] tempo de execução do contentor (por exemplo, Docker). Pode utilizar [Docker para Windows] [ lnk-docker-for-windows] para desenvolvimento e testes. 
-
-**Certifique-se de Docker para Windows [configurado para utilizar os contentores do Windows][lnk-docker-config]**
-
-## <a name="install-the-azure-iot-edge-security-daemon"></a>Instalar o Daemon de segurança do Azure IoT Edge
+## <a name="install-the-container-runtime"></a>Instalar o runtime de contentor 
 
 >[!NOTE]
->Os pacotes de software do limite do IoT do Azure estão sujeitas os termos de Licenciamento localizados nos pacotes (no diretório de licença). Leia os termos de licenciamento antes de utilizar o pacote. A instalação e utilização do pacote constitui a aceitação destes termos. Se não concordar com os termos de licenciamento, não utilize o pacote.
+>Para a instalação do motor de contentor no Windows IoT Core, siga os passos da [aprovisionar um artigo de dispositivo IoT Core] [ lnk-iot-core] e, em seguida, prossiga com as instruções abaixo.
 
-### <a name="download-the-edge-daemon-package-and-install"></a>Transferir o pacote de daemon de limite e instalar
+O Azure IoT Edge se baseia numa [compatível com o OCI] [ lnk-oci] tempo de execução do contentor (por exemplo, o Docker). Pode usar [Docker para Windows] [ lnk-docker-for-windows] para desenvolvimento e teste. 
+
+**Certifique-se de que é o Docker para Windows [configurado para utilizar contentores do Windows][lnk-docker-config]**
+
+## <a name="install-the-azure-iot-edge-security-daemon"></a>Instale o Daemon de segurança do Azure IoT Edge
+
+>[!NOTE]
+>Pacotes de software do Azure IoT Edge são sujeita aos termos de licença localizados nos pacotes (no diretório de licença). Leia os termos de licença antes de utilizar o pacote. A instalação e a utilização do pacote constitui a sua aceitação destes termos. Se não concordar com os termos de licenciamento, não utilize o pacote.
+
+### <a name="download-the-edge-daemon-package-and-install"></a>Transferir o pacote de daemon de borda e instalar
 
 Numa janela do PowerShell de administrador, execute os seguintes comandos:
 
@@ -56,7 +56,7 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-Instale o vcruntime utilizando (pode ignorar este passo num dispositivo de limite de núcleos de IoT):
+Instale o vcruntime usando (pode ignorar este passo num dispositivo IoT core Edge):
 
 ```powershell
 Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
@@ -76,7 +76,7 @@ Adicione exceções de Firewall para as portas utilizadas pelo serviço:
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
-Criar um **iotedge.reg** com o seguinte conteúdo de ficheiros e importe no registo do Windows, fazer duplo clique ou utilizando o `reg import iotedge.reg` comando:
+Criar uma **iotedge.reg** com o seguinte conteúdo de ficheiros e importar para o registo do Windows ao fazer duplo clique ou utilizar o `reg import iotedge.reg` comando:
 
 ```
 Windows Registry Editor Version 5.00
@@ -89,11 +89,11 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurar o Daemon de segurança do Azure IoT Edge
 
-O daemon de pode ser configurado utilizando o ficheiro de configuração em `C:\ProgramData\iotedge\config.yaml`.
+O daemon de pode ser configurado com o ficheiro de configuração em `C:\ProgramData\iotedge\config.yaml`.
 
-O dispositivo de limite pode ser configurado manualmente utilizando um [a cadeia de ligação do dispositivo] [ lnk-dcs] ou [automaticamente através do serviço de aprovisionamento de dispositivos] [ lnk-dps].
+O dispositivo de limite pode ser configurado manualmente usando um [cadeia de ligação do dispositivo] [ lnk-dcs] ou [automaticamente através do serviço aprovisionamento de dispositivos] [ lnk-dps].
 
-* Para a configuração manual, anule os comentários do **manual** modo de aprovisionamento. Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo de limite de IoT.
+* Para a configuração manual, anule os comentários da **manual** modo de aprovisionamento. Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo IoT Edge.
 
    ```yaml
    provisioning:
@@ -107,7 +107,7 @@ O dispositivo de limite pode ser configurado manualmente utilizando um [a cadeia
    #   registration_id: "{registration_id}"
    ```
 
-* Para a configuração automática, anule os comentários do **dps** modo de aprovisionamento. Atualize os valores de **scope_id** e **registration_id** com os valores da sua instância de DPS do IoT Hub e o dispositivo de limite de IoT com TPM. 
+* Para a configuração automática, anule os comentários da **dps** modo de aprovisionamento. Atualize os valores **scope_id** e **registration_id** com os valores da sua instância de pontos de distribuição do IoT Hub e o seu dispositivo IoT Edge com o TPM. 
 
    ```yaml
    # provisioning:
@@ -121,7 +121,7 @@ O dispositivo de limite pode ser configurado manualmente utilizando um [a cadeia
      registration_id: "{registration_id}"
    ```
 
-Obter o nome da utilização do dispositivo de limite `hostname` comando do PowerShell e defina-o como o valor de **hostname:** no yaml a configuração. Por exemplo:
+Obter o nome da utilização de dispositivo do edge `hostname` comando no PowerShell e defina-o como o valor de **nome de anfitrião:** no yaml de configuração. Por exemplo:
 
 ```yaml
   ###############################################################################
@@ -136,33 +136,35 @@ Obter o nome da utilização do dispositivo de limite `hostname` comando do Powe
   hostname: "edgedevice-1"
 ```
 
-Em seguida, vamos precisar de fornecer o endereço ip e porta do **workload_uri** e **management_uri** no **ligar:** secção de configuração.
+Em seguida, forneça o endereço ip e porta para **workload_uri** e **management_uri** no **ligar:** e **escutar:** secções das configuração.
 
-Para o endereço ip, introduza `ipconfig` na janela do PowerShell e selecione o endereço ip do **vEthernet (nat)** interface conforme mostrado no exemplo abaixo (o endereço ip no seu sistema pode ser diferente):  
+Para obter seu endereço ip, introduza `ipconfig` na janela do PowerShell e copie o endereço ip do **vEthernet (nat)** interface conforme mostrado no exemplo seguinte (o endereço ip no seu sistema pode ser diferente):  
 
 ![nat][img-nat]
 
+Atualização do **workload_uri** e **management_uri** no **ligar:** secção do ficheiro de configuração. Substitua **\<GATEWAY_ADDRESS\>** com o endereço IP que copiou. 
+
 ```yaml
 connect:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Introduza os endereços do mesmos a **escutar:** secção de configuração. Por exemplo:
+Introduza os endereços do mesmo o **escutar:** secção de configuração, utilizar o seu endereço IP como o endereço de gateway.
 
 ```yaml
 listen:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Na janela do PowerShell, criar uma variável de ambiente **IOTEDGE_HOST** com o **management_uri** endereço, exemplo:
+Na janela do PowerShell, crie uma variável de ambiente **IOTEDGE_HOST** com o **management_uri** endereço.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-Por fim, certifique-se do **rede:** em **moby_runtime:** uncommented e definido **nat**
+Por fim, certifique-se a **rede:** em **moby_runtime:** uncommented e definido **nat**
 
 ```yaml
 moby_runtime:
@@ -180,15 +182,15 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 
-Se utilizou o **configuração manual** passos na secção anterior, o tempo de execução do IoT limite deve ser aprovisionado e em execução no seu dispositivo com êxito. Se utilizou o **configuração automática** passos, em seguida, o que é necessário executar alguns passos adicionais para que o tempo de execução pode registar o seu dispositivo com o seu IoT hub em seu nome. Para os passos seguintes, consulte [criar e aprovisionar um dispositivo simulado do limite do TPM no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+Se tiver utilizado o **configuração manual** passos na secção anterior, o runtime do IoT Edge deve estar em execução no seu dispositivo e aprovisionada com êxito. Se tiver utilizado o **a configuração automática** passos, tem de concluir alguns passos adicionais para que o tempo de execução pode registar o seu dispositivo com o seu hub IoT em seu nome. Para os passos seguintes, veja [criar e aprovisionar um dispositivo de periferia de TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
-Pode verificar o estado do serviço IoT limite por: 
+Pode verificar o estado do serviço IoT Edge por: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine os registos do serviço para os últimos 5 minutos, utilizando:
+Examine os registos de serviço para os últimos 5 minutos, com:
 
 ```powershell
 
@@ -207,9 +209,9 @@ E lista de módulos com a executar:
 iotedge list
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se estiver a ter problemas com o tempo de execução de limite instalar corretamente, consulte o [resolução de problemas] [ lnk-trouble] página.
+Se tiver problemas com o runtime do Edge Check-out a corretamente, instalar o [resolução de problemas] [ lnk-trouble] página.
 
 
 <!-- Images -->

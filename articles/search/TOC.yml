@@ -145,7 +145,7 @@
           href: search-faceted-navigation.md
         - name: Ajuste de relevância
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Sinónimos (Pré-visualização)
+        - name: Sinónimos
           href: search-synonyms.md
     - name: Indexar dados
       items:

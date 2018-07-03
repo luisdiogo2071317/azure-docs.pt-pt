@@ -1,6 +1,6 @@
 ---
-title: Compreender a aplicação iterativa LUIS design - Azure | Microsoft Docs
-description: As aplicações LUIS necessitam de iterações de design para preparar LUIS para obter a melhor extração de dados.
+title: Compreender a aplicação de LUIS iterativa de design - Azure | Documentos da Microsoft
+description: As aplicações de LUIS necessitam iterações de design para preparar o LUIS para obter a melhor extração de dados.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,46 +9,46 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b1736630317d9cbcf2e7380df29bfa8c383b681d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265942"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346778"
 ---
 # <a name="authoring-cycle"></a>Ciclo de criação
-LUIS Aprende melhor num ciclo iterativo de alterações de modelo, exemplos de utterance, publicação e a recolha de dados de consultas de ponto final. 
+LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
 
 ![Ciclo de criação](./media/luis-concept-app-iteration/iteration.png)
 
-## <a name="building-a-luis-model"></a>Criar um modelo de LUIS
-Objetivo do modelo é descobrir o que o utilizador é solicitando (a sua intenção ou intenção) e as partes da pergunta fornecem detalhes (entidades) que o ajudam a determinar a resposta. 
+## <a name="building-a-luis-model"></a>Criar um modelo do LUIS
+Objetivo do modelo é descobrir o que o utilizador pede para (a intenção ou a intenção) e que partes da pergunta fornecem os detalhes (entidades), que ajudam a determinar a resposta. 
 
-O modelo tem de ser específico para o domínio de aplicação para determinar palavras e expressões que é relevante, bem como típico word ordenação. 
+O modelo tem de ser específico para o domínio de aplicativo para determinar as palavras e frases que é relevante, bem como típico word ordenação. 
 
 O modelo inclui intenção, entidades. 
 
-## <a name="add-training-examples"></a>Adicionar exemplos de formação
-LUIS tem utterances de exemplo nos pendentes. Os exemplos tem suficiente variação de opção do word e ordem de word ser capaz de determinar que objetivo a utterance destinam-se. Cada utterance de exemplo tem de ter todos os dados necessários identificados como entidades. 
+## <a name="add-training-examples"></a>Adicionar exemplos de treinamento
+LUIS tem expressões de exemplo dos objetivos. Os exemplos tem suficiente variação da opção de palavra e ordem das palavras para ser capaz de determinar que objetivo a expressão se destina. Cada ocorrência de pronunciação de exemplo tem de ter todos os dados necessários identificados como entidades. 
 
-Instruir LUIS para ignorar utterances que não são relevantes para o domínio da sua aplicação através da atribuição utterance para o **nenhum** intenção. Qualquer palavras ou expressões que não precisa de solicitados fora de um utterance não tem de ser de etiqueta. Não há qualquer etiqueta para palavras ou frases reconhecíveis para ignorar. 
+Instruir o LUIS para ignorar as expressões que não são relevantes para o domínio da sua aplicação ao atribuir a expressão para o **None** intenção. Quaisquer palavras ou frases que não precisa extraídos fora de uma expressão não é necessário ser rotulados. Não há nenhum rótulo de palavras ou frases para ignorar. 
 <!--
 ## Not just yet
 Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
 -->
-## <a name="train-and-publish-the-app"></a>Dar formação e publicar a aplicação
-Assim que tiver utterances diferentes de 10 a 15 em cada intenção, com as entidades necessárias com a etiqueta, a formação LUIS, em seguida, publicar ao obter pontos finais da sua. Certifique-se criar a sua aplicação e publicar a aplicação para que o se encontra disponível na [regiões de ponto final](luis-reference-regions.md) precisa. 
+## <a name="train-and-publish-the-app"></a>Formar e publicar a aplicação
+Depois de ter expressões com diferentes de 10 a 15 em intenção, cada, com as entidades necessárias o nome, treinar LUIS, em seguida, publique para obter os pontos finais. Certifique-se criar a sua aplicação e publique a sua aplicação para que ele está disponível na [regiões de ponto final](luis-reference-regions.md) que precisa. 
 
 ## <a name="https-endpoint-testing"></a>Teste de ponto final HTTPS
-Pode testar a sua aplicação de LUIS de ponto final de HTTPS listada no **[publicar](publishapp.md)** página. Teste do ponto final permite LUIS escolher qualquer utterances com confiança de baixa para revisão.  
+Pode testar a sua aplicação LUIS do ponto de extremidade HTTPS listado os **[Publish](luis-how-to-publish-app.md)** página. Teste a partir do ponto final permite que o LUIS escolher qualquer expressões com confiança de baixo para revisão.  
 
 ## <a name="recycle"></a>Reciclagem
-Quando tiver terminado com um ciclo de criação, pode começar novamente. Comece por ler utterances de ponto final que Luis marcado com confiança baixa. Verifique estes utterances para intenção e entidade. Depois de rever utterances, a lista de revisão deve estar vazia.  
+Quando tiver terminado com um ciclo de criação, pode começar novamente. Comece por ler as expressões de ponto final que Luis marcado com confiança de baixa. Verifique estas expressões de com para o objetivo e a entidade. Depois de rever expressões com, a lista de revisão deve estar vazia.  
 
-## <a name="batch-testing"></a>Teste do batch
-Teste do batch é uma forma de ver quantas utterances de exemplo são classificadas por LUIS. Os exemplos devem estar familiarizados com LUIS e devem ser corretamente com a etiqueta com o objetivo e entidades que pretender LUIS localizar. Os resultados do teste indicam o quão bem LUIS executará no conjunto de utterances. 
+## <a name="batch-testing"></a>Testes em lote
+Teste de batch é uma forma de ver quantos expressões de exemplo são classificadas por LUIS. Os exemplos devem estar familiarizados com o LUIS e devem ser o nome corretamente com a intenção e entidades que pretende que o LUIS para localizar. Os resultados do teste indicam a eficiência com que executará nesse conjunto de expressões com os LUIS. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os conceitos [colaboração](luis-concept-collaborator.md).
 

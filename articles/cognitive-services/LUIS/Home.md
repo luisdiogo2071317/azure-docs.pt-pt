@@ -1,6 +1,6 @@
 ---
-title: Sobre compreensão de idiomas (LUIS) no Azure | Microsoft Docs
-description: Saiba como utilizar a compreensão de idiomas (LUIS) para colocar a potência de aprendizagem automática para as suas aplicações.
+title: Sobre compreensão de idiomas (LUIS) no Azure | Documentos da Microsoft
+description: Saiba como utilizar a compreensão de idiomas (LUIS) para trazer o poder do machine learning para seus aplicativos.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,37 +9,37 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751600"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344836"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é a compreensão de idiomas (LUIS)?
-Compreensão de idiomas (LUIS) é um serviço baseado na nuvem que se aplica a aprendizagem personalizada para texto linguagem natural conversational, um utilizador para prever significado geral e extrair informações relevantes, detalhadas. 
+Compreensão de idiomas (LUIS) é um serviço baseado na nuvem que se aplica a aprendizagem automática personalizada ao texto de linguagem natural conversacional, um utilizador para prever o significado geral e extrair informações relevantes e detalhadas. 
 
-Uma aplicação de cliente para LUIS pode ser qualquer conversational aplicação que comunica com um utilizador na linguagem natural para concluir uma tarefa. Exemplos de aplicações de cliente incluem aplicações de redes sociais, chatbots e aplicações de ambiente de trabalho com capacidade para reconhecimento de voz.  
+Uma aplicação de cliente para LUIS pode ser qualquer conversacional aplicativo que se comunique com um utilizador em linguagem natural para concluir uma tarefa. Exemplos de aplicativos de cliente incluem aplicações de redes sociais, chatbots e aplicativos de área de trabalho habilitado para fala.  
 
-![Imagem conceptual de 3 aplicações feeding informações informações LUIS](./media/luis-overview/luis-entry-point.png)
+![Imagem conceptual de 3 aplicativos manutenção informações de informações LUIS](./media/luis-overview/luis-entry-point.png)
 
-## <a name="what-is-a-luis-app"></a>O que é uma aplicação LUIS?
-Uma aplicação LUIS contém um modelo de linguagem natural a específicas do domínio que crie. Pode iniciar a sua aplicação LUIS com um modelo de domínio prebuilt, criar a sua própria ou, se misturem partes de um domínio prebuilt com as suas próprias informações personalizadas.
+## <a name="what-is-a-luis-app"></a>O que é uma aplicação do LUIS?
+Uma aplicação do LUIS contém um modelo de linguagem natural de domínios específicos que é criar. Pode iniciar a sua aplicação LUIS com um modelo de domínio pré-criado, crie a sua própria ou combiná-los partes de um domínio pré-criado com suas próprias informações personalizadas.
 
-[Modelos de domínio prebuilt](luis-how-to-use-prebuilt-domains.md) incluir todos os estas duas para si e são uma excelente forma de começar a utilizar LUIS rapidamente.
+[Modelos de domínio pré-criado](luis-how-to-use-prebuilt-domains.md) incluem todas essas peças para si e são uma ótima maneira de começar a utilizar o LUIS rapidamente.
 
-A aplicação de LUIS também contém as definições de integração, [colaboradores](luis-concept-collaborator.md), e [versões](luis-concept-version.md).
+A aplicação do LUIS também contém as definições de integração [colaboradores](luis-concept-collaborator.md), e [versões](luis-concept-version.md).
 
-## <a name="using-a-luis-app"></a>Através de uma aplicação LUIS
-<a name="Accessing-LUIS"></a> Assim que a sua aplicação LUIS for publicada, a aplicação cliente envia utterances para o LUIS [ponto final de API] [ endpoint-apis] e recebe os resultados de predição como respostas JSON.
+## <a name="using-a-luis-app"></a>Utilização de uma aplicação LUIS
+<a name="Accessing-LUIS"></a> Assim que a sua aplicação LUIS é publicada, a aplicação cliente envia expressões com para o LUIS [ponto final de API] [ endpoint-apis] e recebe os resultados da predição como respostas JSON.
 
-No diagrama seguinte, primeiro chatbot o cliente envia texto de utilizador do que uma pessoa que pretende no seus próprio palavras a LUIS num pedido de HTTP. Segundo, LUIS aplica-se o seu modelo adquirido para a linguagem natural para fazer sentido do utilizador de entrada e devolve uma resposta de formato de JavaScript Object Notation (JSON). Terceira, chatbot o cliente utiliza a resposta JSON para satisfazer os pedidos do utilizador. 
+Em primeiro lugar no diagrama seguinte, chatbot seu cliente envia o texto do utilizador de que uma pessoa quer em suas próprias palavras para LUIS numa solicitação HTTP. Em segundo lugar, LUIS aplica-se seu modelo de aprender a linguagem natural dar sentido a entrada do usuário e retorna uma resposta de formato de JavaScript Object Notation (JSON). Em terceiro lugar, o seu chatbot de cliente utiliza a resposta JSON para satisfazer os pedidos do utilizador. 
 
-![Imagery conceptual de LUIS trabalhar com Chatbot](./media/luis-overview/luis-overview-process-2.png)
+![Imagens conceitual de trabalhar com Chatbot de LUIS](./media/luis-overview/luis-overview-process-2.png)
 
-### <a name="example-of-json-endpoint-response"></a>Exemplo de resposta de ponto final JSON
+### <a name="example-of-json-endpoint-response"></a>Exemplo de resposta do ponto final JSON
 
-Contém a resposta do ponto final JSON, no mínimo a utterance de consulta e, na parte superior da classificação de intenção. 
+A resposta do ponto final JSON, no mínimo contém a expressão de consulta e a parte superior a intenção de classificação. 
 
 ```JSON
 {
@@ -63,56 +63,56 @@ Contém a resposta do ponto final JSON, no mínimo a utterance de consulta e, na
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 ## <a name="what-is-a-natural-language-model"></a>O que é um modelo de linguagem natural?
-Um modelo começa com uma lista de intenções gerais de utilizadores, denominado _pendentes_, tal como "Livro voo" ou "Contacte o suporte técnico." Forneça o texto de exemplo do utilizador, denominado _utterances exemplo_ para os pendentes. Em seguida, marcar significativas palavras ou frases reconhecíveis no utterance, denominado _entidades_.
+Um modelo começa com uma lista de intenções de utilizador geral, chamado _intenções_, como "Reservar vôo" ou "Contacte o suporte técnico ajuda". Forneça o texto de exemplo do usuário, chamado _expressões de exemplo_ para os objetivos. Em seguida, marcamos significativas palavras ou frases na expressão, chamado _entidades_.
 
 
 Um modelo inclui:
 
-* **[pendentes](#intents)**: categorias de intenções de utilizador (ação pretendida ou resultado)
-* **[entidades](#entities)**: tipos específicos de dados no utterances como número, o e-mail ou o nome
-* **[utterances exemplo](#example-utterances)**: texto de exemplo, um utilizador introduz na aplicação cliente
+* **[objetivos](#intents)**: categorias de intenções de utilizador (ação pretendida ou resultado)
+* **[entidades](#entities)**: tipos específicos de dados em expressões com como nome, e-mail ou número
+* **[expressões com de exemplo](#example-utterances)**: texto de exemplo, um usuário insere no aplicativo cliente
 
 ### <a name="intents"></a>Intenções 
-Um [intenção](luis-how-to-add-intents.md), abreviado para _intenção_, é um objetivo ou objetivo expresso em utterance de um utilizador, tais como booking um voo, prestando uma fatura ou ao localizar um artigo de notícias de última hora. Criar um objetivo para cada ação. Uma aplicação de levar LUIS pode definir um objetivo com o nome "BookFlight." A aplicação cliente pode utilizar a parte superior da classificação de intenção para acionar uma ação. Por exemplo, quando "BookFlight" intenção é devolvida de LUIS, a aplicação cliente poderia acionar uma chamada de API a um serviço para booking uma permissão de plane externo.
+Uma [intenção](luis-how-to-add-intents.md), abreviação de _intenção_, é um objetivo ou objetivo expressos na expressão de um utilizador, tais como reserva um vôo, pagando uma fatura ou ao localizar um artigo de notícias. Criar um objetivo de cada ação. Uma aplicação de viagens de LUIS pode definir um objetivo com o nome "BookFlight." A aplicação cliente pode utilizar a parte superior a intenção de classificação para acionar uma ação. Por exemplo, quando a intenção de "BookFlight" é devolvida do LUIS, a aplicação cliente poderia acionar uma chamada à API para um serviço externo para reserva um pedido de suporte do plano.
 
 ### <a name="entities"></a>Entidades
-Um [entidade](luis-how-to-add-entities.md) representa informações detalhadas encontradas utterance relevantes para o pedido do utilizador. Por exemplo, no utterance "Livro um pedido para Paris", é pedido um único pedido de suporte e "Paris" é uma localização. Duas entidades encontram-se "uma permissão" que indica que um único pedido de suporte e "Paris", que indica que o destino. 
+Uma [entidade](luis-how-to-add-entities.md) representa informações detalhadas encontradas dentro da expressão que é relevante para o pedido do utilizador. Por exemplo, na expressão "Livro um pedido para Paris", um pedido de suporte único é solicitado, e "Paris" for uma localização. Duas entidades encontram-se "um pedido de suporte" que indica um pedido de suporte único e "Paris", que indica que o destino. 
 
-Depois de LUIS devolve entidades encontradas no utterance do utilizador, a aplicação cliente pode utilizar a lista de entidades como parâmetros para acionar uma ação. Por exemplo, entidades, como o destino de levar, data e companhia aérea requer booking um voo.
+Depois de LUIS devolve as entidades encontradas na expressão do usuário, a aplicação cliente pode utilizar a lista de entidades como parâmetros para acionar uma ação. Por exemplo, reserva um voo requer entidades, como o destino de viagens, a data e a companhia aérea.
 
-LUIS fornece várias formas para identificar e categorizar entidades.
+LUIS proporciona várias formas de identificar e categorizar entidades.
 
-* **Entidades prebuilt** LUIS tem muitos modelos de domínio prebuilt incluindo pendentes, utterances, e [entidades prebuilt](pre-builtentities.md). Pode utilizar as entidades prebuilt sem ter de utilizar o utterances do modelo de prebuilt e pendentes. As entidades prebuilt poupar tempo.
+* **Entidades pré-concebidas** LUIS tem muitos modelos de domínio pré-criado incluindo objetivos, expressões, e [entidades pré-concebidas](luis-prebuilt-entities.md). Pode utilizar as entidades pré-concebidas sem ter de utilizar as intenções e expressões com do modelo criados previamente. Entidades pré-concebidas poupar tempo.
 
-* **Entidades personalizadas** LUIS dá-lhe várias formas para identificar a seus próprios personalizada [entidades](luis-concept-entity-types.md) incluindo entidades aprendidas de máquina, entidades literal ou específicas e uma combinação de aprendidas de máquina e literal.
+* **Entidades personalizadas** LUIS dá-lhe várias formas de identificar o seu próprio [entidades](luis-concept-entity-types.md) incluindo entidades aprendidas por máquina, entidades literais ou específicas e uma combinação de literal e aprendeu por máquina.
 
-### <a name="example-utterances"></a>Utterances de exemplo
-Um exemplo [utterance](luis-how-to-add-example-utterances.md) seja a entrada de texto do utilizador que a aplicação de cliente tem de compreender. Poderá ser uma frase, como "Livro um pedido de suporte para Paris" ou um fragmento de uma frase, como "Booking" ou "Voo Paris." Utterances sempre não são bem formados e podem existir muitas variações de utterance para um objetivo específico. Adicionar 10 a 20 utterances de exemplo para cada intenção e marque as entidades de cada utterance.
+### <a name="example-utterances"></a>Expressões de exemplo
+Um exemplo [expressão](luis-how-to-add-example-utterances.md) é a introdução de texto do usuário que a aplicação cliente tem de compreender. Pode ser uma frase, como "Reservar um pedido de suporte para Paris", ou um fragmento de uma frase, como "Reserva" ou "Voo Paris." Expressões com nem sempre são bem formados e podem existir muitas variações de expressão para um objetivo específico. Adicionar expressões de exemplo de 10 a 20 em cada intenção e marcar entidades em cada expressão.
 
-|Utterance de utilizador de exemplo|Objetivo|Entidades|
+|Expressão de utilizador de exemplo|Intenção|Entidades|
 |-----------|-----------|-----------|
-|"Livro um voo para __Seattle__?"|BookFlight|Seattle|
-|"Ao seu arquivo __abrir__?"|StoreHoursAndLocation|Abrir|
-|"Agendar uma reunião no __1 pm__ com __Bernardo__ distribuição"|ScheduleMeeting|1 pm, Bernardo|
+|"Programar um vôo para __Seattle__?"|BookFlight|Seattle|
+|"Quando faz a sua loja __abra__?"|StoreHoursAndLocation|Abrir|
+|"Agendar uma reunião em __1 pm__ com __Bob__ na distribuição de"|ScheduleMeeting|1 pm, Bob|
 
-## <a name="improve-prediction-accuracy"></a>Melhorar a exatidão da previsão
-Depois da aplicação de LUIS é publicada e recebe utterances de utilizador reais, LUIS fornece vários métodos para melhorar a exatidão da previsão: [learning Active Directory](#active-learning) de utterances de ponto final, [frase listas](#phrase-lists) para o domínio inclusão, do Word e [padrões](#patterns) para reduzir o número de utterances necessário.
+## <a name="improve-prediction-accuracy"></a>Melhorar a precisão da predição
+Após a sua aplicação LUIS é publicada e recebe as expressões de utilizador real, LUIS, fornece vários métodos para melhorar a exatidão da previsão: [aprendizagem ativa](#active-learning) de expressões de ponto de extremidade, [frase listas](#phrase-lists) para o domínio inclusão, do Word e [padrões](#patterns) para reduzir o número de expressões com necessários.
 
 ### <a name="active-learning"></a>Aprendizagem ativa
-No [learning Active Directory](label-suggested-utterances.md) processo, o LUIS permite-lhe para se adaptar a sua aplicação LUIS reais utterances selecionando utterances recebeu o ponto final para a revisão. Pode aceitar ou corrija a predição de ponto final, reparametrização dos e voltar a publicar. LUIS aprende rapidamente com este processo iterativo, efetuando a quantidade mínima do tempo e esforço. 
+Na [aprendizagem ativa](label-suggested-utterances.md) processo, LUIS, pode adaptar-se a sua aplicação LUIS para expressões do mundo real com selecionando expressões que recebeu no ponto final para revisão. Pode aceitar ou corrija a predição de ponto de extremidade, voltar a preparar e volte a publicar. LUIS aprende rapidamente com esse processo interativo, levando a quantidade mínima de seu tempo e esforço. 
 
-### <a name="phrase-lists"></a>Apresenta uma lista de expressão 
-Fornece LUIS [expressões com listas](luis-concept-feature.md) pelo que pode indicar importantes palavras ou frases reconhecíveis ao seu domínio de modelo. LUIS utiliza estas listas para adicionar significância adicional a essas palavras e expressões que seriam caso contrário não encontrados no modelo.
+### <a name="phrase-lists"></a>Listas de expressões 
+LUIS fornece [frases listas](luis-concept-feature.md) para que pode indicar importantes palavras ou frases ao seu domínio de modelo. LUIS utiliza estas listas para adicionar o significado adicional a essas palavras e frases que caso contrário, não seriam encontrados no modelo.
 
 ### <a name="patterns"></a>Padrões 
-Padrões permitem-lhe simplificar a coleção de utterance do objetivo para comuns [modelos](luis-concept-patterns.md) de opção de word e a ordem do word. Isto permite LUIS saber mais rápida, pelo que necessita de menos utterances de exemplo para os pendentes. Padrões são um sistema híbrida de expressões de aprendidas de máquina e expressões regulares. 
+Padrões permitem-lhe simplificar a coleção de expressão de um objetivo em comum [modelos](luis-concept-patterns.md) de escolha do word e a ordem das palavras. Isso permite que o LUIS saber mais rápida, pelo que precisam de menos expressões de exemplo para os objetivos. Os padrões são um sistema híbrido de expressões regulares e expressões aprendidas por máquina. 
 
 <a name="using-luis"></a>
 
-## <a name="authoring-and-accessing-luis"></a>Criação e aceder a LUIS
-Criar a sua aplicação LUIS do Web site LUIS ou através de programação com o [criação](https://aka.ms/luis-authoring-apis) APIs ou utilização consoante a necessidade de criação. Aceder à sua aplicação LUIS publicada pela consulta [endpoint](https://aka.ms/luis-endpoint-apis). 
+## <a name="authoring-and-accessing-luis"></a>Criação e acessar o LUIS
+Criar a sua aplicação LUIS partir do site do LUIS ou programaticamente com a [criação](https://aka.ms/luis-authoring-apis) APIs ou utilização consoante a necessidade de criação. Aceder à aplicação LUIS publicada pela consulta [ponto final](https://aka.ms/luis-endpoint-apis). 
 
-LUIS fornece três sites em todo o mundo, consoante a sua região de criação. A criação região determina a região do Azure, onde pode publicar a aplicação de LUIS.
+LUIS fornece três Web sites em todo o mundo, consoante a sua região de criação. A região de criação determina a região do Azure, onde pode publicar a aplicação do LUIS.
 <!--
 |Authoring region|Publishing region(s)|
 |--|--|
@@ -121,19 +121,19 @@ LUIS fornece três sites em todo o mundo, consoante a sua região de criação. 
 |[eu.luis.ai](https://eu.luis.ai)|West Europe<br>North Europe|
 -->
 
-Saiba [mais](luis-reference-regions.md) sobre a criação e da publicação regiões.
+Saiba mais [mais](luis-reference-regions.md) sobre a criação e publicação de regiões.
 
-## <a name="what-technologies-work-with-luis"></a>Que tecnologias trabalham com LUIS?
-Várias tecnologias da Microsoft trabalham com LUIS:
+## <a name="what-technologies-work-with-luis"></a>Quais tecnologias funcionam com os LUIS?
+Várias tecnologias da Microsoft de trabalho com os LUIS:
 
 * [A API de verificação ortográfica do Bing](../bing-spell-check/proof-text.md) fornece a correção de texto antes de predição. 
-* [Bot Framework] [ bot-framework] permite um chatbot falar com um utilizador através de introdução de texto. Selecione [3](https://github.com/Microsoft/BotBuilder) ou [4. x](https://github.com/Microsoft/botbuilder-dotnet) SDK para uma experiência de bot concluída.
-* [Maker de QnA] [ qnamaker] permite vários tipos de texto para combinar para uma base de dados de conhecimento de pergunta e resposta.
-* [Voz](../Speech/home.md) converte idioma ditas pedidos em texto. Depois, convertidos para texto, LUIS processa os pedidos. Consulte [SDK de reconhecimento de voz](https://aka.ms/csspeech) para obter mais informações.
-* [Análise de texto](../text-analytics/overview.md) fornece dados de sentimento Analysis Services e a chave frase dados extração.
+* [Arquitetura de bot] [ bot-framework] permite que um chatbot conversar com um usuário por meio da introdução de texto. Selecione [3.x](https://github.com/Microsoft/BotBuilder) ou [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK para uma experiência completa de bot.
+* [A ferramenta QnA Maker] [ qnamaker] permite vários tipos de texto para combinar numa base de dados de conhecimento de perguntas e respostas.
+* [Voz](../Speech/home.md) converte os pedidos de um idioma falado em texto. Após a conversão de texto, LUIS processa as solicitações. Ver [SDK de voz](https://aka.ms/csspeech) para obter mais informações.
+* [Análise de texto](../text-analytics/overview.md) fornece sentimentos e a chave da análise de dados extração de expressões.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Criar uma nova aplicação LUIS com um [prebuilt](luis-get-started-create-app.md) ou [personalizado](luis-quickstart-intents-only.md) domínio.
+Criar uma nova aplicação LUIS com um [criados previamente](luis-get-started-create-app.md) ou [personalizado](luis-quickstart-intents-only.md) domínio.
 
 <!-- Reference-style links -->
 [bot-framework]: https://docs.microsoft.com/bot-framework/

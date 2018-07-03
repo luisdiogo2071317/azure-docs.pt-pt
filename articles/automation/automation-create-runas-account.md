@@ -1,5 +1,5 @@
 ---
-title: Criar contas de automatização Run As do Azure
+title: Criar contas Run As de automatização
 description: Este artigo descreve como atualizar a sua conta de Automatização e criar contas Run As com o PowerShell ou a partir do portal.
 services: automation
 ms.service: automation
@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9180b3f6bf6b151909ab681d0f33bc6b3583ce0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714668"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344904"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:
 
-* Criar uma conta de Automatização, mas rejeitar criar a conta Run As.
+* Criar uma conta de automatização, mas não criar a conta Run As.
 * Já tiver uma conta de Automatização para gerir os recursos do Resource Manager e quer atualizá-la para incluir a conta Run As para autenticação de runbooks.
 * Já tiver uma conta de automatização para gerir os recursos clássicos e quer atualizá-la para utilizar a Run As Clássica em vez de criar uma nova conta e migrar os runbooks e recursos para a mesma.   
 
@@ -52,7 +52,7 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 ### <a name="required-permissions-to-update-your-automation-account"></a>Permissões necessárias para atualizar a conta de Automatização
 Para atualizar uma conta de Automatização, tem de ter os seguintes privilégios específicos e as permissões necessárias para concluir este tópico.   
  
-* A conta de utilizador do AD tem de ser adicionada a uma função com permissões equivalentes à função de contribuinte Microsoft recursos conforme descrito no artigo [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md#contributor).  
+* Sua conta de utilizador do AD tem de ser adicionada a uma função com permissões equivalentes à função de Contribuidor para recursos de Microsoft conforme descrito no artigo [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md#contributor).  
 * Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
 Se não for membro da instância do Active Directory da subscrição antes de ser adicionado à função de administrador global/coadministrador da mesma, é adicionado ao Active Directory como convidado. Nesta situação, recebe o aviso "Não tem permissões para criar..." no painel **Adicionar Conta de Automatização**. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
@@ -272,19 +272,19 @@ Este script do PowerShell inclui suporte para as seguintes configurações:
 
 Depois de o script ser executado com êxito, tenha em conta o seguinte:
 * Se tiver criado uma conta Run As Clássica com um certificado público autoassinado (ficheiro .cer), o script cria-o e guarda-o na pasta de ficheiros temporários no seu computador, no perfil de utilizador *%USERPROFILE%\AppData\Local\Temp* que utilizou para executar a sessão do PowerShell.
-* Se tiver criado uma conta Run As Clássica com um certificado público empresarial (ficheiro .cer), utilize esse certificado. Siga as instruções para [carregar um certificado da API de gestão para o portal do Azure](../azure-api-management-certs.md)e, em seguida, validar a configuração das credenciais com recursos de implementação clássica, utilizando o [código para autenticação de exemplo com os recursos de implementação clássico do Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Se tiver criado uma conta Run As Clássica com um certificado público empresarial (ficheiro .cer), utilize esse certificado. Siga as instruções para [carregar um certificado de gestão de API para o portal do Azure](../azure-api-management-certs.md)e, em seguida, validar a configuração da credencial com recursos de implementação clássica, utilizando o [código de exemplo para autenticar com os recursos de implementação clássica do Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Se *não* tiver criado uma conta Run As Clássica, autentique com recursos do Resource Manager e utilize o [código de exemplo para autenticar com recursos da Gestão do Serviço](automation-verify-runas-authentication.md#automation-run-as-authentication) para validar a configuração da credencial.
 
-## <a name="limiting-run-as-account-permissions"></a>Limitar as permissões da conta Run As
+## <a name="limiting-run-as-account-permissions"></a>Limitar as permissões de conta Run As
 
-Para controlar a filtragem de automatização relativamente aos recursos na automatização do Azure, a conta Run As por predefinição é direitos Contribuidor na subscrição. Se precisar de restringir o principal de serviço RunAs pode fazer, pode remover a conta da função de Contribuidor na subscrição e adicione-o como um contribuinte para os grupos de recursos que pretende especificar.
+Para controlar o direcionamento de automatização relativamente aos recursos na automatização do Azure, a conta Run As, por padrão é concedida direitos de contribuinte na subscrição. Se precisar de restringir o que o principal de serviço RunAs pode fazer, pode remover a conta da função de contribuinte à subscrição e adicioná-lo como um contribuinte para os grupos de recursos que pretende especificar.
 
-No portal do Azure, selecione **subscrições** e selecione a subscrição da sua conta de automatização. Selecione **(IAM) do controlo de acesso** e procure o principal de serviço para a sua conta de automatização (parece \<AutomationAccountName\>identificador _unique). Selecione a conta e clique em **remover** removê-lo da subscrição.
+No portal do Azure, selecione **subscrições** e escolha a subscrição da sua conta de automatização. Selecione **controlo de acesso (IAM)** e procure o principal de serviço para a sua conta de automatização (ele se parece com \<AutomationAccountName\>_unique identificador). Selecione a conta e clique em **remover** removê-lo a partir da subscrição.
 
 ![Contribuintes de subscrição](media/automation-create-runas-account/automation-account-remove-subscription.png)
 
-Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no Azure portal e selecione **(IAM) do controlo de acesso**. Selecione **adicionar**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. No **selecione** texto caixa escreva o nome do principal de serviço para a sua conta Run As e selecione-a partir da lista. Clique em **Guardar** para guardar as alterações. Fazê-lo para os grupos de recursos que pretende conceder o automatização Run As do Azure serviço principal acesso.
+Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **Add**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Fazer isso para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de principais de serviço](../active-directory/active-directory-application-objects.md).
-* Para obter mais informações sobre certificados e serviços do Azure, consulte [descrição geral de certificados para serviços de nuvem do Azure](../cloud-services/cloud-services-certs-create.md).
+* Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de Principal de serviço](../active-directory/active-directory-application-objects.md).
+* Para obter mais informações sobre certificados e serviços do Azure, consulte [descrição geral de certificados para serviços Cloud do Azure](../cloud-services/cloud-services-certs-create.md).

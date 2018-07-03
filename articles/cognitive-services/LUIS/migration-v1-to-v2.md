@@ -1,5 +1,5 @@
 ---
-title: Migrar de API guia v1 para v2 | Microsoft Docs
+title: Migrar de API guia da v1 para v2 | Documentos da Microsoft
 titleSuffix: Azure
 description: Saiba como a migração para a API mais recente definido.
 services: cognitive-services
@@ -10,39 +10,39 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 45b6c2eda77668616a7e49ecd5ea2715af3cd3ce
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 7174a78aeb339c864b2eea384b794646c215bc25
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111591"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344007"
 ---
-# <a name="api-v2-migration-guide"></a>Guia de migração de v2 API
-A versão 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [endpoint](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
+# <a name="api-v2-migration-guide"></a>Guia de migração do API v2
+A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
 
-## <a name="new-azure-regions"></a>Novo regiões do Azure
-LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecido para as APIs de LUIS. LUIS fornece um Web site diferentes para grupos de região. A aplicação tem de ser criada na mesma região que pretende consultar. Aplicações não são migrados automaticamente regiões. Exportar a aplicação a partir de uma região, em seguida, importar a outro para que seja disponível numa região novo.
+## <a name="new-azure-regions"></a>Novas regiões do Azure
+LUIS tem novos [regiões](https://aka.ms/LUIS-regions) fornecido para as APIs do LUIS. LUIS fornece um Web site diferente para grupos de região. A aplicação tem de ser criada na mesma região que pretende consultar. Aplicações não são migrados automaticamente regiões. Exportar a aplicação a partir de uma região, em seguida, importar para o outro para que esteja disponível numa nova região.
 
 ## <a name="authoring-route-changes"></a>Alterações de rota de criação
-A rota de API de criação mudou de utilizar o **prog** rota para utilizar o **api** rota.
+A rota de API de criação em vez de utilizar o **programa** rota para utilizar o **api** rota.
 
 
 | versão | rota |
 |--|--|
-|1|/Luis/v1.0/**prog**/apps|
+|1|/Luis/v1.0/**programa**/apps|
 |2|/Luis/**api**/v2.0/apps|
 
 
-## <a name="endpoint-route-changes"></a>Alterações de rota de ponto final
-O ponto final da API tem novos parâmetros de consulta, bem como uma resposta diferentes. Se o sinalizador verboso for VERDADEIRO, todos os pendentes, independentemente da pontuação, são devolvidas numa matriz com o nome pendentes, além de topScoringIntent.
+## <a name="endpoint-route-changes"></a>Alterações de rota do ponto final
+O ponto final de API tem novos parâmetros de cadeia de consulta, bem como uma resposta diferente. Se o sinalizador verboso for VERDADEIRO, todas as intenções, independentemente de pontuação, são retornadas numa matriz chamada intenções, além do topScoringIntent.
 
 | versão | OBTER a rota |
 |--|--|
-|1|/Luis/V1/Application? ID = {appId} & q = {q}|
-|2|/ luis/v2.0/apps/{appId}?q={q} [& timezoneOffset] [& verboso] [& spellCheck] [& transição] [& bing ortográfica-verifique-subscrição-chave] [& registo]|
+|1|/Luis/V1/Application? ID = {appId} & q = {p}|
+|2|/ luis/v2.0/apps/{appId}?q={q} [& timezoneOffset] [& verboso] [& verificação ortográfica] [& teste] [& bing-ortográfica-check-subscription-key] [& registo]|
 
 
-resposta de êxito de ponto final de V1:
+resposta de êxito de ponto final V1:
 ```JSON
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
@@ -53,7 +53,7 @@ resposta de êxito de ponto final de V1:
 }
 ```
 
-resposta de êxito de ponto final de v2:
+resposta de êxito de ponto final v2:
 ```JSON
 {
   "query": "forward to frank 30 dollars through HSBC",
@@ -103,26 +103,26 @@ resposta de êxito de ponto final de v2:
 }
 ```
 
-## <a name="key-management-no-longer-in-api"></a>Gestão de chaves já não está na API
-A chave de ponto final de subscrição APIs foram preteridos 410 GONE a devolver.
+## <a name="key-management-no-longer-in-api"></a>Gestão de chaves já não estão em API
+A chave de ponto final de subscrição APIs são preteridas, retornando 410 já não existe.
 
 | versão | rota |
 |--|--|
 |1|/Luis/v1.0/Prog/subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [chaves de ponto final](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação LUIS no **[publicar](manage-keys.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para efetuar a atribuição. 
+Azure [chaves de ponto final](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação do LUIS sobre o **[Publish](luis-how-to-manage-keys.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para fazer a atribuição. 
 
-## <a name="new-versioning-route"></a>Nova rota do controlo de versões
-O modelo v2 agora faz uma [versão](luis-how-to-manage-versions.md). Um nome de versão é de 10 carateres da rota. A versão predefinida é "0.1".
+## <a name="new-versioning-route"></a>Nova rota de controle de versão
+O modelo v2 agora está contido num [versão](luis-how-to-manage-versions.md). Um nome de versão tenha 10 carateres na rota. A versão predefinida é "0.1".
 
 | versão | rota |
 |--|--|
-|1|/Luis/v1.0/**prog**/apps/ {appId} / entidades|
+|1|/Luis/v1.0/**programa**/Apps/&lt {appId} / entidades|
 |2|/Luis/**api**/v2.0/apps/{appId}/**versões**/ {versionId} / entidades|
 
 ## <a name="metadata-renamed"></a>Mudar o nome de metadados
-Várias APIs que devolvem metadados de LUIS têm nomes de novo.
+Várias APIs que retornam metadados de LUIS têm nomes novos.
 
 | nome da rota v1 | nome da rota v2 |
 |--|--|
@@ -132,42 +132,42 @@ Várias APIs que devolvem metadados de LUIS têm nomes de novo.
 |applicationusagescenarios|usagescenarios|
 
 
-## <a name="sample-renamed-to-suggest"></a>"Sample" mudar o nome "sugerir"
-LUIS sugere utterances do existente [utterances de ponto final](label-suggested-utterances.md) que pode melhorar o modelo. Na versão anterior, este foi atribuído o nome **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Esta opção é denominada **[rever utterances de ponto final](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** no Web site LUIS.
+## <a name="sample-renamed-to-suggest"></a>"Exemplo" o nome mudado para "sugestão"
+LUIS sugere expressões a partir de existente [expressões de ponto final](label-suggested-utterances.md) que pode melhorar o modelo. Na versão anterior, isso foi chamado **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Isso é chamado **[rever expressões de ponto final](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** no Web site do LUIS.
 
 | versão | rota |
 |--|--|
-|1|/Luis/v1.0/**prog**/entities/ /apps/ {appId} {entityId} /**exemplo**|
-|1|/Luis/v1.0/**prog**/intents/ /apps/ {appId} {intentId} /**exemplo**|
+|1|/Luis/v1.0/**programa**/Apps/&lt {appId} /entities/ {entityId} /**exemplo**|
+|1|/Luis/v1.0/**programa**/Apps/&lt {appId} /intents/ {intentId} /**exemplo**|
 |2|/Luis/**api**/v2.0/apps/{appId}/**versões**/ {versionId} /entities/ {entityId} /**Sugerir**|
 |2|/Luis/**api**/v2.0/apps/{appId}/**versões**/ {versionId} /intents/ {intentId} /**Sugerir**|
 
 
-## <a name="create-app-from-prebuilt-domains"></a>Criar aplicação prebuilt domínios
-[Domínios prebuilt](luis-how-to-use-prebuilt-domains.md) fornecer um modelo de domínio predefinida. Domínios prebuilt permitem-lhe desenvolver rapidamente a sua aplicação de LUIS para domínios comuns. Esta API permite-lhe criar uma nova aplicação com base no domínio prebuilt. A resposta é o appID de novo.
+## <a name="create-app-from-prebuilt-domains"></a>Criar aplicação a partir de domínios pré-concebidos
+[Domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md) fornecem um modelo de domínio predefinida. Domínios pré-concebidos permitem-lhe desenvolver rapidamente a sua aplicação LUIS para domínios comuns. Esta API permite-lhe criar uma nova aplicação com base num domínio pré-criado. A resposta é o novo appID.
 
 |rota de v2|Verbo|
 |--|--|
 |/Luis/API/v2.0/Apps/customprebuiltdomains  |GET, post|
-|/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Introdução|
+|/ luis/api/v2.0/apps/customprebuiltdomains/{culture}  |Get|
 
-## <a name="importing-1x-app-into-2x"></a>Importar aplicações de 1. x para 2. x
-O 1. x exportado JSON da aplicação tem algumas áreas que precisa de alterar antes de importar para [LUIS] [ LUIS] 2.0. 
+## <a name="importing-1x-app-into-2x"></a>Importar aplicação 1.x para 2.x
+O 1.x exportado JSON da aplicação tem algumas áreas em que precisa alterar antes de importar para o [LUIS] [ LUIS] 2.0. 
 
-### <a name="prebuilt-entities"></a>Entidades prebuilt 
-O [entidades prebuilt](Pre-builtEntities.md) foram alterados. Certifique-se de que está a utilizar o V2 prebuilt entidades. Isto inclui a utilização [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), em vez de datetime. 
+### <a name="prebuilt-entities"></a>Entidades pré-concebidas 
+O [entidades pré-concebidas](luis-prebuilt-entities.md) foram alterados. Certifique-se de que está a utilizar o V2 entidades pré-concebidas. Isto inclui a utilização [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), em vez de datetime. 
 
 ### <a name="actions"></a>Ações
-A propriedade de ações já não é válida. Deve estar vazio 
+A propriedade de ações já não é válida. Ele deve estar vazio 
 
-### <a name="labeled-utterances"></a>Utterances identificados
-V1 permitido utterances identificados incluir os espaços no início ou fim da palavra ou frase de acesso. Remover os espaços. 
+### <a name="labeled-utterances"></a>Expressões com etiquetados
+V1 permitidas expressões com etiquetadas incluem espaços no início ou no final da palavra ou frase. Remover os espaços. 
 
-## <a name="common-reasons-for-http-response-status-codes"></a>Razões comuns para códigos de estado de resposta HTTP
-Consulte [códigos de resposta da API de LUIS](luis-reference-response-codes.md).
+## <a name="common-reasons-for-http-response-status-codes"></a>Motivos comuns para códigos de estado de resposta HTTP
+Ver [códigos de resposta da API de LUIS](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilize a documentação da API v2 para atualizar o resto existente chamadas para LIUS [endpoint](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
+Utilize a documentação da API v2 para atualizar o REST existente chama para LIUS [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

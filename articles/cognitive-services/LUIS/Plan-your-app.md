@@ -1,6 +1,6 @@
 ---
-title: Planear as suas aplicações LUIS | Microsoft Docs
-description: Descrevem as entidades e pendentes de aplicação relevante e, em seguida, criar os planos de aplicação no idioma compreender inteligente serviços (LUIS).
+title: Planear as suas aplicações de LUIS | Documentos da Microsoft
+description: Descrever a aplicação relevante intenções e entidades e, em seguida, criar seus planos de aplicativo no Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
@@ -9,86 +9,86 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 7aec5d5b90ac7145ce9f337ec74c590b4b88c6b1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c67a2c16077c9033b52a909360b21cb7f88a5a9d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266367"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344993"
 ---
 # <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
 
-É importante planear a sua aplicação antes de começar a criar no LUIS. Prepare uma contorno ou um esquema pendentes possíveis e entidades que são relevantes para o tópico específicas do domínio da sua aplicação.  
+É importante planear a sua aplicação antes de começar a criá-lo no LUIS. Prepare um contorno ou o esquema dos possíveis intenções e entidades que são relevantes para o tópico específica do domínio da sua aplicação.  
 
 ## <a name="identify-your-domain"></a>Identificar o seu domínio
-Uma aplicação LUIS centra-se um tópico específicas do domínio.  Por exemplo, pode ter uma aplicação de levar a que efetua booking de pedidos de suporte, flights, hotéis e carros rental. Outra aplicação pode fornecer conteúdo relacionados com exercising, ao controlar esforços adequação e definir objetivos. 
+Uma aplicação do LUIS centra-se um tópico específica do domínio.  Por exemplo, pode ter uma aplicação de viagens que executa a reserva de pedidos de suporte, voos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado para exercitar, os esforços de adequação de controlo e definir metas. 
 
 > [!TIP]
-> Oferece LUIS [domínios prebuilt](luis-how-to-use-prebuilt-domains.md) para muitos cenários comuns.
-> Verifique se pode utilizar um domínio prebuilt como um ponto de partida para a sua aplicação.
+> LUIS oferecem [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md) para inúmeros cenários comuns.
+> Verifique se pode utilizar um domínio pré-criado como ponto de partida para a sua aplicação.
 
-## <a name="identify-your-intents"></a>Identificar a sua pendentes
-Considere sobre o [pendentes](luis-concept-intent.md) que são importantes para tarefas da sua aplicação. Vamos o exemplo de uma aplicação de levar, com as funções para o livro um voo e verifique a meteorologia no destino do utilizador. Pode definir os pendentes "BookFlight" e "GetWeather" para estas ações. Numa aplicação mais complexa com mais de funções, tem mais pendentes e deve defini-los cuidadosamente, de modo a não ser demasiado específico. Por exemplo, "BookFlight" e "BookHotel" poderão ter de ser separados pendentes, mas "BookInternationalFlight" e "BookDomesticFlight" podem ser demasiado semelhantes.
+## <a name="identify-your-intents"></a>Identificar suas intenções
+Pense sobre o [intenções](luis-concept-intent.md) que são importantes para tarefas de seu aplicativo. Vejamos o exemplo de uma aplicação de viagens, com as funções para programar um vôo e verificar o tempo no destino do usuário. Pode definir os objetivos de "BookFlight" e "GetWeather" para estas ações. Aplicações mais complexas com mais funções, tem mais objetivos e deve defini-los cuidadosamente modo a não ser muito específica. Por exemplo, "BookFlight" e "BookHotel" talvez precise ser intenções separadas, mas "BookInternationalFlight" e "BookDomesticFlight" podem ser muito semelhantes.
 
 > [!NOTE]
-> É uma melhor prática para utilizar apenas pendentes tantos conforme necessário executar as funções da sua aplicação. Se definir demasiados pendentes, torna mais difícil LUIS classificar utterances corretamente. Se definir demasiado alguns, poderá ser, por isso, gerais relativamente a sobreposição.
+> É melhor prática para utilizar apenas os objetivos, conforme necessário executar as funções da sua aplicação. Se definir objetivos de demasiados, torna-se mais difícil para o LUIS classificar expressões com corretamente. Se definir muito poucos ou pode ser tão gerais como para uma sobreposição.
 
 
-## <a name="identify-your-entities"></a>Identificar as entidades
-Para o livro um voo, precisa de algumas informações como o destino, data, companhia aérea, categoria de permissão e viajam classe. Pode adicionar estes como [entidades](luis-concept-entity-types.md) porque são importantes para os realizar objetivo. 
+## <a name="identify-your-entities"></a>Identificar suas entidades
+Para programar um vôo, precisa de algumas informações como o destino, a data, a companhia aérea, a categoria de pedido de suporte e classe de viagens. Pode adicioná-las como [entidades](luis-concept-entity-types.md) porque eles são importantes para a realização de um objetivo. 
 
-Quando determinar que entidades para utilizar na sua aplicação, tenha em atenção que existem diferentes tipos de entidades para capturar as relações entre tipos de objetos. [As entidades de LUIS](luis-concept-entity-types.md) fornece mais detalhes sobre os diferentes tipos.
+Quando determinar quais entidades para utilizar na sua aplicação, tenha em atenção que existem diferentes tipos de entidades para capturar as relações entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) fornece mais detalhes sobre os diferentes tipos.
 
-### <a name="simple-entity"></a>Entidade Simple
-Uma entidade simple descreve um único conceito.
+### <a name="simple-entity"></a>Entidade simples
+Uma entidade descreve um único conceito.
 
 ![entidade Simple](./media/luis-plan-your-app/simple-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a extrair a entidade simple do ponto final de uma resposta à consulta JSON. Tente a entidade simple [início rápido](luis-quickstart-primary-and-secondary-data.md) para obter mais informações sobre como utilizar uma entidade simple.
+Ver [extração de dados](luis-concept-data-extraction.md#simple-entity-data) para saber mais sobre a entidade simple a extração do ponto de extremidade de resposta da consulta JSON. Experimente a entidade simple [guia de introdução](luis-quickstart-primary-and-secondary-data.md) para saber mais sobre como utilizar uma entidade.
 
 ### <a name="hierarchical-entity"></a>Entidade hierárquica
-Uma entidade hierárquica é um tipo especial de um **simples** entidade; definir uma categoria e os seus membros sob a forma de relação principal-subordinado.
+Uma entidade hierárquica é um tipo especial de um **simples** entidade; a definição de uma categoria e seus membros na forma de relação principal-subordinado.
 
-![entidade hierárquica](./media/luis-plan-your-app/hierarchical-entity.png)
+![entidades hierárquicas](./media/luis-plan-your-app/hierarchical-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto final de uma resposta à consulta JSON. Tente a entidade hierárquica [início rápido](luis-quickstart-intent-and-hier-entity.md) para obter mais informações sobre como utilizar uma entidade hierárquica.
+Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
 ### <a name="composite-entity"></a>Entidade composta
-Uma entidade composta é constituída por outras entidades que formam partes de um todo. 
+Uma entidade composta é constituída por outras entidades que formam as partes de um todo. 
 
 ![entidade composta](./media/luis-plan-your-app/composite-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto final de uma resposta à consulta JSON. Tente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para obter mais informações sobre como utilizar uma entidade composta.
+Ver [extração de dados](luis-concept-data-extraction.md#composite-entity-data) para saber mais sobre a extrair a entidade composta do ponto de extremidade de resposta da consulta JSON. Experimente a entidade composta [tutorial](luis-tutorial-composite-entity.md) para saber mais sobre como utilizar uma entidade composta.
 
-### <a name="prebuilt-entity"></a>Entidade prebuilt
-Fornece LUIS [entidades prebuilt](Pre-builtEntities.md) para tipos comuns como `Number`, que pode utilizar para o número de pedidos por uma ordem de permissão.
+### <a name="prebuilt-entity"></a>Entidade pré-criados
+LUIS fornece [entidades pré-concebidas](luis-prebuilt-entities.md) para tipos comuns como `Number`, que pode utilizar para o número de pedidos de suporte numa ordem de pedido de suporte.
 
-![Entidade prebuilt número](./media/luis-plan-your-app/number-entity.png)
+![Entidade pré-criados numérica](./media/luis-plan-your-app/number-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto final resposta à consulta JSON. 
+Ver [extração de dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto de extremidade de resposta da consulta JSON. 
 
 ### <a name="list-entity"></a>Entidade de lista 
-Uma entidade de lista é uma lista de valores explicitamente especificada. Cada valor é composta por um ou mais sinónimos. Numa aplicação levar, pode optar por criar uma entidade de lista para representar os nomes de airport.
+Uma entidade de lista é uma lista de valores explicitamente especificada. Cada valor é composta por um ou mais sinónimos. Num aplicativo de viagens, pode optar por criar uma entidade de lista para representar nomes de aeroporto.
 
 ![entidade de lista](./media/luis-plan-your-app/list-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista o ponto final de uma resposta à consulta JSON. Repita o [início rápido](luis-quickstart-intent-and-list-entity.md) para obter mais informações sobre como utilizar uma entidade de lista.
+Ver [extração de dados](luis-concept-data-extraction.md#list-entity-data) para saber mais sobre a extração de entidades de lista do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intent-and-list-entity.md) para saber mais sobre como utilizar uma entidade de lista.
 
 ### <a name="regular-expression-entity"></a>Entidade de expressão regular
-Uma entidade de expressão regular permite LUIS extrair dados um utterance baseado numa expressão regex.
+Uma entidade de expressão regular permite que o LUIS extrair dados de uma expressão com base numa expressão regex.
 
 ![Entidade de expressão regular](./media/luis-plan-your-app/regex-entity.png)
 
-Consulte [extração de dados](luis-concept-data-extraction.md#regular-expression-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto final resposta à consulta JSON. Repita o [início rápido](luis-quickstart-intents-regex-entity.md) para obter mais informações sobre como utilizar uma entidade de expressão regular.
+Ver [extração de dados](luis-concept-data-extraction.md#regular-expression-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intents-regex-entity.md) para saber mais sobre como utilizar uma entidade de expressão regular.
 
-## <a name="after-getting-endpoint-utterances"></a>Após obter utterances de ponto final
-Depois da aplicação obtém utterances de ponto final, se pretende implementar melhoramentos de predição com [learning Active Directory](label-suggested-utterances.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
+## <a name="after-getting-endpoint-utterances"></a>Depois de obter a expressão de ponto final
+Depois da aplicação obtenha expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](label-suggested-utterances.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
 
-### <a name="patternany-entity"></a>Entidade Pattern.any
-Patterns.any é um marcador de posição de comprimento variável utilizada apenas por um [do padrão](luis-concept-patterns.md) utterance de modelo para marcar em que a entidade inicia e termina. Utterances modelo está em conformidade com [a sintaxe correta](luis-concept-patterns.md#pattern-syntax) para identificar as entidades e texto ignorable.
+### <a name="patternany-entity"></a>Entidade de Pattern.any
+Patterns.any é um marcador de posição de comprimento variável usado apenas numa [do padrão](luis-concept-patterns.md) expressão de modelo para marcar onde a entidade começa e termina. Expressão de modelo está em conformidade com [sintaxe correta](luis-concept-patterns.md#pattern-syntax) para identificar as entidades e ignorable texto.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consulte [criar a sua primeira aplicação de idioma compreender inteligente serviços (LUIS)] [ luis-get-started-create-app] para obter instruções sobre como criar uma aplicação LUIS rápida.
+* Ver [crie seu primeiro aplicativo do Language Understanding Intelligent Service (LUIS)] [ luis-get-started-create-app] para uma passo a passo rápido de como criar uma aplicação do LUIS.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app

@@ -1,6 +1,6 @@
 ---
-title: Adicionar pendentes em aplicações LUIS | Microsoft Docs
-description: Utilize a compreensão de idiomas (LUIS) para adicionar pendentes para ajudar a compreender os pedidos de utilizador e reagir aos mesmos corretamente de aplicações.
+title: Adicionar intenções em aplicativos de LUIS | Documentos da Microsoft
+description: Utilize a compreensão de idiomas (LUIS) para adicionar intenções para ajudar a compreender os pedidos de utilizador e reagir a eles corretamente de aplicações.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,48 +9,48 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355765"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344332"
 ---
-# <a name="manage-intents"></a>Gerir pendentes 
-Adicionar [pendentes](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de questões ou os comandos que tenham as intenções do mesmas. 
+# <a name="manage-intents"></a>Gerir os objetivos 
+Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções. 
 
-Adicionar e gerir a sua pendentes do **pendentes** página, disponível a partir do **pendentes** no painel esquerdo de LUIS. 
+Adicionar e gerir os seus objetivos do **intenções** página, disponível no **intenções** no painel esquerdo do de LUIS. 
 
 O procedimento seguinte demonstra como adicionar a intenção de "Bookflight" na aplicação TravelAgent.
 
-## <a name="add-intent"></a>Adicionar intenção
+## <a name="add-intent"></a>Adicionar intenções
 
-1. Abra a aplicação (por exemplo, TravelAgent) ao clicar em seu nome no **aplicações My** página e, em seguida, clique em **pendentes** no painel esquerdo. 
-2. No **pendentes** página, clique em **criar novo objetivo**.
+1. Abra a sua aplicação (por exemplo, TravelAgent) clicando em seu nome na **as minhas aplicações** página e, em seguida, clique em **intenções** no painel esquerdo. 
+2. Sobre o **intenções** página, clique em **criar intenção de novo**.
 
-    ![Lista de pendentes](./media/luis-how-to-add-intents/IntentsList.png)
-3. No **criar novo objetivo** caixa de diálogo, escreva a intenção nome "BookFlight" e clique em **feito**.
+    ![Lista de objetivos](./media/luis-how-to-add-intents/IntentsList.png)
+3. Na **criar novo intenção** caixa de diálogo, escreva a intenção nome "BookFlight" e clique em **feito**.
 
-    ![Adicionar intenção](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
+    ![Adicionar intenções](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Na página de detalhes de intenção da intenção recentemente adicionada, [adicionar utterances](#add-an-utterance-on-intent-page).
+    Na página de detalhes de intenção da recém-adicionada intenção, [adicionar expressões](#add-an-utterance-on-intent-page).
 
-## <a name="rename-intent"></a>Mudar o nome do objetivo
+## <a name="rename-intent"></a>Mudar o nome de intenção
 
-1. No **intenção** página, clique no ícone de mudança de nome ![mudar o nome de intenção](./media/luis-how-to-add-intents/Rename-Intent-btn.png) junto ao nome da intenção. 
+1. Sobre o **intenção** página, clique no ícone de mudar o nome ![intenção de mudar o nome](./media/luis-how-to-add-intents/Rename-Intent-btn.png) junto ao nome da intenção. 
 
-2. No **intenção** página, o nome da intenção atual é apresentado numa caixa de diálogo. Editar o nome da intenção e prima enter. O novo nome é guardado e apresentado na página de intenção.
+2. Sobre o **intenção** página, o nome de intenção atual é mostrado numa caixa de diálogo. Editar o nome da intenção e prima enter. O novo nome é guardado e é apresentado na página de intenção.
 
     ![Editar intenção](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
 
-## <a name="delete-intent"></a>Eliminar de intenções
-Quando eliminar um objetivo diferente a intenção None, pode optar por adicionar todos os utterances como a intenção None. Isto é útil se precisar de mover os utterances em vez de eliminá-los.   
+## <a name="delete-intent"></a>Eliminar intenção
+Ao excluir um objetivo diferente de intenção None, pode optar por adicionar todas as expressões a intenção None. Isto é útil se precisar de mover as expressões em vez de excluí-los.   
 
-1. No **intenção** página, clique em de **eliminar intenção** junto à direita do nome de intenção. 
+1. Na **intenção** página, clique no **intenção eliminar** botão junto à direita do nome de intenção. 
 
-    ![Eliminar botão intenção](./media/luis-how-to-add-intents/DeleteIntent.png)
+    ![Eliminar o botão de intenção](./media/luis-how-to-add-intents/DeleteIntent.png)
 
-2. Clique no botão "Ok", na caixa de diálogo de confirmação.
+2. Clique no botão "Ok" na caixa de diálogo de confirmação.
 
 <!--
     TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
@@ -59,88 +59,88 @@ Quando eliminar um objetivo diferente a intenção None, pode optar por adiciona
 -->
 
 
-## <a name="add-an-utterance-on-intent-page"></a>Adicionar um utterance na página intenção
+## <a name="add-an-utterance-on-intent-page"></a>Adicionar uma expressão na página de intenção
 
-Na página de intenção, introduza um utterance relevante que se espera de utilizadores, tais como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo intenção nome e, em seguida, prima Enter. 
+Na página de intenção, introduza uma expressão relevante que se espera de seus usuários, como `book 2 adult business tickets to Paris tomorrow on Air France` na caixa de texto abaixo do nome intenção e, em seguida, prima Enter. 
  
 >[!NOTE]
->LUIS converte todos os utterances em minúsculas.
+>LUIS converte todas as expressões de com em minúsculas.
 
-![Página de detalhes de captura de ecrã de pendentes, com utterance realçado](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+![Página de detalhes de captura de ecrã de objetivos, com a expressão realçado](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-Utterances são adicionados à lista de utterances para o objetivo atual. Quando é adicionado um utterance, [etiqueta qualquer entidades](luis-how-to-add-example-utterances.md) dentro de utterances e [preparar](luis-how-to-train.md) a aplicação. 
+Expressões com são adicionados à lista de expressões com para o objetivo atual. Depois de uma expressão é adicionada [Etiquetar qualquer entidades](luis-how-to-add-example-utterances.md) dentro as expressões e [treinar](luis-how-to-train.md) seu aplicativo. 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de um utterance
-Consulte [adicionar padrão do utterance existente na página de intenção ou entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+## <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de uma expressão
+Ver [adicionar padrão de expressão existente na página de intenção ou a entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## <a name="edit-an-utterance-on-intent-page"></a>Editar um utterance na página intenção
+## <a name="edit-an-utterance-on-intent-page"></a>Editar uma expressão na página de intenção
 
-Para editar um utterance, selecione o ícone de reticências (…) na extremidade direita da linha para esse utterance e, em seguida, selecione **editar**. Modificar o texto, em seguida, prima Enter no teclado.
+Para editar uma expressão, selecione o ícone de reticências (...) na extremidade direita da linha para essa expressão e, em seguida, selecione **editar**. Modificar o texto, em seguida, prima Enter no teclado.
 
-![Página de detalhes de captura de ecrã de pendentes, com o ícone de três pontos realçado](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Página de detalhes de captura de ecrã de objetivos, com o ícone de reticências realçado](./media/luis-how-to-add-intents/edit-utterance.png) 
 
-## <a name="reassign-utterances-on-intent-page"></a>Reatribuir utterances na página intenção
-Pode alterar o objetivo de um ou mais utterances reatribuição-los para outra intenção. 
+## <a name="reassign-utterances-on-intent-page"></a>Reatribuir expressões com na página de intenção
+Pode alterar a intenção de expressões com um ou mais por meio da reatribuição-los em outra intenção. 
 
-Para reatribuir um utterance único para um objetivo diferente, na extremidade direita da linha de utterance, selecione o nome correto intenção no **etiqueta intenção** coluna. O utterance é removido da lista de utterance a intenção atual. 
+Para reatribuir uma expressão única para um objetivo diferente, na extremidade direita da linha da expressão, selecione o nome correto de intenção sob o **rotulado intenção** coluna. A expressão é removido da lista de expressão a intenção atual. 
 
-![Página de intenção de captura de ecrã de BookFlight com o objetivo de um utterance na coluna intenção Labeled selecionado](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+![Página de intenção de captura de ecrã de BookFlight com a intenção de uma expressão na coluna de intenção Labeled selecionada](./media/luis-how-to-add-intents/reassign-1-utterance.png)
 
-Para alterar o objetivo utterances várias, selecione as caixas de verificação para a esquerda dos utterances e, em seguida, selecione **reatribuir intenção**. Selecione o objetivo correto da lista.
+Para alterar a intenção de expressões com vários, selecione as caixas de verificação à esquerda das expressões e, em seguida, selecione **reatribuir intenção**. Selecione a intenção correta da lista.
 
-![Página de intenção de captura de ecrã de BookFlight com um utterance marcada e o botão de intenção de reatribuir realçado](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+![Página de intenção de captura de ecrã de BookFlight com uma expressão selecionada e o botão de intenção de reatribuição realçado](./media/luis-how-to-add-intents/delete-several-utterances.png) 
 
-## <a name="delete-utterances-on-intent-page"></a>Eliminar utterances na página intenção
+## <a name="delete-utterances-on-intent-page"></a>Eliminar expressão na página de intenção
 
-Para eliminar um utterance, selecione o ícone de reticências (…) na extremidade direita da linha para esse utterance e, em seguida, selecione **eliminar**. O utterance é removido da lista e a aplicação de LUIS.
+Para eliminar uma expressão, selecione o ícone de reticências (...) na extremidade direita da linha para essa expressão e, em seguida, selecione **eliminar**. A expressão é removido da lista e a aplicação do LUIS.
 
-![Página de detalhes de captura de ecrã de pendentes, com a opção de eliminação realçada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+![Página de detalhes de captura de ecrã de objetivos, com a opção de eliminação realçada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
-Para eliminar vários utterances:
+Para eliminar várias expressões:
 
-1. Selecione as caixas de verificação para a esquerda dos utterances e, em seguida, selecione **eliminar utterances (s)**. 
+1. Selecione as caixas de verificação à esquerda das expressões e, em seguida, selecione **eliminar expressões com o (s)**. 
 
-    ![Página de detalhes de captura de ecrã de pendentes, com utterances marcada e eliminar botão utterance(s) realçado](./media/luis-how-to-add-intents/delete-several-utterances.png)
+    ![Página de detalhes de captura de ecrã de objetivos, com expressões com verificada e eliminar botão utterance(s) realçado](./media/luis-how-to-add-intents/delete-several-utterances.png)
 
-2. Selecione **feito** no **eliminar utterances?** caixa de diálogo de pop-up.
+2. Selecione **feito** no **eliminar expressões com?** caixa de diálogo pop-up.
 
-## <a name="search-in-utterances-on-intent-page"></a>Procurar utterances na página intenção
-Objetivo, pode procurar utterances que contêm texto (palavras ou frases reconhecíveis). Por exemplo, poderá notar um erro que envolva uma palavra específica e que pretende localizar todos os exemplos que incluem esse word específico. 
+## <a name="search-in-utterances-on-intent-page"></a>Pesquisar em expressões com na página de intenção
+Uma intenção, pode procurar expressões que contêm texto (palavras ou frases). Por exemplo, pode observar um erro que envolve uma palavra específica e para localizar todos os exemplos incluem essa palavra específica. 
 
-1. Selecione o ícone da Lupa na barra de ferramentas.
+1. Selecione o ícone de lupa na barra de ferramentas.
 
-    ![Página de captura de ecrã de pendentes, com o ícone de pesquisa de lupa realçada](./media/luis-how-to-add-intents/magnifying-glass.png)
+    ![Página de captura de ecrã de objetivos, com o ícone de pesquisa de lupa realçada](./media/luis-how-to-add-intents/magnifying-glass.png)
 
-2. É apresentada uma caixa de texto de pesquisa. Escreva a palavra ou expressão na caixa de pesquisa no canto superior direito da lista utterances. Os utterances listam atualizações, para apresentar apenas os utterances que incluem o seu texto de pesquisa. 
+2. É apresentada uma caixa de texto de pesquisa. Escreva a palavra ou frase na caixa de pesquisa no canto superior direito da lista de expressões. As expressões listam atualizações, para apresentar apenas as expressões que incluem o texto a procurar. 
 
-    ![Página de captura de ecrã de pendentes, com a caixa de texto de pesquisa realçada](./media/luis-how-to-add-intents/search-textbox.png)
+    ![Página de captura de ecrã de objetivos, com a caixa de texto de pesquisa realçada](./media/luis-how-to-add-intents/search-textbox.png)
 
-    Para cancelar a pesquisa e restaurar a lista completa de utterances, elimine o texto de pesquisa que introduziu. Para fechar a caixa de texto de pesquisa, selecione o ícone da Lupa na barra de ferramentas novamente.
+    Para cancelar a pesquisa e restaurar a lista completa das expressões, elimine o texto de pesquisa que introduziu. Para fechar a caixa de texto de pesquisa, selecione o ícone de lupa na barra de ferramentas novamente.
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Erros de discrepância de predição na página intenção
-Um utterance no objetivo poderá ter uma discrepância entre o objetivo de selecionada e a classificação de predição. LUIS indica esta discrepância com uma caixa vermelha à volta de pontuação. 
+## <a name="prediction-discrepancy-errors-on-intent-page"></a>Erros de discrepância de predição na página de intenção
+Uma expressão numa intenção, pode ter uma discrepância entre a intenção de selecionado e a pontuação de predição. LUIS indica essa discrepância com uma caixa vermelha à volta a pontuação. 
 
-![Página de captura de ecrã da intenção BookFlight, com predição discrepância pontuação realçada](./media/luis-how-to-add-intents/score-discrepancy.png) 
+![Página de captura de ecrã de BookFlight intenção, com score discrepância de predição realçado](./media/luis-how-to-add-intents/score-discrepancy.png) 
 
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrar por erros de discrepância de intenção de predição na página intenção
-Para filtrar a lista de utterance para apenas utterances com uma discrepância de predição intenção, alternar de **Mostrar tudo** para **apenas erros** na barra de ferramentas. 
+## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrar por erros de discrepância de predição de intenção na página de intenção
+Para filtrar a lista de expressão para expressões com apenas com uma discrepância de predição de intenção, alternar de **Mostrar tudo** ao **apenas erros** na barra de ferramentas. 
 
-## <a name="filter-by-entity-type-on-intent-page"></a>Filtrar por tipo de entidade na página intenção
-Utilize o **filtros de entidade** pendente na barra de ferramentas para filtrar os utterances pela entidade. 
+## <a name="filter-by-entity-type-on-intent-page"></a>Filtrar por tipo de entidade na página de intenção
+Utilize o **filtros de entidade** pendente na barra de ferramentas para filtrar as expressões por entidade. 
 
-![Página de captura de ecrã de pendentes, com o filtro do tipo de entidade realçado](./media/luis-how-to-add-intents/filter-by-entities.png) 
+![Página de captura de ecrã de objetivos, com o filtro de tipo de entidade realçado](./media/luis-how-to-add-intents/filter-by-entities.png) 
 
-Para remover o filtro, selecione a caixa de filtro azul com essa palavra ou expressão na barra de ferramentas.  
+Para remover o filtro, selecione a caixa de filtro azul com essa palavra ou frase na barra de ferramentas.  
 <!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
 
-## <a name="switch-to-token-view-on-intent-page"></a>Mudar para vista de token na página intenção
-Ativar/desativar **Tokens vista** para ver os tokens, em vez dos nomes de tipo de entidade. No teclado, também pode utilizar **controlo + E** para ativar/desativar a vista. 
+## <a name="switch-to-token-view-on-intent-page"></a>Mudar para vista de token na página de intenção
+Botão de alternar **vista de Tokens** para ver os tokens em vez dos nomes de tipos de entidade. No teclado, também pode utilizar **controle + E** para alternar o modo de exibição. 
 
-![Captura de ecrã de BookFlight intenção, com vista Token realçado](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+![Objetivo de captura de ecrã de BookFlight, com a vista de Token realçado](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
-## <a name="train-your-app-after-changing-model-with-intents"></a>Preparar a sua aplicação depois de alterar o modelo com pendentes
-Depois de adicionar, editar ou remover pendentes, [preparar](luis-how-to-train.md) e [publicar](PublishApp.md) a aplicação para as suas alterações afetar a consultas de ponto final. 
+## <a name="train-your-app-after-changing-model-with-intents"></a>Preparar a sua aplicação depois de alterar o modelo com objetivos
+Depois de adicionar, editar ou remover intenções, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de adicionar pendentes para a sua aplicação, a próxima tarefa consiste em começar a adicionar [utterances exemplo](luis-how-to-add-example-utterances.md) para pendentes que adicionou. 
+Depois de adicionar intenções à sua aplicação, a próxima tarefa consiste em começar a adicionar [expressões de exemplo](luis-how-to-add-example-utterances.md) para os objetivos que adicionou. 

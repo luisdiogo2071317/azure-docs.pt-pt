@@ -1,21 +1,21 @@
 ---
-title: Excluir discos da proteção utilizando o Azure Site Recovery | Microsoft Docs
+title: Excluir discos da proteção com o Azure Site Recovery | Documentos da Microsoft
 description: Descreve por que e como excluir discos de VM da replicação para VMware para o Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285095"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342611"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Excluir discos da replicação do VMware para o cenário do Azure
 
-Este artigo descreve como excluir discos quando replicar VMs de VMware para o Azure. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam. Se precisar de informações sobre excluindo discos para o Hyper-V, leia [neste artigo](hyper-v-exclude-disk.md)
+Este artigo descreve como excluir discos quando replicar VMs de VMware para o Azure. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam. Se precisar de informações sobre como excluir discos do Hyper-V, leia [neste artigo](hyper-v-exclude-disk.md)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,7 +50,7 @@ Siga o fluxo de trabalho [Enable replication (Ativar a replicação)](vmware-azu
 
 >[!NOTE]
 >
-> * Só pode excluir discos que já tenham o serviço de Mobilidade instalado. Tem de instalar manualmente o serviço de Mobilidade, porque este só é instalado através do mecanismo push depois de a replicação ser ativada.
+> * Só pode excluir discos em VMs que já tenham o serviço de mobilidade instalado. Tem de instalar manualmente o Serviço de mobilidade, porque este só é instalado através do mecanismo push depois de a replicação ser ativada.
 > * Apenas os discos básicos podem ser excluídos da replicação. Não é possível excluir discos do sistema operativo ou discos dinâmicos.
 > * Após ativar a replicação, não pode adicionar ou remover discos para replicação. Se pretende adicionar ou excluir um disco, tem de desativar a proteção da máquina e reativá-la novamente.
 > * Se excluir um disco necessário para o funcionamento de uma aplicação, após a ativação pós-falha do Azure, terá de criar o disco manualmente no Azure, para que a aplicação replicada possa ser executada. Em alternativa, pode integrar a automatização do Azure num plano de recuperação para criar o disco durante a ativação pós-falha da máquina.
