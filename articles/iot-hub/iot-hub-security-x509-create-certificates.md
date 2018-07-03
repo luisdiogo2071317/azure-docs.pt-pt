@@ -1,42 +1,38 @@
 ---
-title: Como utilizar o PowerShell para criar certificados x. 509 | Microsoft Docs
-description: Como utilizar o PowerShell para criar certificados x. 509 localmente e ativar o x. 509 com a base de segurança do seu hub IoT do Azure num ambiente simulado.
-services: iot-hub
-documentationcenter: ''
+title: Como utilizar o PowerShell para criar certificados X.509 | Documentos da Microsoft
+description: Como utilizar o PowerShell para criar certificados X.509 localmente e ativar o X.509 com a base de segurança do seu hub IoT do Azure num ambiente simulado.
 author: dsk-2015
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d0063ff79a0bda88fffb486f03286f6784ece7fa
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34637604"
 ---
-# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerir os certificados x. 509 assinado para AC
+# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerir os certificados X.509 assinado pela AC
 
-A segurança baseada em certificados de x. 509 no IoT Hub requer começar com uma [cadeia de certificados x. 509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), que inclui o certificado de raiz, bem como quaisquer certificados intermediários até o certificado de folha. Isto *como* guia explica como scripts do PowerShell de exemplo que utilizam [OpenSSL](https://www.openssl.org/) para criar e assinar certificados x. 509. Recomendamos que utilize este guia para experimentação apenas, uma vez que muitos destes passos acontecerá durante o processo no mundo real de fabrico. Pode utilizar estes certificados para simular a segurança na sua hub IoT do Azure ao utilizar o *autenticação de certificado x. 509*. Os passos neste guia criam certificados localmente no seu computador Windows. 
+A segurança baseada em certificados X.509 no IoT Hub, tem de começar com uma [cadeia de certificados X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), que inclui o certificado de raiz, bem como quaisquer certificados intermédios até o certificado de folha. Isso *como* guia o orienta através de scripts do PowerShell de exemplo que utilizam [OpenSSL](https://www.openssl.org/) para criar e assinar os certificados X.509. Recomendamos que utilize este guia para a experimentação apenas, uma vez que muitos destes passos irão acontecer durante o processo no mundo real de fabrico. Pode utilizar estes certificados para simular a segurança no seu hub IoT do Azure com o *autenticação de certificados X.509*. Os passos neste guia criam certificados localmente no seu computador Windows. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tutorial parte do princípio de que os binários de OpenSSL tiver adquirido. O utilizador pode:
-    - Transferir o código de origem do OpenSSL e os binários de compilação no seu computador, ou 
-    - transferir e instalar qualquer [binários de OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, do [este projeto no SourceForge](https://sourceforge.net/projects/openssl/).
+Este tutorial parte do princípio de que tiver adquirido os binários de OpenSSL. Pode optar por
+    - Baixe o código-fonte OpenSSL e criar os binários no seu computador, ou 
+    - Transfira e instale qualquer [binários de OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, do [neste projeto no SourceForge](https://sourceforge.net/projects/openssl/).
 
 <a id="createcerts"></a>
 
-## <a name="create-x509-certificates"></a>Criar certificados x. 509
-Os passos seguintes mostram um exemplo de como criar os certificados de raiz de x. 509 localmente. 
+## <a name="create-x509-certificates"></a>Criar certificados X.509
+Os passos seguintes mostram um exemplo de como criar os certificados de raiz X.509 localmente. 
 
 1. Abra uma janela do PowerShell como um *administrador*.  
-   **Nota:** tem de abrir este no PowerShell próprio, não ISE do PowerShell, Visual Studio Code ou outras ferramentas que moldam a consola do PowerShell subjacente.  Utilização de uma consola não baseada em PowerShell irá resultar no `openssl` comandos abaixo pendente.
+   **Nota:** tem de abrir isto no PowerShell em si, não ISE do PowerShell, Visual Studio Code ou outras ferramentas que encapsulam a consola do PowerShell subjacente.  PowerShell com base através de uma consola não irá resultar em `openssl` comandos abaixo.
 
-2. Navegue para o diretório de trabalho. Execute o script seguinte para definir as variáveis globais. 
+2. Navegue para o seu diretório de trabalho. Execute o seguinte script para definir as variáveis globais. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
     $errorActionPreference    = "stop"
@@ -58,7 +54,7 @@ Os passos seguintes mostram um exemplo de como criar os certificados de raiz de 
     # Whether to use ECC or RSA.
     $useEcc                     = $true
     ```
-3. Execute o seguinte script que copia os binários de OpenSSL para o diretório de trabalho e define variáveis de ambiente:
+3. Execute o seguinte script, que copia os binários de OpenSSL para seu diretório de trabalho e define as variáveis de ambiente:
 
     ```PowerShell
     function Initialize-CAOpenSSL()
@@ -80,7 +76,7 @@ Os passos seguintes mostram um exemplo de como criar os certificados de raiz de 
     }
     Initialize-CAOpenSSL
     ```
-4. Em seguida, execute o script seguinte que procura se um certificado especificado pelo *nome do requerente* já estiver instalado, e se OpenSSL está corretamente configurado no seu computador:
+4. Em seguida, execute o seguinte script que procura se um certificado especificado pelo *nome do requerente* já estiver instalado, e se OpenSSL está configurado corretamente no seu computador:
     ```PowerShell
     function Get-CACertBySubjectName([string]$subjectName)
     {
@@ -115,13 +111,13 @@ Os passos seguintes mostram um exemplo de como criar os certificados de raiz de 
     }
     Test-CAPrerequisites
     ```
-    Se está tudo configurado corretamente, deverá ver "Êxito" mensagem. 
+    Se tudo está configurada corretamente, deverá ver "Êxito" mensagem. 
 
 <a id="createcertchain"></a>
 
-## <a name="create-x509-certificate-chain"></a>Criar cadeia de certificados x. 509
-Criar uma cadeia de certificados com uma raiz de AC, por exemplo, "CN = AC de raiz de IoT do Azure" que utiliza este exemplo, executando o seguinte script do PowerShell. Este script também atualiza o arquivo de certificados do sistema operativo Windows, também cria ficheiros de certificado no seu diretório de trabalho. 
-    1. O script seguinte cria uma função do PowerShell para criar um certificado autoassinado, para um determinado *nome do requerente* e a autoridade de assinatura. 
+## <a name="create-x509-certificate-chain"></a>Criar cadeia de certificados X.509
+Criar uma cadeia de certificados com uma raiz de AC, por exemplo, "CN = AC de raiz de IoT do Azure" que este exemplo utiliza, executando o seguinte script do PowerShell. Este script também atualiza o arquivo de certificados de SO Windows, também cria ficheiros de certificado no seu diretório de trabalho. 
+    1. O seguinte script cria uma função do PowerShell para criar um certificado autoassinado, para um determinado *nome do requerente* e a autoridade de assinatura. 
     ```PowerShell
     function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
@@ -157,7 +153,7 @@ Criar uma cadeia de certificados com uma raiz de AC, por exemplo, "CN = AC de ra
         write (New-SelfSignedCertificate @selfSignedArgs)
     }
     ``` 
-    2. A seguinte função do PowerShell cria intermédios certificados x. 509 utilizando a função anterior, bem como os binários de OpenSSL. 
+    2. A seguinte função do PowerShell cria certificados X.509 intermediários, usando a função anterior, bem como os binários de OpenSSL. 
     ```PowerShell
     function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
@@ -174,7 +170,7 @@ Criar uma cadeia de certificados com uma raiz de AC, por exemplo, "CN = AC de ra
         write $newCert
     }  
     ```
-    3. A função do PowerShell seguinte cria a cadeia de certificados x. 509. Leitura [certificado encadeie](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) para obter mais informações.
+    3. A seguinte função do PowerShell cria a cadeia de certificados X.509. Leia [cadeias de certificados](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification) para obter mais informações.
     ```PowerShell
     function New-CACertChain()
     {
@@ -192,15 +188,15 @@ Criar uma cadeia de certificados com uma raiz de AC, por exemplo, "CN = AC de ra
         Write-Host "Success"
     }    
     ```
-    Este script cria um ficheiro denominado *RootCA.cer* no seu diretório de trabalho. 
-    4. Por fim, utilize as funções de PowerShell acima para criar a cadeia de certificados x. 509, executando o comando `New-CACertChain` na janela do PowerShell. 
+    Este script cria um ficheiro denominado *RootCA.cer* no diretório de trabalho. 
+    4. Por último, utilize as funções de PowerShell acima para criar a cadeia de certificados X.509, ao executar o comando `New-CACertChain` na janela do PowerShell. 
 
 
 <a id="signverificationcode"></a>
 
-## <a name="proof-of-possession-of-your-x509-ca-certificate"></a>Prova de posse do seu certificado de AC de x. 509
+## <a name="proof-of-possession-of-your-x509-ca-certificate"></a>Prova de posse do seu certificado X.509 de AC
 
-Este script executa o *prova de posse* fluxo para o certificado x. 509. 
+Este script executa o *uma prova de posse* fluxo para o seu certificado X.509. 
 
 Na janela do PowerShell no seu ambiente de trabalho, execute o seguinte código:
    
@@ -225,16 +221,16 @@ Na janela do PowerShell no seu ambiente de trabalho, execute o seguinte código:
    New-CAVerificationCert "<your verification code>"
    ```
 
-Este código cria um certificado com o nome de requerente determinado assinado pela AC, como um ficheiro denominado *VerifyCert4.cer* no seu diretório de trabalho. Este ficheiro de certificado irão ajudá-lo a validar o seu IoT hub que tem a permissão de assinatura (ou seja, a chave privada) desta AC.
+Este código cria um certificado com o nome de requerente determinado, assinado pela AC, como um ficheiro denominado *VerifyCert4.cer* no diretório de trabalho. Este ficheiro de certificado irá ajudar a validar com o seu hub IoT que tem a permissão de assinatura (ou seja, a chave privada) desta AC.
 
 
 <a id="createx509device"></a>
 
-## <a name="create-leaf-x509-certificate-for-your-device"></a>Criar certificado x. 509 de folha para o seu dispositivo
+## <a name="create-leaf-x509-certificate-for-your-device"></a>Criar certificado X.509 de folha para o seu dispositivo
 
-Esta secção mostra que pode utilizar um script do PowerShell que cria um certificado de dispositivo de folha e a cadeia de certificados correspondentes. 
+Esta secção mostra que pode utilizar um script do PowerShell que cria um certificado de folha de dispositivo e a cadeia de certificados correspondentes. 
 
-Na janela do PowerShell no seu computador local, execute o script seguinte para criar um certificado assinado para AC x. 509 para este dispositivo:
+Na janela do PowerShell no seu computador local, execute o seguinte script para criar um certificado X.509 assinado pela AC para este dispositivo:
 
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
@@ -276,14 +272,14 @@ Na janela do PowerShell no seu computador local, execute o script seguinte para 
    }
    ```
 
-Em seguida, execute `New-CADevice "<yourTestDevice>"` na janela do PowerShell, utilizando o nome amigável que utilizou para criar o seu dispositivo. Quando lhe for pedido para a palavra-passe para a chave privada da AC, introduza "123". Esta ação cria um  _<yourTestDevice>. pfx_ ficheiro no seu diretório de trabalho.
+Em seguida, execute `New-CADevice "<yourTestDevice>"` na janela do PowerShell, utilizando o nome amigável que utilizou para criar o seu dispositivo. Quando lhe for pedido para a palavra-passe para a chave privada da AC, introduza "123". Esta ação cria um  _<yourTestDevice>. pfx_ ficheiro no diretório de trabalho.
 
-## <a name="clean-up-certificates"></a>Limpar certificados
+## <a name="clean-up-certificates"></a>Limpar os certificados
 
-Na sua barra de início ou **definições** aplicação, procure e selecione **gerir certificados de computador**. Remover quaisquer certificados emitidos pela * * do Azure IoT AC TestOnly ***. Estes certificados devem existir em três seguintes localizações: 
+Na sua barra de início ou **configurações** aplicação, procure e selecione **gerir os certificados de computador**. Remover quaisquer certificados emitidos pela * * do Azure IoT AC TestOnly ***. Estes certificados devem existir nos seguintes três locais: 
 
 * Certificados - Computador Local > pessoal > certificados
 * Certificados - Computador Local > autoridades de certificação de raiz fidedigna > certificados
 * Certificados - Computador Local > autoridades de certificação intermediárias > certificados
 
-   ![Remover certificados TestOnly de AC de IoT do Azure](./media/iot-hub-security-x509-create-certificates/cleanup.png)
+   ![Remover certificados de AC TestOnly do Azure IoT](./media/iot-hub-security-x509-create-certificates/cleanup.png)

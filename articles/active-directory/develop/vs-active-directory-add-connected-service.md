@@ -1,6 +1,6 @@
 ---
-title: A adição de um Azure Active Directory utilizando os serviços ligados no Visual Studio
-description: Adicionar um Azure Active Directory utilizando a caixa de diálogo do Visual Studio adicionar ligado serviços
+title: Adicionar um Azure Active Directory com os serviços ligados no Visual Studio
+description: Adicione um Azure Active Directory, utilizando a caixa de diálogo do Visual Studio adicionar serviços ligados
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,65 +12,67 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: a87ed8630f86cf004a05cdb2ae8b34c479cdaf32
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34594088"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>A adição de um Azure Active Directory utilizando os serviços ligados no Visual Studio
+# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory com os serviços ligados no Visual Studio
 
-Ao utilizar o Azure Active Directory (Azure AD), pode suportar único Sign-On (SSO) para aplicações web de MVC do ASP.NET, ou a autenticação do Active Directory nos serviços de Web API. Com a autenticação do AD do Azure, os utilizadores podem utilizar as contas do Azure Active Directory para ligar às suas aplicações web. As vantagens do Azure AD Authentication com Web API incluem a segurança de dados melhorado quando a exposição de uma API de uma aplicação web. Com o Azure AD, não é necessário que gerir um sistema de autenticação separado com a sua própria conta e o utilizador de gestão.
+Ao utilizar o Azure Active Directory (Azure AD), pode suportar o único início de sessão (SSO) para aplicativos da web de ASP.NET MVC, ou autenticação do Active Directory em serviços da Web API. Autenticação do Azure AD, seus usuários podem usar suas contas do Azure Active Directory para ligar às suas aplicações web. As vantagens da autenticação do Azure AD com a Web API incluem a segurança de dados avançados ao expor uma API de um aplicativo web. Com o Azure AD, não é necessário que gerir um sistema de autenticação separado com sua própria gestão de utilizadores e de conta.
 
-Este artigo e os respetivos artigos complementar fornecem detalhes de utilização da funcionalidade do Visual Studio ligado serviço para o Active Directory. A capacidade está disponível no Visual Studio 2017 e Visual Studio 2015.
+Este artigo e os respetivos artigos complementar fornecem detalhes de utilizar a funcionalidade de serviço ligado do Visual Studio para o Active Directory. A capacidade está disponível no Visual Studio 2017 e no Visual Studio 2015.
 
-Atualmente, o serviço ligado de Active Directory não suporta aplicações ASP.NET Core.
+No momento, o serviço ligado do Active Directory não suporta aplicações ASP.NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conta do Azure: Se não tiver uma conta do Azure, pode [inscrever-se numa avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Conta do Azure: Se não tiver uma conta do Azure, pode [Inscreva-se numa avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015** ou posterior. [Baixe agora o Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Ligar ao Azure Active Directory utilizando a caixa de diálogo Serviços ligados
+### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Ligar ao Azure Active Directory com a caixa de diálogo de serviços ligados
 
-1. No Visual Studio, criar ou abrir projeto MVC do ASP.NET ou um projeto API Web do ASP.NET. Pode utilizar o MVC, Web API, a aplicação de página única, aplicação API do Azure, aplicação móvel do Azure e modelos de serviço do Azure Mobile.
+1. No Visual Studio, crie ou abra um projeto ASP.NET MVC, ou um projeto ASP.NET Web API. Pode usar o MVC, Web API, aplicação de página única, aplicação de API do Azure, aplicação móvel do Azure e modelos de serviço do Azure Mobile.
 
-1. Selecione o **projeto > adicionar o serviço ligado...**  comandos de menu ou faça duplo clique o **serviços ligados** possível localizar o projeto no Explorador de soluções de nó.
+1. Selecione o **projeto > Adicionar serviço ligado...**  comando de menu ou faça duplo clique o **serviços ligados** nó encontrado-se no projeto no Explorador de soluções.
 
-1. No **serviços ligados** página, selecione **autenticação no Azure Active Directory**.
+1. Sobre o **serviços ligados** página, selecione **autenticação com o Azure Active Directory**.
 
     ![Página de serviços ligada](./media/vs-azure-active-directory/connected-services-add-active-directory.png)
 
-1. No **introdução** página, selecione **seguinte**. Se observar erros nesta página, consulte [diagnosticar erros com o serviço do Azure Active Directory ligado](vs-active-directory-error.md).
+1. Sobre o **introdução** página, selecione **próxima**. Se vir erros nesta página, consulte [diagnosticar erros com o serviço do Azure Active Directory ligado](vs-active-directory-error.md).
 
     ![Página de introdução](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. No **no início de sessão único** página, selecione um domínio do **domínio** na lista pendente. A lista contém todos os domínios acessíveis pelas contas listadas na caixa de diálogo Definições da conta do Visual Studio (**ficheiro > definições de conta...** ). Como alternativa, pode introduzir um nome de domínio, se não encontrar um que procura, tais como `mydomain.onmicrosoft.com`. Pode escolher a opção para criar uma aplicação do Azure Active Directory ou utiliza as definições de uma aplicação do Azure Active Directory existente. Selecione **seguinte** quando terminar.
+1. Na **no início de sessão único** , selecione um domínio a partir do **domínio** na lista pendente. A lista contém todos os domínios acessíveis por contas listadas na caixa de diálogo Definições de conta do Visual Studio (**ficheiro > definições da conta...** ). Como alternativa, pode introduzir um nome de domínio se não encontrar o que está procurando, tais como `mydomain.onmicrosoft.com`. Pode escolher a opção de criar uma aplicação do Azure Active Directory ou utilizar as definições de uma aplicação do Azure Active Directory existente. Selecione **seguinte** quando tiver terminado.
 
     ![Início de sessão único na página](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
-1. No **Directory acesso** página, selecione o **ler os dados de diretório** opção conforme pretendido. Os programadores incluem, geralmente, esta opção.
+1. Sobre o **acesso ao diretório** página, selecione a **ler dados do diretório** opção conforme pretendido. Os desenvolvedores incluem, geralmente, esta opção.
 
-    ![Página de acesso de diretório](./media/vs-azure-active-directory/configure-azure-ad-wizard-3.png)
+    ![Página de acesso do diretório](./media/vs-azure-active-directory/configure-azure-ad-wizard-3.png)
 
 1. Selecione **concluir** para iniciar as modificações ao seu projeto para ativar a autenticação do Azure AD. Durante este período, o Visual Studio mostra progresso:
 
     ![Progresso de serviço do Active Directory ligado](./media/vs-azure-active-directory/active-directory-connected-service-output.png)
 
-1. Quando o processo estiver concluído, o Visual Studio abre o browser para um dos seguintes artigos, conforme apropriado para o tipo de projeto:
+1. Quando o processo estiver concluído, o Visual Studio abre o browser para um dos artigos seguintes, conforme adequado ao seu tipo de projeto:
 
     - [Introdução aos projetos .NET MVC](vs-active-directory-dotnet-getting-started.md)
     - [Introdução aos projetos WebAPI](vs-active-directory-webapi-getting-started.md)
 
 1. Também pode ver o domínio do Active Directory no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-## <a name="how-your-project-is-modified"></a>Como o projeto é modificado
+## <a name="how-your-project-is-modified"></a>Como o seu projeto é modificado
 
-Ao adicionar o serviço ligado do assistente, o Visual Studio adiciona Azure Active Directory e as referências associadas ao seu projeto. Ficheiros de configuração e ficheiros de código no seu projeto também são modificados para adicionar suporte para o Azure AD. As modificações específicas que faz com que o Visual Studio dependem do tipo de projeto. Consulte os artigos seguintes para obter mais detalhes:
+Ao adicionar o serviço ligado do assistente, o Visual Studio adiciona o Azure Active Directory e as referências associadas ao seu projeto. Ficheiros de configuração e arquivos de código no seu projeto também são modificados para adicionar suporte para o Azure AD. As modificações específicas que o Visual Studio faz dependem do tipo de projeto. Veja os artigos seguintes para obter mais detalhes:
 
 - [O que aconteceu ao meu projeto .NET MVC?](vs-active-directory-dotnet-what-happened.md)
-- [O que aconteceu ao meu projeto Web API?](vs-active-directory-webapi-what-happened.md)
+- [O que aconteceu ao meu projeto de Web API?](vs-active-directory-webapi-what-happened.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Cenários de autenticação do Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)

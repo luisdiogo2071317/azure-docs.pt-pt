@@ -3,7 +3,7 @@ title: Analisar a utilização de dados do Log Analytics | Microsoft Docs
 description: Utilize o dashboard “Utilização e custo estimado” no Log Analytics para avaliar a quantidade de dados que são enviados para o Log Analytics e identificar o que poderá provocar aumentos não previstos.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-ms.translationtype: HT
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209821"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128569"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 O Log Analytics inclui informações sobre a quantidade de dados recolhidos, as origens que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para rever e analisar a utilização de dados. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
@@ -151,7 +152,7 @@ Utilize os seguintes passos para reduzir o volume de registos recolhidos:
 
 | Origem do volume de dados elevado | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
-| Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar o registo](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [auditar o sistema de ficheiros](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [auditar o objeto de kernel](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [auditar a manipulação de identificadores](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [auditar o armazenamento amovível](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar o registo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> -Auditar o armazenamento amovível |
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
 | Registos de eventos                 | Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
 | Syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
@@ -165,7 +166,7 @@ Clique em **Ver todos...** para ver a lista completa dos computadores que estão
 
 Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 * Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
 * Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
