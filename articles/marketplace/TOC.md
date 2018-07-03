@@ -4,10 +4,10 @@
 ### Descrição Geral e Vantagens  
 ### Storefronts  
 #### [Comparar o AppSource e o Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Desenvolva a sua atividade com o AppSource](./grow-your-business-with-appsource.md)  
+#### [Desenvolva a sua atividade com o AppSource](./grow-your-business-with-appsource.md) 
+#### [Soluções Preferenciais](./preferred-solutions.md)
 ##### [Crie a sua Página de Destino](./build-your-landing-page.md)  
 ##### [Ativar a partilha de oportunidades potenciais](./enable-lead-sharing.md)  
-##### [Soluções Preferenciais](./preferred-solutions.md)
 ##### [Vantagens de GTM no marketplace](./gtm-benefits.md)  
 ##### [Faça Crescer o seu Negócio com a Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Desenvolva o seu negócio com o Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
