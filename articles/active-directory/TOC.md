@@ -380,6 +380,7 @@
 ### [Integrar identidades no local com o Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegar o acesso a recursos
+### [Ver os membros de uma função de administrador](directory-manage-roles-portal.md)
 ### [Funções de administrador](active-directory-assign-admin-roles-azure-portal.md)
 #### [Atribuir a função de administrador a um utilizador](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Comparar as permissões de utilizador membro e de convidado](fundamentals/users-default-permissions.md)

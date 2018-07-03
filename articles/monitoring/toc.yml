@@ -61,7 +61,7 @@
     - name: Máquinas virtuais
       items:
         - name: Estado de Funcionamento do Agente
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Análise de VMWare
           href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Mapa de Serviços
@@ -79,7 +79,7 @@
         - name: Estado de Replicação do AD
           href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Office 365
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: ../monitoring/monitoring-solution-office-365.md
         - name: Surface Hub
           href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Soluções de gestão
@@ -106,3 +106,5 @@
               href: monitoring-solutions-resources-views.md
             - name: Melhores práticas
               href: monitoring-solutions-best-practices.md
+            - name: Recolher dados de monitorização a partir de um runbook
+              href: monitoring-runbook-datacollect.md
