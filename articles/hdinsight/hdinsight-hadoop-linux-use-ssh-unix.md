@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179066"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046783"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ligar ao HDInsight (Hadoop) através de SSH
 
@@ -32,7 +32,7 @@ O HDInsight pode utilizar o Linux (Ubuntu) como o sistema operativo dos nós den
 
 | Endereço | Porta | Liga-se a... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó de extremidade (R Server no HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó periférico (Serviços ML no HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nó de extremidade (qualquer outro tipo de cluster, se existir um nó de extremidade) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nó principal primário |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nó principal secundário |
@@ -244,7 +244,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > Utilize `scp` quando tiver de carregar um recurso para utilização a partir de uma sessão SSH. Por exemplo, carregue um script de Python e, em seguida, execute o script a partir de uma sessão SSH.
 >
-> Para obter informações sobre o carregamento de dados diretamente para o armazenamento compatível com HDFS, veja os seguintes documentos:
+> Para obter informações sobre o carregamento de dados diretamente para o armazenamento compatível com HDFS, consulte os seguintes documentos:
 >
 > * [HDInsight com o Armazenamento do Azure](hdinsight-hadoop-use-blob-storage.md).
 >

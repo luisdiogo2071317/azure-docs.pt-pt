@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642398"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959550"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Início Rápido: implementar uma aplicação de serviços fiáveis do Service Fabric em Java no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores. 
@@ -120,13 +120,13 @@ Utilize o método que preferir para importar o certificado para o seu sistema. P
 
 Têm de ser adicionados thumbprints de certificados à sua aplicação, uma vez que está a utilizar modelos de programação do Service Fabric. 
 
-1. Precisará do thumbprint do seu certificado no ficheiro ```Voting/VotingApplication/ApplicationManiest.xml``` ao executar num cluster seguro. Execute o seguinte comando para extrair o thumbprint do certificado.
+1. Precisará do thumbprint do seu certificado no ficheiro `Voting/VotingApplication/ApplicationManifest.xml` ao executar num cluster seguro. Execute o seguinte comando para extrair o thumbprint do certificado.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. No ```Voting/VotingApplication/ApplicationManiest.xml```, adicione o seguinte fragmento de código na etiqueta **ApplicationManifest**. O **X509FindValue** deverá ser o thumbprint do passo anterior (sem ponto e vírgula). 
+2. No ficheiro `Voting/VotingApplication/ApplicationManifest.xml`, adicione o seguinte fragmento de código na etiqueta **ApplicationManifest**. O **X509FindValue** deverá ser o thumbprint do passo anterior (sem ponto e vírgula). 
 
     ```xml
     <Certificates>

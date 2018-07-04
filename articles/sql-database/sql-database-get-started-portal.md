@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d5bc6b63a6322919afd65f6e77371f5504bba64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5592a22a5e9dad8b0b0aa2e9c9f704db9a31c914
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648977"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308229"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
 
@@ -77,9 +77,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
 6. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs e a quantidade de armazenamento. Explore as opções para a quantidade de DTUs e de armazenamento que tem disponível para cada camada de serviço.
 
    > [!IMPORTANT]
-   > - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-   >- No escalão Premium, está disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, EUA Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Está prevista uma disponibilidade mais ampla. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > No escalão Premium, está atualmente disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, E.U.A. Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 7. Para este início rápido, selecione o escalão de preço **Standard** e, em seguida, utilize o controlo de deslize para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 
@@ -88,10 +86,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
 8. Aceitd os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**.
 
    > [!IMPORTANT]
-   > - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-   >
-   > - No escalão Premium, está disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, EUA Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Está prevista uma disponibilidade mais ampla. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > No escalão Premium, está atualmente disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, E.U.A. Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 

@@ -7,18 +7,18 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 03/07/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d730c886d2b591a8c7957f2f91cb193d93bf4be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2a82f9c267a89ac4af3239ebc7ce6bbfd3840fe
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649997"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308915"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure? 
 
-A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. A Base de Dados SQL fornece [bases de dados SQL únicas](sql-database-servers-databases.md) geridas, bases de dados SQL geridas num [conjunto elástico](sql-database-elastic-pool.md) e [Instâncias Geridas](sql-database-managed-instance.md) SQL (em pré-visualização pública). Fornece desempenho dinamicamente dimensionável em dois modelos de compra diferentes ([modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (pré-visualização)](sql-database-service-tiers-vcore.md). A Base de Dados SQL disponibiliza também opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP dentro da memória](sql-database-in-memory.md) para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente. 
+A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. A Base de Dados SQL oferece servidores lógicos que podem conter [bases de dados SQL únicas](sql-database-servers-databases.md), [conjuntos elásticos](sql-database-elastic-pool.md) e [Instâncias Geridas](sql-database-managed-instance.md) (em pré-visualização pública) que contém o sistema e bases de dados do utilizador. A Base de Dados SQL oferece desempenho dinamicamente dimensionável em dois modelos de compra diferentes: um [modelo de compra baseado em vCore (pré-visualização)](sql-database-service-tiers-vcore.md) e um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). A Base de Dados SQL disponibiliza também opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP dentro da memória](sql-database-in-memory.md) para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente. 
 
 A Base de Dados SQL partilha a base de código com o [motor de bases de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia da cloud prioritária da Microsoft, as mais recentes capacidades do SQL Server são lançadas primeiro na Base de Dados SQL e, depois, no próprio SQL Server. Esta abordagem disponibiliza-lhe as últimas capacidades do SQL Server sem sobrecarga em termos de aplicação de patches ou atualizações - com estas funcionalidades novas testadas em milhões de bases de dados. Para obter informações sobre as novas capacidades quando são anunciadas, veja:
 
@@ -30,7 +30,7 @@ A Base de Dados SQL partilha a base de código com o [motor de bases de dados do
 
 A Base de Dados SQL proporciona um desempenho previsível a vários níveis de serviço, que fornece escalabilidade dinâmica sem tempo de inatividade, otimização inteligente incorporada, escalabilidade e disponibilidade globais e opções de segurança avançadas — tudo isto sem praticamente qualquer administração. Estas capacidades permitem-lhe concentrar-se no desenvolvimento rápido de aplicações e acelerar o seu tempo de colocação no mercado, em vez de alocar tempo e recursos valiosos para a gestão de máquinas virtuais e de infraestruturas. O serviço Base de Dados SQL encontra-se atualmente em 38 datacenters em todo o mundo, sendo que são colocados online mais datacenters regularmente, o que lhe permite executar a sua base de dados num datacenter perto de si.
 
-> [!IMPORTANT]
+> [!NOTE]
 > A Instância Gerida da Base de Dados SQL está atualmente em pré-visualização e só está disponível num único nível de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md).
 >
 
@@ -46,14 +46,11 @@ A Base de Dados SQL oferece uma [DTU com base no modelo de compra](sql-database-
 - O modelo de compra baseado em DTU oferece um blend de computação, memória e recursos de E/S em três camadas de serviço para suportar cargas de trabalho de base de dados leves a pesadas: Basic, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
 - O modelo de compra baseado em vCore (pré-visualização) permite-lhe escolher o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
 
-Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica* permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
-   ![Dimensionamento de DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade. Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados. No entanto, existem scripts que podem ajudar a automatizar a escalabilidade de uma Base de Dados SQL do Azure única. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
 A Instância Gerida da Base de Dados SQL está em pré-visualização e disponibiliza um único escalão de serviço. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md)
-
-  > [!IMPORTANT]
-  > \*A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade. Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados. No entanto, existem scripts que podem ajudar a automatizar a escalabilidade de uma Base de Dados SQL do Azure única. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -86,7 +83,7 @@ Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósti
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
+O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/legal/sla/) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. A plataforma do Azure gere totalmente cada Base de Dados SQL do Azure e garante que nenhum dado é perdido e elevada percentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é alcançada ao integrar a computação e o armazenamento num único nó para obter desempenho e, em seguida, implementar Grupos de Disponibilidade Always nos bastidores. Para ver um debate completo das funcionalidades de elevada disponibilidade da Base de Dados SQL do Azure, veja [Disponibilidade da Base de Dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
 
 - **[Cópias de segurança automáticas](sql-database-automated-backups.md)**: a Base de Dados SQL faz cópias de segurança completas, diferenciais e de registos de transações.
 - **[Restauros para um ponto anterior no tempo](sql-database-recovery-using-backups.md)**: a Base de Dados SQL suporta a recuperação para qualquer ponto anterior no tempo dentro do período de retenção de cópias de segurança automáticas.
@@ -117,33 +114,25 @@ Estão disponíveis dois aspetos de otimização automática na [Base de Dados S
 
 Também adicionámos o conjunto de funcionalidades de [processamento de consultas adaptável](/sql/relational-databases/performance/adaptive-query-processing) à Base de Dados SQL, incluindo a execução intercalada para funções de valor de tabela com múltiplas instruções, feedback de concessão de memória no modo de lote e associações adaptativas no modo de lote. Todas estas funcionalidades de processamento de consultas adaptativo aplica técnicas de “aprendizagem e adaptação” semelhantes, o que ajuda a ir ainda mais longe na resolução de problemas de desempenho relacionados com questões de otimização de consultas historicamente complicadas.
 
-### <a name="intelligent-threat-detection"></a>Deteção de ameaças inteligente
-
- A [Deteção de Ameaças do SQL](sql-database-threat-detection.md) tira partido da [auditoria da Base de Dados SQL](sql-database-auditing.md) para monitorizar continuamente as bases de dados SQL do Azure relativamente a tentativas prejudiciais de aceder a dados confidenciais. A deteção de ameaças do SQL proporciona uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem, ao fornecer alertas de segurança para atividades anómalas. Os utilizadores recebem alertas sobre atividades suspeitas nas bases de dados, potenciais vulnerabilidades, ataques de injeção de SQL e padrões de acesso anómalos às bases de dados. Os alertas da deteção de ameaças do SQL mostram detalhes da atividade suspeita e a ação recomendada para investigar e mitigar essa ameaça. Os utilizadores podem explorar os eventos suspeitos para determinar se estes resultam de uma tentativa de aceder, violar ou explorar dados na base de dados. A deteção de ameaças facilita lidar com potenciais ameaças à base de dados sem que seja necessário ser especialista em segurança ou gerir sistemas de monitorização de segurança avançados.
-
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
 A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e conformidade incorporadas](sql-database-security-overview.md), para ajudar a sua aplicação a cumprir diversos requisitos de segurança e conformidade. 
+
+### <a name="advance-threat-protection"></a>Proteção Avançada Contra Ameaças
+
+O SQL Advanced Threat Protection é um pacote unificado para capacidades avançadas de segurança do SQL. Inclui a funcionalidade para detetar e classificar dados confidenciais, gerir as vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
+
+- A [Deteção de Dados e Classificação](sql-database-data-discovery-and-classification.md) (atualmente em pré-visualização) oferece capacidades incorporadas na Base de Dados SQL do Azure para detetar, classificar, etiquetar e proteger os dados confidenciais nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites.
+- A [Avaliação da Vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+- A [Deteção de Ameaças](sql-database-threat-detection.md) deteta ameaças anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar a sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas da Deteção de Ameaças mostram detalhes da atividade suspeita e a ação recomendada para investigar e mitigar essa ameaça.
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria para conformidade e segurança
 
 A [Auditoria da Base de Dados SQL](sql-database-auditing.md) regista os eventos da base de dados e escreve-os num registo de auditoria na sua conta de armazenamento do Azure. A auditoria pode ajudá-lo a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que possam traduzir preocupações comerciais ou suspeitas de violações de segurança.
 
-### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="data-encryption"></a>Encriptação de dados
 
-A [encriptação de dados transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) da Base de Dados SQL ajuda a proteger contra a ameaça de atividades maliciosas, ao fazer a encriptação e desencriptação inativa em tempo real da base de dados, das cópias de segurança associadas e dos ficheiros de registo de transações sem que seja necessário fazer alterações à aplicação. A partir de maio de 2017, todas as bases de dados SQL do Azure novas estão automaticamente protegidas com a encriptação de dados transparente (TDE). A TDE é a tecnologia comprovada de encriptação inativa do SQL e que é exigida por muitas normas de conformidade para proteger de roubos de suportes de dados de armazenamento. Os clientes podem utilizar o Azure Key Vault para gerir as chaves e outros segredos da encriptação TDE de uma forma segura e que está em conformidade.
-
-### <a name="data-encryption-in-motion"></a>Encriptação de dados ativa
-
-A Base de Dados SQL é o único sistema de bases de dados a oferecer proteção de dados confidenciais em movimento, inativos e durante o processamento de consultas com [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted é uma funcionalidade pioneira da indústria que oferece segurança de dados sem paralelo contra violações que envolvam o roubo de dados confidenciais. Por exemplo, com o Always Encrypted, os números dos cartões de crédito dos clientes são sempre armazenados encriptados na base de dados, inclusivamente durante o processamento de consultas, permitindo a desencriptação no local de utilização por parte das equipas autorizadas ou das aplicações que têm de processar esses dados.
-
-### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
-
-A [máscara de dados dinâmica da Base de Dados SQL](sql-database-dynamic-data-masking-get-started.md) limita a exposição de dados confidenciais ao mascará-los para utilizadores sem privilégios. A máscara de dados dinâmica ajuda a evitar acessos não autorizados a dados confidenciais, ao permitir aos clientes designar a quantidade de dados confidenciais a revelar com um impacto mínimo na camada de aplicação. É uma funcionalidade de segurança baseada em políticas que omite os dados confidenciais no conjunto de resultados de uma consulta em campos da base de dados designados, sendo que os dados na base de dados não são alterados.
-
-### <a name="row-level-security"></a>Segurança ao Nível da Linha
-
-A [segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos clientes controlar o acesso às linhas numa tabela da base de dados com base nas características do utilizador que executa uma consulta (como uma associação a um grupo ou contexto de execução). A segurança ao nível da linha (RLS) simplifica o design e a programação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. É possível, por exemplo, garantir que os colaboradores só têm acesso às linhas de dados que são pertinentes para o departamento deles ou limitar o acesso a dados por parte de um cliente apenas àqueles que são relevantes para a empresa dele.
+A Base de Dados SQL protege os seus dados ao oferecer encriptação para dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados inativos com [Encriptação de Dados Transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e para dados em utilização com [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 

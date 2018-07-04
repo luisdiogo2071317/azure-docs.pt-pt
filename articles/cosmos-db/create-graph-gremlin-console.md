@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 00e4da5fa1867aeddebe0e452f78ea24a3d0a821
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016612"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: criar, consultar e percorrer gráficos na consola Gremlin
 
@@ -45,11 +45,11 @@ Também tem de instalar a [consola Gremlin](http://tinkerpop.apache.org/). Utili
 
 ## <a id="ConnectAppService"></a>Ligar ao seu serviço de aplicações
 1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*:
+2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*, conforme definido na seguinte tabela:
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    anfitriões|[*account-name*.gremlin.cosmosdb.azure.com] ou [*account-name*.graphs.azure.com] para contas criadas antes de 20 de dezembro de 2017|Veja a captura de ecrã abaixo. Este é o valor de Gremlin URI na página Descrição Geral do portal do Azure, entre parênteses, com :443/ à direita removido.<br><br>Este valor também pode ser obtido a partir do separador Chaves, com o valor do URI, ao remover https://, alterar os documentos para gráficos ou gremlin.cosmosdb e remover :443/ à direita.
+    anfitriões|[*account-name*.gremlin.cosmosdb.azure.com] ou [*account-name*.graphs.azure.com] para contas criadas antes de 20 de dezembro de 2017|Veja a captura de ecrã abaixo. Este é o valor de Gremlin URI na página Descrição Geral do portal do Azure, entre parênteses, com :443/ à direita removido.
     porta|443|Defina como 443.
     o nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.

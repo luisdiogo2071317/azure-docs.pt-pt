@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229953"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961643"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para informações sobre como monitorizar o AD FS com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md). Adicionalmente, para informações sobre como monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health para Sincronização](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health para Sincronização](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alertas para o Azure AD Connect Health para sincronização
 A secção Alertas do Azure AD Connect Health para sincronização apresenta-lhe a lista de alertas ativos. Cada alerta inclui informações relevantes, os passos de resolução e ligações para a documentação relacionada. Ao selecionar um alerta ativo ou resolvido, verá um novo painel com informações adicionais, bem como passos que pode tomar para resolver o alerta e ligações para documentação adicional. Pode também visualizar dados históricos de alertas que foram resolvidos no passado.
@@ -98,15 +98,18 @@ Aprofundar cada categoria irá fornecer a lista de objetos com o erro nessa cate
 ### <a name="error-details"></a>Detalhes do Erro
 Os dados seguintes estão disponíveis na vista detalhada de cada erro
 
+* Atributo em conflito destacado
 * Identificadores para o *Objeto do AD* envolvido
 * Identificadores para o *Objeto do Azure AD* envolvido (conforme aplicável)
 * Descrição do erro e como corrigi-lo
-* Artigos relacionados
 
-![Detalhes do Relatório de Erros de Sincronização](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Detalhes do Relatório de Erros de Sincronização](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Transferir o relatório de erros como CSV
 Ao selecionar o botão "Exportação", pode transferir um ficheiro CSV com todos os detalhes sobre todos os erros.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Diagnosticar e corrigir erros de sincronização 
+Para cenários de erro de sincronização de atributo duplicado específico que envolvem uma atualização de Âncora de Origem do utilizador, pode corrigi-los diretamente no portal. Leia mais sobre [Diagnosticar e resolver erros de sincronização de atributo duplicado](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Ligações relacionadas
 * [Resolver problemas de erros durante a sincronização](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

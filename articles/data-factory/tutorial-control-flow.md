@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: eec2b5f84d11c946c5cae1d7d90d0b96dacc9d8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f39b2b54509efabcab3a818c9f1b02645f5b099
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055197"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow/overview.png)
 
@@ -488,7 +486,7 @@ Na propriedade "Url", cole os pontos finais do URL do pedido do seu fluxo de tra
 - Mensagem – que transmite o valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acede a uma propriedade da atividade de cópia anterior e transmite o valor de dataWritten. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
 - Nome da Fábrica de Dados – que transmite o valor de `@{pipeline().DataFactory}`. Esta é uma variável do sistema, que lhe permite aceder ao nome da fábrica de dados correspondente. Para obter uma lista de variáveis do sistema, veja o artigo [Variáveis do Sistema](control-flow-system-variables.md).
 - Nome do pipeline – que transmite o valor de `@{pipeline().Pipeline}`. Também se trata de uma variável do sistema, que lhe permite aceder ao nome do pipeline correspondente. 
-- Recetor – que transmite o valor de "@pipeline().parameters.receiver"), acedendo aos parâmetros do pipeline.
+- Recetor – transmite o valor de "\@pipeline().parameters.receiver"). acedendo aos parâmetros do pipeline.
  
 Este código cria um nova Dependência da Atividade, dependendo da atividade de cópia anterior com êxito.
 

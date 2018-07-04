@@ -11,29 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 564ed357a838e5e0c3e6db869eefafb7925e155b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261505"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055215"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory 
+# <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 - GA](v1/data-factory-create-pipelines.md)
-> * [Versão 2 - Pré-visualização](concepts-pipelines-activities.md)
+> * [Versão 1](v1/data-factory-create-pipelines.md)
+> * [Versão atual](concepts-pipelines-activities.md)
 
 Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e a utilizá-los para construir fluxos de dados completos e orientados por dados para os seus cenários de movimento de dados e processamento de dados.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Pipelines in Data Factory version 1](v1/data-factory-create-pipelines.md) (Pipelines na versão 1 do Data Factory).
-> 
-> Este artigo pressupõe que já leu [Introdução ao Azure Data Factory](introduction.md) e [Tutorial de início rápido](quickstart-create-data-factory-powershell.md).
-
 ## <a name="overview"></a>Descrição geral
-Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam dados de registos e, depois, arrancam um trabalho do Spark num cluster do HDInsight para analisar esses dados de registo. O que isto tem de bom é que o pipeline lhe permite gerir as atividades como um conjunto, em vez de individualmente. Por exemplo, pode implementar e agendar o pipeline em vez das atividades individualmente.  
+Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam dados de registos e, depois, arrancam um trabalho do Spark num cluster do HDInsight para analisar esses dados de registo. O que isto tem de bom é que o pipeline lhe permite gerir as atividades como um conjunto, em vez de individualmente. Por exemplo, pode implementar e agendar o pipeline em vez das atividades individualmente.
 
 As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um SQL Server no local para um Armazenamento de Blobs do Azure. Em seguida, utilize uma atividade do Hive que execute um script do Hive num cluster do Azure HDInsight para processar/transformar os dados do armazenamento de blobs para produzir dados de saída. Por fim, utilize uma segunda atividade de cópia para copiar os dados de saída para um armazém do Azure SQL Data Warehouse sobre o qual são criadas soluções de relatórios de business intelligence (BI).
 
@@ -64,7 +59,7 @@ Atividade de transformação de dados | Ambiente de computação
 [Procedimento Armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 
-Para obter mais informações, veja o artigo [Data Transformation Activities](transform-data.md) (Atividades de Transformação de Dados). 
+Para obter mais informações, veja o artigo [Data Transformation Activities](transform-data.md) (Atividades de Transformação de Dados).
 
 ## <a name="control-activities"></a>Atividades de controlo
 São suportadas as atividades de fluxo de controlo abaixo:
@@ -73,20 +68,20 @@ Atividade de controlo | Descrição
 ---------------- | -----------
 [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md) | A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
 [Atividade ForEach](control-flow-for-each-activity.md) | A atividade ForEach define um fluxo de controlo de repetição no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
-[Atividade Web](control-flow-web-activity.md) | A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
-[Atividade de Pesquisa](control-flow-lookup-activity.md) | A atividade de Pesquisa pode ser utilizada para ler ou procurar registos/nomes de tabelas/valores em qualquer origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes. 
-[Atividade Obter Metadados](control-flow-get-metadata-activity.md) | A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory. 
+[Atividade Web](control-flow-web-activity.md) | A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
+[Atividade de Pesquisa](control-flow-lookup-activity.md) | A atividade de Pesquisa pode ser utilizada para ler ou procurar registos/nomes de tabelas/valores em qualquer origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes.
+[Atividade Obter Metadados](control-flow-get-metadata-activity.md) | A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory.
 [Atividade Until](control-flow-until-activity.md) | Implementa o ciclo Do-Until que é semelhante à estrutura de ciclo Do-Until nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory.
 [Atividade Se Condição](control-flow-if-condition-activity.md) | Se Condição pode ser utilizada com base em ramos numa condição que é avaliada como verdadeira ou falsa. A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`.
-[Atividade Aguardar](control-flow-wait-activity.md) | Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
+[Atividade Aguardar](control-flow-wait-activity.md) | Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes.
 
 ## <a name="pipeline-json"></a>JSON dos pipelines
-Eis como os pipelines são definidos no formato JSON: 
+Eis como os pipelines são definidos no formato JSON:
 
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities":
@@ -114,7 +109,7 @@ As atividades de execução incluem [atividades de movimento de dados](#data-mov
 ```json
 {
     "name": "Execution Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -142,7 +137,7 @@ política | Políticas que afetam o comportamento de runtime da atividade. Esta 
 dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | Não
 
 ### <a name="activity-policy"></a>Política das atividades
-As políticas afetam o comportamento de runtime de uma atividade, proporcionando opções de configuração. As políticas das Atividades só estão disponíveis para as atividades de execução. 
+As políticas afetam o comportamento de runtime de uma atividade, proporcionando opções de configuração. As políticas das Atividades só estão disponíveis para as atividades de execução.
 
 ### <a name="activity-policy-json-definition"></a>Definição JSON da política de atividade
 
@@ -160,7 +155,8 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
          "policy": {
             "timeout": "00:10:00",
             "retry": 1,
-            "retryIntervalInSeconds": 60
+            "retryIntervalInSeconds": 60,
+            "secureOutput": true
          }
         }
       ],
@@ -175,6 +171,7 @@ Nome JSON | Descrição | Valores Permitidos | Necessário
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
 retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
 retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. A predefinição é 20 segundos
+secureOutput | Quando definido como verdadeiro, o resultado da atividade é considerado seguro e não será registado na monitorização. | Booleano | Não. A predefinição é falso.
 
 ### <a name="control-activity"></a>Atividade de controlo
 As atividades de controlo têm a estrutura de nível superior seguinte:
@@ -182,7 +179,7 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 ```json
 {
     "name": "Control Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -195,14 +192,14 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 
 Etiqueta | Descrição | Necessário
 --- | ----------- | --------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul> 
+nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-activities). | Sim
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
 dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency). | Não
 
 ### <a name="activity-dependency"></a>Dependência das atividades
-A Dependência das atividades define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes. 
+A Dependência das atividades define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
 
 As condições de dependência diferentes são: Bem-sucedida, Falha, Ignorada, Concluída.
 
@@ -218,7 +215,7 @@ Por exemplo, se um pipeline tiver a Atividade A -> Atividade B, os diferentes ce
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities": [
@@ -293,7 +290,7 @@ No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na sec�
       }
     ]
   }
-} 
+}
 ```
 Tenha em atenção os seguintes pontos:
 
@@ -350,17 +347,17 @@ Tenha em atenção os seguintes pontos:
 
 A secção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades de tipos suportadas para atividades de transformação, clique na atividade de transformação em [Atividades de transformação de dados](#data-transformation-activities).
 
-Para obter instruções completas para criar este pipeline, veja [Tutorial: transformar dados com o Spark](tutorial-transform-data-spark-powershell.md). 
+Para obter instruções completas para criar este pipeline, veja [Tutorial: transformar dados com o Spark](tutorial-transform-data-spark-powershell.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Múltiplas atividades num pipeline
-Os dois pipelines de exemplo anteriores só contêm uma atividade. Pode ter mais de uma atividade num pipeline. Se tiver múltiplas atividades num pipeline e as atividades subsequentes não estiverem dependentes das atividades anteriores, as atividades podem ser executadas em paralelo. 
+Os dois pipelines de exemplo anteriores só contêm uma atividade. Pode ter mais de uma atividade num pipeline. Se tiver múltiplas atividades num pipeline e as atividades subsequentes não estiverem dependentes das atividades anteriores, as atividades podem ser executadas em paralelo.
 
-Pode utilizar a [dependência das atividades](#activity-dependency) para encadear duas atividades; a dependência define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes. 
+Pode utilizar a [dependência das atividades](#activity-dependency) para encadear duas atividades; a dependência define de que forma é que as atividades subsequentes dependem das atividades anteriores, determinando a condição de continuação da execução da tarefa seguinte. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.
 
 ## <a name="scheduling-pipelines"></a>Agendamento de pipelines
-Os pipelines são agendados por acionadores. Existem diferentes tipos de acionadores (acionador Scheduler, que permite acionar vários pipelines de acordo com uma agenda, bem como o acionador manual, que aciona os pipelines a pedido). Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md). 
+Os pipelines são agendados por acionadores. Existem diferentes tipos de acionadores (acionador Scheduler, que permite acionar vários pipelines de acordo com uma agenda, bem como o acionador manual, que aciona os pipelines a pedido). Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
 
-Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) (Execução e acionadores de pipelines). 
+Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) (Execução e acionadores de pipelines).
 
 Por exemplo, imagine que tem um acionador Scheduler, o "Trigger A", que pretende que arranque o pipeline “MyCopyPipeline”. Defina o acionador, conforme mostrado no exemplo seguinte:
 
@@ -391,7 +388,7 @@ Por exemplo, imagine que tem um acionador Scheduler, o "Trigger A", que pretende
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines com atividades: 
+Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines com atividades:
 
 - [Criar um pipeline com uma atividade de cópia](quickstart-create-data-factory-powershell.md)
 - [Criar um pipeline cum uma atividade de transformação de dados](tutorial-transform-data-spark-powershell.md)

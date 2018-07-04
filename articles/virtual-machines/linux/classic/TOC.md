@@ -4,7 +4,7 @@
 ## [FAQ](faq-classic.md)
 
 # Introdução
-## [Criar uma VM do Linux com o portal do Azure](createportal-classic.md)
+## [Criar uma VM de Linux](createportal-classic.md)
 
 # Procedimento
 ## Computação

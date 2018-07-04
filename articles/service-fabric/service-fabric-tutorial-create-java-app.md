@@ -1,6 +1,6 @@
 ---
 title: Criar uma aplicação Java para o Service Fabric | Microsoft Docs
-description: Neste tutorial, irá aprender a criar uma aplicação Java de serviço fiável com um front-end, criar e um back-end com estado de serviços fiáveis, e a implementar a aplicação num cluster.
+description: Neste tutorial, vai aprender a criar uma aplicação Java de serviço fiável com um front-end, a criar um back-end com estado de serviços fiáveis e a implementar a aplicação num cluster.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dc67de00abb2eac2eeb6e2b6bf3798e3aa210152
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949893"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958681"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: criar e implementar uma aplicação com um serviço front-end de API Web em Java e um serviço back-end com estado
-Este tutorial é a primeira parte de uma série. Quando tiver terminado, terá uma aplicação de Voto com um front-end para a Web em Java que guarda os resultados das votações num serviço back-end com estado no cluster. Esta série de tutoriais requer que tenha uma máquina de programador do Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
+Este tutorial é a primeira parte de uma série. Quando tiver terminado, terá uma aplicação de Voto com um front-end para a Web em Java que guarda os resultados das votações num serviço back-end com estado no cluster. Esta série de tutoriais requer que tenha um computador de programador Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
 ![Aplicação de Voto Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -51,28 +51,28 @@ Antes de começar este tutorial:
 ## <a name="create-the-front-end-java-stateless-service"></a>Criar o serviço front-end em Java sem estado
 Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. O serviço sem estado em Java representa um servidor HTTP simples que aloja uma IU Web com a tecnologia AngularJS. Os pedidos de um utilizador são processados por este serviço sem estado e enviados como uma chamada de procedimento remoto para o serviço com estado para armazenar os votos. 
 
-1. Iniciar o Eclipse
+1. Inicie o Eclipse
 
-2. Criar um projeto com **Ficheiro**->**Novo**->**Outros**->**Service Fabric** -> **Projeto do Service Fabric**
+2. Crie um projeto com **Ficheiro**->**Novo**->**Outros**->**Service Fabric** ->**Service Fabric Project** (Projeto do Service Fabric)
 
     ![Caixa de diálogo Novo Projeto no Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. Na caixa de diálogo **Assistente de Projeto do ServiceFabric**, dê ao projeto o nome **Voto** e prima **Seguinte**
+3. Na caixa de diálogo **ServiceFabric Project Wizard** (Assistente de Projeto do ServiceFabric), dê ao projeto o nome **Voting** e prima **Next** (Seguinte)
 
     ![Escolher o serviço sem estado em Java na caixa de diálogo do novo serviço](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
-4. Na página **Adicionar Serviço**, escolha **Serviço sem Estado** e dê o nome **VotingWeb** ao seu serviço. Clique em **Concluir** para criar o projeto.
+4. Na página **Add Service** (Adicionar Serviço), escolha **Stateless Service** (Serviço Sem Estado) e dê o nome **VotingWeb** ao seu serviço. Clique em **Finish** (Concluir) para criar o projeto.
    
     ![Criar serviço sem estado]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
 
-    O Eclipse cria uma aplicação e um projeto de serviço, e apresenta-os no Explorador de Pacotes.
+    O Eclipse cria uma aplicação e um projeto de serviço e apresenta-os no Package Explorer (Explorador de Pacotes).
 
-    ![Explorador de Pacotes do Eclipse após a criação da aplicação]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
+    ![Package Explorer do Eclipse após a criação da aplicação]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
 
-A tabela fornece uma descrição breve de cada item no explorador de pacotes da captura de ecrã anterior. 
-| **Item do Explorador de Pacotes** | **Descrição** |
+A tabela mostra uma descrição breve de cada item no Package Explorer da captura de ecrã anterior. 
+| **Item do Package Explorer** | **Descrição** |
 | --- | --- |
-| PublishProfiles | Contém os ficheiros JSON que descrevem os detalhes do perfil de clusters locais e do Azure Service Fabric. O conteúdo destes ficheiros é utilizado pelo plug-in quando implementar a aplicação. |
+| PublishProfiles | Contém os ficheiros JSON que descrevem os detalhes do perfil de clusters locais e do Azure Service Fabric. O plug-in utiliza o conteúdo destes ficheiros durnte a implementação da aplicação. |
 | Scripts | Contém scripts de programa auxiliar que podem ser utilizados na linha de comandos para gerir rapidamente a sua aplicação com um cluster. |
 | VotingApplication | Contém a aplicação do Service Fabric que é enviada por push para o cluster do Service Fabric. |
 | VotingWeb | Contém os ficheiros de origem do serviço sem estado do front-end, juntamente com o ficheiro de compilação do gradle relacionados. |
@@ -80,13 +80,13 @@ A tabela fornece uma descrição breve de cada item no explorador de pacotes da 
 | settings.gradle | Contém os nomes de projetos do Gradle nesta pasta. |
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>Adicionar HTML e Javascript ao serviço VotingWeb
-Para adicionar uma IU que possa ser composta pelo serviço sem estado, adicione um ficheiro HTML ao *VotingApplication/VotingWebPkg/Code*. Este ficheiro HTML é então processado pelo servidor de HTTP simples incorporado para o serviço de Java sem estado. 
+Para adicionar uma IU que possa ser composta pelo serviço sem estado, adicione um ficheiro HTML ao *VotingApplication/VotingWebPkg/Code*. Este ficheiro HTML é, então, processado pelo servidor HTTP simples que está incorporado no serviço de Java sem estado. 
 
 1. Expanda o diretório *VotingApplication* para ver o diretório *VotingApplication/VotingWebPkg/Code*. 
 
-2. Clique com o botão direito do rato no diretório *Código* e clique em **Novo**->**Outros**
+2. Clique com o botão direito do rato no diretório *Code* (Código) e clique em **New** (Novo) ->**Other** (Outro)
 
-3. Criar uma pasta com o nome *wwwroot* e clicar em **Concluir**
+3. Crie uma pasta com o nome *wwwroot* e clique em **Finish**
 
     ![Criar pasta wwwroot no Eclipse](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -218,8 +218,8 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicione o ficheiro HTTPCommunicationListener.java
-O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do rato no pacote *statelessservice* da pasta *VotingWeb/src/statelessservice* e, em seguida, selecione **Novo->Outro...->Geral->Ficheiro** e clique em **Seguinte**.  Dê ao ficheiro o nome *HttpCommunicationListener.java* e clique em **Concluir**.  
+### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicionar o ficheiro HTTPCommunicationListener.java
+O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do rato no pacote *statelessservice*, na pasta *VotingWeb/src/statelessservice*, e selecione **New (Novo)->Other (Outro)...->General (Geral)->File (Ficheiro)** e clique em **Next**.  Dê ao ficheiro o nome *HttpCommunicationListener.java* e clique em **Finish**.  
 
 Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Mais adiante, em [Atualizar o ficheiro HttpCommunicationListener.java](#updatelistener_anchor), este ficheiro é modificado para compor, ler e escrever dados de voto do serviço back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
 
@@ -379,7 +379,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 ```
 
 ### <a name="configure-the-listening-port"></a>Configurar a porta de escuta
-Quando o serviço front-end VotingWebService é criado, o Service Fabric seleciona uma porta na qual o serviço escuta.  O VotingWebService atua como front-end desta aplicação e aceita tráfego externo, pelo que vamos vincular este serviço a uma porta fixa e bem conhecida. No Explorador de Pacotes, abra *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Localize o recurso **Ponto Final** na secção **Recursos** e altere o valor da **Porta** para 8080, ou para outra porta. Para implementar e executar a aplicação localmente, a porta de escuta da aplicação tem de estar aberta e disponível no seu computador. Cole o seguinte fragmento de código na etiqueta **ServiceManifest**.
+Quando o serviço front-end VotingWebService é criado, o Service Fabric seleciona uma porta na qual o serviço escuta.  O VotingWebService atua como front-end desta aplicação e aceita tráfego externo, pelo que vamos vincular este serviço a uma porta fixa e bem conhecida. No Package Explorer, abra *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Localize o recurso **Endpoint** (Ponto Final) na secção **Resources** (Recursos) e altere o valor de **Port** (Porta) para 8080 ou para outra porta. Para implementar e executar a aplicação localmente, a porta de escuta da aplicação tem de estar aberta e disponível no seu computador. Cole o seguinte fragmento de código na etiqueta **ServiceManifest**.
 
 ```xml
 <Resources>
@@ -397,19 +397,19 @@ Agora que a estrutura do serviço de API Web em Java está concluída, vamos ava
 
 O Service Fabric permite-lhe armazenar de forma consistente e fiável os seus dados diretamente dentro do seu serviço através das Reliable Collections. As coleções fiáveis são um conjunto de classes de coleção de elevada disponibilidade e fiáveis. A utilização destas classes é familiar para qualquer pessoa que tenha utilizado coleções de Java.
 
-1. No Explorador de Pacotes, clique com o botão direito do rato em **Voto** no projeto da aplicação e escolha **Service Fabric > Adicionar Serviço do Service Fabric**.
+1. No Package Explorer, clique com o botão direito do rato em **Voting**, no projeto da aplicação, e escolha **Service Fabric > Add Service Fabric Service** (Adicionar Serviço do Service Fabric).
    
-2. Na caixa de diálogo **Adicionar Serviço**, escolha **Serviço com Estado** e dê ao serviço o nome **VotingData** e clique em **Adicionar Serviço**. 
+2. Na caixa de diálogo **Add Service** (Adicionar Serviço), escolha **Stateful Service** (Serviço com Estado), dê ao serviço o nome **VotingData** e clique em **Add Service**. 
 
     ![Adicionar um novo serviço a uma aplicação existente](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
 
     Uma vez criado o projeto de serviço, terá dois serviços na sua aplicação. À medida que continua a criar a sua aplicação, pode adicionar mais serviços com o mesmo método. Pode dar uma versão e atualizar cada serviço de forma independente.
 
-3. O Eclipse cria um projeto de serviço e apresenta-o no Explorador de Pacotes.
+3. O Eclipse cria um projeto de serviço e apresenta-o no Package Explorer.
 
     ![Explorador de Soluções](./media/service-fabric-tutorial-create-java-app/packageexplorercompletejava.png)
 
-### <a name="add-the-votingdataservicejava-file"></a>Adicione o ficheiro VotingDataService.java
+### <a name="add-the-votingdataservicejava-file"></a>Adicionar o ficheiro VotingDataService.java
 
 O ficheiro *VotingDataService.java* inclui os métodos que contêm a lógica para obter, adicionar e remover votos de coleções fiáveis. Adicione os métodos seguintes à classe **VotingDataService** no ficheiro *VotingDataService/src/statefulservice/VotingDataService.java* criado.
 
@@ -543,9 +543,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 ## <a name="create-the-communication-interface-to-your-application"></a>Criar a interface de comunicação para a aplicação 
 A estrutura do serviço front-end sem estado e do serviço back-end está agora criada. O passo seguinte é ligar os dois serviços. Os serviços front-end e back-end utilizam uma interface chamada VotingRPC, que define as operações da aplicação de Voto. Esta interface é implementada por ambos os serviços front-end e back-end para ativar as chamadas de procedimento remoto (RPC) entre os dois serviços. Uma vez que o Eclipse não suporta a adição de sub-projetos do Gradle, o pacote que contém esta interface tem de ser adicionado manualmente. 
 
-1. Clique com o botão direito do rato no projeto **Voto** no Explorador de Pacotes e clique em **Novo -> Outro...**
+1. Clique com o botão direito do rato no projeto **Voting**, no Package Explorer, e clique em **New (Novo) -> Other... (Outro...)**
 
-2. No assistente, clique em **Geral -> Pasta** e dê à pasta o nome **VotingRPC/src/rpcmethods** 
+2. No assistente, clique em **General (Geral) -> Folder (Pasta)** e dê à pasta o nome **VotingRPC/src/rpcmethods** 
 
     ![Criar Pacote VotingRPC](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -596,7 +596,7 @@ A estrutura do serviço front-end sem estado e do serviço back-end está agora 
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {
@@ -703,7 +703,7 @@ A estrutura do serviço front-end sem estado e do serviço back-end está agora 
     import rpcmethods.VotingRPC; 
     ```
 
-Nesta fase, as funções das interfaces de front-end, back-end e RPC estão concluídas. A fase seguinte é configurar os scripts de Gradle corretamente antes de implementar um cluster do Service Fabric. 
+Nesta fase, as funções das interfaces de front-end, back-end e RPC estão concluídas. A fase seguinte é configurar os scripts de Gradle corretamente antes de implementar nm cluster do Service Fabric. 
 
 ## <a name="walk-through-the-voting-sample-application"></a>Percorrer a aplicação de votação de exemplo
 A aplicação de votação é composta por dois serviços:
@@ -880,7 +880,7 @@ Nesta secção, vai configurar os scripts de Gradle para o projeto.
 ## <a name="deploy-application-to-local-cluster"></a>Implementar aplicação no cluster local
 Neste momento, a aplicação está pronta para ser implementada num cluster do Service Fabric local.
 
-1. Clique com o botão direito do rato no projeto **Voto** no Explorador de Pacotes e clique em **Service Fabric -> Criar Aplicação** para criar a sua aplicação.
+1. Clique com o botão direito do rato no projeto **Voting** no Package Explorer e clique em **Service Fabric -> Build Application (Criar Aplicação)** para criar a sua aplicação.
 
 2. Execute o seu cluster do Service Fabric local. Este passo depende do seu ambiente de desenvolvimento (Mac ou Linux).
 
@@ -896,8 +896,8 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-4. No Explorador de Pacotes do Eclipse, clique com o botão direito do rato no projeto **Voto** e clique em **Service Fabric -> Publicar a Aplicação...** 
-5. Na janela **Publicar a Aplicação**, selecione **Local.json** na lista pendente e clique em **Publicar**.
+4. No Package Explorer do Eclipse, clique com o botão direito do rato no projeto **Voting** e clique em **Service Fabric -> Publish Application... (Publicar Aplicação...)** 
+5. Na janela **Publish Application**, selecione **Local.json** na lista pendente e clique em **Publish** (Publicar).
 6. Vá para o seu browser e aceda a **http://localhost:8080** para ver a sua aplicação em execução no cluster do Service Fabric local. 
 
 ## <a name="next-steps"></a>Passos seguintes

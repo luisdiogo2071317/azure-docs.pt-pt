@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 16ec493708f85e9b3819943e131b9f9c3649f27e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824643"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960428"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e Visual Studio)
 
@@ -51,9 +51,9 @@ No Visual Studio 2017, crie um projeto novo. Atualmente, o projeto tem de ser um
 
 Selecione o modelo **Aplicação Web (Modelo-Vista-Controlador)** e verifique se está a apontar para **.NET Core** e **ASP.NET Core 2.0**.
 
-### <a name="create-a-dev-space-in-azure"></a>Criar um espaço do programador no Azure
+### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Ativar os Espaços de Programador para um cluster do AKS
 
-Com o projeto que acabou de criar aberto, selecione **Azure Dev Spaces** no menu pendente de definições de início, conforme mostrado abaixo.
+Com o projeto que acabou de criar, selecione **Azure Dev Spaces** no menu pendente de definições de início, conforme mostrado abaixo.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -78,16 +78,41 @@ Enquanto aguarda pela criação do espaço de programador, veja os ficheiros que
 
 - Pode ver que foi adicionada uma pasta com o nome `charts` e que, dentro desta, foi estruturado um [gráfico do Helm](https://docs.helm.sh) para a sua aplicação. Estes ficheiros são utilizados para implementar a aplicação no espaço de programador.
 - `Dockerfile` tem as informações necessárias para empacotar a aplicação no formato padrão do Docker.
-- `azds.yaml` contém as informações de configuração necessárias ao ambiente de programador, como, por exemplo, se a aplicação deve estar acessível através de um ponto final público.
+- `azds.yaml` contém a configuração em tempo de desenvolvimento que é exigida pelo espaço de programador.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Depurar um contentor no Kubernetes
 Assim que o ambiente de programador estiver criado, pode depurar a aplicação. Defina um ponto de interrupção no código, por exemplo, na linha 20 do ficheiro `HomeController.cs` no qual está definida a variável `Message`. Clique em **F5** para iniciar a depuração. 
 
-O Visual Studio vai comunicar com o espaço de programador para criar e implementar a aplicação e, em seguida, vai abrir um browser com a aplicação Web em execução. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure. O motivo para o endereço localhost tem que ver com o facto de o Azure Dev Spaces criar um túnel SSH temporário para o contentor que está a ser executado no Azure.
+O Visual Studio vai comunicar com o espaço de programador para criar e implementar a aplicação e, em seguida, vai abrir um browser com a aplicação Web em execução. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure. O motivo para o endereço localhost deve-se ao facto de o Azure Dev Spaces criar um túnel SSH temporário para o contentor que está a ser executado no AKS.
 
 Clique na ligação **About** (Acerca de) na parte superior da página para acionar o ponto de interrupção. Tem acesso total às informações de depuração, tal como aconteceria se o código estivesse a ser executado localmente, como, por exemplo, a pilha de chamadas, as variáveis locais, informações de exceção, etc.
+
+
+## <a name="iteratively-develop-code"></a>Desenvolver código de forma iterativa
+
+O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
+
+### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
+1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo semelhante a `<h2>Hello k8s in Azure!</h2>`
+1. Guarde o ficheiro.
+1. Aceda ao seu browser e atualize a página. Deverá ver a página Web mostrar o código HTML atualizado.
+
+O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não requerem a recompilação numa aplicação Web .NET Core, pelo que uma sessão F5 ativa sincroniza automaticamente qualquer ficheiro de conteúdos modificado com o contentor em execução no AKS, de modo a que possa ver as edições aos conteúdos de imediato.
+
+### <a name="update-a-code-file"></a>Atualizar um ficheiro de código
+A atualização de ficheiros de código exige mais algum trabalho, porque a aplicação .NET Core tem de ser recompilada e produzir binários de aplicação atualizados.
+
+1. Pare o depurador no Visual Studio.
+1. Abra o ficheiro de código com o nome `Controllers/HomeController.cs` e edite a mensagem que a página About (Sobre) vai apresentar: `ViewData["Message"] = "Your application description page.";`
+1. Guarde o ficheiro.
+1. Prima **F5** para iniciar novamente a depuração. 
+
+Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que forem feitas edições ao código, o que, muitas vezes, irá demorar um tempo considerável, o Azure Dev Spaces recompilará incrementalmente o código dentro do contentor existente para proporcionar um ciclo de edição/depuração mais rápido.
+
+Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá ver a mensagem personalizada apresentada na IU.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: c31e7d130d02ab6b0fad7577026e557692c2b60e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285955"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316547"
 ---
 # <a name="tutorial-use-regular-expression-entity"></a>Tutorial: Utilizar a entidade de expressão regular
 Neste tutorial, vai criar uma aplicação que demonstra como extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
@@ -28,10 +28,10 @@ Neste tutorial, vai criar uma aplicação que demonstra como extrair dados forma
 > * Preparar e publicar a aplicação
 > * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
 
-Para este artigo, precisa de uma conta do [LUIS][LUIS] gratuita para criar a sua aplicação LUIS.
+Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial de [domínio personalizado](luis-tutorial-prebuilt-intents-entities.md) das entidades pré-concebidas, [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS][LUIS] a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Se não tiver a aplicação de Recursos Humanos do tutorial de [domínio personalizado](luis-tutorial-prebuilt-intents-entities.md) das entidades pré-concebidas, [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website) a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `regex`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
@@ -244,6 +244,3 @@ Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a entidade KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

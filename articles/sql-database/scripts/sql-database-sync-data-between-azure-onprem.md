@@ -3,7 +3,7 @@ title: Exemplo do PowerShell - Sincronizar entre a Base de Dados SQL e o SQL Ser
 description: Script de exemplo do Azure PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local
 services: sql-database
 documentationcenter: sql-database
-author: jognanay
+author: allenwux
 manager: craigg
 editor: ''
 tags: ''
@@ -15,23 +15,24 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: jognanay
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51624e162d4c3304e51ab69923f54213f317e42b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024715"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL e uma base de dados do SQL Server no local
 
-Este exemplo do PowerShell configura a Sincronização de Dados (Pré-visualização) entre uma base de dados SQL do Azure e uma base de dados do SQL Server no local. 
+Este exemplo do PowerShell configura a Sincronização de Dados entre uma base de dados SQL do Azure e uma base de dados do SQL Server no local. 
 
 Este exemplo requer a versão 4.2 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
  
 Execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
-Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure (Pré-visualização)](../sql-database-sync-data.md).
+Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Script de exemplo
 

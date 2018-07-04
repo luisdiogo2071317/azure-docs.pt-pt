@@ -3,7 +3,7 @@ title: Copiar dados de forma incremental com o Controlo de Alterações e o Azur
 description: 'Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: fc2aca7cf4bd566e0bbdd1530d68a306dba9ce5b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184603"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051421"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -34,11 +34,8 @@ Vai executar os seguintes passos neste tutorial:
 > * Adicionar ou atualizar os dados na tabela de origem
 > * Criar, executar e monitorizar o pipeline da cópia incremental
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="overview"></a>Descrição geral
-Uma solução de integração de dados, que carrega dados incrementalmente após os carregamentos de dados iniciais é um cenário bastante utilizado. Em alguns casos, os dados alterados durante um período no seu arquivo de dados de origem podem ser facilmente segmentados (por exemplo, LastModifyTime, CreationTime). Em alguns casos, não há nenhuma forma explícita para identificar os dados delta da última vez que processou os dados. A tecnologia Controlo de Alterações suportada por arquivos de dados como a Base de Dados SQL do Azure e o SQL Server podem ser utilizados para identificar os dados delta.  Este tutorial descreve como utilizar a versão 2 do Azure Data Factory para trabalhar com a tecnologia de Controlo de Alterações do SQL Server para carregar dados delta incrementalmente da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de Controlo de Alterações do SQL Server, consulte [Controlo de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+Uma solução de integração de dados, que carrega dados incrementalmente após os carregamentos de dados iniciais é um cenário bastante utilizado. Em alguns casos, os dados alterados durante um período no seu arquivo de dados de origem podem ser facilmente segmentados (por exemplo, LastModifyTime, CreationTime). Em alguns casos, não há nenhuma forma explícita para identificar os dados delta da última vez que processou os dados. A tecnologia Controlo de Alterações suportada por arquivos de dados como a Base de Dados SQL do Azure e o SQL Server podem ser utilizados para identificar os dados delta.  Este tutorial descreve como utilizar o Azure Data Factory com a tecnologia de Controlo de Alterações do SQL Server para carregar dados delta incrementalmente da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de Controlo de Alterações do SQL Server, consulte [Controlo de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados incrementalmente com recurso à tecnologia de Controlo de Alterações.
@@ -192,7 +189,7 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Atualmente, a versão 2 do Data Factory só permite criar fábricas de dados nas regiões E.U.A. Leste, E.U.A. Leste 2 e Europa Ocidental. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Atualmente, o Data Factory só permite criar fábricas de dados nas regiões E.U.A. Leste, E.U.A. Leste 2 e Europa Ocidental. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados

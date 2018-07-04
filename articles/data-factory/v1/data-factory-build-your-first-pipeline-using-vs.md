@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ca8d5a26205e65668d46be6b558d596ab066c5f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 02c9d3715d8c4632bf19512cd9ffee64e4a22e8a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404876"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047025"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -32,7 +32,7 @@ ms.locfileid: "31404876"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço Data Factory, que está em pré-visualização, veja o [Início Rápido: criar uma fábrica de dados com a versão 2 do Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja o [Início Rápido: criar uma fábrica de dados com o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Este tutorial mostra-lhe como criar uma fábrica de dados do Azure com o Visual Studio. Cria um projeto do Visual Studio com o modelo de projeto do Data Factory, define entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) no formato JSON e, em seguida, publica/implementa estas entidades para a cloud. 
 

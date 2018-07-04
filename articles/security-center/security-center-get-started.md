@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531677"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059859"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Carregar uma subscrição do Azure para o Centro de Segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de Segurança Standard sem custos durante os primeiros 60 dias.
@@ -46,7 +46,7 @@ Pode ver e filtrar a lista de subscrições, clicando no item de menu **Subscri�
 Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poderá ver:
 
 - **Recomendações** de formas de melhorar a segurança das suas subscrições do Azure. Clique no mosaico **Recomendações** para iniciar uma lista prioritária.
-- Um inventário de recursos de **Computação**, **Redes**, **Armazenamento e dados** e **Aplicações**, que estão agora a ser avaliados pelo Centro de Segurança, juntamente com a postura de segurança de cada um deles.
+- Um inventário de recursos de **Computação e aplicações**, **Rede**, **Segurança de dados** e **Identidade e acesso**, que estão agora a ser avaliados pelo Centro de Segurança, juntamente com a postura de segurança de cada um deles.
 
 Para tirar total partido do Centro de Segurança, tem de executar os passos abaixo para fazer a atualização para o escalão Standard e instalar o Microsoft Monitoring Agent.
 

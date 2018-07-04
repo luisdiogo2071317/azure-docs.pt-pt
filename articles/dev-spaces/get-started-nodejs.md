@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 manager: douge
-ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: efd19393a661a48a566e85a058dad071c3bdb63c
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823916"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945994"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com o Node.js
 
@@ -32,7 +32,7 @@ Está agora pronto para criar um ambiente de desenvolvimento baseado no Kubernet
 O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do ambiente de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Se já tiver a CLI do Azure instalada, certifique-se de que está a utilizar a versão 2.0.33 ou superior.
+> Se já tiver a CLI do Azure instalada, certifique-se de que está a utilizar a versão 2.0.38 ou superior.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -68,7 +68,7 @@ O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kuber
 O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não requerem o reinício do processo de Node.js, pelo que um comando `azds up` ativo irá sincronizar, de forma automática, qualquer ficheiro de conteúdo modificado diretamente com o contentor em execução no Azure, oferecendo-lhe, assim, um modo rápido de ver as edições aos seus conteúdos.
 
 ### <a name="test-from-a-mobile-device"></a>Testar num dispositivo móvel
-Se abrir a aplicação Web num dispositivo móvel, irá reparar que a IU não aparece corretamente num dispositivo pequeno.
+Abra a aplicação Web num dispositivo móvel através do URL público para webfrontend. Pode copiar e enviar o URL da sua área de trabalho para o dispositivo, para não ter de inserir o endereço comprido. Quando a aplicação Web é carregada no dispositivo móvel, irá reparar que a IU não aparece corretamente num dispositivo pequeno.
 
 Para corrigir este problema, vai adicionar uma etiqueta mega `viewport`:
 1. Abra o ficheiro `./public/index.html`
@@ -113,7 +113,7 @@ Mas existe um *método ainda mais rápido* para programar código, que vai explo
 1. Para abrir a vista Debug (Depuração), clique no ícone Debug em **Activity Bar** (Barra de Atividades), no lado do VS Code.
 1. Selecione **Launch Program (AZDS)** (Iniciar Programa [AZDS]) como a configuração de depuração ativa.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > Se não vir nenhum comando do Azure Dev Spaces em Command Palette (Paleta de Comandos), confirme que tem [instalada a extensão do VS Code para o Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).

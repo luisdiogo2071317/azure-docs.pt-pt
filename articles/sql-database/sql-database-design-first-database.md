@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 90e351992e08459040012a4d53f7e793ea35a8b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645162"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311036"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Criar a sua primeira base de dados SQL do Azure com o SSMS
 
@@ -86,9 +86,7 @@ Siga estes passos para criar uma base de dados SQL vazia.
 8. Aceitd os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**. 
 
    > [!IMPORTANT]
-   > - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
-   > - No escalão Premium, está disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, EUA Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Está prevista uma disponibilidade mais ampla. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > No escalão Premium, está atualmente disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, E.U.A. Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, Norte do Reino Unido, Sul2 do Reino Unido, US DoD – Centro, US DoD – Leste, US Gov – Centro-Sul, US Gov – Leste, US Gov – Sudoeste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
@@ -179,7 +177,7 @@ Crie um esquema de base de dados com quatro tabelas para um sistema de gestão d
 O diagrama seguinte mostra como estas tabelas estão relacionadas entre si. Algumas destas tabelas referenciam colunas noutras tabelas. Por exemplo, a tabela Estudante referencia a coluna **PersonId** da tabela **Pessoa**. Estude o diagrama para compreender a forma como as tabelas neste tutorial estão relacionadas entre si. Para uma visão detalhada de como criar tabelas de base de dados efetivas, veja [Criar tabelas de base de dados efetivas](https://msdn.microsoft.com/library/cc505842.aspx). Para obter informações sobre como selecionar tipos de dados, veja [Tipos de dados](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Também pode utilizar o [estruturador de tabelas no SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) para criar e estruturar as suas tabelas. 
+> Também pode utilizar o [estruturador de tabelas no SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) para criar e estruturar as suas tabelas. 
 
 ![Relações de tabelas](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

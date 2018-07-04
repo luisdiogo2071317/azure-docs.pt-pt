@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048643"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versão 1 - GA](v1/data-factory-scheduling-and-execution.md)
-> * [Versão 2 - Pré-visualização](concepts-pipeline-execution-triggers.md)
+> * [Versão 1](v1/data-factory-scheduling-and-execution.md)
+> * [Versão atual](concepts-pipeline-execution-triggers.md)
 
-Uma _execução de pipeline_ na versão 2 do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três execuções separadas do pipeline (execuções de pipeline). Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular. 
+Uma _execução de pipeline_ do Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, imagine que tem um pipeline que é executado às 8:00, às 9:00 e às 10:00. Neste caso, existem três execuções separadas do pipeline (execuções de pipeline). Cada execução de pipeline tem um ID de execução de pipeline exclusivo. Uma execução é um GUID que define exclusivamente essa execução de pipeline em particular. 
 
 Normalmente, as execuções de pipeline são instanciadas pela transmissão de argumentos a parâmetros que são definidos no pipeline. Pode executar um pipeline manualmente ou com um _acionador_. Este artigo fornece detalhes sobre ambas a formas de executar um pipeline.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, atualmente disponível em modo de pré-visualização. Se estiver a utilizar a versão 1 do Azure Data Factory, que se encontra disponível de forma generalizada (GA), veja [Agendamento e execução na versão 1 do Azure Data Factory](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Execução manual (a pedido)
 À execução manual de um pipeline também se dá o nome de execução _a pedido_.
@@ -136,7 +133,7 @@ Para obter um exemplo completo, veja [Início Rápido: criar uma fábrica de dad
 > Pode utilizar o SDK de .NET para invocar pipelines do Data Factory a partir de Funções do Azure, dos seus próprios serviços Web, etc.
 
 <h2 id="triggers">Execução de acionadores</h2>
-Os acionadores são outra forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta dois tipos de acionadores:
+Os acionadores são outra forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta três tipos de acionadores:
 
 - Acionador de agenda: um acionador que invoca um pipeline com base numa agenda.
 

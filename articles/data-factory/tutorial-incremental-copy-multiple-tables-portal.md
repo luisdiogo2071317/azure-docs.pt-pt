@@ -3,7 +3,7 @@ title: Copiar várias tabelas de forma incremental com o Azure Data Factory | Mi
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052849"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -36,9 +37,6 @@ Vai executar os seguintes passos neste tutorial:
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
 > * Reviu os resultados finais.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral, veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Descrição geral
 Eis os passos importantes para criar esta solução: 
@@ -369,16 +367,25 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 3. Verá um novo separador aberto no browser para configurar o conjunto de dados. Também verá um conjunto de dados na vista de árvore. No separador **Geral** da janela Propriedades ao fundo, introduza **SinkDataset** em **Nome**.
 
    ![Conjunto de Dados de Sink - geral](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Mude para o separador **Ligação**, na janela Propriedades e clique em**AzureSqlLinkedService** em **Serviço ligado**. 
-
-   ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Mude para o separador **Parâmetros** da janela Propriedades, e siga os seguintes abaixo: 
+4. Mude para o separador **Parâmetros** da janela Propriedades, e siga os seguintes abaixo: 
 
     1. Clique em **Novo** na secção **Criar/atualizar parâmetros**. 
     2. Introduza **SinkTableName** em **nome** e **Cadeia** em **tipo**. Este conjunto de dados assume **SinkTableName** como um parâmetro. O parâmetro SinkTableName é definido pelo pipeline dinamicamente durante o runtime. A atividade ForEach no pipeline itera através de uma lista de nomes de tabelas e transmite o nome da tabela para este conjunto de dados em cada iteração.
-    3. Introduza `@{dataset().SinkTableName}` na propriedade **tableName** da secção **Propriedades parametrizadas**. Utilize o valor transmitido para o parâmetro **SinkTableName** ao inicializar a propriedade **tableName** do conjunto de dados. 
-
+   
        ![Conjunto de Dados de Sink - propriedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Mude para o separador **Ligação**, na janela Propriedades e clique em**AzureSqlLinkedService** em **Serviço ligado**. Na propriedade **Tabela**, clique em **Adicionar conteúdo dinâmico**. 
+
+   ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Selecione **SinkTableName** na secção **Parâmetros**
+   
+   ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. Depois de clicar em **Concluir**, verá **@dataset().SinkTableName** como o nome da tabela.
+   
+   ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para um limite de tamanho
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
@@ -505,7 +512,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 20. No painel esquerdo, clique em **Publicar**. Esta ação publica as entidades que criou para o serviço Fábrica de Dados. 
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
+## <a name="monitor-the-pipeline-again"></a>Monitorizar o pipeline novamente
 
 1. Mude para o separador **Monitorizar**, no lado esquerdo. Irá ver o estado da execução do pipeline acionada pelo **acionador manual**. Clique em **Atualizar** para atualizar a lista. As ligações na coluna **Ações** permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline. 
 

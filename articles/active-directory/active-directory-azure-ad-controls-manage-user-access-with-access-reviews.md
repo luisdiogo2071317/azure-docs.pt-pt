@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 86ca14c8865ee82d61cb63a20f66c508f532f124
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35232970"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020007"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gerir o acesso de utilizador com as revisões de acesso do Azure AD
 
@@ -43,7 +43,7 @@ Uma revisão de acesso pode ter um ou mais utilizadores como revisores.
 
 2. Decida se quer que cada utilizador faça a revisão do seu próprio acesso ou se quer ter um ou mais utilizadores incumbidos de rever o acesso de todos os utilizadores.
 
-3. Ative as revisões de acesso de modo a serem apresentadas nos painéis de acesso do revisor. Como administrador global, aceda à [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Ative as revisões de acesso de modo a serem apresentadas nos painéis de acesso do revisor. Como administrador global ou administrador de conta de utilizador, aceda à [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Inicie a revisão de acesso. Para obter mais informações, veja [Criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md).
 

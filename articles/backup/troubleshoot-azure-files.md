@@ -8,12 +8,12 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287333"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959802"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Partilhas de Ficheiros do Azure com as informações listadas nas tabelas seguintes.
@@ -28,9 +28,9 @@ A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualiz
 - Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
 - Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
 
-\*Partilhas de Ficheiros do Azure em Contas de Armazenamento com a função de [replicação* do armazenamento georredundante](../storage/common/storage-redundancy-grs.md) com acesso de leitura (RA-GRS) como GRS e cobrada a preços de GRS
+\*Partilhas de Ficheiros do Azure em Contas de Armazenamento com a função de [replicação do armazenamento georredundante](../storage/common/storage-redundancy-grs.md) com acesso de leitura (RA-GRS) como GRS e cobrada a preços de GRS.
 
-A cópia de segurança de Partilhas de Ficheiros do Azure em Contas de Armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está atualmente disponível apenas nos E.U.A. Central (CUS) e nos E.U.A. Leste 2 (EUS2)
+A cópia de segurança de Partilhas de Ficheiros do Azure em Contas de Armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está atualmente disponível apenas nos E.U.A. Central (CUS), nos E.U.A. Leste 2 (EUS2), na Europa do Norte (NE), no Sudeste Asiático (SEA) e na Europa Ocidental (WE).
 
 ## <a name="configuring-backup"></a>Configurar a Cópia de Segurança
 A tabela seguinte apresenta informações para a configuração da cópia de segurança:

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651546"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034083"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -31,7 +31,7 @@ Para sincronizar as informações de estado entre um dispositivo e um hub do IoT
 
 ![Resumo dos dispositivos duplos](media/tutorial-device-twins/DeviceTwins.png)
 
-Neste tutorial, irá realizar as seguintes tarefas:
+Neste tutorial, vai realizar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um hub do IoT e adicionar um dispositivo de teste ao registo de identidades.
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -249,7 +249,7 @@ A seguinte captura de ecrã mostra os dados de saída da aplicação de back-end
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 
-Se já não precisar do hub do IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
+Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 
 Em alternativa, utilize a CLI:
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a sincronizar informações de estado entre os seus dispositivos e o seu hub do IoT ao realizar as seguintes tarefas:
-
-> [!div class="checklist"]
-> * Criar um hub do IoT e adicionar um dispositivo de teste ao registo de identidades.
-> * Utilizar as propriedades pretendidas para enviar informações de estado para o seu dispositivo simulado.
-> * Utilizar as propriedades reportadas para receber informações de estado do seu dispositivo simulado.
-
-Avance para o próximo tutorial para saber como utilizar dispositivos duplos para implementar um processo de atualização de firmware.
+Neste tutorial, aprendeu a sincronizar informações de estado entre os seus dispositivos e o seu hub do IoT. Avance para o próximo tutorial para saber como utilizar dispositivos duplos para implementar um processo de atualização de firmware.
 
 > [!div class="nextstepaction"]
-[Utilize um dispositivo simulado para testar a conectividade com o seu hub do IoT](tutorial-connectivity.md)
+[Implementar um processo de atualização de firmware do dispositivo](tutorial-firmware-update.md)

@@ -11,22 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 47fc3b44719caf430edf026bf776c4e85764ad08
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173343"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048442"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
->
-> - Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se utiliza a versão 1 do Data Factory, que está disponível em geral, veja a [Introdução à versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Neste tutorial, vai executar os seguintes passos:
 
@@ -104,7 +102,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
-6. Em **Versão**, selecione **V2 (Pré-visualização)**.
+6. Em **Versão**, selecione **V2**.
 7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
 8. Selecione **Afixar ao dashboard**. 
 9. Selecione **Criar**. 
@@ -128,74 +126,67 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 1. Na página **Vamos começar**, selecione **Criar pipeline**. 
 
    ![Criar pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. Na janela **Propriedades** do pipeline, em **Nome**, introduza **CopyPipeline** como o nome do pipeline.
+2. No separador **Geral** do pipeline, introduza **CopyPipeline** no **Nome** do pipeline.
 
-    ![Nome do pipeline](./media/tutorial-copy-data-portal/pipeline-name.png)
-3. Na caixa de ferramentas **Atividades**, expanda a categoria **Fluxo de Dados** e arraste e largue a atividade **Copiar** da caixa de ferramentas para a superfície do estruturador do pipeline. 
+3. Na caixa de ferramentas **Atividades**, expanda a categoria **Fluxo de Dados** e arraste e largue a atividade **Copiar** da caixa de ferramentas para a superfície do estruturador do pipeline. Especifique **CopyFromBlobToSql** em **Nome**.
 
     ![Atividade Copiar](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
-4. No separador **Geral** da janela **Propriedades**, introduza **CopyFromBlobToSql** como o nome da atividade.
 
-    ![Nome da atividade](./media/tutorial-copy-data-portal/activity-name.png)
-5. Vá para o separador **Origem**. Selecione **+ Novo** para criar um conjunto de dados de origem. 
+### <a name="configure-source"></a>Configurar origem
 
-    ![Separador Origem](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
-6. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Concluir**. A origem de dados está num Armazenamento de blobs, pelo que vai selecionar o **Armazenamento de Blobs do Azure** para o conjunto de dados de origem. 
+1. Vá para o separador **Origem**. Selecione **+ Novo** para criar um conjunto de dados de origem. 
 
-    ![Seleção de armazenamento](./media/tutorial-copy-data-portal/select-azure-storage.png)
-7. Verá um separador novo aberto na aplicação, com o título **AzureBlob1**.
+2. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Concluir**. A origem de dados está num Armazenamento de blobs, pelo que vai selecionar o **Armazenamento de Blobs do Azure** para o conjunto de dados de origem. 
 
-    ![Separador AzureBlob1 ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
-8. No separador **Geral**, na parte inferior da janela **Propriedades**, em **Nome**, introduza **SourceBlobDataset**.
+    ![Seleção de armazenamento](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
+
+3. Verá um novo separador aberto para o conjunto de dados do blob. No separador **Geral**, na parte inferior da janela **Propriedades**, introduza **SourceBlobDataset** para **Nome**.
 
     ![Nome do conjunto de dados](./media/tutorial-copy-data-portal/dataset-name.png)
-9. Vá para o separador **Ligação** da janela **Propriedades**. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**. 
 
-    Os serviços ligados ligam um arquivo de dados ou uma computação à fábrica de dados. Neste caso, vai criar um serviço ligado de Armazenamento para ligar a sua conta de armazenamento ao arquivo de dados. O serviço ligado tem as informações de ligação que o Data Factory utiliza para ligar ao Armazenamento de blobs em runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) que contém os dados de origem. 
+4. Vá para o separador **Ligação** da janela **Propriedades**. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**. 
 
     ![Botão Novo serviço ligado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
-10. Na janela **Novo Serviço Ligado**, siga os passos seguintes: 
 
-    a. Em **Nome**, introduza **AzureStorageLinkedService**. 
-
-    b. Em **Nome da conta de armazenamento**, selecione a conta de armazenamento.
-
-    c. Selecione **Testar ligação** para testar a ligação à conta de armazenamento.
-
-    d. Selecione **Guardar** para guardar o serviço ligado.
+5. Na janela **Novo Serviço Ligado**, introduza **AzureStorageLinkedService** como nome, selecione a sua conta de armazenamento na lista **Nome da conta de armazenamento** e, em seguida, selecione  **Guardar** para implementar o serviço ligado.
 
     ![Novo serviço ligado](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-11. Junto a **Caminho do ficheiro**, selecione **Procurar**.
+
+6. Depois de criar o serviço ligado, volta às definições do conjunto de dados. Junto a **Caminho do ficheiro**, selecione **Procurar**.
 
     ![Botão Procurar para o caminho do ficheiro](./media/tutorial-copy-data-portal/file-browse-button.png)
-12. Vá para a pasta **adftutorial/input**, selecione o ficheiro **emp.txt** e, em seguida, selecione **Concluir**. Em alternativa, pode fazer duplo clique no **emp.txt**. 
+
+7. Navegue para a pasta **adftutorial/input**, selecione o ficheiro **emp.txt** e, em seguida, selecione **Concluir**. 
 
     ![Selecionar o ficheiro de entrada](./media/tutorial-copy-data-portal/select-input-file.png)
-13. Confirme que o **Formato de ficheiro** está definido como **Formato de texto** e que o **Delimitador de colunas** está definido como **Vírgula (`,`)**. Se o ficheiro de origem utilizar delimitadores de linhas e colunas diferentes, pode selecionar **Detetar o Formato de Texto** para o **Formato de ficheiro**. A ferramenta Copiar Dados deteta o formato de ficheiro e os delimitadores automaticamente por si. Contudo, pode substituir estes valores. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**.
+
+8. Confirme que o **Formato de ficheiro** está definido como **Formato de texto** e que o **Delimitador de colunas** está definido como **Vírgula (`,`)**. Se o ficheiro de origem utilizar delimitadores de linhas e colunas diferentes, pode selecionar **Detetar o Formato de Texto** para o **Formato de ficheiro**. A ferramenta Copiar Dados deteta o formato de ficheiro e os delimitadores automaticamente por si. Contudo, pode substituir estes valores. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**.
 
     ![Detetar o formato de texto](./media/tutorial-copy-data-portal/detect-text-format.png)
-14. Vá para o separador **Esquema** da janela **Propriedades** e selecione **Importar Esquema**. Repare que a aplicação detetou duas colunas no ficheiro de origem. Está a importar o esquema para aqui, para que possa mapear colunas do arquivo de dados de origem para o arquivo de dados sink. Se não precisar de mapear colunas, pode ignorar este passo. Neste tutorial, importe o esquema.
+
+9. Vá para o separador **Esquema** da janela **Propriedades** e selecione **Importar Esquema**. Repare que a aplicação detetou duas colunas no ficheiro de origem. Está a importar o esquema para aqui, para que possa mapear colunas do arquivo de dados de origem para o arquivo de dados sink. Se não precisar de mapear colunas, pode ignorar este passo. Neste tutorial, importe o esquema.
 
     ![Detetar o esquema de origem](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-15. Agora, vá para o separador com o pipeline ou selecione o pipeline no lado esquerdo.
 
-    ![Separador do pipeline](./media/tutorial-copy-data-portal/pipeline-tab.png)
-16. Em **Conjunto de Dados de Origem** da janela **Propriedades**, confirme que **SourceBlobDataset** está selecionado. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**. 
+10. Agora, volte ao pipeline -> separador **Origem**, confirme que **SourceBlobDataset** está selecionado. Para pré-visualizar os dados nesta página, selecione **Pré-visualizar dados**. 
     
     ![Conjunto de dados de origem](./media/tutorial-copy-data-portal/source-dataset-selected.png)
-17. Vá para o separador **Sink** e selecione **+ Novo** para criar um conjunto de dados sink. 
+
+### <a name="configure-sink"></a>Configurar sink
+
+1. Vá para o separador **Sink** e selecione **+ Novo** para criar um conjunto de dados sink. 
 
     ![Conjunto de dados sink](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-18. Na janela **Novo Conjunto de Dados**, selecione **Base de Dados SQL do Azure** e selecione **Concluir**. Neste tutorial, vai copiar dados para uma base de dados SQL. 
+2. Na janela **Novo Conjunto de Dados**, introduza "SQL" na caixa de pesquisa para filtrar os conectores e, em seguida, selecione **Base de Dados SQL do Azure** e **Concluir**. Neste tutorial, vai copiar dados para uma base de dados SQL. 
 
-    ![Seleção de base de dados SQL](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
-19. No separador **Geral** da janela **Propriedades**, em **Nome**, introduza **OutputSqlDataset**. 
+    ![Seleção de base de dados SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
+3. No separador **Geral** da janela **Propriedades**, em **Nome**, introduza **OutputSqlDataset**. 
     
     ![Nome do conjunto de dados de saída](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. Vá para o separador **Ligação** e, junto a **Serviço ligado**, selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL em runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados. 
+4. Vá para o separador **Ligação** e, junto a **Serviço ligado**, selecione **+ Novo**. Os conjuntos de dados têm de estar associados a um serviço ligado. O serviço ligado tem a cadeia de ligação que o Data Factory utiliza para ligar à base de dados SQL em runtime. O conjunto de dados especifica o contentor, a pasta e o ficheiro (opcional) para os quais os dados são copiados. 
     
     ![Serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-21. Na janela **Novo Serviço Ligado**, siga os passos seguintes: 
+5. Na janela **Novo Serviço Ligado**, siga os passos seguintes: 
 
     a. Em **Name**, introduza **AzureSqlDatabaseLinkedService**.
 
@@ -213,160 +204,46 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
     
     ![Guardar novo serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-22. Em **Tabela**, selecione **[dbo].[emp]**. 
+6. Em **Tabela**, selecione **[dbo].[emp]**. 
 
     ![Tabela](./media/tutorial-copy-data-portal/select-emp-table.png)
-23. Vá para o separador **Esquema** e selecione **Importar Esquema**. 
+7. Vá para o separador **Esquema** e selecione **Importar Esquema**. 
 
     ![Selecione a importação do esquema](./media/tutorial-copy-data-portal/import-destination-schema.png)
-24. Selecione a coluna **ID** e, em seguida, selecione **Eliminar**. A coluna **ID** é uma coluna de identidade na base de dados SQL, pelo que a atividade de cópia não tem de inserir dados nessa coluna.
+8. Selecione a coluna **ID** e, em seguida, selecione **Eliminar**. A coluna **ID** é uma coluna de identidade na base de dados SQL, pelo que a atividade de cópia não tem de inserir dados nessa coluna.
 
     ![Eliminar a coluna ID](./media/tutorial-copy-data-portal/delete-id-column.png)
-25. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink**, confirme que **OutputSqlDataset** está selecionado.
+9. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink**, confirme que **OutputSqlDataset** está selecionado.
 
     ![Separador do pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-26. Vá para o separador **Mapeamento**, na parte inferior da janela **Propriedades**, e selecione **Importar Esquemas**. Repare que as duas primeiras colunas no ficheiro de origem estão mapeadas para **FirstName** e **LastName** na base de dados SQL.
 
-    ![Mapear esquemas](./media/tutorial-copy-data-portal/map-schemas.png)
-27. Para validar o pipeline, selecione **Validar**. No canto superior direito, selecione a seta para a direita, para fechar a janela de validação.
+### <a name="confugure-mapping"></a>Configurar mapeamento
 
-    ![Saída da validação do pipeline](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
-28. No canto superior direito, selecione **Código**. Verá o código JSON associado ao pipeline. 
+Vá para o separador **Mapeamento**, na parte inferior da janela **Propriedades**, e selecione **Importar Esquemas**. Repare que as duas primeiras colunas no ficheiro de origem estão mapeadas para **FirstName** e **LastName** na base de dados SQL.
 
-    ![Botão Código](./media/tutorial-copy-data-portal/code-button.png)
-29. Verá código JSON semelhante ao seguinte fragmento: 
+![Mapear esquemas](./media/tutorial-copy-data-portal/map-schemas.png)
 
-    ```json
-    {
-        "name": "CopyPipeline",
-        "properties": {
-            "activities": [
-                {
-                    "name": "CopyFromBlobToSql",
-                    "type": "Copy",
-                    "dependsOn": [],
-                    "policy": {
-                        "timeout": "7.00:00:00",
-                        "retry": 0,
-                        "retryIntervalInSeconds": 20
-                    },
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "recursive": true
-                        },
-                        "sink": {
-                            "type": "SqlSink",
-                            "writeBatchSize": 10000
-                        },
-                        "enableStaging": false,
-                        "parallelCopies": 0,
-                        "cloudDataMovementUnits": 0,
-                        "translator": {
-                            "type": "TabularTranslator",
-                            "columnMappings": "Prop_0: FirstName, Prop_1: LastName"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "referenceName": "SourceBlobDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "referenceName": "OutputSqlDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-    ```
+## <a name="validate-the-pipeline"></a>Validar o pipeline
+Para validar o pipeline, selecione **Validar** na barra de ferramentas.
+ 
+Pode ver o código JSON associado ao pipeline ao clicar em **Código** no canto superior direito.
 
-## <a name="test-run-the-pipeline"></a>Testar a execução do pipeline
-Pode testar um pipeline antes de publicar artefactos (serviços ligados, conjuntos de dados e pipeline) no Data Factory ou no seu próprio repositório de Git do Visual Studio Team Services. 
+## <a name="debug-and-publish-the-pipeline"></a>Depurar e publicar o pipeline
+Pode depurar um pipeline antes de publicar artefactos (serviços ligados, conjuntos de dados e pipeline) no Data Factory ou no seu próprio repositório de Git do Visual Studio Team Services. 
 
-1. Para testar a execução do pipeline, selecione **Execução de Testes**, na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela. 
+1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela. 
 
-    ![Testar pipeline](./media/tutorial-copy-data-portal/test-run-output.png)
-2. Confirme que os dados do ficheiro de origem são inseridos na base de dado SQL de destino. 
-
-    ![Verificar a saída do SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. No painel esquerdo, selecione **Publicar Tudo**. Esta ação publica as entidades (serviços ligados, conjuntos de dados e pipeline) que criou no Data Factory.
+2. Assim que o pipeline puder ser executado com êxito, na barra de ferramentas superior, selecione **Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
 
     ![Publicar](./media/tutorial-copy-data-portal/publish-button.png)
-4. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, na barra lateral do lado esquerdo, selecione o separador **Mostrar Notificações**. Para fechar a janela de notificações, selecione **Fechar**.
 
-    ![Mostrar notificações](./media/tutorial-copy-data-portal/show-notifications.png)
-
-## <a name="configure-code-repository"></a>Configurar o repositório de código
-Pode publicar o código associado aos artefactos da sua fábrica de dados num repositório de código do Visual Studio Team Services. Neste passo, vai criar o repositório de código.  Para saber mais sobre a criação de visual com a integração de VSTS, veja [Criar com a integração de VSTS Git](author-visually.md#author-with-vsts-git-integration).
-
-Se não quiser trabalhar com o repositório de código do Visual Studio Team Services, pode ignorar este passo. Pode continuar a publicar no Data Factory, tal como fez no passo anterior. 
-
-1. No canto superior esquerdo, selecione **Data Factory** ou utilize a seta para baixo junto ao mesmo e selecione **Configurar Repositório de Código**. 
-
-    ![Configurar o repositório de código](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
-2. Na página **Definições do Repositório**, siga os passos seguintes:
-
-    a. Em **Tipo de Repositório**, selecione **Git do Visual Studio Team Services**.
-
-    b. Em **Conta do Visual Studio Team Services**, selecione a sua conta do Visual Studio Team Services.
-
-    c. Em **Nome do Projeto**, selecione um projeto na sua conta do Visual Studio Team Services.
-
-    d. Em **Nome do repositório de Git**, introduza **Tutorial2** como o repositório de Git a associar à fábrica de dados.
-
-    e. Confirme que a caixa de verificação **Importar os recursos do Data Factory existentes para o repositório** está selecionada.
-
-    f. Selecione **Guardar** para guardar as definições. 
-
-    ![Definições do repositório](./media/tutorial-copy-data-portal/repository-settings.png)
-3. Confirme que **VSTS GIT** está selecionado no repositório.
-
-    ![Selecionar o GIT do VSTS](./media/tutorial-copy-data-portal/vsts-git-selected.png)
-4. Num separador do browser, aceda ao repositório do **Tutorial2**. Verá dois ramos: **adf_publish** e **master** (principal).
-
-    ![Ramos master e adf_publish](./media/tutorial-copy-data-portal/initial-branches-vsts-git.png)
-5. Confirme que os ficheiros JSON das entidades do Data Factory estão no ramo **principal**.
-
-    ![Ficheiros no ramo master](./media/tutorial-copy-data-portal/master-branch-files.png)
-6. Verifique se os ficheiros JSON não estão já no ramo **adf_publish**. 
-
-    ![Ficheiros no ramo adf_publish](./media/tutorial-copy-data-portal/adf-publish-files.png)
-7. Em **Descrição**, adicione uma descrição para o pipeline e selecione **Guardar** na barra de ferramentas. 
-
-    ![Descrição do pipeline](./media/tutorial-copy-data-portal/pipeline-description.png)
-8. Agora, deverá ver um ramo com o seu nome de utilizador no repositório **Tutorial2**. A alteração que fez foi no seu próprio ramo, não no ramo master. Só pode publicar entidades do ramo principal.
-
-    ![O seu ramo](./media/tutorial-copy-data-portal/your-branch.png)
-9. Passe o rato sobre o botão **Sincronizar** (não selecionar ainda), selecione a caixa de verificação **Consolidar Alterações** e selecione **Sincronizar** para sincronizar as alterações com o ramo principal. 
-
-    ![Consolidar e sincronizar as alterações](./media/tutorial-copy-data-portal/commit-and-sync.png)
-10. Na janela **Sincronizar as alterações**, efetue as seguintes ações: 
-
-    a. Confirme que **CopyPipeline** é apresentado na lista atualizada de **Pipelines**.
-
-    b. Confirme que **Publicar alterações após a sincronização** está selecionado. Se desmarcar esta caixa de verificação, só serão sincronizadas as alterações do seu ramo com o ramo principal. Não serão publicadas no Data Factory. Pode publicá-las mais tarde, ao clicar no botão **Publicar**. Se selecionar esta caixa de verificação, as alterações são primeiro sincronizadas com o ramo principal e, depois, publicadas no Data Factory.
-
-    c. Selecione **Sincronizar**. 
-
-    ![Sincronizar as alterações](./media/tutorial-copy-data-portal/sync-your-changes.png)
-11. Agora, pode ver ficheiros no ramo **adf_publish** ramo do repositório **Tutorial2**. Também pode encontrar o modelo do Azure Resource Manager para a sua solução do Data Factory neste ramo. 
-
-    ![A lista de ficheiros está no ramo adf_publish](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
-
+4. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, clique em **Mostrar Notificações**, no canto superior direito (botão do sino). 
 
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior. 
 
 1. Selecione **Acionar** na barra de ferramentas e, em seguida, selecione **Acionar Agora**. Na página **Executar Pipeline**, selecione **Concluir**.  
 
-    ![Acionar pipeline](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar as ligações na coluna **Ações** para ver os detalhes das atividades e para voltar a executar o pipeline.
 
     ![Monitorizar execuções de pipeline](./media/tutorial-copy-data-portal/monitor-pipeline.png)
@@ -378,12 +255,10 @@ Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Acionar o pipeline com base numa agenda
 Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador executa o pipeline na agenda especificada, como hora a hora ou diariamente. Neste exemplo, o acionador é definido para ser executado a cada minuto até à data/hora final especificada. 
 
-1. Vá para o separador **Editar**, no lado esquerdo. 
+1. Vá para o separador **Criar**, no lado esquerdo acima do separador do monitor. 
 
-    ![Separador Editar](./media/tutorial-copy-data-portal/edit-tab.png)
-2. Selecione **Acionador** e selecione **Novo/Editar**. Se o pipeline não estiver ativo, aceda ao mesmo. 
+2. Aceda ao seu pipeline, clique em **Acionador** na barra de ferramentas e selecione **Novo/Editar**. 
 
-    ![Opção Acionador](./media/tutorial-copy-data-portal/trigger-new-edit-menu.png)
 3. Na janela **Adicionar Acionadores**, selecione **Escolher acionador** e, em seguida, selecione **+ Novo**. 
 
     ![Botão Novo](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
@@ -414,9 +289,9 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 5. Na página **Parâmetros da Execução do Acionador**, reveja o aviso e, em seguida, selecione **Concluir**. O pipeline neste exemplo não tem nenhum parâmetro. 
 
     ![Parâmetros de execução de acionador](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-6. Selecione **Sincronizar** para sincronizar as alterações do seu ramo com o ramo principal. Por predefinição, a opção **Publicar alterações após a sincronização** está selecionada. Ao selecionar **Sincronizar**, também publica as entidades atualizadas no Data Factory do ramo principal. O acionador não é ativado enquanto a publicação não for bem-sucedida.
 
-    ![Sincronizar as alterações](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+6. Clique em **Publicar tudo** para publicar a alteração. 
+
 7. Vá para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas. 
 
     ![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    

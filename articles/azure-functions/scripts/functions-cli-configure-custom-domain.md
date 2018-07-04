@@ -13,25 +13,25 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843991"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960343"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mapear um domínio personalizado para uma aplicação de funções
 
-Este script de exemplo cria uma aplicação de funções com os respetivos recursos relacionados e, em seguida, mapeia `www.<yourdomain>` para o mesmo. Para mapear para um domínio personalizado, a aplicação de funções tem de ser criada num plano do Serviço de Aplicações e não num plano de consumo. As Funções do Azure apenas permitem mapear um domínio personalizado através de um registo A.
+Este script de exemplo cria uma aplicação de funções com os respetivos recursos relacionados e, em seguida, mapeia `www.<yourdomain>` para o mesmo. Quando a sua aplicação de funções estiver alojada num [plano do Serviço de Aplicações](../functions-scale.md#app-service-plan), pode mapear um domínio personalizado com um CNAME ou um registo A. Para aplicações de funções num [Plano de consumo](../functions-scale.md#consumption-plan), é suportada apenas a opção CNAME.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, tem de utilizar a versão 2.0 ou uma versão posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, tem de utilizar a versão 2.0 ou uma versão posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Script de exemplo

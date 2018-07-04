@@ -3,7 +3,7 @@ title: Copiar dados de forma incremental utilizando o Azure Data Factory | Micro
 description: Estes tutoriais mostram-lhe como copiar dados de forma incremental de um arquivo de dados de origem para um arquivo de dados de destino. O primeiro copia dados a partir de uma tabela.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: 7265e20bf89cc9dbc1c44e568e779f2d13f87685
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: bb6cfc6575bdbe83aeb258069a9c239147d30bca
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174734"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049184"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carrega dados de forma incremental a partir de um arquivo de dados de origem para um arquivo de dados de destino
 
-Uma solução de integração de dados, que carrega dados incrementalmente (ou delta) após um carregamento de dados completos inicial é um cenário bastante utilizado. Os tutoriais nesta secção mostram formas diferentes de carregar dados de forma incremental através da utilização do Azure Data Factory versão 2.
+Uma solução de integração de dados, que carrega dados incrementalmente (ou delta) após um carregamento de dados completos inicial é um cenário bastante utilizado. Os tutoriais nesta secção mostram formas diferentes de carregar dados de forma incremental através da utilização do Azure Data Factory.
 
 ## <a name="delta-data-loading-by-using-a-watermark"></a>Carregamento de dados delta utilizando uma marca d'água
 Neste caso, é possível definir uma marca d'água na base de dados de origem. Uma marca d'água é uma coluna com o último carimbo de data/hora atualizado ou uma chave de incrementação. A solução de carregamento delta carrega os dados alterados entre uma marca d'água antiga e uma nova marca d'água. O fluxo de trabalho para esta abordagem é descrito no diagrama seguinte: 
@@ -34,7 +34,6 @@ Para obter instruções passo a passo, veja os seguintes tutoriais:
 - [Copiar dados de forma incremental de uma tabela na Base de Dados SQL do Azure para o armazenamento de Blobs do Azure](tutorial-incremental-copy-powershell.md)
 - [Copiar dados de forma incremental a partir de várias tabelas no SQL Server no local para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
 
-
 ## <a name="delta-data-loading-by-using-the-change-tracking-technology"></a>Carregamento de dados delta utilizando a tecnologia de Controlo de Alterações
 A tecnologia de Controlo de Alterações é uma solução simples no SQL Server e na Base de Dados SQL do Azure que fornece um mecanismo de controlo de alterações eficiente para aplicações. Permite que uma aplicação facilmente identifique dados que foram inseridos, atualizados ou eliminados. 
 
@@ -44,7 +43,6 @@ O fluxo de trabalho para esta abordagem é descrito no diagrama seguinte:
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 [Copiar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure utilizando a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Avançar para o tutorial seguinte: 

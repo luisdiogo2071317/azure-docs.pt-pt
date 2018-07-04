@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 484567dd9d9c3d050e7be25bd685a5b8d3de0687
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: fbbd66dea73747acaf1c267f7d3ba7b1bb17baa2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825523"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939188"
 ---
 ## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
 Vamos executar o nosso código! Na janela do terminal, execute este comando a partir da **pasta de código raiz**, webfrontend:
@@ -37,6 +37,9 @@ Fique de olho no resultado do comando, vai reparar em várias coisas à medida q
 ### <a name="test-the-web-app"></a>Testar a aplicação Web
 Analise o resultado da consola para obter informações sobre o URL público que foi criado pelo comando `up`. Estará na forma: 
 
-`Running at public URL: http://<servicename>-<cluster-name>.<guid>.<region>.aksapp.io` 
+`Service 'webfrontend' port 'http' is available at <url>` 
 
 Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. À medida que o contentor é executado, os resultados `stdout` e `stderr` são transmitidos para a janela do terminal.
+
+> [!Note]
+> Na primeira execução, pode demorar alguns minutos para que o DNS público esteja pronto. Se o URL público não resolver, pode utilizar o URL alternativo http://localhost:<portnumber> apresentado no resultado da consola. Se utilizar o URL de anfitrião local, poderá parecer que o contentor está a ser executado localmente, contudo, está a ser executado no AKS. Para sua comodidade e para facilitar a interação com o serviço da sua máquina local, os Espaços de Programador do Azure criam um túnel SSH temporário para o contentor em execução no Azure. Pode voltar atrás e tentar o URL público mais tarde, quando o registo DNS estiver pronto.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823231"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945861"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e VS Code)
 
@@ -40,7 +40,7 @@ Neste guia, vai aprender a:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure
 
-1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.33 ou superior).
+1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.38 ou superior).
 1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Transfira a [extensão dos Espaços de Programador do Azure](https://aka.ms/get-azds-code) para o VS Code.
 1. Instale a extensão: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ Neste guia, vai aprender a:
 1. Transfira o código de exemplo do GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Altere o diretório para a pasta de webfrontend: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Gere elementos de gráfico do Docker e do Helm: `azds prep --public`
-1. Compile e execute o código no AKS. Na janela do terminal, execute este comando na **pasta de código raiz**, webfrontend: `azds up`
+1. Compile e execute o código no AKS. Na janela do terminal, na **pasta webfrontend**, execute este comando: `azds up`
 1. Analise o resultado da consola para obter informações sobre o URL que foi criado pelo comando `up`. Estará na forma: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. 
+   
+   > [!Note]
+   > Na primeira execução, pode demorar alguns minutos para que o DNS público esteja pronto. Se o URL público não resolver, pode utilizar o URL alternativo http://localhost:<portnumber> apresentado no resultado da consola. Se utilizar o URL de anfitrião local, poderá parecer que o contentor está a ser executado localmente, contudo, está a ser executado no AKS. Para sua comodidade e para facilitar a interação com o serviço da sua máquina local, os Espaços de Programador do Azure criam um túnel SSH temporário para o contentor em execução no Azure. Pode voltar atrás e tentar o URL público mais tarde, quando o registo DNS estiver pronto.
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 

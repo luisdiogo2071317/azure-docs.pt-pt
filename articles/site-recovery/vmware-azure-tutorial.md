@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dab7fac1f28f70a58865ca3a09ad46884d4ac8d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 895665eef722e81030d9699c1a6c75455493bae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266935"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317849"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -64,13 +64,13 @@ Como primeiro passo de implementação, configure o ambiente de origem. Precisar
 - O servidor de processos atua como um gateway de replicação. Recebe dados de replicação; otimiza-os com a colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. O servidor de processos também instala o Serviço de Mobilidade nas VMs que pretende replicar, e efetua a deteção automática de VMs VMware no local.
 - O servidor de destino principal processa dados de replicação durante a reativação pós-falha a partir do Azure.
 
-Para configurar o servidor de configuração como uma VM VMware de elevada disponibilidade, transfira um modelo OVF (Open Virtualization Format) preparado e importe o modelo para o VMware, para criar a VM. Depois de configurar o servidor de configuração, registe-o no cofre. Após o registo, o Site Recovery deteta as VMs VMware no local.
+Para configurar o servidor de configuração como uma VM VMware de elevada disponibilidade, transfira um modelo OVA (Open Virtualization Application) preparado e importe o modelo para o VMware, para criar a VM. Depois de configurar o servidor de configuração, registe-o no cofre. Após o registo, o Site Recovery deteta as VMs VMware no local.
 
 > [!TIP]
-> Este tutorial utiliza um modelo OVF para criar o servidor de configuração da VM de VMware. Se não o conseguir fazer, pode [configurar manualmente o servidor de configuração](physical-manage-configuration-server.md). 
+> Este tutorial utiliza um modelo OVA para criar o servidor de configuração da VM de VMware. Se não o conseguir fazer, pode [configurar manualmente o servidor de configuração](physical-manage-configuration-server.md).
 
 > [!TIP]
-> Neste tutorial, o Site Recovery transfere e instala o MySQL para o servidor de configuração. Se não quiser que o Site Recovery o faça, pode configurá-lo manualmente. [Saiba mais](vmware-azure-deploy-configuration-server.md#prepare-for-mysql-installation).
+> Neste tutorial, o Site Recovery transfere e instala o MySQL para o servidor de configuração. Se não quiser que o Site Recovery o faça, pode configurá-lo manualmente. [Saiba mais](vmware-azure-deploy-configuration-server.md#configure-settings).
 
 
 ### <a name="download-the-vm-template"></a>Transferir o modelo de VM
@@ -78,10 +78,13 @@ Para configurar o servidor de configuração como uma VM VMware de elevada dispo
 1. No cofre, vá para **Preparar Infraestrutura** > **Origem**.
 2. Em **Preparar origem**, selecione **+Servidor de configuração**.
 3. Em **Adicionar Servidor**, verifique se o **Servidor de configuração para VMware** é apresentado no **Tipo de servidor**.
-4. Transfira o modelo OVF para o servidor de configuração. Com o modelo, concedemos uma licença de avaliação válida por 100 dias. Após este período, terá de obter uma licença.
+4. Transfira o modelo OVF para o servidor de configuração.
 
-  > [!TIP]
-  Pode transferir a versão mais recente do modelo do servidor de configuração diretamente do [Centro de Transferências da Microsoft](https://aka.ms/asrconfigurationserver).
+ > [!TIP]
+ >Pode transferir a versão mais recente do modelo do servidor de configuração diretamente do [Centro de Transferências da Microsoft](https://aka.ms/asrconfigurationserver).
+
+>[!NOTE]
+A licença disponibilizada com o modelo OVF é uma licença de avaliação válida por 180 dias. O cliente precisa de ativar as janelas com uma licença comprada.
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 
@@ -133,8 +136,8 @@ Para adicionar outro NIC ao servidor de configuração, adicione-o antes de regi
 8. Em **Configurar as credenciais da máquina virtual**, introduza o nome de utilizador e a palavra-passe que servirão para instalar automaticamente o Serviço de Mobilidade nas VMs, quando a replicação estiver ativada.
     - Para computadores Windows, a conta precisa de privilégios de administrador local nos computadores que pretende replicar.
     - Para o Linux, forneça detalhes para a conta raiz.
-1. Selecione **Finalizar configuração** para concluir o registo. 
-2. Após a conclusão do registo, no portal do Azure, certifique-se de que o servidor de configuração e o servidor VMware estão listados na página **Origem** do cofre. Em seguida, selecione **OK** para configurar as definições de destino.
+9. Selecione **Finalizar configuração** para concluir o registo.
+10. Após a conclusão do registo, no portal do Azure, certifique-se de que o servidor de configuração e o servidor VMware estão listados na página **Origem** do cofre. Em seguida, selecione **OK** para configurar as definições de destino.
 
 
 O Site Recovery liga-se aos servidores VMware com as definições especificadas e deteta as VMs.
@@ -147,7 +150,7 @@ O Site Recovery liga-se aos servidores VMware com as definições especificadas 
 Selecione e verifique os recursos de destino.
 
 1. Selecione **Preparar infraestrutura** > **Destino**. Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
-1. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis. Deve tê-los ao configurar os componentes do Azure no [primeiro tutorial](tutorial-prepare-azure.md) nesta série de tutoriais.
+2. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis. Deve tê-los ao configurar os componentes do Azure no [primeiro tutorial](tutorial-prepare-azure.md) nesta série de tutoriais.
 
    ![Separador Destino](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -168,8 +171,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
-
-Ative a replicação da seguinte forma:
+Pode ativar a replicação da seguinte forma:
 
 1. Selecione **Replicar aplicação** > **Origem**.
 2. Em **Origem**, selecione **No local** e selecione o servidor de configuração na **Localização de origem**.
@@ -178,13 +180,12 @@ Ative a replicação da seguinte forma:
 5. Selecione o servidor de processo (instalado por predefinição na VM do servidor de configuração). Em seguida, selecione **OK**.
 6. Em **Destino**, selecione a subscrição e o grupo de recursos no qual pretende criar as VMs de ativação pós-falha. Utilizamos o modelo de implementação do Resource Manager. 
 7. Selecione a conta de armazenamento do Azure que pretende utilizar para replicar dados e a rede e a sub-rede do Azure às quais as VMs do Azure se ligam quando forem criadas após a ativação pós-falha.
-1. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
-2. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**.
-3. Em **Propriedades** > **Configurar propriedades**, selecione a conta que o servidor de processos irá utilizar para instalar automaticamente o Serviço de Mobilidade na máquina.
-4. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada.
-5. Selecione **Ativar Replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
-6. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
-
+8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
+9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, selecione **OK**.
+10. Em **Propriedades** > **Configurar propriedades**, selecione a conta que o servidor de processos irá utilizar para instalar automaticamente o Serviço de Mobilidade na máquina.
+11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada.
+12. Selecione **Ativar Replicação**. O Site Recovery instala o Serviço de Mobilidade quando a replicação está ativada para uma VM.
+13. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 - Pode demorar 15 minutos ou mais tempo para as alterações produzirem efeitos e aparecerem no portal.
 - Para monitorizar as VMs que adiciona, verifique a última hora de deteção de VMs em **Servidores de Configuração** > **Último Contacto Em**. Para adicionar VMs sem aguardar a deteção agendada, realce o servidor de configuração (não o selecione) e selecione **Atualizar**.
 

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178094"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054496"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com Atividade de Cópia com o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "30178094"
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço Data Factory, que está em pré-visualização, veja o [tutorial da atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
 
 Este tutorial mostra como utilizar o **Assistente de Cópia** para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. 
@@ -75,7 +75,7 @@ Neste passo, irá utilizar o Portal do Azure para criar uma fábrica de dados do
    ![Home page da fábrica de dados](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Inicie o Assistente de Cópia
-1. No painel do Data Factory, clique em **Copiar dados [PRÉ-VISUALIZAÇÃO]** para iniciar o **Assistente de cópia**. 
+1. No painel do Data Factory, clique em **Copiar dados** para iniciar o **Assistente de Cópia**. 
    
    > [!NOTE]
    > Se vir que o browser bloqueia enquanto estiver a "A autorizar…", desative/desmarque a definição **Bloquear cookies de terceiros e dados do site** nas definições do browser (ou) mantenha-a ativada e crie uma exceção para **login.microsoftonline.com** e, em seguida, tente iniciar novamente o assistente.

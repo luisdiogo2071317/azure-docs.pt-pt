@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 06/22/2018
 ms.author: hux
-ms.openlocfilehash: d6279a308bc4539184cca37c1343afe8725eca7f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248304"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335776"
 ---
 # <a name="azure-storage-account-options"></a>Opções de contas do Armazenamento do Azure
 
@@ -76,32 +76,27 @@ As contas de armazenamento de blobs suportam as mesmas funcionalidades de blob d
 
 > [!NOTE]
 > As contas do Blob Storage suportam apenas blobs de blocos e de acréscimo e não suportam blobs de páginas.
+>
+> A Microsoft recomenda a utilização de contas de armazenamento para fins gerais v2 em detrimento de contas de armazenamento de blobs para a maioria dos cenários.
 
 ## <a name="recommendations"></a>Recomendações
 
 Para obter mais informações sobre contas de armazenamento, veja [Acerca das contas de armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Para as aplicações que requerem apenas o armazenamento de blobs de blocos ou de acréscimo, recomendamos que utilize contas de armazenamento GPv2, de modo a tirar partido do modelo de preços diferenciado do armazenamento em camadas. No entanto, pode querer utilizar as contas GPv1 em determinados cenários, tais como:
+Para as aplicações que exigem as mais recentes funcionalidades de blobs de blocos ou de acréscimo, recomendamos que utilize contas de armazenamento GPv2, de modo a tirar partido do modelo de preços diferenciado do armazenamento em camadas. No entanto, pode querer utilizar as contas GPv1 em determinados cenários, tais como:
 
 * Ainda tem de utilizar o modelo de implementação clássica. As contas GPv2 ou de armazenamento de Blob estão disponíveis apenas através do modelo de implementação Azure Resource Manager.
-
 * Se utilizar elevados volumes de transações ou de largura de rede de georreplicação, os quais são ambos mais caros nas contas GPv2 e nas contas de Armazenamento de blobs do que nas contas GPv1, e não tem armazenamento suficiente que lhe permita tirar partido dos custos mais baixos de armazenamento por GB.
-
 * Utiliza uma versão da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior a 14/02/2014 ou uma biblioteca de cliente com uma versão inferior à 4.x e não pode atualizar a sua aplicação.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
 
 * **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
-
 * **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para os dados na camada frequente e de armazenamento de arquivo, é cobrada uma taxa de acesso a dados por gigabyte pelas operações de leitura.
-
 * **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
-
 * **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
-
 * **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
-
 * **Alteração da camada de armazenamento**: a alteração da camada de armazenamento de conta esporádica para armazenamento frequente está sujeita à cobrança de uma taxa igual à leitura de todos os dados existentes na conta do armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
 
 > [!NOTE]
@@ -205,7 +200,6 @@ Em ambos os casos, a primeira prioridade é estimar os custos de armazenar e ace
 Para estimar os custos de armazenar e aceder aos dados armazenados numa conta de armazenamento GPv2, tem de avaliar o seu padrão de utilização existente ou fazer uma aproximação do padrão de utilização esperado. Em geral, precisa de saber o seguinte:
 
 * O seu consumo de armazenamento: que quantidade de dados está a ser armazenada e como é que isso muda mensalmente?
-
 * O padrão de acesso ao armazenamento: que quantidade de dados é lida da conta e escrita na mesma (incluindo dados novos)? Quantas transações são utilizadas para acesso a dados e de que tipo são?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Monitorizar contas de armazenamento existentes
@@ -223,7 +217,7 @@ Com esta opção ativada, os dados de capacidade são registados diariamente par
 Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
 
 > [!NOTE]
-> Se tiver uma conta de armazenamento de fins gerais na qual armazenou blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+> Se tiver uma conta de armazenamento de fins gerais com blobs de páginas armazenados e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
 
 Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 
@@ -256,10 +250,9 @@ Para estimar os custos de transação nas contas de armazenamento GPv1, tem de a
 
 Embora a análise de armazenamento não forneça a quantidade de dados lidos e escritos numa conta de armazenamento, esta pode ser aproximadamente estimada ao consultar a tabela de métricas de transação. A soma de *'TotalIngress'* de todas as entradas de uma API na tabela de métricas de transação indica a quantidade total de dados de entrada em bytes para essa API específica. Do mesmo modo, a soma de *'TotalEgress'* indica a quantidade total de dados de saída, em bytes.
 
-Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos.
+Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos:
 
 * A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'*.
-
 * A quantidade de dados escritos na conta de armazenamento pode ser estimada ao ver a soma de *'TotalIngress'* para, principalmente, as operações *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
 
 Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.

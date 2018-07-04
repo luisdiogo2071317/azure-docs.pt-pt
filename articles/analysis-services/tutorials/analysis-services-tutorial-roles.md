@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651499"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307373"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
@@ -37,7 +37,7 @@ Para saber mais sobre a segurança do utilizador no Azure Analysis Services, vej
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal](https://portal.azure.com/).
+Inicie sessão no [portal](https://portal.azure.com/).
 
 ## <a name="get-server-name"></a>Obter nome do servidor
 Para ligar ao seu servidor do SSMS, primeiro precisa do nome do servidor. Pode obter o nome do servidor a partir do portal.
@@ -67,7 +67,7 @@ Para as tarefas restantes, utilize o SSMS para ligar e para gerir o seu servidor
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Adicionar uma conta de utilizador à função de administrador do servidor
 
-Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD para a função de administrador de servidor.
+Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD para a função de administrador de servidor. Se está a adicionar o grupo de segurança, tem de ter a propriedade `MailEnabled` definida para `True`.
 
 1. No **Object Explorer**, clique com o botão direito do rato no nome do servidor e, em seguida, clique em **Propriedades**. 
 2. Na janela **Propriedades do Analysis Server**, clique em **Segurança** > **Adicionar**.

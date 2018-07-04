@@ -3,7 +3,7 @@ title: Monitorização de segurança no Centro de Segurança do Azure | Microsof
 description: Este artigo ajuda-o a começar a trabalhar com as capacidades de monitorização no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
-ms.author: yurid
-ms.openlocfilehash: 330a12f851ef0191adc4dc46102b798f1b752589
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/26/2018
+ms.author: terrylan
+ms.openlocfilehash: dc362306e20b4d39aa73a552e47cbcbd3037edbd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063396"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as capacidades de monitorização no Centro de Segurança do Azure para monitorizar a conformidade com políticas.
@@ -32,107 +32,13 @@ Depois de ativar [políticas de segurança](security-center-policies.md) para os
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementing security recommendations in Azure Security Center (Implementar recomendações de segurança no Centro de Segurança do Azure)](security-center-recommendations.md).
 
-Sob a secção **Prevenção**, pode monitorizar o estado de segurança dos seus recursos. No exemplo seguinte, pode ver que em cada mosaico do recurso (Computação, Redes, Armazenamento e dados e Aplicação) tem o número total de problemas que foram identificados.
+Em **Monitorização do estado de funcionamento do recurso**, pode monitorizar o estado de segurança dos seus recursos. No exemplo seguinte, pode ver que em cada mosaico do recurso (Computação e Aplicações, Rede, Segurança de dados e Identidade e acesso) tem o número total de problemas que foram identificados.
 
 ![Mosaico de estado de funcionamento da segurança dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
-### <a name="monitor-compute"></a>Monitorizar a computação
-Quando clica no mosaico **Computação**, vê três separadores:
-
-- **Descrição geral**: monitorização e recomendações.
-- **VMs e Computadores**: mostra todos os computadores, máquinas virtuais e os respetivos estados de segurança.
-- **Serviços Cloud**: lista de todas as funções Web e de trabalho monitorizadas pelo Centro de Segurança.
-
-![Atualização do sistema em falta na máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
-
-Existem várias secções em cada separador e pode selecionar, em cada uma delas, uma opção individual para ver mais detalhes sobre os passos recomendados para resolver esse problema em concreto.
-
-#### <a name="monitoring-recommendations"></a>Recomendações de monitorização
-Esta secção mostra o número total de máquinas virtuais e computadores que foram inicializados para aprovisionamento automático e os respetivos estados atuais. Este exemplo inclui uma recomendação, **Monitorizar problemas de estado de funcionamento do agente**.  Selecione esta recomendação.
-
-![Monitorizar problemas de estado de funcionamento do agente](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
-
-**Monitorizar problemas de estado de funcionamento do agente** é aberto. São listados os computadores e VMs que o Centro de Segurança não consegue monitorizar. Selecione um computador ou VM para informações detalhadas. O **ESTADO DE MONITORIZAÇÃO** fornece um motivo pelo qual o Centro de Segurança não consegue monitorizar. Consulte o [guia de resolução de problemas do Centro de Segurança](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para obter uma lista de valores, descrições e passos de resolução do **ESTADO DE MONITORIZAÇÃO**.
-
-#### <a name="recommendations"></a>Recomendações
-Esta secção tem um conjunto de [recomendações para cada máquina virtual e computador ](security-center-virtual-machine-recommendations.md) que o Centro de Segurança do Azure monitoriza. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a gravidade do problema, conforme ilustrado na seguinte captura de ecrã:
-
-![Recomendações de Virtual Machines](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
-
-> [!NOTE]
-> Só são apresentadas as máquinas virtuais com, pelo menos, um ponto final público em **Estado de Funcionamento da Rede**, na lista **Topologia da rede**.
->
-
-Cada recomendação tem um conjunto de ações que pode executar assim que clicar na mesma. Por exemplo, se clicar em **Atualizações do sistema em falta**, aparece uma lista de máquinas virtuais e computadores que têm patches em falta, bem como a gravidade das atualizações em falta, conforme mostrado na captura de ecrã abaixo.
-
-![Atualizações do sistema em falta nas máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
-
-As **Atualizações do sistema em falta** têm um resumo das atualizações críticas num formato de gráfico, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
-
-* **NOME**: o nome da atualização em falta.
-* **N.º DE VMs e COMPUTADORES**: o número total de VMs e computadores nos quais esta atualização está em falta.
-* **ESTADO**: o estado atual da recomendação:
-  * **Aberto**: a recomendação ainda não foi tratada.
-  * **Em curso**: a recomendação está a ser aplicada a esses recursos e não tem de tomar qualquer medida.
-  * **Resolvido**: a recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
-* **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
-  * **Elevada**: existe uma vulnerabilidade num recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
-  * **Média**: são precisos passos não críticos ou adicionais para concluir um processo ou eliminar uma vulnerabilidade.
-  * **Baixa**: uma vulnerabilidade deve ser tratada, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
-
-Para ver os detalhes das recomendações, clique no nome da atualização em falta na lista.
-
-![Atualizações do sistema em falta para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
-
-> [!NOTE]
-> As recomendações de segurança aqui são as mesmas que as da opção **Recomendações**. Para obter mais informações sobre como resolver recomendações, veja o artigo [Implementing security recommendations in Azure Security Center (Implementar recomendações de segurança no Centro de Segurança do Azure)](security-center-recommendations.md). Este artigo é aplicável não só a máquinas virtuais e computadores, mas a todos os recursos que estão disponíveis no mosaico **Estado de Funcionamento do Recurso**.
->
-
-#### <a name="unmonitored-vms"></a>VMs não monitorizadas
-Uma VM não é monitorizada pelo Centro de Segurança se a VM não estiver a executar a extensão do MMA. Uma VM pode ter um agente local já instalado, por exemplo, o agente direto do OMS ou agente do SCOM. As VMs com estes agentes são identificadas como não monitorizadas, uma vez que estes agentes não são totalmente suportados no Centro de Segurança. Para beneficiar totalmente de todas as capacidades do Centro de Segurança, é necessária a extensão MMA.
-
-Pode instalar a extensão na VM não monitorizada, além do agente local já instalado. Configure ambos os agentes da mesma forma, ligando-os à mesma área de trabalho. Isto permite ao Centro de Segurança interagir com a extensão MMA e recolher dados.  Consulte [Ativar a extensão VM](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) para obter instruções sobre como instalar a extensão MMA.
-
-Consulte [problemas de estado do agente de monitorização](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para saber mais sobre os motivos pelos quais o Centro de Segurança não consegue monitorizar com êxito VMs e computadores inicializados para aprovisionamento automático.
-
-#### <a name="vms--computers-section"></a>Secção de VMs e computadores
-A secção de máquinas virtuais e computadores mostra uma descrição geral das recomendações de todos os computadores e máquinas virtuais. Cada coluna representa um conjunto de recomendações como é mostrado na seguinte captura de ecrã:
-
-![Descrição geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
-
-Esta lista representa quatro tipos de ícones, conforme explicado nesta lista:
-
-![icon1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Computador não Azure.
-
-![icon2](./media/security-center-monitoring/security-center-monitoring-icon2.png) VM do Azure Resource Manager.
-
-![icon3](./media/security-center-monitoring/security-center-monitoring-icon3.png) VM Clássica do Azure
-
-![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) VMs que só são identificadas a partir da área de trabalho que faz parte da subscrição vista. Inclui VMs de outras subscrições que reportam à área de trabalho desta subscrição e VMs que foram instaladas com o agente direto do SCOM e não têm ID de recurso.
-
-O ícone apresentado em cada recomendação ajuda-o a identificar rapidamente as máquinas virtuais e os computadores que precisam de atenção e o tipo de recomendação. Também pode utilizar a opção **filtro** para selecionar que opções serão apresentadas neste ecrã.
-
-![Filtro](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
-
-No exemplo anterior, uma máquina virtual tem uma recomendação crítica relativa à proteção do ponto final. Para obter mais informações sobre a máquina virtual, clique na mesma:
-
-![Detalhes de segurança da máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
-
-Aqui, pode ver os detalhes de segurança da máquina virtual ou computador. Na parte inferior, pode ver a ação recomendada e a gravidade de cada problema.
-
-#### <a name="cloud-services-section"></a>Secção de serviços cloud
-Relativamente aos serviços cloud, é criada uma recomendação quando a versão do sistema operativo está desatualizada, conforme mostrado na captura de ecrã seguinte:
-
-![Estado de funcionamento dos serviços em nuvem](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
-
-Num cenário em que tiver uma recomendação (que não é o caso do exemplo anterior), tem de seguir os passos da recomendação para atualizar a versão do sistema operativo. Quando está disponível uma atualização, verá um alerta (vermelho ou cor de laranja, dependendo da gravidade do problema). Se clicar neste alerta nas linhas WebRole1 (executa o Windows Server com a sua aplicação Web automaticamente implementada no IIS) ou WorkerRole1 (executa o Windows Server com a sua aplicação Web automaticamente implementada no IIS), pode ver mais detalhes sobre esta recomendação, conforme mostrado na captura de ecrã seguinte:
-
-![Detalhes do serviço em nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
-
-Para ver uma explicação mais prescritiva sobre esta recomendação, clique em **Atualizar versão do SO** na coluna **DESCRIÇÃO**.
-
-![Recomendações dos serviços em nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
+### <a name="monitor-compute--apps"></a>Monitorizar a computação e aplicações
+Veja [Proteger o seus computadores e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md) para obter mais informações.
 
 ### <a name="monitor-virtual-networks"></a>Monitorizar redes virtuais
 Quando clica no mosaico **Redes**, o painel **Redes** é apresentado com mais detalhes, conforme mostrado na seguinte captura de ecrã:
@@ -184,9 +90,9 @@ Nesta vista de topologia, o primeiro nível tem [máquinas virtuais](../virtual-
 
 A parte inferior deste painel tem as recomendações para esta máquina virtual, semelhantes ao que foi descrito anteriormente. Pode clicar numa recomendação para obter mais informações ou aplicar a configuração ou o controlo de segurança necessário.
 
-### <a name="monitor-storage--data"></a>Monitorizar o armazenamento e dados
+### <a name="monitor-data-security"></a>Monitorizar segurança de dados
 
-Quando clica em **Armazenamento e dados** na secção **Prevenção**, é aberto **Recursos de Dados**com recomendações para SQL e Armazenamento. Também tem [recomendações](security-center-sql-service-recommendations.md) para o estado de funcionamento geral da base de dados. Para obter mais informações sobre a encriptação de armazenamento, leia o artigo [Ativar a encriptação para a conta de armazenamento do Azure no Centro de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
+Quando clica em **Segurança de dados** na secção **Prevenção**, é aberto **Recursos de Dados** com recomendações para SQL e Armazenamento. Também tem [recomendações](security-center-sql-service-recommendations.md) para o estado de funcionamento geral da base de dados. Para obter mais informações sobre a encriptação de armazenamento, leia o artigo [Ativar a encriptação para a conta de armazenamento do Azure no Centro de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 ![Recursos de Dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -208,19 +114,9 @@ Quando clica na base de dados para abordar esta recomendação, é aberto **Dete
 
 Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 
-### <a name="monitor-applications"></a>Monitorizar aplicações
+### <a name="monitor-identity--access"></a>Monitorizar identidade e acesso
 
-Se a carga de trabalho do Azure tiver aplicações localizadas nas [máquinas virtuais (criadas através do Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) com portas Web expostas (as portas TCP 80 e 443), o Centro de Segurança poderá monitorizá-las para identificar potenciais problemas de segurança e recomendar passos de remediação. Quando clica no mosaico **Aplicações**, abre-se **Aplicações** com uma série de recomendações apresentadas na secção **Recomendações da aplicação**. Também mostra as aplicações discriminadas por anfitrião, IP/domínio e se existe uma solução de WAF instalada:
-
-![Estado de funcionamento da segurança de aplicações](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
-
-Tal como fez com as outras recomendações, pode clicar na recomendação para ver mais detalhes sobre o problema e para saber como corrigi-lo. O exemplo apresentado na figura seguinte é uma aplicação que foi identificada como uma aplicação Web não segura. Quando seleciona a aplicação que foi considerada não segura, a opção seguinte fica disponível:
-
-![Detalhes](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
-
-Aqui, tem uma lista de todas as recomendações para esta aplicação. Quando clica na recomendação **Adicionar uma firewall de aplicações Web**, abre-se **Adicionar uma Firewall de Aplicações Web** com opções para a instalação de uma firewall de aplicações Web (WAF) a partir de um parceiro, conforme mostrado na captura de ecrã seguinte.
-
-![Caixa de diálogo Adicionar Firewall de Aplicações Web](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
+Para obter mais informações, veja [Monitorizar a identidade e o acesso no Centro de Segurança do Azure](security-center-identity-access.md).
 
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:

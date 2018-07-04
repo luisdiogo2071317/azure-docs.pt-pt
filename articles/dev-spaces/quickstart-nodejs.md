@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 764606d838ac067a09072b84222a8ec092c4c124
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 99508d6e4e6502fe4fd2a81ee7aaefdde7cd2e15
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823212"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945807"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (Node.js)
 
@@ -40,7 +40,7 @@ Neste guia, vai aprender a:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure
 
-1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.33 ou superior).
+1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.38 ou superior).
 1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Transfira a [extensão dos Espaços de Programador do Azure](https://aka.ms/get-azds-code) para o VS Code.
 1. Instale a extensão: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ Neste guia, vai aprender a:
 1. Transfira o código de exemplo do GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Altere o diretório para a pasta de webfrontend: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
 1. Gere elementos de gráfico do Docker e do Helm: `azds prep --public`
-1. Crie o espaço de programador no AKS. Na janela do terminal, execute este comando na **pasta de código raiz**, webfrontend: `azds up`
+1. Compile e execute o código no AKS. Na janela do terminal, na **pasta webfrontend**, execute este comando: `azds up`
 1. Analise o resultado da consola para obter informações sobre o URL que foi criado pelo comando `up`. Estará na forma: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
-   Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. 
+   Abra este URL numa janela do browser e deve ver o carregamento da aplicação Web. À medida que o contentor é executado, os resultados `stdout` e `stderr` são transmitidos para a janela do terminal.
+   
+   > [!Note]
+   > Na primeira execução, pode demorar alguns minutos para que o DNS público esteja pronto. Se o URL público não resolver, pode utilizar o URL alternativo http://localhost:<portnumber> apresentado no resultado da consola. Se utilizar o URL de anfitrião local, poderá parecer que o contentor está a ser executado localmente, contudo, está a ser executado no AKS. Para sua comodidade e para facilitar a interação com o serviço da sua máquina local, os Espaços de Programador do Azure criam um túnel SSH temporário para o contentor em execução no Azure. Pode voltar atrás e tentar o URL público mais tarde, quando o registo DNS estiver pronto.
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
@@ -72,7 +75,7 @@ O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kuber
 O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não requerem o reinício do processo de Node.js, pelo que um comando `azds up` ativo irá sincronizar, de forma automática, qualquer ficheiro de conteúdo modificado diretamente com o contentor em execução no Azure, oferecendo-lhe, assim, um modo rápido de ver as edições aos seus conteúdos.
 
 ### <a name="test-from-a-mobile-device"></a>Testar num dispositivo móvel
-Se abrir a aplicação Web num dispositivo móvel, irá reparar que a IU não aparece corretamente num dispositivo pequeno.
+Abra a aplicação Web num dispositivo móvel através do URL público para webfrontend. Pode copiar e enviar o URL da sua área de trabalho para o dispositivo, para não ter de inserir o endereço comprido. Quando a aplicação Web é carregada no dispositivo móvel, irá reparar que a IU não aparece corretamente num dispositivo pequeno.
 
 Para corrigir este problema, vai adicionar uma etiqueta mega `viewport`:
 1. Abra o ficheiro `./public/index.html`
@@ -116,7 +119,7 @@ Nesta secção, ai utilizar o VS Code para depurar diretamente o nosso contentor
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicializar ativos de depuração com a extensão do VS Code
 Primeiro tem de configurar o seu projeto de código para que o VS Code comunique com o nosso espaço de programação no Azure. A extensão do VS Code para Espaços de Programação do Azure oferece um comando auxiliar para contribuir para a configuração da depuração. 
 
-Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Create configuration files for connected development`. 
+Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 Esta ação adiciona a configuração de depuração para os Espaços de Programação do Azure na pasta `.vscode`.
 
@@ -126,7 +129,7 @@ Esta ação adiciona a configuração de depuração para os Espaços de Program
 1. Para abrir a vista Debug (Depuração), clique no ícone Debug em **Activity Bar** (Barra de Atividades), no lado do VS Code.
 1. Selecione **Launch Program (AZDS)** (Iniciar Programa [AZDS]) como a configuração de depuração ativa.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > Se não vir nenhum comando do Azure Dev Spaces em Command Palette (Paleta de Comandos), confirme que tem instalada a extensão do VS Code para o Azure Dev Spaces.

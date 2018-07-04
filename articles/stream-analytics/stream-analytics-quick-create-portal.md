@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651731"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031435"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -40,7 +40,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados configurad
      "hmdt": 44
    }
    ```
-2. Inicie sessão no Portal do Azure.  
+2. Inicie sessão no [portal do Azure](https://portal.azure.com/).  
 
 3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página da tarefa Conta de armazenamento com o **Nome** definido como “asaquickstartstorage”, **Localização** definida como “EUA Oeste 2”, **Grupo de recursos** definido como “asaquickstart-resourcegroup” (anfitrião da conta de armazenamento no mesmo grupo de recursos da tarefa Transmissão em Fluxo para um melhor desempenho). As restantes definições podem ser mantidas nos respetivos valores predefinidos.  
 
@@ -116,7 +116,7 @@ Nesta secção, irá configurar o armazenamento de blobs como entrada da tarefa 
    |---------|---------|---------|
    |Alias de saída |   BlobOutput   |   Introduza um nome para identificar a saída da tarefa. |
    |Subscrição  |  \<A sua subscrição\>  |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
-   |Conta de armazenamento |  myasastorageaccount |   Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.       |
+   |Conta de armazenamento |  asaquickstartstorage |   Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.       |
    |Contentor |   container1  |  Selecione o contentor existente que criou na conta de armazenamento.   |
    |Padrão do caminho |   saída  |  Introduza um nome para servir como caminho para a saída dentro do contentor existente.   |
 

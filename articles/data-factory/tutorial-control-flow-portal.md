@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 65441882827ecb26405f74fb1389b6a21d99cf9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055188"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
 
@@ -147,7 +145,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
         Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selecione **V2 (Pré-visualização)** para a **versão**.
+4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
@@ -168,7 +166,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 - Ligar uma atividade a outra (após êxito e falha)
 - Utilizar um resultado de uma atividade como entrada para a atividade subsequente
 
-1. Na página **introdução** da IU do Data Factory , clique no mosaico **Criar pipeline**.  
+1. Na página **introdução** da IU do Data Factory, clique no mosaico **Criar pipeline**.  
 
    ![Página Introdução](./media/tutorial-control-flow-portal/get-started-page.png) 
 3. Na janela de propriedades do pipeline, mude para o separador **Parâmetros** e utilize o botão **Novo** para adicionar os três parâmetros seguintes do tipo Cadeia: sourceBlobContainer, sinkBlobContainer e receiver. 
@@ -241,7 +239,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
         - Mensagem – que transmite o valor de `@{activity('Copy1').output.dataWritten`. Acede a uma propriedade da atividade de cópia anterior e transmite o valor de dataWritten. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
         - Nome da Fábrica de Dados – que transmite o valor de `@{pipeline().DataFactory}`. Esta é uma variável do sistema, que lhe permite aceder ao nome da fábrica de dados correspondente. Para obter uma lista de variáveis do sistema, veja o artigo [Variáveis do Sistema](control-flow-system-variables.md).
         - Nome do pipeline – que transmite o valor de `@{pipeline().Pipeline}`. Também se trata de uma variável do sistema, que lhe permite aceder ao nome do pipeline correspondente. 
-        - Recetor – que transmite o valor de "@pipeline().parameters.receiver"), acedendo aos parâmetros do pipeline.
+        - Recetor – transmite o valor de "\@pipeline().parameters.receiver"). acedendo aos parâmetros do pipeline.
     
         ![Definições da primeira atividade Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Ligue a atividade **Copy** à atividade **Web** ao arrastar o botão verde junto à atividade Copy e largar na atividade Web. 

@@ -9,14 +9,14 @@
 
 3. Ser-lhe-á solicitado que escolha o idioma que pretende configurar para o dispositivo. Especifique o idioma e prima **Enter**.
 
-4. No menu da consola de série apresentado, selecione a opção 1 para **iniciar sessão com acesso total**.
+4. No menu da consola de série apresentado, selecione a opção 1, **Iniciar sessão com acesso total**.
      Execute os passos 5 a 12 para configurar as definições de rede mínimas necessárias para o dispositivo. **Estes passos de configuração têm de ser executados no controlador ativo do dispositivo.** O menu da consola de série indica o estado do controlador na mensagem de faixa. Se não estiver ligado ao controlador ativo, desligue e volte a ligar ao controlador ativo.
 
 5. Na linha de comandos, escreva a sua palavra-passe. A palavra-passe predefinida do dispositivo é **Password1**.
 
 6. Escreva o seguinte comando: `Invoke-HcsSetupWizard`.
 
-7. Será apresentado um assistente de configuração para o ajudar a configurar as definições de rede do dispositivo. Forneça as seguintes informações:
+7. Será apresentado um assistente de configuração para o ajudar a configurar as definições de rede do dispositivo. Insira as seguintes informações:
    
    * Endereço IP da interface de rede DATA 0
    * Máscara de sub-rede
