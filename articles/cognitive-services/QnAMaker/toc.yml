@@ -118,6 +118,8 @@
       href: glossary.md
 - name: Recursos
   items:
+    - name: Disponibilidade Regional
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços

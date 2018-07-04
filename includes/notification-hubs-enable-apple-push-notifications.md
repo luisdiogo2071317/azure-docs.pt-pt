@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 08ff4b2190b26471d7b1ac1850ce89f889b8c256
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 10ccb80dd74606d2ad40ab5d7993aed8cd71725e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814735"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329676"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o ficheiro de pedido de assinatura de certificado
 O Serviço Apple Push Notification (APNS) utiliza certificados para autenticar as suas notificações push. Siga estas instruções para criar o certificado push necessário para enviar e receber notificações. Para obter mais informações sobre estes conceitos, veja a documentação oficial do [Serviço Apple Push Notification](http://go.microsoft.com/fwlink/p/?LinkId=272584).
@@ -38,7 +38,7 @@ Em seguida, registe a aplicação na Apple, ative as notificações push e carre
 ## <a name="register-your-app-for-push-notifications"></a>Registar a aplicação para notificações push
 Para poder enviar notificações push para uma aplicação iOS, tem de registar a sua aplicação na Apple e registar-se também para notificações push.  
 
-1. Se ainda não registou a aplicação, navegue até ao <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Aprovisionamento do iOS </a> no Centro de Programadores da Apple, inicie sessão com o seu ID da Apple, clique em **Identificadores**, clique em **IDs de Aplicações** e, finalmente, clique no sinal **+** para registar uma nova aplicação.
+1. Se ainda não registou a aplicação, navegue até ao <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Aprovisionamento do iOS </a> no Centro de Programadores da Apple, inicie a sessão com o seu ID da Apple, clique em **Identificadores**, clique em **IDs de Aplicações** e, finalmente, clique no sinal **+** para registar uma nova aplicação.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
