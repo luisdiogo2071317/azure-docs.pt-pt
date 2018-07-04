@@ -7,31 +7,35 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12c306b5199da5862302c28d1690b81c6e1edb0e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264620"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063413"
 ---
-# <a name="tutorial-create-app-that-returns-keyphrases-entity-data-found-in-utterances"></a>Tutorial: Criar uma aplicação que devolva dados da entidade keyPhrases encontrados em expressões
-Neste tutorial, vai criar uma aplicação que demonstra como extrair o assunto-chave de expressões.
+# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Tutorial: saiba como devolver dados de entidade keyPhrase 
+Neste tutorial, vai utilizar uma aplicação que demonstra como extrair o assunto-chave de expressões.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Compreender as entidades keyPhrase 
-> * Criar nova aplicação LUIS para o domínio de recursos humanos
-> * Adicionar a intenção _None_ (Nenhuma) e adicionar expressões de exemplo
+> * Utilizar a aplicação LUIS no domínio de Recursos Humanos (RH) 
 > * Adicionar a entidade keyPhrase para extrair conteúdo da expressão
 > * Preparar e publicar a aplicação
-> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS
+> * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS incluindo expressões-chave
 
-Para este artigo, pode utilizar uma conta do [LUIS][LUIS] gratuita para criar a sua aplicação LUIS.
+Para este artigo, pode utilizar uma conta do [LUIS](luis-reference-regions.md#publishing-regions) gratuita para criar a sua aplicação LUIS.
+
+## <a name="before-you-begin"></a>Antes de começar
+Se não tiver a aplicação de Recursos Humanos do tutorial [entidade simples](luis-quickstart-primary-and-secondary-data.md), [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
+
+Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `keyphrase`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="keyphrase-entity-extraction"></a>Extração da entidade keyPhrase
-O assunto-chave é fornecido pela entidade Prebuilt, **keyPhrase**. Esta entidade devolve o assunto-chave na expressão
+O assunto-chave é indicado pela entidade previamente criada, **keyPhrase**. Esta entidade devolve o assunto-chave na expressão
 
 As expressões seguintes mostram exemplos de expressões-chave:
 
@@ -40,65 +44,54 @@ As expressões seguintes mostram exemplos de expressões-chave:
 |Existe um novo plano médico com um valor deduzível inferior oferecido no próximo ano?|"deduzível inferior"<br>"novo plano médico"<br>"ano"|
 |A terapia de visão está incluída no plano médico deduzível?|"plano médico deduzível"<br>"terapia de visão"|
 
-O chatbot pode considerar estes valores, além de todas as outras entidades extraídas, quando decidir o passo seguinte na conversação.
-
-## <a name="download-sample-app"></a>Transferir aplicação de exemplo
-Transfira a aplicação [Recursos Humanos](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) e guarde-a num ficheiro com a extensão *.json. Esta aplicação de exemplo reconhece as expressões relevantes para benefícios de funcionários, organogramas e recursos físicos.
-
-## <a name="create-a-new-app"></a>Criar uma nova aplicação
-1. Inicie sessão no site do [LUIS][LUIS]. Certifique-se de que inicia sessão na [região][LUIS-regions] onde precisa que os pontos finais do LUIS sejam publicados.
-
-2. No site do [LUIS][LUIS], selecione **Importar nova aplicação** para importar a aplicação Recursos Humanos transferida na secção anterior. 
-
-    [![](media/luis-quickstart-intent-and-key-phrase/app-list.png "Captura de ecrã da página Listas de aplicações")](media/luis-quickstart-intent-and-key-phrase/app-list.png#lightbox)
-
-3. Na caixa de diálogo **Importar nova aplicação**, dê um nome à aplicação `Human Resources with Key Phrase entity`. 
-
-    ![Imagem da caixa de diálogo Criar nova aplicação](./media/luis-quickstart-intent-and-key-phrase/import-new-app-inline.png)
-
-    Quando tiver concluído o processo de criação da aplicação, o LUIS apresenta a lista de intenções.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/intents-list.png "Captura de ecrã da página Listas de intenções")](media/luis-quickstart-intent-and-key-phrase/intents-list.png#lightbox)
+A sua aplicação cliente pode utilizar estes valores, juntamente com outras entidades extraídas, para decidir o próximo passo da conversa.
 
 ## <a name="add-keyphrase-entity"></a>Adicionar a entidade KeyPhrase 
 Adicione a entidade pré-concebida keyPhrase para extrair o assunto das expressões.
 
-1. Selecione **Entidades** no menu esquerdo.
+1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
 
-    [ ![Captura de ecrã de Entidades realçado no painel de navegação esquerdo da secção Criar](./media/luis-quickstart-intent-and-key-phrase/select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png#lightbox)
+    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
-2. Selecione **Gerir entidades pré-concebidas**.
+2. Selecione **Entidades** no menu esquerdo.
 
-    [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png#lightbox)
+    [ ![Captura de ecrã de Entidades realçado no painel de navegação esquerdo da secção Criar](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
 
-3. Na caixa de diálogo de pop-up, selecione **keyPhrase** e, em seguida, **Concluído**. 
+3. Selecione **Gerir entidades pré-concebidas**.
 
-    [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png#lightbox)
+    [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
+
+4. Na caixa de diálogo de pop-up, selecione **keyPhrase** e, em seguida, **Concluído**. 
+
+    [ ![Captura de ecrã da caixa de diálogo de pop-up Lista de entidades](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
     <!-- TBD: asking Carol
     You won't see these entities labeled in utterances on the intents pages. 
     -->
+5. Selecione **Intenções** no menu do lado esquerdo e, em seguida, selecione a expressão **Utilities.Confirm**. A entidade keyPhrase está etiquetada em várias expressões. 
+
+    [ ![Captura de ecrã da expressão Utilities.Confirm com keyPhrases etiquetada nas expressões](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
-O LUIS desconhece esta alteração ao modelo até estar preparado. 
+A nova versão `keyphrase` da aplicação precisa de ser treinada.  
 
 1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
 
-    ![Captura de ecrã do botão Preparar realçado](./media/luis-quickstart-intent-and-key-phrase/train-button-expanded.png)
+    ![Preparar a aplicação](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
 2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
-    ![Captura de ecrã da barra de notificação de êxito da Preparação ](./media/luis-quickstart-intent-and-key-phrase/trained-inline.png)
+    ![Preparação concluída com êxito](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
 
 1. Selecione **Publicar** no painel de navegação superior direito.
 
-    ![Captura de ecrã da página Entidade com o botão Publicar expandido ](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Captura de ecrã da página Publicar com o botão Publicar no bloco de produção realçado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
 2. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
 
-    [![](media/luis-quickstart-intent-and-key-phrase/publish-to-production-inline.png "Captura de ecrã da página Publicar com o botão Publicar no bloco de produção realçado")](media/luis-quickstart-intent-and-key-phrase/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Captura de ecrã da página Publicar com o botão Publicar no bloco de produção realçado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
@@ -106,39 +99,98 @@ O LUIS desconhece esta alteração ao modelo até estar preparado.
 
 1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
 
-    ![Captura de ecrã da página Publicar com o URL de ponto final realçado](media/luis-quickstart-intent-and-key-phrase/endpoint-url-inline.png )
+    ![Captura de ecrã da página Publicar com o URL de ponto final realçado](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
-2. Vá para o final do URL no endereço e introduza `Is there a new medical plan with a lower deductible offered next year?`. O último parâmetro querystring é `q`, a expressão **query**. 
+2. Vá para o final do URL no endereço e introduza `does form hrf-123456 cover the new dental benefits and medical plan`. O último parâmetro querystring é `q`, a expressão **query**. 
 
 ```
 {
-  "query": "Is there a new medical plan with a lower deductible offered next year?",
+  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
   "topScoringIntent": {
     "intent": "FindForm",
-    "score": 0.216838628
+    "score": 0.9300641
   },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.9300641
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0359598845
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0141798034
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0112197418
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00507669244
+    },
+    {
+      "intent": "None",
+      "score": 0.00238501839
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00202810857
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00102957746
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0008688423
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 3.557994E-05
+    }
+  ],
   "entities": [
     {
-      "entity": "lower deductible",
-      "type": "builtin.keyPhrase",
-      "startIndex": 35,
-      "endIndex": 50
+      "entity": "hrf-123456",
+      "type": "HRF-number",git 
+      "startIndex": 10,
+      "endIndex": 19
     },
     {
-      "entity": "new medical plan",
+      "entity": "new dental benefits",
       "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 26
+      "startIndex": 31,
+      "endIndex": 49
     },
     {
-      "entity": "year",
+      "entity": "medical plan",
       "type": "builtin.keyPhrase",
-      "startIndex": 65,
-      "endIndex": 68
+      "startIndex": 55,
+      "endIndex": 66
+    },
+    {
+      "entity": "hrf",
+      "type": "builtin.keyPhrase",
+      "startIndex": 10,
+      "endIndex": 12
+    },
+    {
+      "entity": "-123456",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 19,
+      "resolution": {
+        "value": "-123456"
+      }
     }
   ]
 }
 ```
+
+Ao pesquisar por um formulário, o utilizador deu mais informações do que era preciso para o encontrar. A informação adicional é devolvida como **builtin.keyPhrase**. A aplicação cliente pode utilizar estas informações adicionais para uma pergunta de seguimento, como "Gostaria de falar com um representante dos Recursos Humanos sobre os novos benefícios dentários" ou oferecer um menu com mais opções, incluindo "Mais informações sobre novos benefícios dentários ou plano médico."
 
 ## <a name="what-has-this-luis-app-accomplished"></a>O que conseguiu esta aplicação LUIS?
 Esta aplicação, com a deteção da entidade keyPhrase, identificou uma intenção de consulta de linguagem natural e devolveu os dados extraídos, incluindo o assunto principal. 
@@ -156,6 +208,3 @@ Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu
 > [!div class="nextstepaction"]
 > [Criar uma aplicação que devolva sentimentos juntamente com a predição de intenção](luis-quickstart-intent-and-sentiment-analysis.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

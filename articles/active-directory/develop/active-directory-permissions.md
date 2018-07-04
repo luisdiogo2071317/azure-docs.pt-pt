@@ -1,6 +1,6 @@
 ---
-title: Permissões no Azure AD | Microsoft Docs
-description: Saiba mais sobre os âmbitos e as permissões no Azure Active Directory e como utilizá-los
+title: Permissões no Azure Active Directory | Microsoft docs
+description: Saiba mais sobre as permissões no Azure Active Directory e como utilizá-las.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,24 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/20/2017
+ms.date: 06/25/2018
 ms.author: celested
-ms.reviewer: justhu
+ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 749253d6a082bcdc2b80c5984f20c4b8c4039ad0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156896"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936960"
 ---
-# <a name="permissions-in-azure-ad"></a>Permissões no Azure AD
-O Azure Active Directory (Azure AD) utiliza intensivamente as permissões tanto para fluxos de OAuth, como de OpenID Connect (OICD). Quando a sua aplicação recebe um token de acesso do Azure AD, este incluirá afirmações que descrevem as permissões (também conhecidas como âmbitos) que a aplicação tem relativamente a um determinado recurso. Isto facilita autorização para o recurso porque apenas tem de verificar que o seu token contém a permissão adequada para a API que esteja a chamar. 
+# <a name="permissions-in-azure-active-directory"></a>Permissões no Azure Active Directory
+
+O Azure Active Directory (Azure AD) utiliza intensivamente as permissões tanto para fluxos de OAuth, como de OpenID Connect (OICD). Quando a sua aplicação recebe um token de acesso do Azure AD, o token de acesso irá incluir afirmações que descrevem as permissões que a aplicação tem relativamente a um determinado recurso. As permissões, também conhecidas como âmbitos, facilitam a autorização para o recurso porque este apenas tem de verificar que o seu token contém a permissão adequada para a API que a aplicação estiver a chamar. 
 
 ## <a name="types-of-permissions"></a>Tipos de permissões
+
 O Azure AD define dois tipos de permissões: 
 * **Permissões delegadas** - são utilizadas por aplicações que têm um utilizador com sessão iniciada presente. Nestas aplicações, ou o utilizador ou um administrador autoriza as permissões que a aplicação pede e é delegada a esta permissão para agir como o utilizador com sessão iniciada quando forem feitas chamadas para uma API. Dependendo da API, o utilizador poderá não conseguir consentir diretamente a API e, em alternativa, terá de [pedir a um administrador que forneça "consentimento de administrador".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* **Permissões de aplicação** - são utilizadas por aplicações que são executadas sem um utilizador com sessão iniciada presente; por exemplo, as aplicações que são executadas como serviços em segundo plano ou daemons. As permissões da aplicação só podem ser [consentidas por um administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque, regra geral, são muito poderosas e permitem acesso a dados em limites do utilizador ou a dados que podem estar limitados a administradores. 
+* **Permissões de aplicação** - são utilizadas por aplicações que são executadas sem um utilizador com sessão iniciada presente; por exemplo, as aplicações que são executadas como serviços em segundo plano ou daemons. As permissões da aplicação só podem ser [consentidas por um administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque, regra geral, são poderosas e permitem acesso a dados em limites do utilizador ou a dados que podem estar limitados a administradores. 
 
 As permissões efetivas são aquelas que a sua aplicação terá quando fizer pedidos para uma API. 
 
@@ -55,14 +57,14 @@ As permissões no Azure AD têm várias propriedades que ajudam os utilizadores,
 
 | Nome da propriedade | Descrição | Exemplo | 
 | --- | --- | --- |
-| ID | Este é um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| IsEnabled | Indica se este âmbito está disponível para utilização. | true | 
-| Tipo | Indica se esta permissão requer consentimento do utilizador ou consentimento do administrador. | Utilizador | 
-| AdminConsentDescription | Esta é uma descrição que é apresentada aos administradores durante as experiências de consentimento de administrador | Permite que a aplicação leia e-mails nas caixas de correio do utilizador. | 
-| AdminConsentDisplayName | É o nome amigável que é apresentado aos administradores durante a experiência de consentimento de administrador. | Ler o correio do utilizador | 
-| UserConsentDescription | Esta é uma descrição que é apresentada aos utilizadores durante uma experiência de consentimento de utilizador. |  Permite que a aplicação leia e-mails na sua caixa de correio. | 
-| UserConsentDisplayName | É o nome amigável que é apresentado aos utilizadores durante uma experiência de consentimento de utilizador. | Ler o seu correio | 
-| Valor | Esta é a cadeia que é utilizada para identificar a permissão durante os fluxos de autorização de OAuth 2.0. Também pode ser combinada com a cadeia de URI de ID da Aplicação, de modo a formar um nome de permissão completamente qualificado. | `Mail.Read` | 
+| `ID` | É um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
+| `IsEnabled` | Indica se esta permissão está disponível para utilização. | true | 
+| `Type` | Indica se esta permissão requer consentimento do utilizador ou consentimento do administrador. | Utilizador | 
+| `AdminConsentDescription` | É uma descrição que é apresentada aos administradores durante as experiências de consentimento de administrador | Permite que a aplicação leia e-mails nas caixas de correio do utilizador. | 
+| `AdminConsentDisplayName` | É o nome amigável que é apresentado aos administradores durante a experiência de consentimento de administrador. | Ler o correio do utilizador | 
+| `UserConsentDescription` | É uma descrição que é apresentada aos utilizadores durante uma experiência de consentimento de utilizador. |  Permite que a aplicação leia e-mails na sua caixa de correio. | 
+| `UserConsentDisplayName` | É o nome amigável que é apresentado aos utilizadores durante uma experiência de consentimento de utilizador. | Ler o seu correio | 
+| `Value` | É a cadeia que é utilizada para identificar a permissão durante os fluxos de autorização de OAuth 2.0. `Value` também pode ser combinada com a cadeia de URI de ID da Aplicação, de modo a formar um nome de permissão completamente qualificado. | `Mail.Read` | 
 
 ## <a name="types-of-consent"></a>Tipos de consentimentos
 As aplicações no Azure AD dependem de consentimento para ter acesso a recursos ou APIs necessárias. Para ter êxito, a sua aplicação poderá ter de conhecer vários tipos de consentimentos. Se estiver a definir permissões, também terá de saber como é que os utilizadores vão obter acesso à sua aplicação ou API.
@@ -70,31 +72,38 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 * **Consentimento de utilizador estático** - ocorre automaticamente durante o [fluxo de autorização de OAuth 2.0](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) quando especifica o recurso com o qual a aplicação quer interagir. No cenário de consentimento de utilizador estático, é necessário que a aplicação já tenha especificado todas as permissões de que precisa na respetiva configuração no portal do Azure. Se o utilizador (ou o administrador, conforme apropriado) não tiver concedido consentimento para esta aplicação, o Azure AD pedirá ao utilizador para dar consentimento neste momento. 
 
     Saiba mais sobre como registar uma aplicação do Azure AD que pede acesso a um conjunto estático de APIs.
-* **Consentimento de utilizador dinâmico** - é uma funcionalidade do modelo de aplicações do Azure AD v2. Neste cenário, a aplicação pede um conjunto de âmbitos de que precisa no [fluxo de autorização de OAuth 2.0 para aplicações de v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Se o utilizador ainda não tiver consentido, ser-lhe-á pedido que consinta neste momento. [Saiba mais sobre o consentimento dinâmico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Consentimento de utilizador dinâmico** - é uma funcionalidade do modelo de aplicações do Azure AD v2. Neste cenário, a aplicação pede um conjunto de permissões de que precisa no [fluxo de autorização de OAuth 2.0 para aplicações de v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Se o utilizador ainda não tiver consentido, ser-lhe-á pedido que consinta neste momento. [Saiba mais sobre o consentimento dinâmico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > O consentimento dinâmico pode ser prático, mas apresenta um desafio grande para as permissões que precisam de consentimento de administrador, uma vez que a experiência deste tipo de consentimento desconhece essas permissões no momento do consentimento. Se precisar de âmbitos com privilégio de administrador, a aplicação tem de registá-los no portal do Azure.
+    > O consentimento dinâmico pode ser prático, mas apresenta um desafio grande para as permissões que precisam de consentimento de administrador, uma vez que a experiência deste tipo de consentimento desconhece essas permissões no momento do consentimento. Se precisar de permissões com privilégio de administrador, a aplicação tem de registá-los no portal do Azure.
   
-* **Consentimento de administrador** - é necessário quando a aplicação precisa de aceder a determinadas permissões de privilégio elevado. Isto garante que os administradores têm alguns controlos adicionais antes de autorizarem as aplicações ou os utilizadores a aceder a dados com privilégios elevados da organização. [Saiba mais sobre como conceder o consentimento de administrador](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Consentimento de administrador** - é necessário quando a aplicação precisa de aceder a determinadas permissões de privilégio elevado. O consentimento do administrador garante que os administradores têm alguns controlos adicionais antes de autorizarem as aplicações ou os utilizadores a aceder a dados com privilégios elevados da organização. [Saiba mais sobre como conceder o consentimento de administrador](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Melhores práticas
 
-### <a name="resource-best-practices"></a>Melhores práticas para recursos
-Os recursos que expõem APIs devem definir permissões que sejam muito específicas para os dados ou ações que pretendem proteger. Isto ajuda a garantir que os clientes não acabam por receber permissões para aceder a dados de que não precisam e que os utilizadores são bem informados quanto aos dados que estão a consentir.
+### <a name="client-best-practices"></a>Melhores práticas de cliente
 
-Os recursos devem definir explicitamente as permissões `Read` e `ReadWrite` em separado. 
+- Apenas pedidos de permissão exigidos pela sua aplicação. As aplicações com demasiadas permissões estão em risco de expor os dados dos utilizadores se ficarem comprometidas.
+- Escolha entre permissões delegadas e permissões de aplicação, com base no cenário que suporta a sua aplicação. 
+    - Utilize sempre as permissões delegadas se a chamada estiver a ser realizada em nome de um utilizador.
+    - Utilize permissões de aplicação apenas se a aplicação não for interativa e não realizar chamadas em nome de qualquer utilizador específico. As permissões de aplicação são altamente privilegiadas e só devem ser utilizadas quando for realmente preciso.
+- Quando utilizar uma aplicação baseada no ponto final v2.0, defina sempre as permissões estáticas (as que são especificadas no seu registo da aplicação) para serem o superconjunto das permissões dinâmicas que pede no runtime (as que são especificadas no código e enviadas como parâmetros de consulta no seu pedido de autorização), para que os cenários, como o consentimento de administrador, funcionem corretamente.
 
-Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`. 
+### <a name="resourceapi-best-practices"></a>Melhores práticas dos recursos/API
 
-Os recursos devem seguir o seguinte padrão de nomenclatura `Subject.Permission[.Modifier]`, em que `Subject` corresponde ao tipo de dados que está disponível, `Permission` corresponde à ação que um utilizador pode realizar nesses dados e `Modifier` é utilizado opcionalmente para descrever especializações de outra permissão. Por exemplo: 
-* Mail.Read - permite aos utilizadores lerem correio. 
-* Mail.ReadWrite - permite aos utilizadores lerem ou escreverem correio.
-* Mail.ReadWrite.All - permite que um administrador ou utilizador aceda a todo o correio da organização.
+- Os recursos que expõem as APIs devem definir as permissões que são específicas para os dados ou ações que estejam a proteger. Seguir esta melhor prática ajuda-o a garantir que os clientes não acabam por ficar com a permissão para acederem a dados que não precisam e que os utilizadores são bem informados sobre os dados a que deram consentimento.
+- Os recursos devem definir explicitamente as permissões `Read` e `ReadWrite` em separado.
+- Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`.
+- Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
+    - `Subject` corresponde ao tipo de dados que está disponível,
+    - `Permission` corresponde à ação que um utilizador pode realizar após essa data, e 
+    - `Modifier` serve, opcionalmente, para descrever especializações de outra permissão. 
+    
+    Por exemplo: 
+    * Mail.Read - permite aos utilizadores lerem correio.
+    * Mail.ReadWrite - permite aos utilizadores lerem ou escreverem correio.
+    * Mail.ReadWrite.All - permite que um administrador ou utilizador aceda a todo o correio da organização.
 
-### <a name="client-best-practices"></a>Melhores práticas para clientes
-Peça permissão apenas para os âmbitos de que a sua aplicação precisa. As aplicações com demasiadas permissões estão em risco de expor os dados dos utilizadores se ficarem comprometidas.
-
-Os clientes não devem pedir permissões de aplicação nem permissões delegadas à mesma aplicação. Esta situação pode resultar numa elevação de privilégios e permitir que um utilizador obtenha acesso aos dados que as suas próprias permissões não permitem. 
 
 
 

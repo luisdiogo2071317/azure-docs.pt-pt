@@ -1,7 +1,7 @@
 ---
-title: Criar uma aplicação com vários contentores (pré-visualização) ao utilizar a Aplicação Web para Contentores do Azure
+title: Criar uma aplicação com vários contentores (pré-visualização) com a Aplicação Web para Contentores
 description: Saiba como utilizar vários contentores no Azure com os ficheiros de configuração Kubernetes e Docker Compose, com uma aplicação MySQL e WordPress.
-keywords: serviço de aplicações do azure, aplicação web, linux, docker, compose, contentor múltiplo, contentor, kubernetes
+keywords: serviço de aplicações do azure, aplicação web, linux, docker, compose,vários contentores, contentor, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651514"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751919"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
-A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Neste tutorial, irá aprender a criar uma aplicação com vários contentores utilizando o WordPress e MySQL.
+A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Neste tutorial, irá aprender a criar uma aplicação com vários contentores com o WordPress e o MySQL.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -145,7 +145,7 @@ Copie e cole o seguinte YAML localmente num ficheiro denominado `compose-wordpre
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu terminal da linha de comandos local, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano `myAppServicePlan` do Serviço de Aplicações com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
+No seu terminal da linha de comandos local, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +511,7 @@ O WordPress é ligado ao servidor do Redis. O **estado** da ligação aparece na
 
 Nesta secção, irá aprender a utilizar uma configuração do Kubernetes para implementar vários contentores. Certifique-se de que segue os passos anteriores para criar um [grupo de recursos](#create-a-resource-group) e um [plano do Serviço de Aplicações](#create-an-azure-app-service-plan). Uma vez que a maioria dos passos são semelhantes aos da secção Compose, o ficheiro de configuração foi combinado para si.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Opções do Kubernetes suportadas para vários contentores
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Opções do Kubernetes suportadas para vários contentores
 
 * args
 * command
@@ -649,9 +649,9 @@ Quando a definição da aplicação tiver sido criada, a CLI do Azure mostra inf
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Criar uma aplicação com vários contentores (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Criar uma aplicação com vários contentores (Kubernetes)
 
-No seu terminal da linha de comandos local, criar uma [aplicação Web](app-service-linux-intro.md) com vários contentores no `myResourceGroup` grupo de recursos e o plano `myAppServicePlan` do Serviço de Aplicações com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
+No seu terminal da linha de comandos local, criar uma [aplicação Web](app-service-linux-intro.md) com vários contentores no `myResourceGroup` grupo de recursos e o plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
