@@ -1,33 +1,33 @@
 
-# <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chamar o Microsoft Graph API a partir de uma aplicação iOS
+# <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chamar a API do Microsoft Graph a partir de uma aplicação iOS
 
-Este guia mostra como uma aplicação nativa do iOS (Swift) pode chamar as APIs que necessitam de tokens de acesso do ponto final v 2.0 do Microsoft Azure Active Directory (Azure AD). O guia explica como obter os tokens de acesso e utilizá-los em chamadas para o Microsoft Graph API e outras APIs.
+Este guia mostra como uma aplicação nativa no iOS (Swift) pode chamar as APIs que precisam de tokens de acesso do ponto final v2.0 Microsoft Azure Active Directory (Azure AD). O guia explica como obter tokens de acesso e utilizá-los em chamadas para o Microsoft Graph API e outras APIs.
 
-Depois de concluir os exercícios neste guia, a aplicação pode chamar uma API protegida a partir de qualquer da empresa ou organização que tenha o Azure AD. A aplicação pode efetuar chamadas de API protegidas através da utilização de contas pessoais, como o outlook.com, live.com e outros, bem como contas profissionais ou escolares.
+Depois de concluir os exercícios deste guia, seu aplicativo pode chamar uma API protegida a partir de qualquer empresa ou organização que tenha o Azure AD. Seu aplicativo pode fazer chamadas à API protegidas através da utilização de contas pessoais, como o outlook.com, live.com e outros, bem como contas escolares ou profissionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- XCode versão 8. x não é necessária para o exemplo que é criado neste guia. Pode transferir o XCode do [iTunes site](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode transferir URL").
-- O [Carthage](https://github.com/Carthage/Carthage) Gestor de dependência é necessário para a gestão de pacotes.
+- XCode versão 8.x é necessária para o exemplo que é criado neste guia. Pode baixar o XCode do [Web site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de transferência do XCode").
+- O [Carthage](https://github.com/Carthage/Carthage) Gestor de dependências é necessário para a gestão de pacotes.
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
 
 ![Como funciona este guia](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
-Neste guia, a aplicação de exemplo permite que uma aplicação iOS consultar a Graph API do Microsoft ou uma API web que aceita tokens do ponto final v 2.0 do Azure AD. Neste cenário, um token é adicionado a pedidos de HTTP utilizando o **autorização** cabeçalho. Aquisição do token e renovação são processadas pela biblioteca de autenticação do Microsoft (MSAL).
+Neste guia, o aplicativo de exemplo permite que as aplicações iOS, para consultar o Graph API da Microsoft ou uma API web que aceita tokens a partir do ponto final v2.0 do Azure AD. Para este cenário, um token é adicionado a pedidos de HTTP utilizando o **autorização** cabeçalho. Aquisição do token e a renovação são processadas pelo Microsoft Authentication Library (MSAL).
 
 
-### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Identificador de aquisição de token de acesso a APIs da web protegidas
+### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Lidar com a aquisição do token de acesso a APIs da web protegidos
 
-Depois do utilizador é autenticado, a aplicação de exemplo recebe um token. O token é utilizado para consultar a Graph API do Microsoft ou uma API web que está protegida pelo ponto final v 2.0 do Azure AD.
+Depois do utilizador é autenticado, o aplicativo de exemplo recebe um token. O token é utilizado para consultar o Graph API da Microsoft ou uma API web que está protegida pelo ponto de final de v2.0 do Azure AD.
 
-APIs, tais como o Microsoft Graph, necessitam de um token de acesso para permitir o acesso a recursos específicos. Tokens são necessários para ler um perfil de utilizador, aceder calendário de um utilizador, envie um e-mail e assim sucessivamente. A aplicação pode pedir um token de acesso utilizando MSAL e especificar âmbitos de API. O token de acesso é adicionado ao HTTP **autorização** cabeçalho para cada chamada que é efetuada em relação ao recurso protegido.
+As APIs, como o Microsoft Graph, exigem um token de acesso para permitir o acesso a recursos específicos. Tokens são necessários para ler o perfil de um utilizador, aceder ao calendário do usuário, enviar um e-mail e assim por diante. Seu aplicativo pode solicitar um token de acesso através de MSAL e especificando a âmbitos da API. O token de acesso é adicionado ao HTTP **autorização** cabeçalho para cada chamada feita em relação ao recurso protegido.
 
-MSAL gere a colocação em cache e atualizar os tokens de acesso para si, pelo que não tem da aplicação.
+A MSAL gerencia a colocação em cache e atualizar os tokens de acesso para si, para que seu aplicativo não precisa.
 
 
 ## <a name="libraries"></a>Bibliotecas
 
-Este guia utiliza a biblioteca seguinte:
+Este guia utiliza a biblioteca do seguinte:
 
 |Biblioteca|Descrição|
 |---|---|

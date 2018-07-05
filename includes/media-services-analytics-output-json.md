@@ -1,28 +1,28 @@
-A tarefa produz um ficheiro de saída JSON que contém metadados sobre faces detetados e controladas. Os metadados incluem coordenadas que indica a localização do faces, bem como um número de ID de rostos em que indica que o controlo de que individuais. Números de ID de rostos em são suscetíveis a repor circunstâncias quando o enfrentam frontal é perdido ou que se sobreponham a num intervalo, resultando em alguns indivíduos obter atribuídos a vários IDs.
+A tarefa produz um ficheiro de saída do JSON que contém metadados sobre rostos detetados e monitorizados. Os metadados incluem coordenadas que indica a localização de rostos, bem como um número de identificação de face indicando o rastreamento dessa pessoa. Números de ID do rosto são suscetíveis a repor em circunstâncias, o mostrador frontal caso de perda ou overlapped no frame, resultando em alguns indivíduos introdução atribuídos a vários IDs.
 
 A saída JSON inclui os seguintes elementos:
 
-### <a name="root-json-elements"></a>Elementos raiz JSON
+### <a name="root-json-elements"></a>Elementos de JSON de raiz
 
 | Elemento | Descrição |
 | --- | --- |
-| versão |Isto refere-se para a versão da API de vídeo. |
+| versão |Refere-se para a versão da API de vídeo. |
 | escala temporal |"Ticks" por segundo do vídeo. |
-| deslocamento |Este é o desvio da hora para carimbos de hora. Na versão 1.0 do vídeo APIs, este será sempre 0. No futuro cenários que suportamos, pode alterar este valor. |
-| largura, elevado |A largura e elevado da moldura vídeo saída, em pixels.|
-| framerate |Fotogramas por segundo do vídeo. |
-| [fragmentos](#fragments-json-elements) |Os metadados é partes cópias de segurança em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, a duração, o número do intervalo e o evento (s). |
+| deslocamento |Este é o desvio de tempo para carimbos. Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
+| largura, elevado |A largura e o elevado número do quadro de vídeo de saída, em pixéis.|
+| framerate |Quadros por segundo do vídeo. |
+| [fragments](#fragments-json-elements) |Os metadados é segmentado cópias em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, a duração, o número do intervalo e o evento (s). |
 
-### <a name="fragments-json-elements"></a>Os fragmentos de elementos JSON
+### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
 
 |Elemento|Descrição|
 |---|---|
 | start |A hora de início do primeiro evento na "ticks". |
-| Duração |O comprimento do fragmento, no "ticks". |
-| índice | (Aplicável apenas ao Redactor de suporte de dados do Azure) define o índice de moldura do evento atual. |
-| intervalo |O intervalo de cada entrada de evento dentro de fragmento, no "ticks". |
-| eventos |Cada evento contém faces detetados e monitorizados dentro desse duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituído por 0 ou mais eventos que ocorreram neste ponto no tempo. Uma [Reto vazia] significa que nenhuma faces foram detetados. |
-| ID |O ID de rosto que está a ser controlado. Este número poderá, inadvertidamente, alterar se um rosto torna-se determinados. Um indivíduo fornecido deve ter o mesmo ID em toda o vídeo geral, mas este não poderá ser garantida devido a limitações de algoritmo de deteção (occlusion, etc.). |
-| x, y |O canto superior esquerdo X e Y coordenadas de rosto delimitadora caixa numa escala normalizada entre 0,0 e 1,0. <br/>-X e Y coordenadas são relativas ao horizontal sempre, pelo que o se tiver um vertical vídeo (ou upside pendente, no caso de iOS), terá de transpor as coordenadas em conformidade. |
-| largura, altura |A largura e altura de rosto delimitadora caixa numa escala normalizada entre 0,0 e 1,0. |
-| facesDetected |Este encontra-se no fim dos resultados JSON e resume o número de faces que o algoritmo detetado durante o vídeo. Porque os IDs podem ser repostos inadvertidamente, se um rosto torna-se determinados (por exemplo, a letra fica desligar o ecrã, procura ausente), este número poderá não sempre igual a verdadeira diversas faces as vídeo. |
+| duração |O comprimento do fragmento, em "ticks". |
+| índice | (Se aplica apenas para o Azure Media Redactor) define o índice do quadro do evento atual. |
+| intervalo |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
+| eventos |Cada evento contém os rostos detetados e monitorizados dentro desse período de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituído por 0 ou mais eventos que ocorreram neste ponto no tempo. Um [Reto de fecho vazio] significa que nenhum rostos foram detetados. |
+| ID |O ID do mostrador da que está a ser controlado. Este número pode alterar inadvertidamente se um rosto ficar detectado. Uma determinada pessoa deve ter o mesmo ID em todo o vídeo geral, mas isso não pode ser garantido devido a limitações no algoritmo de deteção (oclusão, etc.). |
+| x, y |A parte superior esquerda X e Y coordenadas do mostrador da caixa num normalizado de dimensionamento de 0,0 a 1,0 delimitadora. <br/>-X e Y coordenadas são relativamente à paisagem sempre, portanto, se tiver um retrato vídeo (ou vantagem pendente, no caso do iOS), terá transpor as coordenadas em conformidade. |
+| largura, altura |A largura e altura do mostrador da caixa num normalizado de dimensionamento de 0,0 a 1,0 delimitadora. |
+| facesDetected |Isso é encontrado no final dos resultados JSON e resume o número de faces que o algoritmo detectado durante o vídeo. Uma vez que os IDs podem ser repostos inadvertidamente, se um rosto torna-se não detetado (por exemplo, o mostrador apague ecrã, se parece distância), este número não poderá igual sempre o número VERDADEIRO de rostos em vídeo. |
