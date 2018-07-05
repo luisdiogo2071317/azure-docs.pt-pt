@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/29/2018
+ms.date: 07/03/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 503a1db726483709c351ac9861c5d54913de55d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132012"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449563"
 ---
 Para começar a utilizar as entidades de mensagens do Service Bus no Azure, tem de, primeiro, criar um espaço de nomes que seja exclusivo em todo o Azure. Um espaço de nomes fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação.
 
@@ -22,7 +22,7 @@ Para criar um espaço de nomes:
 1. Inicie sessão no [Portal do Azure][Azure portal].
 2. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Integração** e em **Service Bus**.
 3. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-4. Após se certificar de que o espaço de nomes está disponível, selecione o escalão de preço (Básico, Standard ou Premium).
+4. Após se certificar de que o espaço de nomes está disponível, selecione o escalão de preço (Básico, Standard ou Premium). Se quiser utilizar os [tópicos e subscrições](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), certifique-se de que escolhe Standard ou Premium. Os tópicos/subscrições não são suportadas no escalão de preço Básico.
 5. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
 6. No campo **Grupo de recursos**, selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.      
 7. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
