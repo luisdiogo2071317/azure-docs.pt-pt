@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063498"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096279"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux x64
 
@@ -171,8 +171,10 @@ O daemon de segurança é instalado como um serviço de sistema para que o runti
 6. Veja os módulos em execução no seu dispositivo: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando acima.
 
    ![Ver um módulo no seu dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ Neste início rápido, criou um novo dispositivo IoT Edge e instalou o runtime d
 Abra novamente a linha de comandos no computador que está a executar o seu dispositivo simulado. Certifique-se de que o módulo implementado a partir da cloud está em execução no seu dispositivo do IoT Edge:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando acima.
 
    ![Ver três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 

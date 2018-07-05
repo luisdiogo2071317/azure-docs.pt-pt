@@ -2,33 +2,31 @@
 title: Tutorial do Kubernetes no Azure tutorial - Atualizar aplicação
 description: Tutorial de AKS – Atualizar Aplicação
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934061"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101035"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
 
 Depois de a aplicação ser implementada no Kubernetes, pode ser atualizada, ao especificar uma nova imagem de contentor ou uma versão de imagem. Ao fazê-lo, a atualização é testada, para que apenas uma parte da implementação seja atualizada em simultâneo. Esta atualização testada permite que a aplicação continue a ser executada durante a atualização. Também apresenta um mecanismo de reversão se ocorrer uma falha de implementação.
 
-Neste tutorial, parte seis de oito, a aplicação Azure Vote de exemplo é atualizada. As tarefas que concluir incluem:
+Neste tutorial, parte seis de sete, a aplicação Azure Vote de exemplo é atualizada. As tarefas que concluir incluem:
 
 > [!div class="checklist"]
 > * Atualizar o código da aplicação de front-end
 > * Criar uma imagem de contentor atualizada
 > * Enviar a imagem de contentor para o Azure Container Registry
 > * Implementar a imagem de contentor atualizada
-
-Nos tutoriais subsequentes, o Log Analytics está configurado para monitorizar o cluster de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

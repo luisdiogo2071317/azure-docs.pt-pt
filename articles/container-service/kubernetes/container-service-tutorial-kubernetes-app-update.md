@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 81f2302df5740b482f03a4a724d2899734579949
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164967"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096864"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Atualizar uma aplicação no Kubernetes
 
@@ -100,7 +100,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Implementar atualização da aplicação
 
-Para garantir o máximo tempo de atividade, tem de executar várias instâncias do pod da aplicação. Verifique esta configuração com o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Para garantir o máximo tempo de atividade, tem de executar várias instâncias do pod da aplicação. Verifique esta configuração com o comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```bash
 kubectl get pod
@@ -123,13 +123,13 @@ Se não tiver vários pods em execução na imagem azure-vote-front, dimensione 
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Para atualizar a aplicação, utilize o comando [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set). Atualize `<acrLoginServer>` com o nome do anfitrião ou o servidor de início de sessão do seu registo de contentor.
+Para atualizar a aplicação, utilize o comando [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Atualize `<acrLoginServer>` com o nome do anfitrião ou o servidor de início de sessão do seu registo de contentor.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Para monitorizar a implementação, utilize o comando [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). Uma vez que a aplicação atualizada é implementada, os seus pods são terminados e recriados com a nova imagem de contentor.
+Para monitorizar a implementação, utilize o comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Uma vez que a aplicação atualizada é implementada, os seus pods são terminados e recriados com a nova imagem de contentor.
 
 ```azurecli-interactive
 kubectl get pod

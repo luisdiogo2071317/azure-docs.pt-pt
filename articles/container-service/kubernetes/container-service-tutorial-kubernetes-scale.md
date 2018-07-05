@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162828"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098537"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods e infraestrutura do Kubernetes
 
@@ -39,7 +39,7 @@ Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial
 
 ## <a name="manually-scale-pods"></a>Dimensionar pods manualmente
 
-Deste modo, o front-end do Azure Vote e a instância de Redis foi implementada, cada um com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Deste modo, o front-end do Azure Vote e a instância de Redis foi implementada, cada um com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```azurecli-interactive
 kubectl get pods
@@ -53,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Altere manualmente o número de pods na implementação `azure-vote-front` com o comando [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). Este exemplo aumenta o número para 5.
+Altere manualmente o número de pods na implementação `azure-vote-front` com o comando [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). Este exemplo aumenta o número para 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Execute [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) para verificar se o Kubernetes está a criar os pods. Um ou dois minutos depois, os pods adicionais estão em execução:
+Execute [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para verificar se o Kubernetes está a criar os pods. Um ou dois minutos depois, os pods adicionais estão em execução:
 
 ```azurecli-interactive
 kubectl get pods
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo seguinte utiliza o comando [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) para dimensionar automaticamente o número de pods na implementação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionamento automático aumenta os pods para um máximo de 10.
+O exemplo seguinte utiliza o comando [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) para dimensionar automaticamente o número de pods na implementação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionamento automático aumenta os pods para um máximo de 10.
 
 
 ```azurecli-interactive

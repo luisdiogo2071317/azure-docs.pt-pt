@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: d815bf3fa4b63f12ac9f0d871e353e872a5aca25
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c5d09e03eb79d89604cba6d9533051bb9b50ce90
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699976"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084846"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 
@@ -95,5 +95,4 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 Utilizou o Visual Studio para criar e publicar uma aplicação de função C# com uma função simples acionada por HTTP.
 
 * [Saiba como adicionar os enlaces de entrada e saída que se integram com outros serviços.](functions-develop-vs.md#add-bindings)
-* [Saiba mais sobre o teste e depuração locais com as Ferramentas de Núcleo de Funções do Azure.](functions-run-local.md#vs-debug)
 * [Saiba mais sobre como desenvolver funções como bibliotecas de classe .NET](functions-dotnet-class-library.md).

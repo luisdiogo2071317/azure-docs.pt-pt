@@ -3,7 +3,7 @@ title: Modificar conteúdos de páginas no portal do programador na Gestão de A
 description: Saiba como editar conteúdos de páginas no portal do programador na Gestão de API do Azure.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377804"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437601"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:
@@ -34,7 +34,7 @@ O portal do programador baseia-se num sistema de gestão de conteúdos. O esquem
 
 ![Estrutura de páginas do portal do programador][api-management-customization-widget-structure]
 
-Todos os widgets são editáveis. 
+Todos os widgets são editáveis.
 * Os conteúdos principais específicos de cada página individual encontram-se no widget "Conteúdos". Editar uma página significa editar o conteúdo deste widget.
 * Todos os elementos de esquema de página estão contidos com os restantes widgets. As alterações feitas a estes widgets são aplicadas a todas as páginas. Estes são referidos como "widgets de esquema."
 
@@ -42,12 +42,12 @@ Na edição diária de páginas, um indivíduo modificaria frequentemente apenas
 
 ## <a name="modify-layout-widget"> </a>Modificar o conteúdo de um widget de esquema
 
-O portal do Programador está acessível a partir do Portal do Azure. 
+O portal do Programador está acessível a partir do Portal do Azure.
 
 1. Clique em **Portal do Programador** na barra de ferramentas da sua instância de Gestão de API.
-2. Para editar os conteúdos dos widgets, clique no ícone composto por dois pincéis no menu do portal **Programador** à esquerda. 
+2. Para editar os conteúdos dos widgets, clique no ícone composto por dois pincéis no menu do portal **Programador** à esquerda.
 3. Para modificar os conteúdos do cabeçalho, desloque-se para a secção **Cabeçalho** na lista à esquerda.
-    
+
     Os widgets são editáveis a partir dos campos.
 4. Assim que estiver pronto para publicar as alterações, clique em **Publicar** na parte inferior da página.
 

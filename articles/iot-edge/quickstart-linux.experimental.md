@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049167"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099190"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux x64
 
@@ -53,11 +53,11 @@ Registe um dispositivo do IoT Edge no seu Hub IoT recentemente criado.
 Instalar e iniciar o runtime do Azure IoT Edge no seu dispositivo. 
 ![Registar um dispositivo][5]
 
-O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre um dispositivo Edge arranca limite e arranca o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT. 
+O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge arranca e arranca o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registar o dispositivo para utilizar o repositório de software
 
-Os pacotes necessários para executar o runtime do IoT Edge são geridos num repositório de software. Configure o dispositivo IoT Edge para aceder a este repositório. 
+Os pacotes precisos para executar o runtime do IoT Edge são geridos num repositório de software. Configure o dispositivo IoT Edge para aceder a este repositório. 
 
 Os passos nesta secção destinam-se a dispositivos com o **Ubuntu 16.04**. Para aceder ao repositório de software noutras versões do Linux, veja [Instalar o runtime do Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md) ou [Instalar o runtime do Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
@@ -134,8 +134,9 @@ O daemon de segurança é instalado como um serviço de sistema para que o runti
 6. Veja os módulos em execução no seu dispositivo: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando acima.
 
    ![Ver um módulo no seu dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ Neste início rápido, criou um novo dispositivo IoT Edge e instalou o runtime d
 Abra novamente a linha de comandos no computador que está a executar o seu dispositivo simulado. Certifique-se de que o módulo implementado a partir da cloud está em execução no seu dispositivo do IoT Edge:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando acima.
 
    ![Ver três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
 Veja as mensagens que estão a ser enviadas do módulo tempSensor:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Depois de encerrar e iniciar sessão, o *sudo* não é preciso para o comando acima.
 
 ![Ver os dados a partir do seu módulo](./media/quickstart-linux/iotedge-logs.png)
 
