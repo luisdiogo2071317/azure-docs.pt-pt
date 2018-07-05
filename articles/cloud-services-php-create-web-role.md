@@ -1,6 +1,6 @@
 ---
-title: Criar funções web e de trabalho do Azure para PHP
-description: Um guia para criar funções web e de trabalho do PHP num serviço em nuvem do Azure e configurar o runtime PHP.
+title: Criar funções de web e de trabalho do Azure para PHP
+description: Um guia para criar funções de web e de trabalho do PHP no serviço cloud do Azure e a configuração de tempo de execução do PHP.
 services: ''
 documentationcenter: php
 author: msangapu
@@ -13,53 +13,59 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34608904"
 ---
-# <a name="how-to-create-php-web-and-worker-roles"></a>Como criar funções web e de trabalho do PHP
+# <a name="create-php-web-and-worker-roles"></a>Criar funções de web e de trabalho PHP
+
 ## <a name="overview"></a>Descrição geral
-Este guia irá mostrar como criar funções web ou de trabalho do PHP num ambiente de desenvolvimento do Windows, escolher uma versão específica do PHP das versões "incorporadas" disponíveis, alterar a configuração do PHP, ativar extensões e por fim, implementar no Azure. Também descreve como configurar uma função web ou de trabalho para utilizar um runtime PHP (com as extensões e configuração personalizada) que fornecer.
 
-## <a name="what-are-php-web-and-worker-roles"></a>Quais são as funções web e de trabalho do PHP?
-O Azure oferece três modelos de computação para aplicações em execução: App Service do Azure, Azure Virtual Machines e Cloud Services do Azure. Todos os três modelos suportam o PHP. Fornece serviços em nuvem, incluindo funções web e de trabalho, *plataforma como serviço (PaaS)*. Dentro de um serviço em nuvem, uma função da web fornece um servidor de web de serviços de informação Internet (IIS) dedicado aplicações web de front-end. Uma função de trabalho pode executar tarefas assíncronas, execução longa ou perpétuas, independentes da interação do utilizador ou de uma entrada.
+Este guia irá mostrar como criar funções de web ou de trabalho PHP num ambiente de desenvolvimento do Windows, escolha uma versão específica do PHP entre as versões "internas" disponíveis, alterar a configuração do PHP, ativar extensões e, por fim, implementar no Azure. Também descreve como configurar uma função web ou de trabalho para utilizar um runtime PHP (com e extensões de configuração personalizada) que fornece.
 
-Para obter mais informações sobre estas opções, consulte [computação que alojam as opções fornecidas pelo Azure](cloud-services/cloud-services-choose-me.md).
+O Azure fornece três modelos para executar aplicações de computação: serviço de aplicações do Azure, máquinas virtuais do Azure e serviços Cloud do Azure. Todos os três modelos suportam o PHP. Os serviços cloud, incluindo funções web e de trabalho, proporcionam *plataforma como serviço (PaaS)*. Num serviço cloud, uma função da web fornece um servidor de web de serviços de informação Internet (IIS) dedicado para alojar aplicações web de front-end. Uma função de trabalho pode executar tarefas assíncronas, longa ou perpétuas, independentes da interação do utilizador ou de uma entrada.
+
+Para obter mais informações sobre estas opções, consulte [computação fornecidas pelo Azure de opções de hospedagem](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Transfira o Azure SDK para PHP
-O [Azure SDK para PHP] é composta por vários componentes. Este artigo irá utilizar dois deles: Azure PowerShell e os emuladores do Azure. Estes dois componentes podem ser instalados através do instalador de plataforma Web Microsoft. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+
+O [Azure SDK para PHP](php-download-sdk.md) é composta por vários componentes. Este artigo irá utilizar dois deles: Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados através do Microsoft Web Platform Installer. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Criar um projeto de serviços Cloud
-É o primeiro passo na criação de uma função web ou de trabalho do PHP para criar um projeto de serviço do Azure. um projeto de serviço do Azure funciona como um contentor lógico para funções web e de trabalho e contém o projeto [(. csdef) de definição de serviço] e [a configuração do serviço (. cscfg)] ficheiros.
+
+É o primeiro passo na criação de uma função web ou de trabalho PHP criar um projeto de serviço do Azure. um projeto de serviço do Azure funciona como um contentor lógico de funções web e de trabalho e contém o projeto [definição (. csdef) do serviço] e [configuração de serviço (. cscfg)] ficheiros.
 
 Para criar um novo projeto de serviço do Azure, execute o Azure PowerShell como administrador e execute o seguinte comando:
 
     PS C:\>New-AzureServiceProject myProject
 
-Este comando irá criar um novo diretório (`myProject`) ao qual pode adicionar funções web e de trabalho.
+Este comando cria um novo diretório (`myProject`) ao qual pode adicionar funções web e de trabalho.
 
-## <a name="add-php-web-or-worker-roles"></a>Adicionar funções web ou de trabalho do PHP
-Para adicionar uma função da web PHP a um projeto, execute o comando seguinte a partir de diretório de raiz do projeto:
+## <a name="add-php-web-or-worker-roles"></a>Adicionar funções de web ou de trabalho PHP
+
+Para adicionar uma função da web PHP para um projeto, execute o comando seguinte a partir de diretório de raiz do projeto:
 
     PS C:\myProject> Add-AzurePHPWebRole roleName
 
-Para uma função de trabalho, utilize este comando:
+Para uma função de trabalho, use este comando:
 
     PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
 > [!NOTE]
-> O `roleName` parâmetro é opcional. Se for omitido, o nome da função será gerado automaticamente. A função da web primeiro criada será `WebRole1`, a segunda estará `WebRole2`, e assim sucessivamente. A primeira função de trabalho criada será `WorkerRole1`, a segunda estará `WorkerRole2`, e assim sucessivamente.
+> O `roleName` parâmetro é opcional. Se for omitida, o nome da função será gerado automaticamente. A primeira função da web criada serão `WebRole1`, a segunda `WebRole2`e assim por diante. A primeira função de trabalho criada será `WorkerRole1`, a segunda `WorkerRole2`e assim por diante.
 >
 >
 
-## <a name="specify-the-built-in-php-version"></a>Especifique a versão do PHP incorporada
-Quando adiciona uma função web ou de trabalho do PHP para um projeto, ficheiros de configuração do projeto são modificados para que o PHP será instalado em cada instância de web ou de trabalho da sua aplicação quando é implementada. Para ver a versão do PHP que será instalada por predefinição, execute o seguinte comando:
+## <a name="specify-the-built-in-php-version"></a>Especifique a versão PHP incorporada
+
+Quando adiciona uma função web ou de trabalho PHP para um projeto, arquivos de configuração do projeto são modificados para que o PHP será instalado em cada instância de web ou de trabalho da sua aplicação quando for implementada. Para ver a versão do PHP que será instalada por predefinição, execute o seguinte comando:
 
     PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
-O resultado do comando acima terá um aspeto semelhante ao que é mostrado abaixo. Neste exemplo, o `IsDefault` sinalizador está definido para `true` para PHP 5.3.17, que indica que será a versão do PHP predefinida instalada.
+A saída do comando acima terá um aspeto semelhante ao que é mostrado abaixo. Neste exemplo, o `IsDefault` sinalizador estiver definido como `true` para PHP 5.3.17, que indica que é a versão PHP predefinido instalada.
 
 ```
 Runtime Version     PackageUri                      IsDefault
@@ -73,7 +79,7 @@ PHP 5.3.17          http://nodertncu.blob.core...   True
 PHP 5.4.0           http://nodertncu.blob.core...   False
 ```
 
-Pode definir a versão de runtime do PHP para qualquer uma das versões do PHP que são listadas. Por exemplo, para definir a versão do PHP (para uma função com o nome `roleName`) para 5.4.0, utilize o seguinte comando:
+Pode definir a versão de runtime PHP para qualquer uma das versões do PHP que estão listadas. Por exemplo, para definir a versão do PHP (para uma função com o nome `roleName`) para 5.4.0, utilize o seguinte comando:
 
     PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
@@ -82,35 +88,38 @@ Pode definir a versão de runtime do PHP para qualquer uma das versões do PHP q
 >
 >
 
-## <a name="customize-the-built-in-php-runtime"></a>Personalizar o runtime PHP incorporado
-Ter controlo total sobre a configuração do runtime PHP instalado ao seguir os passos acima, incluindo a modificação do `php.ini` definições e a ativação das extensões.
+## <a name="customize-the-built-in-php-runtime"></a>Personalizar o tempo de execução interno do PHP
 
-Para personalizar o tempo de execução incorporado do PHP, siga estes passos:
+Tem controle completo sobre a configuração do runtime PHP que é instalado quando seguir os passos acima, incluindo a modificação do `php.ini` definições e a ativação das extensões.
 
-1. Adicionar uma nova pasta com o nome `php`, como o `bin` diretório da sua função web. Para uma função de trabalho, adicione-o ao diretório de raiz da função.
-2. No `php` pasta, crie outra pasta designada `ext`. Colocar qualquer `.dll` ficheiros de extensão (por exemplo, `php_mongo.dll`) que pretende ativar nesta pasta.
-3. Adicionar um `php.ini` do ficheiro para o `php` pasta. Ativar as extensões personalizadas e defina as diretivas PHP neste ficheiro. Por exemplo, se pretendesse ativar `display_errors` no e ativar o `php_mongo.dll` extensão, o conteúdo do seu `php.ini` ficheiro seria o seguinte:
+Para personalizar o tempo de execução interno do PHP, siga estes passos:
+
+1. Adicionar uma nova pasta chamada `php`para o `bin` diretório da sua função da web. Para uma função de trabalho, adicione-o para o diretório de raiz da função.
+2. Na `php` pasta, criar outra pasta chamada `ext`. Coloque qualquer `.dll` ficheiros de extensão (por exemplo, `php_mongo.dll`) que pretende ativar nesta pasta.
+3. Adicionar uma `php.ini` do ficheiro para o `php` pasta. Ativar extensões personalizadas e defina qualquer diretivas PHP neste ficheiro. Por exemplo, se quiser transformar `display_errors` no e ativar o `php_mongo.dll` extensão, o conteúdo do seu `php.ini` ficheiro seria da seguinte forma:
 
         display_errors=On
         extension=php_mongo.dll
 
 > [!NOTE]
-> As definições que não definir explicitamente no `php.ini` ficheiros que fornecem automaticamente será definida para os respetivos valores predefinidos. No entanto, tenha em atenção que pode adicionar um concluída `php.ini` ficheiro.
+> Quaisquer definições que não for definida explicitamente no `php.ini` ficheiros que fornecem serão automaticamente ser definido para os valores predefinidos. No entanto, tenha em atenção que pode adicionar uma completa `php.ini` ficheiro.
 >
 >
 
 ## <a name="use-your-own-php-runtime"></a>Utilizar o seu próprio tempo de execução do PHP
-Em alguns casos, em vez de selecionar um tempo de execução do PHP incorporado e configurá-lo, tal como descrito acima, poderá pretender fornecer o suas próprias runtime PHP. Por exemplo, pode utilizar o runtime PHP mesmo numa função web ou de trabalho que utiliza no seu ambiente de desenvolvimento. Isto torna mais fácil para se certificar de que a aplicação não irá alterar o comportamento no seu ambiente de produção.
+
+Em alguns casos, em vez de selecionar um runtime PHP integrado e configurá-lo, conforme descrito acima, pode querer fornecer seu próprio tempo de execução do PHP. Por exemplo, pode utilizar o mesmo runtime PHP numa função web ou de trabalho que utiliza no seu ambiente de desenvolvimento. Isto torna mais fácil para se certificar de que a aplicação não será alterado o comportamento no seu ambiente de produção.
 
 ### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>Configurar uma função da web para utilizar o seu próprio tempo de execução do PHP
-Para configurar uma função da web para utilizar um tempo de execução do PHP que fornece, siga estes passos:
 
-1. Criar um projeto de serviço do Azure e adicione uma função da web PHP, conforme descrito anteriormente neste tópico.
-2. Criar um `php` pasta o `bin` pasta que está no diretório de raiz a função da web e, em seguida, adicione o runtime PHP (todos os binários, ficheiros de configuração, subpastas, etc.) para o `php` pasta.
-3. (OPCIONAL) Se o tempo de execução do PHP utiliza o [Drivers Microsoft para PHP para SQL Server][sqlsrv drivers], terá de configurar a função da web para instalar [SQL Server Native Client 2012] [ sql native client] quando está aprovisionado. Para tal, adicione o [sqlncli.msi x64 instalador] para o `bin` pasta no diretório de raiz da sua função web. O script de arranque descrito no próximo passo silenciosamente executará o instalador quando a função está aprovisionada. Se o tempo de execução do PHP não utilizar o Drivers Microsoft para PHP para SQL Server, pode remover a linha seguinte do script mostrado no próximo passo:
+Para configurar uma função da web para utilizar um runtime PHP que fornece, siga estes passos:
+
+1. Criar um projeto de serviço do Azure e adicionar uma função da web PHP, conforme descrito anteriormente neste tópico.
+2. Criar uma `php` pasta na `bin` pasta que está no diretório de raiz da sua função da web e, em seguida, adicione o seu tempo de execução do PHP (todos os binários, arquivos de configuração, as subpastas, etc.) para o `php` pasta.
+3. (OPCIONAL) Se o runtime PHP utiliza a [Drivers Microsoft para PHP para SQL Server][sqlsrv drivers], terá de configurar a função da web para instalar [SQL Server Native Client 2012] [ sql native client] quando está aprovisionado. Para tal, adicione a [instalador de sqlncli.msi x64] para o `bin` pasta no diretório de raiz da sua função da web. O script de inicialização descrito no próximo passo será silenciosamente execute o instalador, quando a função está aprovisionada. Se o runtime PHP não utiliza os Drivers Microsoft para PHP para SQL Server, pode remover a seguinte linha do script mostrado no próximo passo:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definir uma tarefa de arranque que configura [serviços de informação Internet (IIS)] [ iis.net] para utilizar o runtime do PHP para processar pedidos para `.php` páginas. Para tal, abra o `setup_web.cmd` ficheiro (no `bin` ficheiros do diretório de raiz a função da web) num editor de texto e substitua o conteúdo com o seguinte script:
+4. Definir uma tarefa de arranque que configura [serviços de informação Internet (IIS)] [ iis.net] para utilizar o runtime PHP para processar pedidos para `.php` páginas. Para tal, abra o `setup_web.cmd` ficheiro (no `bin` ficheiros do diretório de raiz da sua função da web) num editor de texto e substitua o conteúdo com o seguinte script:
 
     ```cmd
     @ECHO ON
@@ -129,23 +138,24 @@ Para configurar uma função da web para utilizar um tempo de execução do PHP 
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
     ```
-5. Adicione os ficheiros da aplicação para o diretório de raiz da sua função web. Este será o diretório de raiz do servidor web.
-6. Publicar a aplicação conforme descrito no [publicar a aplicação](#publish-your-application) secção abaixo.
+5. Adicione os ficheiros da aplicação para o diretório de raiz da sua função da web. Este será o diretório de raiz do servidor web.
+6. Publicar a sua aplicação, conforme descrito no [publicar a sua aplicação](#publish-your-application) secção abaixo.
 
 > [!NOTE]
-> O `download.ps1` script (no `bin` pasta de diretório de raiz a função da web) pode ser eliminada depois de seguir os passos descritos acima para utilizar o seu próprio tempo de execução do PHP.
+> O `download.ps1` script (no `bin` pasta do diretório de raiz de função da web) pode ser eliminado depois de seguir os passos descritos acima para utilizar o seu próprio tempo de execução do PHP.
 >
 >
 
 ### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Configurar uma função de trabalho para utilizar o seu próprio tempo de execução do PHP
-Para configurar uma função de trabalho para utilizar um tempo de execução do PHP que fornece, siga estes passos:
 
-1. Criar um projeto de serviço do Azure e adicione uma função de trabalho do PHP, conforme descrito anteriormente neste tópico.
-2. Criar um `php` pasta no diretório de raiz a função de trabalho e, em seguida, adicione o runtime PHP (todos os binários, ficheiros de configuração, subpastas, etc.) para o `php` pasta.
-3. (OPCIONAL) Se utilizar o runtime PHP [Drivers Microsoft para PHP para SQL Server][sqlsrv drivers], terá de configurar a função de trabalho para instalar [SQL Server Native Client 2012] [ sql native client] quando está aprovisionado. Para tal, adicione o [sqlncli.msi x64 instalador] ao diretório de raiz a função de trabalho. O script de arranque descrito no próximo passo silenciosamente executará o instalador quando a função está aprovisionada. Se o tempo de execução do PHP não utilizar o Drivers Microsoft para PHP para SQL Server, pode remover a linha seguinte do script mostrado no próximo passo:
+Para configurar uma função de trabalho para utilizar um runtime PHP que fornece, siga estes passos:
+
+1. Criar um projeto de serviço do Azure e adicionar uma função de trabalho do PHP, conforme descrito anteriormente neste tópico.
+2. Criar uma `php` pasta no diretório de raiz a função de trabalho e, em seguida, adicione o seu tempo de execução do PHP (todos os binários, arquivos de configuração, as subpastas, etc.) para o `php` pasta.
+3. (OPCIONAL) Se utilizar o seu tempo de execução do PHP [Drivers Microsoft para PHP para SQL Server][sqlsrv drivers], terá de configurar a sua função de trabalho para instalar [SQL Server Native Client 2012] [ sql native client] quando está aprovisionado. Para tal, adicione a [instalador de sqlncli.msi x64] para diretório de raiz a função de trabalho. O script de inicialização descrito no próximo passo será silenciosamente execute o instalador, quando a função está aprovisionada. Se o runtime PHP não utiliza os Drivers Microsoft para PHP para SQL Server, pode remover a seguinte linha do script mostrado no próximo passo:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definir uma tarefa de arranque que adiciona o `php.exe` executável à variável de ambiente de caminho a função de trabalho quando a função está aprovisionada. Para tal, abra o `setup_worker.cmd` (no diretório de raiz da função de trabalho) de ficheiro num editor de texto e substitua os respetivos conteúdos com o seguinte script:
+4. Definir uma tarefa de arranque que adiciona o `php.exe` executável à variável de ambiente para caminho da função de trabalho quando a função está aprovisionada. Para tal, abra o `setup_worker.cmd` (no diretório de raiz a função de trabalho) de ficheiros num editor de texto e substituir seu conteúdo com o seguinte script:
 
     ```cmd
     @echo on
@@ -173,42 +183,44 @@ Para configurar uma função de trabalho para utilizar um tempo de execução do
     echo FAILED
     exit /b -1
     ```
-5. Adicione os ficheiros da aplicação para o diretório de raiz da sua função de trabalho.
-6. Publicar a aplicação conforme descrito no [publicar a aplicação](#publish-your-application) secção abaixo.
+5. Adicione os ficheiros da aplicação para o diretório de raiz de sua função de trabalho.
+6. Publicar a sua aplicação, conforme descrito no [publicar a sua aplicação](#publish-your-application) secção abaixo.
 
-## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Execute a sua aplicação no emuladores de computação e armazenamento
-Os Azure emuladores fornecem um ambiente local na qual pode testar a aplicação do Azure antes de implementá-la para a nuvem. Existem algumas diferenças entre os emuladores e o ambiente do Azure. Para melhor compreender isto, consulte [utilizar o emulador de armazenamento do Azure para desenvolvimento e testes](storage/common/storage-use-emulator.md).
+## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Execute a sua aplicação nos emuladores de computação e armazenamento
 
-Tenha em atenção que tem de ter o PHP instalado localmente ao utilizar o emulador de computação. O emulador de computação irá utilizar a instalação do PHP local para executar a sua aplicação.
+Os emuladores do Azure fornecem um ambiente local no qual pode testar a aplicação do Azure antes de implementá-la para a cloud. Existem algumas diferenças entre os emuladores e o ambiente do Azure. Para entender isso melhor, veja [utilizar o emulador de armazenamento do Azure para desenvolvimento e teste](storage/common/storage-use-emulator.md).
 
-Para executar o projeto de emuladores, execute o seguinte comando do diretório de raiz do projeto:
+Tenha em atenção que tem de ter o PHP instalado localmente para utilizar o emulador de computação. O emulador de computação irá utilizar a instalação do PHP local para executar a sua aplicação.
+
+Para executar o seu projeto nos emuladores, execute o seguinte comando a partir do diretório de raiz do seu projeto:
 
     PS C:\MyProject> Start-AzureEmulator
 
-Irá ver o resultado semelhante a isto:
+Verá a saída semelhante a este:
 
     Creating local package...
     Starting Emulator...
     Role is running at http://127.0.0.1:81
     Started
 
-Pode ver a sua aplicação em execução no emulador, ao abrir um browser e navegar para o endereço local apresentado no resultado (`http://127.0.0.1:81` na saída de exemplo acima).
+Pode ver a sua aplicação em execução no emulador ao abrir um navegador da web e navegar para o endereço local apresentado no resultado (`http://127.0.0.1:81` no resultado de exemplo acima).
 
 Para parar os emuladores, execute este comando:
 
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Publicar a aplicação
-Para publicar a aplicação, terá de importar primeiro as definições de publicação utilizando o [importação AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Em seguida, pode publicar a aplicação utilizando o [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Para obter informações sobre o início de sessão, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+
+Para publicar a sua aplicação, tem de importar primeiro suas definições de publicação utilizando o [importação AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Em seguida, publicar a aplicação utilizando o [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Para obter informações sobre a iniciar sessão, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte o [Centro para programadores do PHP](/develop/php/).
 
-[Azure SDK para PHP]: /develop/php/common-tasks/download-php-sdk/ (Azure SDK para PHP)
+Para obter mais informações, consulte a [Centro de programadores PHP](https://azure.microsoft.com/develop/php/).
+
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[(. csdef) de definição de serviço]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[a configuração do serviço (. cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[definição (. csdef) do serviço]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[configuração de serviço (. cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
-[sqlncli.msi x64 instalador]: http://go.microsoft.com/fwlink/?LinkID=239648
+[instalador de sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648

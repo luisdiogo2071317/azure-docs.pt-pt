@@ -90,8 +90,8 @@ Mais tarde, um passo separado repatriation, efetuar a ativação pós-falha as b
 Antes de começar o processo de recuperação, reveja o estado de bom estado de funcionamento normal do aplicativo.
 1. No seu navegador da web, abra o Hub de eventos do Wingtip Tickets (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net - substitua &lt;utilizador&gt; com valor de utilizador da sua implementação).
     * Desloque-se para a parte inferior da página e tenha em atenção o nome do servidor de catálogo e o local no rodapé. A localização é a região em que implementou a aplicação.
-    *Sugestão: Paire o rato sobre a localização para aumentar a exibição. * 
-     ![Estado bom estado de funcionamento do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Sugestão: Paire o rato sobre a localização para aumentar a exibição.*
+    ![Estado bom estado de funcionamento do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no inquilino Contoso Concert Hall e abrir a página de eventos.
     * No rodapé, tenha em atenção o nome do servidor de inquilino. A localização será a mesma localização do servidor de catálogo.
