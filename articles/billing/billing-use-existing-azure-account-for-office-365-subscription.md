@@ -1,5 +1,5 @@
 ---
-title: Inscrever-se para o Office 365 com a conta do Azure | Microsoft Docs
+title: Inscreva-se para o Office 365 com a conta do Azure | Documentos da Microsoft
 description: Saiba como criar uma subscrição do Office 365, utilizando uma conta do Azure
 services: ''
 documentationcenter: ''
@@ -13,44 +13,44 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
-ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: 8368055ed017d8a9e9af92ae6461086abf1d0cff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203379"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450239"
 ---
-# <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se uma subscrição do Office 365 com a sua conta do Azure
-Se tiver de subscritor do Azure, pode utilizar a sua conta do Azure para se inscrever para uma subscrição do Office 365. Se a parte de uma organização que tenha uma subscrição do Azure, pode criar subscrições do Office 365 para os utilizadores no seu existente do Azure Active Directory (Azure AD). Inscrever-se ao Office 365, utilizando uma conta que tenha permissões de Administrador Global ou de administrador de faturação no seu inquilino do Azure Active Directory. Para obter mais informações, consulte [verificar as minhas permissões de conta no Azure AD](#RoleInAzureAD) e [atribuir funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+# <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para uma subscrição do Office 365 com sua conta do Azure
+Se for assinante do Azure, pode utilizar a sua conta do Azure para se inscrever numa subscrição do Office 365. Se for parte de uma organização que tenha uma subscrição do Azure, pode criar subscrições do Office 365 para os utilizadores no existente do Azure Active Directory (Azure AD). Inscreva-se ao Office 365 através de uma conta que tenha permissões de Administrador Global ou administrador de faturação no seu inquilino do Azure Active Directory. Para obter mais informações, consulte [verificar as minhas permissões de conta no Azure AD](#RoleInAzureAD) e [atribuir funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 Se já tiver uma conta do Office 365 e uma subscrição do Azure, pode [associar um inquilino do Office 365 para uma subscrição do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
 ## <a name="get-an-office-365-subscription-by-using-your-azure-account"></a>Obtenha uma subscrição do Office 365, utilizando a sua conta do Azure
 
 1. Vá para o [página de produto do Office 365](https://products.office.com/business)e selecione um plano.
-2. Clique em **sessão** no canto superior direito da página.
+2. Clique em **iniciar sessão** no canto superior direito da página.
 
     ![captura de ecrã da página de avaliação do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/12-office-365-trial-page.png)
-3. Inicie sessão com as credenciais da conta do Azure. Se estiver a criar uma subscrição para a sua organização, utilize uma conta do Azure que seja membro da função de diretório de Administrador Global ou de administrador de faturação no seu inquilino do Azure Active Directory.
+3. Inicie sessão com as credenciais da conta do Azure. Se estiver a criar uma subscrição para a sua organização, utilize uma conta do Azure que seja membro da função de diretório do Administrador Global ou administrador de faturação no seu inquilino do Azure Active Directory.
 
     ![Captura de ecrã do Office 365 início de sessão](./media/billing-use-existing-azure-account-office-365-subscription/13-office-365-sign-in.png)
-4. Clique em **Experimente agora**.
+4. Clique em **Experimente agora o**.
 
-    ![Captura de ecrã que confirma a encomenda para o Office 365.](./media/billing-use-existing-azure-account-office-365-subscription/14-office-365-confirm-your-order.png)
-5. Na página de recibo de ordem, clique em **continuar**.
+    ![Captura de ecrã que confirme o seu pedido para o Office 365.](./media/billing-use-existing-azure-account-office-365-subscription/14-office-365-confirm-your-order.png)
+5. Na página de recibo do pedido, clique em **continuar**.
 
-    ![Captura de ecrã de recibo de ordem do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
+    ![Captura de ecrã do recibo do pedido do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
 Agora está tudo pronto. Se tiver criado a subscrição do Office 365 para a sua organização, utilize os seguintes passos para verificar que os utilizadores do Azure AD estão agora no Office 365.
 
 1. Abra o Centro de administração do Office 365.
-2. Expanda **utilizadores**e, em seguida, clique em **utilizadores ativos**.
+2. Expanda **USUÁRIOS**e, em seguida, clique em **utilizadores ativos**.
 
-    ![Captura de ecrã dos utilizadores do Centro de administração do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Captura de ecrã dos utilizadores de centro de administração do Office 365](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
 
-Depois de se inscrever, é adicionada a subscrição do Office 365 para a mesma instância do Azure Active Directory que pertence a subscrição do Azure. Para obter mais informações, consulte [mais sobre as subscrições do Azure e o Office 365](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) e [subscrições do Azure como estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Depois de se inscrever, a subscrição do Office 365 é adicionada para a mesma instância do Azure Active Directory que pertence a sua subscrição do Azure. Para obter mais informações, consulte [mais sobre as subscrições do Azure e o Office 365](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) e [subscrições do Azure como estão associadas com o Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a id="RoleInAzureAD"></a>Verifique as minhas permissões de conta no Azure AD
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
@@ -65,9 +65,9 @@ Depois de se inscrever, é adicionada a subscrição do Office 365 para a mesma 
 5. Clique em **função de diretório**.
   
     ![Captura de ecrã que mostra a função de diretório de portal do Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
-6.  A função **Administrador Global** ou **administrador limitado** > **administrador de faturação** é necessário para criar uma subscrição do Office 365 para os utilizadores o existente do Azure Active Directory.
+6.  A função **Administrador Global** ou **administrador limitado** > **administrador de faturação** é necessária para criar uma subscrição do Office 365 para os utilizadores em o Azure Active Directory existente.
 
-    ![Captura de ecrã que mostra o administrador de faturação de função de diretório de portal do Azure](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
+    ![Captura de ecrã que mostra a função de diretório de portal do Azure administrador de faturação](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente. 
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. 

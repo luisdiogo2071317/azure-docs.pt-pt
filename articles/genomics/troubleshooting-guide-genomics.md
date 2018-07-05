@@ -1,8 +1,8 @@
 ---
-title: 'Microsoft Genomics: Guia de resolução de problemas | Microsoft Docs'
+title: 'Microsoft Genomics: Guia de resolução de problemas | Documentos da Microsoft'
 titleSuffix: Azure
-description: Saiba mais sobre as estratégias de resolução de problemas
-keywords: resolução de problemas, erro, a depuração
+description: Saiba mais sobre estratégias de resolução de problemas
+keywords: resolução de problemas, erro, depuração
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -12,69 +12,68 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34627369"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
-Esta descrição geral descreve estratégias para resolver problemas comuns quando utilizar o serviço Microsoft Genomics. Para perguntas mais frequentes sobre geral, consulte [perguntas comuns](frequently-asked-questions-genomics.md). 
+Esta descrição geral descreve estratégias para resolver problemas comuns ao utilizar o serviço Microsoft Genomics. Para perguntas freqüentes gerais sobre, consulte [perguntas comuns](frequently-asked-questions-genomics.md). 
 
 
-## <a name="how-do-i-check-my-job-status"></a>Como verificar a minha estado da tarefa?
-Pode verificar o estado do fluxo de trabalho chamando `msgen status` na linha de comandos, como mostrado. 
+## <a name="how-do-i-check-my-job-status"></a>Como posso verificar o meu estado de tarefa?
+Pode verificar o estado do fluxo de trabalho ao chamar `msgen status` da linha de comando, conforme mostrado. 
 
 ```
 msgen status -u URL -k KEY -w ID [-f CONFIG] 
 ```
 
 Existem três argumentos necessários:
-* URL - o URI base para a API
-* CHAVE - a chave de acesso para a sua conta Genomics. 
-* ID - o ID do fluxo de trabalho
+* Adresa URL – o URI de base para a API
+* CHAVE - a chave de acesso para a sua conta do Genomics. 
+* ID - o ID de fluxo de trabalho
 
-Para localizar o URL e a chave, aceda ao portal do Azure e abrir a página de conta Genomics. Sob o **gestão** cabeçalho, escolha **chaves de acesso**. Não existe, localizar o URL da API e as chaves de acesso.
+Para localizar o URL e a chave, aceda ao portal do Azure e abrir a página da sua conta do Genomics. Sob o **gerenciamento** cabeçalho, escolha **chaves de acesso**. Aí, encontrará o URL da API e as chaves de acesso.
 
-Em alternativa, pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Tenha em atenção que, se incluir estes argumentos de linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência. 
+Em alternativa, pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Tenha em atenção que, se incluir estes argumentos da linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência. 
 
-Após a chamada `msgen status`, será apresentada uma mensagem amigável de utilizador, que descreve se o fluxo de trabalho foi efetuado com êxito ou fornecer um motivo para a falha da tarefa. 
+Após chamar `msgen status`, será apresentada uma mensagem amigável, que descreve se o fluxo de trabalho foi concluída com êxito ou fornecendo um motivo para a falha da tarefa. 
 
 
-## <a name="get-more-information-about-my-workflow-status"></a>Obter mais informações sobre o meu estado do fluxo de trabalho
+## <a name="get-more-information-about-my-workflow-status"></a>Obter mais informações sobre o meu estado de fluxo de trabalho
 
-Para obter mais informações sobre o motivo pelo qual uma tarefa poderá não ter foi concluída com êxito, pode explorar os ficheiros de registo produzidos durante o fluxo de trabalho. No contentor de saída, deverá ver uma `[youroutputfilename].logs.zip` pasta.  Unzipping nesta pasta, verá os seguintes itens:
+Para obter mais informações sobre por que uma tarefa pode não ter foi concluída com êxito, pode explorar os ficheiros de registo produzidos durante o fluxo de trabalho. No seu contentor de saída, deverá ver um `[youroutputfilename].logs.zip` pasta.  Descomprimir nesta pasta, verá os seguintes itens:
 
 * outputFileList.txt - uma lista dos ficheiros de saída produzidos durante o fluxo de trabalho
 * StandardError.txt - Este ficheiro está em branco.
 * StandardOutput.txt - contém o registo de nível superior do fluxo de trabalho. 
 * Ficheiros - todos os outros ficheiros de registo de GATK o `logs` pasta
 
-O `standardoutput.txt` ficheiro é um bom local para começar a determinar o motivo pelo qual o fluxo de trabalho não foi bem sucedida, que inclui mais informações de baixo nível do fluxo de trabalho. 
+O `standardoutput.txt` ficheiro é um bom lugar para começar a determinar o motivo pelo qual o fluxo de trabalho não foi bem-sucedida, pois inclui mais informações de baixo nível do fluxo de trabalho. 
 
 ## <a name="common-issues-and-how-to-resolve-them"></a>Problemas comuns e como resolvê-los
-Esta secção brevemente realça problemas comuns e como resolvê-los.
+Esta secção destaca rapidamente problemas comuns e como resolvê-los.
 
-### <a name="fastq-files-are-unmatched"></a>Ficheiros de Fastq são sem correspondência
-Ficheiros de Fastq só devem diferir o /1 à direita ou /2 no identificador de exemplo. Se tiver submetido acidentalmente ficheiros FASTQ sem correspondência, poderá ver as seguintes mensagens de erro ao chamar `msgen status`.
+### <a name="fastq-files-are-unmatched"></a>Ficheiros Fastq são sem correspondência
+Ficheiros Fastq apenas devem ser diferente pelo /1 à direita ou /2 no identificador de exemplo. Se tiver submetido acidentalmente arquivos de ficheiros FASTQ sem correspondência, poderá ver as seguintes mensagens de erro ao chamar `msgen status`.
 * `Encountered an unmatched read`
 * `Error reading a FASTQ file, make sure the input files are valid and paired correctly` 
 
-Para resolver este problema, reveja se os ficheiros de fastq submetidos para o fluxo de trabalho estiverem efetivamente um conjunto correspondente. 
+Para resolver este problema, reveja se os ficheiros fastq submetidos para o fluxo de trabalho são, na verdade, um conjunto correspondente. 
 
 
-### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Erro ao carregar o ficheiro .bam. Já existe o blob de saída e a opção de substituição foi definida como False.
-Se vir a mensagem de erro seguintes, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um ficheiro de saída com o mesmo nome.  Elimine o ficheiro de saída existente ou ative a opção de substituição no ficheiro de configuração. Em seguida, volte a submeter o fluxo de trabalho.
+### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Erro ao carregar o ficheiro do ficheiro. BAM. Blob de saída já existe e se a opção de substituição foi definida como False.
+Se vir a mensagem de erro seguinte, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um ficheiro de saída com o mesmo nome.  A eliminar o ficheiro de saída existentes ou ative a opção de substituição no ficheiro de configuração. Em seguida, volte a submeter o fluxo de trabalho.
 
-### <a name="when-to-contact-microsoft-genomics-support"></a>Quando contactar o suporte da Microsoft Genomics
-Se vir seguintes mensagens de erro, Ocorreu um erro interno. 
+### <a name="when-to-contact-microsoft-genomics-support"></a>Quando contactar o suporte do Microsoft Genomics
+Se vir as seguintes mensagens de erro, Ocorreu um erro interno. 
 
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-Tente reenviar o fluxo de trabalho. Se continuar com falhas de tarefas, ou se tiver quaisquer outras perguntas, contacte o suporte da Microsoft Genomics do portal do Azure.
-
-![Contacte o suporte no portal do Azure](./media/troubleshooting-guide/genomics-contact-support.png "contacte o suporte no portal do Azure")
+Tente voltar a submeter o seu fluxo de trabalho. Se continuar com falhas de tarefas, ou se tiver outras dúvidas, contacte o suporte da Microsoft Genomics no portal do Azure. Pode encontrar informações adicionais sobre como submeter um pedido de suporte [aqui](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a resolver problemas comuns com o serviço Microsoft Genomics. Para obter mais informações e FAQ mais gerais, consulte [perguntas comuns](frequently-asked-questions-genomics.md). 
+Neste artigo, aprendeu a resolver problemas comuns com o serviço Microsoft Genomics. Para obter mais informações e FAQ mais gerais, veja [perguntas comuns](frequently-asked-questions-genomics.md). 

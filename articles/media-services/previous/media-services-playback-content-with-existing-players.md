@@ -1,6 +1,6 @@
 ---
-title: Utilizar jogadores existentes para reproduzir o conteúdo - Azure | Microsoft Docs
-description: Este tópico lista jogadores existentes que pode utilizar para reproduzir o conteúdo.
+title: Utilizar os leitores existentes para reproduzir o conteúdo - Azure | Documentos da Microsoft
+description: Este tópico lista os leitores existentes que pode usar para reprodução de seu conteúdo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,49 +12,47 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/02/2018
 ms.author: juliako
-ms.openlocfilehash: a64d32747371aab2bd927e53c5d43e30de9108f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3fe82b98163182c73a144b72da371e8aa195e8cf
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788481"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435862"
 ---
-# <a name="playing-your-content-with-existing-players"></a>Reprodução do seu conteúdo com jogadores existentes
-Media Services do Azure suporta vários formatos de transmissão em fluxo populares, tais como a transmissão em fluxo uniforme, para transmissão em fluxo em direto HTTP e MPEG-Dash. Este tópico indica jogadores existentes que pode utilizar para testar os fluxos.
+# <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com leitores existentes
+Serviços de multimédia do Azure suporta muitos formatos de transmissão em fluxo populares, tais como a transmissão em fluxo uniforme, HTTP Live Streaming e MPEG-Dash. Este tópico de pontos de para os leitores existentes que pode usar para testar transmissões em fluxo.
 
-### <a name="the-azure-portal-media-services-content-player"></a>O Azure portal dos Media Services leitor de conteúdos
+### <a name="the-azure-portal-media-services-content-player"></a>O Azure portal dos serviços de multimédia leitor de conteúdos
 O **Azure** portal fornece um leitor de conteúdos que pode utilizar para testar o vídeo.
 
-Clique no vídeo pretendido (Certifique-se de que foi [publicados](media-services-portal-publish.md)) e clique em de **reproduzir** na parte inferior do portal.
+Clique no vídeo pretendido (Certifique-se de que era [publicados](media-services-portal-publish.md)) e clique no **reproduzir** na parte inferior do portal.
 
 São aplicáveis algumas considerações:
 
-* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* O **LEITOR DE CONTEÚDOS DE MEDIA SERVICES** reproduz a partir do ponto final de transmissão em fluxo predefinido. Se pretender reproduzir a partir de um ponto final de transmissão em fluxo não predefinido, utilize outro leitor. Por exemplo, [leitor de multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Media Player do Azure
-Utilize [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproduzir o conteúdo (encriptado ou protegido) em qualquer um dos seguintes formatos:
+Uso [leitor de multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproduzir o conteúdo (encriptado ou protegido) em qualquer um dos seguintes formatos:
 
 * Transmissão em Fluxo Uniforme
 * MPEG DASH
 * HLS
-* MP4 transferência progressiva
+* MP4 de transferência progressiva
 
 ### <a name="flash-player"></a>Flash Player
-#### <a name="aes-encrypted-with-token"></a>Encriptação AES com Token
+#### <a name="aes-encrypted-with-token"></a>Encriptada do AES com Token
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### <a name="silverlight-players"></a>Silverlight jogadores
-#### <a name="monitoring"></a>Monitorização
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
+### <a name="silverlight-players"></a>Jogadores do Silverlight
 
 #### <a name="playready-with-token"></a>PlayReady com Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>TRAÇO jogadores
+### <a name="dash-players"></a>Leitores de TRAÇO
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
@@ -65,8 +63,8 @@ Para testar os URLs de HLS também pode utilizar:
 * **Safari** num dispositivo iOS ou
 * **Leitor HLS 3ivx** no Windows.
 
-## <a name="developing-video-players"></a>Desenvolver as vídeos jogadores
-Para obter informações sobre como desenvolver as suas próprias jogadores, consulte [desenvolver as vídeos jogadores](media-services-develop-video-players.md)
+## <a name="developing-video-players"></a>Desenvolvimento de leitores de vídeo
+Para obter informações sobre como desenvolver seus próprios jogadores, consulte [desenvolver leitores de vídeo](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

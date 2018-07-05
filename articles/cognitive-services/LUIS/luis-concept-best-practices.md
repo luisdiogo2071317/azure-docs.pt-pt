@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f819952c0b20a632f3ee2b95f0b5b2d4613be3e1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c1d797e3dd3a0926cfce8fee323aaaa1a866a169
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345979"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436931"
 ---
 # <a name="best-practices"></a>Melhores práticas
 Utilize a processo de criação de aplicações para criar a sua aplicação LUIS. 
@@ -113,6 +113,4 @@ Adicione expressões de 10 ou 15 antes de treinamento e publicação. Que pode v
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [planear a sua aplicação](plan-your-app.md) na sua aplicação LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Saiba como [planear a sua aplicação](luis-how-plan-your-app.md) na sua aplicação LUIS.

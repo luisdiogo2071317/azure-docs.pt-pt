@@ -1,38 +1,38 @@
 ---
-title: Alteração de palavra-passe self-service no Azure Active Directory B2C | Microsoft Docs
-description: Um tópico demonstrar como configurar a alteração de palavra-passe self-service para os consumidores no Azure Active Directory B2C.
+title: Alteração de palavra-passe self-service no Azure Active Directory B2C | Documentos da Microsoft
+description: Um tópico que demonstra como configurar a alteração de palavra-passe self-service para os consumidores no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5474f469c6271a0c1348004664ead8b190de08c7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709143"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448140"
 ---
-# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: Configurar a alteração de palavra-passe em políticas personalizadas  
+# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>O Azure Active Directory B2C: Configurar a alteração de palavra-passe em políticas personalizadas  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Com a funcionalidade de alteração de palavra-passe, consumidores de início de sessão iniciada (através de contas locais) podem alterar as palavras-passe sem ter de provar a respetiva autenticidade pela verificação do e-mail, tal como descrito no [fluxo de reposição de palavra-passe self-service.](active-directory-b2c-reference-sspr.md) Se a sessão expira dentro do tempo de consumidor obtém o fluxo de alteração de palavra-passe, é solicitado ao utilizador que inicie sessão novamente. 
+Com a funcionalidade de alteração de palavra-passe, consumidores de início de sessão iniciada (usando contas locais) podem alterar as palavras-passe sem ter de provar sua autenticidade por verificação de e-mail, conforme descrito no [fluxo de reposição de palavra-passe self-service.](active-directory-b2c-reference-sspr.md) Se a sessão expirar, o tempo que o consumidor obtém a palavra-passe de fluxo de alteração, é pedido ao utilizador para iniciar sessão novamente. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um inquilino do Azure AD B2C configurado para concluir uma conta local sessão-up/início de sessão, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md).
+Um inquilino de B2C do Azure AD configurado para concluir uma conta local sessão-inscrição/início de sessão, conforme descrito em [introdução ao](active-directory-b2c-get-started-custom.md).
 
 ## <a name="how-to-configure-password-change-in-custom-policy"></a>Como configurar a alteração de palavra-passe numa política personalizada
 
-Para configurar a alteração de palavra-passe numa política personalizada do efetue as seguintes alterações na política de extensões do framework de confiança, 
+Para configurar a alteração de palavra-passe numa política personalizada do efetuar as seguintes alterações na sua política de extensões de estrutura de confiança, 
 
 ## <a name="define-a-claimtype-oldpassword"></a>Definir um ClaimType 'oldPassword'
 
-A estrutura geral da sua política personalizada tem de incluir um `ClaimsSchema`e definir um novo `ClaimType` oldPassword abaixo, como 
+A estrutura geral da política personalizada tem de incluir um `ClaimsSchema`e definir um novo `ClaimType` oldPassword conforme mostrado a seguir, 
 
 ```XML
   <BuildingBlocks>
@@ -47,20 +47,20 @@ A estrutura geral da sua política personalizada tem de incluir um `ClaimsSchema
   </BuildingBlocks>
 ```
 
-O objetivo destes elementos é o seguinte:
+A finalidade desses elementos é o seguinte:
 
-- O `ClaimsSchema` define que afirmações está a ser validada.  Neste caso, a 'palavra-passe antiga' será validado. 
+- O `ClaimsSchema` define que afirmações está sendo validada.  Neste caso, a "palavra-passe antiga' vai ser validado. 
 
-## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Adicionar um fornecedor de afirmações de alteração de palavra-passe com os respetivos elementos de suporte
+## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Adicionar um fornecedor de afirmações de alteração de palavra-passe com seus elementos com suporte
 
-Fornecedor de afirmações de alteração de palavra-passe
+Alterar a palavra-passe será de fornecedor de afirmações
 
 1. Autenticar o utilizador em relação a palavra-passe antiga
-2. E se 'nova palavra-passe' corresponde ao 'Confirmar nova palavra-passe', este valor é armazenado no arquivo de dados do B2C, por conseguinte, a palavra-passe é alterada com êxito. 
+2. E se 'nova palavra-passe' corresponde a "Confirme a nova palavra-passe", este valor é armazenado no arquivo de dados do B2C e, por conseguinte, a palavra-passe é alterada com êxito. 
 
 ![img](images/passwordchange.jpg)
 
-Adicione o seguinte fornecedor de afirmações para a política de extensões. 
+Adicione o fornecedor de afirmações seguintes na sua política de extensões. 
 
 ```XML
 <ClaimsProviders>
@@ -148,25 +148,25 @@ Adicione o seguinte fornecedor de afirmações para a política de extensões.
 
 
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar os IDs de aplicações na sua política personalizada
+### <a name="add-the-application-ids-to-your-custom-policy"></a>Adicionar os IDs de aplicação à sua política personalizada
 
-Adicionar os IDs de aplicação para o ficheiro de extensões (`TrustFrameworkExtensions.xml`):
+Adicionar os IDs de aplicação para o arquivo de extensões (`TrustFrameworkExtensions.xml`):
 
-1. O ficheiro de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">` e `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. O arquivo de extensões (TrustFrameworkExtensions.xml), localize o elemento `<TechnicalProfile Id="login-NonInteractive">` e `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Substitua todas as instâncias de `IdentityExperienceFrameworkAppId` com o ID da aplicação Framework de experiência de identidade, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md). Segue-se um exemplo:
+2. Substitua todas as instâncias de `IdentityExperienceFrameworkAppId` com o ID da aplicação a arquitetura de experiências de identidade, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md). Segue-se um exemplo:
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 
-3. Substitua todas as instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID da aplicação Framework de experiência de identidade de Proxy, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md).
+3. Substitua todas as instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID da aplicação a arquitetura de experiências de identidade de Proxy, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md).
 
 4. Guarde o ficheiro de extensões.
 
 
 
-## <a name="create-a-password-change-user-journey"></a>Criar um journey de utilizador de alteração de palavra-passe
+## <a name="create-a-password-change-user-journey"></a>Criar um percurso de utilizador de alteração de palavra-passe
 
 ```XML
  <UserJourneys>
@@ -194,24 +194,24 @@ Adicionar os IDs de aplicação para o ficheiro de extensões (`TrustFrameworkEx
   </UserJourneys>
 ```
 
-Tiver terminado a modificação do ficheiro de extensão. Guardar e carregar este ficheiro. Certifique-se de que todas as validações êxito.
+Terminar de modificar o ficheiro de extensão. Guardar e carregar o ficheiro. Certifique-se de que todas as validações tenha êxito.
 
 
 
-## <a name="create-a-relying-party-rp-file"></a>Criar um ficheiro de terceiros (RP) entidade confiadora
+## <a name="create-a-relying-party-rp-file"></a>Crie um ficheiro da entidade confiadora de terceiros (RP)
 
-Em seguida, atualize o ficheiro de terceiros (RP) entidade confiadora que inicia o journey de utilizador que criou:
+Em seguida, atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percurso do utilizador que criou:
 
-1. Fazer uma cópia de ProfileEdit.xml no seu diretório de trabalho. Em seguida, mude o nome (por exemplo, PasswordChange.xml).
-2. Abra o ficheiro novo e a atualização a `PolicyId` atributo para `<TrustFrameworkPolicy>` com um valor exclusivo. Este é o nome da sua política (por exemplo, PasswordChange).
-3. Modificar o `ReferenceId` atributo em `<DefaultUserJourney>` para fazer corresponder o `Id` do novo journey de utilizador que criou (por exemplo, PasswordChange).
+1. Faça uma cópia do ProfileEdit.xml no diretório de trabalho. Em seguida, mude o nome (por exemplo, PasswordChange.xml).
+2. Abra o ficheiro novo e a atualização do `PolicyId` atributo para `<TrustFrameworkPolicy>` com um valor exclusivo. Este é o nome da sua política (por exemplo, PasswordChange).
+3. Modificar a `ReferenceId` atributo `<DefaultUserJourney>` de acordo com o `Id` do novo percurso do utilizador que criou (por exemplo, PasswordChange).
 4. Guardar as alterações e, em seguida, carregue o ficheiro.
 5. Para testar a política personalizada que carregou, no portal do Azure, aceda ao painel de política e, em seguida, clique em **executar agora**.
 
 
 
 
-## <a name="link-to-password-change-sample-policy"></a>Associar a política de exemplo de alteração de palavra-passe
+## <a name="link-to-password-change-sample-policy"></a>Ligação à política de exemplo de alteração de palavra-passe
 
 Pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
 

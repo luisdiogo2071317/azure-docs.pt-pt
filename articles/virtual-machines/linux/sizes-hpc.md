@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM Linux do Azure - HPC | Microsoft Docs
-description: Lista os tamanhos diferentes disponíveis para Linux elevado desempenho informática máquinas virtuais no Azure. Apresenta informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para tamanhos de nesta série.
+title: Tamanhos de VM do Linux do Azure – HPC | Documentos da Microsoft
+description: Lista os tamanhos diferentes disponíveis para máquinas virtuais no Azure de computação de Linux ao alto desempenho. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: a24cb03cd30b212650a36cd5ac40977de5eea11e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 441e99b86e9560d47af8ea18a2633e3f37a05e94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653846"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 
@@ -32,55 +33,55 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="mpi"></a>MPI 
 
-Versões de 5. x de Intel MPI só são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução Intel MPI não são compatíveis com os controladores de Azure Linux RDMA.
+Apenas o Intel MPI 5.x versões são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI não são compatíveis com os controladores de RDMA do Linux do Azure.
 
 
 ### <a name="distributions"></a>Distribuições
  
-Implemente uma VM de computação intensivas de uma das imagens no Azure Marketplace que suporte a conectividade RDMA:
+Implemente uma VM de computação intensiva de uma das imagens no Azure Marketplace que suporta a conetividade RDMA:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registe o Intel para transferir Intel MPI:
+* **Ubuntu** -Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registar com o Intel para transferir a MPI Intel:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium). RDMA controladores estão instalados e pacotes de Intel MPI são distribuídas na VM. Instale MPI executando o seguinte comando:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium). Controladores de RDMA são instalados e os pacotes de Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **Com base em centOS HPC** -com base em CentOS 6.5 HPC ou uma versão posterior (para a série H, versão 7.1 ou posterior é recomendado). Controladores RDMA e Intel MPI 5.1 são instaladas na VM.  
+* **Baseada em centOS HPC** -baseada em CentOS 6.5 HPC ou uma versão posterior (para a série H, versão 7.1 ou posterior é recomendado). Drivers RDMA e Intel MPI 5.1 são instalados na VM.  
  
   > [!NOTE]
-  > Nas imagens de HPC com base em CentOS, atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isto acontece porque os controladores de Linux RDMA são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se kernel é atualizado.
+  > Nas imagens de HPC baseada em CentOS, as atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isso ocorre porque os drivers de RDMA do Linux são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se o kernel é atualizado.
   > 
  
 ### <a name="cluster-configuration"></a>Configuração de cluster 
     
-É necessária configuração de sistema adicionais para executar tarefas MPI em VMs em cluster. Por exemplo, num cluster de VMs, tem de estabelecer fidedignidade entre os nós de computação. Para as definições típicas, consulte [configurar um cluster de Linux RDMA para executar aplicações MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Configuração de sistema adicionais é necessário para executar trabalhos de MPI em VMs em cluster. Por exemplo, num cluster de VMs, tem de estabelecer confiança entre os nós de computação. Para as definições típicas, consulte [configurar um cluster RDMA do Linux para executar aplicações MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="network-topology-considerations"></a>Considerações de topologia de rede
-* Em com capacidade RDMA VMs com Linux no Azure, Eth1 está reservado para o tráfego de rede RDMA. Não altere as definições de Eth1 ou quaisquer informações no ficheiro de configuração que faça referência a esta rede. Eth0 está reservado para regular tráfego de rede do Azure.
+* Em VMs capacidade RDMA do Linux no Azure, Eth1 está reservado para o tráfego de rede RDMA. Não altere as definições de Eth1 ou todas as informações no ficheiro de configuração que faça referência a esta rede. Eth0 está reservado para regular tráfego de rede do Azure.
 
-* O endereço espaço 172.16.0.0/16 de reservas de rede RDMA no Azure. 
+* A rede RDMA no Azure reserva-se o endereço espaço 172.16.0.0/16. 
 
 
-## <a name="using-hpc-pack"></a>Utilizar o pacote HPC
-[Pacote HPC](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção para utilizar as instâncias intensivas de computação com Linux. As versões mais recentes do suporte de HPC Pack várias distribuições em Linux para executar em nós de computação do implementado em VMs do Azure, gerido por um nó principal do Windows Server. Connosco de computação do Linux com capacidade RDMA com Intel MPI, HPC Pack pode agendar e executar Linux MPI aplicações que acedam à rede RDMA. Consulte [começar connosco de computação do Linux num cluster HPC Pack no Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+## <a name="using-hpc-pack"></a>Com o HPC Pack
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção para utilizar as instâncias de computação intensiva, com o Linux. As versões mais recentes do suporte do HPC Pack várias distribuições do Linux para serem executadas em nós de computação implementados em VMs do Azure, gerido por um nó principal do Windows Server. Connosco de computação do Linux com capacidade RDMA com o Intel MPI, o HPC Pack pode agendar e executar Linux MPI aplicações que acedam à rede RDMA. Ver [começar connosco de computação do Linux num cluster HPC Pack no Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para começar a implementar e utilizar tamanhos de computação intensiva com o RDMA no Linux, consulte [configurar um cluster de Linux RDMA para executar aplicações MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+- Para começar a implementar e utilizar tamanhos de computação intensiva com RDMA no Linux, veja [configurar um cluster RDMA do Linux para executar aplicações MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-- Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+- Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Rever o acesso ao utilizar o Azure AD aceder revisões | Microsoft Docs
-description: Saiba como rever o acesso através da utilização de revisões de acesso do Azure Active Directory.
+title: Rever o acesso ao utilizar o Azure AD as revisões de acesso | Documentos da Microsoft
+description: Saiba como rever acesso utilizando as revisões de acesso do Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -9,43 +9,43 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 09/19/2017
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: e6a109e499395e09be27770a510427038872da38
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085128"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446644"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Rever o acesso com o Azure AD revisões de acesso
+# <a name="review-access-with-azure-ad-access-reviews"></a>Rever o acesso com o Azure AD as revisões de acesso
 
-Azure Active Directory (Azure AD) simplifica como às empresas gerir o acesso a aplicações e membros dos grupos no Azure AD e outros serviços Online da Microsoft com uma funcionalidade denominada acesso revê. Talvez recebeu uma mensagem de e-mail da Microsoft que pede-lhe para rever o acesso para os membros de um grupo ou os utilizadores com acesso a uma aplicação. 
+Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a aplicações e membros dos grupos no Azure AD e outros serviços Online da Microsoft com um recurso chamado acesso revisões. Talvez recebeu uma mensagem de e-mail da Microsoft que lhe pede para rever o acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação. 
 
-## <a name="open-an-access-review"></a>Abra uma revisão do acesso
+## <a name="open-an-access-review"></a>Abra uma revisão de acesso
 
-Para ver as revisões de acesso pendente, selecione a hiperligação no e-mail. Se não tiver o correio eletrónico, pode localizar os revisões de acesso, seguindo estes passos:
+Para ver as revisões de acesso pendente, selecione a ligação no e-mail. Se não tiver o e-mail, pode localizar as revisões de acesso ao seguir estes passos:
 
 1. Inicie sessão no [painel de acesso do Azure AD](https://myapps.microsoft.com).
 
-2. Selecione o símbolo de utilizador no canto superior direito da página, que apresenta a sua organização nome e a predefinição. Se mais do que uma organização estiver listada, selecione a organização que pediu uma revisão do acesso.
+2. Selecione o símbolo de utilizador no canto superior direito da página, que exibe a sua organização nome e a predefinição. Se mais do que uma organização estiver listada, selecione a organização que solicitou uma revisão de acesso.
 
-3. Se a etiqueta de um mosaico **aceder revisões** se encontra no lado direito da página, selecione. Se o mosaico não estiver visível, não existem nenhum revisões de acesso para efetuar para a organização e é necessária nenhuma ação neste momento.
+3. Se o nome de um mosaico **as revisões de acesso** está no lado direito da página, selecione-lo. Se o mosaico não estiver visível, existem não existem revisões de acesso para efetuar dessa organização e é necessária nenhuma ação neste momento.
 
-## <a name="fill-out-an-access-review"></a>Preencher uma revisão do acesso
+## <a name="fill-out-an-access-review"></a>Preencha uma revisão de acesso
 
-Quando seleciona uma revisão do acesso da lista, pode ver os nomes dos utilizadores que necessitam de ser revistas. Poderá ver apenas um nome – os seus próprios – se o pedido foi para rever o suas próprias acesso.
+Quando selecionar uma revisão de acesso na lista, verá os nomes de utilizadores que precisam ser examinadas. Poderá ver apenas um nome, seus próprios – se o pedido foi rever o seu próprio acesso.
 
-Para cada linha na lista, pode decidir se pretende aprovar ou negar o acesso do utilizador. Selecione a linha e escolha se pretende aprovar ou negar. (Se não souber o utilizador, pode indicar que, demasiado.)
+Para cada linha na lista, pode decidir se quer aprovar ou negar o acesso do utilizador. Selecione a linha e escolha se pretende aprovar ou negar. (Se não souber o usuário, pode indicar que, também.)
 
-O revisor poderão exigir que forneça uma justificação de aprovação de acesso contínuo ou membros do grupo.
+O revisor pode exigir que forneça uma justificativa para aprovação de acesso contínuo ou associação de grupo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Acesso negado de um utilizador não é removido imediatamente. Podem ser removido quando a revisão estiver concluída, ou quando um administrador para a revisão. Se pretende alterar a sua resposta e um utilizador anteriormente negado de aprovar ou negar um utilizador anteriormente aprovado, selecione a linha, a resposta de reposição e selecione uma resposta de novo. Pode efetuar este passo até que a revisão do acesso esteja concluída.
+Acesso negado de um utilizador não é removido imediatamente. Este pode ser removido quando a revisão é concluída ou quando um administrador para a revisão. Se deseja alterar sua resposta e aprovar um utilizador anteriormente recusado ou negar um utilizador previamente aprovado, selecione a linha, repor a resposta e selecione uma nova resposta. Pode efetuar este passo até que a revisão de acesso seja concluída.
 
 
 

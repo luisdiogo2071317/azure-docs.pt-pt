@@ -1,48 +1,48 @@
 ---
-title: Como requerer a autenticação multifator | Microsoft Docs
-description: Saiba como requerer a autenticação multifator (MFA) para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
+title: Como requerer a autenticação multifator | Documentos da Microsoft
+description: Saiba como exigir autenticação multifator (MFA) para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d0a9abc145a4d108e48bc81cbb6a849c62e5862b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 727147673a527f2c28c9ca01ad17b30db292b6c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234017"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447222"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Como requerer a MFA no Azure AD Privileged Identity Management
-Recomendamos que necessitam de autenticação multifator (MFA) para todos os seus administradores. Isto reduz o risco de um ataque devido a uma palavra-passe comprometido.
+# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Como requerer MFA no Azure AD Privileged Identity Management
+Recomendamos que exigem autenticação multifator (MFA) para todos os administradores. Isso reduz o risco de um ataque devido a uma palavra-passe comprometida.
 
-Pode exigir que os utilizadores ser um desafio MFA quando iniciam sessão no. A mensagem de blogue [MFA para Office 365 e o MFA do Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compara o que está incluído em subscrições do Office e do Azure, com as funcionalidades incluídas na oferta Microsoft Azure multi-factor Authentication.
+Pode exigir que os utilizadores concluam uma submissão da MFA no início de sessão. A mensagem de blogue [MFA para Office 365 e o MFA do Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compara o que está incluído nas subscrições do Office e o Azure, com os recursos contidos na oferta do Microsoft Azure multi-factor Authentication.
 
-Também pode exigir que os utilizadores ser um desafio MFA quando ativar a uma função no Azure AD PIM. Desta forma, se o utilizador não concluiu um desafio MFA quando que tem sessão iniciada, será pedido para o fazer por PIM.
+Também pode exigir que os utilizadores concluam um desafio MFA quando ativam uma função no Azure AD PIM. Dessa forma, se o utilizador não foi concluída uma submissão da MFA quando eles conectado, eles serão solicitados a fazê-lo pelo PIM.
 
 ## <a name="requiring-mfa-in-azure-ad-privileged-identity-management"></a>Exigir a MFA no Azure AD Privileged Identity Management
-Quando gerir identidades no PIM como um administrador com função privilegiada, poderá ver alertas que recomendamos MFA para contas com privilégios. Clique no alerta de segurança no dashboard do PIM e um novo painel será aberto com uma lista das contas de administrador que deve exigir a MFA.  Pode exigir a MFA, selecionando a várias funções e, em seguida, clicando a **corrigir** botão, ou clique nas reticências junto funções individuais e, em seguida, clique em de **corrigir** botão.
+Na gestão de identidades no PIM como um administrador com função privilegiada, poderá ver alertas que recomendamos a MFA para contas com privilégios. Clique no alerta de segurança no dashboard do PIM e um novo painel será aberto com uma lista das contas de administrador que deve exigir a MFA.  Pode exigir a MFA, selecionando a várias funções e, em seguida, clicando a **corrigir** botão, ou pode clicar na elipse junto ao funções individuais e, em seguida, clique nas **corrigir** botão.
 
 > [!IMPORTANT]
-> Com o botão direito agora, o MFA do Azure só funciona com o trabalho contas escolares ou profissionais, não as contas Microsoft (normalmente, uma conta pessoal que é utilizado para iniciar sessão nos serviços Microsoft Skype, Xbox, Outlook.com, etc.). Por este motivo, qualquer pessoa com uma conta Microsoft não pode ser um administrador elegível porque estes não podem utilizar a MFA para ativar as respetivas funções. Se precisam destes utilizadores continuar a gerir as cargas de trabalho através de uma conta Microsoft, efetuar a elevação-las para os administradores permanentes por agora.
+> Certo, agora, o MFA do Azure só funciona com trabalho contas profissionais ou escolares, não as contas Microsoft (normalmente, uma conta pessoal que serve para iniciar sessão nos serviços Microsoft, como o Skype, Xbox, Outlook.com, etc.). Por este motivo, qualquer pessoa que usar uma conta Microsoft não pode ser um administrador elegível porque estes não podem utilizar o MFA para ativar as suas funções. Se esses usuários precisam continuar a gerir cargas de trabalho com uma conta Microsoft, elevá-las para os administradores permanentes por agora.
 > 
 > 
 
-Além disso, pode alterar o requisito de MFA para uma função específica ao clicar no mesmo na secção de funções do dashboard do PIM. Em seguida, clique em **definições** no painel de função e, em seguida, selecionar **ativar** em autenticação multifator.
+Além disso, pode alterar o requisito de MFA para uma função específica ao clicar no mesmo na secção funções do dashboard do PIM. Em seguida, clique em **definições** no painel de função e, em seguida, selecionar **ativar** em autenticação multifator.
 
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Como o Azure AD PIM valida a MFA
-Existem duas opções para validar a MFA quando um utilizador ativa uma função.
+Existem duas opções para validar a MFA quando um utilizador ativa a uma função.
 
-A opção mais simples é a depender do MFA do Azure para utilizadores que esteja a ativar uma função com privilégios. Para tal, verifique primeiro que esses utilizadores são licenciados, se necessário e tem registado para MFA do Azure. Obter mais informações sobre como efetuar esta ação estão a ser [introdução ao Azure multi-factor Authentication na nuvem](authentication/howto-mfa-getstarted.md). É recomendado, mas não ser obrigatório, que pode configura o Azure AD para impor a MFA para estes utilizadores quando iniciam sessão no. Isto acontece porque as verificações MFA serão efetuadas pelo Azure AD PIM em si.
+A opção mais simples é contar com MFA do Azure para utilizadores que estão a ativar uma função com privilégios. Para tal, verifique primeiro que esses utilizadores são licenciados, se necessário e tenham registado para MFA do Azure. Obter mais informações sobre como fazer isso são na [introdução ao multi-factor Authentication na cloud](authentication/howto-mfa-getstarted.md). Também é recomendável, mas não obrigatório, que configura o Azure AD para impor a MFA para estes utilizadores quando iniciam sessão. Isto acontece porque as verificações MFA serão feitas pelo Azure AD PIM em si.
 
-Em alternativa, se os utilizadores autenticam no local pode ter o seu fornecedor de identidade serão responsáveis pela MFA. Por exemplo, se tiver configurado os serviços de Federação do AD para exigir a autenticação baseada em smart card antes de aceder ao Azure AD, [proteger recursos da nuvem com o Azure multi-factor Authentication e o AD FS](authentication/howto-mfa-adfs.md) inclui instruções para configurar o AD FS para enviar afirmações com o Azure AD. Quando um utilizador tenta ativar uma função, o Azure AD PIM aceitará que MFA já foi validada para o utilizador assim que recebe as afirmações adequadas.
+Em alternativa, se os utilizadores autenticam no local pode ter o seu fornecedor de identidade a ser responsável pela MFA. Por exemplo, se tiver configurado para exigir a autenticação baseada em smart card antes de aceder ao Azure AD, dos serviços de Federação do AD [proteger recursos da cloud com o Azure multi-factor Authentication e o AD FS](authentication/howto-mfa-adfs.md) inclui instruções Para configurar o AD FS para enviar afirmações com o Azure AD. Quando um utilizador tenta ativar uma função, o Azure AD PIM aceitará que MFA já foi validado para o utilizador depois de receber as declarações adequadas.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes

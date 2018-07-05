@@ -1,6 +1,6 @@
 ---
-title: Os registos de diagnóstico dos Event Hubs do Azure | Microsoft Docs
-description: Saiba como configurar registos de diagnóstico para os event hubs no Azure.
+title: Registos de diagnóstico dos Hubs de eventos do Azure | Documentos da Microsoft
+description: Saiba como configurar registos de diagnóstico para os hubs de eventos no Azure.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,79 +13,79 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932720"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435036"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Registos de diagnóstico de Hubs de eventos
+# <a name="event-hubs-diagnostic-logs"></a>Registos de diagnóstico dos Hubs de eventos
 
-Pode ver dois tipos de registos de Event Hubs do Azure:
+Pode ver dois tipos de registos para os Hubs de eventos do Azure:
 
-* **[Registos de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: estes registos tem informações sobre as operações executadas numa tarefa. Os registos estão sempre ativados.
-* **[Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: pode configurar os registos de diagnóstico para uma vista mais rico de tudo o que acontece com uma tarefa. Registos de diagnóstico abrange atividades desde o momento em que é criada a tarefa até que a tarefa é eliminada, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+* **[Registos de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: estes registos têm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
+* **[Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: pode configurar os registos de diagnóstico para uma vista mais avançada de tudo o que acontece com uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 
-Registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico:
+Os registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico, siga estes passos:
 
-1.  No [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
+1.  Na [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
 
-    ![Navegação do painel para os registos de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Navegação do painel para registos de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.  Clique no recurso que pretende monitorizar.
+2.  Clique em recursos que pretende monitorizar.
 
-3.  Clique em **ative os diagnósticos**.
+3.  Clique em **Ativar diagnósticos**.
 
     ![Ativar registos de diagnóstico](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.  Para **estado**, clique em **no**.
+4.  Para **Status**, clique em **no**.
 
-    ![Alterar o estado de registos de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Alterar o estado dos registos de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou Log Analytics do Azure.
+5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou do Azure Log Analytics.
 
 6.  Guarde as novas definições de diagnóstico.
 
-Novas definições entram em vigor no cerca de 10 minutos. Depois disso, os registos de constar no destino arquivo configurado, o **registos de diagnóstico** painel.
+Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, registos de constar no destino arquivamento configurado, o **registos de diagnóstico** painel.
 
-Para obter mais informações sobre a configuração de diagnósticos, consulte o [descrição geral dos registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 
-Os Event Hubs captura registos de diagnóstico para duas categorias:
+Os Hubs de eventos captura os registos de diagnóstico para duas categorias:
 
-* **Os registos de arquivo**: registos relacionados com os Event Hubs arquivos, especificamente, os registos relacionados com erros de arquivo.
-* **Registos operacionais**: informações sobre o que acontece durante as operações de Event Hubs, especificamente, a operação de tipo, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
+* **Arquivar registos**: registos relacionados com os Hubs de eventos de arquivos, especificamente, os registos relacionados com erros de arquivo.
+* **Registos operacionais**: informações sobre o que está a acontecer durante as operações de Hubs de eventos, especificamente, o tipo de operação, incluindo a criação do hub de eventos, os recursos utilizados e o estado da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registos de diagnóstico
 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia que utilizam o formato descrito nas secções seguintes.
+Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que utilizam o formato descrito nas seções a seguir.
 
 ### <a name="archive-logs-schema"></a>Esquema de registos de arquivo
 
-As cadeias JSON do arquivo registo incluir elementos listados na seguinte tabela:
+Cadeias de caracteres do arquivo log JSON incluem elementos listados na tabela a seguir:
 
 Nome | Descrição
 ------- | -------
 TaskName | Descrição da tarefa que falhou.
-ActivityId | ID interno utilizado para o controlo.
-trackingId | ID interno utilizado para o controlo.
+ActivityId | ID interno, utilizado para o controlo.
+trackingId | ID interno, utilizado para o controlo.
 resourceId | ID de recurso de Gestor de recursos do Azure.
-eventHub | Hub de eventos nome completo (inclui o nome do espaço de nomes).
-partitionId | Partição do Hub de eventos que está a ser escrita para.
+eventHub | Hub de eventos nome completo (inclui o espaço de nomes).
+partitionId | Partição do Hub de eventos a ser escrita.
 archiveStep | ArchiveFlushWriter
 startTime | Hora de início de falha.
-falhas | Número de vezes que ocorreu a falha.
-durationInSeconds | Duração da falha.
+falhas | Número de vezes que ocorreu uma falha.
+durationInSeconds | Duração de falha.
 message | Mensagem de erro.
 categoria | ArchiveLogs
 
-O código seguinte é um exemplo de um registo de arquivo cadeia JSON:
+O código a seguir é um exemplo de um cadeia de caracteres do JSON de Arquivar registo:
 
 ```json
 {
@@ -106,21 +106,21 @@ O código seguinte é um exemplo de um registo de arquivo cadeia JSON:
 
 ### <a name="operational-logs-schema"></a>Esquema de registos operacionais
 
-Cadeias JSON do registo operacional incluem elementos listados na seguinte tabela:
+Cadeias de caracteres JSON de registo operacional incluem elementos listados na tabela a seguir:
 
 Nome | Descrição
 ------- | -------
-ActivityId | ID interno utilizado para controlar o objetivo.
+ActivityId | ID interno, utilizado para controlar o objetivo.
 EventName | Nome da operação.  
 resourceId | ID de recurso de Gestor de recursos do Azure.
 SubscriptionId | ID da subscrição.
-EventTimeString | Tempo da operação.
-EventProperties | Propriedades da operação.
+EventTimeString | Tempo de operação.
+EventProperties | Propriedades de operação.
 Estado | Estado da operação.
-Autor da chamada | Autor da chamada da operação (Azure portal ou de gestão do cliente).
+Autor da chamada | Chamador de operação (cliente do Azure de portal ou de gestão).
 categoria | OperationalLogs
 
-O código seguinte é um exemplo de uma cadeia JSON do registo operacional:
+O código a seguir é um exemplo de uma cadeia de caracteres do JSON de registo operacional:
 
 ```json
 Example:
@@ -138,6 +138,6 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Introdução ao Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md)
 * [Descrição geral da API dos Hubs de Eventos](event-hubs-api-overview.md)
 * [Introdução ao Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

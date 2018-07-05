@@ -1,39 +1,39 @@
 ---
-title: Complexidade de palavra-passe em políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
-description: Como configurar os requisitos de complexidade de palavras-passe numa política personalizada.
+title: Complexidade de palavra-passe em políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
+description: Como configurar requisitos de complexidade de palavras-passe na política personalizada.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6ad205167477715713b58fe06a771c3e683f5c04
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712169"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440796"
 ---
-# <a name="configure-password-complexity-in-custom-policies"></a>Configurar a complexidade da palavra-passe em políticas personalizadas
+# <a name="configure-password-complexity-in-custom-policies"></a>Configurar a complexidade de palavra-passe em políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo é uma descrição avançada como funciona a complexidade de palavra-passe e é ativado através de políticas personalizadas do Azure AD B2C.
+Este artigo é uma descrição avançada de como funciona a complexidade de palavra-passe e está ativado com as políticas personalizadas do Azure AD B2C.
 
 ## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>O Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
 
-O Azure Active Directory B2C (Azure AD B2C) suporta alterar os requisitos de complexidade de palavras-passe fornecidas por um utilizador final ao criar uma conta.  Por predefinição, o Azure AD B2C utiliza **forte** palavras-passe.  Azure AD B2C suporta também para controlar a complexidade de palavras-passe que os clientes podem utilizar as opções de configuração.  Este artigo aborda como configurar a complexidade de palavra-passe em políticas personalizadas.  Também é possível utilizar [configurar a complexidade da palavra-passe nas políticas incorporadas](active-directory-b2c-reference-password-complexity.md).
+O Azure Active Directory B2C (Azure AD B2C) oferece suporte a alterar os requisitos de complexidade de palavras-passe fornecidas por um usuário final quando criar uma conta.  Por predefinição, o Azure AD B2C utiliza **forte** palavras-passe.  O Azure AD B2C também oferece suporte a opções de configuração para controlar a complexidade de palavras-passe que os clientes podem utilizar.  Este artigo fala sobre como configurar a complexidade de palavra-passe no políticas personalizadas.  Também é possível usar [configurar a complexidade de palavra-passe em políticas incorporadas](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um inquilino do Azure AD B2C configurado para concluir uma conta local sessão-up/início de sessão, conforme descrito em [introdução](active-directory-b2c-get-started-custom.md).
+Um inquilino de B2C do Azure AD configurado para concluir uma conta local sessão-inscrição/início de sessão, conforme descrito em [introdução ao](active-directory-b2c-get-started-custom.md).
 
 ## <a name="how-to-configure-password-complexity-in-custom-policy"></a>Como configurar a complexidade de palavra-passe numa política personalizada
 
-Para configurar a complexidade da palavra-passe numa política personalizada, a estrutura geral da sua política personalizada tem de incluir um `ClaimsSchema`, `Predicates`, e `InputValidations` elemento dentro `BuildingBlocks`.
+Para configurar a complexidade da palavra-passe numa política personalizada, a estrutura geral da política personalizada tem de incluir um `ClaimsSchema`, `Predicates`, e `InputValidations` elemento dentro de `BuildingBlocks`.
 
 ```XML
   <BuildingBlocks>
@@ -43,15 +43,15 @@ Para configurar a complexidade da palavra-passe numa política personalizada, a 
   </BuildingBlocks>
 ```
 
-O objetivo destes elementos é o seguinte:
+A finalidade desses elementos é o seguinte:
 
-- Cada `Predicate` elemento define uma verificação de validação da cadeia básico que devolve true ou false.
-- O `InputValidations` elemento tem um ou mais `InputValidation` elementos.  Cada `InputValidation` é criado utilizando uma série de `Predicate` elementos. Este elemento permite-lhe efetuar agregações booleanos (semelhante ao `and` e `or`).
-- O `ClaimsSchema` define que afirmações está a ser validada.  Em seguida, define qual `InputValidation` regra é utilizada para validar que afirmações.
+- Cada `Predicate` elemento define uma verificação de validação da cadeia de caracteres básico que retorna VERDADEIRO ou FALSO.
+- O `InputValidations` elemento tem um ou mais `InputValidation` elementos.  Cada `InputValidation` é construída utilizando uma série de `Predicate` elementos. Esse elemento permite-lhe efetuar agregações booleanas (semelhante à `and` e `or`).
+- O `ClaimsSchema` define que afirmações está sendo validada.  Em seguida, ele define quais `InputValidation` regra é utilizada para validar essa afirmação.
 
 ### <a name="defining-a-predicate-element"></a>Definir um elemento de predicado
 
-Os predicados de têm dois tipos de método: IsLengthRange ou MatchesRegex. Vamos rever um exemplo de cada.  Primeiro temos um exemplo de MatchesRegex, que é utilizado para corresponder a uma expressão regular.  Neste exemplo, corresponde a cadeia que contém números.
+Os predicados de tem dois tipos de método: IsLengthRange ou MatchesRegex. Vamos examinar um exemplo de cada.  Em primeiro lugar, temos um exemplo de MatchesRegex, que é utilizado para corresponder a uma expressão regular.  Neste exemplo, corresponde a cadeia de caracteres que contém números.
 
 ```XML
       <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
@@ -61,7 +61,7 @@ Os predicados de têm dois tipos de método: IsLengthRange ou MatchesRegex. Vamo
       </Predicate>
 ```
 
-Seguinte vamos rever um exemplo de IsLengthRange.  Este método aceita um comprimento da cadeia mínimo e máximo.
+Próxima Vamos examinar um exemplo de IsLengthRange.  Esse método obtém um comprimento de cadeia de caracteres mínimo e máximo.
 
 ```XML
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
@@ -72,11 +72,11 @@ Seguinte vamos rever um exemplo de IsLengthRange.  Este método aceita um compri
       </Predicate>
 ```
 
-Utilize o `HelpText` atributo para fornecer uma mensagem de erro para os utilizadores finais se falhar a verificação.  Esta cadeia pode ser localizada utilizando o [funcionalidade de personalização de idioma](active-directory-b2c-reference-language-customization.md).
+Utilize o `HelpText` atributo para fornecer uma mensagem de erro para os utilizadores finais se falhar a verificação.  Essa cadeia de caracteres pode ser localizada com o [funcionalidade de personalização de idioma](active-directory-b2c-reference-language-customization.md).
 
 ### <a name="defining-an-inputvalidation-element"></a>Definir um elemento de InputValidation
 
-Um `InputValidation` é uma agregação de `PredicateReferences`. Cada `PredicateReferences` tem de ser verdadeira para que o `InputValidation` com êxito.  No entanto, no interior do `PredicateReferences` chamado um atributo de utilização de elemento `MatchAtLeast` para especificar quantos `PredicateReference` verificações tem de devolver verdadeiras.  Opcionalmente, defina um `HelpText` atributo para substituir a mensagem de erro definido no `Predicate` elementos que referencia.
+Uma `InputValidation` é uma agregação de `PredicateReferences`. Cada `PredicateReferences` tem de ser verdadeira para que o `InputValidation` tenha êxito.  No entanto, dentro do `PredicateReferences` uso de elemento chamado de um atributo `MatchAtLeast` para especificar quantos `PredicateReference` verificações tem de devolver verdadeiras.  Opcionalmente, define um `HelpText` atributo para substituir a mensagem de erro definido no `Predicate` elementos por ele referenciados.
 
 ```XML
       <InputValidation Id="PasswordValidation">
@@ -94,7 +94,7 @@ Um `InputValidation` é uma agregação de `PredicateReferences`. Cada `Predicat
 
 ### <a name="defining-a-claimsschema-element"></a>Definir um elemento de ClaimsSchema
 
-Os tipos de afirmação `newPassword` e `reenterPassword` são considerados especial, pelo que não altere os nomes.  A IU valida o utilizador reentered corretamente a palavra-passe durante a criação de conta com base nestes `ClaimType` elementos.  Para localizar o mesmo `ClaimType` elementos, procure no TrustFrameworkBase.xml no seu pacote de arranque.  Quais são as novidades neste exemplo é a substituição destes elementos para definir um `InputValidationReference`. O `ID` atributo deste elemento nova está a apontar para o `InputValidation` elemento definido.
+Os tipos de afirmação `newPassword` e `reenterPassword` são considerados especial, pelo que não altere os nomes.  A interface do Usuário valida o usuário reentered corretamente a palavra-passe durante a criação da conta com base nesses `ClaimType` elementos.  Para localizar o mesmo `ClaimType` elementos, procure no TrustFrameworkBase.xml em seu pacote de iniciante.  O que há de novo neste exemplo é a substituição destes elementos para definir um `InputValidationReference`. O `ID` atributo deste elemento novo está a apontar para o `InputValidation` elemento que definimos.
 
 ```XML
     <ClaimsSchema>
@@ -107,19 +107,19 @@ Os tipos de afirmação `newPassword` e `reenterPassword` são considerados espe
     </ClaimsSchema>
 ```
 
-### <a name="putting-it-all-together"></a>Passar todos os em conjunto
+### <a name="putting-it-all-together"></a>Juntando as peças
 
-Este exemplo mostra como todas as peças encaixam para formar uma política de trabalho.  Para utilizar este exemplo:
+Este exemplo mostra como todas as peças se encaixam para formar uma política de trabalho.  Para utilizar este exemplo:
 
-1. Siga as instruções no pré-requisito [introdução](active-directory-b2c-get-started-custom.md) para transferir, configurar e carregue TrustFrameworkBase.xml e TrustFrameworkExtensions.xml
-1. Crie um ficheiro de SignUporSignIn.xml utilizando o conteúdo de exemplo nesta secção.
-1. Atualizar SignUporSignIn.xml substituir `yourtenant` com o nome do seu inquilino do Azure AD B2C.
+1. Siga as instruções em pré-requisitos [introdução ao](active-directory-b2c-get-started-custom.md) para transferir, configurar e carregar TrustFrameworkBase.xml e TrustFrameworkExtensions.xml
+1. Crie um ficheiro de SignUporSignIn.xml com o conteúdo de exemplo nesta secção.
+1. Atualizar SignUporSignIn.xml substituindo `yourtenant` com o nome do seu inquilino do Azure AD B2C.
 1. Carregue o ficheiro de política de SignUporSignIn.xml pela última vez.
 
-Este exemplo contém uma validação de palavras-passe do pin e outro para palavras-passe seguras:
+Este exemplo contém uma validação de palavras-passe de pin e outro para as palavras-passe fortes:
 
-- Procure `PINpassword`. Isto `InputValidation` elemento valida um pin de qualquer comprimento.  Não é utilizado neste momento, porque este não está a ser referenciado no `InputValidationReference` elemento dentro `ClaimType`. 
-- Procure `PasswordValidation`. Isto `InputValidation` elemento valida uma palavra-passe é de 8 a 16 carateres e contém 3 de 4 de números, letras maiúsculas, minúsculos ou símbolos.  Este é referenciado numa `ClaimType`.  Por conseguinte, esta regra está a ser imposta nesta política.
+- Procure `PINpassword`. Isso `InputValidation` elemento valida um pin de qualquer comprimento.  Não é utilizado no momento, porque não é referenciado no `InputValidationReference` elemento dentro de `ClaimType`. 
+- Procure `PasswordValidation`. Isso `InputValidation` elemento valida uma palavra-passe é 8 a 16 carateres e contém 3 de 4 de números, letras maiúsculas, minúsculos ou símbolos.  Esta é referenciada em `ClaimType`.  Por conseguinte, esta regra está a ser imposta nesta política.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

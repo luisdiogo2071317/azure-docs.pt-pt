@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dad35f26496306558a6e0105db86321c497a8306
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d44ea5afca15519fee1bc8a4ebd6c2ba1f36d760
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342972"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448633"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Fornecer a inscrição e início de sessão para os consumidores com contas do Twitter com o Azure AD B2C
 
@@ -26,7 +26,7 @@ Para utilizar o Twitter como fornecedor de identidade no Azure Active Directory 
 1. Vá para o [Twitter aplicações](https://apps.twitter.com/) e inicie sessão com as suas credenciais.
 2. Clique em **criar nova aplicação**.
 3. No formulário, forneça um valor para o **Name**, **Descrição**, e **site**.
-4. Para o **URL de chamada de retorno**, introduza `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Certifique-se de substituir **{inquilino}** com o nome (por exemplo, contosob2c.onmicrosoft.com) do seu inquilino e o {policyId} com o seu id de política (por exemplo, b2c_1_policy).  Esse retorno de chamada URL tem de ser em letras minúsculas. Deve adicionar um URL de retorno de chamada para todas as políticas que utilizam o início de sessão do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se estiver a utilizá-lo em seu aplicativo.
+4. Para o **URL de chamada de retorno**, introduza `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Certifique-se de substituir **{inquilino}** com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com) e **{policyId}** com o seu id de política (por exemplo, b2c_1_policy).  **O retorno de chamada URL tem de ser em letras minúsculas.** Deve adicionar um URL de retorno de chamada para todas as políticas que utilizam o início de sessão do Twitter. Certifique-se de usar `b2clogin.com` em vez de ` login.microsoftonline.com` se estiver a utilizá-lo em seu aplicativo.
 5. Marque a caixa para aceitar a **contrato de desenvolvedor** e clique em **criar a sua aplicação do Twitter**.
 6. Depois da aplicação é criada, selecione-o na lista, selecione o **configurações** separador e, em seguida, clique em **atualizar as definições de**.
 7. Selecione o **chaves e Tokens de acesso** separador.

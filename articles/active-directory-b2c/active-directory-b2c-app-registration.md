@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 6/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 354c5da815f19e4366a04c8c031fd9cbca6f060b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: ecb9cfa08888a8998473a7f23f1b4de6d12c5808
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711863"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445910"
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C : Registar a aplicação
 
@@ -130,7 +130,7 @@ Se editar a aplicação B2C do Azure AD, conforme descrito, e tentar editá-la n
 
 Para eliminar a aplicação, aceda ao [Portal de Registo da Aplicação](https://apps.dev.microsoft.com/) e elimine a aplicação. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma aplicação registada no Azure AD B2C, pode concluir um dos [guias de introdução](active-directory-b2c-overview.md) para começar a trabalhar.
 

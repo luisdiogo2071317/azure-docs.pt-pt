@@ -1,119 +1,123 @@
 ---
-title: Débito de aprovisionamento para a base de dados do Azure Cosmos | Microsoft Docs
-description: Saiba como definir o débito de base de dados do Azure Cosmos containsers, coleções, gráficos e tabelas.
+title: Débito de aprovisionamento para o Azure Cosmos DB | Documentos da Microsoft
+description: Saiba como configurar o débito aprovisionado para sua containsers, coleções, gráficos e tabelas do Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285778"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444272"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter débito para contentores de base de dados do Azure Cosmos e base de dados
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
-Pode definir débito para um contentor de base de dados do Azure Cosmos ou um conjunto de contentores utilizando o portal do Azure ou ao utilizar o SDKs do cliente. Quando aprovisionar débito para um conjunto de contentores, todos os contentores desses partilham o débito aprovisionado. Débito de aprovisionamento para contentores individuais irá garantir que a reserva de débito para esse contentor específico. Por outro lado, débito para uma base de dados de aprovisionamento permite-lhe partilhar o débito entre todos os contentores que pertencem a essa base de dados. Dentro de uma base de dados do Azure Cosmos DB, pode ter um conjunto de contentores que partilham o débito, bem como contentores, que tem dedicado débito. 
+Pode definir o débito para um contentor do Azure Cosmos DB ou um conjunto de contentores com o portal do Azure ou ao utilizar os SDKs do cliente. 
 
-Com base no débito aprovisionado, BD do Cosmos Azure irá alocar partições físicas para alojar os dados de contentores e divisões/rebalances em partições que cresce-lo.
+**Débito de aprovisionamento para um contentor individual:** quando aprovisionar o débito para um conjunto de contentores, todos os contentores partilham o débito aprovisionado. Aprovisionamento de débito de contentores individuais irá garantir que a reserva de débito para esse contentor específico. Ao atribuir RU/seg ao nível do contentor individual, os contentores podem ser criados como *fixo* ou *ilimitado*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os seus dados poderão ter de ser divididas em várias partições, é necessário escolher uma chave de partição que tenha uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, garante que seu contentor/tabela/gráfico e os pedidos podem ser dimensionados de maneira uniforme pelo Azure Cosmos DB. 
 
-Ao atribuir RU/seg ao nível do contentor individuais, os contentores podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/contentor/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
+**Débito de aprovisionamento de um conjunto de contentores ou uma base de dados:** débito de aprovisionamento para uma base de dados permite que Compartilhe a taxa de transferência entre todos os contentores que pertencem a essa base de dados. Dentro de uma base de dados do Azure Cosmos DB, pode ter um conjunto de contentores que compartilha o débito, bem como os contentores, que tem dedicado a taxa de transferência. Ao atribuir RU/seg num conjunto de contentores, os contentores pertencentes a este conjunto são tratados como *ilimitado* contentores e tem de especificar uma chave de partição.
 
-Ao atribuir RU/seg através de um conjunto de contentores, os contentores que pertencem a este conjunto são tratados como *ilimitados* contentores e tem de especificar uma chave de partição.
+Com base no débito aprovisionado, Azure Cosmos DB irá alocar partições físicas para alojar os dados de contentor (es) e divisões/rebalances entre partições à medida que ele aumenta. Contentor e o aprovisionamento de débito de nível de base de dados são ofertas distintas e alterar entre qualquer um destes requerer a migrar dados de origem para destino. Que significa que precisa criar uma nova base de dados ou uma nova coleção e, em seguida, migrar dados, utilizando [biblioteca de executor em massa](bulk-executor-overview.md) ou [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). A imagem seguinte ilustra o aprovisionamento de débito em níveis diferentes:
 
-![Unidades de pedido de contentores individuais e o conjunto de contentores de aprovisionamento](./media/request-units/provisioning_set_containers.png)
+![Unidades de pedido de aprovisionamento para contentores individuais e o conjunto de contentores](./media/request-units/provisioning_set_containers.png)
 
-Este artigo explica os passos necessários para configurar o débito de diferentes níveis de uma conta de base de dados do Azure Cosmos. 
+As secções seguintes, irá aprender os passos necessários para configurar o débito em diferentes níveis de uma conta do Azure Cosmos DB. 
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Débito de aprovisionar utilizando o portal do Azure
+## <a name="provision-throughput-by-using-azure-portal"></a>Débito de aprovisionamento através do portal do Azure
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Débito de aprovisionar para um contentor (coleção/gráfico/tabela)
+### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Débito de aprovisionamento para um contentor (coleção/gráfico/tabela)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-2. Na navegação esquerda, selecione **todos os recursos** e localize a conta de base de dados do Azure Cosmos.  
-3. Pode configurar o débito ao criar um contentor (coleção, gráfico, tabela) ou o débito de atualização para um contentor existente.  
-4. Para atribuir débito ao criar um contentor, abra o **Explorador de dados** painel e selecione **nova coleção** (novo gráfico, nova tabela para outras APIs)  
-5. Preencha o formulário **adicionar coleção** painel. Campos neste painel são descritos na tabela seguinte:  
+2. Na navegação à esquerda, selecione **todos os recursos** e localize a conta do Azure Cosmos DB.  
+3. Pode configurar o débito ao criar um contentor (collection, gráfico, tabela) ou o débito de atualização para um contentor existente.  
+4. Para atribuir o débito ao criar um contentor, abra a **Data Explorer** painel e selecione **nova coleção** (novo gráfico, nova tabela para outras APIs)  
+5. Preencha o formulário **adicionar coleção** painel. Campos neste painel são descritos na tabela a seguir:  
 
    |**Definição**  |**Descrição**  |
    |---------|---------|
    |Id da base de dados  |  Forneça um nome exclusivo para identificar a sua base de dados. Base de dados é um contentor lógico de uma ou mais coleções. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a sua coleção. Os IDs das coleções têm os mesmos requisitos em termos de carateres do que os nomes das bases de dados. |
-   |Capacidade de armazenamento   | Este valor representa a capacidade de armazenamento da base de dados. Quando aprovisionar débito para uma coleção individuais, capacidade de armazenamento pode ser **fixo (10 GB)** ou **ilimitada**. Capacidade de armazenamento ilimitado requer que defina uma chave de partição para os seus dados.  |
-   |Débito   | Cada coleção e a base de dados podem ter débito em unidades de pedido por segundo.  Fixo capacidade de armazenamento, débito mínimo é de 400 unidades de pedido por segundo (RU/s), para armazenamento ilimitado, débito de capacidade mínimo está definido como 1000 RU/s.|
+   |Capacidade de armazenamento   | Este valor representa a capacidade de armazenamento da base de dados. Quando aprovisionar o débito de uma coleção individual, a capacidade de armazenamento pode ser **fixo (10 GB)** ou **ilimitado**. Capacidade de armazenamento ilimitada requer que defina uma chave de partição para os seus dados.  |
+   |Débito   | Cada coleção e a base de dados podem ter débito em unidades de pedido por segundo.  Capacidade de armazenamento fixa, débito mínimo é de 400 unidades de pedido por segundo (RU/s), para armazenamento ilimitado mínimo, capacidade de débito é definido para 1000 RU/s.|
 
 6. Depois de introduzir valores para estes campos, selecione **OK** para guardar as definições.  
 
-   ![Débito do conjunto de uma coleção](./media/set-throughput/set-throughput-for-container.png)
+   ![Definir débito de uma coleção](./media/set-throughput/set-throughput-for-container.png)
 
-7. Para atualizar o débito para um contentor existente, expanda a base de dados e o contentor e, em seguida, clique em **definições**. Na nova janela, escreva o novo valor de débito e, em seguida, selecione **guardar**.  
+7. Para atualizar a taxa de transferência para um contentor existente, expanda a sua base de dados e o contentor e, em seguida, clique em **definições**. Na nova janela, escreva o novo valor de débito e, em seguida, selecione **guardar**.  
 
    ![Débito de atualização para uma coleção](./media/set-throughput/update-throughput-for-container.png)
 
 ### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Débito de aprovisionamento de um conjunto de contentores ou ao nível da base de dados
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-2. Na navegação esquerda, selecione **todos os recursos** e localize a conta de base de dados do Azure Cosmos.  
+2. Na navegação à esquerda, selecione **todos os recursos** e localize a conta do Azure Cosmos DB.  
 3. Pode configurar o débito durante a criação de um débito de base de dados ou a atualização para uma base de dados existente.  
-4. Para atribuir débito durante a criação de uma base de dados, abra o **Explorador de dados** painel e selecione **nova base de dados**  
-5. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configura o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
+4. Para atribuir a taxa de transferência durante a criação de uma base de dados, abra a **Data Explorer** painel e selecione **nova base de dados**  
+5. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
 
-   ![Débito do conjunto com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
+   ![Definir débito com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-6. Para atualizar o débito de base de dados existente, expanda a base de dados e o contentor e, em seguida, clique em **escala**. Na nova janela, escreva o novo valor de débito e, em seguida, selecione **guardar**.  
+6. Para atualizar um débito de base de dados existente, expanda a sua base de dados e o contentor e, em seguida, clique em **dimensionamento**. Na nova janela, escreva o novo valor de débito e, em seguida, selecione **guardar**.  
 
    ![Débito de atualização para uma base de dados](./media/set-throughput/update-throughput-for-database.png)
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Débito de aprovisionamento de um conjunto de contentores, bem como para um contentor individuais numa base de dados
+### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Débito de aprovisionamento de um conjunto de contentores, bem como para um contentor individual numa base de dados
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-2. Na navegação esquerda, selecione **todos os recursos** e localize a conta de base de dados do Azure Cosmos.  
-3. Crie uma base de dados e atribua o débito ao mesmo. Abra o **Explorador de dados** painel e selecione **nova base de dados**  
-4. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configura o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
+2. Na navegação à esquerda, selecione **todos os recursos** e localize a conta do Azure Cosmos DB.  
+3. Crie uma base de dados e atribua o débito ao mesmo. Abra o **Data Explorer** painel e selecione **nova base de dados**  
+4. Preencher o **id de base de dados** valor, verificação **débito aprovisionar** opção e configurar o valor de débito. Uma base de dados pode ser aprovisionado com o valor de débito mínimos 50 000 RU/s.  
 
-   ![Débito do conjunto com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
+   ![Definir débito com a nova opção de base de dados](./media/set-throughput/set-throughput-with-new-database-option.png)
 
 5. Em seguida, crie uma coleção na base de dados que criou nos passos acima. Para criar uma coleção, clique com botão direito na base de dados e selecione **nova coleção**.  
 
-6. No **adicionar coleção** painel, introduza um nome para a coleção e chave de partição. Opcionalmente, pode aprovisionar débito para esse contentor específico, se optar por não atribuir um valor de débito, o débito atribuído à base de dados é partilhado na coleção.  
+6. Na **adicionar coleção** painel, introduza um nome para a coleção e chave de partição. Opcionalmente, pode aprovisionar o débito para esse contentor específico se optar por não atribuir um valor de débito, o débito atribuído à base de dados é partilhado na coleção.  
 
-   ![Opcionalmente, defina débito para o contentor](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+   ![Se desejar, defina o débito do contentor](./media/set-throughput/optionally-set-throughput-for-the-container.png)
 
-## <a name="considerations-when-provisioning-throughput"></a>Considerações quando aprovisionar débito
+## <a name="considerations-when-provisioning-throughput"></a>Considerações sobre o quando o aprovisionamento de débito
 
-Seguem-se algumas considerações que o ajudam a escolher uma estratégia de reserva de débito.
+Seguem-se algumas considerações que ajudarão a decidir sobre a estratégia de reserva de débito.
 
-Considere o aprovisionamento de débito no nível de base de dados (que é de conjunto de contentores) nos seguintes casos:
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considerações sobre o quando aprovisionar o débito ao nível da base de dados
 
-* Se tiver uma dúzia ou mais número de contentores que pode partilhar o débito em alguns ou todos eles.  
+Considere o aprovisionamento de débito no nível de base de dados (ou seja, para um conjunto de contentores) nos seguintes casos:
 
-* Quando estiver a migrar de uma base de dados de inquilino único que foi concebido para executar em VMs de IaaS alojado ou no local (por exemplo, NoSQL ou bases de dados relacionais) à base de dados do Azure Cosmos e ter muitos contentores.  
+* Se tiver mais de uma dúzia ou número de contentores que possa compartilhar a taxa de transferência entre alguns ou todos eles.  
 
-* Se pretender considerar picos não planeados em cargas de trabalho utilizando o débito agrupado ao nível da base de dados.  
+* Quando estiver a migrar de uma base de dados de inquilino único que foi concebido para executar em VMs de IaaS alojado ou no local (por exemplo, NoSQL ou bases de dados relacionais) para o Azure Cosmos DB e número de contentores.  
 
-* Em vez de débito definição um contentor individuais, que está interessado em obter o débito agregado através de um conjunto de contentores na base de dados.
+* Se pretender considerar o aumento não planeados de cargas de trabalho através da utilização de débito agrupado ao nível da base de dados.  
 
-Considere o aprovisionamento de débito num contentor individuais nos seguintes casos:
+* Em vez de débito de definição num contentor individual, está interessado em obter o débito agregado num conjunto de contentores na base de dados.
 
-* Se tiver o menor número de contentores de BD do Cosmos do Azure.  
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considerações sobre o quando aprovisionar o débito no nível do contentor
 
-* Se pretender obter o débito garantido num determinado contentor por SLA.
+Considere o aprovisionamento de débito com um contentor individual nos seguintes casos:
+
+* Se tiver um número inferior de contentores do Azure Cosmos DB.  
+
+* Se quiser obter a taxa de transferência garantida num contentor especificado apoiado pelo SLA.
 
 ## <a name="throughput-ranges"></a>Intervalos de débito
 
-A tabela seguinte lista o débito disponível para contentores:
+A tabela seguinte apresenta a taxa de transferência disponível para contentores:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
             <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Contentor de partições únicas</strong></p></td>
-            <td valign="top"><p><strong>Contentor particionada</strong></p></td>
+            <td valign="top"><p><strong>Contentor de partição única</strong></p></td>
+            <td valign="top"><p><strong>Contentor particionado</strong></p></td>
             <td valign="top"><p><strong>Conjunto de contentores</strong></p></td>
         </tr>
         <tr>
@@ -133,9 +137,10 @@ A tabela seguinte lista o débito disponível para contentores:
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="set-throughput-by-using-sql-api-for-net"></a>Débito do conjunto, utilizando a API de SQL para .NET
+## <a name="set-throughput-by-using-sql-api-for-net"></a>Definir débito com a API de SQL para .NET
 
-Eis um fragmento de código para criar um contentor com 3,000 unidades de pedido por segundo para um contentor individuais utilizando o SDK do .NET a API SQL Server:
+### <a name="set-throughput-at-the-container-level"></a>Definir débito ao nível do contentor
+Este é um trecho de código para criar um contentor com 3 000 unidades de pedido por segundo para um contentor individual com o SDK de .NET da API de SQL:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -148,7 +153,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Eis um fragmento de código para aprovisionamento 100 000 unidades por segundo de pedido através de um conjunto de contentores com o SDK do .NET a API SQL Server:
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Débito de conjunto com o para um conjunto de contentores ou ao nível da base de dados
+
+Aqui está um trecho de código para o aprovisionamento de 100.000 unidades de pedido por segundo num conjunto de contentores com o SDK de .NET da API de SQL:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
@@ -175,9 +182,9 @@ dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
 await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
 ```
 
-BD do Azure do Cosmos funciona um modelo de reserva para um débito. Ou seja, é-lhe faturado para a quantidade de débito *reservado*, independentemente da quantidade de débito de que está ativamente *utilizado*. Como a aplicação da alteração de padrões de carga, dados e a utilização, pode dimensionar facilmente para cima e baixo o número de reservado RUs através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
+O Azure Cosmos DB opera sobre um modelo de reserva de débito. Ou seja, é-lhe cobrada para a quantidade de débito *reservado*, independentemente de quanto do que o débito é ativamente *utilizado*. Como seu aplicativo da alteração de padrões de carga, dados e da utilização pode facilmente aumentar e diminuir o número de RUs reservadas através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
 
-Cada contentor, ou um conjunto de contentores, está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET. Depois de alterar o débito, deve atualizar quaisquer janelas de portais do Azure existentes para o débito foi alterada apresentar. 
+Cada contentor, ou um conjunto de contentores, que é mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-lo com o novo valor de débito. Aqui está um trecho de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK do .NET. Depois de alterar o débito, deve atualizar quaisquer janelas de portais do Azure existentes para o débito alterado sejam apresentados. 
 
 ```csharp
 // Fetch the resource to be updated
@@ -194,13 +201,13 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Não há nenhum impacto sobre a disponibilidade do seu contentor ou conjunto de contentores, quando altera o débito. Normalmente, o débito reservado nova é eficaz dentro de segundos na aplicação de débito de novo.
+Não há nenhum impacto sobre a disponibilidade do seu contentor, ou um conjunto de contentores, quando altera a taxa de transferência. Normalmente, o novo débito reservado é aplicado dentro de segundos em aplicativos da taxa de transferência nova.
 
 <a id="set-throughput-java"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Para definir o débito, utilizando a API do SQL Server para Java
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Para definir o débito ao utilizar a API de SQL para Java
 
-O fragmento de código seguinte obtém o débito atual e altera-lo para 500 RU/s. Para um exemplo de código completo, consulte o [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) ficheiro no GitHub. 
+O fragmento de código seguinte obtém o débito atual e altera-a para 500 RU/s. Para obter um exemplo de código completo, consulte a [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) ficheiros no GitHub. 
 
 ```Java
 // find offer associated with this collection
@@ -219,11 +226,11 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obter o débito através GetLastRequestStatistics comando da API do MongoDB
+## <a id="GetLastRequestStatistics"></a>Obtenção de débito através GetLastRequestStatistics comando da API do MongoDB
 
-A API do MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para obter os encargos de pedido para uma operação indicada.
+A API do MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para recuperar os custos de pedido a uma determinada operação.
 
-Por exemplo, na shell do Mongo, execute a operação que pretende verificar a taxa de pedidos.
+Por exemplo, na shell do Mongo, execute a operação que pretende verificar a taxa de pedido.
 ```
 > db.sample.find()
 ```
@@ -240,36 +247,36 @@ Em seguida, execute o comando *getLastRequestStatistics*.
 }
 ```
 
-Um método para estimar a quantidade de débito reservado exigido pela sua aplicação está a registar os encargos de unidade de pedido associados a execução de operações típicas num item representativo utilizado pela sua aplicação e, em seguida, calcule o número de operações que antecipa para efetuar a cada segundo.
+Um método para estimar a quantidade de débito reservado exigida pela sua aplicação é registrar o custo da unidade de pedido associado à execução de operações típicas em relação a um item representativo utilizado pela sua aplicação e, em seguida, calcular o número de operações prevê para executar a cada segundo.
 
 > [!NOTE]
-> Se tiver de tipos de itens que variam significativamente em termos de tamanho e o número de propriedades indexadas, em seguida, registe a taxa de unidade de pedido de operação aplicável associada a cada *tipo* do item típica.
+> Se tiver de tipos de item que irão muito diferente em termos de tamanho e o número de propriedades indexadas, em seguida, registe as cobranças de unidades de pedido de operação aplicável associada a cada *tipo* de item de típico.
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenha o débito, utilizando as métricas de portais de API do MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenção de débito através de métricas do portal de API do MongoDB
 
-A forma mais simples para obter uma boa estimativa do pedido de encargos de unidade para a base de dados de MongoDB API consiste em utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *pedido encargos* gráficos, pode obter uma estimativa do número de unidades de pedido cada operação está a consumir e unidades de pedido quantos consumirem relativo ao outro.
+A forma mais simples para obter uma boa estimativa do pedido de unidades de cobrança para sua base de dados de API do MongoDB está a utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *encargos de pedidos* gráficos, pode obter uma estimativa de quantas unidades de pedido cada operação está a consumir e quantas unidades de pedido que consomem em relação ao outro.
 
-![Métricas de portais de API do MongoDB][1]
+![Métricas do portal de API do MongoDB][1]
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na MongoDB API
-As aplicações que excedem o débito aprovisionado para um contentor ou um conjunto de contentores será limitado taxa até que a taxa de consumo descerem abaixo a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end vai terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um `Too Many Requests` código de erro. Se está a receber muitas `Too Many Requests` códigos de erro, poderá considerar a adição de uma lógica de repetição no rotinas de processamento de erros da aplicação ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na API do MongoDB
+Aplicações que excedem o débito aprovisionado para um contentor ou um conjunto de contentores será limitado taxa até que a taxa de consumo passa a ser inferior a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end irá terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB repete automaticamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se estiver a receber muitas `Too Many Requests` códigos de erro, poderá considerar adicionar a lógica de repetição em rotinas de tratamento de erros do seu aplicativo ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
 
-## <a name="throughput-faq"></a>Débito FAQ
+## <a name="throughput-faq"></a>FAQ de débito
 
-**Pode definir o meu débito para menos de 400 RU/s?**
+**Pode definir minha taxa de transferência para menos de 400 RU/s?**
 
-400 RU/s é o débito mínimo disponível nos contentores do Cosmos DB única partição (1000 RU/s é o mínimo para contentores particionadas). O pedido unidades estão definidas em 100 intervalos de RU/s, mas o débito não é possível definir 100 RU/s ou qualquer valor inferior a 400 RU/s. Se estiver à procura de um método económico desenvolver e testar Cosmos DB, pode utilizar o livre [emulador de BD do Azure Cosmos](local-emulator.md), que pode implementar localmente, sem qualquer custo. 
+400 RU/s é o débito mínimo disponível nos contentores de partição única do Cosmos DB (1000 RU/s é o mínimo para contentores particionadas). Solicite unidades estiverem definidas em 100 intervalos de RU/s, mas a taxa de transferência não pode ser definida para 100 RU/s ou para qualquer valor inferior a 400 RU/s. Se estiver procurando por um método rentável de desenvolver e testar o Cosmos DB, pode utilizar gratuitamente [emulador do Azure Cosmos DB](local-emulator.md), que pode implementar localmente, sem qualquer custo. 
 
-**Como definir o débito utilizando a API do MongoDB**
+**Como posso definir débito com a API do MongoDB?**
 
-Não há nenhuma extensão de API do MongoDB para definir o débito. A recomendação é utilizar a API do SQL Server, conforme mostrado no [para definir o débito, utilizando a API de SQL para .NET](#set-throughput-sdk).
+Não existe nenhuma extensão de API do MongoDB para definir a taxa de transferência. A recomendação é usar a API de SQL, conforme mostrado na [para definir o débito ao utilizar a API de SQL para .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como fazer uma estimativa de unidades de débito e a pedido, consulte o artigo [pedido unidades & calcular o débito do BD Azure Cosmos](request-units.md)
+* Para saber mais sobre a estimativa de unidades de débito e a pedido, consulte o artigo [solicitar unidades e do débito estimando no Azure Cosmos DB](request-units.md)
 
-* Para saber mais sobre o aprovisionamento e a escala planet contínuo com Cosmos DB, consulte o artigo [divisão em partições e o dimensionamento com Cosmos DB](partition-data.md).
+* Para saber mais sobre o aprovisionamento e de escala planetária contínuo com o Cosmos DB, veja [criação de partições e dimensionamento com o Cosmos DB](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png

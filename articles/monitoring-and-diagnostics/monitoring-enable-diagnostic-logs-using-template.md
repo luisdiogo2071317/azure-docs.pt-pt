@@ -1,6 +1,6 @@
 ---
-title: Ativar automaticamente definições de diagnóstico com um modelo do Resource Manager
-description: Saiba como utilizar um modelo do Resource Manager para criar definições de diagnóstico que irão permitir-lhe transmitir os registos de diagnóstico para os Event Hubs ou armazená-las numa conta do storage.
+title: Ativar automaticamente as definições de diagnóstico com um modelo do Resource Manager
+description: Saiba como utilizar um modelo do Resource Manager para criar definições de diagnóstico que irão permitir-lhe transmitir os registos de diagnóstico para os Hubs de eventos ou armazená-los numa conta de armazenamento.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6c202afaca893609d41384ee8302b0c4c6c4a6f6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263393"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434492"
 ---
-# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
-Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
+# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente as definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
+Neste artigo vamos mostrar como pode usar uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar as definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo a registos de diagnóstico e métricas para os Hubs de eventos, arquivá-los numa conta de armazenamento, ou enviá-los para o Log Analytics, quando um recurso é criado.
 
 O método para ativar os registos de diagnóstico com um modelo do Resource Manager depende do tipo de recurso.
 
-* **Computação não** recursos (por exemplo, grupos de segurança de rede, as Logic Apps, automatização) [definições de diagnóstico descrito neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **Computação** recursos (WAD/LAD baseado), utilize o [ficheiro de configuração de WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Não-Compute** recursos (por exemplo, grupos de segurança de rede, Logic Apps, automatização) utilizam [definições de diagnóstico descrito neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Computação** recursos (WAD/LAD baseado) utilizar o [ficheiro de configuração de WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-Neste artigo, vamos descrevem como configurar diagnósticos utilizando um dos métodos.
+Neste artigo, descrevemos como configurar o diagnóstico utilizando um dos métodos.
 
 Os passos básicos são os seguintes:
 
-1. Crie um modelo como um ficheiro JSON que descreve como criar o recurso e ative os diagnósticos.
+1. Crie um modelo como um ficheiro JSON que descreve como criar o recurso e ativar o diagnóstico.
 2. [Implementar o modelo com qualquer método de implementação](../azure-resource-manager/resource-group-template-deploy.md).
 
-Abaixo que lhe damos um exemplo do ficheiro de JSON do modelo que tem de gerar de não computação e de recursos de computação.
+Veja a seguir, podemos dar um exemplo do ficheiro JSON do modelo que tem de gerar para não-Compute e de recursos de computação.
 
-## <a name="non-compute-resource-template"></a>Modelo de recursos de computação não
-Não-recursos de computação, terá de efetuar dois procedimentos:
+## <a name="non-compute-resource-template"></a>Modelo de recurso de computação não
+Não-recursos de computação, terá de fazer duas coisas:
 
-1. Adicione parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID da área de trabalho de análise de registos (ativar o arquivo de registos de diagnóstico numa conta do storage, transmissão em fluxo de registos para os Event Hubs, e/ou enviar registos ao Log Analytics).
+1. Adicione parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID de área de trabalho do Log Analytics (ativar o arquivamento dos registos de diagnóstico numa conta de armazenamento, transmissão em fluxo de registos aos Hubs de eventos, e/ou envio de registos para o Log Analytics).
    
     ```json
     "settingName": {
@@ -69,13 +69,13 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
       }
     }
     ```
-2. Na matriz de recursos do recurso para o qual pretende ativar registos de diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`.
+2. A matriz de recursos do recurso para o qual pretende ativar registos de diagnóstico, adicionar um recurso do tipo `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -111,9 +111,9 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
     ]
     ```
 
-O blob de propriedades para a definição de diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicionar o `metrics` propriedade permitirá também enviar métricas de recurso para estes mesmas saídas, fornecidas que [o recurso suporta métricas de Monitor de Azure](monitoring-supported-metrics.md).
+Segue-se o blob de propriedades para a definição de diagnóstico [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicionar a `metrics` propriedade permitirá que também enviar métricas de recurso para essas mesmas saídas, fornecidas que [o recursos suporta métricas do Azure Monitor](monitoring-supported-metrics.md).
 
-Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão em fluxo para armazenamento numa conta do storage e Hubs de eventos.
+Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão em fluxo para os Hubs de eventos e de armazenamento numa conta de armazenamento.
 
 ```json
 
@@ -205,7 +205,7 @@ Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão 
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
@@ -247,20 +247,20 @@ Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão 
 ```
 
 ## <a name="compute-resource-template"></a>Modelo de recursos de computação
-Para ativar o diagnóstico num recurso de computação, por exemplo um cluster de Máquina Virtual ou de Service Fabric, tem de:
+Para ativar os diagnósticos num recurso de computação, por exemplo um cluster de Máquina Virtual ou do Service Fabric, tem de:
 
 1. Adicione a extensão de diagnóstico do Azure para a definição do recurso VM.
-2. Especifique um concentrador de conta e/ou evento de armazenamento como um parâmetro.
-3. Adicione o conteúdo do ficheiro XML de WADCfg para a propriedade de XMLCfg escape todos os carateres XML corretamente.
+2. Especifica um hub de conta e/ou eventos de armazenamento como um parâmetro.
+3. Adicione o conteúdo do ficheiro XML de WADCfg na propriedade XMLCfg, carateres de escape todos os caracteres XML corretamente.
 
 > [!WARNING]
-> Neste último passo pode ser tricky obter à direita. [Consulte este artigo](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o esquema de configuração de diagnósticos para variáveis de escape e formatadas corretamente.
+> Neste último passo pode ser difícil de solucionar. [Veja este artigo](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o esquema de configuração de diagnósticos em variáveis que são escritas e formatadas corretamente.
 > 
 > 
 
-O processo completo, incluindo exemplos, está descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O processo inteiro, incluindo exemplos, é descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
-* [Transmitir os registos de diagnóstico do Azure para os Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream registos de diagnóstico do Azure para os Hubs de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

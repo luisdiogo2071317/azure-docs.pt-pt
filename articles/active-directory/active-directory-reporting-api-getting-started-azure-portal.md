@@ -1,6 +1,6 @@
 ---
-title: Começar a utilizar o Azure AD reporting API | Microsoft Docs
-description: Como começar com o Azure Active Directory API do relatório
+title: Introdução à API de relatórios do Azure AD | Documentos da Microsoft
+description: Como começar com o Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -16,61 +16,68 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 842e4d8413544a303b656a8e4a05bdf58a7c8164
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223846"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442088"
 ---
-# <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory API do relatório
+# <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory reporting API
 
-Azure Active Directory disponibiliza uma variedade de [relatórios](active-directory-reporting-azure-portal.md). Os dados destes relatórios podem ser bastante úteis para as suas aplicações, como sistemas SIEM e ferramentas de auditoria e de business intelligence. 
+O Azure Active Directory fornece-lhe diversas [relatórios](active-directory-reporting-azure-portal.md). Os dados destes relatórios podem ser bastante úteis para as suas aplicações, como sistemas SIEM e ferramentas de auditoria e de business intelligence. 
 
-Ao utilizar o Azure AD API do relatório, pode obter acesso programático para os dados através de um conjunto de APIs baseado em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
+Ao utilizar a API de relatórios do Azure AD, pode obter acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
-Este artigo fornece um plano para aceder os dados de relatórios utilizando a API relacionada.
+Este artigo fornece um mapa para acessar os dados de relatório com a API relacionada.
 
 Caso se depare com problemas, consulte [como obter suporte do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para aceder à API do Reporting Services, mesmo se estiver a planear no aceder à API através de um script, tem de:
+Para acessar a API de relatórios, mesmo se estiver a planear a aceder à API usando um script, terá de:
 
-1. Atribuir funções (leitor de segurança, o administrador de segurança, o Administrador Global)
+1. Atribuir funções (Administrador Global do leitor de segurança, administrador de segurança)
 2. Registar uma aplicação
 3. Conceder permissões
 4. Recolher as definições de configuração
 
 
  
-Para obter instruções detalhadas, consulte o [pré-requisitos para aceder ao Azure Active Directory API do relatório](active-directory-reporting-api-prerequisites-azure-portal.md).
+Para obter instruções detalhadas, consulte a [pré-requisitos para aceder ao Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
+## <a name="apis-with-graph-explorer"></a>APIs com API do Graph
+
+Pode utilizar o [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) para verificar seu início de sessão e dados da API de auditoria. Certifique-se de iniciar sessão na sua conta com ambos os botões de início de sessão na IU do Explorador do gráfico e defina **Tasks.ReadWrite** e **Directory.ReadAll** permissões para o seu inquilino, conforme mostrado.   
+
+![API do Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modificar as permissões da interface do Usuário](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>Recomendação 
 
-Se estiver a planear a obter dados de relatórios sem intervenção do utilizador, deve considerar a utilização do Azure AD API de relatórios com certificados.
+Se estiver a planear a recuperação de dados de relatórios sem intervenção do utilizador, deve considerar utilizar a API de relatórios do AD do Azure com certificados.
 
-Para obter instruções detalhadas, consulte [obter dados através da API de relatórios do AD do Azure com certificados](active-directory-reporting-api-with-certificates.md).
+Para obter instruções detalhadas, consulte [utilizar a API de relatórios do AD do Azure com certificados para obter dados](active-directory-reporting-api-with-certificates.md).
 
 
 ## <a name="explore"></a>Explorar
 
-Obter uma primeira impressão das APIs Reporting Services:
+Obtenha sua primeira impressão às APIs de relatórios:
    
-   - [Utilizando os exemplos para a API de auditoria](active-directory-reporting-api-audit-samples.md) 
+   - [Utilizar os exemplos da API de auditoria](active-directory-reporting-api-audit-samples.md) 
  
-   - [Os exemplos a utilizar para o relatório de atividade de início de sessão API](active-directory-reporting-api-sign-in-activity-samples.md)
+   - [Utilizar os exemplos para a API de relatório de atividade de início de sessão](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
 ## <a name="customize"></a>Personalizar  
 
-Crie a sua própria solução: 
+Crie sua própria solução: 
    
    - [Utilizar a referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 
-   - [Utilizar a referência da API do relatório de atividade de início de sessão](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+   - [Utilizar a referência de API do relatório de atividade de início de sessão](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

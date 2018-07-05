@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Windows Azure - fins gerais | Microsoft Docs
-description: Lista os tamanhos de objetivo geral diferentes disponíveis para máquinas virtuais do Windows no Azure. Apresenta informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para tamanhos de nesta série.
+title: Tamanhos de VM do Windows Azure - para fins gerais | Documentos da Microsoft
+description: Lista os tamanhos de fins gerais diferentes disponíveis para máquinas de virtuais do Windows no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -15,26 +15,28 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: jonbeck
-ms.openlocfilehash: 2515aef2ca9c13408452eca512d8d296c88feafc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1e937bc585585fe862d97f815acbccfa0c8153e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34655893"
 ---
-# <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de objetivo geral
+# <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de fins gerais
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)
 - [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)
 - [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
+- [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
 

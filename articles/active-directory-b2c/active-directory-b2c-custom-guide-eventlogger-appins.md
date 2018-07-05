@@ -1,29 +1,29 @@
 ---
-title: Controlar o comportamento do utilizador utilizando os eventos no Application Insights do Azure Active Directory B2C | Microsoft Docs
-description: Guia passo a passo para ativar registos de eventos no Application Insights do percursos de utilizador do Azure AD B2C ao utilizar políticas personalizadas (pré-visualização)
+title: Controlar o comportamento do utilizador com eventos no Application Insights do Azure Active Directory B2C | Documentos da Microsoft
+description: Guia passo a passo para ativar registos de eventos no Application Insights do Azure AD B2C jornadas de utilizador ao utilizar políticas personalizadas (pré-visualização)
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94d96af8db651a848ac092d1f8b85da4909427b7
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110120"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445590"
 ---
-# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Controlar o comportamento de utilizador no Azure AD B2C percursos utilizando o Application Insights
+# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Controlar o comportamento do utilizador no Azure AD B2C Jornadas utilizando o Application Insights
 
-O Azure Active Directory B2C (Azure AD B2C) funciona bem com o Azure Application Insights. Fornecem registos de eventos detalhados e personalizados para os percursos de utilizador personalizadas criadas. Este artigo mostra como começar a utilizar para que as possa:
+O Azure Active Directory B2C (Azure AD B2C) funciona bem com o Azure Application Insights. Fornecem registos de eventos detalhados e personalizados para seu jornadas de utilizador personalizada criada. Este artigo mostra como começar a utilizar para que possa:
 
-* Obter informações sobre o comportamento do utilizador.
-* Resolver problemas relacionados com as suas políticas de desenvolvimento ou na produção.
-* Medida de desempenho.
+* Obtenha informações sobre o comportamento do utilizador.
+* Resolver problemas relacionados com as suas políticas no desenvolvimento ou em produção.
+* Medir o desempenho.
 * Crie notificações do Application Insights.
 
 > [!NOTE]
@@ -31,30 +31,30 @@ O Azure Active Directory B2C (Azure AD B2C) funciona bem com o Azure Application
 
 ## <a name="how-it-works"></a>Como funciona
 
-A estrutura de experiência de identidade no Azure AD B2C inclui agora o fornecedor `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Envia dados de eventos diretamente para o Application Insights, utilizando a chave de instrumentação fornecida para o Azure AD B2C.
+O Framework de experiência de identidade no Azure AD B2C agora inclui o provedor `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Enviar dados de eventos diretamente para o Application Insights utilizando a chave de instrumentação fornecida para o Azure AD B2C.
 
-Um perfil técnico utiliza este fornecedor para definir um evento do B2C.  O perfil Especifica o nome do evento, as afirmações que serão registadas e a chave de instrumentação.  Para publicar um evento, o perfil técnico, em seguida, é adicionado como um `orchestration step` ou como um `validation technical profile` no journey utilizador personalizado.
+Um perfil técnico usa esse provedor para definir um evento do B2C.  O perfil Especifica o nome do evento, as afirmações que serão gravadas e a chave de instrumentação.  Para publicar um evento, o perfil técnico, em seguida, é adicionado como um `orchestration step` ou como um `validation technical profile` num percurso do utilizador personalizada.
 
-Application Insights podem unificar os eventos utilizando um ID de correlação para gravar uma sessão de utilizador. Application Insights disponibiliza os eventos e a sessão dentro de segundos e apresenta muitos visualização, exportação e ferramentas analíticas.
+O Application Insights pode unificar os eventos ao utilizar um ID de correlação para gravar uma sessão do utilizador. Application Insights disponibiliza o evento e a sessão dentro de segundos e apresenta muitos visualização, exportação e ferramentas analíticas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Execute os passos do [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Este artigo pressupõe que está a utilizar o pacote de arranque de política personalizada. Mas o pacote de arranque não é necessário.
+Conclua os passos na [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Este artigo pressupõe que está a utilizar o pacote de iniciante da política personalizada. Mas o pacote de iniciante não é necessário.
 
-## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Passo 1. Crie um recurso do Application Insights e obter a chave de instrumentação
+## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Passo 1. Criar um recurso do Application Insights e obtenha a chave de instrumentação
 
-Quando estiver a utilizar o Application Insights com o Azure AD B2C, é o único requisito criar um recurso e obter uma chave de instrumentação. Criar um recurso de [portal do Azure.](https://portal.azure.com)
+Quando estiver a utilizar o Application Insights com o Azure AD B2C, o único requisito é criar um recurso e obter uma chave de instrumentação. Criar um recurso no [portal do Azure.](https://portal.azure.com)
 
-1. No portal do Azure, no seu inquilino de subscrição, selecione **+ criar um recurso**. Este é o inquilino não o inquilino do Azure AD B2C.  
+1. No portal do Azure, no seu inquilino de subscrição, selecione **+ criar um recurso**. Este inquilino não é o inquilino do Azure AD B2C.  
 2. Procure e selecione **Application Insights**.  
-3. Crie um recurso que utiliza **aplicação web ASP.NET** como **tipo de aplicação**, numa subscrição da sua preferência.
+3. Criar um recurso que utiliza **aplicação web ASP.NET** como **tipo de aplicação**, sob uma subscrição de sua preferência.
 4. Depois de criar o recurso do Application Insights, abra-o e tenha em atenção a chave de instrumentação.
 
-![Descrição geral do Application Insights e chave de instrumentação](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Descrição geral do Application Insights e a chave de instrumentação](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
 
-## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>Passo 2. Adicionar novas definições de ClaimType ao seu ficheiro de extensão de estrutura de confiança
+## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>Passo 2. Adicionar novas definições de ClaimType ao seu ficheiro de extensão da estrutura de confiança
 
-Abra o ficheiro de extensão do pacote de arranque e adicione os seguintes elementos para o `<BuildingBlocks>` nós. O nome de ficheiro é normalmente `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+Abra o ficheiro de extensão do pacote de iniciante e adicione os seguintes elementos para o `<BuildingBlocks>` nó. Normalmente, é o nome do ficheiro `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 ```xml
 <ClaimsSchema>
@@ -101,22 +101,22 @@ Abra o ficheiro de extensão do pacote de arranque e adicione os seguintes eleme
 </ClaimsSchema>
 ```
 
-## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Passo 3. Adicionar novos perfis técnicos que utilizam o fornecedor do Application Insights
+## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Passo 3. Adicionar novos perfis de técnicos que utilizam o fornecedor do Application Insights
 
-Perfis técnicos podem ser consideradas as funções no identidade experiência Framework do Azure AD B2C. Neste exemplo define os cinco perfis técnicos para abrir uma sessão e publicar eventos:
+Perfis técnicos podem ser considerados as funções na identidade experiência Framework do Azure AD B2C. Este exemplo define cinco perfis técnicos para abrir uma sessão e publicar eventos:
 
-| Perfil técnica | Tarefa |
+| Perfil técnico | Tarefa |
 | ----------------- | -----|
-| AzureInsights-Common | Cria um conjunto comum de parâmetros para ser incluída em todos os perfis de técnicos AzureInsights | 
+| AzureInsights-Common | Cria um conjunto comum de parâmetros a serem incluídos em todos os perfis de técnicos de AzureInsights | 
 | JourneyContextForInsights | Abre-se a sessão no Application Insights e envia um ID de correlação |
-| AzureInsights-SignInRequest | Cria um `SignIn` eventos com um conjunto de afirmações quando foi recebido um pedido de início de sessão | 
-| AzureInsights-UserSignup | Cria um evento de UserSignup quando o utilizador aciona a opção de inscrição num journey sessão-up/início de sessão | 
-| AzureInsights-SignInComplete | Regista a conclusão com êxito de uma autenticação quando foi enviado um token para a aplicação da entidade confiadora | 
+| AzureInsights-SignInRequest | Cria um `SignIn` eventos com um conjunto de afirmações quando recebido um pedido de início de sessão | 
+| AzureInsights-UserSignup | Cria um evento de UserSignup quando o utilizador for acionada a opção Inscreva-se numa jornada de início de sessão-inscrição/início de sessão | 
+| AzureInsights-SignInComplete | Regista a conclusão com êxito de uma autenticação, quando um token foi enviado para o aplicativo de parte confiável | 
 
-Adicione os perfis para o ficheiro de extensão do pacote de arranque adicionando estes elementos para o `<ClaimsProviders>` nós.  O nome de ficheiro é normalmente `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+Adicionar os perfis para o ficheiro de extensão do pacote de iniciante ao adicionar estes elementos para o `<ClaimsProviders>` nó.  Normalmente, é o nome do ficheiro `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 > [!IMPORTANT]
-> Alterar a chave de instrumentação no `ApplicationInsights-Common` perfil técnica para o GUID que fornece o recurso do Application Insights.
+> Alterar a chave de instrumentação no `ApplicationInsights-Common` perfil técnico para o GUID que fornece o recurso do Application Insights.
 
 ```xml
 <ClaimsProvider>
@@ -172,9 +172,9 @@ Adicione os perfis para o ficheiro de extensão do pacote de arranque adicionand
 </ClaimsProvider>
 ```
 
-## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Passo 4. Adicionar os perfis técnicos para o Application Insights como orchestration os passos num journey de utilizador existente
+## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Passo 4. Adicionar os perfis técnicos para o Application Insights como orquestração os passos num percurso do utilizador existente
 
-Chamar `JournyeContextForInsights` como passo orchestration 1:
+Chamar `JournyeContextForInsights` como passo de orquestração 1:
 
 ```xml
 <!-- Initialize a session with Application Insights -->
@@ -185,7 +185,7 @@ Chamar `JournyeContextForInsights` como passo orchestration 1:
 </OrchestrationStep>
 ```
 
-Chamar `Azure-Insights-SignInRequest` como orchestration passo 2 para controlar o que foi recebido um pedido sessão-na/sessão-up:
+Chamar `Azure-Insights-SignInRequest` como orquestração passo 2 para controlar o que foi recebido um pedido início de sessão-em/inscrever-se:
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -196,7 +196,7 @@ Chamar `Azure-Insights-SignInRequest` como orchestration passo 2 para controlar 
 </OrchestrationStep>
 ```
 
-Imediatamente *antes* o `SendClaims` orchestration passo, adicione um novo passo que chame `Azure-Insights-UserSignup`. Que é acionado quando o utilizador seleciona o botão inscrição um journey sessão-up/início de sessão.
+Imediatamente *antes de* a `SendClaims` orquestração passo, adicione um novo passo que chama `Azure-Insights-UserSignup`. Ele é acionado quando o usuário seleciona o botão inscrever-se numa jornada de início de sessão-inscrição/início de sessão.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -217,7 +217,7 @@ Imediatamente *antes* o `SendClaims` orchestration passo, adicione um novo passo
   </ClaimsExchanges>
 ```
 
-Imediatamente após o `SendClaims` passo de orquestração, chamada `Azure-Insights-SignInComplete`. Este passo reflete um journey concluída com êxito.
+Imediatamente após a `SendClaims` passo de orquestração, chamada `Azure-Insights-SignInComplete`. Este passo reflete uma jornada concluída com êxito.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
@@ -229,24 +229,24 @@ Imediatamente após o `SendClaims` passo de orquestração, chamada `Azure-Insig
 ```
 
 > [!IMPORTANT]
-> Renumber, depois de adicionar as novo etapas da orquestração, os passos sequencialmente sem ignorar a qualquer números inteiros de 1 para N.
+> Renumber, depois de adicionar novos passos de orquestração, os passos sequencialmente sem ignorar qualquer inteiros de 1 a N.
 
 
-## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Passo 5. Carregar o ficheiro modificado extensões, execute a política e ver eventos no Application Insights
+## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Passo 5. Carregar o ficheiro de extensões modificado, executar a política e exibir os eventos no Application Insights
 
-Guardar e carregar o novo ficheiro de extensão de estrutura de confiança. Em seguida, chame a política da entidade confiadora da aplicação ou utilize `Run Now` na interface do Azure AD B2C. Em segundos, os eventos estão disponíveis no Application Insights.
+Guardar e carregue o novo ficheiro de extensão do framework de confiança. Em seguida, chamar a política de terceiros entidade confiadora da aplicação ou utilize `Run Now` na interface do Azure AD B2C. Em segundos, os seus eventos estão disponíveis no Application Insights.
 
 1. Abra o **Application Insights** recursos no seu inquilino do Azure Active Directory.
 2. Selecione **utilização** > **eventos**.
-3. Definir **durante** para **última hora** e **por** para **3 minutos**.  Poderá ter de selecionar **atualizar** para ver os resultados.
+3. Definir **durante** ao **última hora** e **por** para **3 minutos**.  Poderá ter de selecionar **atualizar** ver os resultados.
 
 ![Application Insights-eventos de utilização Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
 ##  <a name="next-steps"></a>Passos Seguintes
 
-Adicione tipos de afirmação e eventos da sua viagem de utilizador para se ajustarem às suas necessidades. Aqui está uma lista de possíveis afirmações, utilizar resoluções de afirmações adicionais
+Adicione tipos de afirmação e eventos para o seu percurso do utilizador para se ajustar às suas necessidades. Aqui está uma lista de declarações possíveis, utilizar resoluções de afirmações adicionais
 
-### <a name="culture-specific-claims"></a>Afirmações de cultura específica
+### <a name="culture-specific-claims"></a>Declarações específicas de cultura
 
 ```xml
 Referenced using: {Culture:One of the property names below}
@@ -254,12 +254,12 @@ Referenced using: {Culture:One of the property names below}
 
 | Afirmação | Definição | Exemplo |
 | ----- | -----------| --------|
-| LanguageName | Os dois letra código ISO para o idioma | en |
-| RegionName | Os dois letra código ISO para a região | EUA |
+| LanguageName | As duas letras código ISO para o idioma | en |
+| RegionName | As duas letras código ISO para a região | EUA |
 | RFC5646 | O código de idioma RFC5646 | pt-PT |
-| LCID   | O LCID do código de idioma | 22 |
+| LCID   | O LCID de código de idioma | 22 |
 
-### <a name="policy-specific-claims"></a>Específico da política de afirmações
+### <a name="policy-specific-claims"></a>Declarações específicas de política
 
 ```xml
 Referenced using {Policy:One of the property names below}
@@ -267,43 +267,43 @@ Referenced using {Policy:One of the property names below}
 
 | Afirmação | Definição | Exemplo |
 | ----- | -----------| --------|
-| TrustFrameworkTenantId | O id do inquilino trustframework | N/A |
-| RelyingPartyTenantId | O id do inquilino da entidade confiadora | N/A |
+| TrustFrameworkTenantId | O id de inquilino trustframework | N/A |
+| RelyingPartyTenantId | O id de inquilino da entidade confiadora | N/A |
 | PolicyId | O id de política da política | N/A |
 | TenantObjectId | O id de objeto do inquilino da política | N/A |
 
-### <a name="openid-connect-specific-claims"></a>Afirmações de OpenID Connect específico
+### <a name="openid-connect-specific-claims"></a>Declarações específicas do OpenID Connect
 
 ```xml
 Referenced using {OIDC:One of the property names below}
 ```
 
-| Afirmação | Parâmetro OpenIdConnect | Exemplo |
+| Afirmação | Parâmetro de OpenIdConnect | Exemplo |
 | ----- | ----------------------- | --------|
-| Linha de comandos | linha de comandos | N/A |
+| linha de comandos | linha de comandos | N/A |
 | LoginHint |  login_hint | N/A |
 | DomainHint | domain_hint | N/A |
-|  MaxAge | max_age | N/A |
+|  : MaxAge | max_age | N/A |
 | ID de cliente | client_id | N/A |
 | Nome de utilizador | login_hint | N/A |
 |  Recurso | Recurso| N/A |
 | AuthenticationContextReferences | acr_values | N/A |
 
-### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Os parâmetros de protocolo não incluído com OIDC & OAuth2 pedidos
+### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Parâmetros de protocolo não incluídos com pedidos OIDC & OAuth2
 
 ```xml
 Referenced using { OAUTH-KV:Querystring parameter name }
 ```
 
-Qualquer nome de parâmetro incluída como parte de um pedido OIDC ou OAuth2 pode ser mapeada para uma afirmação na journey do utilizador. Em seguida, pode registar no evento. Por exemplo, o pedido da aplicação pode incluir um parâmetro de cadeia de consulta com um nome de `app_session`, `loyalty_number` ou `any_string`.
+Qualquer nome de parâmetro incluída como parte de um pedido de OIDC ou OAuth2 pode ser mapeada para uma declaração no percurso do utilizador. Em seguida, pode registar no evento. Por exemplo, o pedido da aplicação pode incluir um parâmetro de cadeia de caracteres de consulta com o nome `app_session`, `loyalty_number` ou `any_string`.
 
-Eis um exemplo de pedido da aplicação:
+Este é um pedido de exemplo da aplicação:
 
 ```
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Em seguida, pode adicionar as afirmações adicionando um `Input Claim` elemento para que o evento do Application Insights. Propriedades de um evento são adicionadas através da sintaxe {: nome da propriedade}, em que o nome é propriedade que está a ser adicionada ao evento. Por exemplo:
+Em seguida, pode adicionar as declarações, adicionando um `Input Claim` elemento para o evento do Application Insights. Propriedades de um evento são adicionadas através da sintaxe {: nome da propriedade}, em que o nome é propriedade a ser adicionada ao evento. Por exemplo:
 
 ```
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
@@ -312,7 +312,7 @@ Em seguida, pode adicionar as afirmações adicionando um `Input Claim` elemento
 
 ### <a name="other-system-claims"></a>Outras afirmações de sistema
 
-Alguns afirmações sistema tem de ser adicionadas para a matriz de afirmações antes de serem disponíveis para gravar como eventos. O perfil técnico `SimpleUJContext` tem de ser chamado como um passo de orquestração ou um perfil de técnicas de validação antes destes afirmações estão disponíveis.
+Algumas declarações de sistema tem de ser adicionadas para a matriz de afirmações antes de estarem disponíveis para registrar eventos. O perfil técnico `SimpleUJContext` tem de ser chamado como um passo de orquestração ou um perfil de técnicas de validação antes essas declarações estão disponíveis.
 
 ```xml
 <ClaimsProvider>

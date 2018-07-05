@@ -1,51 +1,51 @@
 ---
-title: Se ligam aos serviços de análise do Azure com o Power BI | Microsoft Docs
-description: Saiba como ligar a um servidor de Analysis Services do Azure utilizando o Power BI.
+title: Ligar ao Azure Analysis Services com o Power BI | Documentos da Microsoft
+description: Saiba como ligar a um servidor Azure Analysis Services com o Power BI.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2ab13c0d36102c5cd75a5b297f77b23cae40b530
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00a975ae3acb470912c702d8a37717e5c270c9af
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596683"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446797"
 ---
-# <a name="connect-with-power-bi"></a>Estabelecer ligação com o Power BI
+# <a name="connect-with-power-bi"></a>Ligar ao Power BI
 
-Assim que tiver criado um servidor no Azure e implementar um modelo de tabela, os utilizadores na sua organização, estará pronto ligar e começar a explorar os dados. 
+Depois de ter criado um servidor no Azure e implementado um modelo de tabela, os utilizadores na sua organização estão prontos para se ligar e começar a explorar os dados. 
 
 > [!TIP]
-> Lembre-se de que utiliza a versão mais recente do [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> Certifique-se de que utiliza a versão mais recente do [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 > 
 > 
   
 ## <a name="connect-in-power-bi-desktop"></a>Ligar no Power BI Desktop
 
-1. No ambiente de trabalho do Power BI, clique em **obter dados** > **Azure** > **base de dados do Azure Analysis Services**.
+1. No Power BI Desktop, clique em **Obter Dados** > **Azure** > **Base de dados do Azure Analysis Services**.
 
-2. No **servidor**, introduza o nome do servidor. Não se esqueça de incluir o URL completo; Por exemplo, asazure://westcentralus.asazure.windows.net/advworks.
+2. Na **servidor**, introduza o nome do servidor. Certifique-se de que incluem o URL completo; Por exemplo, asazure://westcentralus.asazure.windows.net/advworks.
 
-3. No **base de dados**, se souber o nome da base de dados em tabela do modelo ou perspetiva que pretende ligar, cole-a aqui. Caso contrário, pode deixar este campo em branco e selecione uma base de dados ou de uma perspetiva mais tarde.
+3. Na **base de dados**, se souber o nome da base de dados do modelo de tabela ou ponto de vista que pretende ligar, cole-o aqui. Caso contrário, pode deixar este campo em branco e selecione uma base de dados ou de uma perspetiva mais tarde.
 
 4. Selecione uma opção de ligação e, em seguida, prima **Connect**. 
 
-    Ambos **ligar em direto** e **importação** opções são suportadas. No entanto, é recomendado que utilizar ligações em direto porque o modo de importação tem algumas limitações; mais especificamente, o desempenho do servidor poderão ser afetado durante a importação. Também, se o modelo está a ser atualizado no serviço Power BI, o **permitir o acesso a partir do Power BI** definição aplica-se apenas ao escolher **ligar em direto**.
+    Ambos **ligar em direto** e **importação** as opções são suportadas. No entanto, recomendamos que utilizar ligações em direto porque o modo de importação tem algumas limitações; nomeadamente, desempenho do servidor de pode ser afetado durante a importação. Também, se o modelo é seja atualizado no serviço Power BI, o **permitir o acesso a partir do Power BI** definição aplica-se apenas ao escolher **ligar em direto**.
 
-5. Se lhe for solicitado, introduza as credenciais de início de sessão. 
+5. Se lhe for pedido, introduza as credenciais de início de sessão. 
 
-6. No **navegador**, expanda o servidor, em seguida, selecione o modelo ou perspetiva que pretende ligar a e, em seguida, clique em **Connect**. Clique num modelo ou perspetiva para mostrar todos os objetos para nessa vista.
+6. Na **Navigator**, expanda o servidor, em seguida, selecione o modelo ou o ponto de vista que pretende ligar a e, em seguida, clique em **Connect**. Clique num modelo ou uma perspetiva para mostrar todos os objetos para exibição.
 
-    O modelo é aberto no Power BI Desktop com um relatório na vista de relatório em branco. A lista de campos apresenta todos os objetos de modelo não oculto. Estado de ligação é apresentado no canto inferior direito.
+    O modelo é aberto no Power BI Desktop com um relatório em branco na vista de relatório. A lista de campos mostra todos os objetos de modelo não oculto. O estado de ligação é apresentado no canto inferior direito.
 
-## <a name="connect-in-power-bi-service"></a>Ligar no Power BI (serviço)
+## <a name="connect-in-power-bi-service"></a>Ligue-se no Power BI (serviço)
 
-1. Crie um ficheiro do Power BI Desktop que tenha uma ligação em direto para o seu modelo no seu servidor.
-2. No [Power BI](https://powerbi.microsoft.com), clique em **obter dados** > **ficheiros**, em seguida, localize e selecione o ficheiro. pbix.
+1. Crie um ficheiro do Power BI Desktop com uma ligação em direto ao seu modelo no seu servidor.
+2. Na [Power BI](https://powerbi.microsoft.com), clique em **obter dados** > **ficheiros**, em seguida, localize e selecione o seu ficheiro. pbix.
 
 
 

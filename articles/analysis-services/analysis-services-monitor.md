@@ -1,88 +1,88 @@
 ---
-title: Monitorizar as métricas do servidor de Analysis Services do Azure | Microsoft Docs
+title: Monitorizar as métricas de servidor Azure Analysis Services | Documentos da Microsoft
 description: Saiba como monitorizar as métricas do servidor de Analysis Services no portal do Azure.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7c4afc2b48d097c67d69ef0cee8a45a1fdeb557
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596197"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442938"
 ---
-# <a name="monitor-server-metrics"></a>Métricas do servidor de monitor
+# <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
 
-Do Analysis Services fornece as métricas para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Por exemplo, monitorize a memória e utilização da CPU, número de ligações de cliente e o consumo de recursos de consulta. Como a maioria dos outros serviços do Azure, o Analysis Services utiliza a mesma estrutura de monitorização. Para obter mais informações, consulte [métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+O Analysis Services fornece métricas para o ajudar a monitorizar o desempenho e estado de funcionamento dos seus servidores. Por exemplo, pode monitorize a utilização da CPU e memória, o número de ligações de cliente e o consumo de recursos de consulta. Analysis Services utiliza a mesma arquitetura de monitorização, como a maioria dos outros serviços do Azure. Para obter mais informações, consulte [métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-Para efetuar um diagnóstico mais aprofundado, controlar o desempenho e identificar tendências em vários recursos de serviço num grupo de recursos ou subscrição, utilize [Azure Monitor](https://azure.microsoft.com/services/monitor/). Monitor do Azure (serviço) poderá resultar num serviço sujeito a faturação.
+Para efetuar mais diagnósticos aprofundados, acompanhar o desempenho e identifique as tendências em vários recursos de serviço num grupo de recursos ou subscrição, utilize [do Azure Monitor](https://azure.microsoft.com/services/monitor/). O Azure Monitor (serviço) pode resultar num serviço sujeito a faturação.
 
 
-## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>Para monitorizar as métricas para um servidor de Analysis Services
+## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>Para monitorizar as métricas para um servidor do Analysis Services
 
 1. No portal do Azure, selecione **métricas**.
 
     ![Monitorizar no portal do Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. No **as métricas disponíveis**, selecione as métricas para incluir no gráfico. 
+2. Na **métricas disponíveis**, selecione as métricas para incluir no gráfico. 
 
-    ![Gráfico do monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
+    ![Gráfico de monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 <a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Métricas do servidor
-Utilize esta tabela para determinar quais as métricas são melhores para o seu cenário de monitorização. Apenas as métricas da mesma unidade podem ser apresentadas no mesmo gráfico.
+Utilize esta tabela para determinar as métricas que são recomendadas para o seu cenário de monitorização. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
-|CommandPoolJobQueueLength|Comprimento de fila de tarefa de conjunto de comandos|Contagem|Média|Número de tarefas na fila do conjunto de threads de comando.|
-|CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações de cliente estabelecido.|
-|CurrentUserSessions|Sessões de utilizador atual|Contagem|Média|Número atual de sessões de utilizador estabelecida.|
-|mashup_engine_memory_metric|M motor memória|Bytes|Média|Utilização de memória por processos de motor da aplicação híbrida|
-|mashup_engine_qpu_metric|Motor de M QPU|Contagem|Média|Utilização QPU por processos de motor da aplicação híbrida|
-|memory_metric|Memória|Bytes|Média|Memória. No intervalo 0-25 GB para S1, 0 a 50 GB para S2 e 0-100 GB para S4|
-|memory_thrashing_metric|Memória Thrashing|Percentagem|Média|Thrashing média da memória.|
-|CleanerCurrentPrice|Memória: Preço atual de limpeza|Contagem|Média|Preços atual de memória, $/ byte/hora, normalizado a 1000.|
-|CleanerMemoryNonshrinkable|Memória: Memória nonshrinkable de limpeza|Bytes|Média|Quantidade de memória, em bytes, não sujeitos a remoção de limpeza por segundo plano.|
-|CleanerMemoryShrinkable|Memória: Memória de limpeza que possam ser encolhida|Bytes|Média|Quantidade de memória, em bytes, sujeita a remoção de limpeza por segundo plano.|
-|MemoryLimitHard|Memória: Disco rígido de limite de memória|Bytes|Média|Limite de memória de disco rígido, ficheiro de configuração.|
-|MemoryLimitHigh|Memória: Limite de memória elevada|Bytes|Média|Limite de memória elevada, ficheiro de configuração.|
-|MemoryLimitLow|Memória: Baixa de limite de memória|Bytes|Média|Limite de memória insuficiente, ficheiro de configuração.|
-|MemoryLimitVertiPaq|Memória: VertiPaq de limite de memória|Bytes|Média|Limite de memória, ficheiro de configuração.|
-|MemoryUsage|Memória: Utilização de memória|Bytes|Média|Utilização de memória do processo de servidor, conforme utilizado para calcular preço de memória de limpeza. Igual a Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando quaisquer memória, o que foi mapeada ou atribuída pelo motor de análise de memória (VertiPaq) que excedam o limite de memória do motor do contador.|
-|Quota|Memória: Quota|Bytes|Média|Quota atual de memória, em bytes. Quota de memória também é conhecido como uma reserva de memória ou de concessão de memória.|
-|QuotaBlocked|Memória: Quota bloqueado|Contagem|Média|Número atual de pedidos de quota são bloqueada até que outros quotas de memória são libertadas.|
-|VertiPaqNonpaged|Memória: VertiPaq na memória não paginável|Bytes|Média|Bytes de memória bloqueadas no conjunto de trabalho para utilização pelo motor dentro da memória.|
-|VertiPaqPaged|Memória: VertiPaq bloco paginado|Bytes|Média|Bytes de memória paginada em utilização para dados em memória.|
-|ProcessingPoolJobQueueLength|Comprimento de fila de tarefa de conjunto de processamento|Contagem|Média|Número de tarefas não-I/O na fila do conjunto de threads de processamento.|
-|RowsConvertedPerSec|Processamento: Converter o linhas por seg|CountPerSecond|Média|Taxa de linhas converter durante o processamento.|
-|RowsReadPerSec|Processamento: Linhas lidas por seg|CountPerSecond|Média|Taxa de linhas lida todas as bases de dados relacionais.|
-|RowsWrittenPerSec|Processamento: Linhas escritas por seg|CountPerSecond|Média|Taxa de linhas escritos durante o processamento.|
+|CommandPoolJobQueueLength|Comprimento de fila da tarefa de conjunto de comandos|Contagem|Média|Número de tarefas na fila do pool de threads de comando.|
+|CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações de cliente estabelecidas.|
+|CurrentUserSessions|Sessões de utilizador atual|Contagem|Média|Número atual de sessões de utilizador estabelecidas.|
+|mashup_engine_memory_metric|Memória do motor M|Bytes|Média|Utilização da memória através de processos de motor de mashup|
+|mashup_engine_qpu_metric|Memória do motor QPU|Contagem|Média|Utilização QPU através de processos de motor de mashup|
+|memory_metric|Memória|Bytes|Média|Memória. Intervalo de 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|
+|memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|
+|CleanerCurrentPrice|Memória: Preço atual de limpeza|Contagem|Média|Preço atual de memória, $/byte/tempo, normalizado para 1000.|
+|CleanerMemoryNonshrinkable|Memória: Nonshrinkable de memória mais limpo|Bytes|Média|Quantidade de memória, em bytes, não são sujeitos à remoção limpeza de segundo plano.|
+|CleanerMemoryShrinkable|Memória: Memória de limpeza Reduzível|Bytes|Média|Quantidade de memória, em bytes, sujeitos à remoção limpeza de segundo plano.|
+|MemoryLimitHard|Memória: Limite de memória|Bytes|Média|Limite restrito da memória, do ficheiro de configuração.|
+|MemoryLimitHigh|Memória: Máximo limite de memória|Bytes|Média|Limite máximo de memória do ficheiro de configuração.|
+|MemoryLimitLow|Memória: Mínimo limite de memória|Bytes|Média|Limite mínimo de memória do ficheiro de configuração.|
+|MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Média|Limite de memória do ficheiro de configuração.|
+|MemoryUsage|Memória: Utilização de memória|Bytes|Média|Utilização da memória do processo de servidor utilizado para calcular o preço de memória mais limpo. Igual ao contador Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando qualquer memória, que foi mapeada ou alocada pelo motor de análise dentro da memória (VertiPaq) em excesso relativamente ao mecanismo de limite de memória.|
+|Quota|Memória: Quota|Bytes|Média|Quota de memória atual, em bytes. Quota de memória também é conhecido como uma reserva de memória ou de concessão de memória.|
+|QuotaBlocked|Memória: Quotas bloqueadas|Contagem|Média|Número atual de pedidos de quota que estão bloqueados até outras quotas de memória serem libertas.|
+|VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para utilização pelo mecanismo de dentro da memória.|
+|VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Média|Bytes de memória paga em utilização para dados na memória.|
+|ProcessingPoolJobQueueLength|Comprimento de fila da tarefa de conjunto de processamento|Contagem|Média|Número de tarefas não-I/O na fila do pool de threads de processamento.|
+|RowsConvertedPerSec|Processamento: Linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|
+|RowsReadPerSec|Processamento: Linhas lidas por segundo|CountPerSecond|Média|Taxa de linhas lidas de todas as bases de dados relacionais.|
+|RowsWrittenPerSec|Processamento: Linhas escritas por segundo|CountPerSecond|Média|Taxa de linhas escritas durante o processamento.|
 |qpu_metric|QPU|Contagem|Média|QPU. Intervalo de 0-100 para S1, 0-200 para S2 e 0-400 para S4|
-|QueryPoolBusyThreads|Threads de ocupado de conjunto de consulta|Contagem|Média|Número de threads ocupados no conjunto de threads de consulta.|
-|SuccessfullConnectionsPerSec|Ligações com êxito por seg|CountPerSecond|Média|Taxa de conclusões de ligação com êxito.|
-|CommandPoolBusyThreads|Threads: Threads ocupado do conjunto de comandos|Contagem|Média|Número de threads ocupados no conjunto de threads de comando.|
-|CommandPoolIdleThreads|Threads: Threads de inatividade do conjunto de comandos|Contagem|Média|Número de threads Inativos no conjunto de threads de comando.|
-|LongParsingBusyThreads|Threads: Análise de threads ocupados de longa|Contagem|Média|Número de threads ocupados no conjunto de threads longa análise.|
-|LongParsingIdleThreads|Threads: Longa análise threads Inativos|Contagem|Média|Número de threads Inativos no conjunto de threads longa análise.|
-|LongParsingJobQueueLength|Threads: Análise longa comprimento da fila de tarefas|Contagem|Média|Número de tarefas na fila do conjunto de threads longa análise.|
-|ProcessingPoolIOJobQueueLength|Threads: Conjunto de comprimento de fila de trabalho de e/s de processamento|Contagem|Média|Número de tarefas de e/s na fila do conjunto de threads de processamento.|
-|ProcessingPoolBusyIOJobThreads|Threads: Threads de trabalho de e/s ocupados do conjunto de processamento|Contagem|Média|Número de threads em execução tarefas de e/s no conjunto de threads de processamento.|
-|ProcessingPoolBusyNonIOThreads|Threads: Threads de não-I/O ocupado do conjunto de processamento|Contagem|Média|Número de threads em execução de tarefas não-I/O no conjunto de threads de processamento.|
-|ProcessingPoolIdleIOJobThreads|Threads: Conjunto Inativos threads de trabalho de e/s de processamento|Contagem|Média|Número de threads de inatividade para as tarefas de e/s no conjunto de threads de processamento.|
-|ProcessingPoolIdleNonIOThreads|Threads: Threads de não-I/O inativo do conjunto de processamento|Contagem|Média|Número de threads Inativos no conjunto de threads de processamento dedicado a tarefas não-I/O.|
-|QueryPoolIdleThreads|Threads: Threads de inatividade do conjunto de consulta|Contagem|Média|Número de threads de inatividade para as tarefas de e/s no conjunto de threads de processamento.|
-|QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa de conjunto de consulta|Contagem|Média|Número de tarefas na fila do conjunto de threads de consulta.|
-|ShortParsingBusyThreads|Threads: Curto período análise threads ocupados|Contagem|Média|Número de threads ocupados no conjunto de threads de análise curto.|
-|ShortParsingIdleThreads|Threads: Curto período análise threads Inativos|Contagem|Média|Número de threads Inativos no conjunto de threads de análise curto.|
-|ShortParsingJobQueueLength|Threads: Curto período comprimento de fila de tarefa de análise|Contagem|Média|Número de tarefas na fila do conjunto de threads de análise curto.|
-|TotalConnectionFailures|Falhas de ligação total|Contagem|Média|Total de tentativas de ligação falhadas.|
+|QueryPoolBusyThreads|Threads ocupadas do conjunto de consulta|Contagem|Média|Número de threads ocupados no conjunto de threads de consulta.|
+|SuccessfullConnectionsPerSec|Ligações com êxito por segundo|CountPerSecond|Média|Taxa de conclusões de ligação com êxito.|
+|CommandPoolBusyThreads|Threads: Threads ocupadas do conjunto de comandos|Contagem|Média|Número de threads ocupados no conjunto de threads de comando.|
+|CommandPoolIdleThreads|Threads: Threads inativas do conjunto de comandos|Contagem|Média|Número de threads inativas no conjunto de threads de comando.|
+|LongParsingBusyThreads|Threads: Threads ocupadas de análise longa|Contagem|Média|Número de threads ocupados no conjunto de threads de análise longa.|
+|LongParsingIdleThreads|Threads: Threads Inativas de análise longa|Contagem|Média|Número de threads inativas no conjunto de threads de análise longa.|
+|LongParsingJobQueueLength|Threads: Comprimento da fila de tarefas de análise longa|Contagem|Média|Número de tarefas na fila do pool de threads de análise longa.|
+|ProcessingPoolIOJobQueueLength|Threads: Comprimento de fila de trabalho de e/s do conjunto de processamento|Contagem|Média|Número de tarefas de e/s na fila do pool de threads de processamento.|
+|ProcessingPoolBusyIOJobThreads|Threads: Threads de trabalho de e/s ocupadas do conjunto de processamento|Contagem|Média|Número de threads a executar tarefas de e/s no conjunto de threads de processamento.|
+|ProcessingPoolBusyNonIOThreads|Threads: Threads ocupadas de não-I/O do conjunto de processamento|Contagem|Média|Número de threads a executar tarefas de não-I/O no conjunto de threads de processamento.|
+|ProcessingPoolIdleIOJobThreads|Threads: Threads de trabalho de e/s inativas do conjunto de processamento|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|
+|ProcessingPoolIdleNonIOThreads|Threads: Threads não-I/O inativas do conjunto de processamento|Contagem|Média|Número de threads inativas no conjunto de threads de processamento dedicadas a tarefas não-I/O.|
+|QueryPoolIdleThreads|Threads: Threads inativas do conjunto de consultas|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|
+|QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa do conjunto de consultas|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|
+|ShortParsingBusyThreads|Threads: Threads ocupadas de análise curta|Contagem|Média|Número de threads ocupados no conjunto de threads de análise curta.|
+|ShortParsingIdleThreads|Threads: Threads Inativas de análise curta|Contagem|Média|Número de threads inativas no conjunto de threads de análise curta.|
+|ShortParsingJobQueueLength|Threads: Comprimento da fila de tarefas de análise curta|Contagem|Média|Número de tarefas na fila do pool de threads de análise curta.|
+|TotalConnectionFailures|Falhas de ligação total|Contagem|Média|Total de tentativas de ligação.|
 |TotalConnectionRequests|Pedidos de ligação total|Contagem|Média|Pedidos de ligação total. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Métricas no Monitor de Azure REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Métricas no Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)

@@ -1,79 +1,79 @@
 ---
-title: Protocolos de autenticação no Azure Active Directory B2C | Microsoft Docs
-description: Como criar aplicações diretamente utilizando os protocolos que são suportados pelo Azure Active Directory B2C.
+title: Protocolos de autenticação no Azure Active Directory B2C | Documentos da Microsoft
+description: Como criar aplicações diretamente, usando os protocolos que são suportados pelo Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 09b76cd2235663d76b9973ff722ec6a515c30285
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e6f722afead39c8a0ba940d9e2cb54d1f197d143
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709687"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442285"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Do Azure AD B2C: Protocolos de autenticação
-O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações ao suportar dois protocolos padrão de indústria: OpenID Connect e OAuth 2.0. O serviço está em conformidade com as normas, mas qualquer duas implementações destes protocolos podem ter ligeiras diferenças. 
+O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações com suporte a dois protocolos de norma da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com os padrões, mas qualquer duas implementações desses protocolos podem ter ligeiras diferenças. 
 
-As informações neste guia são útil se escrever o seu código mediante o envio diretamente e processamento de pedidos de HTTP em vez de utilizar uma biblioteca de código aberto. Recomendamos que leia esta página antes de aprofundar os detalhes de cada protocolo específico. Mas se já estiver familiarizado com o Azure AD B2C, pode ir diretamente para [os guias de referência do protocolo](#protocols).
+As informações neste guia são útil se escrever seu código com o envio diretamente e processar os pedidos HTTP, em vez de através da utilização de uma biblioteca de código-fonte aberto. Recomendamos que leia esta página antes de aprofundar os detalhes de cada protocolo específico. Mas se já estiver familiarizado com o Azure AD B2C, pode ir diretamente para [os guias de referência do protocolo](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
 ## <a name="the-basics"></a>Noções básicas
-Cada aplicação que utiliza o Azure AD B2C tem de ser registado no diretório do B2C no [portal do Azure](https://portal.azure.com). O processo de registo de aplicação recolhe e atribui alguns valores à sua aplicação:
+Todas as aplicações que utiliza o Azure AD B2C tem de ser registado no seu diretório do B2C no [portal do Azure](https://portal.azure.com). O processo de registo de aplicação recolhe e atribui alguns valores à sua aplicação:
 
 * Uma **ID de Aplicação** que identifica de modo exclusivo a aplicação.
-* A **URI de redirecionamento** ou **identificador do pacote** que pode ser utilizada para direcionar as respostas de volta para a sua aplicação.
-* Alguns outros valores específicos de cenário. Para obter mais informações, saiba [como registar a aplicação](active-directory-b2c-app-registration.md).
+* R **URI de redirecionamento** ou **identificador de pacote** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação.
+* Alguns outros valores específicos de cenário. Para obter mais informações, saiba [como registar a sua aplicação](active-directory-b2c-app-registration.md).
 
-Depois de registar a sua aplicação, comunica com o Azure Active Directory (Azure AD) enviando pedidos para o ponto final:
+Depois de registar a sua aplicação, ele se comunica com o Azure Active Directory (Azure AD) ao enviar pedidos para o ponto final:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Praticamente todos os fluxos de OAuth e o OpenID Connect, quatro partes estão envolvidas do exchange:
+Em quase todos os fluxos do OAuth e OpenID Connect, quatro partes estão envolvidas do exchange:
 
 ![Funções de OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* O **servidor autorização** é o ponto final do Azure AD. Em segurança processa nada relacionados com as informações de utilizador e de acesso. Ele também faz as relações de confiança entre as partes de um fluxo. É responsável por verificar a identidade do utilizador, conceder revogar o acesso a recursos e emitir tokens. É também conhecido como o fornecedor de identidade.
+* O **servidor de autorização** é o ponto de final do Azure AD. Em segurança processa qualquer coisa relacionada às informações de utilizador e de acesso. Ele também manipula as relações de confiança entre as partes num fluxo. Ele é responsável por verificar a identidade do utilizador, conceder a revogar o acesso aos recursos e a emissão de tokens. Ele também é conhecido como o fornecedor de identidade.
 
-* O **proprietário do recurso** é, geralmente, o utilizador final. É a entidade que tem os dados e tem a capacidade para permitir que terceiros aceder a esse dados ou recursos.
+* O **proprietário do recurso** é, normalmente, o utilizador final. É a parte que detém os dados e tem o poder para permitir que terceiros acessar esse dados ou recursos.
 
-* O **cliente OAuth** é a sua aplicação. For identificado pelo respetivo ID de aplicação. Normalmente, trata-se a entidade que os utilizadores finais interajam com. Também pedidos tokens do servidor de autorização. O proprietário do recurso tem de conceder a permissão de cliente para aceder ao recurso.
+* O **OAuth cliente** é a sua aplicação. Ele é identificado pelo seu ID da aplicação. Normalmente, é a parte que os utilizadores finais interagem com. Ele também solicita tokens do servidor de autorização. O proprietário do recurso tem de conceder a permissão de cliente para aceder ao recurso.
 
-* O **servidor recursos** é onde residem a recursos ou dados. Confiança do servidor de autorização para autenticar e autorizar o cliente OAuth em segurança. Também utiliza os tokens de portador acesso para se certificar de que pode ser concedido acesso a um recurso.
+* O **servidor do recurso** é onde residem o recurso ou dados. Ele confia o servidor de autorização de forma segura autenticar e autorizar o cliente de OAuth. Ele também usa os tokens de acesso de portador para se certificar de que pode ser concedido acesso a um recurso.
 
 ## <a name="policies"></a>Políticas
-Possivelmente, as políticas do Azure AD B2C se as funcionalidades mais importantes do serviço. O Azure AD B2C expande os protocolos padrão de OAuth 2.0 e o OpenID Connect, introduzindo as políticas. Estes cmdlets permitem do Azure AD B2C efetuar muito mais do que simples autenticação e autorização. 
+Indiscutivelmente, políticas do Azure AD B2C são os recursos mais importantes do serviço. O Azure AD B2C expande os protocolos padrão de OAuth 2.0 e OpenID Connect, introduzindo as políticas. Eles permitem que o Azure AD B2C para realizar muito mais do que a autenticação e autorização simples. 
 
-As políticas totalmente descrevem as experiências de identidade do consumidor, incluindo a inscrição, início de sessão e edição de perfis. As políticas podem ser definidas numa IU administrativa. Estes podem ser executados utilizando um parâmetro de consulta especiais em pedidos de autenticação HTTP. 
+As políticas totalmente descrevem as experiências de identidade do consumidor, incluindo a inscrição, início de sessão e edição de perfil. As políticas podem ser definidas numa interface do Usuário administrativo. Eles podem ser executados com um parâmetro de consulta especial nos pedidos de autenticação HTTP. 
 
-As políticas não são funcionalidades padrão do OAuth 2.0 e o OpenID Connect, pelo que deve ter o tempo para compreendê-los. Para obter mais informações, consulte o [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
+As políticas não são recursos padrão de OAuth 2.0 e OpenID Connect, para que deve separar um tempo para entendê-las. Para obter mais informações, consulte a [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Tokens
-A implementação do Azure AD B2C de OAuth 2.0 e o OpenID Connect faz com que utilize um vasto conjunto de tokens de portador, incluindo os tokens de portador são representados como tokens de web JSON (JWTs). Um token de portador é um token de segurança simples que concede acesso a "portador" para um recurso protegido.
+A implementação do Azure AD B2C do OAuth 2.0 e OpenID Connect faz uso extensivo de tokens de portador, incluindo os tokens de portador são representados como tokens de web JSON (JWTs). Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido.
 
-O portador é que podem apresentar o token de terceiros. Azure AD deve primeiro autenticar uma parte antes de pode receber um token de portador. Mas, se não são tidas em conta os passos necessários para proteger o token na transmissão e o armazenamento, pode ser intercetado e utilizado por uma entidade indesejada.
+O portador é capaz de apresentar o token de terceiros. Do Azure AD tem de autenticar primeiro uma parte confiável, antes de pode receber um token de portador. Mas se os passos necessários não serão direcionados para proteger o token na transmissão e o armazenamento, pode ser interceptado e utilizado por uma entidade não-intencionais.
 
-Alguns tokens de segurança tenham mecanismos incorporados que impedem que partes não autorizadas a utilizá-los, mas os tokens de portador tem este mecanismo. Estes têm de ser transportados num canal seguro, como de segurança de camada de transporte (HTTPS). 
+Alguns tokens de segurança tem mecanismos internos que impedem que partes não autorizadas a utilizá-los, mas os tokens de portador não tem esse mecanismo. Eles devam ser transportados num canal seguro como, por exemplo, uma segurança de camada de transporte (HTTPS). 
 
-Se um token de portador é transmitido fora de um canal seguro, uma parte maliciosa pode utilizar um ataque man-in-the-middle para adquirir o token e utilizá-la para obter acesso não autorizado a um recurso protegido. Os princípios de segurança mesmo se aplica quando os tokens de portador são armazenados ou colocada em cache para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura.
+Se um token de portador é transmitido fora de um canal seguro, mal-intencionados podem utilizar um ataque man-in-the-middle adquirir o token e utilizá-lo a obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando os tokens de portador são armazenados ou colocados em cache para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura.
 
 Para considerações de segurança de token de portador adicionais, consulte [RFC 6750 secção 5](http://tools.ietf.org/html/rfc6750).
 
 Obter mais informações sobre os diferentes tipos de tokens que são utilizados no Azure AD B2C estão disponíveis no [a referência de token do Azure AD](active-directory-b2c-reference-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
-Quando estiver pronto para rever alguns pedidos de exemplo, pode começar com um dos tutoriais seguintes. Cada corresponde a um cenário de autenticação específica. Se precisar de ajuda para determinar que fluxo é adequado para si, consulte [os tipos de aplicações, pode criar utilizando o Azure AD B2C](active-directory-b2c-apps.md).
+Quando estiver pronto para rever alguns pedidos de exemplo, pode começar com um dos seguintes tutoriais. Cada corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual o fluxo é adequado para si, confira [os tipos de aplicações, pode criar com o Azure AD B2C](active-directory-b2c-apps.md).
 
-* [Criar aplicações móveis e nativas utilizando OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
-* [Criar aplicações web utilizando o OpenID Connect](active-directory-b2c-reference-oidc.md)
-* [Criar aplicações de página única utilizando o fluxo implícito de OAuth 2.0](active-directory-b2c-reference-spa.md)
+* [Criar aplicações móveis e nativas com OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+* [Criar aplicações web com OpenID Connect](active-directory-b2c-reference-oidc.md)
+* [Crie aplicações de página única com o fluxo implícito de OAuth 2.0](active-directory-b2c-reference-spa.md)
 

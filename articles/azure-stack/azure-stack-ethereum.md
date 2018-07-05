@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341737"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446980"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelos de soluções de blockchain Ethereum de pilha do Azure
 
@@ -69,7 +69,7 @@ O modelo de líder consortium configura os requisitos de espaço do primeiro mem
     ADMINUSERNAME | Nome de utilizador de administrador de cada VM implementada | 1 - 64 carateres | gethadmin
     ADMINPASSWORD (tipo de autenticação = a palavra-passe)| A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter 3 dos seguintes requisitos: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial. <br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 - 72 carateres|
     ADMINSSHKEY (tipo de autenticação = sshPublicKey) | A chave secure shell utilizada para início de sessão remoto. | |
-    GENESISBLOCK | Cadeia de caracteres JSON que representa o bloco de genesis personalizado. | |
+    GENESISBLOCK | Cadeia de caracteres JSON que representa o bloco de genesis personalizado.  Especificar um valor para este parâmetro é opcional. | |
     ETHEREUMACCOUNTPSSWD | A palavra-passe de administrador utilizada para proteger a conta de Ethereum. | |
     ETHEREUMACCOUNTPASSPHRASE | A frase de acesso utilizada para gerar a chave privada associada à conta Ethereum. | |
     ETHEREUMNETWORKID | O ID de rede do consortium. | Utilizar qualquer valor entre 5 e 999,999,999 | 72

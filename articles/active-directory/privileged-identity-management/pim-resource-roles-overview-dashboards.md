@@ -1,6 +1,6 @@
 ---
-title: 'Descrição geral: Executar uma revisão do acesso numa Privileged Identity Management para recursos do Azure | Microsoft Docs'
-description: Este documento descreve como executar uma revisão de acesso no PIM para recursos do Azure.
+title: 'Descrição geral: Realizar uma revisão de acesso no Privileged Identity Management para recursos do Azure | Documentos da Microsoft'
+description: Este documento descreve como realizar uma revisão de acesso no PIM para recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,34 +10,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b53ae66d927dfacd1048a6bd0fa9abdb6f2a7862
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 9e9053c62f2ead3b6ae7d4ca3c6c38fd1063b8da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751157"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441512"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Utilize um dashboard de recursos para executar uma revisão do acesso
+# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Utilizar um dashboard de recursos para realizar uma revisão de acesso
 
-Pode utilizar um dashboard de recursos para executar uma revisão do acesso no Privileged Identity Management (PIM) para recursos do Azure. O dashboard de vista de administrador tem três componentes principais:
+Pode utilizar um dashboard de recursos para realizar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure. O dashboard de vista de administração tem três componentes principais:
 
 - Uma representação gráfica de ativações de função de recursos.
-- Dois gráficos que apresentam a distribuição das atribuições de funções por tipo de atribuição.
-- Uma área de dados relativas à nova atribuições de funções.
+- Dois gráficos que exibem a distribuição de atribuições de funções por tipo de atribuição.
+- Uma área de dados relativos a novas atribuições de função.
 
-![Captura de ecrã do dashboard de vista de administração, gráficos e gráficos](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Captura de ecrã do dashboard vista de administração, com gráficos](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-![Captura de ecrã do dashboard de vista de administração, listas de dados](media/azure-pim-resource-rbac/role-settings.png)
+![Captura de ecrã do dashboard vista de administração, que mostra as listas de dados](media/azure-pim-resource-rbac/role-settings.png)
 
-A representação gráfica de ativações de função de recursos abrange os últimos sete dias. Estes dados tem um âmbito para o recurso selecionado e mostra ativações para as funções mais comuns (proprietário, contribuinte, administrador de acesso de utilizador) e para todas as funções combinadas.
+A representação gráfica de ativações de função de recursos aborda os últimos sete dias. Estes dados tem um âmbito para o recurso selecionado e exibe ativações para as funções mais comuns (proprietário, Contribuidor, administrador de acesso de utilizador) e para todas as funções combinadas.
 
-À direita do gráfico ativações, dois gráficos mostra a distribuição das atribuições de funções por tipo de atribuição de utilizadores e grupos. Pode alterar o valor para uma percentagem (ou vice-versa), selecionando um setor do gráfico.
+À direita do gráfico ativações, dois gráficos apresentam a distribuição de atribuições de funções por tipo de atribuição, para utilizadores e grupos. Pode alterar o valor para uma percentagem (ou vice-versa), selecionando um setor do gráfico.
 
-Abaixo os gráficos, consulte o número de utilizadores e grupos com atribuições de funções de novo ao longo dos últimos 30 dias e uma lista de funções ordenados por atribuições totais (por ordem descendente).
+Abaixo dos gráficos, verá o número de utilizadores e grupos com novas atribuições de função ao longo dos últimos 30 dias e uma lista de funções ordenado por total de atribuições (em ordem decrescente).
 
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar estado de funcionamento do serviço de Kubernetes do Azure (AKS) (pré-visualização) | Microsoft Docs
-description: Este artigo descreve como facilmente pode rever o desempenho do seu contentor AKS rapidamente compreender a utilização do seu ambiente alojado do Kubernetes.
+title: Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) (pré-visualização) | Documentos da Microsoft
+description: Este artigo descreve como pode ver facilmente o desempenho do seu contentor do AKS para compreender rapidamente a utilização de seu ambiente alojado do Kubernetes.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,91 +12,91 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335759"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436427"
 ---
-# <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do serviço de Kubernetes do Azure (AKS) contentor (pré-visualização)
+# <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
-Este artigo descreve como configurar e utilizar o estado de funcionamento do Monitor de Azure contentor para monitorizar o desempenho das cargas de trabalho implementadas para ambientes de Kubernetes alojados no serviço do Azure Kubernetes (AKS).  É fundamental monitorizar o cluster e contentores do Kubernetes, especialmente ao executar um cluster de produção em escala, com várias aplicações.
+Este artigo descreve como configurar e utilizar o estado de funcionamento do contentor do Azure Monitor para monitorizar o desempenho das cargas de trabalho implementadas nos ambientes do Kubernetes alojados no Azure Kubernetes Service (AKS).  É fundamental monitorizar o cluster e contentores do Kubernetes, especialmente ao executar um cluster de produção em escala, com várias aplicações.
 
-Estado de funcionamento do contentor dá-lhe capacidade por memória de recolher e métricas de processador de controladores, nós e contentores disponíveis no Kubernetes através da API de métricas de monitorização de desempenho.  Depois de ativar o estado de funcionamento do contentor, estas métricas são recolhidas para a utilizar uma versão do agente do OMS para Linux e automaticamente armazenadas no seu [Log Analytics](../log-analytics/log-analytics-overview.md) área de trabalho.  As vistas predefinidas incluídas mostram as cargas de trabalho do contentor residing e para que possa compreender o que está a afetar o estado de funcionamento do desempenho do Kubernetes cluster:  
+Estado de funcionamento do contentor-lhe capacidade por memória de coleta e métricas de processador de controladores, nós e contentores disponíveis no Kubernetes por meio da API de métricas de monitorização do desempenho.  Depois de ativar o estado de funcionamento do contentor, estas métricas são automaticamente recolhidas para si com uma versão em contentores do agente do OMS para Linux e armazenadas no seu [do Log Analytics](../log-analytics/log-analytics-overview.md) área de trabalho.  As vistas predefinidas incluídas mostram as cargas de trabalho de contentor que residem e para que possa entender o que está a afetar o estado de funcionamento do desempenho do cluster de Kubernetes:  
 
-* Os contentores estão em execução no nó e a utilização de processador e memória média para identificar estrangulamentos de recursos
-* Identificar onde reside o contentor no controlador de e/ou pods para ver o desempenho global para um controlador ou pod 
-* Reveja a utilização de recursos das cargas de trabalho em execução no anfitrião não relacionados para os processos padrão que suportam o pod
-* Compreender o comportamento do cluster em carga média e mais pesado para ajudar a identificar as necessidades de capacidade e determinar a carga máxima que pode suportar 
+* Que os contentores em execução no nó e a utilização de processador e memória média para identificar afunilamentos de recursos
+* Identificar em que o contentor reside num controlador de e/ou os pods para ver o desempenho geral de um controlador ou de pod 
+* Reveja a utilização de recursos de cargas de trabalho em execução no anfitrião não relacionadas com os processos padrão que suporta o pod
+* Compreender o comportamento do cluster sob carga média e mais pesado para ajudar a identificar as necessidades de capacidade e determinar a carga máxima possa suportar 
 
-Se estiver interessado na monitorização e gestão dos seus Docker e Windows anfitriões de contentor para a configuração de vista, auditoria e utilização de recursos, consulte o [solução de monitorização do contentor](../log-analytics/log-analytics-containers.md).
+Se estiver interessado na monitorização e gestão de Docker e o Windows anfitriões de contentores para ver a configuração, auditoria e utilização de recursos, consulte a [solução de monitorização de contentores](../log-analytics/log-analytics-containers.md).
 
 ## <a name="requirements"></a>Requisitos 
-Antes de começar, reveja os detalhes seguintes para que possa compreender os pré-requisitos suportados.
+Antes de começar, reveja os seguintes detalhes para que possa entender os pré-requisitos suportados.
 
-- Um cluster AKS novo ou existente
-- Um agente OMS de para a versão do Linux microsoft / oms:ciprod04202018 e mais tarde. Este agente é instalado automaticamente durante a integração do Estado de funcionamento do contentor.  
-- Uma área de trabalho do Log Analytics.  Podem ser criado quando ativar a monitorização do novo cluster AKS ou pode criar um através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou a partir de [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
-- Membro da função de contribuinte de análise de registos para ativar a monitorização do contentor.  Para obter mais informações sobre como controlar o acesso a uma área de trabalho de análise de registos, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
+- Um cluster do AKS novo ou existente
+- Um agente do OMS em contentores para a versão do Linux microsoft / oms:ciprod04202018 e mais tarde. O número de versão é representado por uma data seguindo o formato: *mmddyyyy*.  Ele é instalado automaticamente durante a integração do Estado de funcionamento do contentor.  
+- Uma área de trabalho do Log Analytics.  Ele pode ser criado quando ativa a monitorização do seu novo cluster do AKS, ou pode criar a conta [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou a partir do [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+- Membro da função de Contribuidor do Log Analytics para ativar a monitorização de contentores.  Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componentes 
 
-Esta funcionalidade baseia-se num agente OMS de para Linux recolher dados de eventos de desempenho e de todos os nós do cluster.  O agente é automaticamente implementado e registado com a área de trabalho de análise de registos especificada depois de ativar a monitorização do contentor. 
+Esse recurso depende de um agente em contentores do OMS para Linux recolher dados de eventos de desempenho e de todos os nós do cluster.  O agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada depois de ativar a monitorização de contentores. 
 
 >[!NOTE] 
->Se já tiver implementado um cluster AKS, que ativa a monitorização utilizando um modelo Azure Resource Manager fornecido como demonstrados mais à frente neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente.  
+>Se já tiver implementado um cluster do AKS, ativa a monitorização utilizando um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente.  
 >
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no Portal do Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Ativar a monitorização de estado de funcionamento de contentor para um novo cluster
-Só pode ativar a monitorização do seu cluster AKS ao implementar a partir do portal do Azure.  Siga os passos no artigo do início rápido [implementar um cluster do serviço de Kubernetes do Azure (AKS)](../aks/kubernetes-walkthrough-portal.md).  Quando estiver no **monitorização** página, selecione **Sim** para a opção **Ativar monitorização** para ativar e, em seguida, selecione um existente ou criar uma nova área de trabalho de análise de registos.  
+Apenas pode ativar a monitorização do seu cluster do AKS, quando implementar a partir do portal do Azure.  Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  Quando estiver a utilizar o **monitorização** página, selecione **Sim** para a opção **Ativar monitorização** para ativar e, em seguida, selecione um existente ou criar uma nova área de trabalho do Log Analytics.  
 
-Depois de ativar a monitorização de todas as tarefas de configuração são concluídas com êxito, pode monitorizar o desempenho do seu cluster de uma das seguintes formas:
+Depois de a monitorização está ativada, todas as tarefas de configuração são concluídas com êxito, pode monitorizar o desempenho do seu cluster a partir de uma das seguintes formas:
 
-1. Diretamente do cluster AKS selecionando **estado de funcionamento** no painel esquerdo.<br><br> 
-2. Ao clicar no **monitorizar estado de funcionamento do contentor** mosaico na página de cluster AKS para o cluster selecionado.  No Monitor do Azure, selecione **estado de funcionamento** no painel esquerdo.  
+1. Diretamente a partir do cluster do AKS, selecionando **estado de funcionamento** no painel à esquerda.<br><br> 
+2. Ao clicar no **monitorizar o estado de funcionamento do contentor** mosaico na página de cluster do AKS para o cluster selecionado.  No Azure Monitor, selecione **estado de funcionamento** no painel à esquerda.  
 
 ![Opções para selecionar o estado de funcionamento do contentor no AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
 
-Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster.  
+Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster.  
 
-## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Ativar a monitorização de estado de funcionamento de contentor para clusters geridos existentes
-Ativar a monitorização do seu contentor AKS já implementado pode ser efetuada a partir do portal do Azure ou com o modelo Azure Resource Manager fornecido utilizando o cmdlet PowerShell **New-AzureRmResourceGroupDeployment** ou CLI do Azure.  
+## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Ativar a monitorização de estado de funcionamento de contentor para os clusters geridos existentes
+Ativar a monitorização do seu contentor do AKS já implementado pode ser feito a partir do portal do Azure ou com o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou CLI do Azure.  
 
 
 ### <a name="enable-from-azure-portal"></a>Ativar a partir do portal do Azure
-Execute os seguintes passos para ativar a monitorização do seu contentor AKS do portal do Azure.
+Execute os seguintes passos para ativar a monitorização do seu contentor do AKS no portal do Azure.
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **contentores**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Kubernetes serviços**.<br><br> ![Portal do Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **contentores**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **serviços de Kubernetes**.<br><br> ![Portal do Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Na lista de contentores, selecione um contentor.
-3. Na página de descrição geral do contentor, selecione **monitorizar estado de funcionamento do contentor** e **integração do Estado de funcionamento do contentor e os registos** é apresentada a página.
-4. No **integração do Estado de funcionamento do contentor e os registos** página, se tiver uma análise de registos existente área de trabalho na mesma subscrição do cluster, selecione-na lista pendente.  A lista preselects a área de trabalho predefinida e localização do contentor AKS for implementada na subscrição. Ou pode selecionar **criar novo** e especifique uma nova área de trabalho na mesma subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+3. Na página de descrição geral do contentor, selecione **monitorizar o estado de funcionamento do contentor** e o **inclusão de registos e de estado de funcionamento do contentor** é apresentada a página.
+4. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  A lista preselects área de trabalho predefinida e localização do contentor do AKS é implementada na subscrição. Ou pode selecionar **criar novo** e especifique uma nova área de trabalho na mesma subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
 
-    Se selecionar **criar novo**, a **criar nova área de trabalho** painel aparece. O **região** por predefinição, a região que o recurso do contentor é criado no e pode aceitar a predefinição ou selecione uma região diferente e, em seguida, especifique um nome para a área de trabalho.  Clique em **criar** para aceitar a sua seleção.<br><br> ![Definir a área de trabalho para o contentor monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
+    Se selecionou **criar novo**, o **criar nova área de trabalho** é apresentado o painel. O **região** predefinições para a região seu recurso de contentor é criado e pode aceitar a predefinição ou selecione uma região diferente e, em seguida, especifique um nome para a área de trabalho.  Clique em **criar** para aceitar a sua seleção.<br><br> ![Definir a área de trabalho para monintoring de contentor](./media/monitoring-container-health/create-new-workspace-01.png)  
 
     >[!NOTE]
-    >De momento, que não é possível criar uma nova área de trabalho na região Central EUA oeste, pode selecionar apenas a uma área de trabalho pré-existente nessa região.  Apesar de poder selecionar nessa região na lista, irá iniciar a implementação mas falhar em breve posteriormente.  
+    >Neste momento que não é possível criar uma nova área de trabalho na região e.u.a. centro-oeste, só pode selecionar uma área de trabalho pré-existente nessa região.  Apesar de poder selecionar essa região na lista, irá iniciar a implementação, mas falhar em breve, posteriormente.  
     >
  
-Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster. 
+Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster. 
 
-### <a name="enable-using-azure-resource-manager-template"></a>Ative a utilizando o modelo Azure Resource Manager
-Este método inclui dois modelos JSON, um modelo especifica a configuração para ativar a monitorização e o modelo JSON contém valores de parâmetro que configurar para especificar o seguinte:
+### <a name="enable-using-azure-resource-manager-template"></a>Ativar a utilizar o modelo Azure Resource Manager
+Esse método inclui dois modelos de JSON, um modelo especifica a configuração para ativar a monitorização e o modelo JSON contém valores de parâmetro que configurar para especificar o seguinte:
 
-* ID de recurso de contentor AKS 
+* ID de recurso de contentor do AKS 
 * Grupo de recursos do cluster é implementado no 
-* Área de trabalho de análise de registo e a região para criar a área de trabalho 
+* Área de trabalho do log Analytics e a região para criar a área de trabalho 
 
-A área de trabalho de análise de registos tem de ser criadas manualmente.  Para criar a área de trabalho, pode configurar um através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), do [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+A área de trabalho do Log Analytics tem de ser criadas manualmente.  Para criar a área de trabalho, pode configurar um através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), das [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 
-Se não estiver familiarizado com conceitos de implementar recursos através de um modelo com o PowerShell, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)ou para ver a CLI do Azure, [implementar recursos com o Modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Se não estiver familiarizado com os conceitos de implementar recursos com um modelo com o PowerShell, veja [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)ou para ver a CLI do Azure, [implementar recursos com Modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
-Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CLI localmente.  É necessário que está a executar a CLI do Azure versão 2.0.27 ou posterior. Executar `az --version` para identificar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente.  É necessário que está a executar a CLI do Azure versão 2.0.27 ou posterior. Executar `az --version` para identificar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 #### <a name="create-and-execute-template"></a>Criar e executar o modelo
 
@@ -213,7 +213,7 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
     }
     ```
 
-4. Edite o valor para **aksResourceId**, **aksResourceLocation** com os valores que pode encontrar no **descrição geral de AKS** página para o cluster AKS.  O valor para **workspaceResourceId** é o ID de recurso completo da sua área de trabalho de análise de registos, que inclui o nome da área de trabalho.  Especifique também a localização de área de trabalho destina-se no **workspaceRegion**.    
+4. Editar o valor para **aksResourceId**, **aksResourceLocation** pelos valores que pode ser encontrado no **descrição geral do AKS** página para o cluster do AKS.  O valor para **workspaceResourceId** é a ID de recurso completo da sua área de trabalho do Log Analytics, que inclui o nome de área de trabalho.  Também de especificar a localização da área de trabalho destina-se no **workspaceRegion**.    
 5. Guarde este ficheiro como **existingClusterParam.json** para uma pasta local.
 6. Está pronto para implementar este modelo. 
 
@@ -222,13 +222,13 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         ```powershell
         New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:
 
         ```powershell
         provisioningState       : Succeeded
         ```
 
-    * Para executar os seguintes comandos com a CLI do Azure no Linux:
+    * Para executar seguinte comando com a CLI do Azure no Linux:
     
         ```azurecli
         az login
@@ -236,17 +236,23 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
         ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:
 
         ```azurecli
         provisioningState       : Succeeded
         ```
-Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de conseguir ver dados operacionais para o cluster.  
+Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster.  
 
-## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente foi implementado com êxito
-Para verificar o agente do OMS implementado corretamente, execute o seguinte comando: `kubectl get ds omsagent --namespace=kube-system`.
+## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente implementado com êxito
 
-A saída deve assemelhar-se a seguinte que indica que foi implementada corretamente:
+### <a name="agent-version-06072018-and-higher"></a>Versão do agente 06072018 e superior
+Para verificar a versão de agente do OMS *06072018* ou superior está implementado corretamente, execute os seguintes comandos: 
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+A saída deve assemelhar-se da indicar seguintes implantou corretamente:
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -254,123 +260,153 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-## <a name="view-performance-utilization"></a>Ver utilização de desempenho
-Quando abrir o estado de funcionamento do contentor, a página apresenta imediatamente a utilização de desempenho dos seus nós de cluster.  Ver informações sobre o cluster AKS está organizada nas três perspetivas:
+Para verificar uma nova implementação, execute o seguinte comando:
+
+```
+kubectl get deployment omsagent-rs -n=kube-system
+```
+
+A saída deve assemelhar-se da indicar seguintes implantou corretamente:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
+
+### <a name="agent-version-earlier-than-06072018"></a>Versão de agente anteriores ao 06072018
+
+Para verificar a versão do agente OMS lançada antes *06072018* está implementado corretamente, execute o seguinte comando:  
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+A saída deve assemelhar-se da indicar seguintes implantou corretamente:  
+
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
+
+## <a name="view-performance-utilization"></a>Utilização de desempenho do Vista
+Quando abre o estado de funcionamento do contentor, a página apresenta imediatamente a utilização de desempenho de seus nós de cluster.  Ver informações sobre o seu cluster do AKS é organizado em três perspectivas:
 
 - Nós 
 - Controladores  
 - Contentores
 
-A hierarquia de linha segue o modelo de objeto de Kubernetes começados por um nó do cluster.  Expanda o nó e vir um ou mais pods em execução no nó e, se existir mais do que um contentor agrupado para um pod, são apresentadas como a última linha na hierarquia.<br><br> ![Exemplo de hierarquia de nó Kubernetes na vista de desempenho](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+A hierarquia de linha segue o modelo de objeto do Kubernetes a partir do nó do cluster.  Expanda o nó e vir um ou mais pods em execução no nó e, se houver mais de um contêiner agrupado para um pod, eles são apresentados como a última linha na hierarquia.<br><br> ![Hierarquia de nós do Kubernetes de exemplo na vista de desempenho](./media/monitoring-container-health/container-performance-and-health-view-03.png)
 
-Pode selecionar os controladores ou de contentores da parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Utilize as caixas de lista pendente, na parte superior do ecrã, para filtrar por espaço de nomes, o serviço e o nó. Se em vez disso, pretende rever utilização da memória, do **métrica** selecione na lista pendente **memória RSS** ou **conjunto de trabalho de memória**.  **Memória RSS** só é suportada para Kubernetes versão 1.8 e posterior. Caso contrário, verá os valores para **médio %** que mostra como *NaN %*, que é um valor de tipo de dados numéricos que representa um valor indefinido ou unrepresentable. 
+Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Utilize as caixas de lista pendente na parte superior do ecrã para filtrar por espaço de nomes, o serviço e o nó. Se em vez disso, pretende rever a utilização da memória, do **métrica** selecione na lista pendente **memória RSS** ou **conjunto de trabalho de memória**.  **Memória RSS** só é suportado para Kubernetes versão 1.8 e posterior. Caso contrário, verá valores para **AVG %** que mostra como *NaN %*, que é um valor de tipo de dados numéricos que representa um valor indefinido ou não representável. 
 
 ![Vista de desempenho de nós de desempenho de contentor](./media/monitoring-container-health/container-performance-and-health-view-04.png)
 
-Por predefinição, dados de desempenho baseia-se em seis últimas horas, mas pode alterar a janela com o **intervalo de tempo** encontrado na lista pendente no canto superior direito da página. Neste momento, a página não atualização automática, por isso terá de atualizá-lo manualmente. 
+Por predefinição, os dados de desempenho se baseia em seis últimas horas, mas pode alterar a janela com o **intervalo de tempo** na lista pendente encontrado no canto superior direito da página. Neste momento, a página não atualização automática, por isso terá de atualizá-lo manualmente. 
 
-No exemplo seguinte, repare para o nó *aks-agentpool-3402399-0*, o valor para **contentores** é 10, que é um rollup do número total de contentores implementado.<br><br> ![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Pode ajudar a identificar rapidamente se não tiver um equilíbrio adequado de contentores entre os nós do cluster.  
+No exemplo a seguir, tenha em atenção para o nó *aks-agentpool-3402399-0*, o valor de **contentores** é 10, que é um rollup do número total de contentores implementados.<br><br> ![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Ele pode ajudar a identificar rapidamente se não tiver um equilíbrio correto de contentores entre nós do cluster.  
 
 A tabela seguinte descreve as informações apresentadas ao ver nós.
 
 | Coluna | Descrição | 
 |--------|-------------|
 | Nome | O nome do anfitrião |
-| Estado | Kubernetes vista do Estado do nó |
-| % DE MÉDIA | Percentagem média nó com base numa métrica selecionada para a duração de tempo selecionado. |
-| MÉDIA | Valor de real médio nós com base numa métrica selecionada para a duração de tempo selecionado.  O valor médio é medido desde o limite de memória e CPU definido para um nó; para pods e contentores é o valor médio comunicado pelo anfitrião. |
+| Estado | Vista de Kubernetes do Estado de nó |
+| % DA MÉDIA | Média de percentagem de nó com base na métrica selecionada durante o período de tempo selecionado. |
+| MÉDIA | Média de valor real de nós com base na métrica selecionada durante o período de tempo selecionado.  O valor médio é medido desde o limite de CPU/memória definido para um nó; para pods e contentores é o valor de média comunicado pelo host. |
 | Contentores | Número de contentores. |
-| Tempo de atividade | Representa o tempo, uma vez que um nó foi iniciado ou foi reiniciado. |
-| Pod | Apenas para contentores. Mostra que pods-que reside. |
-| Controladores | Apenas para contentores e pods. Mostra o controlador é a que reside. Pods de nem todas as estará num controlador, pelo que alguns podem mostrar n/d. | 
-| % De média de tendência | Tendência de gráfico de barras com base no contentor e o nó % de métrica de Méd. |
+| Tempo de atividade | Representa o tempo, uma vez que um nó iniciado ou foi reiniciado. |
+| Pod | Apenas para contentores. Ela mostra que pods-lo que residem. |
+| Controladores | Apenas para os contentores e pods. Mostra qual controlador está residindo. Nem todos os pods estará num controlador, para que alguns podem mostrar n/d. | 
+| % Da média de tendência | Tendência de gráfico de barras com base no contentor e o nó % de métrica de média. |
 
 
-No Seletor de escolha **controladores**.<br><br> ![Selecione controladores vista](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+No Seletor, escolha **controladores**.<br><br> ![Selecione controladores de exibição](./media/monitoring-container-health/container-performance-and-health-view-08.png)
 
-Aqui pode ver o estado de funcionamento do desempenho dos seus controladores.<br><br> ![< nome > Vista de desempenho de controladores](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+Aqui pode ver o estado de funcionamento do desempenho dos seus controladores.<br><br> ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-performance-and-health-view-05.png)
 
-A hierarquia de linha começa com um controlador e expande o controlador e vir um ou mais pods ou um ou mais contentores.  Expanda um pod e a última linha Mostrar o contentor agrupado para o pod.  
+A hierarquia de linha começa com um controlador e expande o controlador e ver os pods de um ou mais, ou um ou mais contentores.  Expanda um pod e a última linha mostram o contentor agrupado para o pod.  
 
 A tabela seguinte descreve as informações apresentadas ao ver controladores.
 
 | Coluna | Descrição | 
 |--------|-------------|
-| Nome | O nome do controlador de|
-| Estado | Estado dos contentores quando foi concluída em execução com o estado, tal como *Terminated*, *falha* *parado*, ou *em pausa*. Se o contentor está em execução, mas o estado era: não está corretamente apresentados ou não foi captado pelo agente e não respondeu mais de 30 minutos, o estado será *desconhecido*. |
-| % DE MÉDIA | Rollup de média de média de % de cada entidade para a métrica selecionada. |
-| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor.  O valor médio é medido desde o limite de memória e CPU definido para um pod. |
+| Nome | O nome do controlador|
+| Estado | Estado dos contentores se foi concluída em execução com o estado, tal como *Terminated*, *com falhas* *parado*, ou *em pausa*. Se o contentor está em execução, mas o estado foi um não está corretamente apresentados ou não foi capturado pelo agente e não tenha respondido a mais de 30 minutos, o estado será *desconhecido*. |
+| % DA MÉDIA | Agregar média de média de % de cada entidade para a métrica selecionada. |
+| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor.  O valor médio é medido desde o limite de CPU/memória definido para um pod. |
 | Contentores | Número total de contentores para o controlador ou pod. |
 | Reinicia | Agregação da contagem de reinício de contentores. |
 | Tempo de atividade | Representa o tempo desde o início de um contentor. |
-| Pod | Apenas para contentores. Mostra que pods-que reside. |
-| Nó | Apenas para contentores e pods. Mostra o controlador é a que reside. | 
-| % De média de tendência | Tendência de gráfico de barras apresentar média % métrica do contentor. |
+| Pod | Apenas para contentores. Ela mostra que pods-lo que residem. |
+| Nó | Apenas para os contentores e pods. Mostra qual controlador está residindo. | 
+| % Da média de tendência | Tendência de gráfico de barras, apresentando a média de % métrica do contentor. |
 
-No Seletor de escolha **contentores**.<br><br> ![Vista de selecionar contentores](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+No Seletor, escolha **contentores**.<br><br> ![Ver os contentores selecionadas](./media/monitoring-container-health/container-performance-and-health-view-09.png)
 
-Aqui, pode ver o estado de funcionamento do desempenho dos seus contentores.<br><br> ![< nome > Vista de desempenho de controladores](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+Aqui podemos ver o estado de funcionamento do desempenho de seus contêineres.<br><br> ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-performance-and-health-view-06.png)
 
 A tabela seguinte descreve as informações apresentadas ao ver contentores.
 
 | Coluna | Descrição | 
 |--------|-------------|
-| Nome | O nome do controlador de|
-| Estado | Agregação do estado dos contentores, se existirem. |
-| % DE MÉDIA | Rollup de média de média de % de cada entidade para a métrica selecionada. |
-| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor. O valor médio é medido desde o limite de memória e CPU definido para um pod. |
+| Nome | O nome do controlador|
+| Estado | Agregação do estado dos contentores, se houver. |
+| % DA MÉDIA | Agregar média de média de % de cada entidade para a métrica selecionada. |
+| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor. O valor médio é medido desde o limite de CPU/memória definido para um pod. |
 | Contentores | Número total de contentores para o controlador.|
 | Reinicia | Representa o tempo desde o início de um contentor. |
 | Tempo de atividade | Representa o tempo, uma vez que um contentor foi iniciado ou reiniciado. |
-| Pod | Informações de pod em que reside. |
+| Pod | Informações de pod onde reside. |
 | Nó |  Nó onde reside o contentor.  | 
-| % De média de tendência | Tendência de gráfico de barras apresentar média % métrica do contentor. |
+| % Da média de tendência | Tendência de gráfico de barras, apresentando a média de % métrica do contentor. |
 
-## <a name="container-data-collection-details"></a>Detalhes de recolha de dados do contentor
-Estado de funcionamento do contentor recolhe diversos dados de métricas e registo de desempenho dos anfitriões de contentor e contentores. Os dados são recolhidos a cada três minutos.
+## <a name="container-data-collection-details"></a>Detalhes de recolha de dados de contentor
+Estado de funcionamento do contentor recolhe diversos dados de registo e métricas de desempenho a partir de anfitriões de contentor e contentores. Dados são recolhidos a cada três minutos.
 
-### <a name="container-records"></a>Registos do contentor
+### <a name="container-records"></a>Registos de contentor
 
-A tabela seguinte mostra exemplos de registos por Estado de funcionamento do contentor e os tipos de dados que aparecem nos resultados de pesquisa de registo recolhidos.
+A tabela seguinte mostra exemplos de registos recolhidos pelo Estado de funcionamento do contentor e os tipos de dados que aparecem nos resultados de pesquisa de registo.
 
-| Tipo de dados | Tipo de dados na pesquisa de registo | Campos |
+| Tipo de dados | Tipo de dados na pesquisa de registos | Campos |
 | --- | --- | --- |
-| Desempenho para os anfitriões e contentores | `Perf` | Computador, ObjectName, CounterName &#40;% tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receber Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
+| Desempenho para anfitriões e contentores | `Perf` | CounterName de computador, ObjectName, &#40;% de tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receba Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Inventário de contentor | `ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
-| Inventário de imagem do contentor | `ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
+| Inventário de imagens de contentor | `ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parado, falha, SourceSystem, ImageID, TotalContainer |
 | Registo de contentor | `ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
 | Registo do serviço de contentor | `ContainerServiceLog`  | TimeGenerated, computador, TimeOfCommand, imagem, comando, SourceSystem, ID do contentor |
 | Inventário de nó do contentor | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Processo de contentor | `ContainerProcess_CL` | TimeGenerated, computador, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventário de pods num Kubernetes cluster | `KubePodInventory` | TimeGenerated, computador, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ID do contentor, ContainerName, nome, PodLabel, espaço de nomes, PodStatus, ClusterName PodIp, SourceSystem |
-| Inventário da parte de nós de um cluster de Kubernetes | `KubeNodeInventory` | TimeGenerated, computador, ClusterName, ClusterId, LastTransitionTimeReady, etiquetas, estado, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
+| Inventário de pods num cluster do Kubernetes | `KubePodInventory` | TimeGenerated, computador, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ID do contentor, ContainerName, nome, PodLabel, espaço de nomes, PodStatus, ClusterName PodIp, SourceSystem |
+| Inventário de parte de nós de um cluster de Kubernetes | `KubeNodeInventory` | TimeGenerated, computador, ClusterName, ClusterId, LastTransitionTimeReady, etiquetas, estado, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, computador, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, mensagem, SourceSystem | 
-| Serviços em Kubernetes cluster | `KubeServices_CL` | TimeGenerated ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de desempenho para a parte de nós do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SNode" | Computador, ObjectName, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Métricas de desempenho para a parte de contentores do Kubernetes cluster | Desempenho &#124; onde ObjectName = = "K8SContainer" | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Serviços no cluster do Kubernetes | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s ServiceType_s, SourceSystem | 
+| Métricas de desempenho para a parte de nós de cluster do Kubernetes | Desempenho &#124; onde ObjectName = = "K8SNode" | CounterName de computador, ObjectName, &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de desempenho para a parte de contentores de cluster do Kubernetes | Desempenho &#124; onde ObjectName = = "K8SContainer" | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>Registos de pesquisa para analisar dados
-Análise de registos pode ajudar a procurar tendências, diagnosticar congestionamentos, previsão ou correlacionar os dados que podem ajudar a determinam se a configuração de cluster atual for satisfatória.  Pesquisas de registo predefinidos são fornecidas para iniciar imediatamente a utilizar ou personalizar para devolver as informações da forma que pretende. 
+O log Analytics pode ajudá-lo a analisar as tendências, diagnosticar afunilamentos, previsão, ou correlacionar dados que podem ajudar a determinam se a configuração de cluster atual é satisfatória.  Pesquisas de registos predefinidas são fornecidas para começar imediatamente a utilizar ou personalizar para retornar as informações da maneira como desejar. 
 
-Pode efetuar análises interativas dos dados na área de trabalho, selecionando o **ver registo** opção, disponível na extremidade direita quando expande um contentor.  **Registo de pesquisa** direita superior da página onde estava no portal é apresentada a página.<br><br> ![Analisar dados de análise de registos](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **ver registo** opção, disponível na extremidade direita quando expande um contentor.  **Pesquisa de registos** página é exibida bem acima a página onde estava no portal.<br><br> ![Analisar dados no Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
 
-A saída de registos do contentor reencaminhada para a análise de registos são STDOUT e STDERR. Porque o estado de funcionamento do contentor está a monitorizar Kubernetes gerida do Azure (AKS), o sistema Kube não é recolhido hoje devido ao grande volume de dados gerados.     
+A saída de registos de contentor reencaminhada para o Log Analytics são STDOUT e STDERR. Uma vez que o estado de funcionamento do contentor está a monitorizar o Kubernetes gerido do Azure (AKS), o sistema do Kube não é coletado hoje devido ao grande volume de dados gerados.     
 
 ### <a name="example-log-search-queries"></a>Consultas de pesquisa de registo de exemplo
-Muitas vezes, é útil criar consultas de exemplo ou dois carateres começadas e, em seguida, modificando-los para satisfazer as suas necessidades. Pode experimentar com as seguintes consultas de exemplo para ajudar a criar consultas mais avançadas.
+Muitas vezes é útil criar consultas, começando com um ou dois exemplos e, em seguida, modificá-los para satisfazer as suas necessidades. Pode experimentar com as seguintes consultas de exemplo para ajudar a criar consultas mais avançadas.
 
 | Consulta | Descrição | 
 |-------|-------------|
-| ContainerInventory<br> &#124;Computador, nome, imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime do projeto<br> &#124;tabela de composição | Lista de ciclo de vida do contentor de todas as informações| 
+| ContainerInventory<br> &#124;Computador, nome, imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime do projeto<br> &#124;tabela de composição | Listar o ciclo de vida do contentor de todas as informações| 
 | KubeEvents_CL<br> &#124;onde not(isempty(Namespace_s))<br> &#124;Ordenar por TimeGenerated desc<br> &#124;tabela de composição | Eventos de Kubernetes|
-| ContainerImageInventory<br> &#124;resumir AggregatedValue = existente pela imagem, ImageTag, está em execução | Inventário de imagem | 
-| **Na análise avançadas, selecione gráficos**:<br> Desempenho<br> &#124;onde ObjectName = = "Contentor" e CounterName = = "% tempo do processador"<br> &#124;resumir AvgCPUPercent = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Contentor da CPU | 
-| **Na análise avançadas, selecione gráficos**:<br> Desempenho &#124; onde ObjectName = = "Contentor" e CounterName = = "MB de utilização de memória"<br> &#124;resumir AvgUsedMemory = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Contentor de memória |
+| ContainerImageInventory<br> &#124;resumir AggregatedValue = count () by imagem, ImageTag, está em execução | Inventário de imagens | 
+| **No Advanced Analytics, selecione os gráficos de linhas**:<br> Desempenho<br> &#124;onde ObjectName = = "Contentor" e CounterName = = "% tempo do processador"<br> &#124;resumir AvgCPUPercent = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Contentor da CPU | 
+| **No Advanced Analytics, selecione os gráficos de linhas**:<br> Desempenho &#124; onde ObjectName = = "Contentor" e CounterName = = "MB de utilização de memória"<br> &#124;resumir AvgUsedMemory = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Memória de contentor |
 
-## <a name="how-to-stop-monitoring-with-container-health"></a>Como parar a monitorização de estado de funcionamento do contentor
-Depois de ativar a monitorização do seu contentor AKS, decidir que já não pretenda monitorizá-lo, pode *ativamente* utilizando os modelos Azure Resource Manager fornecido com o cmdlet do PowerShell  **Novo-AzureRmResourceGroupDeployment** ou a CLI do Azure.  Um modelo JSON Especifica a configuração para *ativamente* e o modelo JSON contém valores de parâmetro que configurar para especificar o AKS cluster recursos e ID de grupo de recursos do cluster é implementado no.  Se não estiver familiarizado com conceitos de implementar recursos através de um modelo com o PowerShell, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) ou para ver a CLI do Azure, [implementar recursos com o Modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
+## <a name="how-to-stop-monitoring-with-container-health"></a>Como parar a monitorização com o estado de funcionamento do contentor
+Depois de ativar a monitorização do seu contentor do AKS, decida que já não pretenda monitorizá-lo, pode *para anular* utilizar modelos do Azure Resource Manager fornecidos com o cmdlet do PowerShell  **Novo-AzureRmResourceGroupDeployment** ou a CLI do Azure.  Um modelo JSON Especifica a configuração para *para anular* e o modelo JSON contém valores de parâmetro que configurar para especificar o AKS cluster recurso ID de grupo de recursos e o cluster é implementado no.  Se não estiver familiarizado com os conceitos de implementar recursos com um modelo com o PowerShell, veja [implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) ou para ver a CLI do Azure, [implementar recursos com Modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
-Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CLI localmente.  É necessário que está a executar a CLI do Azure versão 2.0.27 ou posterior. Executar `az --version` para identificar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente.  É necessário que está a executar a CLI do Azure versão 2.0.27 ou posterior. Executar `az --version` para identificar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-template"></a>Criar e executar o modelo
 
@@ -435,9 +471,9 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
     }
     ```
 
-4. Edite o valor para **aksResourceId** e **aksResourceLocation** com os valores do cluster AKS, que pode encontrar no **propriedades** página para o cluster selecionado.<br><br> ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Editar o valor para **aksResourceId** e **aksResourceLocation** pelos valores do cluster do AKS, que pode ser encontrado no **propriedades** página para o cluster selecionado.<br><br> ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    Enquanto estiver a **propriedades** página, também copia o **ID de recurso da área de trabalho**.  Este valor é necessário se decidir que pretende eliminar a análise de registos área de trabalho mais tarde, que não é efetuada como parte deste processo.  
+    Enquanto estiver a utilizar o **propriedades** página, também copiar a **ID de recurso da área de trabalho**.  Este valor é necessário se decidir que pretende eliminar a Log Analytics área de trabalho mais tarde, que não é executada como parte deste processo.  
 
 5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
 6. Está pronto para implementar este modelo. 
@@ -450,13 +486,13 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, uma mensagem semelhante ao seguinte que inclui o resultado é devolvida:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando tiver concluído, é devolvida uma mensagem semelhante ao seguinte, que inclui o resultado:
 
         ```powershell
         ProvisioningState       : Succeeded
         ```
 
-    * Para executar os seguintes comandos com a CLI do Azure no Linux:
+    * Para executar seguinte comando com a CLI do Azure no Linux:
 
         ```azurecli
         az login   
@@ -464,31 +500,45 @@ Se optar por utilizar a CLI do Azure, terá primeiro de instalar e utilizar a CL
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        A alteração de configuração pode demorar alguns minutos a concluir. Quando terminar, uma mensagem semelhante ao seguinte que inclui o resultado é devolvida:
+        A alteração de configuração pode demorar alguns minutos a concluir. Quando tiver concluído, é devolvida uma mensagem semelhante ao seguinte, que inclui o resultado:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-Se a área de trabalho foi criada apenas para suportar a monitorização de cluster e já não é necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça sobre o **ID de recurso da área de trabalho** copiou anteriormente no passo 4, que vai necessitar que.  
+Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se não estiver familiarizado com como eliminar uma área de trabalho, consulte [eliminar uma área de trabalho do Log Analytics do Azure com o portal do Azure](../log-analytics/log-analytics-manage-del-workspace.md).  Não se esqueça da **ID de recurso da área de trabalho** copiou anteriormente no passo 4, vai precisar que.  
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Esta secção fornece informações para ajudar a resolver problemas com o estado de funcionamento do contentor.
+Esta seção fornece informações para ajudar a resolver problemas com o estado de funcionamento do contentor.
 
-Se o estado de funcionamento do contentor foi ativado e configurado com êxito, mas são não ver quaisquer informações de estado ou resulta na análise de registos quando efetua uma pesquisa de registo, pode realizar os passos seguintes para ajudar a diagnosticar o problema.   
+Se o estado de funcionamento do contentor foi ativado e configurado com êxito, mas são não vê quaisquer informações de estado ou os resultados no Log Analytics ao efetuar uma pesquisa de registos, pode realizar os passos seguintes para ajudar a diagnosticar o problema.   
 
-1. Verifique o estado do agente executando o seguinte comando: `kubectl get ds omsagent --namespace=kube-system`
+1. Verifique o estado do agente executando o seguinte comando: 
 
-    A saída deve assemelhar-se a seguinte que indica que o agente está em execução em todos os nós do cluster.  Por exemplo, este cluster tem dois nós e deve esperar o valor para um número igual de nós.  
+    `kubectl get ds omsagent --namespace=kube-system`
+
+    A saída deve assemelhar-se da indicar seguintes implantou corretamente:
 
     ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-    ```
-2. Verifique o estado de pod para verificar se encontra em execução ou não, executando o seguinte comando: `kubectl get pods --namespace=kube-system`
+    ```  
+2. Verificar o estado da implementação da versão do agente *06072018* ou superior, executando o seguinte comando:
 
-    A saída deve assemelhar-se o seguinte com o estado *executar* para o omsagent:
+    `kubectl get deployment omsagent-rs -n=kube-system`
+
+    A saída deve assemelhar-se da indicar seguintes implantou corretamente:
+
+    ```
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
+
+3. Verifique o estado de pod para verificar se que está a ser executado ou não executando o seguinte comando: `kubectl get pods --namespace=kube-system`
+
+    A saída deve assemelhar-se o seguinte com o estado *em execução* para o omsagent:
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system 
@@ -500,9 +550,9 @@ Se o estado de funcionamento do contentor foi ativado e configurado com êxito, 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-3. Verifique os registos do agente. Quando o agente de é implementado, este executa uma verificação rápida ao executar comandos OMI e mostra a versão do agente e o fornecedor de Docker. Para ver que o agente foi integrado com êxito, execute o seguinte comando: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Verifique os registos do agente. Quando o agente em contentores é implementado, ele executa uma verificação rápida ao executar comandos OMI e mostra a versão do agente e fornecedor de Docker. Para ver que o agente foi carregada com êxito, execute o seguinte comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
-    O estado deve assemelhar-se do seguinte:
+    O estado deve assemelhar-se ao seguinte:
 
     ```
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
@@ -527,4 +577,4 @@ Se o estado de funcionamento do contentor foi ativado e configurado com êxito, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Pesquisar registos](../log-analytics/log-analytics-log-search.md) para ver informações de desempenho de aplicações e estado de funcionamento do contentor de detalhado.  
+[Pesquisar registos](../log-analytics/log-analytics-log-search.md) para ver informações de desempenho de estado de funcionamento e a aplicação de contentor detalhadas.  

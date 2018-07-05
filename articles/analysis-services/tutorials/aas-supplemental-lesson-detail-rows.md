@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 626258488afec4b3c3f025ae85bd3b5866aa0cf3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596105"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443982"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar - Linhas Detalhadas
 
@@ -25,11 +25,11 @@ Tempo estimado para concluir esta lição: **10 minutos**
 Esta lição suplementar faz parte de um tutorial de modelação em tabela. Antes de executar as tarefas nesta lição suplementar, deve concluir todas as lições anteriores ou ter concluído um projeto de modelo de exemplo de vendas na Internet Adventure Works.  
   
 ## <a name="whats-the-issue"></a>Qual é o problema?
-Vamos ver os detalhes da medida InternetTotalSales, antes de adicionar uma expressão de linhas de detalhe.
+Vamos examinar os detalhes da medida InternetTotalSales, antes de adicionar uma expressão de linhas detalhadas.
 
 1.  No SSDT, clique no menu **Modelo** > **Analyze em Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A tabela dinâmica fornece agora um agregado resultados da medida à InternetTotalSales regiões e ano. 
+2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A tabela dinâmica oferece agora um resultados agregados de medida InternetTotalSales por regiões e ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -37,7 +37,7 @@ Vamos ver os detalhes da medida InternetTotalSales, antes de adicionar uma expre
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-O objetivo aqui é uma tabela que contém as colunas e linhas de dados que contribuem para o resultado da medida InternetTotalSales agregado. Para tal, adicione uma expressão de linhas de detalhe como uma propriedade da medida.
+O objetivo aqui é uma tabela que contém colunas e linhas de dados que contribuem para o resultado agregado da medida InternetTotalSales. Para tal, adicione uma expressão de linhas detalhadas como uma propriedade da medida.
 
 ## <a name="add-a-detail-rows-expression"></a>Adicionar uma expressão de linhas detalhadas
 
@@ -76,6 +76,6 @@ O objetivo aqui é uma tabela que contém as colunas e linhas de dados que contr
 ## <a name="see-also"></a>Consulte também  
 
 [Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
-[Lesson suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lição suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [Lição suplementar - Hierarquias desalinhadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
  

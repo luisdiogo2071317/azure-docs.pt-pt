@@ -1,6 +1,6 @@
 ---
-title: Dimensionar automaticamente unidades de débito de Event Hubs do Azure | Microsoft Docs
-description: Ativar o inflate de automaticamente um espaço de nomes para dimensionar automaticamente unidades de débito
+title: Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure | Documentos da Microsoft
+description: Ative ampliação automática num espaço de nomes para a dimensionar automaticamente unidades de débito.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,52 +12,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28018614"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434645"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito de Event Hubs do Azure
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
 
-Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados altamente dimensionáveis. Como tal, a utilização de Event Hubs, muitas vezes, aumenta depois de começar a utilizar o serviço. Tal utilização requer aumentar as unidades de débito predeterminado dimensionar os Event Hubs e processar taxas de transferência maior. O *Auto-inflate* funcionalidade dos Event Hubs automaticamente ajusta-se o número de unidades de débito para satisfazer as necessidades de utilização. Aumentar as unidades de débito impede cenários, na qual a limitação:
+Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados altamente dimensionável. Como tal, a utilização de Hubs de eventos aumenta, muitas vezes, depois de começar a utilizar o serviço. Essa utilização requer aumentar o predeterminado [unidades de débito](event-hubs-features.md#throughput-units) para dimensionar os Hubs de eventos e processar maiores taxas de transferência. O **ampliação automática** funcionalidade dos Hubs de eventos de dimensionamento automaticamente do aumento do número de unidades de débito, para utilização de satisfazer as necessidades. Aumentar as unidades de débito impede cenários, no qual de limitação:
 
-* Taxas de entrada de dados excedem as unidades de débito do conjunto.
-* Taxas de pedidos de saída de dados excedem as unidades de débito do conjunto.
+* As taxas de entrada de dados excederem as unidades de débito do conjunto.
+* Taxas de pedidos de saída de dados excederem as unidades de débito do conjunto.
 
-## <a name="how-auto-inflate-works"></a>Como funciona o inflate de automática
+## <a name="how-auto-inflate-works"></a>Como funciona a ampliação automática
 
-Tráfego de Hubs de eventos é controlado pelas unidades de débito. Uma única unidade de débito permite 1 MB por segundo de entrada e de duas vezes que quantidade de saída. Hubs de eventos Standard podem ser configurados com 1-20 unidades de débito. Auto-inflate permite-lhe começar por algo pequeno com as unidades de débito necessário mínimo. Em seguida, a funcionalidade ajusta automaticamente para o limite máximo de unidades de débito que precisa, consoante o aumento no tráfego. Auto-inflate fornece as seguintes vantagens:
+Tráfego de Hubs de eventos é controlado pelas [unidades de débito](event-hubs-features.md#throughput-units). Uma única unidade de débito permite que 1 MB por segundo de entrada e de duas vezes essa quantidade de saída. Os hubs de eventos Standard podem ser configurados com as unidades de débito de 1 a 20. Ampliação automática permite que comece por algo pequeno com as unidades de débito necessário mínimo que escolher. A funcionalidade, em seguida, pode ser dimensionada automaticamente para o limite máximo de unidades de débito que precisar, consoante o aumento no tráfego. Ampliação automática fornece as seguintes vantagens:
 
-- Um mecanismo de dimensionamento eficiente para começar por algo pequeno e dimensione à medida que aumentam a.
+- Um mecanismo de dimensionamento eficiente começar aos poucos e aumentar verticalmente à medida que cresce.
 - Dimensione automaticamente para o limite superior especificado sem problemas de limitação.
-- Mais controlam sobre o dimensionamento, como pode controlar quando e quanto à escala.
+- Mais controlam sobre o dimensionamento, uma vez que controla e quanto à escala.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Ativar o inflate de automaticamente um espaço de nomes
+## <a name="enable-auto-inflate-on-a-namespace"></a>Ativar ampliação automática num espaço de nomes
 
-Pode ativar ou desativar inflate de automática num espaço de nomes de Event Hubs utilizando um dos seguintes métodos:
+Pode ativar ou desativar a ampliação automática num espaço de nomes de Hubs de eventos, utilizando qualquer um dos seguintes métodos:
 
-1. O [portal do Azure](https://portal.azure.com).
-2. Um modelo Azure Resource Manager.
+- O [portal do Azure](https://portal.azure.com).
+- Uma [modelo Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Ativar automaticamente-inflate através do portal
+### <a name="enable-auto-inflate-through-the-portal"></a>Ativar ampliação automática através do portal
 
-Pode ativar a funcionalidade de Auto-inflate quando criar um espaço de nomes de Hubs de eventos:
+Pode ativar a funcionalidade de ampliação automática durante a criação de um espaço de nomes de Hubs de eventos:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Com esta opção ativada, pode começar por algo pequeno nas suas unidades de débito e dimensione à medida que a utilização da necessidades aumento. O limite superior inflation não imediatamente afetar os preços, que depende do número de unidades de débito utilizada por hora.
+Com esta opção ativada, pode começar com pouco com as unidades de débito e aumentar verticalmente, conforme a sua utilização precisa aumentar. O limite superior inflação não afetam imediatamente preços, que depende do número de unidades de débito utilizadas por hora.
 
-Também pode ativar inflate automática utilizando o **escala** opção no painel de definições no portal:
+Também pode ativar a ampliação automática com o **dimensionamento** opção no painel de definições no portal do:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Ativar Inflate automático utilizando um modelo Azure Resource Manager
+### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Ativar a ampliação automática através de um modelo Azure Resource Manager
 
-Pode ativar inflate de automática durante uma implementação de modelo Azure Resource Manager. Por exemplo, definir o `isAutoInflateEnabled` propriedade **verdadeiro** e defina `maximumThroughputUnits` para 10.
+Pode ativar ampliação automática durante uma implementação de modelo do Azure Resource Manager. Por exemplo, definir o `isAutoInflateEnabled` propriedade **verdadeira** e defina `maximumThroughputUnits` para 10. Por exemplo:
 
 ```json
 "resources": [
@@ -100,7 +100,7 @@ Pode ativar inflate de automática durante uma implementação de modelo Azure R
     ]
 ```
 
-Para o modelo completo, consulte o [criar Hubs de eventos espaço de nomes e ativar inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) modelo no GitHub.
+Para o modelo completo, consulte a [espaço de nomes de Hubs de eventos de criar e ativar ampliação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) modelo no GitHub.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

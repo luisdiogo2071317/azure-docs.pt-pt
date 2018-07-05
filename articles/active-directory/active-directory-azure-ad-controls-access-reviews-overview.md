@@ -3,23 +3,24 @@ title: Revisões de acesso do Azure AD | Microsoft Docs
 description: Pode controlar a associação a grupos e o acesso às aplicações para fazer face a iniciativas de governação, de gestão de riscos e de conformidade na sua organização ao utilizar as revisões de acesso do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
-ms.translationtype: HT
+ms.reviewer: mwahl
+ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233276"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446059"
 ---
 # <a name="azure-ad-access-reviews"></a>Revisões de acesso do Azure AD
 
@@ -36,7 +37,7 @@ As revisões de acesso do Azure Active Directory (Azure AD) permitem que as orga
 - Pode voltar a certificar a atribuição da função de utilizadores administrativos que estão atribuídos a funções do Azure AD, como Administrador Global ou funções de subscrição do Azure.  Esta capacidade está incluída no Azure AD Privileged Identity Management.
     
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)

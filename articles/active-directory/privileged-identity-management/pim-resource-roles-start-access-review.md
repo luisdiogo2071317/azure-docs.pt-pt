@@ -1,6 +1,6 @@
 ---
-title: Efetuar revisões de acesso nos recursos do Azure utilizando o Privileged Identity Management | Microsoft Docs
-description: Explica como iniciar uma revisão do acesso no Privileged Identity Management de recursos do Azure
+title: Executar revisões de acesso nos recursos do Azure através do Privileged Identity Management | Documentos da Microsoft
+description: Explica como iniciar uma revisão de acesso no Privileged Identity Management para recursos do Azure
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,65 +9,65 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5c2f13386a996a6c7895bd4755b6cf609a5df72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f963e63aa92e15205f20ecb3e502065b8dd2c58c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233259"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443074"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Efetuar revisões de acesso nos recursos do Azure utilizando o Privileged Identity Management
-Atribuições de função ficam "obsoletas" quando os utilizadores com acesso privilegiado que não precisam de já. Para reduzir o risco que está associada a estes atribuições de funções obsoletos, os administradores de com função privilegiada regularmente devem rever as funções. Este documento aborda os passos para iniciar uma revisão do acesso no Privileged Identity Management (PIM) para recursos do Azure.
+# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Executar revisões de acesso nos recursos do Azure através do Privileged Identity Management
+Atribuições de função tornam-se "obsoletas" quando os utilizadores tem acesso que não precisam mais privilegiado. Para reduzir o risco associado a estas atribuições de função obsoleta, os administradores de função com privilégios regularmente devem rever funções. Este documento aborda os passos para iniciar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure.
 
-Na página principal da aplicação do PIM, aceda a:
+A partir do PIM página da aplicação principal, aceda a:
 
-* **Aceder revisões** > **adicionar**
+* **As revisões de acesso** > **adicionar**
 
-![Adicionar revisões de acesso](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+![Adicionar as revisões de acesso](media/azure-pim-resource-rbac/rbac-access-review-home.png)
 
-Quando seleciona o **adicionar** botão, o **criar uma revisão do acesso** é apresentado o painel. Neste painel, configure a revisão com um nome e o limite de tempo, escolha uma função para rever e, em seguida, decidir que a revisão.
+Quando seleciona a **Add** botão, o **criar uma revisão de acesso** é apresentado o painel. Neste painel, configure a revisão com um nome e o limite de tempo, escolher uma função para rever e, em seguida, decida quem faz a revisão.
 
 ![Criar uma revisão de acesso](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
 ### <a name="configure-the-review"></a>Configurar a revisão
-Para criar uma revisão do acesso, primeiro o nome e, em seguida, defina uma data de início e de fim.
+Para criar uma revisão de acesso, nomeie-o primeiro e, em seguida, defina uma data de início e de fim.
 
-![Configurar revisão - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
+![Configurar examine - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
 
-Se o comprimento da revisão tempo suficiente para que os utilizadores concluí-la. Se terminarem antes da data de fim, estes podem interrompem sempre a revisão antecipadamente.
+Verifique o comprimento da revisão tempo suficiente para os utilizadores para concluí-la. Se a eles concluída antes da data de fim, eles podem sempre pare a revisão desde o início.
 
 ### <a name="choose-a-role-to-review"></a>Escolher uma função para rever
-Cada revisão centra-se apenas uma função. Exceto se tiver iniciado a revisão do acesso a partir do painel de uma função específica, tem de escolher uma função agora.
+Cada revisão se concentra numa única função. A menos que iniciou a revisão de acesso de um painel de função específica, terá de escolher uma função agora.
 
-1. Aceda a **rever membro da função**
+1. Aceda a **rever a associação de função**
    
-    ![Reveja o membro da função - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
-2. Selecione uma função na lista.
+    ![Rever a associação de função - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
+2. Escolha uma função a partir da lista.
 
-### <a name="decide-who-will-perform-the-review"></a>Decidir que executará a revisão
-Existem três opções para executar uma revisão. Pode atribuir a revisão para outra pessoa para concluir, pode fazê-lo por si ou cada utilizador pode rever os suas próprias acesso.
+### <a name="decide-who-will-perform-the-review"></a>Decida quem as executará a revisão
+Existem três opções para a execução de uma revisão. Pode atribuir a revisão a alguém para concluir, pode fazê-lo por conta própria ou, cada utilizador pode rever o seu próprio acesso.
 
 1. Escolha uma das opções:
    
-   * **Utilizadores selecionados**: Utilize esta opção se não souber quem tem acesso. Com esta opção, pode atribuir a revisão para um proprietário de recursos ou o Gestor de grupo para concluir.
-   * **Atribuído (self)**: Utilize esta opção para que os utilizadores, reveja as suas próprias atribuições de funções.
+   * **Utilizadores selecionados**: Utilize esta opção se não sabe quem precisa de acesso. Com esta opção, pode atribuir a revisão a um proprietário do recurso ou o Gestor de grupo para concluir.
+   * **Atribuído (autónomo)**: Utilize esta opção para que os utilizadores, reveja as suas próprias atribuições de funções.
    
-2. Aceda a **selecione revisores**.
+2. Aceda a **selecionar revisores**.
    
-    ![Selecione os revisores - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
+    ![Selecionar revisores - captura de ecrã](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
-### <a name="start-the-review"></a>Iniciar a revisão
+### <a name="start-the-review"></a>Inicie a revisão
 Por fim, pode exigir que os utilizadores forneçam um motivo para aprovação de acesso. Adicione uma descrição da revisão se assim o desejar. Em seguida, selecione **iniciar**.
 
-Certifique-se de que permite aos utilizadores saber que existe uma revisão do acesso a aguardar para os mesmos e apresentar [como executar uma revisão do acesso](pim-resource-roles-perform-access-review.md).
+Certifique-se de que permitir que os utilizadores saber que existe uma revisão de acesso, esperando que eles e mostrar-lhes [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
 
-## <a name="manage-the-access-review"></a>Gerir a revisão do acesso
-No dashboard de recursos do PIM Azure, pode acompanhar o progresso à medida os revisores concluir as revisões. Sem direitos de acesso são alterados no diretório até [concluiu a revisão](pim-resource-roles-complete-access-review.md).
+## <a name="manage-the-access-review"></a>Gerir a revisão de acesso
+No dashboard de recursos do Azure do PIM, pode monitorizar o progresso conforme os revisores de concluir as revisões. Nenhum direito de acesso forem alterado no diretório até [concluiu a revisão](pim-resource-roles-complete-access-review.md).
 
-Até que o período de avaliação está acima, pode notificar os utilizadores para concluir a respetiva revisão ou pare a revisão numa fase inicial da secção de revisões de acesso.
+Até que o período de avaliação está acima, pode relembrar aos utilizadores para concluir a revisão ou pare a revisão desde o início da seção de revisões de acesso.
 

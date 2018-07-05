@@ -1,5 +1,5 @@
 ---
-title: Como gerir as definições de ativação de função | Microsoft Docs
+title: Como gerir as definições de ativação de função | Documentos da Microsoft
 description: Saiba como alterar as predefinições para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
@@ -7,45 +7,45 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4557457e28a9a9b8bcd7f5c3bda40fbba8cdd24b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9735023fa8aefe942892fc10d5f186cca62ab6be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233310"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446926"
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Como gerir as definições de ativação de função no Azure AD Privileged Identity Management
-Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alterar a experiência de para um utilizador que está a ativar uma atribuição de função elegível.
+Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alteração da experiência de para um utilizador que consiste em ativar uma atribuição de função elegível.
 
 ## <a name="manage-the-role-activation-settings"></a>Gerir as definições de ativação de função
-1. Vá para o [portal do Azure](https://portal.azure.com) e selecione o **do Azure AD Privileged Identity Management** aplicação a partir do dashboard.
-2. Selecione **gerir funções privilegiadas** > **definições** > **funções com privilégios**.
+1. Vá para o [portal do Azure](https://portal.azure.com) e selecione o **Azure AD Privileged Identity Management** aplicação a partir do dashboard.
+2. Selecione **gerir funções com privilégios** > **definições** > **funções com privilégios**.
 3. Escolha a função cujas definições pretende gerir.
 
-Na página de definições para cada função, existem várias definições que pode configurar. Estas definições afetam apenas os utilizadores que são elegíveis administradores, administradores permanentes não.
+Na página de definições para cada função, há uma série de definições que pode configurar. Estas definições afetam apenas os utilizadores que são administradores elegíveis, os administradores não permanentes.
 
-**Ativações**: O tempo, em horas, o que uma função permanece ativa antes de expirar. Isto pode ser entre 1 e 72 horas.
+**Ativações**: O tempo, em horas, o que uma função fica ativa antes de expirar. Isso pode ser entre 1 e 72 horas.
 
-**Notificações**: pode escolher se pretende ou não o sistema envia mensagens de correio eletrónico para administradores confirmar tem ativado a uma função. Isto pode ser útil para detetar ativações não autorizadas ou illegitimate.
+**Notificações**: pode escolher se é ou não o sistema envia mensagens de correio eletrónico para os administradores que confirmam que ativaram uma função. Isso pode ser útil para detetar ativações não autorizadas ou ilegítimo.
 
-**Pedido de incidente/solicitar**: pode escolher se deve ou não necessitam de admins elegível para incluir um número da permissão, quando ativar a respetiva função. Isto pode ser útil quando efetua as auditorias de acesso de função.
+**Pedido de incidente/pedido**: pode escolher se deve ou não necessitam de administradores elegíveis para incluir um número de pedido de suporte quando ativar a respetiva função. Isso pode ser útil ao realizar auditorias de acesso de função.
 
-**Autenticação Multifator**: pode escolher se deve ou não exigir que os utilizadores verifiquem a respetiva identidade com a MFA possa ativar as respetivas funções. Apenas têm de verificar este vez por sessão, não sempre que ativam uma função. Existem dois sugestões a ter em mente quando ativar a MFA:
+**Multi-factor Authentication**: pode escolher se deve ou não exigir que os utilizadores verifiquem a respetiva identidade com a MFA para poderem ativar as suas funções. Eles só precisam verificar este vez por sessão, não toda vez que os utilizadores ativar uma função. Há duas dicas para ter em mente ao ativar a MFA:
 
-* Utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas nem sempre) não é possível efetuar o registo do MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve tornar administradores permanentes ou desative a MFA para essa função.
-* Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e o Office 365. Esta é uma funcionalidade de segurança porque estas funções devem ser cuidadosamente protegidas:  
+* Os utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas não sempre) não é possível registar para MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-los a administradores permanentes ou desativar a MFA para essa função.
+* Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e Office 365. Esse é um recurso de segurança, uma vez que estas funções devem ser protegidas com cuidado:  
   
   * Administrador de aplicações
-  * Administrador do servidor de Proxy de aplicações
+  * Administrador de servidor de Proxy de aplicações
   * Administrador de faturação  
   * Administrador de Conformidade  
-  * Administrador de serviço do CRM
+  * Administrador de serviço CRM
   * Aprovador de acesso ao Sistema de Proteção de Dados do Cliente
   * Escritor de diretório  
   * Administrador do Exchange  
@@ -60,7 +60,7 @@ Na página de definições para cada função, existem várias definições que 
   * Administrador do Skype para Empresas  
   * Administrador de conta de utilizador  
 
-Para obter mais informações sobre como utilizar a MFA com PIM consulte [como requerer MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
+Para obter mais informações sobre como utilizar o MFA com o PIM, consulte [como requerer MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 

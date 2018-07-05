@@ -1,84 +1,84 @@
 ---
-title: Personalização de idioma no Azure Active Directory B2C | Microsoft Docs
+title: Personalização de idioma no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre como personalizar a experiência de idioma.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711941"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442326"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
-Personalização de idioma no Azure Active Directory B2C (Azure AD B2C) permite a política acomodar idiomas diferentes, de acordo com as suas necessidades de cliente.  A Microsoft fornece traduções para [36 idiomas](#supported-languages), mas também pode fornecer as suas próprias traduções para nenhum idioma. Mesmo se a sua experiência é fornecida para apenas um único idioma, pode personalizar qualquer texto nas páginas.  
+Personalização de idioma no Azure Active Directory B2C (Azure AD B2C) permite que a sua política para acomodar idiomas diferentes de acordo com as necessidades dos clientes.  As traduções para a Microsoft fornece [36 idiomas](#supported-languages), mas também pode fornecer suas próprias traduções para qualquer idioma. Mesmo que sua experiência é fornecida para um único idioma, pode personalizar qualquer texto nas páginas.  
 
 ## <a name="how-language-customization-works"></a>Como funciona a personalização de idioma
-Utilizar personalização de idioma para selecionar os idiomas da sua viagem de utilizador está disponível. Depois da funcionalidade está ativada, pode fornecer o parâmetro de cadeia de consulta, `ui_locales`, da sua aplicação. Quando chamar para o Azure AD B2C, a página é convertida na região que indicou. Este tipo de configuração dá-lhe controlo total sobre os idiomas da sua viagem de utilizador e ignora as definições de idioma do browser do cliente. 
+Utilizar a personalização de idioma para selecionar quais idiomas seu percurso do utilizador está disponível no. Depois da funcionalidade está ativada, pode fornecer o parâmetro de cadeia de caracteres de consulta, `ui_locales`, desde a sua aplicação. Quando chama-se para o Azure AD B2C, a página é traduzida para a localidade que indicou. Este tipo de configuração dá-lhe controlo total sobre os idiomas no seu percurso do utilizador e ignora as definições de idioma do navegador do cliente. 
 
-Não poderá ser necessário desse nível de controlo sobre os idiomas vê do seu cliente. Se não fornecer um `ui_locales` parâmetro, experiência do cliente é ditada pelo definições do seu browser.  Pode continuar a controlar os idiomas da sua viagem de utilizador é convertida em adicionando-o como um idioma suportado. Se o browser de um cliente está definida para mostrar um idioma que não pretende suportar, o idioma que selecionou como uma predefinição no culturas suportadas é apresentado em vez disso.
+Poderá não ter esse nível de controle sobre quais idiomas vê do seu cliente. Se não fornecer um `ui_locales` parâmetro, experiência do cliente é ditada por configurações do navegador.  Pode continuar a controlar que idiomas seu percurso do utilizador for convertido em ao adicioná-la como um idioma suportado. Se o browser de um cliente está configurado para mostrar um idioma que não pretende oferecer apoio técnico, em seguida, o idioma que selecionou como uma predefinição na culturas suportadas é apresentado em vez disso.
 
-- **IU regiões especificado idioma**: depois de ativar a personalização de idioma, da sua viagem de utilizador é convertida para o idioma que é especificado aqui.
-- **Idioma de pedido de browser**: Se não `ui_locales` foi especificado um parâmetro, da sua viagem de utilizador é convertida para o idioma pedido de browser, *se o idioma é suportado*.
-- **Linguagem predefinida de política**: se o browser não especifica um idioma ou especifica um que não é suportada, journey o utilizador é convertido para o idioma predefinido de política.
+- **localidades da interface do usuário especificado linguagem**: depois de ativar a personalização de idioma, o seu percurso do utilizador é traduzido para o idioma que é especificado aqui.
+- **Idioma de pedido de browser**: Se não `ui_locales` foi especificado um parâmetro, o percurso do utilizador é traduzido para o idioma pedido de navegador, *se o idioma é suportado*.
+- **Idioma de padrão de política**: se o navegador não especifica um idioma ou especifica um que não é suportado, o percurso do utilizador é traduzido para o idioma predefinido de política.
 
 >[!NOTE]
->Se estiver a utilizar os atributos de utilizador personalizado, terá de fornecer as suas próprias traduções. Para obter mais informações, consulte [personalizar as cadeias](#customize-your-strings).
+>Se estiver usando os atributos de utilizador personalizada, terá de fornecer suas próprias traduções. Para obter mais informações, consulte [personalizar suas cadeias de caracteres](#customize-your-strings).
 >
 
-## <a name="support-requested-languages-for-uilocales"></a>Suporte de idiomas pedidos para ui_locales 
-Políticas que foram criadas antes da disponibilidade geral da personalização de idioma necessário ativar esta funcionalidade pela primeira vez. As políticas que foram criadas depois de tem ativada por predefinição de personalização de idioma. 
+## <a name="support-requested-languages-for-uilocales"></a>Suporte a idiomas pedidos para ui_locales 
+Políticas que foram criadas antes da disponibilidade geral da personalização de idioma tem de ativar esta funcionalidade em primeiro lugar. Políticas que foram criadas depois de ter a personalização de idioma ativada por predefinição. 
 
-Quando ativar a personalização de idioma numa política, pode controlar o idioma de journey o utilizador ao adicionar o `ui_locales` parâmetro.
+Ao ativar a personalização de idioma numa política, pode controlar o idioma do percurso do utilizador ao adicionar o `ui_locales` parâmetro.
 1. [Aceda à página de funcionalidades do B2C no portal do Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
 2. Navegue para uma política que pretende ativar para traduções.
 3. Selecione **personalização de idioma**.  
 4. Selecione **ativar a personalização de idioma**.
-5. Ler as informações na caixa de diálogo e selecionar **Sim**.
+5. Ler as informações na caixa de diálogo e selecione **Sim**.
 
-## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecione os idiomas da sua viagem de utilizador estão ativados 
-Ativar um conjunto de idiomas da sua viagem de utilizador ser convertido em quando solicitado pelo browser sem o `ui_locales` parâmetro.
-1. Certifique-se de que a política tem ativada a partir de instruções anteriores de personalização de idioma.
-2. Do **Editar política** página, selecione **personalização de idioma**.
+## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecione os idiomas no seu percurso do utilizador que estão ativados 
+Ativar um conjunto de idiomas para o seu percurso do utilizador ser convertido para quando solicitado pelo navegador sem o `ui_locales` parâmetro.
+1. Certifique-se de que a política tem de personalização de idioma ativada a partir de instruções anteriores.
+2. Partir do **Editar política** página, selecione **personalização de idioma**.
 3. Selecione um idioma que pretende suportar.
-4. No painel de propriedades, altere **ativado** para **Sim**.  
-5. Selecione **guardar** no topo do painel de propriedades.
+4. No painel de propriedades, altere **Enabled** ao **Sim**.  
+5. Selecione **guardar** na parte superior do painel de propriedades.
 
 >[!NOTE]
->Se um `ui_locales` parâmetro não for fornecido, a página é convertida em idioma do browser do cliente apenas se estiver ativada.
+>Se um `ui_locales` parâmetro não for fornecido, a página é traduzida para o idioma do navegador do cliente apenas se estiver ativada.
 >
 
-## <a name="customize-your-strings"></a>Personalizar a sua cadeias
-Personalização de idioma permite-lhe personalizar a qualquer cadeia da sua viagem de utilizador.
-1. Certifique-se de que a política tem ativada a partir das instruções anteriores de personalização de idioma.
-2. Do **Editar política** página, selecione **personalização de idioma**.
+## <a name="customize-your-strings"></a>Personalizar suas cadeias de caracteres
+Personalização de idioma permite-lhe personalizar a qualquer cadeia de caracteres no seu percurso do utilizador.
+1. Certifique-se de que a política tem de personalização de idioma ativada a partir das instruções anteriores.
+2. Partir do **Editar política** página, selecione **personalização de idioma**.
 3. Selecione o idioma que pretende personalizar.
 4. Selecione a página que pretende editar.
-5. Selecione **transferir predefinições** (ou **transferir substituições** se anteriormente tiver editado neste idioma). 
+5. Selecione **descarregar predefinições** (ou **transferir substituições** se anteriormente tiver editado neste idioma). 
 
-Estes passos dão-lhe um ficheiro JSON que pode utilizar para iniciar as cadeias de edição.
+Estes passos dão-lhe um ficheiro JSON que pode utilizar para começar a editar suas cadeias de caracteres.
 
-### <a name="change-any-string-on-the-page"></a>Altere qualquer cadeia na página
+### <a name="change-any-string-on-the-page"></a>Alterar qualquer cadeia de caracteres na página
 1. Abra o ficheiro JSON que transferiu do instruções anteriores num editor de JSON.
-2. Encontrar o elemento que pretende alterar.  Pode encontrar `StringId` para a cadeia de procura ou procure o `Value` atributo que pretende alterar.
+2. Localize o elemento que pretende alterar.  Pode encontrar `StringId` para a cadeia de procura, ou procure o `Value` atributo que pretende alterar.
 3. Atualização do `Value` atributo com o que pretende apresentar.
-4. Para cada cadeia que pretende alterar, alterar `Override` para `true`.
-5. Guarde o ficheiro e carregar as suas alterações. (Pode encontrar o controlo de carregamento no mesmo local como onde transferiu o ficheiro JSON.) 
+4. Para cada cadeia de caracteres que deseja alterar, altere `Override` para `true`.
+5. Guarde o ficheiro e carregar as suas alterações. (Pode encontrar o controle de carregamento no mesmo local como onde transferiu o ficheiro JSON.) 
 
 >[!IMPORTANT]
->Se precisar de uma cadeia de substituição, certifique-se definir o `Override` valor `true`.  Se o valor não é alterado, a entrada é ignorada. 
+>Se precisar de substituir uma cadeia de caracteres, certifique-se definir o `Override` valor a `true`.  Se o valor não é alterado, a entrada é ignorada. 
 >
 
-### <a name="change-extension-attributes"></a>Alterar os atributos de extensão
-Se pretender alterar a cadeia para um atributo de utilizador personalizada ou que pretende adicionar um para o JSON, está no seguinte formato:
+### <a name="change-extension-attributes"></a>Altere os atributos de extensão
+Se pretender alterar a cadeia de caracteres para um atributo de utilizador personalizada ou que pretende adicionar um para o JSON, está no seguinte formato:
 ```JSON
 {
   "LocalizedStrings": [
@@ -93,12 +93,12 @@ Se pretender alterar a cadeia para um atributo de utilizador personalizada ou qu
 }
 ```
 
-Substitua `<ExtensionAttribute>` com o nome do seu atributo de utilizador personalizadas.  
+Substitua `<ExtensionAttribute>` com o nome do seu atributo de utilizador personalizada.  
 
-Substitua `<ExtensionAttributeValue>` com a nova cadeia a apresentar.
+Substitua `<ExtensionAttributeValue>` com a nova cadeia de caracteres a serem exibidos.
 
-### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Forneça uma lista de valores utilizando LocalizedCollections
-Se pretender fornecer uma lista de conjunto de valores de respostas, terá de criar um `LocalizedCollections` atributo.  `LocalizedCollections` é uma matriz de `Name` e `Value` pares. A ordem dos itens será ordem que são apresentadas.  Para adicionar `LocalizedCollections`, utilize o seguinte formato:
+### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Fornecer uma lista de valores, utilizando LocalizedCollections
+Se quiser fornecer uma lista de conjunto de valores para as respostas, terá de criar um `LocalizedCollections` atributo.  `LocalizedCollections` é uma matriz de `Name` e `Value` pares. A ordem dos itens será a ordem que elas são exibidas.  Para adicionar `LocalizedCollections`, utilize o seguinte formato:
 
 ```JSON
 {
@@ -122,61 +122,61 @@ Se pretender fornecer uma lista de conjunto de valores de respostas, terá de cr
 }
 ```
 
-* `ElementId` é o utilizador de atributos que este `LocalizedCollections` atributo for uma resposta a.
-* `Name` é o valor que é apresentado ao utilizador.
+* `ElementId` é o utilizador de atributo que este `LocalizedCollections` atributo é uma resposta.
+* `Name` é o valor que é mostrado ao usuário.
 * `Value` é o que é devolvido na afirmação quando esta opção está selecionada.
 
 ### <a name="upload-your-changes"></a>Carregar as suas alterações
-1. Depois de concluir as alterações para o ficheiro JSON, volte ao seu inquilino do B2C.
-2. Do **Editar política** página, selecione **personalização de idioma**.
-3. Selecione o idioma que pretende converter para.
-4. Selecione a página onde pretende fornecer traduções.
-5. Selecione o ícone de pastas e selecione o ficheiro JSON para carregar.
+1. Depois de concluir as alterações ao seu ficheiro JSON, regresse ao seu inquilino do B2C.
+2. Partir do **Editar política** página, selecione **personalização de idioma**.
+3. Selecione o idioma que queira traduzir para.
+4. Selecione a página onde deseja fornecer traduções.
+5. Selecione o ícone de pasta e selecione o ficheiro JSON para carregar.
  
-As alterações são guardadas na sua política automaticamente.
+As alterações são guardadas automaticamente à sua política.
 
-## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizar a página IU através da utilização de personalização de idioma
+## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizar a página da interface do Usuário, utilizando a personalização de idioma
 
-Existem duas formas de localizar o conteúdo HTML. É uma forma para ativar o [personalização de idioma](active-directory-b2c-reference-language-customization.md). Ativar esta funcionalidade permite que o Azure AD B2C reencaminhar o parâmetro abrir ID Connect `ui-locales`, para o ponto final.  O servidor de conteúdo pode utilizar este parâmetro para fornecer páginas HTML personalizadas que são específicas do idioma.
+Existem duas formas de localizar o seu conteúdo HTML. É uma forma ativar a [personalização de idioma](active-directory-b2c-reference-language-customization.md). Ativar esta funcionalidade permite que o Azure AD B2C para reencaminhar o parâmetro abrir ID Connect, `ui-locales`, para o ponto final.  O servidor de conteúdo pode utilizar este parâmetro para fornecer páginas HTML personalizadas que são específicas do idioma.
 
-Em alternativa, pode solicitar conteúdo a partir de diferentes locais com base na região que é utilizado. O ponto final ativado para CORS, pode configurar uma estrutura de pasta para alojar conteúdo em idiomas específicos. Irá chamar o um direito se utilizar o valor de caráter universal `{Culture:RFC5646}`.  Por exemplo, suponha que este é a URI de página personalizada:
+Em alternativa, pode solicitar conteúdo a partir de locais diferentes com base na localidade que é utilizada. O ponto final CORS ativado, pode configurar uma estrutura de pastas para alojar conteúdo para idiomas específicos. Chamará o um certo, se usar o valor de caráter universal `{Culture:RFC5646}`.  Por exemplo, suponha que este é o URI da página personalizada:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
-Pode carregar a página no `fr`. Quando a página solicita conteúdo HTML e CSS, é extrair de:
+Pode carregar a página no `fr`. Quando a página recebe o conteúdo HTML e CSS, ele está obtendo a partir de:
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
 ## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também pode adicionar idiomas atualmente a Microsoft não cede traduções para. Terá de fornecer as traduções para todas as cadeias na política.  Códigos de idioma e região estão limitados no padrão de 639 1 ISO. 
+Também pode adicionar idiomas que a Microsoft não fornece atualmente traduções para. Terá de fornecer as traduções para todas as cadeias de caracteres na política.  Códigos de idioma e região são limitados no padrão ISO 639-1. 
 
-1. Do **Editar política** página, selecione **personalização de idioma**.
+1. Partir do **Editar política** página, selecione **personalização de idioma**.
 2. Selecione **Adicionar idioma personalizado** da parte superior da página.
-3. No painel de contexto que se abre, identifique o idioma que está a fornecer traduções para introduzindo um código de região válido.
-4. Para cada página, pode transferir um conjunto de substituições para inglês e as traduções de trabalho.
-5. Depois de terminado com os ficheiros JSON, pode carregá-los para cada página.
-6. Selecione **ativar**, e a política agora pode mostrar neste idioma para os seus utilizadores.
+3. No painel de contexto que se abre, identifique o idioma que está a oferecer traduções para ao introduzir um código de região válido.
+4. Para cada página, pode transferir um conjunto de substituições para inglês e funcionam nas traduções.
+5. Depois de terminar com os ficheiros JSON, pode carregá-los para cada página.
+6. Selecione **ativar**, e a política agora pode mostrar essa linguagem para os seus utilizadores.
 7. Guarde o idioma.
 
 >[!IMPORTANT]
->Terá de ativar os idiomas personalizados ou carregar substituições para o mesmo para poder guardar.
+>Tem de ativar os idiomas personalizados ou carregar substituições para o mesmo para poder guardar.
 >
 
 ## <a name="additional-information"></a>Informações adicionais
 
-### <a name="page-ui-customization-labels-as-overrides"></a>Etiquetas de personalização de página IU como substituições
-Quando ativar a personalização de idioma, as edições que efectuou anterior para as etiquetas a utilizar a personalização da página IU são mantidas num ficheiro JSON para inglês (en). Pode continuar a alterar as etiquetas e noutras cadeias através do carregamento de recursos do idioma na personalização de idioma.
+### <a name="page-ui-customization-labels-as-overrides"></a>Etiquetas de personalização da IU da página como substituições
+Ao ativar a personalização de idioma, as edições anteriores para etiquetas utilizando a personalização da interface do Usuário da página são mantidas num ficheiro JSON para inglês (en). Pode continuar a alterar as etiquetas e outras cadeias de caracteres através do carregamento de recursos de idioma na personalização de idioma.
 ### <a name="up-to-date-translations"></a>Traduções atualizadas
-A Microsoft está empenhada em fornecer as traduções mais atualizadas à sua para utilização. A Microsoft continuamente melhora traduções e mantém-nos em conformidade para si. Microsoft irá identificar erros e de alterações na terminologia global e disponibilizar atualizações de irão funcionar de forma totalmente integrada da sua viagem de utilizador.
-### <a name="support-for-right-to-left-languages"></a>Suporte para idiomas de direita para a esquerda
-Microsoft atualmente não fornece suporte para idiomas de direita para a esquerda. Isto é possível utilizando regiões personalizados e utilizar CSS para alterar a forma como as cadeias são apresentadas.  Se precisar desta funcionalidade,. votá-lo em [Azure comentários](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+A Microsoft está empenhada em fornecer as traduções mais atualizadas para a sua utilização. A Microsoft continuamente melhora traduções e mantém-em conformidade para. A Microsoft irá identificar bugs e as alterações na terminologia global e fazer atualizações que irão funcionar de forma totalmente integrada no seu percurso do utilizador.
+### <a name="support-for-right-to-left-languages"></a>Suporte para idiomas da direita para a esquerda
+Microsoft atualmente não oferece suporte para idiomas da direita para a esquerda. Isso pode ser feito usando as localidades personalizadas e usando a CSS para alterar a forma como as cadeias de caracteres são exibidas.  Se precisar desta funcionalidade, vote em [comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduções de fornecedor de identidade de redes sociais
-A Microsoft oferece o `ui_locales` parâmetro OIDC para inícios de sessão de redes sociais. Mas alguns fornecedores de identidade de redes sociais, incluindo o Facebook e Google, não respeite-los. 
-### <a name="browser-behavior"></a>Comportamento de browser
-Chrome e Firefox que ambos pedem para o idioma de conjunto. Se se tratar de um idioma suportado, é apresentada antes da predefinição. Atualmente, o limite não pedir um idioma e vai diretamente para o idioma predefinido.
+A Microsoft fornece o `ui_locales` parâmetro OIDC para inícios de sessão sociais. Mas alguns fornecedores de identidade de redes sociais, incluindo o Facebook e o Google, não respeitam-los. 
+### <a name="browser-behavior"></a>Comportamento do navegador
+Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata de um idioma suportado, ele é exibido antes que a predefinição. Atualmente, o Edge não solicita um idioma e vai diretamente para o idioma predefinido.
 
 ### <a name="supported-languages"></a>Linguagens suportadas
 
@@ -192,7 +192,7 @@ Chrome e Firefox que ambos pedem para o idioma de conjunto. Se se tratar de um i
 | Finlandês               | fi            |
 | Francês                | fr            |
 | Guzarate              | gu            |
-| Hindi                 | Olá            |
+| Hindi                 | Olá!            |
 | Croata              | hr            |
 | Húngaro             | hu            |
 | Italiano               | it            |
@@ -200,21 +200,21 @@ Chrome e Firefox que ambos pedem para o idioma de conjunto. Se se tratar de um i
 | Canarim               | kN            |
 | Coreano                | ko            |
 | Malayalam             | ml            |
-| Marati               | MR            |
+| Marata               | MR            |
 | Malaio                 | ms            |
-| Norueguês Bokmal      | nb            |
+| Coroa Bokmal      | nb            |
 | Neerlandês                 | nl            |
 | Punjabi               | Pa            |
 | Polaco                | pl            |
-| Português - Brasil   | pt-br         |
-| Português - Portugal | pt-pt         |
+| Português (Brasil)   | pt-br         |
+| Português (Portugal) | pt-pt         |
 | Romeno              | ro            |
 | Russo               | ru            |
 | Eslovaco                | SK            |
 | Sueco               | sv            |
-| Tamil                 | dados            |
+| Tamil                 | es            |
 | Télego                | te            |
 | Tailandês                  | º            |
 | Turco               | TR            |
-| Chinês - simplificada  | zh-hans       |
+| Chinês - simplificado  | zh hans       |
 | Chinês - tradicional | zh-hant       |

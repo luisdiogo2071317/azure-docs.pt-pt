@@ -1,84 +1,60 @@
 ---
-title: Dimensionamento de máquina virtual de disponibilizar define disponível na pilha do Azure | Microsoft Docs
-description: Saiba como um operador da nuvem adicionar dimensionamento da máquina virtual para a pilha do Azure Marketplace
+title: Disponibilizar conjuntos de dimensionamento de máquinas virtuais no Azure Stack | Documentos da Microsoft
+description: Saiba como um operador da cloud pode adicionar conjuntos de dimensionamento de máquinas virtuais no Azure Stack Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "34800645"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar os conjuntos de dimensionamento de máquina virtual na pilha do Azure
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de dimensionamento de máquinas virtuais no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Conjuntos de dimensionamento de máquina virtual são um recurso de computação de pilha do Azure. Pode utilizá-los para implementar e gerir um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configurados da mesma, conjuntos de dimensionamento não necessitam de pré-aprovisionamento de máquinas virtuais. É mais fácil criar serviços em grande escala que macrocomputação, macrodados e de cargas de trabalho de destino.
+Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure Stack. Pode usá-los para implementar e gerir um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configuradas da mesma forma, os conjuntos de dimensionamento não necessitam de pré-aprovisionamento de máquinas virtuais. É mais fácil criar serviços em grande escala destinados a big compute, macrodados e cargas de trabalho em contentores.
 
-Este artigo orienta-o processo para disponibilizar conjuntos de dimensionamento no mercado de pilha do Azure. Depois de concluir este procedimento, os utilizadores podem adicionar conjuntos de dimensionamento de máquina virtual para as suas subscrições.
+Este artigo orienta-o no processo de disponibilizar conjuntos de dimensionamento no Azure Stack Marketplace. Depois de concluir este procedimento, os seus utilizadores podem adicionar conjuntos de dimensionamento de máquina virtual para suas assinaturas.
 
-Conjuntos de dimensionamento de máquina virtual na pilha do Azure são como conjuntos de dimensionamento de máquina virtual no Azure. Para obter mais informações, consulte os vídeos seguintes:
+Conjuntos de dimensionamento de máquinas virtuais no Azure Stack são como os conjuntos de dimensionamento de máquinas virtuais no Azure. Para obter mais informações, veja os vídeos seguintes:
 * [Mark Russinovich talks Azure Scale Sets (Mark Russinovich fala sobre os conjuntos de dimensionamento do Azure)](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Virtual Machine Scale Sets with Guy Bowerman (Conjuntos de Dimensionamento de Máquinas Virtuais, com Guy Bowerman)](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Na pilha do Azure, conjuntos de dimensionamento de máquina virtual não suportam o dimensionamento automático. Pode adicionar mais instâncias a uma escala definida utilizando o portal de pilha do Azure, modelos do Resource Manager ou PowerShell.
+No Azure Stack, conjuntos de dimensionamento de máquina virtual não suportam o dimensionamento automático. Pode adicionar mais instâncias para um conjunto de dimensionamento com modelos do Resource Manager, a CLI ou o PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **PowerShell e ferramentas**
 
-   Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [começar a trabalhar com o PowerShell na pilha de Azure](azure-stack-powershell-configure-quickstart.md).
+- **Distribuição de mercado**  
+    Registe o Azure Stack com o Azure global para ativar a distribuição de mercado. Siga as instruções em [registar o Azure Stack com o Azure](azure-stack-registration.md).
+- **Imagem do sistema operativo**  
+    Se ainda não adicionou uma imagem do sistema operativo para o mercado do Azure Stack, veja [adicione um item do mercado do Azure Stack do Azure](asdk/asdk-marketplace-item.md).
 
-   Depois de instalar as ferramentas de pilha do Azure, certifique-se de importar o módulo do PowerShell seguinte (caminho relativa a. \ComputeAdmin pasta na pasta master de ferramentas de AzureStack):
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
+## <a name="add-the-virtual-machine-scale-set"></a>Adicionar o conjunto de dimensionamento de máquinas virtuais
 
-* **Imagem do sistema operativo**
+1. Abra a pilha do Azure Marketplace e ligar ao Azure. Selecione **gestão de Marketplace**> **+ adicionar a partir do Azure**.
 
-   Se ainda não adicionou uma imagem do sistema operativo para a pilha do Azure Marketplace, consulte o artigo [adicionar a imagem de VM do Windows Server 2016 para o mercado de pilha do Azure](azure-stack-add-default-image.md).
+    ![Gestão do Marketplace](media/azure-stack-compute-add-scalesets/image01.png)
 
-   Para obter suporte do Linux, transfira Ubuntu Server 16.04 e adicioná-lo utilizando ```Add-AzsPlatformImage``` com os seguintes parâmetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+2. Adicionar e transfira o item do marketplace o conjunto de dimensionamento de máquinas virtuais.
 
+    ![Conjunto de Dimensionamento da Máquina Virtual](media/azure-stack-compute-add-scalesets/image02.png)
 
-## <a name="add-the-virtual-machine-scale-set"></a>Adicionar o conjunto de dimensionamento de máquina virtual
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Atualizar imagens num conjunto de dimensionamento de Máquina Virtual
 
-Editar o seguinte script do PowerShell para o seu ambiente e, em seguida, execute-o para adicionar um dimensionamento de máquina virtual definido para a pilha do Azure Marketplace. 
+Depois de criar um conjunto de dimensionamento de máquinas virtuais, os usuários podem atualizar imagens no conjunto sem ter de ser recriadas de conjunto de dimensionamento de dimensionamento. O processo para atualizar uma imagem depende dos seguintes cenários:
 
-``$User`` é a conta que utiliza para ligar o portal de administrador. Por exemplo, serviceadmin@contoso.onmicrosoft.com.
+1. Modelo de implementação de conjunto de dimensionamento de máquinas virtuais **especifica mais recente** para *versão*:  
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
-
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
-
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
-
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Atualizar imagens de um conjunto de dimensionamento de máquina virtual 
-Depois de criar um conjunto de dimensionamento de máquina virtual, os utilizadores podem atualizar imagens na escala definir sem o conjunto ter de ser recriadas de dimensionamento. O processo para atualizar uma imagem depende os seguintes cenários:
-
-1. Modelo de implementação de conjunto de dimensionamento de máquina virtual **especifica mais recente** para *versão*:  
-
-   Quando o *versão* está definido como **mais recente** no *imageReference* secção do modelo para uma escala de definir, aumentar verticalmente operações no conjunto de dimensionamento, utilize a versão mais recente disponível da imagem para a escala de conjunto de instâncias. Após a conclusão do trabalho de dimensionamento, pode eliminar mais antigas instâncias de conjuntos de dimensionamento de máquina virtual.  (Os valores para *publicador*, *oferecem*, e *sku* permanecem inalterados). 
+   Quando o *versão* está definido como **mais recentes** no *imageReference* secção do modelo para uma escala definido, dimensionar, as operações sobre a utilização do conjunto de dimensionamento, a versão disponível mais recente da imagem para a escala de instâncias do conjunto. Depois de concluída um aumento vertical, pode eliminar as instâncias de conjuntos de dimensionamento da máquina virtual mais antigas.  (Os valores para *publicador*, *oferecer*, e *sku* permanecem inalterados). 
 
    Segue-se um exemplo de especificação *mais recente*:  
 
@@ -91,32 +67,32 @@ Depois de criar um conjunto de dimensionamento de máquina virtual, os utilizado
         }
     ```
 
-   Antes de trabalho de dimensionamento pode utilizar uma nova imagem, tem de transferir essa nova imagem:  
+   Antes de aumentar verticalmente, pode utilizar uma nova imagem, tem de transferir a nova imagem:  
 
-   - Quando a imagem do Marketplace é uma versão mais recente que a imagem no conjunto de dimensionamento: Transferir a nova imagem que substitui a imagem antiga. Depois da imagem é substituída, um utilizador pode avançar para aumentar verticalmente. 
+   - Quando a imagem no Marketplace é uma versão mais recente que a imagem no conjunto de dimensionamento: Transferir a nova imagem, que substitui a imagem mais antiga. Depois da imagem é substituída, um utilizador pode avançar para aumentar verticalmente. 
 
-   - Quando a versão de imagem no Marketplace é o mesmo que a imagem no conjunto de dimensionamento: elimine a imagem que está a ser utilizado no conjunto de dimensionamento e, em seguida, transferir a nova imagem. Durante o tempo entre a remoção da imagem original e a transferência da imagem do novo, não é possível aumentar verticalmente. 
+   - Quando a versão de imagem no Marketplace é o mesmo que a imagem no conjunto de dimensionamento: eliminar a imagem que está a ser utilizada no conjunto de dimensionamento e, em seguida, transferir a nova imagem. Durante o tempo entre a remoção da imagem original e o download da nova imagem, não é possível aumentar verticalmente. 
       
      Este processo é necessário para resyndicate imagens que utilizam o formato de ficheiro disperso, introduzido com a versão 1803. 
  
 
-2. Modelo de implementação de conjunto de dimensionamento de máquina virtual **não especifique mais recente** para *versão* e especifica um número de versão em vez disso:  
+2. Modelo de implementação de conjunto de dimensionamento de máquinas virtuais **não especifica mais recente** para *versão* e especifica um número de versão em vez disso:  
 
-     Se transferir uma imagem com uma versão mais recente (que as alterações a versão disponível), o conjunto de dimensionamento não é possível aumentar verticalmente. Isto é propositado como a versão de imagem especificada no modelo de conjunto de dimensionamento tem de estar disponível.  
+    Se baixar uma imagem com uma versão mais recente (que altera a versão disponível), o conjunto de dimensionamento não é possível aumentar verticalmente. Isto é propositado como a versão de imagem especificada no modelo de conjunto de dimensionamento tem de estar disponível.  
 
-Para obter mais informações, consulte [discos de sistema operativo e imagens](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Para obter mais informações, consulte [discos do sistema operativo e imagens](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 
-## <a name="remove-a-virtual-machine-scale-set"></a>Remover um conjunto de dimensionamento de máquina virtual
+## <a name="remove-a-virtual-machine-scale-set"></a>Remover um conjunto de dimensionamento de máquinas virtuais
 
 Para remover uma máquina virtual item da Galeria de conjunto de dimensionamento, execute o seguinte comando do PowerShell:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]
-> O item da Galeria não pode ser removido imediatamente. Noite tem de atualizar o portal várias vezes antes do item mostra como removido do Marketplace.
+> O item da Galeria não pode ser removido imediatamente. Noturna tem de atualizar o portal várias vezes antes do item mostra como removido do Marketplace.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Perguntas mais frequentes sobre pilha do Azure](azure-stack-faq.md)
+[Perguntas mais frequentes sobre o Azure Stack](azure-stack-faq.md)

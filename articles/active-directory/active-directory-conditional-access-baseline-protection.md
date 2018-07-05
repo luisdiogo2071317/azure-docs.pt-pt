@@ -1,8 +1,8 @@
 ---
-title: O que é uma proteção de linha de base do acesso condicional do Azure Active Directory? -pré-visualização | Microsoft Docs
-description: Saiba como a proteção da linha de base garante que tem, pelo menos, o nível de linha de base de segurança ativado no seu ambiente do Azure Active Directory.
+title: O que é uma proteção de linha de base no acesso condicional do Azure Active Directory? -pré-visualização | Documentos da Microsoft
+description: Saiba como a proteção de linha de base garante que tem, pelo menos, o nível de linha de base de segurança ativada no seu ambiente do Azure Active Directory.
 services: active-directory
-keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308565"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447545"
 ---
-# <a name="what-is-baseline-protection---preview"></a>O que é a proteção da linha de base? -preview  
+# <a name="what-is-baseline-protection---preview"></a>O que é a proteção de linha de base? -pré-visualização  
 
-No último ano, ataques de identidade aumentou por 300%. Para proteger o seu ambiente contra ataques alguma vez aumentar, o Azure Active Directory (Azure AD) apresenta uma nova funcionalidade chamada proteção de linha de base. Proteção de linha de base é um conjunto de predefinidos [políticas de acesso condicional](active-directory-conditional-access-azure-portal.md). O objetivo destas políticas é Certifique-se de que tem, pelo menos, o nível de linha de base de segurança ativado em todas as edições do Azure AD. 
+No último ano, ataques de identidade tem aumentado em 300%. Para proteger o seu ambiente contra os ataques cada vez, o Azure Active Directory (Azure AD) apresenta um novo recurso chamado proteção de linha de base. Proteção de linha de base é um conjunto de predefinidos [políticas de acesso condicional](active-directory-conditional-access-azure-portal.md). O objetivo dessas diretivas é para se certificar de que tem, pelo menos, o nível de linha de base de segurança ativada em todas as edições do Azure AD. 
 
-Este artigo fornece uma descrição geral da proteção de linha de base no Azure Active Directory.
+Este artigo fornece uma descrição geral de proteção de linha de base no Azure Active Directory.
 
 
  
-## <a name="require-mfa-for-admins"></a>Exigir a MFA para administradores
+## <a name="require-mfa-for-admins"></a>Exigir a MFA para os administradores
 
-Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao seu ambiente. Devido a potência que tem estas contas, deverá tratá-los com especial cuidado. É um método comum para melhorar a proteção de contas com privilégios requerer uma forma mais forte de verificação de conta quando são utilizados para início de sessão. No Azure Active Directory, pode obter uma verificação de conta mais forte ao exigir a autenticação multifator (MFA).  
+Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao seu ambiente. Devido ao poder que essas contas têm, deve tratá-los com cuidado especial. Métodos comuns para melhorar a proteção de contas com privilégios é exigir um formulário mais forte de verificação de conta quando são utilizadas para início de sessão. No Azure Active Directory, pode obter uma verificação de conta mais forte ao exigir autenticação multifator (MFA).  
 
-**Exigir a MFA para os administradores** é uma política de linha de base que exige a MFA para as seguintes funções de diretório: 
+**Exigir a MFA para os administradores** é uma política de linha de base que exija a MFA para as seguintes funções de diretório: 
 
 - Administrador global  
 
@@ -51,29 +51,29 @@ Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao s
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Esta política de linha de base fornece-lhe a opção para excluir os utilizadores e grupos. Pode querer excluir um *[conta de administrador de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)* para garantir que não é bloqueado ao inquilino.
+Esta política de linha de base fornece-lhe a opção para excluir os utilizadores e grupos. Pode querer excluir uma *[conta de administrador de acesso de emergência](users-groups-roles/directory-emergency-access.md)* para garantir que não é bloqueado ao inquilino.
 
 
 ## <a name="enable-a-baseline-policy"></a>Ativar uma política de linha de base 
 
-Enquanto as políticas de linha de base estão na pré-visualização, estes são por predefinição não ativada. Tem de ativar manualmente uma política se pretende ativar. Assim que esta funcionalidade foi atingido o disponibilidade geral, as políticas são, por predefinição ativada. A alteração do comportamento planeada é o motivo por que motivo tiver além disso, para ativar e desativar uma terceira opção para definir o estado de uma política: **ativar automaticamente política**. Ao selecionar esta opção, pode permitir que a Microsoft decidir quando ativar uma política.      
+Embora as políticas de linha de base estiverem em pré-visualização, são por predefinição não ativada. Tem de ativar manualmente uma política para ativá-lo. Assim que esta funcionalidade tem atingiram a disponibilidade geral, as políticas são, por predefinição ativada. A alteração de comportamento planeada é o motivo por que há além disso, para ativar e desativar uma terceira opção para definir o estado de uma política: **ativar política automaticamente no futuro**. Ao selecionar esta opção, deixar que Microsoft decida quando deve ativar uma política.      
 
 
 **Para ativar uma política de linha de base:**  
 
-1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) como administrador global, o administrador de segurança ou o administrador de acesso condicional.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 
-2. No **portal do Azure**, navbar esquerdo, clique em **do Azure Active Directory**.
+2. Na **portal do Azure**, na barra de navegação esquerda, clique em **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. No **do Azure Active Directory** na página de **gerir** secção, clique em **acesso condicional**.
+3. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
-    ![Acesso condicional](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Acesso condicional](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. Na lista de políticas, clique numa política que começa com **política de linha de base:**. 
 
-5. Para ativar a política, clique em **utilizar a política de imediato**.
+5. Para ativar a política, clique em **utilizar a política imediatamente**.
 
 6. Clique em **Guardar**. 
  
@@ -82,15 +82,15 @@ Enquanto as políticas de linha de base estão na pré-visualização, estes sã
   
  
 
-## <a name="what-you-should-know"></a>O que deve conhecer 
+## <a name="what-you-should-know"></a>O que deve saber 
 
-Embora a gestão de políticas de acesso condicional personalizado requer uma licença do Azure AD Premium, políticas de linha de base estão disponíveis em todas as edições do Azure AD.     
+Embora a gestão de políticas de acesso condicional personalizada requer uma licença do Azure AD Premium, as políticas de linha de base estão disponíveis em todas as edições do Azure AD.     
 
-As funções do diretório que estão incluídas na política de linha de base são as funções do Azure AD com mais privilégios. 
+As funções de diretório que estão incluídas na política de linha de base são as funções do Azure AD com mais privilégios. 
 
-Se tiver privilegiados contas que são utilizadas nos scripts, deve substituí-los com [identidade de serviço geridas (MSI)](./managed-service-identity/overview.md) ou [princípios com certificados de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md). Como solução temporária, pode excluir contas de utilizador específico da política de linha de base. 
+Se o ter privilegiado contas que são utilizadas nos seus scripts, deve substitui-los com [Managed Service Identity (MSI)](./managed-service-identity/overview.md) ou [principais com certificados de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md). Como solução temporária, pode excluir contas de usuários específicos da política de linha de base. 
 
-Políticas de linha de base aplicam aos fluxos de autenticação existente POP, IMAP, mais antigo cliente de ambiente de trabalho do Office. 
+Aplicam políticas de linha de base para fluxos de autenticação legada como POP, IMAP, cliente de ambiente de trabalho do Office mais antiga. 
 
 
 
@@ -99,4 +99,4 @@ Políticas de linha de base aplicam aos fluxos de autenticação existente POP, 
 
 Se quiser saber como configurar uma política de acesso condicional, consulte [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o [melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

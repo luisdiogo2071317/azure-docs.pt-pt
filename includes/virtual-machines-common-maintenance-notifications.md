@@ -2,70 +2,72 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: zivraf
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958899"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437982"
 ---
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>VMs de vista agendadas para manutenção no portal
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMS scheduled para manutenção no portal de VMs
 
-Assim que estiver agendada uma onda de manutenção planeada e as notificações são enviadas, pode observar a lista de máquinas virtuais que são afetadas por wave a manutenção futura. 
+Assim que estiver agendada uma onda de manutenção planeada, pode observar que a lista de máquinas virtuais que são afetadas pela onda de manutenção futura. 
 
-Pode utilizar o portal do Azure e procure VMs agendadas para manutenção.
+Pode utilizar o portal do Azure e procurar por VMs agendadas para manutenção.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No painel de navegação esquerdo, clique em **máquinas virtuais**.
 
-3. No painel de máquinas virtuais, clique o **colunas** botão para abrir a lista de colunas disponíveis.
+3. No painel de máquinas virtuais, clique nas **colunas** botão para abrir a lista de colunas disponíveis.
 
 4. Selecione e adicione as seguintes colunas:
 
-   **Manutenção** -mostra o estado de manutenção para a VM. Seguem-se os valores possíveis:
+   **Manutenção**: mostra o estado de manutenção para a VM. Seguem-se os valores possíveis:
       
       | Valor | Descrição |
       |-------|-------------|
-      | Começar agora | A VM está na janela de manutenção self-service que lhe permite iniciar a manutenção por si. Consulte abaixo sobre como iniciar manutenção a VM | 
-      | Agendadas | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode saber da janela de manutenção, selecionando a janela de Auto-agendada nesta vista ou clicando na VM | 
-      | Concluída | Iniciou com êxito e concluída a manutenção no VM. | 
-      | Ignorada| Selecionou para iniciar a manutenção sem sucesso. Não será possível utilizar a opção manutenção do self-service. A VM tem de ser reiniciado pelo Azure durante a fase de manutenção agendada. | 
+      | Começar agora | A VM está na janela de manutenção self-service que lhe permite iniciar a manutenção por conta própria. Veja abaixo saber como iniciar a manutenção na sua VM. | 
+      | Agendadas | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode aprender da janela de manutenção selecionando a manutenção - janela agendada nesta vista ou ao clicar na VM. | 
+      | Já está atualizado | A VM já está atualizada e é necessária nenhuma ação adicional neste momento. | 
+      | Tente novamente mais tarde | Iniciou a manutenção sem sucesso. Será capaz de usar a opção de manutenção self-service num momento posterior. | 
+      | Repita agora | Pode tentar novamente uma manutenção Self-iniciada anteriormente sem êxito. | 
 
-   **Manutenção profissional para Active Directory** -mostra a janela de tempo quando Self-pode iniciar manutenção nas suas VMs.
+   **Manutenção - janela de self-service**: mostra a janela de tempo quando Self-pode iniciar a manutenção nas suas VMs.
    
-   **Manutenção agendada** -mostra a janela de tempo, quando o Azure irá reiniciar a VM para concluir a manutenção. 
+   **Manutenção - janela agendada**: mostra a janela de tempo quando o Azure manterá sua VM para concluir a manutenção. 
 
 
 
+## <a name="notification-and-alerts-in-the-portal"></a>Notificações e alertas no portal
 
-## <a name="notification-and-alerts-in-the-portal"></a>Notificações e alertas no portal do
-
-Azure comunica um agendamento para a manutenção planeada, enviando um e-mail para o grupo de proprietário e os coproprietários de subscrição. Pode adicionar destinatários adicionais e canais para esta comunicação através da criação de alertas de registo de atividade do Azure. Para obter mais informações, consulte [monitorizar a atividade subscrição com o registo de atividade do Azure] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure comunica um agendamento para a manutenção planeada ao enviar um e-mail para o grupo proprietário e os coproprietários de subscrição. Pode adicionar os destinatários adicionais e canais para esta comunicação através da criação de alertas de registo de atividades do Azure. Para obter mais informações, consulte [monitorizar a atividade de subscrição com o registo de atividades do Azure] (... / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Monitor**. 
-3. No **Monitor - registo de atividade** painel, selecione **alertas**.
-4. No **Monitor - alertas** painel, clique em **+ Adicionar alerta de registo de atividade**.
-5. Preencha as informações no **Adicionar alerta de registo de atividade** e certifique-se de que define o seguinte página **critérios**: **tipo**: manutenção **estado**: Todos os (não definido Estado ativo ou resolvido) **nível**: todos os
+3. Na **monitorizar - alertas (clássico)** painel, clique em **+ Adicionar alerta de registo de atividade**.
+5. Complete as informações na **Adicionar alerta de registo de atividade** página e certifique-se de definir o seguinte **critérios**:
+   - **Categoria de evento**: Estado de funcionamento do serviço
+   - **Serviços**: conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais
+   - **Tipo de**: manutenção planeada 
     
-Para obter mais informações sobre como configurar alertas de registo de atividade, consulte [criam alertas de registo de atividade](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Para saber mais sobre como configurar alertas de registo de atividade, veja [criar alertas de registo de atividades](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar manutenção na VM a partir do portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar a manutenção em sua VM a partir do portal
 
-Ao observar os detalhes VM, poderá ver mais detalhes relacionados com a manutenção.  
-Na parte superior da vista de detalhes de VM, será adicionado um novo friso de notificação se a VM está incluída numa onda de manutenção planeada. Além disso, é adicionada uma nova opção para iniciar manutenção sempre que possível. 
+Ao olhar para os detalhes da VM, poderá ver mais detalhes relacionados com a manutenção.  
+Na parte superior da vista de detalhes de VM, será adicionada uma nova faixa de opções de notificação se a sua VM está incluída numa onda de manutenção planeada. Além disso, é adicionada uma nova opção para iniciar a manutenção sempre que possível. 
 
 
-Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planeada. A partir daí, irá conseguir **iniciar manutenção** na VM.
+Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planeada. A partir daí, vai conseguir **iniciar manutenção** na sua VM.
 
-Assim que começar a manutenção, a máquina virtual será reiniciada e o estado de manutenção será atualizado para refletir o resultado dentro de alguns minutos.
+Assim que iniciar a manutenção, sua máquina virtual será mantida, e o estado de manutenção será atualizado para refletir o resultado dentro de alguns minutos.
 
-Se em falta a janela de onde pode começar a manutenção, ainda será capaz de ver a janela quando a VM será reiniciada pelo Azure. 
+Se perdeu a janela de self-service, ainda será capaz de ver a janela quando a VM será mantida pelo Azure. 

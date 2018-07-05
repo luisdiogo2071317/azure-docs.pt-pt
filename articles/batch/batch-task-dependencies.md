@@ -1,6 +1,6 @@
 ---
-title: Utilize as dependências de tarefas para executar tarefas com base na conclusão de outras tarefas - Azure Batch | Microsoft Docs
-description: Criar tarefas que dependem da conclusão de outras tarefas de processamento de estilo de MapReduce e macrodados semelhantes cargas de trabalho no Azure Batch.
+title: Utilize as dependências de tarefas para executar tarefas com base na conclusão de outras tarefas - Azure Batch | Documentos da Microsoft
+description: Criar tarefas que dependem da conclusão de outras tarefas para o processamento de estilo de MapReduce e grandes quantidades de dados semelhantes cargas de trabalho no Azure Batch.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -15,33 +15,33 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3d9d58d12e8b2060fe6062118e639dd4f4a7504f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316822"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445564"
 ---
-# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar as dependências de tarefas para executar as tarefas que dependem de outras tarefas
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar as dependências de tarefas para executar tarefas que dependem de outras tarefas
 
-Pode definir as dependências de tarefas para executar uma tarefa ou o conjunto de tarefas apenas depois de uma tarefa principal foi concluída. Alguns cenários em que as dependências de tarefas são úteis incluem:
+Pode definir as dependências de tarefas para executar uma tarefa ou um conjunto de tarefas apenas depois de uma tarefa principal foi concluída. Alguns cenários em que as dependências de tarefas são úteis incluem:
 
-* Estilo de MapReduce as cargas de trabalho na nuvem.
-* Tarefas cujas tarefas de processamento de dados podem ser expresso como um direcionados acíclicos (DAG).
-* Processos de composição pré e pós-implementação composição, onde cada tarefa tem de concluir antes de pode começar a próxima tarefa.
-* Qualquer outra tarefa no qual a jusante tarefas dependem da saída das tarefas a montante.
+* Cargas de trabalho do MapReduce estilo na cloud.
+* Tarefas cujas tarefas de processamento de dados podem ser expresso como Acíclico (DAG).
+* Processos de pré-processamento e pós-processamento, onde cada tarefa tem de concluir antes de poderem começar a próxima tarefa.
+* Qualquer outra tarefa na qual tarefas a jusante dependem a saída de tarefas a montante.
 
-Com as dependências de tarefas do Batch, pode criar tarefas agendadas para execução em nós de computação após a conclusão de uma ou mais tarefas do principal. Por exemplo, pode criar uma tarefa que compõe a cada intervalo de um filme 3D com tarefas paralelas, separadas. O final de tarefas - a "task intercalação" – intercala as frames Jumbo compostas para o filmes concluída apenas depois de todos os fotogramas foi compostas com êxito.
+Com as dependências de tarefas do Batch, pode criar tarefas agendadas para execução em nós de computação após a conclusão de uma ou mais tarefas de principal. Por exemplo, pode criar uma tarefa que processa cada quadro de um filme 3D com tarefas paralelas separadas. O último tarefas – a "tarefa de intercalação" – mesclagens os quadros renderizados no filme concluído somente depois que todos os quadros tem sido processados com êxito.
 
-Por predefinição, as tarefas dependentes estão agendadas para execução apenas depois da tarefa principal foi concluída com êxito. Pode especificar uma ação de dependência para substituir o comportamento predefinido e executar tarefas se a tarefa principal falhar. Consulte o [ações de dependência](#dependency-actions) secção para obter detalhes.  
+Por predefinição, as tarefas dependentes são agendadas para execução apenas depois da tarefa pai foi concluída com êxito. Pode especificar uma ação de dependência para substituir o comportamento predefinido e executar tarefas, quando a tarefa principal falhar. Consulte a [ações de dependência](#dependency-actions) secção para obter detalhes.  
 
-Pode criar as tarefas que dependem de outras tarefas numa relação um para um ou um-para-muitos. Também pode criar uma dependência do intervalo em que uma tarefa depende da conclusão de um grupo de tarefas dentro de um intervalo de IDs de tarefas especificada. Pode combinar estas três cenários básicos para criar relações muitos-para-muitos.
+Pode criar tarefas que dependem de outras tarefas numa relação um para um ou um-para-muitos. Também pode criar uma dependência de intervalo em que uma tarefa depende da conclusão de um grupo de tarefas dentro de um intervalo especificado de IDs de tarefa. Pode combinar estes três cenários básicos para criar relações muitos-para-muitos.
 
-## <a name="task-dependencies-with-batch-net"></a>Dependências de tarefas com .NET do Batch
-Neste artigo, vamos discutir como configurar as dependências de tarefas utilizando o [.NET do Batch] [ net_msdn] biblioteca. Vamos primeiro mostrar-lhe como para [ativar a dependência de tarefa](#enable-task-dependencies) na suas tarefas e, em seguida, demonstram como [configurar uma tarefa com dependências](#create-dependent-tasks). Podemos também descrevem como especificar uma ação de dependência para executar tarefas dependentes se principal falhar. Por fim, vamos discutir o [cenários de dependência](#dependency-scenarios) que suporta o Batch.
+## <a name="task-dependencies-with-batch-net"></a>Dependências de tarefas com o Batch .NET
+Neste artigo, discutimos como configurar as dependências de tarefas utilizando o [.NET do Batch] [ net_msdn] biblioteca. Primeiro mostramos como ao [ativar dependências de tarefas](#enable-task-dependencies) em seus trabalhos e, em seguida, demonstrarei como [configurar uma tarefa com dependências](#create-dependent-tasks). Também descreveremos como especificar uma ação de dependência para executar tarefas dependentes, se o elemento principal falhar. Por fim, discutiremos o [cenários de dependência](#dependency-scenarios) que o Batch suporta.
 
-## <a name="enable-task-dependencies"></a>Ativar as dependências de tarefas
-Para utilizar as dependências de tarefas na sua aplicação do Batch, primeiro tem de configurar a tarefa para utilizar as dependências de tarefas. No .NET do Batch, ativá-la no seu [CloudJob] [ net_cloudjob] definindo o [UsesTaskDependencies] [ net_usestaskdependencies] propriedade `true`:
+## <a name="enable-task-dependencies"></a>Ativar dependências de tarefas
+Para utilizar as dependências de tarefas na sua aplicação do Batch, primeiro tem de configurar a tarefa para utilizar as dependências de tarefas. No .NET do Batch, ativá-la no seu [CloudJob] [ net_cloudjob] através da definição de seu [UsesTaskDependencies] [ net_usestaskdependencies] propriedade `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -51,10 +51,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-No fragmento de código anterior, "batchClient" é uma instância do [BatchClient] [ net_batchclient] classe.
+No trecho de código anterior, "batchClient" é uma instância do [BatchClient] [ net_batchclient] classe.
 
 ## <a name="create-dependent-tasks"></a>Criar tarefas dependentes
-Para criar uma tarefa que depende da conclusão de uma ou mais tarefas de principal, pode especificar que a tarefa "depende" outras tarefas. No .NET do Batch, configure o [CloudTask][net_cloudtask].[ DependsOn] [ net_dependson] propriedade com uma instância do [TaskDependencies] [ net_taskdependencies] classe:
+Para criar uma tarefa que depende da conclusão das tarefas de principal de um ou mais, pode especificar que a tarefa "depende" outras tarefas. No .NET do Batch, configurar o [CloudTask][net_cloudtask].[ DependsOn] [ net_dependson] propriedade com uma instância da [TaskDependencies] [ net_taskdependencies] classe:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -65,29 +65,29 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-Este fragmento de código cria uma tarefa dependente com o ID de tarefa "Flowers". A tarefa "Flowers" depende de tarefas "Rain" e "Sun". Tarefa "Flowers" irão ser agendadas para ser executada num nó de computação apenas depois de tarefas "Rain" e "Sun" concluiu com êxito.
+Este fragmento de código cria uma tarefa dependente com o ID de tarefa "Flores". A tarefa de "Flores" depende de tarefas "Chuva" e "DOM". Tarefa "flores" irão ser agendadas para ser executada num nó de computação apenas depois de tarefas "Chuva" e "DOM" foram concluídas com êxito.
 
 > [!NOTE]
-> É considerada uma tarefa seja concluída com êxito quando esta estiver dentro do **concluída** estado e a respetiva **código de saída** é `0`. No .NET do Batch, isto significa uma [CloudTask][net_cloudtask].[ Estado] [ net_taskstate] valor da propriedade de `Completed` e o CloudTask [TaskExecutionInformation][net_taskexecutioninformation].[ ExitCode] [ net_exitcode] valor da propriedade é `0`.
+> Por predefinição, é considerada uma tarefa seja concluída com êxito quando estiver a ser o **concluída** estado e a respetiva **código de saída** é `0`. No .NET do Batch, isso significa que uma [CloudTask][net_cloudtask].[ Estado] [ net_taskstate] o valor da propriedade de `Completed` e o CloudTask [TaskExecutionInformation][net_taskexecutioninformation].[ ExitCode] [ net_exitcode] é o valor da propriedade `0`. Para saber como alterá-lo, consulte a [ações de dependência](#dependency-actions) secção.
 > 
 > 
 
 ## <a name="dependency-scenarios"></a>Cenários de dependência
-Existem três cenários de dependência na tarefa básico que pode utilizar no Azure Batch: um para um, um-para-muitos e o ID de tarefa intervalo dependência. Estes podem ser combinados para fornecer um cenário quarto, muitos-para-muitos.
+Existem três cenários de dependência na tarefa básica que pode utilizar no Azure Batch: um para um, um-para-muitos e o ID de tarefa de intervalo dependência. Estes podem ser combinados para fornecer um quarto cenário, muitos-para-muitos.
 
 | Cenário&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemplo |  |
 |:---:| --- | --- |
-|  [One-to-one](#one-to-one) |*Tarefab* depende *Tarefaa* <p/> *Tarefab* não será possível agendar para execução até *Tarefaa* foi concluída com êxito |![Diagrama: dependência de uma tarefa][1] |
-|  [One-to-many](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> *Tarefac* não será possível agendar para execução até que ambas *Tarefaa* e *Tarefab* foram concluídos com êxito |![Diagrama: dependências de tarefas de um-para-muitos][2] |
-|  [Intervalo de ID de tarefa](#task-id-range) |*taskD* depende de um intervalo de tarefas <p/> *taskD* não será possível agendar para execução até as tarefas com IDs *1* através de *10* foram concluídos com êxito |![Diagrama: Dependência de intervalo de id de tarefa][3] |
+|  [Um para um](#one-to-one) |*Tarefab* depende *Tarefaa* <p/> *Tarefab* não será possível agendar a execução até *Tarefaa* foi concluída com êxito |![Diagrama: dependência de tarefas de um para um][1] |
+|  [Um-para-muitos](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> *Tarefac* não será possível agendar a execução até que ambas *Tarefaa* e *Tarefab* foram concluídas com êxito |![Diagrama: dependências de tarefas de um-para-muitos][2] |
+|  [Intervalo de ID de tarefa](#task-id-range) |*Tarefad* depende de uma variedade de tarefas <p/> *Tarefad* não será agendada para execução até as tarefas com IDs *1* através da *10* foram concluídas com êxito |![Diagrama: Dependência de intervalo de id de tarefa][3] |
 
 > [!TIP]
-> Pode criar **muitos-para-muitos** relações, tais como onde tarefas C, D, I e F cada dependem tarefas A e B. Isto é útil, por exemplo, no paralelizada pré-processamentos cenários em que as suas tarefas a jusante dependem da saída de várias tarefas a montante.
+> Pode criar **muitos-para-muitos** relações, por exemplo, onde tarefas C, D, E e F cada dependem de tarefas A e B. Isso é útil, por exemplo, em cenários de pré-processamento em paralelo, suas tarefas a jusante dependem, em que, a saída de várias tarefas a montante.
 > 
-> Nos exemplos nesta secção, é executada uma tarefa dependente apenas depois das tarefas de principal concluírem com êxito. Este comportamento é o comportamento predefinido para uma tarefa dependente. Pode executar uma tarefa dependente após a falha de uma tarefa principal, especificando uma ação de dependência para substituir o comportamento predefinido. Consulte o [ações de dependência](#dependency-actions) secção para obter detalhes.
+> Nos exemplos nesta secção, é executada uma tarefa dependente apenas depois das tarefas de principal são concluídas com êxito. Este comportamento é o comportamento predefinido para uma tarefa dependente. Pode executar uma tarefa dependente após a falha de uma tarefa principal ao especificar uma ação de dependência para substituir o comportamento predefinido. Consulte a [ações de dependência](#dependency-actions) secção para obter detalhes.
 
 ### <a name="one-to-one"></a>Um para um
-Uma relação unívoca, uma tarefa depende a conclusão com êxito da tarefa de um elemento principal. Para criar a dependência, forneça um ID de tarefa única para o [TaskDependencies][net_taskdependencies].[ OnId] [ net_onid] método estático quando a preencher a [DependsOn] [ net_dependson] propriedade [CloudTask][net_cloudtask].
+Numa relação um para um, uma tarefa depende a conclusão com êxito da tarefa de um elemento principal. Para criar a dependência, forneça um ID de tarefa única para o [TaskDependencies][net_taskdependencies].[ OnId] [ net_onid] método estático quando preenche a [DependsOn] [ net_dependson] propriedade do [CloudTask] [ net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -101,7 +101,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Um-para-muitos
-Numa relação um-para-muitos, uma tarefa depende da conclusão de várias tarefas de principal. Para criar a dependência, fornecem uma coleção de IDs de tarefas para o [TaskDependencies][net_taskdependencies].[ OnIds] [ net_onids] método estático quando a preencher a [DependsOn] [ net_dependson] propriedade [CloudTask][net_cloudtask].
+Numa relação um-para-muitos, uma tarefa depende da conclusão de várias tarefas de principal. Para criar a dependência, fornecem uma coleção de IDs de tarefas para o [TaskDependencies][net_taskdependencies].[ OnIds] [ net_onids] método estático quando preenche a [DependsOn] [ net_dependson] propriedade do [CloudTask] [ net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -117,13 +117,15 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Intervalo de ID de tarefa
-Uma dependência de uma variedade de tarefas de principal, uma tarefa depende a após a conclusão das tarefas cujos IDs se situam dentro de um intervalo.
-Para criar a dependência, forneça o primeiro e IDs de tarefas pela última vez no intervalo para o [TaskDependencies][net_taskdependencies].[ OnIdRange] [ net_onidrange] método estático quando a preencher a [DependsOn] [ net_dependson] propriedade [CloudTask][net_cloudtask].
+Numa dependência numa variedade de tarefas de principal, uma tarefa depende da conclusão das tarefas cujos IDs se encontram dentro de um intervalo.
+Para criar a dependência, forneça a primeira e última IDs de tarefas no intervalo para o [TaskDependencies][net_taskdependencies].[ OnIdRange] [ net_onidrange] método estático quando preenche a [DependsOn] [ net_dependson] propriedade do [CloudTask] [ net_cloudtask].
 
 > [!IMPORTANT]
-> Quando utiliza os intervalos de ID de tarefa para as suas dependências, os IDs de tarefas no intervalo *tem* ser representações de cadeia dos valores de número inteiro.
+> Quando utilizar intervalos de ID de tarefa para as suas dependências, apenas as tarefas com IDs que representa valores de número inteiro serão selecionadas pelo intervalo. Portanto, o intervalo `1..10` irá selecionar tarefas `3` e `7`, mas não `5flamingoes`. 
 > 
-> Cada tarefa no intervalo deve satisfazer a dependência, concluindo com êxito ou concluindo com uma falha que está mapeada para uma ação de dependência definida como **Satisfy**. Consulte o [ações de dependência](#dependency-actions) secção para obter detalhes.
+> Zeros à esquerda não são significativo ao avaliar as dependências de intervalo, para que as tarefas com identificadores de cadeias de caracteres `4`, `04` e `004` ficará *dentro* o intervalo e eles serão todos tratados como tarefa `4`, para que o primeiro a conclusão da outra irá satisfazer a dependência.
+> 
+> Todas as tarefas no intervalo tem de satisfazer a dependência, concluindo com êxito ou, concluindo com uma falha que está mapeada para uma ação de dependência definida como **Satisfy**. Consulte a [ações de dependência](#dependency-actions) secção para obter detalhes.
 >
 >
 
@@ -147,26 +149,26 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## <a name="dependency-actions"></a>Ações de dependência
 
-Por predefinição, uma tarefa dependente ou conjunto de tarefas é executada apenas depois de uma tarefa principal foi concluída com êxito. Em alguns cenários, poderá executar tarefas dependentes, mesmo se a tarefa principal falhar. Pode substituir o comportamento predefinido, especificando uma ação de dependência. Uma ação de dependência Especifica se uma tarefa dependente é elegível para executar, com base no êxito ou falha da tarefa principal. 
+Por predefinição, uma tarefa dependente ou o conjunto de tarefas é executada apenas depois de uma tarefa principal foi concluída com êxito. Em alguns cenários, pode querer executar tarefas dependentes, mesmo que a tarefa principal falhar. É possível substituir o comportamento predefinido ao especificar uma ação de dependência. Uma ação de dependência Especifica se uma tarefa dependente é elegível para executar, com base no êxito ou falha da tarefa principal. 
 
-Por exemplo, suponha que uma tarefa dependente está a aguardar dados após a conclusão da tarefa a montante. Se a tarefa a montante falhar, a tarefa dependente ainda poderá executar utilizando dados mais antigos. Neste caso, pode especificar uma ação de dependência que a tarefa dependente é elegível para ser executada, apesar da falha da tarefa principal.
+Por exemplo, suponha que uma tarefa dependente está aguardando os dados de conclusão da tarefa a montante. Se a tarefa a montante falhar, a tarefa dependente ainda poderá executar com dados mais antigos. Neste caso, pode especificar uma ação de dependência, que a tarefa dependente é elegível para executar apesar da falha da tarefa principal.
 
-Uma ação de dependência baseiam-se uma condição de saída para a tarefa principal. Pode especificar uma ação de dependência para qualquer uma das seguintes condições de saída; para .NET, consulte o [ExitConditions] [ net_exitconditions] classe para obter mais detalhes:
+Uma ação de dependência se baseia numa condição de saída para a tarefa principal. Pode especificar uma ação de dependência para qualquer uma das seguintes condições de saída; para .NET, consulte a [ExitConditions] [ net_exitconditions] classe para obter mais detalhes:
 
-- Quando ocorre um erro de processamento previamente.
-- Quando ocorre um erro de carregamento de ficheiros. Se a tarefa sai com um código de saída que foi especificado através de **exitCodes** ou **exitCodeRanges**, e, em seguida, prevalece encontros erro, a ação especificada, o código de saída de carregar um ficheiro.
-- Quando a tarefa sai com um código de saída definido pelo **ExitCodes** propriedade.
-- Quando a tarefa sai com um código de saída que se encontrem dentro de um intervalo especificado pelo **ExitCodeRanges** propriedade.
-- Caso o predefinido, se a tarefa sai com um código de saída não definido pelo **ExitCodes** ou **ExitCodeRanges**, ou se a tarefa sai com um erro de pré-processamento e o **PreProcessingError** propriedade não for definida, ou se a tarefa falhar com um ficheiro carregar erro e o **FileUploadError** propriedade não está definida. 
+- Quando ocorre um erro de pré-processamento.
+- Quando ocorre um erro de carregamento. Se a tarefa é encerrado com um código de saída que foi especificado através de **exitCodes** ou **exitCodeRanges**, e, em seguida, o erro, a ação especificada, o código de saída de carregamento de um ficheiro de encontros tem precedência.
+- Quando a tarefa é encerrado com um código de saída definido pelos **ExitCodes** propriedade.
+- Quando a tarefa é encerrado com um código de saída que se encontrem dentro de um intervalo especificado o **ExitCodeRanges** propriedade.
+- Caso padrão, se a tarefa é encerrado com um código de saída não definido pelos **ExitCodes** ou **ExitCodeRanges**, ou se a tarefa é encerrado com um erro de pré-processamento e a **PreProcessingError** propriedade não for definida, ou se a tarefa falhar com um ficheiro de erro de carregamento e o **FileUploadError** propriedade não está definida. 
 
 Para especificar uma ação de dependência no .NET, defina o [ExitOptions][net_exitoptions].[ DependencyAction] [ net_dependencyaction] propriedade para a condição de saída. O **DependencyAction** propriedade assume um de dois valores:
 
-- Definir o **DependencyAction** propriedade **Satisfy** indica que as tarefas dependentes são elegíveis para ser executada se a tarefa principal sai com um erro especificado.
-- Definir o **DependencyAction** propriedade **bloco** indica que as tarefas dependentes não são elegíveis para ser executada.
+- Definindo a **DependencyAction** propriedade **Satisfy** indica que as tarefas dependentes são elegíveis para ser executada se a tarefa principal é encerrado com um erro especificado.
+- Definindo a **DependencyAction** propriedade **bloco** indica que as tarefas dependentes não são elegíveis para executar.
 
-A definição predefinida para o **DependencyAction** propriedade é **Satisfy** para o código de saída 0, e **bloco** para todas as outras condições de saída.
+A configuração padrão para o **DependencyAction** propriedade é **Satisfy** para o código de saída 0, e **bloco** para todas as outras condições de saída.
 
-O seguinte código conjuntos de fragmento a **DependencyAction** propriedade para uma tarefa principal. Se a tarefa principal sai com um erro de pré-processamento ou com os códigos de erro especificado, a tarefa dependente é bloqueada. Se a tarefa principal sai com qualquer outro erro diferente de zero, a tarefa dependente é elegível para ser executada.
+O seguinte código conjuntos de Trecho de código a **DependencyAction** propriedade para uma tarefa principal. Se a tarefa principal é encerrado com um erro de pré-processamento, ou com os códigos de erro especificado, a tarefa dependente é bloqueada. Se a tarefa principal é encerrado com qualquer outro erro diferente de zero, a tarefa dependente é elegível para executar.
 
 ```csharp
 // Task A is the parent task.
@@ -204,16 +206,16 @@ new CloudTask("B", "cmd.exe /c echo B")
 ## <a name="code-sample"></a>Exemplo de código
 O [TaskDependencies] [ github_taskdependencies] projeto de exemplo é uma do [exemplos de código do Azure Batch] [ github_samples] no GitHub. Esta solução do Visual Studio demonstra:
 
-- Como ativar a dependência de tarefas numa tarefa
+- Como ativar dependências de tarefas numa tarefa
 - Como criar tarefas que dependem de outras tarefas
-- Como realizar essas tarefas num conjunto de nós de computação.
+- Como executar essas tarefas num conjunto de nós de computação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 ### <a name="application-deployment"></a>Implementação de aplicação
-O [pacotes de aplicações](batch-application-packages.md) funcionalidade do Batch fornece uma forma fácil para ambos implementar e a versão, as aplicações que as tarefas são executadas em nós de computação.
+O [pacotes de aplicações](batch-application-packages.md) funcionalidade do Batch fornece uma forma fácil para ambos, implementar e a versão das aplicações que as tarefas são executadas em nós de computação.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalar aplicações e dados de teste
-Consulte [instalar aplicações e dados em lote de teste de nós de computação] [ forum_post] no fórum do Azure Batch para uma descrição geral dos métodos para preparar os nós para executar tarefas. Escrito por um dos membros da equipa do Azure Batch, esta mensagem é uma boa manual sobre diferentes formas para copiar as aplicações, dados de entrada de tarefas e outros ficheiros para os nós de computação.
+Ver [de instalar aplicações e dados em lote de teste de nós de computação] [ forum_post] no fórum do Azure Batch para uma descrição geral dos métodos para preparar os nós para executar tarefas. Escrito por um dos membros da equipa do Azure Batch, esta mensagem é um bom manual sobre as diferentes formas para copiar aplicativos, dados de entrada da tarefa e outros ficheiros para os nós de computação.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

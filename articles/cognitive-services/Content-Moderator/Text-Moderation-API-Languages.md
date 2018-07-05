@@ -1,6 +1,6 @@
 ---
-title: Idiomas suportados pelo Moderator conteúdo do Azure | Microsoft Docs
-description: Eis uma lista de idiomas suportados pelo Moderator conteúdo.
+title: Idiomas suportados pelo Azure Content Moderator | Documentos da Microsoft
+description: Aqui está uma lista de idiomas suportados pelo Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,22 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352718"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441153"
 ---
-# <a name="text-moderation---supported-languages-by-feature"></a>Moderação de interrupção de texto - idiomas suportados por funcionalidade
+# <a name="text-moderation---supported-languages-by-feature"></a>Moderação de texto - idiomas suportados pelo recurso
 
 > [!NOTE]
-> Para o **idioma** parâmetro, atribuir `eng` ou deixe vazio para ver a máquina assistida por **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
+> Para o **linguagem** parâmetro, atribuir `eng` ou deixe vazio para ver o assistida **classificação** resposta (funcionalidade de pré-visualização). **Esta funcionalidade só suporta o inglês**.
 >
-> Para **termos profanity** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas suportados listados neste artigo, ou deixe em branco.
+> Para **termos de linguagem inapropriada** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte demonstrados neste artigo ou deixe-o vazio.
 
 
-| Deteção de idioma | Profanity   | OCR    | Correção automática     |
+| Deteção de idioma | Linguagem inapropriada   | OCR    | Correção automática     |
 | -------------------- |-------------|--------|---------------------|
 | Árabe (Romanized)   | Afrikaans   | Árabe   | Árabe
 | Balinese | Albanês | Chinês (Simplificado)    | Dinamarquês
@@ -32,68 +32,68 @@ ms.locfileid: "35352718"
 | Buginese | Árabe | Checo                     | Português
 | Buhid | Arménio | Dinamarquês                     | Finlandês
 | Carian | Assamês | Neerlandês                     | Francês
-| Chinês (Simplificado) | Azerbaijão | Português  | Grego (moderna)
-| Chinês (Tradicional) | Bangla - Bangladesh | Finlandês  | Italiano
+| Chinês (Simplificado) | Azerbaijão | Português  | Grego (moderno)
+| Chinês (Tradicional) | Bangla - Bangladeche | Finlandês  | Italiano
 | Church (Slavic) | Bangla - Índia | Francês     | Coreano
 | Coptic | Basco (Basco) | Alemão                      | Norueguês
-| Dhivehi | Bielorrusso | Grego (moderna)         | Polaco
-| Farsi | Bosnian - carateres cirílicos | Húngaro        | Português
-| Grego | Bosnian - Latina | Italiano             | Romeno
-| Haitian (Creole) | Breton [não GeoPol] | Japonês  | Russo
-| Hebraico | Búlgaro | Coreano                        | Eslovaco
-| Hmong | Catalão | Norueguês                        | Espanhol
-| Kurdish (Árabe) | Central Kurdish | Polaco        | Turco
-| Kurdish (Latim) | Cherokee | Português
-| Lepcha | Chinês (Simplificado) | Romeno
-| Limbu | Chinês (tradicional) - RAE de Hong Kong | Russo
-| Lu | Chinês (tradicional) - Taiwan | Sérvio carateres cirílicos
-| Lycian | Croata | Sérvio Latina
-| Lydian | Checo | Eslovaco
-| Mycenaean (Grego) | Dinamarquês | Espanhol
-| Nko | Dari | Sueco
-| Norueguês (Bokmal) | Neerlandês | Turco
-| Norueguês (Nynorsk) | Português 
-| Antigo (Persian) | Estónio 
-| Pastó | Filipino
-| Punjabi | Finlandês
-| Rejang | Francês
-| Santali | Galego
-| Sasak | Georgiano
-| Saurashtra | Alemão
-| Sérvio (Cirílico) | Grego
-| Sérvio (Latim) | Guzarate
-| Sinhala | Haúça
-| Esloveno | Hebraico
-| Sylheti | Hindi
-| Siríaco | Húngaro
-| Tagbanwa | Islandês
-| Tai (Nua) | Igbo
-| Tamashek | Indonésio
-| Ugaritic | Inuktitut
-| Usbeque (Cirílico) | Irlandês
-| Usbeque (Latim) | isiXhosa
-| Vai | isiZulu
-| Yi | Italiano
-| Zhuang, Chuang | Japonês
-| | Canarim
-| | Cazaquistanês
-| | Khmer
-| | K'iche
-| | Kinyarwanda
-| | Kiswahili
-| | Concani
-| | Coreano
-| | Quirguize
-| | Laociano
-| | Letão
-| | Lituano
-| | Luxemburguês
-| | Macedónio
-| | Malaio
-| | Malayalam
+| Checo |  Bielorrusso | Grego (moderno)         | Polaco
+| Dhivehi | Bósnio – Cirílico | Húngaro      | Português
+| Neerlandês | Bósnio – Latino | Italiano             | Romeno
+| Português | (Creole) | Bretão [não GeoPol] | Japonês  | Russo
+| Farsi | Búlgaro | Coreano                        | Eslovaco
+| Francês | Catalão | Norueguês                        | Espanhol
+| Alemão | Curdo central | Polaco        | Turco
+| Grego | Cheroqui | Português
+| Haitian | Chinês (Simplificado) | Romeno
+| Hebraico | Chinês (tradicional) - RAE de Hong Kong | Russo
+| Hindi | Chinês (tradicional) – Taiwan | Sérvio Cirílico
+| Hmong | Croata | Sérvio latino
+| Húngaro | Checo | Eslovaco
+| Italiano | Dinamarquês | Espanhol
+| Japonês | Dari | Sueco
+| Coreano | Neerlandês | Turco
+| Curdo (Árabe) | Português
+| Curdo (Latim) | Estónio
+| Lepcha | Filipino
+| Limbu | Finlandês
+| Lu | Francês
+| Lycian | Galego
+| Lydian | Georgiano
+| Mycenaean (Grego) | Alemão
+| Nko | Grego
+| Norueguês (Bokmal) | Guzarate
+| Norueguês (Nynorsk) |  Haúça
+| Velha (Persa) | Hebraico
+| Pastó | Hindi
+| Polaco | Húngaro
+| Português | Islandês
+| Punjabi | Igbo
+| Rejang | Indonésio
+| Russo | Inuktitut
+| Santali | Irlandês
+| Sasak | Xosa
+| Saurashtra | isiZulu
+| Sérvio (Cirílico) | Italiano
+| Sérvio (Latim) | Japonês
+| Sinhala | Canarim
+| Esloveno | Cazaquistanês
+| Espanhol | Khmer
+| Sueco | K'iche
+| Sylheti | Kinyarwanda
+| Siríaco | Kiswahili
+| Tagbanwa | Concani
+| Tai (Nua) | Coreano
+| Tamashek | Quirguize
+| Turco | Laociano
+| Ugaritic | Letão
+| Usbeque (Cirílico) | Lituano
+| Usbeque (Latim) | Luxemburguês
+| Písmo vai | Macedónio
+| Yi | Malaio
+| Zhuang, Chuang | Malayalam
 | | Maltês
 | | Maori
-| | Marati
+| | Marata
 | | Mongol
 | | Nepalês
 | | Norueguês (Bokmål)
@@ -102,8 +102,8 @@ ms.locfileid: "35352718"
 | | Pastó
 | | Persa
 | | Polaco
-| | Português - Brasil
-| | Português - Portugal
+| | Português (Brasil)
+| | Português (Portugal)
 | | Pulaar
 | | Punjabi
 | | Punjabi (Paquistão)
@@ -112,7 +112,7 @@ ms.locfileid: "35352718"
 | | Russo
 | | Gaélico Escocês
 | | Sérvio (Cirílico)
-| | Sérvio (carateres cirílicos, marco e convertível)
+| | Sérvio (Cirílico, Bósnia e Herzegovina)
 | | Sérvio (Latim)
 | | Sesotho
 | | Sesotho sa Leboa
@@ -130,13 +130,13 @@ ms.locfileid: "35352718"
 | | Tailandês
 | | Tigrínia
 | | Turco
-| | Turcomeno
+| | Turcomano
 | | Ucraniano
 | | Urdu
 | | Uigur
 | | Usbeque
-| | Valencian
+| | Valenciano
 | | Vietnamita
 | | Galês
-| | Wolof
-| | Yoruba
+| | Uólofe
+| | Ioruba

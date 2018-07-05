@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.component: protection
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/17/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 882f76b8f6529e2a6e72a5bbc1b24842150e1af0
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
-ms.translationtype: HT
+ms.openlocfilehash: 6a9e4a93df02e55deb29ba372dc874ae1fac308c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233242"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446032"
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Comece a utilizar o Azure AD Privileged Identity Management
 
@@ -50,7 +50,7 @@ Assim que o Azure AD Privileged Identity Management estiver configurado, verá o
 - A opção **Funções de diretório do Azure AD**, localizada na secção Gerir do menu de navegação esquerdo, apresenta o dashboard para os administradores de funções com privilégios gerirem as atribuições de funções, alterarem as definições de ativação de funções, iniciarem revisões de acesso e muito mais. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo.
 - A opção **Funções de recursos do Azure (Pré-visualização)**, localizada na secção Gerir do menu de navegação esquerdo, apresenta uma lista de recursos de subscrição para os quais tem atribuições de funções. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 A [descrição geral do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclui mais informações sobre como pode gerir o acesso administrativo na organização.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

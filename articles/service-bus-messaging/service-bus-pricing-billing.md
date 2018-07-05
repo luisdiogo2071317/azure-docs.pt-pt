@@ -1,5 +1,5 @@
 ---
-title: Barramento de serviço preços e faturação | Microsoft Docs
+title: Service Bus, preços e faturação | Documentos da Microsoft
 description: Descrição geral da estrutura de preços do Service Bus.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,57 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159791"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448412"
 ---
-# <a name="service-bus-pricing-and-billing"></a>Barramento de serviço preços e faturação
+# <a name="service-bus-pricing-and-billing"></a>Service Bus, preços e faturação
 
-Service Bus do Azure é oferecido na padrão e [Premium](service-bus-premium-messaging.md) camadas. Pode escolher uma camada de serviço para cada espaço de nomes de serviço de barramento de serviço que criar e esta seleção do escalão aplica-se em todas as entidades criadas dentro desse espaço de nomes.
+O Azure Service Bus está disponível em Standard e [Premium](service-bus-premium-messaging.md) escalões. Pode escolher um escalão de serviço para cada espaço de nomes de serviço do Service Bus que criou e esta seleção do escalão de mensagens em fila aplica-se em todas as entidades criadas dentro desse namespace.
 
 > [!NOTE]
-> Para obter informações detalhadas sobre os preços de barramento de serviço atual, consulte o [página de preços de Service Bus do Azure](https://azure.microsoft.com/pricing/details/service-bus/)e o [FAQ de barramento de serviço](service-bus-faq.md#pricing).
+> Para obter informações detalhadas sobre os preços atuais do Service Bus, consulte a [página de preços do Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)e o [FAQ do Service Bus](service-bus-faq.md#pricing).
 >
 >
 
-O Service Bus utiliza as seguintes medidores 2 para filas e tópicos/subscrições:
+O Service Bus utiliza os seguintes medidores de 2 para filas e tópicos/subscrições:
 
-1. **Operações de mensagens**: definido como chamadas de API nos pontos finais de serviço fila ou um tópico/subscrição. Esta medição substitui as mensagens enviadas ou recebidas como a unidade primária de utilização facturável de filas e tópicos/subscrições.
-2. **Mediadas ligações**: definido como o número máximo de ligações persistentes abrir contra filas, tópicos ou subscrições durante um período de amostragem de uma hora especificada. Esta medição só se aplica no escalão Standard, na qual pode abrir ligações adicionais (anteriormente, as ligações foram limitadas a 100 por tópico/fila/subscrição) para uma taxa de nominal por ligação.
+1. **Operações de mensagens**: definidas como chamadas de API em relação a pontos finais de serviço de fila ou tópico/subscrição. Este medidor substitui as mensagens enviadas ou recebidas como a unidade primária de utilização cobrar para filas e tópicos/subscrições.
+2. **Ligações mediadas**: definido como o número máximo de ligações persistentes aberto relativamente a filas, tópicos ou subscrições durante um período de amostragem de uma hora determinada. Este medidor aplica-se apenas no escalão Standard, na qual pode abrir ligações adicionais (anteriormente, eram limitadas a 100 por fila/tópico/subscrição ligações) de uma taxa nominal por conexão.
 
-O **padrão** camada apresenta preços graduated para operações executadas com as filas e tópicos/subscrições, resultando em descontos baseada no volume de até 80%, o nível de utilização mais elevada. Também é cobrada uma camada Standard base taxa de $10 por mês, o que permite-lhe efetuar operações de 12,5 milhões por mês, sem custos adicionais.
+O **padrão** apresenta o escalão de preços escalonados para operações executadas com filas e tópicos/subscrições, resultando em descontos com base no volume de até 80% com os mais altos níveis de utilização. Também existe uma cobrança de base de escalão Standard de US $10 por mês, o que lhe permitem realizar operações de até 12,5 milhões por mês sem custos adicionais.
 
-O **Premium** camada fornece isolamento de recursos na camada de CPU e memória para que cada carga de trabalho do cliente seja executado de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Pode comprar 1, 2 ou 4 unidades de mensagens para cada espaço de nomes Premium do Service Bus. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade, embora a faturação seja realizada com base em tarifas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus. Este desempenho não só é mais previsível e repetível, como também mais rápido.
+O **Premium** escalão fornece isolamento de recursos na camada de CPU e memória, para que cada carga de trabalho do cliente seja executado de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Pode comprar 1, 2 ou 4 unidades de mensagens para cada espaço de nomes Premium do Service Bus. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade, embora a faturação seja realizada com base em tarifas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus. Este desempenho não só é mais previsível e repetível, como também mais rápido.
 
-Tenha em atenção que a taxa de base do escalão Standard é-lhe cobrada apenas uma vez por mês por subscrição do Azure. Isto significa que depois de criar um espaço de nomes de barramento de serviço de camada única padrão, pode criar tantas padrão espaços de nomes adicionais como pretende que nessa mesma subscrição do Azure, sem incorrer em custos adicionais de base.
+> [!NOTE]
+> Tópicos e subscrições só estão disponíveis no Standard ou Premium escalões; de preço o escalão básico oferece suporte a apenas filas.
 
-O [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) tabela resume as diferenças funcionais entre as camadas Standard e Premium.
+O custo de base do escalão Standard é cobrado apenas uma vez por mês por subscrição do Azure. Isso significa que, depois de criar um espaço de nomes do Service Bus de escalão Standard individual, pode criar tantas adicionais espaços de nomes Standard que pretender na mesma subscrição do Azure, sem incorrer em custos base adicionais.
+
+O [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) tabela resume as diferenças funcionais entre os escalões Standard e Premium.
 
 ## <a name="messaging-operations"></a>Operações de mensagens
 
-Filas e tópicos/subscrições são faturadas por "operação", não por mensagem. Uma operação refere-se a qualquer chamada à API efetuada em relação a uma fila ou um tópico/subscrição ponto final de serviço. Isto inclui operações de gestão, envio/receção e estado de sessão.
+Filas e tópicos/subscrições são cobradas por "operação", não por mensagem. Uma operação refere-se para qualquer chamada à API feita relativamente de um ponto de extremidade de serviço de fila ou tópico/subscrição. Isto inclui operações de gestão, envio/receção e estado de sessão.
 
 | Tipo de Operação | Descrição |
 | --- | --- |
-| Gestão |Crie, ler, atualizar, eliminar (CRUD) contra filas ou tópicos/subscrições. |
-| Mensagens |Enviar e receber mensagens com as filas ou tópicos/subscrições. |
-| Estado da sessão |Obter ou definir o estado da sessão num tópico/subscrição ou fila. |
+| Gestão |Crie, ler, atualizar, eliminar (CRUD) relativamente a filas ou tópicos/subscrições. |
+| Mensagens |Enviar e receber mensagens com filas ou tópicos/subscrições. |
+| Estado da sessão |Obter ou definir o estado da sessão numa fila ou tópico/subscrição. |
 
-Para detalhes de custo, consulte os preços apresentados no [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) página.
+Para obter detalhes de custo, veja os preços indicados na [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) página.
 
 ## <a name="brokered-connections"></a>Ligações mediadas
 
-*Mediadas ligações* acomodar padrões de utilização que envolvem um grande número de "forma permanente ligadas" remetentes por recetores contra filas, tópicos ou subscrições. Os remetentes de forma permanente de ligado/recetores são aqueles que se ligam através de AMQP ou HTTP com um diferente de zero recebem o tempo limite (por exemplo, HTTP longo consulta). Os remetentes HTTP e os recetores com um tempo limite imediato não geram ligações mediadas.
+*Ligações mediadas* acomodar os padrões de utilização que envolvem um grande número de "persistentemente ligados" remetentes/destinatários relativamente a filas, tópicos ou subscrições. Conectados de forma permanente remetentes/destinatários são aqueles que se ligam através de AMQP ou HTTP com um diferente de zero recebem o tempo limite (por exemplo, HTTP consulta longa). Os remetentes HTTP e os recetores com um tempo limite imediato não geram ligações mediadas.
 
-Para quotas de ligação e outros limites de serviço, consulte o [quotas de Service Bus](service-bus-quotas.md) artigo. Para obter mais informações sobre ligações mediadas, consulte o [FAQ](#faq) secção neste artigo.
+Para quotas de ligação e outros limites de serviço, consulte a [quotas do Service Bus](service-bus-quotas.md) artigo. Para obter mais informações sobre as ligações mediadas, consulte a [FAQ](#faq) seção mais adiante neste artigo.
 
-O escalão Standard remove o limite de ligação mediadas por espaço de nomes e contagens de utilização de agregação de ligação mediadas entre a subscrição do Azure. Para obter mais informações, consulte o [mediadas ligações](https://azure.microsoft.com/pricing/details/service-bus/) tabela.
+O escalão Standard remove o limite de ligações mediadas por espaço de nomes e contagens de utilização de agregação de ligações mediadas por subscrição do Azure. Para obter mais informações, consulte a [ligações mediadas](https://azure.microsoft.com/pricing/details/service-bus/) tabela.
 
 > [!NOTE]
-> 1000 ligações mediadas estão incluídas com o escalão de serviço de mensagens Standard (através de encargos base) e podem ser partilhadas entre todas as filas, tópicos e subscrições dentro da subscrição do Azure associada.
+> 1000 ligações mediadas estão incluídas no escalão mensagens padrão (através do custo base) e podem ser partilhadas entre todas as filas, tópicos e subscrições na subscrição do Azure associada.
 >
 >
 
@@ -81,27 +84,27 @@ As ligações mediadas não são cobradas no escalão Premium.
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Quais são mediadas ligações e como posso obter cobrado-las?
+### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>O que são ligações mediadas e como é que sou cobrado por eles?
 
 Uma ligação mediada é definida de uma das seguintes formas:
 
-1. Uma ligação AMQP de um cliente para uma fila de barramento de serviço ou um tópico/subscrição.
+1. Uma ligação AMQP de um cliente para uma fila do Service Bus ou tópico/subscrição.
 2. Uma chamada HTTP para receber uma mensagem de um tópico ou fila do Service Bus com um valor de tempo limite superior a zero.
 
-Custos de barramento de serviço para o número máximo de ligações mediadas simultâneas que excedam a quantidade incluída (1.000 no escalão Standard). Os picos são medidos por hora, calculados pro rata (proporcionalmente) dividindo pelas 744 horas de um mês, e somados ao longo do período de faturação mensal. A quantidade incluída (1000 ligações mediadas por mês) é aplicada no final do período de faturação relativamente à soma dos picos calculados pro rata à hora.
+Custos do Service Bus para o número máximo de ligações mediadas simultâneas que excedam a quantidade incluída (1000 no escalão Standard). Os picos são medidos por hora, calculados pro rata (proporcionalmente) dividindo pelas 744 horas de um mês, e somados ao longo do período de faturação mensal. A quantidade incluída (1000 ligações mediadas por mês) é aplicada no final do período de faturação relativamente à soma dos picos calculados pro rata à hora.
 
 Por exemplo:
 
-1. Cada 10 000 dispositivos liga através de uma ligação AMQP único e recebe comandos a partir de um tópico de barramento de serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se ligam todos os dispositivos para 12 horas por dia, são aplicáveis encargos de ligação seguinte (para além de quaisquer outros Service Bus tópico encargos): ligações de 10 000 * 12 horas * 31 dias / 744 = 5.000 mediadas ligações. Depois do allowance mensal de 1000 ligações mediadas, seria cobrado para 4000 ligações mediadas, à taxa de $0.03 por ligação mediada para um total de $120.
-2. 10.000 dispositivos recebem mensagens de uma fila do Service Bus através de HTTP, especificando um tempo limite de diferente de zero. Se ligam todos os dispositivos para 12 horas todos os dias, verá os encargos de ligação seguinte (para além de outros custos de Service Bus): 10 000 ligações HTTP receber * 12 horas por dia * horas 744/31 dias = 5.000 mediadas ligações.
+1. Cada 10 000 dispositivos se liga através de uma única ligação AMQP e recebe comandos de um tópico do Service Bus. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos se ligarem durante 12 horas por dia, os seguintes custos de ligação aplicam (além de quaisquer outros custos do Service Bus tópico): 10.000 ligações * 12 horas * 31 dias / dias/744 = 5000 ligações mediadas. Depois do montante mensal de 1000 ligações mediadas, ser--ão cobradas 4000 ligações mediadas, à taxa de US $0.03 por ligação mediada, para um total de US $120.
+2. 10.000 dispositivos recebem mensagens de uma fila do Service Bus por HTTP, especificando um tempo limite de diferente de zero. Se todos os dispositivos se ligarem durante 12 horas por dia, verá os seguintes custos de ligação (acrescidos de quaisquer outros custos do Service Bus): 10.000 ligações de receção HTTP * 12 horas por dia * 31 dias / 744 horas = 5000 ligações mediadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aplicam-se custos de ligações mediadas a filas e tópicos/subscrições?
 
-Sim. Não há custos de ligação para o envio de eventos por HTTP, independentemente do número de sistemas ou dispositivos de envio. Receber eventos com HTTP utilizando o limite de tempo maior que zero, por vezes denominado "período de tempo de consulta," gera ligação mediadas encargos. As ligações AMQP geram custos de ligações mediadas independentemente de as ligações estarem a ser utilizadas para envio ou receção. As primeiro 1000 ligações mediadas entre todos os espaços de nomes padrão numa subscrição do Azure são incluídas, sem encargos adicionais (se para além dos encargos base). Porque estes allowances são suficientes para cobrir os vários cenários de mensagens de serviços, os encargos de ligação mediadas normalmente apenas se relevante se planeia utilizar AMQP ou HTTP longa-consulta com um grande número de clientes; Por exemplo, para alcançar mais eficiente do evento de transmissão em fluxo ou ativar a comunicação bidirecional com vários dispositivos ou instâncias de aplicações.
+Sim. Não há custos de ligação para o envio de eventos por HTTP, independentemente do número de sistemas ou dispositivos de envio. A receção de eventos por HTTP com um tempo limite superior a zero, por vezes denominada "consulta longa", gera custos de ligações mediadas. As ligações AMQP geram custos de ligações mediadas independentemente de as ligações estarem a ser utilizadas para envio ou receção. As primeiras 1000 ligações mediadas em todos os espaços de nomes padrão numa subscrição do Azure estão incluídas sem custos extra (além do custo base). Uma vez que este número permitido é suficiente para abranger muitos cenários de mensagens serviço a serviço, custos de ligações mediadas geralmente só se tornam relevantes se planeia utilizar consulta longa de AMQP ou HTTP com um grande número de clientes; Por exemplo, para obter uma transmissão de eventos mais eficiente ou para permitir a comunicação bidirecional com muitos dispositivos ou instâncias da aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter detalhes completos sobre os preços do Service Bus, consulte o [página de preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
-* Consulte o [FAQ de barramento de serviço](service-bus-faq.md#pricing) para algumas perguntas mais frequentes comuns acerca do Service bus preços e faturação.
+* Para obter detalhes completos sobre os preços do Service Bus, consulte a [página de preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+* Consulte a [FAQ do Service Bus](service-bus-faq.md#pricing) para alguns FAQ comuns sobre o Service bus, preços e faturação.
 
 [Azure portal]: https://portal.azure.com

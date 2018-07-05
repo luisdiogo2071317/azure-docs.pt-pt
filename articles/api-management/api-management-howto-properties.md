@@ -1,6 +1,6 @@
 ---
-title: Como utilizar propriedades nas políticas de API Management do Azure
-description: Saiba como utilizar propriedades nas políticas de API Management do Azure.
+title: Como utilizar os valores com o nome nas políticas de gestão de API do Azure
+description: Saiba como utilizar os valores com o nome nas políticas de gestão de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,70 +13,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: e0559380f6d686a4e559779c4271ea85106558d6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197117"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437070"
 ---
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Como utilizar propriedades nas políticas de API Management do Azure
-Políticas de API Management são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas com valores de texto literal, expressões de política e as propriedades. 
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como utilizar os valores com o nome nas políticas de gestão de API do Azure
+As políticas de gestão de API são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas usando valores de texto literal, expressões de política e valores nomeados. 
 
-Cada instância de serviço de API Management tem uma coleção de propriedades de pares chave/valor que são globais para a instância de serviço. Estas propriedades podem ser utilizadas para gerir os valores de cadeia constante em todas as políticas de configuração da API e. Cada propriedade pode ter os seguintes atributos:
+Cada instância de serviço de gestão de API tem uma coleção de propriedades de pares chave/valor, que é chamada de valores com o nome, que são globais para a instância do serviço. Esses valores com o nome pode ser utilizados para gerir os valores de cadeia de caracteres constante em todas as políticas de configuração da API e. Cada propriedade pode ter os seguintes atributos:
 
 | Atributo | Tipo | Descrição |
 | --- | --- | --- |
 | Nome a apresentar |cadeia |Cadeia alfanumérica utilizada para referenciar a propriedade nas políticas. |
-| Valor |cadeia |O valor da propriedade. Não pode estar vazios ou consistir apenas em espaço em branco. |
+| Valor |cadeia |O valor da propriedade. Não pode estar vazio ou consistir apenas de espaços em branco. |
 |Segredo|boolean|Determina se o valor é um segredo e deve ser encriptado ou não.|
-| Etiquetas |Matriz da cadeia |Opcional de etiquetas que quando é fornecido pode ser utilizado para filtrar a lista de propriedades. |
+| Etiquetas |matriz da cadeia |Opcional etiquetas que, quando fornecidas podem ser utilizadas para filtrar a lista de propriedades. |
 
 ![Valores com nome](./media/api-management-howto-properties/named-values.png)
 
-Os valores de propriedade podem conter cadeias literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia contendo a data e hora atuais. A propriedade `ContosoHeaderValue` está marcada como um segredo, pelo que não é apresentado o respetivo valor.
+Valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` está marcado como um segredo, para que o respetivo valor não é apresentado.
 
 | Nome | Valor | Segredo | Etiquetas |
 | --- | --- | --- | --- |
-| ContosoHeader |TrackingId |Falso |Contoso |
+| ContosoHeader |trackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |Verdadeiro |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |Falso | |
 
-## <a name="to-add-and-edit-a-property"></a>Para adicionar e editar uma propriedade
+## <a name="to-add-and-edit-a-property"></a>Adicionar e editar uma propriedade
 
 ![Adicionar uma propriedade](./media/api-management-howto-properties/add-property.png)
 
-1. Selecione **APIs** em **gestão de API**.
-2. Selecione **denominado valores**.
+1. Selecione **APIs** em **GESTÃO DE API**.
+2. Selecione **valores nomeados**.
 3. Prima **+ adicionar**.
 
-  Nome e valor são os valores necessários. Se este valor de propriedade é um segredo, verifique a esta é uma caixa de verificação secreta. Introduza um ou mais etiquetas opcionais para ajudar a organizar as propriedades e clique em Guardar.
+  Nome e valor são os valores necessários. Se este valor da propriedade é um segredo, verifique a esta é uma caixa de seleção secreta. Introduza um ou mais etiquetas opcionais para ajudar a organizar seus valores com nome e clique em Guardar.
 4. Clique em **Criar**.
 
-Quando a propriedade for criada, pode editá-lo ao clicar na propriedade. Se alterar o nome da propriedade, as políticas que referenciem essa propriedade são atualizadas automaticamente para utilizar o novo nome.
+Assim que a propriedade for criada, pode editá-lo ao clicar na propriedade. Se alterar o nome da propriedade, todas as políticas que fazem referência a essa propriedade são automaticamente atualizadas para utilizar o novo nome.
 
-Para informações sobre como editar uma propriedade utilizando a API REST, consulte [editar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Para obter informações sobre a edição de uma propriedade com a API REST, consulte [editar uma propriedade com a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
 ## <a name="to-delete-a-property"></a>Para eliminar uma propriedade
 
-Para eliminar uma propriedade, clique em **eliminar** junto a propriedade para eliminar.
+Para eliminar uma propriedade, clique em **eliminar** ao lado da propriedade para eliminar.
 
 > [!IMPORTANT]
-> Se a propriedade é referenciada pelas políticas, será possível eliminá-lo com êxito até que remova a propriedade de todas as políticas que a utilizam.
+> Se a propriedade é referenciada por todas as políticas, não será possível eliminá-lo com êxito até que remova a propriedade de todas as políticas que o utilizam.
 > 
 > 
 
-Para obter informações sobre como eliminar uma propriedade utilizando a API REST, consulte [eliminar uma propriedade utilizando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Para obter informações sobre como eliminar uma propriedade com a API REST, consulte [eliminar uma propriedade com a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## <a name="to-search-and-filter-properties"></a>Para procurar e filtrar as propriedades
+## <a name="to-search-and-filter-named-values"></a>Para procurar e filtrar valores com o nome
 
-O **denominado valores** separador inclui a procura e filtragem de funcionalidades para o ajudar a gerir as propriedades. Para filtrar a lista de propriedades por nome de propriedade, introduza um termo de pesquisa no **Procurar propriedade** caixa de texto. Para apresentar todas as propriedades, desmarque a **Procurar propriedade** caixa de texto e prima introduza.
+O **valores nomeados** guia inclui pesquisar e filtrar recursos para ajudar a gerir os seus valores com nome. Para filtrar a lista de propriedades por nome de propriedade, introduza um termo de pesquisa na **propriedade de pesquisa** caixa de texto. Para apresentar os valores de todas as com nome, desmarque a **propriedade de pesquisa** caixa de texto e prima enter.
 
-Para filtrar a lista de propriedades por valores de etiqueta, introduza uma ou mais etiquetas para o **filtrar por etiquetas** caixa de texto. Para apresentar todas as propriedades, desmarque a **filtrar por etiquetas** caixa de texto e prima introduza.
+Para filtrar a lista de propriedades por valores de etiqueta, introduza um ou mais etiquetas para o **filtrar por marcas** caixa de texto. Para apresentar os valores de todas as com nome, desmarque a **filtrar por marcas** caixa de texto e prima enter.
 
-## <a name="to-use-a-property"></a>Para utilizar uma propriedade
+## <a name="to-use-a-property"></a>Usar uma propriedade
 
-Para utilizar uma propriedade de uma política, coloque o nome da propriedade dentro de um par duplo de chavetas como `{{ContosoHeader}}`, conforme mostrado no exemplo seguinte:
+Para utilizar uma propriedade numa política, coloque o nome da propriedade dentro de um par duplo de chaves, como `{{ContosoHeader}}`, conforme mostrado no exemplo a seguir:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -84,11 +84,11 @@ Para utilizar uma propriedade de uma política, coloque o nome da propriedade de
 </set-header>
 ```
 
-Neste exemplo, `ContosoHeader` é utilizado como o nome de um cabeçalho num `set-header` política, e `ContosoHeaderValue` é utilizado como o valor de que o cabeçalho. Quando esta política é avaliada durante um pedido ou resposta para o gateway de gestão de API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` são substituídos com os respetivos valores de propriedade correspondentes.
+Neste exemplo, `ContosoHeader` é utilizado como o nome de um cabeçalho num `set-header` diretiva, e `ContosoHeaderValue` é utilizado como o valor desse cabeçalho. Quando esta política é avaliada durante uma solicitação ou resposta para o gateway de gestão de API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` são substituídas por valores de suas respectivas propriedades.
 
-Propriedades podem ser utilizadas como atributo concluído ou valores de elemento, conforme mostrado no exemplo anterior, mas também podem ser inseridas ou combinados com parte de uma expressão de texto literal, conforme mostrado no exemplo seguinte:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Valores nomeados podem ser utilizados como atributo completado ou valores de elemento, conforme mostrado no exemplo anterior, mas eles também podem ser inseridos ou combinados com a parte de uma expressão de texto literal, conforme mostrado no exemplo a seguir: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Propriedades também podem conter expressões de política. No exemplo seguinte, o `ExpressionProperty` é utilizado.
+Valores nomeados também podem conter expressões de política. No exemplo a seguir, o `ExpressionProperty` é utilizado.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -96,17 +96,17 @@ Propriedades também podem conter expressões de política. No exemplo seguinte,
 </set-header>
 ```
 
-Quando esta política é avaliada, `{{ExpressionProperty}}` é substituído com o respetivo valor: `@(DateTime.Now.ToString())`. Uma vez que o valor de uma expressão de política, a expressão é avaliada e a política continua com a execução.
+Quando esta política é avaliada, `{{ExpressionProperty}}` é substituído pelo seu valor: `@(DateTime.Now.ToString())`. Uma vez que o valor é uma expressão de política, a expressão é avaliada e a política prossegue com sua execução.
 
-Pode testar horizontalmente no portal do programador ao chamar uma operação que tem uma política com as propriedades do âmbito. No exemplo seguinte, uma operação é chamada com o exemplo anterior dois `set-header` políticas com propriedades. Tenha em atenção que a resposta contém dois cabeçalhos personalizados que foram configurados através de políticas com propriedades.
+Pode testar isso no portal do programador ao chamar uma operação que tem uma política com valores nomeados no âmbito. No exemplo a seguir, uma operação é chamada com o exemplo anterior dois `set-header` políticas com valores nomeados. Tenha em atenção que a resposta contém dois cabeçalhos personalizados que foram configurados através de políticas com valores nomeados.
 
 ![Portal do programador][api-management-send-results]
 
-Se observar o [rastreio API Inspector](api-management-howto-api-inspector.md) para uma chamada de que inclui as duas políticas de exemplo anterior com propriedades, pode ver as duas `set-header` políticas com os valores de propriedade inseridas, bem como a avaliação da expressão de política para a propriedade que continha a expressão de política.
+Se examinar a [rastreio de Inspetor de API](api-management-howto-api-inspector.md) para uma chamada que inclui as duas políticas de exemplo anterior com valores nomeados, pode ver os dois `set-header` políticas com os valores de propriedade inseridos, bem como a expressão de política avaliação para a propriedade que continha a expressão de política.
 
-![Rastreio de API Inspector][api-management-api-inspector-trace]
+![Rastreio de Inspetor de API][api-management-api-inspector-trace]
 
-Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outras propriedades. Se o texto que contém uma referência de propriedade é utilizado para um valor de propriedade, tais como `Property value text {{MyProperty}}`, esse referência da propriedade não será substituída e serão incluída como parte do valor de propriedade.
+Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outros valores com nome. Se o texto que contém uma referência de propriedade é usado para um valor de propriedade, tais como `Property value text {{MyProperty}}`, essa referência de propriedade não ser substituída e serão incluída como parte do valor da propriedade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como trabalhar com políticas

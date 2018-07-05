@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM Linux do Azure - GPU | Microsoft Docs
-description: Apresenta uma lista na GPU diferentes com otimização de tamanhos disponíveis para computadores virtuais Linux no Azure. Apresenta informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para tamanhos de nesta série.
+title: Tamanhos de VM do Linux do Azure - GPU | Documentos da Microsoft
+description: Listas de GPU diferente com otimização de tamanhos disponíveis para máquinas virtuais do Linux no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,31 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 07/03/2018
 ms.author: jonbeck
-ms.openlocfilehash: 5b856ec14febefc96e77d3c131b746e597a3aa5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe581ca45d88c88c4892e80f2c72a9b21e697ea5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653625"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442894"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU com otimização de tamanhos de máquinas virtuais
+# <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de GPU
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
-Para passos de instalação e a verificação de controladores, consulte [a configuração do controlador de série N para Linux](n-series-driver-setup.md).
+Para tirar partido das capacidades GPU do Azure VMs de série N que executem o Linux, tem de estar instalados controladores NVIDIA GPU. O [extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala os controladores adequados NVIDIA CUDA ou GRADE numa VM de série N. Instalar ou gerir a extensão com o portal do Azure ou ferramentas, como os modelos da CLI do Azure ou Azure Resource Manager. Consulte a [documentação da extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para as distribuições suportadas e passos de implementação. Para obter informações gerais sobre as extensões de VM, consulte [extensões de máquina virtual do Azure e funcionalidades](../extensions/overview.md).
+
+Se optar por instalar controladores NVIDIA GPU manualmente, consulte [configuração de controladores GPU da série N para Linux](n-series-driver-setup.md) para as distribuições suportadas, drivers e passos de instalação e verificação.
+
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Não deve instalar X servidor ou a outros sistemas que utilizam o `Nouveau` controladores em Ubuntu NC VMs. Antes de instalar os controladores de NVIDIA GPU, terá de desativar o `Nouveau` controlador.  
+* Não deve instalar X servidor ou outros sistemas que utilizam o `Nouveau` driver em VMs do Ubuntu NC. Antes de instalar controladores NVIDIA GPU, terá de desativar o `Nouveau` driver.  
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
@@ -46,4 +49,4 @@ Para passos de instalação e a verificação de controladores, consulte [a conf
 - [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.

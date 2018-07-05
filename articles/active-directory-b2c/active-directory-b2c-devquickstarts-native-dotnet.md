@@ -1,24 +1,24 @@
 ---
-title: Autenticação, a inscrição, Editar perfil no Azure Active Directory B2C | Microsoft Docs
-description: Como criar uma aplicação de ambiente de trabalho do Windows que inclui o início de sessão, inscrição, e gestão de perfis utilizando o Azure Active Directory B2C.
+title: Autenticação, inscreva-se, Editar perfil no Azure Active Directory B2C | Documentos da Microsoft
+description: Como criar um aplicativo de desktop do Windows que inclui o início de sessão, inscreva-se, e a gestão de perfis com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711070"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441904"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>O Azure AD B2C: Criar uma aplicação de ambiente de trabalho do Windows
-Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar as funcionalidades de gestão de identidade poderosas self-service para a sua aplicação de ambiente de trabalho em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas".NET Windows Presentation Foundation (WPF) que inclui a inscrição, início de sessão de utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e o início de sessão utilizando um nome de utilizador ou o e-mail. Irá também inclui suporte para inscrição e o início de sessão através da utilização de contas de redes sociais como o Facebook e Google.
+Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar funcionalidades de gestão de identidade poderosas self-service para seu aplicativo de desktop em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas" do .NET Windows Presentation Foundation (WPF) que inclui a inscrição e início de sessão do utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e início de sessão utilizando um nome de utilizador ou e-mail. Ele também irão incluir o suporte para inscrição e início de sessão através da utilização de contas de redes sociais como o Facebook e Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório do Azure AD B2C
 Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino.  Um diretório é um contentor para todos os seus utilizadores, aplicações, grupos, etc. Se ainda não tiver um, [crie um diretório do B2C](active-directory-b2c-get-started.md) antes de prosseguir neste guia.
@@ -26,12 +26,12 @@ Para poder utilizar o Azure AD B2C, tem de criar um diretório ou inquilino.  Um
 ## <a name="create-an-application"></a>Criar uma aplicação
 Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporciona ao Azure AD as informações de que necessita para comunicar de forma segura com a sua aplicação. Para criar uma aplicação, siga [estas instruções](active-directory-b2c-app-registration.md).  É necessário:
 
-* Incluir um **cliente nativo** na aplicação.
+* Incluir uma **cliente nativo** no aplicativo.
 * Copiar o **URI de redirecionamento** `urn:ietf:wg:oauth:2.0:oob`. É o URL predefinido para este exemplo de código.
 * Copiar a **ID da Aplicação** atribuída à aplicação. Precisará dele mais tarde.
 
 ## <a name="create-your-policies"></a>Criar as políticas
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: inscrever-se, iniciar sessão e Editar perfil. Tem de criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria as três políticas, certifique-se de que:
+No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: inscrição, inicie sessão e Editar perfil. Precisa criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria as três políticas, certifique-se de que:
 
 * Escolher a **Inscrição de ID de utilizador** ou **Inscrição de email** no painel de fornecedores de identidade.
 * Escolher o **Nome a apresentar** e outros atributos de inscrição na sua política de inscrição.
@@ -51,22 +51,22 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 A aplicação concluída está também [disponível como um ficheiro .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) ou no `complete` ramo do mesmo repositório.
 
-Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O `TaskClient` projeto é a aplicação de ambiente de trabalho do WPF que o utilizador interage com. Para efeitos deste tutorial, aquele invoca uma API, alojado no Azure, que armazena a lista de tarefas de cada utilizador da web de back-end tarefas.  Não é necessário criar a API web, já que poderemos ter funcionar para si.
+Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O `TaskClient` projeto é o aplicativo de área de trabalho do WPF que o usuário interage com. Para efeitos deste tutorial, ele chama uma API, alojado no Azure, que armazena a lista de tarefas pendentes de cada usuário da web de tarefa de back-end.  Não é necessário criar a API web, já temos-lo em execução para.
 
-Para saber como uma API web em segurança autentica o pedidos utilizando o Azure AD B2C, veja o [web API introdução artigo](active-directory-b2c-devquickstarts-api-dotnet.md).
+Para saber como uma API web com segurança o autentica o pedidos utilizando o Azure AD B2C, consulte a [introdução de web API ao artigo](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="execute-policies"></a>Executar políticas
-A aplicação comunica com o Azure AD B2C através do envio de mensagens de autenticação que especificar a política que pretende para ser executado como parte do pedido de HTTP. Para aplicações de ambiente de trabalho de .NET, pode utilizar a biblioteca de autenticação da Microsoft (MSAL) de pré-visualização para enviar mensagens de autenticação OAuth 2.0, execute as políticas e obter tokens chamar as APIs web.
+Seu aplicativo se comunica com o Azure AD B2C através do envio de mensagens de autenticação que especifique a política que pretendem executar como parte da solicitação HTTP. .NET para aplicativos de desktop, pode utilizar a pré-visualização Microsoft Authentication Library (MSAL) para enviar mensagens de autenticação OAuth 2.0, execute as políticas e obter os tokens que chamam as APIs web.
 
-### <a name="install-msal"></a>Instalar MSAL
-Adicionar MSAL para o `TaskClient` projeto utilizando a consola do Gestor de pacotes do Visual Studio.
+### <a name="install-msal"></a>Instalar a MSAL
+Adicionar a MSAL para o `TaskClient` projeto utilizando a consola do Gestor de pacotes do Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="enter-your-b2c-details"></a>Introduza os seus detalhes do B2C
-Abra o ficheiro `Globals.cs` e substitua cada um dos valores de propriedade com os seus próprios. Esta classe é utilizada ao longo `TaskClient` para valores de referência utilizada frequentemente.
+Abra o ficheiro `Globals.cs` e substituir cada um dos valores de propriedade por seus próprios. Esta classe é utilizada em todo `TaskClient` valores de referência utilizada frequentemente.
 
 ```csharp
 public static class Globals
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>Criar o PublicClientApplication
-A classe principal da MSAL `PublicClientApplication`. Esta classe representa a sua aplicação no sistema do Azure AD B2C. Quando app initalizes, crie uma instância de `PublicClientApplication` no `MainWindow.xaml.cs`. Isto pode ser utilizado em toda a janela.
+A classe principal de MSAL é `PublicClientApplication`. Esta classe representa a sua aplicação no sistema do Azure AD B2C. Quando os initalizes de aplicação, crie uma instância do `PublicClientApplication` em `MainWindow.xaml.cs`. Isso pode ser usado em toda a janela.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -105,7 +105,7 @@ protected async override void OnInitialized(EventArgs e)
 ```
 
 ### <a name="initiate-a-sign-up-flow"></a>Iniciar um fluxo de inscrição
-Quando um utilizador optar por participar ativamente para sinais cópias de segurança, que pretende iniciar um fluxo de inscrição que utiliza a política de inscrição que criou. Ao utilizar MSAL, apenas a chamar `pca.AcquireTokenAsync(...)`. Os parâmetros a transmitir ao `AcquireTokenAsync(...)` determinar qual token receber, a política utilizada no pedido de autenticação e muito mais.
+Quando um utilizador opta ativamente por participar sinais de cópia de segurança, que pretende iniciar um fluxo Inscreva-se de que utiliza a política de inscrição que criou. Ao utilizar a MSAL, apenas de chamar `pca.AcquireTokenAsync(...)`. Os parâmetros a transmitir para `AcquireTokenAsync(...)` determinar qual token receber, a política utilizada no pedido de autenticação e muito mais.
 
 ```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -156,7 +156,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ```
 
 ### <a name="initiate-a-sign-in-flow"></a>Iniciar um fluxo de início de sessão
-Pode iniciar um fluxo de início de sessão da mesma forma que o se iniciar um fluxo de inscrição. Quando um utilizador inicia sessão, efetue a mesma chamada para MSAL, desta vez utilizando a política de início de sessão:
+Pode iniciar um fluxo de início de sessão da mesma forma que inicia um fluxo de inscrição. Quando um utilizador inicia sessão, fazer a chamada mesmo para MSAL, desta vez com a sua política de início de sessão:
 
 ```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -171,7 +171,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ### <a name="initiate-an-edit-profile-flow"></a>Iniciar um fluxo de edição de perfil
-Novamente, pode executar uma política de perfil de editar o mesmo modo:
+Novamente, pode executar uma política de edição de perfil da mesma maneira:
 
 ```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
@@ -184,10 +184,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-Todas as nestes casos, MSAL está devolve um token no `AuthenticationResult` ou emite uma exceção. Sempre que a obter um token de MSAL, pode utilizar o `AuthenticationResult.User` objeto para atualizar os dados de utilizador na aplicação, tais como a IU. ADAL também coloca em cache o token para utilização em outras partes da aplicação.
+Em todos os casos, MSAL ou retorna um token no `AuthenticationResult` ou gera uma exceção. Sempre que receber um token de MSAL, pode usar o `AuthenticationResult.User` objeto para atualizar os dados de utilizador na aplicação, tais como a interface do Usuário. ADAL também coloca em cache o token para utilização em outras partes do aplicativo.
 
 ### <a name="check-for-tokens-on-app-start"></a>Verifique a existência de tokens no início da aplicação
-Também pode utilizar MSAL para controlar o estado de início de sessão do utilizador.  Nesta aplicação, queremos permanecer com sessão iniciada, mesmo depois de serem feche a aplicação e volte a abrir o utilizador.  Novamente dentro de `OnInitialized` substituição, utilize do MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
+Também pode utilizar a MSAL para controlar o estado de início de sessão do utilizador.  Nesta aplicação, queremos que o usuário permaneça com sessão iniciada, mesmo depois de eles fechar a aplicação e voltar a abrir.  Dentro de volta a `OnInitialized` de substituição, utilize da MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
 
 ```csharp
 AuthenticationResult result = null;
@@ -226,7 +226,7 @@ catch (MsalException ex)
 ```
 
 ## <a name="call-the-task-api"></a>Chamar a API de tarefa
-Agora, utilizou MSAL para executar as políticas e obter tokens.  Quando pretender utilizar um estes tokens para chamar a API de tarefa, pode utilizar novamente do MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
+Agora, utilizou a MSAL para executar as políticas e obter os tokens.  Quando pretender utilizar um destes tokens para chamar a API de tarefa, pode utilizar novamente da MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
 
 ```csharp
 private async void GetTodoList()
@@ -271,7 +271,7 @@ private async void GetTodoList()
     ...
 ```
 
-Quando a chamada para `AcquireTokenSilentAsync(...)` for bem sucedida e um token for encontrado na cache, pode adicionar o token para o `Authorization` cabeçalho do pedido HTTP. A API web de tarefas irá utilizar este cabeçalho para autenticar o pedido ler a lista de tarefas do utilizador:
+Quando a chamada para `AcquireTokenSilentAsync(...)` for concluída com êxito e um token for encontrado na cache, pode adicionar o token para o `Authorization` cabeçalho da solicitação HTTP. A API da web de tarefas irá utilizar este cabeçalho para autenticar o pedido para ler a lista de tarefas do utilizador:
 
 ```csharp
     ...
@@ -284,7 +284,7 @@ Quando a chamada para `AcquireTokenSilentAsync(...)` for bem sucedida e um token
 ```
 
 ## <a name="sign-the-user-out"></a>O utilizador terminar sessão
-Por fim, pode utilizar MSAL para terminar uma sessão de utilizador com a aplicação quando o utilizador seleciona **terminar sessão**.  Quando utilizar MSAL, isto é conseguido ao desmarcar todos os tokens da cache de token:
+Por fim, pode utilizar a MSAL para terminar uma sessão de utilizador com a aplicação quando o usuário seleciona **terminar sessão**.  Ao utilizar a MSAL, isso é conseguido ao desmarcar todos os tokens da cache de token:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,21 +306,21 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
-Por fim, crie e execute o exemplo.  Inscreva-se a aplicação utilizando um nome de utilizador ou endereço de correio eletrónico. Termine sessão e inicie sessão novamente como o mesmo utilizador. Edite perfil desse utilizador. Termine sessão e inscrever-se através de um utilizador diferente.
+Por fim, crie e execute o exemplo.  Inscrever-se a aplicação utilizando um nome de utilizador ou endereço de e-mail. Termine sessão e inicie sessão novamente como o mesmo utilizador. Edite do perfil do usuário. Termine sessão e inscrever-se através de um utilizador diferente.
 
-## <a name="add-social-idps"></a>Adicionar IDPs redes sociais
-Atualmente, a aplicação suporta apenas inscrição de utilizador e o início de sessão que utilizam **contas locais**. Estas são contas armazenadas no diretório do B2C que utilizam um nome de utilizador e palavra-passe. Ao utilizar o Azure AD B2C, pode adicionar suporte para outros fornecedores de identidade (IDPs) sem alterar qualquer do seu código.
+## <a name="add-social-idps"></a>Adicionar IDPs sociais
+Atualmente, a aplicação suporta apenas inscrição de utilizador e início de sessão que utilizam **contas locais**. Estas são contas armazenadas no diretório do B2C que utilizam um nome de utilizador e palavra-passe. Ao utilizar o Azure AD B2C, pode adicionar suporte para outros fornecedores de identidade (IDPs) sem alterar nenhum código.
 
-Para adicionar redes sociais IDPs à sua aplicação, comece por seguir as instruções detalhadas nestes artigos. Para cada IDP que pretende suportar, tem de registar uma aplicação nesse sistema e obter um ID de cliente.
+Para adicionar IDPs sociais para a sua aplicação, comece por seguir as instruções detalhadas nestes artigos. Para cada IDP pretende oferecer apoio técnico, terá de registar uma aplicação no sistema e obter um ID de cliente.
 
 * [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
 * [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
 * [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
-* [Configurar LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
+* [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
-Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, tem de editar cada um dos seus três políticas para incluir IDPs novo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de guardar as suas políticas, execute novamente a aplicação. Deverá ver os novo IDPs adicionados como início de sessão e as experiências de opções de inscrição em cada de identidade.
+Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, terá de editar cada um dos seus três políticas para incluir os IDPs novo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de guardar as suas políticas, execute novamente a aplicação. Deverá ver os novo IDPs adicionados como o início de sessão e experiências de opções de inscrição em cada uma das sua identidade.
 
-Pode experimentar com as políticas e observar os efeitos na sua aplicação de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou altere os atributos de inscrição. Experimentação até que pode ver como MSAL, pedidos de autenticação e políticas associar em conjunto.
+Pode experimentar com as suas políticas e observe os efeitos em seu aplicativo de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou alterar os atributos de inscrição. Experimentação até que pode ver como as políticas, os pedidos de autenticação e MSAL ligarem.
 
 Para referência, o exemplo concluído [é fornecido como um ficheiro. zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Também pode clonar a partir do GitHub:
 

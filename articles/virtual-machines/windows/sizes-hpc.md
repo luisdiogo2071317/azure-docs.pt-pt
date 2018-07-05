@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Windows Azure - HPC | Microsoft Docs
-description: Lista os tamanhos diferentes disponíveis para Windows computação de alto desempenho máquinas virtuais no Azure. Apresenta informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para tamanhos de nesta série.
+title: Tamanhos de VM do Windows Azure – HPC | Documentos da Microsoft
+description: Lista os tamanhos diferentes disponíveis para Windows computação de alto desempenho máquinas virtuais no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: e402fd3ac95cac4816b9442f7c08aeaf7c108886
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d8ab1531c4e1fa33fbdba12a4ecbeb8908dd6a94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34654356"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho
 
@@ -30,46 +31,47 @@ ms.lasthandoff: 04/06/2018
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **Sistema operativo** -Windows Server 2016, o Windows Server 2012 R2, Windows Server 2012
+* **Sistema operativo** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-* **MPI** -MPI Microsoft (MS-MPI) 2012 R2 ou posterior, Intel MPI biblioteca 5. x
+* **MPI** -Microsoft MPI (MS-MPI) 2012 R2 ou posterior, Intel MPI biblioteca 5.x
 
-  Implementações de MPI suportadas utilizam a interface Microsoft Network Direct para comunicar entre instâncias. 
+  Implementações de MPI suportadas utilizam a interface direta de rede do Microsoft para comunicar entre instâncias. 
 
-* **Espaço de endereços de rede RDMA** -o endereço espaço 172.16.0.0/16 de reservas de rede RDMA o no Azure. Para executar aplicações MPI no instâncias implementadas numa rede virtual do Azure, certifique-se de que o espaço de endereços de rede virtual não se sobreponha a rede RDMA.
+* **Espaço de endereços de rede RDMA** -rede o RDMA no Azure reserva-se o endereço espaço 172.16.0.0/16. Para executar aplicações MPI em instâncias implementadas numa rede virtual do Azure, certifique-se de que o espaço de endereços de rede virtual não se sobreponha a rede RDMA.
 
-* **Extensão da HpcVmDrivers VM** - em VMs com capacidade RDMA, adicione a extensão de HpcVmDrivers para instalar controladores de dispositivo de rede do Windows para conectividade RDMA. (Em determinadas implementações das instâncias A8 e A9, a extensão de HpcVmDrivers é adicionada automaticamente.) Para adicionar a extensão VM a uma VM, pode utilizar [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+* **Extensão de HpcVmDrivers VM** - em VMs com capacidade RDMA, adicione a extensão de HpcVmDrivers para instalar controladores de dispositivo de rede Windows para a conectividade RDMA. (Em determinadas implementações das instâncias A8 e A9, a extensão de HpcVmDrivers é adicionada automaticamente.) Para adicionar a extensão de VM a uma VM, pode utilizar [do Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
-  O seguinte comando instala a mais recente HpcVMDrivers extensão da versão 1.1 numa VM com capacidade RDMA existente com o nome *myVM* implementada no grupo de recursos com o nome *myResourceGroup* no *EUA oeste* região:
+  O seguinte comando instala a extensão de HpcVMDrivers versão 1.1 mais recente numa VM com capacidade RDMA existente com o nome *myVM* implementados no grupo de recursos com o nome *myResourceGroup* no  *Oeste dos E.U.A.* região:
 
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   
-  Para obter mais informações, consulte [extensões de Máquina Virtual e funcionalidades](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pode também funcionar com as extensões para as VMs implementadas no [modelo de implementação clássica](classic/manage-extensions.md).
+  Para obter mais informações, consulte [extensões de Máquina Virtual e funcionalidades](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Também pode trabalhar com as extensões para as VMs implementadas no [modelo de implementação clássica](classic/manage-extensions.md).
 
 
-## <a name="using-hpc-pack"></a>Utilizar o pacote HPC
+## <a name="using-hpc-pack"></a>Com o HPC Pack
 
-[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção para criar um cluster de cálculo no Azure para executar aplicações MPI baseados em Windows e outras cargas de trabalho HPC. Pacote HPC 2012 R2 e versões posteriores incluem um ambiente de tempo de execução para MS-MPI que utiliza a rede de Azure RDMA, quando implementados em VMs com capacidade RDMA.
+[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), gratuita HPC cluster e a tarefa de solução de gestão da Microsoft, é uma opção de criar um cluster de computação no Azure para executar aplicações MPI baseados em Windows e outras cargas de trabalho HPC. HPC Pack 2012 R2 e versões posteriores incluem um ambiente de tempo de execução para MS-MPI, que utiliza a rede de RDMA do Azure quando implementadas em VMs com capacidade RDMA.
 
 
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)
 - [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)
 - [Com otimização de GPU](sizes-gpu.md)
+- [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para listas de verificação utilizar as instâncias intensivas de computação com o HPC Pack no Windows Server, consulte [configurar um cluster do Windows RDMA com o HPC Pack para executar aplicações MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- Para listas de verificação utilizar as instâncias de computação intensiva, com o HPC Pack no Windows Server, consulte [configurar um cluster Windows RDMA com HPC Pack para executar aplicações MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-- Para utilizar instâncias intensivas de computação quando executar aplicações de MPI no Batch do Azure, consulte [utilizar tarefas de várias instâncias para executar aplicações de Interface de passagem de mensagens (MPI) no Azure Batch](../../batch/batch-mpi.md).
+- Para utilizar instâncias de computação intensiva ao executar aplicações MPI com o Azure Batch, veja [utilizar tarefas de várias instâncias para executar aplicações Message Passing Interface (MPI) no Azure Batch](../../batch/batch-mpi.md).
 
-- Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+- Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
 
 
 

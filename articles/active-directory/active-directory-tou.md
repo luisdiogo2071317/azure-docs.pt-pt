@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: HT
+ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267562"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444349"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -48,7 +48,7 @@ Para utilizar e configurar os Termos de utilização Azure AD, tem de ter:
 
 ## <a name="terms-of-use-document"></a>Documento Termos de utilização
 
-Os Termos de utilização do Azure AD utilizam o formato PDF para apresentar conteúdo. O ficheiro PDF pode ter qualquer tipo de conteúdo, como documentos contratuais existentes, permitindo-lhe recolher contratos de utilizador final durante o início de sessão do utilizador. O tamanho do tipo de letra recomendado no PDF é 24.
+Os Termos de utilização do Azure AD utilizam o formato PDF para apresentar conteúdo. O ficheiro PDF pode ter qualquer conteúdo, como documentos contratuais existentes, permitindo-lhe recolher contratos durante o utilizador iniciar sessão de utilizador final. O tamanho do tipo de letra recomendado no PDF é 24.
 
 ## <a name="add-terms-of-use"></a>Adicionar os Termos de utilização
 Depois de finalizar o documento Termos de utilização, utilize o procedimento que se segue para o adicionar.
@@ -98,7 +98,7 @@ O painel Termos de utilização mostra uma contagem dos utilizadores que aceitar
     ![Evento de Auditoria](media/active-directory-tou/accepted-tou.png)
 
 ## <a name="view-audit-logs"></a>Ver registos de auditoria
-Se pretender ver atividade adicional, os Termos de utilização do Azure AD incluem registos de auditoria. Cada consentimento do utilizador aciona um evento nos registos de auditoria que são armazenados durante 30 dias. Pode ver estes registos no portal ou transferi-los como um ficheiro. csv.
+Se pretender ver atividade adicional, os Termos de utilização do Azure AD incluem registos de auditoria. Cada consentimento do usuário dispara um evento nos registos de auditoria que é armazenado durante 30 dias. Pode ver estes registos no portal ou transferi-los como um ficheiro. csv.
 
 Para dar início aos registos de auditoria, utilize o seguinte procedimento:
 
@@ -115,7 +115,7 @@ Para dar início aos registos de auditoria, utilize o seguinte procedimento:
 1. Também pode clicar em **Transferir** para transferir as informações para um ficheiro. csv, para utilização local.
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Qual o aspeto dos Termos de utilização para os utilizadores
-Assim que os Termos de utilização são criados e impostos, os utilizadores, que são abrangidos pelo âmbito, irão ver o seguinte ecrã durante o início de sessão.
+Depois de termos de utilização é criado e imposta, os utilizadores que estão no âmbito, verá o ecrã seguinte durante o início de sessão.
 
 ![Evento de Auditoria](media/active-directory-tou/user-tou.png)
 
@@ -126,7 +126,7 @@ O ecrã seguinte mostra o aspeto dos Termos de utilização em dispositivos móv
 ### <a name="how-users-can-review-their-terms-of-use"></a>Como os utilizadores podem rever os Termos de utilização
 Os utilizadores podem rever e ver os termos de utilização que aceitaram, utilizando o procedimento seguinte.
 
-1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
 1. No canto superior direito, clique no seu nome e selecione **Perfil** no menu pendente.
 
@@ -157,7 +157,7 @@ Pode eliminar Termos de utilização antigos com o procedimento seguinte.
 Por predefinição, um utilizador eliminado fica num estado eliminado no Azure AD durante um período de 30 dias, durante o qual pode ser restaurado por um administrador, se necessário.  Após 30 dias, esse utilizador é eliminado permanentemente.  Além disso, através do portal do Azure Active Directory, um administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](fundamentals/active-directory-users-restore.md) antes desse período de tempo ser atingido.  Depois de um utilizador ser eliminado de maneira permanente, os dados subsequentes sobre esse utilizador serão removidos dos Termos de utilização ativos.  As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
 
 ## <a name="policy-changes"></a>Alterações de política
-As políticas de acesso condicional entram imediatamente em vigor. Quando isto acontece, o administrador começa a receber indicações de "clouds com problemas" ou "problemas com o token do Azure AD". O administrador tem de terminar e iniciar sessão novamente a fim de satisfazer a nova política.
+As políticas de acesso condicional entram imediatamente em vigor. Quando isto acontecer, o administrador começa a "nuvens sad" ou "Problemas de token do Azure AD". O administrador tem de terminar sessão e inicie sessão novamente para atender a nova política.
 
 >[!IMPORTANT]
 > Os utilizadores abrangidos pelo âmbito definido terão de terminar e iniciar sessão de modo a satisfazerem uma nova política:
@@ -167,10 +167,10 @@ As políticas de acesso condicional entram imediatamente em vigor. Quando isto a
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Como posso ver se e quando um utilizador aceitou os Termos de utilização?**</br>
-R: pode simplesmente clicar no número em “aceitou”, junto aos Termos de utilização.  Para obter mais informações, veja [Ver os utilizadores que aceitaram e recusaram](#view-who-has-accepted-and-declined).  Além disso, quando um utilizador aceita os Termos de utilização, essa informação é guardada no registo de auditoria. Pode pesquisar o registo de auditoria do Azure AD para ver os resultados.  
+R: em termos do painel de utilização, clique no número em **aceite**. Também pode ver ou procurar a atividade de aceitar os registos de auditoria. Para obter mais informações, consulte [ver quem tem aceitaram e recusaram](#view-who-has-accepted-and-declined) e [ver registos de auditoria](#view-audit-logs).
 
-**P: Se alterar os Termos de utilização, isso significa que os utilizadores têm de os aceitar novamente?**</br>
-R: Sim, os administradores podem alterar os Termos de utilização, o que significa que os termos novos têm de voltar a ser aceites.
+**P: Se alterar os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
+R: Sim, um administrador pode alterar os termos de utilização e requer que os utilizadores voltem os novos termos.
 
 **P: Os Termos de utilização podem suportar vários idiomas?**</br>
 R: Sim.  Atualmente, existem 18 idiomas diferentes que um administrador pode configurar para um único documento Termos de utilização. 
@@ -179,13 +179,16 @@ R: Sim.  Atualmente, existem 18 idiomas diferentes que um administrador pode con
 R: Os Termos de utilização são acionados durante a experiência de início de sessão.
 
 **P: Para que aplicações posso orientar os Termos de utilização?**</br>
-R: Pode criar uma política de acesso condicional nas aplicações empresariais que utilizam autenticação moderna.  Para obter mais informações, consulte [aplicações empresariais](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+R: Pode criar uma política de acesso condicional nas aplicações empresariais que utilizam autenticação moderna.  Para obter mais informações, consulte [aplicações empresariais](./manage-apps/view-applications-portal.md).
 
 **P: Posso adicionar vários Termos de utilização para um determinado utilizador ou aplicação?**</br>
 R: Sim, através da criação de várias políticas de acesso condicional orientadas para esses grupos ou aplicações. Se um utilizador for abrangido pelo âmbito de vários Termos de utilização, concorda com um dos Termos de utilização de cada vez.
  
 **P: O que acontece se um utilizador recusar os Termos de utilização?**</br>
-R: O acesso do utilizador à aplicação é bloqueado. O utilizador teria de reiniciar sessão e concordar com os termos para conseguir obter acesso.
+R: O acesso do utilizador à aplicação é bloqueado. O utilizador terá de iniciar sessão novamente e aceitar os termos para conseguir obter acesso.
+ 
+**P: é possível unaccept termos de utilização que foram anteriormente aceites?**</br>
+R: pode [revisão ainda aceitado os termos de utilização](#how-users-can-review-their-terms-of-use), mas atualmente não há uma forma de unaccept.
  
 **P: Por quanto tempo as informações são armazenadas?**</br>
 R: As contagens de utilizador e quem aceitou/recusou são armazenadas durante a vigência dos Termos de utilização. Os registos de auditoria são armazenados durante 30 dias.

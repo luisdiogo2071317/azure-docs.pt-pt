@@ -1,6 +1,6 @@
 ---
-title: Criar uma revisão do acesso para os membros de um grupo ou os utilizadores com acesso a uma aplicação com o Azure AD | Microsoft Docs
-description: Saiba como criar uma revisão do acesso para os membros de um grupo ou os utilizadores com acesso a uma aplicação.
+title: Criar uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação com o Azure AD | Documentos da Microsoft
+description: Saiba como criar uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -9,71 +9,71 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 20f238a7d8a3882f2a126c900e04ecf7be613be5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 853d8f09a94e46db218553500a50dc4ef1ec3d23
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084982"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448276"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão do acesso dos membros do grupo ou de acesso de aplicação com o Azure AD
+# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão de acesso de membros do grupo ou o acesso de aplicação com o Azure AD
 
-Atribuições de acesso tornar-se "obsoletas" quando os utilizadores têm acesso não precisam de mais. Para reduzir os riscos associados atribuições de acesso obsoletos, os administradores podem utilizar o Azure Active Directory (Azure AD) para criar uma revisão do acesso para os membros do grupo ou os utilizadores atribuídos a uma aplicação. Criar periódica revisões de acesso pode ser tempo guardar. Se precisar de reveja regularmente os utilizadores que têm acesso a uma aplicação ou que são membros de um grupo, pode definir a frequência dessas revisões. Para obter mais informações sobre estes cenários, consulte [gerir o acesso de utilizador](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) e [gerir o acesso de convidado](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). 
+As atribuições de acesso se tornar "obsoletas" quando os utilizadores têm acesso não precisam mais. Para reduzir o risco associado atribuições de acesso obsoletos, os administradores podem utilizar o Azure Active Directory (Azure AD) para criar uma revisão de acesso para membros do grupo ou os utilizadores atribuídos a uma aplicação. A criação periódica revisões de acesso pode ser economia de tempo. Se precisar de reveja regularmente os utilizadores que têm acesso a uma aplicação ou são membros de um grupo, pode definir a frequência dessas revisões. Para obter mais informações sobre estes cenários, consulte [gerir o acesso de utilizador](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) e [gerir o acesso de convidado](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). 
 
 ## <a name="create-an-access-review"></a>Criar uma revisão de acesso
 
-1. Como um administrador global ou o administrador de conta de utilizador, vá para o [acesso revê página](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)e selecione **programas**.
+1. Como um administrador global ou administrador de conta de utilizador, vá para o [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)e selecione **programas**.
 
-2. Seleccione o programa que contém o controlo de revisão de acesso que pretende criar. **Programa predefinido** sempre estiver presente, ou pode criar um programa diferente. Por exemplo, pode optar por ter um programa para cada iniciativa de compatibilidade ou o objetivo de negócio.
+2. Selecione o programa que mantém o controlo de revisão de acesso que pretende criar. **Programa predefinido** sempre esteja presente, ou pode criar um programa diferente. Por exemplo, pode optar por ter um programa para cada iniciativa de conformidade ou de suas metas de negócios.
 
-3. O programa, selecione **controlos**e, em seguida, selecione **adicionar** para adicionar um controlo.
+3. Dentro do programa, selecione **controles**e, em seguida, selecione **Add** para adicionar um controlo.
 
-4. Nome a revisão do acesso. Opcionalmente, forneça a revisão uma descrição. O nome e descrição são apresentadas para os revisores.
+4. Nome da revisão de acesso. Opcionalmente, forneça a revisão de uma descrição. O nome e descrição são apresentadas aos revisores.
 
-5. Defina a data de início. Por predefinição, uma revisão do acesso ocorre uma vez, inicia o mesmo tempo que é criado e -termina num mês. Pode alterar o início e fim de datas para ter acesso reveja início no futuro e pela última vez no entanto, o número de dias que pretende.
+5. Defina a data de início. Por predefinição, uma revisão de acesso ocorre uma vez, é iniciada ao mesmo tempo, que é criado e termina dentro de um mês. Pode alterar o início e datas de término para ter um acesso rever início no futuro e pela última vez no entanto, o número de dias que pretende.
 
-6. Para tornar o recorrente de revisão de acesso, altere a frequência de uma vez para semanais, mensais, trimestrais ou anual e utilize a caixa de texto ou controlo de deslize para definir quantos dias cada revisão da série periódica será aberta para entrada de revisores. Por exemplo, a duração máxima para pode ser definido para uma revisão mensal é 27 dias, para evitar a sobreposição de revisões. 
+6. Para tornar a revisão de acesso recorrente, alterar a frequência de uma vez para semanalmente, mensalmente, trimestralmente ou anualmente e utilize a caixa de texto ou de controlo de deslize para definir o número de dias cada revisão da série recorrente será aberta para entrada de revisores. Por exemplo, a duração máxima para pode definir para uma revisão mensal é 27 dias, para evitar a sobreposição de revisões. 
 
-7.  A série de revisão periódica do acesso pode terminar formas 3: é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou um determinado número de ocorrências tenha sido concluída. Outro administrador de conta de utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que este termina a essa data.
+7.  A série de revisão de acesso recorrentes pode ser encerrada de 3 formas: ela seja executada continuamente para iniciar as revisões indefinidamente, até uma data específica ou após um determinado número de ocorrências de conclusão. , Outro administrador de conta de utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que ele termina a essa data.
 
-8. Revisões de acesso podem ser membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso revisão para revisão apenas os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de rever todos os utilizadores que são membros ou que tenham acesso à aplicação.
+8. As revisões de acesso podem ser para os membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso apenas de revisão para rever os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de examinar todos os utilizadores que são membros ou que têm acesso à aplicação.
 
-9. Selecione um ou mais pessoas para rever todos os utilizadores no âmbito. Ou, pode optar por ter membros rever os suas próprias acesso. Se o recurso é um grupo, pode colocar os proprietários de grupo para rever. Também pode exigir que os revisores de fornecer um motivo quando estes aprovar acesso.
+9. Selecione um ou mais pessoas para rever todos os utilizadores no âmbito. Ou pode selecionar para que os membros, reveja o seu próprio acesso. Se o recurso é um grupo, é possível pedir os proprietários do grupo para rever. Também pode exigir que os revisores fornecem um motivo quando eles aprovar o acesso.
 
-10. Se pretender aplicar manualmente os resultados ao concluir a revisão, clique em **iniciar**.  Caso contrário, a secção seguinte explica como configurar a revisão como auto se aplicam.
+10. Se desejar aplicar manualmente os resultados quando a revisão terminar, clique em **iniciar**.  Caso contrário, a seção seguinte explica como configurar a revisão automaticamente aplicar.
 
-### <a name="configuring-an-access-review-with-auto-apply"></a>Configurar uma revisão do acesso com auto-apply
+### <a name="configuring-an-access-review-with-auto-apply"></a>Configurar uma revisão de acesso com auto-apply
 
-1.  Expanda o menu para após a conclusão definições e ativar automaticamente aplicam-se os resultados ao recurso. 
+1.  Expanda o menu para após as definições de conclusão e ativar automaticamente aplicar resultados ao recurso. 
 
-2.  Em casos onde os utilizadores não foram revistos pelo revisor dentro do período de revisão, pode ter a revisão do acesso de colocar recomendação do sistema (se estiver ativada) no negar/aprovar o acesso do utilizador contínuo, deixe o respetivo acesso inalterado ou remover os respetivos acesso. Isto não irá afetar os utilizadores que foram revistos, os revisores manualmente – esteja decisão do revisor final negar, em seguida, o acesso do utilizador será removido.
+2.  Em casos em que os utilizadores não foram revistos pelo revisor dentro do período de revisão, pode ter a revisão de acesso por levar a recomendação do sistema (se ativada) ao negar/aprovar acesso contínuo do utilizador, deixe o respetivo acesso inalterado ou remover seus acesso. Isto não irá afetar os utilizadores que foram revistos, os revisores manualmente – se decisão do revisor final é negar, em seguida, o acesso do utilizador será removido.
 
-3.  Para ativar a opção para efetuar recomendações devem revisores não responder, expanda definições avançadas e ativar Mostrar recomendações.
+3.  Para ativar a opção efetuar recomendações devem os revisores não responder, expanda as definições avançadas e ativar as recomendações de mostrar.
  
 4.  Por fim, clique em **iniciar**.
 
-Com base nas suas seleções nas definições de conclusão,-aplicar automaticamente será executado após a data de fim da revisão ou quando parar manualmente a revisão. O estado da revisão deixará de concluído através de Estados intermédios como Applying e, finalmente, para o estado aplicada. Deverá ver negados utilizadores, se existir, a serem removidos da atribuição de aplicação ou de associação de grupo dentro de alguns minutos.
+Com base nas suas seleções após as definições de conclusão,-aplicar automaticamente irá ser executado após a data de fim a revisão ou quando manualmente para a revisão. O estado da revisão deixará de concluído por meio de Estados intermediários como aplicar e, finalmente, para o estado aplicado. Deve esperar para ver utilizadores sem permissão, caso haja algum, que está a ser removido a atribuição de aplicação ou associação de grupo dentro de alguns minutos.
 
 
-## <a name="manage-the-access-review"></a>Gerir a revisão do acesso
+## <a name="manage-the-access-review"></a>Gerir a revisão de acesso
 
-Por predefinição, o Azure AD envia um e-mail a revisores imediatamente após a revisão é iniciado. Se optar por não ter o Azure AD enviar o e-mail, lembre-se de que a informar os revisores uma revisão do acesso está a aguardar a sua conclusão. Pode mostrá-los as instruções sobre como [rever o acesso](active-directory-azure-ad-controls-perform-access-review.md). Se estiver a rever para convidados rever os suas próprias acesso, apresentar as instruções sobre como [rever o suas próprias acesso](active-directory-azure-ad-controls-perform-access-review.md).
+Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever acesso](active-directory-azure-ad-controls-perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever o seu próprio acesso](active-directory-azure-ad-controls-perform-access-review.md).
 
-Se alguns dos revisores tiverem os convidados, os convidados são notificados por e-mail apenas se tiver aceitaram já os respetivos convite.
+Se alguns dos revisores são convidados, convidados são notificados por e-mail apenas se eles já já aceitou o convite.
 
-Para gerir uma série de revisões de acesso, navegue para a revisão do acesso da **controlos**, e irá encontrar futuras ocorrências no revisões agendada e edite a data de fim ou adicionar/remover revisores em conformidade. 
+Para gerir uma série de revisões de acesso, navegue para a revisão de acesso de **controles**, e será encontrar ocorrências futuras nas revisões de agendada e edite a data de fim ou adicionar/remover os revisores da mesma forma. 
 
-Pode monitorizar o progresso conforme os revisores concluir as revisões no dashboard do Azure AD no **acesso revê** secção. Sem direitos de acesso são alterados no diretório até [concluída a revisão](active-directory-azure-ad-controls-complete-access-review.md).
+Pode monitorizar o progresso conforme os revisores de concluir as revisões no dashboard do Azure AD no **revisões de acesso** secção. Nenhum direito de acesso forem alterado no diretório até [a revisão é concluída](active-directory-azure-ad-controls-complete-access-review.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Quando uma revisão do acesso é iniciado, o Azure AD envia automaticamente revisores uma mensagem de e-mail que lhe solicita informações para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes instruções sobre como [rever o acesso](active-directory-azure-ad-controls-perform-access-review.md). 
+Quando tiver iniciado uma revisão de acesso, o Azure AD envia automaticamente os revisores de uma mensagem de e-mail que lhe pede para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções sobre como a [rever acesso](active-directory-azure-ad-controls-perform-access-review.md). 
 
-Se esta for uma revisão de uso individual, em seguida, após o período de revisão do acesso ou o administrador para a revisão do acesso, siga os passos no [concluir uma revisão do acesso](active-directory-azure-ad-controls-complete-access-review.md) para ver e aplicar os resultados.  
+Se se tratar de uma revisão de uso individual, em seguida, após o período de revisão de acesso ou o administrador para a revisão de acesso, siga os passos em [concluir uma revisão de acesso](active-directory-azure-ad-controls-complete-access-review.md) para ver e aplicar os resultados.  
 
-Se se tratar de uma série de revisão, em seguida, navegue para **rever histórico** na página de série de revisão do acesso, para selecionar uma revisão do acesso concluída.  Revisões futuros serão listadas sob **agendada revisão**, onde pode editar a duração e adicionar ou remover os revisores de revisões individuais.
+Se se tratar de uma série de revisão, em seguida, navegue até **rever histórico** na página de série de revisão de acesso, para selecionar uma revisão de acesso concluída.  Revisões futuras serão listadas sob **agendada revisão**, onde pode editar o período de tempo e adicionar ou remover os revisores de revisões individuais.

@@ -1,6 +1,6 @@
 ---
-title: Arquivar os registos de diagnóstico do Azure
-description: Saiba como arquivar os registos de diagnóstico do Azure para a retenção de longa duração numa conta do storage.
+title: Arquivar registos de diagnóstico do Azure
+description: Aprenda a arquivar os registos de diagnóstico do Azure para retenção de longa duração numa conta de armazenamento.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752831"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436033"
 ---
-# <a name="archive-azure-diagnostic-logs"></a>Arquivar os registos de diagnóstico do Azure
+# <a name="archive-azure-diagnostic-logs"></a>Arquivar registos de diagnóstico do Azure
 
-Neste artigo, mostramos como pode utilizar o portal do Azure, os Cmdlets do PowerShell, CLI ou REST API para arquivar a [registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) numa conta do storage. Esta opção é útil se gostaria de manter os seus registos de diagnóstico com uma política de retenção opcional para auditoria, análise estático ou cópia de segurança. A conta de armazenamento tem de ser na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell, CLI ou REST API para arquivar sua [registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter os seus registos de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou cópia de segurança. A conta de armazenamento não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, terá de [criar uma conta de armazenamento](../storage/storage-create-storage-account.md) ao qual pode arquivar os registos de diagnóstico. Recomendamos vivamente que utilize uma conta de armazenamento existente que tenha outros não monitorização dados armazenados na mesma forma que melhor pode controlar o acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividade e métricas de diagnóstico para uma conta de armazenamento, poderá fazer sentido para utilizar essa conta de armazenamento para os registos de diagnóstico para manter os dados de monitorização de todos os numa localização central. A conta de armazenamento que utiliza tem de ser uma conta de armazenamento de objetivo geral, não uma conta do blob storage.
+Antes de começar, precisa [criar uma conta de armazenamento](../storage/storage-create-storage-account.md) ao qual pode arquivar os seus registos de diagnóstico. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividades e métricas de diagnóstico para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para os seus registos de diagnóstico para manter todos os dados de monitorização numa localização central.
 
 > [!NOTE]
->  Atualmente não pode arquivar dados para o armazenamento de um conta que atrás de uma rede virtual protegida.
+>  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Para arquivar os registos de diagnóstico utilizando qualquer um dos métodos abaixo, definir uma **definição de diagnóstico** para um recurso específico. Uma definição de diagnóstico para um recurso define as categorias dos registos e os dados métricos enviados para um destino (conta de armazenamento, os Event Hubs espaço de nomes ou Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e a métricos dados armazenados numa conta do storage. Se uma política de retenção é definida para zero, eventos dessa categoria de registo são armazenados indefinidamente (que é dizer indefinidamente). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre definições de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). As políticas de retenção são aplicada por-dia, no fim do dia (UTC), registos a partir do dia em que é agora a retenção política será eliminada. Por exemplo, se tiver uma política de retenção de um dia, no início do dia de hoje os registos de ontem de antes do dia seriam eliminados. O processo de eliminação é iniciada à meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos a eliminar da sua conta de armazenamento. 
+Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -37,31 +37,31 @@ Para arquivar os registos de diagnóstico utilizando qualquer um dos métodos ab
 >
 >
 
-## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivo os registos de diagnóstico com o portal
+## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivar os registos de diagnóstico com o portal
 
-1. No portal, navegue para o Monitor do Azure e clique em **definições de diagnóstico**
+1. No portal, navegue para o Azure Monitor e clique em **definições de diagnóstico**
 
-    ![Secção de monitorização do Monitor do Azure](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Secção de monitorização do Azure Monitor](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
 
-2. Opcionalmente filtrar a lista por tipo de recurso ou grupo de recursos, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
+2. Opcionalmente, filtrar a lista por grupo de recursos ou tipo de recurso, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
 
-3. Se não existem definições de existem no recurso que selecionou, são-lhe pedido para criar uma definição. Clique em "Ativar o diagnóstico".
+3. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em "Ativar diagnósticos."
 
    ![Adicionar definição de diagnóstico - sem definições existentes](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
 
-   Se existirem definições existentes no recurso, irá ver uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
+   Se existirem definições existentes no recurso, verá uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. Dê a definição de um nome e a caixa de verificação **exportar para a conta de armazenamento**, em seguida, selecione uma conta de armazenamento. Opcionalmente, defina um número de dias a manter estes registos utilizando o **retenção (dias)** controlos de deslize. Uma retenção de zero dias armazena os registos indefinidamente.
+3. Dê a sua definição de um nome e marque a caixa **exportar para a conta de armazenamento**, em seguida, selecione uma conta de armazenamento. Opcionalmente, defina um número de dias para reter estes registos ao utilizar o **retenção (dias)** controlos de deslize. A retenção de zero dias armazena os logs de indefinidamente.
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. Clique em **Guardar**.
 
-Após alguns instantes, a nova definição é apresentada na lista de definições para este recurso e os registos de diagnóstico estão arquivados para essa conta do storage, assim como novos dados de evento são gerados.
+Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso e os registos de diagnóstico são arquivados para essa conta de armazenamento quando novos dados de evento são gerados.
 
-## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Registos de diagnóstico de arquivo através do PowerShell do Azure
+## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Arquivar os registos de diagnóstico através do Azure PowerShell
 
 ```
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
@@ -69,14 +69,14 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| resourceId |Sim |ID de recurso dos recursos no qual pretende configurar uma definição de diagnóstico. |
+| ResourceId |Sim |ID de recurso do recurso no qual pretende definir uma definição de diagnóstico. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual os registos de diagnóstico deverá ser guardados. |
-| Categorias |Não |Lista separada por vírgulas das categorias de registo para ativar. |
-| Ativado |Sim |Valor boleano que indica se o diagnóstico está ativado ou desativado neste recurso. |
-| RetentionEnabled |Não |Valor boleano que indica se uma política de retenção estão ativadas neste recurso. |
-| RetentionInDays |Não |Número de dias para o qual os eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente. |
+| Categorias |Não |Lista separada por vírgulas de categorias de registo para ativar. |
+| Ativado |Sim |Booleano indicando se o diagnóstico está ativado ou desativado neste recurso. |
+| RetentionEnabled |Não |Booleano indicando se uma política de retenção estão ativadas neste recurso. |
+| RetentionInDays |Não |Número de dias para as quais eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Registos de diagnóstico de arquivo através de 2.0 de CLI do Azure
+## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Arquivar os registos de diagnóstico através da CLI 2.0 do Azure
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -94,33 +94,33 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Pode adicionar categorias adicionais no registo de diagnóstico adicionando dicionários para a matriz JSON transmitida como o `--logs` parâmetro.
+Pode adicionar categorias adicionais no registo de diagnóstico através da adição de dicionários para a matriz JSON passada como o `--logs` parâmetro.
 
-O `--resource-group` argumento só é necessário se `--storage-account` não é um ID de objeto. Para obter a documentação completa para arquivar os registos de diagnóstico para o armazenamento, consulte o [referência de comandos da CLI](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+O `--resource-group` argumento só é necessária se `--storage-account` não é um ID de objeto. Para obter a documentação completa para arquivar os registos de diagnóstico para o armazenamento, consulte a [referência de comando da CLI](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
-## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Registos de diagnóstico de arquivo através da API REST
+## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Arquivar os registos de diagnóstico através da API REST
 
-[Consulte este documento](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) para obter informações sobre como pode configurar uma definição de diagnóstico utilizando a API de REST de Monitor do Azure.
+[Veja este documento](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) para obter informações sobre como pode configurar uma definição de diagnóstico utilizando a API de REST do Azure Monitor.
 
-## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema dos registos de diagnóstico na conta de armazenamento
+## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema de registos de diagnóstico na conta de armazenamento
 
-Assim que tiver configurado a arquivo, um contentor de armazenamento é criado na conta de armazenamento, assim que um evento ocorre em uma das categorias de registo que tiver ativado. Os blobs no contentor siga o mesmo formato em todos os registos de diagnóstico e o registo de atividade. A estrutura destas blobs é:
+Assim que tiver configurado a arquivamento, é criado um contentor de armazenamento na conta de armazenamento, assim que um evento ocorre em uma das categorias de registo que tiver ativado. Os blobs no contentor seguem a mesma Convenção de nomenclatura em registos de atividades e os registos de diagnóstico, conforme ilustrado aqui:
 
-> insights - registos-{nome da categoria de registo} / resourceId = / subscrições / {ID de subscrição} /RESOURCEGROUPS/ {nome do grupo de recursos} /PROVIDERS/ {nome do fornecedor de recursos} / {tipo de recurso} / {nome do recurso} / y = {com quatro dígitos numérico year} / m = {dois dígitos numérico month} / d = {dois dígitos numérico day} / h = {: hour}/m=00/PT1H.json dois dígitos relógio de 24 horas
+```
+insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
 
-Ou, mais simples,
+Por exemplo, pode ser um nome de blob:
 
-> insights - registos-{nome da categoria de registo} / resourceId = / {Id do recurso} / y = {com quatro dígitos numérico year} / m = {dois dígitos numérico month} / d = {dois dígitos numérico day} / h = {: hour}/m=00/PT1H.json dois dígitos relógio de 24 horas
-
-Por exemplo, poderá ser um nome de blob:
-
-> insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
 
 Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de diagnóstico são divididos em blobs individuais por hora.
 
-No ficheiro PT1H.json cada evento está armazenado na matriz "registos", segue este formato:
+No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo este formato:
 
-```
+``` JSON
 {
     "records": [
         {
@@ -149,13 +149,13 @@ No ficheiro PT1H.json cada evento está armazenado na matriz "registos", segue e
 | resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
 | categoria |Categoria de registo do evento. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, dicionário) que descrevem os detalhes do evento. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
 
 > [!NOTE]
-> As propriedades e a utilização dessas propriedades podem variar consoante o recurso.
+> As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Transferir blobs para análise](../storage/storage-dotnet-how-to-use-blobs.md)
-* [Registos de diagnóstico de fluxo para um espaço de nomes de Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Transfira blobs para análise](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Registos de diagnóstico do Stream para um espaço de nomes de Hubs de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Leia mais sobre os registos de diagnóstico](monitoring-overview-of-diagnostic-logs.md)

@@ -1,109 +1,117 @@
 ---
-title: Começar a utilizar consultas de base de dados em vários locais (criação de partições vertical) | Microsoft Docs
-description: como utilizar a consulta de base de dados elásticas com verticalmente particionada bases de dados
+title: Introdução às consultas entre bases de dados (criação de partições verticais) | Documentos da Microsoft
+description: como utilizar a consulta de base de dados elástica com bases de dados particionados verticalmente
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.author: sstein
-ms.openlocfilehash: f5f54edb9ddbbf3386cd6a3b14daf642e504b5c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62dda46f2f78b01722016a9bbd1e6db05814a0bf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645400"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448565"
 ---
-# <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Começar a utilizar consultas de base de dados em vários locais (criação de partições vertical) (pré-visualização)
-A consulta de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe executar consultas de T-SQL que abrangem várias bases de dados a utilizar um ponto de ligação única. Este tópico aplica-se a [verticalmente particionada bases de dados](sql-database-elastic-query-vertical-partitioning.md).  
+# <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bases de dados (criação de partições verticais) (pré-visualização)
 
-Quando concluído, irá: Saiba como configurar e utilizar uma base de dados do SQL do Azure para executar consultas que abrangem várias bases de dados relacionados. 
+Consulta de base de dados elástica (pré-visualização) para a base de dados do Azure SQL permite-lhe executar consultas de T-SQL que abrangem várias bases de dados a utilizar um ponto de ligação único. Este artigo aplica-se ao [particionados verticalmente as bases de dados](sql-database-elastic-query-vertical-partitioning.md).  
 
-Para obter mais informações sobre a funcionalidade de consulta de base de dados elásticas, consulte [descrição geral de consulta de base de dados elástica do SQL Database do Azure](sql-database-elastic-query-overview.md). 
+Quando concluído, irá: Saiba como configurar e utilizar uma base de dados do SQL do Azure para executar consultas que abrangem várias bases de dados relacionados.
+
+Para obter mais informações sobre a funcionalidade de consulta de base de dados elásticas, consulte [descrição geral das consultas de base de dados elástica de base de dados do Azure SQL](sql-database-elastic-query-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de ter permissão ALTER qualquer origem de dados externa. Esta permissão está incluído com a permissão ALTER DATABASE. São necessárias permissões de ALTER qualquer origem de dados externa para fazer referência à origem de dados subjacente.
+É necessária a permissão ALTER qualquer origem de dados externa. Esta permissão está incluída com a permissão ALTER DATABASE. São necessárias permissões de alterar qualquer origem de dados externa para fazer referência à origem de dados subjacente.
 
 ## <a name="create-the-sample-databases"></a>Criar as bases de dados de exemplo
-Para começar, temos de criar duas bases de dados, **clientes** e **ordens**, tem o mesmo ou lógica num servidor diferente.   
 
-Execute as seguintes consultas no **ordens** base de dados para criar o **OrderInformation** uma tabela e os dados de exemplo de entrada. 
+Para começar, crie duas bases de dados **os clientes** e **ordens**, em que os servidores lógicos idêntica ou diferentes.
 
-    CREATE TABLE [dbo].[OrderInformation]( 
-        [OrderID] [int] NOT NULL, 
-        [CustomerID] [int] NOT NULL 
-        ) 
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2) 
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
+Execute as seguintes consultas na **encomendas** base de dados para criar o **OrderInformation** de tabela e os dados de exemplo de entrada.
 
-Agora, execute a seguinte consulta no **clientes** base de dados para criar o **CustomerInformation** uma tabela e os dados de exemplo de entrada. 
+    CREATE TABLE [dbo].[OrderInformation](
+        [OrderID] [int] NOT NULL,
+        [CustomerID] [int] NOT NULL
+        )
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
 
-    CREATE TABLE [dbo].[CustomerInformation]( 
-        [CustomerID] [int] NOT NULL, 
-        [CustomerName] [varchar](50) NULL, 
-        [Company] [varchar](50) NULL 
-        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC) 
-    ) 
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
+Agora, execute a seguinte consulta no **os clientes** base de dados para criar o **CustomerInformation** de tabela e os dados de exemplo de entrada.
+
+    CREATE TABLE [dbo].[CustomerInformation](
+        [CustomerID] [int] NOT NULL,
+        [CustomerName] [varchar](50) NULL,
+        [Company] [varchar](50) NULL
+        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
+    )
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
 
 ## <a name="create-database-objects"></a>Criar objetos de base de dados
-### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra do âmbito e as credenciais da base de dados
+
+### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra do âmbito e as credenciais de base de dados
+
 1. Abra o SQL Server Management Studio ou o SQL Server Data Tools no Visual Studio.
-2. Ligar à base de dados ordens e execute os seguintes comandos de T-SQL:
-   
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
-        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
-        WITH IDENTITY = '<username>', 
+2. Ligue à base de dados de encomendas e execute os seguintes comandos T-SQL:
+
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+        WITH IDENTITY = '<username>',
         SECRET = '<password>';  
-   
+
     O "nomedeutilizador" e "password" devem ser o nome de utilizador e palavra-passe utilizada para iniciar sessão na base de dados de clientes.
-    A autenticação utilizando o Azure Active Directory com consultas elásticas não é atualmente suportada.
+    Autenticação com o Azure Active Directory com consultas elásticas não é atualmente suportada.
 
 ### <a name="external-data-sources"></a>Origens de dados externas
-Para criar uma origem de dados externa, execute o seguinte comando na base de dados ordens: 
 
-    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
-        (TYPE = RDBMS, 
-        LOCATION = '<server_name>.database.windows.net', 
-        DATABASE_NAME = 'Customers', 
-        CREDENTIAL = ElasticDBQueryCred, 
+Para criar uma origem de dados externa, execute o seguinte comando na base de dados de encomendas:
+
+    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+        (TYPE = RDBMS,
+        LOCATION = '<server_name>.database.windows.net',
+        DATABASE_NAME = 'Customers',
+        CREDENTIAL = ElasticDBQueryCred,
     ) ;
 
 ### <a name="external-tables"></a>Tabelas externas
-Crie uma tabela externa na base de dados ordens, que corresponde à definição da tabela CustomerInformation:
 
-    CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
-    ( [CustomerID] [int] NOT NULL, 
-      [CustomerName] [varchar](50) NOT NULL, 
-      [Company] [varchar](50) NOT NULL) 
-    WITH 
-    ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
+Crie uma tabela externa a base de dados de encomendas, que corresponde à definição da tabela CustomerInformation:
+
+    CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
+    ( [CustomerID] [int] NOT NULL,
+      [CustomerName] [varchar](50) NOT NULL,
+      [Company] [varchar](50) NOT NULL)
+    WITH
+    ( DATA_SOURCE = MyElasticDBQueryDataSrc)
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Executar uma consulta de T-SQL da base de dados elástica de exemplo
-Assim que definiu a sua origem de dados externos e as tabelas externas, agora pode utilizar o T-SQL para consultar as tabelas externas. Execute esta consulta na base de dados ordens: 
 
-    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
-    FROM OrderInformation 
-    INNER JOIN CustomerInformation 
-    ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
+Depois de definir a origem de dados externos e as tabelas externas, pode agora utilizar T-SQL para consultar as tabelas externas. Execute esta consulta na base de dados de encomendas:
+
+    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
+    FROM OrderInformation
+    INNER JOIN CustomerInformation
+    ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 
 ## <a name="cost"></a>Custo
+
 Atualmente, a funcionalidade de consulta de base de dados elástica está incluída no custo da base de dados SQL do Azure.  
 
-Para obter informações sobre preços, consulte [preços da SQL Database](https://azure.microsoft.com/pricing/details/sql-database). 
+Para obter informações sobre preços, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter uma descrição geral da consulta elástica, consulte [descrição geral de consulta elástico](sql-database-elastic-query-overview.md).
-* Para consultas de sintaxe e exemplos de dados verticalmente particionadas, consulte [consultar verticalmente particionada dados)](sql-database-elastic-query-vertical-partitioning.md)
-* Para um tutorial horizontal criação de partições (fragmentação), consulte [como começar a consultar elástico (fragmentação) de partições horizontais](sql-database-elastic-query-getting-started.md).
-* Para consultas de sintaxe e exemplos de dados particionadas horizontalmente, consulte [consultar horizontalmente particionada dados)](sql-database-elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que servem como shards num esquema de partições horizontal.
+* Para obter uma descrição geral de consulta elástica, veja [descrição geral de consulta elástica](sql-database-elastic-query-overview.md).
+* Para consultas de exemplo de sintaxe e para dados particionados verticalmente, consulte [consultar verticalmente particionada dados)](sql-database-elastic-query-vertical-partitioning.md)
+* Para obter um tutorial de criação de partições horizontais (fragmentação), consulte [guia de introdução consulta elástica para a criação de partições horizontais (fragmentação)](sql-database-elastic-query-getting-started.md).
+* Para consultas de exemplo de sintaxe e para dados particionados horizontalmente, consulte [horizontalmente a consulta particionados dados)](sql-database-elastic-query-horizontal-partitioning.md)
+* Ver [sp\_execute \_remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução de Transact-SQL num único remoto SQL Database do Azure ou um conjunto de bases de dados que serve como fragmentos num esquema de partições horizontal.

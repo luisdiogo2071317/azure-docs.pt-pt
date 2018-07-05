@@ -1,38 +1,38 @@
 ---
-title: Criar um ficheiro. odc, para ligar a um servidor de Analysis Services do Azure | Microsoft Docs
-description: Saiba como criar um ficheiro de ligação de dados do Office para ligar a e obter dados a partir de um servidor de Analysis Services no Azure.
+title: Criar um ficheiro. odc para ligar a um servidor Azure Analysis Services | Documentos da Microsoft
+description: Saiba como criar um ficheiro de ligação de dados do Office para ligar e obter dados a partir de um servidor de Analysis Services no Azure.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8f3b6ae8cf0017a1695b4a01a2ae606f7b64c6aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 06103357f365cf292188ac0399e20ac7602a8740
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598815"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445570"
 ---
-# <a name="create-an-office-data-connection-file"></a>Criar um ficheiro de ligação de dados do Office
+# <a name="create-an-office-data-connection-file"></a>Crie um ficheiro de ligação de dados do Office
 
-As informações neste artigo descrevem como pode criar um ficheiro de ligação de dados do Office para ligar a um servidor de Analysis Services do Azure do número de versão 16.0.7369.2117 do Excel 2016 ou posterior, ou o Excel 2013. Um atualizado [MSOLAP.7 fornecedor](analysis-services-data-providers.md) também é necessário.
+Informações deste artigo descrevem como pode criar um ficheiro de ligação de dados do Office para ligar a um servidor de Azure Analysis Services a partir do Excel 2016, o número de versão 16.0.7369.2117 ou anterior, ou o Excel 2013. Um atualizada [MSOLAP.7 fornecedor](analysis-services-data-providers.md) também é necessário.
 
 
-1. Copie o ficheiro de ligação de exemplo abaixo e colar no editor de texto. 
+1. Copie o ficheiro de ligação de exemplo abaixo e cole num editor de texto. 
 
-2. No `odc:ConnectionString`, alterar as seguintes propriedades:
+2. No `odc:ConnectionString`, alterar as propriedades seguintes:
 
-    *   No `Data Source=asazure://<region>.asazure.windows.net/<servername>;` alterar `<region>` para a região do seu servidor de Analysis Services e `<servername>` com o nome do seu servidor.
+    *   Na `Data Source=asazure://<region>.asazure.windows.net/<servername>;` alterar `<region>` para a região do seu servidor do Analysis Services e `<servername>` para o nome do seu servidor.
 
-    *   No `Initial Catalog=<database>;` alterar `<database>` para o nome da base de dados.
+    *   Na `Initial Catalog=<database>;` alterar `<database>` para o nome da base de dados.
 
-3. No `<odc:CommandText>Model</odc:CommandText>` alterar `Model` com o nome do seu modelo ou perspetiva. 
+3. Na `<odc:CommandText>Model</odc:CommandText>` alterar `Model` ao nome do seu modelo ou perspetiva. 
 
 4. Guarde o ficheiro com um `.odc` extensão para o C:\Users\\*username*\Documents\My pasta de origens de dados.
 
-5. O ficheiro com o botão direito e, em seguida, clique em **abrir no Excel**. Ou no Excel, no **dados** do Friso, clique em **as ligações existentes**, selecione o ficheiro e, em seguida, clique em **abra**.
+5. O ficheiro com o botão direito e, em seguida, clique em **abrir no Excel**. Ou no Excel, sobre o **dados** Friso, clique em **ligações existentes**, selecione o ficheiro e, em seguida, clique em **aberto**.
 
 
 

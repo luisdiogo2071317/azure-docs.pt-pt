@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0004390264ed0c22adbdc0de5e20150c7946dc4b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347111"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445216"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de Administrador Global no Azure Active Directory
 
-Se for um [Administrador Global](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) no Azure Active Directory (Azure AD), poderá haver ocasiões em que deseja fazer o seguinte:
+Se for um [Administrador Global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) no Azure Active Directory (Azure AD), poderá haver ocasiões em que deseja fazer o seguinte:
 
 - Recuperar o acesso a uma subscrição do Azure quando um utilizador perdeu o acesso
 - Conceder que acesso de outro utilizador ou por conta própria para uma subscrição do Azure
@@ -217,7 +217,7 @@ Quando chama `elevateAccess`, crie uma atribuição de função para si, portant
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Controlo de acesso baseado em funções com REST](role-assignments-rest.md)
 - [Gerir o acesso aos recursos do Azure Privileged Identity Management](pim-azure-resource.md)

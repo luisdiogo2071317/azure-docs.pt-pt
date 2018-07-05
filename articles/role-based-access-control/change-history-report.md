@@ -1,6 +1,6 @@
 ---
-title: Ver registos de atividade para alterações RBAC no Azure | Microsoft Docs
-description: Regista a atividade de vista para controlo de acesso baseado em funções (RBAC) alterações nos últimos 90 dias.
+title: Ver os registos de atividade para alterações RBAC no Azure | Documentos da Microsoft
+description: Ver registos de atividades para controlo de acesso baseado em funções (RBAC) alterações nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,27 +8,27 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293392"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437654"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para que as alterações do RBAC
+# <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para alterações RBAC
 
-Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, tal como para auditoria ou a resolução de problemas. Sempre que alguém fizer alterações a atribuições de funções ou as definições de função na suas subscrições, as alterações são registadas [registo de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
+Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
 
-## <a name="operations-that-are-logged"></a>Operações que são registadas
+## <a name="operations-that-are-logged"></a>Operações que têm sessão iniciadas
 
-Seguem-se as operações relacionadas com o RBAC que são registadas no registo de atividade:
+Seguem-se as operações relacionadas com o RBAC que estão registadas no registo de atividades:
 
 - Criar atribuição de função
 - Eliminar atribuição de função
@@ -37,11 +37,11 @@ Seguem-se as operações relacionadas com o RBAC que são registadas no registo 
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-É a forma mais fácil começar a utilizar para ver os registos de atividade com o portal do Azure. A seguinte captura de ecrã mostra um exemplo de um registo de atividade que foi filtrado para apresentar a atribuição de função e as operações de definição de função. Também inclui uma hiperligação para transferir os registos como um ficheiro CSV.
+É a maneira mais fácil para começar a utilizar ver os registos de atividade no portal do Azure. Captura de ecrã seguinte mostra um exemplo de um registo de atividade que foi filtrado para apresentar a atribuição de função e as operações de definição de função. Ele também inclui uma ligação para transferir os registos como um ficheiro CSV.
 
-![Registos de atividade com o portal - captura de ecrã](./media/change-history-report/activity-log-portal.png)
+![Registos de atividades com o portal - captura de ecrã](./media/change-history-report/activity-log-portal.png)
 
-O registo de atividade no portal tiver vários filtros. Seguem-se os filtros de RBAC:
+O registo de atividades no portal do tem vários filtros. Seguem-se os filtros de RBAC:
 
 |Filtro  |Valor  |
 |---------|---------|
@@ -49,11 +49,11 @@ O registo de atividade no portal tiver vários filtros. Seguem-se os filtros de 
 |Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar uma definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
 
 
-Para obter mais informações sobre os registos de atividade, consulte [ver eventos no registo de atividade](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Para obter mais informações sobre os registos de atividade, consulte [visualizar eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Para ver registos de atividade com o Azure PowerShell, utilize o [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) comando.
+Para ver os registos de atividades com o Azure PowerShell, utilize o [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) comando.
 
 Este comando apresenta uma lista de todas as alterações de atribuição de função numa subscrição nos últimos sete dias:
 
@@ -67,7 +67,7 @@ Este comando apresenta uma lista de todas as alterações de definição de fun�
 Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-Este comando apresenta uma lista de todas as alterações de definição de função numa subscrição nos últimos sete dias e atribuição de função e apresenta os resultados numa lista:
+Este comando apresenta uma lista de todos os atribuição de função e as alterações de definição de função numa subscrição nos últimos sete dias e exibe os resultados numa lista:
 
 ```azurepowershell
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
@@ -92,15 +92,15 @@ Properties              :
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para ver registos de atividade com a CLI do Azure, utilize o [lista de registo de atividade do monitor az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando.
+Para ver os registos de atividades com a CLI do Azure, utilize o [lista de registo de atividade do monitor de az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando.
 
-Este comando apresenta os registos de atividade num grupo de recursos, desde a hora de início:
+Este comando lista os registos de atividades num grupo de recursos, desde a hora de início:
 
 ```azurecli
 az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-Este comando apresenta os registos de atividade para o fornecedor de recursos de autorização desde a hora de início:
+Este comando lista os registos de atividade para o fornecedor de recursos de autorização, desde a hora de início:
 
 ```azurecli
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
@@ -108,26 +108,26 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Análise de registos do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta, pode utilizar para recolher e analisar as alterações do RBAC para todos os seus recursos do Azure. Análise de registos tem as seguintes vantagens:
+[O Azure Log Analytics](../log-analytics/log-analytics-overview.md) é outra ferramenta que pode utilizar para recolher e analisar as alterações de RBAC para todos os seus recursos do Azure. Log Analytics tem as seguintes vantagens:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, o Power BI e outras ferramentas
-- Guardar os dados por períodos mais longos de retenção
-- Referência cruzada com outros registos como segurança, a máquina virtual e personalizada
+- Guardar os dados por períodos de retenção mais longos
+- Referência cruzada com outros registos, como segurança, a máquina virtual e personalizada
 
-Eis os passos básicos para começar a utilizar:
+Aqui estão as etapas básicas para começar a utilizar:
 
-1. [Criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Configurar a solução de análise de registos de atividade](../log-analytics/log-analytics-activity.md#configuration) para a sua área de trabalho.
+1. [Configurar a solução Log Analytics da atividade](../log-analytics/log-analytics-activity.md#configuration) sua área de trabalho.
 
-1. [Consulte os registos de atividade](../log-analytics/log-analytics-activity.md#using-the-solution). Uma forma rápida de navegar para a página de descrição geral da análise de registo de atividade consiste em clicar no **Log Analytics** opção.
+1. [Ver os registos de atividade](../log-analytics/log-analytics-activity.md#using-the-solution). Uma forma rápida de navegar para a página de descrição geral da análise de registo de atividade é clicar o **do Log Analytics** opção.
 
-   ![Opção de análise do registo no portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Opção de análise de registo no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcionalmente, utilize o [pesquisa registo](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](https://docs.loganalytics.io/docs/Learn) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registo ou no portal de análise avançadas](../log-analytics/log-analytics-log-search-portals.md).
+1. Opcionalmente, utilize o [pesquisa de registos](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](https://docs.loganalytics.io/docs/Learn) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registos ou o portal da análise avançada](../log-analytics/log-analytics-log-search-portals.md).
 
-Segue-se uma consulta que devolva novo atribuições de funções organizadas pelo fornecedor de recursos de destino:
+Eis uma consulta que retorna as novas atribuições de função organizadas pelo fornecedor de recursos de destino:
 
 ```
 AzureActivity
@@ -136,7 +136,7 @@ AzureActivity
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
 
-Segue-se uma consulta que devolva alterações à atribuição de função apresentadas um gráfico:
+Eis uma consulta que retorna as alterações de atribuição de função apresentadas num gráfico:
 
 ```
 AzureActivity
@@ -145,8 +145,8 @@ AzureActivity
 | render timechart
 ```
 
-![Registos de atividade com o portal de análise avançadas - captura de ecrã](./media/change-history-report/azure-log-analytics.png)
+![Registos de atividades com o portal do Advanced Analytics - captura de ecrã](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorizar a atividade de subscrição com o registo de atividade do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Monitorizar a atividade de subscrição com o registo de atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

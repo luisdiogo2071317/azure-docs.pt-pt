@@ -1,8 +1,8 @@
 ---
-title: Guia de introdução - exigir autenticação multifator (MFA) para aplicações específicas com acesso condicional do Azure Active Directory | Microsoft Docs
-description: Este guia de introdução, saiba como pode juntar os requisitos de autenticação para o tipo de aplicação de nuvem acedidos através de acesso condicional do Azure Active Directory (Azure AD).
+title: Início rápido - exigir autenticação multifator (MFA) para aplicações específicas com acesso condicional do Azure Active Directory | Documentos da Microsoft
+description: Este guia de introdução, saiba como é possível vincular seus requisitos de autenticação para o tipo de aplicação de cloud acedidos através do acesso condicional do Azure Active Directory (Azure AD).
 services: active-directory
-keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,21 +13,21 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724120"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450155"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory 
 
-Para simplificar a experiência de início de sessão dos utilizadores, pode querer permitir-lhes autorização iniciar sessão suas aplicações em nuvem utilizando um nome de utilizador e uma palavra-passe. No entanto, muitos ambientes tem, pelo menos, algumas aplicações para o qual é recomendado para exigir um formulário de verificação de conta, tais como a autenticação multifator (MFA) mais forte. Isto pode ser, para VERDADEIRO de exemplo, para acesso ao sistema de e-mail da sua organização ou as aplicações de RH. No Azure Active Directory (Azure AD), pode realizar este objetivo com uma política de acesso condicional.    
+Para simplificar a experiência de início de sessão dos utilizadores, pode querer permitir-lhes iniciar sessão suas aplicações na cloud com um nome de utilizador e uma palavra-passe. No entanto, muitos ambientes têm, pelo menos, algumas aplicações para o qual é recomendado para exigir um formulário mais forte de verificação de conta, por exemplo, a autenticação multifator (MFA). Isto pode ser, para true de exemplo, para obter acesso ao sistema de e-mail da sua organização ou as suas aplicações de RH. No Azure Active Directory (Azure AD), pode concretizar este objetivo com uma política de acesso condicional.    
 
-Este guia de introdução mostra como configurar um [política de acesso condicional do Azure AD](active-directory-conditional-access-azure-portal.md) que requer autenticação multifator para uma aplicação de nuvem selecionada no seu ambiente.
+Este início rápido mostra como configurar uma [política de acesso condicional do Azure AD](active-directory-conditional-access-azure-portal.md) que requer autenticação multifator para uma aplicação em nuvem selecionado no seu ambiente.
 
 ![Criar política](./media/active-directory-conditional-access-app-based-mfa/32.png)
 
@@ -38,19 +38,29 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para concluir o cenário deste guia de introdução, precisa de:
+Para concluir o cenário neste início rápido, precisa de:
 
-- **Acesso a uma edição do Azure AD Premium** -acesso condicional do Azure AD é uma capacidade do Azure AD Premium. 
+- **Acesso a uma edição do Azure AD Premium** -acesso condicional do Azure AD é um recurso do Azure AD Premium. 
 
-- **Uma conta de teste chamado Isabella Simonsen** - se não souber como criar uma conta de teste, consulte [adicionar utilizadores baseados na nuvem](add-users-azure-active-directory.md#add-cloud-based-users).
+- **Uma conta de teste chamado Isabella Simonsen** – se não saiba como criar uma conta de teste, consulte [adicionar utilizadores com base na cloud](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## <a name="test-your-sign-in"></a>Testar o início de sessão
+
+O objetivo deste passo é obter uma impressão da experiência de início de sessão sem uma política de acesso condicional.
+
+**Para inicializar seu ambiente:**
+
+1. Inicie sessão no portal do Azure como Isabella Simonsen.
+
+2. Termine a sessão.
 
 
 ## <a name="create-your-conditional-access-policy"></a>Criar a sua política de acesso condicional 
 
-Esta secção mostra como criar a política de acesso condicional necessária. O cenário deste guia de introdução utiliza:
+Esta secção mostra como criar a política de acesso condicional necessário. O cenário neste início rápido utiliza:
 
-- O portal do Azure como marcador de posição para uma aplicação de nuvem que requeira o MFA. 
+- Portal do Azure como marcador de posição para uma aplicação de cloud que necessita de MFA. 
 - O utilizador de exemplo para testar a política de acesso condicional.  
 
 Na sua política, defina:
@@ -69,29 +79,29 @@ Na sua política, defina:
 
 **Para configurar a política de acesso condicional:**
 
-1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global.
+1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
 
-2. No portal do Azure, no navbar esquerdo, clique em **do Azure Active Directory**. 
+2. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**. 
 
     ![Azure Active Directory](./media/active-directory-conditional-access-app-based-mfa/02.png)
 
-3. No **do Azure Active Directory** na página de **gerir** secção, clique em **acesso condicional**.
+3. Na **do Azure Active Directory** página, além do **gerir** secção, clique em **acesso condicional**.
 
     ![Acesso condicional](./media/active-directory-conditional-access-app-based-mfa/03.png)
  
-4. No **acesso condicional** página, na barra de ferramentas na parte superior, clique em **adicionar**.
+4. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **Add**.
 
     ![Adicionar](./media/active-directory-conditional-access-app-based-mfa/04.png)
 
-5. No **novo** na página de **nome** caixa de texto, tipo **exigir a MFA para acesso ao portal do Azure**.
+5. No **New** na página a **nome** caixa de texto, tipo **exigir a MFA para acesso ao portal do Azure**.
 
     ![Nome](./media/active-directory-conditional-access-app-based-mfa/05.png)
 
-6. No **atribuição** secção, clique em **utilizadores e grupos**.
+6. Na **atribuição** secção, clique em **utilizadores e grupos**.
 
     ![Utilizadores e grupos](./media/active-directory-conditional-access-app-based-mfa/06.png)
 
-7. No **utilizadores e grupos** página, execute os seguintes passos:
+7. Sobre o **utilizadores e grupos** página, execute os seguintes passos:
 
     ![Utilizadores e grupos](./media/active-directory-conditional-access-app-based-mfa/24.png)
 
@@ -99,107 +109,107 @@ Na sua política, defina:
 
     b. Clique em **Selecionar**.
 
-    c. No **selecione** página, selecione **Isabella Simonsen**e, em seguida, clique em **selecione**.
+    c. Sobre o **selecionar** , selecione **Isabella Simonsen**e, em seguida, clique em **selecionar**.
 
-    d. No **utilizadores e grupos** página, clique em **feito**.
+    d. Sobre o **utilizadores e grupos** página, clique em **feito**.
 
-8. Clique em **aplicações em nuvem**.
+8. Clique em **aplicações na Cloud**.
 
     ![Aplicações na cloud](./media/active-directory-conditional-access-app-based-mfa/08.png)
 
-9. No **aplicações em nuvem** página, execute os seguintes passos:
+9. Sobre o **aplicações na Cloud** página, execute os seguintes passos:
 
-    ![Selecione as aplicações em nuvem](./media/active-directory-conditional-access-app-based-mfa/26.png)
+    ![Selecione aplicações na cloud](./media/active-directory-conditional-access-app-based-mfa/26.png)
 
     a. Clique em **selecionar aplicações**.
 
     b. Clique em **Selecionar**.
 
-    c. No **selecione** página, selecione **Microsoft Azure Management**e, em seguida, clique em **selecione**.
+    c. Sobre o **selecionar** , selecione **Microsoft Azure Management**e, em seguida, clique em **selecionar**.
 
-    d. No **aplicações em nuvem** página, clique em **feito**.
+    d. Sobre o **aplicações na Cloud** página, clique em **feito**.
 
 
-10. No **controlos de acesso** secção, clique em **conceder**.
+10. Na **controlos de acesso** secção, clique em **concessão**.
 
     ![Controlos de acesso](./media/active-directory-conditional-access-app-based-mfa/10.png)
 
-11. No **conceder** página, execute os seguintes passos:
+11. Sobre o **concessão** página, execute os seguintes passos:
 
     ![Conceder](./media/active-directory-conditional-access-app-based-mfa/11.png)
 
     a. Selecione **conceder acesso**.
 
-    a. Selecione **requer autenticação multifator**.
+    a. Selecione **exigir autenticação multifator**.
 
     b. Clique em **Selecionar**.
 
-12. No **ativar política de** secção, clique em **no**.
+12. Na **ativar política** secção, clique em **no**.
 
     ![Activar política](./media/active-directory-conditional-access-app-based-mfa/18.png)
 
 13. Clique em **Criar**.
 
 
-## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulada início de sessão
+## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente pretende saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão de utilizador de teste. A simulação calcula o impacto neste início de sessão tem as suas políticas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto neste início de sessão tem em suas diretivas e gera um relatório de simulação.  
 
-Para inicializar o que o se a ferramenta de avaliação de política, definida:
+Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
 
 - **Isabella Simonsen** como utilizador 
-- **Microsoft Azure Management** como aplicação na nuvem
+- **Microsoft Azure Management** como aplicação de cloud
 
- Ao clicar em **e se** cria um relatório de simulação mostra:
+ Clicar **e se** cria um relatório de simulação, que mostra:
 
-- **Exigir a MFA para acesso ao portal do Azure** em **políticas que serão aplicada** 
-- **Exigir a autenticação multifator** como **conceder controlos**.
+- **Exigir a MFA para acesso ao portal do Azure** em **políticas que serão aplicadas** 
+- **Exigir autenticação multifator** como **conceder controlos de**.
 
 ![E se a ferramenta de política](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
 
 
-**Para avaliar a política de acesso condicional:**
+**Para avaliar a sua política de acesso condicional:**
 
-1. No [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página, no menu na parte superior, clique em **e se**.  
+1. Sobre o [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página, no menu na parte superior, clique em **e se**.  
  
     ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
-2. Clique em **utilizadores**, selecione **Isabella Simonsen**e, em seguida, clique em **selecione**.
+2. Clique em **usuários**, selecione **Isabella Simonsen**e, em seguida, clique em **selecionar**.
 
     ![Utilizador](./media/active-directory-conditional-access-app-based-mfa/15.png)
 
-2. Para selecionar uma aplicação de nuvem, execute os seguintes passos:
+2. Para selecionar uma aplicação na cloud, execute os seguintes passos:
 
     ![Aplicações na cloud](./media/active-directory-conditional-access-app-based-mfa/16.png)
 
-    a. Clique em **aplicações em nuvem**.
+    a. Clique em **aplicações na Cloud**.
 
-    b. No **página de aplicações em nuvem**, clique em **selecionar aplicações**.
+    b. Sobre o **página de aplicações na Cloud**, clique em **selecionar aplicações**.
 
     c. Clique em **Selecionar**.
 
-    d. No **selecione** página, selecione o Microsoft Azure Management * * e, em seguida, clique em **selecione**.
+    d. Sobre o **selecionar** , selecione **Microsoft Azure Management**e, em seguida, clique em **selecionar**.
 
-    e. Na página de aplicações em nuvem, clique em **feito**.
+    e. Na página de aplicações na cloud, clique em **feito**.
 
 3. Clique em **e se**.
 
 
 ## <a name="test-your-conditional-access-policy"></a>Testar a sua política de acesso condicional
 
-Na secção anterior, aprendeu a avaliar um simulada início de sessão. Para além de uma simulação, também deverá testar a política de acesso condicional para garantir que funciona conforme esperado. 
+Na secção anterior, aprendeu como avaliar um simulado início de sessão. Além de uma simulação, também deve testar sua política de acesso condicional para garantir que funciona conforme esperado. 
 
-Para testar a política, experimente iniciar sessão no seu [portal do Azure](https://portal.azure.com) utilizando o **Isabella Simonsen** testar conta. Deverá ver uma caixa de diálogo que requer que defina a sua conta para verificação de segurança adicional.
+Para testar a sua política, tente iniciar sessão no seu [portal do Azure](https://portal.azure.com) usando sua **Isabella Simonsen** conta de teste. Deverá ver uma caixa de diálogo que requer que defina a sua conta para verificação de segurança adicional.
 
 ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário, elimine o utilizador de teste e a política de acesso condicional:
+Quando já não for necessário, elimine o utilizador de teste e a política de acesso condicional:
 
-- Se não souber como eliminar um utilizador do Azure AD, consulte [eliminar utilizadores do Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Se não souber como eliminar um utilizador do Azure AD, veja [eliminar utilizadores do Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - Para eliminar a política, selecione a política e, em seguida, clique em **eliminar** na barra de ferramentas de acesso rápido.
 
@@ -208,5 +218,6 @@ Quando já não é necessário, elimine o utilizador de teste e a política de a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser saber mais sobre o acesso condicional, consulte o artigo [acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Exigir a termos de utilização para ser aceite](./active-directory-conditional-access-tou.md)
+> [bloquear o acesso quando é detetado um risco de sessão](./active-directory-conditional-access-app-sign-in-risk.md)

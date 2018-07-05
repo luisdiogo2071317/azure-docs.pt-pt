@@ -14,12 +14,12 @@ ms.date: 07/02/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: e8aaf828d366db0f008e842ba1b0f76907aa8791
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 39f7d69482845af48b1dce8c2e51f4acf77bf4fb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347082"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448065"
 ---
 # <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Ver todos os membros de uma função de administrador no Azure Active Directory
 
@@ -42,8 +42,8 @@ Quando estiver a ver os membros de uma função, selecione **Descrição** para 
 ![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/role-description.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Sinta-se à vontade para compartilhar na [fórum de funções administrativas do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obter mais informações sobre as funções e atribuição de função de administrador, consulte [atribuir funções de administrador](active-directory-assign-admin-roles-azure-portal.md).
+* Para obter mais informações sobre as funções e atribuição de função de administrador, consulte [atribuir funções de administrador](users-groups-roles/directory-assign-admin-roles.md).
 * Para permissões de utilizador predefinidas, consulte um [comparação de permissões de utilizador do convidado e o membro predefinido](./fundamentals/users-default-permissions.md).

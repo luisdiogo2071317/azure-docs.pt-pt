@@ -1,102 +1,107 @@
 ---
-title: Encriptação do serviço de armazenamento do Azure para dados Inativos | Microsoft Docs
-description: Utilize a funcionalidade de encriptação do serviço do Storage do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e desencriptá-lo ao obter os dados.
+title: Encriptação do serviço de armazenamento do Azure para dados Inativos | Documentos da Microsoft
+description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados.
 services: storage
 author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450091"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do Serviço de Armazenamento do Azure para Dados Inativos
 
-Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. Com esta funcionalidade, o Storage do Azure encripta automaticamente os dados antes a persistência ao Storage do Azure e desencripta os dados antes de obtenção. O processamento de encriptação, rest, desencriptação e gestão de chaves na encriptação do serviço de armazenamento a encriptação é transparente para os utilizadores. Todos os dados escritos para armazenamento do Azure são encriptados através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco de maior cifras disponíveis.
+Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, o armazenamento do Azure encripta automaticamente os dados antes de persisti-los ao armazenamento do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos no armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
 
-Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento novas e existentes e não pode ser desativada. Porque os dados estão protegidos por predefinição, não precisa de modificar o código ou aplicações para tirar partido da encriptação do serviço de armazenamento.
+Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não terá de modificar as suas aplicações para tirar partido da encriptação do serviço de armazenamento ou de código.
 
 A funcionalidade encripta automaticamente dados em:
 
-- Ambas as camadas de desempenho (Standard e Premium).
-- Ambos os modelos de implementação (Azure Resource Manager e clássico).
-- Serviços de todos os do Storage do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e ficheiros do Azure). 
+- Ambos os escalões de desempenho (Standard e Premium).
+- Ambos os modelos de implementação (Azure Resource Manager e clássica).
+- Serviços de todos os de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, o armazenamento de tabelas e ficheiros do Azure). 
 
 Encriptação do serviço de armazenamento não afeta o desempenho de armazenamento do Azure.
 
-Pode utilizar as chaves de encriptação gerida pela Microsoft através da encriptação do serviço de armazenamento ou pode utilizar as suas próprias chaves de encriptação. Para obter mais informações sobre como utilizar as suas próprias chaves, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](storage-service-encryption-customer-managed-keys.md).
+Pode utilizar chaves de encriptação gerida pela Microsoft com a encriptação do serviço de armazenamento, ou pode usar suas próprias chaves de encriptação. Para obter mais informações sobre como utilizar as suas próprias chaves, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>Ver definições de encriptação no portal do Azure
 
-Para ver as definições de encriptação do serviço de armazenamento, inicie sessão no [portal do Azure](https://portal.azure.com) e selecione uma conta de armazenamento. No **definições** painel, selecione o **encriptação** definição.
+Para ver as definições de encriptação do serviço de armazenamento, inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione uma conta de armazenamento. Na **configurações** painel, selecione a **encriptação** definição.
 
 ![Portal captura de ecrã que mostra a definição de encriptação](./media/storage-service-encryption/image1.png)
 
-## <a name="faq-for-storage-service-encryption"></a>FAQ acerca de encriptação do serviço de armazenamento
+## <a name="faq-for-storage-service-encryption"></a>FAQ sobre a encriptação do serviço de armazenamento
 
-**P: Posso ter uma conta de armazenamento clássico. Pode ativar encriptação do serviço de armazenamento na mesma?**
+**P: Tenho uma conta de armazenamento clássico. Pode ativar encriptação do serviço de armazenamento na mesma?**
 
-R: encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento (clássica e Resource Manager).
+R: Storage Service Encryption está ativado para todas as contas de armazenamento (clássica e Resource Manager).
 
-**P: como pode encriptar dados na minha conta de armazenamento clássico?**
+**P: como pode criptografar dados em minha conta de armazenamento clássicas?**
 
-R: com encriptação ativada por predefinição, o Storage do Azure encripta automaticamente os dados de novo. 
+R: com encriptação ativada por predefinição, o armazenamento do Azure encripta automaticamente os dados de novo. 
 
-**P: Posso ter uma conta de armazenamento do Resource Manager. Pode ativar encriptação do serviço de armazenamento na mesma?**
+**P: Tenho uma conta de armazenamento do Resource Manager. Pode ativar encriptação do serviço de armazenamento na mesma?**
 
-R: encriptação do serviço de armazenamento de está ativada por predefinição em todas as contas de armazenamento do Resource Manager existente. Isto é suportado para o Blob storage, o Table storage, armazenamento de filas e ficheiros do Azure. 
+R: storage Service Encryption está ativada por predefinição em todas as contas de armazenamento do Resource Manager existente. Isto é suportado para o armazenamento de BLOBs, armazenamento de tabelas, armazenamento de filas e ficheiros do Azure. 
 
-**P: como encriptam os dados numa conta de armazenamento do Resource Manager?**
+**P: como posso encriptar os dados numa conta de armazenamento do Resource Manager?**
 
-R: encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento – clássicas e Resource Manager, todos os ficheiros existentes na conta de armazenamento criadas antes de encriptação foi ativada retroactively irão obter encriptados por um processo de encriptação em segundo plano.
+R: Storage Service Encryption está ativado para todas as contas de armazenamento – clássicas e Resource Manager, quaisquer ficheiros existentes na conta de armazenamento criada antes de ativar a encriptação serão retroativamente obtém encriptada por um processo de encriptação em segundo plano.
 
-**P: pode criar contas de armazenamento com a encriptação do serviço de armazenamento ativado ao utilizar o Azure PowerShell e da CLI do Azure?**
+**P: pode criar contas de armazenamento com encriptação do serviço de armazenamento ativada com o Azure PowerShell e CLI do Azure?**
 
-R: encriptação do serviço de armazenamento está ativada por predefinição no momento da criação de qualquer conta de armazenamento (clássico ou do Resource Manager). Pode verificar as propriedades da conta através da utilização do Azure PowerShell e CLI do Azure.
+R: Storage Service Encryption está ativada por predefinição no momento da criação de qualquer conta de armazenamento (clássico ou Resource Manager). Pode verificar as propriedades da conta com o Azure PowerShell e CLI do Azure.
 
-**P: quanto mais armazenamento do Azure custo se estiver ativada a encriptação do serviço de armazenamento?**
+**P: como muito mais custa armazenamento do Azure se estiver ativada a encriptação do serviço de armazenamento?**
 
-R: não há sem custos adicionais.
+R: não existe nenhum custo adicional.
 
-**P: Posso utilizar o meus próprio chaves de encriptação?**
+**P: Posso utilizar minhas própria chaves de encriptação?**
 
-R: Sim, pode utilizar as suas próprias chaves de encriptação. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](storage-service-encryption-customer-managed-keys.md).
+R: Sim, pode usar suas próprias chaves de encriptação. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **P: posso revogar o acesso às chaves de encriptação?**
 
-R: Sim, se lhe [utilizar as suas próprias chaves de encriptação](storage-service-encryption-customer-managed-keys.md) no Cofre de chaves do Azure.
+R: Sim, se [usar suas próprias chaves de encriptação](storage-service-encryption-customer-managed-keys.md) no Azure Key Vault.
 
-**P: está ativada por predefinição de encriptação do serviço de armazenamento, quando criar uma conta de armazenamento?**
+**P: está ativada por predefinição de encriptação do serviço de armazenamento ao criar uma conta de armazenamento?**
 
-R: Sim, a encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento e todos os serviços de armazenamento do Azure.
+R: Sim, o Storage Service Encryption está ativado para todas as contas de armazenamento e para todos os serviços de armazenamento do Azure.
 
-**P: como é diferente do Azure Disk Encryption?**
+**P: como isso é diferente do Azure Disk Encryption?**
 
-R: azure Disk Encryption é utilizado para encriptar o SO e discos de dados em VMs do IaaS. Para obter mais informações, consulte o [manual de segurança de armazenamento](../storage-security-guide.md).
+R: o azure Disk Encryption é utilizado para encriptar discos de SO e dados em VMs de IaaS. Para obter mais informações, consulte a [guia de segurança de armazenamento](../storage-security-guide.md).
 
-**P: E se ativar Azure Disk Encryption no meu discos de dados?**
+**P: E se posso ativar o Azure Disk Encryption em meus discos de dados?**
 
-R: Isto irá funcionar de forma totalmente integrada. Ambos os métodos encripta os seus dados.
+R: Isto irá funcionar de forma totalmente integrada. Ambos os métodos irão criptografar seus dados.
 
-**P: minha conta de armazenamento é configurada para ser replicado georreplicação redundantly. Com a encriptação do serviço de armazenamento, será minha cópia redundante também será encriptada?**
+**P: a minha conta de armazenamento está configurada para ser replicada geo adquiria. Com encriptação do serviço de armazenamento, serão minha cópia georredundante também encriptada?**
 
-R: Sim, todas as cópias da conta do storage são encriptadas. Redundância todas as opções são suportadas – armazenamento localmente redundante, o armazenamento com redundância de zona, o armazenamento georredundante e o armazenamento georredundante com acesso de leitura.
+R: Sim, todas as cópias da conta de armazenamento são encriptadas. Redundância todas as opções são suportadas – armazenamento localmente redundante, o armazenamento com redundância de zona, o armazenamento georredundante e o armazenamento georredundante com acesso de leitura.
 
-**P: pode desativar encriptação na minha conta de armazenamento?**
+**P: posso desativar a encriptação na minha conta de armazenamento?**
 
-R: encriptação está ativada por predefinição e não há nenhum aprovisionar para desativar a encriptação para a sua conta de armazenamento. 
+R: encriptação está ativada por predefinição e não existe nenhuma provisão para desativar a encriptação para a sua conta de armazenamento. 
 
-**P: é a encriptação do serviço de armazenamento permitida apenas em regiões específicas?**
+**P: é permitida a Storage Service Encryption apenas em regiões específicas?**
 
-R: encriptação do serviço de armazenamento de está disponível em todas as regiões para todos os serviços. 
+R: storage Service Encryption está disponível em todas as regiões para todos os serviços.
 
-**P: como posso o contacto certo se posso tiver algum problema ou quiser fornecer comentários?**
+**P: está em conformidade com FIPS 140-2 de encriptação do serviço de armazenamento?**
 
-R: contacto [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas ou comentários relacionados com a encriptação do serviço de armazenamento.
+R: Sim, o Storage Service Encryption é FIPS 140-2 em conformidade.
+
+**P: como posso contactar alguém se eu tiver quaisquer problemas ou pretender fornecer comentários?**
+
+R: contacto [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas ou feedback relacionado com a encriptação do serviço de armazenamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Storage do Azure fornece que um abrangentes conjunto de capacidades de segurança que os programadores de ajuda em conjunto compilação de aplicações seguras. Para obter mais informações, consulte o [manual de segurança de armazenamento](../storage-security-guide.md).
+Armazenamento do Azure fornece que um conjunto abrangente de recursos de segurança que os desenvolvedores disso ajuda a criar aplicativos seguros. Para obter mais informações, consulte a [guia de segurança de armazenamento](../storage-security-guide.md).

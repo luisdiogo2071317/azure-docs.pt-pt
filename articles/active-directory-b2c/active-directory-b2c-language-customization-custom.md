@@ -1,34 +1,34 @@
 ---
-title: Personalização de idioma no políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
-description: Saiba como utilizar localizar conteúdo políticas personalizadas para vários idiomas.
+title: Personalização de idioma em políticas personalizadas do Azure Active Directory B2C | Documentos da Microsoft
+description: Saiba como utilizar localizar o conteúdo em políticas personalizadas para vários idiomas.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c8deabd4d0a4126365b014875624525d5b1f3063
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6269ac65e5db20521346d5312bcbadd0905c36e2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711761"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440569"
 ---
-# <a name="language-customization-in-custom-policies"></a>Personalização de idioma no políticas personalizadas
+# <a name="language-customization-in-custom-policies"></a>Personalização de idioma em políticas personalizadas
 
 > [!NOTE]
 > Esta funcionalidade está em pré-visualização pública.
 > 
 
-As políticas personalizadas, a personalização de idioma funciona iguais às políticas incorporadas.  Consulte incorporada [documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) que descreve o comportamento de como um idioma é escolhido com base nos parâmetros e definições do browser.
+Em políticas personalizadas, a personalização de idioma funciona tal como em políticas incorporadas.  Consulte o incorporado [documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) que descreve o comportamento no como uma linguagem é escolhida com base nos parâmetros e definições do browser.
 
-## <a name="enable-supported-languages"></a>Ativar suportado idiomas
-Se não especificou as regiões de IU e o browser do utilizador pede-lhe uma destas linguagens, idiomas suportados são apresentados ao utilizador.  
+## <a name="enable-supported-languages"></a>Ativar suportada de idiomas
+Se localidades da interface do usuário não foi especificado e o navegador do usuário solicita uma dessas linguagens, os idiomas suportados são apresentados ao utilizador.  
 
-Idiomas suportados são definidos no `<BuildingBlocks>` no seguinte formato:
+Idiomas com suporte são definidos no `<BuildingBlocks>` no seguinte formato:
 
 ```XML
 <BuildingBlocks>
@@ -41,19 +41,19 @@ Idiomas suportados são definidos no `<BuildingBlocks>` no seguinte formato:
 </BuildingBlocks>
 ```
 
-Idioma predefinido e as linguagens, comportam-se da mesma forma tal como nas políticas incorporadas.
+Idioma predefinido e idiomas suportados se comportam da mesma forma como são as políticas incorporadas.
 
-## <a name="enable-custom-language-strings"></a>Ativar cadeias de idioma personalizado
+## <a name="enable-custom-language-strings"></a>Ativar as cadeias de caracteres do idioma personalizado
 
-A criação de cadeias de idioma personalizado requer dois passos:
-1. Editar o `<ContentDefinition>` para a página especificar um ID de recurso para os idiomas pretendidos
-2. Criar o `<LocalizedResources>` com IDs correspondentes na sua `<BuildingBlocks>`
+Criação de cadeias de caracteres do idioma personalizado requer duas etapas:
+1. Editar o `<ContentDefinition>` para a página especificar um ID de recurso para os idiomas desejados
+2. Criar o `<LocalizedResources>` com IDs correspondentes no seu `<BuildingBlocks>`
 
-Tenha em atenção que pode colocar um `<ContentDefinition>` e `<BuildingBlock>` no seu ficheiro de extensão ou o ficheiro de política de entidade confiadora, dependendo se pretende que as alterações para estar em todas as políticas inheriting ou não.
+Lembre-se de que pode colocar um `<ContentDefinition>` e `<BuildingBlock>` no seu ficheiro de extensão ou o ficheiro de política da entidade confiadora, dependendo se pretende que as alterações para estar em todas as suas políticas inheriting ou não.
 
 ### <a name="edit-the-contentdefinition-for-the-page"></a>Editar ContentDefinition para a página
 
-Para cada página que pretende localizar, pode especificar no `<ContentDefinition>` que recursos do idioma serve para cada código de idioma.
+Para cada página que pretende localizar, pode especificar no `<ContentDefinition>` que recursos de linguagem para procurar por cada código de idioma.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -64,12 +64,12 @@ Para cada página que pretende localizar, pode especificar no `<ContentDefinitio
 </ContentDefinition>
 ```
 
-Neste exemplo, francês (fr) e cadeias personalizadas inglês (en) são adicionadas para a página de inscrição ou início de sessão unificada.  O `LocalizedResourcesReferenceId` para cada `LocalizedResourcesReference` é o mesmo que os respetivos região, mas pode utilizar qualquer cadeia como ID.  Para cada combinação de página e de idioma, tem de criar um correspondente `<LocalizedResources>` mostrado a seguir.
+Neste exemplo, francês (fr) e cadeias de caracteres personalizadas do inglês (en) são adicionadas para a página de inscrição ou início de sessão unificada.  O `LocalizedResourcesReferenceId` para cada `LocalizedResourcesReference` é o mesmo que a Localidade, mas pode usar qualquer cadeia de caracteres como o ID.  Para cada combinação de idioma e página, tem de criar um correspondente `<LocalizedResources>` mostrado a seguir.
 
 
-### <a name="create-the-localizedresources"></a>Criar o LocalizedResources
+### <a name="create-the-localizedresources"></a>Criar a LocalizedResources
 
-As substituições são contidas no seus `<BuildingBlocks>` e não existe um `<LocalizedResources>` para cada página e o idioma que especificou no `<ContentDefinition>` para cada página.  Cada substituição está especificada como um `<LocalizedString>` como o exemplo seguinte:
+As substituições são contidas no seu `<BuildingBlocks>` e não há uma `<LocalizedResources>` para cada página e o idioma que especificou no `<ContentDefinition>` para cada página.  Cada substituição é especificada como um `<LocalizedString>` como no exemplo a seguir:
 
 ```XML
 <BuildingBlocks>
@@ -88,8 +88,8 @@ As substituições são contidas no seus `<BuildingBlocks>` e não existe um `<L
 </BuildingBlocks>
 ```
 
-Existem quatro tipos de elementos de cadeia na página:
+Existem quatro tipos de elementos de cadeia de caracteres na página:
 
-**ClaimsProvider** -as etiquetas para os fornecedores de identidade (Facebook, Google, do Azure AD etc.) **ClaimType** -as etiquetas para os atributos e as respetivas correspondente texto de ajuda ou erros de validação de campo **UxElement** - outros elementos na página que existem por predefinição, como botões, ligações ou texto decadeia**ErrorMessage** -formam mensagens de erro de validação
+**ClaimsProvider** -etiquetas para os fornecedores de identidade (Facebook, Google, do Azure AD etc.) **ClaimType** -etiquetas para os atributos e seus correspondentes texto de ajuda ou erros de validação de campo **UxElement** - outros elementos na página que estão lá por padrão, como botões, ligações ou texto decadeiasdecaracteres**ErrorMessage** -as mensagens de erro de validação de formulário
 
-Certifique-se de que o `StringId`s corresponder para a página que está a utilizar estas substituições, caso contrário, é bloqueado pela validação de política no carregamento.  
+Certifique-se de que o `StringId`s corresponder para a página que está a utilizar estas substituições, caso contrário, ele está bloqueado pela validação de diretivas no carregamento.  

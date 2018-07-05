@@ -1,6 +1,6 @@
 ---
-title: Aumentar verticalmente e horizontalmente nas tarefas do Azure Stream Analytics
-description: Este artigo descreve como dimensionar uma tarefa de Stream Analytics através da criação de partições de dados de entrada, a consulta de Otimização e definir as unidades de transmissão em fluxo de trabalho.
+title: Aumentar verticalmente e horizontalmente tarefas do Azure Stream Analytics
+description: Este artigo descreve como reduzir horizontalmente uma tarefa do Stream Analytics para a criação de partições de dados de entrada, ajuste a consulta e definir as unidades de transmissão em fluxo de trabalho.
 services: stream-analytics
 author: JSeb225
 ms.author: jeanb
@@ -9,41 +9,42 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652547"
 ---
-# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Uma tarefa de Stream Analytics do Azure para aumentar o débito de escala
-Este artigo mostra como otimizar a uma consulta do Stream Analytics para aumentar o débito para as tarefas de análise de transmissão em fluxo. Pode utilizar o guia seguinte para dimensionar a sua tarefa para processar uma carga maior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, memória mais).
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Dimensionar uma tarefa Azure Stream Analytics para aumentar o débito
+Este artigo mostra-lhe como otimizar uma consulta do Stream Analytics para aumentar o débito para tarefas do Stream Analytics. Pode utilizar o guia seguinte para dimensionar o seu trabalho para processar carga superior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, mais memória).
 Como pré-requisito, poderá ter de ler os artigos seguintes:
 -   [Compreender e ajustar as Unidades de Transmissão em fluxo](stream-analytics-streaming-unit-consumption.md)
--   [Criar tarefas paralelizáveis](stream-analytics-parallelization.md)
+-   [Criar tarefas de ponto pode ser paralelizadas](stream-analytics-parallelization.md)
 
-## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1 – sua consulta é totalmente inerentemente paralelizável em partições de entrada
-Se a sua consulta é totalmente inerentemente paralelizável em partições de entrada, pode seguir os seguintes passos:
-1.  Criar a consulta para ser constrangedoramente paralelas utilizando **PARTITION BY** palavra-chave. Ver mais detalhes na secção tarefas Constrangedoramente paralelas [nesta página](stream-analytics-parallelization.md).
-2.  Consoante os tipos de saída utilizados na sua consulta, algumas saída o não pode ser paralelizável, ou tem mais de configuração ser constrangedoramente paralelas. Por exemplo, não são paralelizáveis saídas do SQL Server, o armazém de dados do SQL Server e o Power BI. Saídas sempre são intercaladas antes de enviar para o sink de saída. Os BLOBs, tabelas, ADLS, Service Bus e função do Azure são automaticamente paralelizada. Hub de eventos e CosmosDB tem de ter a PartitionKey definida uma configuração para corresponder com o **PARTITION BY** campo (normalmente PartitionId). Para o Hub de eventos, também quais deve preste especial atenção para corresponder ao número de partições para todas as entradas e todas as saídas para evitar entre a ativação pós-falha entre as partições. 
-3.  Executar a consulta com **6 SU** (que é a capacidade total de um único nó de computação) para medir o débito alcançável máximo, e se estiver a utilizar **GROUP BY**, podem quantos (cardinalidade) a tarefa de grupos de medidas Identificador. São os seguintes sintomas gerais da tarefa atingir os limites de recursos do sistema.
-    - Métrica de utilização do SU % é superior a 80%. Isto indica memória utilização é elevada. Os fatores que contribuem para o aumento desta métrica descritos [aqui](stream-analytics-streaming-unit-consumption.md). 
-    -   Carimbo de saída é baixar no que respeita à hora de relógio lateral. Dependendo da lógica de consulta, o carimbo de saída pode ter um deslocamento de lógica desde o momento de relógio lateral. No entanto, deve progresso em aproximadamente a velocidade a mesma. Se o carimbo de saída é baixar adicional e mais atrás, é um indicador de que o sistema é overworking. Pode ser um resultado de saída a jusante sink limitação ou elevada utilização da CPU. Não, fornecemos métrica de utilização da CPU neste momento, pelo que pode ser difícil diferenciar os dois.
-        - Se o problema for devido à limitação de receptores, poderá ter de aumentar o número de partições de saída (e também entrada partições para manter a tarefa totalmente paralelizável) ou aumente a quantidade de recursos do sink (por exemplo o número de unidades de pedido para CosmosDB).
-    - Diagrama de tarefa, há um por métrica de eventos de registo de segurança de partição para cada entrada. Se a métrica de eventos de registo de segurança mantém aumentar, também é um indicador de que o recurso do sistema é restringido (ou devido a limitação de sink de saída ou elevada da CPU).
-4.  Depois de ter determinado os limites do que uma tarefa SU 6 pode aceder, pode Utilize para tirar conclusões forma linear a capacidade de processamento da tarefa à medida que adiciona SUs mais, partindo do princípio de que não tem quaisquer dados desfasamento que torna a determinados partição "ativos".
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1 – sua consulta é inerentemente totalmente ponto pode ser paralelizado entre partições de entrada
+Se a consulta for inerentemente totalmente ponto pode ser paralelizada entre partições de entrada, pode seguir os passos seguintes:
+1.  Conceber a sua consulta para ser constrangedoramente paralelas com o uso **PARTITION BY** palavra-chave. Ver mais detalhes na secção tarefas Constrangedoramente paralelas [nesta página](stream-analytics-parallelization.md).
+2.  Consoante os tipos de saída utilizados na sua consulta, alguns de saída pode ou não pode estar ponto pode ser paralelizada, ou precisar de mais configuração seja constrangedoramente paralelas. Por exemplo, as saídas SQL, o armazém de dados SQL e o Power BI não são ponto pode ser paralelizadas. Saídas sempre sejam intercaladas antes de enviar para o sink de saída. BLOBs, tabelas, ADLS, do Service Bus e função do Azure são automaticamente paralelizada. Cosmos DB e o Hub de eventos tem de ter a configuração de PartitionKey definida para corresponder com o **PARTITION BY** campo (normalmente, PartitionId). Para o Hub de eventos, também preste especial atenção para corresponder ao número de partições para todas as entradas e saídas de todos os para evitar a ativação pós-falha entre partições. 
+3.  Executar a sua consulta **6 SU** (que é a capacidade total de um único nó de computação) para medir o débito alcançável máximo, e se estiver a utilizar **GROUP BY**, medir o número de grupos (cardinalidade) a tarefa podem Identificador. Sintomas gerais da tarefa a atingir os limites de recursos do sistema são as seguintes.
+    - Métrica % utilization de SU é mais de 80%. Isto indica a memória, a utilização é elevada. Os fatores que contribuem para o aumento desta métrica são descritos [aqui](stream-analytics-streaming-unit-consumption.md). 
+    -   Timestamp de saída é atrasado em relação ao tempo de relógio. Dependendo de sua lógica de consulta, o carimbo de hora de saída pode ter um desvio de lógica a partir da hora de relógio de parede. No entanto, deve avançar aproximadamente na mesma taxa. Se o carimbo de hora de saída recai mais e mais atrás, é um indicador de que o sistema é overworking. Ele pode ser o resultado da saída downstream sink limitação ou elevada utilização da CPU. Não fornecemos métrica de utilização de CPU neste momento, pelo que pode ser difícil diferenciar os dois.
+        - Se o problema é devido à limitação de sink, poderá ter de aumentar o número de partições de saída (e também as partições para manter a tarefa de ponto pode ser paralelizada totalmente de entrada), ou aumente a quantidade de recursos do coletor (por exemplo o número de unidades de pedido para o cosmos DB).
+    - No diagrama de tarefas, há um por métrica de eventos de registo de segurança de partição para cada entrada. Se a aumentar a métrica de eventos do registo de segurança, também é um indicador de que o recurso do sistema é restrito (seja devido à limitação de sink de saída ou elevada da CPU).
+4.  Depois de determinar os limites do que uma tarefa SU 6 pode entrar, pode extrapolar linearmente a capacidade de processamento da tarefa à medida que adiciona SUs mais, partindo do princípio de que não tem quaisquer dados inclinar que faz com que determinados partição "quentes".
 
 > [!NOTE]
-> Escolha o número correto de unidades de transmissão em fluxo: porque o Stream Analytics cria um nó de processamento para cada SU 6 adicionadas, é preferível efectuar um divisor do número de partições de entrada, o número de nós para as partições podem ser distribuídas uniformemente em todos os nós.
-> Por exemplo, ter medido o 6 tarefa SU pode alcançar 4 MB/s de processamento velocidade e a contagem da partição de entrada é 4. Pode optar por executar a tarefa com 12 SU para alcançar a taxa de processamento de aproximadamente 8 MB/s ou SU 24 para alcançar a 16 MB/s. Em seguida, pode decidir quando aumentar o número SU para a tarefa para que valor, como uma função de taxa de entrada.
+> Escolha o número certo de unidades de transmissão em fluxo: porque o Stream Analytics cria um nó de processamento para cada SU 6 adicionadas, é melhor tornar o número de nós um divisor do número de partições de entrada, para que as partições podem ser distribuídas uniformemente em todos os nós.
+> Por exemplo, ter medido o 6 tarefa SU pode obter 4 MB/s, processamento de taxa e sua contagem de partições de entrada é 4. Pode optar por executar o seu trabalho com 12 SU para alcançar a taxa de processamento de aproximadamente 8 MB/s ou 24 SU para alcançar 16 MB/s. Em seguida, pode decidir quando aumentar o número SU para o trabalho para o qual o valor, como uma função de sua taxa de entrada.
 
 
-## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Caso 2 - se a consulta não é constrangedoramente paralela.
-Se a consulta não é constrangedoramente paralela, pode seguir os passos seguintes.
-1.  Começar com uma consulta sem qualquer **PARTITION BY** primeiro para evitar a complexidade de criação de partições e execute a consulta com 6 SU para medir a carga máxima do [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
-2.  Se pode alcançar a carga prevista no prazo de débito, terminar. Em alternativa, pode escolher medir a mesma tarefa em execução em 3 SU e 1 SU, para determinar o número mínimo de SU que funciona para o seu cenário.
-3.  Se não é possível alcançar o débito pretendido, tente quebrar a consulta em vários passos se possível, se não tiver vários passos e atribuir SU até 6 para cada passo na consulta. Por exemplo, se tiver 3 passos, alocar SU 18 na opção "Dimensionar".
-4.  Ao executar dessas tarefas, o Stream Analytics coloca cada passo no seu próprio nó com 6 recursos SU dedicados. 
-5.  Se ainda não obtida o carga de destino, pode tentar utilizar **PARTITION BY** começando próximo passos para a entrada. Para **GROUP BY** operador que não pode ser naturalmente partições, pode utilizar o padrão de agregação local global ao efetuar uma particionada **GROUP BY** seguido não particionadas **GROUP BY** . Por exemplo, se pretender que a contagem de carros quantos passar booth cada utilização, a cada 3 minutos e o volume dos dados ultrapassa o que pode ser processados pelo 6 SU.
+## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Caso 2 - se a consulta não for constrangedoramente paralela.
+Se a consulta não for constrangedoramente paralela, pode seguir os passos seguintes.
+1.  Começar com uma consulta sem qualquer **PARTITION BY** primeiro para evitar a complexidade de criação de partições e executar a consulta com 6 SU para medir a carga máxima, como mostrado na [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
+2.  Se é possível obter a sua carga antecipada na condição de taxa de transferência, isso é tudo. Em alternativa, pode optar por medir a mesma tarefa em execução em 3 SU e 1 SU, para descobrir o número mínimo de SU que funciona para o seu cenário.
+3.  Se não é possível alcançar o rendimento desejado, tente interromper a sua consulta em várias etapas se possível, se não tiver vários passos e alocar SU até 6 para cada passo na consulta. Por exemplo, se tiver 3 passos, alocar SU 18 na opção "Dimensionar".
+4.  Ao executar um trabalho, o Stream Analytics coloca cada passo no seu próprio nó com recursos dedicados de SU 6. 
+5.  Se ainda não tiver obtido o destino de carregamento, pode tentar usar **PARTITION BY** a partir de mais perto dos passos para a entrada. Para **GROUP BY** operador que não pode estar naturalmente partições, pode utilizar o padrão de agregação local/global para executar um particionada **GROUP BY** seguido de um não-particionada **GROUP BY** . Por exemplo, se quiser contar quantas carros percorrer cada pedágio a cada 3 minutos e o volume dos dados é além do que pode ser manipulado por 6 SU.
 
 Consulta:
 
@@ -56,95 +57,29 @@ Consulta:
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-Na consulta acima, são contando carros por booth de utilização por partição e, em seguida, a adição de contagem de todas as partições em conjunto.
+Na consulta acima, é Contagem carros por pedágio por partição e, em seguida, em conjunto, adicionando a contagem de todas as partições.
 
-Depois de partições, para cada partição do passo, alocar SU até 6, cada partição ter 6 SU é o máximo, pelo que pode ser colocada cada partição no seu próprio nó de processamento.
+Depois de particionada, para cada partição do passo, alocar SU até 6, cada partição ter 6 SU é o máximo, pelo que cada partição pode ser colocada em seu próprio nó de processamento.
 
 > [!Note]
-> Se a consulta não é possível particionar, adicionar SU adicional numa consulta vários passos pode não sempre melhorar o débito. É uma forma de obter um desempenho para reduzir o volume nos passos iniciais através do padrão de agregação local global, conforme descrito acima no passo 5.
+> Se a sua consulta não pode ser particionada, adicionar SU adicional numa consulta de vários passos pode não sempre melhorar o débito. Uma forma de obter o desempenho é reduzir o volume nas etapas iniciais com o padrão de agregação local/global, conforme descrito acima, no passo 5.
 
-## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Cenário 3 - está a executar muitas das consultas independentes numa tarefa.
-Para determinados ISV utilize casos, onde é mais económico para processar os dados a partir de múltiplos inquilinos numa tarefa única, separadas entradas e saídas a utilizar para cada inquilino, poderá acabar em execução bastante algumas (por exemplo 20) consultas independentes uma única tarefa. Pressuposto é a carga de cada essas subconsulta relativamente pequena. Neste caso, pode seguir os passos seguintes.
+## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Caso 3 - estiver a executar muitas consultas independentes numa tarefa.
+Para casos, onde é mais rentável para processar dados de vários inquilinos numa única tarefa, de utilização de determinadas ISV com separado entradas e saídas para cada inquilino, poderá acabar alguns (por exemplo, 20) a executar consultas independentes numa única tarefa. A pressuposição é a que carga de cada tais subconsulta é relativamente pequena. Neste caso, pode seguir os passos seguintes.
 1.  Neste caso, não utilize **PARTITION BY** na consulta
-2.  Reduza a contagem da partição de entrada para o valor mais baixo possível de 2, se estiver a utilizar o Hub de eventos.
-3.  Execute a consulta com 6 SU. Com carga esperada para cada subconsulta, adicione tantos essas subconsultas quanto possível, até que a tarefa está a atingir os limites de recursos do sistema. Consulte [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) para os sintomas quando isto acontece.
-4.  Assim que estiver a atingir o limite de subconsulta medido acima, comece a adicionar a subconsulta para uma nova tarefa. O número de tarefas para ser executado como uma função do número de consultas independentes deve ser bastante linear, partindo do princípio de que não tem qualquer desfasamento de carga. Pode, em seguida, previsão 6 quantos as tarefas SU tem de ser executado como uma função do número de inquilinos que pretende servir.
-5.  Ao utilizar a associação de dados de referência com estas consultas, deverá union que entradas em conjunto, antes de a associar-se com os mesmos dados de referência, em seguida, dividir os eventos se necessário. Caso contrário, cada associação de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente blowing se a utilização da memória desnecessariamente.
+2.  Reduza o número de partições de entrada para o valor mais baixo possível de 2, se estiver a utilizar o Hub de eventos.
+3.  Execute a consulta com 6 SU. Com a carga esperada para cada subconsulta, adicione tantos tais subconsultas possível, até que a tarefa prestes a atingir os limites de recursos de sistema. Consulte a [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) para os sintomas quando isso acontece.
+4.  Uma vez que está a atingir o limite de subconsulta medido acima, começar a adicionar a subconsulta para uma nova tarefa. O número de tarefas para ser executado como uma função do número de consultas independentes deve ser bastante linear, partindo do princípio de que não tem qualquer carga skew. Em seguida, pode prever quantas tarefas SU 6 tem de ser executado como uma função do número de inquilinos para servir.
+5.  Ao utilizar a associação de dados de referência com estas consultas, deveria União que as entradas em conjunto, antes de trabalhar com os mesmos dados de referência, em seguida, dividir os eventos se necessário. Caso contrário, cada associação de dados de referência mantém uma cópia dos dados de referência na memória, provavelmente desse desnecessariamente o uso de memória.
 
 > [!Note] 
-> Quantos inquilinos para colocar em cada tarefa?
-> Muitas vezes, neste padrão de consulta tem um grande número de subconsultas e resulta numa topologia muito grande e complexa. O controlador da tarefa não pode ser capaz de lidar com esse uma topologia de grandes dimensões. Como uma regra geral, permanecem em 40 inquilinos para a tarefa SU 1 e 60 inquilinos para 3 SU e 6 tarefas SU. Quando está a exceder a capacidade do controlador de, a tarefa não será iniciado com êxito.
+> O número de inquilinos para colocar em cada tarefa?
+> Este padrão de consulta, muitas vezes, tem um grande número de subconsultas e resulta numa topologia muito grande e complexa. O controlador da tarefa não pode ser capaz de lidar com tal uma topologia grandes. Como regra prática, mantenha-se em 40 inquilinos para 1 tarefa SU e 60 inquilinos para 3 SU e 6 tarefas SU. Quando estão a exceder a capacidade do controlador, a tarefa não será iniciado com êxito.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Um exemplo de débito de Stream Analytics à escala
-Para ajudar a compreender como dimensionar tarefas do Stream Analytics, iremos efetuar uma experimentação com base na entrada de um dispositivo Raspberry Pi. Esta fase experimental permite-na ver o efeito no débito de várias unidades de transmissão em fluxo e partições.
-
-Neste cenário, o dispositivo envia dados de sensores (clientes) para um hub de eventos. Análise de transmissão em fluxo processa os dados e envia um alerta ou a estatística como resultado a outro hub de eventos. 
-
-O cliente envia dados de sensores no formato JSON. A saída de dados também está no formato JSON. Os dados tem o seguinte aspeto:
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-A seguinte consulta é utilizada para enviar um alerta quando um leve está desativada:
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Débito de medida
-
-Neste contexto, o débito é a quantidade de dados de entrada processados pelo Stream Analytics dentro de um período de tempo fixo. (É medido durante 10 minutos.) Para alcançar o débito de processamento melhor para os dados de entrada, a entrada de fluxo de dados e a consulta foram particionadas. Iremos incluídos **existente** na consulta de medir os eventos de entrada quantas foram processados. Para certificar-se de que a tarefa não foi simplesmente aguardar eventos de entrada fique, cada partição do hub de eventos de entrada foi pré-carregado com cerca de 300 MB de dados de entrada.
-
-A tabela seguinte mostra os resultados que vimos quando a partição correspondente contagens dos event hubs e vamos aumentar o número de unidades de transmissão em fluxo.  
-
-<table border="1">
-<tr><th>Partições de entrada</th><th>Partições de saída</th><th>Unidades Transmissão em Fluxo</th><th>Débito constante
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4.06 MB/s</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8.06 MB/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38.32 MB/s</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172.67 MB/s</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454.27 MB/s</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609.69 MB/s</td>
-</tr>
-</table>
-
-E o gráfico seguinte mostra uma visualização da relação entre SUs e débito.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

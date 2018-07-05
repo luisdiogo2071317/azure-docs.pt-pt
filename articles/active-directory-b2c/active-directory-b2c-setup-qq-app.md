@@ -1,63 +1,63 @@
 ---
-title: Configuração de QQ no Azure Active Directory B2C | Microsoft Docs
-description: Forneça a inscrição e o início de sessão para consumidores com contas QQ nas aplicações que estejam protegidas pelo Azure Active Directory B2C.
+title: Configuração de QQ no Azure Active Directory B2C | Documentos da Microsoft
+description: Forneça a inscrição e início de sessão para os consumidores com contas QQ em seus aplicativos que são protegidas pelo Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a33a1b2a68b82b1d65b1187547695cccd7c395f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1f9a0f56158f08dd3b22078f111c9ec6911b726c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711676"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444434"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>O Azure Active Directory B2C: Proporcionar inscrição e o início de sessão aos consumidores com contas QQ
+# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>O Azure Active Directory B2C: Fornecer inscrição e início de sessão para os consumidores com contas QQ
 
 > [!NOTE]
 > Esta funcionalidade está em pré-visualização.
 > 
 
-## <a name="create-a-qq-application"></a>Criar uma aplicação QQ
+## <a name="create-a-qq-application"></a>Criar uma aplicação de QQ
 
-Para utilizar QQ como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação de QQ e forneça-lo com os parâmetros corretos. Necessita de uma conta QQ para efetuar este procedimento. Se não tiver uma, pode obter um de cada [ https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033 ](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+Para utilizar QQ como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação de QQ e fornecer os parâmetros certos. Precisa de uma conta QQ para fazer isso. Se não tiver uma, pode obter um de cada [ https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033 ](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
-### <a name="register-for-the-qq-developer-program"></a>Registar-se o programa de programador QQ
+### <a name="register-for-the-qq-developer-program"></a>Registre-se para o programa de desenvolvedores QQ
 
 1. Vá para o [portal do programador QQ](http://open.qq.com) e inicie sessão com as credenciais da conta QQ.
-2. Depois de iniciarem sessão, aceda a [ http://open.qq.com/reg ](http://open.qq.com/reg) para registar-se como um programador.
+2. Depois de iniciar sessão, vá para [ http://open.qq.com/reg ](http://open.qq.com/reg) para registar-se como desenvolvedor.
 3. No menu, selecione**个人**(programadores individuais).
-4. Introduza as informações necessárias para o formulário e clique em**下一步**(passo seguinte).
-5. Conclua o processo de verificação do e-mail.
+4. Introduza as informações necessárias no formulário e clique em**下一步**(o passo seguinte).
+5. Conclua o processo de verificação de e-mail.
 
 > [!NOTE]
-> Terá de aguardar alguns dias seja aprovada após o registo como um programador. 
+> Terá de aguardar alguns dias até ser aprovado após o Registro como um desenvolvedor. 
 
-### <a name="register-a-qq-application"></a>Registar uma aplicação QQ
+### <a name="register-a-qq-application"></a>Registar uma aplicação de QQ
 
 1. Vá para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Clique em**应用管理**(gestão de aplicações).
-3. Clique em**创建应用**(Criar aplicação).
-4. Introduza as informações da aplicação necessários.
-5. Clique em**创建应用**(Criar aplicação).
+3. Clique em**创建应用**(criar a aplicação).
+4. Introduza as informações de aplicação necessárias.
+5. Clique em**创建应用**(criar a aplicação).
 6. Introduza as informações necessárias.
-7. Para o**授权回调域**(chamada de retorno URL) campo, introduza `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, definir o URL seja `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-8. Clique em**创建应用**(Criar aplicação).
-9. Na página de confirmação, clique em**应用管理**(gestão de aplicações) para regressar à página de gestão de aplicações.
-10. Clique em**查看**(ver) junto a aplicação que acabou de criar.
+7. Para o**授权回调域**(URL de retorno de chamada), insira `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, definir o URL a ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Clique em**创建应用**(criar a aplicação).
+9. Na página de confirmação, clique em**应用管理**(gestão de aplicações) para regressar à página de gestão da aplicação.
+10. Clique em**查看**(exibir) junto à aplicação que acabou de criar.
 11. Clique em**修改**(editar).
-12. Na parte superior da página, copie o **ID da aplicação** e **chave da aplicação**.
+12. Na parte superior da página, copie os **ID da aplicação** e **chave da aplicação**.
 
-## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configurar QQ como um fornecedor de identidade no seu inquilino
-1. Siga estes passos para [navegar para o painel de funcionalidades do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
+## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configurar QQ como fornecedor de identidade no seu inquilino
+1. Siga estes passos para [navegue para o painel de funcionalidades do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. No painel de funcionalidades do B2C, clique em **fornecedores de identidade**.
 3. Clique em **+ Adicionar** na parte superior do painel.
-4. Forneça um amigável **nome** para a configuração do fornecedor de identidade. Por exemplo, introduza "QQ".
+4. Fornecer um amigável **nome** para a configuração do fornecedor de identidade. Por exemplo, introduza "QQ".
 5. Clique em **tipo de fornecedor de identidade**, selecione **QQ**e clique em **OK**.
 6. Clique em **configurar este fornecedor de identidade**
 7. Introduza o **chave da aplicação** que copiou anteriormente como a **ID de cliente**.
