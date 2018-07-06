@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939545"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440753"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Atribua um utilizador a funções de administrador no Azure Active Directory
 Este artigo explica como atribuir uma função administrativa a um utilizador no Azure Active Directory (Azure AD). Para obter informações sobre a adição de novos utilizadores à organização, veja [Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md). Por predefinição, os utilizadores adicionados não têm permissões de administrador. No entanto, pode atribuir-lhes funções em qualquer altura.
@@ -30,7 +30,7 @@ Este artigo explica como atribuir uma função administrativa a um utilizador no
 
     ![Abrir gestão de utilizadores](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. Para o utilizador selecionado, selecione **Função de diretório**, selecione **Adicionar função** e, em seguida, escolha as funções administrativas apropriadas na lista **Funções de diretório**, como **Administrador de acesso condicional**. Para obter mais informações sobre as funções administrativas, veja [Atribuir funções de administrador no Azure AD](../active-directory-assign-admin-roles-azure-portal.md). 
+3. Para o utilizador selecionado, selecione **Função de diretório**, selecione **Adicionar função** e, em seguida, escolha as funções administrativas apropriadas na lista **Funções de diretório**, como **Administrador de acesso condicional**. Para obter mais informações sobre as funções administrativas, veja [Atribuir funções de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
 
     ![Atribuir um utilizador a uma função](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 
