@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e27d7f75dd3d0391f45805f4424248c8eac483c7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847622"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129909"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -175,7 +175,7 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 * Utilize `-v` e `-vv` para apresentar a saída de comandos **detalhadas**. Se o sinalizador `-vv` for incluído, a CLI do Azure apresenta os pedidos e as respostas REST propriamente ditos. Estes parâmetros são úteis para apresentar a saída de erro completa.
 * Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, pode copiar e modificar esta saída para utilizar num `--json-file` (veja [ficheiros JSON](#json-files) anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* O [fórum do Batch][batch_forum] é monitorado por membros da equipa do Batch. Pode publicar as suas perguntas aqui caso se depare com problemas ou quiser obter ajuda para uma operação específica.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -183,7 +183,6 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 * Para obter mais informações sobre os recursos do Batch, veja [Descrição geral do Azure Batch para programadores](batch-api-basics.md).
 * Para obter mais informações sobre como utilizar modelos do Batch para criar conjuntos, trabalhos e tarefas sem ter de escrever código, veja [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md) [Utilizar Modelos da CLI do Azure Batch e a Transferência de Ficheiros (Pré-visualização)].
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

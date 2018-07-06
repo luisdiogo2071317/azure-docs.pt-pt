@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 51dd957a94d1e10658678d9123e9cce6183c0ab0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8726aae7545809573b63f29cd8ef568c34aee5b4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776606"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109176"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -117,7 +117,7 @@ Artigos
 * [Melhores práticas da segurança de identidade](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
 * [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Recomendações PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Conformidade](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [Conformidade](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
 * [Os clientes do OMS podem agora utilizar o Centro de Segurança do Azure para proteger as respetivas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da Comunidade

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160026"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342298"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -291,7 +291,7 @@ A definição `<Instances>` especifica o número de máquinas virtuais em que o 
 
     ![Passo Definições](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    As predefinições no separador **Avançado** podem ser utilizadas neste tutorial. Para obter informações sobre o separador Avançado, consulte [Publicar Assistente da Aplicação Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+    As predefinições no separador **Avançado** podem ser utilizadas neste tutorial. Para obter informações sobre o separador Avançado, consulte [Publicar Assistente da Aplicação Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. No passo **Resumo**, clique em **Publicar**.
 
     ![Passo Resumo](./media/cloud-services-dotnet-get-started/pubsummary.png)
