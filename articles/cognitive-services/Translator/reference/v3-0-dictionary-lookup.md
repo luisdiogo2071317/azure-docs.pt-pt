@@ -1,6 +1,6 @@
 ---
-title: Método de pesquisa do Microsoft tradutor texto dicionário de API | Microsoft Docs
-description: Utilize o método de pesquisa de dicionário de API do Microsoft tradutor texto.
+title: Método de pesquisa de dicionário de API de texto de Microsoft Translator | Documentos da Microsoft
+description: Use o método de pesquisa de dicionário do API de texto do Microsoft Translator.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,16 +9,16 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354974"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868090"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>Texto API 3.0: Pesquisa de dicionário
+# <a name="text-api-30-dictionary-lookup"></a>API 3.0 de texto: Pesquisa de dicionário
 
-Fornece traduções alternativas para um word e um pequeno número de expressões idiomatic. Cada tradução tem uma parte de voz e uma lista de traduções anterior. Os back-traduções ativar um utilizador compreender a tradução de contexto. O [dicionário exemplo](.\v3-0-dictionary-examples.md) mais Desagregue para Consulte exemplo utiliza de cada par de tradução permite a operação.
+Fornece traduções alternativas para uma palavra e um pequeno número de frases idiomático. Cada tradução tem uma parte da voz e uma lista de traduções back. As back-traduções permitem que um utilizador compreender a tradução em contexto. O [exemplo de dicionário](.\v3-0-dictionary-examples.md) operação permite desagregações ainda mais a ver exemplo utiliza de cada par de tradução.
 
 ## <a name="request-url"></a>URL do pedido
 
@@ -30,22 +30,22 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Os parâmetros requeridos transmitidos a cadeia de consulta são:
+Parâmetros de pedido passados na seqüência de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
     <td>versão de API</td>
-    <td>*Necessário parâmetro*.<br/>Versão da API solicitada pelo cliente. Valor tem de ser `3.0`.</td>
+    <td>*Parâmetro necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
     <td>de</td>
-    <td>*Necessário parâmetro*.<br/>Especifica a linguagem de texto de entrada. O idioma de origem tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Necessário parâmetro*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
   </tr>
 </table>
 
@@ -55,26 +55,26 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Consulte [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>_Uma autorização_<br/>_cabeçalho_</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>Especifica o tipo de conteúdo do payload. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de pedido necessários*.<br/>O comprimento do corpo do pedido.</td>
+    <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
     <td>X ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerados pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta utilizando um parâmetro de consulta com o nome `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cadeia denominado `Text`, que representa o termo de pesquisa.
+O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`, que representa o termo de pesquisa.
 
 ```json
 [
@@ -89,55 +89,55 @@ As seguintes limitações aplicam-se:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: Uma cadeia dá ao formulário normalizado do período da origem. Por exemplo, se o pedido é "JOÃO", o formulário normalizado será "João". O conteúdo deste campo torna-se a entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
+  * `normalizedSource`: Uma cadeia de caracteres dar forma normalizada do termo de origem. Por exemplo, se o pedido é "JOÃO", o formato normalizado será "João". O conteúdo deste campo torna-se a entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
     
-  * `displaySource`: Uma cadeia de fornecer o termo de origem num formulário melhor adequados para apresentação de utilizador final. Por exemplo, se a entrada é "JOÃO", o formato de apresentação refletirá a ortografia do nome habitual: "João". 
+  * `displaySource`: Uma cadeia de caracteres dando o termo de origem num formato mais adequado para apresentar do utilizador final. Por exemplo, se a entrada é "JOÃO", o formulário de apresentação refletirá a ortografia habitual do nome: "João". 
 
-  * `translations`: Uma lista de traduções o termo de origem. Cada elemento da lista é um objeto com as seguintes propriedades:
+  * `translations`: Uma lista de traduções para o termo de origem. Cada elemento da lista é um objeto com as seguintes propriedades:
 
-    * `normalizedTarget`: Uma cadeia que lhe confere a forma normalizada deste prazo na linguagem de destino. Este valor deve ser utilizado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
+    * `normalizedTarget`: Uma cadeia de caracteres dar forma normalizada desse termo no idioma de destino. Este valor deve ser utilizado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
 
-    * `displayTarget`: Uma cadeia de fornecer o termo na linguagem de destino e num formulário melhor adequados para apresentação de utilizador final. Geralmente, esta só será diferem do `normalizedTarget` em termos de maiúsculas/minúsculas. Por exemplo, um nome adequado, como "Juan" terão `normalizedTarget = "juan"` e `displayTarget = "Juan"`.
+    * `displayTarget`: Uma cadeia de caracteres dando o termo no idioma de destino e de forma mais adequada para apresentar do utilizador final. Geralmente, isso só será diferente do `normalizedTarget` em termos de uso. Por exemplo, um nome próprio, como "Juan" terão `normalizedTarget = "juan"` e `displayTarget = "Juan"`.
 
-    * `posTag`: Uma cadeia de associar esta termo com uma etiqueta de parte de voz.
+    * `posTag`: Uma cadeia de caracteres associar esse termo com uma etiqueta de parte da voz.
 
         | Nome da etiqueta | Descrição  |
         |----------|--------------|
-        | ADJ      | Adjectives   |
-        | ADV      | Adverbs      |
-        | CONJ     | Conjunctions |
+        | ADJ      | Adjetivos   |
+        | AVD      | Adverbs      |
+        | CONJ     | Conjunções |
         | DET      | Determiners  |
         | MODAL    | Verbos        |
-        | SUBSTANTIVO     | Substantivos        |
-        | PREPARAÇÃO     | Prepositions |
-        | PRON     | Pronouns     |
+        | NOME PRÓPRIO     | Substantivos        |
+        | PREPARAÇÃO     | Preposições |
+        | PRON     | Pronomes     |
         | VERBO     | Verbos        |
         | OUTROS    | Outros        |
 
-        Como uma nota de implementação, estas etiquetas foram identificadas por parte dos-voz etiquetagem lado do inglês e, em seguida, colocar mais frequentes na etiqueta para cada par de origem/destino. Por isso, se pessoas traduzir frequentemente uma palavra espanhol para uma etiqueta de parte de voz diferentes em inglês, etiquetas poderão acabar por ser incorreto (relativamente à palavra espanhol).
+        Como uma observação de implementação, essas marcas foram determinadas por parte da voz marcação no lado em inglês e, em seguida, levando a marca mais frequente para cada par de origem/destino. Por isso, se as pessoas freqüentemente traduzir uma palavra espanhola para uma etiqueta de parte da voz diferente em inglês, as etiquetas podem acabar por estar errado (com respeito à palavra espanhola).
 
-    * `confidence`: Um valor entre 0,0 e 1,0 que representa a "confiança" (ou talvez mais com precisão, "probabilidade dos dados de formação") de que par de conversão. A soma de pontuações de confiança para uma palavra de origem pode ou não pode soma para 1.0. 
+    * `confidence`: Um valor entre 0,0 e 1,0 que representa a "confiança" (ou talvez mais precisamente, "probabilidade nos dados de treinamento") desse par de tradução. A soma das pontuações de confiança para uma palavra de origem pode ou não pode soma seja 1,0. 
 
-    * `prefixWord`: Dar uma cadeia da palavra a apresentar como um prefixo da tradução. Atualmente, este é o determiner gendered dos substantivos, idiomas que tiver gendered determiners. Por exemplo, o prefixo da word espanhol "mosca" é "la", uma vez que "mosca" é um nome feminine no espanhol. Isto apenas é dependente a tradução e não a origem. Se houver um prefixo, estará a cadeia vazia.
+    * `prefixWord`: Uma cadeia de caracteres dando o word para exibir como um prefixo da tradução. Atualmente, este é o determiner gendered de substantivos, em idiomas que têm gendered determiners. Por exemplo, o prefixo da palavra "mosca" Espanhol é "la", uma vez que "mosca" é um substantivo feminino em espanhol. Isto só é dependente a tradução e não na origem. Se não houver nenhum prefixo, é a cadeia vazia.
     
-    * `backTranslations`: Uma lista de "back traduções" do destino. Por exemplo, origem palavras que o destino pode traduzir-se. A lista é garantida que contém a palavra de origem que foi pedida (por exemplo, se a origem word que está a ser procurado é "viaje até", em seguida, é garantido que "viaje até" vai estar no `backTranslations` lista). No entanto, não é garantido de ser a primeira posição e, muitas vezes, não será possível. Cada elemento do `backTranslations` lista é um objeto descrito pelas seguintes propriedades:
+    * `backTranslations`: Uma lista de "back-traduções" de destino. Por exemplo, a origem de palavras que o destino pode traduzir-se. A lista é garantida que contenham a palavra de origem que foi pedida (por exemplo, se a palavra de origem que está sendo pesquisado "voar", então é garantido que "voar" estarão no `backTranslations` lista). No entanto, ele não é garantido que estará na primeira posição e, muitas vezes, não será possível. Cada elemento do `backTranslations` lista é um objeto descrito pelas seguintes propriedades:
 
-        * `normalizedText`: Uma cadeia de dar a forma normalizada do termo de origem que é um back-tradução de destino. Este valor deve ser utilizado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).        
+        * `normalizedText`: Uma cadeia de caracteres dar forma normalizada do termo de origem que é uma tradução back do destino. Este valor deve ser utilizado como entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).        
 
-        * `displayText`: Uma cadeia de fornecer o termo de origem que é um back-tradução de destino num formulário melhor adequados para apresentação de utilizador final.
+        * `displayText`: Uma cadeia de caracteres dando o termo de origem que é uma tradução back do destino de uma forma melhor adequado para apresentar do utilizador final.
 
-        * `numExamples`: Um número inteiro que representa o número de exemplos que estão disponíveis para este par de conversão. Exemplos reais tem de ser obtidos com uma chamada separada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md). O número destina-se principalmente para facilitar a apresentar num UX. Por exemplo, uma interface de utilizador pode adicionar uma hiperligação para a tradução back se o número de exemplos é maior que zero e mostrar a tradução de back como texto não encriptado, se existirem não exemplos. Tenha em atenção que o número real de exemplos devolvidos por uma chamada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md) pode ser inferior a `numExamples`porque filtragem adicionais pode ser aplicada no momento para remover "incorretos" exemplos.
+        * `numExamples`: Um número inteiro que representa o número de exemplos que estão disponíveis para esse par de tradução. Exemplos reais tem de ser obtidos com uma chamada separada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md). O número destina-se principalmente para facilitar a exibição numa experiência do usuário. Por exemplo, uma interface do usuário pode adicionar uma hiperligação para a back-tradução se o número de exemplos é superior a zero e mostrar a tradução de back como texto simples, se não houver nenhum exemplos. Tenha em atenção que o número real de exemplos devolvido por uma chamada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md) pode ser inferior a `numExamples`, porque a filtragem adicionais pode ser aplicado em tempo real para remover exemplos "bad".
         
-        * `frequencyCount`: Um número inteiro que representa a frequência deste par de tradução de dados. O objetivo principal deste campo é proporcionam uma interface de utilizador com um meio para ordenar traduções back para que os termos mais frequentes primeiro.
+        * `frequencyCount`: Um número inteiro que representa a frequência desse par de tradução nos dados. A principal finalidade deste campo é fornecer uma interface do usuário com um meio para ordenar back traduções para que os termos mais frequentes são primeiro.
 
     > [!NOTE]
-    > Se o termo que está a ser comparados de segurança não existe no dicionário, a resposta é 200 (OK), mas a `translations` lista é uma lista vazia.
+    > Se o termo que está a ser pesquisado-up não existe no dictionary, a resposta é 200 (OK), mas a `translations` lista é uma lista vazia.
 
 ## <a name="examples"></a>Exemplos
 
-Este exemplo mostra como procurar traduções alternativas no espanhol do período da inglês `fly` .
+Este exemplo mostra como procurar traduções alternativas em espanhol do termo em inglês `fly` .
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
@@ -147,7 +147,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?ap
 
 ---
 
-O corpo da resposta (abreviado para efeitos de clareza) é:
+O corpo de resposta (abreviado para efeitos de clareza) é:
 
 ```
 [
@@ -188,7 +188,7 @@ O corpo da resposta (abreviado para efeitos de clareza) é:
 ]
 ```
 
-Este exemplo mostra o que acontece quando o termo que está a ser procurado não existe para o par de dicionário válido.
+Este exemplo mostra o que acontece quando o termo que está a ser pesquisado não existe para o par de dicionário válido.
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

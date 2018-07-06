@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eff93b37be2ff770b90518f886bd4b54fa0ca2a1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450087"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868995"
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -76,7 +76,7 @@ A extensão do painel de acesso está atualmente disponível para:
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
-## <a name="my-apps-secure-sign-in-extension"></a>Extensão de Início de Sessão Seguro das Minhas Aplicações
+## <a name="my-apps-secure-sign-in-extension"></a>Extensão de início de sessão de seguro das minhas aplicações
 Iniciar sessão com base em palavra-passe de início de sessão único, tem de utilizar a extensão. Depois da extensão é instalada, pode iniciar sessão na mesma para ativar funcionalidades adicionais, selecionando **iniciar sessão começar a utilizar**. 
 
 - Pode iniciar sessão a uma aplicação diretamente através da aplicação **URL de início de sessão**. Quando utiliza o URL da aplicação, a extensão detecta a ação e lhe dá a opção de iniciar sessão a partir da extensão.
@@ -104,6 +104,10 @@ Para utilizar URLs internos da empresa ao remoto usando a extensão, faça o seg
 2. [Publicar a aplicação](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e URL através do Proxy de aplicações.
 3. Instalar a extensão e iniciar sessão na mesma ao selecionar o início de sessão para começar a utilizar.
 4. Agora pode navegar para o URL interna da empresa, mesmo durante o remoto.
+
+> [!NOTE]
+> Também pode desativar redirecionamento automático para os URLs da empresa, selecionar o ícone de engrenagem de definições no menu principal e selecionando **desativar** para a opção de redirecionamento de URL interna da empresa.
+
 
 ## <a name="mobile-app-support"></a>Suporte de aplicações móveis
 

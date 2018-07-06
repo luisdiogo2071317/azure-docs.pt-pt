@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 1e8bc92c15296395121a3b9c2696a761f676e430
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437679"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866132"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
 O Azure efetua periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais. As atualizações são as alterações, como o ambiente de alojamento de aplicação de patches ou atualizar e desativar o hardware. A maioria destas atualizações são efetuadas sem nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto:
 
-- Se a manutenção não requer um reinício, o Azure utiliza migração no local para colocar em pausa a VM, enquanto o anfitrião está atualizado.
+- Se a manutenção não requer um reinício, o Azure utiliza migração no local para colocar em pausa a VM, enquanto o anfitrião está atualizado. Essas operações de manutenção não rebootful são o domínio de falha aplicada por domínio de falha e o progresso é interrompido se qualquer sinais de estado de funcionamento de aviso são recebidas.
 
 - Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Nestes casos, é-lhe dada uma janela de tempo em que pode iniciar a manutenção por conta própria, quando ele funciona melhor para si.
 
@@ -44,30 +44,31 @@ Pode utilizar o portal do Azure, o PowerShell, a REST API e a CLI para consultar
  
 ## <a name="should-you-start-maintenance-using-during-the-self-service-window"></a>Deve começar a utilizar de manutenção durante a janela de self-service?  
 
-As seguintes diretrizes devem ajudar a decidir se pretende utilizar esta capacidade e iniciar a manutenção no seu próprio tempo.
+As seguintes diretrizes devem ajudar a decidir se pretende utilizar esta capacidade e iniciar a manutenção no seu próprio tempo. 
 
 > [!NOTE] 
 > Manutenção self-service pode não estar disponível para todas as suas VMs. Para determinar se a reimplementação proativa está disponível para a sua VM, procure o **iniciar agora** no estado de manutenção. Manutenção self-service não está atualmente disponível para serviços Cloud (função da Web/trabalho) e o Service Fabric.
 
 
 Manutenção self-service não é recomendada para implementações que utilizam **conjuntos de disponibilidade** , uma vez que estes são configurações de elevada disponibilidade, onde apenas um domínio de atualização é afetado num determinado momento. 
-    - Permitir que a manutenção de Acionador do Azure, mas lembre-se de que a ordem dos domínios de atualização que está a ser afetado não necessariamente ocorre sequencialmente e que existe uma pausa de 30 minutos entre domínios de atualização.
-    - Se uma perda temporária de algumas das sua capacidade (contagem de domínios de atualização/1) é uma preocupação, ele pode facilmente ser compensado de ao alocar instâncias de adição durante o período de manutenção. 
+- Permitir que o Azure acionar a manutenção. Para manutenção que exige reinicialização, tenha em atenção que a manutenção será feita o domínio de atualização por domínio de atualização, que os domínios de atualização não necessariamente recebem a manutenção em seqüência, e que não há uma pausa de 30 minutos entre domínios de atualização. 
+- Se uma perda temporária de algumas das sua capacidade (contagem de domínios de atualização/1) é uma preocupação, ele pode facilmente ser compensado de ao alocar instâncias de adição durante o período de manutenção. 
+- Para uma manutenção que não necessita de reiniciar, as atualizações são aplicadas ao nível do domínio de falhas. 
 
 **Não** utilizar manutenção self-service nos seguintes cenários: 
-    - Se encerrar as VMs com frequência, seja manualmente, usando os laboratórios Dev/Test, usando o encerramento automático ou seguir uma programação, pode reverter o estado de manutenção e, portanto, fazer com que o tempo de inatividade adicional.
-    - Em VMs de curta duração que saiba será eliminado antes do final da onda de manutenção. 
-    - Para cargas de trabalho com um grande estado armazenado no disco local (efémeros) que for o pretendido sejam mantidas após a atualização. 
-    - Nos casos em que redimensiona a sua VM muitas vezes, como ele foi possível reverter o estado de manutenção. 
-    - Se já ADOTARAM o eventos agendados, que permitem a ativação pós-falha proativa ou encerramento correto de sua carga de trabalho, 15 minutos antes do início de desligamento de manutenção
+- Se encerrar as VMs com frequência, seja manualmente, usando os laboratórios Dev/Test, usando o encerramento automático ou seguir uma programação, pode reverter o estado de manutenção e, portanto, fazer com que o tempo de inatividade adicional.
+- Em VMs de curta duração que saiba será eliminado antes do final da onda de manutenção. 
+- Para cargas de trabalho com um grande estado armazenado no disco local (efémeros) que for o pretendido sejam mantidas após a atualização. 
+- Nos casos em que redimensiona a sua VM muitas vezes, como ele foi possível reverter o estado de manutenção. 
+- Se já ADOTARAM o eventos agendados, que permitem a ativação pós-falha proativa ou encerramento correto de sua carga de trabalho, 15 minutos antes do início de desligamento de manutenção
 
 **Utilize** manutenção self-service, se estiver a planear executar a VM sem interrupções durante a fase de manutenção agendada e nenhuma as indicações contra-argumentação mencionadas acima é aplicável. 
 
 É melhor usar a manutenção self-service nos seguintes casos:
-    - Precisa para comunicar uma janela de manutenção exato para a sua gestão ou o cliente final. 
-    - Precisa para concluir a manutenção por uma determinada data. 
-    - Precisa controlar a sequência de manutenção, por exemplo, aplicação de várias camadas para garantir a recuperação de segura.
-    - Precisa de mais de 30 minutos de tempo de recuperação VM entre dois domínios de atualização (UDs). Para controlar o tempo entre domínios de atualização, tem de acionar manutenção em suas VMs de um domínio de atualização (UD) ao mesmo tempo.
+- Precisa para comunicar uma janela de manutenção exato para a sua gestão ou o cliente final. 
+- Precisa para concluir a manutenção por uma determinada data. 
+- Precisa controlar a sequência de manutenção, por exemplo, aplicação de várias camadas para garantir a recuperação de segura.
+- Precisa de mais de 30 minutos de tempo de recuperação VM entre dois domínios de atualização (UDs). Para controlar o tempo entre domínios de atualização, tem de acionar manutenção em suas VMs de um domínio de atualização (UD) ao mesmo tempo.
 
 
 

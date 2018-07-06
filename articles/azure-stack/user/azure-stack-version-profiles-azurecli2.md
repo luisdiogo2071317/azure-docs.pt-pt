@@ -1,6 +1,6 @@
 ---
-title: Ligar a pilha do Azure com a CLI | Microsoft Docs
-description: Saiba como utilizar a interface de linha de comandos (CLI) de plataforma para gerir e implementar os recursos na pilha do Azure
+title: Ligar ao Azure Stack com a CLI | Documentos da Microsoft
+description: Saiba como utilizar a interface de linha de comandos para várias plataformas (CLI) para gerir e implementar recursos no Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,42 +13,42 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938448"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866863"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utilize perfis de versão de API com o Azure CLI 2.0 na pilha do Azure
+# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utilizar perfis de versão de API com o Azure CLI 2.0 do Azure Stack
 
-Pode seguir os passos neste artigo para configurar o a Interface de linha de comandos de Azure (CLI) para gerir recursos do Kit de desenvolvimento de pilha do Azure a partir de plataformas de clientes Linux, Mac e Windows.
+Pode seguir os passos neste artigo para definir a Interface de linha de comandos do Azure (CLI) para gerir recursos de Kit de desenvolvimento do Azure Stack a partir de plataformas de cliente de Linux, Mac e Windows.
 
 ## <a name="install-cli"></a>Instalar CLI
 
-Inicie sessão na estação de trabalho de desenvolvimento e instalar a CLI. Pilha do Azure requer a versão 2.0 do CLI do Azure. Pode instalar que utilizando os passos descritos no [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi concluída com êxito, abra um terminal ou uma janela de linha de comandos e execute o seguinte comando:
+Inicie sessão na sua estação de trabalho de desenvolvimento e instalar a CLI. O Azure Stack requer a versão 2.0 da CLI do Azure. Pode instalá-lo ao utilizar os passos descritos na [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi concluída com êxito, abra um terminal ou uma janela de linha de comandos e execute o seguinte comando:
 
 ```azurecli
 az --version
 ```
 
-Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes que estão instaladas no seu computador.
+Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes instaladas no seu computador.
 
-## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC de pilha do Azure
+## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
 
-1. Obter o certificado de raiz de AC de pilha do Azure de [o operador de pilha do Azure](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC de pilha do Azure, anexe o certificado existente do Python.
+1. Obter o certificado de raiz da AC do Azure Stack [seu operador do Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certificado de Python existente.
 
-2. Localize a localização do certificado no seu computador. A localização pode variar, dependendo de onde instalou o Python. Terá de ter [pip](https://pip.pypa.io) e [certifi](https://pypi.org/project/certifi/) module instalada. Pode utilizar o seguinte comando do Python da linha de bash:
+2. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Pode utilizar o seguinte comando de Python de linha de comandos do bash:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
   ```
 
-  Tome nota da localização do certificado. Por exemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. O caminho específica dependerá do SO e a versão do Python que tenha instalado.
+  Tome nota da localização do certificado. Por exemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. O caminho específico dependerá seu sistema operacional e a versão do Python que tenha instalado.
 
-### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Definir o caminho para uma máquina de desenvolvimento no interior da nuvem
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Definir o caminho para uma máquina de desenvolvimento na cloud
 
-Se estiver a executar o CLI de uma máquina de Linux que é criada no ambiente de pilha do Azure, execute o seguinte comando de bash com o caminho para o seu certificado.
+Se estiver a executar o CLI de uma máquina Linux que é criada dentro do ambiente do Azure Stack, execute o seguinte comando de bash com o caminho para o certificado.
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
@@ -56,13 +56,13 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Definir o caminho para uma máquina de desenvolvimento fora da nuvem
 
-Se estiver a executar o CLI de uma máquina **fora** o ambiente de pilha do Azure:  
+Se estiver a executar o CLI de uma máquina **fora** o ambiente do Azure Stack:  
 
-1. Tem de configurar [conectividade VPN do Azure pilha](azure-stack-connect-azure-stack.md).
+1. Tem de configurar [conectividade VPN para o Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copie o certificado PEM que recebeu do operador de pilha do Azure e tome nota da localização do ficheiro (PATH_TO_PEM_FILE).
+2. Copie o certificado PEM que recebeu do operador do Azure Stack e tome nota da localização do ficheiro (PATH_TO_PEM_FILE).
 
-3. Execute os comandos seguintes, dependendo das final no SO do seu desenvolvimento estação de trabalho.
+3. Execute os comandos seguintes, consoante final no sistema operacional de seu desenvolvimento da estação de trabalho.
 
 #### <a name="linux"></a>Linux
 
@@ -107,18 +107,18 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obter o ponto final aliases de máquina virtual
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obter o ponto final de aliases de máquina virtual
 
-Antes dos utilizadores podem criar máquinas virtuais ao utilizar a CLI, tem de contactar o operador de pilha do Azure e obter o URI do ponto de final aliases de máquina virtual. Por exemplo, o Azure utiliza o URI seguinte: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. O administrador da nuvem deve configurar um ponto final semelhante para pilha do Azure com as imagens que estão disponíveis no mercado pilha do Azure. Os utilizadores tem de passar o URI do ponto final para o `endpoint-vm-image-alias-doc` parâmetro para o `az cloud register` comando conforme mostrado na secção seguinte. 
+Antes dos utilizadores podem criar máquinas virtuais com a CLI, tem de contactar o operador do Azure Stack e obter o URI do ponto de final aliases de máquina virtual. Por exemplo, o Azure utiliza o URI seguinte: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. O administrador da nuvem deve configurar um ponto de extremidade semelhante para o Azure Stack com as imagens que estão disponíveis no mercado do Azure Stack. Os utilizadores tem de passar o URI do ponto final para o `endpoint-vm-image-alias-doc` parâmetro para o `az cloud register` comando conforme mostrado na próxima seção. 
    
 
 ## <a name="connect-to-azure-stack"></a>Ligar ao Azure Stack
 
-Utilize os seguintes passos para ligar a pilha do Azure:
+Utilize os seguintes passos para ligar ao Azure Stack:
 
-1. Registar o seu ambiente de pilha do Azure executando o `az cloud register` comando.
+1. Registe o seu ambiente do Azure Stack executando o `az cloud register` comando.
    
-   a. Para registar o *nuvem administrativa* ambiente, utilize:
+   a. Para registar o *cloud administrativa* ambiente, utilize:
 
       ```azurecli
       az cloud register \ 
@@ -140,9 +140,9 @@ Utilize os seguintes passos para ligar a pilha do Azure:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Defina o ambiente do Active Directory utilizando os seguintes comandos.
+2. Defina o ambiente do Active Directory com os seguintes comandos.
 
-   a. Para o *nuvem administrativa* ambiente, utilize:
+   a. Para o *cloud administrativa* ambiente, utilize:
 
       ```azurecli
       az cloud set \
@@ -156,16 +156,16 @@ Utilize os seguintes passos para ligar a pilha do Azure:
         -n AzureStackUser
       ```
 
-3. Atualize a configuração do ambiente para utilizar o perfil de versão de API específico da pilha do Azure. Para atualizar a configuração, execute o seguinte comando:
+3. Atualize a configuração do seu ambiente para utilizar o perfil de versão de API específico do Azure Stack. Para atualizar a configuração, execute o seguinte comando:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Inicie sessão no seu ambiente de pilha do Azure utilizando o `az login` comando. Pode iniciar sessão para o ambiente de pilha do Azure como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+4. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Inicie sessão como um *utilizador*: pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar utilizando um browser. Tem de fazer a última opção se a sua conta tem de multi-factor authentication ativada.
+   * Inicie sessão como um *utilizador*: pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar com um browser. Precisa fazer a última opção se a sua conta tem a autenticação multifator ativada.
 
       ```azurecli
       az login \
@@ -176,7 +176,7 @@ Utilize os seguintes passos para ligar a pilha do Azure:
       > [!NOTE]
       > Se a sua conta de utilizador tiver a autenticação multifator ativada, pode utilizar o `az login command` sem fornecer o `-u` parâmetro. Executar o comando dá-lhe um URL e um código que tem de utilizar a autenticação.
    
-   * Inicie sessão como um *principal de serviço*: antes de iniciar sessão, [criar um principal de serviço através do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribua-lhe uma função. Agora, inicie sessão com o seguinte comando:
+   * Inicie sessão como um *principal de serviço*: antes de iniciar sessão, [criar um principal de serviço através do portal do Azure](azure-stack-create-service-principals.md) ou a CLI e atribuí-lo uma função. Agora, inicie sessão com o seguinte comando:
 
       ```azurecli
       az login \
@@ -188,28 +188,28 @@ Utilize os seguintes passos para ligar a pilha do Azure:
 
 ## <a name="test-the-connectivity"></a>Testar a conectividade
 
-Agora que já obtivemos tudo o programa de configuração, vamos utilizar a CLI para criar recursos na pilha do Azure. Por exemplo, pode criar um grupo de recursos para uma aplicação e adicionar uma máquina virtual. Utilize o seguinte comando para criar um grupo de recursos com o nome "MyResourceGroup":
+Agora que já temos tudo o que configurar, vamos utilizar a CLI para criar recursos no Azure Stack. Por exemplo, pode criar um grupo de recursos para uma aplicação e adicionar uma máquina virtual. Utilize o seguinte comando para criar um grupo de recursos com o nome "MyResourceGroup":
 
 ```azurecli
 az group create \
   -n MyResourceGroup -l local
 ```
 
-Se o grupo de recursos é criado com êxito, o comando anterior produz as seguintes propriedades do recurso recentemente criado:
+Se o grupo de recursos é criado com êxito, o comando anterior devolve as seguintes propriedades do recurso recentemente criado:
 
 ![Saída de criar grupo de recursos](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Existem alguns problemas conhecidos que deve ter em mente quando utilizar a CLI na pilha do Azure:
+Existem alguns problemas conhecidos que deve ficar atento ao utilizar a CLI no Azure Stack:
 
- - Revertidos de modo interativo CLI o `az interactive` comando ainda não é suportado na pilha do Azure.
- - Para obter a lista de imagens da máquina virtual disponíveis na pilha do Azure, utilize o `az vm images list --all` comando, em vez do `az vm image list` comando. Especificar o `--all` opção certifica-se de que a resposta devolve apenas as imagens que estão disponíveis no seu ambiente de pilha do Azure.
- - Aliases de imagem de máquina virtual que estão disponíveis no Azure podem não ser aplicáveis a pilha do Azure. Quando utilizar imagens da máquina virtual, tem de utilizar o parâmetro URN completo (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) em vez do alias de imagem. Este URN deve corresponder às especificações de imagem derivado o `az vm images list` comando.
+ - Como de modo interativo da CLI o `az interactive` comando ainda não é suportado no Azure Stack.
+ - Para obter a lista de imagens de máquinas virtuais disponíveis no Azure Stack, utilize o `az vm images list --all` comando, em vez do `az vm image list` comando. Especificar o `--all` opção certifica-se de que a resposta retorna apenas as imagens que estão disponíveis no seu ambiente do Azure Stack.
+ - Aliases de imagem de máquina virtual que estão disponíveis no Azure podem não ser aplicáveis para o Azure Stack. Quando utilizar imagens de máquinas virtuais, tem de utilizar o parâmetro URN inteiro (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) em vez do alias da imagem. Este URN tem de corresponder as especificações de imagem como deriva a `az vm images list` comando.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Ativar o CLI do Azure para utilizadores de pilha do Azure (operador)](..\azure-stack-cli-admin.md)
+[Ativar a CLI do Azure para utilizadores do Azure Stack (operador)](..\azure-stack-cli-admin.md)
 
 [Gerir permissões de utilizador](azure-stack-manage-permissions.md)

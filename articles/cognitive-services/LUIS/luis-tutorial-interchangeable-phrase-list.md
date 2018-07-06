@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2fd53225a455a34d03772487a10f62a94ac86735
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345350"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868978"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Tutorial: Adicionar a lista de frase para melhorar as previsões de indisponibilidade
 Neste tutorial, melhorar a precisão das pontuações intenção e identificar as entidades para palavras que têm o mesmo significado (sinónimos) ao adicionar um intercambiáveis [funcionalidade de lista de frase](./luis-concept-feature.md).
@@ -192,7 +192,7 @@ Depois de adicionar a lista de frase, a precisão maior do que a expressão e a 
 
 |Estado | Lista de frase| Pontuação de intenção | Pontuação de entidade |
 |--|--|--|--|
-| Publicado | - | 0.84 | - |
+| Publicado | - | 0,84 | - |
 | Atualmente a editar |✔| 0.92 | Entidade de hardware identificada |
 
 > [!TIP]
@@ -249,12 +249,12 @@ O **Hardware** entidade mostra uma pontuação igual a 0.595 com a lista de fras
 
 |Estado | Lista de frase| Pontuação de intenção | Pontuação de entidade |
 |--|--|--|--|
-| Publicado | - | 0.84 | - |
+| Publicado | - | 0,84 | - |
 | Atualmente a editar |✔| 0.92 | 0.595 |
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Delete** (Eliminar). Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as reticências (***...*** ) à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

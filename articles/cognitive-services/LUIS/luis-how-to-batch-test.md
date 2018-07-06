@@ -1,6 +1,6 @@
 ---
-title: Batch testar a aplicação de LUIS - Azure | Microsoft Docs
-description: Utilize o teste de batch compreensão de idiomas (LUIS) para localizar utterances com entidades e pendentes incorretos.
+title: Batch testar a sua aplicação LUIS – Azure | Documentos da Microsoft
+description: Use o teste de batch de compreensão de idiomas (LUIS) para encontrar expressões com incorretas intenções e entidades.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,54 +9,54 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 0844ec9c421afd4cd1e9e8b2e6ab5fbe93b23d04
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265518"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868910"
 ---
-# <a name="batch-testing"></a>Teste do batch
- Teste do batch é um teste completo no seu modelo treinado atual para medir o desempenho no LUIS. 
+# <a name="batch-testing"></a>Testes em lote
+ Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
 
 <a name="batch-testing"></a>
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importar um ficheiro de conjunto de dados para fins de teste do batch
 
-1. Selecione **teste** na parte superior barras e, em seguida, selecione **painel de teste do Batch**.
+1. Selecione **teste** na parte superior da barra e, em seguida, selecione **painel de teste do Batch**.
 
-    ![Ligação de teste do batch](./media/luis-how-to-batch-test/batch-testing-link.png)
+    ![Ligação de teste de batch](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Selecione **conjunto de dados de importação**. O **importar novo conjunto de dados** é apresentada a caixa de diálogo. Selecione **Escolher ficheiro** e localize o [JSON](luis-concept-batch-test.md#batch-file-format) ficheiro que contém *mais do que 1000* utterances para testar.
+2. Selecione **conjunto de dados de importação**. O **novo conjunto de dados importação** é apresentada a caixa de diálogo. Selecione **Escolher ficheiro** e localize um ficheiro JSON com o correto [formato JSON](luis-concept-batch-test.md#batch-file-format) que contém *não mais do que 1.000* expressões para testar.
 
-    ![Ficheiro de importação de conjunto de dados](./media/luis-how-to-batch-test/batchtest-importset.png)
+    ![Importar ficheiro de conjunto de dados](./media/luis-how-to-batch-test/batchtest-importset.png)
 
-    Importar erros reportados numa barra de notificação vermelho na parte superior do browser. Quando uma importação tem erros, não é criado nenhum conjunto de dados. Para obter mais informações, consulte [erros comuns](luis-concept-batch-test.md#common-errors-importing-a-batch).
+    Erros de importação são apresentados numa barra de notificação vermelho na parte superior do navegador. Quando uma importação tem erros, não é criado nenhum conjunto de dados. Para obter mais informações, consulte [erros comuns](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
-3. No **nome de Dataset** campo, introduza um nome para o ficheiro de conjunto de dados. O ficheiro de conjunto de dados inclui um **matriz de utterances** , incluindo o *etiqueta intenção* e *entidades*. Reveja o [exemplo de ficheiro batch](luis-concept-batch-test.md#batch-file-format) de sintaxe. 
+3. Na **nome do conjunto de dados** , insira um nome para o ficheiro de conjunto de dados. O arquivo do conjunto de dados inclui um **matriz de expressões** incluindo o *rotulado intenção* e *entidades*. Reveja a [exemplo de ficheiro de batch](luis-concept-batch-test.md#batch-file-format) sintaxe. 
 
-4. Selecione **feito**. O ficheiro de conjunto de dados é adicionado.
+4. Selecione **Done** (Concluído). O ficheiro de conjunto de dados é adicionado.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Executar, mudar o nome, exportar ou eliminar o conjunto de dados
-Para executar, mudar o nome, exportar ou elimine o conjunto de dados, utilize reticências (**...** ) no final da linha de conjunto de dados.
+Para executar, mudar o nome, exportar ou eliminar o conjunto de dados, utilize o botão de reticências (***...*** ) botão no final da linha de conjunto de dados.
 
 ![Ações de conjunto de dados](./media/luis-how-to-batch-test/batch-testing-options.png)
 
-## <a name="run-a-batch-test-on-your-trained-app"></a>Executar um teste de batch na sua aplicação preparada
+## <a name="run-a-batch-test-on-your-trained-app"></a>Executar um teste de batch em seu aplicativo preparado
 
-Para executar o teste, selecione o nome do conjunto de dados. Quando a conclusão do teste, esta linha apresenta o resultado do teste do conjunto de dados.
+Para executar o teste, selecione o nome do conjunto de dados. Quando concluir o teste, esta linha apresenta o resultado do teste do conjunto de dados.
 
-![Resultado do teste do batch](./media/luis-how-to-batch-test/run-test.png)
+![Resultado do teste de batch](./media/luis-how-to-batch-test/run-test.png)
 
-O conjunto de dados transferível é o mesmo ficheiro que foi carregado para fins de teste do batch.
+O conjunto de dados que pode ser baixado é o mesmo ficheiro que foi carregado para o teste do batch.
 
 |Estado|Significado|
 |--|--|
-|![Ícone de círculo verde de teste com êxito](./media/luis-how-to-batch-test/batch-test-result-green.png)|Todos os utterances forem efetuadas com êxito.|
-|![Teste falhar Vermelho x ícone](./media/luis-how-to-batch-test/batch-test-result-red.png)|Intenção de pelo menos um utterance não correspondeu a predição.|
-|![Pronto para o ícone de teste](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Teste está pronto para ser executado.|
+|![Ícone do círculo verde de teste com êxito](./media/luis-how-to-batch-test/batch-test-result-green.png)|Todas as expressões são com êxito.|
+|![Teste falhar Vermelho x ícone](./media/luis-how-to-batch-test/batch-test-result-red.png)|A intenção, pelo menos, uma expressão não correspondeu a predição.|
+|![Pronto para testar o ícone](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Teste está pronto para ser executado.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
-## <a name="view-batch-test-results"></a>Ver os resultados do teste do batch 
+## <a name="view-batch-test-results"></a>Ver resultados do teste de batch 
 Para rever os resultados de teste do batch, selecione **ver resultados**.
 
 ![Resultados do teste de batch](./media/luis-how-to-batch-test/run-test-results.png)
@@ -71,11 +71,11 @@ The filtering panel on the right side of the screen displays a list of all inten
 -->
 
 
-<a name="filter-chart-results-by-intent-or-entity"></a> ## Filtrar os resultados do gráfico
+<a name="filter-chart-results-by-intent-or-entity"></a> ## Filtrar os resultados de gráfico
 
-Para filtrar o gráfico por um objetivo específico ou entidade, selecione o objetivo ou entidade no painel de filtragem do lado direito. Os pontos de dados e a respetiva distribuição atualizar no gráfico de acordo com a sua seleção. 
+Para filtrar o gráfico por um objetivo específico ou uma entidade, selecione a intenção ou a entidade no painel de filtragem do lado direito. Os pontos de dados e a respetiva distribuição atualizar no gráfico, de acordo com sua seleção. 
  
-![Resultado do teste do Batch visualizadas](./media/luis-how-to-batch-test/filter-by-entity.png) 
+![Resultado do teste de Batch visualizados](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 <!--
 ## Investigate false sections
@@ -84,33 +84,33 @@ Data points on the **[False Positive][false-positive]** and **[False Negative][f
 
 The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
 -->
-## <a name="view-single-point-utterance-data"></a>Visualizar os dados única ponto utterance
-No gráfico, coloque o cursor sobre um ponto de dados para ver a classificação de certainty da sua predição. Selecione um ponto de dados para obter o respetivo utterance correspondente na lista utterances na parte inferior da página. 
+## <a name="view-single-point-utterance-data"></a>Dados de expressão de ponto único de exibição
+No gráfico, Paire o rato sobre um ponto de dados para ver a classificação de certeza da sua predição. Selecione um ponto de dados para recuperar a sua expressão correspondente na lista de expressões com na parte inferior da página. 
 
-![Utterance selecionado](./media/luis-how-to-batch-test/selected-utterance.png)
+![Expressão selecionada](./media/luis-how-to-batch-test/selected-utterance.png)
 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 ## <a name="view-section-data"></a>Ver dados de secção
-O gráfico de secção quatro, selecione o nome de secção, tal como **falsos positivos** na parte superior direita do gráfico. Abaixo do gráfico, todos os utterances na secção apresentam abaixo do gráfico numa lista. 
+No gráfico de seção de quatro, selecione o nome da seção, como **falsos positivos** na parte superior direita do gráfico. Abaixo do gráfico, todas as expressões com nesta secção apresentam abaixo do gráfico numa lista. 
 
-![Utterances selecionadas pela secção](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
+![Expressões com selecionado pela secção](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
-Nesta imagem anterior, o utterance `switch on` assinalada como com a tentativa de TurnAllOn, mas foram recebidos a predição de intenção None. Esta é uma indicação de que a intenção de TurnAllOn precisa de mais utterances de exemplo para efetuar a predição esperada. 
+Nesta imagem anterior, a expressão `switch on` está etiquetado com a intenção de TurnAllOn, mas foram recebidos a predição de None intenção. Esta é uma indicação de que a intenção de TurnAllOn precisa de mais expressões de exemplo para fazer a predição esperada. 
 
-As duas secções do gráfico vermelho indicam utterances que não correspondia a predição esperada. Estas marcas indicam utterances que LUIS precisa de mais preparação. 
+As duas secções do gráfico em vermelho indicam expressões que não correspondeu a predição esperada. Estes erros indicam expressões com os LUIS precisa de mais treinamento. 
 
-As duas secções do gráfico verde corresponde a predição esperada.
+As duas secções do gráfico em verde correspondeu a predição esperada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se testar a indicar que a sua aplicação LUIS não reconhece as entidades e pendentes corretos, pode trabalhar para melhorar o desempenho da sua aplicação LUIS etiquetas utterances mais ou adicionar funcionalidades. 
+Se o teste indica que a sua aplicação LUIS não reconhece o corretas intenções e entidades, pode trabalhar para melhorar o desempenho da sua aplicação LUIS expressões com mais de etiquetagem ou adicionar recursos. 
 
-* [Etiqueta utterances sugeridos com LUIS](Label-Suggested-Utterances.md) 
-* [Utilize as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
-* [Compreender os testes com este tutorial do batch](luis-tutorial-batch-testing.md)
-* [Saiba mais testes conceitos de batch](luis-concept-batch-test.md).
+* [Identifique expressões sugeridas com os LUIS](Label-Suggested-Utterances.md) 
+* [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
+* [Compreender o teste com este tutorial do batch](luis-tutorial-batch-testing.md)
+* [Aprenda conceitos de teste de batch](luis-concept-batch-test.md).
 
 [true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
 [true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative

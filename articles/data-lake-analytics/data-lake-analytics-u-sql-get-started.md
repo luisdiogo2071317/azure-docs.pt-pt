@@ -1,6 +1,6 @@
 ---
 title: Introdução à linguagem U-SQL no Azure Data Lake Analytics
-description: Aprender as noções básicas de linguagem U-SQL no Azure Data Lake Analytics.
+description: Aprenda os fundamentos básicos da linguagem U-SQL no Azure Data Lake Analytics.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,29 +10,29 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 2903046154808da5113f7b32a04bbfba254a07ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d6688524e396a6e36f6d7f293f2930598afaad1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623456"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867288"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução ao U-SQL no Azure Data Lake Analytics
-U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para informá-processar os dados em qualquer escala. Através da capacidade de dimensionável, consulta distribuído de U-SQL, pode de analisar eficazmente os dados em arquivos relacionais, tais como SQL Database do Azure. Com o U-SQL, pode processar dados não estruturados ao aplicar o esquema na leitura e a inserção lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade dá-lhe controlo detalhado sobre como executar à escala. 
+U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para permitem-lhe processar dados em qualquer escala. Por meio da capacidade de dimensionável e de consulta distribuído de U-SQL, pode analisar eficazmente os dados em repositórios relacionais, como a base de dados do Azure SQL. U-SQL, pode processar os dados não estruturados, ao aplicar o esquema na leitura e inserção de lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade que lhe dá controle refinado sobre como executar à escala. 
 
-## <a name="learning-resources"></a>Recursos de aprendizagem
+## <a name="learning-resources"></a>Recursos de aprendizado
 
-* O [U-SQL Tutorial](http://aka.ms/usqltutorial) fornece instruções orientadas de maioria de linguagem U-SQL. Este documento é recomendado ler para todos os programadores intenção saber mais sobre U-SQL.
-* Para obter informações detalhadas sobre o **sintaxe de linguagem U-SQL**, consulte o [referência de linguagem U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-* Para compreender o **philosophy de design do U-SQL**, consulte a mensagem de blogue do Visual Studio [introdução de U-SQL – uma linguagem que facilita grande processamento de dados](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* O [U-SQL Tutorial](http://aka.ms/usqltutorial) fornece instruções orientadas da maior parte da linguagem U-SQL. Este documento é leitura recomendado para todos os desenvolvedores que desejam saber mais sobre U-SQL.
+* Para obter informações detalhadas sobre o **sintaxe de linguagem U-SQL**, consulte a [referência de linguagem U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Para compreender os **filosofia de design de U-SQL**, consulte a mensagem de blogue do Visual Studio [introdução de U-SQL – uma linguagem que torna fácil de processamento de dados grande](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de seguir os exemplos de U-SQL neste documento, leia e concluir [Tutorial: desenvolver scripts SQL-U utilizando ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Este tutorial explica mechanics de utilizando U-SQL com o Azure Data Lake Tools para Visual Studio.
+Antes de seguir os exemplos de U-SQL neste documento, leia e conclua [Tutorial: scripts de desenvolver U-SQL com ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com ferramentas do Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>O seu primeiro script U-SQL
 
-O seguinte script U-SQL é simple e permite-nos analisar vários aspetos a linguagem U-SQL.
+O seguinte script U-SQL é simples e permite-nos que exploram muitos aspetos a linguagem U-SQL.
 
 ```
 @searchlog =
@@ -51,30 +51,30 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-Este script não tem quaisquer passos de transformação. Também lê do ficheiro de origem chamado `SearchLog.tsv`, schematizes-lo e escreve o conjunto de linhas de volta para um ficheiro denominado SearchLog-first-u-sql.csv.
+Este script não tem quaisquer passos de transformação. Lê a partir do arquivo de origem chamado `SearchLog.tsv`schematizes-lo e grava o conjunto de linhas de volta para um arquivo chamado SearchLog-first-u-sql.csv.
 
-Tenha em atenção o ponto de interrogação junto os dados escreva a `Duration` campo. Significa que o `Duration` campo pode ser nulo.
+Tenha em atenção o ponto de interrogação junto os dados de digitar o `Duration` campo. Isso significa que o `Duration` campo pode ser nulo.
 
 ### <a name="key-concepts"></a>Conceitos-chave
 * **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. U-SQL segue o padrão de nomenclatura de variável T-SQL (`@searchlog`, por exemplo) no script.
-* O **EXTRAIR** palavra-chave lê dados a partir de um ficheiro e define o esquema na leitura. `Extractors.Tsv` é um incorporada extrator de U-SQL para os ficheiros de separador separados-valor. Pode desenvolver extractors personalizados.
-* O **saída** escreve dados de um conjunto de linhas num ficheiro. `Outputters.Csv()` é um outputter incorporada do U-SQL para criar um ficheiro de valores separados por vírgulas. Pode desenvolver outputters personalizados.
+* O **EXTRAIR** lê dados a partir de um ficheiro de palavra-chave e define o esquema na leitura. `Extractors.Tsv` é um extrator de U-SQL incorporada para ficheiros de valores separador separados. Pode desenvolver extratores personalizados.
+* O **saída** escreve dados de um conjunto de linhas para um ficheiro. `Outputters.Csv()` é um outputter de U-SQL incorporada para criar um ficheiro de separados por vírgulas. Pode desenvolver operadores personalizados.
 
 ### <a name="file-paths"></a>Caminhos de ficheiro
 
-As declarações de EXTRAÇÃO e saída de utilizar caminhos de ficheiro. Caminhos de ficheiro podem ser absoluto ou relativo:
+As instruções de EXTRAÇÃO e saída de utilizar caminhos de ficheiro. Caminhos de ficheiro podem ser absoluto ou relativo:
 
-Este caminho absoluto do ficheiro seguinte refere-se para um ficheiro num com o nome do Data Lake Store `mystore`:
+Este caminho absoluto do ficheiro seguinte refere-se num arquivo num Store de Lake de dados com o nome `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Este caminho de ficheiro seguintes começa com `"/"`. Se refere a um ficheiro na conta do Data Lake Store predefinida:
+Este caminho de ficheiro seguinte começa com `"/"`. Ele se refere a um ficheiro na conta de Data Lake Store predefinida:
 
     /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Utilizar variáveis escalares
 
-Pode utilizar variáveis escalares, bem como para facilitar a manutenção de script. O script U-SQL anterior também pode ser escrito como:
+Também pode utilizar variáveis de escalares para facilitar a manutenção de script. O script de U-SQL anterior também pode ser escrito como:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -94,9 +94,9 @@ Pode utilizar variáveis escalares, bem como para facilitar a manutenção de sc
         TO @out
         USING Outputters.Csv();
 
-## <a name="transform-rowsets"></a>Conjuntos de linhas de transformação
+## <a name="transform-rowsets"></a>Transformar os conjuntos de linhas
 
-Utilize **SELECIONE** para transformar conjuntos de linhas:
+Uso **SELECIONE** para transformar os conjuntos de linhas:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -118,7 +118,7 @@ Utilize **SELECIONE** para transformar conjuntos de linhas:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-A cláusula WHERE utiliza um [expressão c# booleana](https://msdn.microsoft.com/library/6a71f45d.aspx). Pode utilizar a linguagem de expressão c# para as suas próprias expressões e funções. Mesmo pode efetuar uma filtragem mais complexas de excelência combinando-los com conjunctions lógicas (ANDs) e disjunctions (ORs).
+A cláusula WHERE usa um [expressão c# booleana](https://msdn.microsoft.com/library/6a71f45d.aspx). Pode utilizar a linguagem de expressão do c# para fazer as suas próprias expressões e funções. Pode até mesmo executar filtragem mais complexas ao combiná-los com lógicas conjunções (ANDs) e disjunctions (ORs).
 
 O script seguinte utiliza o método DateTime.Parse() e um conjunto.
 
@@ -148,14 +148,14 @@ O script seguinte utiliza o método DateTime.Parse() e um conjunto.
         USING Outputters.Csv();
 
  >[!NOTE]
- >A segunda consulta está a funcionar no resultado do primeiro conjunto de linhas, que cria um compostos de dois filtros. Também pode reutilizar um nome de variável e os nomes estão abrangidas pelo âmbito lexically.
+ >A segunda consulta está a funcionar no resultado do primeiro conjunto de linhas, o que cria um composto de dois filtros. Também pode reutilizar um nome de variável e os nomes estão confinados léxico.
 
 ## <a name="aggregate-rowsets"></a>Conjuntos de linhas agregados
 U-SQL dá-lhe o familiar ORDER BY, GROUP BY e agregações.
 
 A consulta seguinte localiza a duração total por região e, em seguida, mostra as principais durações de cinco por ordem.
 
-Conjuntos de linhas do U-SQL não conservar a sua ordem para a consulta seguinte. Assim, ordenar uma saída, tem de adicionar ORDER BY à declaração de saída:
+Conjuntos de linhas de U-SQL não preservem a ordem para a consulta seguinte. Portanto, para solicitar uma saída, precisa adicionar ORDER BY à declaração de saída:
 
     DECLARE @outpref string = "/output/Searchlog-aggregation";
     DECLARE @out1    string = @outpref+"_agg.csv";
@@ -195,9 +195,9 @@ Conjuntos de linhas do U-SQL não conservar a sua ordem para a consulta seguinte
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-A cláusula ORDER BY U-SQL necessita de utilizar a cláusula de obtenção numa expressão SELECT.
+A cláusula ORDER BY U-SQL, é necessário usar a cláusula FETCH numa expressão SELECT.
 
-A cláusula U-SQL que pode ser utilizada para restringir a saída para os grupos que satisfaçam a condição HAVING:
+A cláusula de U-SQL que pode ser utilizada para restringir a saída aos grupos que satisfaçam a condição HAVING:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -223,7 +223,7 @@ A cláusula U-SQL que pode ser utilizada para restringir a saída para os grupos
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Para cenários avançados de agregação, consulte a documentação de referência o U-SQL para [agregar, análise e as funções de referência](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+Para cenários avançados de agregação, consulte a documentação de referência de U-SQL para [agregar, análise e as funções de referência](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

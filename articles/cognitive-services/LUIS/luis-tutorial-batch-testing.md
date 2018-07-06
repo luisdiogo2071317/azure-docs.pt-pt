@@ -1,7 +1,7 @@
 ---
-title: Utilize o batch para testes para melhorar as predições LUIS | Microsoft Docs
+title: Usar o teste de batch para melhorar as previsões de LUIS | Documentos da Microsoft
 titleSuffix: Azure
-description: Teste de batch de carga, reveja os resultados e melhorar predições LUIS com as alterações.
+description: Lote de teste de carga, reveja os resultados e melhorar as previsões de LUIS com alterações.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,38 +10,38 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266401"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867346"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Utilize o batch para testes encontrar problemas de precisão de predição
+# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Usar o teste de batch para localizar problemas de precisão de previsão
 
-Este tutorial demonstra como utilizar o teste de batch para localizar utterance problemas de predição.  
+Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão.  
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 * Crie um ficheiro de teste do batch 
 * Executar um teste de batch
-* Reveja os resultados do teste
-* Corrija os erros para pendentes
-* Foram o lote
+* Rever os resultados de teste
+* Corrija os erros para intenções
+* Testar novamente o batch
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Para este artigo, terá também uma [LUIS][LUIS] conta para criar a sua aplicação LUIS.
+> * Neste artigo, também tem um [LUIS][LUIS] conta para criar a sua aplicação LUIS.
 
 > [!Tip]
-> Se ainda não tiver uma subscrição, pode registar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
+> Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="create-new-app"></a>Criar nova aplicação
-Este artigo utiliza o domínio prebuilt HomeAutomation. O domínio prebuilt tem utterances para controlar os dispositivos de HomeAutomation como lights, entidades e pendentes. Criar a aplicação, adicione o domínio, formação e publicar.
+Este artigo utiliza o domínio pré-criado HomeAutomation. O domínio pré-criado tem intenções, entidades e expressões com para controlar os dispositivos de HomeAutomation como luzes. Crie a aplicação, adicionar o domínio, formar e publicar.
 
-1. No [LUIS] Web site, criar uma nova aplicação, selecionando **criar nova aplicação** no **MyApps** página. 
+1. Na [LUIS] Web site, criar uma nova aplicação ao selecionar **criar nova aplicação** no **MyApps** página. 
 
     ![Criar nova aplicação](./media/luis-tutorial-batch-testing/create-app-1.png)
 
@@ -49,24 +49,24 @@ Este artigo utiliza o domínio prebuilt HomeAutomation. O domínio prebuilt tem 
 
     ![Introduza o nome da aplicação](./media/luis-tutorial-batch-testing/create-app-2.png)
 
-3. Selecione **domínios Prebuilt** no canto inferior esquerdo. 
+3. Selecione **domínios pré-concebidos** no canto inferior esquerdo. 
 
-    ![Selecione o domínio Prebuilt](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+    ![Selecione o domínio pré-criado](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
 
 4. Selecione **Adicionar domínio** para HomeAutomation.
 
     ![Adicionar domínio HomeAutomation](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
 
-5. Selecione **formação** na barra de navegação direito superior.
+5. Selecione **Train** na barra de navegação direita superior.
 
-    ![Selecione o botão de formação](./media/luis-tutorial-batch-testing/train-button.png)
+    ![Selecione o botão de Train](./media/luis-tutorial-batch-testing/train-button.png)
 
 ## <a name="batch-test-criteria"></a>Critérios de teste do batch
-Teste do batch, pode testar até 1000 utterances cada vez. O lote não deve ter os duplicados. [Exportar](create-new-app.md#export-app) a aplicação para ver a lista de utterances atuais.  
+Teste do batch, pode testar expressões com até 1000 por vez. O batch não deve ter duplicados. [Exportar](create-new-app.md#export-app) a aplicação para ver a lista de expressões com atuais.  
 
-A estratégia de teste para LUIS utiliza três conjuntos de dados distintos: modelo utterances, utterances de teste do batch e utterances de ponto final. Para este tutorial, certifique-se que não estiver a utilizar o utterances a partir de qualquer um dos utterances de modelo (adicionadas ao objetivo) ou utterances de ponto final. 
+A estratégia de teste para LUIS utiliza três conjuntos separados de dados: expressões com expressões de teste do batch e expressões de ponto final de modelo. Para este tutorial, certifique-se de que não estiver a utilizar o expressões a partir de qualquer uma das expressões de modelo (adicionados numa intenção), ou expressões de ponto final. 
 
-Não utilize qualquer um dos utterances já na aplicação para o teste de lote:
+Não utilize qualquer uma das expressões a com já na aplicação para o teste de batch:
 
 ```
 'breezeway on please',
@@ -108,12 +108,12 @@ Não utilize qualquer um dos utterances já na aplicação para o teste de lote:
 'turn thermostat on 70 .' 
 ```
 
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Criar um lote para testar a exatidão da previsão intenção
-1. Criar `homeauto-batch-1.json` num editor de texto, tal como [VSCode](https://code.visualstudio.com/). 
+## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Criar um lote para testar a exatidão da previsão de intenção
+1. Crie `homeauto-batch-1.json` num editor de texto, como [VSCode](https://code.visualstudio.com/). 
 
-2. Adicionar utterances com o **intenção** pretende que o previsto no teste. Para este tutorial, para torná-lo simples, execute utterances na `HomeAutomation.TurnOn` e `HomeAutomation.TurnOff` e mudar o `on` e `off` o texto as utterances. Para o `None` intenção, adicionar alguns utterances que não fazem parte do [domínio](luis-glossary.md#domain) área (assunto). 
+2. Adicionar expressões com o **intenção** desejar prevista no teste. Para este tutorial, para que seja simples, tirar expressões com o `HomeAutomation.TurnOn` e `HomeAutomation.TurnOff` e mude a `on` e `off` texto nas expressões. Para o `None` intenção, adicionar algumas expressões que não são parte dos [domínio](luis-glossary.md#domain) área (assunto). 
 
-    Para compreender a forma como os resultados do teste batch correlacionar para o JSON do batch, adicione apenas seis pendentes.
+    Para compreender como os resultados do teste de batch correlacionam para o batch JSON, adicione apenas seis intenções.
 
     ```JSON
     [
@@ -163,7 +163,7 @@ Não utilize qualquer um dos utterances já na aplicação para o teste de lote:
 
     ![Selecione o conjunto de dados de importação](./media/luis-tutorial-batch-testing/test-3.png)
 
-4. Escolha a localização do sistema de ficheiros do `homeauto-batch-1.json` ficheiro.
+4. Escolha a localização de sistema de ficheiros do `homeauto-batch-1.json` ficheiro.
 
 5. Nome do conjunto de dados `set 1`.
 
@@ -171,84 +171,84 @@ Não utilize qualquer um dos utterances já na aplicação para o teste de lote:
 
 6. Selecionar o botão **Executar**. Aguarde até que o teste é concluído.
 
-    ![Selecionar](./media/luis-tutorial-batch-testing/test-5.png)
+    ![Selecionar executar](./media/luis-tutorial-batch-testing/test-5.png)
 
 7. Selecione **ver resultados**.
 
-    ![Ver os resultados](./media/luis-tutorial-batch-testing/test-6.png)
+    ![Ver resultados](./media/luis-tutorial-batch-testing/test-6.png)
 
 8. Reveja os resultados no gráfico e da legenda.
 
-    ![Resultados do batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    ![Resultados de batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-## <a name="review-batch-results"></a>Reveja os resultados do batch
-Os resultados do batch estão em duas secções. A secção superior contém o gráfico e a legenda. A secção de inferior apresenta utterances Quando seleciona um nome de área do gráfico.
+## <a name="review-batch-results"></a>Rever os resultados de batch
+Os resultados de batch estão em duas seções. A secção superior contém o gráfico e legenda. A secção da parte inferior mostra expressões com ao selecionar um nome de área do gráfico.
 
-Os erros são indicados por cor vermelho. O gráfico é quatro secções, com dois as secções apresentadas vermelho. **Estas são as secções concentrar-se no**. 
+Todos os erros são indicados por cor vermelho. O gráfico está em quatro seções, com duas das seções apresentadas a vermelho. **Estas são as secções concentrar-se no**. 
 
-Canto superior direito secção indica o teste incorretamente prever a existência de um objetivo ou entidade. Secção na parte inferior esquerda indica que o teste de prever a ausência de um objetivo ou entidade incorretamente.
+Canto superior direito de secção indica o teste incorretamente prever a existência de uma intenção ou a entidade. Secção na parte inferior esquerda indica que o teste previsto incorretamente a ausência de um objetivo ou a entidade.
 
 ### <a name="homeautomationturnoff-test-results"></a>Resultados do teste HomeAutomation.TurnOff
-Na legenda, selecione o `HomeAutomation.TurnOff` intenção. Tem um ícone verde com êxito para a esquerda do nome na legenda. Não existirem erros para este objetivo. 
+Na legenda, selecione o `HomeAutomation.TurnOff` intenção. Ele tem um ícone de êxito verde à esquerda do nome na legenda. Não há nenhum erro para este objetivo. 
 
-![Resultados do batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![Resultados de batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn e nenhum pendentes têm erros
-Os outros dois pendentes tem erros, o que significa que serão as predições de teste não correspondiam as expectativas do ficheiro batch. Selecione o `None` intenção na legenda para rever o primeiro erro. 
+### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn e nenhum intenções têm erros
+Os outros dois objetivos têm erros, que significa que as previsões de teste não correspondeu as expectativas de ficheiro de batch. Selecione o `None` intenção na legenda para rever o primeiro erro. 
 
 ![Nenhum intenção](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-Falhas de aparecem no gráfico nas secções vermelhos: **falsos positivos** e **falso negativo**. Selecione o **falso negativo** nome de secção do gráfico para ver os utterances falhadas abaixo do gráfico. 
+Falhas são apresentados no gráfico das secções vermelho: **falsos positivos** e **falsos negativos**. Selecione o **falsos negativos** nome da seção no gráfico para ver as expressões com falha abaixo do gráfico. 
 
-![Falsas falhas negativos](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+![Falhas de negativas FALSO](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
-Utterance falhar, `help` era esperado como um `None` intenção, mas o teste de prever `HomeAutomation.TurnOn` intenção.  
+A expressão de falha `help` era esperado como uma `None` intenção, mas o teste previsto `HomeAutomation.TurnOn` intenção.  
 
-Existem duas falhas, um em HomeAutomation.TurnOn e um em nenhum. Ambos foram causadas pelo utterance `help` porque não conseguiu fornecer a expectativa em nenhum e foi uma correspondência para o objetivo de HomeAutomation.TurnOn inesperada. 
+Existem duas falhas, um nos HomeAutomation.TurnOn e um em nenhum. Ambos foram causadas pela expressão `help` porque não satisfazer as expectativas em nenhum e era uma correspondência inesperada para a intenção de HomeAutomation.TurnOn. 
 
-Para determinar o motivo de `None` utterances estão a falhar, reveja os utterances atualmente nos `None`. 
+Para determinar por que o `None` expressões com estão a falhar, reveja as expressões atualmente em `None`. 
 
-## <a name="review-none-intents-utterances"></a>Revisão da intenção nenhum utterances
+## <a name="review-none-intents-utterances"></a>Revisão da intenção None expressões com
 
-1. Fechar o **teste** painel selecionando o **teste** botão na barra de navegação superior. 
+1. Fechar o **teste** painel ao selecionar o **teste** botão na barra de navegação superior. 
 
-2. Selecione **criar** partir do painel de navegação superior. 
+2. Selecione **criar** do painel de navegação superior. 
 
-3. Selecione **nenhum** intenção da lista de pendentes.
+3. Selecione **None** intenção da lista de objetivos.
 
-4. Selecione o controlo + E para ver a vista de token dos utterances 
+4. Selecione Control + E para ver a vista de token das expressões 
     
-    |Nenhum intenção 's utterances|Classificação de predição|
+    |Nenhum intenção 's expressões com|Classificação da predição|
     |--|--|
-    |"diminuir temperatura para me permitir."|0.44|
-    |"dim lights cozinha como 25."|0.43|
+    |"diminuir temperatura para mim."|0.44|
+    |"dim luzes cozinha para 25."|0.43|
     |"reduzir o volume"|0.46|
-    |"ativar na internet no meu bedroom"|0.28|
+    |"ligar à internet no meu volte carvalho"|0.28|
 
-## <a name="fix-none-intents-utterances"></a>Corrigir nenhum intenção do utterances
+## <a name="fix-none-intents-utterances"></a>Corrigir None a intenção de expressões
     
-Qualquer utterances no `None` deveria estar fora do domínio de aplicação. Estes utterances são relativamente à HomeAutomation, pelo que estão a ser a intenção errada. 
+Qualquer discursos em `None` devem para ser fora do domínio de aplicação. Estas expressões são relativas a HomeAutomation, para que elas tenham a intenção de errado. 
 
-LUIS também oferece o utterances inferior a 50% (<.50) pontuação de predição. Se observar utterances nas outros dois pendentes, verá muito superiores pontuações de predição. Quando LUIS tem baixas pontuações das classificações para utterances de exemplo, o que é um bom indicador de utterances são confusas para LUIS entre a intenção atual e outras pendentes. 
+LUIS também oferece o expressões com menos de 50% (<.50) pontuação de predição. Se examinar as expressões dos outros dois objetivos, verá as pontuações de predição muito superiores. Quando o LUIS tem pontuações baixas para expressões de exemplo, o que é uma boa indicação as expressões são confusas para LUIS entre a intenção atual e outros objetivos. 
 
-Para corrigir a aplicação, utterances atualmente no `None` intenção tem de ser movido para o objetivo correto e o `None` intenção tem pendentes novo, adequados. 
+Para corrigir a aplicação, as expressões atualmente no `None` intenção precisam de ser movidos para a intenção correta e o `None` intenção tem intenções de novo, apropriadas. 
 
-Três utterances no `None` intenção destinam-se para reduzir as definições do dispositivo de automatização. Utilize palavras como `dim`, `lower`, ou `decrease`. O utterance Quarta pergunta ativar na internet. Uma vez que todos os quatro utterances sobre ativando ou alterar o grau de energia para um dispositivo, deve ser movidas para o `HomeAutomation.TurnOn` intenção. 
+Três das expressões no `None` intenção destinam-se para reduzir as definições de dispositivo de automatização. Utilize palavras como `dim`, `lower`, ou `decrease`. A expressão quarta pede ativar a internet. Uma vez que todas as expressões de quatro com são sobre ativando ou alterar o nível de eficiência para um dispositivo, eles devem ser movidos para o `HomeAutomation.TurnOn` intenção. 
 
-Esta é apenas uma solução. Também pode criar um novo objetivo `ChangeSetting` mover utterances utilizando Dim. do, reduzir e diminuir para esse objetivo de novo. 
+Essa é apenas uma solução. Também é possível criar um novo objetivo `ChangeSetting` e mover as expressões utilização dim, reduzir e diminuir para esse propósito de novo. 
 
-## <a name="fix-the-app-based-on-batch-results"></a>Corrija a aplicação com base nos resultados de batch
-Mover os quatro utterances para o `HomeAutomation.TurnOn` intenção. 
+## <a name="fix-the-app-based-on-batch-results"></a>Corrigir a aplicação com base nos resultados de batch
+Mover as expressões quatro com o `HomeAutomation.TurnOn` intenção. 
 
-1. Selecione a caixa de verificação acima lista utterance para que todos os utterances estão selecionadas. 
+1. Selecione a caixa de verificação acima da lista de expressão, por isso, todas as expressões são selecionadas. 
 
-2. No **reatribuir intenção** pendente, selecione `HomeAutomation.TurnOn`. 
+2. Na **reatribuir intenção** menu pendente, selecione `HomeAutomation.TurnOn`. 
 
-    ![Mover utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
+    ![Mover expressões com](./media/luis-tutorial-batch-testing/move-utterances.png)
 
-    Depois de quatro utterances são reatribuídas, o utterance lista para o `None` intenção está vazia.
+    Depois das expressões de quatro são reatribuídas, a expressão listar para o `None` intenção está vazia.
 
-3. Adicione quatro pendentes novo para a intenção nenhum:
+3. Adicione quatro intenções de novo para a intenção None:
 
     ```
     "fish"
@@ -257,24 +257,24 @@ Mover os quatro utterances para o `HomeAutomation.TurnOn` intenção.
     "pizza"
     ```
 
-    Estes utterances sem dúvida estão fora do domínio de HomeAutomation. Como introduzir cada utterance, veja a classificação para a mesma. A classificação pode ser baixa ou mesmo muito baixo (com uma caixa vermelha volta). Depois de preparar a aplicação, no passo 8, a classificação será muito superior. 
+    Estas expressões são definitivamente fora do domínio da HomeAutomation. Como introduzir cada ocorrência de pronunciação, assista a classificação para o mesmo. A classificação pode ser baixo, ou até mesmo muito baixa (com uma caixa vermelha à volta). Depois de preparar a aplicação, no passo 8, a pontuação será muito maior. 
 
-7. Remover quaisquer etiquetas, selecionando a etiqueta azul no utterance e selecione **remover etiqueta**.
+7. Remover quaisquer etiquetas ao selecionar a etiqueta azul na expressão e selecione **remover etiqueta**.
 
-8. Selecione **formação** na barra de navegação direito superior. A classificação de cada utterance é muito superior. Todas as pontuações das classificações para o `None` intenção deverá estar acima.80 agora. 
+8. Selecione **Train** na barra de navegação direita superior. A pontuação de cada ocorrência de pronunciação é muito superior. Todas as pontuações para a `None` intenção deve estar acima.80 agora. 
 
-## <a name="verify-the-fix-worked"></a>Certifique-se de que a correção trabalhado
-Para verificar que o utterances no teste batch estão corretamente prever para o **nenhum** intenção, execute novamente o teste de batch.
+## <a name="verify-the-fix-worked"></a>Certifique-se de que a correção trabalhou
+Para verificar que as expressões no teste de batch estão previstas corretamente para o **None** intenção, execute novamente o teste de batch.
 
 1. Selecione **teste** na barra de navegação superior. 
 
 2. Selecione **painel de teste do Batch** no painel do lado direito. 
 
-3. Selecione as reticências (…) à direita do nome do batch e selecione **executar o conjunto de dados**. Aguarde até que o teste de batch é efetuado.
+3. Selecione as reticências (***...*** ) à direita do nome do batch e selecione **executar o conjunto de dados**. Aguarde até que o teste de batch é concluído.
 
     ![Execute o conjunto de dados](./media/luis-tutorial-batch-testing/run-dataset.png)
 
-4. Selecione **ver resultados**. Os pendentes devem ter ícones verdes à esquerda dos nomes de intenção. Com o filtro adequado, como o `HomeAutomation.Turnoff` intenção, selecione a verde ponto no painel direito superior mais próximo para o meio do gráfico. O nome do utterance aparece na tabela abaixo do gráfico. A pontuação dos `breezeway off please` for muito baixa. Uma atividade opcional é adicionar mais utterances a intenção para aumentar este modelo de pontuação. 
+4. Selecione **ver resultados**. Os objetivos devem todos ter ícones verde à esquerda dos nomes de intenção. Com o filtro adequado, definido como o `HomeAutomation.Turnoff` intenção, selecione o verde ponto no painel direito superior mais próximo até o meio do gráfico. O nome da expressão aparece na tabela abaixo do gráfico. A pontuação de `breezeway off please` é muito baixa. Uma atividade opcional é adicionar expressões mais para a intenção de aumentar esta pontuação. 
 
     ![Execute o conjunto de dados](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
@@ -374,7 +374,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
 
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
 
 5. Select **See results** to review the test results.
 
@@ -383,6 +383,6 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre utterances de exemplo](luis-how-to-add-example-utterances.md)
+> [Saiba mais sobre expressões de exemplo](luis-how-to-add-example-utterances.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

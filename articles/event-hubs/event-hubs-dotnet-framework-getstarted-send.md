@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984991"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860042"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Enviar eventos para Hubs de Eventos do Azure com o Framework .NET
-
-## <a name="introduction"></a>Introdução
 
 Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT).
 
@@ -31,7 +29,7 @@ Este tutorial mostra como utilizar o [Portal do Azure](https://portal.azure.com)
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). As capturas de ecrã neste tutorial utilizam o Visual Studio 2017.
+* [Microsoft Visual Studio 2017 ou superior](http://visualstudio.com).
 * Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
@@ -40,7 +38,7 @@ O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.c
 
 ## <a name="create-a-sender-console-application"></a>Criar uma aplicação de consola do remetente
 
-Nesta secção, escreve uma aplicação de consola do Windows envia eventos para o hub de eventos.
+Nesta secção, escrever uma aplicação de consola do Windows para enviar eventos para o event hub.
 
 1. No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do Visual C# com o modelo de projeto **Aplicação de Consola**. Dê ao projeto o nome **Remetente**.
    
@@ -60,8 +58,8 @@ Nesta secção, escreve uma aplicação de consola do Windows envia eventos para
 5. Adicione os campos seguintes à classe **Programa**, substituindo os valores dos marcadores de posição pelo nome do hub de eventos que criou na secção anterior e pela cadeia de ligação de ao nível do espaço de nomes que guardou anteriormente.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Adicione o seguinte método à classe **Programa**:
    
@@ -103,6 +101,7 @@ Nesta secção, escreve uma aplicação de consola do Windows envia eventos para
 Parabéns! Enviou agora mensagens para um hub de eventos.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que compilou uma aplicação de trabalho que cria um hub de eventos e envia dados, pode passar para os cenários seguintes:
 
 * [Receber eventos com o Anfitrião de Processador de Eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)

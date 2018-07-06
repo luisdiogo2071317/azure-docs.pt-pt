@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1bcd7f9e0a134173a8942b71259428a720a3d076
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222506"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868563"
 ---
 # <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
@@ -113,7 +113,7 @@ Se quiser saber mais sobre os vários tipos de relatórios do Azure Active Direc
 - [Relatório de registos de auditoria](active-directory-reporting-activity-audit-logs.md)
 - [Relatório de registos de inícios de sessão](active-directory-reporting-activity-sign-ins.md)
 
-Se quiser saber mais sobre como aceder aos dados dos relatórios com a API dos relatórios, veja: 
+Se quiser saber mais sobre como aceder aos dados dos relatórios com a API de relatórios, consulte: 
 
 - [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md) (Introdução à API de relatórios do Azure Active Directory)
 

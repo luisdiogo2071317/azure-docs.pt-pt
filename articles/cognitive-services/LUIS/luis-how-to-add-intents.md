@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344332"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869052"
 ---
 # <a name="manage-intents"></a>Gerir os objetivos 
 Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções. 
@@ -75,9 +75,9 @@ Ver [adicionar padrão de expressão existente na página de intenção ou a ent
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Editar uma expressão na página de intenção
 
-Para editar uma expressão, selecione o ícone de reticências (...) na extremidade direita da linha para essa expressão e, em seguida, selecione **editar**. Modificar o texto, em seguida, prima Enter no teclado.
+Para editar uma expressão, selecione as reticências (***...*** ) na extremidade direita da linha para essa expressão e, em seguida, selecione **editar**. Modificar o texto, em seguida, prima Enter no teclado.
 
-![Página de detalhes de captura de ecrã de objetivos, com o ícone de reticências realçado](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Página de detalhes de captura de ecrã de objetivos, com o botão de reticências realçado](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Reatribuir expressões com na página de intenção
 Pode alterar a intenção de expressões com um ou mais por meio da reatribuição-los em outra intenção. 
@@ -92,7 +92,7 @@ Para alterar a intenção de expressões com vários, selecione as caixas de ver
 
 ## <a name="delete-utterances-on-intent-page"></a>Eliminar expressão na página de intenção
 
-Para eliminar uma expressão, selecione o ícone de reticências (...) na extremidade direita da linha para essa expressão e, em seguida, selecione **eliminar**. A expressão é removido da lista e a aplicação do LUIS.
+Para eliminar uma expressão, selecione as reticências (***...*** ) na extremidade direita da linha para essa expressão e, em seguida, selecione **eliminar**. A expressão é removido da lista e a aplicação do LUIS.
 
 ![Página de detalhes de captura de ecrã de objetivos, com a opção de eliminação realçada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

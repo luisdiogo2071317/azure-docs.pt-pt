@@ -1,6 +1,6 @@
 ---
-title: Integração contínua e a implementação no Azure Data Factory | Microsoft Docs
-description: Saiba como utilizar a integração contínua e a implementação para mover os pipelines de fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outro.
+title: Integração contínua e implementação no Azure Data Factory | Documentos da Microsoft
+description: Saiba como utilizar a integração contínua e implementação para mover os pipelines da fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outro.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,76 +12,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ee01980229495d9b3f372ec85ee874955c291e5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268165"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868325"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e a implementação no Azure Data Factory
+# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e implementação no Azure Data Factory
 
-A prática testar cada alteração efetuada para a integração contínua é o código base automaticamente e antecipadamente quanto possível. A implementação contínua segue os testes que ocorre durante a integração contínua e pushes alterações a um sistema de teste ou de produção.
+Integração contínua é a prática de teste de cada alteração feita à sua base de código automaticamente e mais cedo possível. Implementação contínua segue os testes que acontece durante a integração contínua e envia por push as alterações para um sistema de teste ou produção.
 
-Para o Azure Data Factory, integração contínua & implementação significa mover pipelines de fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outro. Para efetuar a integração contínua & implementação, pode utilizar a integração de IU de fábrica de dados com modelos Azure Resource Manager. A IU da fábrica de dados pode gerar um modelo do Resource Manager, quando seleciona o **modelo ARM** opções. Quando seleciona **modelo ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as cadeias de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O ficheiro de modelo do Resource Manager principal permanece igual para todos os ambientes.
+Azure Data Factory, integração contínua e implementação significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer a integração contínua e implementação, pode utilizar a integração de IU do Data Factory com modelos Azure Resource Manager. IU do Data Factory pode gerar um modelo do Resource Manager, ao selecionar o **modelo ARM** opções. Quando seleciona **modelo de ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as suas cadeias de caracteres de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O principal arquivo de modelo do Resource Manager permanece o mesmo para todos os ambientes.
 
-Para uma introdução nove minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+Para obter uma introdução de nove minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Criar um modelo do Resource Manager para cada ambiente
-Selecione **modelo ARM exportar** para exportar o modelo do Resource Manager para a fábrica de dados no ambiente de desenvolvimento.
+Selecione **modelo de ARM exportar** para exportar o modelo do Resource Manager para a fábrica de dados no ambiente de desenvolvimento.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-Em seguida, aceda à sua fábrica de dados de teste e a fábrica de dados de produção e selecione **modelo ARM importação**.
+Em seguida, aceda à sua fábrica de dados de teste e a fábrica de dados de produção e selecione **modelo de ARM de importação**.
 
 ![](media/continuous-integration-deployment/continuous-integration-image2.png)
 
-Esta ação leva-o para o portal do Azure, onde pode importar o modelo exportado. Selecione **construir o seu próprio modelo no editor de** e, em seguida, **ficheiro carga** e selecione o modelo do Resource Manager gerado. Forneça as definições e a fábrica de dados e o pipeline completo é importado no seu ambiente de produção.
+Esta ação leva-o para o portal do Azure, onde é possível importar o modelo exportado. Selecione **criar seu próprio modelo no editor** e, em seguida **carregar ficheiro** e selecione o modelo do Resource Manager gerado. Forneça as definições e a fábrica de dados e todo o pipeline é importado no seu ambiente de produção.
 
 ![](media/continuous-integration-deployment/continuous-integration-image3.png)
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Selecione **ficheiro carga** para selecionar o modelo do Resource Manager exportado e forneça todos os valores de configuração (por exemplo, serviços ligados).
+Selecione **carregar ficheiro** para selecionar o modelo do Resource Manager exportado e forneça todos os valores de configuração (por exemplo, serviços ligados).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de integração contínua
-Eis o ciclo de vida completo de integração contínua & implementação que pode utilizar depois de ativar a integração de VSTS GIT na IU de fábrica de dados:
+Aqui está todo o ciclo de vida para integração contínua e implementação que pode utilizar depois de ativar a integração de VSTS GIT na IU do Data Factory:
 
-1.  Configure uma fábrica de dados de desenvolvimento com VSTS em que todos os programadores podem criar recursos do Data Factory pipelines, conjuntos de dados e assim sucessivamente.
+1.  Defina uma fábrica de dados de desenvolvimento com o VSTS em que todos os desenvolvedores podem criar recursos do Data Factory, como conjuntos de dados, pipelines etc.
 
-2.  Em seguida, os programadores podem modificar recursos, tais como pipelines. Como efetuam as alterações, pode selecionar **depurar** para ver como o pipeline é executado com as alterações mais recentes.
+2.  Em seguida, os desenvolvedores podem modificar recursos, tais como pipelines. À medida que faz a suas modificações, pode selecionar **depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
-3.  Depois dos programadores estiverem satisfeitos com as alterações, é possível criar um pedido de solicitação da sua sucursal para o ramo principal (ou o ramo de colaboração) para obter as respetivas alterações revistas por elementos.
+3.  Depois dos desenvolvedores estiver satisfeitos com as alterações, podem criar um pedido pull do respetivo ramo para o ramo principal (ou o ramo de colaboração) para obter as alterações revisadas por itens de mesmo nível.
 
 4.  Depois das alterações no ramo principal, podem publicar à fábrica de desenvolvimento, selecionando **publicar**.
 
-5.  Quando estiver pronta para promover alterações para a fábrica de teste e a fábrica de produção a equipa, estes podem exportar o modelo do Resource Manager o ramo principal ou a partir de qualquer outra sucursal no caso dos respetivos ramo principal efetua uma cópia de desenvolvimento em direto fábrica de dados.
+5.  Quando a equipe está pronta para promover as alterações para a fábrica de teste e a fábrica de produção, eles podem exportar o modelo do Resource Manager do ramo principal ou a partir de qualquer outra ramificação no caso do desenvolvimento em direto Data Factory cria cópias de segurança de seus ramo principal.
 
-6.  O modelo exportado do Resource Manager pode ser implementado com os ficheiros de parâmetro diferentes para a fábrica de teste e a fábrica de produção.
+6.  O modelo exportado do Resource Manager pode ser implementado com ficheiros de parâmetros diferentes para a fábrica de teste e a fábrica de produção.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com as versões de VSTS
+## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com as versões do VSTS
 
-Eis os passos para configurar uma versão de VSTS, de modo pode automatizar a implementação de uma fábrica de dados para vários ambientes.
+Eis os passos para configurar uma versão do VSTS para que pode automatizar a implementação de uma fábrica de dados em vários ambientes.
 
-![Diagrama de integração contínua com VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagrama da integração contínua com VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisitos
 
--   Uma subscrição do Azure ligada ao utilizar o Team Foundation Server ou VSTS o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Uma subscrição do Azure ligada ao Team Foundation Server ou o VSTS usando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
--   Uma fábrica de dados com o Git VSTS configurado.
+-   Uma fábrica de dados com o Git do VSTS configurado.
 
--   Um [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
+-   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
 
-### <a name="set-up-a-vsts-release"></a>Configurar uma versão de VSTS
+### <a name="set-up-a-vsts-release"></a>Configurar uma versão do VSTS
 
-1.  Aceda à página do seu VSTS no mesmo projecto que configurado com a fábrica de dados.
+1.  Aceda à página do VSTS no mesmo projeto que aquela configurado com a fábrica de dados.
 
-2.  Clique no menu superior **compilar e versão** &gt; **versões** &gt; **criar versão definição**.
+2.  Clique no menu superior **criar e lançar** &gt; **versões** &gt; **Criar definição de versão**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -89,41 +89,41 @@ Eis os passos para configurar uma versão de VSTS, de modo pode automatizar a im
 
 4.  Introduza o nome do seu ambiente.
 
-5.  Adicione um artefacto do Git e selecione o mesmo repositório configurado com a fábrica de dados. Escolha `adf_publish` como o ramo predefinido com a versão mais recente do predefinido.
+5.  Adicione um artefacto de Git e selecione o mesmo repositório configurado com a fábrica de dados. Escolha `adf_publish` como o ramo predefinido com a versão mais recente do padrão.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 7.  Adicione uma tarefa de implementação do Gestor de recursos do Azure:
 
-    a.  Criar nova tarefa, procure **implementação do grupo de recursos do Azure**e adicioná-la.
+    a.  Criar uma nova tarefa, procure **implementação de grupo de recursos do Azure**e adicioná-lo.
 
-    b.  A tarefa de implementação, selecione a subscrição, o grupo de recursos e a localização para a fábrica de dados de destino e fornecer credenciais, se necessário.
+    b.  A tarefa de implementação, escolha a subscrição, grupo de recursos e localização para a fábrica de dados de destino e fornecer credenciais, se necessário.
 
     c.  Selecione o **criar ou atualizar grupo de recursos** ação.
 
-    d.  Selecione **...** no **modelo** campo. Navegue para o modelo do Resource Manager (*ARMTemplateForFactory.json*) que foi criada com a ação de publicar no portal. Procure este ficheiro na pasta `<FactoryName>` do `adf_publish` ramo.
+    d.  Selecione **...** na **modelo** campo. Navegue para o modelo do Resource Manager (*ARMTemplateForFactory.json*) que foi criada com a ação de publicar no portal. Examinar esse arquivo na pasta `<FactoryName>` do `adf_publish` ramo.
 
     e.  Fazer a mesma coisa para o ficheiro de parâmetros. Escolha o ficheiro correto, dependendo se criou uma cópia ou estiver a utilizar o ficheiro predefinido *ARMTemplateParametersForFactory.json*.
 
-    f.  Selecione **...** junto a **substituir os parâmetros do modelo** campo e preencha as informações para a fábrica de dados de destino. Para as credenciais do Cofre de chaves, utilize o mesmo nome para o segredo no seguinte formato: nome do segredo do pressuposto de que é `cred1`, introduza `"$(cred1)"` (entre aspas).
+    f.  Selecione **...** junto a **substituir parâmetros de modelo** campo e preencher as informações para a fábrica de dados de destino. Para as credenciais do Cofre de chaves, utilize o mesmo nome para o segredo no seguinte formato: supondo que o nome do segredo é `cred1`, introduza `"$(cred1)"` (entre aspas).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 8.  Guarde a definição de versão.
 
-9.  Crie uma nova versão da definição versão.
+9.  Crie uma nova versão a partir desta definição de versão.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional - obter os segredos do Cofre de chaves do Azure
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Opcional – obter os segredos no Azure Key Vault
 
-Se tiver segredos passem um modelo Azure Resource Manager, é recomendável utilizar o Cofre de chaves do Azure com a versão VSTS.
+Se tiver de segredos para passar num modelo Azure Resource Manager, recomendamos que utilize o Azure Key Vault com o lançamento do VSTS.
 
 Existem duas formas de lidar com os segredos:
 
-1.  Adicione os segredos ao ficheiro de parâmetros. Para obter mais informações, consulte [Cofre de chaves do Azure de utilização para passar o valor do parâmetro seguro durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Adicione os segredos ao ficheiro de parâmetros. Para mais informações, veja [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-    -   Criar uma cópia do ficheiro de parâmetros que é carregado para o ramo publicar e definir os valores dos parâmetros que pretende obter a partir do Cofre de chaves com o seguinte formato:
+    -   Criar uma cópia do ficheiro de parâmetros que é carregado para o ramo de publicação e defina os valores dos parâmetros que pretende obter a partir do Cofre de chaves com o seguinte formato:
 
     ```json
     {
@@ -140,29 +140,29 @@ Existem duas formas de lidar com os segredos:
     }
     ```
 
-    -   Quando utiliza este método, o segredo é retirado do Cofre de chaves automaticamente.
+    -   Quando utiliza este método, o segredo é obtido a partir do Cofre de chaves automaticamente.
 
-    -   O ficheiro de parâmetros tem de estar no ramo publicar.
+    -   O ficheiro de parâmetros tem de ser no ramo de publicação.
 
-2.  Adicionar um [tarefas do Cofre de chaves do Azure](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da implementação do Gestor de recursos do Azure descrita na secção anterior:
+2.  Adicionar uma [tarefas de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da implantação de Gestor de recursos do Azure, descrito na secção anterior:
 
-    -   Selecione o **tarefas** separador, crie uma nova tarefa, procure **Cofre de chaves do Azure** e adicioná-la.
+    -   Selecione o **tarefas** separador, criar uma nova tarefa, procure **Azure Key Vault** e adicioná-lo.
 
-    -   A tarefa do Cofre de chaves, selecione a subscrição na qual criou o Cofre de chaves, forneça as credenciais se necessário e, em seguida, selecione o Cofre de chaves.
+    -   A tarefa de Key Vault, escolha a subscrição na qual criou o Cofre de chaves, forneça as credenciais se necessário e, em seguida, selecione o Cofre de chaves.
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Conceda permissões para o agente VSTS
-A tarefa do Cofre de chaves do Azure pode falhar a primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente VSTS. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obter* e *lista* são as permissões mínimas necessárias).
+### <a name="grant-permissions-to-the-vsts-agent"></a>Conceder permissões para o agente do VSTS
+A tarefa do Azure Key Vault pode falhar na primeira vez com um erro de acesso negado. Transferir os registos para a versão e localize o `.ps1` ficheiro com o comando para atribuir permissões para o agente do VSTS. Pode executar o comando diretamente ou pode copiar o ID de principal do ficheiro e adicionar a política de acesso manualmente no portal do Azure. (*Obtenha* e *lista* são as permissões mínimas necessárias).
 
-### <a name="update-active-triggers"></a>Atualizar acionadores Active Directory
-Se tentar atualizar acionadores Active Directory, a implementação pode falhar. Para atualizar os acionadores de Active Directory, terá de parar e iniciá-las após a implementação manualmente. Pode adicionar uma tarefa do Azure Powershell para esta finalidade, conforme mostrado no exemplo seguinte:
+### <a name="update-active-triggers"></a>Atualizar o Active Directory acionadores
+Se tentar atualizar os acionadores de Active Directory, a implementação pode falhar. Para atualizar os acionadores de Active Directory, terá de manualmente pará-los e iniciá-las após a implementação. Pode adicionar uma tarefa do Azure Powershell para essa finalidade, conforme mostrado no exemplo a seguir:
 
-1.  No separador tarefas da versão VSTS, procure **Azure Powershell** e adicioná-la.
+1.  No separador tarefas da versão do VSTS, procure **do Azure Powershell** e adicioná-lo.
 
-2.  Escolha **do Azure Resource Manager** da ligação escreva e selecione a sua subscrição.
+2.  Escolher **do Azure Resource Manager** da ligação escreva e selecione a sua subscrição.
 
-3.  Escolha **o Inline Script de** como o script escreva e, em seguida, forneça o seu código. O exemplo seguinte deixa de acionadores:
+3.  Escolher **o Inline Script de** como o script escreva e, em seguida, fornecer o seu código. O seguinte exemplo para os acionadores:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -172,15 +172,15 @@ Se tentar atualizar acionadores Active Directory, a implementação pode falhar.
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-AzureRmDataFactoryV2Trigger` função) para reiniciar os acionadores após a implementação.
+Pode seguir passos semelhantes e utilizar um código semelhante (com o `Start-AzureRmDataFactoryV2Trigger` função) para reiniciar os disparadores após a implementação.
 
-## <a name="sample-template-and-script"></a>Modelo de exemplo e scripts
-Seguem-se dois exemplos que pode utilizar para começar a integração contínua e implementação para o Data Factory:
+## <a name="sample-template-and-script"></a>Modelo de exemplo e script
+Aqui estão dois exemplos que pode utilizar para começar a utilizar com a integração contínua e implementação para o Data Factory:
 
--   Um modelo de implementação de exemplo que pode importar no VSTS.
--   Um script de exemplo para parar acionadores antes da implementação e reiniciar acionadores posteriormente. O script também inclui o código para eliminar os recursos que foram removidos.
+-   Um modelo de implementação de exemplo que pode ser importado no VSTS.
+-   Um script de exemplo para acionadores antes da implantação de parar e reiniciar aciona posteriormente. O script também inclui o código para eliminar os recursos que foram removidos.
 
-Segue-se um modelo de implementação de exemplo que pode importar no VSTS.
+Aqui está um modelo de implementação de exemplo que pode ser importado no VSTS.
 
 ```json
 {
@@ -718,7 +718,7 @@ Segue-se um modelo de implementação de exemplo que pode importar no VSTS.
 }
 ```
 
-Eis um script de exemplo para parar acionadores antes da implementação e reiniciar acionadores posteriormente:
+Eis um script de exemplo para acionadores antes da implantação de parar e reiniciar acionadores posteriormente:
 
 ```powershell
 param
@@ -794,3 +794,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utilizar parâmetros personalizados com o modelo do Resource Manager
+
+Pode definir parâmetros personalizados para o modelo do Resource Manager. Simplesmente tem de ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do ficheiro tem de corresponder ao nome mostrado a seguir exatamente.) Fábrica de dados tenta ler o ficheiro a partir de qualquer ramo que atualmente está a trabalhar no, não apenas do ramo a colaboração. Se nenhum arquivo for encontrado, o Data Factory utiliza definições padrão.
+
+O exemplo seguinte mostra um ficheiro de parâmetros de exemplo. Utilize este exemplo como uma referência para criar seu próprio ficheiro de parâmetros personalizados. Se o ficheiro que fornecer não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro na consola do browser e reverte para definições padrão mostradas na IU do Data Factory.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {},
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }
+    }
+}
+```
+

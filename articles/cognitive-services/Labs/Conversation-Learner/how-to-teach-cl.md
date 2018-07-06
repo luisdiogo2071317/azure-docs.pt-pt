@@ -1,7 +1,7 @@
 ---
-title: Como ensinar com conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como apresentar com Aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como ensinar com Learner conversação.
+description: Aprenda a ensinar com Aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,68 +10,68 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353971"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866730"
 ---
-# <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com conversação Learner 
+# <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com o Aprendiz de Conversação 
 
-Este documento explica o que indica que está ciente de conversação Learner e descreve como aprende.  
+Este documento explica o que sinaliza Aprendiz de conversação está ciente e descreve como aprende.  
 
-Pode ser decomposed ensino em dois passos distintos: a extração de entidade e seleção de ação.
+Ensino pode ser decomposto em duas etapas distintas: extração de entidades e seleção de ação.
 
-## <a name="entity-extraction"></a>Extração de entidade
+## <a name="entity-extraction"></a>Extração de entidades
 
-Nos bastidores, utiliza a conversação Learner [LUIS](https://www.luis.ai) para extração de entidade.  Se estiver familiarizado com LUIS, o que ocorrer se aplica a extração de entidade na conversação Learner.
+Nos bastidores, o aprendiz de conversação usa [LUIS](https://www.luis.ai) para extração de entidades.  Se estiver familiarizado com os LUIS, o que ocorrer se aplica a extração de entidades no Aprendiz de conversação.
 
-Os modelos de extração de entidade sabem o *conteúdo* e *contexto* dentro de um utterance de utilizador.  Por exemplo, se a palavra "Seattle" tem sido identificada como uma cidade no um utterance como "Qual é a meteorologia em Seattle", extração de entidade é capaz de reconhecer os mesmos conteúdos ("Seattle") como uma cidade no outro utterance, tais como "População de Coimbra", mesmo se a utterances são muito diferentes.  Por outro lado, se tiver de "Francis" foi reconhecida como um nome de "Agenda uma reunião com Francis", em seguida, um novo nome unseen anteriormente pode ser reconhecido num contexto semelhante, como "Configurar uma reunião com Round Robin".  Aprendizagem infere quando aguardem conteúdo, contexto ou ambos, com base nos exemplos de formação.
+Os modelos de extração de entidades estão atento a *conteúdo* e *contexto* dentro de uma expressão de utilizador.  Por exemplo, se a palavra "Seattle" foi intitulada como uma cidade numa expressão, como "Qual é o clima em Seattle", extração de entidades é capaz de reconhecer os mesmos conteúdos ("Seattle") como uma cidade na outra expressão, como "A população de Seattle", mesmo que o expressões com são muito diferentes.  Por outro lado, se tiver de "Francis" foi reconhecido como um nome de "Programação de uma reunião com Francis", em seguida, um novo nome que não foram visto anteriormente pode ser reconhecido em contexto semelhante, como "Configurar uma reunião com Round Robin".  Aprendizagem infere quando assistir ao conteúdo, o contexto ou ambos, com base nos exemplos de treinamento.
 
-Atualmente, extração de entidade só está ciente do conteúdo de utterance atual.  Ao contrário de seleção de ação (abaixo), não está ciente do histórico de caixa de diálogo como activa anterior do sistema, anterior activa de utilizador ou entidades anteriormente reconhecidas.  Como resultado, o comportamento de extração de entidade é "partilhado" em todos os utterances.  Por exemplo, se o utterance de utilizador "Quero Apple" tiver "Apple" etiqueta como tipo de entidade "Acessíveis" um utterance de utilizador, o modelo de extração de entidade será esperar que este utterance ("quero Apple") deve ter sempre "Apple" identificada como "Acessíveis".
+No momento, a extração de entidades apenas está ciente do conteúdo da expressão atual.  Ao contrário de seleção de ação (abaixo), não está ciente do histórico de caixa de diálogo como o folheio de sistema anterior, anterior de utilizador de folheio ou entidades anteriormente reconhecidas.  Como resultado, o comportamento de extração de entidades é "partilhado" em todas as expressões de com.  Por exemplo, se a expressão de usuário "Quero Apple" tem "Apple" identificada como "Frutos" de tipo de entidade numa expressão de utilizador, o modelo de extração de entidades irá esperar que os "Apple" identificada como "Frutos" deve ter sempre esta expressão ("quero Apple").
 
-Se a extração de entidade não está a comportar conforme esperado, seguem-se responsabilidade possíveis:
+Se a extração de entidades não está se comportando como esperado, aqui estão as soluções possíveis:
 
-- A primeira coisa que tentar consiste em adicionar mais exemplos de formação – particularmente exemplos revelar contexto típico de entidade (envolvente palavras) ou de exceções
-- Considere adicionar uma propriedade de "Entidade esperado" a uma ação, se apropriado.  Consulte o tutorial sobre entidades esperado para obter mais detalhes.
-- Embora seja possível adicionar o processamento manual `EntityExtractionCallback` para extrair as entidades com o código, esta é a abordagem recomendada pelo menos, porque não irá beneficiar de melhorias no machine learning como evoluiu do seu sistema.
+- A primeira coisa a experimentar consiste em adicionar mais exemplos de treinamento – especialmente os exemplos que revelam o contexto de entidade típica (que envolvem palavras) ou exceções
+- Considere adicionar uma propriedade de "Entidade esperado" para uma ação, se apropriado.  Consulte o tutorial sobre entidades esperado para obter mais detalhes.
+- Embora seja possível adicionar o processamento manual para `EntityExtractionCallback` para extrair entidades com o código, esta é a abordagem recomendada pelo menos, uma vez que ele não se beneficiarão das melhorias no machine learning como o sistema evolui.
 
-## <a name="action-selection"></a>Seleção de ação
+## <a name="action-selection"></a>Selecção da acção
 
-Seleção de ação utiliza uma rede neuronal periódica, que demora a todas como entrada do histórico de conversações.  Assim, a seleção de ação é um processo com monitorização de estado que tem conhecimento de utterances anterior do utilizador, os valores de entidade e utterances de sistema.  
+Seleção de ação utiliza uma rede neural recorrente, que assume como entrada todas o histórico de conversações.  Assim, seleção de ação é um processo com monitoração de estado para o reconhecimento de expressões de usuário anterior, os valores de entidade e expressões com do sistema.  
 
-Alguns sinais naturalmente são preferencial pelo processo de aprendizagem.  Por outras palavras, se conversação Learner podem explicar uma decisão de seleção de ação com mais de "preferenciais" sinais, este irá; Se não é possível, em seguida, irá utilizar menos sinais "preferenciais".
+Alguns sinais naturalmente preferidas pelo processo de aprendizado.  Em outras palavras, se Aprendiz de conversação pode explicar uma decisão de seleção de ação com mais de "preferenciais" sinais, ele será; Se não for possível, em seguida, ele usará menos "preferenciais" sinais.
 
-Eis uma tabela que mostra todas as sinais na conversação Learner e aqueles que são utilizados por seleção de ação.  Tenha em atenção que a ordem do word na utterances de utilizador é ignorada.
+Aqui está uma tabela que mostra todos os sinais de aprendiz de conversação e quais são utilizados pela seleção de ação.  Tenha em atenção que a ordem do word em expressões de utilizador é ignorada.
 
-Sinal | Preferência (1 = topo das preferências) | Notas
+Sinal | Preferência de (1 = das preferências) | Notas
 --- | --- | --- 
-Ação de sistema, por sua vez anterior | 1 | 
-Apresentam as entidades por sua vez atual | 1 | 
+Ação do sistema, por sua vez anterior | 1 | 
+Entidades apresentam, por sua vez atual | 1 | 
 Se esta é a primeira vez | 1 |
-Correspondência exata de palavras no utterance do utilizador atual | 2 | 
-É semelhante significado palavras no utterance do utilizador atual | 3 | 
-Ações de sistema antes de ativado anterior | 4 |
-Entidades está presente na activa antes de ativar atual | 4 | 
-Utterances do utilizador antes de ativar atual | 5 | 
+Correspondência exata de palavras na expressão do utilizador atual | 2 | 
+Palavras de significado é semelhante na expressão do utilizador atual | 3 | 
+Ações de sistema anterior antes de ativar | 4 |
+Entidades apresentam revezando antes de ativar atual | 4 | 
+Expressões de utilizador antes de ativar atual | 5 | 
 
-Tenha em atenção que a seleção de ação demorar o conteúdo das ações de sistema - o texto, conteúdo do cartão, ou nome da API ou comportamento – apenas a identidade da ação de sistema.  Como resultado, a alterar o conteúdo de uma ação não irá alterar o comportamento do modelo de seleção de ação.
+Tenha em atenção que a seleção de ação não tem o conteúdo das ações de sistema – o texto, conteúdo do cartão, ou o nome da API ou comportamento – apenas a identidade da ação de sistema.  Como resultado, a alterar o conteúdo de uma ação não irá alterar o comportamento do modelo de seleção de ação.
 
-Além disso, tenha em atenção que os conteúdos valores de entidades não são utilizados – apenas sua presença/ausência.
+Além disso, tenha em atenção que os conteúdos/valores de entidades não são utilizados – apenas sua presença/ausência.
 
-Se a seleção de ação não está a comportar conforme esperado, seguem-se responsabilidade possíveis:
+Se a seleção de ação não está se comportando como esperado, aqui estão as soluções possíveis:
 
-- Adicione mais formação caixas de diálogo, particularmente as caixas de diálogo que ilustram que sinais de seleção de ação deve ser prestando especial atenção aos.  Por exemplo, se a seleção de ação deve preferir um sinal em vez de outro, conceda exemplos que apresentam o sinal preferencial está a ser o mesmo Estado e outros sinais vários.  Alguns sequências podem demorar alguns a formação caixas de diálogo para saber mais.
-- Adicione "Necessária" e "Disqualifying" entidades para definições de ação.  Este limites quando as ações disponíveis e podem ser úteis para as regras de negócio rápida e alguns padrões comuns sentido. 
+- Adicione mais train caixas de diálogo, particularmente caixas de diálogo que ilustram os sinais de seleção de ação deve ser prestando atenção a.  Por exemplo, se a seleção de ação deve preferir um sinal em vez de outro, dê exemplos que mostram o sinal preferencial a ser no mesmo Estado e os outros sinais variados.  Algumas sequências podem demorar um punhado de caixas de diálogo de treinamento para saber mais.
+- Adicione "Necessária" e "Disqualifying" entidades às definições de ação.  Este limites que quando ações estão disponíveis e podem ser úteis para regras de negócio express e alguns padrões de senso comum. 
 
-## <a name="updates-to-models"></a>Atualizações a modelos
+## <a name="updates-to-models"></a>Atualizações para modelos
 
-Sempre que adicionar ou editar uma entidade, de ação ou caixa de diálogo de formação na IU do, isto gera um pedido para voltar preparar o modelo de extração de entidade e modelo de seleção de ação.  Este pedido está colocado uma fila e voltar a formação é efetuada no modo assíncrono.  Quando estiver disponível um novo modelo, é utilizado partir desse ponto, para a seleção de extração e a ação de entidade.  Este processo novamente training frequentemente demora cerca de 5 segundos, mas pode ser superior se o modelo é complexo, ou se a carga sobre o serviço de formação é elevada.
+Sempre que adicionar ou editar uma entidade, ação ou train caixa de diálogo da interface do Usuário, isso gera um pedido para voltar treinar o modelo de extração de entidades e o modelo de seleção de ação.  Este pedido é colocado numa fila e, novamente treinamento é feito de forma assíncrona.  Quando um novo modelo está disponível, é utilizado partir desse ponto em diante para seleção de extração e a ação de entidade.  Este processo de preparação novamente, muitas vezes, demora cerca de 5 segundos, mas pode ser superior se o modelo é complexo, ou se a carga sobre o serviço de treinamento é elevada.
 
-Uma vez formação é feita de forma assíncrona, é possível que as edições efetuadas não são imediatamente refletidas.  Se a seleção de extração ou a ação de entidade não está a comportar conforme esperado com base nas alterações efetuadas nos últimos 5-10 segundos, isto poderá ser a causa.
+Porque o treinamento é feito de forma assíncrona, é possível que as edições efetuadas não são refletidas imediatamente.  Se a seleção de extração ou ação de entidade não está se comportando como esperado com base nas alterações que foram feitos nos últimos 5 a 10 segundos, isso pode ser a causa.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Os valores predefinidos e limites](./cl-values-and-boundaries.md)
+> [Limites e valores predefinidos](./cl-values-and-boundaries.md)

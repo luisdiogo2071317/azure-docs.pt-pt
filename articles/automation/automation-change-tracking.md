@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79d64a5a7eb339c6904fe026209292202632f640
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342016"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867958"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -57,6 +57,7 @@ Utilize os seguintes passos para configurar o controlo de ficheiros em computado
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue as ligações simbólicas e permite a alteração do conteúdo devolvido.     |
+|Carregar conteúdo do ficheiro para todas as definições| Folheio ou desativar o carregamento de conteúdo do ficheiro em alterações registadas. As opções disponíveis: **True** ou **falso**.|
 
 > [!NOTE]
 > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
@@ -75,6 +76,13 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"       |
+|Carregar conteúdo do ficheiro para todas as definições| Folheio ou desativar o carregamento de conteúdo do ficheiro em alterações registadas. As opções disponíveis: **True** ou **falso**.|
+
+## <a name="configure-file-content-tracking"></a>Configurar o controlo de conteúdo do ficheiro
+
+Pode ver o conteúdo antes e após uma alteração de um ficheiro com o ficheiro de conteúdo controlo de alterações. Está disponível para os ficheiros do Windows e Linux, para cada alteração para o ficheiro, o conteúdo do arquivo é armazenada numa conta de armazenamento e mostra o arquivo antes e depois da alteração, embutidas ou lado pelo lado. Para obter mais informações, consulte [exibir o conteúdo de um ficheiro controlado](change-tracking-file-contents.md).
+
+![Ver alterações num arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves de registo do Windows para controlar
 

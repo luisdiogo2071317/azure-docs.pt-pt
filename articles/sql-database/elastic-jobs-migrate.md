@@ -1,5 +1,5 @@
 ---
-title: Migrar para as novas tarefas de base de dados elásticas | Microsoft Docs
+title: Migrar para as novas tarefas de base de dados elásticas | Documentos da Microsoft
 description: Migre para as novas tarefas de base de dados elásticas.
 services: sql-database
 author: johnpaulkee
@@ -8,29 +8,29 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: johnpaulkee
-ms.openlocfilehash: 2f5e4587de009329cd8cf0eded88f79afe96a184
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036465"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868886"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para as novas tarefas de base de dados elástica
+# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para as novas tarefas de bases de dados elásticas
 
-Uma versão atualizada do [as tarefas de base de dados elásticas](elastic-jobs-overview.md) está disponível.
+Uma versão atualizada do [tarefas elásticas da base de dados](elastic-jobs-overview.md) está disponível.
 
-Se tiver uma versão de cliente alojado existente do [as tarefas de base de dados elásticas](sql-database-elastic-jobs-overview.md), scripts e cmdlets de migração são fornecidas para migrar facilmente para a versão mais recente.
+Se tiver uma versão de cliente alojado existente do [tarefas elásticas da base de dados](sql-database-elastic-jobs-overview.md), scripts e cmdlets de migração são fornecidas para migrar facilmente para a versão mais recente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A versão atualizada de tarefas de bases de dados elásticas tem um novo conjunto de cmdlets do PowerShell para utilização durante a migração. Estes novos cmdlets de transferência de todas as credenciais da tarefa existente, tenha como alvo (incluindo as bases de dados, servidores, a coleções personalizadas), acionadores de tarefa, as agendas de tarefas, conteúdo de tarefa e tarefas através de para um novo agente de tarefa elástico.
+A versão atualizada das tarefas de bases de dados elásticas tem um novo conjunto de cmdlets do PowerShell para utilização durante a migração. Estes novos cmdlets de transferência de todas as suas credenciais de trabalho existentes, destina-se (incluindo bases de dados, servidores, coleções personalizadas), acionadores de tarefa, agendas de tarefas, conteúdo de tarefa e tarefas através de um novo agente de tarefa elástica.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets das tarefas elásticas mais recentes
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Instalar os cmdlets mais recentes de tarefas elásticas
 
-Se não tiver já tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se ainda não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instale o módulo do Powershell de AzureRM.Sql para obter os cmdlets de tarefa elástico de pré-visualização mais recente.
+Instale a módulo do Powershell do azurerm. SQL para obter os cmdlets de tarefa elástica de pré-visualização mais recente.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -44,9 +44,9 @@ Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
 ```
 
-### <a name="create-a-new-elastic-job-agent"></a>Criar um novo agente de tarefa elástico
+### <a name="create-a-new-elastic-job-agent"></a>Criar um novo agente de tarefa elástica
 
-Depois de instalar os novos cmdlets, crie um novo agente de tarefa elástico.
+Depois de instalar os novos cmdlets, crie um novo agente de tarefa elástica.
 
 ```powershell
 # Register your subscription for the for the Elastic Jobs public preview feature
@@ -58,15 +58,15 @@ $db = Get-AzureRmSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName 
 $agent = $db | New-AzureRmSqlElasticJobAgent -Name <agentName>
 ```
 
-### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Instalar os cmdlets de tarefas de base de dados elásticas antigos
+### <a name="install-the-old-elastic-database-jobs-cmdlets"></a>Instalar os cmdlets de tarefas elásticas da base de dados antigos
 
-Migração tem de utilizar algumas do *antigo* cmdlets de tarefa elástico, por isso, execute os seguintes comandos se ainda não tivê-los instalado.
+Migração precisa usar alguns da *antigo* cmdlets de tarefa elástica, por isso, execute os seguintes comandos, se ainda não tiver instalado.
 
 ```powershell
 # Install the old elastic job cmdlets if necessary and initialize the old jobs cmdlets
 .\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-# Install the the old jobs cmdlets
+# Install the old jobs cmdlets
 cd Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools
 Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 .\InstallElasticDatabaseJobsCmdlets.ps1
@@ -80,7 +80,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 ## <a name="migration"></a>Migração
 
-Agora que ambos os cmdlets as tarefas elásticas antigos e novos são inicializados, migre as credenciais de tarefa, destinos e tarefas para o novo *base de dados de tarefa*.
+Agora que ambos os cmdlets de tarefas elásticas antigos e novos são inicializados, migre as credenciais da tarefa, destinos e tarefas para o novo *base de dados de tarefa*.
 
 ### <a name="setup"></a>Configurar
 
@@ -128,7 +128,7 @@ function Migrate-Credentials ($agent) {
 }
 ```
 
-Para migrar as suas credenciais, execute o seguinte comando mediante a transmissão no `$agent` objeto do PowerShell de versões anteriores.
+Para migrar as suas credenciais, execute o seguinte comando ao transmitir o `$agent` objeto do PowerShell de antes.
 
 ```powershell
 Migrate-Credentials $agent
@@ -356,10 +356,10 @@ function Setup-TargetGroup ($tgName, $agent) {
 }
 ```
 
-Para migrar os destinos (servidores, as bases de dados e coleções personalizadas) para a sua nova base de dados de tarefa, execute o **migrar TargetGroups** cmdlet para efetuar o seguinte:
+Para migrar seus destinos (servidores, bases de dados e coleções personalizadas) para a sua nova base de dados de tarefa, execute o **migrar TargetGroups** cmdlet para efetuar o seguinte:
 
-- Destinos de nível de raiz que são servidores e bases de dados serão migrados para um novo grupo de destino com o nome "(\<serverName\>, \<databaseName\>)" que contém apenas o destino ao nível da raiz.
-- Irá migrar uma coleção personalizada para um novo grupo de destino que contém todos os destinos de subordinados.
+- Destinos de nível de raiz que são servidores e bases de dados serão migrados para um novo grupo de destino com o nome "(\<serverName\>, \<databaseName\>)" que contém apenas o destino do nível de raiz.
+- Migra uma coleção personalizada para um novo grupo de destino que contém todos os destinos de subordinados.
 
 ```powershell
 Migrate-TargetGroups $agent
@@ -389,7 +389,7 @@ Resultado do exemplo:
 
 
 
-### <a name="migrate-jobs"></a>As tarefas de migração
+### <a name="migrate-jobs"></a>Migrar de tarefas
 
 ```powershell
 function Migrate-Jobs ($agent)
@@ -552,11 +552,11 @@ function Setup-JobStep ($newJob, $job) {
 }
 ```
 
-Para migrar a tarefas, conteúdo de tarefa, acionadores de tarefa e agendas de tarefas através de base de dados do seu novo elástico tarefa do agente, execute o **tarefas de migração** cmdlet transmitir no agente.
+Para migrar as suas tarefas, conteúdo de tarefa, disparadores de tarefa e agendas de tarefas através da base de dados do seu novo agente de tarefa elástica do, execute o **tarefas de migração** cmdlet passando o agente.
 
-- As tarefas com múltiplos acionadores com diferentes agendamentos estão separadas em várias tarefas com o esquema de nomenclatura: "\<jobName\> (\<scheduleName\>)".
-- Conteúdo da tarefa é migrado para uma tarefa ao adicionar um passo da tarefa predefinida com o nome de passo de tarefa com texto de comando associada.
-- As tarefas estão desativadas por predefinição, para que possa validá-los antes de ativá-las.
+- Tarefas com múltiplos acionadores com agendas diferentes são separadas em várias tarefas com o esquema de nomenclatura: "\<jobName\> (\<scheduleName\>)".
+- Conteúdo da tarefa é migrado para uma tarefa ao adicionar um passo de tarefa padrão com o nome JobStep com texto de comando associado.
+- Tarefas estão desativadas por predefinição, de modo a que pode validá-los antes de ativá-los.
 
 ```powershell
 Migrate-Jobs $agent
@@ -592,11 +592,11 @@ Job job4
 
 
 
-## <a name="migration-complete"></a>Migração completa
+## <a name="migration-complete"></a>Migração concluída
 
-O *base de dados de tarefa* agora deve ter todas as credenciais de tarefa, destinos, acionadores de tarefa, as agendas de tarefas, conteúdo de tarefa e tarefas migradas.
+O *base de dados de tarefa* deve agora ter todas as credenciais da tarefa, destinos, acionadores de tarefa, agendas de tarefas, conteúdo de tarefa e tarefas migradas.
 
-Para confirmar que tudo migrou corretamente, utilize os scripts seguintes:
+Para confirmar que tudo o que migrou corretamente, utilize os seguintes scripts:
 
 ```powershell
 $creds = $agent | Get-AzureRmSqlElasticJobCredential
@@ -605,13 +605,13 @@ $jobs = $agent | Get-AzureRmSqlElasticJob
 $steps = $jobs | Get-AzureRmSqlElasticJobStep
 ```
 
-Para testar que tarefas se encontram em execução corretamente, iniciá-los:
+Para testar que tarefas estão a ser executado corretamente, iniciá-los:
 
 ```powershell
 $jobs | Start-AzureRmSqlElasticJob
 ```
 
-Para todas as tarefas que estavam em execução com base numa agenda, lembre-se para ativá-los para que possam ser executadas em segundo plano:
+Os trabalhos que estavam em execução com base numa agenda, não se esqueça de habilitá-los para que eles podem ser executados em segundo plano:
 
 ```powershell
 $jobs | Set-AzureRmSqlElasticJob -Enable
@@ -619,5 +619,5 @@ $jobs | Set-AzureRmSqlElasticJob -Enable
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar e gerir as tarefas elásticas com o PowerShell](elastic-jobs-powershell.md)
-- [Criar e gerir as tarefas elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

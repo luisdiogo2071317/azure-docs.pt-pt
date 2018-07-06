@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346013"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867193"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize o [conceito](luis-concept-patterns.md) de padrões para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilização [entidades](luis-concept-entity-types.md) e as respetivas funções para extrair dados usando a sintaxe padrão específico. 
@@ -57,7 +57,7 @@ Pesquisar permite que encontre padrões que contêm um determinado texto.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Editar um padrão
-1. Para editar um padrão, selecione o ícone de reticências (...) na extremidade direita da linha para esse padrão, em seguida, selecione **editar**. 
+1. Para editar um padrão, selecione as reticências (***...*** ) botão na extremidade direita da linha para esse padrão, em seguida, selecione **editar**. 
 
     ![Captura de ecrã de Editar item de menu na linha de padrão](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Para reatribuir a vários padrões para um objetivo diferente, selecione a caixa
 
 ## <a name="delete-a-single-pattern"></a>Eliminar um padrão único
 
-1. Para eliminar um padrão, selecione o ícone de reticências (...) na extremidade direita da linha para esse padrão, em seguida, selecione **eliminar**. 
+1. Para eliminar um padrão, selecione as reticências (***...*** ) botão na extremidade direita da linha para esse padrão, em seguida, selecione **eliminar**. 
 
     ![Captura de ecrã de eliminar expressão](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ O filtro é removido e apresentam todos os padrões.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Adicionar o padrão de expressão existente na página de intenção ou a entidade
 Pode criar um padrão a partir de uma expressão existente em qualquer uma de **intenção** ou **entidade** página. Todas as expressões em qualquer página intenção ou a entidade são exibidos numa lista com a coluna da direita fornecer acesso às opções de nível de expressão, como **edite**, **eliminar**, e **adicionar como padrão**.
 
-1. Na linha da expressão selecionada, selecione as reticências (...) à direita da expressão e selecione **adicionar como padrão**.
+1. Na linha da expressão selecionada, selecione as reticências (***...*** ) à direita da expressão e selecione **adicionar como padrão**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de ecrã da tabela de expressões com padrão de adicionar realçada no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

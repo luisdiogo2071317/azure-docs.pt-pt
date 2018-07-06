@@ -1,6 +1,6 @@
 ---
-title: Recursos de automatização do Azure em soluções de gestão | Microsoft Docs
-description: As soluções de gestão incluem, geralmente, os runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução.
+title: Recursos de automatização do Azure em soluções de gestão | Documentos da Microsoft
+description: Soluções de gestão, normalmente, irão incluir runbooks na automatização do Azure para automatizar processos, como recolher e processar dados de monitorização.  Este artigo descreve como incluir runbooks e os recursos relacionados numa solução.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -15,43 +15,43 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7f32cc47c96f6fc8adaedef8f8ea3156ee70115
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d5b2499f9e260e6ed134c4191b053325ca3f42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887896"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868828"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão (pré-visualização)
 > [!NOTE]
-> Esta documentação é de preliminar para criar soluções de gestão que estão atualmente em pré-visualização. Nenhum esquema descrita abaixo está sujeita a alterações.   
+> Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.   
 
 
-[As soluções de gestão]( monitoring-solutions.md) normalmente incluirá a runbooks na automatização do Azure para automatizar os processos tais como recolher e processar dados de monitorização.  Para além de runbooks, as contas de automatização inclui recursos, tais como as variáveis e agendas que suportam os runbooks utilizados na solução.  Este artigo descreve como incluir runbooks e os respetivos recursos relacionados numa solução.
+[Soluções de gestão]( monitoring-solutions.md) geralmente inclui runbooks na automatização do Azure para automatizar processos, como recolher e processar dados de monitorização.  Para além dos runbooks, as contas de automatização inclui recursos como variáveis e agendas que suportam os runbooks utilizados na solução.  Este artigo descreve como incluir runbooks e os recursos relacionados numa solução.
 
 > [!NOTE]
-> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessários ou comuns para soluções de gestão e descrito em [estruturação e criação de uma solução de gestão no Azure ]( monitoring-solutions-creating.md) 
+> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure ]( monitoring-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que já estiver familiarizado com as seguintes informações.
+Este artigo pressupõe que já esteja familiarizado com as seguintes informações.
 
 - Como [criar uma solução de gestão]( monitoring-solutions-creating.md).
-- A estrutura de um [ficheiro de solução]( monitoring-solutions-solution-file.md).
+- A estrutura de um [arquivo da solução]( monitoring-solutions-solution-file.md).
 - Como [criar modelos do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Conta de automatização
-Todos os recursos na automatização do Azure estão contidos num [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [área de trabalho de análise de registos e a conta de automatização]( monitoring-solutions.md#log-analytics-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a solução de instalação irá falhar.
+Todos os recursos na automatização do Azure estão contidos numa [conta de automatização](../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [área de trabalho do Log Analytics e a conta de automatização]( monitoring-solutions.md#log-analytics-workspace-and-automation-account) a conta de automatização não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, a instalação da solução irá falhar.
 
-O nome de cada recurso de automatização inclui o nome da sua conta de automatização.  Isto é feito na solução com o **accountName** parâmetro como no seguinte exemplo de um recurso de runbook.
+O nome de cada recurso de automatização inclui o nome da sua conta de automatização.  Isso é feito na solução com o **accountName** parâmetro como no seguinte exemplo de um recurso de runbook.
 
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
 ## <a name="runbooks"></a>Runbooks
-Deve incluir todos os runbooks utilizados pela solução no ficheiro de solução, de modo a que são criados quando a solução é instalada.  Não pode conter o corpo do runbook no modelo, pelo que deve publicar o runbook para uma localização pública em que podem ser acedido por qualquer utilizador que instalar a sua solução.
+Deve incluir todos os runbooks utilizados pela solução no arquivo da solução, de forma que ocorre quando a solução é instalada.  Não pode conter o corpo do runbook no modelo, portanto, deve publicar o runbook para uma localização pública em que possa ser acedida por qualquer utilizador instalar a sua solução.
 
-[Runbook da automatização do Azure](../automation/automation-runbook-types.md) recursos tem um tipo de **Microsoft.Automation/automationAccounts/runbooks** e ter a seguinte estrutura. Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[Runbook de automatização do Azure](../automation/automation-runbook-types.md) recursos têm um tipo de **Microsoft.Automation/automationAccounts/runbooks** e ter a seguinte estrutura. Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
         "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -74,21 +74,21 @@ Deve incluir todos os runbooks utilizados pela solução no ficheiro de soluçã
     }
 
 
-As propriedades para os runbooks são descritas na seguinte tabela.
+As propriedades para runbooks são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbookType |Especifica os tipos de runbook. <br><br> Script - o script do PowerShell <br>PowerShell – fluxo de trabalho do PowerShell <br> GraphPowerShell - runbook do script do PowerShell gráfica <br> GraphPowerShellWorkflow - runbook de fluxo de trabalho do PowerShell gráfica |
+| runbookType |Especifica os tipos de runbook. <br><br> Script - script do PowerShell <br>PowerShell – fluxo de trabalho do PowerShell <br> GraphPowerShell - runbook do script de PowerShell gráfico <br> GraphPowerShellWorkflow - runbook de fluxo de trabalho de PowerShell gráfico |
 | logProgress |Especifica se [registos de progresso](../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
 | logVerbose |Especifica se [registos verbosos](../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
 | descrição |Descrição opcional para o runbook. |
-| publishContentLink |Especifica o conteúdo do runbook. <br><br>URI - Uri para o conteúdo do runbook.  Este será um ficheiro. ps1 para runbooks do PowerShell e scripts e um ficheiro de runbook gráfico exportado para um runbook de gráfico.  <br> versão - versão do runbook para o seu próprio controlo. |
+| publishContentLink |Especifica o conteúdo do runbook. <br><br>URI - Uri para o conteúdo do runbook.  Este será um arquivo. ps1 para runbooks do PowerShell e o Script e um ficheiro de runbook gráfico exportado para um runbook de gráfico.  <br> versão - versão do runbook para o seu controlo. |
 
 
 ## <a name="automation-jobs"></a>Tarefas de automatização
-Quando inicia um runbook na automatização do Azure, cria uma tarefa de automatização.  Pode adicionar um recurso de tarefa de automatização à sua solução para iniciar automaticamente um runbook quando a solução de gestão está instalada.  Este método é normalmente utilizado para iniciar os runbooks que são utilizados para a configuração inicial da solução.  Para iniciar um runbook em intervalos regulares, crie um [agenda](#schedules) e um [agendamento da tarefa](#job-schedules)
+Quando inicia um runbook na automatização do Azure, ele cria uma tarefa da automatização.  Pode adicionar um recurso de tarefa de automatização à sua solução para iniciar automaticamente um runbook quando a solução de gestão está instalada.  Este método é normalmente utilizado para iniciar runbooks que são utilizados para a configuração inicial da solução.  Para iniciar um runbook em intervalos regulares, crie uma [agenda](#schedules) e um [agenda de trabalho](#job-schedules)
 
-Recursos de trabalho tem um tipo de **Microsoft.Automation/automationAccounts/jobs** e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+Recursos de trabalho têm um tipo de **Microsoft.Automation/automationAccounts/jobs** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
       "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
@@ -110,20 +110,20 @@ Recursos de trabalho tem um tipo de **Microsoft.Automation/automationAccounts/jo
       }
     }
 
-As propriedades para as tarefas de automatização são descritas na seguinte tabela.
+As propriedades para as tarefas de automatização são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| runbook |Entidade de nome único com o nome do runbook para iniciar. |
+| runbook |Entidade de nome único com o nome do runbook para começar. |
 | parâmetros |Entidade para cada valor de parâmetro necessário pelo runbook. |
 
-A tarefa inclui o nome do runbook e quaisquer valores de parâmetros para serem enviados para o runbook.  A tarefa deve [dependem]( monitoring-solutions-solution-file.md#resources) o runbook que está a iniciar desde o runbook tem de ser criado antes da tarefa.  Se tiver vários runbooks que deverão ser iniciados pode definir a sua ordem, fazendo com que uma tarefa de depender de quaisquer outras tarefas que devem ser executadas primeiro.
+A tarefa inclui o nome do runbook e quaisquer valores de parâmetro para ser enviado para o runbook.  A tarefa deve [dependem]( monitoring-solutions-solution-file.md#resources) o runbook que ele está começando desde o runbook tem de ser criado antes da tarefa.  Se tiver vários runbooks que deve ser iniciados pode definir sua ordem fazendo com que uma tarefa de depender de quaisquer outras tarefas que devem ser executadas primeiro.
 
-O nome de um recurso de tarefa tem de conter um GUID que é normalmente atribuído por um parâmetro.  Pode ler mais sobre os parâmetros GUID das [criar um ficheiro de solução de gestão no Azure]( monitoring-solutions-solution-file.md#parameters).  
+O nome de um recurso de tarefa tem de conter um GUID que normalmente é atribuído por um parâmetro.  Pode ler mais sobre os parâmetros GUID [criar um ficheiro de solução de gestão no Azure]( monitoring-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certificados
-[Certificados de automatização do Azure](../automation/automation-certificates.md) ter um tipo de **Microsoft.Automation/automationAccounts/certificates** e ter a seguinte estrutura. Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[Certificados de automatização do Azure](../automation/automation-certificates.md) têm um tipo de **Microsoft.Automation/automationAccounts/certificates** e ter a seguinte estrutura. Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -141,17 +141,17 @@ O nome de um recurso de tarefa tem de conter um GUID que é normalmente atribuí
 
 
 
-As propriedades de recursos de certificados são descritas na seguinte tabela.
+As propriedades de recursos de certificados são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| base64Value |Valor de base 64 para o certificado. |
-| impressão digital |Thumbprint do certificado. |
+| base64Value |Valor de base 64 do certificado. |
+| Thumbprint |Thumbprint do certificado. |
 
 
 
 ## <a name="credentials"></a>Credenciais
-[Credenciais de automatização do Azure](../automation/automation-credentials.md) ter um tipo de **Microsoft.Automation/automationAccounts/credentials** e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[Credenciais da automatização do Azure](../automation/automation-credentials.md) têm um tipo de **Microsoft.Automation/automationAccounts/credentials** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
 
     {
@@ -168,7 +168,7 @@ As propriedades de recursos de certificados são descritas na seguinte tabela.
       }
     }
 
-As propriedades de recursos de credencial descritas na seguinte tabela.
+As propriedades de recursos de credencial são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
@@ -177,7 +177,7 @@ As propriedades de recursos de credencial descritas na seguinte tabela.
 
 
 ## <a name="schedules"></a>Agendas
-[Agendas de automatização do Azure](../automation/automation-schedules.md) ter um tipo de **Microsoft.Automation/automationAccounts/schedules** e ter a seguinte estrutura. Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[As agendas da automatização do Azure](../automation/automation-schedules.md) têm um tipo de **Microsoft.Automation/automationAccounts/schedules** e ter a seguinte estrutura. Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -196,26 +196,26 @@ As propriedades de recursos de credencial descritas na seguinte tabela.
       }
     }
 
-As propriedades de recursos de agenda são descritas na seguinte tabela.
+As propriedades de recursos de agenda são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | descrição |Descrição opcional para a agenda. |
-| startTime |Especifica a hora de início de uma agenda como um objeto de DateTime. Uma cadeia pode ser fornecida se pode ser convertido para um valor DateTime válido. |
-| IsEnabled |Especifica se a agenda é ativada. |
+| startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele pode ser convertido num DateTime válido. |
+| isEnabled |Especifica se a agenda é ativada. |
 | intervalo |O tipo de intervalo para a agenda.<br><br>dia<br>hora |
-| frequência |Frequência da agenda deve acionados em número de dias ou horas. |
+| frequência |Frequência com que o cronograma deve ser acionados no número de dias ou horas. |
 
-As agendas tem de ter uma hora de início com um valor maior do que a hora atual.  Não é possível fornecer este valor com uma variável, uma vez que não terá de nenhuma forma de saber quando vai ser instalado.
+Agendas tem de ter uma hora de início com um valor superior à hora atual.  Não é possível fornecer este valor com uma variável, uma vez que nunca sabe quando vai ser instalado.
 
-Utilize uma das seguintes dois estratégias ao utilizar o agendamento recursos numa solução.
+Utilize uma das seguintes duas estratégias ao usar recursos de agendamento numa solução.
 
-- Utilize um parâmetro para a hora de início da agenda.  Esta ação irá solicitar ao utilizador para fornecer um valor ao efetuar a instalação a solução.  Se tiver várias agendas, pode utilizar um valor de parâmetro único de mais do que uma delas.
-- Crie os agendamentos com um runbook que inicia quando a solução está instalada.  Esta ação remove o requisito do utilizador para especificar uma hora, mas não pode conter a agenda na sua solução pelo que serão removida quando a solução é removida.
+- Utilize um parâmetro para a hora de início da agenda.  Esta ação irá solicitar ao utilizador para fornecer um valor durante a instalação da solução.  Se tiver várias agendas, poderia usar um valor de parâmetro único de mais do que uma delas.
+- Crie os agendamentos com um runbook que é iniciado quando a solução está instalada.  Esta ação remove o requisito do utilizador para especificar uma hora, mas não pode conter a agenda na sua solução para que esta será removida quando a solução é removida.
 
 
 ### <a name="job-schedules"></a>Agendas de tarefas
-Um runbook com uma agenda de ligação de recursos de agenda da tarefa.  Têm um tipo de **Microsoft.Automation/automationAccounts/jobSchedules** e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+Recursos de agendamento de tarefa ligar um runbook com base numa agenda.  Eles têm um tipo de **Microsoft.Automation/automationAccounts/jobSchedules** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -239,17 +239,17 @@ Um runbook com uma agenda de ligação de recursos de agenda da tarefa.  Têm um
     }
 
 
-As propriedades para as agendas de tarefas são descritas na seguinte tabela.
+As propriedades de agendas de tarefas são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | nome da agenda |Único **nome** entidade com o nome da agenda. |
-| Nome do Runbook  |Único **nome** entidade com o nome do runbook.  |
+| nome do runbook  |Único **nome** entidade com o nome do runbook.  |
 
 
 
 ## <a name="variables"></a>Variáveis
-[Variáveis de automatização do Azure](../automation/automation-variables.md) ter um tipo de **Microsoft.Automation/automationAccounts/variables** e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro.
+[As variáveis da automatização do Azure](../automation/automation-variables.md) têm um tipo de **Microsoft.Automation/automationAccounts/variables** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -266,31 +266,31 @@ As propriedades para as agendas de tarefas são descritas na seguinte tabela.
       }
     }
 
-As propriedades de recursos de variável são descritas na seguinte tabela.
+As propriedades de recursos de variável são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | descrição | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser encriptada. |
-| tipo | Esta propriedade não tem atualmente qualquer efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
-| valor | Valor da variável. |
+| tipo | Essa propriedade atualmente não tem qualquer efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
+| valor | Valor para a variável. |
 
 > [!NOTE]
-> O **tipo** propriedade atualmente não tem efeito na variável a ser criada.  O tipo de dados para a variável será determinado pelo valor.  
+> O **tipo** propriedade atualmente não tem qualquer efeito na variável a ser criada.  O tipo de dados para a variável será determinado pelo valor.  
 
-Se definir o valor inicial para a variável, tem de ser configurado como o tipo de dados correto.  A tabela seguinte fornece os respetivos sintaxe e os diferentes tipos de dados permitidos.  Tenha em atenção que são esperados valores no JSON para sempre ser inseridos entre aspas com os caracteres especiais dentro as aspas.  Por exemplo, poderia ser especificado um valor de cadeia por aspas à volta a cadeia (utilizar o caráter de escape (\\)) enquanto teria de ser especificado um valor numérico com um conjunto de aspas.
+Se definir o valor inicial para a variável, tem de ser configurado como o tipo de dados correto.  A tabela seguinte fornece os diferentes tipos de dados permitidos e sua sintaxe.  Tenha em atenção que são esperados valores em JSON para sempre estar entre aspas com carateres especiais dentro das aspas.  Por exemplo, poderia ser especificado um valor de cadeia de caracteres pela cadeia de caracteres entre aspas (utilizar o caráter de escape (\\)), enquanto um valor numérico deve ser especificado com um conjunto de aspas.
 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\"Olá mundo\"" | "Olá mundo" |
-| um valor numérico  | Valor numérico com plicas.| "64" | 64 |
-| boolean  | **Verdadeiro** ou **falso** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
-| datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-data "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| cadeia   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
+| numérico  | Valor numérico com aspas simples.| "64" | 64 |
+| boolean  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
+| datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
-A solução de gestão não é necessário definir [módulos globais](../automation/automation-integration-modules.md) utilizado pelos seus runbooks porque estes estarão sempre disponíveis na sua conta de automatização.  Tem de incluir um recurso para qualquer outro módulo utilizado pelos seus runbooks.
+Sua solução de gestão não precisa de definir [módulos globais](../automation/automation-integration-modules.md) utilizada pelos seus runbooks porque eles sempre estarão disponíveis na sua conta de automatização.  É necessário incluir um recurso para qualquer outro módulo utilizado por seus runbooks.
 
-[Módulos de integração](../automation/automation-integration-modules.md) ter um tipo de **Microsoft.Automation/automationAccounts/modules** e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro.
+[Módulos de integração](../automation/automation-integration-modules.md) têm um tipo de **Microsoft.Automation/automationAccounts/modules** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -306,35 +306,35 @@ A solução de gestão não é necessário definir [módulos globais](../automat
     }
 
 
-As propriedades de recursos do módulo são descritas na seguinte tabela.
+As propriedades de recursos do módulo são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| contentLink |Especifica o conteúdo do módulo. <br><br>URI - Uri para o conteúdo do módulo.  Este será um ficheiro. ps1 para runbooks do PowerShell e scripts e um ficheiro de runbook gráfico exportado para um runbook de gráfico.  <br> versão - versão do módulo para o seu próprio controlo. |
+| contentLink |Especifica o conteúdo do módulo. <br><br>URI - Uri para o conteúdo do módulo.  Este será um arquivo. ps1 para runbooks do PowerShell e o Script e um ficheiro de runbook gráfico exportado para um runbook de gráfico.  <br> versão - versão do módulo para o seu controlo. |
 
-O runbook deve dependem do recurso do módulo para se certificar de que foi criado antes do runbook.
+O runbook deve depender do recurso de módulo para se certificar de que foi criado antes do runbook.
 
-### <a name="updating-modules"></a>Módulos de atualização
-Se atualizar uma solução de gestão que inclua um runbook que utiliza uma agenda e a nova versão da sua solução tem um novo módulo utilizado por esse runbook, o runbook pode utilizar a versão antiga do módulo.  Deve incluir os seguintes runbooks na sua solução e criar uma tarefa para executá-los antes de quaisquer outros runbooks.  Isto irá garantir que os módulos são atualizados como necessários antes dos runbooks são carregados.
+### <a name="updating-modules"></a>Atualizar módulos
+Se atualizar uma solução de gestão que inclui um runbook que utilize uma agenda e a nova versão da sua solução tem um novo módulo utilizado por esse runbook, o runbook pode utilizar a versão antiga do módulo.  Deve incluir os seguintes runbooks na sua solução e criar uma tarefa para executá-los antes de todos os outros runbooks.  Isto irá garantir que quaisquer módulos são atualizados como necessário antes dos runbooks são carregados.
 
-* [Atualização ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) será Certifique-se de que todos os módulos utilizados pelo runbooks na sua solução a versão mais recente.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) irá voltar a registar todos os recursos de agenda para se certificar de que os runbooks ligados aos mesmos com utilização de módulos mais recentes.
+* [Atualização-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) irá garantir que todos os módulos utilizados pelo runbooks na sua solução são a versão mais recente.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) irá voltar a registar todos os recursos de agendamento para garantir que os runbooks ligados aos mesmos com uma utilização os módulos mais recentes.
 
 
 
 
 ## <a name="sample"></a>Sample
-Segue-se um exemplo de uma solução que incluem que inclui os seguintes recursos:
+Segue-se um exemplo de uma solução que incluem o que inclui os seguintes recursos:
 
-- Runbook.  Este é um runbook de exemplo armazenado num repositório GitHub público.
-- Tarefa de automatização que inicia o runbook quando a solução está instalada.
-- Agendamento e agendamento de trabalhos para iniciar o runbook em intervalos regulares.
+- Runbook.  Trata-se de um runbook de exemplo armazenado num repositório do GitHub público.
+- Tarefa da automatização que inicia o runbook, quando a solução está instalada.
+- Agendamento e a agenda de trabalho para iniciar o runbook em intervalos regulares.
 - Certificado.
 - Credencial.
 - Variável.
-- Módulo.  Este é o [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) para escrever dados para análise de registos. 
+- Módulo.  Este é o [OMSIngestionAPI módulo](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) pela escrita de dados para o Log Analytics. 
 
-Este exemplo utiliza [parâmetros de solução padrão]( monitoring-solutions-solution-file.md#parameters) variáveis que frequentemente deverá ser utilizadas numa solução, por oposição a valores de codificar nas definições de recursos.
+O exemplo usa [parâmetros de solução padrão]( monitoring-solutions-solution-file.md#parameters) variáveis que normalmente seriam usadas numa solução em vez de embutir valores nas definições de recursos.
 
 
     {

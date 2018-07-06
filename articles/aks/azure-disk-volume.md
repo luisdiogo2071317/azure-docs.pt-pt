@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346098"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868250"
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes com os discos do Azure
 
@@ -52,6 +52,10 @@ Quando o disco tiver sido criado, deverá ver um resultado semelhante ao seguint
 > [!NOTE]
 > Managed disks do Azure são faturados ao SKU para um tamanho específico. Estes intervalo de SKUs de 32GiB para S4 ou P4 discos a 4TiB para S50 ou P50 discos. Além disso, o débito e o desempenho de IOPS de uma Premium geridos disco depende do SKU e o tamanho das instâncias de nós do cluster do AKS. Ver [preços e o desempenho de discos geridos][managed-disk-pricing-performance].
 
+> [!NOTE]
+> Se precisar de criar o disco no grupo de recursos separado, terá também de adicionar o principal de serviço do Azure Kubernetes Service (AKS) para o seu cluster para o grupo de recursos que contém o disco com o `Contributor` função. 
+>
+
 ## <a name="mount-disk-as-volume"></a>Montar o disco como volume
 
 Monte o disco do Azure no seu pod ao configurar o volume na especificação do contentor.
@@ -86,7 +90,7 @@ kubectl apply -f azure-disk-pod.yaml
 
 Tem agora um pod em execução com um disco do Azure montado no `/mnt/azure`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os volumes de Kubernetes com os discos do Azure.
 

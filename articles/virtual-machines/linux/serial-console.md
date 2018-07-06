@@ -1,6 +1,6 @@
 ---
-title: Consola de série de máquina virtual do Azure | Microsoft Docs
-description: Consola de série bidirecional para máquinas virtuais do Azure.
+title: Consola de série de máquina virtual do Azure | Documentos da Microsoft
+description: Consola de série de bidirecional para máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: harijay
@@ -14,149 +14,149 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 00a776131321500386b507f45ea84817b08147f7
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961960"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867866"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
 
-A consola de série de máquina virtual no Azure fornece acesso a uma consola baseada em texto para as máquinas virtuais de Linux e Windows. Esta ligação série é COM1 porta série da máquina virtual e fornece acesso à máquina virtual e não estão relacionadas com a rede da máquina virtual / estado do sistema de operativo. Acesso à consola de série para uma máquina virtual pode ser feito atualmente apenas através do portal do Azure e permitido apenas para os utilizadores que tenham contribuinte de VM ou acima acesso à máquina virtual. 
+A consola de série de máquina virtual no Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux e Windows. Essa conexão serial é a porta serial de COM1 da máquina virtual e fornece acesso à máquina virtual e não estão relacionadas à rede da máquina virtual / operativos o estado do sistema. Acesso à consola de série para uma máquina virtual pode ser feito apenas através do portal do Azure atualmente e permitido apenas para os utilizadores que têm Contribuidor de VM ou acima de acesso à máquina virtual. 
 
 > [!Note] 
-> Pré-visualizações ficam disponíveis para si condition que aceita os termos de utilização. Para obter mais informações, consulte [Microsoft suplementares termos de utilização do Azure para a pré-visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Este serviço está atualmente no **pré-visualização pública** e acesso à consola de série para máquinas virtuais está disponível para global regiões do Azure. Neste momento a consola de série não está disponível na nuvem do Azure Government, Datacenters do Azure e Azure China.
+> As pré-visualizações são tornadas disponíveis para, a condição de que concorda com os termos de utilização. Para obter mais informações, consulte [Microsoft Azure termos de utilização suplementares para pré-visualizações do Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Atualmente este serviço está em **pré-visualização pública** e acesso à consola de série para máquinas virtuais está disponível para regiões globais do Azure. Neste momento a consola de série não está disponível na cloud do Azure Government, Azure Alemanha e China do Azure.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* Tem de utilizar o modelo de implementação de gestão de recursos. Não são suportadas implementações clássicas. 
-* Máquina virtual tem de ter [diagnóstico de arranque](boot-diagnostics.md) ativada 
-* A conta utilizando a consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnóstico de arranque](boot-diagnostics.md) conta de armazenamento. 
-* Para as definições específicas do Linux distro, consulte [aceder à consola de série para Linux](#accessing-serial-console-for-linux)
+* Tem de utilizar o modelo de implementação de gestão de recursos. Implementações clássicas não são suportadas. 
+* Máquina virtual tem de ter [diagnósticos de arranque](boot-diagnostics.md) ativada 
+* A conta a utilizar a consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento. 
+* Para as definições específicas para a distribuição Linux, consulte [aceder à consola de série para Linux](#accessing-serial-console-for-linux)
 
 
 ## <a name="open-the-serial-console"></a>Abra a consola de série
-consola de série para máquinas virtuais só é acessível através de [portal do Azure](https://portal.azure.com). Seguem-se os passos para aceder à consola de série para máquinas virtuais através do portal 
+consola de série para máquinas virtuais só é acessível via [portal do Azure](https://portal.azure.com). Abaixo estão os passos para aceder à consola de série para máquinas virtuais através do portal 
 
   1. Abra o portal do Azure
-  2. No menu à esquerda, selecione as máquinas virtuais.
+  2. No menu da esquerda, selecione as máquinas virtuais.
   3. Clique na VM na lista. Abre a página de descrição geral para a VM.
-  4. Desloque para baixo para o suporte + secção de resolução de problemas e clique na opção de consola de série (pré-visualização). Um novo painel com a consola de série irá abrir e iniciar a ligação.
+  4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção de consola de série (pré-visualização). Um novo painel com a consola de série abrirá e iniciar a ligação.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 
-> Consola de série necessita de um utilizador local com uma palavra-passe configurada. Neste momento, as VMs só configuradas com a chave pública SSH não terá acesso à consola de série. Para criar um utilizador local com palavra-passe, siga [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) e criar utilizador local com a palavra-passe.
+> Consola de série requer um utilizador local com uma palavra-passe configurada. Neste momento, as VMs configuradas apenas com a chave pública SSH não terá acesso à consola de série. Para criar um utilizador local com a palavra-passe, siga [extensão de acesso de VM](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) e criar o utilizador local com a palavra-passe.
 
-### <a name="disable-feature"></a>Desativar a funcionalidade
-A funcionalidade de consola de série, pode ser desativada para específicas VMs, desativando a definição de diagnóstico de arranque essa VM.
+### <a name="disable-feature"></a>Desativar funcionalidade
+A funcionalidade de consola de série pode ser desativada para VMs específicas ao desativar a definição de diagnóstico de arranque essa VM.
 
 ## <a name="serial-console-security"></a>Segurança da consola de série 
 
 ### <a name="access-security"></a>Segurança de acesso 
-Acesso à consola de série está limitado a utilizadores que tenham [VM contribuintes](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou posterior acesso para a máquina virtual. Se o inquilino do AAD requer multi-factor Authentication, em seguida, acesso à consola de série também terá de MFA como o acesso é através de [portal do Azure](https://portal.azure.com).
+Acesso à consola de série está limitado a utilizadores que têm [contribuidores de VM](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou acima de acesso à máquina virtual. Se o inquilino do AAD requer o multi-factor Authentication, em seguida, acesso à consola de série também terá de MFA como o acesso é através de [portal do Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Segurança de canal
-Todos os dados são enviados de volta e estabelecido são encriptados em risco.
+Todos os dados são enviados de volta e para trás, são encriptados na conexão.
 
 ### <a name="audit-logs"></a>Registos de auditoria
-Todo o acesso à consola de série tem sessão iniciado [diagnóstico de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) registos da máquina virtual. Acesso a estes registos são propriedade e é controlado pelo administrador de máquina virtual do Azure.  
+Todo o acesso à consola de série é iniciado a [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) registos da máquina virtual. Acesso a estes registos são propriedade e controlado pelo administrador de máquina virtual do Azure.  
 
 >[!CAUTION] 
-Enquanto nenhuma palavra-passe de acesso para a consola sessão iniciada, se executar a consola de comandos contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informação identificativa (PII) de saída, às serão escritos para o diagnóstico de arranque de máquina virtual os registos, juntamente com todos os outro texto visível, como parte da implementação da funcionalidade de scrollback da consola de série. Estes registos são circulares e apenas indivíduos com permissões de leitura para a conta de armazenamento do diagnostics têm acesso aos mesmos, no entanto, recomendamos a seguir a melhor prática utilizando a consola SSH para tudo o que poderá envolver o método segredos e/ou PII. 
+Embora sem palavras-passe de acesso para a consola são registadas, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informação identificativa (PII) de saída, aqueles serão escritos para o diagnóstico de arranque de máquina virtual registos, juntamente com todos os outro texto visível, como parte da implementação da funcionalidade de scrollback da consola de série. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos, no entanto, recomendamos que siga a prática recomendada de utilizar a consola SSH para tudo o que pode envolver segredos e/ou PII. 
 
 ### <a name="concurrent-usage"></a>Utilização em simultâneo
-Se um utilizador está ligado à consola de série e outro utilizador com êxito os pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligados de forma akin to o primeiro utilizador colocado cópias de segurança e mantendo a consola física e um novo utilizador junto para baixo.
+Se um usuário estiver conectado à consola de série e outro utilizador com êxito pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado de forma semelhante o primeiro utilizador trabalhando em pé e deixar o console físico e um novo utilizador sentamos.
 
 >[!CAUTION] 
-Isto significa que o utilizador for desligado não será registado! A capacidade de impor um fim de sessão após desligar (através de SIGHUP ou mecanismo semelhante) ainda está a ser plano. Para o Windows não há um limite de tempo automática ativada no SAC, no entanto para Linux pode configurar definição de tempo limite de terminal. Para fazer isto adicione simplesmente `export TMOUT=600` no seu .bash_profile ou .profile para o utilizador que inicia sessão na consola, para o tempo limite de sessão após 10 minutos.
+Isso significa que o utilizador que for desligado não terminar a sessão! A capacidade de impor um fim de sessão após a desconexão (via SIGHUP ou mecanismo similar) ainda está no plano. Para o Windows há um tempo limite automático ativado no SAC, no entanto para Linux pode configurar a definição de tempo limite de terminal. Para fazer isso simplesmente de adicionar `export TMOUT=600` no seu. bash_profile ou .profile para o usuário fizer logon na consola com, para o tempo limite da sessão após 10 minutos.
 
-### <a name="disable-feature"></a>Desativar a funcionalidade
-A funcionalidade de consola de série, pode ser desativada para específicas VMs, desativando a definição de diagnóstico de arranque essa VM.
+### <a name="disable-feature"></a>Desativar funcionalidade
+A funcionalidade de consola de série pode ser desativada para VMs específicas ao desativar a definição de diagnóstico de arranque essa VM.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Cenários comuns para aceder à consola de série 
 Cenário          | Ações na consola de série                |  Aplicabilidade de SO 
 :------------------|:-----------------------------------------|:------------------
-Ficheiro FSTAB quebrado | A tecla ENTER para continuar e corrigir o ficheiro de fstab utilizando um editor de texto. Consulte [saber como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) | Linux 
-Regras de firewall incorreta | Aceder à consola de série e corrigir iptables ou as regras de firewall do Windows | Linux/Windows 
-Sistema de ficheiros danificados/verificação | Aceder à consola de série e recuperar o sistema de ficheiros | Linux/Windows 
+Ficheiro FSTAB quebrado | A tecla ENTER para continuar e corrigir o ficheiro fstab com um editor de texto. Consulte [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) | Linux 
+Regras de firewall incorreta | Aceder à consola de série e corrigir iptables ou regras de firewall do Windows | Linux/Windows 
+Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros | Linux/Windows 
 Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições | Linux/Windows 
 Bloqueio de rede para baixo do sistema| Consola de série de acesso através do portal para gerir o sistema | Linux/Windows 
-Interagir com bootloader | Acesso GRUB/BCD através da consola de série | Linux/Windows 
+Interagir com o carregador de inicialização | Acesso GRUB/BCD através da consola de série | Linux/Windows 
 
 ## <a name="accessing-serial-console-for-linux"></a>Aceder à consola de série para Linux
-Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e escrever mensagens de consola para a porta série. A maioria das [aprovadas as distribuições do Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Apenas clicando no portal na secção de consola de série irá fornecer acesso à consola. 
+Por ordem para a consola de série funcionar corretamente, o sistema operativo convidado tem de ser configurado para ler e gravar mensagens de consola para a porta serial. A maioria dos [distribuições do Linux apoiadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tenham a consola de série configurada por predefinição. Basta clicar no portal na secção de consola de série irá fornecer acesso à consola. 
 
-### <a name="access-for-red-hat"></a>Acesso do Red Hat 
-Red Hat imagens disponíveis no Azure tem acesso à consola ativado por predefinição. Modo de utilizador único no Red Hat exige raiz utilizador ser ativado, que está desativada por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:
+### <a name="access-for-red-hat"></a>Acesso para Red Hat 
+Imagens da Red Hat disponíveis no Azure tem acesso à consola ativado por predefinição. Modo de utilizador único no Red Hat requer o utilizador de raiz ser ativada, o que está desativada por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:
 
-1. Inicie sessão no sistema do Red Hat através de SSH
-2. Ativar a palavra-passe do utilizador raiz 
- * `passwd root` (definido uma palavra-passe de raiz segura)
-3. Certifique-se de que utilizador raiz só pode iniciar sessão através do ttyS0
- * `edit /etc/ssh/sshd_config` e certifique-se de que PermitRootLog no está definido para nenhum
- * `edit /etc/securetty file` para permitir apenas o início de sessão através de ttyS0 
+1. Iniciar sessão sistema de Red Hat através de SSH
+2. Ativar a palavra-passe de utilizador de raiz 
+ * `passwd root` (definido uma palavra-passe de raiz fortes)
+3. Certifique-se de que o utilizador de raiz pode apenas iniciar sessão através de ttyS0
+ * `edit /etc/ssh/sshd_config` e certifique-se de que PermitRootLog no está definido ou nenhum
+ * `edit /etc/securetty file` para permitir apenas o início de sessão por meio de ttyS0 
 
-Agora se o sistema arranca no modo de utilizador único, pode iniciar sessão através de palavra-passe raiz.
+Agora se o sistema for inicializado no modo de utilizador único pode iniciar sessão através de palavra-passe de raiz.
 
-Em alternativa para o modo de utilizador único RHEL 7.4 + ou 6.9 + pode ativar no GRUB pede-lhe, consulte as instruções [aqui](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
+Como alternativa para o modo de utilizador único RHEL 7.4 + ou 6.9 + pode ativar no GRUB pede-lhe, veja as instruções [aqui](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
 
 ### <a name="access-for-ubuntu"></a>Acesso para Ubuntu 
-Ubuntu imagens disponíveis no Azure tem acesso à consola ativado por predefinição. Se o sistema arranca no modo de utilizador único pode aceder sem credenciais adicionais. 
+Imagens do Ubuntu disponíveis no Azure têm acesso à consola ativado por predefinição. Se o sistema for inicializado no modo de utilizador único pode aceder sem credenciais adicionais. 
 
 ### <a name="access-for-coreos"></a>Acesso para CoreOS
-Imagens de CoreOS disponíveis no Azure tem acesso à consola ativado por predefinição. Se o sistema necessário pode ser reiniciado no modo de utilizador único através de alteração GRUB parâmetros e adicionar `coreos.autologin=ttyS0` seria ativar utilizador de núcleos a iniciar sessão e disponível na consola de série. 
+As imagens de CoreOS disponíveis no Azure têm acesso à consola ativado por predefinição. Se o sistema necessário pode ser inicializado em modo de utilizador único por meio de alterar os parâmetros GRUB e adicionar `coreos.autologin=ttyS0` permitiria o utilizador de núcleos a iniciar sessão e disponível na consola de série. 
 
 ### <a name="access-for-suse"></a>Acesso para SUSE
-Imagens SLES disponíveis no Azure tem acesso à consola ativado por predefinição. Se estiver a utilizar versões anteriores do SLES no Azure, siga o [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. Mais recente imagens do SLES 12 SP3 + também permite o acesso através da consola de série no caso do sistema arranca no modo de emergência.
+As imagens SLES disponíveis no Azure têm acesso à consola ativado por predefinição. Se estiver a utilizar versões mais antigas do SLES no Azure, siga os [artigo BDC](https://www.novell.com/support/kb/doc.php?id=3456486) para ativar a consola de série. Mais recente imagens de SLES 12 SP3 + também permite o acesso através da consola de série no caso do sistema for inicializado no modo de emergência.
 
 ### <a name="access-for-centos"></a>Acesso para CentOS
-Imagens de centOS disponíveis no Azure tem acesso à consola ativado por predefinição. Para o modo de utilizador único, seguir instruções semelhantes a Red Hat imagens acima. 
+As imagens de centOS disponíveis no Azure têm acesso à consola ativado por predefinição. Modo de utilizador único, seguir instruções semelhantes para imagens do Red Hat acima. 
 
 ### <a name="access-for-oracle-linux"></a>Acesso para Oracle Linux
-Oracle Linux as imagens disponíveis no Azure tem acesso à consola ativado por predefinição. Para o modo de utilizador único, seguir instruções semelhantes a Red Hat imagens acima.
+Imagens do Oracle Linux disponíveis no Azure tem acesso à consola ativado por predefinição. Modo de utilizador único, seguir instruções semelhantes para imagens do Red Hat acima.
 
 ### <a name="access-for-custom-linux-image"></a>Acesso para a imagem personalizada do Linux
-Para ativar a consola de série para a imagem de VM com Linux personalizada, ative o acesso à consola no /etc/inittab com um terminal ttyS0. Abaixo está um exemplo para adicionar este no ficheiro inittab 
+Para ativar a consola de série para a sua imagem de VM do Linux personalizada, permitem o acesso de consola no /etc/inittab para executar um terminal em ttyS0. Segue-se um exemplo para adicionar isso no arquivo inittab 
 
 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
 ## <a name="errors"></a>Erros
-A maioria dos erros são transitórios na natureza e o endereço de ligação de repetir estes. Tabela abaixo mostra uma lista de erros e atenuação 
+A maioria dos erros são transitórios na natureza e o endereço de ligação de repetir estes. Tabela a seguir mostra uma lista de erros e atenuação 
 
 Erro                            |   Mitigação 
 :---------------------------------|:--------------------------------------------|
-Não é possível obter as definições de diagnóstico de arranque para '<VMNAME>'. Para utilizar a consola de série, certifique-se de que esse diagnóstico de arranque está ativado para esta VM. | Certifique-se de que a VM possui [diagnóstico de arranque](boot-diagnostics.md) ativada. 
-A VM está no estado parado desalocado. Iniciar a VM e repita a ligação da consola de série. | Máquina virtual deve estar num estado iniciado para aceder à consola de série
-Não tem as permissões necessárias para utilizar esta consola de série de VM. Certifique-se de que tem, pelo menos, permissões de função de contribuinte de VM.| O acesso à consola de série requer determinada permissão para aceder. Consulte [aceder aos requisitos](#prerequisites) para obter detalhes
-Não é possível determinar o grupo de recursos para a conta de armazenamento de diagnóstico de arranque '<STORAGEACCOUNTNAME>'. Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso à consola de série requer determinada permissão para aceder. Consulte [aceder aos requisitos](#prerequisites) para obter detalhes
+Não é possível obter as definições de diagnóstico de arranque para "<VMNAME>'. Para utilizar a consola de série, certifique-se de que o diagnóstico de arranque está ativado para esta VM. | Certifique-se de que a VM tem [diagnósticos de arranque](boot-diagnostics.md) ativada. 
+A VM está num estado parado desalocado. Iniciar a VM e repita a ligação da consola de série. | Máquina virtual deve estar num estado iniciado para aceder à consola de série
+Não tem as permissões necessárias para utilizar esta VM da consola de série. Certifique-se de que tem, pelo menos, permissões de função de Contribuidor de VM.| O acesso de consola de série requer determinada permissão para aceder. Ver [os requisitos de acesso](#prerequisites) para obter detalhes
+Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque '<STORAGEACCOUNTNAME>'. Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinada permissão para aceder. Ver [os requisitos de acesso](#prerequisites) para obter detalhes
 
 ## <a name="known-issues"></a>Problemas conhecidos 
-Tal como estamos ainda nas fases pré-visualização de acesso à consola de série, iremos estão a funcionar através de alguns problemas conhecidos, segue-se a lista de estas com possíveis soluções 
+Como estamos ainda nas fases de pré-visualização para acesso à consola de série, vamos trabalhar através de alguns problemas conhecidos, segue-se a lista destas com soluções alternativas possíveis 
 
 Problema                           |   Mitigação 
 :---------------------------------|:--------------------------------------------|
-Não há nenhuma opção com a consola de instância de conjunto de dimensionamento do virtual machine série |  No momento da pré-visualização, o acesso à consola de série de instâncias de conjunto de dimensionamento de máquina virtual não é suportado.
-Atingir introduza depois da faixa de ligação não mostra um registo numa linha de comandos | [Atingir introduza faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Não existe nenhuma opção com a consola de instância de conjunto de dimensionamento do virtual machine serial |  Durante a pré-visualização, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
+Acessando introdução após a faixa de ligação não mostra um registo na linha de comandos | [Acessando introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
-**Q. Como posso enviar comentários?**
+**P. Como posso enviar comentários?**
 
-A. Fornecer comentários como um problema ao aceder à https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através do azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
+A. Fornecer comentários como um problema ao aceder https://aka.ms/serialconsolefeedback. Em alternativa menos (preferencial) envie comentários através das azserialhelp@microsoft.com ou na categoria de máquina virtual http://feedback.azure.com
 
-**Q.I obtiver um erro "consola existente tem de tipo de SO"Windows"com o tipo de SO pedido do Linux em conflito?**
+**Q.I obtiver um erro "o console de existente tem o tipo de SO"Windows"com o tipo de SO solicitado do Linux em conflito?**
 
-A. Este é um problema conhecido para corrigir isto, basta abrir [Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/overview) no modo de bash e tente novamente.
+A. Este é um problema conhecido para corrigir isso, basta abrir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no modo de bash e tente novamente.
 
-**Q. Não consigo aceder à consola de série, onde ficheiro um incidente de suporte?**
+**P. Não consigo aceder à consola de série, onde pode enviar um incidente de suporte?**
 
-A. Esta funcionalidade de pré-visualização é abrangida através de termos de pré-visualização do Azure. Suporte para isto é melhor processado através dos canais mencionados acima. 
+A. Esta funcionalidade de pré-visualização é abrangida por meio de termos de pré-visualização do Azure. Suporte para isso é melhor processado por meio de canais mencionadas acima. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* A consola de série do também está disponível para [Windows](../windows/serial-console.md) VMs
+* Também está disponível para a consola de série [Windows](../windows/serial-console.md) VMs
 * Saiba mais sobre [bootdiagnostics](boot-diagnostics.md)

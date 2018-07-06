@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446780"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867125"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -42,7 +42,7 @@ Seguem-se alguns pré-requisitos necessários para qualquer prova de conceito co
 | Pré-requisito | Recursos |
 | --- | --- |
 | Inquilino do Azure AD definido com uma subscrição do Azure válida | [Como obter um inquilino do Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se já tiver um ambiente com licenças do Azure AD Premium, pode obter uma subscrição sem limite ao navegar para https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domínios definidos e verificado | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** algumas cargas de trabalho como o Power BI foi aprovisionou um inquilino do azure AD nos bastidores. Para verificar se um determinado domínio está associado a um inquilino, navegue até ao https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se obter uma resposta com êxito, em seguida, o domínio já está atribuído a um inquilino e assumir o controlo pode ser necessário. Se assim for, contacte a Microsoft para obter orientações adicionais. Saiba mais sobre as opções de aquisição em: [o que é a inscrição Self-Service para o Azure?](active-directory-self-service-signup.md) |
+| Domínios definidos e verificado | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** algumas cargas de trabalho como o Power BI foi aprovisionou um inquilino do azure AD nos bastidores. Para verificar se um determinado domínio está associado a um inquilino, navegue até ao https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se obter uma resposta com êxito, em seguida, o domínio já está atribuído a um inquilino e assumir o controlo pode ser necessário. Se assim for, contacte a Microsoft para obter orientações adicionais. Saiba mais sobre as opções de aquisição em: [o que é a inscrição Self-Service para o Azure?](users-groups-roles/directory-self-service-signup.md) |
 | O Azure AD Premium ou EMS ativado de avaliação | [Azure Active Directory Premium gratuito durante um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Atribuiu o Azure AD Premium ou licenças do EMS aos utilizadores de prova de conceito | [Licenciar por conta própria e os seus utilizadores no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Credenciais de Administrador Global do AD do Azure | [Atribuir funções de administrador no Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Passo | Recursos |
 | --- | --- |
 | Aceda ao painel de licenças no Portal de gestão do Azure AD | [Portal de gestão do Azure AD: licenciamento](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Atribua as licenças para o grupo de segurança com utilizadores de prova de conceito. | [Atribuir licenças a um grupo de utilizadores no Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Atribua as licenças para o grupo de segurança com utilizadores de prova de conceito. | [Atribuir licenças a um grupo de utilizadores no Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Considerações
 
-Em caso de quaisquer problemas, aceda a [cenários, limitações e problemas conhecidos com o uso de grupos para gerir o licenciamento no Azure Active Directory](active-directory-licensing-group-advanced.md)
+Em caso de quaisquer problemas, aceda a [cenários, limitações e problemas conhecidos com o uso de grupos para gerir o licenciamento no Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>Configuração de SSO Federado de SaaS
 
@@ -372,7 +372,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 
 Os aplicativos escolhidos podem ter requisitos de aprovisionamento, então vai imediatamente a aplicação pode fazer com que alguns erros. Se o aplicativo escolhido suporta o aprovisionamento com o azure ad e é configurado, pode usar isso como uma oportunidade para mostrar o fluxo todo trabalho ponto a ponto. Consulte o bloco de construção para [SaaS configuração de SSO federado](#saas-federated-sso-configuration) para obter recomendações
 
-## <a name="self-service-password-reset"></a>Reposição Autónoma de Palavra-passe
+## <a name="self-service-password-reset"></a>Reposição de palavra-passe Self-Service
 
 Obter uma estimativa de tempo para concluir: 15 minutos
 

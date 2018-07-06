@@ -1,6 +1,6 @@
 ---
-title: Moderada de conteúdos através da utilização de revisões humanos no Azure conteúdo Moderator | Microsoft Docs
-description: Saiba como criar revisões humanos na consola do conteúdo Moderator API.
+title: Moderar conteúdo com revisões realizadas por pessoas no Azure Content Moderator | Documentos da Microsoft
+description: Saiba como criar revisões realizadas por pessoas na consola de Content Moderator API.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,59 +9,59 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: e9faf595e65ba4475a743e4cb45919fd30fbd6e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351578"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866513"
 ---
-# <a name="create-reviews-from-the-api-console"></a>Criar revisões a partir da consola de API
+# <a name="create-reviews-from-the-api-console"></a>Criar análises a partir da consola de API
 
-Utilize a API rever [rever operações](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) criar revisões de imagem ou de texto para moderação de interrupção humana. Moderators humanos utilizam a ferramenta de revisão para rever o conteúdo. Utilize esta operação com base na lógica de negócio de pós-moderação de interrupção. Utilizá-lo Depois de ter analisados o conteúdo utilizando qualquer um dos outros cognitivos APIs de serviços ou APIs de texto ou a imagem de conteúdo Moderator. 
+Utilizar a API rever [rever operações](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) para criar as revisões de imagem ou texto de moderação humana. Os moderadores humanos utilizam a ferramenta de revisão para rever o conteúdo. Use essa operação com base na lógica de negócio de pós-moderação. Utilizá-lo após a ter análise seu conteúdo ao utilizar qualquer uma das outras APIs serviços cognitivos ou APIs de texto ou a imagem do moderador de conteúdo. 
 
-Depois de um moderator humana revê as etiquetas atribuídos e os dados de predição e submete uma decisão de moderação de interrupção final, a API de revisão submete todas as informações para o ponto final de API.
+Depois de um moderador humano revisa o atribuída automaticamente etiquetas e dados de predição e envia uma decisão de moderação final, a API de revisão envia todas as informações para o ponto final de API.
 
-## <a name="use-the-api-console"></a>Utilize a consola de API
-Para test-drive a API utilizando a consola online, terá de alguns valores para introduzir para a consola:
+## <a name="use-the-api-console"></a>Utilizar a consola de API
+Para testar a API utilizando a consola online, terá de alguns valores para celebrar o console:
 
-- **teamName**: O nome do agrupamento que criou quando configurou a sua conta da ferramenta de revisão. 
-- **ContentId**: Esta cadeia é transmitida para a API e devolvida através de chamada de retorno. O ContentId é útil para associar os resultados de uma tarefa de moderação interrupção identificadores internos ou de metadados.
-- **Metadados**: pares chave-valor de personalizado devolvido para o ponto final de API durante a chamada de retorno. Se a chave é um código curto que está definido na ferramenta de revisão, aparece como uma etiqueta.
+- **teamName**: O nome da equipa que criou quando configurou a sua conta da ferramenta de revisão. 
+- **ContentId**: essa cadeia de caracteres é passada para a API e retornada pelo retorno de chamada. O ContentId é útil para associar os resultados de uma tarefa de moderação identificadores internos ou de metadados.
+- **Metadados**: pares de chave-valor personalizado devolvido ao seu ponto final da API durante o retorno de chamada. Se a chave é um código pequeno que é definido na ferramenta de revisão, ele aparece como uma etiqueta.
 - **OCP-Apim-Subscription-Key**: localizado no **definições** separador. Para obter mais informações, consulte [descrição geral](overview.md).
 
-A forma mais simples para aceder a uma consola de teste é do **credenciais** janela.
+A forma mais simples para aceder a uma consola de teste é a partir da **credenciais** janela.
 
-1.  No **credenciais** janela, selecione [referência da API de revisão](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1.  Na **credenciais** janela, selecione [referência da API de revisão](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  O **rever - criar** é aberta a página.
+  O **reveja - criar** é aberta a página.
 
-2.  Para **consola de teste de Open API**, selecione a região que melhor coincida descreve a localização.
+2.  Para **consola de teste de API aberta**, selecione a região que melhor descreve sua localização.
 
-  ![Reveja - seleção de região de página de criação](images/test-drive-region.png)
+  ![Examine - criar página seleção de região](images/test-drive-region.png)
 
-  O **rever - criar** é aberta a consola de API.
+  O **reveja - criar** é aberta a consola de API.
   
-3.  Introduza valores para os parâmetros de consulta necessário, tipo de conteúdo e a chave de subscrição. No **corpo do pedido** caixa, especifique o conteúdo (por exemplo, a localização de imagem), metadados e outras informações associadas com o conteúdo.
+3.  Introduza valores para os parâmetros de consulta necessário, tipo de conteúdo e a chave de subscrição. Na **corpo do pedido** caixa, especifique o conteúdo (por exemplo, a localização de imagem), metadados e outras informações associadas com o conteúdo.
 
-  ![Reveja - os parâmetros de consulta da consola, cabeçalhos e caixa de corpo do pedido de criação](images/test-drive-review-1.PNG)
+  ![Examine - criar parâmetros de consulta da consola, cabeçalhos e caixa de corpo de pedido](images/test-drive-review-1.PNG)
   
-4.  Selecione **Enviar**. É criado um ID de revisão. Copie este ID para utilizar os seguintes passos.
+4.  Selecione **Enviar**. É criado um ID de revisão. Copie este ID para utilizar nos passos seguintes.
 
-  ![Reveja - criar consola resposta conteúda caixa apresenta o ID de revisão](images/test-drive-review-2.PNG)
+  ![Examine - criar console caixa apresenta o ID da revisão de conteúdo de resposta](images/test-drive-review-2.PNG)
   
-5.  Selecione **obter**e, em seguida, abra a API, selecionando o botão que corresponda à sua região. Na página de resultante, introduza os valores para **teamName**, **ReviewID**, e **chave de subscrição**. Selecione o **enviar** botão na página. 
+5.  Selecione **obter**e, em seguida, abra a API ao selecionar o botão que corresponde à sua região. Na página resultante, introduza os valores para **teamName**, **ReviewID**, e **chave de subscrição**. Selecione o **enviar** botão na página. 
 
-  ![Reveja - consola de criação de resultados de Get](images/test-drive-review-3.PNG)
+  ![Examine - criar console resultados de Get](images/test-drive-review-3.PNG)
   
 6.  Verá os resultados da análise.
 
-  ![Reveja - criar caixa de conteúdo de resposta de consola](images/test-drive-review-4.PNG)
+  ![Examine - criar a caixa de conteúdo de resposta de consola](images/test-drive-review-4.PNG)
   
-7.  No Dashboard do conteúdo Moderator, selecione **revisão** > **imagem**. Aparece a imagem que lhe foram analisados, prontos para revisão humano.
+7.  No Dashboard de moderador de conteúdo, selecione **revisão** > **imagem**. A imagem que analisados aparece, pronta para revisão humana.
 
-  ![Reveja a imagem de ferramenta de um ball soccer](images/test-drive-review-5.PNG)
+  ![Imagem de ferramenta de revisão de uma bola de futebol](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Utilizar a API REST no seu código ou começar com o [início rápido de .NET de revisões](moderation-reviews-quickstart-dotnet.md) para integrar com a sua aplicação.
+Utilizar a API REST no seu código ou começar com o [guia de introdução do .NET de revisões](moderation-reviews-quickstart-dotnet.md) para integrar com a sua aplicação.
