@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110526"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856761"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory
 
@@ -75,6 +75,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50008|A asserção SAML está em falta ou não está devidamente configurada no token. Contacte o seu fornecedor de federação.|
 |50010|A validação do URI de audiência da aplicação falhou, pois não foram configuradas audiências de token. Contacte o proprietário da aplicação.|
 |50011|O endereço de resposta está em falta, está mal configurado ou não corresponde aos endereços de resposta configurados para a aplicação. Experimente a resolução indicada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se continuar a encontrar problemas, contacte o proprietário ou o administrador da aplicação.|
+|50012| Esta é uma mensagem de erro genérico que indica que a autenticação falhou. Isto pode acontecer por motivos como em falta ou inválido credenciais ou afirmações no pedido. Certifique-se de que a solicitação é enviada com as credenciais corretas e afirmações. |
 |50013|A asserção é inválida por diversos motivos: o emissor do token não corresponde à versão da api dentro do intervalo de tempo válido; expirado; mal formatado; o token de atualização da asserção não é um token de atualização principal.|
 |50017|A validação da certificação falhou devido a um dos seguintes motivos:<ul><li>O certificado da emissora não foi encontrado na lista de certificados fidedignos</li><li>Não foi possível encontrar o CrlSegment esperado</li><li>O certificado da emissora não foi encontrado na lista de certificados fidedignos</li><li>O ponto de distribuição de Delta CRL está configurado sem um ponto de distribuição de CRL correspondente</li><li>Não é possível obter segmentos de CRL válidos devido a um problema de tempo de ligação excedido</li><li>Não é possível transferir a CRL</li></ul>Contacte o administrador do inquilino.|
 |50020|O utilizador não está autorizado; não é possível emitir tokens devido a problema de versão; o nome do emissor não foi especificado; problemas com o nome do emissor (nulo; comprimento máximo). Contacte o proprietário da aplicação.|
@@ -173,7 +174,9 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |81001|A permissão do Kerberos do utilizador é demasiado grande. Isto pode acontecer se o utilizador estiver em demasiados grupos e, por conseguinte, a permissão do Kerberos contém demasiadas adesões a grupos. Reduza as adesões a grupos do utilizador e tente novamente.|
 |81005|O Pacote de autenticação não é suportado.|
 |81007|O inquilino não está ativado para SSO Totalmente Integrado|
-
+|90014| Um campo obrigatório de uma mensagem de protocolo estava em falta, contacte o proprietário da aplicação. Se for o proprietário da aplicação, certifique-se de que tem todos os parâmetros necessários para o pedido de início de sessão. 
+|90072| A conta tem de ser adicionado como um utilizador externo no inquilino pela primeira vez. Fim de sessão e inicie sessão novamente com um diferente do Azure AD conta.|
+|90094| A concessão de permissões de administrador. Peça ao administrador de inquilino para fornecer o consentimento para esta aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

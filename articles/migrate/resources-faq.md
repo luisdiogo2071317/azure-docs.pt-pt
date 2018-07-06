@@ -1,55 +1,67 @@
 ---
-title: Migrar do Azure - perguntas mais frequentes (FAQ) | Microsoft Docs
-description: Endereços perguntas mais frequentes sobre migrar do Azure
+title: Azure Migrate - perguntas mais frequentes (FAQ) | Documentos da Microsoft
+description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: snehaa
-ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: c85e512dede7c14e7b678297ed524fa7a1d7e79d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285710"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859528"
 ---
-# <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrar do Azure - perguntas mais frequentes (FAQ)
+# <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
-Este artigo inclui perguntas mais frequentes sobre como migrar do Azure. Se tiver quaisquer consultas adicionais depois de ler este artigo, publique-los no [fórum do Azure migrar](http://aka.ms/AzureMigrateForum).
+Este artigo contém perguntas mais frequentes sobre o Azure Migrate. Se tiver quaisquer consultas adicionais depois de ler este artigo, publique o [fórum do Azure Migrate](http://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Geral
 
-### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como é migrar Azure diferente do Azure Site Recovery?
+### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como é o Azure Migrate diferente do Azure Site Recovery?
 
-Migrar do Azure é um serviço de avaliação que o ajuda a detetar as cargas de trabalho no local e planeie a migração para o Azure. [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), juntamente com a ser uma solução de recuperação após desastre, ajuda-o a migrar cargas de trabalho no local para as VMs IaaS do Azure.
+O Azure Migrate é um serviço de avaliação que ajuda a detetar as suas cargas de trabalho no local e planeie a migração para o Azure. [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), juntamente com a ser uma solução de recuperação após desastre, ajuda-o a migrar cargas de trabalho no local para VMs de IaaS no Azure.
 
-### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Como é migrar Azure diferente do Planeador de implementação do Azure Site Recovery?
+### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>O que é a diferença entre a utilização do Azure Migrate para avaliações e o Map Toolkit?
 
-Migrar do Azure é uma ferramenta de planeamento da migração e Planeador de implementação do Azure Site Recovery é uma recuperação após desastre (DR) planeamento ferramenta.
+[O Azure Migrate](migrate-overview.md) fornece avaliação de migração especificamente para ajudar na preparação da migração e avaliação das cargas de trabalho no local para o Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) tem outras funcionalidades. Por exemplo, a migração de planeamento para versões mais recentes do Windows server sistemas operativos cliente e, software de utilização controlo etc. Para esses cenários, continue a usar o MAP Toolkit.
 
-**A migração de VMware para Azure**: Se pretender migrar as cargas de trabalho no local para o Azure, utilize migrar do Azure para planeamento da migração. Migrar do Azure avalia cargas de trabalho no local e fornece orientação, insights e mecanismos para ajudá-lo a migrar para o Azure. Assim que estiver pronto com o seu plano de migração, pode utilizar serviços como o Azure Site Recovery e o serviço de migração de base de dados do Azure para a migração das máquinas para o Azure.
 
-**Migração do Hyper-V para o Azure**: Migrar do Azure atualmente suporta apenas a avaliação de máquinas virtuais VMware para a migração para o Azure. Suporte para o Hyper-V está no plano para a migração do Azure. Provisório, pode utilizar o planeador de implementação de ASR. Depois do suporte de Hyper-V está ativado no Azure migrar, pode utilizar o Azure migrar para o planeamento de migração de cargas de trabalho do Hyper-V.
+### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Como é o Azure Migrate diferente do Azure Site Recovery Deployment Planner?
 
-**Recuperação após desastre do VMware/Hyper-V para o Azure**: Se pretender efetuar a recuperação de desastre (DR) no Azure através do Azure Site Recovery (ASR), utilize o planeador de implementação de ASR para DR planeamento. A ASR implementação Planner efetua uma avaliação profunda, a ASR específico do seu ambiente no local. Fornece recomendações que são necessários para ASR para operações de DR com êxito, tais como a replicação, ativação pós-falha das máquinas virtuais.  
+O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site Recovery Deployment Planner é uma recuperação após desastre (DR), ferramenta de planejamento.
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>A migrar do Azure necessita de servidor para detetar num ambiente VMware vCenter?
+**Migração do VMware para Azure**: Se pretender migrar as cargas de trabalho no local para o Azure, utilizar o Azure Migrate para planeamento da migração. O Azure Migrate avalia cargas de trabalho no local e fornece orientações, informações e mecanismos para ajudá-lo a migrar para o Azure. Assim que estiver pronto com o seu plano de migração, pode utilizar serviços como o Azure Site Recovery e o serviço de migração de base de dados do Azure para migrar as máquinas para o Azure.
 
-Sim, a migrar do Azure requer o vCenter Server para detetar num ambiente VMware. Não suporta a deteção de anfitriões ESXi que não são geridos pelo vCenter Server.
+**Migração do Hyper-V para o Azure**: Azure Migrate atualmente suporta apenas a avaliação das máquinas de virtuais de VMware para migração para o Azure. Suporte para Hyper-V está nas previsões para o Azure Migrate. Até lá, pode usar o Site Recovery Deployment Planner. Assim que o suporte de Hyper-V está ativado no Azure Migrate, pode utilizar o Azure Migrate para planejamento de migração de cargas de trabalho do Hyper-V.
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Em que regiões do Azure são suportadas pelo Azure migrar?
+**Recuperação após desastre do VMware/Hyper-V para o Azure**: se pretende fazer a recuperação após desastre (DR) no Azure com o Azure Site Recovery (recuperação de sites), utilize o Site Recovery Deployment Planner para planejamento de DR. Site Recovery Deployment Planner faz uma avaliação profunda ASR específicos do seu ambiente no local. Fornece recomendações que são necessários pelo Site Recovery para operações bem-sucedidas de DR, como replicação, ativação pós-falha das suas máquinas virtuais.  
 
-Migrar do Azure suporta atualmente EUA leste e Central EUA Oeste como localizações de projeto. Tenha em atenção que, mesmo que só pode criar os projetos de migração no Central EUA oeste e EUA leste, ainda pode avaliar as máquinas para [várias localizações de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A localização de projeto só é utilizada para armazenar os dados detetados.
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate precisa vCenter Server para detetar um ambiente do VMware?
 
-## <a name="discovery"></a>Deteção
+Sim, o Azure Migrate requer o vCenter Server para detetar um ambiente de VMware. Não suporta a deteção de anfitriões ESXi que não são geridos por um vCenter Server.
 
-### <a name="what-data-is-collected-by-azure-migrate"></a>Que dados são recolhidos por migrar do Azure?
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Que regiões do Azure são suportados pelo Azure Migrate?
 
-Migrar do Azure suporta dois tipos de deteção, a deteção baseada no dispositivo e a deteção baseada no agente.
-A deteção de aplicação recolhe metadados sobre as VMs no local, a lista completa de metadados recolhidos pelo dispositivo de está indicada abaixo:
+### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como ligar o site no local para o Azure Migrate?
+
+A ligação pode ser através da internet ou utilizar o ExpressRoute com peering público.
+
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Pode posso proteger a VM que configurar com o. Modelo de OVA?
+
+Componentes adicionais (por exemplo, software antivírus) é possível adicionar o. Modelo de OVA, desde que forem deixadas com as regras de comunicação e de firewall necessárias para a aplicação do Azure Migrate trabalhar é.   
+
+
+## <a name="discovery-and-assessment"></a>Deteção e avaliação
+
+### <a name="what-data-is-collected-by-azure-migrate"></a>Que dados são recolhidos pelo Azure Migrate?
+
+O Azure Migrate suporta dois tipos de deteção, com base na aplicação da deteção e descoberta baseada em agente.
+A deteção com base na aplicação recolhe metadados sobre as VMs no local, a lista completa de metadados recolhidos pela aplicação da esteja listada abaixo:
 
 **Dados de configuração da VM**
-- Nome a apresentar VM (no vCenter)
+- Nome de exibição da VM (no vCenter)
 - Caminho de inventário VM (anfitrião/cluster/pasta no vCenter)
 - Endereço IP
 - Endereço MAC
@@ -60,52 +72,64 @@ A deteção de aplicação recolhe metadados sobre as VMs no local, a lista comp
 **Dados de desempenho da VM**
 - Utilização da CPU
 - Utilização de memória
-- Para cada disco ligados à VM:
-  - Débito de leitura de discos
-  - Débito de escrita do disco
-  - Operações por segundo de leitura de discos
-  - Operações por segundo de escrita do disco
+- Para cada disco anexado à VM:
+  - Débito de leitura de disco
+  - Débito de escritas de disco
+  - Operações por seg de leitura de disco
+  - Operações por segundo de escritas de disco
 - Para cada adaptador de rede ligado à VM:
-  - Rede no
-  - Limite de rede
+  - Entrada de rede
+  - Saída de rede
 
-A deteção baseada no agente é uma opção disponível sobre a deteção baseada no dispositivo e ajuda os clientes [visualizar dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolher detalhes, como, IP de FQDN, SO, endereço, endereço MAC, os processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada no agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
+A deteção baseada em agente é uma opção disponível sobre a deteção com base na aplicação e ajuda os clientes [visualize as dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolher detalhes como IP FQDN, o sistema operacional, endereço, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
 
-### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Onde está os dados recolhidos armazenada e como tempo?
+### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Em que são os dados recolhidos armazenados e como há muito tempo?
 
-Os dados recolhidos pelo dispositivo de recoletor são armazenados na localização do Azure que especificou ao criar o projeto de migração. Os dados é guardada seguramente numa subscrição Microsoft e serão eliminados quando o utilizador o elimine o projeto do Azure migrar.
+Os dados coletados pela aplicação recoletora são armazenados na localização do Azure que especificar ao criar o projeto de migração. Os dados são armazenados em segurança numa subscrição Microsoft e são eliminados quando o utilizador elimina o projeto do Azure Migrate.
 
-Para visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes de dependência são armazenados nos E.U.A. numa área de trabalho do OMS criada na subscrição do utilizador. Estes dados são eliminados depois do utilizador elimina a área de trabalho do OMS no respetiva ou a subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Para a visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes do dependência são armazenados nos EUA numa área de trabalho do OMS criado na subscrição do utilizador. Estes dados são eliminados quando eliminar a área de trabalho do OMS na sua subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
-### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Forma como o recoletor comunicam com o vCenter Server e o serviço Azure migrar?
+### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o recoletor se comunique com o vCenter Server e o serviço Azure Migrate?
 
-A aplicação de recoletor liga ao vCenter Server (porta 443) utilizando as credenciais fornecidas pelo utilizador no dispositivo de. Consulta o vCenter Server utilizando o VMware PowerCLI para recolher os metadados sobre as VMs gerido pelo vCenter Server. Recolhe os dados de configuração sobre as VMs (núcleos, memória, discos, etc. da NIC), bem como o histórico de desempenho de cada VM para o último mês de um do vCenter Server. Os metadados recolhidos, em seguida, é enviado para o serviço Azure migrar (através da internet através de https) para avaliação. [Saiba mais](concepts-collector.md)
+A aplicação recoletor liga-se ao vCenter Server (porta 443) utilizando as credenciais fornecidas pelo utilizador na aplicação. Ele consulta o vCenter Server com o VMware PowerCLI para recolher os metadados sobre as VMs geridas pelo vCenter Server. Recolhe os dados de configuração acerca das VMs (núcleos, memória, discos, etc. NIC), bem como o histórico de desempenho de cada VM para o último mês do vCenter Server. Os metadados recolhidos, em seguida, é enviado para o serviço Azure Migrate (através da internet através de https) para avaliação. [Saiba mais](concepts-collector.md)
 
-### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>É os dados são encriptados em descanso e em trânsito?
+### <a name="can-i-connect-to-multiple-vcenter-servers"></a>Posso ligar a vários servidores vCenter?
 
-Sim, os dados recolhidos são encriptados em descanso tanto em trânsito. Os metadados recolhidos pelo dispositivo de forma segura é enviado para o serviço Azure migrar através da internet através de https. Os metadados recolhidos são armazenados na [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e na [blob storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) numa subscrição do Microsoft e são encriptados em pausa.
+Precisa de uma aplicação de conector configurados para cada servidor.
 
-Os dados recolhidos pelos agentes de dependência também é encriptado em trânsito (canal seguro https) e estão armazenados numa área de trabalho de análise de registos na subscrição do utilizador. Também são encriptado em descanso.
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>É o. Modelo de OVA utilizado pelo Site Recovery é integrado com o. OVA utilizados pelo Azure Migrate?
 
-### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Como podem a detetar um ambiente de multi-inquilino no Azure migrar?
+Atualmente, não há nenhuma integração. A. Modelo de OVA no Site Recovery é utilizado para configurar um servidor de configuração do Site Recovery para a replicação de servidor de VM de VMware/físico. A. OVA utilizados pelo Azure Migrate é utilizado para detetar VMs de VMware, gerido por um vCenter server, para fins de avaliação da migração.
 
-Se tiver um ambiente que é partilhado entre inquilinos e não pretende detetar as VMs de um inquilino na subscrição outro inquilino, pode utilizar o campo de âmbito no dispositivo de recoletor para definir o âmbito de deteção. Se os inquilinos estão a partilhar anfitriões, criar uma credencial que tem acesso só de leitura para apenas as VMs que pertencem ao inquilino específico e, em seguida, utilize esta credencial no dispositivo de recoletor e especifique o âmbito como o anfitrião para efetuar a deteção. Em alternativa, também pode criar pastas no vCenter Server (Digamos Pasta1 para tenant1 e folder2 para tenant2), sob o anfitrião partilhado, mover as VMs para tenant1 para Pasta1 e tenant2 para folder2 e, em seguida, definir o âmbito de deteções no recoletor em conformidade ao especificar a pasta adequada.
+### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Alterei a minha tamanho da máquina. Pode executar novamente a avaliação?
 
-### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Número de máquinas virtuais podem ser detetado num projeto único migração?
+Se alterar as definições numa VM que pretende avaliar, o acionador detetar novamente com a aplicação recoletora. A aplicação, utilize o **iniciar novamente a recolha** opção para fazer isso. Depois de terminar a coleção, selecione o **recalcular** opção para a avaliação no portal, para obter os resultados da avaliação atualizada.
 
-Pode detetar máquinas virtuais de 1500 num projeto migração único. Se tiver máquinas mais no seu ambiente no local, [mais](how-to-scale-assessment.md) sobre como pode detetar um ambiente grande no Azure migrar.
+### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
+
+Sim, os dados recolhidos são encriptados em inatividade tanto em trânsito. Os metadados recolhidos pela aplicação da são enviados de forma segura para o serviço Azure Migrate pela internet através de https. Os metadados recolhidos são armazenados na [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e, na [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) numa subscrição Microsoft e são encriptados em descanso.
+
+Os dados recolhidos pelos agentes do dependência é também criptografado em trânsito (canal de https seguro) e são armazenados numa área de trabalho do Log Analytics na subscrição do utilizador. Também são encriptado em inatividade.
+
+### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Como posso descobrir um ambiente de multi-inquilino no Azure Migrate?
+
+Se tiver um ambiente que é partilhado em inquilinos e não pretender detetar as VMs de um inquilino na subscrição de outro inquilino, pode utilizar o campo de âmbito em que a aplicação recoletora para definir o âmbito de deteção. Se os inquilinos estão a partilhar anfitriões, criar uma credencial que tem acesso só de leitura para apenas as VMs que pertencem ao inquilino específico e, em seguida, utilize esta credencial a aplicação recoletora e especifique o âmbito como host para fazer a deteção. Em alternativa, também pode criar pastas no vCenter Server (Digamos Pasta1 para tenant1 e folder2 para tenant2), em anfitriões partilhado, mover as VMs para tenant1 em Pasta1 e para tenant2 para folder2 e, em seguida, definir âmbito as deteções no coletor de em conformidade ao especificar a pasta apropriada.
+
+### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Número de máquinas virtuais possam ser detetado num projeto de migração única?
+
+Pode descobrir 1500 máquinas de virtuais num projeto de migração única. Se tiver mais máquinas no seu ambiente no local, [Saiba mais](how-to-scale-assessment.md) sobre como é possível descobrir um ambiente de grandes dimensões no Azure Migrate.
 
 ## <a name="dependency-visualization"></a>Visualização de dependência
 
-### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>É necessário pagar para utilizar a funcionalidade de visualização de dependência?
+### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Preciso de pagar para utilizar a funcionalidade de visualização de dependências?
 
 O Azure Migrate está disponível sem custos adicionais. Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Pode utilizar uma área de trabalho existente para visualização de dependência?
+### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Pode utilizar uma área de trabalho existente para visualização de dependências?
 
-Migrar do Azure não suporta a utilização de uma área de trabalho existente para visualização de dependência, no entanto, o Microsoft Monitoring Agent (MMA) suporta multi homing e permite-lhe enviar dados para várias áreas de trabalho. Por isso, se já tiver os agentes implementados e configurados para uma área de trabalho, pode tirar partido multi homing no agente MMA e configurá-lo para a área de trabalho de migração do Azure (para além da área de trabalho existente) e torná-lo a trabalhar. [Aqui](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) é um blogue na forma como pode ativar a multi homing num agente MMA.
+O Azure Migrate não suporta a utilização de uma área de trabalho existente para visualização de dependência, no entanto, o Microsoft Monitoring Agent (MMA) suporta multi-homing e permite-lhe enviar dados para várias áreas de trabalho. Então, se já tiver os agentes implementados e configurados para uma área de trabalho, pode tirar partido do multi-homing no agente MMA e configurá-lo para a área de trabalho do Azure Migrate (além de área de trabalho existente) e fazê-lo funcionar. [Aqui](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) é um blog sobre como ativar o multi-homing num agente MMA.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia o [descrição geral da migração do Azure](migrate-overview.md)
-- Saiba como pode [detetar e avaliar](tutorial-assessment-vmware.md) num ambiente VMware
+- Leia o [descrição geral do Azure Migrate](migrate-overview.md)
+- Saiba como pode [detetar e avaliar](tutorial-assessment-vmware.md) um ambiente de VMware

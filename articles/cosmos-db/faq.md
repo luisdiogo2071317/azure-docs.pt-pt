@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: c1ddb6beec3f7c41fa49f62a3ed9baa17c515fbd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445522"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859705"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Azure do Cosmos DB
@@ -136,12 +136,16 @@ Exemplos para a API de SQL [.NET](sql-api-dotnet-samples.md), [Java](https://git
 Sim, a API de SQL permite que os aplicativos armazenem documentos JSON arbitrários sem definições de esquema ou sugestões. Os dados estão imediatamente disponíveis para consulta através da interface de consulta de SQL do Azure Cosmos DB.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>A API de SQL suporta transações ACID?
-Sim, a API de SQL suporta transações entre documentos expressadas como procedimentos armazenados do JavaScript e acionadores. Transações estão confinadas a uma única partição dentro de cada coleção e executadas com semântica ACID como "tudo ou nada," isolado de outros pedidos de utilizador e de código em execução simultânea. Se forem geradas exceções através da execução do lado do servidor de código de aplicação do JavaScript, toda a transação é revertida. Para obter mais informações sobre transações, consulte [transações de programa de banco de dados](programming.md#database-program-transactions).
+Sim, a API de SQL suporta transações entre documentos expressadas como procedimentos armazenados do JavaScript e acionadores. Transações estão confinadas a uma única partição dentro de cada contentor e executadas com semântica ACID como "tudo ou nada," isolado de outros pedidos de utilizador e de código em execução simultânea. Se forem geradas exceções através da execução do lado do servidor de código de aplicação do JavaScript, toda a transação é revertida. Para obter mais informações sobre transações, consulte [transações de programa de banco de dados](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>O que é uma coleção?
-Uma coleção é um grupo de documentos e a respetiva lógica da aplicação associada JavaScript. Uma coleção é uma entidade faturável, onde o [custo](performance-levels.md) é determinada pela taxa de transferência e utilizado de armazenamento. Coleções podem abranger uma ou mais partições ou servidores e podem ser dimensionado para processar volumes praticamente ilimitados de armazenamento ou débito.
+### <a name="what-is-a-container"></a>O que é um contentor?
+Um contêiner é um grupo de documentos e a respetiva lógica da aplicação associada JavaScript. Um contentor é uma entidade faturável, onde o [custo](performance-levels.md) é determinada pela taxa de transferência e utilizado de armazenamento. Os contentores podem abranger uma ou mais partições ou servidores e podem ser dimensionado para processar volumes praticamente ilimitados de armazenamento ou débito. 
 
-As coleções também são as entidades de faturação para o Azure Cosmos DB. Cada coleção é cobrada por hora, com base no débito aprovisionado e espaço de armazenamento utilizado. Para obter mais informações, consulte [preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* Para contas SQL e a API do MongoDB, um contentor é mapeado para uma coleção. 
+* Para contas de Cassandra e API de tabela, um contentor mapeia para uma tabela. 
+* Para contas de API do Gremlin, um contentor é mapeado para um gráfico. 
+
+Os contentores também são as entidades de faturação para o Azure Cosmos DB. Cada contentor é cobrado à hora, com base no débito aprovisionado e espaço de armazenamento utilizado. Para obter mais informações, consulte [preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio uma base de dados?
 Pode criar bases de dados com o [portal do Azure](https://portal.azure.com), conforme descrito na [adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um do [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/cosmos-db/). 
@@ -170,7 +174,7 @@ Pode inserção em massa documentos para o Azure Cosmos DB em uma das seguintes 
 * A ferramenta de migração de dados, conforme descrito em [ferramenta de migração de bases de dados para o Azure Cosmos DB](import-data.md).
 * Procedimentos armazenados, conforme descrito em [programação de JavaScript do lado do servidor para o Azure Cosmos DB](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Tenho configuração minha coleção para utilizar a indexação lento, vejo que as minhas consultas não devolver os resultados esperados. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Eu tenho a configuração do meu contêiner para usar indexação lento, vejo que as minhas consultas não devolver os resultados esperados. 
 Conforme explicado na seção de indexação, a indexação lento pode resultar nesse comportamento. Deve sempre usar indexação consistente para todos os aplicativos. 
 
 
@@ -185,7 +189,7 @@ Esta é a limitação do JavaScript. JavaScript usa números de formato de vírg
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Em que as permissões são permitidas na hierarquia do objeto?
 
-Criação de permissões com ResourceTokens é permitido no nível da coleção e seus descendentes (como documentos, anexos). Isso implica que tentar criar uma permissão no banco de dados ou o nível de uma conta não é atualmente permitido.
+Criação de permissões com ResourceTokens é permitido no nível do contentor e respetivos descendentes (como documentos, anexos). Isso implica que tentar criar uma permissão no banco de dados ou o nível de uma conta não é atualmente permitido.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Desenvolver com a API para MongoDB

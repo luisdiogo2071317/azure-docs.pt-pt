@@ -1,6 +1,6 @@
 ---
-title: Carregar dados para o Azure Data Lake Store utilizando o Azure Data Factory | Microsoft Docs
-description: Utilizar o Azure Data Factory para copiar dados para o Azure Data Lake Store
+title: Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory | Documentos da Microsoft
+description: Utilize o Azure Data Factory para copiar dados para a geração 1 de armazenamento do Azure Data Lake
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,138 +11,138 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058988"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857206"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carregar dados para o Azure Data Lake Store utilizando o Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory
 
-[O Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) é um repositório de hiper escala de nível da empresa para cargas de trabalho de análise de macrodados. Azure Data Lake permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados num único local para análises exploratórias e operacionais.
+[Geração de armazenamento 1 do Azure Data Lake](../data-lake-store/data-lake-store-overview.md) (anteriormente conhecido como o Azure Data Lake Store) é um repositório de hiperescala de toda a empresa para cargas de trabalho de análise de macrodados. O Azure Data Lake permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados num único local para análises exploratórias e operacionais.
 
-O Azure Data Factory é um serviço de integração de dados baseado em nuvem completamente gerido. Pode utilizar o serviço para preencher o lake com dados do sistema existente e poupar tempo ao criar as suas soluções de análise.
+O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher o lake com dados do sistema existente e poupar tempo quando criar as suas soluções de análise.
 
 O Azure Data Factory oferece as seguintes vantagens para carregar dados para o Azure Data Lake Store:
 
-* **Fácil de configurar**: um Assistente de passo 5 intuitivo com nenhuma scripting necessário.
-* **Suporte de arquivo de dados avançados**: suporte incorporado para um conjunto avançado de arquivos de dados baseado na nuvem e no local. Para obter uma lista detalhada, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Segura e compatível**: os dados são transferidos através de HTTPS ou ExpressRoute. A presença de serviço global garante que os dados nunca sai do limite geográfico.
-* **Elevado desempenho**: até os dados de 1-GB/s carregamento velocidade para o Azure Data Lake Store. Para obter mais informações, consulte [copiar o desempenho de atividade](copy-activity-performance.md).
+* **Fácil de configurar**: um assistente intuitivo do passo 5 com nenhum script necessário.
+* **Suporte de arquivo de dados avançados**: suporte interno para um conjunto avançado de arquivos de dados com base na cloud e no local. Para obter uma lista detalhada, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Segura e em conformidade**: os dados são transferidos através de HTTPS ou ExpressRoute. A presença de serviço global assegura que seus dados nunca sai do limite geográfico.
+* **Elevado desempenho**: até os dados de 1-GB/s velocidade do carregamento para o Azure Data Lake Store. Para obter detalhes, consulte [copie o desempenho de atividade](copy-activity-performance.md).
 
-Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia de fábrica de dados para _carregar dados do Amazon S3 para o Azure Data Lake Store_. Pode seguir passos semelhantes para copiar dados de outros tipos de arquivos de dados.
+Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory para _carregar dados do Amazon S3 para o Azure Data Lake Store_. Pode seguir passos semelhantes para copiar dados de outros tipos de arquivos de dados.
 
 > [!NOTE]
-> Para obter mais informações, consulte [copiar dados de ou para o Azure Data Lake Store utilizando o Azure Data Factory](connector-azure-data-lake-store.md).
+> Para obter mais informações, consulte [copiar dados de ou para o Azure Data Lake Store com o Azure Data Factory](connector-azure-data-lake-store.md).
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição do Azure: Se não tiver uma subscrição do Azure, crie um [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* O Azure Data Lake Store: Se não tiver uma conta de Data Lake Store, consulte as instruções no [criar uma conta de Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
+* Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Azure Data Lake Store: Se não tiver uma conta do Data Lake Store, consulte as instruções em [criar uma conta do Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
 * Amazon S3: Este artigo mostra como copiar dados do Amazon S3. Pode utilizar outros arquivos de dados ao seguir passos semelhantes.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu da esquerda, selecione **novo** > **dados + análise** > **Data Factory**:
+1. No menu da esquerda, selecione **New** > **dados + análise** > **Data Factory**:
    
    ![Criar uma nova fábrica de dados](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
-2. No **nova fábrica de dados** página, forneça valores para os campos que são apresentados na imagem seguinte: 
+2. Na **nova fábrica de dados** página, fornecer valores para os campos que são mostrados na imagem seguinte: 
       
    ![Página Nova fábrica de dados](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "o nome de factory de dados \"LoadADLSDemo\" não está disponível," Introduza um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
-    * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente, ou selecione o **criar nova** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: selecione **V2**.
-    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Arquivos de dados que são utilizados pela fábrica de dados podem estar nas outras regiões e localizações. Estes arquivos de dados incluem o Azure Data Lake Store, o Storage do Azure, SQL Database do Azure e assim sucessivamente.
+    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. Esses arquivos de dados incluem o Azure Data Lake Store, armazenamento do Azure, base de dados do Azure SQL e assim por diante.
 
 3. Selecione **Criar**.
-4. Depois de concluída a criação, vá para a fábrica de dados. Pode ver o **Data Factory** home page do conforme mostrado na imagem seguinte: 
+4. Depois de concluída a criação, vá para a fábrica de dados. Verá o **fábrica de dados** home page do conforme mostrado na imagem seguinte: 
    
    ![Home page da fábrica de dados](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
-   Selecione o **autor & Monitor** mosaico para iniciar a aplicação de integração de dados num separador separado.
+   Selecione o **criar e monitorizar** mosaico para iniciar o aplicativo de integração de dados num separador à parte.
 
 ## <a name="load-data-into-azure-data-lake-store"></a>Carregar dados para o Azure Data Lake Store
 
-1. No **começar** página, selecione o **copiar dados** mosaico para iniciar a ferramenta de cópia de dados: 
+1. Na **começar** página, selecione a **copiar dados** mosaico para iniciar a ferramenta copiar dados: 
 
    ![Mosaico ferramenta Copiar Dados](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
-2. No **propriedades** página, especifique **CopyFromAmazonS3ToADLS** para o **nome da tarefa** campo e selecione **seguinte**:
+2. Na **propriedades** , especifique **CopyFromAmazonS3ToADLS** para o **nome da tarefa** campo e selecione **seguinte**:
 
     ![Página Propriedades](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. No **arquivo de dados de origem** página, clique em **+ criar nova ligação**:
+3. Na **o arquivo de dados de origem** página, clique em **+ criar nova ligação**:
 
     ![Página de arquivo de dados de origem](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
     
     Selecione **Amazon S3**e selecione **continuar**
     
-    ![Página de s3 de arquivo de dados de origem](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    ![Página de s3 do arquivo de dados de origem](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
     
-4. No **especificar Amazon S3 ligação** página, efetue os seguintes passos: 
-   1. Especifique o **ID da chave de acesso** valor.
-   2. Especifique o **chave de acesso secreta** valor.
+4. Na **ligação de especificar o Amazon S3** página, efetue os seguintes passos: 
+   1. Especifique a **ID de chave de acesso** valor.
+   2. Especifique a **chave de acesso secreta** valor.
    3. Selecione **Concluir**.
    
-   ![Especifique a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   ![Especifique a conta do Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Verá uma nova ligação. Selecione **Seguinte**.
    
-   ![Especifique a conta Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   ![Especifique a conta do Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
    
-5. No **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende copiar a ativação pós-falha. Selecione o pasta/ficheiro, selecione **escolha**e, em seguida, selecione **seguinte**:
+5. Na **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende que devem transitar. Selecione o ficheiro/pasta, selecione **Choose**e, em seguida, selecione **próxima**:
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. Escolher o comportamento de copiar selecionando o **copiar os ficheiros em modo recursivo** e **cópia binária** (copiar ficheiros como-é) opções. Selecione **seguinte**:
+6. Escolher o comportamento de cópia, selecionando o **recursivamente de ficheiros de cópia** e **cópia binária** (copiar ficheiros como-é) opções. Selecione **seguinte**:
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     
-7. No **arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Azure Data Lake Store**e selecione **continuar**:
+7. Na **o arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Azure Data Lake Store**e selecione **continuar**:
 
     ![Página arquivo de dados de destino](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
-8. No **ligação especifique Data Lake Store** página, efetue os seguintes passos: 
+8. Na **ligação especificar Data Lake Store** página, efetue os seguintes passos: 
 
-   1. Selecione o Data Lake Store para o **nome da conta do Data Lake Store**.
-   2. Especifique o **inquilino**e selecione a concluir.
+   1. Selecione seu Store de Lake de dados para o **nome da conta do Data Lake Store**.
+   2. Especifique a **inquilino**e selecione Finish.
    3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Esta explicação passo a passo, utiliza um _identidade do serviço gerido_ para autenticar o Data Lake Store. Certifique-se de conceder o principal de serviço as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar seu Store de Lake de dados. Certifique-se de que conceder o principal de serviço as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Especifique a conta do Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
-9. No **escolha a pasta ou ficheiro de saída** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 
+9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-adls-path.png)
 
-10. No **definições** página, selecione **seguinte**:
+10. Na **configurações** página, selecione **próxima**:
 
     ![Página de definições](./media/load-data-into-azure-data-lake-store/copy-settings.png)
-11. No **resumo** página, reveja as definições e selecione **seguinte**:
+11. Na **resumo** página, reveja as definições e selecione **próxima**:
 
     ![Página de resumo](./media/load-data-into-azure-data-lake-store/copy-summary.png)
-12. No **página implementação**, selecione **Monitor** para monitorizar o pipeline (tarefas):
+12. Na **página de implementação**, selecione **Monitor** para monitorizar o pipeline (tarefa):
 
     ![Página de implementação](./media/load-data-into-azure-data-lake-store/deployment-page.png)
-13. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. O **ações** coluna inclui ligações para ver os detalhes de execução da atividade e volte a executar o pipeline:
+13. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. O **ações** coluna inclui ligações para ver os detalhes da execução da atividade e voltar a executar o pipeline:
 
     ![Monitorizar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Para ver as execuções de atividade que estão associadas com o pipeline de execução, selecione o **ver a atividade é executada** ligação no **ações** coluna. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Para mudar para o pipeline é executado vista, selecione o **Pipelines** ligação na parte superior. Selecione **Atualizar** para atualizar a lista. 
+14. Para ver as execuções de atividades que estão associadas à execução do pipeline, selecione o **ver execuções de atividades** ligação na **ações** coluna. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Para regressar à vista de execuções de pipeline, selecione o **Pipelines** link na parte superior. Selecione **Atualizar** para atualizar a lista. 
 
     ![Monitorização de execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Para monitorizar os detalhes de execução para cada atividade de cópia, selecione o **detalhes** ligação em **ações** na atividade de vista de monitorização. Pode monitorizar detalhes como o volume de dados copiado da origem para o sink, débito de dados, os passos de execução com duração correspondente e utilizado configurações:
+15. Para monitorizar os detalhes da execução para cada atividade de cópia, selecione o **detalhes** ligação sob **ações** na atividade de vista de monitorização. Pode monitorizar detalhes como o volume de dados copiados da origem para o sink, taxa de transferência de dados, os passos de execução com duração correspondente e utilizado configurações:
 
-    ![Detalhes da execução de atividade de monitorização](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+    ![Monitorizar a atividade de detalhes da execução](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
 
-16. Certifique-se de que os dados são copiados para o Azure Data Lake Store: 
+16. Certifique-se de que os dados são copiados para o Store do Azure Data Lake: 
 
-    ![Certifique-se a saída do Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
+    ![Verificar a saída do Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Avançar para o artigo seguinte para saber mais sobre o suporte do Azure Data Lake Store: 
+Avance para o seguinte artigo para saber mais sobre o suporte do Azure Data Lake Store: 
 
 > [!div class="nextstepaction"]
 >[Conector do Azure Data Lake Store](connector-azure-data-lake-store.md)

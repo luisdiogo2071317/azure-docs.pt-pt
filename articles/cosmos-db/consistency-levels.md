@@ -1,7 +1,7 @@
 ---
-title: Níveis de consistência na base de dados do Azure Cosmos | Microsoft Docs
-description: BD do Azure do Cosmos tem cinco níveis de consistência para ajudar a balancear eventual consistência, disponibilidade e a latência compromissos.
-keywords: consistência eventual, azure cosmos db, do azure, do Microsoft azure
+title: Níveis de consistência no Azure Cosmos DB | Documentos da Microsoft
+description: Azure Cosmos DB tem cinco níveis de consistência para o ajudar a equilibrar eventual consistência, disponibilidade e latência vantagens e desvantagens.
+keywords: a consistência eventual, do azure cosmos db, do azure, do Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611828"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857189"
 ---
-# <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados na base de dados do Azure Cosmos
-BD do Azure do Cosmos foi concebido partir do zero cópias de segurança com distribuição global em mente para cada modelo de dados. Foi concebido para oferecer vários modelos de simples de consistência bem definidos e de garantias de latência baixa previsível. Atualmente, a base de dados do Azure Cosmos fornece cinco níveis de consistência: forte, consistência vinculada, sessão, prefixo consistente e eventual. Consistência vinculada, sessão, prefixo consistente e eventual são designados "modelos de consistência simples" que fornecem o menor consistência que segura, que é o modelo a maioria das consistente altamente disponível. 
+# <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência sincronizáveis dados no Azure Cosmos DB
+O Azure Cosmos DB foi concebido desde o backup com a distribuição global, lembre-se para cada modelo de dados. Foi concebido para fornecer garantias de latência baixa previsível e vários modelos de consistência bem definidos de flexível. Atualmente, o Azure Cosmos DB oferece cinco níveis de consistência: sólido, prescrição vinculada, sessão, prefixo de consistência e eventual. Prescrição vinculada, sessão, prefixo consistente e eventual são referidas como "modelos de consistência relaxados" que fornecem menos consistência forte, que o que é o modelo a maioria dos consistente altamente disponível. 
 
-Besides o **forte** e **consistência eventual** modelos oferecidas normalmente pelas bases de dados distribuídas, BD do Cosmos Azure oferece três modelos de consistência cuidadosamente codified e operacionalizado mais:  **tem um vínculo vinculada**, **sessão**, e **prefixo consistente**. A utilidade dos cada um destes níveis de consistência foi validada contra casos de utilização do mundo real. Coletivamente estes níveis de cinco consistência permitem-lhe efetuar compromissos bem reasoned entre consistência, disponibilidade e a latência. 
+Além do **forte** e **consistência eventual** modelos oferecidos normalmente pelas bases de dados distribuídas, Azure Cosmos DB oferece três modelos de consistência cuidadosamente alcançarmos e operacionalizado mais:  **estagnação limitada**, **sessão**, e **prefixo consistente**. A utilidade de cada um destes níveis de consistência foi validada em relação a casos de utilização do mundo real. Coletivamente, estes níveis de cinco consistência permitem-lhe fazer compensações bem manter entre consistência, disponibilidade e latência. 
 
-No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra as funcionalidades de chave na mão distribuição global.
+O vídeo seguinte, Andrew Liu gerente de programa do DB Cosmos Azure demonstra os recursos de distribuição global chave na mão.
 
 >[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Bases de dados distribuídas e consistência
-Bases de dados distribuídas comerciais enquadram-se em duas categorias: bases de dados que oferece opções de consistência provable bem definidos e as bases de dados que oferecem duas opções de programação para Alpine (fortes vs. a consistência eventual). 
+Bases de dados comerciais distribuídas enquadram-se em duas categorias: bases de dados que não oferecem escolhas de consistência prováveis bem definidos de todo e bases de dados que oferecem duas opções de programação extremas (consistência fortes versus eventual). 
 
-A primeira opção sobrecarrega os programadores de aplicações com a minúcia dos seus protocolos de replicação e exige que haja compromissos difíceis entre consistência, disponibilidade, latência e débito. A segunda opção obriga a que se tenha de escolher entre dois extremos. Não obstante a abundância de pesquisa e propostas para mais de 50 modelos de consistência, a comunidade da base de dados distribuída não conseguiu comercializar níveis de consistência para além da consistência forte e da consistência eventual. BD do cosmos permite aos programadores escolher entre cinco modelos de consistência bem definidos ao longo do espetro consistência – forte, obsoletismo, [sessão](http://dl.acm.org/citation.cfm?id=383631), prefixo consistente e eventual. 
+A primeira opção sobrecarrega os programadores de aplicações com a minúcia dos seus protocolos de replicação e exige que haja compromissos difíceis entre consistência, disponibilidade, latência e débito. A segunda opção obriga a que se tenha de escolher entre dois extremos. Não obstante a abundância de pesquisa e propostas para mais de 50 modelos de consistência, a comunidade da base de dados distribuída não conseguiu comercializar níveis de consistência para além da consistência forte e da consistência eventual. O cosmos DB permite aos desenvolvedores escolher entre cinco modelos de consistência bem definidos ao longo do espetro de consistência – forte, estagnação limitada, [sessão](http://dl.acm.org/citation.cfm?id=383631), prefixo consistente e eventual. 
 
 ![O Azure Cosmos DB proporciona vários modelos de consistência (flexíveis) bem definidos à escolha](./media/consistency-levels/five-consistency-levels.png)
 
@@ -40,101 +40,101 @@ A tabela seguinte ilustra as garantias específicas proporcionadas por cada nív
 
 | Nível de Consistência | Garantias |
 | --- | --- |
-| Forte | Linearizability. Leituras garantidas para devolver a versão mais recente de um item.|
-| Estagnação Limitada | Prefixo Consistente. Leituras ficar mais lentos durante operações de escrita no máximo prefixos de mil ou intervalo de t |
+| Forte | Transação atómica. As leituras são garantidas para devolver a versão mais recente de um item.|
+| Estagnação Limitada | Prefixo Consistente. Desfasamento de leituras escritas por no máximo os prefixos k ou intervalo t |
 | Sessão   | Prefixo Consistente. Leituras monotónicas, escritas monotónicas, leitura das próprias escritas, escrita de acordo com leituras |
 | Prefixo Consistente | As atualizações devolvidas são alguns prefixos de todas as atualizações, sem intervalos |
 | Eventual  | Leituras fora de ordem |
 
-Pode configurar o nível predefinido de consistência na sua conta do Cosmos DB (e, mais tarde, substituir a consistência num pedido de leitura específico). Internamente, o nível de consistência predefinida aplica-se aos dados dentro de conjuntos de partição, o que poderão span regiões. 73 cerca de % de consistência de sessão de utilização do Azure Cosmos DB inquilinos e 20% preferem obsoletismo. % De 3 aproximadamente dos clientes de base de dados do Azure Cosmos experimentar vários níveis de consistência inicialmente antes settling numa escolha específica de consistência para a respetiva aplicação. Apenas 2% de inquilinos do Azure Cosmos DB substituir níveis de consistência numa base por pedido. 
+Pode configurar o nível predefinido de consistência na sua conta do Cosmos DB (e, mais tarde, substituir a consistência num pedido de leitura específico). Internamente, o nível predefinido de consistência aplica-se aos dados dentro dos conjuntos de partição, que podem distribuir as regiões. Cerca de 73% de consistência de sessão de utilização de inquilinos do Azure Cosmos DB e 20% preferem estagnação limitada. Aproximadamente 3% dos clientes do Azure Cosmos DB experimentar vários níveis de consistência inicialmente antes de optar por uma escolha específica de consistência da respetiva aplicação. Apenas 2% de inquilinos do Azure Cosmos DB substituir os níveis de consistência numa base por solicitação. 
 
-Na base de dados do Cosmos, leituras servido em sessão, prefixo consistente e a consistência eventual duas vezes são como cheap como leituras com consistência forte ou vinculada vinculada. BD do cosmos tem SLAs abrangentes, incluindo garantias de consistência, juntamente com a disponibilidade, débito e latência de líderes da indústria. BD do Azure do Cosmos emprega um [verificador linearizability](http://dl.acm.org/citation.cfm?id=1806634), que funciona continuamente ao longo de telemetria de serviço e reporta abertamente quaisquer violações de consistência para si. Para obsoletismo, base de dados do Azure Cosmos monitoriza e reporta quaisquer violações para limites de k e t. Para todos os cinco níveis de consistência simples, base de dados do Azure Cosmos também comunica o [probabilistically tem um vínculo métrica vinculada](http://dl.acm.org/citation.cfm?id=2212359) diretamente a si.  
+No Cosmos DB, fornecidas leituras em sessão, prefixo consistente e a consistência eventual duas vezes são tão barato como leituras com consistência forte ou estagnação limitada. O cosmos DB tem SLAs abrangentes, incluindo garantias de consistência, juntamente com a disponibilidade, débito e latência de líder da indústria. O Azure Cosmos DB emprega um [Verificador de transação atómica](http://dl.acm.org/citation.cfm?id=1806634), que opera continuamente sobre a telemetria de serviço e abertamente reporta quaisquer violações de consistência para. Para estagnação limitada, o Azure Cosmos DB monitoriza e relata quaisquer violações de limites k e t. Para todos os cinco níveis de consistência flexível, Azure Cosmos DB também relata o [roleta estagnação métrica de envelhecimento](http://dl.acm.org/citation.cfm?id=2212359) diretamente para.  
 
 ## <a name="service-level-agreements"></a>Contratos de nível de serviço
 
-BD do Azure do Cosmos oferece abrangente 99,99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que o débito de garantia, consistência, disponibilidade e latência de base de dados do Azure Cosmos da base de dados contas no âmbito de uma única região do Azure configurada com qualquer um da consistência cinco níveis ou contas de base de dados várias regiões do Azure, configuradas com qualquer um dos quatro níveis de consistência simples de expansão. Além disso, é independente da escolha de um nível de consistência, base de dados do Azure Cosmos oferece um SLA de 99.999% de disponibilidade de leitura para contas de base de dados expansão dois ou mais regiões do Azure.
+O Azure Cosmos DB oferece abrangente 99,99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) quais garantia de débito, consistência, disponibilidade e latência para o Azure Cosmos DB da base de dados no âmbito de uma única região do Azure configurado com qualquer uma da consistência de cinco de contas níveis ou contas de base de dados em diversas regiões do Azure configurados com qualquer um dos quatro níveis de consistência flexível. Além disso, é independente da escolha de um nível de consistência, Azure Cosmos DB oferece um SLA de 99,999% de disponibilidade de leitura para contas de base de dados em duas ou mais regiões do Azure.
 
 ## <a name="scope-of-consistency"></a>Âmbito de consistência
-A granularidade de consistência é confinada para um pedido de utilizador único. Um pedido de escrita pode corresponder a um inserir, substituir, upsert ou eliminar a transação. Tal como acontece com escritas, também tem um âmbito uma transação de leitura/consulta a um pedido de utilizador único. O utilizador poderá ser necessário paginação através de um grande conjunto de resultados, a expansão de várias partições, mas cada ler transação está no âmbito de uma única página e servida a partir de uma única partição.
+A granularidade de consistência é confinada para um pedido de utilizador único. Uma solicitação de gravação pode corresponder a inserir, substituir, upsert, ou eliminar a transação. Tal como acontece com escritas, também tem um âmbito uma transação de leitura/consulta a um pedido de utilizador único. O utilizador poderá ser necessário para paginar através de um grande conjunto de resultados, que abrangem várias partições, mas cada transação está no âmbito de uma única página e servida a partir de uma única partição de leitura.
 
 ## <a name="consistency-levels"></a>Níveis de consistência
-Pode configurar um nível de consistência predefinida na sua conta de base de dados que se aplica a todas as coleções (e as bases de dados) na sua conta de base de dados do Cosmos. Por predefinição, todas as operações de leitura e consultas emitidas relativamente aos recursos definida pelo utilizador utilizam o nível de consistência predefinido, especificado na conta de base de dados. Pode reduzir o nível de consistência de uma utilização de pedido de leitura/consulta específicas em cada uma das APIs suportados. Existem cinco tipos dos níveis de consistência suportados pelo protocolo de replicação de base de dados do Azure Cosmos que fornecem um compromisso claro entre garantias de consistência específico e o desempenho, conforme descrito nesta secção.
+Pode configurar um nível predefinido de consistência na sua conta de base de dados que se aplica a todos os contentores (e as bases de dados) na sua conta do Cosmos DB. Por predefinição, todas as leituras e consultas emitidas relativamente aos recursos definidos pelo utilizador utilizam o nível de consistência predefinido, especificado na conta de base de dados. Pode reduzir o nível de consistência de um pedido de consulta/leitura específica através em cada uma das APIs suportadas. Existem cinco tipos de níveis de consistência suportadas pelo protocolo de replicação do Azure Cosmos DB, que fornecem uma compensação clara entre garantias de consistência específico e o desempenho, conforme descrito nesta secção.
 
 <a id="strong"></a>
 **Forte**: 
 
-* A consistência forte oferece um [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garantir com leituras garantidas para devolver a versão mais recente de um item. 
-* A consistência forte garante que uma escrita apenas seja visível depois de ser consolidada de forma durável pelo quórum maioria das réplicas. Uma operação de escrita é colocada forma síncrona consolidada de forma durável pela principal e o quórum de secundárias ou foi abortada. Uma leitura é sempre confirmada pela maioria de quórum de leitura, um cliente nunca pode ver uma escrita não consolidada ou parcial e é sempre garantido para ler mais recente confirmada de escrita. 
-* As contas de base de dados do Cosmos do Azure que estão configuradas para utilizar a consistência forte não é possível associar mais do que uma região do Azure com a conta de base de dados do Azure Cosmos.  
-* O custo de uma operação de leitura (em termos de [unidades de pedido](request-units.md) consumido) com consistência forte é superior a sessão e eventual, mas o mesmo que obsoletismo.
+* Consistência forte oferece uma [transação atómica](https://aphyr.com/posts/313-strong-consistency-models) garantir com leituras garantidas para devolver a versão mais recente de um item. 
+* Consistência forte garante que uma gravação só é visível depois submetê-los maneira duradoura pela maioria do quórum de réplicas. Uma gravação é síncrona confirmada maneira duradoura pelo principal e o quórum de réplicas secundárias, ou foi abortada. Uma leitura é sempre confirmada pela maioria de leitura do quórum, um cliente nunca pode ver uma gravação não consolidada ou parcial e é sempre garantido ao ler a escrita mais recente reconhecida. 
+* As contas do Azure Cosmos DB que estão configuradas para utilizar a consistência forte não é possível associar mais do que uma região do Azure com a respetiva conta do Azure Cosmos DB.  
+* O custo de uma operação de leitura (em termos de [unidades de pedido](request-units.md) consumido) com consistência forte é maior do que a sessão e eventual, mas o mesmo que estagnação limitada.
 
 <a id="bounded-staleness"></a>
-**Tem um vínculo vinculada**: 
+**Estagnação limitada**: 
 
-* Tem um vínculo vinculada a consistência garante que as leituras poderão ficar mais lentos durante escritas no máximo *K* versões ou prefixos de um item ou *t* intervalo de tempo. 
-* Por conseguinte, quando escolher consistência vinculada, "vinculada" pode ser configurada de duas formas: número de versões *K* do item através do qual as leituras ficar mais lentos durante as escritas e o intervalo de tempo *t* 
-* Tem um vínculo vinculada ofertas global ordem total, exceto "janela vinculada". As garantias de leitura monotonic existem numa região dentro e fora da "vinculada janela." 
-* Obsoletismo fornece uma mais forte garantia de consistência de sessão, consistente prefixo ou consistência eventual. Para aplicações distribuídas globalmente, recomendamos que utilize obsoletismo para cenários onde pretende tenham consistência forte, mas também 99,99% de disponibilidade e a latência baixa.   
-* As contas de base de dados do Cosmos do Azure que estão configuradas com consistência de obsoletismo podem associar a respetiva conta de base de dados do Azure Cosmos qualquer número de regiões do Azure. 
-* O custo de uma operação de leitura (em termos de RUs consumido) com obsoletismo é superior a sessão e a consistência eventual, mas o mesmo que a consistência forte.
+* Estagnação limitada garantias de consistência que as leituras podem ficar atrás de escritas por no máximo *K* versões ou prefixos de um item ou *t* intervalo de tempo. 
+* Por conseguinte, quando escolher estagnação limitada, o "envelhecimento" pode ser configurado de duas formas: o número de versões *K* do item pelo qual as desfasamento de leituras de gravações e o intervalo de tempo *t* 
+* Estagnação limitada ofertas total global do pedido, exceto dentro da "janela limitada". As garantias de leitura monotónica existem dentro de uma região dentro e fora da "limitada janela." 
+* Estagnação limitada proporciona uma maior garantia de consistência de sessão, prefixo consistente ou eventual consistência. Para aplicações distribuídas globalmente, recomendamos que utilize estagnação limitada para cenários em que gostaria de ter consistência forte, mas também querem 99,99% de disponibilidade e baixa latência.   
+* As contas do Azure Cosmos DB que estão configuradas com consistência de estagnação limitada podem associar qualquer número de regiões do Azure com a respetiva conta do Azure Cosmos DB. 
+* O custo de uma operação de leitura (em termos de RUs consumidos) com estagnação limitada é maior do que a sessão e a consistência eventual, mas o mesmo que a consistência forte.
 
 <a id="session"></a>
 **Sessão**: 
 
-* Ao contrário dos modelos de consistência global oferecidos pelos níveis de consistência forte e vinculada vinculada a consistência de sessão tem um âmbito a uma sessão de cliente. 
-* A consistência de sessão é ideal para todos os cenários em que uma sessão de dispositivo ou utilizador está envolvida uma vez que esta situação garante monotonic leituras, escritas monotonic e leitura garante que os seus próprios escritas (RYW). 
-* A consistência de sessão fornece a consistência previsível para uma sessão e débito de leitura máximo oferecendo a mais baixa latência escritas e leituras. 
-* As contas de base de dados do Cosmos do Azure que estão configuradas com consistência de sessão podem associar a respetiva conta de base de dados do Azure Cosmos qualquer número de regiões do Azure. 
-* O custo de uma operação de leitura (em termos de RUs consumido) com o nível de consistência de sessão está vinculada menos segura e vinculada, mas a consistência eventual mais.
+* Ao contrário dos modelos de consistência global oferecidos pelos níveis de consistência forte e estagnação limitada, a consistência da sessão é confinada a uma sessão de cliente. 
+* É ideal para todos os cenários em que uma sessão de dispositivo ou utilizador está envolvida, uma vez que esta ação garante leituras monotónicas, escritas monotónica e leia suas próprias escritas (RYW) garante a consistência da sessão. 
+* Consistência de sessão fornece consistência previsível para uma sessão, e o máximo débito de leitura ao ofertas de leituras e escritas de latência mais baixa. 
+* As contas do Azure Cosmos DB que estão configuradas com consistência da sessão podem associar qualquer número de regiões do Azure com a respetiva conta do Azure Cosmos DB. 
+* O custo de uma operação de leitura (em termos de RUs consumidos) com o nível de consistência da sessão é inferior a forte e estagnação limitada, mas a consistência eventual mais do que.
 
 <a id="consistent-prefix"></a>
 **Prefixo consistente**: 
 
-* Prefixo consistente garante que na ausência de mais escritas, as réplicas dentro do grupo de eventualmente convergir. 
-* Prefixo consistente garante que leituras nunca veem escritas fora de ordem. Se escritas foram executadas na ordem `A, B, C`, em seguida, um cliente, este verá a `A`, `A,B`, ou `A,B,C`, mas nunca fora de ordem como `A,C` ou `B,A,C`.
-* As contas de base de dados do Cosmos do Azure que estão configuradas com consistência de prefixo consistentes podem associar a respetiva conta de base de dados do Azure Cosmos qualquer número de regiões do Azure. 
+* Prefixo consistente garante que na ausência de qualquer escrita adicional, as réplicas dentro do grupo, eventualmente, convergem. 
+* Prefixo consistente garante que leituras nunca veem escritas fora de ordem. Se escritas foram executadas na ordem `A, B, C`, em seguida, um cliente vê um `A`, `A,B`, ou `A,B,C`, mas nunca fora de ordem, como `A,C` ou `B,A,C`.
+* As contas do Azure Cosmos DB que estão configuradas com consistência de prefixo consistente podem associar qualquer número de regiões do Azure com a respetiva conta do Azure Cosmos DB. 
 
 <a id="eventual"></a>
 **Eventual**: 
 
-* A consistência eventual garante que na ausência de mais escritas, as réplicas dentro do grupo de eventualmente convergir. 
-* A consistência eventual é a forma mais fraca de consistência em que um cliente pode obter os valores que são mais antigos do que aqueles que tinha vistos anteriormente.
-* A consistência eventual fornece a consistência de leitura mais fraca, mas assegura a latência mais baixa para leituras e escritas.
-* As contas de base de dados do Cosmos do Azure que estão configuradas com a consistência eventual podem associar a respetiva conta de base de dados do Azure Cosmos qualquer número de regiões do Azure. 
-* O custo de uma operação de leitura (em termos de RUs consumido) com a consistência eventual nível é a mais baixa de todos os níveis de consistência da base de dados do Azure Cosmos.
+* A consistência eventual garante que na ausência de qualquer escrita adicional, as réplicas dentro do grupo, eventualmente, convergem. 
+* A consistência eventual é a forma mais fraco de consistência em que um cliente pode obter os valores que são mais antigos do que os que ele tinha visto antes.
+* A consistência eventual fornece a consistência de leitura mais fraco, mas oferece a menor latência de leitura e escrita.
+* As contas do Azure Cosmos DB que estão configuradas com a consistência eventual podem associar qualquer número de regiões do Azure com a respetiva conta do Azure Cosmos DB. 
+* O custo de uma operação de leitura (em termos de RUs consumidos) com a consistência eventual nível é a mais baixa de todos os níveis de consistência do Azure Cosmos DB.
 
-## <a name="configuring-the-default-consistency-level"></a>Configurar o nível de consistência predefinida
-1. No [portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Azure Cosmos DB**.
+## <a name="configuring-the-default-consistency-level"></a>Configurar o nível de consistência predefinido
+1. Na [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **do Azure Cosmos DB**.
 2. Na página **Azure Cosmos DB**, selecione a conta de base de dados a modificar.
-3. Na página de conta, clique em **predefinido consistência**.
-4. No **consistência predefinida** página, selecione o novo nível de consistência e clique em **guardar**.
+3. Na página da conta, clique em **consistência predefinida**.
+4. Na **consistência predefinida** página, selecione o novo nível de consistência e clique em **guardar**.
    
-    ![Realce o ícone de definições e a entrada de consistência predefinida de captura de ecrã](./media/consistency-levels/database-consistency-level-1.png)
+    ![Captura de ecrã, realce o ícone de definições e a entrada de consistência predefinida](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>Níveis de consistência para consultas
-Por predefinição, para obter recursos definida pelo utilizador, o nível de consistência para consultas é o mesmo que o nível de consistência para leituras. Por predefinição, o índice é atualizado em sincronia cada inserir, substituir ou eliminar de um item no contentor de BD do Cosmos. Isto permite que as consultas que respeite o mesmo nível de consistência da leituras de ponto. Enquanto a base de dados do Azure Cosmos é escrita otimizada e suporta volumes constante de escritas, índice síncrona e de manutenção que serve consultas consistentes, pode configurar determinadas coleções para atualizar o respetivo índice lenta. Ainda mais lento de indexação boosts o desempenho de escrita e é ideal para cenários de ingestão em massa, quando uma carga de trabalho é principalmente leitura extremamente encriptados.  
+Por predefinição, para os recursos definidos pelo utilizador, o nível de consistência para consultas é o mesmo que o nível de consistência para leituras. Por predefinição, o índice é atualizado forma síncrona em cada inserir, substituir ou eliminação de um item no contentor do Cosmos DB. Isto permite que as consultas que respeite o mesmo nível de consistência do ponto de leituras. Enquanto o Azure Cosmos DB está escrita otimizada e suporta volumes constante de escritas, a manutenção do índice síncrona e a publicação consultas consistentes, pode configurar certos contêineres para atualizar o respetivo índice lentamente. Ainda mais lento de indexação aumenta o desempenho de escrita e é ideal para cenários de ingestão em massa, quando uma carga de trabalho é principalmente de leitura intensiva.  
 
 | Modo de indexação | Leituras | Consultas |
 | --- | --- | --- |
-| Consistente (predefinição) |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Selecione a partir de vinculada forte e vinculada, sessão, ou eventual |
-| Lento |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Eventual |
-| Nenhuma |Selecione a partir de vinculada forte e vinculada, sessão, prefixo consistente ou eventual |Não aplicável |
+| Consistência (predefinição) |Selecione entre forte, estagnação limitada, sessão, prefixo consistente ou eventual |Selecione entre forte, estagnação limitada, sessão, ou eventual |
+| Lento |Selecione entre forte, estagnação limitada, sessão, prefixo consistente ou eventual |Eventual |
+| Nenhuma |Selecione entre forte, estagnação limitada, sessão, prefixo consistente ou eventual |Não aplicável |
 
-Como com pedidos de leitura, pode reduzir o nível de consistência de um pedido de consulta específicas em cada API.
+Como com solicitações de leitura, pode reduzir o nível de consistência de um pedido de consulta específica em cada API.
 
 ## <a name="consistency-levels-for-the-mongodb-api"></a>Níveis de consistência para a API do MongoDB
 
-BD do Azure do Cosmos atualmente implementa MongoDB versão 3.4, que tem duas definições de consistência, seguras e eventual. Como base de dados do Azure Cosmos é várias api, as definições de consistência são aplicáveis ao nível da conta e a imposição da consistência e é controlada por cada API.  Até MongoDB 3.6, não havia nenhum conceito de consistência de sessão, para que o se definir uma conta de API do MongoDB para utilizar a consistência de sessão, a consistência é alterada uma versão anterior a eventual ao utilizar as APIs do MongoDB. Se precisar de uma garantia de leitura-your-proprietário-escrita de uma conta de API do MongoDB, o nível de consistência predefinida para a conta deve ser definido como strong ou tem um vínculo vinculada.
+O Azure Cosmos DB implementa atualmente MongoDB versão 3.4, que tem duas definições de consistência, eventual e fortes. Uma vez que o Azure Cosmos DB possui várias API, as definições de consistência são aplicáveis ao nível da conta e a imposição da consistência é controlada por cada API.  Até à versão 3.6 do MongoDB, não existia nenhum conceito de consistência de sessão, pelo que, se definir uma conta de API do MongoDB para utilizar a consistência de sessão, esta é mudada para uma versão anterior, para eventual, quando utilizar as API do MongoDB. Se precisar de uma garantia de leitura-da-própria-escrita para uma conta de API do MongoDB, o nível de consistência predefinido da conta deve ser definido como forte ou de estagnação limitada.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se gostaria de fazer ler mais sobre os níveis de consistência e fala, recomendamos os seguintes recursos:
+Se deseja ler mais sobre os níveis de consistência e os compromissos, recomendamos os seguintes recursos:
 
-* [Consistência de dados replicadas explicado através de baseball (vídeo) por Tiago Doug](https://www.youtube.com/watch?v=gluIh8zd26I)
-* [Consistência de dados replicadas explicado através de baseball (documento) por Tiago Doug](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* [Garantias de sessão para os dados replicados consistentes Weakly](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistência fala moderna design de sistemas de base de dados distribuída: CAP é apenas uma parte do bloco](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* [Probabilistic Obsoletismo (. PBS) para práticas Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* [Eventual consistente - Revisitado](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* [O carregamento, a capacidade e a disponibilidade dos sistemas de quórum, SIAM diário de alterações em informática](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* [Line-up: um linearizability completa e automática verificador, Proceedings do conferência ACM SIGPLAN 2010 no idioma design e implementação de programação](http://dl.acm.org/citation.cfm?id=1806634)
-* [Probabilistically obsoletismo para práticas quorums parciais](http://dl.acm.org/citation.cfm?id=2212359)
+* [Consistência de dados replicados explicada através do basebol (vídeo) por Doug Tiago](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Consistência de dados replicados explicada através do basebol (documento técnico), por Doug Tiago](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Garantias de sessão para os dados replicados consistentes tem rigidez](http://dl.acm.org/citation.cfm?id=383631)
+* [Vantagens e desvantagens de consistência no moderno Design de sistemas de banco de dados distribuído: limite é apenas uma parte da história](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [Eventual consistentes – Revisitada](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [A carga, a capacidade e a disponibilidade dos sistemas de quórum, diário SIAM sobre computação](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Line-up: um transação atómica de automática e completa verificador, judiciais da conference 2010 ACM SIGPLAN na implementação e design de linguagem de programação](http://dl.acm.org/citation.cfm?id=1806634)
+* [Roleta estagnação limitada para práticos quorums parciais](http://dl.acm.org/citation.cfm?id=2212359)

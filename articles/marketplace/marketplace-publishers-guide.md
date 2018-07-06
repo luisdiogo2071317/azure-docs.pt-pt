@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ff78a7ed700506625761b0b1060040548b4a3ea1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344819"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859093"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>O Azure Marketplace e guia de publicador do AppSource  
 
@@ -75,27 +75,18 @@ Uma vez que [submeter a sua solução](https://azuremarketplace.microsoft.com/se
 Para obter mais informações sobre os benefícios de go-to-market da Microsoft e formas de fazer crescer o seu negócio no marketplace, visite o [página do Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## <a name="marketplace-and-storefronts"></a>Marketplace e de lojas 
 
-## <a name="storefronts"></a>Storefronts  
-A Microsoft fornece duas lojas distintas no marketplace. As lojas permitem-lhe listar ofertas, ative as versões de avaliação e negociar diretamente com os clientes da Microsoft.  
-*   Comparação entre o Azure Marketplace e o AppSource
-    *   Para obter mais informações sobre as lojas, visite o AppSource comparar e a página do Azure Marketplace localizado em [AppSource comparar e do Azure Marketplace](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   Para obter mais informações sobre o AppSource, visite crescer o seu negócio com o AppSource página localizado em [expandir seu negócio com o AppSource](./grow-your-business-with-appsource.md).  
-*   Azure Marketplace 
-    *   Para obter mais informações sobre o Azure Marketplace, visite a crescer a sua empresa com a página do Azure Marketplace localizada em [expandir seu negócio com o Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+A Microsoft fornece duas lojas distintas no nosso marketplace: AppSource e do Azure Marketplace. As lojas de marketplace são alinhadas com públicos-alvo e produtos cloud da Microsoft para ajudar os clientes facilmente encontrar exatamente aquilo de que precisam. 
 
-As lojas permitem-lhe encontrar, experimentar e comprar aplicações e serviços que Acelere a sua transformação digital. As vitrines na ajudar a expandir seus negócios ao aumentar o acesso aos clientes da Microsoft e parceiros.  
- 
-Cada loja fornece opções especializadas para o ajudar a maximizar o investimento de publicação. A tabela seguinte resume essas opções.  
+Escolher uma vitrine começa por identificar o público-alvo para a sua solução. Utilize a tabela seguinte para decidir: 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| Público-alvo | Tomadores de decisões de linha de negócio<table> <tr> <th>funções de especialista </th> </tr> <tr> <td>Contabilidade</td> </tr> <tr> <td>Aprovisionamento</td> </tr> <tr> <td>Fabrico</td> </tr> </table> | Os profissionais de TI e programadores<table> <tr> <th>funções de especialista </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| Público-alvo | Tomadores de decisões de linha de negócio | Os profissionais de TI e programadores | 
 | Criado com ou ampliar | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Tipos de soluções e serviços | Concluída a aplicações na cloud de linha de negócio<br />Suplementos do Office 365 | Soluções de infraestrutura<br />Serviços profissionais |  
-| Tipo de oferta | Serviços de consultoria<br />Contactar-me<br />Avaliação gratuita<br />Obtenha agora mesmo<br />Versão de teste | As aplicações do Azure: aplicações geridas<br />As aplicações do Azure: modelos de soluções<br />Serviços de consultoria<br />Contactar-me<br />Avaliação<br />máquina virtual |  
-| Experiência na aplicação para conceder acesso de utilizadores<br />para aplicações e serviços no contexto de<br />a aplicação | Dynamics 365<br />Office 365<br />Aplicações de cliente do Office<br />Power BI | Portal do Azure<br />CLI do Azure Resource Manager |  
+
+Cada loja fornece opções especializadas e recursos para maximizar a sua oportunidade de negócio. Para uma comparação mais detalhada das nossas lojas, visite [AppSource comparar e do Azure Marketplace](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

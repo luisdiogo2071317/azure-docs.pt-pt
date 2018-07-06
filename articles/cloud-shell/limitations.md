@@ -1,6 +1,6 @@
 ---
-title: Limitações de Shell de nuvem do Azure | Microsoft Docs
-description: Descrição geral das limitações da Shell de nuvem do Azure
+title: Limitações do Azure do Cloud Shell | Documentos da Microsoft
+description: Descrição geral das limitações do Azure Cloud Shell
 services: azure
 documentationcenter: ''
 author: jluk
@@ -14,73 +14,85 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590526"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855989"
 ---
-# <a name="limitations-of-azure-cloud-shell"></a>Limitações da Shell de nuvem do Azure
+# <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
-Shell de nuvem do Azure tem as seguintes limitações conhecidas:
+O Azure Cloud Shell tem as seguintes limitações conhecidas:
 
 ## <a name="general-limitations"></a>Limitações gerais
 
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
-A máquina que fornece a sua sessão de Shell de nuvem é temporária e é reciclado depois da sessão está inativa durante 20 minutos. Shell de nuvem necessita de uma partilha de ficheiros do Azure para possível montá-la. Como resultado, a subscrição tem de poder configurar recursos de armazenamento para aceder à Shell de nuvem. Outras considerações incluem:
+A máquina que fornece a sua sessão do Cloud Shell é temporária e ele é reciclado, depois da sessão está inativa durante 20 minutos. Cloud Shell requer uma partilha de ficheiros do Azure de ser montado. Como resultado, a sua subscrição tem de ser capaz de configurar recursos de armazenamento para aceder ao Cloud Shell. Outras considerações incluem:
 
-* Com o armazenamento montado, apenas as modificações dentro de `clouddrive` diretório são mantidas. No Bash, o `$Home` diretório também é persistente.
-* Partilhas de ficheiros do Azure podem ser montadas apenas a partir do seu [atribuído região](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Na Bash, execute `env` para localizar a sua região definida como `ACC_LOCATION`.
+* Com o armazenamento montado, apenas modificações do `$Home` diretório são mantidas.
+* Partilhas de ficheiros do Azure podem ser montadas apenas a partir do seu [atribuídos região](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * No Bash, execute `env` para encontrar a sua região definida como `ACC_LOCATION`.
 
-### <a name="browser-support"></a>Suporte de browsers
+### <a name="browser-support"></a>Suporte do browser
 
-Shell de nuvem suporta as versões mais recentes do Microsoft Edge, o Microsoft Internet Explorer, o Google Chrome, o Mozilla Firefox e o Apple Safari. Não é suportado o Safari no modo privado.
+Cloud Shell suporta as versões mais recentes do Microsoft Edge, o Microsoft Internet Explorer, o Google Chrome, o Mozilla Firefox e o Apple Safari. Não é suportado o Safari no modo privado.
 
 ### <a name="copy-and-paste"></a>Copiar e colar
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado utilizador, apenas uma shell pode estar ativa
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado usuário, apenas um shell pode estar ativa
 
-Os utilizadores podem apenas iniciar um tipo de shell de cada vez, ou **Bash** ou **PowerShell**. No entanto, pode ter várias instâncias de Bash ou o PowerShell está a executar em simultâneo. Trocar entre Bash ou PowerShell causas Shell da nuvem para reiniciar, que termina a sessão existente.
+Os utilizadores podem apenas iniciar um tipo de shell por vez, optar por **Bash** ou **PowerShell**. No entanto, pode ter várias instâncias de Bash ou do PowerShell em execução em simultâneo. A troca entre o Bash ou o PowerShell causas Cloud Shell para reiniciar, que termina sessões existentes.
 
 ### <a name="usage-limits"></a>Limites de utilização
 
-Shell de nuvem destina-se em casos de utilização interativo. Como resultado, as sessões não interativa de execução longa são terminadas sem aviso.
+Cloud Shell destina-se para casos de uso interativo. Como resultado, qualquer sessões de não-interativa de execução longa são terminadas sem aviso.
 
 ## <a name="bash-limitations"></a>Limitações de bash
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` não é continuado diretório.
+As permissões estão definidas como usuários regulares sem acesso de sudo. Qualquer instalação fora de sua `$Home` diretório não é persistente.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
-Tome atenção quando editar .bashrc, se o fizer, pode provocar erros inesperados na Shell de nuvem.
+Tenha cuidado de edição .bashrc, isso pode causar erros inesperados no Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
-### <a name="slow-startup-time"></a>Tempo de arranque lenta
+### <a name="azuread-module-name"></a>`AzureAD` nome do módulo
 
-PowerShell na Shell de nuvem do Azure (pré-visualização) pode demorar até 60 segundos para inicializar durante a pré-visualização.
+O `AzureAD` nome do módulo está atualmente `AzureAD.Standard.Preview`, o módulo fornece a mesma funcionalidade.
 
-### <a name="no-home-directory-persistence"></a>No $Home persistência de diretório
+### <a name="sqlserver-module-functionality"></a>`SqlServer` funcionalidade do módulo
 
-Os dados escritos `$Home` por qualquer aplicação (tais como: git, vim e outros) não sejam mantidas entre sessões do PowerShell. Para obter uma solução, [apresentada aqui](troubleshooting.md#powershell-troubleshooting).
+O `SqlServer` módulo incluído no Cloud Shell tem suporte apenas de pré-lançamento para o PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando a criação do disco do Azure:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando criado a partir do disco do Azure:
 
-Utilizar cmdlets do PowerShell, os utilizadores não é podem criar os ficheiros na unidade do Azure. Quando os utilizadores criam novos ficheiros utilizando outras ferramentas, tal como vim ou nano for apresentado, os ficheiros são guardados para a pasta de C:\Users por predefinição. 
+Utilizar cmdlets do PowerShell, os utilizadores não é podem criar arquivos sob a unidade do Azure. Quando os utilizadores criam novos ficheiros com outras ferramentas, como vim ou nano, os ficheiros são guardados para a `$HOME` por predefinição. 
 
-### <a name="gui-applications-are-not-supported"></a>Não são suportadas aplicações de GUI
+### <a name="gui-applications-are-not-supported"></a>Aplicativos de GUI não são suportados
 
-Se o utilizador executa um comando que iria criar uma caixa de diálogo do Windows, tais como `Connect-AzureAD` ou `Connect-AzureRmAccount`, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se o usuário executa um comando que seria criar uma caixa de diálogo do Windows, tal como `Connect-AzureAD` ou `Connect-AzureRmAccount`, um vê como uma mensagem de erro: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>Conclusão de tabulação falha PSReadline
+
+Se EditMode o utilizador no PSReadline estiver definido como Emacs, o utilizador tenta exibir todas as possibilidades por meio de conclusão de tabulação e o tamanho da janela é demasiado pequeno para exibir todas as possibilidades, PSReadline falhará.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Grande lacuna depois de exibir a barra de progresso
+
+Se o utilizador efetua uma ação que exibe uma barra, tal um separador de progresso conclusão ao mesmo tempo no `Azure:` unidade, em seguida, é possível que o cursor não está corretamente definido e uma lacuna aparece em que a barra de progresso era anteriormente.
+
+### <a name="random-characters-appear-inline"></a>Caracteres aleatórios são apresentadas inline
+
+A sequência de posição do cursor códigos, por exemplo `5;13R`, pode aparecer na entrada do usuário.  Os caracteres podem ser removidos manualmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Resolução de problemas de nuvem de Shell](troubleshooting.md) <br>
+[Resolução de problemas do Cloud Shell](troubleshooting.md) <br>
 [Início Rápido para o Bash](quickstart.md) <br>
 [Início rápido para o PowerShell](quickstart-powershell.md)

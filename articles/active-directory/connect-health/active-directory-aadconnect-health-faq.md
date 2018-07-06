@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Connect Health FAQ – Azure | Microsoft Docs
-description: Estas perguntas mais frequentes respondem a dúvidas sobre o Azure AD Connect Health. Estas perguntas mais frequentes incluem perguntas sobre como utilizar o serviço, incluindo o modelo de faturação, capacidades, limitações e suporte.
+title: Azure Active Directory Connect FAQ de estado de funcionamento - Azure | Documentos da Microsoft
+description: Encontre respostas para perguntas sobre o Azure AD Connect Health. Estas perguntas mais frequentes incluem perguntas sobre como utilizar o serviço, incluindo o modelo de faturação, capacidades, limitações e suporte.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 957a68c80f9fcc07ef6f84b2b08f344745a58d95
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282203"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866029"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
-Este artigo inclui as respostas a perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas perguntas mais frequentes incluem perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
+Este artigo contém respostas para perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas FAQ sobre perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
 
 ## <a name="general-questions"></a>Perguntas gerais
-**P: Posso gerir vários diretórios do Azure AD. Como mudar para um que tenha o Azure Active Directory Premium**
+**P: Posso gerir vários diretórios do Azure AD. Como posso alternar para aquele que tem o Azure Active Directory Premium?**
 
-Alternar entre diferentes inquilinos do Azure AD, selecione o atualmente com sessão iniciada **nome de utilizador** no canto superior-direito canto e, em seguida, escolha a conta apropriada. Se a conta não está listada, selecione **terminar sessão**e, em seguida, utilizar as credenciais de administrador global do diretório que tem o Azure Active Directory Premium ativado para iniciar sessão.
+Para alternar entre diferentes inquilinos do Azure AD, selecione o atualmente com sessão iniciada **nome de utilizador** no canto superior direito canto e, em seguida, selecione a conta apropriada. Se a conta não estiver listada aqui, selecione **terminar sessão**e, em seguida, utilizar as credenciais de administrador global do diretório que tem o Azure Active Directory Premium ativado para iniciar sessão.
 
 **P: qual a versão das funções de identidade são suportadas pelo Azure AD Connect Health?**
 
-A tabela seguinte lista as funções e versões de sistema operativo.
+A tabela seguinte lista as funções e as versões de sistema operativo suportadas.
 
 |Função| Sistema operativo / versão|
 |--|--|
@@ -39,121 +39,129 @@ A tabela seguinte lista as funções e versões de sistema operativo.
 |Azure AD Connect | Versão 1.0.9125 ou superior|
 |Serviços de domínio do Active Directory (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
-Tenha em atenção que as funcionalidades fornecidas pelo serviço podem diferir consoante a função e o sistema operativo. Por outras palavras, todas as funcionalidades poderão não estar disponíveis em todas as versões de sistema operativo. Consulte as descrições de funcionalidade para obter mais detalhes.
+Tenha em atenção que as funcionalidades fornecidas pelo serviço podem divergir com base na função e o sistema operativo. Em outras palavras, todas as funcionalidades poderão não estar disponíveis para todas as versões de sistema operativo. Consulte as descrições de funcionalidade para obter detalhes.
 
 **P: o número de licenças é necessário monitorizar a minha infraestrutura?**
 
-* O agente de estado de funcionamento ligar primeiro requer pelo menos uma licença do Azure AD Premium.
+* O primeiro agente de estado de funcionamento do Connect requer pelo menos uma licença do Azure AD Premium.
 * Cada agente registado adicional requer 25 licenças adicionais do Azure AD Premium.
-* Contagem de agentes é equivalente ao número total de agentes que estão registados em todas as funções monitorizadas (AD FS, o Azure AD Connect, e/ou do AD DS).
-* Licenciamento do AAD Connect Health não necessita de atribuir as licenças a utilizadores específicos. Só tem de ter o número de requisitos de licenças válidas.
+* Contagem de agentes é equivalente ao número total de agentes que estão registados em todas as funções monitorizadas (AD FS, Azure AD Connect, e/ou AD DS).
+* Licenciamento do AAD Connect Health não necessita de atribuir a licença aos utilizadores específicos. Só tem de ter o número previsto de licenças válidas.
 
-Informações de licenciamento também é possível localizar no [página de preços do Azure AD](https://aka.ms/aadpricing).
+Informações de licenciamento também pode ser encontradas no [página de preços do Azure AD](https://aka.ms/aadpricing).
 
 Exemplo:
 
-| Agentes registados | Licenças necessárias | Configuração de monitorização de exemplo |
+| Agentes registrados | Licenças necessárias | Configuração de monitorização de exemplo |
 | ------ | --------------- | --- |
 | 1 | 1 | 1 servidor do azure AD Connect |
-| 2 | 26| 1 do azure AD Connect servidor e o controlador de 1 domínio |
+| 2 | 26| 1 servidor do azure AD Connect e o controlador de 1 domínio |
 | 3 | 51 | 1 servidor de serviços de Federação do Active Directory (AD FS), o proxy de 1 AD FS e o controlador de 1 domínio |
-| 4 | 76 | Servidor de 1 AD FS, proxy 1 AD FS e 2 controladores de domínio |
+| 4 | 76 | Servidor 1 AD FS, proxy 1 AD FS e 2 controladores de domínio |
 | 5 | 101 | 1 servidor do azure AD Connect, servidor 1 AD FS, proxy 1 AD FS e 2 controladores de domínio |
 
-**P: É o suporte do Azure AD Connect Health nuvem de Datacenters do Azure?**
+**P: O suporte do Azure AD Connect Health do Azure Germany Cloud?**
 
-O Azure AD Connect Health tem um [instalação](active-directory-aadconnect-health-agent-install.md) para Datacenters do Azure. Todos os dados para os clientes da nuvem alemão é mantida na nuvem de Datacenters do Azure.
+O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto para o [funcionalidade de relatório de erros de sincronização](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview). 
 
+| Funções | Funcionalidades | Suportado na Cloud da Alemanha |
+| ------ | --------------- | --- |
+| Connect Health para sincronização | Monitorização / Insight / alertas / análise | Não |
+|  | Relatório de erros de sincronização | Sim |
+| Connect Health para AD FS | Monitorização / Insight / alertas / análise | Não |
+| Connect Health para o ADDS | Monitorização / Insight / alertas / análise | Não |
+
+Para garantir a conectividade de agente do Connect Health para sincronização, configure as [requisito de instalação](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) em conformidade.   
 
 ## <a name="installation-questions"></a>Perguntas de instalação
 
-**P: qual é o impacto de instalar o agente do Azure AD Connect Health em servidores individuais?**
+**P: qual é o impacto da instalação do agente do Azure AD Connect estado de funcionamento em servidores individuais?**
 
-O impacto de instalar o agente do Microsoft Azure AD Connect Health AD FS, servidores de proxy de aplicações web, servidores do Azure AD Connect (sincronização), controladores de domínio é mínimo relativamente a CPU, consumo de memória, largura de banda de rede e armazenamento.
+O impacto da instalação do agente do Microsoft Azure AD Connect Health, do AD FS, servidores de proxy de aplicações web, servidores do Azure AD Connect (sincronização), controladores de domínio é mínimo em relação à CPU, consumo de memória, largura de banda de rede e armazenamento.
 
-Os seguintes números são uma aproximação do seu:
+Os números a seguir são uma aproximação:
 
-* O consumo da CPU: ~ 1 a 5% aumento.
-* Consumo de memória: até 10% da total da memória do sistema.
+* Consumo da CPU: ~ 1 a 5% de aumento.
+* Consumo de memória: até 10% da memória total do sistema.
 
 > [!NOTE]
-> Se o agente não consegue comunicar com o Azure, o agente armazena os dados localmente para um limite máximo definido. O agente substitui os dados de forma "menos recentemente servidos" "em cache".
+> Se o agente não consegue comunicar com o Azure, o agente armazena os dados localmente para um limite máximo definido. O agente substitui os dados "em cache" numa base "menos recentemente servidos".
 >
 >
 
-* Armazenamento local da memória intermédia para agentes de estado de funcionamento ligar do Azure AD: ~ 20 MB.
-* Para servidores do AD FS, recomendamos que aprovisionar um espaço de disco de 1.024 MB (1 GB) para o canal de auditoria do AD FS do Azure AD os agentes Connect Health processar todos os dados de auditoria é substituído.
+* Armazenamento de memória intermédia local para agentes do Azure AD Connect Health: ~ 20 MB.
+* Para servidores do AD FS, recomendamos que aprovisiona um espaço de disco de 1.024 MB (1 GB) para o canal de auditoria do AD FS para o Azure agentes AD Connect Health processar todos os dados de auditoria antes que ela seja substituída.
 
-**P: Posso terá de reiniciar os meus servidores durante a instalação de agentes do AD Connect Health do Azure?**
+**P: será necessário reiniciar meus servidores durante a instalação de agentes do Azure AD Connect Health?**
 
-Não. A instalação dos agentes não requerem a reiniciar o servidor. No entanto, a instalação de alguns passos dos pré-requisitos poderá exigir um reinício do servidor.
+Não. A instalação dos agentes não exigirá que reiniciar o servidor. No entanto, a instalação de alguns passos de pré-requisitos pode exigir um reinício do servidor.
 
-Por exemplo, no Windows Server 2008 R2, a instalação do .NET 4.5 Framework requer um reinício do servidor.
+Por exemplo, no Windows Server 2008 R2, a instalação do .NET 4.5 Framework requer a reinicialização do servidor.
 
-**P: É o trabalho do Azure AD Connect Health através de um proxy HTTP pass-through?**
+**P: o Azure AD Connect Health funciona através de um proxy HTTP pass-through?**
 
 Sim. Para operações em curso, pode configurar o agente de estado de funcionamento para utilizar um proxy HTTP para reencaminhar pedidos de HTTP de saída.
 Leia mais sobre [configurar o Proxy de HTTP para os agentes de estado de funcionamento](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
-Se precisar de configurar um proxy durante o registo do agente, poderá ter de modificar as definições de Proxy do Internet Explorer previamente.
+Se precisar de configurar um proxy durante o registo do agente, poderá ter de modificar as definições de Proxy do Internet Explorer com antecedência.
 
-1. Abra o Internet Explorer > **definições** > **opções da Internet** > **ligações** > **definições de LAN** .
-2. Selecione **utilizar um servidor Proxy para a sua LAN**.
-3. Selecione **avançadas** se tiver portas proxy diferente para HTTP e HTTPS/seguro.
+1. Abra o Internet Explorer > **configurações** > **opções da Internet** > **ligações** > **definições de LAN** .
+2. Selecione **utilizar um servidor Proxy para a rede local**.
+3. Selecione **avançadas** se tiver portas de proxy diferente para HTTP e HTTPS/seguro.
 
-**P: funciona a autenticação básica de suporte do Azure AD Connect Health ao estabelecer ligação com HTTP proxies?**
+**P: o autenticação básica do suporte do Azure AD Connect Health ao ligar a HTTP proxies?**
 
-Não. Um mecanismo para especificar um nome de utilizador arbitrária e a palavra-passe para a autenticação básica não é atualmente suportado.
+Não. Um mecanismo para especificar um nome de usuário arbitrários e a palavra-passe para a autenticação básica não é atualmente suportado.
 
-**P: as portas de firewall é necessário abrir para o agente do Azure AD Connect estado de funcionamento funcionar?**
+**P: para que as portas de firewall é necessário abrir para o agente do Azure AD Connect estado de funcionamento trabalhar?**
 
-Consulte o [secção requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para a lista de portas de firewall e outros requisitos de conectividade.
+Consulte a [secção de requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter a lista de portas de firewall e outros requisitos de conectividade.
 
-**P: por que razão vejo dois servidores com o mesmo nome no portal do Azure AD Connect Health?**
+**P: por que vejo os dois servidores com o mesmo nome no portal do Azure AD Connect Health?**
 
-Quando remove um agente de um servidor, o servidor não é removido automaticamente do portal do Azure AD Connect Health. Se remover um agente de um servidor manualmente ou remova o próprio servidor, terá de eliminar manualmente a entrada de servidor a partir do portal do Azure AD Connect Health.
+Quando remove um agente de um servidor, o servidor não é removido automaticamente do portal do Azure AD Connect Health. Se remover um agente de um servidor manualmente ou remova o servidor propriamente dito, terá de eliminar manualmente a entrada do servidor a partir do portal do Azure AD Connect Health.
 
-Pode recriar um servidor ou criar um novo servidor com os detalhes do mesmos (por exemplo, o nome do computador). Se não removeu o servidor já registado a partir do portal do Azure AD Connect Health e instalar o agente no novo servidor, poderá ver duas entradas com o mesmo nome.
+Pode recriar a imagem de um servidor ou criar um novo servidor com os detalhes do mesmo (por exemplo, o nome do computador). Se não tenha removido o servidor já registado a partir do portal do Azure AD Connect Health e tiver instalado o agente no novo servidor, poderá ver duas entradas com o mesmo nome.
 
 Neste caso, elimine manualmente a entrada que pertence o servidor antigo. Os dados para este servidor devem estar desatualizados.
 
-## <a name="health-agent-registration-and-data-freshness"></a>Actualização de dados e de registo do agente de estado de funcionamento
+## <a name="health-agent-registration-and-data-freshness"></a>Atualização de dados e de registo do agente de estado de funcionamento
 
-**P: quais são razões comuns para as falhas de registo do agente de estado de funcionamento e como resolver problemas?**
+**P: quais são as razões comuns para as falhas de registo do agente de estado de funcionamento e como resolver problemas?**
 
-O agente de estado de funcionamento pode falhar registar devido a pelas seguintes razões possíveis:
+O agente de estado de funcionamento poderão não conseguir registar devido a algumas das razões possíveis seguintes:
 
-* O agente não consegue comunicar com os pontos finais necessários porque existe uma firewall a bloquear tráfego. Isto é particularmente comum em servidores de proxy de aplicações web. Certifique-se de que têm permitido comunicações de saída para as portas e os pontos finais necessários. Consulte o [secção requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter mais detalhes.
-* Comunicação de saída é sujeitos a inspeção de SSL pela camada de rede. Isto faz com que o certificado que o agente utiliza para ser substituído pela inspeção servidor/entidade e efetuar os passos para concluir o registo do agente.
-* O utilizador não tem acesso para executar o registo do agente. Administradores globais têm acesso por predefinição. Pode utilizar [controlo de acesso baseado em funções](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) para delegar o acesso a outros utilizadores.
+* O agente não consegue comunicar com os pontos finais necessários, porque existe uma firewall a bloquear tráfego. Isso é particularmente comum em servidores de proxy de aplicações web. Certifique-se de que tem a permissão comunicações de saída para as portas e pontos finais necessários. Consulte a [secção de requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para obter detalhes.
+* Comunicações de saída estão sujeita à inspeção do SSL pela camada de rede. Isso faz com que o certificado que o agente utiliza para ser substituído pela inspeção servidor/entidade e os passos para concluir o registo do agente falharem.
+* O utilizador não tem acesso para efetuar o registo do agente. Por predefinição, os administradores globais têm acesso. Pode usar [controlo de acesso baseado em funções](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) para delegar o acesso a outros utilizadores.
 
-**P: Posso estou obter alertado que "dados do serviço de estado de funcionamento não estão atualizados." Como posso resolver o problema?**
+**P: Estou obtendo alertado que "dados do serviço de estado de funcionamento não estão atualizados." Como posso resolver o problema?**
 
-O Azure AD Connect Health gera o alerta quando este não recebe todos os pontos de dados do servidor nas últimas duas horas. [Leia mais](active-directory-aadconnect-health-data-freshness.md).
+O Azure AD Connect Health gera o alerta quando não recebe todos os pontos de dados do servidor nas últimas duas horas. [Leia mais](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Perguntas de operações
-**P: é necessário ativar a auditoria nos servidores de proxy de aplicações web?**
+**P: é necessário ativar a auditoria em servidores de proxy de aplicações web?**
 
-Não, auditoria não precisa de ser ativada em servidores de proxy de aplicações web.
+Não, a auditoria não precisa de ser ativada em servidores de proxy de aplicações web.
 
-**P: como obter resolver alertas do Azure AD Connect Health?**
+**P: como são resolvidas alertas do Azure AD Connect Health?**
 
-Alertas do Azure AD Connect Health obterem resolvidas numa condição de sucesso. Agentes de estado de funcionamento ligar do Azure AD detetar e comunicar as condições de êxito ao serviço periodicamente. Para alguns alertas, a supressão é baseados no tempo. Por outras palavras, se a condição de erro mesmo não é observada dentro de 72 horas da geração de alertas, o alerta é resolvido automaticamente.
+Alertas do Azure AD Connect Health são resolvidas numa condição de sucesso. Agentes do Azure AD Connect Health detetar e comunicar as condições de êxito ao serviço periodicamente. Para alguns alertas, a supressão é baseado no tempo. Em outras palavras, se a mesma condição de erro não é observada dentro de 72 horas a partir de geração de alertas, o alerta é resolvido automaticamente.
 
-**P: Posso estou obter alertado que "o pedido de autenticação de teste (transação sintética) não conseguiu obter um token." Como posso resolver o problema?**
+**P: Estou obtendo alertado que "o pedido de autenticação de teste (transação sintética) não conseguiu obter um token." Como posso resolver o problema?**
 
-Azure AD Connect Health para AD FS gera este alerta quando o agente de estado de funcionamento instalado num servidor do AD FS não consegue obter um token como parte de uma transação sintética iniciada pelo agente de estado de funcionamento. O agente de estado de funcionamento utiliza o contexto de sistema local e tenta obter um token para um self entidade confiadora. Este é um teste de catch-all para se certificar de que o AD FS está num Estado de emissão de tokens.
+O Azure AD Connect Health para AD FS gera este alerta quando o agente de estado de funcionamento instalado num servidor do AD FS não consegue obter um token como parte de uma transação sintética iniciada pelo agente de estado de funcionamento. O agente de estado de funcionamento utiliza o contexto de sistema local e tenta obter um token para uma reposição personalizada da entidade confiadora de terceiros. Este é um teste de catch-all para se certificar de que o AD FS está num Estado de emissão de tokens.
 
-Frequentemente este teste falha porque o agente de estado de funcionamento se não é possível resolver o nome do farm do AD FS. Isto pode acontecer se os servidores AD FS atrás de um balanceadores de carga de rede e o pedido obtém iniciado a partir de um nó que está atrás do Balanceador de carga (por oposição a um cliente regular que é à frente do Balanceador de carga). Isto pode ser corrigido atualizando o ficheiro de "anfitriões" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). Adicionar o ficheiro do anfitrião serão short-circuit a chamada de rede, permitindo assim que o agente de estado de funcionamento para obter o token.
+Frequentemente este teste falha porque o agente de estado de funcionamento não consegue resolver o nome do farm do AD FS. Isto pode acontecer se os servidores AD FS estão por trás de um balanceadores de carga de rede e o pedido obtém iniciado a partir de um nó que está por detrás do Balanceador de carga (ao contrário de um cliente regular que está à frente do Balanceador de carga). Isso pode ser corrigido ao atualizar o ficheiro "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). Adicionar o ficheiro do anfitrião serão cortar a chamada de rede, permitindo assim que o agente de estado de funcionamento obter o token.
 
-**P: Posso recebeu uma mensagem de e-mail a indicar que meus computadores não estão corrigidos para ataques de ransomeware recentes. Por que motivo recebeu este e-mail?**
+**P: Tenho um e-mail com a indicação de que minhas máquinas não sejam corrigidas para os recentes ataques de ransomeware. Por que recebeu este e-mail?**
 
-Serviço do Azure AD Connect Health analisados todas as máquinas que monitoriza para garantir que os patches necessários foram instaladas. Mensagem de correio eletrónico foi enviada para os administradores de inquilinos se pelo menos uma máquina não tinha os patches críticos. A seguinte lógica foi utilizada para efetuar este determinação.
-1. Localize todas as correções instaladas no computador.
-2. Verifique se pelo menos uma das correções da lista está presente.
-3. Se Sim, a máquina está protegida. Caso contrário, a máquina está em risco de ataque.
+O serviço do Azure AD Connect Health analisados todas as máquinas que monitoriza para garantir que os patches necessários foram instaladas. O e-mail foi enviado para os administradores do inquilino se pelo menos uma máquina não tinha os patches críticos. A seguinte lógica foi utilizada para efetuar este determinação.
+1. Encontre todos os hotfixes instalados na máquina.
+2. Verifique se pelo menos uma das correções da lista definida está presente.
+3. Se Sim, a máquina está protegida. Caso contrário, a máquina está em risco para o ataque.
 
-Pode utilizar o seguinte script do PowerShell para executar esta verificação manualmente. Implementa a lógica acima.
+Pode utilizar o seguinte script do PowerShell para executar esta verificação manualmente. Ele implementa a lógica acima.
 
 ```
 Function CheckForMS17-010 ()
@@ -176,13 +184,13 @@ CheckForMS17-010
 
 ```
 
-**P: por que motivo o cmdlet do PowerShell <i>Get-MsolDirSyncProvisioningError</i> mostrar menos erros de sincronização no resultado de?**
+**P: por que motivo faz o cmdlet do PowerShell <i>Get-MsolDirSyncProvisioningError</i> mostrar menos erros de sincronização no resultado?**
 
-<i>Get-MsolDirSyncProvisioningError</i> só irá devolver erros de aprovisionamento do DirSync. Além disso, portal do Connect Health também mostra outra sincronização de tipos de erro, como erros de exportação. Isto é consistente com o resultado de diferenças do Azure AD Connect. Leia mais sobre [erros do Azure AD Connect sincronização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>Get-MsolDirSyncProvisioningError</i> só irá devolver erros de aprovisionamento do DirSync. Além disso, portal do Connect Health também mostra outra sincronização de tipos de erro, como erros de exportação. Isso é consistente com o resultado de delta do Azure AD Connect. Leia mais sobre [erros do Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
-**P: por que razão são os meus ADFS auditorias não gerado?**
+**P: por que razão as minhas ADFS Audita a ser gerado, não?**
 
-Utilize o cmdlet do PowerShell <i>Get-AdfsProperties - AuditLevel</i> garantir que os registos de auditoria não se encontra num Estado de desativada. Leia mais sobre [registos de auditoria do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Aviso que se são avançadas de definições de auditoria enviadas por push para o servidor do ADFS, quaisquer alterações com auditpol.exe será substituído (evento se gerado de aplicação não estiver configurado). Neste caso, defina a política de segurança local para iniciar sessão falhas de aplicação gerados e o sucesso. 
+Utilize o cmdlet do PowerShell <i>Get-AdfsProperties - AuditLevel</i> garantir que os registos de auditoria não está no estado desativado. Leia mais sobre [registos de auditoria do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que se são avançadas de definições de auditoria enviadas para o servidor do AD FS, quaisquer alterações Auditpol.exe serão substituído (evento se a aplicação gerada não está configurada). Neste caso, defina a política de segurança local para iniciar sessão falhas de aplicação gerados e o sucesso. 
 
 
 ## <a name="related-links"></a>Ligações relacionadas

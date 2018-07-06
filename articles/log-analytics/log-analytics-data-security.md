@@ -1,6 +1,6 @@
 ---
-title: Registo de segurança de dados de análise | Microsoft Docs
-description: Saiba mais sobre como a análise de registos protege a sua privacidade e protege os seus dados.
+title: Segurança de dados de análise de registo | Documentos da Microsoft
+description: Saiba mais sobre como o Log Analytics protege a sua privacidade e protege os seus dados.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 7596428b4ed067bf53f3b295a1682ed372f8d472
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131449"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859786"
 ---
-# <a name="log-analytics-data-security"></a>Registo de segurança de dados de análise
-Este documento destina-se para fornecer informações específicas do Log Analytics do Azure para complementar as informações no [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
+# <a name="log-analytics-data-security"></a>Segurança de dados de análise de registo
+Este documento destina-se para fornecer informações específicas do Log Analytics do Azure para complementar as informações sobre [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
 
-Este artigo explica como os dados são recolhidos, processados e protegidos pela análise de registos. Pode utilizar os agentes para ligar ao serviço web, utilize o System Center Operations Manager para recolher dados operacionais ou obter dados de diagnóstico do Azure para utilização por análise de registos. 
+Este artigo explica como os dados são recolhidos, processados e protegidos pelo Log Analytics. Pode utilizar agentes para ligar ao serviço web, utilize o System Center Operations Manager para recolher dados operacionais ou obter dados de diagnóstico do Azure para utilização pelo Log Analytics. 
 
-O serviço de análise de registos gere os dados baseados na nuvem em segurança através dos seguintes métodos:
+O serviço Log Analytics gere os seus dados com base na cloud em segurança, utilize os seguintes métodos:
 
 * Segregação de dados
 * Retenção de dados
@@ -36,136 +36,135 @@ O serviço de análise de registos gere os dados baseados na nuvem em segurança
 * Conformidade
 * Certificações de normas de segurança
 
-Contacte-nos com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo as nossas políticas de segurança ao [as opções de suporte do Azure](http://azure.microsoft.com/support/options/).
+Contacte-nos com quaisquer dúvidas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo as nossas políticas de segurança em [opções de suporte do Azure](http://azure.microsoft.com/support/options/).
 
 ## <a name="data-segregation"></a>Segregação de dados
-Depois dos dados é ingeridos pelo serviço de análise de registos, os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por área de trabalho. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço. Os dados são armazenados numa base de dados dedicado no cluster de armazenamento na região que selecionou.
+Depois dos dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por área de trabalho. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço. Os dados são armazenados numa base de dados dedicado do cluster de armazenamento na região que selecionou.
 
 ## <a name="data-retention"></a>Retenção de dados
-Dados de pesquisa indexada do registo são armazenados e mantidos, de acordo com seu plano de preços. Para obter mais informações, consulte [preços de análise do registo](https://azure.microsoft.com/pricing/details/log-analytics/).
+Dados de pesquisa indexada do registo são armazenados e mantidos, de acordo com o plano de preços. Para obter mais informações, consulte [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Como parte da sua [contrato de subscrição](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft irá manter os dados nos termos do contrato.  Quando os dados são eliminados, que também eliminar a conta de armazenamento do Azure onde residem os dados.  Quando os dados de cliente for removidos, serão destruídas não unidades físicas.  
+Como parte da sua [contrato de subscrição](https://azure.microsoft.com/support/legal/subscription-agreement/), a Microsoft retém os dados nos termos do contrato.  Quando os dados são eliminados, também podemos eliminar a conta de armazenamento do Azure, onde os dados residem.  Quando os dados do cliente for removidos, não existem unidades físicas são destruídas.  
 
 A tabela seguinte lista algumas das soluções disponíveis e fornece exemplos dos tipos de dados que recolher.
 
 | **Solução** | **Tipos de dados** |
 | --- | --- |
-| Capacidade e o desempenho |Dados de desempenho e metadados |
-| Avaliação de Software Maligno |Dados de configuração e metadados |
+| Capacidade e desempenho |Dados de desempenho e metadados |
 | Gestão de Atualizações |Dados de metadados e o Estado |
-| Gestão de Registos |Definido pelo utilizador registos de eventos, os registos de eventos do Windows e/ou os registos de IIS |
-| Monitorização de Alterações |Inventário de software, o serviço Windows e Linux daemon metadados e metadados de ficheiro do Windows/Linux |
-| SQL Server e de avaliação do Active Directory |Dados WMI, dados de registo, dados de desempenho e gestão dinâmica do SQL Server ver resultados |
+| Gestão de Registos |Definido pelo utilizador registos de eventos, registos de eventos do Windows e/ou registos do IIS |
+| Monitorização de Alterações |Inventário de software, serviço do Windows e Linux daemon metadados e metadados de ficheiros do Windows/Linux |
+| SQL e de avaliação do Active Directory |Dados do WMI, dados de registo, dados de desempenho e gerenciamento dinâmico do SQL Server ver resultados |
 
 A tabela seguinte mostra exemplos dos tipos de dados:
 
 | **Tipo de dados** | **Campos** |
 | --- | --- |
-| Alerta |Alerta de nome, descrição do alerta, Timemodified, ID do problema, IsMonitorAlert, RuleId, estado de resolução do, prioridade, gravidade, categoria, proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, RepeatCount TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, |
+| Alerta |Alerta de nome, descrição do alerta, Timemodified, ID do problema, IsMonitorAlert, RuleId, ResolutionState, prioridade, gravidade, categoria, proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, RepeatCount TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** quando escreve eventos com campos personalizados no registo de eventos do Windows, OMS recolhe-los. |
+| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** quando escreve eventos com campos personalizados no registo de eventos do Windows, o Log Analytics recolhe-los. |
 | Metadados |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Desempenho |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Segurança física
-O serviço de análise de registos é gerido pela equipa da Microsoft e todas as atividades são registadas e podem ser auditadas. Análise de registos é operada como um serviço do Azure e cumpre todos os requisitos de segurança e de conformidade do Azure. Pode ver detalhes sobre a segurança física dos recursos do Azure na página 18 do [descrição geral de segurança do Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Direitos de acesso físico a áreas de proteger são alterados dentro de um dia útil para qualquer pessoa que já não tem responsabilidade para o serviço do OMS, incluindo a transferência e terminação. Pode ler sobre a infraestrutura física global utilizamos em [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
+O serviço Log Analytics é gerido pela equipa da Microsoft e todas as atividades são registadas e podem ser auditadas. O log Analytics é operado como serviço do Azure e cumpre todos os requisitos de segurança e de conformidade do Azure. Pode ver os detalhes sobre a segurança física dos recursos do Azure na página 18 do [descrição geral de segurança do Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Direitos de acesso físico a áreas de proteger são alterados num dia útil para qualquer pessoa que já não tem a responsabilidade para o serviço do Log Analytics, incluindo a transferência e cessação. Pode ler sobre a infraestrutura física global que usamos em [Datacenters da Microsoft](https://azure.microsoft.com/en-us/global-infrastructure/).
 
 ## <a name="incident-management"></a>Gestão de incidentes
-OMS tem um processo de gestão de incidentes que cumprem todos os serviços Microsoft. Para resumir, iremos:
+Log Analytics tem um processo de gestão de incidentes que cumprem todos os serviços Microsoft. Para resumir, podemos:
 
-* Utilizar um modelo de responsabilidade partilhado onde uma parte de responsabilidade de segurança pertence à Microsoft e uma parte pertence ao cliente
+* Utilizar um modelo de responsabilidade partilhada em que uma parte da responsabilidade de segurança pertence à Microsoft e uma parte pertence ao cliente
 * Gerir incidentes de segurança do Azure:
-  * Iniciar uma investigação mediante a deteção de um incidente
-  * Avalie o impacto e a gravidade de um incidente por um membro da equipa de resposta a incidentes na chamada. A avaliação com base na provas, poderá ou não pode resultar em mais escalonamento para a equipa de resposta de segurança.
-  * Diagnosticar um incidente por especialistas de resposta de segurança para realizar a investigação forense ou técnica, identifique as estratégias de contenção, mitigação e solução. Se a equipa de segurança Deteta que dados de clientes podem tornar-se exposto até um indivíduo ilegal ou não autorizado, começa a execução paralela do processo de notificação do cliente incidente em paralelo.  
-  * Stabilize e recuperar o incidente. A equipa de resposta a incidentes cria um plano de recuperação para mitigar o problema. Passos de contenção crisis como quarentena sistemas afetados podem ocorrer imediatamente e em paralelo com diagnósticos adicionais. Poderão ser planeadas mais mitigações de termo que ocorrer após ter passado o risco de imediato.  
-  * Fechar o incidente e realize um mortem post. A equipa de resposta a incidentes cria um mortem post que descreve os detalhes do incidente, com a sua intenção para rever as políticas, procedimentos e processos para impedir que uma periodicidade do evento.
-* Notificar os clientes de incidentes de segurança:
-  * Determinar o âmbito dos clientes afetados e para fornecer a qualquer pessoa que é afetado como detalhadas um aviso quanto possível
-  * Crie um aviso para fornecer aos clientes com detalhadas informações suficientes para que estes possam efetuar uma investigação no respetivo fim e cumprir os compromissos que estas efetuou para os respetivos utilizadores finais enquanto não unduly atrasando o processo de notificação.
-  * Confirmar e declarar o incidente, conforme necessário.
-  * Notificar os clientes com uma notificação de incidente sem unreasonable atraso e em conformidade com qualquer legal ou contractual compromisso. Notificações de incidentes de segurança são entregues a uma ou mais dos administradores de um cliente por qualquer meio que seleciona da Microsoft, incluindo através de e-mail.
-* Realize a preparação de equipa e formação:
-  * Equipa da Microsoft é necessárias para concluir a segurança e a preparação de deteção, o que ajuda-las para identificar e comunicar problemas de segurança suspeito.  
-  * O serviço Microsoft Azure a trabalhar os operadores têm obrigações de formação de adição envolvente o acesso a sistemas confidenciais que alojam dados de cliente.
-  * Técnico de resposta de segurança do Microsoft recebe formação especializada para as respetivas funções
+  * Iniciar uma investigação após a deteção de um incidente
+  * Avalie o impacto e a gravidade de um incidente por um membro da equipa de resposta a incidentes na chamada. Com base na evidência, a avaliação pode ou não pode resultar em mais de escalonamento para a equipa de resposta de segurança.
+  * Diagnosticar um incidente por especialistas de resposta de segurança para conduzir a investigação forense ou técnica, identifique as estratégias de contenção, atenuação e solução. Se a equipe de segurança acredita que os dados dos clientes podem ficar expostos a uma pessoa não autorizada ou ilícita, começa a execução paralela do processo de notificação de incidente do cliente em paralelo.  
+  * Estabilizar e recuperar do incidente. A equipe de resposta a incidentes cria um plano de recuperação para mitigar o problema. Passos de contenção de crise, tais como os colocar em quarentena sistemas afetados podem ocorrer em paralelo com o diagnóstico e imediatamente. Podem ser planeadas atenuações de termo mais tempo do que ocorrem após ter passado o risco de imediato.  
+  * Fechar o incidente e realizar um post-mortem. A equipe de resposta a incidentes cria um post-mortem que descreve os detalhes do incidente, com a intenção revisar diretivas, procedimentos e processos para impedir que uma periodicidade do evento.
+* Notifique os clientes de incidentes de segurança:
+  * Determinar o escopo dos clientes afetados e para fornecer qualquer pessoa que é afetado como detalhadas um aviso de possível
+  * Crie um aviso para fornecer aos clientes detalhadas informações suficientes para que eles possam realizar uma investigação no respetivo fim e cumprir qualquer compromissos que tenha introduzido aos usuários finais enquanto não preocupavam indevidamente atrasando o processo de notificação.
+  * Confirme e declarar o incidente, conforme necessário.
+  * Notifique os clientes com uma notificação de incidente sem atraso razoável e em conformidade com qualquer compromisso legal ou contratual. Notificações de incidentes de segurança são entregues a um ou mais dos administradores de um cliente por qualquer meio que seleciona da Microsoft, incluindo através de e-mail.
+* Preparação da equipe de conduta e treinamento:
+  * As equipas da Microsoft são necessárias para concluir a segurança e treinamento de reconhecimento, que ajuda a identificar e comunicar problemas de segurança suspeitos.  
+  * Operadores de trabalhar no serviço do Microsoft Azure tem obrigações de treinamento de adição que envolvem o acesso a sistemas confidenciais que aloja os dados de cliente.
+  * Equipe de resposta de segurança do Microsoft recebe treinamento especializado para as respetivas funções
 
-Se ocorrer a perda de quaisquer dados de cliente, iremos notificá-lo cada cliente dentro de um dia. No entanto, a perda de dados de cliente nunca foi excedido com o serviço. 
+Se ocorrer a perda de todos os dados dos clientes, iremos notificá-cada customer dentro de um dia. No entanto, perda de dados do cliente nunca ocorreu com o serviço. 
 
-Para obter mais informações sobre como o Microsoft responde a incidentes de segurança, consulte [na nuvem do Microsoft Azure Security Response](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
+Para obter mais informações sobre como a Microsoft responde a incidentes de segurança, consulte [resposta de segurança do Microsoft Azure na Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Conformidade
-Programa de segurança e governação de informações da análise de registos software desenvolvimento e o serviço da equipa suporta os requisitos de negócio e em conformidade com as leis e regulamentos conforme descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [ Compatibilidade de centro de confiança do Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Como Log Analytics estabelece requisitos de segurança, identifica os controlos de segurança, gere, monitores e riscos também estão descritas não existe. Anual, vamos rever as políticas, normas, diretrizes e procedimentos.
+Programa de segurança e governação de informações do Log Analytics software serviço e de desenvolvimento da Equipe oferece suporte a seus requisitos de negócio e em conformidade com as leis e regulamentos, conforme descrito em [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) e [ Conformidade com o Centro de fidedignidade do Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Como Log Analytics estabelece requisitos de segurança, identifica os controlos de segurança, gerencia e monitora os riscos também são descritas aqui. Anualmente, vamos rever políticas, normas, procedimentos e diretrizes.
 
-Cada membro da equipa de desenvolvimento recebe formação de segurança da aplicação formal. Internamente, iremos utilizar um sistema de controlo de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controlo de versão.
+Cada membro da equipe de desenvolvimento recebe treinamento de segurança de aplicativo formal. Internamente, usamos um sistema de controle de versão para o desenvolvimento de software. Cada projeto de software está protegido pelo sistema de controle de versão.
 
-A Microsoft tem uma equipa de segurança e conformidade supervisiona e avalia todos os serviços Microsoft. Officers de segurança de informações, certifique-se a equipa e que não estiverem associados a engenharia departamentos que desenvolvidas pela organização análise de registos. Os officers de segurança têm as seus próprios cadeia de gestão e realize avaliações independentes dos produtos e serviços para garantir a segurança e conformidade.
+A Microsoft tem uma equipa de segurança e conformidade que supervisiona e avalia todos os serviços Microsoft. Responsáveis pela segurança de informações compõem a equipe e não estão associadas com os departamentos de engenharia que desenvolve o Log Analytics. Os responsáveis pela segurança tem sua própria cadeia de gestão e realizar avaliações independentes dos produtos e serviços para garantir a segurança e conformidade.
 
-Placa da Microsoft do directors é notificada através de um relatório sobre todos os programas de segurança de informações na Microsoft anual.
+Conselho administrativo da Microsoft é notificado através de um relatório anual sobre todos os programas de segurança de informações da Microsoft.
 
-A equipa de desenvolvimento e o serviço de software do Log Analytics ativamente está a trabalhar com as equipas de Legal Microsoft e de conformidade e outros parceiros da indústria para adquirir certificações vários.
+A equipe de desenvolvimento e o serviço de software do Log Analytics está a trabalhar ativamente com as equipes da Microsoft Legal e conformidade e outros parceiros do setor para adquirir várias certificações.
 
-## <a name="certifications-and-attestations"></a>Certificações e attestations
-Análise de registos do Azure cumpre os seguintes requisitos:
+## <a name="certifications-and-attestations"></a>Certificações e atestados
+O Azure Log Analytics cumpre os seguintes requisitos:
 
 * [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
 * [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
-* [Padrão de segurança do dados da indústria (em conformidade de PCI) de cartão de pagamento (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) por Council de normas de segurança PCI.
-* [O tipo de serviço organização controlos (SOC) 1 1 e certificados SOC 2 tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) em conformidade
-* [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para empresas que têm um contrato de associar de negócio para HIPAA
-* Critérios de engenharia comuns do Windows
+* [Padrão de segurança de dados de setor (em conformidade com PCI) de cartão do pagamento (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) pela PCI Security Standards Council.
+* [Tipo de controles e organização do serviço (SOC) 1 1 e SOC 2 tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) em conformidade
+* [A HIPAA e da HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) para as empresas com um contrato de associar do HIPAA Business
+* Critérios comuns de engenharia do Windows
 * Informática Fidedigna da Microsoft
-* Como um serviço do Azure, os componentes que utiliza a análise de registos cumprem requisitos de conformidade do Azure. Pode ler mais em [compatibilidade de centro de fidedignidade da Microsoft](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
+* Como um serviço do Azure, os componentes que utiliza o Log Analytics cumprem os requisitos de conformidade do Azure. Pode ler mais em [conformidade da Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
-> Em alguns certificações/attestations, análise de registos está listado em seu nome anteriores do *das informações operacionais*.
+> Em alguns certificações/atestados, do Log Analytics está listado em seu nome antigo do *das informações operacionais*.
 >
 >
 
-## <a name="cloud-computing-security-data-flow"></a>Fluxo de dados de segurança a informática em nuvem
-O diagrama seguinte mostra uma arquitetura de segurança na nuvem como o fluxo de informações da sua empresa e como são protegido, é movido para o serviço de análise de registos, em última análise visto por si no portal do Azure ou portal clássico do OMS. Mais informações sobre cada passo segue o diagrama.
+## <a name="cloud-computing-security-data-flow"></a>Fluxo de dados de segurança de informática na cloud
+O diagrama seguinte mostra uma arquitetura de segurança na cloud como o fluxo de informações da sua empresa e como são protegido conforme é movido para o serviço do Log Analytics, em última análise, visto por si no portal do Azure. Mais informações sobre cada passo segue o diagrama.
 
-![Imagem de recolha de dados de análise de registos e segurança](./media/log-analytics-data-security/log-analytics-data-security-diagram.png)
+![Imagem de recolha de dados do Log Analytics e segurança](./media/log-analytics-data-security/log-analytics-data-security-diagram.png)
 
-## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Inscreva-se e recolher dados de análise de registo
-Para a sua organização enviar dados para análise de registos, configure um agente de Windows ou Linux em execução em máquinas virtuais do Azure ou nos computadores virtuais ou físicas no seu ambiente ou de outro fornecedor de nuvem.  Se utilizar o Operations Manager, do grupo de gestão, configurar o agente do Operations Manager. Utilizadores (que podem ser, outros utilizadores individuais ou um grupo de pessoas) criam um ou mais áreas de trabalho de análise de registos e registar agentes utilizando um dos seguintes contas:
+## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Inscreva-se para o Log Analytics e recolher dados
+Para a sua organização enviar dados para o Log Analytics, configurar um agente do Windows ou Linux em execução em máquinas virtuais do Azure ou em computadores físicos ou virtuais no seu ambiente ou de outro fornecedor de cloud.  Se utilizar o Operations Manager, do grupo de gestão é configurar o agente do Operations Manager. Os utilizadores (que podem ser, outros utilizadores individuais ou um grupo de pessoas) criar uma ou mais áreas de trabalho do Log Analytics e registem agentes com uma das seguintes contas:
 
-* [ID organizacional](../active-directory/fundamentals/sign-up-organization.md)
-* [Conta Microsoft - Outlook, Office em direto, MSN](https://account.microsoft.com/account)
+* [ID de organização](../active-directory/fundamentals/sign-up-organization.md)
+* [Conta Microsoft - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Uma área de trabalho de análise de registos é onde dados recolhidos, agregados, analisados e apresentados. Uma área de trabalho é principalmente utilizada como um meio para dados de partição e cada área de trabalho é exclusiva. Por exemplo, pode querer ter os seus dados de produção geridos com uma área de trabalho e os dados de teste geridos com outra área de trabalho. Áreas de trabalho também ajudam a um administrador controlar utilizador o acesso aos dados. Cada área de trabalho pode ter várias contas de utilizador associadas à mesma e, cada conta de utilizador pode aceder a várias áreas de trabalho de análise de registos. Criar com base na região de centro de dados de áreas de trabalho. Cada área de trabalho é replicada para outros centros de dados na região, principalmente para disponibilidade do serviço de análise de registos.
+Uma área de trabalho do Log Analytics é onde dados são recolhidos, agregados, analisados e apresentados. Uma área de trabalho é usada principalmente como um meio de dados de partição, e cada área de trabalho é exclusiva. Por exemplo, pode querer ter seus dados de produção geridos com uma área de trabalho e os seus dados de teste geridos com outra área de trabalho. Áreas de trabalho também ajudam a um administrador controlar utilizador o acesso aos dados. Cada área de trabalho pode ter várias contas de utilizador associadas e cada conta de utilizador pode aceder a várias áreas de trabalho do Log Analytics. Criar áreas de trabalho com base na região do datacenter. Cada área de trabalho é replicada para outros centros de dados na região, principalmente para a disponibilidade do serviço do Log Analytics.
 
-Para o Operations Manager, o grupo de gestão do Operations Manager estabelece uma ligação com o serviço de análise de registos. Em seguida, configure os sistemas geridos por agente no grupo de gestão são permitidos para recolher e enviar dados para o serviço. Consoante a solução tiver ativado, os dados a partir destas soluções são um enviado diretamente a partir de um servidor de gestão do Operations Manager para o serviço de análise de registos, ou devido ao volume dos dados recolhidos pelo sistema geridos por agente, é enviado diretamente a partir do o agente para o serviço. Para os sistemas não monitorizados pelo Operations Manager, cada estabelece ligação com segurança para o serviço de análise de registos diretamente.
+Para o Operations Manager, o grupo de gestão do Operations Manager estabelece uma conexão com o serviço Log Analytics. Em seguida, configure os sistemas geridos por agente no grupo de gestão têm permissão para recolher e enviar dados para o serviço. Consoante a solução que tiver ativado, os dados a partir dessas soluções são seja enviado diretamente a partir de um servidor de gestão do Operations Manager para o serviço Log Analytics ou devido ao volume de dados recolhidos pelo sistema gerido por agente, são enviadas diretamente a partir de o agente para o serviço. Para sistemas não monitorizados pelo Operations Manager, os ligam em segurança para o serviço Log Analytics diretamente.
 
-Todas as comunicações entre sistemas ligados e o serviço de análise de registos são encriptadas.  O protocolo TLS (HTTPS) é utilizado para encriptação.  O processo do Microsoft SDL é seguido para garantir a que análise de registos está atualizada com os mais recentes avanços nas protocolos criptográficos.
+Todas as comunicações entre sistemas conectados e o serviço Log Analytics são encriptadas. O protocolo TLS (HTTPS) é utilizado para encriptação.  O processo Microsoft SDL é seguido para garantir que o Log Analytics é atualizado com os mais recentes avanços em protocolos de criptografia.
 
-Cada tipo de agente recolhe dados para análise de registos. O tipo de dados que são recolhidos é depende os tipos de soluções utilizadas. Pode ver um resumo de recolha de dados em [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md). Além disso, as informações mais detalhadas de recolha estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, as regras de recolha de dados e a lógica de processamento. Apenas os administradores podem utilizar a análise de registos para importar uma solução. Depois da solução é importada, é movido para servidores de gestão do Operations Manager (se utilizado) e, em seguida, quaisquer agentes que selecionou. Posteriormente, os agentes de recolhem os dados.
+Cada tipo de agente recolhe dados para o Log Analytics. O tipo de dados que são recolhidos é dependerá dos tipos de soluções utilizadas. Pode ver um resumo de recolha de dados no [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md). Além disso, as informações mais detalhadas de recolha estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, as regras de recolha de dados e lógica de processamento. Apenas os administradores podem utilizar o Log Analytics para importar uma solução. Após a importação a solução, é movido para os servidores de gestão do Operations Manager (se utilizado) e, em seguida, para quaisquer agentes que escolheu. Depois disso, os agentes de recolher os dados.
 
-## <a name="2-send-data-from-agents"></a>2. Enviar dados de agentes
-Registar todos os tipos de agente com uma chave de registo e é estabelecida uma ligação segura entre o agente e o serviço de análise de registos utilizando a autenticação baseada em certificados e o SSL com a porta 443. Análise de registos utiliza um arquivo de secreto para gerar e manter as chaves. As chaves privadas rodam todos os 90 dias e são armazenadas no Azure e são geridas pelas operações do Azure que siga strict práticas de regulamentação e conformidade.
+## <a name="2-send-data-from-agents"></a>2. Enviar dados a partir de agentes
+Registar todos os tipos de agente com uma chave de registo e uma ligação segura é estabelecida entre o agente e o serviço do Log Analytics a utilizar autenticação baseada em certificados e o SSL com a porta 443. O log Analytics utiliza um arquivo de segredos para gerar e manter as chaves. As chaves privadas são revezadas de todos os 90 dias e são armazenadas no Azure e são geridas pelas operações do Azure que sigam práticas rigorosas de regulamentação e conformidade.
 
 Com o Operations Manager, o grupo de gestão registado com uma área de trabalho do Log Analytics estabelece uma ligação HTTPS segura com um servidor de gestão do Operations Manager.
 
-Para agentes Windows ou Linux em execução em máquinas virtuais do Azure, uma chave de armazenamento só de leitura é utilizada para ler eventos de diagnóstico nas tabelas do Azure.  
+Para agentes do Windows ou Linux em execução em máquinas virtuais do Azure, uma chave de armazenamento só de leitura é utilizada para ler eventos de diagnóstico em tabelas do Azure.  
 
-Com qualquer agente que reporte a um grupo de gestão do Operations Manager que está integrado com a análise de registos, se o servidor de gestão não consegue comunicar com o serviço por qualquer motivo, os dados recolhidos é armazenado localmente numa cache temporária com a gestão servidor.   Tente reenviar os dados a cada oito minutos durante duas horas.  Para dados que ignora o servidor de gestão e são enviados diretamente ao Log Analytics, o comportamento é consistente com o agente do Windows.  
+Com qualquer agente que reporta a um grupo de gestão do Operations Manager que está integrado com o Log Analytics, se o servidor de gestão não consegue comunicar com o serviço por qualquer motivo, os dados recolhidos é armazenado localmente numa cache temporária do gerenciamento servidor.   Tente reenviar os dados a cada oito minutos durante duas horas.  Para dados que ignora o servidor de gestão e são enviados diretamente para o Log Analytics, o comportamento é consistente com o agente do Windows.  
 
-O Windows ou dados de agente em cache do servidor de gestão estão protegidos pelo arquivo de credenciais do sistema operativo. Se o serviço não é possível processar os dados depois de duas horas, os agentes ficarão em fila os dados. Se a fila ficar cheia, o agente inicia a remover tipos de dados, começando com dados de desempenho. O limite de fila do agente é uma chave de registo para pode modificá-la, se necessário. Os dados recolhidos são comprimidos e enviados para o serviço, ignorando os Operations Manager gestão grupo bases de dados, pelo que não adiciona qualquer carga aos mesmos. Depois dos dados recolhidos são enviados, este é removido da cache.
+O Windows ou dados de agente em cache do servidor de gestão estão protegidos pelo arquivo de credenciais do sistema operacional. Se o serviço não é possível processar os dados depois de duas horas, os agentes serão colocados em fila os dados. Se a fila ficar cheio, o agente inicia a remover tipos de dados, começando com dados de desempenho. O limite de fila do agente é uma chave de registo para que pode modificá-la, se necessário. Os dados recolhidos são comprimidos e enviados para o serviço, ignorando os Operations Manager management agrupar bases de dados, pelo que não adiciona qualquer carga a eles. Depois dos dados recolhidos são enviados, esta é removida da cache.
 
-Como descrito acima, são enviados dados do servidor de gestão ou agentes direta ligados através de SSL para centros de dados do Microsoft Azure. Opcionalmente, pode utilizar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma forma de ligar diretamente ao Azure a partir da sua rede WAN existente, tal como um protocolo multi etiqueta mudança VPN (MPLS) fornecida por um fornecedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Conforme descrito acima, são enviados dados do servidor de gestão ou agentes direto ligado através de SSL para os datacenters do Microsoft Azure. Opcionalmente, pode utilizar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma forma de ligar diretamente ao Azure da sua rede WAN existente, como um protocolo múltiplo multiprotocolo (MPLS) VPN, fornecida por um fornecedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço de análise de registos recebe e processa dados
-O serviço de análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. Os dados não processados não processados, em seguida, são armazenados num Hub de eventos do Azure na região, eventualmente, serão armazenados os dados inativos. O tipo de dados armazenados depende os tipos de soluções que foram importados e utilizadas para recolher dados. Em seguida, a análise de registos processos os dados não processados de serviço e insere-lo na base de dados.
+## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço Log Analytics recebe e processa dados
+O serviço Log Analytics garante que os dados recebidos de uma origem fidedigna ao validar os certificados e a integridade dos dados com a autenticação do Azure. Os dados não processados não processados, em seguida, são armazenados num Hub de eventos do Azure na região, eventualmente, serão armazenados os dados em repouso. O tipo de dados armazenados depende dos tipos de soluções que foram importados e utilizadas para recolher dados. Em seguida, o Log Analytics service processos os dados não processados e ingere-lo no banco de dados.
 
-O período de retenção de dados recolhidos armazenados na base de dados depende o plano de preço selecionado. Para o *livres* escalão, os dados recolhidos estão disponíveis para 7 dias. Para o *Paid* camada, os dados recolhidos está disponível para o 31 dias por predefinição, mas pode ser expandida para 720 dias. Os dados são armazenados encriptados Inativos no armazenamento do Azure, para garantir a confidencialidade de dados. Últimas duas semanas de dados também são armazenadas na cache baseadas em SSD e esta cache atualmente não estejam encriptado.  Planeamos suportar essa encriptação na metade de 2018 posterior.  
+O período de retenção de dados recolhidos, armazenados na base de dados depende do plano de preços selecionado. Para o *gratuito* camada, os dados recolhidos estão disponíveis durante sete dias. Para o *pago* camada, os dados recolhidos está disponível para 31 dias por predefinição, mas pode ser estendida a 720 dias. Dados são armazenados encriptados em inatividade no armazenamento do Azure, para garantir a confidencialidade de dados. As duas últimas semanas de dados também são armazenadas na cache baseada em SSD e esta cache atualmente não é encriptado.  Pretendemos oferecer suporte a essa criptografia no posterior semestre de 2018.  
 
-## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize a análise de registos para aceder aos dados
-Para aceder à sua área de trabalho de análise de registos, pode iniciar sessão no portal do Azure com a conta institucional ou a conta Microsoft que configurou anteriormente. Todo o tráfego entre o portal e serviço de análise de registos é enviado através de um canal HTTPS seguro. Quando utilizar o portal, um ID de sessão é gerado no cliente do utilizador (web browser) e os dados são armazenados numa cache local até a sessão é terminada. Quando terminar, a cache é eliminada. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são automaticamente removidos. Cookies de sessão estão marcados HTTPOnly e estão protegidos. Após um período de inatividade previamente determinado, foi terminada a sessão do portal do Azure.
+## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilizar o Log Analytics para acessar os dados
+Para acessar sua área de trabalho do Log Analytics, iniciar sessão no portal do Azure com a conta organizacional ou a conta Microsoft que configurou anteriormente. Todo o tráfego entre o portal e serviço do Log Analytics é enviado através de um canal seguro de HTTPS. Quando utilizar o portal, um ID de sessão é gerado no cliente de utilizador (navegador da web) e os dados são armazenados num cache local até que a sessão é terminada. Quando terminado, a cache é eliminada. Cookies de lado do cliente, que não contêm informações de identificação pessoal, não são automaticamente removidos. Cookies de sessão são marcados HTTPOnly e estão protegidos. Após um período de inatividade pré-determinado, foi terminada a sessão do portal do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como recolher dados de análise do registo para o seguinte de VMs do Azure a [início rápido da VM do Azure](log-analytics-quick-collect-azurevm.md).  
+* Saiba como recolher dados com o Log Analytics para o seguinte de VMs do Azure a [início rápido de VM do Azure](log-analytics-quick-collect-azurevm.md).  
 
-*  Se pretender para recolher dados de computadores físicos ou virtuais Windows ou Linux no seu ambiente, consulte o [início rápido para computadores Linux](log-analytics-quick-collect-linux-computer.md) ou [início rápido para computadores com Windows](log-analytics-quick-collect-windows-computer.md)
+*  Se estiver à procura para recolher dados de computadores físicos ou virtuais Windows ou Linux no seu ambiente, consulte a [início rápido para computadores Linux](log-analytics-quick-collect-linux-computer.md) ou [computadores de início rápido para Windows](log-analytics-quick-collect-windows-computer.md)
 

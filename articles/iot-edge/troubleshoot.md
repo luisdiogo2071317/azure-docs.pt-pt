@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128065"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856210"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -23,22 +23,22 @@ Se ocorrerem problemas com o Azure IoT Edge no seu ambiente, utilize este artigo
 
 Quando ocorrer um problema, saiba mais sobre o estado do seu dispositivo IoT Edge ao rever as mensagens e registos do contentor que passam de e para o dispositivo. Utilize as ferramentas e comandos nesta secção para recolher informações. 
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Verifique o estado do Gestor de segurança de IoT Edge e os seus registos:
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Verifique o estado do Gestor de segurança do IoT Edge e os respetivos registos:
 
 No Linux:
-- Para ver o estado do Gestor de segurança de limite de IoT:
+- Para ver o estado do Gestor de segurança de borda de IoT:
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-- Para ver os registos do Gestor de segurança de limite de IoT:
+- Para ver os registos do Gestor de segurança de borda de IoT:
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- Para ver mais detalhadas registos do Gestor de segurança de limite de IoT:
+- Para ver mais detalhadas registos do Gestor de segurança de borda de IoT:
 
    - Edite as definições de daemon de iotedge:
 
@@ -53,7 +53,7 @@ No Linux:
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
     
-   - Reinicie o Daemon de segurança de limite de IoT:
+   - Reinicie o Daemon de segurança de IoT Edge:
     
       ```bash
       sudo systemctl cat iotedge.service
@@ -62,13 +62,13 @@ No Linux:
       ```
 
 No Windows:
-- Para ver o estado do Gestor de segurança de limite de IoT:
+- Para ver o estado do Gestor de segurança de borda de IoT:
 
    ```powershell
    Get-Service iotedge
    ```
 
-- Para ver os registos do Gestor de segurança de limite de IoT:
+- Para ver os registos do Gestor de segurança de borda de IoT:
 
    ```powershell
    # Displays logs from today, newest at the bottom.
@@ -80,10 +80,10 @@ No Windows:
    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gestor de segurança de limite de IoT não está em execução, certifique-se o ficheiro de configuração yaml
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gestor de segurança do IoT Edge não está em execução, verifique se o ficheiro de configuração yaml
 
 > [!WARNING]
-> Ficheiros YAML não podem conter separadores como identation. Em alternativa, utilize 2 espaços.
+> Ficheiros YAML não podem conter separadores como identation. Utilize espaços de 2 em vez disso.
 
 No Linux:
 
@@ -97,17 +97,17 @@ No Windows:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-### <a name="check-container-logs-for-issues"></a>Verifique os registos do contentor para problemas
+### <a name="check-container-logs-for-issues"></a>Verifique os registos de contentor para problemas
 
-Assim que o Daemon de segurança de limite de IoT está em execução, consulte os registos de contentores para detetar problemas. Comece a utilizar os contentores implementados e, em seguida, veja os contentores que compõem o runtime do IoT Edge: Agente do Edge e Hub do Edge. Os registos do Agente do Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos do Hub do Edge dispõem de informações sobre mensagens e encaminhamento. 
+Assim que o Daemon de segurança do IoT Edge está em execução, consulte os registos dos contentores para detetar problemas. Comece a utilizar os contentores implementados e, em seguida, veja os contentores que compõem o runtime do IoT Edge: Agente do Edge e Hub do Edge. Os registos do Agente do Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos do Hub do Edge dispõem de informações sobre mensagens e encaminhamento. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Ver as mensagens a ir através do hub de limite
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Ver as mensagens que passam pelo hub do Edge
 
-Ver as mensagens a ir através do hub de limite e recolher informações sobre as atualizações de propriedades do dispositivo com os registos verbosos de contentores de tempo de execução edgeAgent e edgeHub. Para ativar registos verbosos nestes contentores, defina o `RuntimeLogLevel` variável de ambiente: 
+Ver as mensagens que passam pelo hub do Edge e recolha informações sobre atualizações de propriedades do dispositivo com registos verbosos dos contentores de tempo de execução edgeAgent e edgeHub. Para ativar registos verbosos nestes contentores, defina o `RuntimeLogLevel` variável de ambiente: 
 
 No Linux:
     
@@ -124,13 +124,13 @@ No Windows:
 Também pode verificar as mensagens que são enviadas entre o Hub IoT e os dispositivos do IoT Edge. Veja estas mensagens com a extensão [Toolkit IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) para o Visual Studio Code. Para obter mais documentação de orientação, veja [Ferramenta útil ao programar com o Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ### <a name="restart-containers"></a>Reiniciar contentores
-Depois de investigar os registos e as mensagens de informações, pode tentar reiniciar contentores:
+Depois de investigar os registos e as mensagens para informações, pode tentar reiniciar contentores:
 
 ```
 iotedge restart <container name>
 ```
 
-Reinicie os contentores de tempo de execução de limite de IoT:
+Reinicie os contentores de runtime do IoT Edge:
 
 ```
 iotedge restart edgeAgent && iotedge restart edgeHub
@@ -138,7 +138,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 ### <a name="restart-the-iot-edge-security-manager"></a>Reinicie o Gestor de segurança de IoT Edge
 
-Se ainda está a persistência de problema, pode tentar reiniciar o Gestor de segurança de IoT Edge.
+Se o problema ainda mantém, pode tentar reiniciar o Gestor de segurança de IoT Edge.
 
 No Linux:
 
@@ -199,30 +199,30 @@ A execução de um contentor falha e os registos do Agente mostram um erro 403.
 O Agente do Edge não tem permissões para aceder à imagem de um módulo. 
 
 ### <a name="resolution"></a>Resolução
-Certifique-se de que as suas credenciais de registo são especificados corretamente no seu manifesto de implementação
+Certifique-se de que as suas credenciais de registo estão especificados corretamente no seu manifesto de implantação
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>O daemon de segurança de IoT Edge falha com um nome de anfitrião inválido
 
-O comando `sudo journalctl -u iotedge` falhar e imprima a mensagem seguinte: 
+O comando `sudo journalctl -u iotedge` falhar e imprime a mensagem seguinte: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
 ### <a name="root-cause"></a>Causa raiz
-O tempo de execução do limite de IoT só pode suportar os nomes de anfitrião que são mais curta do que 64 carateres. Isto normalmente não é um problema para máquinas físicas, mas pode ocorrer quando configurar o tempo de execução numa máquina virtual. Os nomes de anfitriões gerados automaticamente para máquinas virtuais do Windows alojadas no Azure, em particular, tendem a ser longo. 
+O runtime do IoT Edge só pode suportar os nomes de anfitrião que são mais curta do que 64 carateres. Isso normalmente não é um problema para máquinas físicas, mas pode ocorrer quando configurou o tempo de execução numa máquina virtual. Os nomes de anfitrião gerados automaticamente para máquinas de virtuais do Windows alojadas no Azure, em particular, tendem a ser longos. 
 
 ### <a name="resolution"></a>Resolução
-Quando vir este erro, pode resolvê-lo ao configurar o nome DNS da sua máquina virtual e, em seguida, a definição do nome DNS como o nome de anfitrião no comando de configuração.
+Quando vir este erro, pode resolvê-lo ao configurar o nome DNS da sua máquina virtual e, em seguida, definir o nome DNS como o nome de anfitrião no comando de configuração.
 
 1. No portal do Azure, navegue para a página de descrição geral da sua máquina virtual. 
-2. Selecione **configurar** sob o nome DNS. Se a máquina virtual já tem um nome DNS configurado, não terá de configurar um novo. 
+2. Selecione **configurar** sob o nome DNS. Se a sua máquina virtual já tem um nome DNS configurado, não precisa de configurar um novo. 
 
-   ![Configurar nome DNS](./media/troubleshoot/configure-dns.png)
+   ![Configurar o nome DNS](./media/troubleshoot/configure-dns.png)
 
 3. Forneça um valor para **etiqueta de nome DNS** e selecione **guardar**.
 4. Copie o novo nome DNS, o que deve estar no formato  **\<DNSnamelabel\>.\< uma vmlocation\>. cloudapp.azure.com**.
-5. Dentro da máquina virtual, utilize o seguinte comando para configurar o tempo de execução de limite de IoT com o nome de DNS:
+5. Dentro da máquina virtual, utilize o seguinte comando para configurar o runtime do IoT Edge com o nome de DNS:
 
    - No Linux:
 
@@ -236,5 +236,37 @@ Quando vir este erro, pode resolvê-lo ao configurar o nome DNS da sua máquina 
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## <a name="stability-issues-on-resource-constrained-devices"></a>Problemas de estabilidade no recurso restrita dispositivos 
+Pode encontrar problemas de estabilidade nos dispositivos restritos, como o Raspberry Pi, especialmente quando utilizado como um gateway. Os sintomas incluem exceções de memória no módulo de hub do edge insuficiente, não é possível ligar dispositivos downstream ou o dispositivo deixa de enviar mensagens de telemetria após algumas horas.
+
+### <a name="root-cause"></a>Causa raiz
+O hub do edge, que faz parte do runtime do edge, é otimizado para desempenho, por padrão e tenta alocar grandes segmentos de memória. Isso não é ideal para dispositivos periféricos restrita e pode causar problemas de estabilidade.
+
+### <a name="resolution"></a>Resolução
+Para o edge hub define uma variável de ambiente **OptimizeForPerformance** ao **falso**. Existem duas formas de fazer isso:
+
+Na IU: no portal de *detalhes do dispositivo*->*definir módulos*->*configurar definições de Runtime do Edge avançadas*, criar um ambiente variável chamada *OptimizeForPerformance* que está definido como *false* para o *Hub do Edge*.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+No manifesto de implantação:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
 Encontrou um erro na plataforma do IoT Edge? [Submeta um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar a melhorar. 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

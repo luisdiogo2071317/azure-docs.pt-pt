@@ -1,6 +1,6 @@
 ---
 title: Reposição de palavra-passe self-service de licença - Azure Active Directory
-description: Azure AD self-service palavra-passe repor os requisitos de licenciamento
+description: Requisitos de licenciamento de redefinição de senha de autoatendimento de AD do Azure
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,50 +10,50 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292564"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855529"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Repor o licenciamento requisitos de palavra-passe self-service do Azure AD
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 
-Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização* para esse utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
+Palavra-passe do Azure Active Directory (Azure AD) Repor para a função, para que *tem de ter pelo menos uma licença atribuída na sua organização* para esse utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
 
-* **Os utilizadores apenas na nuvem**: do Office 365 qualquer paga SKU ou do Azure AD Basic
-* **Nuvem** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + de segurança (EMS) ou Microsoft 365
+* **Os utilizadores apenas na cloud**: do Office 365 quaisquer pagas do SKU ou do Azure AD básico
+* **Cloud** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
 
-## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavras-passe
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
 
-**Self-Service palavra-passe reposição/alterar/desbloqueio com repetição de escrita no local é uma funcionalidade de premium do Azure AD**. Para obter mais informações sobre o licenciamento, consulte o [Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
+**Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local é uma funcionalidade premium do Azure AD**. Para obter mais informações sobre o licenciamento, consulte a [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Para utilizar a repetição de escrita de palavras-passe, tem de ter uma das seguintes licenças atribuídas no seu inquilino:
+Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das seguintes licenças atribuídas no seu inquilino:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + E3 de segurança ou A3
-* Enterprise Mobility + E5 de segurança ou A5
-* Microsoft 365 E3 ou A3
-* Microsoft 365 E5 ou A5
-* Microsoft 365 F1
+* Enterprise Mobility + Security E3 ou A3
+* Enterprise Mobility + Security E5 ou A5
+* O Microsoft 365 E3 ou A3
+* O Microsoft 365 E5 ou A5
+* O Microsoft 365 F1
 
 > [!WARNING]
-> Autónomo Office 365 licenciamento planos *não suportam a repetição de escrita de palavras-passe* e requerem que tenha um dos planos anteriores para esta funcionalidade funcione.
+> Autónomo Office 365, planos de licenciamento *não suportam a repetição de escrita de palavra-passe* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
 >
 
-Podem encontrar informações de licenciamento adicionais, incluindo os custos, nas seguintes páginas:
+Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas nas seguintes páginas:
 
-* [Azure Active Directory preços do site](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Capacidades e funcionalidades do Active Directory do Azure](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+* [O Azure Active Directory, preços do site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Funcionalidades do Active Directory e capacidades do Azure](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 
-## <a name="enable-group-or-user-based-licensing"></a>Ativar o grupo ou com base no utilizador licenciamento
+## <a name="enable-group-or-user-based-licensing"></a>Ativar o grupo ou licenciamento baseado no utilizador
 
-Azure AD agora suporta o licenciamento baseadas em grupos. Os administradores podem atribuir licenças em massa a um grupo de utilizadores, em vez de atribuir um de cada vez. Para obter mais informações, consulte [atribuir, certifique-se e resolver problemas com licenças](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Agora o Azure AD suporta o licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de utilizadores, em vez de atribuir um de cada vez. Para obter mais informações, consulte [atribuir, certifique-se e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Atribuição de licenças pode ser efetuada sob a **utilizador** > **perfil** > **definições** secção no portal do Azure. *Quando utilizar a atribuição do grupo de licenças, os utilizadores sem uma localização de utilização especificada herdam a localização do diretório.*
+Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Atribuição de licenças que pode ser feita sob o **usuário** > **perfil** > **definições** secção no portal do Azure. *Quando utilizar a atribuição de licenças de grupo, todos os utilizadores sem uma localização de utilização definida herdam a localização do diretório.*
 
 ## <a name="next-steps"></a>Passos Seguintes
 

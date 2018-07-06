@@ -1,7 +1,7 @@
 ---
-title: Cópia de segurança online e de restauro com base de dados do Azure Cosmos | Microsoft Docs
-description: Saiba como efetuar cópia de segurança automática e restaurar uma base de dados do Azure Cosmos DB.
-keywords: cópia de segurança e restauro, cópia de segurança online
+title: Online backup e restauração com o Azure Cosmos DB | Documentos da Microsoft
+description: Saiba como fazer cópia de segurança automática e restaurar uma base de dados do Azure Cosmos DB.
+keywords: cópia de segurança e restauro, a cópia de segurança online
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,70 +10,70 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 19f61893eb9250fbd5bbf930e98aa89ac74fd0c3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028741"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859205"
 ---
-# <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e de restauro com base de dados do Azure Cosmos
-BD do Azure do Cosmos demora automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas em separado no outro serviço de armazenamento e as cópias de segurança global são replicadas para resiliência contra desastres inesperados regionais. As cópias de segurança automáticas destinam-se para cenários quando elimina acidentalmente o contentor de BD do Cosmos e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  
+# <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
+O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  
 
-Este artigo começa com um resumo rápido de redundância de dados e disponibilidade na base de dados do Cosmos e, em seguida, descreve as cópias de segurança. 
+Este artigo começa com uma recapitulação rápida da redundância de dados e a disponibilidade no Cosmos DB e, em seguida, aborda as cópias de segurança. 
 
-## <a name="high-availability-with-cosmos-db---a-recap"></a>Elevada disponibilidade com base de dados do Cosmos - um resumo
-BD do cosmos foi concebido para ser [globalmente distribuída](distribute-data-globally.md) – permite-lhe dimensionar débito em várias regiões do Azure, juntamente com a política suscitada pelo departamento de ativação pós-falha e APIs multi homing transparentes. BD do Azure do Cosmos oferece [99,99% de disponibilidade SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de única região e todas as contas de multirregião com consistência de flexíveis e 99.999% de disponibilidade em todas as contas de multirregião base de dados de leitura. Todas as escritas na base de dados do Azure Cosmos são forma durável consolidadas para discos locais por um quórum de réplicas dentro do Centro de dados local antes de confirmar para o cliente. A elevada disponibilidade do Cosmos DB baseia-se no armazenamento local e não depender de quaisquer tecnologias de armazenamento externo. Além disso, se a sua conta de base de dados está associada a mais do que uma região do Azure, as escritas são replicadas em outras regiões, bem como. Dimensionar os débito e acesso de dados, baixas latências, pode ter como muitas ler regiões associadas à conta da base de dados como pretender. Em cada região de leitura, os dados (replicados) de forma durável é persistente através de um conjunto de réplicas.  
+## <a name="high-availability-with-cosmos-db---a-recap"></a>Elevada disponibilidade com o Cosmos DB - uma recapitulação
+O cosmos DB foi concebido para ser [globalmente distribuída](distribute-data-globally.md) – permite-lhe dimensionar o débito em várias regiões do Azure, juntamente com a política controlado por ativação pós-falha e as APIs multi-homing transparentes. Azure Cosmos DB oferece [SLAs de disponibilidade de 99,99%](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de região única e todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade em todas as contas de base de dados de várias regiões de leitura. Todas as gravações no Azure Cosmos DB são consolidadas de forma para discos locais por um quórum de réplicas dentro de um centro de dados local antes de ter consciência de para o cliente. A elevada disponibilidade do Cosmos DB baseia-se no armazenamento local e não depende de qualquer tecnologia de armazenamento externo. Além disso, se a sua conta de base de dados é associada a mais do que uma região do Azure, as escritas são replicadas em outras regiões também. Para reduzir os dados de débito e o acesso às latências baixas, pode ter como muitas regiões associadas à sua conta de base de dados gosta de leitura. Em cada região de leitura, os dados (replicados) maneira duradoura são mantidos num conjunto de réplicas.  
 
-Conforme ilustrado no diagrama seguinte, um único contentor de BD do Cosmos é [horizontalmente particionada](partition-data.md). "Partição" está em falta que por um círculo no diagrama seguinte, e cada partição é disponibilizada elevada disponibilidade através de um conjunto de réplicas. Esta é a distribuição local numa única região do Azure (em falta por que o eixo X). Além disso, cada partição (com o respetivo conjunto de réplica correspondente) é, então, distribuída global em várias regiões associadas à sua conta de base de dados (por exemplo, nas regiões ilustração três – EUA leste, EUA oeste e Índia Central). O "conjunto de partição" é uma globalmente distribuída que inclui entidades de várias cópias dos seus dados em cada região (em falta por que o eixo Y). Pode atribuir prioridade a regiões associadas à sua conta de base de dados e base de dados do Cosmos transparente serão ativadas pós-falha para a região seguinte em caso de desastre. Pode também manualmente simulam a ativação pós-falha para testar a disponibilidade de ponto a ponto da sua aplicação.  
+Conforme ilustrado no diagrama seguinte, um único contentor do Cosmos DB é [particionada horizontalmente](partition-data.md). Uma "partição" está em falta por um círculo no diagrama seguinte, e cada partição é feita a elevada disponibilidade através de um conjunto de réplicas. Esta é a distribuição local numa única região do Azure (representado pelo eixo X). Além disso, cada partição (com o respetivo conjunto de réplica correspondente), em seguida, é distribuída globalmente em várias regiões associados à conta de base de dados (por exemplo, em regiões este ilustração os três – E.U.A. leste, E.U.A. oeste e Índia Central). O "conjunto de partição" é uma distribuição global que inclui entidades de várias cópias dos seus dados em cada região (representado pelo eixo Y). Pode atribuir prioridade para as regiões associadas à sua conta de base de dados e o Cosmos DB será failover transparente para a região seguinte em caso de desastre. Também manualmente, pode simular ativação pós-falha para testar a disponibilidade de ponto a ponto da sua aplicação.  
 
-A imagem seguinte ilustra o elevado grau de redundância de BD do Cosmos.
+A imagem seguinte ilustra o alto grau de redundância com o Cosmos DB.
 
-![Nível elevado de redundância com Cosmos DB](./media/online-backup-and-restore/redundancy.png)
+![Alto grau de redundância com o Cosmos DB](./media/online-backup-and-restore/redundancy.png)
 
-![Nível elevado de redundância com Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
+![Alto grau de redundância com o Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
 
-## <a name="full-automatic-online-backups"></a>Cópias de segurança completas automáticas, online
-UPS, posso eliminar meu contentor ou a base de dados! Com base de dados do Cosmos, não apenas os dados, mas as cópias de segurança dos seus dados são também efetuada altamente redundantes e resiliente para perante desastres regionais. Estas cópias de segurança automatizadas atualmente são executadas aproximadamente a cada quatro horas e mais recentes duas cópias de segurança são armazenadas em qualquer momento. Se os dados acidentalmente for removidos ou danificados, contacte [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de oito horas. 
+## <a name="full-automatic-online-backups"></a>Cópias de segurança completas, automáticas e online
+UPS, eu eliminado meu contentor ou a base de dados! Com o Cosmos DB, não apenas seus dados, mas as cópias de segurança dos seus dados também são feitas altamente redundantes e resiliente desastres regionais. Estas cópias de segurança automáticas atualmente direcionadas aproximadamente a cada quatro horas e mais recente duas cópias de segurança são armazenadas em todos os momentos. Se os dados acidentalmente são removidos ou danificados, contacte [suporte do Azure](https://azure.microsoft.com/support/options/) no espaço de oito horas. 
 
-As cópias de segurança são efetuadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Cosmos DB demora a cópia de segurança em segundo plano, sem utilizar os aprovisionamento RUs ou afetar o desempenho e sem afetar a disponibilidade da base de dados. 
+As cópias de segurança são efetuadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. O cosmos DB tira a cópia de segurança em segundo plano sem consumir os RUs aprovisionadas ou que afetam o desempenho e sem afetar a disponibilidade da base de dados. 
 
-Ao contrário dos seus dados são armazenados no interior do Cosmos DB, as cópias de segurança automáticas são armazenadas no serviço de armazenamento de Blobs do Azure. Para garantir o carregamento de latência baixa/eficiente, o instantâneo da sua cópia de segurança é carregado para uma instância do Blob storage do Azure na mesma região que a região de escrita atual da sua conta de base de dados de base de dados do Cosmos. Para resiliência contra desastres regionais, cada instantâneo dos dados da sua cópia de segurança no armazenamento de Blobs do Azure novamente é replicado através de armazenamento georredundante (GRS) noutra região. O diagrama seguinte mostra que o contentor de BD do Cosmos inteiro (com todos os três partições primárias nos EUA oeste, neste exemplo) de cópias de segurança numa conta do Blob Storage do Azure remota nos EUA oeste e, em seguida, GRS são replicados para EUA Leste. 
+Ao contrário dos seus dados são armazenados dentro do Cosmos DB, as cópias de segurança automáticas são armazenadas no serviço de armazenamento de Blobs do Azure. Para garantir o carregamento de latência baixa/eficiente, o instantâneo da cópia de segurança é carregado para uma instância do armazenamento de Blobs do Azure na mesma região que a região de escrita atual da sua conta de base de dados do Cosmos DB. Para resiliência contra desastre regional, a cada instantâneo dos seus dados de cópia de segurança no armazenamento de Blobs do Azure novamente é replicado através do armazenamento georredundante (GRS) para outra região. O diagrama seguinte mostra que o contêiner inteiro do Cosmos DB (com todos os três principais partições na região E.U.A. oeste, neste exemplo) é uma cópia de segurança numa conta de armazenamento de Blobs do Azure remota na região E.U.A. oeste e, em seguida, GRS são replicados para E.U.A. Leste. 
 
-A imagem seguinte ilustra periódicas cópias de segurança completas de todas as entidades de BD do Cosmos GRS do armazenamento do Azure.
+A imagem seguinte ilustra as cópias de segurança completas periódicas de todas as entidades do Cosmos DB GRS do armazenamento do Azure.
 
-![Cópias de segurança completas periódicas de todas as entidades de BD do Cosmos GRS do armazenamento do Azure](./media/online-backup-and-restore/automatic-backup.png)
+![Cópias de segurança completas periódicas de todas as entidades do Cosmos DB GRS do armazenamento do Azure](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="backup-retention-period"></a>Período de retenção de cópias de segurança
-Conforme descrito acima, base de dados do Azure Cosmos tira instantâneos dos seus dados em quatro horas ao nível da partição. Em qualquer momento, apenas os dois últimos instantâneos são retidos. No entanto, se a coleção/base de dados é eliminado, base de dados do Azure Cosmos mantém os instantâneos existentes para todas as partições eliminadas dentro de determinada coleção/base de dados para 30 dias.
+## <a name="backup-retention-period"></a>Período de retenção de cópia de segurança
+Conforme descrito acima, Azure Cosmos DB tira instantâneos dos seus dados a cada quatro horas no nível da partição. Em qualquer momento, apenas os últimos dois instantâneos são retidos. No entanto, se o contentor/base de dados é eliminada, o Azure Cosmos DB retém os instantâneos existentes para todas as partições eliminadas dentro de determinado contentor/base de dados durante 30 dias.
 
-Para a API do SQL Server, se pretender manter os seus próprios instantâneos, pode utilizar a exportação para a opção de JSON na base de dados do Azure Cosmos [ferramenta de migração de dados](import-data.md#export-to-json-file) para agendar cópias de segurança adicionais.
+Para a API de SQL, se pretender manter o seu próprio instantâneos, pode usar a opção Exportar para JSON no Azure Cosmos DB [ferramenta de migração de dados](import-data.md#export-to-json-file) para agendar cópias de segurança adicionais.
 
 > [!NOTE]
-> Se a "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Também tem de garantir a entrar no prazo de 8 horas para a equipa de suporte, se forma acidental eliminado o opção contentor - tabela/coleção/gráfico se utilizar esta nova capacidade. 
+> Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte se acidentalmente eliminou seu contentor - coleção/tabela/gráfico se utilizar esta nova capacidade. 
 
 
-## <a name="restoring-a-database-from-an-online-backup"></a>Restaurar uma base de dados a partir da cópia de segurança online
+## <a name="restoring-a-database-from-an-online-backup"></a>Restaurar uma base de dados a partir de uma cópia de segurança online
 
-Se elimina acidentalmente a base de dados ou uma coleção, pode [um pedido de suporte de ficheiros](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure](https://azure.microsoft.com/support/options/) para restaurar os dados da última cópia de segurança automática. Suporte do Azure está disponível para planos selecionados apenas como Standard, programador, suporte não está disponível com o plano básico. Para saber mais sobre planos de suporte diferentes, consulte [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
+Se eliminar acidentalmente a base de dados ou o contentor, pode [enviar um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure](https://azure.microsoft.com/support/options/) para restaurar os dados da última cópia de segurança automática. Suporte do Azure está disponível para planos selecionados apenas como padrão, o desenvolvedor, o suporte não está disponível com o plano básico. Para saber mais sobre os planos de suporte a diferentes, veja [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
 
-Se tiver de restaurar a base de dados devido ao problema de Corrupção de dados (inclui casos em que os documentos numa coleção são eliminados), consulte [danos nos dados de processamento](#handling-data-corruption) conforme é necessário tomar medidas adicionais para impedir que os dados danificados substituam as cópias de segurança existentes. Para um instantâneo específico da sua cópia de segurança ser restauradas, base de dados do Cosmos requer que os dados estavam disponíveis durante o ciclo de cópia de segurança nesse instantâneo.
+Se tiver de restaurar a base de dados devido a problema de Corrupção de dados (inclui casos em que são eliminados os documentos dentro de um contêiner), consulte [lidar com danos nos dados](#handling-data-corruption) que precisar de efetuar passos adicionais para impedir que os dados danificados substitua as cópias de segurança existentes. Para um instantâneo específico da cópia de segurança seja restaurado, o Cosmos DB requer que os dados estavam disponíveis durante o ciclo de cópia de segurança para que o instantâneo.
 
-## <a name="handling-data-corruption"></a>Processamento de danos nos dados
+## <a name="handling-data-corruption"></a>Manipulação de Corrupção de dados
 
-BD do Azure do Cosmos mantém as últimas duas cópias de segurança de cada partição na conta de base de dados. Este modelo funciona bem quando um contentor (coleção de documentos, gráfico, tabela) ou uma base de dados sejam eliminado acidentalmente porque uma das versões último pode ser restaurada. No entanto, no caso de quando os utilizadores poderão apresentar um problema de danos de dados, base de dados do Azure Cosmos poderá ser RECONHECENDO a existência de danos de dados e é possível que os danos podem substituir as cópias de segurança existentes. 
+O Azure Cosmos DB mantém as últimas duas cópias de segurança de cada partição na conta de base de dados. Esse modelo funciona bem quando um contentor (coleção de documentos, gráfico, tabela) ou uma base de dados sejam eliminado acidentalmente, uma vez que uma das versões do último pode ser restaurada. No entanto, no caso de quando os utilizadores podem introduzir um problema de Corrupção de dados, do Azure Cosmos DB pode não terem conhecimento da Corrupção de dados e é possível que a existência de danos pode ter substituído as cópias de segurança existentes. 
 
-Assim que for detetada corrupção, aceder ao suporte ao cliente com informações de conta e a coleção com o tempo aproximado de danos. Outra ação do utilizador pode fazê-lo em case de danificado (eliminação de dados/updation) o utilizador deve eliminar o contentor danificado (coleção/gráfico/tabela) para que as cópias de segurança estão protegidas de ser substituído com dados danificados.  
+Assim que for detetada corrupção, contacte o suporte ao cliente com informações de conta e contentor de base de dados com o tempo aproximado de corrupção. Outra ação que o utilizador pode fazer no caso de danificado (eliminação/atualização de dados) o utilizador deve eliminar o contentor danificado (coleção/gráfico/tabela) para que as cópias de segurança são protegidas contra a ser substituído pelos dados danificados.  
 
-A imagem seguinte ilustra a criação do pedido de suporte do restauro container(collection/graph/table) através do portal do Azure para a eliminação acidental ou atualização de dados dentro de um contentor
+A imagem seguinte ilustra a criação do pedido de suporte para o restauro de container(collection/graph/table) através do portal do Azure para a eliminação acidental ou de atualização de dados dentro de um contêiner
 
-![Restaurar uma coleção para a atualização mistaken ou eliminar de dados na base de dados do Cosmos](./media/online-backup-and-restore/backup-restore-support.png)
+![Restaurar um contentor para atualização errada ou eliminar de dados no Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo "-restaurada") e a coleção. Este restore não é efetuada no local para fornecer uma oportunidade para cliente validação de dados e mover os dados conforme necessário. A coleção restaurada está na mesma região com as políticas de indexação e mesmos RUs. 
+Quando é efetuar um restauro para este tipo de cenários - os dados são restaurados para outra conta (com o sufixo do "-restaurado") e um contentor. Este restauro não é feito no local para fornecer uma chance ao cliente para fazer a validação de dados e mover os dados conforme necessário. O contentor de restaurada está na mesma região com o mesmo RUs e políticas de indexação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para replicar a base de dados em múltiplos centros de dados, consulte [distribuir dados globalmente com Cosmos DB](distribute-data-globally.md). 
+Para replicar a base de dados em vários datacenters, veja [distribuir dados globalmente com o Cosmos DB](distribute-data-globally.md). 
 
-Contactar o suporte do Azure, o ficheiro [um ticket do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Suporte do Azure, de contacto do ficheiro [enviar um pedido do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

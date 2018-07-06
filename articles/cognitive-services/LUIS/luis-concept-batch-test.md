@@ -1,77 +1,78 @@
 ---
-title: Batch testar a aplicação de LUIS - Azure | Microsoft Docs
-description: Utilize o teste de batch para trabalhar continuamente na sua aplicação para refiná-lo e melhorar a compreensão de idiomas.
+title: Batch testar a sua aplicação LUIS – Azure | Documentos da Microsoft
+description: Use o teste de batch para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f0366e805c9ae809a2800b0f4be53d08d9fc3d60
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353348"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857913"
 ---
-# <a name="batch-testing-in-luis"></a>Teste no LUIS do batch
+# <a name="batch-testing-in-luis"></a>Lote de teste de LUIS
 
-Teste de batch valida o [Active Directory](luis-concept-version.md#active-version) modelo treinado para medir a exatidão da previsão. Um teste de batch ajuda a visualizar a precisão do cada intenção e a entidade no seu modelo treinado atual de um gráfico. Reveja os resultados do teste batch tome medidas adequadas para melhorar a precisão, como adicionar mais utterances de exemplo para um objetivo se a sua aplicação com frequência falhar identificar a intenção correta.
+Teste de batch valida sua [Active Directory](luis-concept-version.md#active-version) modelo preparado para medir a exatidão da previsão. Um teste de batch ajuda-o a ver a precisão de cada objetivo e a entidade no modelo de preparação atual num gráfico. Reveja os resultados de teste de batch para tomar as medidas adequadas para melhorar a precisão, por exemplo, adicionar mais expressões de exemplo para um objetivo se a sua aplicação falhar com frequência identificar a intenção correta.
 
-## <a name="group-data-for-batch-test"></a>Dados do grupo de teste do batch
-É importante que utterances utilizadas para fins de teste do batch são novos para LUIS. Se tiver um conjunto de dados de utterances, dividir utterances em três conjuntos: utterances adicionados ao objetivo, utterances recebidas o ponto final publicado e utterances utilizados para teste de batch LUIS depois está preparada. 
+## <a name="group-data-for-batch-test"></a>Dados de grupo para teste de batch
+É importante que a expressão utilizada para fins de teste do batch estiver familiarizado com o LUIS. Se tiver um conjunto de dados de expressões, dividir as expressões em três conjuntos: discursos adicionados a um objetivo, expressões com recebido a partir do ponto final publicado e expressões com usado para teste de batch LUIS depois é preparado. 
 
-## <a name="a-dataset-of-utterances"></a>Um conjunto de dados de utterances
-Submeter um ficheiro batch utterances, conhecido como um *dataset*, para fins de teste do batch. O conjunto de dados é um ficheiro formatado em JSON que contém um máximo de 1000 etiquetadas **não duplicado** utterances. Pode testar conjuntos de dados até 10 numa aplicação. Se precisar de mais de teste, elimine um conjunto de dados e, em seguida, adicionar uma nova.
+## <a name="a-dataset-of-utterances"></a>Um conjunto de dados de expressões
+Submeter um arquivo em lotes de expressões, conhecido como um *conjunto de dados*, para fins de teste do batch. O conjunto de dados é um ficheiro formatado em JSON que contém um máximo de 1000 rotulado **não duplicado** expressões com. Pode testar os conjuntos de dados de até 10 numa aplicação. Se precisar de mais de teste, elimine um conjunto de dados e, em seguida, adicionar um novo.
 
 |**Regras**|
 |--|
-|* Qualquer utterances duplicados|
-|Não existem elementos subordinados hierárquica de entidade|
-|1000 utterances ou menos|
+|* Nenhuma expressões com duplicado|
+|Sem subordinados de entidades hierárquicas|
+|expressões de 1000 ou menos|
 
-* Duplicados são considerados correspondências de cadeia exacta, não corresponde ao que é atomizada primeiro. 
+* Duplicatas são consideradas correspondências de cadeia exacta, não as correspondências são indexadas pela primeira vez. 
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
-## <a name="batch-file-format"></a>Formato de ficheiro batch
-O ficheiro batch é constituído por utterances. Cada utterance tem de ter uma predição de intenção esperada juntamente com qualquer [adquiridos por máquina entidades](luis-concept-entity-types.md#types-of-entities) que esperava ser detetado. 
+## <a name="batch-file-format"></a>Formato de ficheiro de batch
+O arquivo em lotes consiste em expressões. Cada expressão tem de ter uma previsão de intenção esperada, juntamente com quaisquer [entidades aprendidas por máquina](luis-concept-entity-types.md#types-of-entities) espera ser detetado. 
 
-Um exemplo de ficheiro batch segue:
+Segue-se um ficheiro de batch de exemplo:
 
    [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
 
 
-## <a name="common-errors-importing-a-batch"></a>Importar um lote de erros comuns
+## <a name="common-errors-importing-a-batch"></a>Importação de um lote de erros comuns
 Erros comuns incluem: 
 
-> * Mais de 1000 utterances
-> * Um objeto JSON utterance que não tem uma propriedade de entidades
+> * Expressões com mais de 1000
+> * Um objeto JSON de expressão que não tem uma propriedade de entidades
+> * Word(s) rotulado como em várias entidades
 
-## <a name="batch-test-state"></a>Estado de teste do batch
-LUIS controla o estado do teste cada conjunto de dados. Isto inclui a data de tamanho (número de utterances no lote,) da última execução e a última resultado (número de utterances previstos com êxito).
+## <a name="batch-test-state"></a>Estado do teste de batch
+LUIS controla o estado do último teste de cada conjunto de dados. Isto inclui a data de tamanho (número de expressões no lote), a última execução e o último resultado (número de expressões com prevista com êxito).
 
 <a name="sections-of-the-results-chart"></a>
 ## <a name="batch-test-results"></a>Resultados do teste de batch
-O resultado do teste do batch é um gráfico de gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4-vias de utterances na intenção previstas o modelo atual como o ficheiro e as entidades. 
+O resultado de teste do batch é um gráfico de dispersão, conhecido como uma matriz de erro. Este gráfico é uma comparação de 4 vias de expressões no arquivo e a intenção de prevista do modelo atual e entidades. 
 
-Pontos de dados das **falsos positivos** e **falso negativo** secções indicam erros, o que devem ser investigados. Se todos os pontos de dados estiverem no **Verdadeiro positivo** e **Verdadeiro negativo** secções, em seguida, a precisão da sua aplicação é perfeito neste conjunto de dados.
+Pontos de dados na **falsos positivos** e **falsos negativos** secções indicam erros, que devem ser investigados. Se todos os pontos de dados do **positivo verdadeiro** e **Verdadeiro negativo** secções, em seguida, a precisão da sua aplicação é perfeito neste conjunto de dados.
 
-![Quatro secções do gráfico](./media/luis-concept-batch-test/chart-sections.png)
+![Quatro seções de gráfico](./media/luis-concept-batch-test/chart-sections.png)
 
-Este gráfico ajuda-o a encontrar utterances LUIS prevê incorretamente com base no respetiva formação atual. Os resultados são apresentados por região do gráfico. Selecione pontos individuais no gráfico para rever as informações de utterance ou selecione o nome de região para rever os resultados de utterance nessa região.
+Este gráfico ajuda a localizar as expressões que prevê o LUIS incorretamente com base no seu treinamento atual. Os resultados são exibidos por região do gráfico. Selecione os pontos individuais no gráfico para consultar as informações de expressão ou selecione o nome da região para rever os resultados de expressão nessa região.
 
-![Teste do batch](./media/luis-concept-batch-test/batch-testing.png)
+![Testes em lote](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
-Erros no teste batch indicam pendentes que não são prever conforme indicado no ficheiro batch. Erros são indicados em duas secções de vermelhos do gráfico. 
+Erros no teste de batch indicam intenções que não estão previstas conforme indicado no ficheiro batch. Erros são indicados nas duas secções vermelhas do gráfico. 
 
-A secção positiva falsa indica que um utterance correspondido um objetivo ou entidade quando não deve ter. O negativo falso indica um utterance não correspondeu a um objetivo ou entidade quando deve ter. 
+A secção positiva falso indica que uma expressão correspondido uma intenção ou a entidade que não deve ter. O negativo falso indica que uma expressão não correspondeu a um objetivo ou a entidade que deve ter. 
 
-## <a name="fixing-batch-errors"></a>Corrigir os erros de batch
-Se existirem erros nos testes de batch, pode a adicionar mais utterances ao objetivo e/ou etiqueta mais utterances com a entidade para ajudar a LUIS tornar discrimination entre pendentes. Se tiver adicionado utterances e etiqueta get-las e ainda os erros de predição nos testes de batch, considere adicionar um [lista frase](luis-concept-feature.md) funcionalidade com vocabulário específicas do domínio para o ajudar LUIS Saiba mais rapidamente. 
+## <a name="fixing-batch-errors"></a>Corrigir erros de batch
+Se houver erros no teste de lote, pode seja adicionar expressões mais numa intenção, e/ou expressões com mais com a entidade para o ajudar a tornar o discrimination entre objetivos de LUIS da etiqueta. Se tiver adicionado expressões e rotulado como get-los e ainda os erros de predição no teste do batch, considere adicionar uma [lista de frase](luis-concept-feature.md) funcionalidade com o vocabulário específicas de domínio para o ajudar a LUIS aprende mais depressa. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

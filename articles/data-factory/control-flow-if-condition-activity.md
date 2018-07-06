@@ -1,6 +1,6 @@
 ---
-title: Se a condição atividade no Azure Data Factory | Microsoft Docs
-description: A atividade de condição se permite-lhe controlar o fluxo de processamento com base numa condição.
+title: Se a condição de atividade no Azure Data Factory | Documentos da Microsoft
+description: A atividade se condição permite-lhe controlar o fluxo de processamento com base numa condição.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046171"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857383"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Se a condição atividade no Azure Data Factory
+# <a name="if-condition-activity-in-azure-data-factory"></a>Se a condição de atividade no Azure Data Factory
 A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -67,19 +67,19 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade se condição. | Cadeia | Sim
+nome | Nome da atividade condição-if. | Cadeia | Sim
 tipo | Tem de ser definido como **IfCondition** | Cadeia | Sim
-expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Sim
-ifTrueActivities | Conjunto de atividades que são executados quando avalia a expressão para `true`. | Sim
-ifFalseActivities | Conjunto de atividades que são executados quando avalia a expressão para `false`. | Sim
+expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão com o resultado do tipo Booleano | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão avalia `true`. | Array | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão avalia `false`. | Array | Sim
 
 ## <a name="example"></a>Exemplo
-O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for VERDADEIRO, os dados são copiados para outputPath1. Além disso, se o valor de routeSelection for FALSO, os dados são copiados para outputPath2. 
+O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for VERDADEIRO, os dados são copiados para outputPath1. E, se o valor de routeSelection for false, os dados são copiados para outputPath2. 
 
 > [!NOTE]
-> Esta secção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados utilizando as definições do Azure PowerShell e JSON, consulte [tutorial: criar uma fábrica de dados utilizando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta seção fornece definições de JSON e comandos de exemplo de PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados com as definições do Azure PowerShell e JSON, veja [tutorial: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade de condição se (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade condição-IF (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +190,7 @@ Outro exemplo para a expressão é:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado do Storage do Azure (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado do armazenamento do Azure (azurestoragelinkedservice. JSON)
 
 ```json
 {
@@ -207,8 +207,8 @@ Outro exemplo para a expressão é:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizada conjunto de dados de Blobs do Azure (BlobDataset.json)
-Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **outputPath2** parâmetro do pipeline. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizado conjunto de dados de Blobs do Azure (blobdataset. JSON)
+Os conjuntos de pipeline os **folderPath** para o valor **outputPath1** ou **outputPath2** parâmetro do pipeline. 
 
 ```json
 {
@@ -234,7 +234,7 @@ Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (pipelineparameters. JSON)
 
 ```json
 {
@@ -246,7 +246,7 @@ Os conjuntos de pipeline de **folderPath** para o valor do **outputPath1** ou **
 ```
 
 ### <a name="powershell-commands"></a>Comandos do PowerShell
-Estes comandos pressupõem que guardou os ficheiros JSON para a pasta: C:\ADF. 
+Estes comandos partem do princípio de que guardou os ficheiros JSON para a pasta: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount
@@ -288,10 +288,10 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
+Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade de Web](control-flow-web-activity.md)
+- [Atividade Web](control-flow-web-activity.md)

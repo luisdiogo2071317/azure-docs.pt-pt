@@ -1,6 +1,6 @@
 ---
-title: Sobre o reconhecimento de voz do texto para | Microsoft Docs
-description: Uma descrição geral das funcionalidades do texto para voz.
+title: Sobre o texto em voz | Documentos da Microsoft
+description: Uma descrição geral das funcionalidades do texto em voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,36 +10,36 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84baf03c83bb63883b80982056cdf6e1e25b3fb7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355633"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855945"
 ---
-# <a name="about-the-text-to-speech-api"></a>Sobre a API do reconhecimento de voz para de texto
+# <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 
-O **reconhecimento de voz do texto para** (TTS) API do serviço de reconhecimento de voz converte texto de entrada do reconhecimento de voz natural sounding (também denominado *synthesis de reconhecimento de voz*).
+O **texto em voz** API (TTS) do serviço de voz converte a entrada de texto em voz com som natural (também denominado *síntese de fala*).
 
-Para gerar o reconhecimento de voz, a aplicação envia pedidos de HTTP POST para o serviço de reconhecimento de voz. Não existe, o texto é synthesized para reconhecimento de voz sounding humanos e devolvido como um ficheiro de áudio. Uma variedade de voices e idiomas são suportados.
+Para gerar voz, a sua aplicação envia pedidos de HTTP POST para o serviço de voz. Lá, o texto é sintetizado em voz com som humanos e retornado como um arquivo de áudio. Uma variedade de vozes e idiomas são suportados.
 
-Os cenários em que voz synthesis está a ser adotado uma larga maioria incluem:
+Os cenários em que fala síntese está a ser adotada incluem:
 
-* *Melhorar a acessibilidade:* **reconhecimento de voz do texto para** tecnologia permite que os proprietários de conteúdo e publicadores para responder às pessoas de diferentes formas interagem com o respetivo conteúdo. As pessoas com visual impairment ou leitura dificuldades Agradecemos a capacidade de consumir conteúdo aurally. Voz saída também torna mais fácil para as pessoas textual conteúdos, tais como newspapers ou blogues, nos dispositivos móveis ao commuting ou exercising.
+* *Melhorar a acessibilidade:* **texto em voz** tecnologia permite que os proprietários de conteúdo e os editores a responder para as pessoas de diferentes formas interagirem com os seus conteúdos. As pessoas com dificuldades de leitura ou o visual impairment apreciam a capacidade de consumir conteúdos aurally. Voz de saída também torna mais fácil para as pessoas usufruir conteúdo textual, como jornais ou posta em blog, em dispositivos móveis ao exercitar transporte ou viagens.
 
-* *A responder em cenários de multitasking:* **reconhecimento de voz do texto para** permite que as pessoas absorver informações importantes rapidamente e comfortably ao ocasionar ou caso contrário, uma prática fora ao ler o ambiente. Navegação é uma aplicação comum nesta área. 
+* *A responder em cenários de multitarefa:* **texto em voz** permite que as pessoas que visam absorver informações importantes rapidamente e confortavelmente ao dirigir ou caso contrário, um conveniente fora ler ambiente. A navegação é um aplicativo comum nessa área. 
 
-* *Otimização da learning com vários modos:* diferentes pessoas saiba melhor formas diferentes. A formação online especialistas têm mostrado que fornecer de voz e texto em conjunto pode ajudar a facilitar informações saber mais e a manter.
+* *Aprimoramento de aprendizagem com vários modos:* pessoas diferentes saiba a melhor de formas diferentes. Especialistas de aprendizagem online têm mostrado que fornecer o texto e voz em conjunto pode ajudar a facilitar as informações saber mais e manter.
 
-* *Entrega bots intuitiva ou assistentes:* a capacidade para falar pode ser uma parte integral de um bot de chat inteligente ou um assistente virtual. As empresas mais estiver a desenvolver bots chat para fornecer ao cliente interagir experiências de serviço para os seus clientes. Voz adiciona outra dimensão ao permitir que as respostas o bot a ser recebido aurally (por exemplo, por telefone).
+* *Fornecimento de bots intuitivo ou assistentes:* a capacidade de comunicar com pode ser uma parte integral de um chatbot inteligente ou um assistente virtual. Cada vez mais empresas estão desenvolvendo bots de bate-papo para fornecer experiências de serviço de cliente atraente para seus clientes. Voz adiciona outra dimensão, permitindo que as respostas do bot para que sejam recebidas aurally (por exemplo, por telefone).
 
 ## <a name="voice-support"></a>Suporte de voz
 
-A Microsoft **Text-to-Speech** service oferece mais do que 75 voices em mais de 45 idiomas e regiões. Para utilizar estes padrão "tipos de letra voz", só tem de especificar o nome de voz com alguns outros parâmetros quando chamar a API de REST do serviço. Para obter os detalhes de voices suportados, consulte [idiomas suportados](supported-languages.md). 
+A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
-Se pretender uma voz exclusiva para a sua aplicação, pode criar [tipos de letra de voz personalizadas](how-to-customize-voice-font.md) do seus próprio amostras de reconhecimento de voz.
+Se desejar uma voz única para a sua aplicação, pode criar [tipos de voz personalizada](how-to-customize-voice-font.md) de seus próprios exemplos de voz.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)

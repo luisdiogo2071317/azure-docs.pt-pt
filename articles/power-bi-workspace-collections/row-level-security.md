@@ -1,6 +1,6 @@
 ---
-title: Segurança ao nível da linha com coleções de área de trabalho do Power BI
-description: Detalhes sobre a segurança ao nível da linha com coleções de área de trabalho do Power BI
+title: Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
+description: Detalhes sobre a segurança ao nível da linha com as coleções de área de trabalho do Power BI
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
@@ -15,94 +15,94 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 09a0de1efc909b72192f9d8584edd0fda5e6217d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414110"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856356"
 ---
-# <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível da linha com coleções de área de trabalho do Power BI
+# <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
 
-Segurança ao nível da linha (RLS) pode ser utilizada para restringir o acesso de utilizador para dados específicas dentro de um relatório ou conjunto de dados, permitindo que vários utilizadores diferente de utilizar o relatório mesmo ao todos os dados de diferentes ver. Coleções de área de trabalho do Power BI suporta conjuntos de dados configurados com RLS.
+Segurança ao nível da linha (RLS) pode ser utilizada para restringir o acesso de utilizador para dados em particular dentro de um relatório ou conjunto de dados, permitindo que vários utilizadores diferentes utilizar o mesmo relatório enquanto todos os dados de diferentes ver. As coleções de área de trabalho do Power BI suporta conjuntos de dados configurados com RLS.
 
-![Fluxo de segurança ao nível da linha em coleções de área de trabalho do Power BI](media/row-level-security/flow-1.png)
+![Fluxo de segurança ao nível da linha nas coleções de área de trabalho do Power BI](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Para tirar partido do RLS, é importante que compreender três conceitos principais; Os utilizadores, funções e regras. Vamos um olhar cada:
+Para tirar partido da RLS, é importante que compreender três conceitos principais: Os utilizadores, funções e regras. Vamos ver mais detalhadamente cada:
 
-**Os utilizadores** – estes são os utilizadores finais reais visualizar relatórios. Em coleções de área de trabalho do Power BI, os utilizadores são identificados pela propriedade de nome de utilizador de um Token de aplicação.
+**Os utilizadores** – estes são os utilizadores finais reais visualizar relatórios. Nas coleções de área de trabalho do Power BI, os utilizadores são identificados pela propriedade de nome de utilizador num Token de aplicação.
 
-**Funções** – os utilizadores pertencem a funções. Uma função é um contentor para as regras e o nome pode ser algo como "Gestor de vendas" ou "Vendedor". Em coleções de área de trabalho do Power BI, os utilizadores são identificados pela propriedade funções num Token de aplicação.
+**Funções** – os utilizadores pertencem a funções. Uma função é um contentor para regras e pode ter um nome semelhante, como o "Gestor de vendas" ou "Representante de vendas". Nas coleções de área de trabalho do Power BI, os utilizadores são identificados pela propriedade funções num Token de aplicação.
 
-**Regras** – funções têm regras e essas regras são os filtros reais que vão ser aplicadas aos dados. Isto pode ser tão simple como "país = EUA" ou algo muito mais dinâmica.
+**Regras** – funções têm regras e essas regras são os filtros reais que vão ser aplicadas aos dados. Isto pode ser tão simples como "país = EUA" ou algo muito mais dinâmica.
 
 ### <a name="example"></a>Exemplo
 
-Para o resto deste artigo, iremos fornecer um exemplo de criação RLS e, em seguida, consumir que dentro de uma aplicação incorporada. O nosso exemplo utiliza o [exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547) ficheiro PBIX.
+No restante deste artigo, fornecemos um exemplo de RLS de criação e, em seguida, consumimos o mesmo dentro de uma aplicação incorporada. Nosso exemplo utiliza a [exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547) ficheiro PBIX.
 
 ![Relatório de vendas de exemplo](media/row-level-security/scenario-2.png)
 
-Nosso exemplo de análise de revenda mostra vendas para todos os arquivos de uma cadeia de revenda específico. Sem RLS, independentemente da que regional manager inicia sessão e visualiza o relatório, verá os mesmos dados. Gestão sénior determinou cada manager regional só deverá ver de vendas para os arquivos de que eles geridos, e para fazer isto, podemos utilizar RLS.
+O nosso exemplo de análise de revenda mostra as vendas de todas as lojas numa cadeia de varejo específico. Sem RLS, independentemente da regional que manager inicia sessão e visualiza o relatório, verão os mesmos dados. Gerenciamento sênior determinou que cada gestor regional deverá ver apenas as vendas das lojas que gerem e fazer isso, podemos utilizar a RLS.
 
-RLS foi criado no Power BI Desktop. Quando o conjunto de dados e o relatório estiverem abertos, iremos pode mudar para vista de diagrama para ver o esquema:
+A RLS foi criada no Power BI Desktop. Quando o conjunto de dados e o relatório estão abertos, podemos mudar para a vista de diagrama para ver o esquema:
 
-![Diagrama de modelo no Power BI Desktop](media/row-level-security/diagram-view-3.png)
+![Diagrama do modelo no Power BI Desktop](media/row-level-security/diagram-view-3.png)
 
-Seguem-se alguns aspetos a reparar com este esquema:
+Seguem-se alguns aspetos a observar neste esquema:
 
-* Todas as medidas, como **vendas totais**, são armazenados no **vendas** tabela de factos.
-* Existem quatro tabelas de dimensão relacionados adicionais: **Item**, **tempo**, **arquivo**, e **regional**.
-* As setas nas linhas relação indicam que forma os filtros que possam circular de uma tabela para outro. Por exemplo, se um filtro está colocado **tempo [Date]**, no esquema atual apenas poderia filtrar para baixo os valores existentes no **vendas** tabela. Não existem outras tabelas seriam afetadas por este filtro, uma vez que todas as setas nas linhas relação ponto para a tabela de venda e não ausente.
-* O **regional** tabela indica que o Gestor de destina-se cada regional:
+* Todas as medidas, como **Total de vendas**, são armazenados no **vendas** tabela de fatos.
+* Existem quatro tabelas de dimensão relacionada adicionais: **Item**, **tempo**, **Store**, e **Distrito**.
+* As setas nas linhas de relação indicam de que forma filtros podem circular de uma tabela para outra. Por exemplo, se um filtro está colocado em **tempo [data]**, no esquema atual, iria filtrar apenas valores a **vendas** tabela. Nenhuma outra tabela é afetada por este filtro, uma vez que todas as setas nas linhas de relação apontam para a tabela de vendas e não para longe.
+* O **Distrito** tabela indica quem é o Gestor de cada escola:
   
-  ![Linhas de tabela regional](media/row-level-security/district-table-4.png)
+  ![Linhas de tabela distrito](media/row-level-security/district-table-4.png)
 
-Com base neste esquema, se aplicar um filtro para o **regional Manager** coluna na tabela regional, e se esse filtro corresponder o utilizador visualizar o relatório, que filtrar também filtros para baixo a **arquivo** e  **Vendas** tabelas apenas para mostram dados para esse regional específico manager.
+Com base neste esquema, se aplicar um filtro para o **Gestor distrital** coluna na tabela distrito, e se esse filtro corresponder ao utilizador visualizando o relatório, que filtrar também filtros a **Store** e  **Vendas** tabelas apenas para mostram dados para a escola específica manager.
 
 Eis como:
 
-1. No separador de modelação, clique em **gerir funções**.  
-   ![Gerir funções clique no botão no Friso de modelação](media/row-level-security/modeling-tab-5.png)
+1. No separador modelação, clique em **gerir funções**.  
+   ![Gerir o botão de funções no Friso de modelagem](media/row-level-security/modeling-tab-5.png)
 2. Criar uma nova função chamada **Manager**.  
    ![Criação de funções no Power BI Desktop](media/row-level-security/manager-role-6.png)
-3. No **regional** tabela introduza a seguinte expressão DAX: **[regional Manager] = USERNAME()**  
+3. Na **Distrito** tabela introduza a seguinte expressão DAX: **[District Manager] = username)**  
    ![Expressão de filtro DAX para a tabela na função](media/row-level-security/manager-role-7.png)
-4. Para se certificar de que as regras estiverem a funcionar, no **modelação** separador, clique em **vista como funções**e, em seguida, introduza o seguinte:  
+4. Para se certificar de que as regras estão a funcionar, no **modelagem** separador, clique em **ver como funções**e, em seguida, introduza o seguinte:  
    ![Ver como funções](media/row-level-security/view-as-roles-8.png)
 
-   Os relatórios agora irão mostrar dados, como se tem sessão iniciada como **Andrew Ma**.
+   Os relatórios irão agora mostrar dados como se estiver conectado como **Andrew Ma**.
 
-Aplicar o filtro, a forma como foi feito aqui, filtra baixo todos os registos no **regional**, **arquivo**, e **vendas** tabelas. No entanto, devido a direção do filtro BAS relações existentes entre **vendas** e **tempo**, **vendas** e **Item**e **Item** e **tempo** tabelas não serão filtradas para baixo.
+Aplicar o filtro, conforme fizemos aqui, filtra para baixo de todos os registos na **Distrito**, **Store**, e **vendas** tabelas. No entanto, devido a direção do filtro nas relações entre **vendas** e **tempo**, **vendas** e **Item**e o **Item** e **tempo** tabelas não serão filtradas para baixo.
 
 ![Vista de diagrama com relações realçado](media/row-level-security/diagram-view-9.png)
 
-Que poderá ser ok para este requisito, no entanto, se não queremos gestores para ver os itens para o qual não têm qualquer vendas, iremos foi ativar bidirecional filtragem cruzada para a relação e o filtro de segurança em ambas as direções do fluxo. Isto pode ser feito ao editar a relação entre **vendas** e **Item**, como esta:
+Isso pode ser ok para este requisito, no entanto, se não Queremos que os gerentes de ver itens para os quais não têm quaisquer vendas, poderíamos Ativar filtragem cruzada bidirecional para a relação e o filtro de segurança em ambas as direções do fluxo. Isso pode ser feito editando a relação entre **vendas** e **Item**, assim:
 
-![Direção do filtro para a relação de se estender](media/row-level-security/edit-relationship-10.png)
+![Relação na direção do filtro cruzado](media/row-level-security/edit-relationship-10.png)
 
-Agora, os filtros podem também fluxo da tabela de vendas para o **Item** tabela:
+Agora, os filtros podem circular também da tabela de vendas para o **Item** tabela:
 
-![Ícone de direção de filtro de relação na vista de diagrama](media/row-level-security/diagram-view-11.png)
+![Ícone de direção do filtro de relação na vista de diagrama](media/row-level-security/diagram-view-11.png)
 
 > [!NOTE]
-> Se estiver a utilizar o modo DirectQuery para os seus dados, terá de ativar a filtragem cruzada bidirecional selecionando estas duas opções:
+> Se estiver a utilizar o modo DirectQuery para os seus dados, tem de ativar a filtragem bidirecional-cruzada selecionando estas duas opções:
 
-1. **Ficheiro** -> **opções e definições** -> **funcionalidades de pré-visualização** -> **Ativar filtragem cruzada em ambas as direções de DirectQuery** .
-2. **Ficheiro** -> **opções e definições** -> **DirectQuery** -> **permitir sem restrições medidas no modo DirectQuery**.
+1. **Arquivo** -> **opções e definições** -> **funcionalidades de pré-visualização** -> **Permitir filtragem cruzada em ambas as direções para o DirectQuery** .
+2. **Arquivo** -> **opções e definições** -> **DirectQuery** -> **permitir medidas não restritas no modo de DirectQuery**.
 
-Para obter mais informações sobre filtragem cruzada bidirecional, transfira o [bidirecional filtragem cruzada no SQL Server Analysis Services 2016 e o Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) documento.
+Para saber mais sobre a filtragem cruzada bidirecional, transfira o [filtragem cruzada bidirecional no Power BI Desktop e no SQL Server Analysis Services 2016](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) White Paper.
 
-Isto encapsula num wrapper se todo o trabalho que tem de ser feita no Power BI Desktop, mas não existe um trabalho de peça mais que tem de ser feito para tornar a RLS regras que definimos trabalho no Power BI Embedded. Os utilizadores são autenticados e autorizados pela sua aplicação e os tokens de aplicação são utilizados para conceder acesso desse utilizador para um relatório do Power BI Embedded específico. Power BI Embedded não tem quaisquer informações específicas sobre quem é o utilizador. Para RLS funcione, tem de passar algum contexto adicional como parte do seu token de aplicação:
+Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há um mais trabalho que precisa ser feito para tornar a RLS regras que definimos o trabalho no Power BI Embedded. Os utilizadores são autenticados e autorizados pela sua aplicação e tokens de aplicação são utilizados para conceder acesso a esse utilizador a um relatório do Power BI Embedded específico. Power BI Embedded não tem quaisquer informações específicas sobre quem é seu usuário. Para a RLS funcionar, terá de passar algum contexto adicional como parte do seu token de aplicação:
 
-* **nome de utilizador** (opcional) – utilizado com RLS esta é uma cadeia que pode ser utilizada para ajudar a identificar o utilizador ao aplicar regras RLS. Ver a utilizar a linha segurança ao nível com o Power BI Embedded
-* **funções** – uma cadeia que contém as funções para selecionar ao aplicar regras de segurança de nível de linha. Se a transmitir mais de uma função, deve ser transmitidas como uma matriz de cadeia.
+* **nome de utilizador** (opcional) – utilizado com RLS trata de uma cadeia de caracteres que pode ser utilizada para ajudar a identificar o utilizador ao aplicar regras RLS. Ver a utilizar a linha de segurança ao nível com o Power BI Embedded
+* **funções** – uma cadeia que contém as funções para selecionar ao aplicar regras de segurança de nível de linha. Se passar mais de uma função, devem ser passadas como uma matriz de cadeia de caracteres.
 
 Criar o token ao utilizar o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) método. Se a propriedade de nome de utilizador estiver presente, também tem de passar pelo menos um valor em funções.
 
-Por exemplo, pode alterar o EmbedSample. Linha DashboardController 55 foi atualizada a partir do
+Por exemplo, pode alterar o EmbedSample. DashboardController linha 55 pode ser atualizada de
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
@@ -110,17 +110,17 @@ para
 
     var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
-O token de aplicação completa aspeto semelhante ao seguinte:
+O token de aplicação completo é parecido com este:
 
 ![Exemplo do JSON web token](media/row-level-security/app-token-string-12.png)
 
-Agora, com todas as peças em conjunto, quando um utilizador inicia sessão no nossa aplicação para ver este relatório, este vê os dados que estão autorizados a ver, tal como definido pela nossa segurança ao nível da linha.
+Agora, com todas as peças em conjunto, quando alguém inicia sessão no nosso aplicativo para ver este relatório, verão os dados que estão autorizados a ver, conforme definido pela nossa segurança ao nível da linha.
 
 ![Relatório apresentado na aplicação](media/row-level-security/dashboard-13.png)
 
 ## <a name="see-also"></a>Consulte também
 
-[Segurança ao nível da linha (RLS) com energia](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
+[Segurança ao nível da linha (RLS) com o Power](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

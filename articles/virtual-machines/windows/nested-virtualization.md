@@ -1,6 +1,6 @@
 ---
-title: Como ativar a virtualização aninhada em Azure Virtual Machines | Microsoft Docs
-description: Como ativar a virtualização aninhada em Azure Virtual Machines
+title: Como ativar a virtualização aninhada em máquinas de virtuais do Azure | Documentos da Microsoft
+description: Como ativar a virtualização aninhada em máquinas de virtuais do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -11,30 +11,30 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526523"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857949"
 ---
-# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada numa VM do Azure
+# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada na VM do Azure
 
-Virtualização aninhada é suportada a série Dv3 e Ev3 de máquinas virtuais do Azure. Esta capacidade fornece uma enorme flexibilidade para suportar cenários tais como ambientes de desenvolvimento, teste, formação e demonstração. 
+Virtualização aninhada é suportada da série Dv3 e Ev3 máquinas virtuais do Azure. Esta capacidade fornece grande flexibilidade no suporte aos cenários, como ambientes de desenvolvimento, teste, treinamento e demonstração. 
 
-Passos neste artigo ativar virtualização aninhada numa VM do Azure e configurar a ligação à Internet para que a máquina virtual convidada.
+Máquinas de virtuais de série de todos os Dv3 e Ev3 suporta virtualização aninhada sem qualquer configuração adicional.  Este artigo explica ativar Hyper-V numa VM do Azure e configurar a ligação à Internet para que a máquina virtual convidada.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Criar uma série de Dv3 ou Ev3 VM do Azure
+## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Criar uma série Dv3 ou Ev3 VM do Azure
 
-Criar uma nova Azure VM do Windows Server 2016 e escolher um tamanho da série de Dv3 ou Ev3. Certifique-se de que escolher um tamanho grande o suficiente para suportar as exigências de uma máquina virtual de convidado. Neste exemplo, estamos a utilizar um tamanho de D3_v3 VM do Azure. 
+Criar um novo Azure VM do Windows Server 2016 e escolha um tamanho da série Dv3 ou Ev3. Certifique-se de que escolha um tamanho grande o suficiente para suportar as necessidades de uma máquina virtual convidada. Neste exemplo, estamos a utilizar um tamanho de D3_v3 VM do Azure. 
 
-Pode ver a disponibilidade das máquinas de virtuais série Dv3 ou Ev3 regional [aqui](https://azure.microsoft.com/regions/services/).
+Pode ver a disponibilidade regional de máquinas virtuais da série Dv3 ou Ev3 [aqui](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
 >Para obter instruções detalhadas sobre como criar uma nova máquina virtual, consulte [criar e gerir VMs do Windows com o módulo Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
-## <a name="connect-to-your-azure-vm"></a>Ligar à VM do Azure
+## <a name="connect-to-your-azure-vm"></a>Ligar à sua VM do Azure
 
 Crie uma ligação de ambiente de trabalho remoto para a máquina virtual.
 
@@ -49,14 +49,14 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual.
 ## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Ativar a funcionalidade de Hyper-V na VM do Azure
 Pode configurar estas definições manualmente ou fornecemos um script do PowerShell para automatizar a configuração.
 
-### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Utilizar um script do PowerShell para configurar a virtualização de aninhadas
-Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 não está disponível na [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura virtualização aninhada na VM do Azure. É necessário para concluir a configuração reiniciar a VM do Azure. Este script pode funcionar nos outros ambientes, mas não é garantido. Consulte a mensagem de blogue do Azure com uma demonstração em vídeo em direto virtualização aninhados em execução no Azure! https://aka.ms/AzureNVblog.
+### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Utilizar um script do PowerShell para configurar a virtualização aninhada
+Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Reinício da VM do Azure é necessário para concluir a configuração. Este script pode funcionar em outros ambientes, mas não é garantido. Veja a mensagem de blogue do Azure com uma demonstração em vídeo em direto em Virtualização aninhada em execução no Azure! https://aka.ms/AzureNVblog.
 
-### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar a virtualização de aninhada manualmente
+### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar a virtualização aninhada manualmente
 
 1. Na VM do Azure, abra o PowerShell como administrador. 
 
-2. Ative a funcionalidade Hyper-V e ferramentas de gestão.
+2. Ative a funcionalidade de Hyper-V e ferramentas de gestão.
 
     ```powershell
     Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
@@ -66,10 +66,10 @@ Um script do PowerShell para ativar a virtualização aninhada num anfitrião Wi
     >
     >Este comando reinicia a VM do Azure. Irá perder a ligação de RDP durante o processo de reinício.
     
-3. Depois de reiniciar a VM do Azure, restabeleça a ligação à VM através de RDP.
+3. Depois de reiniciar a VM do Azure, voltar a ligar à sua VM através de RDP.
 
-## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Configurar a conectividade à internet para a máquina virtual convidada
-Criar um novo adaptador de rede virtual para a máquina virtual do convidado e configurar um Gateway de NAT para ativar a conectividade à Internet.
+## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Configurar a conectividade de internet para a máquina virtual de convidado
+Criar um novo adaptador de rede virtual para a máquina virtual de convidado e configurar um Gateway de NAT para ativar a conectividade à Internet.
 
 ### <a name="create-a-nat-virtual-network-switch"></a>Criar um comutador de rede virtual de NAT
 
@@ -81,7 +81,7 @@ Criar um novo adaptador de rede virtual para a máquina virtual do convidado e c
     New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
-3. Ver as propriedades do comutador e tenha em atenção o ifIndex para o adaptador de novo.
+3. Ver as propriedades do comutador e tenha em atenção o ifIndex para o novo adaptador.
 
     ```powershell
     Get-NetAdapter
@@ -95,10 +95,10 @@ Criar um novo adaptador de rede virtual para a máquina virtual do convidado e c
     
 4. Crie um endereço IP para o Gateway de NAT.
     
-Para configurar o gateway, terá de algumas informações sobre a sua rede:    
-  * IPAddress - o IP do NAT Gateway Especifica o endereço IPv4 ou IPv6 para utilizar como o endereço gateway predefinido para a sub-rede de rede virtual. O formulário genérico é a.b.c.1 (por exemplo, "192.168.0.1"). Enquanto a posição final não tem de ser.1, que normalmente (baseado no comprimento do prefixo). Normalmente, deve utilizar um espaço de endereços de rede privada RFC 1918. 
-  * PrefixLength - o comprimento do prefixo de sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O comprimento do prefixo de sub-rede será um valor inteiro entre 0 e 32. 0 seria mapear internet todo, 32 apenas permitiria que um IP mapeado. Comuns intervalo de valores de 24 e 12, dependendo de quantos IPs tem de ser ligado para o NAT. Um PrefixLength comum é 24 – esta é uma máscara de sub-rede de 255.255.255.0.
-  * InterfaceIndex - **ifIndex** é o índice da interface do comutador virtual criado no passo anterior. 
+Para configurar o gateway, terá algumas informações sobre a sua rede:    
+  * IPAddress - o IP do Gateway de NAT Especifica o endereço IPv4 ou IPv6 para utilizar como o endereço de gateway predefinido para a sub-rede de rede virtual. O formulário genérico é a.b.c.1 (por exemplo, "192.168.0.1"). Embora a posição final não precisa ser.1, ele normalmente é (com base no comprimento do prefixo). Normalmente, deve usar um espaço de endereços de rede privada RFC 1918. 
+  * PrefixLength - o comprimento do prefixo de sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O comprimento do prefixo de sub-rede será um número inteiro entre 0 e 32. 0 mapearão toda a internet, 32 devem permitir que um IP mapeado. Intervalo de valores comuns entre 24 e 12 consoante o número de IPs tem de ser anexados ao NAT. Um PrefixLength comum é 24 – isso é uma máscara de sub-rede de 255.255.255.0.
+  * InterfaceIndex - **ifIndex** é o índice de interface do comutador virtual criado no passo anterior. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -106,9 +106,9 @@ Para configurar o gateway, terá de algumas informações sobre a sua rede:
 
 ### <a name="create-the-nat-network"></a>Criar a rede NAT
 
-Para configurar o gateway, terá de fornecer informações sobre a rede e Gateway de NAT:
+Para configurar o gateway, terá de fornecer informações sobre a rede e o Gateway de NAT:
   * Nome - este é o nome da rede NAT. 
-  * InternalIPInterfaceAddressPrefix - o prefixo de sub-rede NAT descreve tanto o prefixo de IP do Gateway de NAT de acima, bem como o comprimento do prefixo de sub-rede NAT do acima. O formulário genérico será a.b.c.0/NAT comprimento do prefixo de sub-rede. 
+  * InternalIPInterfaceAddressPrefix - o prefixo de sub-rede NAT descreve tanto o prefixo de IP do Gateway de NAT acima, bem como o comprimento do prefixo de sub-rede NAT acima. O formulário genérico será a.b.c.0/NAT comprimento do prefixo de sub-rede. 
 
 No PowerShell, crie uma nova rede NAT.
 ```powershell
@@ -126,22 +126,22 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
     
     >[!NOTE] 
     >
-    >É necessário o suporte de dados de instalação para um sistema operativo instalar na VM. Neste caso, estamos a utilizar Windows 10 Enterprise.
+    >Terá de mídia de instalação de um sistema operativo instalar na VM. Neste caso estamos a utilizar do Windows 10 Enterprise.
 
 ## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>Atribuir um endereço IP para a máquina virtual convidada
 
-Pode atribuir um endereço IP à máquina virtual de convidado manualmente a definição de um endereço IP estático numa máquina virtual convidada ou configurar o DHCP na VM do Azure para atribuir o endereço IP dinamicamente.
+Pode atribuir um endereço IP para a máquina de virtual de convidado ao manualmente a definição de um endereço IP estático na máquina de virtual de convidado ou configurar o DHCP na VM do Azure para atribuir o endereço IP dinamicamente.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar DHCP para atribuir dinamicamente um endereço IP para a máquina virtual convidada
-Siga os passos abaixo para configurar o DHCP da máquina virtual do anfitrião para a atribuição de endereço dinâmico.
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar DHCP para atribuir dinamicamente um endereço IP a máquina virtual convidada
+Siga os passos abaixo para configurar o DHCP na máquina de virtual de anfitrião para a atribuição de endereço dinâmico.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Instalar o servidor DHCP na VM do Azure
 
-1. Abra o Gestor de servidor. No Dashboard, clique em **para adicionar funções e funcionalidades**. É apresentada a adicionar funções e funcionalidades do assistente.
+1. Abra o Gestor de servidor. No Dashboard, clique em **para adicionar funções e funcionalidades**. A adicionar funções e funcionalidades assistente será exibida.
   
 2. No assistente, clique em **seguinte** até a página de funções de servidor.
   
-3. Clique para selecionar o **servidor DHCP** caixa de verificação, clique em **adicionar funcionalidades**e, em seguida, clique em **seguinte** até que conclua o assistente.
+3. Clique para selecionar o **servidor DHCP** caixa de seleção, clique em **adicionar funcionalidades**e, em seguida, clique em **seguinte** até concluir o assistente.
   
 4. Clique em **Instalar**.
 
@@ -149,26 +149,26 @@ Siga os passos abaixo para configurar o DHCP da máquina virtual do anfitrião p
 
 1. Abra o Gestor de DHCP.
   
-2. No painel de navegação, expanda o nome do servidor, clique com botão direito **IPv4**e clique em **novo âmbito**. O Assistente de novo âmbito for apresentada, clique em **seguinte**.
+2. No painel de navegação, expanda o nome do servidor, clique com botão direito **IPv4**e clique em **novo âmbito**. O Assistente de novo âmbito é apresentada, clique em **seguinte**.
   
 3. Introduza um nome e descrição para o âmbito e clique em **seguinte**.
   
-4. Defina um intervalo de IP para o servidor DHCP (por exemplo, 192.168.0.100 para 192.168.0.200).
+4. Defina um intervalo de IP do servidor DHCP (por exemplo, 192.168.0.100 para 192.168.0.200).
   
-5. Clique em **seguinte** até a página de Gateway predefinido. Introduza o endereço IP que criou anteriormente (por exemplo, 192.168.0.1) como o Gateway predefinido.
+5. Clique em **seguinte** até a página de Gateway predefinido. Introduza o endereço de IP que criou anteriormente (por exemplo, 192.168.0.1) como o Gateway predefinido.
   
-6. Clique em **seguinte** até concluir o assistente, deixando todos os valores predefinidos, clique em **concluir**.
+6. Clique em **próxima** até que o assistente ser concluído, deixando todos os valores predefinidos, clique em **concluir**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Definir manualmente um endereço IP estático na máquina virtual convidada
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Configurar manualmente um endereço IP estático na máquina virtual convidada
 Se não tiver configurado o DHCP para atribuir dinamicamente um endereço IP para a máquina virtual convidada, siga estes passos para definir um endereço IP estático.
 
 1. Na VM do Azure, abra o PowerShell como administrador.
 
 2. A máquina virtual convidada com o botão direito e clique em ligar.
 
-3. Inicie sessão na máquina virtual convidada.
+3. Inicie sessão máquina virtual convidada.
 
-4. A máquina virtual convidada, abra o Centro de partilha de rede e.
+4. Na máquina virtual convidada, abra o Centro de compartilhamento e rede.
 
 5. Configure o adaptador de rede para um endereço dentro do intervalo da rede NAT que criou na secção anterior.
 
@@ -176,5 +176,5 @@ Neste exemplo irá utilizar um endereço no intervalo 192.168.0.0/24.
 
 ## <a name="test-connectivity-in-guest-virtual-machine"></a>Testar a conectividade na máquina virtual convidada
 
-A máquina virtual convidada, abra o browser e navegue para uma página web.
+Na máquina virtual convidada, abra o browser e navegue para uma página da web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)

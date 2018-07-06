@@ -1,6 +1,6 @@
 ---
-title: Casos de utilização comum e cenários para a base de dados do Azure Cosmos | Microsoft Docs
-description: 'Saiba mais sobre a parte superior cinco casos de utilização do Azure Cosmos DB: utilizador gerado conteúdo, registo de eventos, dados de catálogo, dados de preferências do utilizador e Internet das coisas (IoT).'
+title: Casos de utilização comuns e cenários para o Azure Cosmos DB | Documentos da Microsoft
+description: 'Saiba mais sobre a parte superior, cinco casos de utilização para o Azure Cosmos DB: utilizador gerado conteúdo, log de eventos, dados de catálogo, dados de preferências do usuário e Internet das coisas (IoT).'
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,124 +9,124 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2af77cacced7a6905c4ed7393569949b2eac1906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113124"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859671"
 ---
-# <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização de base de dados do Azure Cosmos comuns
-Este artigo fornece uma descrição geral de vários casos de utilização comuns para a base de dados do Azure Cosmos.  As recomendações neste artigo, servem como um ponto de partida, como desenvolver a sua aplicação com a base de dados do Cosmos.   
+# <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
+Este artigo fornece uma visão geral dos vários casos de utilização comuns para o Azure Cosmos DB.  As recomendações neste artigo, servem como ponto de partida, como desenvolver a sua aplicação com Cosmos DB.   
 
-Depois de ler este artigo, poderá responder às seguintes questões: 
+Depois de ler este artigo, será capaz de responder às seguintes perguntas: 
 
-* Quais são os casos de utilização comuns para a base de dados do Azure Cosmos?
-* Quais são as vantagens de utilizar a base de dados do Azure Cosmos para aplicações de revenda?
-* Quais são as vantagens da utilização de base de dados do Azure Cosmos como um arquivo de dados em sistemas de Internet das coisas (IoT)?
-* Quais são as vantagens da utilização de base de dados do Azure Cosmos em aplicações móveis e web?
+* Quais são os casos de utilização comuns para o Azure Cosmos DB?
+* Quais são as vantagens da utilização do Azure Cosmos DB para aplicações de varejo?
+* Quais são as vantagens da utilização do Azure Cosmos DB como um arquivo de dados para sistemas de Internet das coisas (IoT)?
+* Quais são as vantagens da utilização do Azure Cosmos DB para aplicações web e móveis?
 
 ## <a name="introduction"></a>Introdução
-[BD do Azure do Cosmos](../cosmos-db/introduction.md) é serviço de base de dados globalmente distribuída da Microsoft. O serviço foi concebido para permitir aos clientes aprovisionadas (e independentemente) Dimensionar débito e o armazenamento em qualquer número de regiões geográficas. BD do Azure do Cosmos é o primeiro serviço de base de dados globalmente distribuída no mercado hoje para oferecer abrangente [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrange o débito, latência, disponibilidade e consistência. 
+[O Azure Cosmos DB](../cosmos-db/introduction.md) é o serviço de base de dados distribuída globalmente da Microsoft. O serviço foi concebido para permitir que os clientes de forma elástica (e independente) dimensionar o débito e armazenamento em qualquer número de regiões geográficas. Azure Cosmos DB é o primeiro serviço de base de dados globalmente distribuída no mercado hoje mesmo para oferecer abrangente [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrange o débito, latência, disponibilidade e consistência. 
 
-BD do Cosmos do Azure é global distribuído, com vários modelo base de dados que é utilizada numa vasta gama de aplicações e casos de utilização. É uma boa opção para qualquer [sem servidor](http://azure.com/serverless) aplicação que necessita de tempos de resposta de ordem de milissegundo baixa e tem de dimensionar rapidamente e global. Suporta vários modelos de dados (chave-valor, documentos, gráficos e columnar) e muitas APIs para dados de acesso, incluindo [MongoDB API](mongodb-introduction.md), [API do SQL Server](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), e [tabelas API](table-introduction.md) nativamente e de forma extensível. 
+O Azure Cosmos DB é um de vários modelo distribuída base de dados global que é utilizado numa ampla variedade de aplicativos e de casos de utilização. É uma boa opção para qualquer [sem servidor](http://azure.com/serverless) aplicativo que precisa de tempos de resposta de ordem de milissegundos baixa e tem de dimensionar rapidamente e globalmente. Ele oferece suporte a vários modelos de dados (chave-valor, documentos, gráficos e colunas) e aceder a várias APIs para dados incluindo [API do MongoDB](mongodb-introduction.md), [API de SQL](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), e [API de tabelas](table-introduction.md) nativamente e de forma extensível. 
 
-Seguem-se alguns atributos de base de dados do Azure Cosmos que torna adequada para aplicações de elevado desempenho com global ambition.
+Seguem-se alguns atributos do Azure Cosmos DB que o tornam adequado para aplicativos de alto desempenho com ambição global.
 
-* BD do Azure do Cosmos nativamente particiona os dados para elevada disponibilidade e escalabilidade. BD do Azure do Cosmos oferece garantias de 99,99% de disponibilidade, débito, latência baixa e consistência em todas as contas de única região e todas as contas de multirregião com consistência simples e 99.999% de disponibilidade em todas as contas de base de dados de multirregião de leitura.
-* BD do Azure do Cosmos tem um armazenamento de cópias de SSD com tempos de resposta de ordem de milissegundo de latência baixa.
-* Suporte Cosmos da BD do Azure para níveis de consistência como prefixo eventual e consistente, a sessão e a consistência vinculada permite total flexibilidade e o rácio de custos para desempenho baixo. Nenhum serviço de base de dados oferece a maior quantidade flexibilidade como base de dados do Azure Cosmos na consistência níveis. 
-* BD do Azure do Cosmos tem um modelo de preços do compatível com dados flexível que medidores débito de armazenamento e de forma independente.
-* Modelo de débito reservado da BD Cosmos do Azure permite-lhe pensar em termos de número de leituras/escritas em vez da CPU/memória/IOPs o hardware subjacente.
-* Permite de design do Azure BD Cosmos que Dimensionar para volumes de pedido em grande escala, por ordem de biliões de pedidos por dia.
+* O Azure Cosmos DB nativamente particiona os dados para alta disponibilidade e escalabilidade. O Azure Cosmos DB garante de 99,99% de disponibilidade, débito, baixa latência e consistência em todas as contas de região única e todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade em todas as contas de base de dados de várias regiões de leitura.
+* Azure Cosmos DB tem armazenamento SSD com tempos de resposta de ordem de milissegundo de latência baixa.
+* O suporte do Azure Cosmos DB para níveis de consistência como prescrição vinculada, sessão e eventual e consistente prefixo permite total flexibilidade e de baixa taxa de desempenho de custo. Nenhum serviço de base de dados oferece muito mais flexibilidade, como o Azure Cosmos DB na consistência níveis. 
+* Azure Cosmos DB tem um modelo de preços do compatível com dados flexível que medidores de armazenamento e débito de forma independente.
+* Modelo de débito reservada do Azure Cosmos DB permite-lhe a pensar em termos de número de leituras/gravações em vez de CPU/memória/IOPs do hardware subjacente.
+* Design permite-do Azure Cosmos DB que lhe aumentar a volumes enormes de pedido por ordem de biliões de pedidos por dia.
 
-Estes atributos são úteis na web, móveis, jogos e IoT aplicações que necessitam tempos de resposta baixa e tem de processar quantidades enormes de leituras e escritas.
+Esses atributos são úteis na web, móvel, jogos e aplicações IoT que precisam de tempos de resposta curtos e tem de lidar com quantidades gigantescas de leituras e escritas.
 
 ## <a name="iot-and-telematics"></a>IoT e telemática
-Casos de utilização de IoT normalmente partilham alguns padrões na forma como estes de inserção, processo e armazenam dados.  Em primeiro lugar, estes sistemas têm de inserção bursts de dados de sensores de dispositivo de várias regiões. Em seguida, estes sistemas processam e analisam dados de transmissão em fluxo derivar informações em tempo real. Os dados, em seguida, são arquivados ao armazenamento de frio para análise de lote. O Microsoft Azure oferece incluindo BD do Cosmos do Azure, Event Hubs do Azure, Azure Stream Analytics, Notification Hub do Azure, Azure Machine Learning, Azure HDInsight e PowerBI de casos de utilização de serviços avançados que podem ser aplicados para IoT. 
+Casos de utilização de IoT comumente partilham alguns padrões em como eles ingestão, processo e armazenarem dados.  Em primeiro lugar, esses sistemas precisam absorver rajadas de dados de sensores de dispositivo de várias localidades. Em seguida, estes sistemas de processam e analisar dados de transmissão em fluxo para derivar informações em tempo real. Os dados, em seguida, são arquivados para o armazenamento de frio para análise de lotes. O Microsoft Azure oferece incluindo o Azure Cosmos DB, Hubs de eventos do Azure, Azure Stream Analytics, Hub de notificação do Azure, Azure Machine Learning, Azure HDInsight e o Power BI de casos de utilização de serviços avançados que podem ser aplicados para IoT. 
 
-![Arquitetura de referência do Cosmos DB IoT do Azure](./media/use-cases/iot.png)
+![Arquitetura de referência do Azure Cosmos DB IoT](./media/use-cases/iot.png)
 
-Podem ser ingeridos bursts dos dados ao Event Hubs do Azure como oferece ingestão de dados de débito elevado com baixa latência. Dados ingeridos que tem de ser processados para conhecimentos aprofundados em tempo real podem ser funneled ao Azure Stream Analytics para análise em tempo real. Dados podem ser carregados para base de dados do Azure Cosmos para consultas ad hoc. Depois dos dados são carregados na base de dados do Azure Cosmos, os dados estão prontos para ser consultado. Além disso, os novos dados e as alterações aos dados existentes podem ser lidos no feed de alteração. Alteração feed é um persistente, apenas os registos que armazena as alterações nas coleções de BD do Cosmos ordem sequencial de acréscimo. A todos os dados ou apenas as alterações aos dados na base de dados do Azure Cosmos podem ser utilizadas como dados de referência como parte da análise em tempo real. Além disso, dados ainda podem ser foi refinados e processados através da ligação de dados do Azure Cosmos DB para o HDInsight para as tarefas do Pig, Hive ou mapa/reduza.  Avançadas carregar os dados é, em seguida, voltar a BD do Cosmos do Azure para relatórios.   
+Aumentos repentinos de dados podem ser ingeridos pelo Event Hubs do Azure, que oferece ingestão de dados de débito elevado com baixa latência. Podem ser funneled dados ingeridos e que precisam de ser processados para informações em tempo real para o Azure Stream Analytics para análise em tempo real. Dados podem ser carregados para o Azure Cosmos DB para consultas ad hoc. Depois dos dados são carregados para o Azure Cosmos DB, os dados estão prontos para ser consultado. Além disso, os novos dados e as alterações aos dados existentes podem ser lidos no feed de alterações. Feed de alterações é um persistente, apenas os registos que armazena as alterações para contentores do Cosmos DB em ordem sequencial de acréscimo. A todos os dados ou apenas as alterações dos dados no Azure Cosmos DB podem ser utilizadas como dados de referência como parte da análise em tempo real. Além disso, dados ainda podem ser refinados e processados através da ligação de dados do Azure Cosmos DB para o HDInsight para tarefas do Pig, Hive ou Map/Reduce.  Dos dados refinados, em seguida, são carregados para o Azure Cosmos DB para o relatório.   
 
-Para uma solução de IoT de exemplo através do Azure Cosmos DB, EventHubs e Storm, consulte o [exemplos de storm hdinsight repositório no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
+Para uma solução de IoT de exemplo através do Azure Cosmos DB, EventHubs e Storm, consulte a [repositório de exemplos do storm do hdinsight no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para obter mais informações sobre as ofertas do Azure para IoT, consulte [criar Internet das coisas Your](https://www.microsoft.com/en-us/internet-of-things). 
+Para obter mais informações sobre as ofertas do Azure para IoT, veja [criar a sua Internet das coisas](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## <a name="retail-and-marketing"></a>Revenda e marketing
-BD do Azure do Cosmos é amplamente utilizado em plataformas de comércio da Microsoft, com a loja Windows e, em seguida, XBox Live. Também é utilizado na indústria de revenda para armazenar dados de catálogo e para o evento sourcing por ordem de processamento de pipelines.
+O Azure Cosmos DB é muito usado nas plataformas de comércio eletrônico da Microsoft, que executam o Windows Store e XBox Live. Também é utilizado no setor de varejo para armazenar dados de catálogo e para a origem em pipelines de processamento de pedidos do evento.
 
-Cenários de utilização do catálogo de dados envolvem armazenar e consultar um conjunto de atributos para entidades, como as pessoas, locais e produtos. Alguns exemplos de dados do catálogo são contas de utilizador, catálogos de produtos, registos de dispositivos de IoT e fatura dos sistemas de materiais. Atributos para estes dados podem variar e podem alterar ao longo do tempo para se ajustar os requisitos da aplicação.
+Cenários de utilização do catálogo de dados envolvem armazenam e consultam um conjunto de atributos para entidades como pessoas, lugares e produtos. Alguns exemplos de dados de catálogo são contas de utilizador, catálogos de produtos, registos de dispositivos IoT e fatura dos sistemas de materiais. Atributos para estes dados podem variar e podem mudar ao longo do tempo para satisfazer as necessidades de aplicação.
 
-Considere um exemplo de um catálogo de produtos para um fornecedor de automotive partes. Cada parte pode ter os seus próprios atributos, para além de atributos comuns que partilham todas as partes. Além disso, os atributos de uma parte específica podem alterar o ano seguinte, quando for lançado um novo modelo. BD do Azure do Cosmos suporta esquemas flexíveis e de dados hierárquicos e, por conseguinte, é também adequada para armazenar dados de catálogo do produto.
+Considere um exemplo de um catálogo de produtos para um fornecedor de peças automóvel. Todas as partes podem ter seus próprios atributos além dos atributos comuns que partilham todas as partes. Além disso, os atributos para uma parte específica podem alterar o ano seguinte, quando é lançado um novo modelo. Azure Cosmos DB suporta esquemas flexíveis e dados hierárquicos e, portanto, é bem adequado para armazenar dados de catálogo de produtos.
 
-![Azure arquitetura de referência do catálogo de revenda do Cosmos DB](./media/use-cases/product-catalog.png)
+![Azure arquitetura de referência do catálogo de varejo do Cosmos DB](./media/use-cases/product-catalog.png)
 
-BD do Azure do Cosmos é frequentemente utilizada para eventos sourcing para arquiteturas de evento orientadas por power utilizando o respetivo [alterar feed](change-feed.md) funcionalidade. O feed de alteração fornece a capacidade de forma incremental e fiável leitura atualizações (por exemplo, eventos de ordem) efetuadas para uma base de dados do Azure Cosmos e inserções de micro-serviços a jusante. Esta funcionalidade pode ser aproveitada para fornecer um arquivo persistente eventos como um mediador de mensagens de eventos de alteração de estado e fluxo de trabalho do unidade ordem processamento entre vários micro-serviços (que podem ser implementadas como [das funções do Azure sem servidor](http://azure.com/serverless)).
+O Azure Cosmos DB, muitas vezes, é utilizado para a origem do evento para arquiteturas de condicionada por eventos de energia com o respetivo [feed de alterações](change-feed.md) funcionalidade. O feed de alterações fornece a capacidade de forma fiável e de forma incremental ler inserções e atualizações (por exemplo, eventos de ordem) feitas ao Azure Cosmos DB de microsserviços downstream. Esta funcionalidade pode ser aproveitada para fornecer um armazenamento persistente de evento como um mediador de mensagem para eventos de alteração de estado e fluxo de trabalho do unidade ordem processamento entre muitos microsserviços (que pode ser implementado como [as funções do Azure sem servidor](http://azure.com/serverless)).
 
-![BD do Azure do Cosmos ordenação arquitetura de referência de pipeline](./media/use-cases/event-sourcing.png)
+![O Azure Cosmos DB, a ordenação de arquitetura de referência do pipeline](./media/use-cases/event-sourcing.png)
 
-Além disso, os dados armazenados na base de dados do Azure Cosmos podem ser integrados com o HDInsight para análise de macrodados através de tarefas do Apache Spark. Para obter detalhes sobre o conector do Spark para a BD do Cosmos do Azure, consulte [execute uma tarefa de Spark com a base de dados do Cosmos e o HDInsight](spark-connector.md).
+Além disso, os dados armazenados no Azure Cosmos DB podem ser integrados com o HDInsight para análise de macrodados através de tarefas do Apache Spark. Para obter detalhes sobre o conector do Spark para o Azure Cosmos DB, consulte [executar uma tarefa do Spark com o Cosmos DB e o HDInsight](spark-connector.md).
 
 ## <a name="gaming"></a>Jogos
-A camada de base de dados é um componente fundamental de aplicações de jogos. Jogos modernos executar gráfico processamento nos clientes móveis/consola, mas dependem da nuvem para fornecer conteúdo personalizado e personalizado, como no jogo estatísticas, integração de redes sociais e leaderboards de pontuação de alta. Jogos requerem frequentemente latências milissegundo único para leituras e escritas para fornecer um envolvimento no-jogo experiência. Uma base de dados jogo tem de ser rápido e ser capaz de processar grandes picos em taxas de pedidos durante novo inicia jogos e atualizações de funcionalidade.
+O escalão de base de dados é um componente essencial das aplicações de jogos. Os jogos modernos executam processamento gráfico em clientes móveis/consola, mas confiam na cloud para fornecer conteúdo personalizado e personalizado, como estatísticas nos jogos, integração com redes sociais e classificações de pontuações. Jogos requerem frequentemente latências de milissegundos únicas para leituras e escritas para fornecer um envolvimento no jogo experiência. Uma base de dados de jogo precisa ser rápido e conseguir gerir picos massivos nas velocidades de pedidos durante novos lançamentos de jogos e atualizações de funcionalidades.
 
-BD do Azure do Cosmos é utilizado pelo jogos como [o nosso percurso inactivo: telefone não ataques Man](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) por [jogos seguinte](http://www.nextgames.com/), e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). BD do Azure do Cosmos fornece as seguintes vantagens para os programadores de jogos:
+O Azure Cosmos DB é utilizado pelos jogos como [The Walking Dead: terra não Man](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) por [Next Games](http://www.nextgames.com/), e [Halo 5: Guardiões](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). O Azure Cosmos DB fornece as seguintes vantagens para os desenvolvedores de jogos:
 
-* BD do Azure do Cosmos permite um desempenho ser ampliada ou reduzir aprovisionadas vertical. Isto permite jogos lidar com atualização perfil e estatísticas de dezenas para milhões de gamers simultâneas ao fazer uma única chamada de API.
-* BD do Azure do Cosmos suporta milissegundo leituras e escritas para o ajudar a evitar quaisquer lags durante play jogo.
-* A indexação automática do Azure DB de Cosmos permite a filtragem várias propriedades diferentes em tempo real, por exemplo, localize jogadores pelo respetivo leitor interno IDs ou os respetivos GameCenter, Facebook, Google IDs ou consulta com base na associação player um guild. Isto é possível sem criar indexar complexas ou de infraestrutura de fragmentação.
-* Funcionalidades de redes sociais, incluindo mensagens de chat no jogo, as associações de guild player, desafios concluídos, leaderboards de pontuação de alta e gráficos de redes sociais são mais fáceis de implementar com um esquema flexível.
-* BD do Azure do Cosmos como um gerido plataforma-como-um-serviço (PaaS) necessário requisitos mínimos de configuração e gestão de trabalho para permitir a iteração rápida e reduzir o tempo de colocação no mercado.
+* O Azure Cosmos DB permite que o desempenho de ser dimensionada ou reduz verticalmente de forma elástica. Isso permite que os jogos lidar com o perfil de atualização e estatísticas de dezenas de milhões de jogadores simultâneos, fazendo uma única chamada à API.
+* O Azure Cosmos DB suporta milissegundo leituras e escritas para o ajudar a evitar qualquer lags durante o jogo.
+* Indexação automática do Azure Cosmos DB permite a filtragem em relação a várias propriedades diferentes em tempo real, por exemplo, localizar jogadores por seus IDs de player interno ou seus GameCenter, Facebook, Google IDs ou consulta com base na associação player um guild. Isso é possível sem a criação de indexação complexas ou a infraestrutura de fragmentação.
+* Funcionalidades de redes sociais, incluindo mensagens de chat no jogo, as associações de guild player, os desafios concluídos, classificações de pontuações e gráficos de redes sociais são mais fáceis de implementar com um esquema flexível.
+* O Azure Cosmos DB como uma plataforma-como-um-serviço gerida (PaaS) necessária configuração mínima e gestão de trabalho para permitir uma rápida iteração e reduzem o tempo de comercialização.
 
 ![Arquitetura de referência de jogos do Azure Cosmos DB](./media/use-cases/gaming.png)
 
 ## <a name="web-and-mobile-applications"></a>Aplicações móveis e Web
-BD do Azure do Cosmos costuma ser utilizada dentro de aplicações móveis e web e é adequado para a modelação interações sociais, integrar com os serviços de terceiros e de criação avançadas experiências personalizadas. Os SDKs de BD do Cosmos pode ser iOS avançado compilação utilizado e as aplicações Android com o populares [Xamarin framework](mobile-apps-with-xamarin.md).  
+O Azure Cosmos DB é frequentemente utilizado em aplicações web e móveis e é ideal para modelar as interações de redes sociais, integração com os serviços de terceiros e para a criação de experiências personalizadas e sofisticadas. Os SDKs do Cosmos DB pode ser utilizado de compilação avançado aplicações iOS e Android com a popular [Xamarin framework](mobile-apps-with-xamarin.md).  
 
 ### <a name="social-applications"></a>Aplicações de redes sociais
-É um caso de utilização comuns para a BD do Cosmos do Azure para armazenar e consultar o conteúdo de gerados pelo utilizador (UGC) para a web, aplicações móveis e de redes sociais suporte de dados. Alguns exemplos de UGC são sessões de chat, tweets, publicações no blogue, classificações e comentários. Muitas vezes, UGC em aplicações de redes sociais é um blend de texto de forma livre, propriedades, etiquetas e relações que não são tem um vínculo pela estrutura rigid. Conteúdo como chats, comentários e mensagens podem ser armazenados na base de dados do Cosmos sem necessidade de transformações ou o objeto complexo para as camadas de mapeamento relacional.  Propriedades de dados podem ser adicionadas ou modificadas facilmente para corresponder aos requisitos como programadores iterar código da aplicação, assim ao promover um desenvolvimento rápido.  
+É um caso de utilização comuns para o Azure Cosmos DB para armazenar e consultar conteúdos gerados pelo utilizador (UGC) para a web, aplicativos de mídia social e móveis. Alguns exemplos de UGC são sessões de bate-papo, tweets, postagens em blogs, classificações e comentários. Muitas vezes, UGC em aplicativos de mídia social é uma mistura de texto de forma livre, propriedades, etiquetas e as relações que não estão limitadas pela estrutura rígida. Conteúdo, como bate-papos, comentários e mensagens podem ser armazenados no Cosmos DB sem a necessidade de transformações ou o objeto complexo para as camadas de mapeamento relacional.  Propriedades de dados podem ser adicionadas ou modificadas facilmente para corresponder aos requisitos, como os programadores iterar sobre o código do aplicativo, assim, promover o desenvolvimento rápido.  
 
-As aplicações que se integram com redes sociais de terceiros tem de responder para alterar os esquemas destas redes. Como dados automaticamente são indexados por predefinição na base de dados do Cosmos, dados estão prontos para ser consultados em qualquer altura. Por conseguinte, estas aplicações têm a flexibilidade para obter projeções de acordo com as respetivas necessidades.
+Aplicativos que se integram com redes sociais de terceiros tem de responder às mudanças esquemas a partir destas redes. Como os dados forem indexados automaticamente por predefinição no Cosmos DB, dados estão prontos para ser consultados em qualquer altura. Por conseguinte, estas aplicações têm a flexibilidade para recuperar as projeções de acordo com suas respectivas necessidades.
 
-Muitas das redes sociais aplicações executadas na escala global e podem apresentem um padrões de utilização imprevisíveis. Flexibilidade dimensionar o arquivo de dados é essencial como dimensiona camada da aplicação para corresponder a pedido de utilização.  Pode aumentar horizontalmente adicionando as partições de dados adicionais com uma conta de base de dados do Cosmos.  Além disso, também pode criar contas adicionais da BD do Cosmos em várias regiões. Para disponibilidade de região do serviço de base de dados do Cosmos, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
+Muitos dos aplicativos sociais executam à escala global e podem usar padrões de utilização imprevisíveis. Flexibilidade para dimensionar o armazenamento de dados é essencial que a camada de aplicativo pode ser dimensionada para corresponder à demanda de uso.  Pode aumentar horizontalmente ao adicionar partições de dados adicionais com uma conta do Cosmos DB.  Além disso, também pode criar contas adicionais do Cosmos DB em várias regiões. Para a disponibilidade de região do serviço de Cosmos DB, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-![Azure arquitetura de referência do Cosmos DB web app](./media/use-cases/apps-with-global-reach.png)
+![Arquitetura do referência de aplicações de web do Azure Cosmos DB](./media/use-cases/apps-with-global-reach.png)
 
 ### <a name="personalization"></a>Personalização
-Nowadays, as aplicações modernas são fornecidos com vistas complexas e experiências. Estes são normalmente dinâmicos, catering as preferências do utilizador ou moods e necessidades de imagem corporativa. Por conseguinte, as aplicações têm de ser capaz de obter as definições de personalizado eficazmente para compor elementos da IU e experiências rapidamente. 
+Hoje em dia, os aplicativos modernos são fornecidos com modos de exibição complexos e experiências. Estes são normalmente dinâmicos, fornecendo as preferências do usuário ou reagem e necessidades de imagem corporativa. Por conseguinte, os aplicativos precisam de ser possível obter as definições personalizadas com eficiência para compor rapidamente experiências e elementos de interface do Usuário. 
 
-JSON, um formato suportado pela base de dados do Cosmos, é um formato eficaz para representar os dados de esquema de IU como não só é simples, mas também pode ser facilmente interpretado pelo JavaScript. BD do cosmos oferece os níveis de consistência sincronizáveis que permitem operações de leitura rápidas com baixa latência escritas. Por conseguinte, a armazenar dados de esquema de IU, incluindo definições personalizadas como documentos JSON na base de dados do Cosmos é um meio eficaz para obter estes dados através da transmissão.
+JSON, formato suportado pela Cosmos DB, é um formato eficaz para representar os dados de layout de interface do Usuário que não só é simples, mas também pode ser facilmente interpretado pelo JavaScript. O cosmos DB oferece os níveis de consistência sincronizáveis que permitem que as leituras rápidas com gravações de baixa latência. Portanto, o armazenamento de dados de layout de interface do Usuário incluindo configurações personalizadas, como documentos JSON no Cosmos DB é um meio eficaz para obter esses dados pela conexão.
 
-![Azure arquitetura de referência do Cosmos DB web app](./media/use-cases/personalization.png)
+![Arquitetura do referência de aplicações de web do Azure Cosmos DB](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para começar com Azure Cosmos DB, siga a nossa [inícios Rápidos](create-sql-api-dotnet.md), que explica como criar uma conta e a introdução à base de dados do Cosmos. 
+Para começar a utilizar com o Azure Cosmos DB, siga nosso [inícios Rápidos](create-sql-api-dotnet.md), que explica como criar uma conta e começar a trabalhar com o Cosmos DB. 
 
-Ou, se pretender ler mais sobre clientes que utilizam Cosmos DB, estão disponíveis os seguintes stories de cliente:
+Ou, se quiser ler mais sobre os clientes com o Cosmos DB, estão disponíveis as seguintes histórias de clientes:
 
-* [Jet.com](https://jet.com). Comércio challenger eyes o lugar para cima superior, é executado em nuvem da Microsoft, tira partido da BD do Cosmos uma escala global.
-* [Asos.com](http://www.asos.com/). Asos.com é um arquivo de forma e beauty online British. Diversificado principalmente os adultos mais novo /, Asos sells mais 850 marcas, bem como o seu próprio intervalo clothing e acessórios.
-* [Toyota](https://www.toyota.com/). Toyota Motor Corporation é um fabricante automotive japonês. Toyota aproveitadas a BD do Cosmos para uma aplicação de IoT global.
-* [Citrix](https://customers.microsoft.com/story/citrix). Citrix desenvolvidas pela organização single-sign-on solução utilizando o Azure Service Fabric e da base de dados do Azure Cosmos
-* [TEXA](https://customers.microsoft.com/story/texaspa) solução IoT revolutionary do TEXA para proprietários de vehicle ajuda a poupar tempo, dinheiro, gás — e possivelmente se encontra.
-* [Pizza do Domino](https://www.dominos.com). Inc. de Pizza do Domino é uma cadeia de restaurante American pizza.
-* [Controla a Johnson](http://www.johnsoncontrols.com). Controlos de Johnson é uma tecnologia diversified global e múltiplos industriais leader que serve uma vasta gama de clientes em mais de 150 países.
-* [Microsoft Windows, loja Universal, IoT Hub do Azure, Xbox Live e outros serviços de Internet escala](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Como Microsoft baseia-se extremamente dimensionáveis serviços utilizando a BD do Cosmos do Azure.
-* [Equipa do Microsoft Data e a análise](https://customers.microsoft.com/story/microsoftdataandanalytics). Da Microsoft, equipa de dados e análise obtém uma coleção de macrodados planet escala com base de dados do Azure Cosmos
-* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha utiliza BD do Cosmos do Azure para ligar a clientes e as empresas entre Índia.
-* [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit demora voo com base de dados do Azure Cosmos.
-* [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio muda de AWS BD do Cosmos do Azure para o conjunto de testes dados sociais à escala.
-* [Em seguida jogos](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). Mensagens de não Walking: soars Man do telefone jogo para #1 suportado pelo Azure Cosmos DB.
-* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como Halo 5 implementado gameplay social utilizando a BD do Cosmos do Azure.
-* [Galeria de análise da Cortana](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Análise de galeria da Cortana - um site da Comunidade dimensionável incorporado numa base de dados do Azure Cosmos.
-* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). À esquerda integrador dá-informações Global Multinational Firms em minutos com tecnologias de nuvem flexível.
-* [República de notícias](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adicionar intelligence para as notícias para fornecer informações com o objetivo de citizens acentuadas. 
-* [SGS internacional](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Cor consistente em todo o mundo, de marcas principais ative a SGS. E SGS ativa para o Azure.
-* [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Global leader Telenor utiliza a nuvem para mover com velocidade de um arranque. 
-* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). O arquivo do futuro é executado na pesquisa speedy e o fluxo de dados fácil.
-* [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet). Plataforma de software baseado no Azure divide barreiras as eficazes entre empresas e os clientes
-* [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Fridge inteligente weka melhora a gestão de vaccine para que mais pessoas podem ser protegidas contra diseases
-* [Tribes laranja](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Não há mais para essa aplicação prato que cumpra os olhos ou da boca.
-* [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid oferece o stadium próximo para milhões de 450 ventoinhas à volta de todo o mundo, com o Microsoft Cloud.
-* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU torna carro comprar diversão com a ajuda dos serviços do Azure
+* [Jet.com](https://jet.com). Postos na liderança de comércio eletrônico olhos, é executado em nuvem da Microsoft, tira partido do Cosmos DB à escala global.
+* [Asos.com](http://www.asos.com/). Asos.com é um arquivo British online de forma e a beleza. Principalmente com o objetivo de adultos jovens, Asos vende mais 850 marcas, bem como seu próprio intervalo de vestuário e acessórios.
+* [Toyota](https://www.toyota.com/). Corporation Motor da Toyota é um fabricante automóvel japonês. Toyota tirar partido do Cosmos DB para aplicações de IoT global.
+* [Citrix](https://customers.microsoft.com/story/citrix). Citrix desenvolve a solução de início de início de sessão único com o Azure Service Fabric e o Azure Cosmos DB
+* [TEXA](https://customers.microsoft.com/story/texaspa) solução IoT revolucionária do TEXA para proprietários de veículos ajuda a economizar tempo, dinheiro, gás — e, possivelmente, reside.
+* [Pizza do Domino](https://www.dominos.com). Inc. de Pizza do Domino é uma cadeia de restauração de American pizza.
+* [Controla Johnson](http://www.johnsoncontrols.com). Controles Johnson é uma tecnologia diversificada global e com vários industrial líder que serve uma vasta gama de clientes em mais de 150 países.
+* [Microsoft Windows Store Universal, IoT Hub do Azure, Xbox Live e outros serviços de escala da Internet](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Como Microsoft baseia-se a serviços escaláveis em massa com o Azure Cosmos DB.
+* [Equipe Microsoft Data e Analytics](https://customers.microsoft.com/story/microsoftdataandanalytics). Da Microsoft, equipe de dados e análise alcança a recolha de macrodados de escala planetária com o Azure Cosmos DB
+* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha utiliza o Azure Cosmos DB para ligar os clientes e as empresas na Índia.
+* [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit demora voo com o Azure Cosmos DB.
+* [A Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). A Affinio muda do AWS para o Azure Cosmos DB para dados de redes sociais em escala.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: Man s Land jogos voa para #1 suportado pelo Azure Cosmos DB.
+* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como o Halo 5 implementou a jogabilidade social com o Azure Cosmos DB.
+* [Galeria do Cortana Analytics](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Galeria - um site de Comunidade escalável, criado no Azure Cosmos DB.
+* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Levando o integrador de dá informações Global de empresas multinacionais em minutos com as tecnologias de nuvem flexível.
+* [A News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adicionar inteligência às notícias para fornecer informações com o objetivo de cidadãos envolvidos. 
+* [SGS International tem agora](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Para obter cores consistentes em todo o mundo, marcas principais ativar ao SGS. E SGS recorre ao Azure.
+* [A Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Líder global Telenor utiliza a cloud para movimentar com agilidade Startup. 
+* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). O arquivo do futuro é executado em pesquisa rápida e fácil fluxo de dados.
+* [A Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet). Plataforma de software baseado no Azure divide as barreiras entre as empresas e clientes
+* [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Frigorífico inteligente da weka melhora a gestão de vacinas, de modo mais pessoas podem ser protegidas contra doenças
+* [Cor de laranja Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Há mais para essa aplicação comida que cumpre os olhos ou da boca.
+* [O real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid reúne o estádio a 450 milhões de fãs em todo o mundo, com a Microsoft Cloud.
+* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU torna o carro comprando se divertir com a ajuda dos serviços do Azure

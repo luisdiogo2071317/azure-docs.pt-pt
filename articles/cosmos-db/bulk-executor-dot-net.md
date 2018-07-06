@@ -1,7 +1,7 @@
 ---
-title: Utilizar a biblioteca de .NET de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos | Microsoft Docs
-description: Utilize a biblioteca de .NET de executor de em massa da BD do Azure Cosmos em massa importar e atualizar os documentos para coleções de BD do Cosmos do Azure.
-keywords: Executor em massa de .net
+title: Usando a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB | Documentos da Microsoft
+description: Utilize a biblioteca de .NET do Azure Cosmos DB em massa executor em massa importar e atualizar documentos para contentores do Azure Cosmos DB.
+keywords: Executor do .net em massa
 services: cosmos-db
 author: tknandu
 manager: kfile
@@ -10,44 +10,44 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300776"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857281"
 ---
-# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizar a biblioteca de .NET de executor em massa para efetuar operações em massa na base de dados do Azure Cosmos
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usando a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como utilizar o executor de em massa do Cosmos BD do Azure biblioteca .NET para importar e atualizar os documentos para coleções de base de dados do Azure Cosmos. Para saber mais sobre a biblioteca de executor em massa e como ajuda a tirar partido do débito intenso e armazenamento, consulte [descrição geral da biblioteca de executor em massa](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo através de uma aplicação de .NET de exemplo em massa documentos de importações gerados aleatoriamente para uma coleção de BD do Cosmos do Azure. Depois de importar, mostra como pode em massa atualizar os dados importados especificando patches como efetuar nos campos de documentos específico das operações.
+Este tutorial fornece instruções sobre como usar o executor de em massa do Azure Cosmos DB biblioteca .NET para importar e atualizar documentos para o contentor do Azure Cosmos DB. Para saber mais sobre a biblioteca de executor em massa e como o ajuda a tirar partido do débito em massa e de armazenamento, consulte [descrição geral da biblioteca de executor em massa](bulk-executor-overview.md) artigo. Este tutorial irá guiá-lo por meio de um aplicativo do .NET de exemplo que em massa documentos de importações gerados aleatoriamente para um contentor do Azure Cosmos DB. Depois de importar, mostra como pode em massa atualizar os dados importados, especificando os patches como operações a serem executadas em campos de documentos específica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se ainda não tiver o Visual Studio 2017, instalado, pode transferir e utilizar o [edição de Comunidade de 2017 do Visual Studio](https://www.visualstudio.com/downloads/). Certifique-se de que permitem a programação do Azure durante a configuração do Visual Studio.
+* Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Certifique-se de que ativa o desenvolvimento do Azure durante a configuração do Visual Studio.
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador de BD do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
-* Criar uma conta de API do SQL Server de base de dados do Azure Cosmos utilizando os passos descritos no [criar conta de base de dados](create-sql-api-dotnet.md#create-a-database-account) secção do artigo de início rápido do .NET. 
+* Criar uma conta do Azure Cosmos DB SQL API com os passos descritos em [criar conta de base de dados](create-sql-api-dotnet.md#create-a-database-account) secção do artigo de início rápido do .NET. 
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora vamos mudar para trabalhar com o código transferindo algumas aplicações de .NET de exemplo a partir do GitHub. Estas aplicações efetuar operações em massa na base de dados do Azure Cosmos dados. A clonagem as aplicações, abra uma linha de comandos, navegue para o diretório onde pretende copiar o-os e execute o seguinte comando:
+Agora vamos trabalhar com o código baixando algumas aplicações de .NET de exemplo do GitHub. Esses aplicativos realizam operações em massa nos dados do Azure Cosmos DB. A clonagem as aplicações, abra uma linha de comandos, navegue para o diretório onde pretende copiar o-los e execute o seguinte comando:
 
 ```
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample." Pode abrir uma das aplicações de exemplo, Atualize as cadeias de ligação no ficheiro App. config com cadeias de ligação da sua conta de base de dados do Azure Cosmos, compilar a solução e executá-la. 
+O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample." Pode abrir qualquer uma das aplicações de exemplo, Atualize as cadeias de ligação no ficheiro App. config com cadeias de ligação da sua conta do Azure Cosmos DB, crie a solução e executá-lo. 
 
-A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-los à base de dados do Azure Cosmos. O volume de aplicação "BulkUpdateSample" atualiza os documentos importados especificando patches como efetuar nos campos de documentos específico das operações. Nas secções seguintes, irá rever o código em cada uma destas aplicações de exemplo.
+O aplicativo de "BulkImportSample" gera documentos aleatórios e em massa importa-as ao Azure Cosmos DB. A maior parte de aplicativo de "BulkUpdateSample" atualiza os documentos importados, especificando os patches como operações a serem executadas em campos de documentos específica. Nas secções seguintes, irá rever o código em cada uma destas aplicações de exemplo.
 
-## <a name="bulk-import-data-to-azure-cosmos-db"></a>Dados de importação em volume à base de dados do Azure Cosmos
+## <a name="bulk-import-data-to-azure-cosmos-db"></a>Dados de importação em massa para o Azure Cosmos DB
 
-1. Navegue para a pasta "BulkImportSample" e abra o ficheiro "BulkImportSample.sln".  
+1. Navegue para a pasta "BulkImportSample" e abra o ficheiro de "BulkImportSample.sln".  
 
-2. Cadeias de ligação do Cosmos BD do Azure são obtidas a partir do ficheiro App. config conforme mostrado no seguinte código:  
+2. Cadeias de ligação do Azure Cosmos DB são obtidas a partir do ficheiro App. config conforme mostrado no seguinte código:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -57,9 +57,9 @@ A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   O importador de em massa cria uma nova base de dados e uma coleção com o nome de base de dados, o nome da coleção e a valores de débito especificados no ficheiro App. config. 
+   O importador de em massa cria uma nova base de dados e uma coleção com o nome de base de dados, nome da coleção e os valores de taxa de transferência especificados no ficheiro App. config. 
 
-3. Em seguida o DocumentClient objecto foi inicializado com o modo de ligação de TCP direta:  
+3. Em seguida, o objeto DocumentClient é inicializado com o modo de ligação de TCP direto:  
 
    ```csharp
    ConnectionPolicy connectionPolicy = new ConnectionPolicy
@@ -71,7 +71,7 @@ A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-
    connectionPolicy)
    ```
 
-4. O objeto de BulkExecutor é inicializado com um valores de tentativa elevada para o tempo de espera e limitadas pedidos. E, em seguida, estão definidos para 0 para passar o controlo de congestionamento para BulkExecutor para o seu período de duração.  
+4. O objeto do BulkExecutor é inicializado com uma repetição elevada os valores de tempo de espera e limitado de pedidos. E, em seguida, eles são definidos como 0 para passar o controle de congestionamento para BulkExecutor para seu ciclo de vida.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -86,7 +86,7 @@ A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. A aplicação invoca a API de BulkImportAsync. A biblioteca .NET fornece dois sobrecargas do volume de importar a API - um que aceita uma lista de documentos JSON serializados e outros aceita uma lista de serialização anuladas POCO documentos. Para saber mais sobre as definições de cada um destes métodos sobrecarregados, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
+5. O aplicativo invoca a API de BulkImportAsync. A biblioteca de .NET fornece duas sobrecargas da maior parte importar API - um que aceita uma lista de documentos JSON serializados e a outra aceita uma lista de documentos POCO serialização anuladas. Para saber mais sobre as definições de cada um desses métodos sobrecarregados, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -101,28 +101,28 @@ A aplicação "BulkImportSample" gera documentos aleatórios e em massa importa-
    
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |enableUpsert    |   Um sinalizador para ativar upsert dos documentos. Se um documento com o id já existe, é atualizado. Por predefinição, está definido como false.      |
-   |disableAutomaticIdGeneration    |    Um sinalizador para desativar a geração automática do ID. Por predefinição, está definida como true.     |
-   |maxConcurrencyPerPartitionKeyRange    | O nível máximo de concorrência por intervalo de chaves de partição, definição para nulo fará com que a biblioteca a utilizar um valor predefinido de 20. |
-   |maxInMemorySortingBatchSize     |  O número máximo de documentos retirado do enumerador do documento que é transmitido para a API de chamada, em cada fase.  Para dentro da memória previamente processamento ordenação fase antes da importação em volume, definição para nulo fará com que a biblioteca a utilizar o valor predefinido de min (documents.count, 1000000).       |
-   |cancellationToken    |    O token de cancelamento para lidar graciosamente sair importação em volume.     |
+   |enableUpsert    |   Um sinalizador para ativar upsert dos documentos. Se um documento com id já existe, é atualizado. Por padrão, ele é definido como false.      |
+   |disableAutomaticIdGeneration    |    Um sinalizador para desativar a geração automática do ID. Por predefinição, é definido como true.     |
+   |maxConcurrencyPerPartitionKeyRange    | O maior grau de simultaneidade por intervalo de chaves de partição, definição para nulo fará com que a biblioteca a utilizar um valor predefinido de 20. |
+   |maxInMemorySortingBatchSize     |  O número máximo de documentos obtido a partir do enumerador de documento que é transmitido para a API chame em cada fase.  Para dentro da memória pré-processamento classificação fase antes da importação em massa, definição para nulo fará com que a biblioteca a utilizar o valor predefinido de min (documents.count, 1000000).       |
+   |cancellationToken    |    O token de cancelamento para saírem importação em massa.     |
 
-   **Em massa a definição de objeto de resposta de importação** o resultado da chamada de API de importação em massa contém os seguintes atributos:
+   **Em massa a definição do objeto de resposta de importação** o resultado da importação em massa chamada à API contém os seguintes atributos:
 
    |**Parâmetro**  |**Descrição**  |
    |---------|---------|
-   |NumberOfDocumentsImported (longa)   |  O número total de documentos que foram importados com êxito sem os documentos fornecidos para o volume de importar a chamada à API.       |
-   |TotalRequestUnitsConsumed (double)   |   As unidades de pedido total (RU) consumidas pelo volume de importar a chamada à API.      |
-   |TotalTimeTaken (TimeSpan)    |   O tempo total que a importação em massa chamada da API para concluir a execução.      |
-   |BadInputDocuments (lista<object>)   |     A lista de documentos de formato incorrecto que não foram importados com êxito no volume importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos com formato incorrecto incluem documentos cujo valor de ID não é uma cadeia (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |NumberOfDocumentsImported (longa)   |  O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.       |
+   |TotalRequestUnitsConsumed (double)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
+   |TotalTimeTaken (intervalo de tempo)    |   O tempo total que a importação em massa chamada à API para concluir a execução.      |
+   |BadInputDocuments (lista<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
-## <a name="bulk-update-data-in-azure-cosmos-db"></a>Dados de atualização em massa na base de dados do Azure Cosmos
+## <a name="bulk-update-data-in-azure-cosmos-db"></a>Dados de atualização em massa no Azure Cosmos DB
 
-Pode atualizar documentos existentes, utilizando a API de BulkUpdateAsync. Neste exemplo, irá definir o campo de nome para um novo valor e remover o campo de descrição do documentos existentes. Para o conjunto completo de campo suportado operações de atualização, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
+Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, irá definir o campo de nome para um novo valor e remover o campo de descrição dos documentos existentes. Para o conjunto completo de campo suportado operações de atualização, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
 
-1. Navegue para a pasta "BulkUpdateSample" e abra o ficheiro "BulkUpdateSample.sln".  
+1. Navegue para a pasta "BulkUpdateSample" e abra o ficheiro de "BulkUpdateSample.sln".  
 
-2. Defina os itens de atualização, juntamente com as operações de atualização de campo correspondente. Neste exemplo, irá utilizar SetUpdateOperation para atualizar o campo de nome e UnsetUpdateOperation para remover o campo de descrição de todos os documentos. Também pode efetuar outras operações como incremento um campo de documento por um valor específico, enviar valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos que forneceu a API de atualização em massa, consulte o [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina os itens de atualização, juntamente com as operações de atualização de campo correspondente. Neste exemplo, irá utilizar SetUpdateOperation para atualizar o campo de nome e UnsetUpdateOperation para remover o campo de descrição de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela atualização em massa API, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -139,7 +139,7 @@ Pode atualizar documentos existentes, utilizando a API de BulkUpdateAsync. Neste
    }
    ```
 
-3. A aplicação invoca a API de BulkUpdateAsync. Para saber mais sobre a definição do método BulkUpdateAsync, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
+3. O aplicativo invoca a API de BulkUpdateAsync. Para saber mais sobre a definição do método BulkUpdateAsync, consulte [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -152,37 +152,37 @@ Pode atualizar documentos existentes, utilizando a API de BulkUpdateAsync. Neste
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |maxConcurrencyPerPartitionKeyRange    |   O nível máximo de concorrência por intervalo de chaves de partição, definição para nulo fará com que a biblioteca a utilizar o valor predefinido de 20.   |
-   |maxInMemorySortingBatchSize    |    O número máximo de itens de atualização retirado do enumerador de itens de atualização transferido para a chamada de API em cada fase de ordenação de fase previamente processamento dentro da memória antes da atualização em massa, definição para nulo fará com que biblioteca a utilizar o valor predefinido de min (updateItems.count, 1000000).     |
-   | cancellationToken|O token de cancelamento para sair da atualização em massa corretamente. |
+   |maxConcurrencyPerPartitionKeyRange    |   O maior grau de simultaneidade por intervalo de chaves de partição, definição para nulo fará com que a biblioteca a utilizar o valor predefinido de 20.   |
+   |maxInMemorySortingBatchSize    |    O número máximo de itens de atualização obtido a partir do enumerador de itens de atualização transmitido para a chamada de API em cada fase para classificação de fase pré-processamento na memória antes da atualização em massa, definição para nulo fará com que biblioteca a utilizar o valor predefinido de min (updateItems.count, 1000000).     |
+   | cancellationToken|O token de cancelamento para saírem atualização em massa. |
 
-   **Efetuar a definição de objeto de resposta de atualização em massa** o resultado da atualização em massa na chamada à API contém os seguintes atributos:
+   **Em massa a definição do objeto de resposta de atualização** o resultado da atualização em massa chamada à API contém os seguintes atributos:
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
    |NumberOfDocumentsUpdated (longa)    |   O número total de documentos que foram atualizadas com êxito dos fornecido para a chamada de API de atualização em massa.      |
-   |TotalRequestUnitsConsumed (double)   |    As unidades de pedido total (RU) consumidos pelos próprios a atualização em massa na chamada à API.    |
-   |TotalTimeTaken (TimeSpan)   | O tempo total que o volume de chamada da API para concluir a execução de atualização. |
+   |TotalRequestUnitsConsumed (double)   |    As unidades de total do pedido (RU) consumidos pela atualização em massa, chamada de API.    |
+   |TotalTimeTaken (intervalo de tempo)   | O tempo total que a maior parte chamada à API para concluir a execução de atualização. |
     
 ## <a name="performance-tips"></a>Sugestões de desempenho 
 
 Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de executor em massa:
 
-* Para melhor desempenho, execute a aplicação a partir de uma máquina virtual do Azure que se encontra na mesma região que a região de escrita da conta de base de dados do Cosmos.  
+* Para obter melhor desempenho, execute a aplicação a partir de uma máquina virtual do Azure que está na mesma região que a sua região de escrita de conta do Cosmos DB.  
 
-* Recomenda-se ao instanciar um objeto de BulkExecutor único para toda a aplicação numa única máquina virtual correspondente a uma coleção específica da base de dados do Cosmos.  
+* Recomenda-se para criar uma instância de um único objeto BulkExecutor para toda a aplicação dentro de uma única máquina virtual correspondente a um contentor específico do Cosmos DB.  
 
-* Uma vez que uma execução de API de operação em massa única consome um segmento grande de CPU e da rede e/s a máquina cliente. Isto acontece por gerar várias tarefas internamente, evite gerar várias tarefas simultâneas dentro do seu processo de aplicação que chama de cada API de operação em massa em execução. Se uma chamada de API de operação em massa única em execução numa única máquina virtual não é possível consumir o débito da sua coleção completa (se débito > 1 a coleção milhões RU/s), é preferível para criar máquinas virtuais separadas para executar em simultâneo em massa chamadas de operação de API.  
+* Uma vez que uma execução de API de operação em massa única consome uma grande parte de e/s da CPU e da rede de máquina cliente. Isso acontece por gerar várias tarefas internamente, evite ao gerar várias tarefas em simultâneo em seu processo de aplicativo que chama cada API de operação em massa em execução. Se uma chamada de API de operação em massa única em execução numa única máquina virtual não é possível consumir o débito do contentor inteiro (se. o débito > 1 o contentor milhão RU/s), é preferível para criar máquinas virtuais separadas para executar simultaneamente em massa chamadas de operação de API.  
 
-* Certifique-se de que é invocada InitializeAsync() após instanciar um objeto de BulkExecutor ao obter o mapa de partição de coleção de Cosmos BD de destino.  
+* Certifique-se de que InitializeAsync() é invocado após instanciar um objeto de BulkExecutor para buscar o mapa de partições de contentor do destino do Cosmos DB.  
 
-* Na Config sua aplicação, certifique-se **gcServer** está ativada para um melhor desempenho
+* Em App. config de seu aplicativo, certifique-se **gcServer** está ativada para um melhor desempenho
   ```xml  
   <runtime>
     <gcServer enabled="true" />
   </runtime>
   ```
-* A biblioteca emite os rastreios que podem ser recolhidos para um ficheiro de registo ou na consola. Para ativar a ambos, adicione o seguinte ao App. config da sua aplicação.
+* A biblioteca emite rastreios que podem ser coletados num arquivo de log ou na consola. Para ativar ambos, adicione o seguinte ao App. config de seu aplicativo.
 
   ```xml
   <system.diagnostics>
@@ -196,4 +196,4 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre os detalhes do pacote Nuget e as notas da biblioteca de .net de executor em massa, consulte[em massa detalhes do SDK de executor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Para saber mais sobre os detalhes do pacote Nuget e notas da biblioteca de .net de executor em massa de versão, consulte[em massa detalhes sobre o SDK executor](sql-api-sdk-bulk-executor-dot-net.md). 

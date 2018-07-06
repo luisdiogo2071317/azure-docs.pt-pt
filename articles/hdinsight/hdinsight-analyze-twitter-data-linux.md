@@ -1,6 +1,6 @@
 ---
-title: Analisar dados do Twitter com Apache Hive - Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar a utilização do Hive e do Hadoop no HDInsight para transformar dados não processados do TWitter para uma tabela do Hive pesquisável.
+title: Analisar dados do Twitter com o Apache Hive - Azure HDInsight | Documentos da Microsoft
+description: Saiba como utilizar o uso do Hive e do Hadoop no HDInsight para transformar dados não processados do TWitter para uma tabela do Hive pesquisável.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,33 +14,33 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0c6643e167f43c2524a4d00a209c5a5db22076a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959027"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865319"
 ---
-# <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter através do Hive e do Hadoop no HDInsight
+# <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter com o Hive e o Hadoop no HDInsight
 
-Saiba como utilizar o Apache Hive para processar dados Twitter. O resultado é uma lista de utilizadores do Twitter que enviou as maioria dos tweets que contêm uma determinada palavra.
+Saiba como utilizar o Apache Hive para processar dados do Twitter. O resultado é uma lista de utilizadores do Twitter que enviou os maioria dos tweets que contêm uma determinada palavra.
 
 > [!IMPORTANT]
-> Os passos neste documento, foram testados no HDInsight 3.6.
+> Os passos neste documento foram testados no HDInsight 3.6.
 >
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Twitter permite-lhe obter os dados para cada tweet como um documento de JavaScript Object Notation (JSON) através de uma API REST. [OAuth](http://oauth.net) é necessária para a autenticação para a API.
+Twitter permite-lhe obter os dados para cada tweet como um documento de JavaScript Object Notation (JSON) através da REST API. [OAuth](http://oauth.net) é necessária para a autenticação para a API.
 
 ### <a name="create-a-twitter-application"></a>Criar uma aplicação do Twitter
 
-1. Num browser da web, inicie sessão no [ https://apps.twitter.com/ ](https://apps.twitter.com/). Clique em de **inscrição agora** ligação se não tiver uma conta do Twitter.
+1. Num browser, inicie sessão no [ https://apps.twitter.com/ ](https://apps.twitter.com/). Clique nas **Inscreva-se agora** ligar se não tiver uma conta do Twitter.
 
 2. Clique em **criar nova aplicação**.
 
-3. Introduza **nome**, **Descrição**, **Web site**. Pode efetuar cópias de segurança um URL para o **Web site** campo. A tabela seguinte mostra alguns valores de exemplo a utilizar:
+3. Introduza **Name**, **Descrição**, **site**. Pode compor um URL para o **Web site** campo. A tabela seguinte mostra alguns valores de exemplo para utilizar:
 
    | Campo | Valor |
    |:--- |:--- |
@@ -48,21 +48,21 @@ Twitter permite-lhe obter os dados para cada tweet como um documento de JavaScri
    | Descrição |MyHDInsightApp |
    | Site |http://www.myhdinsightapp.com |
 
-4. Verifique **Sim, aceita**e, em seguida, clique em **criar a sua aplicação Twitter**.
+4. Verifique **Sim, eu Concordo**e, em seguida, clique em **criar a sua aplicação do Twitter**.
 
-5. Clique em de **permissões** separador. A permissão predefinida é **só de leitura**.
+5. Clique nas **permissões** separador. A permissão de predefinição está **só de leitura**.
 
-6. Clique em de **chaves e os Tokens de acesso** separador.
+6. Clique nas **chaves e Tokens de acesso** separador.
 
-7. Clique em **crie minha token de acesso**.
+7. Clique em **criar meu token de acesso**.
 
-8. Clique em **teste OAuth** no canto superior direito da página.
+8. Clique em **OAuth de teste** no canto superior direito da página.
 
-9. Anote **chave de consumidor**, **segredo de consumidor**, **token de acesso**, e **secreta de token de acesso**.
+9. Anote **chave de consumidor**, **segredo de consumidor**, **token de acesso**, e **segredo de token de acesso**.
 
 ### <a name="download-tweets"></a>Transferir tweets
 
-O seguinte código Python transfere 10 000 tweets Twitter e guarde-as num ficheiro denominado **tweets.txt**.
+O código de Python seguinte transfere 10.000 tweets do Twitter e guardá-los num ficheiro denominado **tweets.txt**.
 
 > [!NOTE]
 > Os seguintes passos são executados no cluster do HDInsight, uma vez que já está instalado o Python.
@@ -94,7 +94,7 @@ O seguinte código Python transfere 10 000 tweets Twitter e guarde-as num fichei
    nano gettweets.py
    ```
 
-5. Utilize o seguinte texto como o conteúdo a **gettweets.py** ficheiro:
+5. Utilize o seguinte texto como conteúdo dos **gettweets.py** ficheiro:
 
    ```python
    #!/usr/bin/python
@@ -151,7 +151,7 @@ O seguinte código Python transfere 10 000 tweets Twitter e guarde-as num fichei
    ```
 
     > [!IMPORTANT]
-    > Substitua o texto do marcador de posição para os seguintes itens com as informações da sua aplicação twitter:
+    > Substitua o texto de marcador de posição para os seguintes itens com as informações do seu aplicativo do twitter:
     >
     > * `consumer_secret`
     > * `consumer_key`
@@ -159,9 +159,9 @@ O seguinte código Python transfere 10 000 tweets Twitter e guarde-as num fichei
     > * `access_token_secret`
 
     > [!TIP]
-    > Ajuste o filtro de tópicos da última linha para controlar as palavras-chave populares. Utilizar palavras-chave populares momento a que executar o script permite captura mais rápida de dados.
+    > Ajuste o filtro de tópicos sobre a última linha para controlar as palavras-chave populares. Utilizar palavras-chave populares no momento em que executa o script permite que mais rápida captura de dados.
 
-6. Utilize **Ctrl + X**, em seguida, **Y** para guardar o ficheiro.
+6. Uso **Ctrl + X**, em seguida, **Y** para guardar o ficheiro.
 
 7. Utilize o seguinte comando para executar o ficheiro e transferir tweets:
 
@@ -169,21 +169,21 @@ O seguinte código Python transfere 10 000 tweets Twitter e guarde-as num fichei
     python gettweets.py
     ```
 
-    É apresentado um indicador de progresso. -Conta até 100% como os tweets são transferidas.
+    É apresentado um indicador de progresso. Isso será contado até 100% à medida que são transferidos os tweets.
 
    > [!NOTE]
-   > Se estiver a demorar muito tempo para a barra de progresso avançar, deve alterar o filtro para monitorizar tendências de tópicos. Quando existem muitos tweets sobre o tópico no seu filtro, pode obter rapidamente as 10000 tweets necessários.
+   > Se está a demorar muito tempo para a barra de progresso avançar, deve alterar o filtro para controlar os tópicos em destaque. Quando existem muitos tweets sobre o tópico no seu filtro, pode obter rapidamente os 10000 tweets necessário.
 
 ### <a name="upload-the-data"></a>Carregar os dados
 
-Para carregar os dados no armazenamento do HDInsight, utilize os seguintes comandos:
+Para carregar os dados para o armazenamento do HDInsight, utilize os seguintes comandos:
 
 ```bash
 hdfs dfs -mkdir -p /tutorials/twitter/data
 hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-Estes comandos armazenam os dados numa localização que podem aceder a todos os nós do cluster.
+Estes comandos armazenam os dados numa localização à qual podem aceder a todos os nós do cluster.
 
 ## <a name="run-the-hiveql-job"></a>Executar a tarefa de HiveQL
 
@@ -308,9 +308,9 @@ Estes comandos armazenam os dados numa localização que podem aceder a todos os
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Este comando executa o o **twitter.hql** ficheiro. Uma vez concluída a consulta, verá um `jdbc:hive2//localhost:10001/>` linha.
+    Este comando executa o **twitter.hql** ficheiro. Assim que a consulta estiver concluído, verá um `jdbc:hive2//localhost:10001/>` prompt.
 
-4. A partir de linha de comandos beeline, utilize a seguinte consulta para verificar que dados importados a:
+4. A partir de linha de comandos beeline, utilize a seguinte consulta para verificar que os dados foram importados:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -320,17 +320,17 @@ Estes comandos armazenam os dados numa localização que podem aceder a todos os
    ORDER BY cc DESC LIMIT 10;
    ```
 
-    Esta consulta devolve um máximo de 10 tweets que contêm o word **Azure** no texto da mensagem.
+    Esta consulta retorna um máximo de 10 tweets que contêm a palavra **Azure** no texto da mensagem.
 
     > [!NOTE]
-    > Se tiver alterado o filtro no `gettweets.py` scripts, substitua **Azure** com uma dos filtros que utilizou.
+    > Se tiver alterado o filtro na `gettweets.py` do script, substitua **Azure** com um dos filtros que utilizou.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprendeu transformar um conjunto de dados não estruturado JSON para uma tabela do Hive structured. Para saber mais sobre o Hive no HDInsight, consulte os seguintes documentos:
+Aprendeu como transformar um conjunto de dados não estruturado do JSON para uma tabela do Hive estruturada. Para saber mais sobre o Hive no HDInsight, veja os documentos seguintes:
 
 * [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analisar dados de atraso de voo utilizar o HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analisar dados de atraso de voo com o HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 9b9f72812b1a1f0e30379c32e10d316fcbf71d3b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345594"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858668"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitorização e depuração com métricas na Azure Cosmos DB
 
@@ -39,7 +39,7 @@ O código de estado de erro mais comuns é 429 (limitação/limitação de veloc
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Determinar a distribuição de débito entre partições
 
-Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer coleção particionada dividida por partições, navegue para o **painel de métricas** no [portal do Azure](https://portal.azure.com). Na **débito** separador, a divisão de armazenamento é mostrada na **RU/segundo máximos consumidos por cada partição física** gráfico. O gráfico seguinte ilustra um exemplo de uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
+Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer contentor particionado dividida por partições, navegue para o **painel de métricas** no [portal do Azure](https://portal.azure.com). Na **débito** separador, a divisão de armazenamento é mostrada na **RU/segundo máximos consumidos por cada partição física** gráfico. O gráfico seguinte ilustra um exemplo de uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
 
 ![Ver o uso intenso às 15:00: 05 de partição única](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Pode fazer com que uma distribuição desigual de débito *frequente* partiçõe
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento em várias partições
 
-Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer coleção particionada dividida por partições, vá para o painel de métricas no [portal do Azure](https://portal.azure.com). No separador de débito, a divisão de armazenamento é mostrada no RU/segundo máximos consumidos por cada gráfico de partição física. O gráfico seguinte ilustra uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
+Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação dimensionável. Para determinar a distribuição de taxa de transferência de qualquer contentor particionado dividida por partições, vá para o painel de métricas no [portal do Azure](https://portal.azure.com). No separador de débito, a divisão de armazenamento é mostrada no RU/segundo máximos consumidos por cada gráfico de partição física. O gráfico seguinte ilustra uma distribuição fraco de dados, conforme demonstrado por partição distorcida mais à esquerda. 
 
 ![Exemplo de distribuição de dados fraca](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Pode causa ao qual chave de partição é a inclinação a distribuição clican
 
 ![Chave de partição é a inclinação de distribuição](media/use-metrics/metrics-05.png)
 
-Depois de identificar qual chave de partição está a causar a distorção na distribuição, poderá ter de criar novas partições de sua coleção com uma chave de partição mais distribuída. Para obter mais informações sobre a criação de partições no Azure Cosmos DB, consulte [particionar e dimensionar no Azure Cosmos DB](./partition-data.md).
+Depois de identificar qual chave de partição está a causar a distorção na distribuição, poderá ter de criar novas partições seu contentor com uma chave de partição mais distribuída. Para obter mais informações sobre a criação de partições no Azure Cosmos DB, consulte [particionar e dimensionar no Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Comparar o tamanho dos dados contra o tamanho do índice
 

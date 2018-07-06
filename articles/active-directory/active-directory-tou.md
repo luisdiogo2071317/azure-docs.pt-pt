@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444349"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856421"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -30,7 +30,7 @@ Os Termos de utilização do Azure AD fornecem um método simples que as organiz
 Os Termos de utilização do Azure AD permitem-lhe fazer o seguinte:
 - Pedir aos seus colaboradores ou convidados que concordem com os seus Termos de utilização antes de obterem acesso.
 - Apresentar Termos de utilização gerais para todos os utilizadores da sua organização.
-- Apresentar Termos de utilização específicos baseados nos atributos de um utilizador (por exemplo, médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](active-directory-groups-dynamic-membership-azure-portal.md)).
+- Apresentar Termos de utilização específicos baseados nos atributos de um utilizador (por exemplo, médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](users-groups-roles/groups-dynamic-membership.md)).
 - Apresentar Termos de utilização específicos ao aceder a aplicações de elevado impacto empresarial, como o Salesforce.
 - Apresentar Termos de utilização em idiomas diferentes.
 - Listar os utilizadores que aceitaram ou não os seus Termos de utilização.

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ccdcdeeaf4ac8730be4f9e3ee648dc41c2a02641
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2c1fce35749dee12caec0bcd15a9eccdf81b8d1d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345163"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856778"
 ---
 # <a name="what-is-the-speech-service-preview"></a>O que é o serviço de voz (pré-visualização)?
 
@@ -60,7 +60,7 @@ Pode personalizar a conversão de voz em texto acústico e modelos de linguagem 
 
 O [texto em voz](text-to-speech.md) (TTS), ou sintetização de voz, API converte texto sem formatação em voz com som de natural, entregue ao seu aplicativo num arquivo de áudio. Várias vozes, variando em sexo ou com/sem acento, estão disponíveis para muitos idiomas com suporte.
 
-A API suporta etiquetas de Speech Synthesis Markup Language (SSML), então, pode especificar exata pronúncia fonética palavras problemáticas. O SSML também pode indicar características de voz (incluindo ênfase, ritmo, volume, género e tom) diretamente no texto.
+A API suporta [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) etiquetas, então, pode especificar exata pronúncia fonética palavras problemáticas. O SSML também pode indicar características de voz (incluindo ênfase, ritmo, volume, género e tom) diretamente no texto.
 
 Seguem-se os casos de utilização comuns para a API de voz em texto.
 
@@ -68,7 +68,7 @@ Seguem-se os casos de utilização comuns para a API de voz em texto.
 * Solicitar a aplicações no carro, como navegação de voz
 * Interfaces do usuário conversacionais em conjunto com a conversão de voz em texto de API
 
-Se precisar de um dialeto não suportado ou apenas desejar uma voz única para a sua aplicação, o texto em voz, API suporta modelos de voz personalizada.
+Se precisar de um dialeto não suportado ou apenas desejar uma voz única para a sua aplicação, o texto em voz, API suporta [modelos de voz personalizada](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Tradução de Voz
 

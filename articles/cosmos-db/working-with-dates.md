@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com as datas do BD Azure Cosmos | Microsoft Docs
-description: Saiba mais sobre como trabalhar com as datas do BD Azure Cosmos.
+title: Trabalhar com datas no Azure Cosmos DB | Documentos da Microsoft
+description: Saiba mais sobre como trabalhar com datas no Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,27 +9,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: sngun
-ms.openlocfilehash: 3998b2d1575cfe80c01a44df1b9999de2ce1d548
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7188270ff5b1edd3b5e396be0cd5fd22e6123c4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616105"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855511"
 ---
-# <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com as datas no Azure Cosmos DB
-BD do Cosmos do Azure oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos de BD do Cosmos do Azure, incluindo bases de dados, coleções, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para a ser portátil, JSON (e a base de dados do Azure Cosmos) suportam apenas um pequeno conjunto de tipos básicos: cadeia, número, booleano, matriz, objeto e um valor nulo. No entanto, o JSON é flexível e permitir que os programadores e estruturas representar tipos mais complexos utilizando estes primitivos e de composição-los como objetos ou matrizes. 
+# <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas no Azure Cosmos DB
+O Azure Cosmos DB oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos do Azure Cosmos DB incluindo bases de dados, contentores, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para estar portátil, JSON (e o Azure Cosmos DB) suporta apenas um pequeno conjunto de tipos básicos: cadeia de caracteres, número, booleano, matriz, objeto e Null. No entanto, o JSON é flexível e permitir que desenvolvedores e estruturas representar os tipos mais complexos, usar esses primitivos e compor-los como objetos ou matrizes. 
 
-Além dos tipos básicos, precisam de muitas aplicações de [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tipo para representar as datas e carimbos. Este artigo descreve como os programadores podem armazenar, obter e consultar datas na base de dados do Cosmos do Azure utilizando o SDK .NET.
+Além dos tipos básicos, vários aplicativos precisam da [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tipo para representar datas e carimbos de data /. Este artigo descreve como os desenvolvedores podem armazenar, obter e consultar as datas no Azure Cosmos DB com o SDK .NET.
 
-## <a name="storing-datetimes"></a>Armazenar DateTime
-Por predefinição, o [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializa os valores DateTime como [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias. A maioria das aplicações podem utilizar a representação de cadeia predefinido para DateTime pelos seguintes motivos:
+## <a name="storing-datetimes"></a>Armazenar DateTimes
+Por predefinição, o [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md) serializa os valores de DateTime [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias de caracteres. A maioria dos aplicativos pode usar a representação de cadeia de caracteres padrão para DateTime pelos seguintes motivos:
 
-* É possível comparar cadeias e a ordenação dos valores DateTime relativo é preservada quando estes são transformados para cadeias. 
-* Esta abordagem não requer qualquer código personalizado ou atributos para a conversão de JSON.
-* As datas, conforme armazenado no JSON são humanos legível.
-* Esta abordagem pode tirar partido do índice da BD do Cosmos do Azure para um desempenho de consulta rápida.
+* Cadeias de caracteres possam ser comparadas e a ordenação relativa dos valores DateTime é preservada quando eles são transformados em cadeias de caracteres. 
+* Essa abordagem não requer qualquer código personalizado ou atributos para a conversão de JSON.
+* As datas, conforme armazenada no JSON são humanas legível.
+* Essa abordagem pode tirar partido do índice do Azure Cosmos DB para o desempenho de consulta rápida.
 
-Por exemplo, o seguinte fragmento armazena um `Order` objeto que contém duas propriedades de DateTime - `ShipDate` e `OrderDate` como um documento utilizando o SDK .NET:
+Por exemplo, o fragmento seguinte armazena uma `Order` objeto que contém duas propriedades de DateTime - `ShipDate` e `OrderDate` como um documento com o SDK .NET:
 
     public class Order
     {
@@ -49,7 +49,7 @@ Por exemplo, o seguinte fragmento armazena um `Order` objeto que contém duas pr
             Total = 113.39
         });
 
-Este documento é armazenado na base de dados do Azure Cosmos da seguinte forma:
+Este documento é armazenado no Azure Cosmos DB, da seguinte forma:
 
     {
         "id": "09152014101",
@@ -59,19 +59,19 @@ Este documento é armazenado na base de dados do Azure Cosmos da seguinte forma:
     }
     
 
-Em alternativa, pode armazenar DateTime como carimbos de Unix, ou seja, como um número que representa o número de segundos decorridos desde 1 de Janeiro de 1970. Timestamp interno da BD Cosmos do Azure (`_ts`) propriedade segue esta abordagem. Pode utilizar o [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) classe DateTime como números, a serialização. 
+Em alternativa, pode armazenar DateTimes como carimbos de data / Unix, ou seja, como um número que representa o número de segundos decorridos desde 1 de Janeiro de 1970. Timestamp de interno do Azure Cosmos DB (`_ts`) propriedade segue essa abordagem. Pode utilizar o [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) classe serializar DateTimes como números. 
 
-## <a name="indexing-datetimes-for-range-queries"></a>A indexação de DateTime para consultas de intervalo
-Consultas de intervalo são comuns com os valores DateTime. Por exemplo, se precisar de localizar todas as ordens criadas desde ontem, ou localizar todas as ordens fornecidas nos últimos cinco minutos, terá de executar consultas de intervalo. Para executar estas consultas de forma eficiente, tem de configurar a coleção para indexação de intervalo em cadeias.
+## <a name="indexing-datetimes-for-range-queries"></a>Indexação DateTimes para consultas de intervalo
+Consultas de intervalo são comuns com valores de DateTime. Por exemplo, se precisar localizar todas as encomendas criadas desde ontem ou localizar todas as encomendas entregues nos últimos cinco minutos, terá de executar consultas de intervalo. Para executar essas consultas com eficiência, tem de configurar sua coleção para indexação de intervalo em cadeias de caracteres.
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-Pode saber mais sobre como configurar as políticas de indexação a [políticas de indexação do Azure Cosmos DB](indexing-policies.md).
+Pode saber mais sobre como configurar políticas de indexação ao [políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
-## <a name="querying-datetimes-in-linq"></a>Consultar a DateTime no LINQ
-O SDK .NET do SQL Server suporta automaticamente ao consultar os dados armazenados na base de dados do Azure Cosmos através de LINQ. Por exemplo, o fragmento seguinte mostra uma consulta LINQ que as ordens de filtros que foram enviadas nos últimos três dias.
+## <a name="querying-datetimes-in-linq"></a>Consultar DateTimes no LINQ
+O SDK de .NET de SQL automaticamente suporta a consulta de dados armazenados no Azure Cosmos DB através de LINQ. Por exemplo, o fragmento seguinte mostra uma consulta LINQ que ordens de filtros que foram enviados nos últimos três dias.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -79,11 +79,11 @@ O SDK .NET do SQL Server suporta automaticamente ao consultar os dados armazenad
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Pode saber mais sobre a linguagem de consulta SQL da BD do Cosmos do Azure e o fornecedor LINQ [consultar base de dados do Cosmos](sql-api-sql-query.md).
+Pode saber mais sobre a linguagem de consulta SQL do Azure Cosmos DB e o fornecedor de LINQ [consultar o Cosmos DB](sql-api-sql-query.md).
 
-Neste artigo, vamos analisar como armazenar, índice e consultar DATETIME do BD Azure Cosmos.
+Neste artigo, vimos como armazenar, indexar e consultar DateTimes no Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Próximos Passos
-* Transfira e execute o [exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Saiba mais sobre [as consultas SQL](sql-api-sql-query.md)
+* Transfira e execute o [amostras de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Saiba mais sobre [consultas SQL](sql-api-sql-query.md)
 * Saiba mais sobre [políticas de indexação do Azure Cosmos DB](indexing-policies.md)

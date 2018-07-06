@@ -1,27 +1,27 @@
 ---
-title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de final web personalizado - Powershell | Microsoft Docs
+title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de extremidade de web personalizados - Powershell | Documentos da Microsoft
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650507"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865425"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com o PowerShell
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com o PowerShell
 
-O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, utilizar o Azure PowerShell para subscrever eventos de armazenamento de BLOBs, acionador um evento e ver o resultado. 
+O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, vai utilizar o Azure PowerShell para subscrever a eventos de armazenamento de BLOBs, acionar um evento e ver o resultado. 
 
-Normalmente, pode enviar eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, enviar eventos para uma aplicação web que recolhe e apresenta as mensagens.
+Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
-Quando tiver terminado, verá que os dados do evento foi enviados para a aplicação web.
+Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
 ![Ver resultados](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
@@ -38,9 +38,9 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> Disponibilidade de eventos de armazenamento está associada à grelha de evento [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como sucede grelha de eventos.
+> Disponibilidade para eventos de armazenamento está associada ao Event Grid [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como o Event Grid.
 
-Este exemplo utiliza **westus2** e armazena a seleção numa variável para utilização ao longo.
+Este exemplo utiliza **westus2** e armazena a seleção numa variável para uso.
 
 ```powershell
 $location = "westus2"
@@ -61,12 +61,12 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Para utilizar eventos de armazenamento de BLOBs, precisa de um uma [conta de armazenamento de BLOBs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou um [conta de armazenamento de v2 de objetivo geral](../common/storage-account-options.md#general-purpose-v2). **V2 de objetivo geral (GPv2)** são contas de armazenamento que suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo tabelas, filas, ficheiros e Blobs. A **conta de armazenamento de BLOBs** é uma conta do storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Contas do blob storage são como as contas do storage para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho funcionalidades que utiliza atualmente, incluindo 100% de consistência de API para blobs de blocos e blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs.  
+Para utilizar eventos de armazenamento de Blobs, precisa de uma [conta de armazenamento de Blobs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de Fins Gerais v2](../common/storage-account-options.md#general-purpose-v2). As contas de **Fins Gerais v2 (GPv2)** são contas de armazenamento que suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs.  
 
-Criar uma conta de armazenamento de Blobs com a utilização de replicação do LRS [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), em seguida, obter o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada **gridstorage** com armazenamento localmente redundante (LRS). 
+Criar uma conta de armazenamento de Blobs com replicação LRS através de [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), em seguida, obter o contexto de conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada **gridstorage** com armazenamento localmente redundante (LRS). 
 
 > [!NOTE]
-> Os nomes das contas de armazenamento estão num espaço de nomes global, por isso terá de anexar alguns carateres aleatórias para o nome fornecido neste script.
+> Nomes de conta de armazenamento estão num espaço de nomes global, por isso terá de acrescentar alguns caracteres aleatórios para o nome fornecido neste script.
 
 ```powershell
 $storageName = "gridstorage"
@@ -82,9 +82,9 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de evento. Normalmente, o ponto final executa ações com base nos dados de eventos. Para simplificar este guia de introdução, implementar um [aplicação web pré-criadas](https://github.com/dbarkol/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do App Service, uma aplicação web do app Service e o código de origem a partir do GitHub.
+Antes de subscrever o tópico, vamos criar o ponto final para a mensagem de evento. Normalmente, o ponto final executa as ações com base nos dados do evento. Para simplificar este início rápido, vai implementar uma [aplicação Web pré-criada](https://github.com/dbarkol/azure-event-grid-viewer) para apresentar as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
-Substitua `<your-site-name>` com um nome exclusivo para a sua aplicação web. O nome da aplicação web deve ser exclusivo, porque faz parte da entrada de DNS.
+Substitua `<your-site-name>` por um nome exclusivo para a aplicação Web. O nome da aplicação Web deve ser exclusivo, porque faz parte da entrada DNS.
 
 ```powershell
 $sitename="<your-site-name>"
@@ -96,13 +96,15 @@ New-AzureRmResourceGroupDeployment `
   -hostingPlanName viewerhost
 ```
 
-A implementação pode demorar alguns minutos a concluir. Após a implementação é concluída com êxito, ver a sua aplicação web para se certificar de está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
+A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 
-Deverá ver o site com nenhuma mensagens atualmente apresentadas.
+Deverá ver o site sem mensagens atualmente apresentadas.
 
-## <a name="subscribe-to-your-storage-account"></a>Subscrever à sua conta de armazenamento
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL da sua aplicação web, como o ponto final da notificação de evento. O ponto final para a sua aplicação web tem de incluir o sufixo `/api/updates/`.
+## <a name="subscribe-to-your-storage-account"></a>Subscrever a sua conta de armazenamento
+
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL da sua aplicação web como o ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -114,9 +116,9 @@ New-AzureRmEventGridSubscription `
   -ResourceId $storageId
 ```
 
-Ver a sua aplicação web novamente e tenha em atenção que um evento de validação de subscrição foi enviado ao mesmo. Selecione o ícone de olho para expandir os dados do evento. Grelha de eventos envia o evento de validação para que o ponto final pode Certifique-se de que pretende receber dados de eventos. A aplicação web inclui código para validar a subscrição.
+Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
 
-![Ver evento de subscrição](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
+![Ver evento da subscrição](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento a partir do armazenamento de Blobs
 
@@ -131,7 +133,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Ver a sua aplicação web para ver o evento que acabámos de enviar.
+Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Verifique a aplicação Web para ver o evento que acabámos de enviar.
 
 ```json
 [{

@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 320eef05faec6b3e399e5a1289e3ee076823c921
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c78de020e3cbaae6fccf2f981bb3601269ceba58
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346319"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859838"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalar o runtime do Azure IoT Edge no Linux (ARM32v7/armhf)
 
-O tempo de execução do Azure IoT Edge é implementado em todos os dispositivos do IoT Edge. Ele tem três componentes. O **daemon de segurança de IoT Edge** fornece e mantém as normas de segurança no dispositivo Edge. O daemon começa em cada inicialização e inicializa o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e monitorização de módulos no dispositivo do Edge, incluindo o hub IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança de IoT Edge** fornece e mantém as normas de segurança no dispositivo Edge. O daemon começa em cada inicialização e inicializa o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e monitorização de módulos no dispositivo do Edge, incluindo o hub IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
 
 Este artigo lista os passos para instalar o runtime do Azure IoT Edge num dispositivo Edge Linux ARM32v7/armhf (por exemplo, o Raspberry Pi).
 
@@ -131,14 +131,18 @@ E lista de módulos com a executar:
 ```cmd/sh
 sudo iotedge list
 ```
+>[!NOTE]
+>No recurso de dispositivos como RaspberryPi restrita, é altamente recomendável que *OptimizeForPerformance* variável de ambiente está definida como *false* de acordo com as instruções no [ Guia de resolução de problemas.][lnk-trouble]
 
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Se tiver problemas com o runtime do Edge Check-out a corretamente, instalar o [resolução de problemas] [ lnk-trouble] página.
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://review.docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md
